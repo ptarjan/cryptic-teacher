@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,75 @@
     "text": "Capital largely welcoming America's right-wing political leader",
     "enumeration": "10"
    },
-   "solution": "BERLUSCONI"
+   "solution": "BERLUSCONI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "political leader",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 16,
+       "note": "welcoming means taking in, so the other pieces go inside the trimmed capital"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 8,
+         "note": "largely means most but not all of the word, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Capital",
+         "at": 0,
+         "gives": "BERLIN",
+         "note": "Berlin is the capital of Germany"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "America's",
+         "at": 26,
+         "gives": "US",
+         "note": "US is short for the United States of America"
+        },
+        {
+         "words": "right-wing",
+         "at": 36,
+         "gives": "CON",
+         "note": "CON is short for Conservative, a right-wing party"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capital city mostly welcomes an American right-wing politician.",
+     "walkthrough": "'largely' leaves BERLI, which 'welcoming' opens up; 'Capital' looks like the definition but the politician is.",
+     "definitionFit": "Silvio Berlusconi was the long-serving Italian prime minister, a political leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +116,41 @@
     "text": "Tossed picadors (off and on)",
     "enumeration": "8"
    },
-   "solution": "SPORADIC"
+   "solution": "SPORADIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "off and on",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Tossed",
+       "at": 0,
+       "note": "tossed means thrown about, so the letters of the next word are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "picadors",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bullfighters on horseback get thrown now and again.",
+     "walkthrough": "'Tossed' rearranges PICADORS.",
+     "definitionFit": "Something sporadic happens irregularly, now and then rather than continuously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tossed"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +164,44 @@
     "text": "Country's musical sound",
     "enumeration": "6"
    },
-   "solution": "GREECE"
+   "solution": "GREECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GREECE",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 18,
+       "note": "sound here means the word is heard rather than read, a homophone signal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "musical",
+       "at": 10,
+       "gives": "GREASE",
+       "note": "Grease is a well-known stage and film musical"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation's characteristic music.",
+     "walkthrough": "The musical GREASE is said aloud to give the country.",
+     "definitionFit": "Greece is a country in south-east Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +215,48 @@
     "text": "Sardonic about one being lean",
     "enumeration": "4"
    },
-   "solution": "WIRY"
+   "solution": "WIRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lean",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "about means around, so the first piece wraps the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sardonic",
+       "at": 0,
+       "gives": "WRY",
+       "note": "wry means drily mocking, sardonic"
+      },
+      {
+       "words": "one",
+       "at": 15,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mocking person comments on someone's thinness.",
+     "walkthrough": "'about' puts I inside WRY.",
+     "definitionFit": "A wiry person is lean and sinewy, with no spare flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +270,50 @@
     "text": "Validity of bequest entailing Cockney injunction to boxer?",
     "enumeration": "10"
    },
-   "solution": "LEGITIMACY"
+   "solution": "LEGITIMACY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Validity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entailing",
+       "at": 20,
+       "note": "entailing is read as containing, so the bequest holds the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bequest",
+       "at": 12,
+       "gives": "LEGACY",
+       "note": "a legacy is something left in a will, a bequest"
+      },
+      {
+       "words": "Cockney injunction to boxer",
+       "at": 30,
+       "gives": "ITIM",
+       "note": "a Cockney, dropping his aitches, would urge a boxer to 'hit him' as 'it 'im"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a will valid if it involves a Londoner shouting at a fighter?",
+     "walkthrough": "Cockney speech, the dialect of East London, drops the H sound, so 'hit him' becomes 'it 'im; 'entailing' is read as containing.",
+     "definitionFit": "Legitimacy is the quality of being lawful or valid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "entailing"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +327,29 @@
     "text": "Solidly built bunch of idiots?",
     "enumeration": "8"
    },
-   "solution": "THICKSET"
+   "solution": "THICKSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Solidly built",
+      "at": 0,
+      "meaning": "stocky, heavily built in body"
+     },
+     {
+      "text": "bunch of idiots?",
+      "at": 14,
+      "meaning": "read as two words: a set, or group, of thick, stupid people"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A thickset person has a sturdy, solid build; split in two it is a group of dim people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +363,48 @@
     "text": "Press coverage of new and old town",
     "enumeration": "6"
    },
-   "solution": "MEDINA"
+   "solution": "MEDINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old town",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coverage of",
+       "at": 6,
+       "note": "coverage of means covering, so the first piece is wrapped round the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Press",
+       "at": 0,
+       "gives": "MEDIA",
+       "note": "the press is the news media"
+      },
+      {
+       "words": "new",
+       "at": 18,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers report on fresh and historic towns.",
+     "walkthrough": "'coverage of' puts N inside MEDIA.",
+     "definitionFit": "A medina is the old walled quarter of a North African town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coverage"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +418,28 @@
     "text": "Dynasty with taste",
     "enumeration": "4"
    },
-   "solution": "TANG"
+   "solution": "TANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dynasty",
+      "at": 0,
+      "meaning": "the ... ruled China from the 7th to 10th century"
+     },
+     {
+      "text": "taste",
+      "at": 13,
+      "meaning": "a sharp flavour or tinge"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Tang names a Chinese imperial dynasty and also a sharp, distinctive flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +453,76 @@
     "text": "Fairies engulfing trainee's head in River of Proficiency",
     "enumeration": "9"
    },
-   "solution": "EXPERTISE"
+   "solution": "EXPERTISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proficiency",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in means placed inside, so the fairy piece sits within the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "River",
+       "at": 36,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon, a crossword favourite"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engulfing",
+         "at": 8,
+         "note": "engulfing means swallowing up, so the fairies surround the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fairies",
+         "at": 0,
+         "gives": "PERIS",
+         "note": "peris are fairies of Persian myth"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 28,
+           "note": "a word's head is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trainee's",
+           "at": 18
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sprites surround an apprentice's head in a waterway of skill.",
+     "walkthrough": "'engulfing' builds PERTIS, which 'in' places within the Devon river.",
+     "definitionFit": "Expertise is skill or proficiency in a particular field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +536,49 @@
     "text": "Laugher longing to interrupt brief laugh",
     "enumeration": "5"
    },
-   "solution": "HYENA"
+   "solution": "HYENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Laugher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to interrupt",
+       "at": 16,
+       "note": "to interrupt means to break into, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brief laugh",
+       "at": 29,
+       "gives": "HA",
+       "note": "ha is a short laugh"
+      },
+      {
+       "words": "longing",
+       "at": 8,
+       "gives": "YEN",
+       "note": "a yen is a longing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Desire cuts short a quick chuckle.",
+     "walkthrough": "'to interrupt' breaks into the short laugh; the hyena's call sounds like laughter.",
+     "definitionFit": "The hyena is known for its cackling call, so it is the laughing animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Laugher"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +592,47 @@
     "text": "Nearly 100 affected by theft",
     "enumeration": "7"
    },
-   "solution": "LARCENY"
+   "solution": "LARCENY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "theft",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "affected",
+       "at": 11,
+       "note": "affected means altered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nearly",
+       "at": 0
+      },
+      {
+       "words": "100",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the Roman numeral for 100"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Close to a century of people touched by stealing.",
+     "walkthrough": "'affected' rearranges NEARLY with C.",
+     "definitionFit": "Larceny is the legal term for theft of property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nearly"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +646,47 @@
     "text": "Method of divination, taking time, causes irritation",
     "enumeration": "7"
    },
-   "solution": "ITCHING"
+   "solution": "ITCHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "irritation",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 22,
+       "note": "taking means holding inside, so the divination method contains the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Method of divination",
+       "at": 0,
+       "gives": "ICHING",
+       "note": "the I Ching is an ancient Chinese book used for divination"
+      },
+      {
+       "words": "time",
+       "at": 29,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fortune-telling slowly causes annoyance.",
+     "walkthrough": "'taking' puts T inside ICHING; 'causes' is a link.",
+     "definitionFit": "Itching is a skin irritation that makes you want to scratch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +700,41 @@
     "text": "South Bank plant",
     "enumeration": "5"
    },
-   "solution": "SEDGE"
+   "solution": "SEDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "Bank",
+       "at": 6,
+       "gives": "EDGE",
+       "note": "an edge is a bank or border"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant grows on London's South Bank.",
+     "walkthrough": "London's South Bank is the arts district on the Thames; here it is split into S and EDGE.",
+     "definitionFit": "Sedge is a grass-like plant of wet ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +754,58 @@
      }
     ]
    },
-   "solution": "SHIPSMATE"
+   "solution": "SHIPSMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mariner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means surrounding, so the swear word goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expletive",
+       "at": 10,
+       "gives": "SHITE",
+       "note": "shite is a vulgar British swear word"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "faulty",
+         "at": 26,
+         "note": "faulty means flawed, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "maps",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor curses over badly drawn charts.",
+     "walkthrough": "'faulty' gives PSMA, which 'about' sets in the middle of a crude British curse.",
+     "definitionFit": "A shipmate is a fellow sailor on the same vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +825,40 @@
      }
     ]
    },
-   "solution": "SHOPSOILED"
+   "solution": "SHOPSOILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "over-exposed",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Goes on spree, perhaps",
+       "at": 0,
+       "gives": "SHOPS",
+       "note": "to shop is one kind of going on a spree, hence perhaps"
+      },
+      {
+       "words": "drunk",
+       "at": 24,
+       "gives": "OILED",
+       "note": "oiled is slang for drunk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes on a spending binge, gets drunk and is overexposed.",
+     "definitionFit": "Shop-soiled goods are faded or worn from being on display too long, hence over-exposed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +872,41 @@
     "text": "Nearly meet mixture of ingredients",
     "enumeration": "10"
    },
-   "solution": "ELEMENTARY"
+   "solution": "ELEMENTARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of ingredients",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mixture",
+       "at": 12,
+       "note": "a mixture is a blend, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nearly meet",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook almost meets a blend of components.",
+     "walkthrough": "'mixture' rearranges NEARLY MEET.",
+     "definitionFit": "Elementary means relating to elements, the basic components of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nearly"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +926,56 @@
      }
     ]
    },
-   "solution": "OCCASIONALTABLE"
+   "solution": "OCCASIONALTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece of furniture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ring",
+       "at": 23,
+       "gives": "O",
+       "note": "a ring is O-shaped"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in \"Tempest",
+         "at": 44,
+         "note": "in a tempest things are blown about, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caliban",
+         "at": 28
+        },
+        {
+         "words": "locates",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ring that Shakespeare's Caliban finds in The Tempest.",
+     "walkthrough": "'in Tempest' rearranges CALIBAN LOCATES. Caliban is the monster in Shakespeare's play The Tempest.",
+     "definitionFit": "An occasional table is a small table moved about for occasional use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tempest"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +989,49 @@
     "text": "Minimise importance of function involving food shop",
     "enumeration": "8"
    },
-   "solution": "SIDELINE"
+   "solution": "SIDELINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minimise importance of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 32,
+       "note": "involving means enclosing, so the function wraps the shop"
+      }
+     ],
+     "parts": [
+      {
+       "words": "function",
+       "at": 23,
+       "gives": "SINE",
+       "note": "sine is a trigonometric function"
+      },
+      {
+       "words": "food shop",
+       "at": 42,
+       "gives": "DELI",
+       "note": "a deli is a delicatessen, a food shop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deli's role belittled.",
+     "walkthrough": "'involving' wraps the trigonometric function round the shop.",
+     "definitionFit": "To sideline someone is to push them aside and reduce their importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1045,66 @@
     "text": "Primate's hard at work apprehending hard black sailor",
     "enumeration": "8"
    },
-   "solution": "BUSHBABY"
+   "solution": "BUSHBABY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "apprehending",
+       "at": 23,
+       "note": "apprehending means seizing, so the first piece holds the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hard at work",
+       "at": 10,
+       "gives": "BUSY",
+       "note": "busy means hard at work"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hard",
+         "at": 36,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        },
+        {
+         "words": "black",
+         "at": 41,
+         "gives": "B",
+         "note": "B is the pencil abbreviation for black"
+        },
+        {
+         "words": "sailor",
+         "at": 47,
+         "gives": "AB",
+         "note": "AB is an able seaman"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey busy arresting a tough dark seaman.",
+     "walkthrough": "'apprehending' wraps the busy word round three short pieces; the 's of Primate's is a link meaning is.",
+     "definitionFit": "A bushbaby is a small nocturnal African primate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "apprehending"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1118,60 @@
     "text": "Shed's pen quashes fashion for ostentation",
     "enumeration": "9"
    },
-   "solution": "IMMODESTY"
+   "solution": "IMMODESTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ostentation",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "quashes",
+       "at": 11,
+       "note": "quashes is read as squashing between, so the fashion is pressed inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Shed's",
+         "at": 0,
+         "gives": "IM",
+         "note": "Shed is the setter, so Shed's is I'm"
+        },
+        {
+         "words": "pen",
+         "at": 7,
+         "gives": "STY",
+         "note": "a sty is a pigpen"
+        }
+       ]
+      },
+      {
+       "words": "fashion",
+       "at": 19,
+       "gives": "MODE",
+       "note": "mode means fashion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's writing crushes style in favour of show.",
+     "walkthrough": "'quashes' presses the fashion between the setter's 'I am' and the pen; setters often refer to themselves by pseudonym.",
+     "definitionFit": "Immodesty means a lack of restraint, showiness or ostentation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1185,47 @@
     "text": "Guys accepting help from girl",
     "enumeration": "6"
    },
-   "solution": "MAIDEN"
+   "solution": "MAIDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 5,
+       "note": "accepting means taking in, so the guys contain the help"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Guys",
+       "at": 0,
+       "gives": "MEN",
+       "note": "guys are men"
+      },
+      {
+       "words": "help",
+       "at": 15,
+       "gives": "AID",
+       "note": "aid means help"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men accept assistance from a young woman.",
+     "definitionFit": "A maiden is a girl or unmarried young woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1239,44 @@
     "text": "Middle (reportedly) of desert",
     "enumeration": "5"
    },
-   "solution": "WASTE"
+   "solution": "WASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "desert",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WASTE",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 8,
+       "note": "reportedly means as said aloud, signalling a homophone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Middle",
+       "at": 0,
+       "gives": "WAIST",
+       "note": "the waist is the middle of the body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The centre of a desert, as told.",
+     "walkthrough": "The waist, the body's middle, said aloud gives the word for desert.",
+     "definitionFit": "A waste is a barren, empty desert region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Middle"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1290,52 @@
     "text": "Ingeniously procure source of wet fish",
     "enumeration": "6"
    },
-   "solution": "WANGLE"
+   "solution": "WANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ingeniously procure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 20,
+         "note": "the source of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wet",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "at": 34,
+       "gives": "ANGLE",
+       "note": "to angle is to fish with rod and line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman cleverly obtains wet fish from its source.",
+     "walkthrough": "'source of' takes W from wet.",
+     "definitionFit": "To wangle is to obtain something by clever or devious means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1355,60 @@
      }
     ]
    },
-   "solution": "JAIALAI"
+   "solution": "JAIALAI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 18,
+         "note": "in means inside, so the single letter is put into the prison"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prison",
+         "at": 21,
+         "gives": "JAIL",
+         "note": "jail is prison"
+        },
+        {
+         "words": "one",
+         "at": 14,
+         "gives": "A",
+         "note": "A means one"
+        }
+       ]
+      },
+      {
+       "words": "Excellent",
+       "at": 29,
+       "gives": "AI",
+       "note": "A1 means first-rate, written as AI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jailing someone is a great sport.",
+     "walkthrough": "'in' gives JAIAL; excellent is A1, written with I for 1; 'putting' is a link. Jai alai is a Basque ball game.",
+     "definitionFit": "Jai alai is a fast court sport played with wicker baskets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Excellent"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1422,28 @@
     "text": "Tease little boy",
     "enumeration": "4"
    },
-   "solution": "JOSH"
+   "solution": "JOSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tease",
+      "at": 0,
+      "meaning": "to kid or rib someone"
+     },
+     {
+      "text": "little boy",
+      "at": 6,
+      "meaning": "a shortened form of the boy's name Joshua"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Josh means banter or kid, and is also a pet form of Joshua."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1457,58 @@
     "text": "Symbol of racket at opening of golf club",
     "enumeration": "7"
    },
-   "solution": "DINGBAT"
+   "solution": "DINGBAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Symbol",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "racket",
+       "at": 10,
+       "gives": "DIN",
+       "note": "din means racket, noise"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 20,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "golf",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "words": "club",
+       "at": 36,
+       "gives": "BAT",
+       "note": "a bat is a club"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emblem of noise at the start of a golf club.",
+     "walkthrough": "'opening of' gives G from golf.",
+     "definitionFit": "A dingbat is a typographical symbol or ornament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1522,28 @@
     "text": "Join cut",
     "enumeration": "4"
    },
-   "solution": "DOCK"
+   "solution": "DOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0,
+      "meaning": "to link up, as spacecraft do"
+     },
+     {
+      "text": "cut",
+      "at": 5,
+      "meaning": "to cut short, as pay or a tail"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Dock means both to couple vehicles together and to reduce or clip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1557,47 @@
     "text": "Lustre of the man in the money",
     "enumeration": "5"
    },
-   "solution": "SHEEN"
+   "solution": "SHEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lustre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in means placed inside, so the man goes into the money"
+      }
+     ],
+     "parts": [
+      {
+       "words": "money",
+       "at": 25,
+       "gives": "SEN",
+       "note": "sen is a small unit of currency in Japan and elsewhere"
+      },
+      {
+       "words": "the man",
+       "at": 10,
+       "gives": "HE",
+       "note": "he refers to a man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The gleam of a rich man.",
+     "definitionFit": "Sheen is a soft lustre or shine on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1611,44 @@
     "text": "Proclaimed former quality of sword",
     "enumeration": "9"
    },
-   "solution": "EXCALIBUR"
+   "solution": "EXCALIBUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sword",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EXCALIBUR",
+     "indicators": [
+      {
+       "text": "Proclaimed",
+       "at": 0,
+       "note": "proclaimed means announced out loud, signalling a homophone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "former quality",
+       "at": 11,
+       "gives": "EXCALIBRE",
+       "note": "ex means former and calibre means quality"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blade of past excellence announced.",
+     "walkthrough": "EX plus CALIBRE, said aloud, gives the sword.",
+     "definitionFit": "Excalibur is King Arthur's legendary sword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
