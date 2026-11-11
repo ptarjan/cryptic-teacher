@@ -121,18 +121,24 @@ def grid_box(a):
         return None
     y0, y1 = int(ys[0]), int(round(ys[1]))
     if abs((x1 - x0) - (y1 - y0)) > 0.05 * (x1 - x0):
-        return None
+        # A faint right border (1623's, in a small image scaled up) is too light for the
+        # columns' test: the grid is square, so take it where the rows' span puts it, if a
+        # ruling stands there.
+        x1 = x0 + (y1 - y0)
+        edge = a[y0:y1 + 1, max(x1 - 3, 0):x1 + 4].min(axis=1)
+        if x1 >= w or (edge < 0.9).mean() < 0.7:
+            return None
     return x0, y0, x1, y1
 
 
-def rules(a, x0, y0, x1, y1):
+def rules(a, x0, y0, x1, y1, need=0.6):
     """The x of each printed vertical rule in the band: a column nearly all
-    of whose pixels in the band are ink-ish, away from the band's edges."""
+    of whose pixels in the band (`need` of them) are ink-ish, away from the band's edges."""
     import numpy as np
     band = a[y0:y1, x0:x1] < 0.9
     frac = band.mean(axis=0)
     out = []
-    for s, e in runs(frac > 0.6):
+    for s, e in runs(frac > need):
         x = x0 + (s + e) // 2
         if x - x0 > 40 and x1 - x > 40:
             out.append(x)
@@ -141,10 +147,11 @@ def rules(a, x0, y0, x1, y1):
 
 def solution_top(a, x0, y0, x1, y1):
     """The y where the previous solution's grid starts in a column: the first
-    row more than half of whose width is ink, else y1."""
+    row more than 0.72 of whose width is ink, else y1: the grid's lines reach 0.78,
+    where the text rows of 1623's small image, scaled up, reach 0.66."""
     band = a[y0:y1, x0:x1] < 0.8
     for i, frac in enumerate(band.mean(axis=1)):
-        if frac > 0.6:
+        if frac > 0.72:
             return y0 + i
     return y1
 
@@ -204,7 +211,9 @@ def read_image(img, web_date):
     # The columns below the grid (to its right edge) and right of it (to the
     # page's ruled title line), each split at the printed rules between them.
     below = (gx0 - pad, gy1 + pad, gx1 + pad, h)
-    right = (gx1 + pad, gy0 - pad, w, h)
+    # A right-hand column may start above the grid's top (1623's), just under the title's rule.
+    title_rule = runs((a[:gy0, gx1:] < 0.9).mean(axis=1) > 0.8)
+    right = (gx1 + pad, title_rule[-1][1] + 4 if title_rule else gy0 - pad, w, h)
     # The footer line (date, title, page) is below every column: stop above it.
     # A page cropped with no footer (1622) ends in a clue row, set close under the one above.
     foot = h
@@ -212,8 +221,10 @@ def read_image(img, web_date):
     if len(bands) > 1 and bands[-1][0] - bands[-2][1] > bands[-1][1] - bands[-1][0]:
         foot = gy1 + bands[-1][0]
     columns = []
-    for bx0, by0, bx1, by1 in (below, right):
-        cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot)) + [bx1]
+    # The right band holds the solution grid, whose own lines run a good part of its height
+    # (0.6-0.7 once 1623's small image is scaled up) where the printed rules run all of it (0.95).
+    for (bx0, by0, bx1, by1), need in ((below, 0.6), (right, 0.85)):
+        cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot), need) + [bx1]
         for cx0, cx1 in zip(cuts, cuts[1:]):
             if cx1 - cx0 > 80:
                 columns.append([cx0 + 2, by0, cx1 - 2, min(by1, foot) - 2])
