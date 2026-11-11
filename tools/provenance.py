@@ -397,6 +397,7 @@ ACQUISITION_BY_SOURCE = {
     ("independent", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("sundaytimes", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("tls", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("timesjumbo", "link.gale.com"): ("tools/gale_jumbo_read.py",),
     ("sundaytel", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("indysunday", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
