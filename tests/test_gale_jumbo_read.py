@@ -197,6 +197,15 @@ v, new = gj.solve_puzzle(puzzle(), ["a.pdf"], sols, store, found(0.80), reader({
 check("a page whose blocks are not the puzzle's is refused", (None, True), (new, "blocks" in v["refused"]))
 v, new = gj.solve_puzzle(puzzle(), ["a.pdf"], sols, store, lambda *a: None, reader({"1-across": "CAT"}))
 check("no grid on any page is refused", None, new)
+check("the solved version moved for the square-patch grid search", True, gj.SOLVED_VERSION >= 3)
+# A Times page's grid is ~38% of its width: page_grids may offer only a photo or text block (both
+# "lattices"); the square patches of ink are offered too, and the block fit judges them.
+_pg, _gs = gj.gi.page_grids, gj.fa.grids_on
+gj.gi.page_grids = lambda img: [[10, 10, 1210, 1210]]
+gj.fa.grids_on = lambda img, shaped=None: [(12, 12, 1208, 1208), (2000, 3000, 3800, 4800), (0, 0, 100, 100)]
+check("square patches join page_grids' boxes, near duplicates and tiny ones dropped",
+      [[10, 10, 1210, 1210], [2000, 3000, 3800, 4800]], gj.grid_candidates(object()))
+gj.gi.page_grids, gj.fa.grids_on = _pg, _gs
 held = puzzle()
 held["entries"][0]["solution"] = "COT"
 v, new = gj.solve_puzzle(held, ["a.pdf"], sols, store, found(0.99), reader({"1-across": "CAT", "1-down": "TOT"}))
