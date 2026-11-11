@@ -253,6 +253,12 @@ ACQUIRED_BY = {
                 "(tools/gale_listener.py): clues voted across the OCR readers, the barred grid "
                 "read off the scan by tools/listener_grid.py, answers off the later issue's "
                 "printed report grid"},
+    "tools/gale_jumbo_read.py": {
+        "channel": "newspaper",
+        "what": "a Times Jumbo cryptic page saved from Gale's Times Digital Archive "
+                "(tools/gale_fetch.py): clues voted across the OCR readers and the VLM's column "
+                "reads, the grid read off the scan by tools/trove_grid.py, answers off the later "
+                "issue's printed solution grid"},
     "tools/file_times_puzzles.py": {
         "channel": "blog",
         "what": "a times-for-the-times write-up's clue list and answers, the "
@@ -368,6 +374,9 @@ ACQUISITION_BY_SOURCE = {
     # The same Gale page saved through the library portal (10-27: listener-4279 failed 42 times, 17:56-18:40,
     # for want of this row, as ("times", "abresearchportal.ca") below has one).
     ("listener", "abresearchportal.ca"): ("tools/file_gale_listener.py",),
+    # The Times Jumbo pages tools/gale_jumbo_read.py files (its link.gale.com row is below).
+    ("timesjumbo", "go.gale.com"): ("tools/gale_jumbo_read.py",),
+    ("timesjumbo", "abresearchportal.ca"): ("tools/gale_jumbo_read.py",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
