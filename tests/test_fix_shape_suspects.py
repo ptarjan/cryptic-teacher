@@ -513,14 +513,16 @@ check("a tree that cannot reach the answer is left alone", used == [])
 # anaStandIn: an anagram held by a container scrambles a stand-in with the clue's own word; the stand-in is spelled beside the scramble
 SI = {"anaStandIn": F.r_ana_stand_in}
 sic = {"op": "container", "indicators": [{"text": "holds"}], "parts": [
-    {"op": "anagram", "indicators": [{"text": "broken"}], "parts": [{"words": "pea"}, {"words": "church", "gives": "CH"}]},
+    {"op": "anagram", "indicators": [{"text": "broken"}], "parts": [{"words": "pea"}, {"words": "church", "gives": "KIRK"}]},
     {"words": "lake", "gives": "L"}]}
-new, used = F.repair_tree(sic, "Broken pea church holds lake", "CHAPLE", SI)
-check("ana(pea, church=CH) held by a container becomes CH + ana(pea) inside it",
+# (a lone standard abbreviation such as church=CH is fodder now, so the stand-in here is a synonym)
+assert V.ana_stand_in(sic) == 1
+new, used = F.repair_tree(sic, "Broken pea church holds lake", "KIRKAPLE", SI)
+check("ana(pea, church=KIRK) held by a container becomes KIRK + ana(pea) inside it",
       used == ["anaStandIn"] and V.ana_stand_in(new) == 0
-      and new["parts"][0]["op"] == "charade" and new["parts"][0]["parts"][0]["gives"] == "CH"
+      and new["parts"][0]["op"] == "charade" and new["parts"][0]["parts"][0]["gives"] == "KIRK"
       and new["parts"][0]["parts"][1]["op"] == "anagram" and len(new["parts"][0]["parts"][1]["parts"]) == 1)
-new, used = F.repair_tree(sic, "Broken pea church holds lake", "ZZZZZZ", SI)
+new, used = F.repair_tree(sic, "Broken pea church holds lake", "ZZZZZZZZ", SI)
 check("a stand-in tree that cannot reach the answer is left alone", used == [])
 
 # unindicatedBare, widened: a swap through a charade (the charade's word goes to the op that needs it, that op's
