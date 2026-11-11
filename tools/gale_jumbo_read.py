@@ -565,7 +565,8 @@ def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None):
     if reader is None:
         if not (fa.vlm.wanted()):
             return laid, blank, 0
-        reader = lambda im, box: fa.vlm.read(fa.vlm.crop(im, box))  # noqa: E731
+        def reader(im, box):
+            return fa.vlm.read(fa.vlm.crop(im, box))
     strips = vlm_strips(blocks, sorted({int(k.split("-")[0]) for k in [*blank, *weak]}), gl)
     if not strips:
         return laid, blank, 0
