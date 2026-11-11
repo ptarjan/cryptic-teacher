@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Big part of car",
     "enumeration": "6"
    },
-   "solution": "BUMPER"
+   "solution": "BUMPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Big",
+      "at": 0,
+      "meaning": "something big or ... is unusually large, as in a ... crop"
+     },
+     {
+      "text": "part of car",
+      "at": 4,
+      "meaning": "the bar across the front or back of a car that absorbs knocks"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that a sizeable chunk of a vehicle is involved.",
+     "definitionFit": "Two senses: an adjective meaning abundant, as in a bumper harvest, and the protective bar on a vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Big"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,30 @@
     "text": "A lot of girls drink!",
     "enumeration": "4"
    },
-   "solution": "BEVY"
+   "solution": "BEVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lot of girls",
+      "at": 0,
+      "meaning": "a group of young women, the collective noun traditionally used for them"
+     },
+     {
+      "text": "drink",
+      "at": 15,
+      "meaning": "informal British word for an alcoholic drink, as in 'a quick one down the pub'"
+     }
+    ],
+    "explanation": {
+     "surface": "An exclamation that many young women are drinking.",
+     "definitionFit": "The collective noun for a gathering of girls, and British slang for an alcoholic drink, especially beer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +108,32 @@
     "text": "Sun now, then … season of rain",
     "enumeration": "7"
    },
-   "solution": "MONSOON"
+   "solution": "MONSOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sun now, then …",
+      "at": 0,
+      "meaning": "if it is Sunday now, then Monday is coming soon: the day abbreviation plus a word for shortly"
+     },
+     {
+      "text": "season of rain",
+      "at": 16,
+      "meaning": "the wet season of heavy rains in South Asia"
+     }
+    ],
+    "explanation": {
+     "surface": "Weather forecast: sunshine at present, but the rainy season is on its way.",
+     "walkthrough": "The first part reads Sun as the abbreviation for Sunday: when it is Sun now, then Mon (Monday) comes soon.",
+     "definitionFit": "The seasonal wind of South Asia brings the rainy months, so the word names that wet season."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +153,31 @@
      }
     ]
    },
-   "solution": "EXCUSEME"
+   "solution": "EXCUSEME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance?",
+      "at": 0,
+      "meaning": "a dance in which partners may be cut in on by another dancer asking politely"
+     },
+     {
+      "text": "Did I step on your foot?",
+      "at": 7,
+      "meaning": "the polite apology one would offer after treading on a partner's toes"
+     }
+    ],
+    "explanation": {
+     "surface": "A dancer asks someone to dance and then apologises for clumsy footwork.",
+     "definitionFit": "Both an old ballroom dance where a dancer may claim another's partner, and the polite phrase of apology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +191,59 @@
     "text": "Brought up changes to delete, outlining state",
     "enumeration": "8"
    },
-   "solution": "ELEVATED"
+   "solution": "ELEVATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brought up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outlining",
+       "at": 30,
+       "note": "the rearranged letters form an outline around the state abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes to",
+         "at": 11,
+         "note": "the word delete is changed into a new order of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delete",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "state",
+       "at": 40,
+       "gives": "VA",
+       "note": "VA is the abbreviation for the US state of Virginia"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raises the matter of amendments that would remove a state's boundary.",
+     "walkthrough": "'changes to' gives ELETED; 'outlining' wraps it round the state. 'Brought up' reads like raised as a child, but means lifted.",
+     "definitionFit": "Brought up in the sense of raised or lifted to a higher position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delete"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +267,77 @@
      }
     ]
    },
-   "solution": "LOOPTHELOOP"
+   "solution": "LOOPTHELOOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spectacular manoeuvre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a little room",
+       "at": 32,
+       "gives": "LOO",
+       "note": "the loo is a lavatory, a small room in a house (British informal)"
+      },
+      {
+       "words": "exercise",
+       "at": 47,
+       "gives": "PT",
+       "note": "PT stands for physical training, school exercise"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circling",
+         "at": 66,
+         "note": "the word for assist goes around the two rings, enclosing them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to assist",
+         "at": 56,
+         "gives": "HELP",
+         "note": "to assist someone is to help them"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "round",
+           "at": 75,
+           "gives": "O",
+           "note": "a round thing is shaped like the letter O"
+          },
+          {
+           "words": "round",
+           "at": 85,
+           "gives": "O",
+           "note": "a second ring-shaped letter O"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stunt flyer needs a bit of space, and exercise helps to keep circling round.",
+     "walkthrough": "LOO is British informal for a toilet. 'circling' wraps the helping word around two Os, one for each 'round'.",
+     "definitionFit": "An aerobatic stunt in which an aircraft flies a complete vertical circle, a showy manoeuvre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +351,54 @@
     "text": "European city's queen divorced, her number up?",
     "enumeration": "6"
    },
-   "solution": "VIENNA"
+   "solution": "VIENNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 43,
+       "note": "in a down entry the pieces are read upwards, from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "queen divorced",
+         "at": 16,
+         "gives": "ANNE",
+         "note": "Anne of Cleves, queen of Henry VIII, whose marriage ended in annulment"
+        },
+        {
+         "words": "her number",
+         "at": 32,
+         "gives": "IV",
+         "note": "she was the fourth of his six wives, written as Roman numeral IV"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a city where a divorced queen saw her number come up.",
+     "walkthrough": "Anne of Cleves was Henry VIII's fourth wife; 'up' turns ANNEIV into the city. The 's is a link meaning 'is'.",
+     "definitionFit": "The capital city of Austria, in central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 7,
@@ -164,7 +431,70 @@
     "text": "Take apart last of coals within faint remnant of them?",
     "enumeration": "9"
    },
-   "solution": "DISMEMBER"
+   "solution": "DISMEMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take apart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "within",
+         "at": 25,
+         "note": "that letter sits inside the word for faint"
+        }
+       ],
+       "parts": [
+        {
+         "words": "faint",
+         "at": 32,
+         "gives": "DIM",
+         "note": "faint light is dim"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 11,
+           "note": "the final letter of the word coals is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "coals",
+           "at": 19
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "remnant of them",
+       "at": 38,
+       "gives": "EMBER",
+       "note": "a glowing ember is what remains of burning coals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fire-tender pokes the last of the coals into a faint dying glow.",
+     "walkthrough": "'last of' gives S from coals, placed 'within' the word for faint; the question mark flags 'them' pointing back to the coals.",
+     "definitionFit": "To dismember is to cut or pull something apart limb from limb, so take apart fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "faint"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +508,11 @@
     "text": "European city's east and north clamped?",
     "enumeration": "6"
    },
-   "solution": "VENICE"
+   "solution": "VENICE",
+   "annotationWithheld": {
+    "why": "European city's east and north clamped? — the parse puts E and N in VICE, so 'clamped' would be both the word for VICE and the containment indicator, one word doing two jobs",
+    "clue": "European city's east and north clamped?"
+   }
   },
   {
    "number": 10,
@@ -192,7 +526,49 @@
     "text": "Might fish be second rate, sole off?",
     "enumeration": "8"
    },
-   "solution": "BONELESS"
+   "solution": "BONELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Might fish be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second rate",
+       "at": 14,
+       "gives": "B",
+       "note": "B is a second-class grade, below A"
+      },
+      {
+       "words": "sole",
+       "at": 27,
+       "gives": "ONE",
+       "note": "sole means single or one"
+      },
+      {
+       "words": "off",
+       "at": 32,
+       "gives": "LESS",
+       "note": "as in a price with ten percent off, meaning minus or less"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a fish inferior if it has had its sole removed?",
+     "walkthrough": "'sole' looks like the flatfish but is the adjective meaning single.",
+     "definitionFit": "Filleted fish can be described as free of bones, which is what the clue asks it might be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +582,58 @@
     "text": "Regular work in construction of line for old European city",
     "enumeration": "14"
    },
-   "solution": "CONSTANTINOPLE"
+   "solution": "CONSTANTINOPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old European city",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Regular",
+       "at": 0,
+       "gives": "CONSTANT",
+       "note": "regular means steady or constant"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "construction of",
+         "at": 16,
+         "note": "the letters are built into a new structure, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 8,
+         "gives": "OP",
+         "note": "OP is short for opus, a work"
+        },
+        {
+         "words": "line",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steady labour on building a railway line toward an old city.",
+     "walkthrough": "'construction of' rearranges OP and LINE into INOPLE.",
+     "definitionFit": "The former name of Istanbul, capital of the Byzantine and Ottoman empires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +647,60 @@
     "text": "A bandleader overcoming very old musicians, their principles undiminished",
     "enumeration": "11"
    },
-   "solution": "ABSOLUTISTS"
+   "solution": "ABSOLUTISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "their principles undiminished",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overcoming",
+       "at": 13,
+       "note": "in a down entry, the first pieces stand on top of what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "bandleader",
+       "at": 2,
+       "gives": "B",
+       "note": "the leading letter of the word band"
+      },
+      {
+       "words": "very",
+       "at": 24,
+       "gives": "SO",
+       "note": "so means very, as in so tired"
+      },
+      {
+       "words": "old musicians",
+       "at": 29,
+       "gives": "LUTISTS",
+       "note": "lutists play the lute, an instrument of earlier centuries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band leader gets the better of some antique players who refuse to compromise.",
+     "walkthrough": "'bandleader' is the first letter of band, B; 'overcoming' places it above SO LUTISTS in the down entry.",
+     "definitionFit": "Absolutists hold uncompromising positions, never watering down their principles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bandleader"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +714,41 @@
     "text": "Starring me impromptu as showman",
     "enumeration": "10"
    },
-   "solution": "RINGMASTER"
+   "solution": "RINGMASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showman",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "impromptu",
+       "at": 12,
+       "note": "improvised and unplanned, so the letters are freely rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Starring me",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer brags about being given a starring role on the spur of the moment.",
+     "walkthrough": "'impromptu' rearranges STARRINGME.",
+     "definitionFit": "A circus ringmaster is the master of ceremonies, a kind of showman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Starring"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +762,74 @@
     "text": "Once more lend an ear if abandoning a new, new church",
     "enumeration": "9"
    },
-   "solution": "REFINANCE"
+   "solution": "REFINANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Once more lend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 38,
+         "note": "makes new, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "abandoning",
+           "at": 25,
+           "note": "the article a is dropped from the letters before them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "an ear if",
+           "at": 15
+          },
+          {
+           "words": "a",
+           "at": 36,
+           "gives": "A"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "at": 43,
+       "gives": "N"
+      },
+      {
+       "words": "church",
+       "at": 47,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to listen if one is leaving a new church.",
+     "walkthrough": "'abandoning' drops one A from the clue's letters, and 'new' rearranges what remains; 'an ear' reads as listening but is pure fodder.",
+     "definitionFit": "To refinance is to provide fresh funding or a new loan, lending again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ear"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +843,30 @@
     "text": "Go for knife",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go",
+      "at": 0,
+      "meaning": "an attempt, as in have a go or have a try"
+     },
+     {
+      "text": "knife",
+      "at": 7,
+      "meaning": "to stick a blade into someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A command to attack someone with a blade.",
+     "definitionFit": "An attempt (have a go) and a thrust with a blade, as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +880,58 @@
     "text": "Cold beer, duff drink for the brain",
     "enumeration": "8"
    },
-   "solution": "CEREBRUM"
+   "solution": "CEREBRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the brain",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for cold on taps"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "duff",
+         "at": 11,
+         "note": "duff is British slang for faulty or useless, so the word is broken up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "drink",
+       "at": 16,
+       "gives": "RUM",
+       "note": "rum is a spirit, a drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cold beer goes off, so someone has a different drink for the brain.",
+     "walkthrough": "'duff' (British slang: no good) rearranges BEER into EREB.",
+     "definitionFit": "The cerebrum is the largest part of the brain, so it stands for the brain here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duff"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +964,67 @@
      }
     ]
    },
-   "solution": "CATSEYE"
+   "solution": "CATSEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one reflects",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 31,
+       "note": "in the down entry it comes before, that is above, the following piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grabbed by",
+         "at": 12,
+         "note": "the letter is held inside the word for patient"
+        }
+       ],
+       "parts": [
+        {
+         "words": "patient",
+         "at": 23,
+         "gives": "CASE",
+         "note": "a patient is a medical case"
+        },
+        {
+         "words": "Little time",
+         "at": 0,
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      },
+      {
+       "words": "you",
+       "at": 38,
+       "gives": "YE",
+       "note": "ye is an old word for you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient seizes a moment ahead of you to look in a mirror.",
+     "walkthrough": "A cat's-eye is a British road stud that reflects headlights. 'grabbed by' sets T inside the patient, and 'before' puts that ahead of the old word for you.",
+     "definitionFit": "A road stud with glass reflectors that shine back car headlights, so it reflects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "patient"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1038,48 @@
     "text": "One singing good number on the whole",
     "enumeration": "10"
    },
-   "solution": "ALTOGETHER"
+   "solution": "ALTOGETHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on the whole",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One singing",
+       "at": 0,
+       "gives": "ALTO",
+       "note": "an alto is a singer in a choir"
+      },
+      {
+       "words": "good",
+       "at": 12,
+       "gives": "G"
+      },
+      {
+       "words": "number",
+       "at": 17,
+       "gives": "ETHER",
+       "note": "a numb-er, something that numbs: ether is an anaesthetic"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soloist in good voice sings a number overall.",
+     "walkthrough": "'number' is read as something that numbs, the anaesthetic ETHER.",
+     "definitionFit": "Altogether means overall or taking everything into account, on the whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1093,49 @@
     "text": "Pop success overcomes singer, one needing a lift",
     "enumeration": "7"
    },
-   "solution": "HITCHER"
+   "solution": "HITCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one needing a lift",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overcomes",
+       "at": 12,
+       "note": "in the down entry one piece stands on top of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pop success",
+       "at": 0,
+       "gives": "HIT",
+       "note": "a hit is a successful pop record"
+      },
+      {
+       "words": "singer",
+       "at": 22,
+       "gives": "CHER",
+       "note": "Cher is the American singer and actress"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chart hit beats a singer who needs cheering up.",
+     "walkthrough": "'overcomes' sets HIT above CHER in the down entry.",
+     "definitionFit": "A hitchhiker thumbs rides from passing drivers, needing a lift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1149,54 @@
     "text": "Material that's no problem to take up",
     "enumeration": "6"
    },
-   "solution": "MUSLIN"
+   "solution": "MUSLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to take up",
+       "at": 27,
+       "note": "in a down entry the pieces are read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no",
+         "at": 16,
+         "gives": "NIL",
+         "note": "nil means none or nothing"
+        },
+        {
+         "words": "problem",
+         "at": 19,
+         "gives": "SUM",
+         "note": "a sum is an arithmetic problem"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fabric that is easy to take up when hemming.",
+     "walkthrough": "'to take up' reverses NILSUM in the down entry.",
+     "definitionFit": "Muslin is a fine cotton fabric, a material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "problem"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1238,43 @@
    "group": [
     "21-across",
     "16-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Looks and brains too",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unfair",
+       "at": 21,
+       "gives": "NOTJUST",
+       "note": "unfair means unjust, that is, lacking in justice"
+      },
+      {
+       "words": "This is fair",
+       "at": 29,
+       "gives": "APRETTYFACE",
+       "note": "a fair ... is a pretty one, so this describes good looks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that having both looks and brains is unfair, answered by praise for beauty.",
+     "walkthrough": "The idiom is said of someone attractive who is clever as well.",
+     "definitionFit": "The phrase describes someone who has intelligence as well as attractive looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1288,46 @@
     "text": "Dagger providing danger if heading towards the bottom",
     "enumeration": "4"
    },
-   "solution": "KRIS"
+   "solution": "KRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dagger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "heading towards the bottom",
+       "at": 27,
+       "note": "the leading letter moves down to the end of the word in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "danger",
+       "at": 17,
+       "gives": "RISK",
+       "note": "risk means danger"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blade is dangerous if one heads downward.",
+     "walkthrough": "'heading towards the bottom' moves the head letter K of RISK to the foot.",
+     "definitionFit": "A kris is a Malay dagger with a wavy blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1341,54 @@
     "text": "No point adding point to pointed items",
     "enumeration": "8"
    },
-   "solution": "NEEDLESS"
+   "solution": "NEEDLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "adding",
+       "at": 9,
+       "note": "the compass letter is attached to the end of the word"
+      },
+      {
+       "text": "to",
+       "at": 22,
+       "note": "the compass letter is attached to the end of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pointed items",
+       "at": 25,
+       "gives": "NEEDLES",
+       "note": "needles are sharp, pointed items"
+      },
+      {
+       "words": "point",
+       "at": 16,
+       "gives": "S",
+       "note": "S, south, is a compass point"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pointless to put another tip on things already sharp.",
+     "walkthrough": "'adding point to' puts S, a compass point, after NEEDLES.",
+     "definitionFit": "Needless means unnecessary, there being no point to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1402,30 @@
     "text": "Does one aim to be more cunning?",
     "enumeration": "6"
    },
-   "solution": "ARCHER"
+   "solution": "ARCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Does one aim",
+      "at": 0,
+      "meaning": "a bowman is someone who aims at targets"
+     },
+     {
+      "text": "more cunning",
+      "at": 19,
+      "meaning": "comparative of arch, meaning sly or knowing"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether an aim is to be craftier.",
+     "definitionFit": "A bowman shooting arrows aims; and arch means sly, so its comparative means more cunning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aim"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1439,42 @@
     "text": "Stable quality yet to come to a head",
     "enumeration": "8"
    },
-   "solution": "EVENNESS"
+   "solution": "EVENNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stable quality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "yet",
+       "at": 15,
+       "gives": "EVEN",
+       "note": "even means yet or still, as in even better"
+      },
+      {
+       "words": "head",
+       "at": 32,
+       "gives": "NESS",
+       "note": "a ness is a headland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steady trait has still to come to a crisis.",
+     "walkthrough": "NESS is a headland, seen in place names like Loch Ness and Sheerness.",
+     "definitionFit": "Evenness is steadiness or uniformity, a quality of being stable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1502,34 @@
    "group": [
     "26-across",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cross reference?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cross reference?",
+       "at": 0,
+       "note": "on a treasure map a cross is drawn to show where the treasure is buried"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The phrase from treasure maps where a drawn cross indicates the hidden location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reference"
+    }
+   }
   }
  ]
 }
