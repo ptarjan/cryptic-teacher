@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,42 @@
     "text": "Some attend lessons non-stop",
     "enumeration": "7"
    },
-   "solution": "ENDLESS"
+   "solution": "ENDLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "non-stop",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attend lessons",
+       "at": 5,
+       "gives": "ENDLESS",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some pupils go to class without a break.",
+     "definitionFit": "Something non-stop goes on without ever finishing, which is what endless means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +82,41 @@
     "text": "Old big case",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "case",
+      "at": 8
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former or old"
+      },
+      {
+       "words": "big",
+       "at": 4,
+       "gives": "AMPLE",
+       "note": "ample means big or generous"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly large suitcase.",
+     "definitionFit": "A case is an instance, and an example is one instance cited to illustrate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +130,32 @@
     "text": "Moving picture",
     "enumeration": "7"
    },
-   "solution": "DRAWING"
+   "solution": "DRAWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moving",
+      "at": 0,
+      "meaning": "moving in the sense of pulling along, as a horse moves a cart"
+     },
+     {
+      "text": "picture",
+      "at": 7,
+      "meaning": "a sketch or illustration made with pencil or pen"
+     }
+    ],
+    "explanation": {
+     "surface": "A film.",
+     "walkthrough": "'Moving picture' reads as a cinema film, but it splits into two separate definitions.",
+     "definitionFit": "Drawing is pulling something along, and a drawing is a picture made with lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Moving"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +169,40 @@
     "text": "Still time for item in a sports programme",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "item in a sports programme",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Still",
+       "at": 0,
+       "gives": "EVEN",
+       "note": "still can mean even, as in still better or even better"
+      },
+      {
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There is yet time for one more fixture in the schedule.",
+     "definitionFit": "Each race or contest on a sports programme is called an event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +216,59 @@
     "text": "Most rum gets Stan drunk? That's about right",
     "enumeration": "9"
    },
-   "solution": "STRANGEST"
+   "solution": "STRANGEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most rum",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 33,
+       "note": "about means around, so the rearranged letters go round the right letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 19,
+         "note": "drunk suggests something reeling and disordered, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gets Stan",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 39,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stan gets drunk on the oddest rum, and someone agrees.",
+     "walkthrough": "'drunk' rearranges GETS STAN into STANGEST, and 'about' wraps it round R. Rum is British for odd.",
+     "definitionFit": "Rum is an old British word for odd, so most rum means oddest, a superlative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +282,60 @@
     "text": "Cobblers totter after client, finally",
     "enumeration": "7"
    },
-   "solution": "TWADDLE"
+   "solution": "TWADDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cobblers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "after places the walking word behind the closing letter of client"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 30,
+         "note": "finally asks for only the closing letter of the word client"
+        }
+       ],
+       "parts": [
+        {
+         "words": "client",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "totter",
+       "at": 9,
+       "gives": "WADDLE",
+       "note": "to totter is to walk unsteadily, to waddle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cobbler's shop where a customer wobbles out after being served.",
+     "walkthrough": "'after' puts WADDLE behind T, the last letter of client. Cobblers is British slang for nonsense.",
+     "definitionFit": "Cobblers is British slang for rubbish talk, a synonym of nonsense or twaddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cobblers"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +349,41 @@
     "text": "You might ride on these tense animals",
     "enumeration": "5"
    },
-   "solution": "TRAMS"
+   "solution": "TRAMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "You might ride on these",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tense",
+       "at": 24,
+       "gives": "T",
+       "note": "T is the grammatical abbreviation for tense"
+      },
+      {
+       "words": "animals",
+       "at": 30,
+       "gives": "RAMS",
+       "note": "rams are male sheep, animals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nervy beasts that people ride.",
+     "definitionFit": "Trams are streetcars that passengers ride along city rails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +397,41 @@
     "text": "Bold and decisive vet raises cuckoo",
     "enumeration": "9"
    },
-   "solution": "ASSERTIVE"
+   "solution": "ASSERTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bold and decisive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cuckoo",
+       "at": 29,
+       "note": "cuckoo means crazy, so the letters go mad and rearrange"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vet raises",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vet confidently rears a cuckoo chick.",
+     "definitionFit": "An assertive person is confident and forceful, bold and decisive in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +445,54 @@
     "text": "Cover upside down on novel, creating quandary",
     "enumeration": "7"
    },
-   "solution": "DILEMMA"
+   "solution": "DILEMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quandary",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upside down",
+         "at": 6,
+         "note": "upside down in a down clue means the lid letters are read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cover",
+         "at": 0,
+         "gives": "LID",
+         "note": "a lid is a cover"
+        }
+       ]
+      },
+      {
+       "words": "novel",
+       "at": 21,
+       "gives": "EMMA",
+       "note": "Emma is the novel by Jane Austen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book cover printed upside down causes a problem.",
+     "walkthrough": "'upside down' reverses the cover word, which in a down entry sits on top of the Jane Austen title; 'creating' is only a link.",
+     "definitionFit": "A dilemma is a difficult choice between alternatives, a quandary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +506,59 @@
     "text": "Leave the seedy hotel's scrubbed lift",
     "enumeration": "7"
    },
-   "solution": "ELEVATE"
+   "solution": "ELEVATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "seedy",
+       "at": 10,
+       "note": "seedy means shabby and disreputable, a sign the letters are in a mess"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scrubbed",
+         "at": 24,
+         "note": "scrubbed means cancelled, so the hotel letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leave the",
+         "at": 0
+        },
+        {
+         "words": "hotel's",
+         "at": 16,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get out of the run-down hotel, cleaned out of its elevator.",
+     "walkthrough": "'scrubbed' takes H out of LEAVE THE, leaving LEAVETE, and 'seedy' rearranges that.",
+     "definitionFit": "To elevate is to raise up, the verb sense of lift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +572,59 @@
     "text": "Incompetent American mother pressing uniform",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Incompetent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 12,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pressing",
+         "at": 28,
+         "note": "pressing pictures the mother word squeezing the uniform letter inside her"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mother",
+         "at": 21,
+         "gives": "MATER",
+         "note": "mater is Latin, and old British schoolboy slang, for mother"
+        },
+        {
+         "words": "uniform",
+         "at": 37,
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American mum who is hopeless at ironing a uniform.",
+     "walkthrough": "'pressing' puts U inside MATER, giving MATEUR after A.",
+     "definitionFit": "An amateur, used disparagingly, is an unskilled or inept performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pressing"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +638,59 @@
     "text": "Free bishop stuck in a crack",
     "enumeration": "7"
    },
-   "solution": "ABSOLVE"
+   "solution": "ABSOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuck in",
+       "at": 12,
+       "note": "stuck in places the bishop letter inside the run formed by a and the cracking word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
+        },
+        {
+         "words": "crack",
+         "at": 23,
+         "gives": "SOLVE",
+         "note": "to crack a problem is to solve it"
+        }
+       ]
+      },
+      {
+       "words": "bishop",
+       "at": 5,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman is freed after getting wedged in a gap.",
+     "walkthrough": "'stuck in' puts B between A and SOLVE.",
+     "definitionFit": "To absolve someone is to set them free of guilt or obligation, a verb sense of free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +704,42 @@
     "text": "What we got from Constable sniping at criminal",
     "enumeration": "9"
    },
-   "solution": "PAINTINGS"
+   "solution": "PAINTINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What we got from Constable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "criminal",
+       "at": 38,
+       "note": "criminal suggests something bent or wrong, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sniping at",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police constable taking potshots at a lawbreaker.",
+     "walkthrough": "Constable looks like a police officer but is John Constable, the English landscape painter.",
+     "definitionFit": "John Constable left us canvases such as The Hay Wain, so his works are the output described."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Constable"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +753,69 @@
     "text": "Polish nurses beginning to master a dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "nurses",
+         "at": 7,
+         "note": "nurses means holds or cradles, so the polishing word holds a letter inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Polish",
+         "at": 0,
+         "gives": "RUB",
+         "note": "to polish is to rub"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 14,
+           "note": "beginning to asks for the opening letter of master"
+          }
+         ],
+         "parts": [
+          {
+           "words": "master",
+           "at": 27
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 34,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shining shoes while looking after the start of a lesson.",
+     "walkthrough": "'nurses' puts M (from 'beginning to master') inside RUB; the A is the clue's own 'a'.",
+     "definitionFit": "The rumba is a Latin American ballroom dance of Cuban origin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +829,40 @@
     "text": "Regularly recap golfer's score of two under par",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "score of two under par",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Regularly",
+       "at": 0,
+       "note": "regularly asks for every other letter of the words that follow, here the even ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "recap golfer's",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Periodically summarising how a golfer is doing on the card.",
+     "definitionFit": "In golf a hole completed in two strokes fewer than par is called an eagle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recap"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +876,58 @@
     "text": "Former lover on X — derisive but not half profound",
     "enumeration": "9"
    },
-   "solution": "EXTENSIVE"
+   "solution": "EXTENSIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "profound",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former lover",
+       "at": 0,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "words": "X",
+       "at": 16,
+       "gives": "TEN",
+       "note": "X is the Roman numeral for ten"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 33,
+         "note": "not half means losing half the word, here its first four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "derisive",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex sneers at an X with a deep scorn.",
+     "walkthrough": "'not half' drops DERI from derisive, leaving SIVE.",
+     "definitionFit": "Extensive means wide-ranging or thorough, a sense close to deep or profound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "X"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +941,60 @@
     "text": "Get rid of priest pal entertains at home",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "priest",
+       "at": 11,
+       "gives": "ELI",
+       "note": "Eli is the priest who raised Samuel in the Bible"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertains",
+         "at": 22,
+         "note": "entertains means has as a guest, so the pal word holds another inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pal",
+         "at": 18,
+         "gives": "MATE",
+         "note": "a mate is a pal"
+        },
+        {
+         "words": "at home",
+         "at": 33,
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman's friend has visitors round to the house.",
+     "walkthrough": "Eli is the Old Testament priest of Shiloh; 'entertains' has the pal word host the at-home word, as a guest is held inside.",
+     "definitionFit": "To eliminate something is to remove it entirely, an exact synonym of get rid of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertains"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1008,60 @@
     "text": "Suggested Charlie enters country with Ted",
     "enumeration": "9"
    },
-   "solution": "INDICATED"
+   "solution": "INDICATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suggested",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enters",
+         "at": 18,
+         "note": "enters means goes into, so the Charlie letter goes inside the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country",
+         "at": 25,
+         "gives": "INDIA",
+         "note": "India is a country"
+        },
+        {
+         "words": "Charlie",
+         "at": 10,
+         "gives": "C",
+         "note": "C is Charlie in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "words": "Ted",
+       "at": 38,
+       "gives": "TED",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hinted that Charlie travels to a nation with his friend Ted.",
+     "walkthrough": "'enters' places Charlie inside the country; Ted simply follows, joined by 'with'.",
+     "definitionFit": "To have indicated something is to have pointed to or suggested it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1075,40 @@
     "text": "New AI test he'd paused",
     "enumeration": "9"
    },
-   "solution": "HESITATED"
+   "solution": "HESITATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "paused",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "New",
+       "at": 0,
+       "note": "new suggests the letters are made over into a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "AI test he'd",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man stopped before trying out a novel artificial intelligence check.",
+     "definitionFit": "To have hesitated is to have paused briefly before acting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1122,30 @@
     "text": "Rider possibly hollow-eyed and gaunt",
     "enumeration": "7"
    },
-   "solution": "HAGGARD"
+   "solution": "HAGGARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rider possibly",
+      "at": 0,
+      "meaning": "H. Rider ... is the English author of King Solomon's Mines"
+     },
+     {
+      "text": "hollow-eyed and gaunt",
+      "at": 15,
+      "meaning": "looking exhausted and drawn"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The novelist H Rider Haggard bears the surname, and haggard means drawn and exhausted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rider"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1159,71 @@
     "text": "Look around bottom of barrel for a kipper",
     "enumeration": "7"
    },
-   "solution": "SLEEPER"
+   "solution": "SLEEPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "kipper",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 5,
+         "note": "around means surrounding, so the look word goes round the barrel letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Look",
+         "at": 0,
+         "gives": "SEE",
+         "note": "to see is to look"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "bottom of",
+           "at": 12,
+           "note": "bottom of asks for the last letter of barrel, the base in a down clue"
+          }
+         ],
+         "parts": [
+          {
+           "words": "barrel",
+           "at": 22
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "for a",
+       "at": 29,
+       "gives": "PER",
+       "note": "per means for a, as in ten pence per item"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Checking the bottom of a barrel to find a smoked fish.",
+     "walkthrough": "'around' puts L inside SEE. A kipper is a smoked herring, but here one who kips, British slang for sleeps.",
+     "definitionFit": "To kip is British slang for to sleep, so a kipper is someone sleeping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kipper"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1237,64 @@
     "text": "Support for artist's adult son catching fish? Just the opposite",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Support for artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "at": 31,
+       "note": "catching would put the fish inside the adult and son letters"
+      },
+      {
+       "text": "Just the opposite",
+       "at": 46,
+       "note": "just the opposite reverses who catches whom, so the fish holds them instead"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 40,
+       "gives": "EEL",
+       "note": "an eel is a fish"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "adult",
+         "at": 21,
+         "gives": "A",
+         "note": "A is the film-rating abbreviation for adult"
+        },
+        {
+         "words": "son",
+         "at": 27,
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's grown-up boy lands a fish for his stand.",
+     "walkthrough": "'catching' alone would put EEL inside AS; 'Just the opposite' flips it, so EEL holds AS.",
+     "definitionFit": "An easel is the stand that holds an artist's canvas while painting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catching"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1308,58 @@
     "text": "Nick criticised short king",
     "enumeration": "7"
    },
-   "solution": "SLAMMER"
+   "solution": "SLAMMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 16,
+         "note": "short means cut off at the end, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "criticised",
+         "at": 5,
+         "gives": "SLAMMED",
+         "note": "slammed means harshly criticised"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "at": 22,
+       "gives": "R",
+       "note": "R is rex, Latin for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone panned a king for being short.",
+     "walkthrough": "'short' drops the D from SLAMMED. Nick is British slang for a prison, as is slammer.",
+     "definitionFit": "Nick and slammer are both slang words for a prison or jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1373,49 @@
     "text": "Large motorboats dropping off ace meals",
     "enumeration": "7"
    },
-   "solution": "LUNCHES"
+   "solution": "LUNCHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meals",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping off",
+       "at": 17,
+       "note": "dropping off means shedding, so the ace letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "motorboats",
+       "at": 6,
+       "gives": "LAUNCHES",
+       "note": "launches are motorboats"
+      },
+      {
+       "words": "ace",
+       "at": 30,
+       "gives": "A",
+       "note": "A is the card abbreviation for ace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Big boats losing their best crew at mealtimes.",
+     "walkthrough": "'dropping off' removes A from LAUNCHES, leaving LUNCHES after L.",
+     "definitionFit": "Lunches are midday meals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "motorboats"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1429,29 @@
     "text": "Naive politician",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Naive",
+      "at": 0,
+      "meaning": "naive means inexperienced or gullible, like a raw beginner"
+     },
+     {
+      "text": "politician",
+      "at": 6,
+      "meaning": "a member of an environmentalist party such as the ... Party"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Green means inexperienced, and a Green is a politician from an ecology party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Naive"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1465,59 @@
     "text": "Not sure about boring irate nun, unfortunately",
     "enumeration": "9"
    },
-   "solution": "UNCERTAIN"
+   "solution": "UNCERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not sure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boring",
+       "at": 15,
+       "note": "boring means drilling into, so the about letter goes into the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 33,
+         "note": "unfortunately suggests things go wrong, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "irate nun",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "C",
+       "note": "C is circa, Latin for about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doubtful about a tedious, angry nun.",
+     "walkthrough": "'unfortunately' rearranges IRATE NUN to UNERTAIN, and 'boring' puts C inside it.",
+     "definitionFit": "Uncertain means lacking confidence or doubtful, a straight synonym of not sure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1531,53 @@
     "text": "Distress from pressure after university class",
     "enumeration": "5"
    },
-   "solution": "UPSET"
+   "solution": "UPSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "after puts the pressure letter behind the university letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "university",
+       "at": 29,
+       "gives": "U"
+      },
+      {
+       "words": "pressure",
+       "at": 14,
+       "gives": "P",
+       "note": "P is the physics symbol for pressure"
+      },
+      {
+       "words": "class",
+       "at": 40,
+       "gives": "SET",
+       "note": "a set is a class or group, as in a school set"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student is distressed by exam stress after a lecture.",
+     "definitionFit": "To upset someone is to distress them, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1591,44 @@
     "text": "Checks rules for the audience",
     "enumeration": "5"
    },
-   "solution": "REINS"
+   "solution": "REINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Checks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REINS",
+     "indicators": [
+      {
+       "text": "for the audience",
+       "at": 13,
+       "note": "for the audience means as heard by listeners, so the word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rules",
+       "at": 7,
+       "gives": "REIGNS",
+       "note": "a monarch reigns, or rules"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An umpire checks the regulations for spectators.",
+     "walkthrough": "REIGNS sounds like REINS.",
+     "definitionFit": "To rein something in is to restrain it, so reins as a verb means checks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rules"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1642,49 @@
     "text": "Fruit sandwiches one brings to bear",
     "enumeration": "7"
    },
-   "solution": "APPLIES"
+   "solution": "APPLIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brings to bear",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "at": 6,
+       "note": "sandwiches means puts between layers, so the fruit holds a letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fruit",
+       "at": 0,
+       "gives": "APPLES",
+       "note": "apples are fruit"
+      },
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit sandwich being brought to someone.",
+     "walkthrough": "'sandwiches' puts I inside APPLES.",
+     "definitionFit": "To apply pressure or force is to bring it to bear, a phrasal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1698,69 @@
     "text": "Jubilation from president repressing international hopes, primarily",
     "enumeration": "7"
    },
-   "solution": "TRIUMPH"
+   "solution": "TRIUMPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jubilation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "repressing",
+         "at": 26,
+         "note": "repressing pictures the president word holding another letter down inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "president",
+         "at": 16,
+         "gives": "TRUMP",
+         "note": "Donald Trump is a US president"
+        },
+        {
+         "words": "international",
+         "at": 37,
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 58,
+         "note": "primarily asks for the first letter of hopes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hopes",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leader's joy at crushing global aspirations.",
+     "walkthrough": "'repressing' puts I inside TRUMP; 'primarily' adds H from hopes.",
+     "definitionFit": "Triumph is the joy or elation felt at a victory, matching jubilation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1774,49 @@
     "text": "Shoot gripping Ken Loach film that's most sinister",
     "enumeration": "7"
    },
-   "solution": "DARKEST"
+   "solution": "DARKEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "most sinister",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 6,
+       "note": "gripping means holding tightly, so the shoot word holds the film title inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shoot",
+       "at": 0,
+       "gives": "DART",
+       "note": "to dart is to shoot or dash"
+      },
+      {
+       "words": "Ken Loach film",
+       "at": 15,
+       "gives": "KES",
+       "note": "Kes is Ken Loach's 1969 film about a boy and his kestrel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Filming a gripping Ken Loach movie that turns out very dark.",
+     "walkthrough": "Ken Loach is a British director of social-realist films; 'gripping' has the shoot word hold his best-known title.",
+     "definitionFit": "Darkest means most evil or menacing, the superlative of dark in its sinister sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1830,53 @@
     "text": "Education reflected father's wishes",
     "enumeration": "7"
    },
-   "solution": "DESIRES"
+   "solution": "DESIRES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wishes",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflected",
+         "at": 10,
+         "note": "reflected means seen in a mirror, so the education letters are turned backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Education",
+         "at": 0,
+         "gives": "ED"
+        }
+       ]
+      },
+      {
+       "words": "father's",
+       "at": 20,
+       "gives": "SIRES",
+       "note": "a sire is a father, and the 's becomes the final S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Schooling mirrored what a dad wanted.",
+     "walkthrough": "'reflected' turns ED into DE.",
+     "definitionFit": "Desires as a plural noun are things longed for, the same as wishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   }
  ]
 }
