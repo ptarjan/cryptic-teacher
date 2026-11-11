@@ -107,6 +107,9 @@ that is your `surface`, your `joke`.
   every piece and the answer is the whole run backwards, wrap the charade:
   `rev<back>([Rested]LAIN + [bow]ARC)` for CRANIAL (the indicator may stand between the
   pieces). Only when no single-piece reversal could give the answer.
+  The same wrap covers one indicator turning each piece IN PLACE: `rev<In return>([rid]RID + [for example]EG)`
+  gives DIR + GE for DIRGE, and `rev<comeback>([plan]MAP + [agent]REP)` PAM + PER for PAMPER. Join the pieces
+  with `+` inside the one `rev`, never as comma arguments (rev takes one argument); never withhold such a clue.
 - Every clue piece that gives letters is a term of the wordplay: leave none out, even a
   short query phrase ("look up where?" supplying part of AUSTRIA). Before writing a
   `wp`, spell each piece's letters in answer order and count them: the total must equal
