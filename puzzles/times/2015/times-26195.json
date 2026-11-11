@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Ruins components of meal …",
     "enumeration": "6"
    },
-   "solution": "DISHES"
+   "solution": "DISHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ruins",
+      "at": 0,
+      "meaning": "to dish someone's hopes is to spoil or wreck them, so the verb here means wrecks"
+     },
+     {
+      "text": "components of meal",
+      "at": 6,
+      "meaning": "the separate courses or plates served at a meal"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two senses: a verb meaning wrecks, as in spoiling a chance, and the plural noun for the courses that make up a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ruins"
+    }
+   }
   },
   {
    "number": 4,
@@ -44,7 +69,62 @@
     "text": "… melted brie, cut roll and chicken",
     "enumeration": "7"
    },
-   "solution": "BROILER"
+   "solution": "BROILER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chicken",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "melted",
+       "at": 2,
+       "note": "something melted has lost its shape, so the letters are reshaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brie",
+       "at": 9
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 15,
+         "note": "a cut roll has been trimmed, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roll",
+         "at": 19,
+         "gives": "ROLL",
+         "note": "taken as written before trimming"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step continuing the previous clue: melted brie and a sliced roll served with chicken.",
+     "walkthrough": "'cut' trims ROLL to ROL; 'melted' rearranges BRIE plus ROL into the answer. The ellipsis ties the surface to the meal in 1 Across.",
+     "definitionFit": "A young chicken raised for grilling or roasting is called by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 9,
@@ -58,7 +138,43 @@
     "text": "Newcastle supporter is so inclined?",
     "enumeration": "5"
    },
-   "solution": "PRONE"
+   "solution": "PRONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inclined",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "supporter",
+       "at": 10,
+       "gives": "PRO",
+       "note": "a pro is someone in favour of something"
+      },
+      {
+       "words": "Newcastle",
+       "at": 0,
+       "gives": "NE",
+       "note": "NE is the postcode area for Newcastle upon Tyne, in north-east England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan of Newcastle is asked whether they lean a certain way.",
+     "walkthrough": "The question mark flags the playful reading: a fan of Newcastle is PRO NE.",
+     "definitionFit": "Being disposed or liable to something is the same as being inclined to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 10,
@@ -72,7 +188,58 @@
     "text": "French person shown around capital of Luxembourg",
     "enumeration": "9"
    },
-   "solution": "PROVENCAL"
+   "solution": "PROVENCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shown",
+       "at": 14,
+       "gives": "PROVEN",
+       "note": "something shown or demonstrated has been proven"
+      },
+      {
+       "words": "around",
+       "at": 20,
+       "gives": "CA",
+       "note": "CA, short for circa, means around a date"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital of",
+         "at": 27,
+         "note": "the capital, or first letter, of the word that follows is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Luxembourg",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French visitor is taken on a tour of Luxembourg's capital city.",
+     "walkthrough": "'around' looks like a container signal, but here it is CA, circa.",
+     "definitionFit": "A native of Provence, the region in south-east France, is a French person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 11,
@@ -86,7 +253,41 @@
     "text": "Safe blown in explosion, with blooming deadly result?",
     "enumeration": "9"
    },
-   "solution": "WOLFSBANE"
+   "solution": "WOLFSBANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blooming deadly result",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in explosion",
+       "at": 11,
+       "note": "an explosion scatters pieces, so these letters are blasted into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Safe blown",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A safecracker's blast goes badly wrong, with deadly consequences.",
+     "definitionFit": "Aconite, a poisonous flowering plant, goes by this name, so it is a deadly thing that blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 12,
@@ -100,7 +301,59 @@
     "text": "Hasten to make hot spicy food, not cold",
     "enumeration": "5"
    },
-   "solution": "HURRY"
+   "solution": "HURRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hasten",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hot",
+       "at": 15,
+       "gives": "H",
+       "note": "H is the usual abbreviation for hot, as on taps"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 31,
+         "note": "not means the following letter is left out of the dish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spicy food",
+         "at": 19,
+         "gives": "CURRY",
+         "note": "curry is a spicy dish"
+        },
+        {
+         "words": "cold",
+         "at": 35,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to rush a hot curry, served warm rather than cold.",
+     "definitionFit": "To hasten is to move quickly or rush, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 13,
@@ -114,7 +367,51 @@
     "text": "Oddly, three kilometre journey",
     "enumeration": "4"
    },
-   "solution": "TREK"
+   "solution": "TREK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "journey",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Oddly",
+         "at": 0,
+         "note": "oddly takes the first, third and fifth letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "three",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "kilometre",
+       "at": 13,
+       "gives": "K",
+       "note": "K is the common abbreviation for kilometre"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walk of exactly three kilometres, strangely.",
+     "definitionFit": "A long or arduous journey, especially on foot, is a trek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 14,
@@ -128,7 +425,58 @@
     "text": "Seal vault, keeping room safe from the elements",
     "enumeration": "10"
    },
-   "solution": "STORMPROOF"
+   "solution": "STORMPROOF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "safe from the elements",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "at": 12,
+         "note": "keeping means holding something within, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Seal",
+         "at": 0,
+         "gives": "STOP",
+         "note": "to stop a hole is to seal it"
+        },
+        {
+         "words": "room",
+         "at": 20,
+         "gives": "RM"
+        }
+       ]
+      },
+      {
+       "words": "vault",
+       "at": 5,
+       "gives": "ROOF",
+       "note": "a vault is an arched roof"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Building advice: seal up the vaulted ceiling so the room stays weatherproof.",
+     "definitionFit": "Something built to withstand storms is protected against wind and rain, the elements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vault"
+    }
+   }
   },
   {
    "number": 18,
@@ -142,7 +490,48 @@
     "text": "Greek course in school near city",
     "enumeration": "10"
    },
-   "solution": "HIPPODROME"
+   "solution": "HIPPODROME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 13,
+       "gives": "HIP",
+       "note": "in, meaning fashionable, is hip"
+      },
+      {
+       "words": "school",
+       "at": 16,
+       "gives": "POD",
+       "note": "a school of whales or dolphins is also called a pod"
+      },
+      {
+       "words": "city",
+       "at": 28,
+       "gives": "ROME",
+       "note": "Rome is the Italian capital city"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek lesson held in a school beside a city.",
+     "walkthrough": "'course' suggests a lesson, and 'school' a building; the course is a racecourse.",
+     "definitionFit": "The ancient Greek track for horse and chariot racing was the hippodrome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 20,
@@ -156,7 +545,55 @@
     "text": "Port passed round during dinner, cautiously",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "passed round",
+       "at": 5,
+       "note": "passing something round turns it about, so these letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 18,
+         "note": "during means the letters sit within the run of words that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dinner, cautiously",
+         "at": 25,
+         "gives": "ERCA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a dinner party the port decanter is circulated with care.",
+     "walkthrough": "'Port' looks like the drink passed round the table; it is the harbour city in Israel.",
+     "definitionFit": "Acre is a historic harbour city in northern Israel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 23,
@@ -170,7 +607,29 @@
     "text": "Vehicle in India or the Friendly Islands",
     "enumeration": "5"
    },
-   "solution": "TONGA"
+   "solution": "TONGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vehicle in India",
+      "at": 0,
+      "meaning": "a light two-wheeled horse-drawn carriage used in India"
+     },
+     {
+      "text": "the Friendly Islands",
+      "at": 20,
+      "meaning": "the name Captain Cook gave to a Pacific archipelago, now a kingdom"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both an Indian horse-drawn cart and the Pacific kingdom nicknamed the Friendly Islands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Friendly"
+    }
+   }
   },
   {
    "number": 24,
@@ -184,7 +643,48 @@
     "text": "Making design of circles in lace work",
     "enumeration": "9"
    },
-   "solution": "TATTOOING"
+   "solution": "TATTOOING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Making design",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in means the circles are placed within the lace"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lace work",
+       "at": 28,
+       "gives": "TATTING",
+       "note": "tatting is a kind of handmade lace"
+      },
+      {
+       "words": "circles",
+       "at": 17,
+       "gives": "OO",
+       "note": "O looks like a circle, so two circles give OO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Creating a circular pattern in lacework.",
+     "definitionFit": "Inking a design into the skin is tattooing, so it is the making of a design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circles"
+    }
+   }
   },
   {
    "number": 25,
@@ -198,7 +698,54 @@
     "text": "Poor writer takes boat on river",
     "enumeration": "9"
    },
-   "solution": "PENNILESS"
+   "solution": "PENNILESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 23,
+       "note": "on means placed after, so the boat follows the river in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer",
+       "at": 5,
+       "gives": "PEN",
+       "note": "a pen is a writing implement"
+      },
+      {
+       "words": "river",
+       "at": 26,
+       "gives": "NILE",
+       "note": "the Nile is the great African river"
+      },
+      {
+       "words": "boat",
+       "at": 18,
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An impoverished author goes off on a river cruise.",
+     "definitionFit": "Having no money at all means being very poor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 26,
@@ -212,7 +759,35 @@
     "text": "Plot development that will inevitably surprise theatregoers when introduced",
     "enumeration": "5"
    },
-   "solution": "TWIST"
+   "solution": "TWIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plot development that will inevitably surprise theatregoers when introduced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Plot development that will inevitably surprise theatregoers when introduced",
+       "at": 0,
+       "note": "an unexpected turn in a story surprises the audience by definition, and the Dickens orphan's surname is introduced to audiences of the musical Oliver!"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A twist is an unexpected turn in a plot, so it always surprises. It is also Oliver's surname, and the musical Oliver! introduces him to theatregoers.",
+     "definitionFit": "An unexpected turn in a story is called by this word, and it surprises by its nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "introduced"
+    }
+   }
   },
   {
    "number": 27,
@@ -226,7 +801,56 @@
     "text": "Canned food I had talked of",
     "enumeration": "3-4"
    },
-   "solution": "PIEEYED"
+   "solution": "PIEEYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Canned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "food",
+       "at": 7,
+       "gives": "PIE",
+       "note": "a pie is a common food"
+      },
+      {
+       "op": "homophone",
+       "spelt": "EYED",
+       "indicators": [
+        {
+         "text": "talked of",
+         "at": 18,
+         "note": "talked of means the words are spoken, so the spelling follows the sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I had",
+         "at": 12,
+         "gives": "ID",
+         "note": "I had contracts to I'd"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing the tinned food they ate.",
+     "walkthrough": "'Canned' looks like tinned, with 'food' alongside; it is slang for drunk.",
+     "definitionFit": "Canned is slang for drunk, and so is this hyphenated word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Canned"
+    }
+   }
   },
   {
    "number": 28,
@@ -240,7 +864,42 @@
     "text": "Dealer rejected single-colour painting?",
     "enumeration": "6"
    },
-   "solution": "TRADER"
+   "solution": "TRADER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dealer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejected",
+       "at": 7,
+       "note": "rejected means thrown back, so the letters are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "single-colour painting",
+       "at": 16,
+       "gives": "REDART",
+       "note": "a painting all in red could be called red art"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art dealer turns down a monochrome canvas.",
+     "definitionFit": "A trader buys and sells goods, so is a dealer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "painting"
+    }
+   }
   },
   {
    "number": 1,
@@ -254,7 +913,53 @@
     "text": "Vehicle fitment daughter installed near Suffolk town, you say?",
     "enumeration": "9"
    },
-   "solution": "DIPSWITCH"
+   "solution": "DIPSWITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vehicle fitment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "daughter",
+       "at": 16,
+       "gives": "D"
+      },
+      {
+       "op": "homophone",
+       "spelt": "IPSWITCH",
+       "indicators": [
+        {
+         "text": "you say",
+         "at": 54,
+         "note": "you say means the town's name is heard, not written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Suffolk town",
+         "at": 40,
+         "gives": "IPSWICH",
+         "note": "Ipswich is the county town of Suffolk, in eastern England"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car part fitted by a daughter in a garage near Ipswich.",
+     "definitionFit": "A car's switch for lowering the headlight beam is a fitment on a vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "installed"
+    }
+   }
   },
   {
    "number": 2,
@@ -268,7 +973,72 @@
     "text": "FBI informer is loading rifle the wrong way, note",
     "enumeration": "7"
    },
-   "solution": "STOOLIE"
+   "solution": "STOOLIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "FBI informer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "the wrong way",
+         "at": 30,
+         "note": "the wrong way means back to front, so the combined letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "loading",
+           "at": 16,
+           "note": "loading means taking on board, so one piece goes inside the other"
+          }
+         ],
+         "parts": [
+          {
+           "words": "is",
+           "at": 13,
+           "gives": "IS",
+           "note": "taken as written"
+          },
+          {
+           "words": "rifle",
+           "at": 24,
+           "gives": "LOOT",
+           "note": "to rifle a place is to loot it"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "at": 45,
+       "gives": "E",
+       "note": "E is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An informant is caught loading a gun incorrectly.",
+     "walkthrough": "'rifle' looks like a gun being loaded; here it is a verb meaning plunder. 'loading' and 'the wrong way' together make STOOLI.",
+     "definitionFit": "Stoolie, short for stool pigeon, is American slang for a police informer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rifle"
+    }
+   }
   },
   {
    "number": 3,
@@ -282,7 +1052,49 @@
     "text": "However service comes with 25% off",
     "enumeration": "4,2"
    },
-   "solution": "EVENSO"
+   "solution": "EVENSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "However",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 31,
+       "note": "off means taken away, so the named quarter is removed from the service"
+      }
+     ],
+     "parts": [
+      {
+       "words": "service",
+       "at": 8,
+       "gives": "EVENSONG",
+       "note": "evensong is the evening church service"
+      },
+      {
+       "words": "25%",
+       "at": 27,
+       "gives": "NG",
+       "note": "a quarter of the eight letters of the church service is its final two"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service comes with a quarter-price discount.",
+     "walkthrough": "'off' removes '25%', the last two of EVENSONG's eight letters, NG.",
+     "definitionFit": "The phrase means nevertheless, which is a synonym of however."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 4,
@@ -296,7 +1108,52 @@
     "text": "British individual in pursuit of old American frontiersman",
     "enumeration": "5"
    },
-   "solution": "BOONE"
+   "solution": "BOONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American frontiersman",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in pursuit of",
+       "at": 19,
+       "note": "in pursuit of means following behind, so this piece comes after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "words": "old",
+       "at": 33,
+       "gives": "O"
+      },
+      {
+       "words": "individual",
+       "at": 8,
+       "gives": "ONE",
+       "note": "one means a single individual"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Briton chasing an old American pioneer.",
+     "definitionFit": "Daniel Boone was a famous American pioneer of Kentucky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pursuit"
+    }
+   }
   },
   {
    "number": 5,
@@ -310,7 +1167,56 @@
     "text": "Exaggerated claim about cases of healthy produce",
     "enumeration": "8"
    },
-   "solution": "OVERHYPE"
+   "solution": "OVERHYPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exaggerated claim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 18,
+       "gives": "OVER",
+       "note": "over can mean about, as in arguing over something"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "cases of",
+         "at": 24,
+         "note": "the cases are the outer letters that enclose each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "healthy",
+         "at": 33
+        },
+        {
+         "words": "produce",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A marketing boast about the containers of organic vegetables.",
+     "walkthrough": "'cases of' takes the outside letters of both words, H-Y and P-E.",
+     "definitionFit": "Excessive promotion or overblown publicity is an exaggerated claim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 6,
@@ -324,7 +1230,58 @@
     "text": "A group of sailors boarding train in European town",
     "enumeration": "7"
    },
-   "solution": "LOCARNO"
+   "solution": "LOCARNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European town",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boarding",
+       "at": 19,
+       "note": "boarding means getting on, so these pieces go inside the train"
+      }
+     ],
+     "parts": [
+      {
+       "words": "train",
+       "at": 28,
+       "gives": "LOCO",
+       "note": "loco is short for locomotive"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "group of sailors",
+         "at": 2,
+         "gives": "RN",
+         "note": "RN is the Royal Navy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors climb aboard a train bound for a European town.",
+     "definitionFit": "Locarno is a Swiss town on Lake Maggiore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 7,
@@ -338,7 +1295,48 @@
     "text": "Recover absolutely, needing energy",
     "enumeration": "5"
    },
-   "solution": "RALLY"
+   "solution": "RALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "needing",
+       "at": 20,
+       "note": "needing means lacking, so the letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "absolutely",
+       "at": 8,
+       "gives": "REALLY",
+       "note": "really means absolutely or truly"
+      },
+      {
+       "words": "energy",
+       "at": 28,
+       "gives": "E",
+       "note": "E is the symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting fully well again requires lots of energy.",
+     "definitionFit": "To rally is to recover strength after illness or setback."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "needing"
+    }
+   }
   },
   {
    "number": 8,
@@ -352,7 +1350,51 @@
     "text": "Dash of liquid served at first with part of meal",
     "enumeration": "8"
    },
-   "solution": "SPLATTER"
+   "solution": "SPLATTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dash of liquid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 22,
+         "note": "at first takes the opening letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "served",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "part of meal",
+       "at": 36,
+       "gives": "PLATTER",
+       "note": "a platter is a course served on a large dish, as in a seafood platter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A splash of sauce is served with the opening course.",
+     "definitionFit": "A splatter is a splash or spot of liquid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dash"
+    }
+   }
   },
   {
    "number": 15,
@@ -366,7 +1408,59 @@
     "text": "Second in scripture exam? Most unlikely",
     "enumeration": "8"
    },
-   "solution": "REMOTEST"
+   "solution": "REMOTEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most unlikely",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in means the second piece goes between the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "scripture",
+         "at": 10,
+         "gives": "RE",
+         "note": "RE is religious education, school scripture lessons"
+        },
+        {
+         "words": "exam",
+         "at": 20,
+         "gives": "TEST",
+         "note": "a test is an exam"
+        }
+       ]
+      },
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "MO",
+       "note": "mo is a moment, a short time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming second in a religious studies test seems very improbable.",
+     "definitionFit": "A remotest chance is the slightest, so the word means least likely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 16,
@@ -380,7 +1474,49 @@
     "text": "Ship being bound for scrap, maybe, with engineers aboard",
     "enumeration": "9"
    },
-   "solution": "FREIGHTER"
+   "solution": "FREIGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 50,
+       "note": "aboard means on board, so the engineers go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being bound for scrap, maybe",
+       "at": 5,
+       "gives": "FIGHTER",
+       "note": "a fighter is someone heading for a scrap, or fight"
+      },
+      {
+       "words": "engineers",
+       "at": 40,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British army corps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old ship destined for the scrapyard with engineers still on board.",
+     "walkthrough": "'bound for scrap' suggests breaking up a ship; scrap is a fight.",
+     "definitionFit": "A freighter is a cargo ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 17,
@@ -394,7 +1530,57 @@
     "text": "Child came down with scurvy, ultimately? That's all there is to it",
     "enumeration": "8"
    },
-   "solution": "TOTALITY"
+   "solution": "TOTALITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "all there is to it",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Child",
+       "at": 0,
+       "gives": "TOT",
+       "note": "a tot is a small child"
+      },
+      {
+       "words": "came down",
+       "at": 6,
+       "gives": "ALIT",
+       "note": "alit means landed or came down"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 29,
+         "note": "ultimately takes the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scurvy",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child falls ill with scurvy, and that is the end of it.",
+     "definitionFit": "Totality means the whole, the entirety of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scurvy"
+    }
+   }
   },
   {
    "number": 19,
@@ -408,7 +1594,58 @@
     "text": "US prison service introducing new form of punishment",
     "enumeration": "7"
    },
-   "solution": "PENANCE"
+   "solution": "PENANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "form of punishment",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US prison",
+       "at": 0,
+       "gives": "PEN",
+       "note": "pen, short for penitentiary, is American for prison"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "introducing",
+         "at": 18,
+         "note": "introducing means bringing in, so the letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "service",
+         "at": 10,
+         "gives": "ACE",
+         "note": "an ace is an unreturned service in tennis"
+        },
+        {
+         "words": "new",
+         "at": 30,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American jail brings in a new way of punishing inmates.",
+     "definitionFit": "Penance is self-punishment undertaken to atone for wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 21,
@@ -422,7 +1659,41 @@
     "text": "Check what Homer wrote, for a long time",
     "enumeration": "7"
    },
-   "solution": "CHILIAD"
+   "solution": "CHILIAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a long time",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Check",
+       "at": 0,
+       "gives": "CH",
+       "note": "CH is the chess abbreviation for check"
+      },
+      {
+       "words": "what Homer wrote",
+       "at": 6,
+       "gives": "ILIAD",
+       "note": "the Iliad is Homer's epic poem"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Checking Homer's writing could take ages.",
+     "definitionFit": "A chiliad is a thousand years, a very long time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 22,
@@ -436,7 +1707,55 @@
     "text": "Cook crumble and fish in turn",
     "enumeration": "6"
    },
-   "solution": "DOCTOR"
+   "solution": "DOCTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "in turn",
+       "at": 22,
+       "note": "in turn means turned round, so both pieces are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "crumble",
+         "at": 5,
+         "gives": "ROT",
+         "note": "to rot is to decay or crumble"
+        },
+        {
+         "words": "fish",
+         "at": 17,
+         "gives": "COD",
+         "note": "cod is a fish"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen instructions: make a crumble and then a fish course.",
+     "walkthrough": "'Cook' and 'crumble' look like a dessert recipe; cook means falsify, as in cooking the books.",
+     "definitionFit": "To doctor figures is to cook or falsify them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crumble"
+    }
+   }
   },
   {
    "number": 23,
@@ -450,7 +1769,41 @@
     "text": "Extra credit will get you first at university",
     "enumeration": "3-2"
    },
-   "solution": "TOPUP"
+   "solution": "TOPUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extra credit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "first",
+       "at": 26,
+       "gives": "TOP",
+       "note": "top means first or best"
+      },
+      {
+       "words": "at university",
+       "at": 32,
+       "gives": "UP",
+       "note": "UP means in residence at university, as in going up to Oxford"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming top at university earns bonus marks.",
+     "definitionFit": "A top-up is an additional amount, such as extra phone credit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 24,
@@ -464,7 +1817,52 @@
     "text": "River boat finally reaching dock, perhaps",
     "enumeration": "5"
    },
-   "solution": "TWEED"
+   "solution": "TWEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 11,
+         "note": "finally takes the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boat",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "dock, perhaps",
+       "at": 28,
+       "gives": "WEED",
+       "note": "dock is a common weed, so it is an example of one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat at last reaches its mooring on a river.",
+     "walkthrough": "'dock' looks like a mooring; it is the plant.",
+     "definitionFit": "The Tweed is a river on the border of England and Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   }
  ]
 }
