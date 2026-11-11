@@ -399,8 +399,9 @@ def run_unit(unit, cache, puzzles, reread):
     if unit["paper"] == "trove":
         return m.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
     if unit["paper"] == "listener":
-        if unit["rel"].startswith(gale_jumbo_read.PREFIX):
-            return gale_jumbo_read.read_unit(unit["rel"])
+        import gale_jumbo_read as jumbo  # a unit process exits before the queue's own imports
+        if unit["rel"].startswith(jumbo.PREFIX):
+            return jumbo.read_unit(unit["rel"])
         return m.read_unit(unit["rel"])
     paper = m.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
