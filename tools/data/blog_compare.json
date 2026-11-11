@@ -1,14 +1,14 @@
 {
  "_why": "Our annotations against the blogs' marked facts (tools/blog_compare.py). Rates are disagreements per clue where both sides mark that fact; `due` is each puzzle's clues still disagreeing, unfiled in blog_disagree.json, which tools/prereset_backfill.sh re-checks. A disagreement is a prompt to check, not an overwrite.",
  "coverage": {
-  "blog_hinted_clues": 21090,
-  "blog_hinted_partial_puzzles": 131,
-  "blog_hinted_puzzles": 966,
-  "blog_marked_clues": 19127,
-  "clues": 2264061,
-  "puzzles": 75434,
-  "unhinted_clues": 1050492,
-  "unhinted_puzzles": 34245
+  "blog_hinted_clues": 17609,
+  "blog_hinted_partial_puzzles": 134,
+  "blog_hinted_puzzles": 787,
+  "blog_marked_clues": 16081,
+  "clues": 2267927,
+  "puzzles": 75556,
+  "unhinted_clues": 1037819,
+  "unhinted_puzzles": 33799
  },
  "summary": {
   "azed": {
@@ -39,7 +39,7 @@
    "type_rate": 0.03
   },
   "cyclops": {
-   "blocks_compared": 8064,
+   "blocks_compared": 8063,
    "blocks_kept": 3,
    "clues": 10344,
    "definition_compared": 7268,
@@ -168,28 +168,28 @@
   },
   "sundaytough": {
    "blocks_compared": 425,
-   "clues": 4111,
-   "definition_compared": 4049,
-   "type_compared": 664,
+   "clues": 4125,
+   "definition_compared": 4063,
+   "type_compared": 665,
    "type_kept": 15,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
    "type_rate": 0.0
   },
   "telegraph": {
-   "blocks_compared": 41654,
-   "blocks_disagree": 1,
+   "blocks_compared": 43977,
+   "blocks_disagree": 2,
    "blocks_kept": 16,
-   "clues": 120401,
+   "clues": 123875,
    "definition_compared": 103307,
    "definition_disagree": 5,
    "definition_kept": 82,
-   "type_compared": 32726,
-   "type_disagree": 19,
-   "type_kept": 230,
+   "type_compared": 33874,
+   "type_disagree": 26,
+   "type_kept": 246,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
-   "type_rate": 0.06
+   "type_rate": 0.08
   },
   "times": {
    "blocks_compared": 56933,
@@ -217,10 +217,10 @@
    "type_rate": 0.0
   },
   "timesjumbo": {
-   "blocks_compared": 22177,
+   "blocks_compared": 22178,
    "blocks_kept": 2,
-   "clues": 32038,
-   "definition_compared": 31590,
+   "clues": 32039,
+   "definition_compared": 31591,
    "definition_kept": 22,
    "type_compared": 20301,
    "type_kept": 75,
@@ -267,16 +267,16 @@
    "type_rate": 0.0
   },
   "ALL": {
-   "blocks_compared": 516561,
-   "blocks_disagree": 9,
+   "blocks_compared": 518884,
+   "blocks_disagree": 10,
    "blocks_kept": 497,
-   "clues": 922690,
-   "definition_compared": 831262,
+   "clues": 926179,
+   "definition_compared": 831277,
    "definition_disagree": 10,
    "definition_kept": 1020,
-   "type_compared": 474549,
-   "type_disagree": 75,
-   "type_kept": 3233,
+   "type_compared": 475698,
+   "type_disagree": 82,
+   "type_kept": 3249,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
    "type_rate": 0.02
@@ -411,6 +411,13 @@
     "clue": "Men swapping sides in pedalo creates havoc",
     "answer": "CHAOS",
     "warning": "Fifteensquared reads 'pedalo' as PO, and no block of ours spells it or takes those words (https://fifteensquared.net/2025/05/14/financial-times-18053-by-guy/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "telegraph-26519",
+    "entry": "13-across",
+    "clue": "Carelessly ratify cost as meeting requirements",
+    "answer": "SATISFACTORY",
+    "warning": "Big Dave's Crossword Blog reads 'meeting requirements' as OK, and no block of ours spells it or takes those words (https://bigdave44.com/2011/04/06/dt-26519/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "telegraph-27703",
@@ -889,6 +896,52 @@
   "independent-11922": [
    [
     "1-across",
+    "type"
+   ]
+  ],
+  "telegraph-26506": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "telegraph-26519": [
+   [
+    "13-across",
+    "blocks"
+   ]
+  ],
+  "telegraph-26542": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "telegraph-26543": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "telegraph-26547": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "telegraph-26611": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "telegraph-26633": [
+   [
+    "15-across",
+    "type"
+   ],
+   [
+    "25-across",
     "type"
    ]
   ],
