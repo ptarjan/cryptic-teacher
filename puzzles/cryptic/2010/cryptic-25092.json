@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,64 @@
     "text": "Small volume about Scottish girl (not English), a standard work",
     "enumeration": "7"
    },
-   "solution": "CLASSIC"
+   "solution": "CLASSIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a standard work",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means one piece is placed around the other, so the volume goes round the girl"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Small volume",
+       "at": 0,
+       "gives": "CC",
+       "note": "cc, cubic centimetres, is a small measure of volume"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 34,
+         "note": "not tells us to leave out the letter for English from the girl"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish girl",
+         "at": 19,
+         "gives": "LASSIE",
+         "note": "a lassie is a Scots word for a girl"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slim book about a Scottish lass, written without English, has become a standard text.",
+     "walkthrough": "'not English' removes the E from the girl, and 'about' puts what is left inside the small volume. 'Scottish girl' is the clue's way of asking for the Scots word.",
+     "definitionFit": "A classic is a work regarded as a model or standard of its kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +105,31 @@
     "text": "It's six-sided, or eight",
     "enumeration": "4"
    },
-   "solution": "CUBE"
+   "solution": "CUBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's six-sided",
+      "at": 0,
+      "meaning": "a solid with six square faces"
+     },
+     {
+      "text": "eight",
+      "at": 19,
+      "meaning": "two multiplied by itself three times gives eight, the third power of two"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is arithmetic: eight is the third power of two.",
+     "definitionFit": "A regular solid has six square faces, and eight is two raised to the third power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "eight"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +143,46 @@
     "text": "Demo loses leader and chief",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chief",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loses leader",
+       "at": 5,
+       "note": "losing its leader means the word drops its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Demo",
+       "at": 0,
+       "gives": "MARCH",
+       "note": "a march is a protest demonstration"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protest without its organiser, and its chief.",
+     "walkthrough": "MARCH drops its first letter M ('loses leader').",
+     "definitionFit": "As an adjective arch means principal or chief, as in archenemy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Demo"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +196,61 @@
     "text": "Shore base, possibly with winding road",
     "enumeration": "8"
    },
-   "solution": "SEABOARD"
+   "solution": "SEABOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shore",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 12,
+         "note": "possibly says the letters of base could be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "base",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "winding",
+         "at": 26,
+         "note": "a winding road twists, so its letters are twisted into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "road",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coastal base, perhaps reached by a twisting road.",
+     "walkthrough": "'possibly' makes SEAB from BASE and 'winding' makes OARD from ROAD.",
+     "definitionFit": "A seaboard is the coastline or shore region of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +264,67 @@
     "text": "Thick ground cover, good going for cricket, initially?",
     "enumeration": "5"
    },
-   "solution": "CRASS"
+   "solution": "CRASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 44,
+         "note": "initially means only the opening letter of cricket is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cricket",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "going",
+         "at": 25,
+         "note": "good going means the letter for good departs from the grass"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ground cover",
+         "at": 6,
+         "gives": "GRASS",
+         "note": "grass covers the ground"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dense cover of grass makes good going for a cricket match.",
+     "walkthrough": "With 'going' the G for good leaves GRASS, and 'for cricket, initially' sets the C of cricket in its place at the front, giving RASS after C.",
+     "definitionFit": "Crass means stupid or insensitive, a sense close to thick meaning dim-witted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thick"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +338,57 @@
     "text": "Spasmodic? Well, not totally occupied",
     "enumeration": "6"
    },
-   "solution": "FITFUL"
+   "solution": "FITFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spasmodic?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Well",
+       "at": 11,
+       "gives": "FIT",
+       "note": "well in the sense of healthy means fit"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not totally",
+         "at": 17,
+         "note": "not totally means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "occupied",
+         "at": 29,
+         "gives": "FULL",
+         "note": "occupied, like a full room, means full"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asked whether something was spasmodic, the reply is that it was only partly occupied.",
+     "walkthrough": "FULL loses its last letter ('not totally') to give FUL.",
+     "definitionFit": "Fitful means irregular, happening in bursts, which is what spasmodic describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +402,59 @@
     "text": "One stupid person at party turned up as a crustacean",
     "enumeration": "6"
    },
-   "solution": "ISOPOD"
+   "solution": "ISOPOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a crustacean",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "stupid person",
+       "at": 4,
+       "gives": "SOP",
+       "note": "a sop is a feeble, soft-headed person"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 27,
+         "note": "in a down clue turned up means the word reads from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 21,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish person turned up at a party dressed as a crustacean.",
+     "walkthrough": "'turned up' reverses DO to OD.",
+     "definitionFit": "An isopod is a crustacean such as the woodlouse, with seven pairs of similar legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +468,55 @@
     "text": "Young horse, say, with horse-breaker to produce delaying action",
     "enumeration": "10"
    },
-   "solution": "FILIBUSTER"
+   "solution": "FILIBUSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "delaying action",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "FILI",
+       "indicators": [
+        {
+         "text": "say",
+         "at": 13,
+         "note": "say signals that the word for a young horse is used for its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Young horse",
+         "at": 0,
+         "gives": "FILLY",
+         "note": "a filly is a young female horse"
+        }
+       ]
+      },
+      {
+       "words": "horse-breaker",
+       "at": 23,
+       "gives": "BUSTER",
+       "note": "a buster, as in bronco-buster, breaks in wild horses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young horse and a horse-breaker are used to produce a delay.",
+     "walkthrough": "FILI is how the start of the answer sounds, like FILLY ('say'). BUSTER is American slang for a horse-breaker.",
+     "definitionFit": "A filibuster is a long speech used to delay or block a vote, a delaying tactic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +536,40 @@
      }
     ]
    },
-   "solution": "LIGHTMETER"
+   "solution": "LIGHTMETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "device used by a photographer",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Portable",
+       "at": 0,
+       "gives": "LIGHT",
+       "note": "light things are easily carried"
+      },
+      {
+       "words": "recording",
+       "at": 9,
+       "gives": "METER",
+       "note": "a meter is an instrument that records a measurement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handheld recording gadget that a photographer carries.",
+     "definitionFit": "A photographer uses this instrument to measure the brightness of light for exposure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +583,53 @@
     "text": "Punter, we hear, at this card game",
     "enumeration": "8"
    },
-   "solution": "BACCARAT"
+   "solution": "BACCARAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this card game",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BACCAR",
+       "indicators": [
+        {
+         "text": "we hear",
+         "at": 8,
+         "note": "we hear signals that the word for a punter is used for its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Punter",
+         "at": 0,
+         "gives": "BACKER",
+         "note": "a backer is someone who places a bet"
+        }
+       ]
+      },
+      {
+       "words": "at",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler is spotted at this card game, we're told.",
+     "walkthrough": "'we hear' works on the punter's word: said aloud it matches the start of the game's name, and the clue's own 'at' finishes it off.",
+     "definitionFit": "Baccarat is a casino card game on which players bet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Punter"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +649,31 @@
      }
     ]
    },
-   "solution": "DOGLEG"
+   "solution": "DOGLEG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A sharp bend",
+      "at": 0,
+      "meaning": "an abrupt angle in a road or path"
+     },
+     {
+      "text": "of course",
+      "at": 14,
+      "meaning": "on a golf course, a hole whose fairway bends sharply"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'of course' is a golf course, not the phrase meaning naturally.",
+     "definitionFit": "A dogleg is a sharp angle, especially a golf hole bending left or right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +687,58 @@
     "text": "Tentative proposal of charge on line about to arise",
     "enumeration": "6"
    },
-   "solution": "FEELER"
+   "solution": "FEELER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tentative proposal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "charge",
+       "at": 22,
+       "gives": "FEE",
+       "note": "a fee is a charge"
+      },
+      {
+       "words": "line",
+       "at": 32,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to arise",
+         "at": 43,
+         "note": "in a down clue arising means reading upwards, so the word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "at": 37,
+         "gives": "RE",
+         "note": "re is Latin for about, concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tentative proposal of a fee on the line is about to come up.",
+     "walkthrough": "'to arise' reverses RE to ER.",
+     "definitionFit": "A feeler is a cautious approach made to test opinion before a firm offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +762,41 @@
      }
     ]
    },
-   "solution": "HORSDECOMBAT"
+   "solution": "HORSDECOMBAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wounded",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 14,
+       "note": "upset means knocked over and disordered, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trashed combo",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trashed band set-up leaves everyone upset and hurt.",
+     "walkthrough": "The French phrase means out of action through injury.",
+     "definitionFit": "Hors de combat is French for out of the fight, applied to someone disabled by wounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trashed"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +816,35 @@
      }
     ]
    },
-   "solution": "HURDYGURDY"
+   "solution": "HURDYGURDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical instrument whose parts only differ at the top",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Musical instrument whose parts only differ at the top",
+       "at": 0,
+       "note": "an instrument whose name has two halves that rhyme, matching except for their opening letters"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "In a down clue 'the top' is the start of each half of the name.",
+     "definitionFit": "This is a cranked stringed folk instrument whose name is two rhyming halves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +858,48 @@
     "text": "I (scorer) end with wrong result, to may need to do this",
     "enumeration": "10"
    },
-   "solution": "RECONSIDER"
+   "solution": "RECONSIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may need to do this",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 20,
+       "note": "with a wrong result the letters come out in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "at": 0
+      },
+      {
+       "words": "scorer",
+       "at": 3
+      },
+      {
+       "words": "end",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scorer who ends with a wrong result may need to think again.",
+     "walkthrough": "The clue's 'to' reads like a slip for 'so'; the anagram of I, SCORER and END under 'wrong' stands complete.",
+     "definitionFit": "To reconsider is to think again about a decision, as a scorer with a wrong total would."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +913,58 @@
     "text": "Make call in a French railway, not making a mistake",
     "enumeration": "10"
    },
-   "solution": "UNERRINGLY"
+   "solution": "UNERRINGLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not making a mistake",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a French",
+       "at": 13,
+       "gives": "UNE",
+       "note": "une is French for a"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 10,
+         "note": "in means the call goes inside the railway abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "railway",
+         "at": 22,
+         "gives": "RLY"
+        },
+        {
+         "words": "Make call",
+         "at": 0,
+         "gives": "RING",
+         "note": "to ring is to make a telephone call"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making a phone call on a French railway, without making an error.",
+     "walkthrough": "'a French' is the French indefinite article, a common crossword device; 'in' puts the call inside the railway abbreviation.",
+     "definitionFit": "Unerringly means without error, unfailingly accurately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +978,35 @@
     "text": "A perfect beginner?",
     "enumeration": "6"
    },
-   "solution": "NOVICE"
+   "solution": "NOVICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A perfect beginner?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A perfect beginner?",
+       "at": 0,
+       "note": "someone perfect has ..., and a beginner is a learner or trainee"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Split the answer into two words to see why a perfect person fits.",
+     "definitionFit": "A novice is someone new to an activity, a learner or beginner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "perfect"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1020,28 @@
     "text": "Look where to find a cathedral",
     "enumeration": "3"
    },
-   "solution": "SEE"
+   "solution": "SEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0,
+      "meaning": "to behold or observe"
+     },
+     {
+      "text": "where to find a cathedral",
+      "at": 5,
+      "meaning": "a bishop's diocese, whose seat is a cathedral"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To see is to look, and a see is a bishop's diocese centred on a cathedral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1055,35 @@
     "text": "I could have been in rough water but I'm still all in one piece",
     "enumeration": "8"
    },
-   "solution": "SWIMSUIT"
+   "solution": "SWIMSUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I could have been in rough water but I'm still all in one piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I could have been in rough water but I'm still all in one piece",
+       "at": 0,
+       "note": "a garment worn in the sea that is a single piece of clothing rather than a damaged survivor"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'in one piece' suggests surviving unharmed but means a one-piece garment.",
+     "definitionFit": "A swimsuit is a garment for swimming, often a one-piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1097,53 @@
     "text": "Associated pair in the clouds making a comeback",
     "enumeration": "3"
    },
-   "solution": "DUO"
+   "solution": "DUO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Associated pair",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "making a comeback",
+       "at": 30,
+       "note": "making a comeback means coming back, so the letters read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "in says the letters lie inside the word clouds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clouds",
+         "at": 23,
+         "gives": "OUD"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A partnership up in the clouds makes a comeback.",
+     "walkthrough": "'in' takes OUD from cl-OUD-s and 'making a comeback' turns it round.",
+     "definitionFit": "A duo is a pair of people associated in performing or working together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1157,35 @@
     "text": "Something mislaid? Look here!",
     "enumeration": "10"
    },
-   "solution": "EVERYWHERE"
+   "solution": "EVERYWHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something mislaid? Look here!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Something mislaid? Look here!",
+       "at": 0,
+       "note": "the place to search for a lost item reads as advice to search in all places"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Look here!' sounds like pointing to one spot, but the answer is the opposite advice.",
+     "definitionFit": "Everywhere means in all places, which is where you look for something lost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1199,59 @@
     "text": "Provided uplifts at the time of company's collapse",
     "enumeration": "6"
    },
-   "solution": "FIASCO"
+   "solution": "FIASCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "collapse",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uplifts",
+         "at": 9,
+         "note": "in a down clue uplifting means raising, reading the word upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Provided",
+         "at": 0,
+         "gives": "IF",
+         "note": "if means provided that"
+        }
+       ]
+      },
+      {
+       "words": "at the time of",
+       "at": 17,
+       "gives": "AS",
+       "note": "as means while, at the time of"
+      },
+      {
+       "words": "company's",
+       "at": 32,
+       "gives": "CO",
+       "note": "co is the abbreviation for company"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Funding provided lifts the company at the time of its collapse.",
+     "walkthrough": "'uplifts' reverses IF to FI.",
+     "definitionFit": "A fiasco is a humiliating failure, a complete collapse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1271,35 @@
      }
     ]
    },
-   "solution": "GOSSIPCOLUMN"
+   "solution": "GOSSIPCOLUMN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For news of a pillar of the establishment?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "For news of a pillar of the establishment?",
+       "at": 0,
+       "note": "a pillar can be a newspaper feature and chatter is news of public figures"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'pillar' suggests a respected person but means a newspaper feature.",
+     "definitionFit": "This newspaper feature reports rumour and news about prominent people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pillar"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1313,47 @@
     "text": "Start off without a meal",
     "enumeration": "5"
    },
-   "solution": "LUNCH"
+   "solution": "LUNCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 10,
+       "note": "without tells us the letter a is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Start off",
+       "at": 0,
+       "gives": "LAUNCH",
+       "note": "to launch is to start something off"
+      },
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A day started off without breakfast.",
+     "walkthrough": "'without' removes A from LAUNCH.",
+     "definitionFit": "Lunch is the midday meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1367,33 @@
     "text": "Opening that could be barred",
     "enumeration": "4"
    },
-   "solution": "GATE"
+   "solution": "GATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opening that could be barred",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Opening that could be barred",
+       "at": 0,
+       "note": "an entrance closed with bars, or simply a hinged barrier made of bars"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A gate is an opening in a wall or fence, often made of bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barred"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1407,48 @@
     "text": "Officer supports exercises at a rapid pace",
     "enumeration": "4"
    },
-   "solution": "PELT"
+   "solution": "PELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rapid pace",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 8,
+       "note": "in a down clue supporting means sitting underneath, so the officer comes below"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercises",
+       "at": 17,
+       "gives": "PE",
+       "note": "PE is physical education, exercises"
+      },
+      {
+       "words": "Officer",
+       "at": 0,
+       "gives": "LT",
+       "note": "Lt is the abbreviation for lieutenant, an officer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer backs exercises done at speed.",
+     "walkthrough": "'supports' puts LT under PE.",
+     "definitionFit": "A pelt is a fast speed, as in running at full pelt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1462,41 @@
     "text": "This plant is hard, brittle",
     "enumeration": "6"
    },
-   "solution": "RADISH"
+   "solution": "RADISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "brittle",
+       "at": 20,
+       "note": "brittle things break up, so these letters are broken and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is hard",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "This plant is tough yet fragile.",
+     "walkthrough": "'brittle' rearranges IS HARD.",
+     "definitionFit": "The radish is a plant grown for its peppery root."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brittle"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1510,73 @@
     "text": "Most of the piece about new island is to develop slowly",
     "enumeration": "8"
    },
-   "solution": "INCUBATE"
+   "solution": "INCUBATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "develop slowly",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "about means the shortened piece goes around the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piece",
+         "at": 12,
+         "gives": "ITEM",
+         "note": "an item is a piece"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 24,
+         "gives": "N"
+        },
+        {
+         "words": "island",
+         "at": 28,
+         "gives": "CUBA",
+         "note": "Cuba is a Caribbean island"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most of the article about a new island is developed slowly.",
+     "walkthrough": "ITEM loses its last letter ('Most of') to give ITE, which goes 'about' N and CUBA.",
+     "definitionFit": "To incubate is to develop gradually, as eggs or an idea do over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1590,40 @@
     "text": "Unknown quantity as missile plant",
     "enumeration": "6"
    },
-   "solution": "YARROW"
+   "solution": "YARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unknown quantity",
+       "at": 0,
+       "gives": "Y",
+       "note": "y is a variable in algebra, an unknown quantity"
+      },
+      {
+       "words": "missile",
+       "at": 20,
+       "gives": "ARROW",
+       "note": "an arrow is a missile shot from a bow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unknown quantity used as a missile plant.",
+     "definitionFit": "Yarrow is a flowering plant, also called milfoil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1643,54 @@
      }
     ]
    },
-   "solution": "HOTSEAT"
+   "solution": "HOTSEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unenviable position",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in conflict",
+         "at": 41,
+         "note": "in conflict means at odds, so the letters fight their way into new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "those",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 34
+      },
+      {
+       "words": "time",
+       "at": 36,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unenviable position for people with time against them in a dispute.",
+     "walkthrough": "'in conflict' rearranges THOSE, A and T.",
+     "definitionFit": "Being in the hot seat means being in a difficult position under pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
