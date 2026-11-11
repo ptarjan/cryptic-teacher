@@ -2234,13 +2234,13 @@ def see_pages(pages):
     return f" (it sends to p. {', '.join(map(str, pages))})" if pages else ""
 
 
-def times_read(blocks):
+def times_read(blocks, lengths=None):
     """(verdict, laid) of a Times page's blocks (times_blocks): the first's
     reading (else the fullest other's), each other reading kept in its
     verdict's "alternatives" ({"cut": its index, "clues", "agreed",
     "laid"}), which the filer tries in turn where the reading's lights are not
     the grid's (file_gale_listener.join)."""
-    read = [(i, *read_page(img, key)) for i, (img, key) in enumerate(blocks)]
+    read = [(i, *read_page(img, key, lengths)) for i, (img, key) in enumerate(blocks)]
     got = [r for r in read if r[2]]
     if not got:
         return read[0][1], None

@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 3
+VERSION = 4
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -545,13 +545,18 @@ def read_page(path, store=STORE):
     if not blocks:
         verdict["refused"] = "no Jumbo clue lists found on the page"
         return verdict, None
-    read, laid = gl.times_read(blocks)
+    # The grid's light lengths give the vote a count for a clue whose own the OCR lost.
+    lengths = {f"{n}-{d}": len(cells) for (n, d), cells in aj.rg.light_cells(g).items()}
+    read, laid = gl.times_read(blocks, lengths)
     verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused")})
     if laid is None:
         return verdict, None
     laid, blank = aj.lay_on(dict(laid), g)
     verdict["lights"] = len(laid)
+    # The vote's own blanks (a clue it laid empty: unfit, a suspect word) are blank lights too.
+    blank = {**(read.get("blank") or {}), **blank}
     verdict["blank"] = sorted(blank)
+    verdict["why"] = {k: str(v)[:80] for k, v in sorted(blank.items())}
     doc = gi.DOC_ID.search(path.name)
     url = f"https://link.gale.com/apps/doc/{doc.group(1).upper()}/TTDA?sid=bookmark-TTDA" if doc else None
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Times jumbo cryptic crossword No {n:,}",
