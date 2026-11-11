@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,41 @@
     "text": "Something lumpy regularly blocking gun barrel",
     "enumeration": "5"
    },
-   "solution": "GNARL"
+   "solution": "GNARL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something lumpy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 16,
+       "note": "regularly says take every other letter of the words gun barrel, starting with the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gun barrel",
+       "at": 35
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some lumpy object is obstructing the barrel of a gun.",
+     "walkthrough": "'regularly' picks the 1st, 3rd, 5th, 7th and 9th letters of 'gun barrel'; 'blocking' only joins wordplay to definition.",
+     "definitionFit": "A gnarl is a knot or knobbly swelling on a tree trunk, so it is a lumpy thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blocking"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +81,63 @@
     "text": "Bird's responsibility to swallow endless fruit",
     "enumeration": "9"
    },
-   "solution": "GUILLEMOT"
+   "solution": "GUILLEMOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to swallow",
+       "at": 22,
+       "note": "to swallow means the responsibility word takes the shortened fruit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "responsibility",
+       "at": 7,
+       "gives": "GUILT",
+       "note": "guilt is culpability, responsibility for wrongdoing"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 33,
+         "note": "endless means the last letter is dropped from the fruit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 41,
+         "gives": "LEMON",
+         "note": "a lemon is a fruit"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is responsible for swallowing a piece of fruit.",
+     "definitionFit": "The guillemot is a black-and-white seabird of the auk family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +151,48 @@
     "text": "Book that's white printing unit brought out",
     "enumeration": "5"
    },
-   "solution": "ALBUM"
+   "solution": "ALBUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "brought out",
+       "at": 32,
+       "note": "brought out means the printing unit is removed from the white"
+      }
+     ],
+     "parts": [
+      {
+       "words": "white",
+       "at": 12,
+       "gives": "ALBUMEN",
+       "note": "albumen is the white of an egg"
+      },
+      {
+       "words": "printing unit",
+       "at": 18,
+       "gives": "EN",
+       "note": "an en is a printer's measure of width"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book with a white cover released by a printing works.",
+     "definitionFit": "An album is a blank book for keeping photographs or stamps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "white"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +206,58 @@
     "text": "Being bookish, runs into reality unexpectedly",
     "enumeration": "8"
    },
-   "solution": "LITERARY"
+   "solution": "LITERARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being bookish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 20,
+       "note": "into means the runs letter goes inside the rearranged reality"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unexpectedly",
+         "at": 33,
+         "note": "unexpectedly suggests the letters of reality turn up in a surprising order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reality",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "runs",
+       "at": 15,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A studious person collides with the real world.",
+     "walkthrough": "R goes into an anagram of REALITY.",
+     "definitionFit": "Literary describes a person fond of books and reading, so bookish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +271,48 @@
     "text": "Game and dance followed by drink at the bar?",
     "enumeration": "9"
    },
-   "solution": "HOPSCOTCH"
+   "solution": "HOPSCOTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "followed by",
+       "at": 15,
+       "note": "followed by places the drink after the dance in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dance",
+       "at": 9,
+       "gives": "HOP",
+       "note": "to hop is to dance, as in a hop meaning an informal dance"
+      },
+      {
+       "words": "drink at the bar",
+       "at": 27,
+       "gives": "SCOTCH",
+       "note": "Scotch whisky is a drink ordered at a bar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night out: some dancing, then a whisky at the bar.",
+     "definitionFit": "The children's playground game of hopping through chalked squares is a familiar example of a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +326,49 @@
     "text": "Gardener gets mass dropping from pigeon",
     "enumeration": "4"
    },
-   "solution": "HOER"
+   "solution": "HOER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gardener",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping from",
+       "at": 19,
+       "note": "dropping from means the mass letter is taken out of the pigeon"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pigeon",
+       "at": 33,
+       "gives": "HOMER",
+       "note": "a homer is a homing pigeon"
+      },
+      {
+       "words": "mass",
+       "at": 14,
+       "gives": "M",
+       "note": "M is the abbreviation for mass in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener is hit by a pigeon's mess.",
+     "definitionFit": "One who works soil with a hoe is a gardener, by the agent-noun sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +382,29 @@
     "text": "Mean person's advice to indulge in sexual harassment?",
     "enumeration": "10"
    },
-   "solution": "PINCHPENNY"
+   "solution": "PINCHPENNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mean person",
+      "at": 0,
+      "meaning": "a miser who will not spend even a coin"
+     },
+     {
+      "text": "advice to indulge in sexual harassment?",
+      "at": 14,
+      "meaning": "read as an instruction to grope a woman called Penny"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A pinchpenny is a skinflint who pinches every coin; read as two words it tells you to pinch a woman named Penny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +418,41 @@
     "text": "Secret clubs not hidden away",
     "enumeration": "6"
    },
-   "solution": "COVERT"
+   "solution": "COVERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "clubs",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
+      },
+      {
+       "words": "not hidden away",
+       "at": 13,
+       "gives": "OVERT",
+       "note": "overt means open, not concealed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Secret clubs operate in the open.",
+     "definitionFit": "Covert means concealed or done in secret, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +466,58 @@
     "text": "Islander raving when covered in nasty ants",
     "enumeration": "9"
    },
-   "solution": "TASMANIAN"
+   "solution": "TASMANIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 21,
+       "note": "covered in means the madness sits inside the rearranged ants"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nasty",
+         "at": 32,
+         "note": "nasty suggests the letters of ants are mangled into a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ants",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "raving",
+       "at": 9,
+       "gives": "MANIA",
+       "note": "raving as a noun is madness, mania"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An islander goes mad when swarmed by biting ants.",
+     "walkthrough": "'nasty' scrambles the clue's ants to TASN, and 'covered in' puts the madness inside that run.",
+     "definitionFit": "A Tasmanian is a native of Tasmania, the island state of Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +531,47 @@
     "text": "Gosh! -—- getting hold of Bible must be serious!",
     "enumeration": "5"
    },
-   "solution": "HEAVY"
+   "solution": "HEAVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting hold of",
+       "at": 10,
+       "note": "getting hold of means the exclamation grips the Bible letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gosh",
+       "at": 0,
+       "gives": "HEY",
+       "note": "hey is an exclamation of surprise like gosh"
+      },
+      {
+       "words": "Bible",
+       "at": 26,
+       "gives": "AV",
+       "note": "AV is the Authorised Version of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims at the seriousness of grabbing a Bible.",
+     "definitionFit": "Heavy can mean grave or serious, as in a heavy conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +591,72 @@
      }
     ]
    },
-   "solution": "INBETWEEN"
+   "solution": "INBETWEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "intermediary",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in places the bet, we and the opening letter inside the pub"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "at": 31,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Venture",
+         "at": 0,
+         "gives": "BET",
+         "note": "to bet is to venture or stake money"
+        },
+        {
+         "words": "we",
+         "at": 8
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 11,
+           "note": "start to means only the opening letter of the word explore is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "explore",
+           "at": 20
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proposes an exploratory venture, with a middleman, in a pub.",
+     "definitionFit": "Something in-between sits in the middle, which is what an intermediary does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +670,42 @@
     "text": "Panorama is a TV broadcast",
     "enumeration": "5"
    },
-   "solution": "VISTA"
+   "solution": "VISTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Panorama",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 17,
+       "note": "broadcast suggests scattering, so the letters of is a TV are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is a TV",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Panorama, the BBC current-affairs programme, is a TV show that gets broadcast.",
+     "walkthrough": "Panorama is a long-running BBC documentary series, which makes the surface read as a statement about television.",
+     "definitionFit": "A vista is a wide view, which is a synonym for a panorama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Panorama"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +719,59 @@
     "text": "Primates slumber uneasily but not bishop",
     "enumeration": "6"
    },
-   "solution": "LEMURS"
+   "solution": "LEMURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Primates",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "uneasily",
+       "at": 17,
+       "note": "uneasily signals that the remaining letters are rearranged into a restless new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 26,
+         "note": "but not tells us to remove the bishop's letter from slumber"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slumber",
+         "at": 9
+        },
+        {
+         "words": "bishop",
+         "at": 34,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Monkeys sleep fitfully, though a bishop does not.",
+     "walkthrough": "Removing B from SLUMBER leaves SLUMER, which 'uneasily' rearranges.",
+     "definitionFit": "Lemurs are small tree-dwelling primates native to Madagascar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +785,47 @@
     "text": "Shop not at all slow to limit suffering",
     "enumeration": "8"
    },
-   "solution": "PHARMACY"
+   "solution": "PHARMACY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to limit",
+       "at": 21,
+       "note": "to limit means the pacy word encloses the suffering, bounding it on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not at all slow",
+       "at": 5,
+       "gives": "PACY",
+       "note": "pacy means fast, the opposite of slow"
+      },
+      {
+       "words": "suffering",
+       "at": 30,
+       "gives": "HARM",
+       "note": "harm is injury or suffering"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A store that acts quickly to reduce people's suffering.",
+     "definitionFit": "A pharmacy is a chemist's shop that dispenses medicines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +839,47 @@
     "text": "Against probing ingenious bridge design",
     "enumeration": "10"
    },
-   "solution": "CANTILEVER"
+   "solution": "CANTILEVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bridge design",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "probing",
+       "at": 8,
+       "note": "probing means the against word pushes inside the ingenious word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ingenious",
+       "at": 16,
+       "gives": "CLEVER",
+       "note": "clever means ingenious"
+      },
+      {
+       "words": "Against",
+       "at": 0,
+       "gives": "ANTI",
+       "note": "anti means against"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opponent examines a clever bridge design.",
+     "definitionFit": "A cantilever bridge uses arms anchored at one end only, a standard bridge design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +899,47 @@
      }
     ]
    },
-   "solution": "MINDREADER"
+   "solution": "MINDREADER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one knows what he is thinking",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is full of",
+       "at": 19,
+       "note": "is full of means the worker's word holds the fear inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Worker going under",
+       "at": 0,
+       "gives": "MINER",
+       "note": "a miner works underground"
+      },
+      {
+       "words": "fear",
+       "at": 30,
+       "gives": "DREAD",
+       "note": "dread is fear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miner, frightened to go underground, meets someone who reads his thoughts.",
+     "definitionFit": "A telepath who reads minds knows what another person is thinking, which the definition describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +953,34 @@
     "text": "Short distance covered by binmen must be made longer!",
     "enumeration": "9"
    },
-   "solution": "NANOMETRE"
+   "solution": "NANOMETRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Short distance covered by binmen must be made longer!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Short distance covered by binmen must be made longer!",
+       "at": 0,
+       "note": "a tiny unit of length, a billionth of a metre, joked about as the paltry stretch refuse collectors walk on their round"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaint that refuse collectors cover too little ground.",
+     "definitionFit": "A nanometre is a billionth of a metre, an extremely short distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +994,60 @@
     "text": "Holy army, one against invading destroyer",
     "enumeration": "4"
    },
-   "solution": "SIVA"
+   "solution": "SIVA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "destroyer",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invading",
+       "at": 23,
+       "note": "invading puts the one and against letters inside the army"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Holy army",
+       "at": 0,
+       "gives": "SA",
+       "note": "SA is the Salvation Army, a Christian organisation run along military lines"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 11,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "against",
+         "at": 15,
+         "gives": "V",
+         "note": "V is short for versus, against"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious army fights invaders, one destroyer against them.",
+     "walkthrough": "I + V go inside SA.",
+     "definitionFit": "In Hinduism Siva (Shiva) is the god known as the destroyer within the trinity of creator, preserver and destroyer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyer"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1061,58 @@
     "text": "Final word reduction — mark in that correction",
     "enumeration": "9"
    },
-   "solution": "AMENDMENT"
+   "solution": "AMENDMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "correction",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Final word",
+       "at": 0,
+       "gives": "AMEN",
+       "note": "amen is said at the end of a prayer"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 28,
+         "note": "in means the mark letter goes inside the reduction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reduction",
+         "at": 11,
+         "gives": "DENT",
+         "note": "a dent is a reduction, as in a dent in profits"
+        },
+        {
+         "words": "mark",
+         "at": 23,
+         "gives": "M",
+         "note": "M is the abbreviation for mark, the old German currency"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone corrects the closing word of a draft by marking a cut.",
+     "definitionFit": "An amendment is a change made to correct or improve a text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1126,61 @@
     "text": "In Greece a plain girl gets upset with those people around",
     "enumeration": "8"
    },
-   "solution": "THESSALY"
+   "solution": "THESSALY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In Greece a plain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 52,
+       "note": "around means those people surround the reversed girl"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those people",
+       "at": 39,
+       "gives": "THEY",
+       "note": "they means those people"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 28,
+         "note": "upset in a down clue turns the girl's word upside down, so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 18,
+         "gives": "LASS",
+         "note": "a lass is a girl"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plain-looking Greek girl is upset by people crowding round her.",
+     "walkthrough": "'upset' turns the girl backwards, which suits a down clue, before 'around' puts those people round her.",
+     "definitionFit": "Thessaly is the region of central Greece that consists largely of a great fertile plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1194,47 @@
     "text": "Fashion set by good Chinese society",
     "enumeration": "4"
    },
-   "solution": "TONG"
+   "solution": "TONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinese society",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "set by",
+       "at": 8,
+       "note": "set by places the letter for good beside the fashion word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fashion",
+       "at": 0,
+       "gives": "TON",
+       "note": "ton is fashion or high style, from French"
+      },
+      {
+       "words": "good",
+       "at": 15,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A style is launched by a respectable Chinese club.",
+     "definitionFit": "A tong is a Chinese secret society or association, especially among émigrés in America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1248,40 @@
     "text": "Gen on sheet prepared for heritage site",
     "enumeration": "10"
    },
-   "solution": "STONEHENGE"
+   "solution": "STONEHENGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heritage site",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "prepared",
+       "at": 13,
+       "note": "prepared suggests the letters of Gen on sheet are made ready in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gen on sheet",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Information printed on a sheet is got ready for visitors to a historic site.",
+     "walkthrough": "'Gen' is British slang for information; here it is just letters.",
+     "definitionFit": "The prehistoric stone circle on Salisbury Plain is a World Heritage Site."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1295,62 @@
     "text": "A new hideout outside the area or within range?",
     "enumeration": "6"
    },
-   "solution": "ANDEAN"
+   "solution": "ANDEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "within range?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "new",
+       "at": 2,
+       "gives": "N"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 14,
+         "note": "outside means the hideout surrounds the area letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hideout",
+         "at": 6,
+         "gives": "DEN",
+         "note": "a den is a hideout"
+        },
+        {
+         "words": "area",
+         "at": 26,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a new hideaway outside the zone or inside the boundary?",
+     "walkthrough": "A + N + DE(A)N. The 'range' is a mountain range, the Andes.",
+     "definitionFit": "Andean means of the Andes, so something Andean lies within that South American mountain range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1364,60 @@
     "text": "Tribal people -see them at home tucking into fish",
     "enumeration": "8"
    },
-   "solution": "SEMINOLE"
+   "solution": "SEMINOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tribal people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 32,
+       "note": "tucking into means the them and home pieces go inside the fish"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 45,
+       "gives": "SOLE",
+       "note": "sole is a flatfish"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "them",
+         "at": 19,
+         "gives": "EM",
+         "note": "'em is a short form of them"
+        },
+        {
+         "words": "at home",
+         "at": 24,
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tribe, seen at home eating fish.",
+     "walkthrough": "'see' just points the solver to the wordplay that follows.",
+     "definitionFit": "The Seminole are a Native American nation of Florida and Oklahoma, a tribal people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1431,29 @@
     "text": "NW town's volume of business",
     "enumeration": "5"
    },
-   "solution": "SALES"
+   "solution": "SALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "NW town's",
+      "at": 0,
+      "meaning": "Sale is a town in north-west England, near Manchester, so its possessive gives the letters"
+     },
+     {
+      "text": "volume of business",
+      "at": 10,
+      "meaning": "the quantity of goods sold"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Sales is the total quantity sold, the volume of business; Sale's is the possessive of a Greater Manchester town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1467,59 @@
     "text": "Assassin given huge pile of notes, pounds to be pocketed",
     "enumeration": "6"
    },
-   "solution": "OSWALD"
+   "solution": "OSWALD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assassin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "huge",
+       "at": 15,
+       "gives": "OS",
+       "note": "OS is outsize, a clothing size meaning huge"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to be pocketed",
+         "at": 42,
+         "note": "to be pocketed means the pounds go inside the wad"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pile of notes",
+         "at": 20,
+         "gives": "WAD",
+         "note": "a wad is a bundle of banknotes"
+        },
+        {
+         "words": "pounds",
+         "at": 35,
+         "gives": "L",
+         "note": "L is the abbreviation for pounds sterling, from Latin libra"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hired killer is paid a big bundle of cash.",
+     "walkthrough": "OS + WA(L)D.",
+     "definitionFit": "Lee Harvey Oswald was the assassin of President John F Kennedy in 1963."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1533,49 @@
     "text": "Female rescuers who travel to collect fool",
     "enumeration": "5"
    },
-   "solution": "ANITA"
+   "solution": "ANITA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to collect",
+       "at": 27,
+       "note": "to collect means the rescuers take the fool inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rescuers who travel",
+       "at": 7,
+       "gives": "AA",
+       "note": "the AA, the Automobile Association, rescues broken-down motorists"
+      },
+      {
+       "words": "fool",
+       "at": 38,
+       "gives": "NIT",
+       "note": "a nit is a fool"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Roadside rescuers pick up an idiot.",
+     "walkthrough": "The AA is the British breakdown-recovery service, whose patrols travel to rescue stranded drivers.",
+     "definitionFit": "Anita is a female first name, so the clue's 'Female' points to a woman's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rescuers"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1589,49 @@
     "text": "Frame that's hard work, any number not being potted",
     "enumeration": "4"
    },
-   "solution": "GRID"
+   "solution": "GRID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frame",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not being potted",
+       "at": 35,
+       "note": "not being potted means the number letter is left out, a snooker image of a ball not sinking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hard work",
+       "at": 13,
+       "gives": "GRIND",
+       "note": "grind is laborious work"
+      },
+      {
+       "words": "any number",
+       "at": 24,
+       "gives": "N",
+       "note": "N stands for any number in mathematics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frame of snooker is hard work when no ball goes in.",
+     "walkthrough": "'Frame' and 'potted' suggest snooker, but the definition is a framework of bars.",
+     "definitionFit": "A grid is a framework of crossing bars, a kind of frame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "potted"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1645,45 @@
     "text": "Not finishing the second coffee",
     "enumeration": "5"
    },
-   "solution": "LATTE"
+   "solution": "LATTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coffee",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not finishing",
+       "at": 0,
+       "note": "not finishing means the last letter of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the second",
+       "at": 14,
+       "gives": "LATTER",
+       "note": "the latter is the second of two things mentioned"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves their second cup of coffee unfinished.",
+     "definitionFit": "A latte is an espresso coffee made with plenty of steamed milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1697,58 @@
     "text": "Resourceful monarch didn't stand having the ignoble around",
     "enumeration": "9"
    },
-   "solution": "VERSATILE"
+   "solution": "VERSATILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resourceful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 52,
+       "note": "around means the ignoble word wraps round the monarch and sat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ignoble",
+       "at": 44,
+       "gives": "VILE",
+       "note": "vile means base or ignoble"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "monarch",
+         "at": 12,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the monarch"
+        },
+        {
+         "words": "didn't stand",
+         "at": 20,
+         "gives": "SAT",
+         "note": "sat is the opposite of stood"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever king refused to stand, being surrounded by base people.",
+     "definitionFit": "Versatile means adaptable to many tasks, a close synonym of resourceful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1768,39 @@
      }
     ]
    },
-   "solution": "SEEINGRED"
+   "solution": "SEEINGRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "angry",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Abnormally",
+       "at": 0,
+       "note": "abnormally suggests the letters of energised are arranged in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "energised",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unusually wound up and cross.",
+     "definitionFit": "Seeing red is an idiom for becoming very angry, from the red cape that is said to enrage a bull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -482,7 +1814,53 @@
     "text": "You put on a stone — that'll create ferment",
     "enumeration": "5"
    },
-   "solution": "YEAST"
+   "solution": "YEAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that'll create ferment",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 4,
+       "note": "put on places the stone letters after the earlier pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "You",
+       "at": 0,
+       "gives": "YE",
+       "note": "ye is an old form of you"
+      },
+      {
+       "words": "a",
+       "at": 11
+      },
+      {
+       "words": "stone",
+       "at": 13,
+       "gives": "ST",
+       "note": "ST is the abbreviation for stone, the British weight of 14 pounds"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to a dieter that they have gained a stone.",
+     "definitionFit": "Yeast is the fungus that causes fermentation in brewing and baking, so it creates ferment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stone"
+    }
+   }
   }
  ]
 }
