@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Where guitarist might pause to view navel area?",
     "enumeration": "7"
    },
-   "solution": "MIDRIFF"
+   "solution": "MIDRIFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where guitarist might pause",
+      "at": 0,
+      "meaning": "read as two words, a pause halfway through a guitar phrase or lick comes in the middle of a riff"
+     },
+     {
+      "text": "navel area",
+      "at": 36,
+      "meaning": "the belly region of the body between chest and waist"
+     }
+    ],
+    "explanation": {
+     "surface": "A rock guitarist stops mid-song to admire someone's exposed belly button.",
+     "definitionFit": "The stomach region around the belly button is the part of the torso called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pause"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,74 @@
     "text": "US city not entirely accepting south has a rotten atmosphere",
     "enumeration": "6"
    },
-   "solution": "MIASMA"
+   "solution": "MIASMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rotten atmosphere",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 21,
+         "note": "the shortened city takes the abbreviation for south into itself"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not entirely",
+           "at": 8,
+           "note": "the city's name is not given in full, losing its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "US city",
+           "at": 0,
+           "gives": "MIAMI",
+           "note": "Miami is a city in Florida"
+          },
+          {
+           "gives": "I"
+          }
+         ]
+        },
+        {
+         "words": "south",
+         "at": 31,
+         "gives": "S",
+         "note": "S is the compass abbreviation for south"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 41,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American city has a foul, polluted air about it.",
+     "walkthrough": "'not entirely' trims MIAMI to MIAM; 'accepting' puts S inside to make MIASM, then A is added; 'has' is a link.",
+     "definitionFit": "A miasma is a noxious vapour, an unhealthy or putrid smell hanging in the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepting"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +153,45 @@
     "text": "Guts, or heart lost in loved one",
     "enumeration": "6"
    },
-   "solution": "DARING"
+   "solution": "DARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heart lost",
+       "at": 9,
+       "note": "the central letter of the word for a loved one is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "loved one",
+       "at": 23,
+       "gives": "DARLING",
+       "note": "a darling is someone dear to you"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's courage, or their spirit, has gone missing over a lover.",
+     "walkthrough": "'heart lost' removes the middle L of DARLING; 'or' and 'in' are link words.",
+     "definitionFit": "Guts in the sense of courage or nerve is boldness, a synonym of the noun form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +215,59 @@
      }
     ]
    },
-   "solution": "INANYEVENT"
+   "solution": "INANYEVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "whatever happens",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must block",
+       "at": 6,
+       "note": "the state abbreviation has to sit inside and obstruct the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "play",
+         "at": 26,
+         "note": "the letters of the word Venetian are set in play, mixed freely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Venetian",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "State",
+       "at": 0,
+       "gives": "NY",
+       "note": "NY is the abbreviation for New York state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A state authority has to stop a Venetian theatre production regardless of anything.",
+     "walkthrough": "'play' looks like a stage drama but is the anagram signal, giving INAEVENT; 'must block' sets the state inside it.",
+     "definitionFit": "The phrase is an idiom meaning regardless, no matter what occurs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +281,69 @@
     "text": "Refuse to take line into attack, heading for home",
     "enumeration": "5"
    },
-   "solution": "FILTH"
+   "solution": "FILTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 20,
+         "note": "the line letter goes inside the word for attack"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attack",
+         "at": 25,
+         "gives": "FIT",
+         "note": "a fit is an attack or seizure of illness"
+        },
+        {
+         "words": "line",
+         "at": 15,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 33,
+         "note": "the first letter, the head, of the word home is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to join a battle line, preferring to make for home.",
+     "walkthrough": "'Refuse' looks like a verb but is the noun (rubbish).",
+     "definitionFit": "Refuse as a noun means rubbish or dirt, and filth is foul waste matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +376,56 @@
     "text": "Bringing off crime, saint not I?",
     "enumeration": "9"
    },
-   "solution": "MISCREANT"
+   "solution": "MISCREANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bringing off crime, saint not I?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Bringing off",
+       "at": 0,
+       "note": "the letters of the two words are let off their order and reorganised, minus the named letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "crime",
+         "at": 13
+        },
+        {
+         "words": "saint",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 30,
+       "note": "the letter I is the part excluded, as the clue says 'not I'"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone accomplishing a crime protests that they are no saint, are they?",
+     "walkthrough": "'not' tells you to take I out: CRIME SAINT less I rearranges to the answer. The whole clue also describes the villain.",
+     "definitionFit": "A wrongdoer pulling off a crime, certainly no saint, is a villain or scoundrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bringing"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +439,41 @@
     "text": "It's the whole thing, you fool!",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's the whole thing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "you",
+       "at": 22,
+       "gives": "U",
+       "note": "U is text-speak shorthand for you"
+      },
+      {
+       "words": "fool",
+       "at": 26,
+       "gives": "NIT",
+       "note": "a nit is a silly person, a nitwit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims that it's everything, calling their friend an idiot.",
+     "definitionFit": "A unit is a single complete entity, one whole thing regarded as an individual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +487,47 @@
     "text": "Poet's written about English medical graduate",
     "enumeration": "8"
    },
-   "solution": "HOUSEMAN"
+   "solution": "HOUSEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medical graduate",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "written about",
+       "at": 7,
+       "note": "the poet's name is written around the extra letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Poet's",
+       "at": 0,
+       "gives": "HOUSMAN",
+       "note": "A. E. Housman was the poet of A Shropshire Lad; the 's is a link meaning has"
+      },
+      {
+       "words": "English",
+       "at": 21,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet has written about an English doctor fresh from medical school.",
+     "walkthrough": "A houseman is the British term for a newly qualified hospital doctor, an intern.",
+     "definitionFit": "A junior hospital doctor just out of medical school is known in Britain by this title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +541,41 @@
     "text": "Pilfer your secret",
     "enumeration": "8"
    },
-   "solution": "STEALTHY"
+   "solution": "STEALTHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "secret",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pilfer",
+       "at": 0,
+       "gives": "STEAL",
+       "note": "to pilfer is to steal"
+      },
+      {
+       "words": "your",
+       "at": 7,
+       "gives": "THY",
+       "note": "thy is the old form of your"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to lift something you have hidden away.",
+     "definitionFit": "Stealthy means furtive or done in secret so as not to be noticed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 9,
@@ -186,7 +589,42 @@
     "text": "Not viewing odds, favour a team which is close to one's heart",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which is close to one's heart",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Not viewing odds",
+       "at": 0,
+       "note": "the odd-placed letters are ignored and only the even ones are seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "favour a team",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ignores the betting odds and backs a team they hold dear.",
+     "walkthrough": "'close to one's heart' looks figurative, but it is literal: the great artery leaves the heart.",
+     "definitionFit": "The aorta is the main artery leaving the heart, so it is physically right next to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +638,44 @@
     "text": "Roughly speaking, was it the on-screen bone that ___, showing exhaustion?",
     "enumeration": "9"
    },
-   "solution": "LASSITUDE"
+   "solution": "LASSITUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exhaustion",
+      "at": 62
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LASSITUDE",
+     "indicators": [
+      {
+       "text": "Roughly speaking",
+       "at": 0,
+       "note": "the words are only approximately as pronounced, a rough sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "was it the on-screen bone that ___",
+       "at": 18,
+       "gives": "LASSIECHEWED",
+       "note": "the film collie Lassie fills the screen role, and what a dog does to a bone is chewed, so the gap is Lassie chewed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether the screen dog was the one gnawing a bone till worn out.",
+     "walkthrough": "Lassie is the famous collie of film and television; 'Lassie chewed', said roughly, gives the word; 'showing' is a link.",
+     "definitionFit": "Lassitude is weariness, a state of physical or mental tiredness and lack of energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +712,29 @@
     "text": "Circus performer shut up",
     "enumeration": "4"
    },
-   "solution": "SEAL"
+   "solution": "SEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Circus performer",
+      "at": 0,
+      "meaning": "a performing marine mammal balancing balls in a circus"
+     },
+     {
+      "text": "shut up",
+      "at": 17,
+      "meaning": "to close tightly, as an envelope or a jar"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A seal is a performing animal in circuses, and to seal is to close something up tight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shut"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +748,85 @@
     "text": "Empty vehicle needing fresh oil, in power it's flown",
     "enumeration": "10"
    },
-   "solution": "MICROLIGHT"
+   "solution": "MICROLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's flown",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "the pieces go inside the word for power"
+      }
+     ],
+     "parts": [
+      {
+       "words": "power",
+       "at": 36,
+       "gives": "MIGHT",
+       "note": "might means power or strength"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Empty",
+           "at": 0,
+           "note": "the vehicle word loses its inside, leaving its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vehicle",
+           "at": 6,
+           "gives": "CAR",
+           "note": "a car is a vehicle"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "fresh",
+           "at": 22,
+           "note": "the letters of oil are freshly rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "at": 28
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An empty car needs new oil to get its power back, but this one flies.",
+     "walkthrough": "'Empty' strips the middle of the vehicle and 'fresh' scrambles the oil; 'in' sets both after the first two letters of the power word. 'needing' is a link.",
+     "definitionFit": "A microlight is a very small, light aircraft, so it is something that is flown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +846,62 @@
      }
     ]
    },
-   "solution": "VOLCANICASH"
+   "solution": "VOLCANICASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Might this have stopped you?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 15,
+         "note": "the Italian word is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian flight",
+         "at": 0,
+         "gives": "VOLO",
+         "note": "volo is Italian for a flight"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "can I",
+       "at": 20,
+       "gives": "CANI"
+      },
+      {
+       "words": "change",
+       "at": 26,
+       "gives": "CASH",
+       "note": "change in the pocket is cash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian flight is cancelled and a passenger asks about changing plans.",
+     "walkthrough": "The definition recalls the 2010 Icelandic eruption that grounded European air travel; 'change' looks like a verb but is coins.",
+     "definitionFit": "Volcanic ash clouds ground aircraft, as in 2010, so it might have halted your journey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +915,69 @@
     "text": "New sale man backed up over crumbling property under contract",
     "enumeration": "9"
    },
-   "solution": "LEASEHOLD"
+   "solution": "LEASEHOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "property under contract",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "at": 0,
+         "note": "the letters of sale are made new, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sale",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed up",
+         "at": 13,
+         "note": "in a down entry the pronoun is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 9,
+         "gives": "HE",
+         "note": "he is the pronoun for a man"
+        }
+       ]
+      },
+      {
+       "words": "crumbling",
+       "at": 28,
+       "gives": "OLD",
+       "note": "something crumbling is old and decaying"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new sale agent reverses his position on a run-down property he has contracted.",
+     "walkthrough": "'New' gives LEAS from SALE; 'backed up' turns HE to EH; 'over' is a link.",
+     "definitionFit": "Leasehold property is held under a lease, a contract for a fixed term rather than owned outright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1001,80 @@
      }
     ]
    },
-   "solution": "ACTOFGOD"
+   "solution": "ACTOFGOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Force of nature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 50,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stuffing",
+         "at": 41,
+         "note": "the pieces are stuffed inside the fish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 52,
+         "gives": "COD",
+         "note": "cod is a fish"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "to",
+           "at": 24,
+           "gives": "TO",
+           "note": "taken as written"
+          },
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "skin of",
+             "at": 27,
+             "note": "the outer letters of the word frog, its skin"
+            }
+           ],
+           "parts": [
+            {
+             "words": "frog",
+             "at": 35
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bizarre recipe: frog's skin stuffed inside a fish, a natural force.",
+     "walkthrough": "'brought' is a link; the A comes first in the answer although it sits later in the clue.",
+     "definitionFit": "An act of God is the legal term for a natural disaster beyond human control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1088,49 @@
     "text": "Those looking to dress king in the emperor's new clothes?",
     "enumeration": "8"
    },
-   "solution": "STARKERS"
+   "solution": "STARKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the emperor's new clothes?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to dress",
+       "at": 14,
+       "note": "the starers wrap around the king letter like clothing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Those looking",
+       "at": 0,
+       "gives": "STARERS",
+       "note": "starers are people who stare"
+      },
+      {
+       "words": "king",
+       "at": 23,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Onlookers try to clothe the king in the fairy tale's invisible new outfit.",
+     "walkthrough": "Starkers is British slang for stark naked; the emperor in the fairy tale wore nothing.",
+     "definitionFit": "The emperor's new clothes did not exist, so wearing them means being completely naked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1144,49 @@
     "text": "Plant needing shade put in vessel",
     "enumeration": "11"
    },
-   "solution": "COTONEASTER"
+   "solution": "COTONEASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 20,
+       "note": "the shade goes inside the vessel"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vessel",
+       "at": 27,
+       "gives": "COASTER",
+       "note": "a coaster is a coastal trading ship"
+      },
+      {
+       "words": "shade",
+       "at": 14,
+       "gives": "TONE",
+       "note": "a tone is a shade of colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener says a plant needs shade when placed in a pot.",
+     "walkthrough": "'vessel' looks like a plant pot, but it is a coaster, a ship; 'needing' is a link.",
+     "definitionFit": "Cotoneaster is a shrub with red berries, a common garden plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1200,41 @@
     "text": "Get on with leading empire",
     "enumeration": "6"
    },
-   "solution": "DOMAIN"
+   "solution": "DOMAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "empire",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Get on",
+       "at": 0,
+       "gives": "DO",
+       "note": "to do, as in how are you doing, is to get on"
+      },
+      {
+       "words": "leading",
+       "at": 12,
+       "gives": "MAIN",
+       "note": "main means chief or leading"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to make progress while heading an empire.",
+     "walkthrough": "'with' is a link.",
+     "definitionFit": "A domain is a realm or territory ruled by one sovereign, as an empire is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1248,29 @@
     "text": "Break for depression",
     "enumeration": "6"
    },
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0,
+      "meaning": "a pause or holiday period, as for parliament or school"
+     },
+     {
+      "text": "depression",
+      "at": 10,
+      "meaning": "an alcove or hollow set back in a wall"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A recess is both an interval in business and a hollowed niche or indentation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1284,39 @@
     "text": "Found in book, rare edible plant",
     "enumeration": "4"
    },
-   "solution": "OKRA"
+   "solution": "OKRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "edible plant",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Found in",
+       "at": 0,
+       "note": "the letters are found running inside these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "book, rare",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rare edible plant is discovered in a book.",
+     "definitionFit": "Okra, also called ladies' fingers, is a vegetable plant with edible pods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1336,79 @@
      }
     ]
    },
-   "solution": "MENTALNOTE"
+   "solution": "MENTALNOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "record filed away?",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Workers",
+       "at": 0,
+       "gives": "MEN",
+       "note": "men are workers, a workforce"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 14,
+         "note": "the carrying word goes around the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carry",
+         "at": 8,
+         "gives": "TOTE",
+         "note": "to tote is to carry"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 21,
+           "gives": "A"
+          },
+          {
+           "op": "alternate",
+           "indicators": [
+            {
+             "text": "regularly",
+             "at": 29,
+             "note": "every other letter of link is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "link",
+             "at": 23
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Labourers ferry a connecting part about, to be logged in the files.",
+     "walkthrough": "'regularly' takes the first and third letters of link; with A they sit inside the carrying word just after its first letter.",
+     "definitionFit": "A mental note is a reminder kept in memory, a record filed away in the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1428,61 @@
      }
     ]
    },
-   "solution": "TONUP"
+   "solution": "TONUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speedy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having caught",
+       "at": 22,
+       "note": "the reversed boat catches the extra letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 12,
+         "note": "in a down entry the boat is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boat",
+         "at": 7,
+         "gives": "PUNT",
+         "note": "a punt is a flat-bottomed boat"
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "at": 36,
+       "gives": "O",
+       "note": "O is nought, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fast boat capsized after catching nothing.",
+     "walkthrough": "TON-UP is British slang for doing 100 mph on a motorbike.",
+     "definitionFit": "Ton-up describes going at a hundred miles an hour, hence very fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Speedy"
+    }
+   }
   },
   {
    "number": 24,
@@ -452,7 +1515,42 @@
     "text": "Politician, one blasted as rookie",
     "enumeration": "9"
    },
-   "solution": "GREENHORN"
+   "solution": "GREENHORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rookie",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Politician",
+       "at": 0,
+       "gives": "GREEN",
+       "note": "a Green is a member of the Green Party"
+      },
+      {
+       "words": "one blasted",
+       "at": 12,
+       "gives": "HORN",
+       "note": "a horn is blasted when it is blown"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician is attacked for being a novice.",
+     "walkthrough": "'blasted' looks like criticism; it is a horn being sounded. 'as' is a link.",
+     "definitionFit": "A greenhorn is an inexperienced newcomer, a novice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blasted"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1564,30 @@
     "text": "Serious plot",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0,
+      "meaning": "solemn and weighty in manner"
+     },
+     {
+      "text": "plot",
+      "at": 8,
+      "meaning": "a burial place in a cemetery"
+     }
+    ],
+    "explanation": {
+     "surface": "A conspiracy that is no laughing matter.",
+     "definitionFit": "Grave means solemn, and a grave is a burial plot in a graveyard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1601,47 @@
     "text": "Treated with contempt, university squeezed, then abandoned",
     "enumeration": "7"
    },
-   "solution": "DISUSED"
+   "solution": "DISUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "abandoned",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "squeezed",
+       "at": 34,
+       "note": "the university letter is squeezed into the slang word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Treated with contempt",
+       "at": 0,
+       "gives": "DISSED",
+       "note": "dissed is slang for disrespected"
+      },
+      {
+       "words": "university",
+       "at": 23,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university was insulted, squeezed financially, and finally left to decay.",
+     "walkthrough": "'then' is a link.",
+     "definitionFit": "Disused means no longer in use, abandoned or left idle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -510,7 +1671,31 @@
     "11-across",
     "24-down",
     "5-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To support what one's said",
+      "at": 0,
+      "meaning": "to back up ... words with action or a stake"
+     },
+     {
+      "text": "eat bread or suck lolly?",
+      "at": 28,
+      "meaning": "bread and lolly are slang for cash, so eating or sucking them puts cash in the mouth"
+     }
+    ],
+    "spelling": "PUT ONE'S MONEY WHERE ONE'S MOUTH IS",
+    "explanation": {
+     "definitionFit": "The idiom means backing one's claims with action, and literally bread and lolly are slang for cash being eaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lolly"
+    }
+   }
   }
  ]
 }
