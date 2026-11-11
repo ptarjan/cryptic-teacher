@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Cooler? Warmer?",
     "enumeration": "8"
    },
-   "solution": "RADIATOR"
+   "solution": "RADIATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cooler?",
+      "at": 0,
+      "meaning": "a car's water-filled cooling unit keeps the engine from overheating"
+     },
+     {
+      "text": "Warmer?",
+      "at": 8,
+      "meaning": "a heating panel fixed to a wall warms the room"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The same appliance name covers both the engine-cooling part of a car and the central-heating panel in a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cooler?"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,29 @@
     "text": "Monkey given drink",
     "enumeration": "4"
    },
-   "solution": "SAKI"
+   "solution": "SAKI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monkey",
+      "at": 0,
+      "meaning": "a long-tailed South American primate with a bushy coat"
+     },
+     {
+      "text": "drink",
+      "at": 13,
+      "meaning": "a variant spelling of the Japanese rice wine usually written sake"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hands a monkey something to drink.",
+     "definitionFit": "One word names both a South American primate and, as a less common spelling, the Japanese rice wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +107,52 @@
     "text": "Bird flying out to vessel",
     "enumeration": "6"
    },
-   "solution": "TOUCAN"
+   "solution": "TOUCAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flying",
+         "at": 5,
+         "note": "flying suggests letters scattering in the air, so the word out is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "out",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "vessel",
+       "at": 19,
+       "gives": "CAN",
+       "note": "a can is a container or vessel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird takes off and heads towards a ship.",
+     "walkthrough": "'flying' rearranges OUT into TOU; 'to' just joins it to CAN.",
+     "definitionFit": "A large-billed tropical American bird is a specific example of a bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +166,69 @@
     "text": "Pay raise — it's Pasquale's premier objective",
     "enumeration": "7"
    },
-   "solution": "STIPEND"
+   "solution": "STIPEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raise",
+         "at": 4,
+         "note": "in a down clue, raising a word lifts it upwards so it reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's",
+         "at": 12,
+         "gives": "ITS"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "premier",
+         "at": 28,
+         "note": "premier means first, so only the opening letter of Pasquale is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pasquale's",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "objective",
+       "at": 36,
+       "gives": "END",
+       "note": "an end is an aim or objective"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pay rise is the main goal of someone named Pasquale, a fellow Guardian setter.",
+     "walkthrough": "'raise' turns ITS into STI; Pasquale is another Guardian compiler, one of many setters named in this tribute puzzle.",
+     "definitionFit": "A fixed regular allowance or salary is a form of pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +248,60 @@
      }
     ]
    },
-   "solution": "WHITETIE"
+   "solution": "WHITETIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "smart dress",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraces",
+       "at": 12,
+       "note": "the golfer's name wraps around the other pieces like arms in a hug"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lady golfer",
+       "at": 0,
+       "gives": "WIE",
+       "note": "Michelle Wie is a well-known American woman golfer"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "feminist",
+         "at": 21,
+         "gives": "HITE",
+         "note": "Shere Hite was an American feminist writer on sexuality"
+        },
+        {
+         "words": "model",
+         "at": 30,
+         "gives": "T",
+         "note": "the Ford Model T, so T stands for model"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A female golfer hugs a feminist model wearing formal clothes.",
+     "walkthrough": "Model T is the famous early Ford car, so 'model' gives T.",
+     "definitionFit": "The most formal evening dress code, with tailcoat and bow tie, is smart dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +315,28 @@
     "text": "Changes shapes",
     "enumeration": "10"
    },
-   "solution": "INFLUENCES"
+   "solution": "INFLUENCES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Changes",
+      "at": 0,
+      "meaning": "alters or affects something"
+     },
+     {
+      "text": "shapes",
+      "at": 8,
+      "meaning": "forms or moulds, as a mentor moulds a pupil"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To have an effect on something is both to alter it and to mould it, so both verbs fit the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +350,46 @@
     "text": "Beale includes time for Harrison, say",
     "enumeration": "6"
    },
-   "solution": "BEATLE"
+   "solution": "BEATLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Harrison, say",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 6,
+       "note": "includes means the name Beale holds another piece within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Beale",
+       "at": 0
+      },
+      {
+       "words": "time",
+       "at": 15,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beale, another Guardian setter, stands in for George Harrison.",
+     "walkthrough": "Beale is a Guardian compiler; George Harrison was a member of the Liverpool band, so 'say' marks him as one example.",
+     "definitionFit": "George Harrison was one of the four members of the Fab Four, an example of the group's members."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beale"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +403,58 @@
     "text": "Rover has complaint about a fish",
     "enumeration": "8"
    },
-   "solution": "GADABOUT"
+   "solution": "GADABOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means surrounding, so the complaint goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "complaint",
+       "at": 10,
+       "gives": "GOUT",
+       "note": "gout is an ailment, and complaint means illness"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 26
+        },
+        {
+         "words": "fish",
+         "at": 28,
+         "gives": "DAB",
+         "note": "a dab is a small flatfish"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering dog suffers from a fish-related illness.",
+     "walkthrough": "'Rover' looks like a dog's name but means a wanderer; 'complaint' is an illness, not a grumble.",
+     "definitionFit": "Someone who flits restlessly from place to place in search of fun is a rover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +468,59 @@
     "text": "Depend on Mercury to keep in with sweetheart",
     "enumeration": "5"
    },
-   "solution": "HINGE"
+   "solution": "HINGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Depend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "at": 18,
+         "note": "to keep means to hold inside, so the chemical symbol contains the word in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mercury",
+         "at": 10,
+         "gives": "HG",
+         "note": "Hg is the chemical symbol for mercury"
+        },
+        {
+         "words": "in",
+         "at": 26,
+         "gives": "IN"
+        }
+       ]
+      },
+      {
+       "words": "sweetheart",
+       "at": 34,
+       "gives": "E",
+       "note": "the heart or middle of the word sweet is its central letter E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone relies on the god Mercury to stay in favour with their beloved.",
+     "walkthrough": "'sweetheart' is read as the heart of 'sweet', its middle letter E.",
+     "definitionFit": "To hinge on something is to rely upon it, as in 'everything hinges on the vote'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mercury"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +540,47 @@
      }
     ]
    },
-   "solution": "HIFI"
+   "solution": "HIFI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropped",
+       "at": 26,
+       "note": "dropped means letters are let go from the setter's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chifonie",
+       "at": 17
+      },
+      {
+       "words": "cone",
+       "at": 34,
+       "gives": "CONE",
+       "note": "the four letters of cone are removed one by one from the name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chifonie, a Guardian setter, let an ice-cream cone fall and so had to leave.",
+     "walkthrough": "Removing C, O, N and E in turn from CHIFONIE leaves HIFI; Chifonie is a Guardian compiler.",
+     "definitionFit": "A hi-fi is a sound system that plays records and CDs, so it is a player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +594,68 @@
     "text": "Submit first crossword — Taupi sadly deceased",
     "enumeration": "10"
    },
-   "solution": "CAPITULATE"
+   "solution": "CAPITULATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Submit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 7,
+         "note": "first means the opening letter of crossword is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crossword",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 31,
+         "note": "sadly signals the name Taupi being put into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Taupi",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "deceased",
+       "at": 37,
+       "gives": "LATE",
+       "note": "late means dead or deceased"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tribute notes that the late setter Taupi submitted a first crossword.",
+     "walkthrough": "'sadly' rearranges TAUPI into APITU; Taupi was a Guardian compiler.",
+     "definitionFit": "To capitulate is to surrender or give in, which is to submit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Submit"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +669,48 @@
     "text": "Tin containing weak pollen producer",
     "enumeration": "6"
    },
-   "solution": "STAMEN"
+   "solution": "STAMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pollen producer",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 4,
+       "note": "containing means the symbol for tin holds another word inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tin",
+       "at": 0,
+       "gives": "SN",
+       "note": "Sn is the chemical symbol for tin"
+      },
+      {
+       "words": "weak",
+       "at": 15,
+       "gives": "TAME",
+       "note": "tame means feeble or weak, as in a tame ending"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin can holds a feeble pollen producer.",
+     "definitionFit": "The male part of a flower carries the anthers that make pollen, so it is the pollen producer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tin"
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +724,41 @@
     "text": "Scots Amish splinter group getting pleasure from pain",
     "enumeration": "10"
    },
-   "solution": "MASOCHISTS"
+   "solution": "MASOCHISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group getting pleasure from pain",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "splinter",
+       "at": 12,
+       "note": "to splinter is to break into pieces, so the letters are broken up and reformed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scots Amish",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breakaway sect of Scottish Amish people enjoys suffering.",
+     "walkthrough": "'splinter group' looks like one phrase, but 'splinter' is the anagram signal and 'group' starts the definition.",
+     "definitionFit": "People who derive pleasure from pain being inflicted on them form such a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "splinter"
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +772,52 @@
     "text": "Near to tee, friend regularly had a chat",
     "enumeration": "8"
    },
-   "solution": "NATTERED"
+   "solution": "NATTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "had a chat",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 20,
+       "note": "regularly means taking letters at regular intervals, every other one from the start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Near",
+       "at": 0
+      },
+      {
+       "words": "to",
+       "at": 5
+      },
+      {
+       "words": "tee",
+       "at": 8
+      },
+      {
+       "words": "friend",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two golfers chatted near the tee.",
+     "definitionFit": "To natter is to talk idly or chatter, so the past tense means had a chat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 15,
@@ -239,7 +831,49 @@
     "text": "Meat Hazard placed in trap",
     "enumeration": "7"
    },
-   "solution": "GRISKIN"
+   "solution": "GRISKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "placed in",
+       "at": 12,
+       "note": "placed in means one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trap",
+       "at": 22,
+       "gives": "GIN",
+       "note": "a gin is a snare or trap for animals"
+      },
+      {
+       "words": "Hazard",
+       "at": 5,
+       "gives": "RISK",
+       "note": "a risk is a hazard or danger"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous piece of meat is set in a snare.",
+     "walkthrough": "'trap' is a gin, an old word for an animal snare, not the drink.",
+     "definitionFit": "Griskin is the lean part of a loin of pork, a cut of meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +893,42 @@
      }
     ]
    },
-   "solution": "ILLFATED"
+   "solution": "ILLFATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unlucky",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dicky",
+       "at": 0,
+       "gives": "ILL",
+       "note": "dicky is British slang for unwell or weak, as in a dicky heart"
+      },
+      {
+       "words": "certain",
+       "at": 6,
+       "gives": "FATED",
+       "note": "fated means destined, certain to happen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Dicky is sure to have bad luck.",
+     "walkthrough": "'Dicky' is British slang for poorly or unsound, not a name.",
+     "definitionFit": "Being doomed to misfortune means being unlucky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +942,43 @@
     "text": "Rufus broadcast film, \"The Entertainer\"",
     "enumeration": "7"
    },
-   "solution": "REDCOAT"
+   "solution": "REDCOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"The Entertainer\"",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rufus broadcast",
+       "at": 0,
+       "gives": "RED",
+       "note": "Rufus spoken sounds like rufous, an old word meaning reddish-brown, so it gives red"
+      },
+      {
+       "words": "film",
+       "at": 16,
+       "gives": "COAT",
+       "note": "a coat is a thin film or layer, as of paint"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rufus, a Guardian setter, put out a film called The Entertainer on air.",
+     "walkthrough": "Rufus is a Guardian setter; said out loud it is rufous, meaning red. Redcoats are the entertainment staff at Butlin's, a chain of British holiday camps.",
+     "definitionFit": "At Butlin's holiday camps the red-jacketed staff who run the shows and games are entertainers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +992,40 @@
     "text": "Most heated inert gas mixture",
     "enumeration": "8"
    },
-   "solution": "ANGRIEST"
+   "solution": "ANGRIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most heated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mixture",
+       "at": 22,
+       "note": "a mixture stirs the letters of inert gas together into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "inert gas",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The hottest blend of inert gases is described.",
+     "definitionFit": "Most heated means most worked up or furious, the superlative of cross."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heated"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1039,59 @@
     "text": "Pan supports crushed tail on palm",
     "enumeration": "7"
    },
-   "solution": "TALIPOT"
+   "solution": "TALIPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "palm",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 4,
+       "note": "in a down clue a piece that supports another sits beneath it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crushed",
+         "at": 13,
+         "note": "crushed means squashed out of shape, so the letters of tail are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tail",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "Pan",
+       "at": 0,
+       "gives": "POT",
+       "note": "a pot is a cooking pan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pan sits under a squashed tail resting on a palm leaf.",
+     "walkthrough": "'crushed' turns TAIL into TALI, and 'supports' puts POT under it in this down clue.",
+     "definitionFit": "The talipot is a tall Asian fan palm, a specific kind of palm tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pan"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1105,45 @@
     "text": "Paul came clean: \"I'm to blame!\"",
     "enumeration": "8"
    },
-   "solution": "MEACULPA"
+   "solution": "MEACULPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"I'm to blame!\"",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "clean",
+       "at": 10,
+       "note": "came clean also hints at confession, but clean signals the letters of Paul came being reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Paul",
+       "at": 0
+      },
+      {
+       "words": "came",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paul, a Guardian setter, confesses that it was all his fault.",
+     "walkthrough": "'clean' rearranges PAUL CAME; Paul is a Guardian compiler and the confession fits the surface.",
+     "definitionFit": "The Latin phrase is a confession of fault, literally 'through my fault', so it means I'm to blame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1157,62 @@
     "text": "Bogus monarch faces oral examinations",
     "enumeration": "6"
    },
-   "solution": "ERSATZ"
+   "solution": "ERSATZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bogus",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "faces",
+       "at": 14,
+       "note": "in a down clue, a piece that faces another sits at its top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "monarch",
+       "at": 6,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, stands for the monarch"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SATZ",
+       "indicators": [
+        {
+         "text": "oral",
+         "at": 20,
+         "note": "oral means spoken, so the word is taken by how it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "examinations",
+         "at": 25,
+         "gives": "SATS",
+         "note": "SATs are the Standard Attainment Tests taken by schoolchildren in England"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fake king confronts spoken tests.",
+     "walkthrough": "SATs are national school tests in England; said out loud they give SATZ.",
+     "definitionFit": "Something ersatz is an inferior imitation or substitute, so it is bogus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "faces"
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1226,30 @@
     "text": "In America, Boatman provides flag",
     "enumeration": "6"
    },
-   "solution": "ENSIGN"
+   "solution": "ENSIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In America, Boatman",
+      "at": 0,
+      "meaning": "in the US Navy and Coast Guard the lowest commissioned officer has this title"
+     },
+     {
+      "text": "flag",
+      "at": 29,
+      "meaning": "a banner flown by a ship to show nationality"
+     }
+    ],
+    "explanation": {
+     "surface": "In the US, a boatman supplies a flag.",
+     "definitionFit": "The word names both a junior American naval officer and a flag flown by ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boatman"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1263,60 @@
     "text": "Young bird, say — permit one to be held",
     "enumeration": "6"
    },
-   "solution": "EAGLET"
+   "solution": "EAGLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Young bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to be held",
+         "at": 29,
+         "note": "to be held means placed inside, so EG holds the other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 12,
+         "gives": "EG",
+         "note": "e.g. is the abbreviation for 'for example', which is what say means"
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "A",
+         "note": "a means one"
+        }
+       ]
+      },
+      {
+       "words": "permit",
+       "at": 18,
+       "gives": "LET",
+       "note": "to let is to allow or permit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a fledgling to be held.",
+     "walkthrough": "'say' looks like it belongs with 'Young bird', but it gives EG.",
+     "definitionFit": "A baby of the large bird of prey is a young bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1330,42 @@
     "text": "Solve Enigmatist by guesswork",
     "enumeration": "10"
    },
-   "solution": "ESTIMATING"
+   "solution": "ESTIMATING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "guesswork",
+      "at": 20,
+      "note": "a noun standing for the verb form, as in reaching a figure by guesswork"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Solve",
+       "at": 0,
+       "note": "to solve is to work something out, so the letters of the setter's name are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Enigmatist",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver tackles an Enigmatist puzzle by guessing.",
+     "walkthrough": "Enigmatist is a Guardian compiler; 'by' is a link.",
+     "definitionFit": "Judging an amount roughly, without measuring, is done by guesswork."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Solve"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1379,61 @@
     "text": "Araucaria's gold Roller going for a song",
     "enumeration": "4"
    },
-   "solution": "ARIA"
+   "solution": "ARIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "song",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "going",
+       "at": 24,
+       "note": "going means departing, so these letters leave the setter's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Araucaria's",
+       "at": 0,
+       "gives": "ARAUCARIA",
+       "note": "the 's only shows possession or stands for 'is', so it adds no letters: the word before it gives these letters as it is written"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 12,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        },
+        {
+         "words": "Roller",
+         "at": 17,
+         "gives": "CAR",
+         "note": "a Roller is slang for a Rolls-Royce, a car"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Araucaria sells his gold Rolls-Royce for a song.",
+     "walkthrough": "Araucaria was the most famous Guardian setter; 'for a song' looks like the idiom for cheaply but 'song' is the definition.",
+     "definitionFit": "An operatic solo is a type of song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "song"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1447,49 @@
     "text": "Original Jaguar model falls off bridge",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bridge",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "falls off",
+       "at": 22,
+       "note": "falls off means a part drops away from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Original",
+       "at": 0,
+       "gives": "ARCHETYPE",
+       "note": "an archetype is an original model or prototype"
+      },
+      {
+       "words": "Jaguar model",
+       "at": 9,
+       "gives": "ETYPE",
+       "note": "the E-Type is a classic Jaguar sports car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An early Jaguar sports car falls off a bridge.",
+     "walkthrough": "'Original' looks like an adjective for the car, but it is ARCHETYPE.",
+     "definitionFit": "A curved structure spanning an opening, or the curved span of a bridge, is an arch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Original"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1503,41 @@
     "text": "\"Beat it!\" — Hectence takes charge",
     "enumeration": "5"
    },
-   "solution": "TITHE"
+   "solution": "TITHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "charge",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "takes",
+       "at": 22,
+       "note": "takes means the run of words holds the answer within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Beat it!\" — Hectence",
+       "at": 1
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hectence, a Guardian setter, tells someone to clear off and takes command.",
+     "walkthrough": "Hectence is a Guardian compiler; 'charge' looks like command but means a levy.",
+     "definitionFit": "A tithe was a tenth of produce paid as a levy to the church, a charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1551,41 @@
     "text": "Mine might be unlocked by Shed",
     "enumeration": "8"
    },
-   "solution": "OPENCAST"
+   "solution": "OPENCAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unlocked",
+       "at": 14,
+       "gives": "OPEN",
+       "note": "unlocked means open"
+      },
+      {
+       "words": "Shed",
+       "at": 26,
+       "gives": "CAST",
+       "note": "to cast is to shed, as a snake casts its skin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mine might be opened by Shed, a Guardian setter.",
+     "walkthrough": "Shed is a Guardian compiler.",
+     "definitionFit": "A mine worked from the surface rather than by shafts is called opencast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
