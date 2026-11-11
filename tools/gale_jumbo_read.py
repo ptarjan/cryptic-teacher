@@ -58,7 +58,7 @@ SOLUTIONS = downloads.TIMES_JUMBO_SOLUTIONS
 DOCS = Path(os.path.expanduser("~/.cache/gale_inbox/docs.json"))
 SOLVED = "solved.jsonl"
 #: Bumped when the solution reading changes, so every filed puzzle is tried again.
-SOLVED_VERSION = 1
+SOLVED_VERSION = 2
 SOLUTION_PREFIX = PREFIX + "solution:"
 #: "Solution to Bank Holiday Jumbo 168", "Jumbo Corssword 169": the number after the word Jumbo.
 SOLUTION_REF = re.compile(r"\bjumbo\b\D{0,30}?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -755,8 +755,8 @@ def read_page(path, store=STORE, asker=None):
     verdict["lights"] = len(laid)
     verdict["blank"] = sorted(blank)
     verdict["why"] = {k: str(v)[:80] for k, v in sorted(blank.items())}
-    doc = gi.DOC_ID.search(path.name)
-    url = f"https://link.gale.com/apps/doc/{doc.group(1).upper()}/TTDA?sid=bookmark-TTDA" if doc else None
+    doc = DOC_ID.search(path.name.upper())  # a 2010s document id has six letters, gale_inbox's only two
+    url = f"https://link.gale.com/apps/doc/{doc.group(0)}/TTDA?sid=bookmark-TTDA" if doc else None
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Times jumbo cryptic crossword No {n:,}",
                       url=url, printed=read.get("asPrinted"))
     verdict["whole"] = bool(fa.complete(puzzle))
