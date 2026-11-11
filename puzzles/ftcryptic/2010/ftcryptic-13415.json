@@ -16,15 +16,47 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "fifteensquared",
-  "url": "https://fifteensquared.net/2010/06/18/financial-times-13415-viking/",
-  "date": "2010-06-18",
-  "check": "31 of 32 entries, 55 crossings, 0 conflicts; answers matched to the grid by number, direction and length",
-  "partial": [
-   "11-across"
-  ]
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-11-11",
+  "check": "32 entries, 60 crossings, 0 conflicts, agrees with the 31 answers the paper printed",
+  "printed": {
+   "1-across": "PERFORATION",
+   "1-down": "PRECLUDE",
+   "2-down": "REVIVIFY",
+   "3-down": "OASIS",
+   "4-down": "AIRPORT",
+   "5-down": "INTAKES",
+   "6-down": "NECTARINE",
+   "7-across": "TIT",
+   "7-down": "TUNDRA",
+   "8-down": "TRENDY",
+   "9-across": "EAVES",
+   "10-across": "RETICENCE",
+   "12-across": "ACRID",
+   "13-across": "DEFICIT",
+   "14-down": "CLEVEREST",
+   "15-across": "SPIN",
+   "16-down": "NEGATION",
+   "17-down": "ATTENDEE",
+   "18-across": "SEES",
+   "19-down": "STAMINA",
+   "20-across": "MAEWEST",
+   "20-down": "MACHETE",
+   "21-down": "SPIGOT",
+   "22-down": "EQUINE",
+   "23-across": "PIQUE",
+   "24-across": "ACCLIMATE",
+   "25-down": "INDRI",
+   "26-across": "GUIDELINE",
+   "27-across": "DRIED",
+   "28-across": "TIE",
+   "29-across": "TRAGEDIENNE"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +70,50 @@
     "text": "Boring conclusion of speech about France",
     "enumeration": "11"
    },
-   "solution": "PERFORATION"
+   "solution": "PERFORATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 28,
+       "note": "about means the closing speech goes around the letter for France"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conclusion of speech",
+       "at": 7,
+       "gives": "PERORATION",
+       "note": "a peroration is the rousing closing part of an oration"
+      },
+      {
+       "words": "France",
+       "at": 34,
+       "gives": "F",
+       "note": "F is the international vehicle code for France"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orator's dull closing remarks are all about France.",
+     "walkthrough": "'Boring' looks like an adjective describing the speech, but it is the noun sense: the act of drilling a hole.",
+     "definitionFit": "A hole drilled through something is a puncture made by boring, so the noun matches the gerund."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +127,47 @@
     "text": "Rule out carbon cuts beginning",
     "enumeration": "8"
    },
-   "solution": "PRECLUDE"
+   "solution": "PRECLUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rule out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuts",
+       "at": 16,
+       "note": "cuts means the carbon letter cuts into the word for beginning"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beginning",
+       "at": 21,
+       "gives": "PRELUDE",
+       "note": "a prelude is an introductory beginning"
+      },
+      {
+       "words": "carbon",
+       "at": 9,
+       "gives": "C",
+       "note": "C is the chemical symbol for carbon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruling bans carbon cuts from the start.",
+     "definitionFit": "To preclude something is to prevent it, so it is ruled out in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +181,59 @@
     "text": "Verify I've almost contrived to energise again",
     "enumeration": "8"
    },
-   "solution": "REVIVIFY"
+   "solution": "REVIVIFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "energise again",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "contrived",
+       "at": 19,
+       "note": "contrived means artificially put together, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Verify",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I've",
+         "at": 7
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Check that I have nearly managed to restore someone's energy.",
+     "walkthrough": "'almost' trims I'VE to IV; VERIFY plus IV is rearranged.",
+     "definitionFit": "To revivify is to give fresh life or vigour, which is energising again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +247,42 @@
     "text": "Old unchanged watering-hole",
     "enumeration": "5"
    },
-   "solution": "OASIS"
+   "solution": "OASIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "watering-hole",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "unchanged",
+       "at": 4,
+       "gives": "ASIS",
+       "note": "as is means in its present state, unchanged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old pub has stayed exactly as it was.",
+     "walkthrough": "'watering-hole' suggests a pub; here it is literal, a place in the desert with water.",
+     "definitionFit": "An oasis is a fertile spot in a desert with a water source, a literal watering-hole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "watering-hole"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +296,58 @@
     "text": "Right cracking excellent wine at duty-free location?",
     "enumeration": "7"
    },
-   "solution": "AIRPORT"
+   "solution": "AIRPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "duty-free location?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cracking",
+       "at": 6,
+       "note": "cracking means breaking into, so the right letter goes inside the pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "excellent",
+         "at": 15,
+         "gives": "AI",
+         "note": "A1 means first-class, written AI with the numeral as I"
+        },
+        {
+         "words": "wine",
+         "at": 25,
+         "gives": "PORT",
+         "note": "port is a fortified wine"
+        }
+       ]
+      },
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picking up an excellent bottle of wine at the duty-free.",
+     "walkthrough": "'cracking' puts R between the two halves of AIPORT: the setter writes A1 with the numeral as a letter I. The question mark signals a definition by example.",
+     "definitionFit": "Duty-free shops are found at international terminals, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +361,55 @@
     "text": "Groups of recruits get badly mistaken — miles out",
     "enumeration": "7"
    },
-   "solution": "INTAKES"
+   "solution": "INTAKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Groups of recruits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 23,
+       "note": "badly means the letters are messed up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 46,
+         "note": "out means the letter for miles is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mistaken",
+         "at": 29
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "New recruits go badly wrong, miles off target.",
+     "walkthrough": "MISTAKEN loses M to give ISTAKEN, which 'badly' rearranges.",
+     "definitionFit": "An intake is a batch of people admitted at one time, such as new recruits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +423,68 @@
     "text": "Fruit certain to be fermented in heart of Veneto",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in means the rearranged letters go inside the heart of the region"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart of",
+         "at": 33,
+         "note": "heart of picks the middle letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Veneto",
+         "at": 42
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fermented",
+         "at": 20,
+         "note": "fermented means worked up and changed, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "certain",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit that is sure to be fermented in the heart of an Italian wine region.",
+     "walkthrough": "'fermented' makes ECTARIN, which 'in' places inside the middle pair of the Italian region's name; 'to be' is a link.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +498,44 @@
     "text": "Bird's name taken from colour",
     "enumeration": "3"
    },
-   "solution": "TIT"
+   "solution": "TIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taken from",
+       "at": 12,
+       "note": "taken from means the letter for name is removed from the word for colour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "colour",
+       "at": 23,
+       "gives": "TINT",
+       "note": "a tint is a shade or hue"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird gets its name from the colour of its feathers.",
+     "definitionFit": "A tit is a small songbird, such as the blue tit or great tit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +549,68 @@
     "text": "Head up to mostly dismal wasteland",
     "enumeration": "6"
    },
-   "solution": "TUNDRA"
+   "solution": "TUNDRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wasteland",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 5,
+         "note": "up in a down clue means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Head",
+         "at": 0,
+         "gives": "NUT",
+         "note": "nut is slang for the head"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 11,
+         "note": "mostly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dismal",
+         "at": 18,
+         "gives": "DRAB",
+         "note": "drab means dull or dismal"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads off to a bleak, mostly dismal wasteland.",
+     "walkthrough": "'up' turns NUT into TUN; DRAB loses its B.",
+     "definitionFit": "Tundra is a vast treeless Arctic plain, a barren wasteland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +624,47 @@
     "text": "Cease in attempt to be fashionable",
     "enumeration": "6"
    },
-   "solution": "TRENDY"
+   "solution": "TRENDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fashionable",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "in places the word for cease inside the word for attempt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attempt",
+       "at": 9,
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      },
+      {
+       "words": "Cease",
+       "at": 0,
+       "gives": "END",
+       "note": "to end is to cease"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stop trying to be fashionable.",
+     "definitionFit": "Trendy means following the latest fashions, so it is a synonym of fashionable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +678,58 @@
     "text": "Birds finally settle at front part of roof",
     "enumeration": "5"
    },
-   "solution": "EAVES"
+   "solution": "EAVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of roof",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at front",
+       "at": 21,
+       "note": "at front puts that last letter before the birds"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 6,
+         "note": "finally points to the closing letter of the word settle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "settle",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "Birds",
+       "at": 0,
+       "gives": "AVES",
+       "note": "Aves is the zoological class of birds"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Birds come to rest at last on the front edge of a roof.",
+     "walkthrough": "AVES, Latin for birds, is the scientific class name; crossword setters use it freely.",
+     "definitionFit": "The overhanging lower edge of a roof is its eaves, a structural part of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +743,59 @@
     "text": "Restraint shown by formality in recent novel",
     "enumeration": "9"
    },
-   "solution": "RETICENCE"
+   "solution": "RETICENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Restraint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in places the coolness inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 39,
+         "note": "novel means new, so the word recent is given a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recent",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "formality",
+       "at": 19,
+       "gives": "ICE",
+       "note": "ice is cold formality or stiff reserve in manner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recent novel shows restraint in its formal style.",
+     "walkthrough": "'novel' makes RETNCE, and 'in' splits it after its third letter. ICE as formality is the cold stiffness of a reserved manner.",
+     "definitionFit": "Reticence is a reluctance to speak out, which is a form of self-restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,6 +808,58 @@
    "clue": {
     "text": "One's to give rights in secure farm asset",
     "enumeration": "9"
+   },
+   "solution": "LIVESTOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "farm asset",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in means the first pieces sit inside the word for secure"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secure",
+       "at": 24,
+       "gives": "LOCK",
+       "note": "to lock something is to secure it"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One's",
+         "at": 0,
+         "gives": "I",
+         "note": "one is the Roman numeral I; the 's is a link"
+        },
+        {
+         "words": "to give rights",
+         "at": 6,
+         "gives": "VEST",
+         "note": "to vest is to confer rights or property on someone"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has to give rights over a valuable piece of farm property.",
+     "definitionFit": "Farm animals kept for profit are a farmer's main capital, so stock is an asset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -219,7 +874,48 @@
     "text": "Tart assumes right to be sarcastic",
     "enumeration": "5"
    },
-   "solution": "ACRID"
+   "solution": "ACRID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sarcastic",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "assumes",
+       "at": 5,
+       "note": "assumes means takes on or takes in, so the right letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tart",
+       "at": 0,
+       "gives": "ACID",
+       "note": "tart and acid both mean sharp or sour in taste"
+      },
+      {
+       "words": "right",
+       "at": 13,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-tongued woman takes it as her right to be biting.",
+     "walkthrough": "'Tart' looks like a noun for a pastry or a person; it is the adjective meaning sour.",
+     "definitionFit": "Acrid remarks are bitter and cutting, which is a figurative sense close to sarcastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tart"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +929,79 @@
     "text": "Italy provided backing to most of financial centre making loss",
     "enumeration": "7"
    },
-   "solution": "DEFICIT"
+   "solution": "DEFICIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "loss",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 15,
+         "note": "backing means the first two pieces are read in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Italy",
+           "at": 0,
+           "gives": "I",
+           "note": "I is the international vehicle code for Italy"
+          },
+          {
+           "words": "provided",
+           "at": 6,
+           "gives": "FED",
+           "note": "to have fed someone is to have provided for them"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 26,
+         "note": "most of means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "financial centre",
+         "at": 34,
+         "gives": "CITY",
+         "note": "the City is London's financial district"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Italy propped up most of a financial centre that was losing money.",
+     "walkthrough": "'backing' turns IFED into DEFI. The CITY is London's financial district, here losing its Y.",
+     "definitionFit": "A deficit is a shortfall where spending exceeds income, which is a financial loss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1015,61 @@
     "text": "Revolutionary party embraced by French for it is most able",
     "enumeration": "9"
    },
-   "solution": "CLEVEREST"
+   "solution": "CLEVEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "most able",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 20,
+       "note": "embraced by means the reversed party sits inside the French phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French for it is",
+       "at": 32,
+       "gives": "CEST",
+       "note": "c'est is French for it is"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "revolutionary means turned round, so the party word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 14,
+         "gives": "REVEL",
+         "note": "a revel is a lively party"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The French hold a revolutionary party for the most capable.",
+     "walkthrough": "'Revolutionary' makes LEVER; 'embraced by' sets it inside the French phrase, whose apostrophe is ignored.",
+     "definitionFit": "The cleverest person is the most intelligent, the one most able mentally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1083,43 @@
     "text": "Toss drinks back",
     "enumeration": "4"
    },
-   "solution": "SPIN"
+   "solution": "SPIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Toss",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 12,
+       "note": "back says the word for drinks is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drinks",
+       "at": 5,
+       "gives": "NIPS",
+       "note": "nips are small measures of spirits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tosses a few drinks back.",
+     "walkthrough": "'Toss drinks back' reads as knocking back drinks; 'Toss' is the definition.",
+     "definitionFit": "To toss a coin is to spin it in the air, so the two verbs are synonyms here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Toss"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1133,63 @@
     "text": "I mostly get taken in by people's denial",
     "enumeration": "8"
    },
-   "solution": "NEGATION"
+   "solution": "NEGATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "denial",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 13,
+       "note": "taken in by means the shortened self word goes inside the people word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "people's",
+       "at": 25,
+       "gives": "NATION",
+       "note": "a nation is a people; the 's is a link"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 2,
+         "note": "mostly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 0,
+         "gives": "EGO",
+         "note": "ego is Latin for I, the self"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I am mostly taken in by people's refusal to accept things.",
+     "walkthrough": "'mostly' leaves EG; 'taken in by' places it after the first letter of the people word. Latin 'ego' for I is a common crossword trick.",
+     "definitionFit": "A negation is a statement that something is not so, which is a denial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1203,66 @@
     "text": "I will turn up to see to getting in support after article",
     "enumeration": "8"
    },
-   "solution": "ATTENDEE"
+   "solution": "ATTENDEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I will turn up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 44,
+       "note": "after puts the rest of the construction behind the article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "at": 50,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "getting in",
+         "at": 25,
+         "note": "getting in means the attending word goes inside the support"
+        }
+       ],
+       "parts": [
+        {
+         "words": "support",
+         "at": 36,
+         "gives": "TEE",
+         "note": "a tee is a golf ball's support"
+        },
+        {
+         "words": "see to",
+         "at": 18,
+         "gives": "TEND",
+         "note": "to tend is to see to or look after"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone promises to turn up and see to getting support for an article.",
+     "walkthrough": "The definition is the attendee speaking: 'I will turn up'.",
+     "definitionFit": "An attendee is someone who is present at an event, so says they will turn up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1276,44 @@
     "text": "Understands what is appropriate in speech",
     "enumeration": "4"
    },
-   "solution": "SEES"
+   "solution": "SEES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Understands",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEES",
+     "indicators": [
+      {
+       "text": "in speech",
+       "at": 32,
+       "note": "in speech means we want a word that sounds like the next one when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appropriate",
+       "at": 20,
+       "gives": "SEIZE",
+       "note": "to appropriate something is to seize it for oneself"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grasps what is fitting to say in a speech.",
+     "walkthrough": "'appropriate' is read as the verb, to take, not the adjective meaning fitting.",
+     "definitionFit": "To see a point is to grasp it, so the verb is used in its sense of comprehend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appropriate"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1327,58 @@
     "text": "Mark in dye has first-class endurance",
     "enumeration": "7"
    },
-   "solution": "STAMINA"
+   "solution": "STAMINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "endurance",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "in places the mark letter inside the dye word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dye",
+         "at": 8,
+         "gives": "STAIN",
+         "note": "a stain is a dye for wood or fabric"
+        },
+        {
+         "words": "Mark",
+         "at": 0,
+         "gives": "M",
+         "note": "M is the abbreviation for the German mark currency"
+        }
+       ]
+      },
+      {
+       "words": "first-class",
+       "at": 16,
+       "gives": "A",
+       "note": "A is a top grade, first-class"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mark in the dye shows first-class durability.",
+     "definitionFit": "Stamina is staying power, the capacity for endurance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1398,60 @@
      }
     ]
    },
-   "solution": "MAEWEST"
+   "solution": "MAEWEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Life jacket",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "reversed",
+       "at": 16,
+       "note": "reversed means the whole construction is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 32,
+         "note": "in puts the stitching word inside the word for side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "side",
+         "at": 35,
+         "gives": "TEAM",
+         "note": "a side is a team in sport"
+        },
+        {
+         "words": "stitch",
+         "at": 25,
+         "gives": "SEW",
+         "note": "to stitch is to sew"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A life jacket has stitching turned inside out along one side.",
+     "walkthrough": "'in' gives TSEWEAM, which 'reversed' turns round. A Mae West was the RAF's inflatable life jacket, nicknamed after the buxom American actress.",
+     "definitionFit": "Second World War airmen called their inflatable life vest a Mae West after the actress's figure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1465,58 @@
     "text": "Staff carrying the wrong weapon",
     "enumeration": "7"
    },
-   "solution": "MACHETE"
+   "solution": "MACHETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 6,
+       "note": "carrying means the staff holds the next letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Staff",
+       "at": 0,
+       "gives": "MACE",
+       "note": "a mace is a ceremonial staff or club"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 19,
+         "note": "wrong means the letters are put in a wrong order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A staff holding the wrong weapon.",
+     "walkthrough": "'wrong' makes HET; 'carrying' has the staff hold it after its third letter.",
+     "definitionFit": "A machete is a broad heavy blade used as a tool or a weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1530,60 @@
     "text": "Soldier involved in kills taken up a peg?",
     "enumeration": "6"
    },
-   "solution": "SPIGOT"
+   "solution": "SPIGOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "peg",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "taken up",
+       "at": 26,
+       "note": "taken up in a down clue means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involved in",
+         "at": 8,
+         "note": "involved in means the soldier goes inside the word for kills"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kills",
+         "at": 20,
+         "gives": "TOPS",
+         "note": "to top someone is slang for to kill them"
+        },
+        {
+         "words": "Soldier",
+         "at": 0,
+         "gives": "GI",
+         "note": "GI is an American soldier"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier involved in killings is taken down a peg.",
+     "walkthrough": "'involved in' makes TOGIPS, which 'taken up' turns round. The question mark flags that a spigot is the kind of peg that stops a cask.",
+     "definitionFit": "A spigot is a small peg or plug for the vent hole of a cask."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1597,47 @@
     "text": "In glittery costume, covering extremities, like a knight?",
     "enumeration": "6"
    },
-   "solution": "EQUINE"
+   "solution": "EQUINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like a knight?",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "covering extremities",
+       "at": 21,
+       "note": "covering extremities means the outer letters are taken off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In glittery costume",
+       "at": 0,
+       "gives": "SEQUINED",
+       "note": "sequined means decorated with sequins, dressed in glitter"
+      },
+      {
+       "gives": "SD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight in a sparkly outfit, covered from head to toe.",
+     "walkthrough": "SEQUINED loses its outer S and D. A knight in chess is shaped like a horse, hence the question mark.",
+     "definitionFit": "The chess knight is a horse's head, so it is horselike: a crossword-style definition by allusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1651,47 @@
     "text": "Detective's question linked to drug offence",
     "enumeration": "5"
    },
-   "solution": "PIQUE"
+   "solution": "PIQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "offence",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Detective's",
+       "at": 0,
+       "gives": "PI",
+       "note": "PI stands for private investigator, a detective"
+      },
+      {
+       "words": "question",
+       "at": 12,
+       "gives": "QU"
+      },
+      {
+       "words": "drug",
+       "at": 31,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective's question about a drug offence.",
+     "walkthrough": "'offence' is not a crime here but taking offence: resentment.",
+     "definitionFit": "Pique is a feeling of irritation from wounded pride, the sense of taking offence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offence"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1705,69 @@
     "text": "Adapt bill's endless increase before upset",
     "enumeration": "9"
    },
-   "solution": "ACCLIMATE"
+   "solution": "ACCLIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Adapt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 30,
+       "note": "before places the shortened increase ahead of the final piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bill's",
+       "at": 6,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 13,
+         "note": "endless means the last letter of the word for increase goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "increase",
+         "at": 21,
+         "gives": "CLIMB",
+         "note": "to climb is to rise or increase"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "upset",
+       "at": 37,
+       "gives": "ATE",
+       "note": "ate means troubled or upset, as in what is eating you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Adjusting to a bill's never-ending increase before getting upset.",
+     "walkthrough": "'upset' is ATE in the sense of 'what's eating you?'",
+     "definitionFit": "To acclimate is to become accustomed to new conditions, which is to adapt to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1781,54 @@
     "text": "Lemur turns up in weird niche",
     "enumeration": "5"
    },
-   "solution": "INDRI"
+   "solution": "INDRI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lemur",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns up",
+       "at": 6,
+       "note": "turns up says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 15,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weird niche",
+         "at": 18,
+         "gives": "IRDNI",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lemur appears in a strange little nook.",
+     "walkthrough": "'in' marks the letters inside 'weird niche', which 'turns up' reads from bottom to top.",
+     "definitionFit": "The indri is the largest living lemur, found in Madagascar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1842,63 @@
     "text": "With a lot of old money going about, shop gets advice",
     "enumeration": "9"
    },
-   "solution": "GUIDELINE"
+   "solution": "GUIDELINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "advice",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going about",
+       "at": 24,
+       "note": "going about means the money word goes around the shop"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 5,
+         "note": "a lot of means most of the word, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old money",
+         "at": 14,
+         "gives": "GUINEA",
+         "note": "a guinea was an old British coin worth twenty-one shillings"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "shop",
+       "at": 37,
+       "gives": "DELI",
+       "note": "a deli is a delicatessen shop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flush with old money, a shopkeeper receives some advice.",
+     "walkthrough": "The guinea was an old British gold coin worth 21 shillings; 'a lot of' leaves GUINE, which 'going about' wraps round the shop.",
+     "definitionFit": "A guideline is a piece of guidance or a recommendation, which is advice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1912,47 @@
     "text": "Failed to tackle run, being dehydrated",
     "enumeration": "5"
    },
-   "solution": "DRIED"
+   "solution": "DRIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dehydrated",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to tackle",
+       "at": 7,
+       "note": "to tackle is to take on or grip, so the failed word grips the run letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Failed",
+       "at": 0,
+       "gives": "DIED",
+       "note": "an engine that died has failed"
+      },
+      {
+       "words": "run",
+       "at": 17,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player failed to tackle the run because he was dehydrated.",
+     "definitionFit": "Something dried has had its water removed, which is what dehydrated means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1966,60 @@
     "text": "Secure exhaust after removing bit of rust",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after removing",
+       "at": 15,
+       "note": "after removing means a letter is taken out of the word for exhaust"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exhaust",
+       "at": 7,
+       "gives": "TIRE",
+       "note": "to tire someone is to exhaust them"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "bit of",
+         "at": 30,
+         "note": "bit of means just the first letter of the word rust"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rust",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fix the car exhaust after removing some rust.",
+     "walkthrough": "'exhaust' looks like the car part; it is the verb to tire.",
+     "definitionFit": "To tie something is to fasten it, so it is secured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "exhaust"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +2033,58 @@
     "text": "Actress interpreted degeneration after losing love",
     "enumeration": "11"
    },
-   "solution": "TRAGEDIENNE"
+   "solution": "TRAGEDIENNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "interpreted",
+       "at": 8,
+       "note": "interpreted means the letters are read in a new way, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing",
+         "at": 33,
+         "note": "after losing means a letter is taken out before rearranging"
+        }
+       ],
+       "parts": [
+        {
+         "words": "degeneration",
+         "at": 20
+        },
+        {
+         "words": "love",
+         "at": 46,
+         "gives": "O",
+         "note": "love is zero in tennis, the letter O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress interpreted decline after losing her lover.",
+     "walkthrough": "DEGENERATION without its O leaves DEGENERATIN, which 'interpreted' rearranges.",
+     "definitionFit": "A tragedienne is an actress who specialises in tragic roles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
