@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Garment for drunks?",
     "enumeration": "6"
    },
-   "solution": "TIGHTS"
+   "solution": "TIGHTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Garment",
+      "at": 0,
+      "meaning": "a close-fitting legwear item, a pair of hose worn from waist to toe"
+     },
+     {
+      "text": "drunks?",
+      "at": 12,
+      "meaning": "people who are tight, an old word for tipsy, turned whimsically into a plural noun"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what clothing suits heavy drinkers.",
+     "walkthrough": "'Tight' for drunk is an adjective; the question mark admits that making it a plural noun for drunken people is a stretch.",
+     "definitionFit": "Hosiery covering the legs and lower body is an everyday piece of clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,64 @@
     "text": "Leaderless council crushed by aunt to the Spanish queen in the 25",
     "enumeration": "7"
    },
-   "solution": "TITANIA"
+   "solution": "TITANIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "queen in the 25",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crushed by",
+       "at": 19,
+       "note": "something crushed by another is squeezed inside it, so the council goes within the aunt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aunt to the Spanish",
+       "at": 30,
+       "gives": "TIA",
+       "note": "tia is the Spanish word for aunt"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Leaderless",
+         "at": 0,
+         "note": "losing its leader means the council word drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "council",
+         "at": 11,
+         "gives": "WITAN",
+         "note": "the Witan was the assembly of advisers to Anglo-Saxon kings"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headless committee squashed by a relative on the way to a Spanish monarch in some scene.",
+     "walkthrough": "'Leaderless' leaves ITAN, which 'crushed by' puts inside the aunt. 25 is DREAM, so the queen is the fairy queen of Shakespeare's play.",
+     "definitionFit": "She is the fairy queen, wife of the fairy king, in Shakespeare's comedy of the enchanted wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crushed"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +143,58 @@
     "text": "Part of Soviet penal system, partly red and silver",
     "enumeration": "5"
    },
-   "solution": "GULAG"
+   "solution": "GULAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of Soviet penal system",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "partly",
+         "at": 29,
+         "note": "only part of the heraldic colour word is used, its last two letters being dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "red",
+         "at": 36,
+         "gives": "GULES",
+         "note": "gules is the heraldic term for red"
+        },
+        {
+         "gives": "ES"
+        }
+       ]
+      },
+      {
+       "words": "silver",
+       "at": 44,
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver, from Latin argentum"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labour camp is described as being part red and part silver.",
+     "walkthrough": "'partly' trims GULES to GUL; ES goes.",
+     "definitionFit": "The Soviet network of forced-labour camps was known by this acronym, and each camp was one part of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +208,59 @@
     "text": "Pitched battle over container holding record",
     "enumeration": "9"
    },
-   "solution": "TURNTABLE"
+   "solution": "TURNTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "holding record",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 15,
+       "note": "the rearranged battle letters lie over and around the container, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Pitched",
+         "at": 0,
+         "note": "pitched suggests the letters are thrown about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "battle",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "container",
+       "at": 20,
+       "gives": "URN",
+       "note": "an urn is a vessel or container"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fight is staged above a vessel that keeps a record.",
+     "walkthrough": "'Pitched' makes TTABLE, and 'over' wraps it round the container after the first T. 'Pitched battle' looks like a fixed phrase, but 'Pitched' is the anagram signal.",
+     "definitionFit": "A gramophone's rotating platter is the thing on which a vinyl disc sits as it plays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pitched"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +274,59 @@
     "text": "Conservative setter's in business arrangement of 10",
     "enumeration": "7"
    },
-   "solution": "DECIMAL"
+   "solution": "DECIMAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of 10",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "the Conservative and the setter's words go inside the business arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business arrangement",
+       "at": 25,
+       "gives": "DEAL",
+       "note": "a deal is a business agreement"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Conservative",
+         "at": 0,
+         "gives": "C"
+        },
+        {
+         "words": "setter's",
+         "at": 13,
+         "gives": "IM",
+         "note": "the setter is, from the setter's own view, I'M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory compiler is involved in a commercial deal about the number ten.",
+     "walkthrough": "Setters refer to themselves in the third person, so 'setter's' is 'setter is' and gives I'M.",
+     "definitionFit": "A decimal system is based on ten, so the adjective means relating to tens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter's"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +340,30 @@
     "text": "Far-reaching reductions in army base",
     "enumeration": "7"
    },
-   "solution": "DEEPCUT"
+   "solution": "DEEPCUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Far-reaching reductions",
+      "at": 0,
+      "meaning": "severe, extensive cuts in spending"
+     },
+     {
+      "text": "army base",
+      "at": 27,
+      "meaning": "A British Army barracks in Surrey"
+     }
+    ],
+    "explanation": {
+     "surface": "Severe spending cuts hit a military base.",
+     "walkthrough": "Deepcut Barracks in Surrey was a Royal Logistic Corps training base, in the news over deaths of recruits.",
+     "definitionFit": "Severe slashing of budgets is described as a profound cutback; Deepcut is also a named British barracks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +377,42 @@
     "text": "Immobilisation of one that won't talk quietly",
     "enumeration": "5"
    },
-   "solution": "CLAMP"
+   "solution": "CLAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Immobilisation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one that won't talk",
+       "at": 18,
+       "gives": "CLAM",
+       "note": "someone who clams up is a clam, a person who keeps quiet"
+      },
+      {
+       "words": "quietly",
+       "at": 38,
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quietly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restraining a silent prisoner, done softly.",
+     "walkthrough": "A wheel clamp is the device British traffic wardens fit to immobilise illegally parked cars.",
+     "definitionFit": "A clamp is a device that holds something fast, preventing it from moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Immobilisation"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +436,29 @@
    "group": [
     "6-down",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "24/6's 25",
+      "at": 0,
+      "meaning": "the 24th of June's Dream, i.e. the title of Shakespeare's play, of which this phrase is the first part"
+     },
+     {
+      "text": "time",
+      "at": 10,
+      "meaning": "a period of the year, the shortest dark hours around the solstice"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "24/6 is the date 24 June, Midsummer Day, and 25 is DREAM, so 24/6's 25 is the play title.",
+     "definitionFit": "The short darkness of the summer solstice is a well-known moment in the calendar, and the first words of a Shakespeare title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +485,41 @@
     "text": "Honour small boy king in the 25",
     "enumeration": "6"
    },
-   "solution": "OBERON"
+   "solution": "OBERON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "king in the 25",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Honour",
+       "at": 0,
+       "gives": "OBE",
+       "note": "the OBE, Officer of the Order of the British Empire, is a British honour"
+      },
+      {
+       "words": "small boy",
+       "at": 7,
+       "gives": "RON",
+       "note": "Ron is a short form of the boy's name Ronald"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster is decorated and crowned in some scene.",
+     "walkthrough": "25 is DREAM: the king is the fairy king in Shakespeare's play.",
+     "definitionFit": "He rules the fairies in Shakespeare's woodland comedy, married to their queen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +533,41 @@
     "text": "Good enough to supply beer to all",
     "enumeration": "9"
    },
-   "solution": "TOLERABLE"
+   "solution": "TOLERABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Good enough",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "supply",
+       "at": 15,
+       "note": "read as the adverb of supple, in a pliant way, so the letters bend into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer to all",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being decent enough to provide drinks for everyone.",
+     "walkthrough": "'supply' looks like the verb; read as 'in a supple manner' it bends BEER TO ALL into the answer.",
+     "definitionFit": "Something bearable or passable is acceptable without being excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +581,45 @@
     "text": "A rebellion occurs before time to check",
     "enumeration": "5"
    },
-   "solution": "AUDIT"
+   "solution": "AUDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "check",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "rebellion",
+       "at": 2,
+       "gives": "UDI",
+       "note": "UDI, the Unilateral Declaration of Independence by Rhodesia in 1965, was a rebellion against Britain"
+      },
+      {
+       "words": "time",
+       "at": 26,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uprising takes place before it is time to inspect.",
+     "definitionFit": "An official examination of accounts is an inspection of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebellion"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +646,49 @@
     "text": "Get back ecstasy, keeping notes",
     "enumeration": "9"
    },
-   "solution": "RECAPTURE"
+   "solution": "RECAPTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 18,
+       "note": "one word keeps the other inside it, so the notes are held within the ecstasy"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ecstasy",
+       "at": 9,
+       "gives": "RAPTURE",
+       "note": "rapture is intense joy, ecstasy"
+      },
+      {
+       "words": "notes",
+       "at": 26,
+       "gives": "EC",
+       "note": "E and C are musical notes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to regain bliss while holding on to their notes.",
+     "walkthrough": "'ecstasy' looks like the drug, which crosswords often make E; here it is the feeling.",
+     "definitionFit": "To regain is to take possession again of something lost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +702,60 @@
     "text": "Fictitious prison where king has a veto on extremes",
     "enumeration": "7"
    },
-   "solution": "AZKABAN"
+   "solution": "AZKABAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fictitious prison",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 40,
+       "note": "in an across clue, placing one piece on another puts it after, so the king, a and veto come after the extremes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extremes",
+       "at": 43,
+       "gives": "AZ",
+       "note": "A and Z are the extremes of the alphabet"
+      },
+      {
+       "words": "king",
+       "at": 24,
+       "gives": "K",
+       "note": "K is the abbreviation for king in chess"
+      },
+      {
+       "words": "a",
+       "at": 33,
+       "gives": "A"
+      },
+      {
+       "words": "veto",
+       "at": 35,
+       "gives": "BAN",
+       "note": "a ban is a prohibition, a veto"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jail where the monarch can forbid things at the limits.",
+     "walkthrough": "The prison is the wizard jail in the Harry Potter books.",
+     "definitionFit": "It is the wizards' jail guarded by dementors in J K Rowling's novels, an invented place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremes"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +775,32 @@
      }
     ]
    },
-   "solution": "KINGSHEAD"
+   "solution": "KINGSHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pub",
+      "at": 0,
+      "meaning": "a common British pub name"
+     },
+     {
+      "text": "removed by Cromwell?",
+      "at": 4,
+      "meaning": "Cromwell's regime had the head of King Charles I cut off"
+     }
+    ],
+    "spelling": "KING'S HEAD",
+    "explanation": {
+     "surface": "Asking whether a tavern was closed by the Lord Protector.",
+     "walkthrough": "Charles I was beheaded in 1649 under Cromwell; the King's Head is a common British pub name.",
+     "definitionFit": "Many British inns bear this name on their sign, and a monarch's head was literally removed under Cromwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +814,30 @@
     "text": "Bits of thread on guitar?",
     "enumeration": "6"
    },
-   "solution": "THRUMS"
+   "solution": "THRUMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bits of thread",
+      "at": 0,
+      "meaning": "loose fringe ends of yarn left on a loom"
+     },
+     {
+      "text": "on guitar?",
+      "at": 15,
+      "meaning": "strums idly on strings"
+     }
+    ],
+    "explanation": {
+     "surface": "Some scraps of yarn are found on a guitar.",
+     "definitionFit": "Weavers call the unwoven ends of warp yarn by this name; as a verb it also means strumming idly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +857,60 @@
      }
     ]
    },
-   "solution": "ROSAPARKS"
+   "solution": "ROSAPARKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "whose 19 across helped forward 21 7's 25",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "the fool goes inside the cry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cry",
+         "at": 8,
+         "gives": "ROAR",
+         "note": "a roar is a loud cry"
+        },
+        {
+         "words": "Fool",
+         "at": 0,
+         "gives": "SAP",
+         "note": "a sap is a fool, a dupe"
+        }
+       ]
+      },
+      {
+       "words": "of 14",
+       "at": 12,
+       "gives": "KS",
+       "note": "14 down is the pub clue, whose first word is the monarch's possessive, shortened as K (king) plus the 'S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool shouting in a pub honours the woman whose bus journey advanced a famous civil-rights vision.",
+     "walkthrough": "19 across is BUS TRIP and 21 7 is the civil rights leader, so the definition is the woman whose bus protest advanced his vision.",
+     "definitionFit": "Her 1955 refusal to give up a bus seat in Montgomery sparked the boycott that advanced the civil-rights leader's vision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fool"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +924,29 @@
     "text": "French city makes blood boil",
     "enumeration": "6"
    },
-   "solution": "ANGERS"
+   "solution": "ANGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 0,
+      "meaning": "a city in the Loire valley in western France"
+     },
+     {
+      "text": "makes blood boil",
+      "at": 12,
+      "meaning": "infuriates"
+     }
+    ],
+    "explanation": {
+     "surface": "A town in France is infuriating.",
+     "definitionFit": "The Loire city shares its spelling with the verb meaning enrages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +960,30 @@
     "text": "Person in charge is the one with the rope",
     "enumeration": "7"
    },
-   "solution": "SKIPPER"
+   "solution": "SKIPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person in charge",
+      "at": 0,
+      "meaning": "a captain or leader"
+     },
+     {
+      "text": "the one with the rope",
+      "at": 20,
+      "meaning": "someone using a skipping rope"
+     }
+    ],
+    "explanation": {
+     "surface": "The boss is the one holding the rope.",
+     "definitionFit": "A boat's captain or team leader is in charge; and someone jumping a rope is also so called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1003,49 @@
      }
     ]
    },
-   "solution": "BUSTRIP"
+   "solution": "BUSTRIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outing on public transport",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 8,
+       "note": "the epitaph goes on the bankrupt, placed after it as an inscription follows a name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bankrupt",
+       "at": 11,
+       "gives": "BUST",
+       "note": "bust means broke, bankrupt"
+      },
+      {
+       "words": "Epitaph",
+       "at": 0,
+       "gives": "RIP",
+       "note": "RIP, rest in peace, is a common gravestone epitaph"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gravestone inscription for a ruined man who had been on an excursion.",
+     "walkthrough": "'that had' joins the wordplay to the definition; the surface is a gravestone joke about a ruined traveller.",
+     "definitionFit": "An excursion by coach or omnibus is a journey on public transport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Epitaph"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1059,30 @@
     "text": "Bed that had a 25",
     "enumeration": "6"
    },
-   "solution": "BOTTOM"
+   "solution": "BOTTOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bed",
+      "at": 0,
+      "meaning": "the floor of a river or sea"
+     },
+     {
+      "text": "that had a 25",
+      "at": 4,
+      "meaning": "Nick the weaver in Shakespeare's play, who wakes saying he has had a most rare vision"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "25 is DREAM: Nick Bottom the weaver speaks of his dream in Shakespeare's play.",
+     "definitionFit": "A riverbed is the lowest part, the foot, of the water; Shakespeare's weaver bears the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1096,66 @@
     "text": "NCO half back that is a star",
     "enumeration": "7"
    },
-   "solution": "PROCYON"
+   "solution": "PROCYON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a star",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 9,
+         "note": "back reads the shortened word in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "half",
+           "at": 4,
+           "note": "only half of the rank word is kept, its last four letters going"
+          }
+         ],
+         "parts": [
+          {
+           "words": "NCO",
+           "at": 0,
+           "gives": "CORPORAL",
+           "note": "a corporal is a non-commissioned officer"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "that",
+       "at": 14,
+       "gives": "YON",
+       "note": "yon is an old word for that"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sergeant-type figure who is half-back is a sporting star.",
+     "walkthrough": "'half' cuts CORPORAL to CORP and 'back' turns it into PROC. 'half back' looks like a sports position.",
+     "definitionFit": "It is the brightest star in Canis Minor, the Little Dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1179,42 @@
    "group": [
     "21-down",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "King with a 25",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "suffers",
+       "at": 15,
+       "note": "the words suffer damage, so their letters are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terminal hurt",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch with a vision suffers a fatal wound.",
+     "walkthrough": "25 is DREAM: the King with a dream is the US civil rights leader of the 'I have a dream' speech.",
+     "definitionFit": "The civil rights leader surnamed King famously declared 'I have a dream' in 1963."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1228,40 @@
     "text": "Beckett's revising suits Bard",
     "enumeration": "9"
    },
-   "solution": "ABSURDIST"
+   "solution": "ABSURDIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beckett's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "revising",
+       "at": 10,
+       "note": "revising the words reworks their letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "suits Bard",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Samuel Beckett is rewriting work that suits Shakespeare.",
+     "walkthrough": "'Beckett's' is read as 'Beckett is': the playwright of Waiting for Godot belongs to the Theatre of the Absurd.",
+     "definitionFit": "Beckett was a leading writer of the Theatre of the Absurd, so he is classed as one of its practitioners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1275,48 @@
     "text": "Being quiet during dance will be off-putting",
     "enumeration": "5"
    },
-   "solution": "REPEL"
+   "solution": "REPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "be off-putting",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 12,
+       "note": "the quiet sign comes during the dance, inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dance",
+       "at": 19,
+       "gives": "REEL",
+       "note": "a reel is a lively Scottish dance"
+      },
+      {
+       "words": "quiet",
+       "at": 6,
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quiet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping silent in the middle of a dance will put people off.",
+     "definitionFit": "To repel is to drive away or disgust, to be unappealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1330,40 @@
     "text": "Boy from Madrid stopped rot",
     "enumeration": "5"
    },
-   "solution": "PEDRO"
+   "solution": "PEDRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 4,
+       "note": "the boy's name comes from within the run of words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Madrid stopped rot",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish lad halted decay.",
+     "walkthrough": "The name sits in 'stopPED ROt'; 'Madrid' signals a Spanish name.",
+     "definitionFit": "Pedro is a common Spanish boy's name, the equivalent of Peter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1377,30 @@
     "text": "Something very pleasant caused endless trauma to 21 7",
     "enumeration": "5"
    },
-   "solution": "DREAM"
+   "solution": "DREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something very pleasant",
+      "at": 0,
+      "meaning": "a delight, a lovely thing"
+     },
+     {
+      "text": "caused endless trauma to 21 7",
+      "at": 24,
+      "meaning": "trauma without its last letter is Traum, German for the night vision, which is what the German reformer would call it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "21 7 is Martin Luther, the German reformer: to him TRAUM(a) is German for this.",
+     "definitionFit": "A delightful thing is called a perfect vision of delight; Traum is the German word for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1414,48 @@
     "text": "Belgian port deprived of article by pipsqueak",
     "enumeration": "5"
    },
-   "solution": "TWERP"
+   "solution": "TWERP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pipsqueak",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "deprived of",
+       "at": 13,
+       "note": "the port loses the article from its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Belgian port",
+       "at": 0,
+       "gives": "ANTWERP",
+       "note": "Antwerp is a major port in Belgium"
+      },
+      {
+       "words": "article",
+       "at": 25,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small, insignificant person has robbed a Belgian harbour of something.",
+     "definitionFit": "Both words mean a silly, insignificant person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1469,30 @@
     "text": "Decorum connected with ownership?",
     "enumeration": "9"
    },
-   "solution": "PROPRIETY"
+   "solution": "PROPRIETY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decorum",
+      "at": 0,
+      "meaning": "correct behaviour, seemliness"
+     },
+     {
+      "text": "connected with ownership?",
+      "at": 8,
+      "meaning": "read as the state of being a proprietor, an owner"
+     }
+    ],
+    "explanation": {
+     "surface": "Good manners linked to owning things.",
+     "definitionFit": "Seemly behaviour is decorum; the word also once meant property and ownership."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1506,61 @@
     "text": "Lumpy with nearly all round effect",
     "enumeration": "7"
    },
-   "solution": "NODULAR"
+   "solution": "NODULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lumpy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "effect",
+       "at": 28,
+       "note": "read as a verb, to effect is to bring about, so the letters are worked into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 11,
+         "note": "nearly all of the word is used, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "at": 18,
+         "gives": "ALL"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "round",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bumpy, with an almost total rounding effect.",
+     "walkthrough": "'nearly' leaves AL, and 'effect', read as a verb meaning bring about, reworks AL with the round letters; the surface reading of effect as a noun misleads.",
+     "definitionFit": "Something covered in small knobs or swellings is lumpy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "effect"
+    }
+   }
   },
   {
    "number": 29,
@@ -501,7 +1574,46 @@
     "text": "Danish invaders decapitate people of letters",
     "enumeration": "6"
    },
-   "solution": "OSTMEN"
+   "solution": "OSTMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Danish invaders",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "decapitate",
+       "at": 16,
+       "note": "decapitating removes the head, the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "people of letters",
+       "at": 27,
+       "gives": "POSTMEN",
+       "note": "postmen are people who deliver letters"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Viking raiders behead literary figures.",
+     "walkthrough": "'people of letters' looks like writers; it means mail carriers. The Ostmen were Norse settlers in Ireland.",
+     "definitionFit": "Ostmen, east men, was the name for Scandinavian settlers and raiders in medieval Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   }
  ]
 }
