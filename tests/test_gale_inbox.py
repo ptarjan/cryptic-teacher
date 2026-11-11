@@ -205,8 +205,8 @@ check("and from 1961-02-05 (No 1)", D(1961, 2, 5), min(_wk))
 check("none before it", False, D(1961, 1, 29) in _wk)
 check("and Christmas Sunday is wanted", True, D(1994, 12, 25) in g.sunday_wanted("TGRH", today=D(2000, 12, 31), laid=set()))
 _ind = g.sunday_wanted("INDA", today=D(2020, 1, 1), laid={"GaleIndependentSunday2016UKEnglish/2016-12-25"})
-check("Independent on Sunday: from 1990-01-28 to 2016, laid-out ones left out",
-      (D(1990, 1, 28), D(2016, 12, 18), False), (min(d for d in _ind if d.weekday() == 6),
+check("Independent on Sunday: from 1990-01-28 to its last print issue (2016-03-20), laid-out ones left out",
+      (D(1990, 1, 28), D(2016, 3, 20), False), (min(d for d in _ind if d.weekday() == 6),
        max(d for d in _ind if d.weekday() == 6), D(2016, 12, 25) in _ind))
 check("no Sunday before it", False, D(1990, 1, 21) in _ind)
 check("other_of: Sunday paper on a Sunday, the daily else", ("sundaytel", "telegraph", "independent"),

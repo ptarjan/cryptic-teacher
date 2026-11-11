@@ -18907,6 +18907,8 @@ def unread_titles(row):
 #: 10-28, 181 Times rows due so (DASH_JOINED, LEAD_RETRY, ALONE_READ, EDGE_LETTERS, UNFILED_MODERN, ...)
 #: stood unplanned as "inputs changed" (126), "scan stale, answers missing" (45), "read without the VLM"
 #: (9) or "titles changed" (1), their rows' inputs or links moved since their read (a neighbour fetched).
+#: A Times Jumbo puzzle tools/gale_jumbo_read.py filed whose solution page is now on disk (answers only).
+JUMBO_SOLUTION = "Times Jumbo solution page fetched"
 BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled before its fix", UNFILED_MODERN,
                   DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM, NEIGHBOUR_TAIL, EDGE_LETTERS,
                   ALONE_READ, BAND_GRID, LEFT_SPLIT, SCALED_GRID, LEFT_LATE, SCALED_EARLY, LEAD_RETRY, BAND_LATE,
@@ -18967,7 +18969,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-10: a Gale Sunday Telegraph 1972-77 page filed with the Quickie clue set (quick_set_due).
                   QUICK_SET,
                   # 11-10: that page read under QUICK_SET, its cryptic reading held off by the Quickie-clue file (quick_held_due).
-                  QUICK_HELD)
+                  QUICK_HELD,
+                  # 11-11: a filed Times Jumbo whose Gale solution page is on disk (answers only, read on CPU).
+                  JUMBO_SOLUTION)
 
 
 def refusal_passes(why):
@@ -19216,8 +19220,6 @@ HOST_ERA_RESCAN = "solution host, the heading's place by its title unread, 1947-
 REREAD_HOST_ERAS = "2026-10-29T08:15:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
 HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN, HOST_LAYOUT_RESCAN, HOST_ERA_RESCAN)
-#: A Times Jumbo puzzle tools/gale_jumbo_read.py filed whose solution page is now on disk (answers only).
-JUMBO_SOLUTION = "Times Jumbo solution page fetched"
 RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, HOST_LAYOUT_RESCAN: 1, HOST_ERA_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
