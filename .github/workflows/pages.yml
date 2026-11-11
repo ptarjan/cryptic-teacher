@@ -822,14 +822,47 @@ jobs:
           # which forced the full check on pushes that only added puzzles. A
           # cancelled run whose validate finished green still validated its
           # whole commit (full, or incrementally from a base that had).
+          #
+          # Also accepted: a run still going whose validate is doing the FULL
+          # check on a commit that is an ancestor of this one. A push the full
+          # check can't skip (tool code, tools/data/clue_joints.json from the
+          # ratings refresh) takes ~16 min on 9 shards, and the burn pushes every
+          # ~30s, so with no passed run past the change 5-6 runs each ran their
+          # own full check at once (run 43045645534, 15:21-15:37 UTC, "full
+          # check: full tools/data/clue_joints.json changed"); with the nightly
+          # smoke slices that filled the plan's job cap and puzzle-only pushes
+          # waited 20-35 min to deploy on 2026-11-11. Diffing against that
+          # commit checks only this push's own puzzles, since the full run is
+          # covering the rest. If it fails, its own run shows red, and the 09:41
+          # daily full check backstops. Full mode is read off the jobs API: the
+          # "Check every annotation, shard 1 of 9" step has started or finished
+          # (not skipped); until then the scope is not decided, so it is unknown
+          # and not used. The newest of the passed and the in-progress wins.
           base=
-          while read -r id sha; do
+          runs="$RUNNER_TEMP/runs.txt"
+          : > "$runs"
+          for st in completed in_progress queued; do
+            gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&status=$st&per_page=30" \
+              --jq '.workflow_runs[] | "\(.created_at) \(.id) \(.head_sha) \(.status)"' >> "$runs" || true
+          done
+          while read -r _ id sha st; do
             [ "$id" != "$GITHUB_RUN_ID" ] || continue
-            ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                   --jq '[.jobs[] | select(.name == "validate" and .conclusion == "success")] | length' || echo 0)
-            if [ "$ok" -gt 0 ]; then base=$sha; break; fi
-          done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&status=completed&per_page=30" \
-                     --jq '.workflow_runs[] | "\(.id) \(.head_sha)"' || true)
+            if [ "$st" = completed ]; then
+              ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                     --jq '[.jobs[] | select(.name == "validate" and .conclusion == "success")] | length' || echo 0)
+            else
+              ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                     --jq '[.jobs[] | select(.name == "validate"
+                              and ([.steps[] | select(.name == "Choose what to check" and .status == "completed")] | length) > 0
+                              and ([.steps[] | select(.name == "Check every annotation, shard 1 of 9"
+                                     and (.status == "in_progress" or (.status == "completed" and .conclusion != "skipped")))] | length) > 0)] | length' || echo 0)
+              if [ "$ok" -gt 0 ]; then
+                rel=$(gh api "repos/$REPO/compare/$sha...$GITHUB_SHA" --jq .status || echo unknown)
+                case "$rel" in ahead|identical) ;; *) ok=0 ;; esac
+              fi
+            fi
+            if [ "$ok" -gt 0 ]; then base=$sha; echo "diff base: $sha ($st run $id)"; break; fi
+          done < <(sort -r "$runs" | head -n 60)
           [ -n "$base" ] || full "no successful run to diff against"
           git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
           python3 tools/validate_scope.py "$base" > "$RUNNER_TEMP/scope.txt" || full "could not work out what changed"
