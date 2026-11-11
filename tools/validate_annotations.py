@@ -543,7 +543,12 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
             joined = letters("".join(build["pieces"]))
             if joined != built:
                 errors.append(f"{tag}: pieces {build['pieces']} join to {joined}, expected {built}")
-        if "hidden_word" in types_of(ann):
+        # A hidden word that is one part of a charade or container hides that
+        # part's letters (TRI in "Triumphant", ALG in "sociAL Group"), not the
+        # whole answer: the tree checks each hidden leaf against its own words.
+        # Only a wordplay made of the hidden word (under a reversal or a
+        # homophone) has to find the whole answer in the clue.
+        if "hidden_word" in types_of(ann) and set(types_of(ann)) <= {"hidden_word", "reversal", "homophone"}:
             # A reversed hidden word sits in the clue back to front (30045 26A
             # hides LEND across "commanD NELson"), so when the type also declares
             # the reversal, the mirror image counts as found.
