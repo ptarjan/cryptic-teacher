@@ -44,10 +44,10 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 1
+VERSION = 2
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
-CITED_NUMBER = re.compile(r"jumbo\s+cross\s?word\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
+CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
 ENTRY = re.compile(r"sent\s+to\W+jumbo\s+(?:cross\s?word\s+)?(\d[\d,. ]{0,5})", re.IGNORECASE)
 TITLE_WORD = re.compile(r"^\W*j?umbo\W*$", re.IGNORECASE)
 #: The Jumbo numbers the Times printed to 2014.
@@ -395,21 +395,70 @@ def links(files, dated):
     return out
 
 
+def grid_boxes(img):
+    """The page's grid-shaped patches of ink, largest first."""
+    boxes = [b for b in gi.page_grids(img) if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]]
+    return sorted(boxes, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]), reverse=True)
+
+
 def grid_box(img):
     """The page's largest grid-shaped patch of ink, or None."""
-    boxes = [b for b in gi.page_grids(img) if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]]
-    return max(boxes, key=lambda b: (b[2] - b[0]) * (b[3] - b[1])) if boxes else None
+    return next(iter(grid_boxes(img)), None)
+
+
+#: A Jumbo's lattice is 23x23 or 27x27: a 15x15 on the page (the Times' own cryptic) is another puzzle.
+JUMBO_SIZES = (23, 27)
+
+
+def pick_grid(boxes, reader, pads=(6, 0.08)):
+    """(box, grid, None) of the first of `boxes` (largest first) whose `reader(box, pad)` ((grid, why)) reads a
+    Jumbo-sized lattice, each tried with every pad (pixels, or a share of the box's width: a box cut short of the
+    lattice reads "larger than the frame" until it is widened); else (None, None, why of the first refusal)."""
+    first = None
+    for box in boxes:
+        for pad in pads:
+            g, why = reader(box, pad if pad >= 1 else int(pad * (box[2] - box[0])))
+            if g and len(g) in JUMBO_SIZES:
+                return box, g, None
+            if first is None:
+                first = why if not g else f"the grid on the page is {len(g)}x{len(g)}, not a Jumbo's"
+            if g:
+                break  # a smaller lattice reads the same at any pad
+    return None, None, first
+
+
+#: The number printed beside the prize text or the banner: "Jumbo 1,033", "Jumbo Crossword 139, The Times"
+#: (the words may end a line and the number open the next), "JUMBO CROSSWORD 1.68".
+NUMBER_FORMS = (
+    ENTRY,
+    re.compile(r"\bj[a-z]{1,2}bo\b[^\n]{0,160}\n?[^\n]{0,12}?cross\s?word\s*\(?(\d[\d,.]{0,4})\)?,?\s+The\s+Times", re.IGNORECASE),
+    re.compile(r"\bj[a-z]{1,2}bo\s+cross\s?word\s*\(?(\d[\d,.]{0,4})\)?(?!\d)", re.IGNORECASE),
+)
+
+
+def number_in_text(text):
+    """The Jumbo number the page's OCR text prints, or None."""
+    for form in NUMBER_FORMS:
+        for m in form.finditer(text or ""):
+            if figure(m.group(1)):
+                return figure(m.group(1))
+    return None
 
 
 def number_of(img, key, cited, words):
     import ocr_clues
     if cited and cited[0]:
         return cited[0], "citation"
-    text = ocr_clues.lines_of(words)
-    for m in ENTRY.finditer(text):
-        if figure(m.group(1)):
-            return figure(m.group(1)), "prize text"
-    return None, None
+    n = number_in_text(ocr_clues.lines_of(words))
+    return (n, "prize text") if n else (None, None)
+
+
+def with_fallback_title(titles, width):
+    """gale_listener.times_titles' boxes, then a title-less one across the page's top: a page whose title
+    is set in a graphic (read "Christmas . Jumbo" or not at all) still has its headings."""
+    def wrapped(words):
+        return titles(words) + [(0, 0, width, 0)]
+    return wrapped
 
 
 def read_page(path, store=STORE):
@@ -431,23 +480,29 @@ def read_page(path, store=STORE):
         verdict["refused"] = "no Jumbo number in the citation or the prize text"
         return verdict, None
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
-    box = grid_box(img)
-    if box is None:
+    boxes = grid_boxes(img)
+    if not boxes:
         verdict["refused"] = "no grid on the page"
         return verdict, None
     gpath = Path(store) / "grids" / f"{path.stem}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
-    img.crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(gpath)
-    g, why = trove_grid.read_grid(gpath)
+
+    def reader(box, pad):
+        img.crop((max(0, box[0] - pad), max(0, box[1] - pad), min(img.width, box[2] + pad),
+                  min(img.height, box[3] + pad))).save(gpath)
+        return trove_grid.read_grid(gpath)
+
+    box, g, why = pick_grid(boxes, reader)
     if not g:
         verdict["refused"] = f"grid unread: {why}"
         return verdict, None
-    old = gl.TITLE_WORD
+    old, old_titles = gl.TITLE_WORD, gl.times_titles
     gl.TITLE_WORD = TITLE_WORD
+    gl.times_titles = with_fallback_title(old_titles, img.width)
     try:
         blocks = gl.times_blocks(img, key)
     finally:
-        gl.TITLE_WORD = old
+        gl.TITLE_WORD, gl.times_titles = old, old_titles
     if not blocks:
         verdict["refused"] = "no Jumbo clue lists found on the page"
         return verdict, None
