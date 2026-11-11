@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 2
+VERSION = 3
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -401,6 +401,13 @@ def grid_boxes(img):
     return sorted(boxes, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]), reverse=True)
 
 
+def extra_boxes(img, boxes):
+    """The page's square patches of ink in GRID_PX that `boxes` do not hold, largest first."""
+    squares = [b for b in fa.grids_on(img, shaped=gi.square) if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]
+               and not any(abs(b[0] - o[0]) < 20 and abs(b[1] - o[1]) < 20 for o in boxes)]
+    return sorted(squares, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]), reverse=True)
+
+
 def grid_box(img):
     """The page's largest grid-shaped patch of ink, or None."""
     return next(iter(grid_boxes(img)), None)
@@ -461,6 +468,31 @@ def with_fallback_title(titles, width):
     return wrapped
 
 
+def widest_cuts(cuts, gl):
+    """gale_listener.times_cuts as a wrapper: the cuts under each title in turn (the page's own, then the
+    title-less one across its top), the widest-boxed cut's list returned. The 1997-98 Jumbo sets its title
+    in the preamble beside and below the clue headings, so the headings below the title are only last
+    week's solutions (a small box) while the title-less cut holds the Jumbo's own lists."""
+    def wrapped(words):
+        shown = gl.times_titles(words)
+        best = []
+        try:
+            for title in shown:
+                gl.times_titles = lambda _w, t=title: [t]
+                got = cuts(words)
+                if got and (not best or area(got[0][0]) > area(best[0][0])):
+                    best = got
+        finally:
+            gl.times_titles = shown_titles
+        return best
+    shown_titles = gl.times_titles
+    return wrapped
+
+
+def area(box):
+    return max(0, box[2] - box[0]) * max(0, box[3] - box[1])
+
+
 def read_page(path, store=STORE):
     """(verdict, puzzle or None) of one saved page."""
     import gale_listener as gl
@@ -494,15 +526,22 @@ def read_page(path, store=STORE):
 
     box, g, why = pick_grid(boxes, reader)
     if not g:
+        # page_grids answers with the shaped boxes alone when the widest is a lattice (a Quick's 13x13): the
+        # Jumbo's own grid, set beside it, is among the page's square patches of ink.
+        more = extra_boxes(img, boxes)
+        box, g, again = pick_grid(more, reader)
+        why = again or why
+    if not g:
         verdict["refused"] = f"grid unread: {why}"
         return verdict, None
-    old, old_titles = gl.TITLE_WORD, gl.times_titles
+    old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
     gl.TITLE_WORD = TITLE_WORD
     gl.times_titles = with_fallback_title(old_titles, img.width)
+    gl.times_cuts = widest_cuts(old_cuts, gl)
     try:
         blocks = gl.times_blocks(img, key)
     finally:
-        gl.TITLE_WORD, gl.times_titles = old, old_titles
+        gl.TITLE_WORD, gl.times_titles, gl.times_cuts = old, old_titles, old_cuts
     if not blocks:
         verdict["refused"] = "no Jumbo clue lists found on the page"
         return verdict, None

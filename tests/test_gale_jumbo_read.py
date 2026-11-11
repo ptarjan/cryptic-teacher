@@ -117,7 +117,25 @@ check("only a 15x15 is no Jumbo", (None, None, "the grid on the page is 15x15, n
 check("a refusal is the first why", "x", gj.pick_grid([(100, 0, 1100, 1000)], lambda b, p: (None, "x"))[2])
 check("the title fallback follows the real titles", [(1, 2, 3, 4), (0, 0, 500, 0)],
       gj.with_fallback_title(lambda w: [(1, 2, 3, 4)], 500)([]))
-check("VERSION bumped", True, gj.VERSION >= 2)
+check("VERSION bumped", True, gj.VERSION >= 3)
+
+
+# --- the clue cut: the widest box over every title, the module's titles put back
+class FakeListener:
+    times_titles = staticmethod(lambda words: [(5, 5, 9, 9), (0, 0, 500, 0)])
+
+
+def fake_cuts(words):
+    t = FakeListener.times_titles(words)[0]
+    return [((0, 0, 10, 10), [])] if t[0] == 5 else [((0, 0, 100, 200), [])]
+
+
+original = FakeListener.times_titles
+check("the title-less cut's wider box wins", [((0, 0, 100, 200), [])], gj.widest_cuts(fake_cuts, FakeListener)([]))
+check("the titles are put back", original, FakeListener.times_titles)
+check("no cut under any title is none", [], gj.widest_cuts(lambda w: [], FakeListener)([]))
+check("a box's area", 200, gj.area((0, 0, 10, 20)))
+check("an inverted box has no area", 0, gj.area((5, 5, 1, 1)))
 
 # --- the queue's lists hold the new reason
 import edition_queue as eq
