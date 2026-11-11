@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Lower iron, perhaps?",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lower",
+      "at": 0,
+      "meaning": "to lower something is to reduce or bring it down, a verb"
+     },
+     {
+      "text": "iron, perhaps?",
+      "at": 6,
+      "meaning": "ironing a garment takes the creases out of it, read as DE- plus a word for a fold"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To lower a price or level is to reduce it; ironing takes out a fold, punningly un-folding it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,43 @@
     "text": "Recognise refusal by the sound of it",
     "enumeration": "4"
    },
-   "solution": "KNOW"
+   "solution": "KNOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recognise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNOW",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 18,
+       "note": "tells the solver to take a word as it is heard, not as it is spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "refusal",
+       "at": 10,
+       "gives": "NO",
+       "note": "a refusal is the word no"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a rejection just from its tone.",
+     "definitionFit": "To recognise something is to be acquainted with it, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +121,64 @@
     "text": "Freud, perhaps, has time to fill in nobleman (detailed)",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Freud, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill in",
+       "at": 25,
+       "note": "one piece is put into the gap of another, as filling goes into a space"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 46,
+         "note": "de-tailed: the nobleman word loses its tail, its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nobleman",
+         "at": 36,
+         "gives": "ARISTO",
+         "note": "an aristo is an informal word for an aristocrat"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 20,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The painter Freud makes time to paint an aristocrat in fine detail.",
+     "walkthrough": "Lucian Freud was a British painter. 'detailed' cuts the last letter from ARISTO to leave ARIST, and 'to fill in' puts T inside it.",
+     "definitionFit": "Lucian Freud was a painter, so he is an example of an artist; 'perhaps' marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +192,41 @@
     "text": "Stolen? Pay quickly",
     "enumeration": "7"
    },
-   "solution": "HOTFOOT"
+   "solution": "HOTFOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quickly",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stolen",
+       "at": 0,
+       "gives": "HOT",
+       "note": "hot is slang for stolen goods"
+      },
+      {
+       "words": "Pay",
+       "at": 8,
+       "gives": "FOOT",
+       "note": "to foot a bill is to pay it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief is told to settle up fast for stolen goods.",
+     "definitionFit": "To go hotfoot is to go in great haste, an adverbial synonym for quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pay"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +246,48 @@
      }
     ]
    },
-   "solution": "ALOEVERA"
+   "solution": "ALOEVERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soother",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "'eavenly 'at",
+       "at": 0,
+       "gives": "ALO",
+       "note": "a heavenly hat is a halo; the clue drops its H in Cockney style, so the H goes too"
+      },
+      {
+       "words": "always",
+       "at": 13,
+       "gives": "EVER",
+       "note": "ever means always"
+      },
+      {
+       "words": "a",
+       "at": 20,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney sings of a heavenly hat that always calms.",
+     "walkthrough": "The dropped H in both words of the clue tells you to drop it from the halo too, leaving ALO.",
+     "definitionFit": "Aloe vera gel is used to calm burns and irritated skin, so it is a soothing remedy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "'at"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +301,72 @@
     "text": "Swimmer sensed surfacing through skin getting hard",
     "enumeration": "10"
    },
-   "solution": "CUTTLEFISH"
+   "solution": "CUTTLEFISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "through",
+         "at": 25,
+         "note": "one piece passes through, so sits inside, the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skin",
+         "at": 33,
+         "gives": "CUTIS",
+         "note": "cutis is the anatomical term for skin"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "surfacing",
+           "at": 15,
+           "note": "in a down clue, coming up to the surface means a word read upwards, from the bottom"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sensed",
+           "at": 8,
+           "gives": "FELT",
+           "note": "felt means sensed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 46,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diver felt something rising through the skin and toughening.",
+     "walkthrough": "'surfacing' turns FELT into TLEF, which goes 'through' CUTIS to make CUTTLEFIS; H ends it.",
+     "definitionFit": "A cuttlefish is a marine mollusc that swims by jet propulsion, so it is a swimmer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surfacing"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +380,34 @@
     "text": "Last possible holiday destination?",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Last possible holiday destination?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Last possible holiday destination?",
+       "at": 0,
+       "note": "the idiom of a final fallback option is read as the final seaside town to visit"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A resort is a holiday destination, and a last resort is the final option left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +431,60 @@
    "group": [
     "8-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "3",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sign",
+       "at": 4,
+       "gives": "LEO",
+       "note": "Leo is a sign of the zodiac"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "daft",
+         "at": 26,
+         "note": "silly or crazy, so the letters of the following words are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "candid",
+         "at": 10
+        },
+        {
+         "words": "vain",
+         "at": 18
+        },
+        {
+         "words": "or",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's star sign is frank, conceited or silly.",
+     "walkthrough": "The definition is a cross-reference: 3 down's answer is a painter, and this one is the greatest of them. 'daft' signals the jumbling of the three adjectives.",
+     "definitionFit": "Leonardo da Vinci, painter of the Mona Lisa, is a supreme example of an artist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +511,46 @@
     "text": "Bird found in an electric oven?",
     "enumeration": "4"
    },
-   "solution": "CROW"
+   "solution": "CROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 5,
+       "note": "the bird's letters are a run sitting inside a longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "electric oven",
+       "at": 17,
+       "gives": "MICROWAVE",
+       "note": "a microwave is an electric oven"
+      },
+      {
+       "gives": "MIAVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird turns up cooking in the kitchen appliance.",
+     "walkthrough": "The bird is not in the words 'electric oven' themselves but in a synonym: miCROWave.",
+     "definitionFit": "A crow is a large black bird, a direct example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +564,47 @@
     "text": "Left with something to fight about, vocal change",
     "enumeration": "10"
    },
-   "solution": "INFLECTION"
+   "solution": "INFLECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vocal change",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something to fight",
+       "at": 10,
+       "gives": "INFECTION",
+       "note": "an infection is something the body fights"
+      },
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left holding a grievance changes their tone of voice.",
+     "definitionFit": "An inflection is a change in pitch or tone of the voice when speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fight"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +618,45 @@
     "text": "Tap: tell me, what do you do if it's stuck?",
     "enumeration": "6"
    },
-   "solution": "FAUCET"
+   "solution": "FAUCET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FAUCET",
+     "indicators": [
+      {
+       "text": "tell me",
+       "at": 5,
+       "note": "asks for the reply to be spoken, so the reply is taken as heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what do you do if it's stuck?",
+       "at": 14,
+       "gives": "FORCEIT",
+       "note": "the reply to a jammed thing is to force it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber is asked what to do with a jammed tap.",
+     "walkthrough": "The reply 'force it', said in a non-rhotic accent, matches the word for a tap.",
+     "definitionFit": "Faucet is the American word for a tap that controls water flow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stuck"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +670,45 @@
     "text": "Sporting nation rich, after gymnastics",
     "enumeration": "10"
    },
-   "solution": "CORINTHIAN"
+   "solution": "CORINTHIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sporting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "after gymnastics",
+       "at": 22,
+       "note": "following a workout the letters are twisted and tumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nation",
+       "at": 9
+      },
+      {
+       "words": "rich",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy country excels at sport after a gymnastics victory.",
+     "walkthrough": "A Corinthian was a gentleman amateur sportsman, so the word is an old adjective for sporting.",
+     "definitionFit": "Corinthian describes the amateur, sporting spirit of fair play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gymnastics"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +722,58 @@
     "text": "Old fight to grab two teas, say, for a light meal",
     "enumeration": "8"
    },
-   "solution": "OMELETTE"
+   "solution": "OMELETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "light meal",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to grab",
+         "at": 10,
+         "note": "one piece seizes and holds the other inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fight",
+         "at": 4,
+         "gives": "MELEE",
+         "note": "a melee is a confused fight"
+        },
+        {
+         "words": "two teas, say",
+         "at": 18,
+         "gives": "TT",
+         "note": "tea sounds like the letter T, so two of them make two Ts"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old brawl breaks out over a pair of cuppas at a snack.",
+     "definitionFit": "An omelette is a simple dish of beaten eggs, a typical light meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "teas"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +793,51 @@
      }
     ]
    },
-   "solution": "BEARHUG"
+   "solution": "BEARHUG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the big squeeze",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "spelt": "BEARHUG",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the first sounds change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "24 9",
+       "at": 10,
+       "gives": "HAIR",
+       "note": "the answer to 24 down and 9, a parasitic insect, is a hair bug"
+      },
+      {
+       "words": "24 9",
+       "at": 10,
+       "gives": "BUG",
+       "note": "the answer to 24 down and 9, a parasitic insect, is a hair bug"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spooner joke turns a pest into a strong embrace.",
+     "walkthrough": "24 9 is a parasite living in the hair: HAIR BUG, swapped by sound.",
+     "definitionFit": "A bear hug is a tight, crushing embrace, a big squeeze."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "squeeze"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +851,43 @@
     "text": "Finished with school group, as struggling school may go?",
     "enumeration": "8"
    },
-   "solution": "UPSTREAM"
+   "solution": "UPSTREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as struggling school may go?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Finished",
+       "at": 0,
+       "gives": "UP",
+       "note": "time is up when it is finished"
+      },
+      {
+       "words": "school group",
+       "at": 14,
+       "gives": "STREAM",
+       "note": "a stream is a group of pupils of similar ability"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A failing school has finished with a class group.",
+     "walkthrough": "The 'school' of the definition is a shoal of fish swimming against the current.",
+     "definitionFit": "Fish struggling against the current swim upstream, a school being a shoal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +926,58 @@
      }
     ]
    },
-   "solution": "COWORKER"
+   "solution": "COWORKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colleague",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 20,
+       "note": "the first piece holds the second inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cracker",
+       "at": 12,
+       "gives": "CORKER",
+       "note": "a corker is something excellent, like a cracker"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "bowels",
+         "at": 38,
+         "note": "the innards, so the middle letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fowl's",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colleague's Christmas cracker holds chicken innards.",
+     "definitionFit": "A co-worker is someone who works alongside you, a colleague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracker"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +991,41 @@
     "text": "In defence, one's built on suspicion",
     "enumeration": "7"
    },
-   "solution": "REDOUBT"
+   "solution": "REDOUBT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In defence, one's built",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 24,
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "words": "suspicion",
+       "at": 27,
+       "gives": "DOUBT",
+       "note": "doubt is suspicion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In court a defence is built on mere suspicion.",
+     "definitionFit": "A redoubt is a small fortification built for defending a position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defence"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1039,58 @@
     "text": "Disappear, seeing Welshman outside English church",
     "enumeration": "8"
    },
-   "solution": "EVANESCE"
+   "solution": "EVANESCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disappear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 27,
+         "note": "the first piece goes around the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Welshman",
+         "at": 18,
+         "gives": "EVANS",
+         "note": "Evans is a common Welsh surname"
+        },
+        {
+         "words": "English",
+         "at": 35,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 43,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welshman vanishes from view near an English church.",
+     "definitionFit": "To evanesce is to fade away like vapour, a literary synonym for vanish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seeing"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1104,58 @@
     "text": "Magic formation of flying geese died, swallowed by a number of ducks",
     "enumeration": "6"
    },
-   "solution": "VOODOO"
+   "solution": "VOODOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Magic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "formation of flying geese",
+       "at": 6,
+       "gives": "V",
+       "note": "migrating geese fly in a V shape"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swallowed by",
+         "at": 38,
+         "note": "the second piece is taken inside the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a number of ducks",
+         "at": 51,
+         "gives": "OOOO",
+         "note": "a duck is a score of nought in cricket, so several ducks are several Os"
+        },
+        {
+         "words": "died",
+         "at": 32,
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skein of geese and some ducks are linked to sorcery.",
+     "definitionFit": "Voodoo is a religion involving sorcery, so it is used to mean magic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1169,48 @@
     "text": "Bird after doctor, seeing severe cut",
     "enumeration": "6"
    },
-   "solution": "MOHAWK"
+   "solution": "MOHAWK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "severe cut",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 5,
+       "note": "the bird comes after the doctor in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 11,
+       "gives": "MO",
+       "note": "MO is a medical officer"
+      },
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "HAWK",
+       "note": "a hawk is a bird of prey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird pecks at a doctor, causing a nasty wound.",
+     "definitionFit": "A Mohawk is a haircut with the sides shaved, so a severe cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1224,46 @@
     "text": "Sea in a holy city",
     "enumeration": "6"
    },
-   "solution": "MEDINA"
+   "solution": "MEDINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "holy city",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sea",
+       "at": 0,
+       "gives": "MED",
+       "note": "the Med is the Mediterranean Sea"
+      },
+      {
+       "words": "in",
+       "at": 4,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 7,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy place lies by the sea.",
+     "definitionFit": "Medina in Saudi Arabia is the second holiest city in Islam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sea"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1277,58 @@
     "text": "What keeps mum awake at night? Second husband in sulk",
     "enumeration": "10"
    },
-   "solution": "MOTHERHOOD"
+   "solution": "MOTHERHOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What keeps mum awake at night?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 46,
+       "note": "the pieces go inside the sulk word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sulk",
+       "at": 49,
+       "gives": "MOOD",
+       "note": "a mood is a fit of sulking"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Second",
+         "at": 31,
+         "gives": "OTHER",
+         "note": "other means second, as in every other day"
+        },
+        {
+         "words": "husband",
+         "at": 38,
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother is kept up by a second husband sulking.",
+     "definitionFit": "Being a mother, with its night feeds, is what keeps a mum up, a cryptic hint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1342,43 @@
     "text": "Elephants, for example, in a group sensed through the ears, audibly",
     "enumeration": "4"
    },
-   "solution": "HERD"
+   "solution": "HERD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elephants, for example, in a group",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HERD",
+     "indicators": [
+      {
+       "text": "audibly",
+       "at": 60,
+       "note": "the word is taken as spoken, not as spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sensed through the ears",
+       "at": 35,
+       "gives": "HEARD",
+       "note": "to hear something is to sense it through the ears"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elephants in a group listen with their big ears.",
+     "definitionFit": "Elephants live in a herd, a group of large animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ears"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1402,49 @@
    "group": [
     "24-down",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an irritating thing?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so these first letters change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "metal",
+       "at": 10,
+       "gives": "LEAD",
+       "note": "lead is a metal"
+      },
+      {
+       "words": "building",
+       "at": 16,
+       "gives": "HOUSE",
+       "note": "a house is a building"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lead house sounds like an annoying object.",
+     "definitionFit": "A head louse is a parasite causing intense itching, an irritating thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1468,89 @@
    "group": [
     "25-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "so who's Bush after?",
+      "at": 89
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "given the Second Amendment",
+         "at": 18,
+         "note": "the second letter of the word is amended to another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Who's after Bush",
+         "at": 0,
+         "gives": "OBAMA",
+         "note": "the US president after George W Bush was Obama"
+        },
+        {
+         "gives": "B"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "'s secured",
+         "at": 62,
+         "note": "the running mate has a piece locked inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "His running mate",
+         "at": 46,
+         "gives": "BIDEN",
+         "note": "Obama's vice-presidential running mate was Biden"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "northern",
+           "at": 73,
+           "gives": "N"
+          },
+          {
+           "words": "state",
+           "at": 82,
+           "gives": "LA",
+           "note": "LA is Louisiana"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about Bush's successor and his running mate.",
+     "walkthrough": "The surface asks about the next president, but the answer is the man Bush hunted after 9/11. Swapping one letter of the president's name gives the first name.",
+     "definitionFit": "George W Bush hunted Al-Qaeda's leader after 9/11, so that leader is who Bush was after."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Amendment"
+    }
+   }
   },
   {
    "number": 26,
