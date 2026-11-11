@@ -452,6 +452,7 @@ gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
 import gale_jumbo
 gale_jumbo.wanted = lambda: []  # tested below
+gale_jumbo.solution_days = lambda: []  # tested below
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
 gale_inbox.misfiled = lambda prod="TGRH": []  # it reads the media manifest, absent here
@@ -489,6 +490,15 @@ assert ("TTDA", D(2000, 2, 5)) not in [r[:2] for r in gf.plan({"JU1"}, 0)], "a J
 del docs["TTDA/jumbo/2000-02-05"]
 assert gf.fetched_dir("TTDA", "jumbo", D(2000, 2, 5)) == gf.TIMES_JUMBO_DIR
 gale_jumbo.wanted = lambda: []
+gale_jumbo.solution_days = lambda: [D(2000, 2, 12)]
+_sp = [r for r in gf.plan(set(), 0) if r[3:] == (None, False, "jumbo-solution")]
+assert [r[:2] for r in _sp] == [("TTDA", D(2000, 2, 12))], _sp
+assert gf.key("TTDA", D(2000, 2, 12), kind="jumbo-solution") == "TTDA/jumbo-solution/2000-02-12"
+assert gf.fetched_dir("TTDA", "jumbo-solution", D(2000, 2, 12)) == gf.TIMES_JUMBO_SOLUTIONS_DIR
+assert gf.TIMES_JUMBO_SOLUTIONS_DIR.endswith("/TimesJumbo/Solutions") and gf.TIMES_JUMBO_SOLUTIONS_DIR != gf.TIMES_JUMBO_DIR
+import downloads
+assert str(downloads.TIMES_JUMBO_SOLUTIONS).endswith("TimesJumbo/Solutions")
+gale_jumbo.solution_days = lambda: []
 gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
 assert ("INDA", D(2016, 12, 25), None) in gf.plan(set(), 0), "Sundays do not wait for the Times"
 gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]

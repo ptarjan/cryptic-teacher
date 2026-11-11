@@ -29,6 +29,10 @@ MEDIA_ROOT = (ROOT if os.environ.get("CT_DOWNLOADS") or not local_config.path("m
 #: desktop, where the local config's media_root is not the share's mount but CT_DOWNLOADS is):
 #: each Gale paper's pages, <paper>/ and <paper>/Fetched/ (tools/gale_fetch.py, tools/gale_listener.py).
 GALE_CROSSWORDS = ROOT.parent / "Gale crosswords"
+#: The Times Jumbo puzzle pages (GALE_<docId>.pdf, tools/gale_fetch.py) and, apart, the solutions
+#: the Times printed a week or two later (the same naming).
+TIMES_JUMBO_FETCHED = GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
+TIMES_JUMBO_SOLUTIONS = GALE_CROSSWORDS / "TimesJumbo" / "Solutions"
 #: What an outage of the media share raises on a path under it (the Mac's SMB server refusing the
 #: session for a minute, 10-20 and 10-23: EHOSTDOWN; a dropped or stale mount: ENOTCONN, ESTALE,
 #: EIO; a session the server restricts: EACCES, EPERM). media_down.

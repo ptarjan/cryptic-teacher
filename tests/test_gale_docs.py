@@ -267,6 +267,33 @@ check("Jumbos held are not wanted again", [False, True],
       [datetime.date(2009, 10, 17) in gj.wanted({839}), datetime.date(2009, 10, 10) in gj.wanted({839})])
 check("the Jumbo rows run 1997 to 2014, newest first", [datetime.date(2014, 12, 27), datetime.date(1997, 1, 1)],
       [gj.wanted(set())[0], gj.wanted(set())[-1]])
+# The Jumbo's solution: its own title (1997-2003), else a line of the "Answers" article.
+check("the Jumbo solution among titles", [1, 0, 0, 1, None, None, None, 0],
+      [gd.jumbo_solution_article(ts) for ts in (
+          ["Jumbo Crossword 131", "Solution to Jumbo 129"],
+          ["Solution to jumbo 130", "Jumbo crossword 132"],
+          ["Solution to Bank Holiday Jumbo 168", "Solution to No 3S49 Why?"],
+          ["Solution to Times Two Jumbo 5", "Solution to Jumbo Corssword 169"],
+          ["Jumbo Crossword 131", "The Times Crossword 22,333"],
+          ["Jumbo Crossword Winners", "Solution to T2 Jumbo 10"],
+          ["Solution to Puzzle No 17,562"],
+          ["Solution to Jumbo Crossword 132", "Solution to Jumbo 131"])])
+check("the solution naming the number first", 1, gd.jumbo_solution_article(["Solution to Jumbo 477", "Solution to Jumbo 476"], 476))
+check("the daily pick never takes a Jumbo solution", 1, gd.crossword("TTDA", ["Solution to Jumbo 129", "The Times Crossword 22,333"]))
+check("Jumbo solutions are their own kind", True, gd.KINDS["jumbo-solution"] is gd.jumbo_solution_article)
+class TextGale(FakeGale):
+    def get(self, prod, url):
+        return '"fullTexts":' + (self.text if gd.DOC_OF_URL(url) == "IF0000001000" else '["Crossword 1"]')
+gd.DOC_OF_URL = lambda url: urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)["id"][0].split("|")[1]
+ans = day_issue = issue([("Answers", 151, 1), ("Jumbo Crossword 571", 152, 1)], 160)
+sat = D(2005, 3, 19)
+tg = TextGale({sat: ans})
+tg.text = '["ANSWERS", "SOLUTION TO CRYPTIC JUMBO 569 n d q m"]'
+sol = gd.lookup("TTDA", sat, tg, kind="jumbo-solution")
+check("a Jumbo solution inside the Answers article", ("Answers", 151, "answers page", "jumbo-solution"),
+      (sol.get("title"), sol.get("page"), sol.get("how"), sol.get("kind")))
+tg.text = '["ANSWERS", "SOLUTION TO T2 JUMBO 569 n d q m", "Solution to Crossword 5804"]'
+check("an Answers article with no Jumbo solution is no entry", None, gd.lookup("TTDA", sat, tg, kind="jumbo-solution").get("doc"))
 sat = D(2006, 8, 12)
 lk = FakeGale({sat: issue([("The Times Crossword 23,296", 60, 1), ("The Listener Crossword 3890", 70, 1)], 80)})
 le = gd.lookup("TTDA", sat, lk, kind="listener")

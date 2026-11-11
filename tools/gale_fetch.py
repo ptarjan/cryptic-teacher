@@ -150,6 +150,8 @@ TIMES_LISTENER_DIR = f"{GALE_ROOT}/{LISTENER}/Times/Fetched"
 #: The Times Jumbo cryptic pages (gale_jumbo, 1997-2014): kept only, one
 #: GALE_<docId>.pdf each, for the desktop's reader.
 TIMES_JUMBO_DIR = f"{GALE_ROOT}/TimesJumbo/Fetched"
+#: The Jumbo solutions (gale_docs.JUMBO_SOLUTION_KIND): their own folder, beside Fetched.
+TIMES_JUMBO_SOLUTIONS_DIR = f"{GALE_ROOT}/TimesJumbo/Solutions"
 CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "web.cryptic-crosswords")
 DOC = re.compile(r"[A-Z]{2}\d{8,12}", re.IGNORECASE)
 
@@ -343,6 +345,8 @@ def fetched_dir(prod, kind=None, day=None):
         return TIMES_LISTENER_DIR
     if kind == gale_docs.JUMBO_KIND:
         return TIMES_JUMBO_DIR
+    if kind == gale_docs.JUMBO_SOLUTION_KIND:
+        return TIMES_JUMBO_SOLUTIONS_DIR
     if prod == "TTDA":
         return FETCHED_DIR
     folder = LISTENER if prod == "LSNR" else (gale_inbox.other_of(prod, day) if day else gale_inbox.OTHERS[prod]).folder
@@ -466,6 +470,9 @@ def plan(got, skip=SKIP):
     import gale_jumbo
     for day in gale_jumbo.wanted():
         out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_KIND)
+    # Their solutions, printed on the Jumbo days a week or two on: every Jumbo day of the same range.
+    for day in gale_jumbo.solution_days():
+        out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_SOLUTION_KIND)
     # A paper in HOLDS waits for its reader (a room said its pages do not parse yet).
     held = held_products()
     for day in [] if "INDA" in held else gale_inbox.sunday_wanted("INDA"):
