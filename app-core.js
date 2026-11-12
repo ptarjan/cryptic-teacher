@@ -1361,10 +1361,25 @@
   // Anything to hide: a grid with no answers cannot be checked at the end, and
   // a finished one has nothing left to hide.
   const paperable = () => hasSolutions() && !entries.every(lettersRight);
-  // The reader pressed "I'm done": the grid is checked exactly as Check grid
-  // checks it, and every correct clue is credited first so the finish that
-  // check may complete is scored.
+  // The reader pressed "I'm done". A grid that is all right ends paper mode
+  // and is checked exactly as Check grid checks it, every correct clue
+  // credited first so the finish is scored. A grid that is not gets a verdict
+  // only, the way a paper's answers next day say "not quite" without a red
+  // pen: nothing is marked, and the puzzle stays on paper. Pressing again
+  // (the button now says so) is the ordinary end: paper off, wrong squares
+  // marked. paperVerdict holds the id the verdict was given for, so it is
+  // never carried to another puzzle.
+  let paperVerdict = null;
+  const paperAsked = () => !!P && paperVerdict === P.id;
   function endPaper() {
+    const right = entries.every(lettersRight) && uncluedSolved();
+    if (!right && !paperAsked()) {
+      paperVerdict = P.id;
+      announceVerdict();
+      refreshAll();
+      return;
+    }
+    paperVerdict = null;
     setOnPaper(P.id, false);
     const credited = entries.filter((e) => isEntrySolved(e) && solvedWith[entryId(e)] === undefined).length;
     checkSolvedEntries();

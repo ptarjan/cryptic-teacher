@@ -842,6 +842,8 @@
     const on = paperHides();
     ["chk-label", "chk-letter", "chk-entry", "chk-grid"].forEach((id) => $(id).classList.toggle("hidden", on));
     $("paper-done").classList.toggle("hidden", !on);
+    // After a "not solved yet" verdict the same button is the way to see where.
+    $("paper-done").textContent = on && paperAsked() ? "Show what’s wrong" : "I’m done — check grid";
     $("paper-toggle").checked = on;
     $("paper-switch").classList.toggle("hidden", !on && !paperable());
   }
