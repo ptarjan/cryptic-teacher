@@ -198,8 +198,8 @@ def cost_warns(lg):
 # Meter rows of 4-9 points over ~1000 clues against a flat ledger: noise, no warning.
 quiet = [(4, 2, 200, T - 6000), (4, 2, 200, T - 5000), (9, 3, 250, T - 900), (9, 3, 250, T - 800)] + [(9, 3, 250, T - 700)]
 check(cost_warns(cost_log(quiet, 10_000)), [], "a few meter points over 1000 clues on a flat ledger never warn")
-# Even a meter that doubles with a flat ledger (other rooms' usage) does not warn.
-loud = [(10, 5, 100, T - 5000 - i * 600) for i in range(5)] + [(20, 5, 100, T - 1000 - i * 100) for i in range(3)]
+# Even a meter that more than doubles with a flat ledger (other rooms' usage) does not warn.
+loud = [(10, 5, 100, T - 5000 - i * 600) for i in range(5)] + [(25, 5, 100, T - 1000 - i * 100) for i in range(3)]
 check(cost_warns(cost_log(loud, 10_000)), [], "a doubled meter with a flat ledger does not warn")
 got = cost_warns(cost_log(loud, 25_000))
 check(len(got) == 1 and "cost per clue doubled" in got[0], True, "a doubled ledger rate held 30 minutes warns")
