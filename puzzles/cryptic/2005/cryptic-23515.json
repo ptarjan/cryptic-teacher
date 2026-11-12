@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Lost one's temper with a guard",
     "enumeration": "6"
    },
-   "solution": "RAILED"
+   "solution": "RAILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lost one's temper",
+      "at": 0,
+      "meaning": "to rail at someone is to rant angrily at them"
+     },
+     {
+      "text": "with a guard",
+      "at": 18,
+      "meaning": "fitted with a rail, such as a protective barrier along a walkway"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone flies off the handle at a security guard.",
+     "definitionFit": "Railing is ranting in anger, and a railed path is one fenced by a protective barrier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guard"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,30 @@
     "text": "Refuse to make a scathing comment",
     "enumeration": "7"
    },
-   "solution": "RUBBISH"
+   "solution": "RUBBISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0,
+      "meaning": "noun: waste, garbage"
+     },
+     {
+      "text": "make a scathing comment",
+      "at": 10,
+      "meaning": "to criticise harshly, dismiss as worthless"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone declines to say anything cutting.",
+     "definitionFit": "Rubbish is household waste, and to rubbish something is to disparage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +108,49 @@
     "text": "In the meantime I am off to Bury",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 21,
+       "note": "off means removed, so these letters go from the word for meantime"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In the meantime",
+       "at": 0,
+       "gives": "INTERIM",
+       "note": "interim means in the meantime"
+      },
+      {
+       "words": "I am",
+       "at": 16,
+       "gives": "IM",
+       "note": "I am contracts to IM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains that for now they are heading to the town of Bury.",
+     "walkthrough": "Bury, capitalised to look like the Lancashire town, is the verb to bury.",
+     "definitionFit": "To inter is to place a body in a grave, which is to bury it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +164,39 @@
     "text": "See it as an anagram — nothing could be simpler",
     "enumeration": "7"
    },
-   "solution": "EASIEST"
+   "solution": "EASIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing could be simpler",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "an anagram",
+       "at": 10,
+       "note": "the clue openly tells you to treat these words as letters to rearrange"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See it as",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter tells you to spot an obvious anagram, saying it couldn't be easier.",
+     "definitionFit": "Easiest is the superlative of easy, the least difficult possible, so nothing is simpler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +210,31 @@
     "text": "Physical training instructor",
     "enumeration": "6"
    },
-   "solution": "MANUAL"
+   "solution": "MANUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Physical",
+      "at": 0,
+      "meaning": "... work is done with the hands and body"
+     },
+     {
+      "text": "training instructor",
+      "at": 9,
+      "meaning": "a handbook that teaches you how to do or operate something"
+     }
+    ],
+    "explanation": {
+     "surface": "A gym's PT coach is described.",
+     "definitionFit": "Manual labour is bodily work, and a manual is a handbook of instructions for learning a task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "instructor"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +248,47 @@
     "text": "Jack training for the fifteen? That's sudden!",
     "enumeration": "6"
    },
-   "solution": "ABRUPT"
+   "solution": "ABRUPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sudden",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jack",
+       "at": 0,
+       "gives": "AB",
+       "note": "a jack tar is a sailor, AB being an able-bodied seaman"
+      },
+      {
+       "words": "the fifteen",
+       "at": 18,
+       "gives": "RU",
+       "note": "Rugby Union is played fifteen a side, abbreviated RU"
+      },
+      {
+       "words": "training",
+       "at": 5,
+       "gives": "PT",
+       "note": "PT is physical training"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player's fitness work for the rugby team comes to an unexpected end.",
+     "definitionFit": "Abrupt means sudden and unexpected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +302,42 @@
     "text": "Subject to job stress",
     "enumeration": "9"
    },
-   "solution": "UNDERLINE"
+   "solution": "UNDERLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stress",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Subject to",
+       "at": 0,
+       "gives": "UNDER",
+       "note": "to be under something is to be subject to it"
+      },
+      {
+       "words": "job",
+       "at": 11,
+       "gives": "LINE",
+       "note": "one's line is one's line of work, a job"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffers from work pressure.",
+     "walkthrough": "'stress' reads as anxiety, but it is the verb to emphasise.",
+     "definitionFit": "To underline is to emphasise or stress something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stress"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +351,35 @@
     "text": "Motorist waiting for a chance to pass",
     "enumeration": "7"
    },
-   "solution": "LEARNER"
+   "solution": "LEARNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Motorist waiting for a chance to pass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Motorist waiting for a chance to pass",
+       "at": 0,
+       "note": "not a driver stuck behind a lorry, but one hoping to pass the driving test"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver waits to overtake.",
+     "definitionFit": "A learner driver has not yet passed the driving test."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +399,35 @@
      }
     ]
    },
-   "solution": "HUNTINGSEASON"
+   "solution": "HUNTINGSEASON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Killing time",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Killing time",
+       "at": 0,
+       "note": "read not as idling away hours but as the period when hunting game is allowed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone idles away the hours.",
+     "definitionFit": "The hunting season is the period of the year when shooting animals is permitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Killing"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +441,39 @@
     "text": "Come very close to a qualification",
     "enumeration": "4"
    },
-   "solution": "ABUT"
+   "solution": "ABUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Come very close to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 19
+      },
+      {
+       "words": "qualification",
+       "at": 21,
+       "gives": "BUT",
+       "note": "a but is a reservation or proviso, as in 'no ifs or buts'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student nearly earns a diploma.",
+     "definitionFit": "To abut is to border on or touch, lying right up against something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "qualification"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +493,42 @@
      }
     ]
    },
-   "solution": "SQUAREDEAL"
+   "solution": "SQUAREDEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fair agreement",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quits",
+       "at": 0,
+       "gives": "SQUARE",
+       "note": "to be square is to be even or quits, owing nothing"
+      },
+      {
+       "words": "board",
+       "at": 10,
+       "gives": "DEAL",
+       "note": "deal is pine or fir timber, sawn into boards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resigns from the company board after a fair settlement.",
+     "walkthrough": "'Quits' looks like a verb about resigning, but it is the adjective 'even'.",
+     "definitionFit": "A square deal is an idiom for an honest, equitable bargain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quits"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +542,47 @@
     "text": "Drill using bit right inside",
     "enumeration": "6"
    },
-   "solution": "PIERCE"
+   "solution": "PIERCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 22,
+       "note": "the letter for right is placed within the word for bit"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bit",
+       "at": 12,
+       "gives": "PIECE",
+       "note": "a piece is a bit or portion"
+      },
+      {
+       "words": "right",
+       "at": 16,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workman drills a hole with a bit set correctly inside the tool.",
+     "definitionFit": "To pierce is to bore through, just as a drill makes a hole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +596,42 @@
     "text": "Contracting to record Wagnerian opera",
     "enumeration": "8"
    },
-   "solution": "TAPERING"
+   "solution": "TAPERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contracting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "record",
+       "at": 15,
+       "gives": "TAPE",
+       "note": "to tape is to record on tape"
+      },
+      {
+       "words": "Wagnerian opera",
+       "at": 22,
+       "gives": "RING",
+       "note": "Wagner's Ring cycle, Der Ring des Nibelungen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm is hired to make a recording of a Wagner opera.",
+     "walkthrough": "'Contracting' suggests signing a deal, but it means narrowing.",
+     "definitionFit": "Tapering is getting narrower toward one end, a way of contracting or shrinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Contracting"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +645,41 @@
     "text": "It gives an edge to the news broadcast",
     "enumeration": "9"
    },
-   "solution": "WHETSTONE"
+   "solution": "WHETSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It gives an edge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 29,
+       "note": "broadcast as scattered widely, so these letters are spread and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to the news",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something adds a sharp edge to the news bulletin on air.",
+     "walkthrough": "'broadcast' looks like radio or TV, but it signals a rearrangement of TO THE NEWS.",
+     "definitionFit": "A whetstone is a sharpening stone used to put an edge on blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +693,41 @@
     "text": "Put off rate increase",
     "enumeration": "9"
    },
-   "solution": "TEMPORISE"
+   "solution": "TEMPORISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rate",
+       "at": 8,
+       "gives": "TEMPO",
+       "note": "tempo is speed or rate"
+      },
+      {
+       "words": "increase",
+       "at": 13,
+       "gives": "RISE",
+       "note": "a rise is an increase"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pay rise is postponed.",
+     "definitionFit": "To temporise is to delay or stall to gain time, putting off a decision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rate"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +741,42 @@
     "text": "False witness who turns to abuse",
     "enumeration": "4"
    },
-   "solution": "LIAR"
+   "solution": "LIAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "False witness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns",
+       "at": 18,
+       "note": "the word for abuse turns round, read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "abuse",
+       "at": 27,
+       "gives": "RAIL",
+       "note": "to rail is to abuse verbally"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A perjurer in the witness box resorts to insults.",
+     "definitionFit": "A false witness tells untruths, which is what a person who lies does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "witness"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +790,35 @@
     "text": "It may be well-worn and well-used",
     "enumeration": "4"
    },
-   "solution": "PUMP"
+   "solution": "PUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It may be well-worn and well-used",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It may be well-worn and well-used",
+       "at": 0,
+       "note": "one sense is a light dancing shoe often worn, the other a device used at a well to draw water"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something old and much used, like a favourite tool.",
+     "definitionFit": "A pump is both a light shoe that is worn and the handle device used to raise water at a well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well-worn"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +832,41 @@
     "text": "Apply no make-up when in full array",
     "enumeration": "7"
    },
-   "solution": "PANOPLY"
+   "solution": "PANOPLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "full array",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "make-up",
+       "at": 9,
+       "note": "make-up as composition, so these letters are made up into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Apply no",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes without cosmetics even when dressed in all their finery.",
+     "walkthrough": "'make-up' reads as cosmetics, but signals a rearrangement of APPLY NO.",
+     "definitionFit": "A panoply is a complete and impressive collection or display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "make-up"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +886,44 @@
      }
     ]
    },
-   "solution": "ESTATECAR"
+   "solution": "ESTATECAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Property conveyance?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Property",
+       "at": 0,
+       "gives": "ESTATE",
+       "note": "an estate is landed property"
+      },
+      {
+       "words": "conveyance",
+       "at": 9,
+       "gives": "CAR",
+       "note": "a car is a vehicle, a means of conveyance"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A lawyer handles the conveyancing of a property.",
+     "walkthrough": "'conveyance' suggests the legal transfer of property, but here it is a vehicle.",
+     "definitionFit": "An estate car is a vehicle with an extended rear load space, a conveyance named after estates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "conveyance"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +937,35 @@
     "text": "The attendant's not responsible for it",
     "enumeration": "7"
    },
-   "solution": "ABSENCE"
+   "solution": "ABSENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The attendant's not responsible for it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The attendant's not responsible for it",
+       "at": 0,
+       "note": "not a steward shirking duty, but someone attending, present, who cannot be the cause of not being there"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steward denies responsibility for something.",
+     "definitionFit": "Absence is not being present, which no one who attends can be blamed for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attendant's"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +979,57 @@
     "text": "Food I am given in a time of abstinence",
     "enumeration": "7"
    },
-   "solution": "ALIMENT"
+   "solution": "ALIMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 19
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "given in",
+         "at": 10,
+         "note": "the contraction is given a place in the middle of the period"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time of abstinence",
+         "at": 21,
+         "gives": "LENT",
+         "note": "Lent is the Christian period of fasting before Easter"
+        },
+        {
+         "words": "I am",
+         "at": 5,
+         "gives": "IM",
+         "note": "I am contracts to IM"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fed during a fast.",
+     "definitionFit": "Aliment is a formal word for nourishment or food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abstinence"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1043,30 @@
     "text": "Straighten things out and become more friendly",
     "enumeration": "6"
    },
-   "solution": "UNBEND"
+   "solution": "UNBEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Straighten things out",
+      "at": 0,
+      "meaning": "to make something straight that was bent"
+     },
+     {
+      "text": "become more friendly",
+      "at": 26,
+      "meaning": "to relax and become less formal"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone settles a quarrel and warms up.",
+     "definitionFit": "To unbend is to straighten something, and also to relax one's stiff manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "things"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1080,34 @@
     "text": "One can't sleep through it",
     "enumeration": "8"
    },
-   "solution": "INSOMNIA"
+   "solution": "INSOMNIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One can't sleep through it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One can't sleep through it",
+       "at": 0,
+       "note": "read not as a noise you would wake to, but as the condition of being unable to sleep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something too loud to sleep through.",
+     "definitionFit": "Insomnia is the condition of chronic sleeplessness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "through"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1121,42 @@
     "text": "Points to one of several children as being bright",
     "enumeration": "6"
    },
-   "solution": "SEQUIN"
+   "solution": "SEQUIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being bright",
+      "at": 37,
+      "note": "noun phrase: a thing that is bright, a glittering spangle"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Points",
+       "at": 0,
+       "gives": "SE",
+       "note": "S and E are two compass points, south and east"
+      },
+      {
+       "words": "one of several children",
+       "at": 10,
+       "gives": "QUIN",
+       "note": "a quin is one of five children born at one birth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent singles out one of a brood as clever.",
+     "definitionFit": "A sequin is a small shiny disc sewn on clothes, an object that gleams brightly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bright"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1170,31 @@
     "text": "Flinch, though still game",
     "enumeration": "5"
    },
-   "solution": "QUAIL"
+   "solution": "QUAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flinch",
+      "at": 0,
+      "meaning": "to cower or recoil in fear"
+     },
+     {
+      "text": "game",
+      "at": 21,
+      "meaning": "a small game bird related to the partridge"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone recoils, though still willing to have a go.",
+     "walkthrough": "'game' reads as willing, but it is a bird shot for sport.",
+     "definitionFit": "To quail is to shrink in fear, and the quail is a small bird hunted as game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1214,47 @@
      }
     ]
    },
-   "solution": "UPSIDEDOWN"
+   "solution": "UPSIDEDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Topsy-turvy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "promotion",
+       "at": 12,
+       "gives": "UP",
+       "note": "a team going up a league is promoted"
+      },
+      {
+       "words": "team",
+       "at": 22,
+       "gives": "SIDE",
+       "note": "a side is a team"
+      },
+      {
+       "words": "relegated",
+       "at": 27,
+       "gives": "DOWN",
+       "note": "a relegated team goes down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football team promoted one season and relegated the next has a chaotic time.",
+     "definitionFit": "Topsy-turvy means in a state of inversion or confusion, with things the wrong way round."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "promotion"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1268,40 @@
     "text": "Give aid to a Yankee",
     "enumeration": "4"
    },
-   "solution": "ABET"
+   "solution": "ABET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give aid to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 12
+      },
+      {
+       "words": "Yankee",
+       "at": 14,
+       "gives": "BET",
+       "note": "a Yankee is a type of accumulator bet on four selections, a British bookmaking term"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone helps an American.",
+     "walkthrough": "'Yankee' looks like an American, but a Yankee is a bet placed with a British bookmaker.",
+     "definitionFit": "To abet is to assist or support someone, often in wrongdoing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1315,63 @@
     "text": "Capitulates and provides youth leader with new slide",
     "enumeration": "6"
    },
-   "solution": "YIELDS"
+   "solution": "YIELDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capitulates",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 31,
+         "note": "the first letter of the word it picks from"
+        }
+       ],
+       "parts": [
+        {
+         "words": "youth",
+         "at": 25,
+         "note": "the first letter of the word youth"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 43,
+         "note": "new signals the letters of slide being made fresh in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slide",
+         "at": 47
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives in and lets a youth club leader have a new playground slide.",
+     "walkthrough": "'and provides' is a second definition: to yield is also to produce or supply.",
+     "definitionFit": "Yields means surrenders or gives way, the same as capitulates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slide"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1385,45 @@
     "text": "Motel right to provide wine",
     "enumeration": "6"
    },
-   "solution": "MERLOT"
+   "solution": "MERLOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to provide",
+       "at": 12,
+       "note": "the letters are worked up to provide something new, a loose anagram signal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Motel",
+       "at": 0
+      },
+      {
+       "words": "right",
+       "at": 6,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A roadside motel offers its guests wine.",
+     "definitionFit": "Merlot is a red grape variety and the wine made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Motel"
+    }
+   }
   }
  ]
 }
