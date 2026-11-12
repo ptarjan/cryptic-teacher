@@ -653,6 +653,18 @@
     }, 6000);
   }
 
+  // Paper mode's first "I'm done" on a grid that is not right: whether it is
+  // solved, and nothing about where. No count either, since "1 wrong" is
+  // already a clue to which one. Held until the solver acts, not timed out,
+  // because it is the answer to the question they asked.
+  function announceVerdict() {
+    const el = $("check-result");
+    if (!el) return;
+    clearTimeout(checkMsgTimer);
+    el.className = "check-result bad";
+    el.textContent = "Not solved yet — something is wrong or blank. Keep going, or press “Show what’s wrong”.";
+  }
+
   function pulseCells(list) {
     list.forEach((c) => { if (c.el) c.el.classList.add("pulse"); });
     setTimeout(() => list.forEach((c) => { if (c.el) c.el.classList.remove("pulse"); }), 600);
