@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,32 @@
      }
     ]
    },
-   "solution": "LEFTBACK"
+   "solution": "LEFTBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One defending",
+      "at": 0,
+      "meaning": "a defender on the left side of a football team"
+     },
+     {
+      "text": "terse announcement of 1997 election result?",
+      "at": 14,
+      "meaning": "in 1997 Labour returned to power, so a two-word headline might say the political left is back in government"
+     }
+    ],
+    "explanation": {
+     "surface": "A clipped news flash about Labour's 1997 landslide, delivered by a defender.",
+     "walkthrough": "A double definition. The 1997 UK general election brought Labour, the party of the left, back into government after eighteen years.",
+     "definitionFit": "A full back playing on the left flank is a defender, matching one who defends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "defending"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +78,67 @@
     "text": "Newspaper story involving sex, vice and lust? No way",
     "enumeration": "9"
    },
-   "solution": "EXCLUSIVE"
+   "solution": "EXCLUSIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Newspaper story",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 16,
+       "note": "involving here means tangling together, so the letters are intricately rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sex",
+       "at": 26
+      },
+      {
+       "words": "vice",
+       "at": 31
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No",
+         "at": 46,
+         "note": "No tells us to take the letters for way out of the word lust"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lust",
+         "at": 40
+        },
+        {
+         "words": "way",
+         "at": 49,
+         "gives": "ST",
+         "note": "ST is the abbreviation for street, a way"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid scoop full of sex, vice and lust, dismissed with a scornful 'No way'.",
+     "walkthrough": "'No way' removes ST from LUST, leaving LU; 'involving' then rearranges SEX + VICE + LU into the answer.",
+     "definitionFit": "A scoop printed by only one paper is called an exclusive, a newspaper story no rival has."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involving"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +152,63 @@
     "text": "Minute, it eats into tree destructively",
     "enumeration": "7"
    },
-   "solution": "TERMITE"
+   "solution": "TERMITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minute, it eats into tree destructively",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eats into",
+       "at": 11,
+       "note": "eats into means one piece burrows inside another, here the minute letter going in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "destructively",
+         "at": 26,
+         "note": "destructively signals that the letters of it and tree are wrecked and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 8
+        },
+        {
+         "words": "tree",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "Minute",
+       "at": 0,
+       "gives": "M"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A tiny pest boring into timber and wrecking it.",
+     "walkthrough": "'destructively' makes TERITE, which 'eats into' opens to take M. Read whole, the clue also describes what the insect does to wood.",
+     "definitionFit": "The whole clue pictures the tiny insect that bores into wood and destroys it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +222,47 @@
     "text": "Take leisurely stroll, being fit to cover miles",
     "enumeration": "5"
    },
-   "solution": "AMBLE"
+   "solution": "AMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take leisurely stroll",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to cover",
+       "at": 33,
+       "note": "to cover means to wrap around, so the word for fit goes outside the letter for miles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fit",
+       "at": 29,
+       "gives": "ABLE",
+       "note": "fit means able, capable"
+      },
+      {
+       "words": "miles",
+       "at": 42,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fit enough could walk miles at an easy pace.",
+     "definitionFit": "To amble is to walk at a slow, relaxed pace, a leisurely stroll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +276,42 @@
     "text": "Flyer issued by takeaway",
     "enumeration": "3"
    },
-   "solution": "KEA"
+   "solution": "KEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flyer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "issued by",
+       "at": 6,
+       "note": "issued by suggests letters coming out of the word takeaway, which contains them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "takeaway",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leaflet put out by a fast-food takeaway.",
+     "walkthrough": "The kea is a New Zealand parrot; 'Flyer' looks like a leaflet but means a bird.",
+     "definitionFit": "A kea is a mountain parrot of New Zealand, so it is a bird that flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flyer"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +325,61 @@
     "text": "I may be embraced by lover at church",
     "enumeration": "6"
    },
-   "solution": "FIANCE"
+   "solution": "FIANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I may be embraced by lover at church",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "may be embraced by",
+         "at": 2,
+         "note": "embraced by means held inside, so the letter I goes within the word for lover"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lover",
+         "at": 21,
+         "gives": "FAN",
+         "note": "a fan is a lover or devotee of something"
+        },
+        {
+         "words": "I",
+         "at": 0,
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 30,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "spelling": "FIANCÉ",
+    "andLit": true,
+    "explanation": {
+     "surface": "A betrothed person anticipating a hug from their partner at the wedding.",
+     "walkthrough": "'may be embraced by' makes FIAN. Read whole, the clue describes someone engaged, greeted by a partner at the church wedding.",
+     "definitionFit": "A betrothed man is the one his lover may embrace at the church wedding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +399,32 @@
      }
     ]
    },
-   "solution": "FACESAVER"
+   "solution": "FACESAVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Visor",
+      "at": 0,
+      "meaning": "a visor protects the face, playfully something that saves one's face"
+     },
+     {
+      "text": "a means of preserving one's dignity",
+      "at": 7,
+      "meaning": "something that lets one avoid humiliation or keep up appearances"
+     }
+    ],
+    "explanation": {
+     "surface": "A visor described as the thing that keeps one dignified.",
+     "walkthrough": "A double definition; the first is a playful literal reading of a guard that protects the face.",
+     "definitionFit": "A compromise that avoids humiliation is called by this name, preserving one's dignity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Visor"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +438,48 @@
     "text": "Writer is featured in supplement",
     "enumeration": "7"
    },
-   "solution": "ADDISON"
+   "solution": "ADDISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featured in",
+       "at": 10,
+       "note": "featured in means placed within, so is goes inside the word for supplement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "supplement",
+       "at": 22,
+       "gives": "ADDON",
+       "note": "an add-on is an extra or supplement"
+      },
+      {
+       "words": "is",
+       "at": 7,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer appearing in a newspaper's weekend supplement.",
+     "walkthrough": "Joseph Addison was an English essayist, co-founder of The Spectator.",
+     "definitionFit": "Joseph Addison was an eighteenth-century English essayist, poet and playwright."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supplement"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +496,41 @@
      "chapte"
     ]
    },
-   "solution": "CANON"
+   "solution": "CANON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collection of writing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chapte",
+       "at": 27,
+       "gives": "C",
+       "note": "C is the abbreviation for chapter, the word the paper prints without its final letter"
+      },
+      {
+       "words": "author unknown",
+       "at": 37,
+       "gives": "ANON",
+       "note": "anon, short for anonymous, marks a work whose author is unknown"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anthology containing a chapter by an anonymous writer.",
+     "definitionFit": "A canon is the accepted body of works by a writer or of a literature, a collection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Collection"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +544,41 @@
     "text": "Tree expert's right",
     "enumeration": "4"
    },
-   "solution": "ACER"
+   "solution": "ACER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "expert's",
+       "at": 5,
+       "gives": "ACE",
+       "note": "an ace is an expert; the 's stands for has, a link"
+      },
+      {
+       "words": "right",
+       "at": 14,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree specialist claiming to be correct.",
+     "walkthrough": "Acer is the botanical name of the maple genus.",
+     "definitionFit": "Acer is the genus of maples, so an acer is a tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +598,56 @@
      }
     ]
    },
-   "solution": "BYACCIDENT"
+   "solution": "BYACCIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not intended",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wacky",
+         "at": 5,
+         "note": "wacky means crazy, so the letters of baccy and I are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "baccy",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 18
+      },
+      {
+       "words": "impression",
+       "at": 25,
+       "gives": "DENT",
+       "note": "a dent is an impression made in a surface"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smoking odd tobacco leaves a mark they never meant to make.",
+     "walkthrough": "'wacky' makes BYACCI. Baccy is British slang for tobacco, so the surface suggests a strange smoke.",
+     "definitionFit": "Something done unintentionally happens by chance rather than by design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +661,49 @@
     "text": "Functions held by public transport companies",
     "enumeration": "10"
    },
-   "solution": "BUSINESSES"
+   "solution": "BUSINESSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "companies",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 10,
+       "note": "held by means contained within, so the word for functions sits inside the public transport"
+      }
+     ],
+     "parts": [
+      {
+       "words": "public transport",
+       "at": 18,
+       "gives": "BUSES",
+       "note": "buses are a form of public transport"
+      },
+      {
+       "words": "Functions",
+       "at": 0,
+       "gives": "SINES",
+       "note": "sines are trigonometric functions"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Corporate functions hosted aboard public transport.",
+     "walkthrough": "'Functions' suggests social events, but here it means trigonometric functions; 'held by' splits the transport word after its second letter.",
+     "definitionFit": "Businesses are commercial firms, so they are companies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Functions"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +717,64 @@
     "text": "Holidaying briefly in island state",
     "enumeration": "7"
    },
-   "solution": "SARAWAK"
+   "solution": "SARAWAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "state",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in means placed inside, so the shortened word goes within the island"
+      }
+     ],
+     "parts": [
+      {
+       "words": "island",
+       "at": 22,
+       "gives": "SARK",
+       "note": "Sark is one of the Channel Islands"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 11,
+         "note": "briefly means cut short, losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Holidaying",
+         "at": 0,
+         "gives": "AWAY",
+         "note": "someone holidaying is away"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a short break on an island state.",
+     "walkthrough": "'briefly' leaves AWA; 'in' places it inside a small Channel Island. 'island state' tempts as one definition, but the answer is a Malaysian state on Borneo.",
+     "definitionFit": "Sarawak is a state of Malaysia on the island of Borneo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +788,46 @@
     "text": "Confess crime to avoid \"time\"",
     "enumeration": "4"
    },
-   "solution": "SING"
+   "solution": "SING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to avoid",
+       "at": 14,
+       "note": "to avoid means to leave out, so the letter for time is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crime",
+       "at": 8,
+       "gives": "STING",
+       "note": "a sting is a swindle or confidence trick"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal owning up to dodge a prison sentence.",
+     "walkthrough": "'time' looks like a jail term but is just T; to sing is slang for informing to the police.",
+     "definitionFit": "In criminal slang to sing is to inform or confess to the police."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +841,57 @@
     "text": "Terrible performer missing entrance, answerable to him?",
     "enumeration": "8"
    },
-   "solution": "DIRECTOR"
+   "solution": "DIRECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "answerable to him?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Terrible",
+       "at": 0,
+       "gives": "DIRE",
+       "note": "dire means terrible"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing entrance",
+         "at": 19,
+         "note": "missing entrance means without its first letter, the way in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "performer",
+         "at": 9,
+         "gives": "ACTOR",
+         "note": "an actor is a performer"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bad actor who misses his cue, accountable to the person in charge.",
+     "walkthrough": "'entrance' suggests a stage entry but means the first letter. The definition is cryptic: the performer is answerable to the person running the show.",
+     "definitionFit": "Actors answer to the person who directs the production, so the definition describes that role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +905,44 @@
     "text": "Device in cab shows extra time erroneously",
     "enumeration": "9"
    },
-   "solution": "TAXIMETER"
+   "solution": "TAXIMETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Device in cab",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "erroneously",
+       "at": 31,
+       "note": "erroneously means wrongly, so the letters of extra time are set out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extra",
+       "at": 20
+      },
+      {
+       "words": "time",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A taxi meter charging for extra time by mistake.",
+     "definitionFit": "A taximeter is the instrument in a cab that calculates the fare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extra"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +956,35 @@
     "text": "Go like a delivery vehicle?",
     "enumeration": "6"
    },
-   "solution": "VANISH"
+   "solution": "VANISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go like a delivery vehicle?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Go like a delivery vehicle?",
+       "at": 0,
+       "note": "read as van plus -ish, like a van; also to go means to disappear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Moving in the manner of a delivery van.",
+     "definitionFit": "To vanish is to go, disappear from sight; the clue also splits it as van-like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +998,48 @@
     "text": "Cold wearing knitted garment? Jacket needed",
     "enumeration": "9"
    },
-   "solution": "SLIPCOVER"
+   "solution": "SLIPCOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jacket",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 5,
+       "note": "wearing means having on, so the garment goes round the letter for cold"
+      }
+     ],
+     "parts": [
+      {
+       "words": "knitted garment",
+       "at": 13,
+       "gives": "SLIPOVER",
+       "note": "a slipover is a sleeveless knitted pullover"
+      },
+      {
+       "words": "Cold",
+       "at": 0,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a cold wearing a jumper still needs a jacket.",
+     "walkthrough": "A slipcover is a removable cover for furniture or a book, so 'Jacket' as a dust jacket.",
+     "definitionFit": "A slipcover is a protective cover, such as a book's dust jacket."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jacket"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1053,48 @@
     "text": "Automatic response on approaching bend",
     "enumeration": "6"
    },
-   "solution": "REFLEX"
+   "solution": "REFLEX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Automatic response",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "approaching",
+       "at": 22,
+       "note": "approaching means coming just before, so the first piece sits next to the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on",
+       "at": 19,
+       "gives": "RE",
+       "note": "re means on, concerning"
+      },
+      {
+       "words": "bend",
+       "at": 34,
+       "gives": "FLEX",
+       "note": "to flex is to bend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver reacting instinctively as a bend comes up.",
+     "definitionFit": "A reflex is an involuntary automatic reaction of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1108,46 @@
     "text": "Crucial matches unable to start: because of these?",
     "enumeration": "7"
    },
-   "solution": "LAYOFFS"
+   "solution": "LAYOFFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "because of these?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unable to start",
+       "at": 16,
+       "note": "unable to start means losing the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crucial matches",
+       "at": 0,
+       "gives": "PLAYOFFS",
+       "note": "play-offs are deciding matches in a competition"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Important games cannot begin because players have been laid off.",
+     "walkthrough": "The definition is cryptic: workers are unable to start work because of redundancies.",
+     "definitionFit": "Layoffs are dismissals of workers, the reason people cannot start their jobs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matches"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1161,69 @@
     "text": "Campaign to eliminate last of mice at home, using rodent poison",
     "enumeration": "8"
    },
-   "solution": "WARFARIN"
+   "solution": "WARFARIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rodent poison",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to eliminate",
+         "at": 9,
+         "note": "to eliminate means to remove, so the letter chosen is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Campaign",
+         "at": 0,
+         "gives": "WARFARE",
+         "note": "warfare is a military campaign"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 22,
+           "note": "last of means the final letter of the word mice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mice",
+           "at": 30
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "at home",
+       "at": 35,
+       "gives": "IN",
+       "note": "in means at home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pest control drive to wipe out mice in the house with poison.",
+     "definitionFit": "Warfarin is an anticoagulant used as a poison to kill rats and mice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Campaign"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1237,45 @@
     "text": "Being discussed perhaps out loud hay-fever sufferer may interject this",
     "enumeration": "7"
    },
-   "solution": "ATISHOO"
+   "solution": "ATISHOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hay-fever sufferer may interject this",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ATISHOO",
+     "indicators": [
+      {
+       "text": "out loud",
+       "at": 24,
+       "note": "out loud means spoken, so the words are heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Being discussed",
+       "at": 0,
+       "gives": "ATISSUE",
+       "note": "a matter being discussed is at issue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneeze cutting into a conversation.",
+     "walkthrough": "'perhaps' is a link. AT ISSUE spoken quickly sounds like the sneeze.",
+     "definitionFit": "This is the conventional written sound of a sneeze, which a hay-fever sufferer may let out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discussed"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1289,55 @@
     "text": "Tense editor's long day finishes",
     "enumeration": "4"
    },
-   "solution": "EDGY"
+   "solution": "EDGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tense",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "editor's",
+       "at": 6,
+       "gives": "ED",
+       "note": "ED is the abbreviation for editor; the 's is a link"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finishes",
+         "at": 24,
+         "note": "finishes means the final letters of long and day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "long",
+         "at": 15
+        },
+        {
+         "words": "day",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stressed editor at the end of a long day.",
+     "definitionFit": "Edgy means nervous or tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1351,58 @@
     "text": "Woman brings up an excellent daughter",
     "enumeration": "5"
    },
-   "solution": "DIANA"
+   "solution": "DIANA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "brings up",
+       "at": 6,
+       "note": "in a down clue brings up means read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "at": 16,
+         "gives": "AN"
+        },
+        {
+         "words": "excellent",
+         "at": 19,
+         "gives": "AI",
+         "note": "A1 means first-class or excellent, written AI"
+        },
+        {
+         "words": "daughter",
+         "at": 29,
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman raising a fine daughter.",
+     "walkthrough": "'brings up' reverses AN + AI + D, giving the woman's name.",
+     "definitionFit": "Diana is a woman's first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brings"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1426,31 @@
      }
     ]
    },
-   "solution": "MAKEAPITCH"
+   "solution": "MAKEAPITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bid for contract",
+      "at": 0,
+      "meaning": "to try to win business by presenting an offer"
+     },
+     {
+      "text": "supply part of new stadium?",
+      "at": 20,
+      "meaning": "literally to construct a playing field, a sports pitch"
+     }
+    ],
+    "explanation": {
+     "surface": "A tender to provide the playing surface of a new stadium.",
+     "definitionFit": "To make a pitch is to make a sales bid; literally it builds a sports field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1464,44 @@
     "text": "From what we may hear, Bleak House girl is a servant",
     "enumeration": "5"
    },
-   "solution": "AIDER"
+   "solution": "AIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "servant",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AIDER",
+     "indicators": [
+      {
+       "text": "From what we may hear",
+       "at": 0,
+       "note": "this phrase means the word is heard spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bleak House girl",
+       "at": 23,
+       "gives": "ADA",
+       "note": "Ada Clare is a ward in Dickens's novel Bleak House"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Dickens heroine said to be a servant.",
+     "walkthrough": "In a non-rhotic British accent Ada and the answer sound alike.",
+     "definitionFit": "An aider is a helper, one who serves or assists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1521,31 @@
      }
     ]
    },
-   "solution": "FARFETCHED"
+   "solution": "FARFETCHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Imported from Taiwan?",
+      "at": 0,
+      "meaning": "literally brought from a distant place"
+     },
+     {
+      "text": "Unlikely",
+      "at": 22,
+      "meaning": "hard to believe, improbable"
+     }
+    ],
+    "explanation": {
+     "surface": "Goods brought in from Taiwan dismissed as improbable.",
+     "definitionFit": "Far-fetched means improbable or hard to believe, and literally brought from afar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Taiwan"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1559,46 @@
     "text": "Hard left accepts a royal prince",
     "enumeration": "3"
    },
-   "solution": "HAL"
+   "solution": "HAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "royal prince",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hard",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      },
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
+      },
+      {
+       "words": "left",
+       "at": 5,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hard-line left-winger welcoming a prince.",
+     "walkthrough": "Prince Hal is the young Henry V in Shakespeare's history plays.",
+     "definitionFit": "Prince Hal is the youthful nickname of Henry V in Shakespeare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1612,46 @@
     "text": "Resort with no end of poor-quality accommodation",
     "enumeration": "4"
    },
-   "solution": "HOVE"
+   "solution": "HOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no end of",
+       "at": 7,
+       "note": "with no end of means the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poor-quality accommodation",
+       "at": 22,
+       "gives": "HOVEL",
+       "note": "a hovel is a squalid dwelling"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside town whose lodgings are shabby.",
+     "walkthrough": "HOVE is a seaside resort beside Brighton on the English south coast.",
+     "definitionFit": "Hove is an English seaside resort in East Sussex."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Resort"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1665,60 @@
     "text": "Female was distressed, locked in tower",
     "enumeration": "6"
    },
-   "solution": "HAWSER"
+   "solution": "HAWSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tower",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "locked in",
+       "at": 23,
+       "note": "locked in means shut inside, so the rearranged letters go within the female word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Female",
+       "at": 0,
+       "gives": "HER",
+       "note": "her refers to a female"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distressed",
+         "at": 11,
+         "note": "distressed means upset, so the letters of was are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distraught princess imprisoned in a tower.",
+     "walkthrough": "'distressed' makes AWS, which 'locked in' places inside the female pronoun. 'tower' is something that tows, not a building.",
+     "definitionFit": "A hawser is a thick rope used for towing ships, so a tower in the sense of something that tows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tower"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +1732,49 @@
     "text": "Left meat soaking in fat",
     "enumeration": "8"
    },
-   "solution": "LARBOARD"
+   "solution": "LARBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "soaking in",
+       "at": 10,
+       "note": "soaking in means immersed within, so the meat sits inside the fat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fat",
+       "at": 21,
+       "gives": "LARD",
+       "note": "lard is pig fat"
+      },
+      {
+       "words": "meat",
+       "at": 5,
+       "gives": "BOAR",
+       "note": "boar is meat from a wild pig"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joint of meat steeping in fat.",
+     "walkthrough": "LARBOARD is the old nautical term for the left side of a ship, now port.",
+     "definitionFit": "Larboard is the old nautical word for port, the left side of a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   }
  ]
 }
