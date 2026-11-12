@@ -119,7 +119,7 @@ MEM_HEADROOM_KB = 4 * 1024 * 1024
 RUN_RSS_KB = 250 * 1024
 # The least a run is taken to hold: runs a few seconds old read ~7 MB each, and
 # averaging those 11-12 put the memory cap at 348 against a real ~16 (runs settle at 210-250 MB).
-RUN_RSS_FLOOR_KB = 200 * 1024
+RUN_RSS_FLOOR_KB = RUN_RSS_KB  # 11-11 19:11: 200 MB still let 3 young runs read 13 against a real 3
 
 # The CPU the burn may have is the cores everything else leaves idle. The burn
 # is the process tree under prereset_backfill.sh, its claude runs at nice 19;
@@ -1157,6 +1157,7 @@ def self_test():
 
 # (need, memory cap, cpu cap, current width) -> width
 WIDTH_CASES = [
+    ((3, 3, None, 3), 3),          # 11-11: rushing at 2.9 GB free under a 4 GB reserve, 3 runs alive: 3, not 348
     ((4, 40, 40, 14), 4),          # on track: the need, however small
     ((26, 40, 40, 14), 26),        # behind: wider than now
     ((26, 8, 40, 14), 8),          # memory holds 8
@@ -1241,6 +1242,8 @@ MEM_CASES = [
     (f"MemTotal: 1 kB\nMemAvailable: {6 * GB} kB\n", [], 2 * GB // RUN_RSS_KB),
     (f"MemAvailable: {6 * GB} kB\n", [512000, 512000], 2 + 2 * GB // 512000),
     (f"MemAvailable: {3 * GB} kB\n", [], 0),
+    # 2026-11-11: 2.9 GB free under the 4 GB reserve, 3 seconds-old runs at 7 MB: no room, width = runs alive
+    (f"MemAvailable: {int(2.9 * GB)} kB\n", [7000, 7000, 7000], 3),
     (f"MemAvailable: {6 * GB} kB\n", [7000, 7000, 7000], 3 + 2 * GB // RUN_RSS_FLOOR_KB),
     ("garbage", [], None),
     (None, [], None),
