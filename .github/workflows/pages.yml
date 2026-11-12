@@ -474,16 +474,24 @@ jobs:
         timeout-minutes: 35
         env:
           GH_TOKEN: ${{ github.token }}
-          JOBS: repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}/jobs
+          JOBS: repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}/jobs?per_page=100
         run: |
           set -euo pipefail
+          # The check is the validate job, then (a full check only) the nine
+          # annotate shards and the requeue job. Any of them ending other than
+          # success or skipped stops the deploy at once; it ships when validate
+          # succeeded and requeue, the last of them, has finished (skipped
+          # when validate chose the incremental check).
           while :; do
-            state=$(gh api "$JOBS" --jq '.jobs[] | select(.name == "validate") | "\(.status) \(.conclusion)"')
-            case "$state" in
-              "completed success") echo "validate passed"; exit 0 ;;
-              completed*) echo "::error title=Not deployed::the validate job ended '$state'"; exit 1 ;;
-            esac
-            echo "validate: ${state:-not started}"
+            jobs=$(gh api --paginate "$JOBS" --jq '.jobs[] | select(.name == "validate" or .name == "annotate" or .name == "requeue") | "\(.name) \(.status) \(.conclusion)"')
+            bad=$(grep -E ' completed (failure|cancelled|timed_out|action_required|neutral|stale)$' <<<"$jobs" || true)
+            if [ -n "$bad" ]; then echo "::error title=Not deployed::the annotation check ended: $bad"; exit 1; fi
+            if grep -qx 'validate completed skipped' <<<"$jobs"; then echo "::error title=Not deployed::the validate job was skipped"; exit 1; fi
+            if grep -qx 'validate completed success' <<<"$jobs" && grep -qE '^requeue completed (success|skipped)$' <<<"$jobs" \
+               && ! grep -E '^annotate ' <<<"$jobs" | grep -vq ' completed \(success\|skipped\)$'; then
+              echo "annotation check passed"; exit 0
+            fi
+            echo "waiting: $(tr '\n' ';' <<<"$jobs")"
             sleep 10
           done
       # GitHub's deploy sometimes stalls (deployment_in_progress, syncing_files,
@@ -669,19 +677,16 @@ jobs:
   #
   # The checkout fetches no file contents up front (blob:none), and only
   # tools/ and the workflows; the folders of the puzzles a run checks are
-  # added after the diff, and a full run takes the whole tree, fetched in
-  # four streams at once rather than one.
+  # added after the diff. A full run checks nothing here: the annotate jobs
+  # check out the whole tree and run the nine shards in parallel.
   #
   # Skipped on an idle scheduled tick: a skipped job is not a success, so the
   # diff base lookup below never picks a tick that checked nothing.
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      # check_all defaults to 2 workers since 04bbcd91e46 (10-23), to spare the
-      # household host's burn and bridge. A public-repo runner is 4 vCPU and
-      # shared with nothing, so the shards left half of it idle: all 4 here.
-      VALIDATE_JOBS: "4"
+    outputs:
+      mode: ${{ steps.scope.outputs.mode }}
     # A job's permissions replace the workflow's, so this restates contents.
     permissions:
       contents: write  # the requeue step pushes the allowance raises
@@ -707,20 +712,7 @@ jobs:
           FULL: ${{ inputs.full || github.event.schedule == '41 9 * * *' }}
         run: |
           set -euo pipefail
-          # The whole tree, as eight fetches at once: one stream of ~50k blobs
-          # took ~55s, the bulk of this step on a full run; four streams took
-          # 88-129s on 2026-11-10 as the burn grew the tree. The checkout that
-          # follows finds them local, and fetches any this missed itself.
-          fetch_tree() {
-            git ls-tree -r HEAD -- puzzles clues_only | awk '$1 != "160000" { print $3 }' | sort -u > "$RUNNER_TEMP/blobs"
-            split -n l/8 "$RUNNER_TEMP/blobs" "$RUNNER_TEMP/blobs."
-            for part in "$RUNNER_TEMP"/blobs.??; do
-              git -c fetch.negotiationAlgorithm=noop fetch --no-tags --no-write-fetch-head \
-                --recurse-submodules=no --filter=blob:none --stdin origin < "$part" &
-            done
-            wait || true
-          }
-          full() { echo "full check: $1"; fetch_tree || true; git sparse-checkout disable; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
+          full() { echo "full check: $1"; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
           # A push or a dispatch; the daily tick asks
           # for the whole corpus.
           case "$EVENT" in
@@ -748,61 +740,6 @@ jobs:
             sed 's|/[^/]*$||' "$RUNNER_TEMP/check.txt" | sort -u | xargs git sparse-checkout add
           fi
           echo "mode=files" >> "$GITHUB_OUTPUT"
-      # The authored puzzle is built from its clues, not committed, and the
-      # check covers it like any other puzzle. Its inputs are under tools/, and
-      # a change to them is one of the things validate_scope.py makes a full
-      # check, so only a full check can see it change.
-      - name: Build the authored puzzle
-        if: steps.scope.outputs.mode == 'full'
-        run: >-
-          python3 tools/build_authored_puzzle.py
-          --clues tools/data/authored_A001_clues.json --number 1
-          --date 2026-07-29
-          --annotated-by claude-opus-5-5
-      # Two steps rather than one with a branch, so each has its own budget in
-      # tools/data/deploy_budgets.json: the full check's growth is tracked
-      # there, and an incremental check that slows down is caught on its own.
-      # The full check is 9 steps, one per ninth of the puzzles (`--shard i/n`:
-      # the puzzles whose id hashes to i of n), because as one step it grew past
-      # its 300s budget (315s) and the budget is never raised. Every puzzle is
-      # checked by exactly one shard, and the backlog ratchet is per puzzle, so
-      # each shard enforces its own slice of it; any shard failing fails the job.
-      - name: Check every annotation, shard 1 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 0/9 --drift-out "$RUNNER_TEMP/drift.0.json"
-      - name: Check every annotation, shard 2 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 1/9 --drift-out "$RUNNER_TEMP/drift.1.json"
-      - name: Check every annotation, shard 3 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 2/9 --drift-out "$RUNNER_TEMP/drift.2.json"
-      - name: Check every annotation, shard 4 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 3/9 --drift-out "$RUNNER_TEMP/drift.3.json"
-      - name: Check every annotation, shard 5 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 4/9 --drift-out "$RUNNER_TEMP/drift.4.json"
-      - name: Check every annotation, shard 6 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 5/9 --drift-out "$RUNNER_TEMP/drift.5.json"
-      - name: Check every annotation, shard 7 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 6/9 --drift-out "$RUNNER_TEMP/drift.6.json"
-      - name: Check every annotation, shard 8 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 7/9 --drift-out "$RUNNER_TEMP/drift.7.json"
-      - name: Check every annotation, shard 9 of 9
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py --shard 8/9 --drift-out "$RUNNER_TEMP/drift.8.json"
-      # The shards above let a puzzle past its allowance in a rule the burn can redo
-      # (--drift-out: a rule edit or the nightly lexicon rebuild flags puzzles that were
-      # committed clean) and wrote what it flagged; this raises those allowances and
-      # queues the clues as a commit of its own on master, so the deploy stays green
-      # without a local ~30-minute survey (tools/requeue_drift.py --publish). Any other
-      # error fails a shard first, and then nothing is pushed.
-      - name: Requeue what the rules newly flag
-        if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/requeue_drift.py --publish "$RUNNER_TEMP"/drift.?.json
       - name: Check the changed annotations
         if: steps.scope.outputs.mode == 'files'
         run: |
@@ -811,3 +748,83 @@ jobs:
           else
             echo "no puzzle changed since the last deploy"
           fi
+
+  # A full check's nine ninths, one runner each. They ran as nine steps of the
+  # validate job, one after another (~145s each, ~22 min in all) while the
+  # build waited for them at "Wait for the annotation check"; as nine jobs the
+  # check takes one shard's time. Every puzzle is checked by exactly one shard
+  # (`--shard i/n`: the puzzles whose id hashes to i of n) and the backlog
+  # ratchet is per puzzle, so each shard enforces its own slice. Skipped
+  # unless validate chose the full check. The shard name is fixed so every
+  # copy is "annotate" in the jobs API and shares one budget row.
+  annotate:
+    name: annotate
+    needs: validate
+    if: ${{ needs.validate.outputs.mode == 'full' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    env:
+      # check_all defaults to 2 workers since 04bbcd91e46 (10-23), to spare the
+      # household host's burn and bridge. A public-repo runner is 4 vCPU and
+      # shared with nothing, so all 4 here.
+      VALIDATE_JOBS: "4"
+    steps:
+      - name: Check out
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      # The authored puzzle is built from its clues, not committed, and the
+      # check covers it like any other puzzle. Its inputs are under tools/, and
+      # a change to them is one of the things validate_scope.py makes a full
+      # check, so only a full check can see it change.
+      - name: Build the authored puzzle
+        run: >-
+          python3 tools/build_authored_puzzle.py
+          --clues tools/data/authored_A001_clues.json --number 1
+          --date 2026-07-29
+          --annotated-by claude-opus-5-5
+      # --drift-out lets a puzzle past its allowance in a rule the burn can
+      # redo through (a rule edit or the nightly lexicon rebuild flags puzzles
+      # that were committed clean) and writes what it flagged for the requeue
+      # job. Any other error fails the shard first, and then nothing is pushed.
+      - name: Check a ninth of the annotations
+        run: python3 tools/validate_annotations.py --shard ${{ matrix.shard }}/9 --drift-out "$RUNNER_TEMP/drift.${{ matrix.shard }}.json"
+      - name: Keep what the shard flagged
+        uses: actions/upload-artifact@v6
+        with:
+          name: drift-${{ matrix.shard }}
+          path: ${{ runner.temp }}/drift.${{ matrix.shard }}.json
+          if-no-files-found: error
+          retention-days: 1
+
+  # What the shards flagged: raises those allowances and queues the clues as a
+  # commit of its own on master, so the deploy stays green without a local
+  # ~30-minute survey (tools/requeue_drift.py --publish).
+  requeue:
+    name: requeue
+    needs: annotate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write  # pushes the allowance raises
+    steps:
+      - name: Check out
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Fetch what the shards flagged
+        uses: actions/download-artifact@v7
+        with:
+          pattern: drift-*
+          path: ${{ runner.temp }}/drift
+          merge-multiple: true
+      - name: Requeue what the rules newly flag
+        run: python3 tools/requeue_drift.py --publish "$RUNNER_TEMP"/drift/drift.?.json
