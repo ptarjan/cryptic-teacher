@@ -731,6 +731,38 @@ def answer_typo_problems(puzzle, eid, corrected, served, fixes):
             for i in changed for other, ch in grid.get(mine[i], ()) if ch != corrected[i]]
 
 
+def drop_noop_printed_clue(path, pending, data=DATA):
+    """Drop each `printedClue` whose corrected clue is the clue as shown; the
+    ids dropped. It corrects nothing, so removing it is unambiguous: the run
+    meant the clue is fine (or copied it by mistake), and file_rows' "corrects
+    nothing" refusal was the top first-check failure in annotation sessions.
+    "Shown" is what file_rows measures against: the filed row's first value
+    when the key is filed, else the puzzle file's clue text."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return []
+    if not isinstance(ann, dict) or not any(
+            isinstance(a, dict) and "printedClue" in a for a in ann.values()):
+        return []
+    puzzle = read_puzzle_file(path)
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    clue_rows = json.loads((data / "source_clue_wrong.json").read_text(encoding="utf-8"))
+    dropped = []
+    for eid, a in ann.items():
+        v = a.get("printedClue") if isinstance(a, dict) else None
+        if not (isinstance(v, list) and v and isinstance(v[0], str) and eid in by_id):
+            continue
+        held = clue_rows.get(f"{puzzle['id']}/{eid}")
+        shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
+        if v[0].strip() == shown.strip():
+            del a["printedClue"]
+            dropped.append(eid)
+    if dropped:
+        write_pending(pending, ann)
+    return dropped
+
+
 def file_rows(path, pending, data=DATA):
     """Move each entry's `printedClue`, `setterError` and `answerTypo` in `pending` into
     their tables (FILED); returns (["<field> <entry id>" filed], what is wrong
@@ -1399,6 +1431,10 @@ def main(argv):
         if refusal:
             print(f"annotate_check {stem}: STOPPED — {refusal}")
             return 2
+        noop = drop_noop_printed_clue(path, pending)
+        if noop:
+            print(f"printedClue that corrects nothing (it is the clue as shown), dropped "
+                  f"from {pending.name}: {', '.join(noop)}\n")
         filed, err = file_rows(path, pending)
         if err:
             print(f"annotate_check {stem}: STOPPED — {err}")
