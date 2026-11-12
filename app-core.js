@@ -240,6 +240,15 @@
     return false;
   }
 
+  const isFirstVisit = (seen) => (seen ? seen.days === 1 : !hasAnySave());
+  // A/B 1: only a browser at the first-visit step is enrolled. Called from
+  // bindWelcome at load, BEFORE any puzzle opens, because the arm decides which
+  // welcome card is kept and whether the typing listener is added; enrolling
+  // later (reportVisit) left a fresh arm b browser with arm a's card.
+  function abEnrollIfFirst() {
+    if (nux === undefined && isFirstVisit(store.get("ct:seen", null))) abEnroll();
+  }
+
   function reportVisit() {
     // UTC, because the Worker dates the key in UTC and a visit that counted
     // itself on one day and was filed under another would double on the seam.
@@ -252,8 +261,8 @@
     // is how anyone checks. A tally of one is a browser on its first ever day,
     // however many times it opens the grid; a browser with grids already in it
     // has plainly been here before, whatever the tally says.
-    const first = seen ? seen.days === 1 : !hasAnySave();
-    if (nux === undefined && first) abEnroll(); // A/B 1: only a browser at the first-visit step
+    const first = isFirstVisit(seen);
+    abEnrollIfFirst(); // A/B 1 (a no-op when bindWelcome already did it at load)
     nuxSeed(first);
     abSend("visit");
     if (seen && seen.last === today) return;
@@ -467,6 +476,7 @@
   // promised and the rung it points at; saying you have solved cryptics before
   // spends the lot, because everything left is the same lesson.
   function bindWelcome() {
+    abEnrollIfFirst();
     // A/B 1: keep only this browser's card (arm a = master's dialog, arm b = short one).
     document.querySelectorAll("#welcome .welcome-card").forEach((c) => {
       if (c.dataset.arm !== (armB() ? "b" : "a")) c.remove();
