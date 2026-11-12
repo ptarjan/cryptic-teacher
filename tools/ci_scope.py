@@ -4,6 +4,8 @@
     python3 tools/ci_scope.py decide BASE   # BASE = last commit whose FULL suite passed
     -> "fast"                                  only puzzle data moved since BASE
     -> "full <reason>"                         anything else did (or cannot be told)
+    python3 tools/ci_scope.py decide --site BASE  # the same, for pages.yml's build:
+                                               SITE_INERT paths do not count either
     python3 tools/ci_scope.py files BASE      # BASE = last commit whose tests-passed was green
     -> the puzzle files added or modified since BASE, one per line (exit 3 when
        there are more than MAX_FILES: the fast path is for small checks)
@@ -43,10 +45,33 @@ BACKLOG = validate_scope.BACKLOG
 #: reads either, so a change to one must not send the push down the full path.
 DERIVED_DATA = {"tools/data/blog_compare.json", "tools/data/blog_facts/inputs.sha256"}
 MAX_FILES = 1500
+#: Paths the site build never reads: the test suite, the docs, the workflows
+#: other than pages.yml (not .github/actions/, which pages.yml runs), and the
+#: step budgets (read only by pages.yml's budgets job, from its own checkout).
+#: pages.yml's build asks with --site, so a push that adds only these to puzzle
+#: data keeps the puzzle fast path. A full build path costs ~7 minutes more
+#: (run 43254092994, full for tests/test_burn_log.py alone: 15.1 minutes to the
+#: deploy against ~8), and 8 of the 41 non-puzzle commits on 2026-11-12 touched
+#: nothing else. tests.yml and check.yml ask without --site: a test change still
+#: runs the whole suite.
+SITE_INERT_DIRS = ("tests/", "docs/")
+SITE_INERT_FILES = {
+    ".github/workflows/check.yml", ".github/workflows/codeql.yml",
+    ".github/workflows/fetch-puzzles.yml", ".github/workflows/nightly-smoke.yml",
+    ".github/workflows/tests.yml", "tools/data/deploy_budgets.json",
+}
 
 
-def decide(changes, base_text=None, head_text=None):
-    """("fast", None) or ("full", reason) for `changes`, [(status, path)]."""
+def site_inert(path):
+    return path.startswith(SITE_INERT_DIRS) or path in SITE_INERT_FILES
+
+
+def decide(changes, base_text=None, head_text=None, site=False):
+    """("fast", None) or ("full", reason) for `changes`, [(status, path)].
+
+    site: the question is pages.yml's build path, so SITE_INERT paths are skipped."""
+    if site:
+        changes = [(st, path) for st, path in changes if not site_inert(path)]
     stems = set()
     backlog = None
     rows = set()
@@ -90,6 +115,9 @@ def puzzle_files(changes):
 
 
 def main(argv):
+    site = argv[1:2] == ["--site"] and argv[0] == "decide"
+    if site:
+        argv = [argv[0]] + argv[2:]
     if len(argv) != 2 or argv[0] not in ("decide", "files"):
         print(__doc__)
         return 2
@@ -105,7 +133,7 @@ def main(argv):
         return 3 if len(files) > MAX_FILES else 0
     print(f"since {base}: {len(changes)} path(s) changed", file=sys.stderr)
     # HEAD from git, not the disk: CI's sparse checkouts leave tools/data out.
-    verdict, why = decide(changes, validate_scope.git_show(base), validate_scope.git_show("HEAD"))
+    verdict, why = decide(changes, validate_scope.git_show(base), validate_scope.git_show("HEAD"), site=site)
     print("fast" if verdict == "fast" else f"full {why}")
     return 0
 
