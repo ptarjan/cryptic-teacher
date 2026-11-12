@@ -165,8 +165,18 @@
   // Not "ct:"-prefixed, so localEnvelope() never mistakes it for a puzzle.
   // analytics.js reads the same key by name.
   const INTERNAL_KEY = "ct-internal";
+  // Automation announces itself (webdriver) or names itself (UA). Such a page
+  // is not a visitor, so it counts nothing; the Worker drops the same UAs.
+  const BOT_UA = /bot|crawl|spider|slurp|headless|phantom|lighthouse|puppeteer|playwright|selenium|python|curl|wget|httpclient|facebookexternalhit|preview|monitor/i;
+  function looksAutomated() {
+    try {
+      return !!(navigator.webdriver || BOT_UA.test(navigator.userAgent || "") ||
+                (navigator.languages && navigator.languages.length === 0));
+    } catch (e) { return false; }
+  }
   function beacon(name) {
     if (eventsSent.has(name)) return;
+    if (looksAutomated()) return;
     try { if (localStorage.getItem(INTERNAL_KEY)) return; } catch (e) { /* counted */ }
     eventsSent.add(name);
     // The list is the contract with the Worker and is checked at both ends, so a

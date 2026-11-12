@@ -85,6 +85,21 @@ def main():
     # the list has never heard of. Keys live 90 days, so a name retired today is
     # real traffic for a quarter after it stops being sent, and dropping its
     # column would report that stretch as nobody having done it.
+    # Bursts: a day whose first-visit count is far past the other days' while
+    # almost nobody types is a crawler, not an audience. Such days are listed
+    # and left out of every total below (old KV data cannot be edited).
+    flagged = {}
+    for d in days:
+        others = sorted(by_day[x]["visit-new"] for x in days if x != d)
+        med = others[len(others) // 2] if others else 0
+        new, op, let = by_day[d]["visit-new"], by_day[d]["open"], by_day[d]["letter"]
+        if new >= max(100, 5 * med) and let < 0.03 * max(new, op):
+            flagged[d] = (new, let)
+    if flagged:
+        print("bot-like days, discounted from totals and funnel:")
+        for d, (new, let) in sorted(flagged.items()):
+            print(f"  {d}: {new} new visits, {let} letters typed")
+        print()
     shown = [n for n in names if any(by_day[d][n] for d in days)]
     shown += sorted({n for d in days for n in by_day[d]} - set(names))
     width = {n: max(8, len(n) + 2) for n in shown}
@@ -92,11 +107,16 @@ def main():
     print("  " + "day".ljust(12) + "".join(n.rjust(width[n]) for n in shown))
     for d in days:
         print("  " + d.ljust(12)
-              + "".join(str(by_day[d][n] or "").rjust(width[n]) for n in shown))
+              + "".join(str(by_day[d][n] or "").rjust(width[n]) for n in shown)
+              + ("  <- bot-like" if d in flagged else ""))
 
     total = Counter()
     for d in days:
-        total.update(by_day[d])
+        if d not in flagged:
+            total.update(by_day[d])
+    if not total:
+        print("every day in the window is bot-like", file=sys.stderr)
+        return 1
     top = max(total.values())
     pad = max(10, max(len(n) for n in shown))
     print("\ntotals")
