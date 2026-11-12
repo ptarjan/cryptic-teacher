@@ -2972,24 +2972,50 @@ def reuse_page(i):
     return None, key, why
 
 
+def reuse_verdict(i):
+    """reuse_page(i) as a worker sends it back: the stored entry's key when
+    page i can be reused, else None. A key is 64 characters; the result it
+    stands for carries the page's clue blocks and candidates."""
+    reused, key, _ = reuse_page(i)
+    return key if reused else None
+
+
+def reused_from_store(i, key):
+    """reuse_page(i)'s result for page i, rebuilt in the parent from the
+    stored entry under `key`, which reuse_page has already passed: the same
+    tuple reuse_page returns, made from the same entry."""
+    solved, _, meta, _, _, stored = _PAGES
+    pid = solved[i][1]["id"]
+    asked, digest, blocks, cands, lex, found, file_facts, abbrs = hit = stored[key]
+    if lex != indicator_lexicon_hash():  # the lexicon moved, not the page
+        found = indicator_found(cands)
+        hit = (asked, digest, blocks, cands, indicator_lexicon_hash(), found, file_facts, abbrs)
+    return (puzzle_paths.PUZZLE_DIR / pid / "index.html", False, blocks, found,
+            showcase.with_meta(file_facts, meta.get(pid)), (key, hit, True, None))
+
+
 def reuse_first(n):
     """[(index, result)] for the pages of 0..n-1 that reuse_page() can reuse,
-    and the indexes it cannot, checked here in the parent.
+    and the indexes it cannot.
 
     A warm cache reuses nearly every page, and in puzzle_page_job that costs
     more in the pipe than in the check: each result carries the page's clue
     blocks and candidates back from a worker (a shard's reuse of 10.7k pages
-    took 10s on four cores, run 39236355785). Checked here, serially, a page
-    reused costs its key and its checks and nothing else; only the pages it
-    cannot reuse go to the workers. The same checks decide, so the same files
-    come out."""
+    took 10s on four cores, run 39236355785). Checked serially in the parent
+    instead, the ~61k pages took 52s of a 92s step (run 43325878825): a key
+    hashes the puzzle file and the check hashes the page on disk. So the
+    checks run across the cores and each worker sends back only the key it
+    passed (reuse_verdict); the parent rebuilds those results from the store
+    it already holds, and only the pages that fail go on to render. The same
+    checks decide, so the same files come out."""
+    if n:
+        reuse_verdict(0)  # the lazy tables (assets, abbreviations), once, before the fork
     got, missed = {}, []
-    for i in range(n):
-        reused, _, _ = reuse_page(i)
-        if reused:
-            got[i] = reused
-        else:
+    for i, key in enumerate(parallel.pmap(reuse_verdict, range(n), chunksize=256)):
+        if key is None:
             missed.append(i)
+        else:
+            got[i] = reused_from_store(i, key)
     return got, missed
 
 
@@ -3165,6 +3191,7 @@ def outputs(check=False, shard=None, shards=None, first=False):
         results = [got[stub["id"]] for _, stub in solved]
     elif first:
         got, missed = reuse_first(len(solved))
+        took("the reuse check", started)
         got.update(zip(missed, parallel.pmap(puzzle_page_job, missed)))
         results = [got[j] for j in range(len(solved))]
     else:
@@ -3390,6 +3417,7 @@ def main():
         files.add(p)
         if changed:
             stale.append(p)
+    since = time.monotonic()
     dead, unexpected = orphans(files)
     for d in unexpected:
         print(f"LEFTOVER: {d.relative_to(ROOT)} is not a generated page directory "
@@ -3410,6 +3438,7 @@ def main():
         if d.parent.parent == puzzle_paths.PUZZLE_DIR / "series" and not any(d.parent.iterdir()):
             d.parent.rmdir()          # a series with no listing pages left
     page_card.write_spec(PAGE_CARDS)
+    took("the orphan scan and the page card list", since)
     print(f"{len(files)} page(s); wrote {len(stale)} changed; "
           f"{len(dead)} orphan(s) removed")
     return 0

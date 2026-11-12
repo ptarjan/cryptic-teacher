@@ -63,16 +63,18 @@ with tempfile.TemporaryDirectory() as d:
         assert "belongs to shard 0" in str(e)
     else:
         raise AssertionError("a page in the wrong shard passed")
-# The fast path's first pass keeps what reuse_page() reuses, in place, and
-# hands back exactly the indexes it cannot (which then go to the workers).
-real = b.reuse_page
-b.reuse_page = lambda i: (("page", i), "k", "w") if i % 3 else (None, "k", "w")
+# The fast path's first pass keeps what reuse_page() reuses, rebuilt from the
+# key it passed (reused_from_store), and hands back exactly the indexes it
+# cannot (which then go to the workers).
+real, real_store = b.reuse_page, b.reused_from_store
+b.reuse_page = lambda i: (("page", i), f"k{i}", "w") if i % 3 else (None, f"k{i}", "w")
+b.reused_from_store = lambda i, key: ("page", i, key)
 try:
     got, missed = b.reuse_first(10)
 finally:
-    b.reuse_page = real
+    b.reuse_page, b.reused_from_store = real, real_store
 assert missed == [0, 3, 6, 9], missed
-assert got == {i: ("page", i) for i in (1, 2, 4, 5, 7, 8)}, got
+assert got == {i: ("page", i, f"k{i}") for i in (1, 2, 4, 5, 7, 8)}, got
 # reuse_first is the parent's loop only: not on a puzzle page's path.
 assert ("build_seo_pages", "reuse_first") not in page_cache.reached()
 print("test_build_shards: ok")
