@@ -541,8 +541,12 @@ jobs:
             .git/shallow
             .git/refs/ct
           key: git-store-${{ github.sha }}
+      # The five steps below skip on a puzzle fast path that rendered 800
+      # pages or fewer (the bar Save the puzzle pages uses): a handful of new
+      # rows, shims and cards is ~50s of packing and uploading, and the next
+      # run makes those few again until a full build (~20 a day) saves them.
       - name: Save the row cache
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -550,22 +554,22 @@ jobs:
             ~/.cache/cryptic-teacher/code_reach
           key: row-cache-${{ github.sha }}
       - name: Save the clue index
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
       - name: Pack the puzzle shims
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         run: bash tools/cache_tar.sh pack shims .shim-cache.tar
       - name: Save the puzzle shims
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: og
