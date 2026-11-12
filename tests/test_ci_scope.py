@@ -28,6 +28,16 @@ class Decide(unittest.TestCase):
                      "puzzles/times/1954/times-7619.js"):
             self.assertEqual(verdict([("M", P), ("M", path)]), "full", path)
 
+    def test_site_skips_only_what_the_build_never_reads(self):
+        for path in ("tests/test_burn_log.py", "docs/APP.md", ".github/workflows/tests.yml",
+                     "tools/data/deploy_budgets.json"):
+            self.assertEqual(S.decide([("M", P), ("M", path)], site=True)[0], "fast", path)
+            self.assertEqual(verdict([("M", P), ("M", path)]), "full", path)
+        for path in (".github/workflows/pages.yml", ".github/actions/setup/action.yml", "app.js",
+                     "tools/build_seo_pages.py", "README.md"):
+            self.assertEqual(S.decide([("M", P), ("M", path)], site=True)[0], "full", path)
+        self.assertEqual(S.decide([("D", P), ("M", "tests/x.py")], site=True)[0], "full")
+
     def test_a_puzzle_deleted_or_renamed_is_full(self):
         self.assertEqual(verdict([("D", P)]), "full")
         self.assertEqual(verdict([("R", P)]), "full")

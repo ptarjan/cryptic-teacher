@@ -182,7 +182,9 @@ jobs:
       # itself for the few puzzles it finds missing; the shards only spread
       # the checking of ~42k pages that reuse_first now does in one pass, the
       # same checks. "Only puzzle files" is tools/ci_scope.py's answer (the
-      # one tests.yml's fast path uses): any other path, a deleted puzzle, more
+      # one tests.yml's fast path uses, asked with --site so that tests,
+      # docs and the other workflows, which the build never reads, do not
+      # count): any other path, a deleted puzzle, more
       # than MAX_FILES puzzles, a manual or scheduled run, no deploy to diff
       # against or no restored row and page caches (a cold build is what the
       # slices and shards are for) is the full path below.
@@ -216,7 +218,7 @@ jobs:
           auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           GIT_TERMINAL_PROMPT=0 git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
             fetch --no-tags --no-recurse-submodules --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
-          verdict=$(GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py decide "$base") || full "could not diff against $base"
+          verdict=$(GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py decide --site "$base") || full "could not diff against $base"
           [ "$verdict" = fast ] || full "$verdict"
           GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py files "$base" > "$RUNNER_TEMP/puzzles.txt" || full "too many puzzles changed since $base"
           echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/puzzles.txt") puzzle file(s) since $base"
