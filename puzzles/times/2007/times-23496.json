@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,49 @@
     "text": "Dad's scoffed extra Yorkshire puddings",
     "enumeration": "8"
    },
-   "solution": "POPOVERS"
+   "solution": "POPOVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Yorkshire puddings",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "scoffed",
+       "at": 6,
+       "note": "to scoff is to eat up, so the dad's word swallows the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dad's",
+       "at": 0,
+       "gives": "POPS",
+       "note": "Pop is a familiar word for father, and the possessive adds S"
+      },
+      {
+       "words": "extra",
+       "at": 14,
+       "gives": "OVER",
+       "note": "over means in excess, left over, extra"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father greedily ate the spare Yorkshire puddings at Sunday lunch.",
+     "walkthrough": "'scoffed' is the container signal: the dad's word eats the other. A Yorkshire pudding is a British batter pudding served with roast beef.",
+     "definitionFit": "Popovers are the light hollow American batter rolls, essentially the same as Yorkshire puddings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scoffed"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +89,29 @@
     "text": "Boat carrying mail bomb",
     "enumeration": "6"
    },
-   "solution": "PACKET"
+   "solution": "PACKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boat carrying mail",
+      "at": 0,
+      "meaning": "a ... boat was a vessel carrying mail on a regular route"
+     },
+     {
+      "text": "bomb",
+      "at": 19,
+      "meaning": "costing a bomb means costing a fortune, a large sum"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A packet boat carried mail, and 'cost a packet' means cost a fortune, like 'cost a bomb'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bomb"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +131,67 @@
      }
     ]
    },
-   "solution": "PEAJACKET"
+   "solution": "PEAJACKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Naval cover-up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "goes wrong",
+         "at": 25,
+         "note": "something gone wrong is out of order, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jape",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacks capital",
+         "at": 45,
+         "note": "the capital, the first letter, is missing from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scam",
+         "at": 40,
+         "gives": "RACKET",
+         "note": "a racket is a fraudulent scheme"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A navy hush-up after a prank misfires and a fraud is short of funds.",
+     "walkthrough": "'goes wrong' turns JAPE into PEAJ; 'lacks capital' cuts the R from RACKET, leaving ACKET.",
+     "definitionFit": "A short heavy woollen coat worn by sailors covers them up, hence naval cover-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +205,42 @@
     "text": "Criminal with a couple of homes",
     "enumeration": "7"
    },
-   "solution": "VILLAIN"
+   "solution": "VILLAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a couple of homes",
+       "at": 14,
+       "gives": "VILLA",
+       "note": "a villa is a house, one home"
+      },
+      {
+       "words": "a couple of homes",
+       "at": 14,
+       "gives": "IN",
+       "note": "in means at home, the second home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook who owns two houses.",
+     "walkthrough": "'a couple of homes' gives two pieces: VILLA, a house, and IN, as in 'staying in'.",
+     "definitionFit": "A villain is a wrongdoer, so a criminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +254,54 @@
     "text": "What sailor turns up blooming early?",
     "enumeration": "5"
    },
-   "solution": "RATHE"
+   "solution": "RATHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blooming early",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns up",
+       "at": 12,
+       "note": "in a down answer, turning up means reading from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "What",
+         "at": 0,
+         "gives": "EH",
+         "note": "eh? is said for what?"
+        },
+        {
+         "words": "sailor",
+         "at": 5,
+         "gives": "TAR",
+         "note": "tar is an old word for a sailor"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Which sailor shows up at dawn as the flowers open?",
+     "walkthrough": "'turns up' reverses EH + TAR to give the answer, an archaic or poetic word.",
+     "definitionFit": "This archaic adjective means early, used especially of flowers that bloom early in the year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +315,66 @@
     "text": "Spice Girl's foremost fan me, at first",
     "enumeration": "6"
    },
-   "solution": "NUTMEG"
+   "solution": "NUTMEG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spice",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at first",
+       "at": 30,
+       "note": "says the fan and me pieces come first, ahead of the girl's letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fan",
+       "at": 22,
+       "gives": "NUT",
+       "note": "a nut is an enthusiast, as in a football nut"
+      },
+      {
+       "words": "me",
+       "at": 26,
+       "gives": "ME",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost",
+         "at": 13,
+         "note": "the foremost letter of a word is its first one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Girl's",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spice Girls fanatic boasts of being the group's number one fan.",
+     "walkthrough": "'Spice Girl' reads as one of the pop group, but Spice is the definition. 'foremost' takes the first letter of Girl's; 'at first' puts the fan and me pieces ahead of it.",
+     "definitionFit": "Nutmeg is a common aromatic seed ground as a kitchen spice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Girl's"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +388,29 @@
     "text": "Poorly regarded, but not censured",
     "enumeration": "7"
    },
-   "solution": "UNRATED"
+   "solution": "UNRATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poorly regarded",
+      "at": 0,
+      "meaning": "given no rating, not thought well of"
+     },
+     {
+      "text": "not censured",
+      "at": 21,
+      "meaning": "not given a censor's film certificate"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both not highly rated and lacking a censor's classification."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "censured"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +424,50 @@
     "text": "Champ — one's not boxed in German city",
     "enumeration": "5"
    },
-   "solution": "MUNCH"
+   "solution": "MUNCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Champ",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not boxed in",
+       "at": 14,
+       "note": "the letter is no longer boxed inside the city name, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German city",
+       "at": 27,
+       "gives": "MUNICH",
+       "note": "Munich is the Bavarian capital"
+      },
+      {
+       "words": "one's",
+       "at": 8,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing champion who is not fighting in a German venue.",
+     "walkthrough": "'Champ' reads as a boxing champion beside 'boxed', but it is the verb to chew noisily. 'not boxed in' removes I from MUNICH.",
+     "definitionFit": "To champ is to chew noisily, and to munch is to chew steadily and audibly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Champ"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +481,43 @@
     "text": "Pests more gullible than smart?",
     "enumeration": "8"
    },
-   "solution": "GREENFLY"
+   "solution": "GREENFLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pests",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "more gullible",
+       "at": 6,
+       "gives": "GREEN",
+       "note": "green means naive; the answer is green more than it is fly"
+      },
+      {
+       "words": "smart",
+       "at": 25,
+       "gives": "FLY",
+       "note": "fly is slang for smart and knowing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Insect pests are more naive than clever.",
+     "walkthrough": "The clue says the word is 'green' rather than 'fly': green is gullible, fly is smart, and together they name the pest.",
+     "definitionFit": "Greenfly are aphids, sap-sucking insects that are garden pests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +537,48 @@
      }
     ]
    },
-   "solution": "WEAKSPOT"
+   "solution": "WEAKSPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gap in knowledge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bridge players",
+       "at": 17,
+       "gives": "WE",
+       "note": "West and East are two partnership seats at bridge"
+      },
+      {
+       "words": "high cards",
+       "at": 37,
+       "gives": "AK",
+       "note": "ace and king are the highest cards"
+      },
+      {
+       "words": "recognise",
+       "at": 48,
+       "gives": "SPOT",
+       "note": "to spot someone is to recognise them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Card players with strong hands still notice a hole in their understanding.",
+     "walkthrough": "Bridge positions are North, South, East and West, so W and E are players; A and K are ace and king.",
+     "definitionFit": "A weak spot is a place where one's grasp is lacking, a gap in knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +598,62 @@
      }
     ]
    },
-   "solution": "CHARLOTTEBRONTE"
+   "solution": "CHARLOTTEBRONTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arrangements",
+         "at": 36,
+         "note": "arranging letters means putting them in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tract",
+         "at": 19,
+         "note": "taken as written"
+        },
+        {
+         "words": "on",
+         "at": 25,
+         "note": "taken as written"
+        },
+        {
+         "words": "brothel",
+         "at": 28,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "at": 10,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarly pamphlet from the Continent on how bordellos are organised.",
+     "walkthrough": "'arrangements' shuffles E plus TRACT ON BROTHEL, fifteen letters in all.",
+     "definitionFit": "The author of Jane Eyre was a celebrated Victorian novelist, so a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangements"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +667,61 @@
     "text": "After reputation suffered a setback, took issue",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "the piece for took comes after the turned word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "suffered a setback",
+         "at": 17,
+         "note": "a setback sends something back, so the word for reputation is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reputation",
+         "at": 6,
+         "gives": "NAME",
+         "note": "a good name is a good reputation"
+        }
+       ]
+      },
+      {
+       "words": "took",
+       "at": 37,
+       "gives": "ATE",
+       "note": "ate means consumed, took food"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's standing took a knock, and they objected.",
+     "walkthrough": "'took issue' reads as one phrase meaning objected, but 'took' is ATE and 'issue' alone is the definition. 'suffered a setback' turns NAME into EMAN.",
+     "definitionFit": "To emanate is to flow out or come forth, which is what issue means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +735,50 @@
     "text": "Long range all round this room?",
     "enumeration": "7"
    },
-   "solution": "KITCHEN"
+   "solution": "KITCHEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long range all round this room?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "all round",
+       "at": 11,
+       "note": "the range word goes all round the other piece, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "range",
+       "at": 5,
+       "gives": "KEN",
+       "note": "ken is range of knowledge or sight, as in beyond my ken"
+      },
+      {
+       "words": "Long",
+       "at": 0,
+       "gives": "ITCH",
+       "note": "to itch for something is to long for it"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A big cooking range fills the whole room, so which room is it?",
+     "walkthrough": "'all round' is the container signal. Read whole, the clue also describes the room: a cooking range is the stove found in it.",
+     "definitionFit": "The room where the range, the cooking stove, stands is where meals are prepared."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +798,49 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beauty said to be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 27,
+       "note": "in an across answer, one piece on another means it follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fell",
+       "at": 30,
+       "gives": "SKIN",
+       "note": "a fell is an animal's hide, its skin"
+      },
+      {
+       "words": "profound",
+       "at": 18,
+       "gives": "DEEP",
+       "note": "profound means deep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a beauty spot on a hillside fell as deeply moving.",
+     "walkthrough": "'fell' looks like the hill (a fell is a northern English moor) but it is the hide. The definition plays on the proverb that beauty is only skin-deep.",
+     "definitionFit": "The proverb holds that beauty is only superficial, so it is said to go no further than the surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fell"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +854,46 @@
     "text": "Avoiding training with Chelsea",
     "enumeration": "8"
    },
-   "solution": "ESCHEWAL"
+   "solution": "ESCHEWAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoiding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "training",
+       "at": 9,
+       "note": "training something reshapes it, so the letters are put into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "with",
+       "at": 18,
+       "gives": "W"
+      },
+      {
+       "words": "Chelsea",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skipping practice sessions with Chelsea football club.",
+     "walkthrough": "'training' rearranges W and CHELSEA; Chelsea is a London football club.",
+     "definitionFit": "Eschewal is the act of shunning something, a formal noun for avoiding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +907,59 @@
     "text": "Chap initially taken in by double of Wellington?",
     "enumeration": "5"
    },
-   "solution": "DUCAL"
+   "solution": "DUCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of Wellington?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 15,
+       "note": "one piece is taken inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "double",
+       "at": 27,
+       "gives": "DUAL",
+       "note": "dual means twofold, double"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 5,
+         "note": "takes the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chap",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow is fooled by a lookalike of the famous Iron Duke.",
+     "walkthrough": "'initially' gives C, which 'taken in by' places inside DUAL. Wellington was a duke, so anything of his is ducal; the question mark marks the example.",
+     "definitionFit": "The Duke of Wellington was a duke, and ducal means belonging to a duke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +973,49 @@
     "text": "Help Hansel and Gretel, say, needed in cottage",
     "enumeration": "9"
    },
-   "solution": "COOPERATE"
+   "solution": "COOPERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "one piece goes in the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cottage",
+       "at": 39,
+       "gives": "COTE",
+       "note": "a cote is a small shelter or cottage"
+      },
+      {
+       "words": "Hansel and Gretel, say",
+       "at": 5,
+       "gives": "OPERA",
+       "note": "Humperdinck's Hansel and Gretel is an opera, an example"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Help the fairy-tale children, who need to get into the witch's cottage.",
+     "walkthrough": "'say' marks Hansel and Gretel as an example of a genre, not a pair of children; 'in' is the container signal.",
+     "definitionFit": "To cooperate is to work together, to help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hansel"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1029,57 @@
     "text": "Funny lines minister shortly wants to cut",
     "enumeration": "8"
    },
-   "solution": "CLERIHEW"
+   "solution": "CLERIHEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Funny lines",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 21,
+         "note": "a word cut short loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "minister",
+         "at": 12,
+         "gives": "CLERIC",
+         "note": "a cleric is a minister of religion"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "cut",
+       "at": 38,
+       "gives": "HEW",
+       "note": "to hew is to cut with blows"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman wants to trim some comic verse.",
+     "walkthrough": "'shortly' drops the last C of CLERIC. A clerihew is a four-line comic biographical verse.",
+     "definitionFit": "A clerihew is a humorous quatrain about a person, so funny lines of verse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1093,41 @@
     "text": "Stick with Indian meal at hill stations?",
     "enumeration": "5"
    },
-   "solution": "LATHI"
+   "solution": "LATHI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "stations",
+       "at": 31,
+       "note": "to station something is to place it, so the clue words have the answer placed within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal at hill",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lunch at a hill station in the Raj, with a walking stick to hand.",
+     "walkthrough": "Hill stations were the cool mountain towns of British India. 'stations' places the answer inside 'meal at hill'; 'with Indian' only flavours the surface.",
+     "definitionFit": "A lathi is a long, heavy iron-bound bamboo stick used by Indian police."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stations"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1151,60 @@
      }
     ]
    },
-   "solution": "IASKYOU"
+   "solution": "IASKYOU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expression of criticism",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 48,
+       "note": "without in its old sense of outside, so these pieces sit outside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "setter",
+         "at": 29,
+         "gives": "I",
+         "note": "the setter refers to himself as I"
+        },
+        {
+         "words": "solver",
+         "at": 40,
+         "gives": "YOU",
+         "note": "the solver is addressed as you"
+        }
+       ]
+      },
+      {
+       "words": "question",
+       "at": 56,
+       "gives": "ASK",
+       "note": "to ask is to question"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter and solver have a complaint, beyond any doubt.",
+     "walkthrough": "'without question' reads as 'certainly', but 'without' is the old sense of outside: the setter and solver go round the question.",
+     "definitionFit": "The phrase is an exclamation of exasperation, an expression of criticism or disbelief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1224,49 @@
      }
     ]
    },
-   "solution": "COTTONON"
+   "solution": "COTTONON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Twig",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found by",
+       "at": 12,
+       "note": "says the next piece is placed by, beside, the golfer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "golfer",
+       "at": 5,
+       "gives": "COTTON",
+       "note": "Henry Cotton was a British Open-winning golfer"
+      },
+      {
+       "words": "leg",
+       "at": 21,
+       "gives": "ON",
+       "note": "on is the leg side in cricket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer finds a twig beside his leg on the course.",
+     "walkthrough": "'Twig' reads as a small branch but is the verb to understand. In cricket the leg side of the field is also called the on side.",
+     "definitionFit": "To twig and to cotton on are both informal for suddenly understanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twig"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1280,59 @@
     "text": "Policewoman, nice at heart, gets tender embrace",
     "enumeration": "7"
    },
-   "solution": "OFFICER"
+   "solution": "OFFICER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Policewoman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embrace",
+       "at": 40,
+       "note": "the offer word embraces, wraps round, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tender",
+       "at": 33,
+       "gives": "OFFER",
+       "note": "to tender is to offer"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "at heart",
+         "at": 18,
+         "note": "the heart of a word is its middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind-hearted policewoman receives a gentle hug.",
+     "walkthrough": "'tender' looks like an adjective meaning gentle but is the verb to offer; 'at heart' takes the middle of nice and 'embrace' wraps the offer round it.",
+     "definitionFit": "A policewoman is a police officer, a specific example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1346,63 @@
     "text": "Campaign not started but finished by English PM",
     "enumeration": "6"
    },
-   "solution": "ATTLEE"
+   "solution": "ATTLEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "finished by",
+       "at": 25,
+       "note": "the last piece comes at the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not started",
+         "at": 9,
+         "note": "loses its first letter, its start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Campaign",
+         "at": 0,
+         "gives": "BATTLE",
+         "note": "a battle is a fight or campaign"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 37,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English prime minister finishes off a campaign that never began.",
+     "walkthrough": "'not started' takes B from BATTLE, leaving ATTLE. Clement Attlee was the British Labour prime minister from 1945 to 1951.",
+     "definitionFit": "Clement Attlee was British prime minister after the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Campaign"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1416,69 @@
     "text": "Sally or sortie possibly involving platoon leader",
     "enumeration": "7"
    },
-   "solution": "RIPOSTE"
+   "solution": "RIPOSTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sally",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 25,
+       "note": "the rearranged word involves, encloses, the extra letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 16,
+         "note": "suggests the letters could possibly be another word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sortie",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 43,
+         "note": "a leader is the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "platoon",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military raid or sortie includes the officer leading the platoon.",
+     "walkthrough": "'possibly' scrambles SORTIE into RIOSTE, and 'involving' puts P, from 'leader' on platoon, inside. 'Sally' looks military beside sortie but means a witty retort.",
+     "definitionFit": "A sally is a quick witty remark, and a riposte is a sharp reply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sally"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1492,49 @@
     "text": "Intend to arrest one not striking",
     "enumeration": "5"
    },
-   "solution": "PLAIN"
+   "solution": "PLAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not striking",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to arrest",
+       "at": 7,
+       "note": "arresting someone means holding them, so the plan word holds the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Intend",
+       "at": 0,
+       "gives": "PLAN",
+       "note": "to plan is to intend"
+      },
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plan to detain a worker who is not on strike.",
+     "walkthrough": "'striking' looks like industrial action but means eye-catching; 'to arrest' puts I inside PLAN.",
+     "definitionFit": "Plain means ordinary-looking, not striking or attractive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1548,42 @@
     "text": "Bohemian turned round",
     "enumeration": "7"
    },
-   "solution": "OFFBEAT"
+   "solution": "OFFBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bohemian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "turned",
+       "at": 9,
+       "gives": "OFF",
+       "note": "milk that has turned has gone off"
+      },
+      {
+       "words": "round",
+       "at": 16,
+       "gives": "BEAT",
+       "note": "a police officer's beat is the round they walk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artistic free spirit turns around.",
+     "walkthrough": "'turned round' looks like one phrase meaning reversed, as if signalling a reversal; split it into two separate synonyms.",
+     "definitionFit": "Bohemian describes unconventional artistic ways, and unconventional is what this word means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1597,54 @@
     "text": "Raise low degree of acidity to give appeal",
     "enumeration": "5"
    },
-   "solution": "OOMPH"
+   "solution": "OOMPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appeal",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Raise",
+         "at": 0,
+         "note": "in a down answer, raising a word turns it upwards, reading bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "low",
+         "at": 6,
+         "gives": "MOO",
+         "note": "to low is to moo like a cow"
+        }
+       ]
+      },
+      {
+       "words": "degree of acidity",
+       "at": 10,
+       "gives": "PH",
+       "note": "pH is the chemical scale of acidity"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lift a minimal acidity level to make something attractive.",
+     "walkthrough": "'low' looks like an adjective beside 'Raise', but it is the cow's call MOO; 'Raise' turns it to OOM.",
+     "definitionFit": "Oomph is energy or sex appeal, attractive vitality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1655,7 @@
    },
    "length": 15,
    "clue": {
-    "text": "Rich legacy associated S originally with Omaha's songwriter",
+    "text": "Rich legacy associated originally with Omaha's songwriter",
     "enumeration": "5,10",
     "separators": [
      {
@@ -454,7 +1664,48 @@
      }
     ]
    },
-   "solution": "HOAGYCARMICHAEL"
+   "solution": "HOAGYCARMICHAEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "songwriter",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "associated",
+       "at": 12,
+       "note": "letters associated together are combined and mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rich legacy",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "Omaha's",
+       "at": 39,
+       "gives": "OMAHA",
+       "note": "taken as written, the possessive giving no letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy bequest was first linked to a composer from Omaha.",
+     "walkthrough": "The held clue had a stray S; the page has none. 'associated' mixes RICH LEGACY with OMAHA, fifteen letters, for the writer of Stardust.",
+     "definitionFit": "Hoagy Carmichael was the American composer of popular songs such as Stardust and Georgia on My Mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "associated"
+    }
+   }
   },
   {
    "number": 27,
@@ -474,7 +1725,29 @@
      }
     ]
    },
-   "solution": "WINDUP"
+   "solution": "WINDUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0,
+      "meaning": "to bring an event or a business to an end"
+     },
+     {
+      "text": "anger",
+      "at": 9,
+      "meaning": "to tease or annoy someone deliberately"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrasal verb means both to finish off a meeting and to provoke someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1767,41 @@
      }
     ]
    },
-   "solution": "THIRDEYE"
+   "solution": "THIRDEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intuitive faculty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "a freak of",
+       "at": 18,
+       "note": "a freak is an oddity, so the letters come out freakishly rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heredity",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Second sight is just an odd quirk of genetics.",
+     "walkthrough": "'a freak of' rearranges HEREDITY.",
+     "definitionFit": "The third eye is the mystical inner eye credited with intuition and insight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freak"
+    }
+   }
   }
  ]
 }
