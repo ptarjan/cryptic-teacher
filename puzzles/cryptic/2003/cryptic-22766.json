@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,11 @@
     "text": "Cover for root without its top",
     "enumeration": "5"
    },
-   "solution": "BERET"
+   "solution": "BERET",
+   "annotationWithheld": {
+    "why": "Cover for root without its top (5), BERET: no parse found; no word for 'root' loses its top to give BERET, and no blog or clue database gives this clue",
+    "clue": "Cover for root without its top"
+   }
   },
   {
    "number": 1,
@@ -45,7 +52,77 @@
     "text": "Bookish lady's book — draw short sword on family in it",
     "enumeration": "12"
    },
-   "solution": "BLUESTOCKING"
+   "solution": "BLUESTOCKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bookish lady",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "book",
+       "at": 15,
+       "gives": "B"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in it",
+         "at": 49,
+         "note": "it refers back to the draw word, so the sword and family go inside that word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "draw",
+         "at": 22,
+         "gives": "LUG",
+         "note": "to lug is to drag or draw something heavy"
+        },
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "on",
+           "at": 39,
+           "note": "in a down clue one piece sits on the next, so the sword comes before the family"
+          }
+         ],
+         "parts": [
+          {
+           "words": "short sword",
+           "at": 27,
+           "gives": "ESTOC",
+           "note": "an estoc is a thrusting sword of the late Middle Ages"
+          },
+          {
+           "words": "family",
+           "at": 42,
+           "gives": "KIN",
+           "note": "kin are one's family or relations"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarly woman's book describes drawing a sword against her own family.",
+     "walkthrough": "'it' points back to the draw, so 'in it' means the sword and family sit inside that word; an estoc is an obscure name for a sword.",
+     "definitionFit": "A bluestocking is a scholarly, intellectual woman, named after an 18th-century literary circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +136,59 @@
     "text": "Unemployed and unrated and with no opening — terrible",
     "enumeration": "9"
    },
-   "solution": "REDUNDANT"
+   "solution": "REDUNDANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unemployed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terrible",
+       "at": 45,
+       "note": "terrible suggests things gone badly wrong, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unrated",
+       "at": 15
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no opening",
+         "at": 27,
+         "note": "the word and loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 11
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jobless person, without a rating and with no way in, feels awful.",
+     "walkthrough": "'with no opening' cuts AND to ND; 'terrible' shuffles UNRATED + ND into the answer.",
+     "definitionFit": "Workers made redundant have lost their jobs because the work is no longer needed, so they are unemployed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +202,40 @@
     "text": "Greenhorn left in mountainous region",
     "enumeration": "5"
    },
-   "solution": "TYROL"
+   "solution": "TYROL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mountainous region",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greenhorn",
+       "at": 0,
+       "gives": "TYRO",
+       "note": "a tyro is a beginner or novice"
+      },
+      {
+       "words": "left",
+       "at": 10,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inexperienced climber is abandoned in the mountains.",
+     "definitionFit": "The Tyrol is an Alpine region straddling Austria and Italy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greenhorn"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +249,30 @@
     "text": "The poet with the gravy",
     "enumeration": "8"
    },
-   "solution": "BROWNING"
+   "solution": "BROWNING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The poet",
+      "at": 0,
+      "meaning": "Robert ..., the Victorian poet"
+     },
+     {
+      "text": "the gravy",
+      "at": 14,
+      "meaning": "a colouring sauce used to darken gravy, a British kitchen staple"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet turns up alongside the gravy at dinner.",
+     "definitionFit": "The surname of the poet Robert Browning is also the name of a gravy colouring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +292,30 @@
      }
     ]
    },
-   "solution": "BLACKSPOT"
+   "solution": "BLACKSPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where accidents are",
+      "at": 0,
+      "meaning": "a stretch of road where crashes happen often"
+     },
+     {
+      "text": "affecting the roses",
+      "at": 20,
+      "meaning": "a fungal disease that marks rose leaves with dark patches"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is going wrong with the roses wherever accidents happen.",
+     "definitionFit": "An accident black spot is a dangerous stretch of road; black spot is also a common fungal disease of roses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affecting"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +329,40 @@
     "text": "Piece soup?",
     "enumeration": "4"
    },
-   "solution": "OPUS"
+   "solution": "OPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "?",
+       "at": 10,
+       "note": "the question mark hints that the word soup is not what it seems and should be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soup",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bowl of soup is offered as a work of art.",
+     "definitionFit": "An opus is a musical or literary work, a piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +382,59 @@
      }
     ]
    },
-   "solution": "NUTSUNDAE"
+   "solution": "NUTSUNDAE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 6,
+       "note": "in a down clue the first piece sits on top of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crazy",
+       "at": 0,
+       "gives": "NUTS",
+       "note": "nuts is slang for crazy"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 17,
+         "note": "awfully suggests something done badly, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a nude",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is mad about a nude painting, which they find terribly sweet.",
+     "walkthrough": "'awfully' turns A NUDE into UNDAE.",
+     "definitionFit": "A nut sundae is an ice-cream dessert, a sweet in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +448,51 @@
     "text": "Girl I complain about",
     "enumeration": "5"
    },
-   "solution": "NAOMI"
+   "solution": "NAOMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 16,
+       "note": "about turns the whole run I followed by the complaint word round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 5
+        },
+        {
+         "words": "complain",
+         "at": 7,
+         "gives": "MOAN",
+         "note": "to moan is to complain"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker admits to grumbling about something.",
+     "walkthrough": "'about' reverses I + MOAN as one run.",
+     "definitionFit": "Naomi is a girl's name, Ruth's mother-in-law in the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +506,41 @@
     "text": "Run a novel audit producing assessment that's too low",
     "enumeration": "14"
    },
-   "solution": "UNDERVALUATION"
+   "solution": "UNDERVALUATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "assessment that's too low",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "producing",
+       "at": 18,
+       "note": "producing signals that the words before it are worked into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Run a novel audit",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual audit produces a valuation that is too low.",
+     "walkthrough": "'novel' looks like the anagram signal but is part of the fodder; 'producing' is the indicator.",
+     "definitionFit": "Undervaluation is assessing something at less than its true worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +554,42 @@
     "text": "Scrambled eggs endorsed for firefighter",
     "enumeration": "12"
    },
-   "solution": "GREENGODDESS"
+   "solution": "GREENGODDESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "firefighter",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Scrambled",
+       "at": 0,
+       "note": "scrambled eggs are mixed up, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eggs endorsed",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firefighter gives approval to scrambled eggs.",
+     "walkthrough": "Green Goddesses were old British Army fire engines brought out when firefighters went on strike.",
+     "definitionFit": "The Green Goddess was a British army fire engine used for emergency firefighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Scrambled"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +603,58 @@
     "text": "Melodious piece of English used in Peterborough, formerly",
     "enumeration": "8"
    },
-   "solution": "SONGLIKE"
+   "solution": "SONGLIKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Melodious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 27,
+       "note": "the piece of English goes inside the old district name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Peterborough, formerly",
+       "at": 35,
+       "gives": "SOKE",
+       "note": "the Soke of Peterborough was a historic administrative area of England, abolished in 1965"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "piece of",
+         "at": 10,
+         "note": "only a run of letters from inside the word English is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tuneful snatch of English was once heard in Peterborough, an English city.",
+     "walkthrough": "Peterborough has been a city in Cambridgeshire since 1974; 'formerly' points to its old Soke, a separate historic district until 1965.",
+     "definitionFit": "Songlike means resembling a song, so melodious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +668,42 @@
     "text": "Glorious day for gilded youth",
     "enumeration": "6"
    },
-   "solution": "JUNIOR"
+   "solution": "JUNIOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "youth",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Glorious day",
+       "at": 0,
+       "gives": "JUNI",
+       "note": "the Glorious First of June, a 1794 British naval victory, written as June I and shortened to JUN I"
+      },
+      {
+       "words": "gilded",
+       "at": 17,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golden day is marked for privileged young people.",
+     "walkthrough": "The Glorious First of June was a British naval victory over France in 1794; JUN I is a short form of that date.",
+     "definitionFit": "A junior is a young person, a youth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Glorious"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +723,65 @@
      }
     ]
    },
-   "solution": "ORANGEPIP"
+   "solution": "ORANGEPIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "till it squeaks?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "adapted",
+         "at": 6,
+         "note": "adapted means altered, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Organ",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "by reversing",
+         "at": 14,
+         "note": "reversing means the tube word is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tube",
+         "at": 27,
+         "gives": "PIPE",
+         "note": "a pipe is a tube"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organ is modified by reversing one of its pipes until it squeaks.",
+     "walkthrough": "'adapted' makes ORANG from ORGAN; 'by reversing' turns PIPE into EPIP. The definition plays on squeezing someone until the pips squeak.",
+     "definitionFit": "The saying is to squeeze someone until the pips squeak, as with an orange; the pip is what squeaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "squeaks"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +795,56 @@
     "text": "Old man finds water bird slightly involved with detectives",
     "enumeration": "9"
    },
-   "solution": "GREYBEARD"
+   "solution": "GREYBEARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "slightly involved with",
+       "at": 25,
+       "note": "only one letter of the detectives word gets tangled into the bird"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "water bird",
+         "at": 14,
+         "gives": "GREBE",
+         "note": "a grebe is a diving water bird"
+        },
+        {
+         "words": "detectives",
+         "at": 48,
+         "gives": "YARD",
+         "note": "the Yard is Scotland Yard, London's police detective headquarters"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old man spots a water bird that has become a little mixed up with the police.",
+     "walkthrough": "'slightly involved with' moves just the Y of YARD into GREBE, giving GRE(Y)BE + ARD.",
+     "definitionFit": "A greybeard is an old man, from the colour of his beard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +858,57 @@
     "text": "No long journey on little drink comes up for detective",
     "enumeration": "9"
    },
-   "solution": "PINKERTON"
+   "solution": "PINKERTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "detective",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "comes up",
+       "at": 32,
+       "note": "in a down clue coming up means the whole run is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No",
+         "at": 0
+        },
+        {
+         "words": "long journey",
+         "at": 3,
+         "gives": "TREK",
+         "note": "a trek is a long, arduous journey"
+        },
+        {
+         "words": "little drink",
+         "at": 19,
+         "gives": "NIP",
+         "note": "a nip is a small measure of spirits"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instead of a long trip, a detective has a small drink.",
+     "walkthrough": "'comes up' reverses the whole run NO + TREK + NIP.",
+     "definitionFit": "Allan Pinkerton founded the famous American detective agency, so his name stands for a private detective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +922,40 @@
     "text": "Divine seen in windows etc",
     "enumeration": "5"
    },
-   "solution": "DOWSE"
+   "solution": "DOWSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 7,
+       "note": "seen in shows the answer sits inside the clue words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "windows etc",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something holy is glimpsed in church windows and so on.",
+     "definitionFit": "To divine is to search for water underground with a rod, which is what dowsing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Divine"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +969,57 @@
     "text": "A little bit was — what did you say about it? — total defeat?",
     "enumeration": "9"
    },
-   "solution": "WHITEWASH"
+   "solution": "WHITEWASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "total defeat?",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A little bit",
+       "at": 0,
+       "gives": "WHIT",
+       "note": "a whit is the smallest amount, as in not a whit"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about it",
+         "at": 36,
+         "note": "the eh goes round it, meaning the word was"
+        }
+       ],
+       "parts": [
+        {
+         "words": "what did you say",
+         "at": 19,
+         "gives": "EH",
+         "note": "eh is what you say when you didn't catch something"
+        },
+        {
+         "words": "was",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker asks someone to repeat something, puzzled about a crushing loss.",
+     "walkthrough": "'about it' tells you to wrap the puzzled interjection round the 'it', which here stands for the word was given just before.",
+     "definitionFit": "In sport a whitewash is a total defeat in which the loser fails to score or win a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1033,41 @@
     "text": "Equipment for partners in the Copper Belt",
     "enumeration": "5"
    },
-   "solution": "KITWE"
+   "solution": "KITWE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the Copper Belt",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Equipment",
+       "at": 0,
+       "gives": "KIT",
+       "note": "kit is gear or equipment"
+      },
+      {
+       "words": "partners",
+       "at": 14,
+       "gives": "WE",
+       "note": "West and East are partners at the bridge table"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gear for a pair of partners in Zambia's mining country.",
+     "walkthrough": "In bridge, the four players are named by compass points, and West partners East.",
+     "definitionFit": "Kitwe is a mining city in Zambia's Copperbelt province, so it is a place in the Copper Belt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1081,60 @@
     "text": "Fiddling about with money — two sovereigns involved",
     "enumeration": "9"
    },
-   "solution": "TINKERING"
+   "solution": "TINKERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fiddling about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "money",
+       "at": 20,
+       "gives": "TIN",
+       "note": "tin is old British slang for money"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involved",
+         "at": 43,
+         "note": "involved means one ruler is wrapped up inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "two sovereigns",
+         "at": 28,
+         "gives": "KING",
+         "note": "a king is one sovereign"
+        },
+        {
+         "words": "two sovereigns",
+         "at": 28,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the other sovereign"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fiddling with cash involving a couple of gold coins.",
+     "walkthrough": "A sovereign is also a British gold coin, which the surface plays on; ER, for Elizabeth Regina, is the familiar royal cipher.",
+     "definitionFit": "Tinkering means making small, aimless adjustments, fiddling about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sovereigns"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1148,49 @@
     "text": "Parliament success: what about Mr Coe? Negative",
     "enumeration": "6"
    },
-   "solution": "NASEBY"
+   "solution": "NASEBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Parliament success",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 25,
+       "note": "the negative goes round the athlete's first name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Negative",
+       "at": 39,
+       "gives": "NAY",
+       "note": "nay is an old word for no"
+      },
+      {
+       "words": "Mr Coe",
+       "at": 31,
+       "gives": "SEB",
+       "note": "Seb Coe is the British Olympic runner and politician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political win prompts a question about Lord Coe, answered with a no.",
+     "walkthrough": "Naseby, 1645, was a decisive Parliamentarian victory in the English Civil War.",
+     "definitionFit": "The Battle of Naseby was the Parliamentary army's great victory over Charles I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parliament"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1204,39 @@
     "text": "Cats or dogs have been muted",
     "enumeration": "5"
    },
-   "solution": "SORDO"
+   "solution": "SORDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "muted",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "have",
+       "at": 13,
+       "note": "the words cats or dogs have the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cats or dogs",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The household pets have been quietened down.",
+     "definitionFit": "Sordo is the Italian musical direction meaning muted or muffled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1250,53 @@
     "text": "County changed date with support of the rest",
     "enumeration": "8"
    },
-   "solution": "BEDSTEAD"
+   "solution": "BEDSTEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "support of the rest",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "County",
+       "at": 0,
+       "gives": "BEDS",
+       "note": "Beds is short for Bedfordshire, an English county"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "at": 7,
+         "note": "changed means the letters of date are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "date",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A county altered the date with the backing of everyone else.",
+     "walkthrough": "'changed' makes TEAD from DATE.",
+     "definitionFit": "A bedstead is the frame of a bed, which supports you while you rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1310,47 @@
     "text": "Capital setter in resting place",
     "enumeration": "5"
    },
-   "solution": "SOFIA"
+   "solution": "SOFIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in puts the setter inside the resting place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "resting place",
+       "at": 18,
+       "gives": "SOFA",
+       "note": "a sofa is a place to rest"
+      },
+      {
+       "words": "setter",
+       "at": 8,
+       "gives": "I",
+       "note": "the setter refers to himself as I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler is lying on a couch in a city.",
+     "definitionFit": "Sofia is the capital of Bulgaria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1364,41 @@
     "text": "Produce another version of the colour of 2, with love",
     "enumeration": "4"
    },
-   "solution": "REDO"
+   "solution": "REDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Produce another version",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the colour of 2",
+       "at": 27,
+       "gives": "RED",
+       "note": "2-down's answer begins with a colour, the colour of danger"
+      },
+      {
+       "words": "love",
+       "at": 49,
+       "gives": "O",
+       "note": "love is zero in tennis, written O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recreates the shade of an earlier item with affection.",
+     "definitionFit": "To redo something is to do it again, producing a fresh version."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1422,74 @@
      }
     ]
    },
-   "solution": "GREATESTOFEASE"
+   "solution": "GREATESTOFEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "no problem at all",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in puts the match and foe inside the film"
+      }
+     ],
+     "parts": [
+      {
+       "words": "80s film",
+       "at": 25,
+       "gives": "GREASE",
+       "note": "Grease is the musical film; its sequel Grease 2 came out in 1982"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "match",
+         "at": 2,
+         "gives": "TEST",
+         "note": "a test is an international cricket match"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 13,
+           "note": "new means the letters of foe are freshly rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "foe",
+           "at": 17
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting fixture against an unfamiliar opponent appears in a musical film.",
+     "walkthrough": "The original Grease is from 1978, so the clue's 80s film is loose; Grease 2 came out in 1982. 'new' rearranges the enemy before it goes in.",
+     "definitionFit": "Doing something with the greatest of ease means it gives no difficulty whatever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1509,52 @@
      }
     ]
    },
-   "solution": "GOLDCOIN"
+   "solution": "GOLDCOIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sovereign?",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leave",
+       "at": 0,
+       "gives": "GO",
+       "note": "to go is to leave"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 13,
+         "note": "out means the codlin letters are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "codlin",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to leave a cooking apple out of the recipe.",
+     "walkthrough": "A codlin is a kind of cooking apple; 'out' shuffles it to LDCOIN.",
+     "definitionFit": "A sovereign is a British gold coin, an example, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1568,41 @@
     "text": "Trophy we lost like men",
     "enumeration": "5"
    },
-   "solution": "ASHES"
+   "solution": "ASHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trophy we lost",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like",
+       "at": 15,
+       "gives": "AS",
+       "note": "as means like, as in as good as new"
+      },
+      {
+       "words": "men",
+       "at": 20,
+       "gives": "HES",
+       "note": "hes are males, the plural of he"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team laments a lost prize, men being men.",
+     "walkthrough": "The Ashes is the cricket series trophy between England and Australia; the British setter's we is England.",
+     "definitionFit": "The Ashes is the trophy contested in Test cricket between England and Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
