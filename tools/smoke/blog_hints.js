@@ -96,7 +96,24 @@ function asUnannotated(pid, eid, fact) {
   delete e.annotation;
   e.blog = fact;
   puz.blog = puz.blog || { name: "smoke blog", url: "https://example.com/" };
-  return true;
+  return e;
+}
+// The first sidecar fact `want(fact, diskEntry)` accepts, made un-annotated in
+// memory: { pid, eid, e } with `e` the entry as the app now holds it, or null.
+function blogFact(want) {
+  for (const [pid, rec] of blogSidecars()) {
+    const file = pp.find(pid);
+    if (!file) continue;
+    const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
+    for (const [eid, fact] of Object.entries(rec.entries)) {
+      const d = ents.find((x) => entryId(x) === eid);
+      if (d && d.solution && want(fact, d) && allPuzzles.some((p) => p.id === pid)) {
+        const e = asUnannotated(pid, eid, fact);
+        if (e) return { pid, eid, e };
+      }
+    }
+  }
+  return null;
 }
 {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
@@ -181,18 +198,14 @@ function asUnannotated(pid, eid, fact) {
 // tools/letter_facts.py fills in a type the blog left out, marked "inferred".
 // A clue with nothing else from the blog is badged as ours, not the blog's.
 {
-  const puzzles = global.window.CRYPTIC_PUZZLES;
-  const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
-    && (x.blog.inferred || []).includes("type") && x.blog.typeCore
-    && !(x.blog.definitions || []).length && !(x.blog.blocks || []).length && !(x.blog.indicators || []).length);
-  const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
-  if (shape("an un-annotated clue whose only blog fact is an inferred core type", target)
-      && openFromPicker(target.id)) {
-    const e = hit(target);
-    registry["clue-" + entryId(e)].listeners.click[0]();
+  const target = blogFact((f) => (f.inferred || []).includes("type") && f.typeCore
+    && !(f.definitions || []).length && !(f.blocks || []).length && !(f.indicators || []).length);
+  if (assert(target, "the blog facts hold a clue whose only fact is an inferred core type")
+      && openFromPicker(target.pid)) {
+    registry["clue-" + target.eid].listeners.click[0]();
     const meter = registry["hint-meter"].innerHTML;
     assert(meter.includes("hints from the letters") && !meter.includes("hints via "),
-      `${target.id} ${entryId(e)}: an inferred type is not badged as the blog's: ${meter}`);
+      `${target.pid} ${target.eid}: an inferred type is not badged as the blog's: ${meter}`);
   }
 }
 
@@ -201,17 +214,17 @@ function asUnannotated(pid, eid, fact) {
 // and the blocks rung shows them the way it shows an annotation's: the clue
 // words, an arrow, the letters.
 {
-  const puzzles = global.window.CRYPTIC_PUZZLES;
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   // A hidden word's one block is its carrier, the whole answer: the hidden
   // rung shows that, not a blocks rung.
   const piece = (x) => ({ gives, clueFragment: frag }) => bare(gives) !== bare(frag) && bare(gives) !== bare(x.solution);
-  const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
-    && (x.blog.blocks || []).some(piece(x)));
-  const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
-  if (shape("an un-annotated clue with blog blocks", target) && openFromPicker(target.id)) {
-    const e = hit(target);
-    registry["clue-" + entryId(e)].listeners.click[0]();
+  const target = blogFact((f, d) => (f.blocks || []).some(piece(d))
+    && [...(f.blocks || []).map((b) => b.clueFragment), ...(f.indicators || []).map((i) => i.text)]
+      .every((w) => clueText(d).includes(w))
+    && (f.definitions || []).every((df) => clueText(d).includes(df.text)));
+  if (assert(target, "the blog facts hold a clue with building blocks") && openFromPicker(target.pid)) {
+    const { pid, e } = target;
+    registry["clue-" + target.eid].listeners.click[0]();
     for (let guard = 0; guard < 20; guard++) {
       const btn = registry["hint-next"].children.find(CLIMBABLE);
       if (!btn) break;
@@ -221,7 +234,7 @@ function asUnannotated(pid, eid, fact) {
     // The page sets apostrophes typographically: "Savalas's" shows as "Savalas’s".
     const body = registry["hint-body"].innerHTML.replace(/’/g, "'");
     assert(body.includes(`“${frag.replace(/’/g, "'")}”`) && body.includes(`<span class="gives">${gives}</span>`),
-      `${target.id} ${entryId(e)}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
+      `${pid} ${target.eid}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
   }
 }
 
