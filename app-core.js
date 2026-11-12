@@ -323,6 +323,8 @@
   // Whether this browser has taken a rung since the ladder line went up, which
   // is the difference between the two wordings of that line.
   let nuxWalked = false;
+  // The intro is opt-in now: a link opens it. typedYet hides the hint line once a letter is typed.
+  let introOpen = false, typedYet = false;
 
   function nuxSeed(first) {
     if (nux !== undefined) return;
@@ -437,9 +439,14 @@
   // promised and the rung it points at; saying you have solved cryptics before
   // spends the lot, because everything left is the same lesson.
   function bindWelcome() {
-    const go = $("welcome-go"), skip = $("welcome-skip");
+    const go = $("welcome-go"), skip = $("welcome-skip"), open = $("intro-open");
     if (!go) return;
+    if (open) open.onclick = () => { introOpen = true; beacon("intro-open"); nuxDraw(); };
+    document.addEventListener("keydown", (ev) => {
+      if (!typedYet && /^[a-zA-Z]$/.test(ev.key) && !ev.metaKey && !ev.ctrlKey) { typedYet = true; nuxDraw(); }
+    });
     go.onclick = () => {
+      introOpen = false;
       nuxAdvance();
       // The rung row was built while the dialog was still up, so it carries no
       // mark: the thing the dialog promised to point at only becomes pointable
@@ -452,7 +459,7 @@
       const panel = $("hint-panel");
       if (panel && panel.scrollIntoView) panel.scrollIntoView({ behavior: "smooth", block: "center" });
     };
-    if (skip) skip.onclick = () => { nux = NUX_LINES.length; store.set(NUX_KEY, nux); nuxDraw(); beacon("nux-skip"); };
+    if (skip) skip.onclick = () => { introOpen = false; nux = NUX_LINES.length; store.set(NUX_KEY, nux); nuxDraw(); beacon("nux-skip"); };
   }
 
   // Named, because the walk both says it and acts on it: saying it is what
@@ -480,7 +487,10 @@
     const modal = $("welcome");
     // Toggled above the redraw guard below: the dialog and the line are two
     // states of one cursor, and whichever is not current has to be gone.
-    if (modal) modal.classList.toggle("hidden", !(line && line.modal));
+    if (modal) modal.classList.toggle("hidden", !(line && line.modal && introOpen));
+    // First visit: no dialog in the way, just one line beside the grid.
+    const tap = $("tap-hint");
+    if (tap) tap.classList.toggle("hidden", !(line && line.modal && !introOpen && !typedYet));
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;
