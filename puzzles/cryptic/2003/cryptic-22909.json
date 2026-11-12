@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,48 @@
     "text": "Sick person takes a sort of medicine containing iodine",
     "enumeration": "7"
    },
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sick person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 37,
+       "note": "containing says the medicine word holds the iodine symbol inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sort of medicine",
+       "at": 18,
+       "gives": "PATENT",
+       "note": "a patent medicine is a proprietary remedy sold over the counter"
+      },
+      {
+       "words": "iodine",
+       "at": 48,
+       "gives": "I",
+       "note": "I is the chemical symbol for iodine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invalid is given some proprietary remedy laced with iodine.",
+     "walkthrough": "'containing' puts I inside PATENT; 'takes' is only a link.",
+     "definitionFit": "Someone under medical care is a doctor's patient, so a sick person fits as a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +89,45 @@
     "text": "Treaty is in the bag, we're told",
     "enumeration": "4"
    },
-   "solution": "PACT"
+   "solution": "PACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Treaty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PACT",
+     "indicators": [
+      {
+       "text": "we're told",
+       "at": 22,
+       "note": "we're told signals that the phrase before it is heard rather than seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is in the bag",
+       "at": 7,
+       "gives": "PACKED",
+       "note": "something in the bag has been packed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A treaty is as good as signed, according to report.",
+     "walkthrough": "'we're told' turns PACKED into its sound-alike; 'In the bag' also means 'certain', which is the surface sense.",
+     "definitionFit": "A treaty is a formal agreement between parties, which is what a pact is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bag"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +141,45 @@
     "text": "Walk most of the way, then take public transport",
     "enumeration": "4"
    },
-   "solution": "TRAM"
+   "solution": "TRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "public transport",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "most of the way",
+       "at": 5,
+       "note": "most of the way says the word is not taken to its end, losing its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Walk",
+       "at": 0,
+       "gives": "TRAMP",
+       "note": "to tramp is to walk heavily or a long way"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks nearly all the distance and then hops on a bus or train.",
+     "walkthrough": "'most of the way' drops the last letter P from TRAMP; 'then take' is linking.",
+     "definitionFit": "A tram is a street-running passenger vehicle, a form of public transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +193,51 @@
     "text": "Catch fish with broken net first",
     "enumeration": "8"
    },
-   "solution": "ENTANGLE"
+   "solution": "ENTANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 16,
+         "note": "broken says the letters of net are knocked out of their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "net",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "at": 6,
+       "gives": "ANGLE",
+       "note": "to angle is to fish with rod and line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler tries to land fish though their net is torn.",
+     "walkthrough": "'broken' rearranges the net, and 'first' puts that ahead of the fish word; 'Catch' looks like a fisherman's verb in the surface, but it is the definition.",
+     "definitionFit": "To entangle something is to snare or trap it, so it means to catch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +251,49 @@
     "text": "Attribute loss of soldiers to fifth columnist",
     "enumeration": "5"
    },
-   "solution": "TRAIT"
+   "solution": "TRAIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attribute",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loss of",
+       "at": 10,
+       "note": "loss of says the soldiers are taken away from the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fifth columnist",
+       "at": 30,
+       "gives": "TRAITOR",
+       "note": "a fifth columnist works secretly for the enemy, a betrayer"
+      },
+      {
+       "words": "soldiers",
+       "at": 18,
+       "gives": "OR",
+       "note": "OR, other ranks, is the usual abbreviation for ordinary soldiers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military commander blames the loss of his troops on an enemy sympathiser within.",
+     "walkthrough": "'loss of' takes OR out of TRAITOR. 'Attribute' looks like a verb in the surface but is the noun.",
+     "definitionFit": "A trait is a characteristic quality, which is one sense of an attribute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attribute"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +307,60 @@
     "text": "Headline by hack across top of page",
     "enumeration": "6"
    },
-   "solution": "SPLASH"
+   "solution": "SPLASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Headline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 17,
+       "note": "across has the cut word lying either side of the letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hack",
+       "at": 12,
+       "gives": "SLASH",
+       "note": "to hack at something is to slash it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 24,
+         "note": "top of picks out the first letter of page"
+        }
+       ],
+       "parts": [
+        {
+         "words": "page",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist writes a front-page headline.",
+     "walkthrough": "'top of' gives P, and 'across' puts SLASH around it; 'Hack' in the surface is a journalist.",
+     "definitionFit": "A splash is newspaper jargon for the main front-page story and its big headline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hack"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +374,29 @@
     "text": "Immediate help for one who's lost for words",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Immediate",
+      "at": 0,
+      "meaning": "... as an adjective means without delay"
+     },
+     {
+      "text": "help for one who's lost for words",
+      "at": 10,
+      "meaning": "a cue given to an actor who has forgotten the lines"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor who dries on stage gets swift assistance.",
+     "definitionFit": "Prompt means instant, and as a noun it is the line fed to a forgetful actor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +410,41 @@
     "text": "They are unlikely to take over seats in bar",
     "enumeration": "10"
    },
-   "solution": "ABSTAINERS"
+   "solution": "ABSTAINERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They are unlikely to take",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 26,
+       "note": "over signals the letters being turned over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seats in bar",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Teetotallers are not likely to grab the stools in a pub.",
+     "walkthrough": "'take over' looks like one phrase, but 'over' is the anagram signal for SEATS IN BAR; 'take' here means take a drink.",
+     "definitionFit": "Teetotallers refuse alcohol, so they are the people unlikely to take a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +458,31 @@
     "text": "Eight-footer came a cropper",
     "enumeration": "10"
    },
-   "solution": "HARVESTMAN"
+   "solution": "HARVESTMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eight-footer",
+      "at": 0,
+      "meaning": "a long-legged arachnid, which has eight legs"
+     },
+     {
+      "text": "came a cropper",
+      "at": 13,
+      "meaning": "read literally, a farmhand who came to crop the fields at reaping time"
+     }
+    ],
+    "explanation": {
+     "surface": "Something with eight legs had a nasty fall.",
+     "walkthrough": "'Came a cropper' is British slang for 'fell badly'; here it means a man who came to gather the crop.",
+     "definitionFit": "The daddy-longlegs arachnid has this name, and it also names a farm worker at reaping time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +496,42 @@
     "text": "Pat's gob spouting rubbish",
     "enumeration": "8"
    },
-   "solution": "CLAPTRAP"
+   "solution": "CLAPTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pat's",
+       "at": 0,
+       "gives": "CLAP",
+       "note": "to pat someone on the back is to clap them"
+      },
+      {
+       "words": "gob",
+       "at": 6,
+       "gives": "TRAP",
+       "note": "gob and trap are both slang for mouth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pat's mouth is pouring out nonsense.",
+     "walkthrough": "'Pat' looks like a name but is a verb meaning clap; 'spouting' just links to the definition.",
+     "definitionFit": "Claptrap is pretentious nonsense, so it is a synonym for rubbish talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pat's"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +545,60 @@
     "text": "One to inspire the flower of York? Right!",
     "enumeration": "6"
    },
-   "solution": "ROUSER"
+   "solution": "ROUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One to inspire the flower of York? Right!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to inspire",
+         "at": 4,
+         "note": "to inspire is literally to breathe in, so the flower takes a letter inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the flower of York",
+         "at": 15,
+         "gives": "ROSE",
+         "note": "the white rose is the emblem of the House of York"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "U",
+         "note": "the pronoun one, as in one never knows, is you, written U"
+        }
+       ]
+      },
+      {
+       "words": "Right",
+       "at": 35,
+       "gives": "R"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone who stirs up the white rose of Yorkshire, agrees the speaker.",
+     "walkthrough": "'to inspire' puts U into ROSE, giving ROUSE, then R follows. The whole clue also describes the answer: a stirring person.",
+     "definitionFit": "One who rouses or stirs others to action is a rouser, an inspirer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspire"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +612,41 @@
     "text": "Boy child features in Bible reading",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bible reading",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boy",
+       "at": 0,
+       "gives": "LES",
+       "note": "Les is a boy's name, short for Leslie"
+      },
+      {
+       "words": "child",
+       "at": 4,
+       "gives": "SON",
+       "note": "a son is a male child"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young boy takes part in reading the scriptures.",
+     "walkthrough": "'features in' is just linking.",
+     "definitionFit": "In church a lesson is a passage read aloud from the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +666,30 @@
      }
     ]
    },
-   "solution": "ANOTHERPLACE"
+   "solution": "ANOTHERPLACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0,
+      "meaning": "parliamentary jargon by which each House refers to the other chamber"
+     },
+     {
+      "text": "in a different location",
+      "at": 13,
+      "meaning": "somewhere else, elsewhere"
+     }
+    ],
+    "explanation": {
+     "surface": "A home that is situated somewhere else.",
+     "walkthrough": "In the UK Parliament the Commons refers to the House of Lords, and vice versa, by this phrase rather than by name.",
+     "definitionFit": "The phrase is Westminster usage for the other chamber, and plainly means elsewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +703,31 @@
     "text": "Conceited like Gregory, literally",
     "enumeration": "10"
    },
-   "solution": "EGOCENTRIC"
+   "solution": "EGOCENTRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conceited",
+      "at": 0,
+      "meaning": "self-centred, full of oneself"
+     },
+     {
+      "text": "like Gregory, literally",
+      "at": 10,
+      "meaning": "the name Gregory has the letters of ego in its centre"
+     }
+    ],
+    "explanation": {
+     "surface": "A vain person resembles someone named Gregory.",
+     "walkthrough": "Taken literally, the answer says 'ego central': gr-EGO-ry has EGO in its middle.",
+     "definitionFit": "Someone self-centred thinks only of themselves, which is being conceited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +741,32 @@
     "text": "Bread producer has a profitable business",
     "enumeration": "10"
    },
-   "solution": "MONEYMAKER"
+   "solution": "MONEYMAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bread producer",
+      "at": 0,
+      "meaning": "bread is slang for money, so something producing cash"
+     },
+     {
+      "text": "a profitable business",
+      "at": 19,
+      "meaning": "a venture that earns a good return"
+     }
+    ],
+    "explanation": {
+     "surface": "A bakery is a lucrative concern.",
+     "walkthrough": "'Bread' is slang for money; 'has' is just a link.",
+     "definitionFit": "Something that makes cash brings in money, which is what both senses describe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bread"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +780,49 @@
     "text": "Piety embraces love to a great extent",
     "enumeration": "10"
    },
-   "solution": "GOODLINESS"
+   "solution": "GOODLINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a great extent",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraces",
+       "at": 6,
+       "note": "embraces says the first word wraps around the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Piety",
+       "at": 0,
+       "gives": "GODLINESS",
+       "note": "piety is devotion to God, godliness"
+      },
+      {
+       "words": "love",
+       "at": 15,
+       "gives": "O",
+       "note": "love means zero in tennis scoring, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Religious devotion encompasses a great deal of love.",
+     "walkthrough": "'embraces' puts O inside GODLINESS, after the G; 'to' is a link.",
+     "definitionFit": "Goodly can mean considerable in size, so goodliness is largeness or a great extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +836,57 @@
     "text": "Lose to Napoleon? Extremely odd for him!",
     "enumeration": "6"
    },
-   "solution": "NELSON"
+   "solution": "NELSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lose to Napoleon? Extremely odd for him!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "odd",
+       "at": 28,
+       "note": "odd says these letters are in a strange order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lose",
+       "at": 0
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 18,
+         "note": "Extremely takes the first and last letters of Napoleon"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Napoleon",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "It would be strange for the great admiral to be beaten by the French emperor.",
+     "walkthrough": "'Extremely' gives N and N from Napoleon; 'odd' rearranges LOSE plus NN. Nelson beat Napoleon's fleet at Trafalgar, so losing would be odd for him.",
+     "definitionFit": "Horatio Nelson was the British admiral who defeated Napoleon's navy, so losing to him would be unlike him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +900,31 @@
     "text": "Head teachers",
     "enumeration": "3"
    },
-   "solution": "NUT"
+   "solution": "NUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0,
+      "meaning": "slang for the head"
+     },
+     {
+      "text": "teachers",
+      "at": 5,
+      "meaning": "the National Union of Teachers, a British teaching union"
+     }
+    ],
+    "explanation": {
+     "surface": "A headteacher.",
+     "walkthrough": "The National Union of Teachers was the main teaching trade union in England and Wales.",
+     "definitionFit": "Slang for one's head, and the initials of the National Union of Teachers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +944,43 @@
      }
     ]
    },
-   "solution": "STARWARS"
+   "solution": "STARWARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "is IDS? Quite the reverse!",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leading",
+       "at": 0,
+       "gives": "STAR",
+       "note": "a star is the leading performer"
+      },
+      {
+       "words": "hostilities",
+       "at": 8,
+       "gives": "WARS",
+       "note": "hostilities are wars"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the Tory leader Iain Duncan Smith at the forefront of the fighting?",
+     "walkthrough": "IDS was Iain Duncan Smith, then Conservative leader; reversed it is SDI, the Strategic Defense Initiative, nicknamed after the film saga.",
+     "definitionFit": "Reagan's Strategic Defense Initiative, SDI, was popularly called by the film title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "IDS"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +994,45 @@
     "text": "Tip of tail, shall we say?",
     "enumeration": "3"
    },
-   "solution": "CUE"
+   "solution": "CUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CUE",
+     "indicators": [
+      {
+       "text": "shall we say",
+       "at": 13,
+       "note": "shall we say suggests a word spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tail",
+       "at": 7,
+       "gives": "QUEUE",
+       "note": "a queue is a pigtail, a tail of hair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking about the end of an animal's tail.",
+     "walkthrough": "'shall we say' signals a soundalike: QUEUE, a pigtail, sounds like the answer; 'of' is a link.",
+     "definitionFit": "A cue is a hint or signal, which is one sense of a tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1046,56 @@
     "text": "Where to see stars a short time before song on stage",
     "enumeration": "10"
    },
-   "solution": "PLANETARIA"
+   "solution": "PLANETARIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where to see stars",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 44,
+       "note": "on, in an across clue, says these pieces follow after the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stage",
+       "at": 47,
+       "gives": "PLANE",
+       "note": "a plane is a level or stage of development"
+      },
+      {
+       "words": "a short time",
+       "at": 19,
+       "gives": "T",
+       "note": "T is the abbreviation of time, a time cut short"
+      },
+      {
+       "words": "song",
+       "at": 39,
+       "gives": "ARIA",
+       "note": "an aria is a solo song in an opera"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre is where you catch celebrities just before they sing.",
+     "walkthrough": "In an across clue 'on' means 'after', and 'before' keeps time ahead of song. The stars are in the sky, not celebrities on stage.",
+     "definitionFit": "Planetariums project the night sky on a dome, so they are where stars are seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1109,48 @@
     "text": "Little boy with current issue of \"The Inventor\"",
     "enumeration": "6"
    },
-   "solution": "EDISON"
+   "solution": "EDISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Inventor",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Little boy",
+       "at": 0,
+       "gives": "ED",
+       "note": "Ed is short for Edward, a diminutive"
+      },
+      {
+       "words": "current",
+       "at": 16,
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "issue",
+       "at": 24,
+       "gives": "SON",
+       "note": "issue means offspring, such as a son"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster with the latest copy of a magazine called The Inventor.",
+     "walkthrough": "'issue' looks like a magazine number but means offspring; 'with' and 'of' are links.",
+     "definitionFit": "Thomas Edison, inventor of the phonograph, is often called simply the great inventor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1170,31 @@
      }
     ]
    },
-   "solution": "NAMEDROPPERS"
+   "solution": "NAMEDROPPERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boasters",
+      "at": 0,
+      "meaning": "people who boast of famous acquaintances"
+     },
+     {
+      "text": "such as Tony Benn",
+      "at": 9,
+      "meaning": "Benn renounced his title and pared his name down to plain Tony Benn"
+     }
+    ],
+    "explanation": {
+     "surface": "Show-offs like the Labour politician Tony Benn.",
+     "walkthrough": "Tony Benn, a Labour politician, disclaimed his peerage as Viscount Stansgate and dropped the grand name Anthony Wedgwood Benn.",
+     "definitionFit": "People who casually mention famous friends to impress are boasters of a kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1208,41 @@
     "text": "Nose left to do a bit of snooping",
     "enumeration": "5"
    },
-   "solution": "PROWL"
+   "solution": "PROWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to do a bit of snooping",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nose",
+       "at": 0,
+       "gives": "PROW",
+       "note": "the prow is the nose of a ship"
+      },
+      {
+       "words": "left",
+       "at": 5,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nosy person is left to pry.",
+     "walkthrough": "'Nose' suggests nosiness, but is the front of a boat.",
+     "definitionFit": "To prowl is to move stealthily looking around, a form of snooping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nose"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1256,42 @@
     "text": "Criticise elevation of perjurer",
     "enumeration": "4"
    },
-   "solution": "LIAR"
+   "solution": "LIAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "perjurer",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "elevation of",
+       "at": 10,
+       "note": "elevation in a down clue means the word is raised, read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Criticise",
+       "at": 0,
+       "gives": "RAIL",
+       "note": "to rail against something is to criticise it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Condemning the promotion of someone who lied under oath.",
+     "walkthrough": "'elevation of' reads RAIL upwards in this down clue.",
+     "definitionFit": "A perjurer lies under oath, so is a liar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1305,47 @@
     "text": "Girl grasping left hand",
     "enumeration": "4"
    },
-   "solution": "PALM"
+   "solution": "PALM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hand",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasping",
+       "at": 5,
+       "note": "grasping has the girl holding the letter inside her"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "PAM",
+       "note": "Pam is a girl's name"
+      },
+      {
+       "words": "left",
+       "at": 14,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl holds her left hand.",
+     "walkthrough": "'grasping' puts L inside PAM.",
+     "definitionFit": "The palm is the inner surface of the hand, used here as a part for the whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1359,42 @@
     "text": "Drinks hard, being dissolute",
     "enumeration": "6"
    },
-   "solution": "RAKISH"
+   "solution": "RAKISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dissolute",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drinks",
+       "at": 0,
+       "gives": "RAKIS",
+       "note": "raki is an aniseed spirit from Turkey and the Balkans"
+      },
+      {
+       "words": "hard",
+       "at": 7,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who drinks heavily is leading a debauched life.",
+     "walkthrough": "'hard' looks like an adverb but gives H; 'being' is a link.",
+     "definitionFit": "A rakish person behaves like a rake, a dissolute man about town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1408,53 @@
     "text": "A boy with a can starting to make short work of it",
     "enumeration": "8"
    },
-   "solution": "SONATINA"
+   "solution": "SONATINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short work",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boy",
+       "at": 2,
+       "gives": "SON",
+       "note": "a son is a boy"
+      },
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "words": "can",
+       "at": 13,
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad with a tin can quickly finishes a job.",
+     "walkthrough": "The clue's opening A is placed last; 'starting to make' and 'of it' only link. 'Short work' is a short musical work.",
+     "definitionFit": "A sonatina is a short, simple sonata, so a short piece of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1468,47 @@
     "text": "Many a love token to show affection",
     "enumeration": "6"
    },
-   "solution": "CARING"
+   "solution": "CARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to show affection",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Many",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, many"
+      },
+      {
+       "words": "a",
+       "at": 5,
+       "gives": "A"
+      },
+      {
+       "words": "love token",
+       "at": 7,
+       "gives": "RING",
+       "note": "a ring is given as a token of love"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giving a lot of love tokens is a way of displaying fondness.",
+     "walkthrough": "'Many' giving C uses the Roman numeral 100.",
+     "definitionFit": "Caring, as an activity, is showing concern and affection for someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Many"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1522,41 @@
     "text": "Had an irrepressible desire to drink for a number of years",
     "enumeration": "7"
    },
-   "solution": "LUSTRUM"
+   "solution": "LUSTRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a number of years",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "an irrepressible desire",
+       "at": 4,
+       "gives": "LUST",
+       "note": "lust is an overwhelming craving"
+      },
+      {
+       "words": "drink",
+       "at": 31,
+       "gives": "RUM",
+       "note": "rum is a spirit, a drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longed desperately for a drink over several years.",
+     "walkthrough": "'Had' and 'to' are linking; the number of years is five.",
+     "definitionFit": "A lustrum is a period of five years, from the Roman purification ceremony held every five years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
