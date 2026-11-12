@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Small cask for fresh water, or sea water",
     "enumeration": "7"
    },
-   "solution": "BREAKER"
+   "solution": "BREAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small cask for fresh water",
+      "at": 0,
+      "meaning": "a small keg for drinking water carried in a ship's boat"
+     },
+     {
+      "text": "sea water",
+      "at": 31,
+      "meaning": "a wave crashing on the shore"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: a nautical water keg, and a large wave breaking into foam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +70,29 @@
     "text": "Robert's also after bits and odds and ends",
     "enumeration": "4"
    },
-   "solution": "BOBS"
+   "solution": "BOBS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Robert's",
+      "at": 0,
+      "meaning": "Bob is the short form of Robert"
+     },
+     {
+      "text": "after bits and odds and ends",
+      "at": 14,
+      "meaning": "the word that comes after 'bits and' in the phrase meaning odds and ends"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'also' is just a link between the two definitions; the second relies on the phrase 'bits and bobs', meaning odds and ends.",
+     "definitionFit": "Bob is a pet name for Robert, and bits and bobs is an idiom for miscellaneous odds and ends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +112,41 @@
      }
     ]
    },
-   "solution": "ETAL"
+   "solution": "ETAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Others",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turn up",
+       "at": 12,
+       "note": "in a down clue, turning a word up reads its letters from the bottom, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "late",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Other people also arrive behind schedule.",
+     "walkthrough": "'turn up' looks like 'arrive', but in a down clue it reverses LATE; 'also' is a link.",
+     "definitionFit": "Et al is the Latin abbreviation for et alii, meaning and others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +166,29 @@
      }
     ]
    },
-   "solution": "KEEPAWAY"
+   "solution": "KEEPAWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "don't come",
+      "at": 9,
+      "meaning": "to stay away from a place, not turning up"
+     },
+     {
+      "text": "prevent others coming",
+      "at": 25,
+      "meaning": "to stop others getting near, as in keeping intruders at bay"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Not only ... but' just frames the two senses of the phrasal verb.",
+     "definitionFit": "The phrasal verb works intransitively (stay away yourself) and transitively (hold others off)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +202,43 @@
     "text": "It locates aircraft climbing or descending",
     "enumeration": "5"
    },
-   "solution": "RADAR"
+   "solution": "RADAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It locates aircraft",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "climbing or descending",
+       "at": 20,
+       "note": "in a down clue the word reads the same going up or going down, so it is a palindrome"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It locates aircraft",
+       "at": 0,
+       "gives": "RADAR",
+       "note": "these definition words give the whole answer, and the answer is itself the palindrome: it reads the same from either end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A device tracks planes as they gain or lose height.",
+     "walkthrough": "'climbing or descending' seems to describe the aircraft, but it says the answer reads the same upwards or downwards in the grid.",
+     "definitionFit": "Radar systems detect and track aircraft by bouncing radio waves off them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +252,34 @@
     "text": "Casually raise the volume",
     "enumeration": "6"
    },
-   "solution": "BROWSE"
+   "solution": "BROWSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Casually raise the volume",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Casually raise the volume",
+       "at": 0,
+       "note": "the surface suggests turning up the sound; really it is picking up a book and leafing through it idly"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "To browse is to look through a book in a leisurely, casual way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +293,28 @@
     "text": "Standard textbook just for you",
     "enumeration": "6"
    },
-   "solution": "READER"
+   "solution": "READER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Standard textbook",
+      "at": 0,
+      "meaning": "a book of basic texts for learners"
+     },
+     {
+      "text": "just for you",
+      "at": 18,
+      "meaning": "the person a book is written for, addressed as you"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A reader is both a school textbook and the person reading, addressed as 'you' by authors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +328,29 @@
     "text": "Taking money out for retirement",
     "enumeration": "10"
    },
-   "solution": "WITHDRAWAL"
+   "solution": "WITHDRAWAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Taking money out",
+      "at": 0,
+      "meaning": "removing cash from a bank account"
+     },
+     {
+      "text": "retirement",
+      "at": 21,
+      "meaning": "pulling back or retreating, as troops do"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The noun covers both a cash removal from an account and a retreat from a position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +364,33 @@
     "text": "Paradoxical description of the returning astronaut",
     "enumeration": "10"
    },
-   "solution": "EARTHBOUND"
+   "solution": "EARTHBOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paradoxical description of the returning astronaut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Paradoxical description of the returning astronaut",
+       "at": 0,
+       "note": "the word usually means tied to the ground, unable to fly, yet here it means heading for home planet"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The word means both confined to the ground and travelling towards the planet, hence the paradox."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +410,42 @@
      }
     ]
    },
-   "solution": "BEAMENDS"
+   "solution": "BEAMENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Live poorly on these",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Live",
+       "at": 0,
+       "gives": "BE",
+       "note": "to live is to be, exist"
+      },
+      {
+       "words": "compensation",
+       "at": 8,
+       "gives": "AMENDS",
+       "note": "amends are reparation made for a wrong"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Can you survive on damages? Hardly well.",
+     "walkthrough": "To be on one's beam-ends is to be nearly destitute; 'on' is a link joining the pieces.",
+     "definitionFit": "The idiom 'on one's beam-ends' means having almost no money, so these are what the poor live on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "compensation"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +459,30 @@
     "text": "Basis of pudding for buffet",
     "enumeration": "6"
    },
-   "solution": "BATTER"
+   "solution": "BATTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Basis of pudding",
+      "at": 0,
+      "meaning": "a flour, egg and milk mixture used for Yorkshire pudding and pancakes"
+     },
+     {
+      "text": "buffet",
+      "at": 21,
+      "meaning": "to strike repeatedly, pound"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'buffet' tempts as a meal, but here it is the verb to strike.",
+     "definitionFit": "Batter is the mix behind Yorkshire pudding, and to batter is to pound with blows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buffet"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +496,41 @@
     "text": "Secure in boat in storm",
     "enumeration": "6"
    },
-   "solution": "OBTAIN"
+   "solution": "OBTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "storm",
+       "at": 18,
+       "note": "a storm throws things into turmoil, so these letters are tossed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boat in",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fasten things down inside the boat during bad weather.",
+     "walkthrough": "The first 'in' is a link; the second belongs to the fodder.",
+     "definitionFit": "To secure something is to get hold of it, a synonym for acquire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Secure"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +550,34 @@
      }
     ]
    },
-   "solution": "HAIRSBREADTH"
+   "solution": "HAIRSBREADTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tiny margin of safety for Damocles",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tiny margin of safety for Damocles",
+       "at": 0,
+       "note": "Damocles sat beneath a sword suspended by a single strand from a horse's tail"
+      }
+     ]
+    },
+    "spelling": "HAIR'S BREADTH",
+    "explanation": {
+     "definitionFit": "The phrase means a very narrow margin, and literally the thickness of the strand holding the sword."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +597,29 @@
      }
     ]
    },
-   "solution": "SECONDRATE"
+   "solution": "SECONDRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sixty to the minute",
+      "at": 0,
+      "meaning": "a speed counted in units of time, sixty per minute"
+     },
+     {
+      "text": "Not so good",
+      "at": 21,
+      "meaning": "inferior, mediocre"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Read literally the phrase is a rate in seconds; as an idiom it means inferior quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +639,33 @@
      }
     ]
    },
-   "solution": "STIRRUPCUP"
+   "solution": "STIRRUPCUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hunt for a drink? Just the opposite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Hunt for a drink? Just the opposite",
+       "at": 0,
+       "note": "not a search for a drink but a drink for the hunt, served to riders already mounted"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A traditional drink handed to riders on horseback before a fox hunt sets off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +679,34 @@
     "text": "The kind of learning that is beyond the pale",
     "enumeration": "10"
    },
-   "solution": "EXTRAMURAL"
+   "solution": "EXTRAMURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The kind of learning that is beyond the pale",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The kind of learning that is beyond the pale",
+       "at": 0,
+       "note": "beyond the pale normally means unacceptable; literally a pale is a fence, so here outside the walls of a university"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Courses taught to non-resident students, literally outside the walls of the institution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pale"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +720,33 @@
     "text": "Highly bumptious?",
     "enumeration": "6"
    },
-   "solution": "UPPISH"
+   "solution": "UPPISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highly bumptious?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Highly bumptious?",
+       "at": 0,
+       "note": "conceited, with a hint of being high up"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Uppish is a British word for arrogantly self-assertive, and it begins with up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +760,42 @@
     "text": "An attempt to indicate time past",
     "enumeration": "3"
    },
-   "solution": "AGO"
+   "solution": "AGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "time past",
+      "at": 23,
+      "note": "an adverbial phrase where the answer is an adverb; it marks time gone by"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An",
+       "at": 0,
+       "gives": "A",
+       "note": "an is the indefinite article a"
+      },
+      {
+       "words": "attempt",
+       "at": 3,
+       "gives": "GO",
+       "note": "to have a go is to make an attempt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to point to a date in history.",
+     "walkthrough": "'to indicate' is a link phrase.",
+     "definitionFit": "Ago marks how far back in the past something happened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +809,45 @@
     "text": "Deportment of unusual air and grace",
     "enumeration": "8"
    },
-   "solution": "CARRIAGE"
+   "solution": "CARRIAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deportment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 14,
+       "note": "something unusual is out of the ordinary, so these letters appear in an altered arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "air",
+       "at": 22
+      },
+      {
+       "words": "grace",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Good bearing marked by a rare elegance and poise.",
+     "walkthrough": "'unusual' rearranges AIR and GRACE; 'of' and 'and' are links.",
+     "definitionFit": "Carriage means the way one holds one's body, a synonym for bearing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grace"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +861,34 @@
     "text": "Blade for a cutter perhaps",
     "enumeration": "3"
    },
-   "solution": "OAR"
+   "solution": "OAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blade for a cutter perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Blade for a cutter perhaps",
+       "at": 0,
+       "note": "blade suggests a knife and cutter a tool, but the cutter is a ship's boat propelled by rowing"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The flat end of a rowing implement is its blade, used on a small boat called a cutter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cutter"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +912,33 @@
      }
     ]
    },
-   "solution": "SPINSAYARN"
+   "solution": "SPINSAYARN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How a mill hand tells a story?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How a mill hand tells a story?",
+       "at": 0,
+       "note": "an idiom for telling a tall tale, taken literally as a spinner twisting thread"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The idiom means to tell a long story, and literally describes spinning thread in a mill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +952,34 @@
     "text": "They go downhill fast in cold weather",
     "enumeration": "6"
    },
-   "solution": "SKIERS"
+   "solution": "SKIERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They go downhill fast in cold weather",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They go downhill fast in cold weather",
+       "at": 0,
+       "note": "going downhill sounds like declining, but here people descend snowy slopes"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Winter sports enthusiasts speed down snowy slopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "downhill"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1007,34 @@
      }
     ]
    },
-   "solution": "DRUNKASALORD"
+   "solution": "DRUNKASALORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncommonly tight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Uncommonly tight",
+       "at": 0,
+       "note": "tight means drunk; uncommonly hints at a nobleman rather than a commoner"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The simile means extremely intoxicated, with the peer as the opposite of a commoner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1048,31 @@
     "text": "Ground swells?",
     "enumeration": "5"
    },
-   "solution": "LORDS"
+   "solution": "LORDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ground",
+      "at": 0,
+      "meaning": "... is the famous cricket ground in London"
+     },
+     {
+      "text": "swells",
+      "at": 7,
+      "meaning": "swells are well-dressed upper-class people, as are peers"
+     }
+    ],
+    "spelling": "LORD'S",
+    "explanation": {
+     "definitionFit": "Lord's is a London cricket ground, and noblemen are swells in old slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swells"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1086,40 @@
     "text": "Deity in Norse myth or legend",
     "enumeration": "4"
    },
-   "solution": "THOR"
+   "solution": "THOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the answer sits within the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Norse myth or legend",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god appearing in Scandinavian stories.",
+     "walkthrough": "The surface reads 'Deity in Norse myth' as the definition, but the god is concealed across 'myth or'.",
+     "definitionFit": "Thor is the Norse god of thunder, a deity of Scandinavian mythology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1133,62 @@
     "text": "Dry fresh air before break of day",
     "enumeration": "4"
    },
-   "solution": "ARID"
+   "solution": "ARID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fresh",
+         "at": 4,
+         "note": "fresh suggests something made new, so these letters are formed anew in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "air",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "break of",
+         "at": 21,
+         "note": "the break of day is when it begins, so the first letter of day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arid morning air before dawn.",
+     "walkthrough": "'break of day' sounds like dawn, but it only picks the opening letter of 'day'; 'before' is a link.",
+     "definitionFit": "Arid means lacking moisture, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1202,41 @@
     "text": "May describe a bridge card he shuffled",
     "enumeration": "6"
    },
-   "solution": "ARCHED"
+   "solution": "ARCHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "May describe a bridge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shuffled",
+       "at": 30,
+       "note": "cards shuffled are mixed up, so these letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "card he",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the bridge table a player mixes the pack.",
+     "walkthrough": "'bridge' and 'card' suggest the card game, but the bridge is a span over water.",
+     "definitionFit": "Many bridges are built as curved spans, described as having a bowed shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1250,30 @@
     "text": "Break one's nose, perhaps",
     "enumeration": "8"
    },
-   "solution": "BREATHER"
+   "solution": "BREATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0,
+      "meaning": "a short rest or pause"
+     },
+     {
+      "text": "one's nose, perhaps",
+      "at": 6,
+      "meaning": "something one draws air through, such as the nose"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A short rest is one sense; humorously, anything you inhale through, like a nose, is another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +1287,62 @@
     "text": "Unveil the ultimate sex op surgery",
     "enumeration": "6"
    },
-   "solution": "EXPOSE"
+   "solution": "EXPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unveil",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimate",
+         "at": 11,
+         "note": "ultimate means last, so the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surgery",
+         "at": 27,
+         "note": "surgery operates on something and rearranges it, so these letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sex op",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reveal the final word on a gender reassignment operation.",
+     "walkthrough": "'ultimate' picks E from 'the'; 'surgery' rearranges SEX OP into XPOSE.",
+     "definitionFit": "To expose is to uncover or reveal, the same as unveil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surgery"
+    }
+   }
   },
   {
    "number": 29,
@@ -497,7 +1356,48 @@
     "text": "Cut some grain in an outhouse",
     "enumeration": "7"
    },
-   "solution": "SHEARED"
+   "solution": "SHEARED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the grain sits inside the outbuilding"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outhouse",
+       "at": 21,
+       "gives": "SHED",
+       "note": "a shed is a small outbuilding"
+      },
+      {
+       "words": "some grain",
+       "at": 4,
+       "gives": "EAR",
+       "note": "an ear is the seed-bearing head of a cereal plant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reaped some corn and stored it in a shed.",
+     "walkthrough": "'Cut' looks like the harvesting verb, and is the definition: as sheep are cut of their fleece.",
+     "definitionFit": "Sheared means cut, as of fleece or metal with shears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
