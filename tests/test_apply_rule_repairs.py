@@ -361,4 +361,17 @@ check("doesNotGive: a charade that is really a container (A + SPIN for SPAIN, 'h
 msg = mend("[article]A + [spinning]SPIN", "holding in article spinning", "SPAIN")
 check("doesNotGive: two container words left over ('holding' and 'in') are ambiguous and stay refused", msg.startswith("REFUSED"))
 
+# doesNotGive, 11-12 residue: a piece that belongs inside the container or anagram beside it, and a container argument
+# the answer needs read backwards (its indicator the one reversal word the clue leaves over)
+check("doesNotGive: a charade piece that belongs inside the container beside it joins its inner argument (THANE)",
+      mend("ins<about>([Article]THE, [a]A) + [knight]N", "Article about a knight", "THANE")
+      == "ins<about>([Article]THE, [a]A + [knight]N)")
+check("doesNotGive: a charade piece that belongs in the anagram beside it joins its fodder (RESHAPED)",
+      mend("ana<Badly>([phrased]) + [energy]E", "Badly phrased energy", "RESHAPED").startswith("ana<Badly>([phrased] + [energy]E"))
+check("doesNotGive: a container argument the answer needs reversed takes the clue's one reversal word (AEGIS)",
+      mend("ins<engulfed by>([tide]SEA, [Serviceman]GI)", "Serviceman engulfed by receding tide", "AEGIS")
+      == "ins<engulfed by>(rev<receding>([tide]SEA), [Serviceman]GI)")
+check("doesNotGive: a piece that fits inside nothing (no container or anagram beside it) stays refused",
+      mend("[Copper]CU + [runs]R + [workers]ANTS", "Copper runs workers", "CURRANTS").startswith("REFUSED"))
+
 sys.exit(1 if fails else 0)
