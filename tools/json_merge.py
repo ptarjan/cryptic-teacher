@@ -44,12 +44,26 @@ model editing the file) is staged in the canonical layout. Input that does not
 parse is staged as it is, and the merge refuses it later.
 """
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 
 MISSING = object()
+
+
+def write_atomic(path, text):
+    """Write `text` to `path` whole or not at all: a temp file in the same
+    directory, flushed, then os.replace'd over it, so a reader (the burn
+    loading a source table) never sees a half-written file."""
+    path = Path(path)
+    part = path.with_name(f".{path.name}.{os.getpid()}.part")
+    with open(part, "w", encoding="utf-8") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(part, path)
 
 
 def dump_lines(held):

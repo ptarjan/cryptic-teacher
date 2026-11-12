@@ -260,7 +260,8 @@ def _write(rel, path, text):
         import shape_queue
         shape_queue.write(text, path)
     else:
-        path.write_text(text)
+        from json_merge import write_atomic
+        write_atomic(path, text)
 
 
 def revert(pid):

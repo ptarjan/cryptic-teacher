@@ -100,7 +100,7 @@ import wordplay
 from apply_annotations import (
     annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle
-from json_merge import dump_lines
+from json_merge import dump_lines, write_atomic
 from validate_annotations import letters
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname
 from find_renarration import scan
@@ -828,7 +828,7 @@ def file_rows(path, pending, data=DATA):
         rows[key] = row
         del ann[eid][field]
     for name, rows in tables.items():
-        (data / f"{name}.json").write_text(dump_lines(rows), encoding="utf-8")
+        write_atomic(data / f"{name}.json", dump_lines(rows))
     if fixes:
         fetch_puzzle.write_puzzle_file(path, puzzle)
     write_pending(pending, ann)
