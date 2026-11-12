@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Large volume one may take to work",
     "enumeration": "7"
    },
-   "solution": "OMNIBUS"
+   "solution": "OMNIBUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Large volume",
+      "at": 0,
+      "meaning": "a big book collecting several works in one binding"
+     },
+     {
+      "text": "one may take to work",
+      "at": 13,
+      "meaning": "a public bus, the vehicle a commuter catches each morning"
+     }
+    ],
+    "explanation": {
+     "surface": "A hefty book someone might carry along to the office.",
+     "definitionFit": "The word means both a collected edition in one fat book and, in its older full form, a bus for passengers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,51 @@
     "text": "Pained expression when top of pocket is ripped off",
     "enumeration": "4"
    },
-   "solution": "OUCH"
+   "solution": "OUCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pained expression",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "top of",
+       "at": 23,
+       "note": "top of picks out the first letter of the pocket word"
+      },
+      {
+       "text": "is ripped off",
+       "at": 37,
+       "note": "ripped off means that first letter is torn away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pocket",
+       "at": 30,
+       "gives": "POUCH",
+       "note": "a pouch is a pocket"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cries out as the top of their pocket is torn away.",
+     "walkthrough": "'top of' and 'is ripped off' remove the first letter, P, from POUCH.",
+     "definitionFit": "An exclamation of sudden pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ripped"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +130,30 @@
     "text": "Ordered, as whisky may be",
     "enumeration": "4"
    },
-   "solution": "NEAT"
+   "solution": "NEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ordered",
+      "at": 0,
+      "meaning": "tidy and arranged in good order"
+     },
+     {
+      "text": "as whisky may be",
+      "at": 9,
+      "meaning": "served without water or ice, straight"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both tidy and orderly and a spirit drunk undiluted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ordered"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +167,50 @@
     "text": "Plucky player gets support following veto",
     "enumeration": "8"
    },
-   "solution": "BANJOIST"
+   "solution": "BANJOIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plucky player",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 27,
+       "note": "following puts the support after the veto"
+      }
+     ],
+     "parts": [
+      {
+       "words": "veto",
+       "at": 37,
+       "gives": "BAN",
+       "note": "to veto is to ban"
+      },
+      {
+       "words": "support",
+       "at": 19,
+       "gives": "JOIST",
+       "note": "a joist is a beam supporting a floor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brave performer receives backing after being blocked.",
+     "walkthrough": "'Plucky' reads as brave but means one who plucks strings.",
+     "definitionFit": "A banjo is plucked, so its player is a plucky player in the punning sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plucky"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +224,60 @@
     "text": "The last of the coal in the bag?",
     "enumeration": "5"
    },
-   "solution": "SLACK"
+   "solution": "SLACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The last of the coal in the bag?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places that letter inside the bag word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bag",
+       "at": 28,
+       "gives": "SACK",
+       "note": "a sack is a bag"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "The last of the",
+         "at": 0,
+         "note": "picks the final letter of the word coal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coal",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "What is left at the bottom of a coal sack.",
+     "walkthrough": "'The last of the' takes L from coal; 'in' puts it inside SACK, and the whole clue describes the result.",
+     "definitionFit": "Slack is the dust and small fragments of coal left over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +291,61 @@
     "text": "Cavalryman turns back without thinking about us",
     "enumeration": "6"
    },
-   "solution": "HUSSAR"
+   "solution": "HUSSAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cavalryman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 39,
+       "note": "about means the reversed word is placed around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns back",
+         "at": 11,
+         "note": "turning back means the word for hasty is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "without thinking",
+         "at": 22,
+         "gives": "RASH",
+         "note": "acting without thinking is being rash"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "at": 45,
+       "gives": "US",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mounted soldier wheels round impulsively, heedless of the rest of us.",
+     "walkthrough": "'turns back' turns the word for hasty round to give HSAR, and 'about' means that reversed word goes around the other piece; 'without thinking' is not a deletion signal here.",
+     "definitionFit": "A hussar is a soldier of a light cavalry regiment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +359,59 @@
     "text": "American church accepts an interest in redemption",
     "enumeration": "6"
    },
-   "solution": "USANCE"
+   "solution": "USANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "interest in redemption",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "at": 16,
+       "note": "accepts means takes the other piece in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 0,
+         "gives": "US"
+        },
+        {
+         "words": "church",
+         "at": 9,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "at": 24,
+       "gives": "AN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US church takes an interest in saving souls.",
+     "walkthrough": "'accepts' places the article inside the American-plus-church pair; 'interest' is the old sense of money paid on a loan, not curiosity.",
+     "definitionFit": "Usance is an old term for interest paid on money lent, due when the debt is redeemed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "redemption"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +431,41 @@
      }
     ]
    },
-   "solution": "SEAPASSAGE"
+   "solution": "SEAPASSAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taken by travellers",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Main",
+       "at": 0,
+       "gives": "SEA",
+       "note": "the main is a poetic name for the sea"
+      },
+      {
+       "words": "part of a book",
+       "at": 5,
+       "gives": "PASSAGE",
+       "note": "a passage is an extract from a book"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers read the main section of a book.",
+     "definitionFit": "A voyage by ship is something travellers book and take."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +479,41 @@
     "text": "Re-establishes control by governments",
     "enumeration": "10"
    },
-   "solution": "REINSTATES"
+   "solution": "REINSTATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Re-establishes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "control",
+       "at": 15,
+       "gives": "REIN",
+       "note": "to rein is to control, as with a horse"
+      },
+      {
+       "words": "governments",
+       "at": 26,
+       "gives": "STATES",
+       "note": "states are governments"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regime restores its grip through state power.",
+     "definitionFit": "Synonym: to reinstate is to restore to a former position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +533,34 @@
      }
     ]
    },
-   "solution": "CHAINSAW"
+   "solution": "CHAINSAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "When cutting, it drives round the links",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "When cutting, it drives round the links",
+       "at": 0,
+       "note": "reads like a golfer driving round a links course, but the links are a power tool's chain, driven round as it cuts wood"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A motorised saw whose cutting teeth sit on a loop of chain links driven round a bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "links"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +574,54 @@
     "text": "African state where one follows matriarchal rule",
     "enumeration": "6"
    },
-   "solution": "MALAWI"
+   "solution": "MALAWI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African state",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 24,
+       "note": "follows puts the one after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "matriarchal",
+       "at": 32,
+       "gives": "MA",
+       "note": "a matriarch is a mother, MA in familiar speech"
+      },
+      {
+       "words": "rule",
+       "at": 44,
+       "gives": "LAW",
+       "note": "a law is a rule"
+      },
+      {
+       "words": "one",
+       "at": 20,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere in Africa where people live under the rule of mothers.",
+     "definitionFit": "Malawi is a landlocked country in south-east Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matriarchal"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +635,30 @@
     "text": "Take turns off to relax",
     "enumeration": "6"
    },
-   "solution": "UNWIND"
+   "solution": "UNWIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take turns off",
+      "at": 0,
+      "meaning": "undo the coils of a wound thread or spring"
+     },
+     {
+      "text": "to relax",
+      "at": 15,
+      "meaning": "to wind down and rest"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means both to uncoil something wound and to relax after stress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +678,42 @@
      }
     ]
    },
-   "solution": "WORKINGCLASS"
+   "solution": "WORKINGCLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wage earners",
+      "at": 8
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "On",
+       "at": 0,
+       "gives": "WORKING",
+       "note": "a machine that is on is working"
+      },
+      {
+       "words": "form",
+       "at": 3,
+       "gives": "CLASS",
+       "note": "a school form is a class"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Employees who are on good form, so to speak.",
+     "walkthrough": "'you might say' just flags the playful split of the phrase into two words.",
+     "definitionFit": "The working class are the people who earn wages from manual or industrial labour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +727,34 @@
     "text": "One seen in a hanging basket?",
     "enumeration": "10"
    },
-   "solution": "BALLOONIST"
+   "solution": "BALLOONIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One seen in a hanging basket?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One seen in a hanging basket?",
+       "at": 0,
+       "note": "suggests a trailing flower in a garden basket, but the basket hangs beneath a hot-air craft carrying a person"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone who flies in a hot-air craft rides in the wicker basket slung underneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hanging"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +768,34 @@
     "text": "Speaking with initial difficulty",
     "enumeration": "10"
    },
-   "solution": "STUTTERING"
+   "solution": "STUTTERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speaking with initial difficulty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Speaking with initial difficulty",
+       "at": 0,
+       "note": "sounds like trouble when starting to talk, but the difficulty is with each word's initial sounds, repeated"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A speech impediment where opening sounds of words are repeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "initial"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +809,34 @@
     "text": "Application for injury benefit, perhaps",
     "enumeration": "10"
    },
-   "solution": "ANTISEPTIC"
+   "solution": "ANTISEPTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Application for injury benefit, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Application for injury benefit, perhaps",
+       "at": 0,
+       "note": "sounds like a form claiming state money after an accident, but the application is something dabbed on a wound for its benefit"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A germ-killing liquid or cream applied to cuts to stop infection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Application"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +850,34 @@
     "text": "No single word will fit here",
     "enumeration": "6"
    },
-   "solution": "PLURAL"
+   "solution": "PLURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No single word will fit here",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "No single word will fit here",
+       "at": 0,
+       "note": "seems to say a grid space needs a phrase, but means a grammatical form where only words for more than one belong"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Plural forms denote more than one, so a singular word does not fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +891,46 @@
     "text": "Health resort's endless boom",
     "enumeration": "3"
    },
-   "solution": "SPA"
+   "solution": "SPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Health resort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "at": 16,
+       "note": "endless means the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boom",
+       "at": 24,
+       "gives": "SPAR",
+       "note": "a boom on a ship is a spar"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spa town's never-ending boom in trade.",
+     "walkthrough": "'endless' drops the last letter of SPAR.",
+     "definitionFit": "A town with mineral springs that people visit for their health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boom"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +950,29 @@
      }
     ]
    },
-   "solution": "MAKEGOOD"
+   "solution": "MAKEGOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Right",
+      "at": 0,
+      "meaning": "put right, compensate or repair"
+     },
+     {
+      "text": "to succeed",
+      "at": 6,
+      "meaning": "to become successful, especially from humble beginnings"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrasal verb means both to repair or compensate and to prosper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +986,29 @@
     "text": "The fate of many",
     "enumeration": "3"
    },
-   "solution": "LOT"
+   "solution": "LOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The fate",
+      "at": 0,
+      "meaning": "one's ... in life is one's destiny"
+     },
+     {
+      "text": "many",
+      "at": 12,
+      "meaning": "a great many"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both one's destiny in life and a large number of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fate"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1022,44 @@
     "text": "Prison dispute heard in exercise yard?",
     "enumeration": "10"
    },
-   "solution": "QUADRANGLE"
+   "solution": "QUADRANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exercise yard?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "QUADRANGLE",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 15,
+       "note": "heard means the words are said out loud and sound like another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prison dispute",
+       "at": 0,
+       "gives": "QUADWRANGLE",
+       "note": "quad is slang for prison and a wrangle is a dispute"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A row in jail overheard in the yard where inmates take exercise.",
+     "walkthrough": "QUAD (slang for prison) plus WRANGLE (dispute) is said to sound like the answer; the W is silent.",
+     "definitionFit": "A quadrangle is an enclosed courtyard, such as one used for walking and exercise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prison"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1073,41 @@
     "text": "Astute move for representation",
     "enumeration": "6"
    },
-   "solution": "STATUE"
+   "solution": "STATUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "representation",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "move",
+       "at": 7,
+       "note": "a move shifts the letters into new places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Astute",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewd move to win a seat in parliament.",
+     "walkthrough": "'move' rearranges ASTUTE.",
+     "definitionFit": "A statue is a carved or cast representation of a figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "representation"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1127,34 @@
      }
     ]
    },
-   "solution": "OPENTRANSFER"
+   "solution": "OPENTRANSFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Will a footballer receiving one be visibly moved?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Will a footballer receiving one be visibly moved?",
+       "at": 0,
+       "note": "suggests a player shown overcome with emotion, but moved means sold to another club, done in full public view"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A player placed on the transfer list for any club to bid for is openly available to be moved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1168,29 @@
     "text": "Criticise outdated school equipment",
     "enumeration": "5"
    },
-   "solution": "SLATE"
+   "solution": "SLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criticise",
+      "at": 0,
+      "meaning": "attack harshly in a review"
+     },
+     {
+      "text": "outdated school equipment",
+      "at": 10,
+      "meaning": "pupils once wrote on small boards of grey stone"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both to criticise severely and the writing tablet once used in classrooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "equipment"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1204,29 @@
     "text": "Second-hand, but not wasted",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Second-hand",
+      "at": 0,
+      "meaning": "previously owned, like a car"
+     },
+     {
+      "text": "not wasted",
+      "at": 17,
+      "meaning": "put to use rather than thrown away"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both previously owned and put to good use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1240,29 @@
     "text": "A high speed piece of film",
     "enumeration": "4"
    },
-   "solution": "CLIP"
+   "solution": "CLIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A high speed",
+      "at": 0,
+      "meaning": "going at a fast pace, as in 'at a fair rate'"
+     },
+     {
+      "text": "piece of film",
+      "at": 13,
+      "meaning": "a short extract from a film"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both a rapid pace and a short excerpt of footage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1276,49 @@
     "text": "Fools do and it is silly",
     "enumeration": "6"
    },
-   "solution": "IDIOTS"
+   "solution": "IDIOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fools",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "silly",
+       "at": 19,
+       "note": "silly suggests the letters are jumbled foolishly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "do",
+       "at": 6
+      },
+      {
+       "words": "it",
+       "at": 13
+      },
+      {
+       "words": "is",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fools act, and that is daft.",
+     "walkthrough": "'silly' rearranges DO, IT and IS.",
+     "definitionFit": "Plain synonym: fools are stupid people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silly"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1332,49 @@
     "text": "Girl secures employment as baggage carrier",
     "enumeration": "8"
    },
-   "solution": "CAROUSEL"
+   "solution": "CAROUSEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "baggage carrier",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secures",
+       "at": 5,
+       "note": "secures means holds the other piece firmly inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "CAROL",
+       "note": "Carol is a girl's name"
+      },
+      {
+       "words": "employment",
+       "at": 13,
+       "gives": "USE",
+       "note": "use means employment, as in putting to use"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman lands a job as a porter.",
+     "walkthrough": "'secures' means the girl's name holds the employment word inside it; the 'baggage carrier' is the airport belt, not a porter.",
+     "definitionFit": "At an airport the revolving belt that brings luggage round to passengers is a carousel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1388,41 @@
     "text": "Gadget wrongly labeled",
     "enumeration": "6"
    },
-   "solution": "TAGGED"
+   "solution": "TAGGED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "labeled",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrongly",
+       "at": 7,
+       "note": "wrongly means the letters are put in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gadget",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A device carrying the wrong label.",
+     "walkthrough": "'wrongly' rearranges GADGET.",
+     "definitionFit": "Synonym: something tagged has had a tag or label attached."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gadget"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1442,30 @@
      }
     ]
    },
-   "solution": "ENDEDUP"
+   "solution": "ENDEDUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Finally attained",
+      "at": 0,
+      "meaning": "arrived somewhere at last, as in 'we eventually got there'"
+     },
+     {
+      "text": "a high position",
+      "at": 17,
+      "meaning": "stood on end, set upright and so raised high"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase means both came to be in the end and, read literally, placed on end and upright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
+   }
   }
  ]
 }
