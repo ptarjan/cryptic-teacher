@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Imposed as a duty on the vicar, for example",
     "enumeration": "9"
    },
-   "solution": "INCUMBENT"
+   "solution": "INCUMBENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Imposed as a duty on",
+      "at": 0,
+      "meaning": "a duty that is binding upon someone rests on them as an obligation"
+     },
+     {
+      "text": "the vicar, for example",
+      "at": 21,
+      "meaning": "a vicar holding a parish benefice is the current holder of that office"
+     }
+    ],
+    "explanation": {
+     "surface": "A duty laid upon the parish vicar.",
+     "definitionFit": "Double definition: an adjective meaning resting on someone as an obligation, and a noun for the holder of a church living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vicar"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,58 @@
     "text": "Example of man in nice predicament",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Example",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the man's name sits inside the shuffled letters of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "predicament",
+         "at": 23,
+         "note": "a predicament is a mess, so the letters of nice are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "man",
+       "at": 11,
+       "gives": "STAN",
+       "note": "Stan is a man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An example of a man stuck in a nice predicament.",
+     "walkthrough": "'predicament' looks like the situation the man is in, but it is the signal that nice is to be rearranged.",
+     "definitionFit": "An instance is a single case cited as an example, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +136,47 @@
     "text": "Pass one about to have stomach trouble",
     "enumeration": "5"
    },
-   "solution": "COLIC"
+   "solution": "COLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stomach trouble",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pass",
+       "at": 0,
+       "gives": "COL",
+       "note": "a col is a mountain pass"
+      },
+      {
+       "words": "one",
+       "at": 5,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      },
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "C",
+       "note": "C stands for circa, Latin for about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller crossing a mountain pass is about to suffer stomach pains.",
+     "definitionFit": "Colic is severe abdominal pain, a form of stomach trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +196,47 @@
      }
     ]
    },
-   "solution": "MAPPINTERRACES"
+   "solution": "MAPPINTERRACES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "London Zoo feature",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plan",
+       "at": 0,
+       "gives": "MAP",
+       "note": "a map is a plan of an area"
+      },
+      {
+       "words": "dramatist",
+       "at": 5,
+       "gives": "PINTER",
+       "note": "Harold Pinter was an English dramatist"
+      },
+      {
+       "words": "rushes",
+       "at": 15,
+       "gives": "RACES",
+       "note": "races means rushes, hurries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright hurriedly draws up a plan for a feature at the zoo.",
+     "walkthrough": "The Mappin Terraces are an artificial mountain landscape built at London Zoo in 1914.",
+     "definitionFit": "The Mappin Terraces are a famous terraced enclosure at London Zoo, a specific example of its features."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +250,42 @@
     "text": "Oriental birdman goes on and on",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "goes on and on",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oriental",
+       "at": 0,
+       "gives": "E",
+       "note": "E for East, so Oriental"
+      },
+      {
+       "words": "birdman",
+       "at": 9,
+       "gives": "TERNAL",
+       "note": "the word splits into a seabird, the tern, followed by the man's name Al"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eastern bird-fancier who never stops talking.",
+     "walkthrough": "'birdman' reads as one word, an aviator, but must be split into a bird and a man.",
+     "definitionFit": "Eternal describes something without end, so a phrase meaning lasting forever fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birdman"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +299,41 @@
     "text": "Toy with coy Greek ruler",
     "enumeration": "7"
    },
-   "solution": "TOPARCH"
+   "solution": "TOPARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek ruler",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Toy",
+       "at": 0,
+       "gives": "TOP",
+       "note": "a spinning top is a toy"
+      },
+      {
+       "words": "coy",
+       "at": 9,
+       "gives": "ARCH",
+       "note": "arch means playfully sly or coy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruler in Greece playing coyly with a plaything.",
+     "definitionFit": "A toparch was a ruler of a small district or state in ancient Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Toy"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +347,28 @@
     "text": "Fresh pair of horses",
     "enumeration": "4"
    },
-   "solution": "SPAN"
+   "solution": "SPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fresh",
+      "at": 0,
+      "meaning": "neat and new, as in the phrase spick and ..."
+     },
+     {
+      "text": "pair of horses",
+      "at": 6,
+      "meaning": "a matched team of two horses harnessed together"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: an old word for clean and new, and an American term for a pair of draught animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +388,49 @@
      }
     ]
    },
-   "solution": "PINETREES"
+   "solution": "PINETREES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some spruce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be out",
+       "at": 28,
+       "note": "the yearning word is to be on the outside, wrapped around the performer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "longs",
+       "at": 22,
+       "gives": "PINES",
+       "note": "pines means longs, yearns"
+      },
+      {
+       "words": "old actor",
+       "at": 12,
+       "gives": "TREE",
+       "note": "Sir Herbert Beerbohm Tree was a celebrated Victorian actor-manager"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dapper veteran actor longs to get out of the theatre.",
+     "walkthrough": "'Some spruce' looks like 'rather smart', but spruce is the tree; Tree was an actor famed on the Edwardian London stage.",
+     "definitionFit": "Spruces belong to the pine family, so a group of spruces can be called conifers of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spruce"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +444,28 @@
     "text": "Limited contract",
     "enumeration": "6"
    },
-   "solution": "NARROW"
+   "solution": "NARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Limited",
+      "at": 0,
+      "meaning": "restricted in range or scope"
+     },
+     {
+      "text": "contract",
+      "at": 8,
+      "meaning": "to become tighter or thinner, as a verb"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: an adjective meaning restricted and a verb meaning to make or become thinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +485,42 @@
      }
     ]
    },
-   "solution": "MANDARINORANGE"
+   "solution": "MANDARINORANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chinese",
+       "at": 9,
+       "gives": "MANDARIN",
+       "note": "Mandarin is the main Chinese language"
+      },
+      {
+       "words": "royal dynasty",
+       "at": 17,
+       "gives": "ORANGE",
+       "note": "the House of Orange is the Dutch royal dynasty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit associated with a Chinese royal dynasty.",
+     "walkthrough": "The House of Orange gave England William III.",
+     "definitionFit": "A mandarin orange is a small citrus fruit, so it is a kind of fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "royal"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +534,49 @@
     "text": "Fool getting look-in in Shropshire",
     "enumeration": "5"
    },
-   "solution": "SALOP"
+   "solution": "SALOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shropshire",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "the word for look goes inside the word for fool"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fool",
+       "at": 0,
+       "gives": "SAP",
+       "note": "a sap is a fool"
+      },
+      {
+       "words": "look",
+       "at": 13,
+       "gives": "LO",
+       "note": "lo is an old word meaning look"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool gets a look-in somewhere in Shropshire.",
+     "walkthrough": "'look-in' splits into look (LO) and the container signal in.",
+     "definitionFit": "Salop is the traditional abbreviated name of the English county of Shropshire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "look-in"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +590,40 @@
     "text": "He makes clear letter clearer",
     "enumeration": "9"
    },
-   "solution": "EXPLAINER"
+   "solution": "EXPLAINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He makes clear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "letter",
+       "at": 15,
+       "gives": "EX",
+       "note": "ex is the spelt-out name of the letter X"
+      },
+      {
+       "words": "clearer",
+       "at": 22,
+       "gives": "PLAINER",
+       "note": "plainer means clearer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who explains things writes a letter clearer than most.",
+     "definitionFit": "Someone who explains things is one who makes them clear, so the phrase describes him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +637,28 @@
     "text": "Bridge for sale",
     "enumeration": "7"
    },
-   "solution": "AUCTION"
+   "solution": "AUCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bridge",
+      "at": 0,
+      "meaning": "... bridge, a form of the card game"
+     },
+     {
+      "text": "for sale",
+      "at": 7,
+      "meaning": "put up to be sold to the highest bidder"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: a variety of the card game bridge, and a public sale where goods go to the top bidder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +672,57 @@
     "text": "Free to go back to old dance party",
     "enumeration": "7"
    },
-   "solution": "RIDOTTO"
+   "solution": "RIDOTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old dance party",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Free",
+       "at": 0,
+       "gives": "RID",
+       "note": "rid means free"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "go back",
+         "at": 8,
+         "note": "the first to is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 5,
+         "gives": "TO"
+        }
+       ]
+      },
+      {
+       "words": "to",
+       "at": 16,
+       "gives": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Free to return to a dance from times past.",
+     "walkthrough": "'go back' turns the first TO into OT.",
+     "definitionFit": "A ridotto was an eighteenth-century social gathering with music and dancing, often masked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +742,28 @@
      }
     ]
    },
-   "solution": "CAPITALCHARGE"
+   "solution": "CAPITALCHARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grave accusation",
+      "at": 0,
+      "meaning": "an accusation of a crime punishable by death"
+     },
+     {
+      "text": "an attack on most important city",
+      "at": 30,
+      "meaning": "a charge as a military assault on the chief city"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: an indictment for a crime carrying the death penalty, and literally an assault upon a capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +777,67 @@
     "text": "Reaching sexual maturity to find local scene changing at last",
     "enumeration": "9"
    },
-   "solution": "PUBESCENT"
+   "solution": "PUBESCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reaching sexual maturity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "local",
+       "at": 33,
+       "gives": "PUB",
+       "note": "a local is a pub, a neighbourhood bar"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changing",
+         "at": 45,
+         "note": "the letters of scene are changing their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scene",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 57,
+         "note": "only the final letter of at is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at",
+         "at": 54
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Teenagers find the scene at the local changing.",
+     "walkthrough": "'changing' rearranges SCENE to ESCEN; 'last' takes T from 'at'.",
+     "definitionFit": "Pubescent describes someone at the stage of puberty, becoming capable of reproduction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +857,41 @@
      }
     ]
    },
-   "solution": "IRONHAND"
+   "solution": "IRONHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "symbol of firmness",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Press",
+       "at": 0,
+       "gives": "IRON",
+       "note": "to iron is to press clothes"
+      },
+      {
+       "words": "seaman",
+       "at": 6,
+       "gives": "HAND",
+       "note": "a hand is a crew member on a ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Navy recruiters press a sailor into service as a show of strength.",
+     "definitionFit": "An iron hand is an idiom for strict, unyielding control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +911,41 @@
      }
     ]
    },
-   "solution": "BORNORGANISER"
+   "solution": "BORNORGANISER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a first-class manager",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Natural",
+       "at": 0,
+       "gives": "BORN",
+       "note": "born means natural, innate"
+      },
+      {
+       "words": "storage container",
+       "at": 8,
+       "gives": "ORGANISER",
+       "note": "an organiser is a box or rack for keeping things tidy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A natural storage box made for an excellent manager.",
+     "definitionFit": "Someone who is a natural at organising people is an excellent administrator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "storage"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +959,61 @@
     "text": "Scare's about a wicked Englishman, initially",
     "enumeration": "7"
    },
-   "solution": "OVERAWE"
+   "solution": "OVERAWE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scare's",
+      "at": 0,
+      "note": "the definition is the verb scare, with 's as a link meaning is"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "OVER",
+       "note": "over can mean about, concerning"
+      },
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 35,
+         "note": "only the opening letters of the two words are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wicked",
+         "at": 16
+        },
+        {
+         "words": "Englishman",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is frightened by a wicked Englishman.",
+     "walkthrough": "'initially' takes W and E from 'wicked Englishman'.",
+     "definitionFit": "To overawe is to intimidate, filling someone with fear or awe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1033,42 @@
      }
     ]
    },
-   "solution": "GOODEGG"
+   "solution": "GOODEGG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's lucky!",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Virtuous",
+       "at": 0,
+       "gives": "GOOD",
+       "note": "good means virtuous"
+      },
+      {
+       "words": "urge",
+       "at": 9,
+       "gives": "EGG",
+       "note": "to egg on is to urge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A virtuous impulse turns out to be fortunate.",
+     "walkthrough": "'Good egg!' is a dated British exclamation of delight.",
+     "definitionFit": "The old exclamation was used to welcome good news, just like saying what a stroke of luck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "urge"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1082,41 @@
     "text": "Revolutionary ways to make strong boxes",
     "enumeration": "6"
    },
-   "solution": "CHESTS"
+   "solution": "CHESTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "strong boxes",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Revolutionary",
+       "at": 0,
+       "gives": "CHE",
+       "note": "Che Guevara was a revolutionary"
+      },
+      {
+       "words": "ways",
+       "at": 14,
+       "gives": "STS",
+       "note": "St is the abbreviation for street, a way, so ways gives STS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Revolutionary methods for making strongboxes.",
+     "definitionFit": "Chests are sturdy boxes for storing valuables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strong"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1130,47 @@
     "text": "Human pledge to put label in stockings",
     "enumeration": "7"
    },
-   "solution": "HOSTAGE"
+   "solution": "HOSTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Human pledge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "the label goes inside the stockings"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stockings",
+       "at": 29,
+       "gives": "HOSE",
+       "note": "hose are stockings"
+      },
+      {
+       "words": "label",
+       "at": 20,
+       "gives": "TAG",
+       "note": "a tag is a label"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promise to sew name labels into one's stockings.",
+     "definitionFit": "A hostage is a person held as security for a promise, a living pledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1184,29 @@
     "text": "Athlete regularly involved in rows",
     "enumeration": "7"
    },
-   "solution": "OARSMAN"
+   "solution": "OARSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Athlete",
+      "at": 0,
+      "meaning": "a sportsman"
+     },
+     {
+      "text": "regularly involved in rows",
+      "at": 8,
+      "meaning": "someone who often takes part in rowing, read as quarrelling"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: a sportsperson, and someone who habitually rows a boat, disguised as being always in arguments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1220,28 @@
     "text": "Happy chance to show clemency",
     "enumeration": "5"
    },
-   "solution": "MERCY"
+   "solution": "MERCY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Happy chance",
+      "at": 0,
+      "meaning": "a fortunate event, as in it is a blessing that"
+     },
+     {
+      "text": "clemency",
+      "at": 21,
+      "meaning": "forgiveness or leniency shown to someone"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: a stroke of luck, as in it's a blessing, and compassion shown to an offender."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1255,49 @@
     "text": "Smooth story about town",
     "enumeration": "9"
    },
-   "solution": "STEVENAGE"
+   "solution": "STEVENAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "town",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "the word for story goes around the word for smooth"
+      }
+     ],
+     "parts": [
+      {
+       "words": "story",
+       "at": 7,
+       "gives": "STAGE",
+       "note": "a stage is a level or storey of a building, spelt story in American English"
+      },
+      {
+       "words": "Smooth",
+       "at": 0,
+       "gives": "EVEN",
+       "note": "even means smooth, level"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smooth tale about a town.",
+     "walkthrough": "Story here is a floor of a building, not a tale. Stevenage is a new town in Hertfordshire, north of London.",
+     "definitionFit": "Stevenage is an English town in Hertfordshire, an example of the general term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1311,41 @@
     "text": "The girl from Standard One",
     "enumeration": "5"
    },
-   "solution": "NORMA"
+   "solution": "NORMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Standard",
+       "at": 14,
+       "gives": "NORM",
+       "note": "a norm is a standard"
+      },
+      {
+       "words": "One",
+       "at": 23,
+       "gives": "A",
+       "note": "a means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl from Standard One at primary school.",
+     "definitionFit": "Norma is a girl's name, so it names a girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1359,43 @@
     "text": "Fixed soundly to provide home for animal",
     "enumeration": "4"
    },
-   "solution": "SETT"
+   "solution": "SETT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "home for animal",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SETT",
+     "indicators": [
+      {
+       "text": "soundly",
+       "at": 6,
+       "note": "soundly signals that a word is said, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fixed",
+       "at": 0,
+       "gives": "SET",
+       "note": "set means fixed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something firmly fixed provides a home for a creature.",
+     "definitionFit": "A sett is the burrow of a badger, a home for an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soundly"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1415,40 @@
      }
     ]
    },
-   "solution": "EAGLEEYED"
+   "solution": "EAGLEEYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "keen of sight",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "EAGLE",
+       "note": "the eagle is a bird"
+      },
+      {
+       "words": "observed",
+       "at": 5,
+       "gives": "EYED",
+       "note": "eyed means observed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird watched by sharp-sighted spectators.",
+     "definitionFit": "Eagle-eyed means having very sharp vision, as eagles do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
