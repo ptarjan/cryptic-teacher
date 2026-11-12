@@ -198,8 +198,8 @@ check("doesNotGive: hid() over words the clue does not print together stays refu
 msg = mend("hid<to some extent>(rev<getting upset>([now] +<meeting> [then]))", "Now meeting then, getting upset to some extent", "TWO")
 check("doesNotGive: a word hidden backwards is named as rev(hid()), the hid inside", "rev<getting upset>(hid<to some extent>([Now then]))" in msg)
 msg = mend("[To appear]EMERGE + [cold]C + [New York]NY", "To appear cold in New York", "EMERGENCY")
-check("doesNotGive: a charade piece that only fits inside its neighbour says to write the container",
-      "[cold]C goes inside [New York]NY" in msg and "ins<indicator>([New York]NY, [cold]C)" in msg)
+check("doesNotGive: a charade piece that only fits inside its neighbour, with 'in' the one container word left over, is rewritten as the container",
+      msg == "[To appear]EMERGE + ins<in>([New York]NY, [cold]C)")
 check("doesNotGive: hid() over a rev() of the clue words is mended into rev(hid())",
       mend("hid<to some extent>(rev<getting upset>([Now] + [then]))", "Now then, getting upset to some extent", "TWO")
       == "rev<getting upset>(hid<to some extent>([Now then]))")
@@ -272,7 +272,8 @@ for wp, clue, ans in [("ins<into>([port]PT, [a] + [way]LANE)", "Space traveller 
     check("doesNotGive drops the bare article of a two-piece charade: " + ans, "[a]" not in msg and not msg.startswith("REFUSED"))
 # ... and the refusals that stay refused say what to write: the one surplus piece, the one leaf one letter too long
 msg = mend("ins<during>([enemy]FOE, [Torment]RAGE)", "Torment during enemy raid", "FORAGE")
-check("doesNotGive names a leaf one letter too long", msg.startswith("REFUSED") and "shortened at its end to RAG" in msg)
+check("doesNotGive cuts the one leaf a letter too long at its end ([Torment]RAGE -> RAG) when no other leaf can lose one",
+      msg == "ins<during>([enemy]FOE, [Torment]RAG)")
 msg = mend("ins<in>([bed]CRIB, [article]A + [read]R)", "Native American's article read in bed", "CARIB")
 check("doesNotGive cuts the one surplus charade piece in place", not msg.startswith("REFUSED") and "[read]R" not in msg)
 # doesNotGive, 10-30 evening audit (103 refusals since 17:00 UTC): anagram fodder off by whole clue words, a

@@ -145,20 +145,45 @@ def r_does_not_give(node, parent, ctx):
     except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
         return None
     found, seen = [], set()
-    for k in range(len(list(walk(node)))):
-        for new in _does_not_give_edits(node, k, ctx.get("clue")):
-            try:
-                W.evaluate(copy.deepcopy(new), answer)
-            except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
-                continue
-            key = json.dumps(new, sort_keys=True)
-            if key not in seen:
-                seen.add(key)
-                found.append(new)
+    for late in (False, True):
+        # the end cut of a leaf is the last resort: beside the plural-S / surplus-leaf edits it only adds a
+        # second way (HIFT for SHIFT) to a tree that has one right edit already
+        if late and (found or not _one_trim_candidate(node, answer)):
+            break
+        for k in range(len(list(walk(node)))):
+            for new in _does_not_give_edits(node, k, ctx.get("clue"), late):
+                try:
+                    W.evaluate(copy.deepcopy(new), answer)
+                except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
+                    continue
+                key = json.dumps(new, sort_keys=True)
+                if key not in seen:
+                    seen.add(key)
+                    found.append(new)
     return found[0] if len(found) == 1 else None
 
 
-def _does_not_give_edits(node, k, clue=None):
+def _one_trim_candidate(node, answer):
+    """True when exactly one (leaf, shorter letters) pair, the letter dropped at an end OR inside ([cube]DICE ->
+    DIE, [pet]CAT -> AT), makes the tree give the answer: with two, only the clue words' meanings say which
+    leaf is wrong, so the end cut is a guess ([pet]AT for INDICATE) and stays refused."""
+    cands = set()
+    for k, (n, _) in enumerate(walk(node)):
+        g = str(n.get("gives") or "")
+        if n.get("op") is not None or len(g) < 2 or not g.isalpha():
+            continue
+        for i in range(len(g)):
+            new = copy.deepcopy(node)
+            list(walk(new))[k][0]["gives"] = g[:i] + g[i + 1:]
+            try:
+                W.evaluate(new, answer)
+            except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
+                continue
+            cands.add((k, g[:i] + g[i + 1:]))
+    return len({k for k, _ in cands}) == 1
+
+
+def _does_not_give_edits(node, k, clue=None, late=False):
     """Every single-edit copy of `node` the doesNotGive mend tries at its k-th node: a container's
     arguments swapped, or a container written as the charade of its two arguments (either order: ADRIFT
     is AD + RIFT, 'in' only linking them); a charade's pieces in another order (an indicator of its own,
@@ -170,6 +195,14 @@ def _does_not_give_edits(node, k, clue=None):
         return new, list(walk(new))[k][0]
     n = list(walk(node))[k][0]
     parts = n.get("parts") or []
+    if late:
+        # the last-resort tier of r_does_not_give: only the one-letter end cut of a leaf
+        if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
+            for cut in (n["gives"][1:], n["gives"][:-1]):
+                new, t = fresh()
+                t["gives"] = cut
+                out.append(new)
+        return [_flat_charades(new) for new in out]
     if n.get("op") == "container" and len(parts) == 2:
         for order in ([1, 0], ):
             new, t = fresh()
@@ -319,14 +352,6 @@ def _does_not_give_edits(node, k, clue=None):
         new, t = fresh()
         t["gives"] = t["gives"][:-1]
         out.append(new)
-    if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
-        # a leaf one letter too long at an end ([One of five]QUINT for QUIN, [sons]SS for S): the end cut,
-        # kept only when no other edit in the tree gives the answer (a letter doubled at a join between two
-        # leaves, where either could lose it, has two edits and stays refused)
-        for cut in (n["gives"][1:], n["gives"][:-1]):
-            new, t = fresh()
-            t["gives"] = cut
-            out.append(new)
     if n.get("op") == "charade" and len(parts) >= 2:
         # a piece the answer does not need ([dense]D after LARD in DULLARD: the definition word filed as a
         # leaf): a plain leaf cut, its clue word left to the definition or as a link word
