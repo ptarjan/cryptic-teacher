@@ -74,30 +74,31 @@ class Wiring(unittest.TestCase):
         m = re.search(r"const INERT = \[([^\]]*)\]", js)
         self.assertEqual(tuple(re.findall(r'"([^"]+)"', m.group(1))), S.QUEUE_STATE)
 
-    def test_full_suite_jobs_run_only_when_scope_says_full(self):
-        for name in ("generated", "test", "cache"):
-            body = self.job(name)
-            self.assertIn("needs.scope.outputs.mode == 'full'", body, name)
-            self.assertIn("scope", re.search(r"needs:.*", body).group(0), name)
+    def test_burn_paths_are_the_same_in_check_and_tests(self):
+        raw = (ROOT / ".github/workflows/tests.yml").read_text()
+        chk = (ROOT / ".github/workflows/check.yml").read_text()
 
-    def test_fast_job_runs_on_fast_only_and_checks_the_changed_ids(self):
-        body = self.job("fast")
-        self.assertIn("needs.scope.outputs.mode == 'fast'", body)
-        for tool in ("tools/puzzle_schema.py", "tools/puzzle_integrity.py", "tools/validate_annotations.py --deploy"):
-            self.assertIn(tool, body)
-        self.assertIn("tools/ci_scope.py files", body)
+        def listed(t, key):
+            return re.findall(r'^      - "([^"]+)"$', t[t.index(key) :], re.MULTILINE)
 
-    def test_scope_defaults_to_full_and_pull_requests_are_always_full(self):
-        body = self.job("scope")
-        self.assertIn('[ "$EVENT" = push ] && [ "$REF" = refs/heads/master ]', body)
-        self.assertIn("mode=full", body)
+        ignored = listed(raw, "paths-ignore:")[:len(listed(chk, "paths:"))]
+        self.assertEqual(ignored, listed(chk, "paths:"))
+        data = {"puzzles/**/*.json", "puzzles/**/*.blog", *S.validate_scope.ENTRY_TABLES, *S.QUEUE_STATE,
+                S.validate_scope.BACKLOG, *S.DERIVED_DATA}
+        self.assertEqual(set(ignored), data)
 
-    def test_verdict_job_needs_everything_and_accepts_a_skipped_branch_only_via_scope(self):
+    def test_full_suite_has_no_scope_job_and_one_static_matrix(self):
+        self.assertNotIn("needs.scope", self.text)
+        for name in ("generated", "test", "cache", "tests-passed"):
+            self.job(name)
+        self.assertRegex(self.job("test"), r"shard: \[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]")
+
+    def test_verdict_job_needs_everything_and_is_red_unless_all_succeeded(self):
         body = self.job("tests-passed")
         needs = re.search(r"needs:\s*\[([^\]]*)\]", body).group(1)
-        for j in ("scope", "fast", "generated", "test", "cache"):
+        for j in ("generated", "test", "cache"):
             self.assertIn(j, needs)
-        self.assertIn("SCOPE", body)
+        self.assertIn('.result == "success"', body)
 
 
 if __name__ == "__main__":
