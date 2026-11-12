@@ -158,7 +158,7 @@ RUSH_ROOM = "cryptic-crosswords"
 # then. No wake while he is asleep (tools/awake.py): fills aim outside his
 # nights, and a meter full at night waits for the morning. PLAN_SHARE of the memory cap is the
 # width counted on when choosing how many resets the machine can fill.
-MANUAL_RESETS = 15
+MANUAL_RESETS = 25  # 15 until 11-12, when the owner's allowance rose to 25 per 30 days
 RESET_SPAN_S = 30 * 86400
 MANUAL_DROP = 20.0
 NATURAL_SLACK_S = 3600  # a drop this near resets_at is the natural reset
