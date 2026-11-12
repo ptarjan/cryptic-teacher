@@ -483,7 +483,7 @@ jobs:
           # succeeded and requeue, the last of them, has finished (skipped
           # when validate chose the incremental check).
           while :; do
-            jobs=$(gh api --paginate "$JOBS" --jq '.jobs[] | select(.name == "validate" or .name == "annotate" or .name == "requeue") | "\(.name) \(.status) \(.conclusion)"')
+            jobs=$(gh api --paginate "$JOBS" --jq '.jobs[] | select(.name == "validate" or .name == "requeue" or (.name | startswith("annotate"))) | "\(.name | sub(" \\(.*"; "")) \(.status) \(.conclusion)"')
             bad=$(grep -E ' completed (failure|cancelled|timed_out|action_required|neutral|stale)$' <<<"$jobs" || true)
             if [ -n "$bad" ]; then echo "::error title=Not deployed::the annotation check ended: $bad"; exit 1; fi
             if grep -qx 'validate completed skipped' <<<"$jobs"; then echo "::error title=Not deployed::the validate job was skipped"; exit 1; fi
@@ -759,8 +759,8 @@ jobs:
   # check takes one shard's time. Every puzzle is checked by exactly one shard
   # (`--shard i/n`: the puzzles whose id hashes to i of n) and the backlog
   # ratchet is per puzzle, so each shard enforces its own slice. Skipped
-  # unless validate chose the full check. The shard name is fixed so every
-  # copy is "annotate" in the jobs API and shares one budget row.
+  # unless validate chose the full check. The jobs API names the copies
+  # "annotate (3)"; the wait and tools/step_budgets.py strip the suffix.
   annotate:
     name: annotate
     needs: validate

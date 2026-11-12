@@ -64,7 +64,7 @@ def check_run(repo, run_id, attempt="1"):
                 continue
             if not (step.get("started_at") and step.get("completed_at")):
                 continue
-            key = f"{job['name']}/{step['name']}"
+            key = f"{re.sub(r' [(][0-9]+[)]$', '', job['name'])}/{step['name']}"   # a matrix job is "annotate (3)"
             took = round((_t(step["completed_at"]) - _t(step["started_at"])).total_seconds())
             row = table.get(key)
             if row is None:
