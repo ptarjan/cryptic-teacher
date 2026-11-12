@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Ignore sales ploy?",
     "enumeration": "8"
    },
-   "solution": "DISCOUNT"
+   "solution": "DISCOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ignore",
+      "at": 0,
+      "meaning": "to disregard or set aside a possibility, as in refusing to count something"
+     },
+     {
+      "text": "sales ploy?",
+      "at": 7,
+      "meaning": "a price reduction offered by a shop to lure buyers"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone advises dismissing a shop's marketing trick.",
+     "definitionFit": "Both senses are standard: to dismiss an idea, and a markdown in price used as a selling tactic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +70,49 @@
     "text": "King Henry gets involved in craze",
     "enumeration": "4"
    },
-   "solution": "FAHD"
+   "solution": "FAHD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "King",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 16,
+       "note": "Henry gets caught up inside the craze, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "craze",
+       "at": 28,
+       "gives": "FAD",
+       "note": "a craze is a fad"
+      },
+      {
+       "words": "Henry",
+       "at": 5,
+       "gives": "H",
+       "note": "H is the abbreviation for henry, the unit of inductance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch called Henry is swept up in a passing fashion.",
+     "walkthrough": "Henry looks like the royal name, but here it is H, the symbol for the electrical unit.",
+     "definitionFit": "Fahd was King of Saudi Arabia from 1982 to 2005, so a named example of a monarch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +126,29 @@
     "text": "Collier's shorthand",
     "enumeration": "6"
    },
-   "solution": "PITMAN"
+   "solution": "PITMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collier's",
+      "at": 0,
+      "meaning": "a collier is a coal miner, and the clue's 's reads as 'is': a man who works down a pit"
+     },
+     {
+      "text": "shorthand",
+      "at": 10,
+      "meaning": "Sir Isaac ... system of phonetic shorthand writing"
+     }
+    ],
+    "explanation": {
+     "surface": "A mention of the abbreviated writing a coal miner might use.",
+     "definitionFit": "A miner working in a coal pit, and the eponymous shorthand system invented by Isaac Pitman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +162,45 @@
     "text": "Caretakers join star cast",
     "enumeration": "8"
    },
-   "solution": "JANITORS"
+   "solution": "JANITORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Caretakers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cast",
+       "at": 21,
+       "note": "to cast is to throw or mould afresh, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "join",
+       "at": 11
+      },
+      {
+       "words": "star",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Building caretakers sign up to appear alongside a celebrity in a film.",
+     "walkthrough": "'cast' looks like a film cast the star joins, but it signals that JOIN and STAR are rearranged.",
+     "definitionFit": "Janitors are synonymous with caretakers, people who look after a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +214,41 @@
     "text": "Italian town terrifying female novelist",
     "enumeration": "10"
    },
-   "solution": "GORGONZOLA"
+   "solution": "GORGONZOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "terrifying female",
+       "at": 13,
+       "gives": "GORGON",
+       "note": "a Gorgon is a monstrous woman of Greek myth such as Medusa"
+      },
+      {
+       "words": "novelist",
+       "at": 31,
+       "gives": "ZOLA",
+       "note": "Emile Zola was a French novelist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian town is linked with a frightening woman writer.",
+     "walkthrough": "The answer is also the blue cheese named after the town near Milan.",
+     "definitionFit": "Gorgonzola is a small town near Milan in Lombardy, home of the cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +262,58 @@
     "text": "U-boat first sighted in Scandinavian river",
     "enumeration": "6"
    },
-   "solution": "DANUBE"
+   "solution": "DANUBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "the initials are placed within the Scandinavian person"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scandinavian",
+       "at": 24,
+       "gives": "DANE",
+       "note": "a Dane is a native of Denmark, a Scandinavian"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 7,
+         "note": "takes the opening letter of each part of the hyphenated word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "U-boat",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German submarine is first spotted in a Nordic waterway.",
+     "walkthrough": "'first' takes U and B, the first letters of each part of 'U-boat'; 'sighted' is a link. The definition is 'river', not 'Scandinavian river'.",
+     "definitionFit": "The Danube is Europe's second-longest river, flowing from Germany to the Black Sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +333,45 @@
      }
     ]
    },
-   "solution": "VITAMINC"
+   "solution": "VITAMINC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cure for scurvy",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "production",
+       "at": 10,
+       "note": "the letters are produced in a new arrangement, the way a show is staged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Manic",
+       "at": 0
+      },
+      {
+       "words": "ITV",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic TV channel makes a programme about remedies for scurvy.",
+     "walkthrough": "ITV is a British television network; 'production' looks like a TV show but signals the rearrangement.",
+     "definitionFit": "Scurvy is caused by lack of ascorbic acid, so this nutrient is its remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +385,46 @@
     "text": "Peevish driver getting right inside",
     "enumeration": "6"
    },
-   "solution": "CRABBY"
+   "solution": "CRABBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Peevish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 29,
+       "note": "the letter for right goes within the driver's word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "driver",
+       "at": 8,
+       "gives": "CABBY",
+       "note": "a cabby is a taxi driver"
+      },
+      {
+       "words": "right",
+       "at": 23,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy motorist gets his own way.",
+     "definitionFit": "Crabby is an informal synonym of irritable or peevish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +438,44 @@
     "text": "I, for one, may be heard making positive declaration",
     "enumeration": "6"
    },
-   "solution": "AVOWAL"
+   "solution": "AVOWAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "positive declaration",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AVOWAL",
+     "indicators": [
+      {
+       "text": "may be heard",
+       "at": 12,
+       "note": "signals that the phrase is spoken and the answer sounds like it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I, for one",
+       "at": 0,
+       "gives": "AVOWEL",
+       "note": "the letter I is one example of a vowel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker announces they are making a firm statement.",
+     "walkthrough": "'I, for one' looks like a person speaking, but it is the letter I, an example of a vowel.",
+     "definitionFit": "An avowal is an open, positive declaration or admission of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +489,43 @@
     "text": "Missile bowling over French aristocrats",
     "enumeration": "4"
    },
-   "solution": "SCUD"
+   "solution": "SCUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Missile",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "bowling over",
+       "at": 8,
+       "note": "knocking something over turns it upside down, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French aristocrats",
+       "at": 21,
+       "gives": "DUCS",
+       "note": "ducs are French dukes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rocket knocks down some French noblemen.",
+     "walkthrough": "'bowling over' looks like the missile's effect, but it turns DUCS around.",
+     "definitionFit": "The Scud is a Soviet-designed tactical ballistic missile, so a named example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowling"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +539,58 @@
     "text": "Significant base in Gulf disorder",
     "enumeration": "10"
    },
-   "solution": "MEANINGFUL"
+   "solution": "MEANINGFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Significant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "base",
+       "at": 12,
+       "gives": "MEAN",
+       "note": "base as an adjective means low or mean"
+      },
+      {
+       "words": "in",
+       "at": 17,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disorder",
+         "at": 25,
+         "note": "letters in disorder are jumbled into a different sequence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gulf",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military base sits in the Gulf amid turmoil.",
+     "walkthrough": "'disorder' acts on 'Gulf' alone, giving GFUL; 'base' is the adjective, not a camp.",
+     "definitionFit": "Meaningful and significant are synonyms: both describe something with real import."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +604,42 @@
     "text": "Gold (water colour)",
     "enumeration": "6"
    },
-   "solution": "AUBURN"
+   "solution": "AUBURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gold",
+       "at": 0,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
+      },
+      {
+       "words": "water",
+       "at": 6,
+       "gives": "BURN",
+       "note": "a burn is a Scottish word for a stream"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gold is described as a watercolour shade.",
+     "walkthrough": "'Gold' looks like the colour definition, but it is the symbol AU; the definition is 'colour'.",
+     "definitionFit": "Auburn is a reddish-brown hue, chiefly used of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gold"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +663,31 @@
      }
     ]
    },
-   "solution": "UPTHESPOUT"
+   "solution": "UPTHESPOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expecting",
+      "at": 0,
+      "meaning": "British slang for pregnant, expecting a baby"
+     },
+     {
+      "text": "to be like Incey Wincey Spider",
+      "at": 10,
+      "meaning": "the nursery-rhyme spider climbed the waterspout, so it was physically in that drainpipe"
+     }
+    ],
+    "explanation": {
+     "surface": "Pregnancy is compared to a spider from a children's rhyme.",
+     "walkthrough": "Incey Wincey Spider is the British name of the rhyme known in the US as Itsy Bitsy Spider.",
+     "definitionFit": "The phrase is British slang for pregnant, and literally places someone inside a drainpipe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +701,59 @@
     "text": "Brothers stuffing themselves with wine, nuts and chocolate cakes?",
     "enumeration": "8"
    },
-   "solution": "BROWNIES"
+   "solution": "BROWNIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chocolate cakes?",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffing themselves with",
+       "at": 9,
+       "note": "the brothers fill themselves with the other piece, so it goes inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brothers",
+       "at": 0,
+       "gives": "BROS",
+       "note": "BROS is the plural abbreviation of brothers"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 40,
+         "note": "nuts means crazy, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Siblings gorge on wine, nuts and chocolate cake.",
+     "walkthrough": "'nuts' looks like food in the list but signals WNIE from 'wine'. The question mark marks the definition as an example-style hint.",
+     "definitionFit": "Brownies are small square chocolate cakes, so the definition describes them fairly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +767,59 @@
     "text": "Row about thief removing lining in hat",
     "enumeration": "6"
    },
-   "solution": "TITFER"
+   "solution": "TITFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 4,
+       "note": "the row goes around the other piece, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Row",
+       "at": 0,
+       "gives": "TIER",
+       "note": "a tier is a row, as of seats"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "removing lining",
+         "at": 16,
+         "note": "taking out the inner letters leaves only the first and last of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thief",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument about a burglar who stripped the lining out of a hat.",
+     "walkthrough": "'Row' looks like a quarrel but is a tier. TITFER is Cockney rhyming slang: 'tit for tat' rhymes with hat.",
+     "definitionFit": "British slang for a hat, from Cockney rhyming slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +833,46 @@
     "text": "Bent tree can't break",
     "enumeration": "8"
    },
-   "solution": "ENTRACTE"
+   "solution": "ENTRACTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "break",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Bent",
+       "at": 0,
+       "note": "bent means twisted out of shape, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tree",
+       "at": 5
+      },
+      {
+       "words": "can't",
+       "at": 10
+      }
+     ]
+    },
+    "spelling": "ENTR'ACTE",
+    "explanation": {
+     "surface": "A tree that is bowed cannot snap.",
+     "walkthrough": "'break' looks like part of the surface's verb but is the definition: an interval.",
+     "definitionFit": "An entr'acte is an interval between acts of a play, a break in the performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +886,40 @@
     "text": "A Caledonian's neckties",
     "enumeration": "6"
    },
-   "solution": "ASCOTS"
+   "solution": "ASCOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "neckties",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "Caledonian's",
+       "at": 2,
+       "gives": "SCOTS",
+       "note": "Caledonia is the Latin name for Scotland, so a Caledonian is a Scot; the possessive gives the final letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman's ties.",
+     "walkthrough": "The apostrophe in the possessive is ignored, so Scot's gives SCOTS.",
+     "definitionFit": "An ascot is a broad cravat-style tie, named after Ascot racecourse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +933,52 @@
     "text": "Foreign garment is turned for foreign ladies",
     "enumeration": "8"
    },
-   "solution": "SIGNORAS"
+   "solution": "SIGNORAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foreign ladies",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned",
+       "at": 19,
+       "note": "the whole phrase is turned around and read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Foreign garment",
+         "at": 0,
+         "gives": "SARONG",
+         "note": "a sarong is a wrap-around skirt from South-East Asia"
+        },
+        {
+         "words": "is",
+         "at": 16,
+         "gives": "IS",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exotic item of clothing is turned inside out for women abroad.",
+     "definitionFit": "Signora is the Italian for a married woman or lady, so the plural fits foreign ladies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +992,44 @@
     "text": "Work in the concert hall, having no time for mucky books",
     "enumeration": "6"
    },
-   "solution": "EROICA"
+   "solution": "EROICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work in the concert hall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having no time",
+       "at": 26,
+       "note": "the letter T for time is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mucky books",
+       "at": 45,
+       "gives": "EROTICA",
+       "note": "erotica is a term for indecent, smutty literature"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performance in the concert hall drops a reference to dirty books.",
+     "definitionFit": "Eroica is the name of Beethoven's Third Symphony, a work heard in concert halls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1043,56 @@
     "text": "One who won't accept goal starts to offend referee",
     "enumeration": "8"
    },
-   "solution": "OBJECTOR"
+   "solution": "OBJECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who won't accept",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "goal",
+       "at": 21,
+       "gives": "OBJECT",
+       "note": "an object is an aim or goal"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 26,
+         "note": "takes the opening letter of each of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "offend",
+         "at": 36
+        },
+        {
+         "words": "referee",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football player disputes a goal that offends the referee.",
+     "walkthrough": "'goal' suggests football, but it means an aim.",
+     "definitionFit": "An objector protests or refuses to accept something, like a conscientious objector."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1106,42 @@
     "text": "Grail-seeker with companion in the soup",
     "enumeration": "6"
    },
-   "solution": "BORSCH"
+   "solution": "BORSCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grail-seeker",
+       "at": 0,
+       "gives": "BORS",
+       "note": "Sir Bors was a knight of the Round Table on the Grail quest"
+      },
+      {
+       "words": "companion",
+       "at": 18,
+       "gives": "CH",
+       "note": "CH stands for Companion of Honour, a British order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A questing knight and his friend find themselves in trouble.",
+     "walkthrough": "'in the soup' looks like the idiom for trouble; 'in the' is a link and 'soup' the definition.",
+     "definitionFit": "Borsch is the beetroot soup of Eastern Europe, a variant spelling of borscht."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soup"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1155,55 @@
     "text": "Animal from bog taken to centre of staging area",
     "enumeration": "6"
    },
-   "solution": "QUAGGA"
+   "solution": "QUAGGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bog",
+       "at": 12,
+       "gives": "QUAG",
+       "note": "a quag is a quagmire or bog"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 25,
+         "note": "takes the middle letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staging",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "at": 43,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature is brought out of a swamp to the middle of a staging post.",
+     "definitionFit": "The quagga was a zebra-like animal of South Africa, extinct since 1883."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1217,29 @@
     "text": "Royalty on Long Island",
     "enumeration": "6"
    },
-   "solution": "QUEENS"
+   "solution": "QUEENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Royalty",
+      "at": 0,
+      "meaning": "female monarchs or consorts collectively"
+     },
+     {
+      "text": "on Long Island",
+      "at": 8,
+      "meaning": "a borough of New York City at the western end of Long Island"
+     }
+    ],
+    "explanation": {
+     "surface": "Kings or queens are spotted on an island off New York.",
+     "definitionFit": "Plural of the female monarch, and the New York borough located on Long Island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1263,54 @@
      }
     ]
    },
-   "solution": "DROPSALINE"
+   "solution": "DROPSALINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "writes",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 25,
+       "note": "the work and solution come after the doctor in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 31,
+       "gives": "DR"
+      },
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op is short for opus, a work"
+      },
+      {
+       "words": "medical solution",
+       "at": 8,
+       "gives": "SALINE",
+       "note": "saline is a salt solution used in medicine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor writes a prescription for a saline drip.",
+     "walkthrough": "'on' is a link joining OP and SALINE; the definition 'writes' is at the end.",
+     "definitionFit": "The phrase is an idiom for sending someone a short letter or note."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writes"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1324,42 @@
     "text": "Setbacks, we hear, for reformer",
     "enumeration": "4"
    },
-   "solution": "KNOX"
+   "solution": "KNOX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reformer",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNOX",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 10,
+       "note": "signals that the word is spoken and the answer sounds like it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Setbacks",
+       "at": 0,
+       "gives": "KNOCKS",
+       "note": "knocks are setbacks or blows"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reformer is said to suffer reverses.",
+     "definitionFit": "John Knox was the leader of the Protestant Reformation in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1373,30 @@
     "text": "X in \"The Gentle Touch\"",
     "enumeration": "4"
    },
-   "solution": "KISS"
+   "solution": "KISS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "X",
+      "at": 0,
+      "meaning": "a cross written at the end of a letter stands for a token of affection"
+     },
+     {
+      "text": "The Gentle Touch",
+      "at": 6,
+      "meaning": "a soft contact of the lips, a tender caress"
+     }
+    ],
+    "explanation": {
+     "surface": "A letter appears in the title of a TV drama.",
+     "walkthrough": "The Gentle Touch was a 1980s British police drama, which makes the clue look like a quiz question.",
+     "definitionFit": "X is the conventional sign for a kiss in letters, and a kiss is a gentle touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1410,52 @@
     "text": "Fancy ignoring the odds to go free",
     "enumeration": "6"
    },
-   "solution": "ACQUIT"
+   "solution": "ACQUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "free",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "ignoring the odds",
+         "at": 6,
+         "note": "leaves out the first, third and fifth letters, keeping only the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fancy",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "to go",
+       "at": 24,
+       "gives": "QUIT",
+       "note": "to quit is to leave or go"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fanciful notion of escaping by disregarding the odds.",
+     "walkthrough": "Take the even letters of 'Fancy' to get AC.",
+     "definitionFit": "To acquit is to free someone by declaring them not guilty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1469,42 @@
     "text": "One can't recollect me as I can recollect",
     "enumeration": "8"
    },
-   "solution": "AMNESIAC"
+   "solution": "AMNESIAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One can't recollect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "recollect",
+       "at": 32,
+       "note": "read as re-collect: gather the letters together again in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "me as I can",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who forgets says they can remember.",
+     "walkthrough": "The second 'recollect' is the anagram signal, read as re-collect.",
+     "definitionFit": "An amnesiac is a person who suffers memory loss and so cannot remember."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "recollect"
+    }
+   }
   }
  ]
 }
