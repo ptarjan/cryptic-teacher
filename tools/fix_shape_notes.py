@@ -365,12 +365,57 @@ def _does_not_give_edits(node, k, clue=None, late=False):
                 t.clear()
                 t.update(only)
             out.append(new)
+    if n.get("op") == "charade" and clue:
+        out += _inside_edits(fresh, parts)
+    if n.get("op") == "container" and len(parts) == 2 and clue:
+        # '[Serviceman]GI engulfed by receding [tide]SEA' for AEGIS: the evaluator says an argument gives the
+        # answer only read backwards; the one unclaimed reversal word of the clue is the reversal's indicator
+        word = _lone_container_word(node, clue, "reversal")
+        for j in (0, 1):
+            if word and leaf(parts[j]) and str(parts[j].get("gives") or "").isalpha():
+                new, t = fresh()
+                t["parts"][j] = {"op": "reversal", "indicators": [{"text": word, "note": f"'{word}' reverses the piece"}],
+                                 "parts": [t["parts"][j]]}
+                out.append(new)
     return [_flat_charades(new) for new in out]
 
 
-def _lone_container_word(node, clue):
+def _inside_edits(fresh, parts):
+    """A charade whose container (or anagram) is followed or preceded by a piece that belongs inside it
+    ('Article about a knight': ins(THE, A) + N is T(A+N)HE): the piece joins the container's inner argument
+    (either side of it) or the anagram's fodder. evaluate() keeps the edit only when it is the one that works."""
+    out = []
+    for i, c in enumerate(parts):
+        if c.get("op") not in ("container", "anagram"):
+            continue
+        for j in (i - 1, i + 1):
+            if not 0 <= j < len(parts) or parts[j].get("op") in ("container", "anagram"):
+                continue
+            for front in (False, True):
+                if c["op"] == "anagram" and front:
+                    continue
+                new, t = fresh()
+                box, mate = t["parts"][i], t["parts"][j]
+                if box["op"] == "anagram":
+                    box["parts"] = [*box["parts"], mate]
+                elif len(box.get("parts") or []) == 2:
+                    inner = box["parts"][1]
+                    box["parts"][1] = {"op": "charade", "parts": [mate, inner] if front else [inner, mate]}
+                else:
+                    continue
+                del t["parts"][j]
+                if len(t["parts"]) == 1:
+                    only = t["parts"][0]
+                    t.clear()
+                    t.update(only)
+                out.append(new)
+    return out
+
+
+def _lone_container_word(node, clue, role="container"):
     """The one clue word that no leaf or indicator of the tree claims and the indicator table lists as a
-    container word (at least 20 uses, 70% of them container); None when there is none or more than one."""
+    container word (at least 20 uses, 70% of them container; `role` names another op type, "reversal");
+    None when there is none or more than one."""
     toks = lambda t: re.findall(r"[\w']+", str(t).lower().replace("’", "'"))
     claimed = collections.Counter()
     for x, _ in walk(node):
@@ -387,7 +432,7 @@ def _lone_container_word(node, clue):
     for w in left:
         counts = V._role_counts(V.indicator_role_key(w))
         total = sum(counts.values())
-        if total >= 20 and counts.get("container", 0) >= 0.7 * total:
+        if total >= 20 and counts.get(role, 0) >= 0.7 * total:
             hits.append(w)
     return hits[0] if len(hits) == 1 else None
 
