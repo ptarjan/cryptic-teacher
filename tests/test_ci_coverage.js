@@ -50,18 +50,15 @@ assert(workflows.includes("tests.yml") && workflows.includes("pages.yml"),
 
 const grouped = (f) => /^\s*concurrency\s*:/m.test(undecorated(read(f)));
 
-/* --- the test workflow never cancels a run ---
-   No job has a group: GitHub cancels a PENDING run when a newer one joins its
-   group, and a cancelled run shows as a red X. A superseded run instead gets
-   mode=skip from the scope job and concludes green. */
+/* --- the test workflow never cancels a RUNNING suite ---
+   One workflow-level group per ref, cancel-in-progress false: a burst of code
+   pushes is one running and one pending, and a newer pending run replaces an
+   older one (it shows cancelled; the newer run tests the newer code). */
 const testsBody = undecorated(read("tests.yml"));
-const groups = [...testsBody.matchAll(/^\s+group:\s*(.*)$/gm)].map((m) => m[1]);
-assert(!/^concurrency:/m.test(testsBody),
-  "tests.yml has no workflow-level group: it would queue the fast path behind a full suite");
-assert(groups.length === 0,
-  "tests.yml has no concurrency group: a group lets the next push cancel the pending run, which shows as a red X: " + groups.join(" | "));
-assert(!/cancel-in-progress:\s*true/.test(testsBody) && (testsBody.match(/^\s+cancel-in-progress:\s*false\s*$/gm) || []).length === groups.length,
-  "every group says cancel-in-progress: false, so a running suite is never killed and pushes cannot starve it");
+assert(/^concurrency:\s*\n\s+group:\s*tests-\$\{\{ github\.ref \}\}\s*\n\s+cancel-in-progress:\s*false\s*$/m.test(testsBody),
+  "tests.yml has one workflow-level group per ref and says cancel-in-progress: false");
+assert(!/cancel-in-progress:\s*true/.test(testsBody),
+  "no group cancels a running suite, so pushes cannot starve it");
 /* --- and the deploy is in a group, so a check living there can still be cancelled --- */
 assert(grouped("pages.yml"),
   "pages.yml still declares a concurrency group, which is what makes a check " +
@@ -116,8 +113,8 @@ assert(/case\s+"\$t"\s+in\s+\*\.sh\)\s*run=bash/.test(body) && /\*\.py\)\s*run=p
 // calling it.
 assert(/node\s+tools\/ci_shards\.js/.test(body),
   "tests.yml still pipes its glob list through tools/ci_shards.js to pick a shard");
-const shardList = body.match(/^\s*SHARD_IDS:\s*"\[([^\]]*)\]"/m);
-assert(shardList, "tests.yml still declares its shards as `SHARD_IDS: \"[...]\"` in the scope job");
+const shardList = body.match(/^\s*shard:\s*\[([^\]]*)\]/m);
+assert(shardList, "tests.yml still declares its shards as `shard: [0, 1, ...]` in the test job's matrix");
 const shardIds = shardList ? shardList[1].split(",").map((s) => s.trim()).filter(Boolean) : [];
 assert(shardIds.length >= 2,
   "and there is more than one of them, or the fan-out is a single job again: " +
@@ -150,7 +147,7 @@ if (shardIds.length >= 2) {
   const used = (s) => s.reduce((n, f) => n + slots(f), 0);
   assert(used(placed) <= CORES * split.length,
     `the shards need ${used(placed)} slots and ${split.length} runners have ` +
-    `${CORES * split.length}: add a shard to SHARD_IDS`);
+    `${CORES * split.length}: add a shard to the test job's matrix`);
   split.forEach((s, i) => assert(used(s) <= CORES,
     `shard ${i} runs ${used(s)} slots' worth at once on ${CORES} cores`));
   // The workflow hands a slice to its script as CI_SLICE; one it does not

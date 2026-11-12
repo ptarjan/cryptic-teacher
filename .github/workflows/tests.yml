@@ -67,6 +67,19 @@ name: Run the test scripts
 
 on:
   push:
+    # Puzzle-only pushes (the burn) are checked by check.yml, not here. Keep in step
+    # with check.yml's paths. A push that also touches anything else still runs.
+    paths-ignore:
+      - "puzzles/**/*.json"
+      - "puzzles/**/*.blog"
+      - "tools/data/source_clue_wrong.json"
+      - "tools/data/source_answer_wrong.json"
+      - "tools/data/setter_error.json"
+      - "tools/data/blog_disagree.json"
+      - "tools/data/shape_reannotate.json"
+      - "tools/annotation_backlog.json"
+      - "tools/data/blog_compare.json"
+      - "tools/data/blog_facts/inputs.sha256"
   pull_request:
   # The backstop for the skips above. Under the burn, a code commit is
   # superseded by the puzzle pushes behind it, and a puzzle push goes fast when
@@ -84,249 +97,22 @@ on:
 permissions:
   contents: read
 
+# One run and one pending per ref: a burst of code pushes is covered by the
+# newest, and a running suite is never killed (cancel-in-progress false). A
+# superseded pending run shows as cancelled; the run that replaced it tests
+# the newer code.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  # Puzzle-only pushes (the burn jobs push them every few minutes) skip the
-  # sharded suite. tools/ci_scope.py decides, conservatively: only puzzle files
-  # added or modified, the burn work queue and a tightened annotation backlog
-  # count as data, and every other path (or a puzzle deleted or renamed, or a
-  # PR, or anything that cannot be diffed) is code and runs everything below.
-  #
-  # Two bases, because a burst of pushes costs two runs and a commit can be
-  # replaced before it ever ran: the guard that nothing but data moved looks
-  # back to the last run whose shards actually ran and passed (a fast run does
-  # not move it), while the puzzle check looks back to the last green run of
-  # either kind, so the fast path checks everything nobody has checked yet.
-  # The smoke shards it skips are not lost: the next full run finds the new
-  # puzzles missing from the result cache (tools/ci_cache.js) and checks them,
-  # and nightly-smoke.yml sweeps the corpus without the cache.
-  scope:
-    name: scope of the push
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-      actions: read
-    outputs:
-      mode: ${{ steps.pick.outputs.mode }}
-      base_pass: ${{ steps.pick.outputs.base_pass }}
-      shards: ${{ steps.shards.outputs.shards }}
-    env:
-      # The count is read from `strategy.job-total` in the test job, so adding
-      # or removing an entry here is the only edit a reshard needs.
-      SHARD_IDS: "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          filter: blob:none
-          # Non-cone: the scope reads only tools/*.py and pages.yml. A cone
-          # `tools` pulled tools/data (~210 MB of blobs, ~45 s).
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            /tools/*.py
-            /.github/workflows/pages.yml
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - name: Decide between the puzzle fast path and the full suite
-        id: pick
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPO: ${{ github.repository }}
-          EVENT: ${{ github.event_name }}
-          REF: ${{ github.ref }}
-        run: |
-          set -uo pipefail
-          # A full run whose commit master has already moved past skips its
-          # suite: the newest push's run tests the code, and ten-minute shards
-          # for every commit of a burst filled GitHub's 20-job limit and starved
-          # the whole queue. The newest push is never superseded, so the tip is
-          # always tested. A skipped run is no base for later scopes (its shards
-          # and fast job are skipped, which the base filter below does not
-          # count). Accepted race: a newer run that counted this one as a base
-          # while its scope was still pending can go fast on code nobody ran;
-          # the next full run on a later commit, or nightly-smoke.yml, covers it.
-          # Any failure to look just runs the suite.
-          # The same goes for a puzzle-only (fast) run: it used to wait in a
-          # concurrency group, and GitHub cancels the pending older one, which
-          # shows as a red X. Skipping concludes green instead.
-          superseded() {
-            if [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ]; then
-              # The step runs under bash -e with pipefail: head closing the pipe
-              # gives gh SIGPIPE (exit 141), which killed the step red, so a
-              # failed look counts as "not superseded".
-              head=$(git ls-remote origin refs/heads/master 2>/dev/null | cut -f1) || head=
-              newer=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&per_page=5" \
-                        --jq ".workflow_runs[] | select(.id > $GITHUB_RUN_ID) | .id" 2>/dev/null | head -n 1) || newer=
-              if [ -n "$head" ] && [ "$head" != "$GITHUB_SHA" ] && [ -n "$newer" ]; then
-                echo "superseded by $head: the newest push's run tests the code"
-                echo "mode=skip" >> "$GITHUB_OUTPUT"
-                exit 0
-              fi
-            fi
-          }
-          full() {
-            echo "full suite: $1"
-            superseded
-            echo "mode=full" >> "$GITHUB_OUTPUT"
-            exit 0
-          }
-          [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ] || full "not a push to master"
-          list() { gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&status=$1&per_page=$2" \
-                     --jq '.workflow_runs[] | "\(.id) \(.head_sha)"'; }
-          # 100, the API's page size: a burst of superseded (skipped) runs is
-          # green too, and thirty of them in a row hid every run that tested
-          # anything, so each scope found "no green run that ran anything" and
-          # went full, which queued more runs, which were superseded in turn.
-          runs=$(list success 100) || full "could not list the green runs"
-          [ -n "$runs" ] || full "no green run to diff against"
-          # The base is the newest green run that really tested something: a
-          # skipped (superseded) run is green too, but its commit's puzzles
-          # were never checked, so it must not stand in for them.
-          base_pass=
-          while read -r id sha; do
-            k=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                  --jq '[.jobs[] | select((.name | startswith("tests ") or . == "puzzle fast path") and .conclusion == "success")] | length') || full "could not read run $id"
-            if [ "$k" -gt 0 ]; then base_pass=$sha; break; fi
-          done <<<"$runs"
-          [ -n "$base_pass" ] || full "no green run that ran anything"
-          # A full run still going counts as the base too, when its shards have
-          # started and none has failed: the code it carries is being tested by
-          # that run, so a puzzle push behind it need not repeat the suite (it
-          # would queue another 20 minutes). If that run goes red, it is red on
-          # its own commit and the next push finds the older green base again.
-          #
-          # A run still QUEUED for a runner counts too (its jobs may not even
-          # exist yet, or its scope job has not finished). A pending run either
-          # runs the suite on its commit's code, or goes fast because that code
-          # equals an already-tested base, so either way the code at that commit
-          # is covered; if it goes red, it is red on its own commit. Leaving
-          # queued runs out sent every puzzle push behind a non-puzzle push
-          # (the daily blog-facts commit, say) down the full path while that
-          # push's own run waited for a runner, and those piled up and starved
-          # the queue. By the same argument a finished run whose scope chose the
-          # fast path (fast job ran, shards skipped) is a fine base.
-          live=$( { list in_progress 10; list queued 20; list waiting 10; list pending 10; list requested 10; } 2>/dev/null) || full "could not list the running runs"
-          cands=$(printf '%s\n%s\n' "$live" "$runs" | awk -v me="$GITHUB_RUN_ID" 'NF && $1 < me' | sort -rn -k1,1 | uniq)
-          base_full=
-          while read -r id sha; do
-            n=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                  --jq '[.jobs[] | select(.name | startswith("tests "))] as $t
-                        | [.jobs[] | select(.name == "scope of the push")] as $s
-                        | [.jobs[] | select(.name == "puzzle fast path" and (.conclusion == "success" or .status != "completed"))] as $f
-                        | if ([$t[] | select(.conclusion == "failure" or .conclusion == "cancelled")] | length) > 0 then 0
-                          else ([$t[] | select(.conclusion == "success" or .status != "completed")] | length)
-                               + ($f | length)
-                               + (if ($s | length) == 0 or ($s[0].status != "completed") then 1 else 0 end) end') || full "could not read run $id"
-            if [ "$n" -gt 0 ]; then base_full=$sha; break; fi
-          done <<<"$cands"
-          [ -n "$base_full" ] || full "no recent run that ran the shards"
-          git fetch --no-tags --depth=1 --filter=blob:none origin "$base_full" "$base_pass" || full "could not fetch the bases"
-          verdict=$(python3 tools/ci_scope.py decide "$base_full") || full "could not work out what changed"
-          echo "since the last full pass ($base_full): $verdict"
-          [ "$verdict" = fast ] || full "$verdict"
-          python3 tools/ci_scope.py files "$base_pass" > /dev/null || full "too many puzzles since the last green run"
-          superseded
-          echo "mode=fast" >> "$GITHUB_OUTPUT"
-          echo "base_pass=$base_pass" >> "$GITHUB_OUTPUT"
-      - name: List the shards to run
-        id: shards
-        env:
-          MODE: ${{ steps.pick.outputs.mode }}
-        run: |
-          if [ "$MODE" = full ]; then
-            echo "shards=$SHARD_IDS" >> "$GITHUB_OUTPUT"
-          else
-            echo "shards=[0]" >> "$GITHUB_OUTPUT"
-          fi
-
-  # What a puzzle-only push owes: the puzzle schema, the integrity audit
-  # (duplicates and cross-puzzle facts weigh the changed files against the whole
-  # corpus through the same blob-keyed row cache the full run saves) and the
-  # annotation validator on the changed puzzles with the backlog allowances
-  # (--deploy: the deploy's corpus rules), the same check pages.yml's validate
-  # job runs on a files-mode push. Blobs are fetched only for the changed
-  # puzzles' folders.
-  fast:
-    name: ${{ needs.scope.outputs.mode == 'fast' && 'puzzle fast path' || 'puzzle fast path (not needed)' }}
-    needs: scope
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    defaults:
-      run:
-        shell: bash .github/offline.sh {0}
-    steps:
-      - uses: actions/checkout@v5
-        if: needs.scope.outputs.mode == 'fast'
-        with:
-          filter: blob:none
-          # Non-cone, tools/data less yt_solvers: the changed puzzles' folders
-          # (with their .blog sidecars) are added below.
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            /tools/
-            !/tools/data/yt_solvers/
-            /tests/
-            /.github/
-      - uses: actions/setup-python@v6
-        if: needs.scope.outputs.mode == 'fast'
-        with:
-          python-version: "3.12"
-      - name: Restore the integrity row cache
-        if: needs.scope.outputs.mode == 'fast'
-        id: rows
-        uses: actions/cache/restore@v5
-        with:
-          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
-          key: integrity-rows-${{ github.sha }}
-          restore-keys: integrity-rows-
-      - name: Fetch the changed puzzles
-        if: needs.scope.outputs.mode == 'fast'
-        shell: bash
-        env:
-          BASE_PASS: ${{ needs.scope.outputs.base_pass }}
-        run: |
-          set -euo pipefail
-          git fetch --no-tags --depth=1 --filter=blob:none origin "$BASE_PASS"
-          python3 tools/ci_scope.py files "$BASE_PASS" > "$RUNNER_TEMP/changed.txt"
-          echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed since the last green run"
-          if [ -s "$RUNNER_TEMP/changed.txt" ]; then
-            # Non-cone patterns: each folder (its .blog sidecar comes with it).
-            sed 's|/[^/]*$|/|; s|^|/|' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
-          fi
-      - name: Puzzle schema
-        if: needs.scope.outputs.mode == 'fast'
-        run: |
-          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
-          xargs python3 tools/puzzle_schema.py < "$RUNNER_TEMP/changed.txt"
-      # The one step with the network: a row-cache miss (an older run's cache)
-      # reads that blob, and git fetches it on demand.
-      - name: Puzzle integrity
-        if: needs.scope.outputs.mode == 'fast'
-        shell: bash
-        run: |
-          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
-          xargs python3 tools/puzzle_integrity.py --quiet < "$RUNNER_TEMP/changed.txt"
-      - name: Annotations
-        if: needs.scope.outputs.mode == 'fast'
-        run: |
-          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
-          xargs python3 tools/validate_annotations.py --deploy < "$RUNNER_TEMP/changed.txt"
-      # Only a cold start saves: the full run's generated job keeps it warm.
-      - name: Save the integrity row cache
-        if: ${{ needs.scope.outputs.mode == 'fast' && (!cancelled() && steps.rows.outputs.cache-matched-key == '') }}
-        uses: actions/cache/save@v5
-        with:
-          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
-          key: integrity-rows-${{ github.sha }}
-
   # The layout check and the puzzle schema check are not test scripts and need
   # neither the index nor the pages, so they run on their own without paying for
   # the build. It is the one
   # generated thing still committed: every other generated file is built by the
   # workflow that publishes it, and a file nobody commits cannot go stale.
   generated:
-    name: ${{ needs.scope.outputs.mode == 'full' && 'generated files are current' || 'generated files (not needed)' }}
-    needs: scope
+    name: ${{ 'generated files are current' || 'generated files (not needed)' }}
     runs-on: ubuntu-latest
     # Python over files already in the clone; the corpus check is most of it.
     timeout-minutes: 10
@@ -341,7 +127,6 @@ jobs:
       # A miss is a full fetch. Network steps need `shell: bash`: the job's
       # default shell has no network.
       - name: Restore the git store
-        if: needs.scope.outputs.mode == 'full'
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -351,7 +136,6 @@ jobs:
           key: git-store-${{ github.sha }}
           restore-keys: git-store-
       - name: Check out
-        if: needs.scope.outputs.mode == 'full'
         shell: bash
         env:
           TOKEN: ${{ github.token }}
@@ -368,20 +152,17 @@ jobs:
           git checkout -q --force -B master refs/remotes/origin/master
       # pip before the network is cut: tools/code_checks.py uses ruff.
       - uses: ./.github/actions/setup
-        if: needs.scope.outputs.mode == 'full'
         with:
           pip: ruff
       # The puzzle fast path restores this; only a full run, which reads the
       # whole corpus, keeps it warm.
       - name: Restore the integrity row cache
-        if: needs.scope.outputs.mode == 'full'
         uses: actions/cache/restore@v5
         with:
           path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
           key: integrity-rows-${{ github.sha }}
           restore-keys: integrity-rows-
       - name: Check the committed layout table, prompt reference and puzzle schema
-        if: needs.scope.outputs.mode == 'full'
         run: |
           fails=()
           python3 tools/puzzle_schema.py || fails+=("a puzzle breaks tools/data/puzzle.schema.json")
@@ -401,18 +182,17 @@ jobs:
           fi
           echo "generated files are current"
       - name: Save the integrity row cache
-        if: ${{ needs.scope.outputs.mode == 'full' && (!cancelled() && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
+        if: ${{ (!cancelled() && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
         uses: actions/cache/save@v5
         with:
           path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
           key: integrity-rows-g-${{ github.sha }}
 
   test:
-    needs: scope
     # "tests N" is a name the diff-base logic in the scope job counts as a
     # suite that ran; the stand-in for a run with nothing to test must not
     # start with it.
-    name: ${{ needs.scope.outputs.mode == 'full' && format('tests {0}', matrix.shard) || 'full suite (not needed)' }}
+    name: ${{ format('tests {0}', matrix.shard) || 'full suite (not needed)' }}
     runs-on: ubuntu-latest
     strategy:
       # Every shard runs to the end. A red shard must not hide a second one.
@@ -421,8 +201,7 @@ jobs:
         # [0] when the scope says there is nothing to test: one job whose steps
         # all skip, so the commit shows no skipped check (a job skipped by its
         # own `if` is a skipped check run, and it counts in the badge's total).
-        # The full list is SHARD_IDS in the scope job.
-        shard: ${{ fromJSON(needs.scope.outputs.shards) }}
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
     # holding a red check over every commit behind it. A shard is a few minutes
     # of checkout, build and scripts when the smoke test's results are cached,
@@ -442,7 +221,6 @@ jobs:
       # delete cost 48-96s there). df is printed here and after the unpacks so
       # a failure shows its headroom.
       - name: Free disk space
-        if: needs.scope.outputs.mode == 'full'
         shell: bash
         run: |
           df -h / | tail -n 1
@@ -454,7 +232,6 @@ jobs:
       # A miss is a full fetch. Network steps need `shell: bash`: the job's
       # default shell has no network.
       - name: Restore the git store
-        if: needs.scope.outputs.mode == 'full'
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -464,7 +241,6 @@ jobs:
           key: git-store-${{ github.sha }}
           restore-keys: git-store-
       - name: Check out
-        if: needs.scope.outputs.mode == 'full'
         shell: bash
         env:
           TOKEN: ${{ github.token }}
@@ -483,7 +259,6 @@ jobs:
       # filer, the title band finder) need them; test_ci_checkout.sh reads
       # pages.yml with yaml.
       - uses: ./.github/actions/setup
-        if: needs.scope.outputs.mode == 'full'
         with:
           node-version: "20"
           pip: numpy pillow pypdf opencv-python-headless setproctitle pyyaml
@@ -491,7 +266,6 @@ jobs:
       # the newest entry, which on master is the last master run that saved.
       # A miss leaves no file, and every puzzle is checked.
       - name: Restore the corpus result cache
-        if: needs.scope.outputs.mode == 'full'
         uses: actions/cache/restore@v5
         with:
           path: ${{ runner.temp }}/ci-cache.json
@@ -501,7 +275,6 @@ jobs:
       # tools/ci_shards.js for this shard's slice. An item is a script, or
       # "<script> i/n" for one slice of a script too heavy for a single job.
       - name: Pick this shard's test scripts
-        if: needs.scope.outputs.mode == 'full'
         id: pick
         env:
           SHARD: ${{ matrix.shard }}
@@ -542,7 +315,6 @@ jobs:
       # shim is reused only when its row's deps match, so a stale restore is
       # slower, never wrong. These shards only restore; pages.yml saves.
       - name: Restore the row cache
-        if: needs.scope.outputs.mode == 'full'
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -551,19 +323,16 @@ jobs:
           key: row-cache-${{ github.sha }}
           restore-keys: row-cache-
       - name: Restore the puzzle shims
-        if: needs.scope.outputs.mode == 'full'
         uses: actions/cache/restore@v5
         with:
           path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
           restore-keys: puzzle-shims-
       - name: Unpack the puzzle shims
-        if: needs.scope.outputs.mode == 'full'
         run: |
           bash tools/cache_tar.sh unpack .shim-cache.tar
           df -h / | tail -n 1
       - name: Build the index the tests read
-        if: needs.scope.outputs.mode == 'full'
         run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
@@ -574,10 +343,10 @@ jobs:
       # match the restores, so restore-keys finds these too; a stale store is
       # slower, never wrong.
       - name: Pack the puzzle shims for the cache
-        if: ${{ needs.scope.outputs.mode == 'full' && (!cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
+        if: ${{ (!cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
         run: bash tools/cache_tar.sh pack shims .shim-cache.tar
       - name: Save the row cache
-        if: ${{ needs.scope.outputs.mode == 'full' && (!cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
+        if: ${{ (!cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -585,7 +354,7 @@ jobs:
             ~/.cache/cryptic-teacher/code_reach
           key: row-cache-t-${{ github.sha }}
       - name: Save the puzzle shims
-        if: ${{ needs.scope.outputs.mode == 'full' && (!cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
+        if: ${{ (!cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
         uses: actions/cache/save@v5
         with:
           path: .shim-cache.tar
@@ -596,22 +365,21 @@ jobs:
       # whose inputs moved. The social cards are deliberately not drawn:
       # a page points at its own card only if the file is on disk.
       - name: Restore the puzzle pages
-        if: ${{ needs.scope.outputs.mode == 'full' && (steps.pick.outputs.pages == 'true') }}
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
         uses: actions/cache/restore@v5
         with:
           path: .page-cache.tar
           key: seo-pages-${{ github.sha }}
           restore-keys: seo-pages-
       - name: Unpack the puzzle pages
-        if: ${{ needs.scope.outputs.mode == 'full' && (steps.pick.outputs.pages == 'true') }}
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
         run: |
           bash tools/cache_tar.sh unpack .page-cache.tar
           df -h / | tail -n 1
       - name: Build the pages the tests read
-        if: ${{ needs.scope.outputs.mode == 'full' && (steps.pick.outputs.pages == 'true') }}
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
         run: python3 tools/build_seo_pages.py
       - name: Run this shard of the test scripts
-        if: needs.scope.outputs.mode == 'full'
         env:
           SHARD: ${{ matrix.shard }}
         run: |
@@ -694,7 +462,7 @@ jobs:
           echo "shard: ${#mine[@]} test item(s) passed"
       # Even from a red shard: a slice writes its results only when it passed.
       - uses: actions/upload-artifact@v6
-        if: ${{ needs.scope.outputs.mode == 'full' && (always()) }}
+        if: ${{ (always()) }}
         with:
           name: results-${{ matrix.shard }}
           path: ${{ runner.temp }}/results/
@@ -707,9 +475,9 @@ jobs:
   # (tools/check_shapes.js over the union the cache keeps). Saved even then:
   # what is in it passed.
   cache:
-    name: ${{ needs.scope.outputs.mode == 'full' && 'corpus result cache' || 'corpus result cache (not needed)' }}
+    name: ${{ 'corpus result cache' || 'corpus result cache (not needed)' }}
     runs-on: ubuntu-latest
-    needs: [scope, test]
+    needs: test
     if: always()
     timeout-minutes: 10
     defaults:
@@ -718,19 +486,16 @@ jobs:
     steps:
       # The trees are all ci_cache.js reads (git ls-tree), so no blobs.
       - uses: actions/checkout@v5
-        if: needs.scope.outputs.mode == 'full'
         with:
           filter: blob:none
           sparse-checkout: |
             .github
             tools
       - uses: ./.github/actions/setup
-        if: needs.scope.outputs.mode == 'full'
         with:
           python-version: ""
           node-version: "20"
       - uses: actions/cache/restore@v5
-        if: needs.scope.outputs.mode == 'full'
         with:
           path: ${{ runner.temp }}/ci-cache.json
           key: ci-results-${{ github.sha }}
@@ -738,23 +503,21 @@ jobs:
       # None to download is not an error here: merge fails on any puzzle left
       # without a passing result, which is the check that matters.
       - uses: actions/download-artifact@v7
-        if: needs.scope.outputs.mode == 'full'
         continue-on-error: true
         with:
           pattern: results-*
           path: ${{ runner.temp }}/results
           merge-multiple: true
       - name: Merge this run's results into the cache
-        if: needs.scope.outputs.mode == 'full'
         id: merge
         run: |
           node tools/ci_cache.js merge "$RUNNER_TEMP/ci-cache.json" "$RUNNER_TEMP/results" \
             "$RUNNER_TEMP/ci-cache.json" "$RUNNER_TEMP/shapes"
       - name: The corpus still holds every rare shape
-        if: ${{ needs.scope.outputs.mode == 'full' && (always() && steps.merge.outcome != 'skipped') }}
+        if: ${{ (always() && steps.merge.outcome != 'skipped') }}
         run: node tools/check_shapes.js "$RUNNER_TEMP/shapes"
       - uses: actions/cache/save@v5
-        if: ${{ needs.scope.outputs.mode == 'full' && (always() && steps.merge.outcome != 'skipped') }}
+        if: ${{ (always() && steps.merge.outcome != 'skipped') }}
         with:
           path: ${{ runner.temp }}/ci-cache.json
           key: ci-results-${{ github.sha }}-${{ github.run_attempt }}
@@ -765,36 +528,13 @@ jobs:
   tests-passed:
     name: tests-passed
     runs-on: ubuntu-latest
-    needs: [scope, fast, generated, test, cache]
+    needs: [generated, test, cache]
     if: always()
     timeout-minutes: 5
     steps:
       - name: Report what the other jobs concluded
         env:
-          SCOPE: ${{ needs.scope.result }}
-          MODE: ${{ needs.scope.outputs.mode }}
-          FAST: ${{ needs.fast.result }}
-          GENERATED: ${{ needs.generated.result }}
-          # For a matrix job this is 'success' only when every shard succeeded.
-          TESTS: ${{ needs.test.result }}
-          CACHE: ${{ needs.cache.result }}
+          NEEDS: ${{ toJSON(needs) }}
         run: |
-          echo "scope: $SCOPE ($MODE)"
-          echo "puzzle fast path: $FAST"
-          echo "generated files are current: $GENERATED"
-          echo "test shards: $TESTS"
-          echo "corpus result cache: $CACHE"
-          # Every job always runs, and the ones the mode does not need skip
-          # their steps, so each concludes success (a job skipped by its own
-          # `if` would show as a skipped check on the commit). A job that
-          # concluded skipped now means an earlier one failed, so it is red.
-          if [ "$SCOPE" = success ] && [ "$FAST" = success ] && [ "$GENERATED" = success ] \
-             && [ "$TESTS" = success ] && [ "$CACHE" = success ]; then
-            case "$MODE" in
-              fast) echo "puzzle-only push: schema, integrity and annotations passed"; exit 0 ;;
-              skip) echo "superseded by a newer push: its run tests the code"; exit 0 ;;
-              full) echo "all test scripts passed"; exit 0 ;;
-            esac
-          fi
-          echo "the suite is not green — open the red job above for the scripts that failed"
-          exit 1
+          echo "$NEEDS" | jq -r 'to_entries[] | "\(.key): \(.value.result)"'
+          echo "$NEEDS" | jq -e 'all(.[]; .result == "success")' > /dev/null || { echo "the suite is not green: open the red job above"; exit 1; }
