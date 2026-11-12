@@ -117,6 +117,9 @@ DEFAULT_CEILING = 28
 # averaged 251 MB (session 207, peak of a run 387 on average).
 MEM_HEADROOM_KB = 4 * 1024 * 1024
 RUN_RSS_KB = 250 * 1024
+# The least a run is taken to hold: runs a few seconds old read ~7 MB each, and
+# averaging those 11-12 put the memory cap at 348 against a real ~16 (runs settle at 210-250 MB).
+RUN_RSS_FLOOR_KB = 200 * 1024
 
 # The CPU the burn may have is the cores everything else leaves idle. The burn
 # is the process tree under prereset_backfill.sh, its claude runs at nice 19;
@@ -649,7 +652,7 @@ def mem_cap(meminfo, rss_kb):
     m = re.search(r"^MemAvailable:\s+(\d+) kB", meminfo or "", re.MULTILINE)
     if not m:
         return None
-    each = sum(rss_kb) / len(rss_kb) if rss_kb else RUN_RSS_KB
+    each = max(sum(rss_kb) / len(rss_kb), RUN_RSS_FLOOR_KB) if rss_kb else RUN_RSS_KB
     return len(rss_kb) + max(0, int(m[1]) - MEM_HEADROOM_KB) // max(1, int(each))
 
 
@@ -666,7 +669,7 @@ def mem_detail(meminfo, rss_kb):
     if avail is None:
         return None
     gb = lambda k: f"{k / 1048576:.1f}"
-    each = sum(rss_kb) / len(rss_kb) if rss_kb else RUN_RSS_KB
+    each = max(sum(rss_kb) / len(rss_kb), RUN_RSS_FLOOR_KB) if rss_kb else RUN_RSS_KB
     out = (f"memory {gb(avail)} GB available less {MEM_HEADROOM_KB / 1048576:g} GB kept free, "
            f"{each / 1024:.0f} MB a run")
     st, sf = kb("SwapTotal"), kb("SwapFree")
@@ -1238,6 +1241,7 @@ MEM_CASES = [
     (f"MemTotal: 1 kB\nMemAvailable: {6 * GB} kB\n", [], 2 * GB // RUN_RSS_KB),
     (f"MemAvailable: {6 * GB} kB\n", [512000, 512000], 2 + 2 * GB // 512000),
     (f"MemAvailable: {3 * GB} kB\n", [], 0),
+    (f"MemAvailable: {6 * GB} kB\n", [7000, 7000, 7000], 3 + 2 * GB // RUN_RSS_FLOOR_KB),
     ("garbage", [], None),
     (None, [], None),
 ]
