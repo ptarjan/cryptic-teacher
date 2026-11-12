@@ -9,7 +9,9 @@ changed, plus every 15 minutes (its own schedule) when master has moved since
 the last deploy, so "what is live" is no longer "the last push's run". The
 github-pages deployments say it directly: one call, and the newest one with a
 success status is the live site (deploy-pages records the built commit as the
-deployment's sha). A deployment still in flight, or a failed one, is skipped.
+deployment's sha). A deployment still in flight, or a failed one, is skipped. A failure after the
+deploy step flips the deployment too, so deployed_by_run (the Deploy to Pages
+step's own conclusion) is asked first and the deployments are the fallback.
 
 Needs a token with `deployments: read` (the workflows grant it) and, for
 --moved, `contents: read`.
@@ -48,6 +50,28 @@ def last_deployed(repo, look=60):
     return ""
 
 
+def deployed_by_run(repo, look=30):
+    """The head_sha of the newest pages.yml run whose Deploy to Pages step
+    succeeded, or ''. A job failing after that step (a blown step budget, run
+    43235745415) leaves the deployment marked failed though the site is live,
+    so the deployment list alone names an older commit; the step's own
+    conclusion is the truth."""
+    runs = gh(f"repos/{repo}/actions/workflows/pages.yml/runs?per_page={look}&exclude_pull_requests=true")
+    runs = runs.get("workflow_runs", [])
+
+    def live(run):
+        jobs = gh(f"repos/{repo}/actions/runs/{run['id']}/jobs?per_page=100").get("jobs", [])
+        return any(st["name"] in ("Deploy to Pages", "Deploy to Pages (retry)")
+                   and st.get("conclusion") == "success"
+                   for job in jobs for st in job.get("steps") or ())
+
+    with ThreadPoolExecutor(max_workers=16) as pool:
+        for run, ok in zip(runs, pool.map(live, runs)):
+            if ok:
+                return run["head_sha"]
+    return ""
+
+
 def master_head(repo):
     return gh(f"repos/{repo}/commits/master")["sha"]
 
@@ -57,7 +81,7 @@ def main(argv):
         print(__doc__)
         return 2
     try:
-        deployed = last_deployed(argv[0])
+        deployed = deployed_by_run(argv[0]) or last_deployed(argv[0])
         if len(argv) == 2:
             print("yes" if deployed != master_head(argv[0]) else "no")
             return 0

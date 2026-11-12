@@ -580,15 +580,35 @@ jobs:
         with:
           path: .page-cache.tar
           key: seo-pages-${{ github.sha }}
-      # Every step's time against its budget in tools/data/deploy_budgets.json,
-      # read off the jobs API. After the deploy, never in front of it: a slow
-      # build still ships, and the run goes red with an error naming the step,
-      # which is how a regression gets noticed the day it lands instead of a
-      # week later. A step with no budget row fails it too. Whatever failed
-      # before it, so a broken build is still timed; check-run skips the steps
-      # still running, this one among them, and the post-job cache saves.
+
+  # Every step's time against its budget in tools/data/deploy_budgets.json,
+  # read off the jobs API. A job of its own, after the build: a failure in
+  # the build job after Deploy to Pages marks the github-pages deployment
+  # failed even though the site went live (run 43235745415), and
+  # tools/last_deploy.py then named an older sha as the diff base. Here a
+  # slow step still turns the run red with an error naming it, which is how a
+  # regression gets noticed the day it lands, and the deployment stays
+  # success. A step with no budget row fails it too. Runs whatever the build
+  # did, so a broken build is still timed. The name "budgets" is skipped by
+  # check-run, so this job's own steps are not timed.
+  budgets:
+    name: budgets
+    needs: build
+    if: ${{ (!cancelled()) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Check out
+        uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools
+            .github/workflows
       - name: Check the step budgets
-        if: ${{ (!cancelled()) }}
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
