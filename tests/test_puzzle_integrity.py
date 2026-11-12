@@ -198,7 +198,8 @@ def block_out1():
         "GRID": ("cryptic-24104", off_board),
         "NUMBER": ("cryptic-24104", lambda p, by: by["30-across"].update(number=31)),
         "SETTER": ("cryptic-24104", lambda p, by: p.update(setter="Unknown")),
-        "SHAPE": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(text="")),
+        "SHAPE": ("cryptic-24104", lambda p, by: (by["2-down"].pop("annotation", None),
+                                                     by["2-down"]["clue"].update(text=""))),
         "PROV": ("cryptic-24104", lambda p, by: p["solutions"].update(origin="bogus")),
         # The clue cleaned in place and its annotation left quoting the old words.
         # A known copy of another puzzle, filed under its own id.
@@ -231,6 +232,7 @@ def block_out_pre():
     real = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104"))
     for name, pre in (("BARE", None), ("WITH", "1 Across is unclued.")):
         p = copy.deepcopy(real)
+        p["entries"][0].pop("annotation", None)
         p["entries"][0]["clue"]["text"] = "See preamble"
         if pre:
             p["preamble"] = pre
@@ -239,6 +241,7 @@ def block_out_pre():
         print(name, pi.awaits_preamble(p), any("preamble" in f[2] for f in flags))
     try:
         p = copy.deepcopy(real)
+        p["entries"][0].pop("annotation", None)  # a clue edited under its annotation is a QUOTE refusal
         p["entries"][0]["clue"]["text"] = "Unclued (see the preamble)"
         pi.refuse_bad_write(p)
         print("WRITE allowed")
