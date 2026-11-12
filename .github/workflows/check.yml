@@ -37,6 +37,8 @@ jobs:
     name: check
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      dispatch_tests: ${{ steps.base.outputs.dispatch_tests }}
     defaults:
       run:
         shell: bash .github/offline.sh {0}
@@ -64,6 +66,7 @@ jobs:
       # The push's parent. A new branch or a force push leaves `before` zero or
       # unfetchable; the commit's own parent is the answer then.
       - name: Fetch the changed puzzles
+        id: base
         shell: bash
         env:
           BEFORE: ${{ github.event.before }}
@@ -81,6 +84,22 @@ jobs:
           python3 tools/ci_scope.py decide "$BEFORE" | tee "$RUNNER_TEMP/verdict.txt"
           python3 tools/ci_scope.py files "$BEFORE" > "$RUNNER_TEMP/changed.txt"
           echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed in this push"
+          # tests.yml ignores these paths, so it did not start for this push. When the
+          # verdict is `full` (a deleted or renamed puzzle, too many files, an entry
+          # table row lost) and every path is one of them, it has to be started here.
+          # A push that also touched other paths started tests.yml itself.
+          only=true
+          while read -r f; do
+            case "$f" in
+              puzzles/*.json|puzzles/*.blog|tools/data/source_clue_wrong.json|tools/data/source_answer_wrong.json) ;;
+              tools/data/setter_error.json|tools/data/blog_disagree.json|tools/data/shape_reannotate.json) ;;
+              tools/annotation_backlog.json|tools/data/blog_compare.json|tools/data/blog_facts/inputs.sha256) ;;
+              *) only=false ;;
+            esac
+          done < <(git diff --name-only "$BEFORE" HEAD)
+          if grep -q '^full' "$RUNNER_TEMP/verdict.txt" && [ "$only" = true ]; then
+            echo "dispatch_tests=true" >> "$GITHUB_OUTPUT"
+          fi
           if [ -s "$RUNNER_TEMP/changed.txt" ]; then
             # Non-cone patterns: each folder (its .blog sidecar comes with it).
             sed 's|/[^/]*$|/|; s|^|/|' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
@@ -104,3 +123,19 @@ jobs:
         shell: bash
         run: |
           grep -q '^full' "$RUNNER_TEMP/verdict.txt" && echo "::notice::$(cat "$RUNNER_TEMP/verdict.txt"): the full suite is tests.yml's" || echo "data-only push"
+
+  # Its own job so that actions: write goes to this one step and not to the checks.
+  dispatch:
+    name: start tests.yml
+    needs: check
+    if: needs.check.outputs.dispatch_tests == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Start the full suite
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run tests.yml --ref master
