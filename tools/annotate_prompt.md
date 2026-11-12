@@ -325,8 +325,10 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           or hid([say no before]) to let the answer pick them
     sound(x, SPELT)       x sounds like SPELT, the letters entered. x is ONE leaf
                           naming the word said aloud: sound<ind>([clue words]HEARD,
-                          SPELT). Side-by-side leaves are merged for you; over a
-                          step (first, del, hid) the leaf holds the step's letters
+                          SPELT). Leaves side by side (a dash or "has to" between)
+                          are merged for you; over a step (first, del, hid, or a
+                          charade with an indicator) write ONE leaf holding the
+                          step's letters, never the step inside sound()
     spoon(a, b)           a and b with their first consonants swapped (written
                           letters); spoon(a, b, SPELT) when the swap is by sound,
                           SPELT the letters entered. Never put sound() round a
