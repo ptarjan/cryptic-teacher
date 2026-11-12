@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,69 @@
     "text": "Thieves finally get away having grabbed a painting",
     "enumeration": "8"
    },
-   "solution": "SEASCAPE"
+   "solution": "SEASCAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "painting",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 8,
+         "note": "finally points to the closing letter of the word thieves"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Thieves",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having grabbed",
+         "at": 25,
+         "note": "having grabbed means the escape word holds the next piece inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get away",
+         "at": 16,
+         "gives": "ESCAPE",
+         "note": "to get away is to escape"
+        },
+        {
+         "words": "a",
+         "at": 40,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Burglars make off with an artwork they have stolen.",
+     "walkthrough": "'finally' takes the last letter of 'Thieves'. 'having grabbed' puts A inside ESCAPE, giving EASCAPE.",
+     "definitionFit": "A seascape is a painting whose subject is the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grabbed"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +109,11 @@
     "text": "Fish boy initially got in a bag — a fair attraction ground attraction",
     "enumeration": "10"
    },
-   "solution": "SWITCHBACK"
+   "solution": "SWITCHBACK",
+   "annotationWithheld": {
+    "why": "Clue as held reads 'Fish boy initially got in a bag — a fair attraction ground attraction (10)': the definition is garbled by OCR (presumably 'a fairground attraction'), and the scan is blank; wordplay WITCH + B inside SACK",
+    "clue": "Fish boy initially got in a bag — a fair attraction ground attraction"
+   }
   },
   {
    "number": 2,
@@ -55,10 +124,33 @@
    },
    "length": 3,
    "clue": {
-    "text": "Is it that one is making a friend M abroad?",
+    "text": "Is it that one is making a friend abroad?",
     "enumeration": "3"
    },
-   "solution": "AMI"
+   "solution": "AMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is it that one is",
+      "at": 0,
+      "meaning": "the question form of 'one is', with one as the first person, asks whether I am"
+     },
+     {
+      "text": "a friend abroad",
+      "at": 25,
+      "meaning": "the French word for a friend"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'one' stands for the speaker, so 'Is it that one is?' turns 'I am' into a question. The French for friend is spelt the same.",
+     "definitionFit": "In French, the everyday word for a male friend is ami."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +170,60 @@
      }
     ]
    },
-   "solution": "CUIBONO"
+   "solution": "CUIBONO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who gains?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Copper",
+       "at": 0,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "pulled up",
+         "at": 7,
+         "note": "in a down clue, pulled up means the cross-referenced word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "24",
+         "at": 17,
+         "gives": "OBI",
+         "note": "24 refers to the answer at 24 down, a Japanese sash"
+        }
+       ]
+      },
+      {
+       "words": "negative answer",
+       "at": 25,
+       "gives": "NO",
+       "note": "a negative answer is no"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman goes over a refusal while asking who profits.",
+     "walkthrough": "'Copper' looks like a policeman but gives the chemical symbol CU. 'pulled up' turns OBI into IBO. 'over' just places the pieces in this down answer.",
+     "definitionFit": "The Latin phrase asks to whose benefit something is, the classic question about who gains from a crime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +243,35 @@
      }
     ]
    },
-   "solution": "POTTERSWHEEL"
+   "solution": "POTTERSWHEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Machine for throwing clay pigeons?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Machine for throwing clay pigeons?",
+       "at": 0,
+       "note": "reads like the trap that launches targets for shooters, but throwing clay is shaping it on a spinning disc, and a pigeon might be a clay model"
+      }
+     ]
+    },
+    "spelling": "POTTER'S WHEEL",
+    "explanation": {
+     "definitionFit": "A potter throws clay into shape on a revolving wheel, a machine in the throwing sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pigeons"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +285,42 @@
     "text": "Way fraudulently to change identity of racehorses",
     "enumeration": "6"
    },
-   "solution": "STRING"
+   "solution": "STRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "racehorses",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way",
+       "at": 0,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "words": "fraudulently to change identity of",
+       "at": 4,
+       "gives": "RING",
+       "note": "to ring a horse is to race it under another horse's identity, a racing fraud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked method for passing off racehorses as others.",
+     "walkthrough": "A 'ringer' is a horse substituted for another in a race, hence the verb ring.",
+     "definitionFit": "A string is the collection of racehorses kept by one stable or owner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Way"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,10 +331,64 @@
    },
    "length": 7,
    "clue": {
-    "text": "What might require hard labour N putting in work with spades",
+    "text": "What might require hard labour putting in work with spades",
     "enumeration": "7"
    },
-   "solution": "TOPSOIL"
+   "solution": "TOPSOIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What might require hard labour putting in work with spades",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "putting in",
+       "at": 31,
+       "note": "putting in tells us the next pieces are placed inside the word for hard labour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hard labour",
+       "at": 19,
+       "gives": "TOIL",
+       "note": "toil is hard labour"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "work",
+         "at": 42,
+         "gives": "OP",
+         "note": "op is short for opus, a work"
+        },
+        {
+         "words": "spades",
+         "at": 52,
+         "gives": "S",
+         "note": "S is the card-game abbreviation for spades"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Ground that needs back-breaking digging with spades.",
+     "walkthrough": "'putting in' is the container signal. Read whole, the clue also describes the answer: ground that demands hard digging with spades.",
+     "definitionFit": "The upper layer of earth is what a gardener digs over with spades, which can be hard work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,10 +399,44 @@
    },
    "length": 11,
    "clue": {
-    "text": "Once I learnt to get round antipathy to S different views",
+    "text": "Once I learnt to get round antipathy to different views",
     "enumeration": "11"
    },
-   "solution": "INTOLERANCE"
+   "solution": "INTOLERANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "antipathy to different views",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to get round",
+       "at": 14,
+       "note": "to get round suggests the letters of once I learnt are turned about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Once I learnt",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who once learnt to overcome hostility towards opinions unlike their own.",
+     "walkthrough": "'to get round' rearranges ONCE I LEARNT.",
+     "definitionFit": "Intolerance is unwillingness to accept opinions or beliefs that differ from one's own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +449,31 @@
    "clue": {
     "text": "Moved from knight's original square"
    },
-   "solution": "GONE"
+   "solution": "GONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moved from",
+      "at": 0,
+      "meaning": "to have left a place"
+     },
+     {
+      "text": "knight's original square",
+      "at": 11,
+      "meaning": "in chess notation a white knight starts on g1, written as a letter plus the word one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A white knight begins the game on g1 in chess notation; read the letter and number as a word.",
+     "definitionFit": "Something that has moved away from a place has left it, so it is no longer there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +487,52 @@
     "text": "One egg I consumed to start off",
     "enumeration": "8"
    },
-   "solution": "INITIATE"
+   "solution": "INITIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "start off",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "egg",
+       "at": 4,
+       "gives": "NIT",
+       "note": "a nit is the egg of a louse"
+      },
+      {
+       "words": "I",
+       "at": 8,
+       "gives": "I"
+      },
+      {
+       "words": "consumed",
+       "at": 10,
+       "gives": "ATE",
+       "note": "consumed means ate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eating one egg as a way to begin the day.",
+     "definitionFit": "To initiate something is to set it going, a synonym of starting it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +552,54 @@
      }
     ]
    },
-   "solution": "SPOTON"
+   "solution": "SPOTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "completely accurately",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "spins",
+       "at": 27,
+       "note": "spins says the whole phrase is turned round to read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Not one",
+         "at": 0,
+         "gives": "NO",
+         "note": "not one of means none, so no"
+        },
+        {
+         "words": "children's toys",
+         "at": 11,
+         "gives": "TOPS",
+         "note": "tops are spinning toys for children"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Not one of the children's spinning tops turns perfectly true.",
+     "walkthrough": "'spins' reverses NO TOPS as a whole, giving the answer; the spinning tops make the reversal fitting.",
+     "definitionFit": "Something spot on is exactly right, an idiom for completely accurate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spins"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +619,11 @@
      }
     ]
    },
-   "solution": "SLAVEDRIVERS"
+   "solution": "SLAVEDRIVERS",
+   "annotationWithheld": {
+    "why": "Clue as held reads 'They demand great effort smashing Check toc Vader into pieces (5-7)': 'Check toc' is OCR garble for the anagram fodder (needs SILVERS with VADER), and the scan is blank",
+    "clue": "They demand great effort smashing Check toc Vader into pieces"
+   }
   },
   {
    "number": 12,
@@ -227,7 +643,67 @@
      }
     ]
    },
-   "solution": "CITRONELLAOIL"
+   "solution": "CITRONELLAOIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clear lotion when applied — heads off insect life",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "when applied",
+         "at": 13,
+         "note": "when applied suggests the lotion's letters are worked over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clear lotion",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads",
+         "at": 28,
+         "note": "heads points to the first letters of insect and life"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insect",
+         "at": 38
+        },
+        {
+         "words": "life",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A clear lotion that, once rubbed on, keeps insects away.",
+     "walkthrough": "'heads' gives I and L from 'insect life'; 'when applied' rearranges them with CLEAR LOTION. The whole clue also describes the repellent.",
+     "definitionFit": "Citronella oil is a pale lemon-scented oil applied to the skin to repel mosquitoes and other insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +723,11 @@
      }
     ]
    },
-   "solution": "TOFFEEAPPLE"
+   "solution": "TOFFEEAPPLE",
+   "annotationWithheld": {
+    "why": "Clue as held reads 'Sweet-skinned fruit that's a fair treat minute. (6,5)': the stray 'minute.' is OCR garble from elsewhere on the page, and the scan is blank",
+    "clue": "Sweet-skinned fruit that's a fair treat minute."
+   }
   },
   {
    "number": 14,
@@ -261,7 +741,50 @@
     "text": "Sew … hot… pass out … in these?",
     "enumeration": "10"
    },
-   "solution": "SWEATSHOPS"
+   "solution": "SWEATSHOPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sew … hot… pass out … in these?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 16,
+       "note": "out signals that the letters of sew, hot and pass are knocked into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sew",
+       "at": 0
+      },
+      {
+       "words": "hot",
+       "at": 6
+      },
+      {
+       "words": "pass",
+       "at": 11
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Workers sew in such heat that they faint in these places.",
+     "walkthrough": "'out' rearranges SEW HOT PASS. The whole clue pictures workers in stifling factories.",
+     "definitionFit": "Sweatshops are factories where workers toil long hours in poor, hot conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +798,41 @@
     "text": "Enthusiast introducing old style of opera",
     "enumeration": "5"
    },
-   "solution": "BUFFO"
+   "solution": "BUFFO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "style of opera",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Enthusiast",
+       "at": 0,
+       "gives": "BUFF",
+       "note": "a buff is an enthusiast, as in film buff"
+      },
+      {
+       "words": "old",
+       "at": 23,
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opera fan introduces an old-fashioned production style.",
+     "walkthrough": "'introducing' just places BUFF before O.",
+     "definitionFit": "Buffo describes comic opera, the Italian opera buffa style with its comic singers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Enthusiast"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +852,34 @@
      }
     ]
    },
-   "solution": "SAVILEROW"
+   "solution": "SAVILEROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "London address that suits many",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "London address that suits many",
+       "at": 0,
+       "note": "reads as a convenient location, but suits are the tailored clothes this London street is famous for"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Savile Row is the London street of bespoke tailors, where many suits are made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suits"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +893,65 @@
     "text": "Greatly valued, that woman is ambassador in diplomatic corps",
     "enumeration": "9"
    },
-   "solution": "CHERISHED"
+   "solution": "CHERISHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greatly valued",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 41,
+       "note": "in says the next pieces sit inside the abbreviation for diplomatic corps"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diplomatic corps",
+       "at": 44,
+       "gives": "CD",
+       "note": "CD is the abbreviation for corps diplomatique, the diplomatic corps"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that woman",
+         "at": 16,
+         "gives": "HER",
+         "note": "that woman is her"
+        },
+        {
+         "words": "is",
+         "at": 27,
+         "gives": "IS"
+        },
+        {
+         "words": "ambassador",
+         "at": 30,
+         "gives": "HE",
+         "note": "HE stands for His Excellency, the title of an ambassador"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A highly prized woman serves as an envoy among the diplomats.",
+     "walkthrough": "An ambassador is addressed as His (or Her) Excellency, abbreviated HE.",
+     "definitionFit": "Cherished means held dear, a synonym of greatly valued."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ambassador"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +965,41 @@
     "text": "Stupidly taking any line one's messed up completely",
     "enumeration": "7"
    },
-   "solution": "INANELY"
+   "solution": "INANELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stupidly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "messed up",
+       "at": 31,
+       "note": "messed up says the letters of any line are jumbled together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "any line",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Acting foolishly, one has made a complete mess of things whatever line one takes.",
+     "walkthrough": "'messed up' rearranges ANY LINE.",
+     "definitionFit": "Inanely means in a silly, senseless way, a synonym of stupidly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1013,59 @@
     "text": "Entertainment in Tokyo with element half Japanese missed",
     "enumeration": "5"
    },
-   "solution": "MANGA"
+   "solution": "MANGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Entertainment in Tokyo",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missed",
+       "at": 50,
+       "note": "missed means the half of the word Japanese goes absent from the element"
+      }
+     ],
+     "parts": [
+      {
+       "words": "element",
+       "at": 28,
+       "gives": "MANGANESE",
+       "note": "manganese is a chemical element"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 36,
+         "note": "half takes the closing four of the eight letters of Japanese"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Japanese",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tokyo show where something half Japanese is lacking.",
+     "walkthrough": "'half' takes NESE, the back half of JAPANESE; 'missed' removes it from MANGANESE.",
+     "definitionFit": "Manga are Japanese comic books, a hugely popular form of entertainment in Tokyo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1085,34 @@
      }
     ]
    },
-   "solution": "MIDDLEC"
+   "solution": "MIDDLEC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tone common to Purcell and Puccini",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tone common to Purcell and Puccini",
+       "at": 0,
+       "note": "reads as a shared musical tone of two composers, but both names have C as the central letter of seven"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Middle C is the note near the centre of the piano keyboard, and C is the central letter of each composer's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tone"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1132,34 @@
      }
     ]
    },
-   "solution": "ACADEMICDRESS"
+   "solution": "ACADEMICDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What goes on among university students?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What goes on among university students?",
+       "at": 0,
+       "note": "reads as asking about campus goings-on, but goes on means is put on, as gowns and hoods"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Academic dress is the gown and hood students and staff wear at a university."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1173,49 @@
     "text": "Meat served in a bun for American outdoor meal?",
     "enumeration": "4"
    },
-   "solution": "LAMB"
+   "solution": "LAMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "served in",
+       "at": 5,
+       "note": "served in says the meat sits inside the bun, so taking the bun away leaves it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American outdoor meal",
+       "at": 25,
+       "gives": "CLAMBAKE",
+       "note": "a clambake is an American seaside party where seafood is cooked outdoors"
+      },
+      {
+       "words": "a bun",
+       "at": 15,
+       "gives": "CAKE",
+       "note": "a bun is a small cake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meat served in a roll at an American picnic.",
+     "walkthrough": "'served in' is the deletion signal: the meat sits inside the bun within the name of the meal, so taking the bun out leaves the meat. A clambake is an American seaside party.",
+     "definitionFit": "Lamb is the meat of a young sheep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bun"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1229,58 @@
     "text": "A guinea-pig perhaps retains place in modest programme",
     "enumeration": "6"
    },
-   "solution": "APPLET"
+   "solution": "APPLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "modest programme",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "retains",
+         "at": 21,
+         "note": "retains means the pet word keeps the next piece held inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guinea-pig perhaps",
+         "at": 2,
+         "gives": "PET",
+         "note": "a guinea pig is an example of a pet"
+        },
+        {
+         "words": "place",
+         "at": 29,
+         "gives": "PL"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guinea pig keeps its spot in a low-key show.",
+     "walkthrough": "'retains' is the container signal; 'in' simply links the wordplay to the definition, a small computer program.",
+     "definitionFit": "An applet is a small computer program, so a modest one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "programme"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1304,43 @@
      }
     ]
    },
-   "solution": "WELLTODO"
+   "solution": "WELLTODO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rich",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very much",
+       "at": 0,
+       "gives": "WELL",
+       "note": "well means very much, as in well pleased"
+      },
+      {
+       "words": "fuss",
+       "at": 10,
+       "gives": "TODO",
+       "note": "a to-do is a fuss"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Such a big fuss: that's a bit much.",
+     "walkthrough": "'That's rich' looks like a sarcastic remark, but rich is the definition.",
+     "definitionFit": "Well-to-do means wealthy, a synonym of rich."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rich"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1354,43 @@
     "text": "Garment from East African native turned up",
     "enumeration": "3"
    },
-   "solution": "OBI"
+   "solution": "OBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Garment from East",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned up",
+       "at": 33,
+       "note": "in a down clue, turned up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "African native",
+       "at": 18,
+       "gives": "IBO",
+       "note": "the Ibo, or Igbo, are a people of Nigeria"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clothing from an African tribesman appears.",
+     "walkthrough": "'turned up' reverses IBO.",
+     "definitionFit": "An obi is the broad sash worn with a kimono, a garment from Japan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1410,44 @@
      }
     ]
    },
-   "solution": "BYEBYE"
+   "solution": "BYEBYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One could well be dismissed with this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "repeat",
+     "indicators": [
+      {
+       "text": "pair of",
+       "at": 38,
+       "note": "pair of says the word for runs is written twice"
+      }
+     ],
+     "parts": [
+      {
+       "words": "runs",
+       "at": 46,
+       "gives": "BYE",
+       "note": "in cricket a bye is a run scored when the ball passes the batsman untouched"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman might well be out after a couple of runs.",
+     "walkthrough": "In cricket, byes are runs scored without the bat touching the ball. 'dismissed' suggests a batsman out, but here it means sent away with a farewell.",
+     "definitionFit": "Bye-bye is an informal goodbye, said to someone being sent on their way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dismissed"
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1461,44 @@
     "text": "Hearing sad exhalation thrills mediums",
     "enumeration": "8"
    },
-   "solution": "PSYCHICS"
+   "solution": "PSYCHICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mediums",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PSYCHICS",
+     "indicators": [
+      {
+       "text": "Hearing",
+       "at": 0,
+       "note": "hearing says the pieces are judged by how they sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sad exhalation thrills",
+       "at": 8,
+       "gives": "SIGHKICKS",
+       "note": "a sigh is a sad breath out; kicks are thrills"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Listening to a sorrowful sigh excites spiritualists.",
+     "walkthrough": "'Hearing' tells you SIGH KICKS is said aloud to give the answer.",
+     "definitionFit": "Psychics are people claiming contact with the spirit world, as mediums do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrills"
+    }
+   }
   }
  ]
 }
