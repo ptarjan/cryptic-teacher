@@ -53,7 +53,7 @@ on:
 
 permissions:
   contents: read
-  actions: read  # the build waits on the validate job's result
+  actions: write  # the build waits on the validate job's result; Prune the caches deletes old entries
   deployments: read  # tools/last_deploy.py: the commit the live site came from
   pages: write
   id-token: write
@@ -580,6 +580,30 @@ jobs:
         with:
           path: .page-cache.tar
           key: seo-pages-${{ github.sha }}
+      # The repo's caches are capped at 10GB and each run saves ~3.6GB under
+      # a new key, so three runs filled it and GitHub evicted the oldest,
+      # restores missed, and Save the git store and the shim build ran slow.
+      # Keep only the newest entry of each family (this run's, or the last
+      # good one if this run saved nothing): every restore takes the newest.
+      - name: Prune the caches
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh cache list --repo "$GITHUB_REPOSITORY" --limit 200 --json key,createdAt \
+            --jq 'sort_by(.createdAt) | reverse | .[] | .key' |
+          python3 -c "
+          import re, sys
+          seen = set()
+          for k in sys.stdin.read().split():
+              fam = re.sub(r'[0-9a-f]{40}.*', '', k)
+              if fam in seen or fam.startswith('ci-results'):
+                  if not fam.startswith('ci-results'):
+                      print(k)
+              else:
+                  seen.add(fam)
+          " | while read -r k; do gh cache delete "$k" --repo "$GITHUB_REPOSITORY" || true; done
+          gh api "repos/$GITHUB_REPOSITORY/actions/cache/usage" --jq '"cache total: \(.active_caches_size_in_bytes/1e9) GB"'
 
   # Every step's time against its budget in tools/data/deploy_budgets.json,
   # read off the jobs API. A job of its own, after the build: a failure in
