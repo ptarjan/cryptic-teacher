@@ -1123,13 +1123,18 @@ def drop_vacuous_sound(tree):
         drop_vacuous_sound(p)
 
 
+SOUND_LINK_WORDS = frozenset((
+    "has", "have", "had", "to", "and", "with", "is", "are", "a", "an", "the", "of",
+    "for", "gets", "get", "takes"))
+
+
 def merge_sounded_charade(tree, clue):
     """sound(A + B, SPELT) over leaves that sit side by side in the clue is
     one sound of the joined words: the single leaf [A B]ABGIVES the sound
     rung wants (soundsLike is a block field, and a charade has no one block to
     carry it). Merged in place, with a note joining the leaves' notes, so the
     run is not sent back to write what it already wrote. A charade with an
-    indicator, a non-leaf part or words apart in the clue is left alone."""
+    indicator, a non-leaf part or a content word between them is left alone."""
     import wordplay
     if not isinstance(tree, dict):
         return
@@ -1142,8 +1147,13 @@ def merge_sounded_charade(tree, clue):
         if ok:
             # Only spaces and punctuation between them ("Move silently, forbidden",
             # "solver, 'A stinker"): a clue word between is not the sound's.
-            ok = all(not re.search(r"[^\s,;'\"‘’“”]", clue[a["at"] + len(a["words"]):b["at"]])
-                     and b["at"] >= a["at"] + len(a["words"])
+            # A dash or colon is as little the sound's as a comma ("salary — very
+            # little"); so is a bare link word ("clergyman has to raise voice"),
+            # which the run's own fix spanned both times.
+            ok = all(b["at"] >= a["at"] + len(a["words"])
+                     and not [w for w in re.findall(
+                         r"[^\W_]+", clue[a["at"] + len(a["words"]):b["at"]])
+                         if w.lower() not in SOUND_LINK_WORDS]
                      for a, b in zip(leaves, leaves[1:]))
         if ok:
             first, last = leaves[0], leaves[-1]
