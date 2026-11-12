@@ -185,6 +185,8 @@ these. `docs/STYLE.md` holds the product feedback behind them and wins any disag
 - A link word joins and says nothing else. Don't borrow another mechanism's signal
   words in any prose field: "aloud" means homophone, "shuffle" anagram, "hidden"
   extraction, "reversed" turnaround.
+- A word's outer pair is its "first and last letters", never its "two end letters":
+  solvers read that as the last two.
 - `surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
   and gave birth` is one person's bad week. A clue of four or more words has one unless
   it is a pure double or cryptic definition, even a clue that reads as bare mechanism.

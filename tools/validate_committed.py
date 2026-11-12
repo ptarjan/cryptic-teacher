@@ -483,6 +483,36 @@ def check_indicator_notes_name_no_block(tag, ann, errors):
                 f"is read backwards\", not \"returning means RATS becomes STAR\"")
 
 
+# "the two end letters of touchy" reads as the last two letters, HY, beside a
+# block that takes the outer pair, TY (timesquick-3456 23A, reported). Every one
+# of the 1,486 corpus uses meant first and last, so the phrase is banned outright.
+# "the end letters" alone is not caught: the corpus also uses it, fairly, for the
+# last letters of several words.
+TWO_END_LETTERS = re.compile(r"\btwo end letters?\b", re.I)
+
+
+def _prose_strings(node):
+    if isinstance(node, str):
+        yield node
+    elif isinstance(node, dict):
+        for v in node.values():
+            yield from _prose_strings(v)
+    elif isinstance(node, list):
+        for v in node:
+            yield from _prose_strings(v)
+
+
+def check_no_two_end_letters(tag, ann, errors):
+    """No prose says "two end letters": solvers read it as the last two."""
+    for s in dict.fromkeys(_prose_strings(ann)):
+        if TWO_END_LETTERS.search(s):
+            errors.append(
+                f"{tag}: {s!r} says \"two end letters\", which reads as the last "
+                f"two letters. Say \"first and last letters\" (\"extremely means "
+                f"the first and last letters of touchy are taken\"), or \"last two "
+                f"letters\" if that is what is meant")
+
+
 # A selector is an indicator: "capital of Bahrain" giving B is the indicator
 # "capital of" and the block "Bahrain" (telegraph-31356 24D). A block that swallows its selector teaches the
 # letters with the instruction hidden inside them. The phrases are the ones the
