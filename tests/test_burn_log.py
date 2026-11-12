@@ -180,6 +180,31 @@ ordinary.feed(WIDTH, T)
 ordinary.feed("committed Annotate z-1", T + 1)
 check(len(sent), 2, "a status or a commit never wakes")
 
+# Cost per clue doubled: needs the ledger's own tokens per clue to double, held 30 minutes; the shared meter alone never warns.
+def cost_log(meter, ledger_recent_tok):
+    lg = B.Log()
+    for i in range(5):  # trail: 500 clues at 10k tokens each
+        lg.cost_hist.append((T - 5000 - i * 600, 1_000_000, 100))
+    for i in range(3):  # recent: 300 clues
+        lg.cost_hist.append((T - 1000 - i * 100, ledger_recent_tok * 100, 100))
+    for p, c, k, t in meter:
+        lg.meters.append((t, p, c, k))
+    return lg
+def cost_warns(lg):
+    out = []
+    for dt in (0, 600, 1900, 2000):
+        out += [x for x in lg.checks(T + dt) if "cost per clue" in x]
+    return out
+# Meter rows of 4-9 points over ~1000 clues against a flat ledger: noise, no warning.
+quiet = [(4, 2, 200, T - 6000), (4, 2, 200, T - 5000), (9, 3, 250, T - 900), (9, 3, 250, T - 800)] + [(9, 3, 250, T - 700)]
+check(cost_warns(cost_log(quiet, 10_000)), [], "a few meter points over 1000 clues on a flat ledger never warn")
+# Even a meter that doubles with a flat ledger (other rooms' usage) does not warn.
+loud = [(10, 5, 100, T - 5000 - i * 600) for i in range(5)] + [(20, 5, 100, T - 1000 - i * 100) for i in range(3)]
+check(cost_warns(cost_log(loud, 10_000)), [], "a doubled meter with a flat ledger does not warn")
+got = cost_warns(cost_log(loud, 25_000))
+check(len(got) == 1 and "cost per clue doubled" in got[0], True, "a doubled ledger rate held 30 minutes warns")
+check([x for x in cost_log(loud, 25_000).checks(T) if "cost per clue" in x], [], "and not at the first instant")
+
 # Tokens per clue: one run per puzzle at 17k tokens a clue is an alarm; the status line shows the rate.
 log = B.Log()
 sent = []

@@ -58,6 +58,7 @@ SHORT_S = 15 * 60          # far fewer runs than the width, or behind pace, this
 # (11-03, 53 bags; 3-4k before cache reads were counted); a session per puzzle is several times that.
 TOKENS_PER_CLUE_MAX = 30_000
 TOKENS_MIN_CLUES = 5
+COST_HOLD_S = 30 * 60      # the cost alert must hold this long: the shared meter is noisy
 COST_FACTOR = 2.0          # ⚠️ when meter points per clue written pass this x the trailing average
 WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
 WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM", "cryptic-crosswords")
@@ -180,6 +181,7 @@ class Log:
         self.wake_more = collections.Counter()
         self.notify = None        # callable(text) that files a wake
         self.tokens_of = None     # callable(puzzle) -> tokens its backfill session spent
+        self.cost_hist = collections.deque()   # (time, tokens, clues) of the last 6 hours: the trailing baseline for the cost alert
         self.costs = collections.deque()   # (time, tokens, clues, rule, puzzle) of the last hour's backfills
 
     def out(self, now, mark, text):
@@ -276,6 +278,7 @@ class Log:
         tok = self.tokens_of(pid) if (self.tokens_of and counted) else None
         if tok:
             self.costs.append((now, tok, clues or 1, rule, pid))
+            self.cost_hist.append((now, tok, clues or 1))
 
     def warn(self, now, kind, text, evidence, wake=True, wake_kind=None):
         """A ⚠️ line, plus a wake (at most one per kind of warning per hour) with its evidence."""
@@ -357,12 +360,22 @@ class Log:
         # A window of meter rows that wrote no clues has no rate: it never alarms, and the
         # message (built whether or not it alarms) must not divide by it either.
         rate_r, rate_t = (pr / kr if kr else 0.0), (pt / kt if kt else 0.0)
-        costly = bool(cr >= 5 and ct >= 20 and pt >= 8 and pr >= 4 and kr and kt and rate_r > COST_FACTOR * rate_t)
+        # The meter is shared with other rooms, so it alone cannot say this burn got costlier: the
+        # ledger's own tokens per clue must also have more than doubled (last hour vs 1h-6h before).
+        while self.cost_hist and self.cost_hist[0][0] < now - 6 * 3600:
+            self.cost_hist.popleft()
+        lr = [(tok, c) for t, tok, c in self.cost_hist if t > now - 3600]
+        lt = [(tok, c) for t, tok, c in self.cost_hist if t <= now - 3600]
+        lkr, lkt = sum(c for _, c in lr), sum(c for _, c in lt)
+        ledger_up = bool(lkr >= 20 and lkt >= 40
+                         and sum(t for t, _ in lr) / lkr > COST_FACTOR * sum(t for t, _ in lt) / lkt)
+        costly = bool(cr >= 5 and ct >= 20 and pt >= 40 and pr >= 20 and kr and kt
+                      and rate_r > COST_FACTOR * rate_t and ledger_up)
         out += self.condition(
             now, "cost", costly,
             f"cost per clue doubled: {pr} meter points for {kr} clues ({cr} puzzles) committed in the last hour, "
             f"against {rate_t * 1000:.1f} points per 1000 clues before",
-            self.last_meter, "cost per clue back to normal")
+            self.last_meter, "cost per clue back to normal", COST_HOLD_S)
         return out
 
     def last_hour(self, now):
