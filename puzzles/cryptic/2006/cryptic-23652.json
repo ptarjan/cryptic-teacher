@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,29 @@
      }
     ]
    },
-   "solution": "BLOWOUT"
+   "solution": "BLOWOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Burst",
+      "at": 0,
+      "meaning": "a burst tyre is a sudden puncture, called by the same name"
+     },
+     {
+      "text": "a large meal",
+      "at": 11,
+      "meaning": "a slap-up feast or binge is informally given the same name"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word covers both a sudden tyre burst and, informally, an enormous feast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Burst"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +76,30 @@
     "text": "Fire and water",
     "enumeration": "4"
    },
-   "solution": "BURN"
+   "solution": "BURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0,
+      "meaning": "to fire something is to set it alight and scorch it"
+     },
+     {
+      "text": "water",
+      "at": 9,
+      "meaning": "in Scotland a small stream or brook has this name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Scotland and northern England a BURN is a small stream, which is how it means water.",
+     "definitionFit": "As a verb it means to be on fire; as a Scottish noun it is a brook or stream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +113,51 @@
     "text": "Pained expression when top of bed falls off",
     "enumeration": "4"
    },
-   "solution": "OUCH"
+   "solution": "OUCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pained expression",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "top of",
+       "at": 23,
+       "note": "names the opening letter of the word for bed as the one affected"
+      },
+      {
+       "text": "falls off",
+       "at": 34,
+       "note": "says that opening letter drops away from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "at": 30,
+       "gives": "COUCH",
+       "note": "a couch is a piece of furniture to lie on, a kind of bed"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yelps as the head of a bed collapses.",
+     "walkthrough": "'top of' and 'falls off' together remove the first letter, C, from COUCH.",
+     "definitionFit": "An exclamation of sudden pain is exactly this cry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +171,35 @@
     "text": "Life after death?",
     "enumeration": "8"
    },
-   "solution": "OBITUARY"
+   "solution": "OBITUARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Life after death?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Life after death?",
+       "at": 0,
+       "note": "not the afterlife but a written account of a person's life, published once they have died"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface suggests religion or the afterlife; the 'Life' is a biography printed in a newspaper.",
+     "definitionFit": "A newspaper notice summarising someone's life story appears after they die."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Life"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +213,40 @@
     "text": "Mild rebuke men receive from instructor",
     "enumeration": "5"
    },
-   "solution": "TUTOR"
+   "solution": "TUTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instructor",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mild rebuke",
+       "at": 0,
+       "gives": "TUT",
+       "note": "tut is a little click of disapproval"
+      },
+      {
+       "words": "men",
+       "at": 12,
+       "gives": "OR",
+       "note": "OR, other ranks, is the military abbreviation for ordinary soldiers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instructor's soldiers get a gentle telling-off.",
+     "definitionFit": "A private teacher or instructor, especially of a single pupil, is this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +260,35 @@
     "text": "Chinese takeaway counter?",
     "enumeration": "6"
    },
-   "solution": "ABACUS"
+   "solution": "ABACUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinese takeaway counter?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Chinese takeaway counter?",
+       "at": 0,
+       "note": "not a shop counter but a Chinese device of beads for counting, including doing subtraction or 'take away'"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface suggests the counter of a takeaway restaurant; 'takeaway' is subtraction and the 'counter' is a calculating frame.",
+     "definitionFit": "The bead-frame calculator, long used in China, counts and subtracts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "takeaway"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +302,31 @@
     "text": "Pompous colonels can be old gasbags",
     "enumeration": "6"
    },
-   "solution": "BLIMPS"
+   "solution": "BLIMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pompous colonels",
+      "at": 0,
+      "meaning": "Colonel Blimp was a cartoon of a pompous reactionary old officer, and such men bear his name"
+     },
+     {
+      "text": "old gasbags",
+      "at": 24,
+      "meaning": "the barrage balloons and small airships of earlier days were given this name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Colonel Blimp was a 1930s British cartoon figure of a bluff, reactionary officer.",
+     "definitionFit": "The word names both reactionary old officers and non-rigid airships, gas-filled bags."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gasbags"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +340,35 @@
     "text": "An officer's percentage?",
     "enumeration": "10"
    },
-   "solution": "COMMISSION"
+   "solution": "COMMISSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An officer's percentage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "An officer's percentage?",
+       "at": 0,
+       "note": "the warrant that makes someone an officer shares its name with a percentage paid to an agent on sales"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "An officer holds a commission in the forces; a salesperson earns one as a cut of sales.",
+     "definitionFit": "An officer's rank is conferred by this warrant, and a sales agent's percentage fee is called the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "officer's"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +388,35 @@
      }
     ]
    },
-   "solution": "SCREENTEST"
+   "solution": "SCREENTEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The shooting of an unknown person?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The shooting of an unknown person?",
+       "at": 0,
+       "note": "not a gunshot but filming an unknown actor to try them out for a part"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'shooting' suggests a crime; in film it means recording, here of a hopeful newcomer.",
+     "definitionFit": "A trial filming of a would-be actor to judge suitability for a role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +430,45 @@
     "text": "Proceeds, after set price has been fixed",
     "enumeration": "8"
    },
-   "solution": "RECEIPTS"
+   "solution": "RECEIPTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proceeds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "has been fixed",
+       "at": 26,
+       "note": "something fixed in the sense of rigged or rearranged, so these letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "set",
+       "at": 16
+      },
+      {
+       "words": "price",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Takings come in once a price has been agreed.",
+     "walkthrough": "'has been fixed' rearranges SET PRICE.",
+     "definitionFit": "Money taken in from sales, the proceeds, is called takings or this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +482,34 @@
     "text": "Keep the pot boiling",
     "enumeration": "6"
    },
-   "solution": "SIMMER"
+   "solution": "SIMMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep the pot boiling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Keep the pot boiling",
+       "at": 0,
+       "note": "read literally: hold a pan just below a full boil, gently bubbling"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The phrase is an idiom for keeping things going; read literally it describes gentle cooking.",
+     "definitionFit": "To cook just below boiling point, keeping a pan quietly bubbling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boiling"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +523,35 @@
     "text": "He drops a line hoping for some response",
     "enumeration": "6"
    },
-   "solution": "ANGLER"
+   "solution": "ANGLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He drops a line hoping for some response",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He drops a line hoping for some response",
+       "at": 0,
+       "note": "not a letter-writer awaiting a reply but a fisherman casting and waiting for a bite"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'drops a line' suggests sending a note; here the line is a fishing line and the response a bite.",
+     "definitionFit": "A fisherman with rod and line casts and waits for fish to bite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +571,35 @@
      }
     ]
    },
-   "solution": "CURRENTPRICE"
+   "solution": "CURRENTPRICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The cost of electricity nowadays?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The cost of electricity nowadays?",
+       "at": 0,
+       "note": "two readings: the price paid for electric flow, and today's going rate"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Electricity flows as a current, so its cost is a pun on today's price.",
+     "definitionFit": "The price prevailing at present, and also punningly what electric flow costs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "electricity"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +623,41 @@
      }
     ]
    },
-   "solution": "TAKEINHAND"
+   "solution": "TAKEINHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assume responsibility for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deceive",
+       "at": 31,
+       "gives": "TAKEIN",
+       "note": "to take someone in is to fool them"
+      },
+      {
+       "words": "an employee",
+       "at": 40,
+       "gives": "HAND",
+       "note": "a hand is a worker, as in farmhand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss takes charge of a worker yet cheats them.",
+     "definitionFit": "To take control of or deal with a matter is an idiom for assuming charge of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deceive"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +677,43 @@
      }
     ]
    },
-   "solution": "SPRINGROLL"
+   "solution": "SPRINGROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a Chinese takeaway",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two things a high jumper may carry out",
+       "at": 0,
+       "gives": "SPRING",
+       "note": "a high jumper may spring upward off the ground"
+      },
+      {
+       "words": "Two things a high jumper may carry out",
+       "at": 0,
+       "gives": "ROLL",
+       "note": "a high jumper may also clear the bar using the western roll technique"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete's moves somehow come out of a Chinese restaurant.",
+     "walkthrough": "The western roll is an old high-jump technique; the 'carry out' also hints at a takeaway order.",
+     "definitionFit": "A fried pastry filled with vegetables is a staple dish of Chinese takeaways."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "carry"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +727,59 @@
     "text": "Petition about a regular payment, so it seems",
     "enumeration": "10"
    },
-   "solution": "APPARENTLY"
+   "solution": "APPARENTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "so it seems",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "the word for petition goes round the rest, as about can mean surrounding"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Petition",
+       "at": 0,
+       "gives": "APPLY",
+       "note": "to petition is to apply formally"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "words": "regular payment",
+         "at": 17,
+         "gives": "RENT",
+         "note": "rent is paid regularly to a landlord"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request concerning a recurring charge seems to be the case.",
+     "walkthrough": "'about' marks the container; 'Petition' looks like a noun but is read as the verb.",
+     "definitionFit": "An adverb meaning seemingly, as far as one can tell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Petition"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +793,49 @@
     "text": "A number embracing church creed?",
     "enumeration": "6"
    },
-   "solution": "NICENE"
+   "solution": "NICENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "creed",
+      "at": 26,
+      "note": "the adjective names a famous creed, so creed here stands for the creed's name"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 9,
+       "note": "the number wraps its arms around the abbreviation for church"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A number",
+       "at": 0,
+       "gives": "NINE",
+       "note": "nine is a number"
+      },
+      {
+       "words": "church",
+       "at": 19,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A count that includes church doctrine.",
+     "walkthrough": "'embracing' puts CE inside NINE. The Nicene Creed, from the Council of Nicaea, is the clue's definition in shorthand.",
+     "definitionFit": "The Nicene Creed is the statement of Christian belief drawn up at Nicaea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +849,29 @@
     "text": "Hard to place",
     "enumeration": "3"
    },
-   "solution": "SET"
+   "solution": "SET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hard",
+      "at": 0,
+      "meaning": "concrete or jelly that has become firm has done this"
+     },
+     {
+      "text": "to place",
+      "at": 5,
+      "meaning": "to put something down in position"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means having become firm, and as a verb to put something in position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +885,47 @@
     "text": "Timetable for education in a German school",
     "enumeration": "8"
    },
-   "solution": "SCHEDULE"
+   "solution": "SCHEDULE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Timetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the education abbreviation goes inside the German word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a German school",
+       "at": 27,
+       "gives": "SCHULE",
+       "note": "Schule is German for school"
+      },
+      {
+       "words": "education",
+       "at": 14,
+       "gives": "ED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timetable for learning in a school in Germany.",
+     "walkthrough": "The clue expects a little German: the word for school there is the container.",
+     "definitionFit": "A plan of times for events is a timetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +939,34 @@
     "text": "The man from whom Samuel imbibed wisdom",
     "enumeration": "3"
    },
-   "solution": "ELI"
+   "solution": "ELI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The man from whom Samuel imbibed wisdom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The man from whom Samuel imbibed wisdom",
+       "at": 0,
+       "note": "in the Bible, the boy Samuel was raised and taught by the priest at Shiloh"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "In the First Book of Samuel the priest at Shiloh brought up the young prophet.",
+     "definitionFit": "The biblical priest of Shiloh raised and instructed the boy Samuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "imbibed"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +980,45 @@
     "text": "When soccer wars erupt, they're frightening",
     "enumeration": "10"
    },
-   "solution": "SCARECROWS"
+   "solution": "SCARECROWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they're frightening",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "erupt",
+       "at": 17,
+       "note": "things that erupt burst out in disorder, so these letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soccer",
+       "at": 5
+      },
+      {
+       "words": "wars",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football fan violence is a scary sight.",
+     "walkthrough": "'erupt' rearranges SOCCER WARS.",
+     "definitionFit": "Straw figures in fields exist to frighten birds away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soccer"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1032,48 @@
     "text": "Horses right to take for a ride outside",
     "enumeration": "6"
    },
-   "solution": "STRING"
+   "solution": "STRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 32,
+       "note": "the word for swindle goes outside the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to take for a ride",
+       "at": 13,
+       "gives": "STING",
+       "note": "to sting someone is to swindle them"
+      },
+      {
+       "words": "right",
+       "at": 7,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Horses on the right are taken out on a hack.",
+     "walkthrough": "'outside' puts STING round R. A trainer's horses are collectively a string.",
+     "definitionFit": "A racehorse owner's or trainer's stable of horses is called a string."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ride"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1087,57 @@
     "text": "Strange thing, gin and bitters, for producing sweet songs",
     "enumeration": "12"
    },
-   "solution": "NIGHTINGALES"
+   "solution": "NIGHTINGALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "producing sweet songs",
+      "at": 36,
+      "note": "a descriptive phrase for the birds, standing in for the plural noun"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Strange",
+         "at": 0,
+         "note": "strange means odd or out of order, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thing",
+         "at": 8
+        },
+        {
+         "words": "gin",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "bitters",
+       "at": 23,
+       "gives": "ALES",
+       "note": "bitter is a kind of British beer, so bitters are ales"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd drink of gin and bitters gets people singing.",
+     "walkthrough": "'Strange' rearranges THING GIN; then add ALES, as bitter is a type of beer.",
+     "definitionFit": "These small birds are famed for singing beautifully, often at night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bitters"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1151,45 @@
     "text": "Sailor a short distance nearer the stern",
     "enumeration": "5"
    },
-   "solution": "ABAFT"
+   "solution": "ABAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nearer the stern",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "at": 0,
+       "gives": "AB",
+       "note": "AB is an able seaman"
+      },
+      {
+       "words": "a",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "words": "short distance",
+       "at": 9,
+       "gives": "FT",
+       "note": "FT, foot, abbreviated, is a short length"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman stands a little closer to the back of the boat.",
+     "definitionFit": "A nautical term meaning towards or behind the stern of a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1203,46 @@
     "text": "Heartless head cook",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cook",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Heartless",
+       "at": 0,
+       "note": "without its heart, so the middle letter of the word for head goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "head",
+       "at": 10,
+       "gives": "CHIEF",
+       "note": "a chief is a head or leader"
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The chief cook is unfeeling.",
+     "walkthrough": "'Heartless' removes the middle letter, I, from CHIEF.",
+     "definitionFit": "A professional cook in a kitchen bears this title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartless"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1256,35 @@
     "text": "Long Island in Scotland? No!",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long Island in Scotland? No!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Long Island in Scotland? No!",
+       "at": 0,
+       "note": "in Scotland a small island has this name, yet as a length it is anything but long"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface invokes Long Island, New York; in Scots an island is an inch, and an inch is a tiny length.",
+     "definitionFit": "A Scottish name for a small island, and a very short unit of length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1298,46 @@
     "text": "A Spaniard is killed while hunting",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "killed while hunting",
+      "at": 14,
+      "note": "a descriptive phrase for the youth of myth, standing in for his name"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "Spaniard",
+       "at": 2,
+       "gives": "DON",
+       "note": "Don is a Spanish title for a gentleman"
+      },
+      {
+       "words": "is",
+       "at": 11,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Spain dies on a hunt.",
+     "walkthrough": "In Greek myth the beautiful youth loved by Aphrodite was killed by a boar while hunting.",
+     "definitionFit": "The handsome youth of Greek myth was gored to death by a wild boar on a hunt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1351,30 @@
     "text": "The monkey's brother",
     "enumeration": "8"
    },
-   "solution": "CAPUCHIN"
+   "solution": "CAPUCHIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The monkey's",
+      "at": 0,
+      "meaning": "a South American monkey; the 's stands for is"
+     },
+     {
+      "text": "brother",
+      "at": 13,
+      "meaning": "a friar of the Franciscan order with a pointed hood"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The monkey is named after the friars, whose hoods its markings resemble.",
+     "definitionFit": "Names both a hooded friar of a Franciscan order and the South American monkey named after them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brother"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1388,49 @@
     "text": "Tug used in river flood",
     "enumeration": "6"
    },
-   "solution": "DELUGE"
+   "solution": "DELUGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flood",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 4,
+       "note": "the word for tug is placed inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 12,
+       "gives": "DEE",
+       "note": "the Dee is a river in Britain"
+      },
+      {
+       "words": "Tug",
+       "at": 0,
+       "gives": "LUG",
+       "note": "to lug is to haul or tug"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tugboat works on a flooded river.",
+     "walkthrough": "'used in' marks the container; the Dee is a river in both Scotland and Wales.",
+     "definitionFit": "A great overwhelming flood, as in the biblical one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tug"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +1444,30 @@
     "text": "Day of sport — night of comedy",
     "enumeration": "7"
    },
-   "solution": "TWELFTH"
+   "solution": "TWELFTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Day of sport",
+      "at": 0,
+      "meaning": "the Glorious ..., 12 August, opens the British grouse-shooting season"
+     },
+     {
+      "text": "night of comedy",
+      "at": 15,
+      "meaning": "Shakespeare's comedy is titled after the night ending Christmas festivities"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Glorious Twelfth is 12 August, when British grouse shooting begins; Twelfth Night is Shakespeare's comedy.",
+     "definitionFit": "The ordinal names the grouse-shooting opening day and the Shakespeare comedy's night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
