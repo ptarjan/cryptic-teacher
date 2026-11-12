@@ -1,13 +1,11 @@
 /* Every test in tests/ runs in tests.yml, exactly once, and the newest commit
    on every branch is always tested.
 
-   GitHub keeps only the newest PENDING job in a concurrency group and cancels
-   the rest, whatever cancel-in-progress says. A full suite's later jobs wait
-   behind the previous run's, so any group on them lets a steady stream of
-   pushes cancel every full run before it finishes (it happened: no full pass
-   for hours). tests.yml therefore groups only the puzzle fast path, whose
-   newest pending run covers the older; the full-suite jobs have no group and
-   always run to the end. The scope job keeps full runs from piling up.
+   tests.yml has one workflow-level group per ref with cancel-in-progress
+   false: a burst of code pushes is one running suite and one pending, and a
+   newer pending run replaces an older one. A running suite is never cancelled.
+   Puzzle-only pushes do not start it (paths-ignore); check.yml dispatches it
+   when it has to.
 
    pages.yml's group exists so two deploys cannot race, and a check living
    there is still wrong: a broken test must never block a site deploy.

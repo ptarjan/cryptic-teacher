@@ -106,15 +106,34 @@ if __name__ == "__main__":
 
 
 class PagesPushScope(unittest.TestCase):
-    """pages.yml: a puzzle-only push still builds while earlier code is undeployed."""
+    """pages.yml: puzzle-data pushes do not start it; check.yml dispatches it."""
 
-    def test_push_scope_also_diffs_against_the_live_deploy(self):
+    @staticmethod
+    def _ignored(text):
+        block = text[text.index("paths-ignore:"):]
+        block = block[: block.index("\n  schedule:") if "\n  schedule:" in block else block.index("\n  pull_request:")]
+        return re.findall(r'- "([^"]+)"', block)
+
+    def test_pages_and_tests_ignore_the_same_paths_as_check_runs_on(self):
+        wf = ROOT / ".github/workflows"
+        pages = self._ignored((wf / "pages.yml").read_text(encoding="utf-8"))
+        tests = self._ignored((wf / "tests.yml").read_text(encoding="utf-8"))
+        check = (wf / "check.yml").read_text(encoding="utf-8")
+        check_paths = re.findall(r'- "([^"]+)"', check[check.index("paths:"):check.index("permissions:")])
+        self.assertTrue(pages)
+        self.assertEqual(pages, tests)
+        self.assertEqual(pages, check_paths)
+
+    def test_pages_has_one_workflow_group_and_no_scope_job(self):
         text = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
-        push = text[text.index('[ "$EVENT" = push ] || yes'):text.index("validate only, the scheduled tick")]
-        self.assertIn('tools/last_deploy.py "$REPO"', push)
-        self.assertIn('tools/ci_scope.py decide "$live"', push)
-        self.assertIn('yes "code not deployed since', push)
-        self.assertIn('"build" and .status == "in_progress"', push)
+        self.assertRegex(text, r"(?m)^concurrency:\n  group: pages\n  cancel-in-progress: false$")
+        self.assertNotIn("needs.scope", text)
+        self.assertNotIn("*/15", text)
+
+    def test_check_dispatches_pages_after_a_green_check(self):
+        text = (ROOT / ".github/workflows/check.yml").read_text(encoding="utf-8")
+        self.assertIn("gh workflow run pages.yml --ref master", text)
+        self.assertIn("needs: check", text)
 
     def test_code_since_the_deploy_is_full_even_when_the_last_push_is_puzzles(self):
         since_deploy = [("M", "tools/ci_scope.py"), ("M", P)]
