@@ -5,10 +5,9 @@
 # (github.event.before), so there is no run-history search and nothing here
 # depends on what another run did or when. One job, no waits.
 #
-# Additive for now: tests.yml and pages.yml still start on these pushes and do
-# their own checks. Not here yet, on purpose: the dispatch of tests.yml on a
-# `full` verdict and the dispatch of pages.yml after a green run (either would
-# start runs today). A `full` verdict is only printed.
+# tests.yml and pages.yml ignore these paths, so neither starts on a burn push.
+# A `full` verdict on a push of only these paths dispatches tests.yml, and a
+# green check dispatches pages.yml, which is how the puzzles go live.
 #
 # Keep the paths in step with tools/ci_scope.py (puzzle and .blog files, the
 # validate_scope ENTRY_TABLES, QUEUE_STATE and BACKLOG, ci_scope.DERIVED_DATA).
@@ -39,6 +38,7 @@ jobs:
     timeout-minutes: 15
     outputs:
       dispatch_tests: ${{ steps.base.outputs.dispatch_tests }}
+      dispatch_pages: ${{ steps.base.outputs.dispatch_pages }}
     defaults:
       run:
         shell: bash .github/offline.sh {0}
@@ -100,6 +100,10 @@ jobs:
           if grep -q '^full' "$RUNNER_TEMP/verdict.txt" && [ "$only" = true ]; then
             echo "dispatch_tests=true" >> "$GITHUB_OUTPUT"
           fi
+          # pages.yml ignores them too, so these puzzles only go live when it is
+          # dispatched. Always, not only when none is queued: its concurrency
+          # group keeps one pending run and replaces an older pending one.
+          [ "$only" = true ] && echo "dispatch_pages=true" >> "$GITHUB_OUTPUT"
           if [ -s "$RUNNER_TEMP/changed.txt" ]; then
             # Non-cone patterns: each folder (its .blog sidecar comes with it).
             sed 's|/[^/]*$|/|; s|^|/|' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
@@ -124,18 +128,24 @@ jobs:
         run: |
           grep -q '^full' "$RUNNER_TEMP/verdict.txt" && echo "::notice::$(cat "$RUNNER_TEMP/verdict.txt"): the full suite is tests.yml's" || echo "data-only push"
 
-  # Its own job so that actions: write goes to this one step and not to the checks.
+  # Its own job so that actions: write goes to these steps and not to the checks.
   dispatch:
-    name: start tests.yml
+    name: start workflows
     needs: check
-    if: needs.check.outputs.dispatch_tests == 'true'
+    if: needs.check.outputs.dispatch_tests == 'true' || needs.check.outputs.dispatch_pages == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
     steps:
       - name: Start the full suite
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
+        if: needs.check.outputs.dispatch_tests == 'true'
         run: gh workflow run tests.yml --ref master
+      # Builds and deploys master's tip. A run already checking out is fine: the
+      # newer pending run in pages.yml's group picks this commit up.
+      - name: Start the site build
+        if: needs.check.outputs.dispatch_pages == 'true'
+        run: gh workflow run pages.yml --ref master

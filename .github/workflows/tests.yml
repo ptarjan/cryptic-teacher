@@ -1,30 +1,18 @@
 # Every test entry point in tools/ runs HERE.
 #
-# No job has a concurrency group, on purpose. The puzzle fast path used to have
-# one, but GitHub cancels the PENDING older run and a cancelled run shows as a
-# red X. Now the scope job emits mode=skip for a fast or full run whose commit
-# is already behind master's tip: it concludes green, and the newer run covers
-# it (the fast path diffs back to the last green run that ran something, never
-# a skipped one). GitHub cancels a PENDING job when a newer one joins its group,
-# whatever cancel-in-progress says, and a full run's later jobs (shards 17-33
-# minutes in, the cache job) wait behind the previous run's: with a group, the
-# burn's puzzle pushes every few minutes cancelled every full run before it
-# finished, no full pass ever landed, and every push stayed on the full path.
-# A full run now always runs to the end. What keeps full runs from piling up is
-# the scope job: a push whose diff since the last full pass (or a full run in
-# flight with no failed shard) is puzzle-only takes the fast path, so only code
-# pushes start a suite. The groups are on the jobs, not the workflow, because
-# which path a push takes is only known after the scope job ran.
+# Puzzle-only pushes (the burn's "Annotate", "File" and "Update" commits) do not
+# start this workflow: the paths-ignore on the push trigger below skips them, and
+# check.yml checks them instead. check.yml dispatches this workflow when its
+# verdict is `full` (a deleted puzzle, too many files). Every run here is a full
+# run: there is no scope job and no fast path.
 #
-# No job is ever skipped by its own `if:`. A skipped job is still a check run,
-# and the commit badge counts it in its total ("4 / 9" on a green commit). The
-# jobs the scope has no use for run anyway and skip their STEPS (each step
-# carries the mode test), and the test matrix shrinks to one stand-in job; the
-# stand-ins are named "... (not needed)", never "tests N" or "puzzle fast
-# path", which the scope job's base search counts as a suite that ran.
+# The workflow has one concurrency group per ref with cancel-in-progress false,
+# so a burst of code pushes is one running suite and one pending, and a newer
+# pending run replaces an older one (it shows cancelled; the newer run tests the
+# newer code). A running suite is never cancelled.
 #
-# pages.yml has its own group, and even there a queued build dies the moment
-# the next push arrives, so a check must never live in pages.yml.
+# pages.yml has its own group, and a check must never live there: a queued
+# build is replaced by the next, and a broken test must never block a deploy.
 #
 # So the loop globs both of the repo's test-file spellings, tests/test_*.{sh,js,py}
 # and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
@@ -81,19 +69,15 @@ on:
       - "tools/data/blog_compare.json"
       - "tools/data/blog_facts/inputs.sha256"
   pull_request:
-  # The backstop for the skips above. Under the burn, a code commit is
-  # superseded by the puzzle pushes behind it, and a puzzle push goes fast when
-  # its diff since a run that merely STARTED the shards is data-only, so a
-  # code change can reach the tip without any run having tested it. This run
-  # tests the tip itself, every few hours: the scope step sends anything that
-  # is not a push to master down the full path, and superseded() ignores it.
-  # It is not a push, so the base search (event=push) never counts it.
+  # The backstop for the skips above: a superseded code commit, or a puzzle push
+  # whose dispatch from check.yml failed, still gets the tip tested within a few
+  # hours.
   schedule:
     - cron: "23 */4 * * *"
   # A hand-started full run, to confirm a fix without waiting for the cron.
   workflow_dispatch:
 
-# Least privilege by default; the scope job widens its own (actions: read).
+# Least privilege by default.
 permissions:
   contents: read
 
@@ -112,7 +96,7 @@ jobs:
   # generated thing still committed: every other generated file is built by the
   # workflow that publishes it, and a file nobody commits cannot go stale.
   generated:
-    name: ${{ 'generated files are current' || 'generated files (not needed)' }}
+    name: generated files are current
     runs-on: ubuntu-latest
     # Python over files already in the clone; the corpus check is most of it.
     timeout-minutes: 10
@@ -189,18 +173,12 @@ jobs:
           key: integrity-rows-g-${{ github.sha }}
 
   test:
-    # "tests N" is a name the diff-base logic in the scope job counts as a
-    # suite that ran; the stand-in for a run with nothing to test must not
-    # start with it.
-    name: ${{ format('tests {0}', matrix.shard) || 'full suite (not needed)' }}
+    name: ${{ format('tests {0}', matrix.shard) }}
     runs-on: ubuntu-latest
     strategy:
       # Every shard runs to the end. A red shard must not hide a second one.
       fail-fast: false
       matrix:
-        # [0] when the scope says there is nothing to test: one job whose steps
-        # all skip, so the commit shows no skipped check (a job skipped by its
-        # own `if` is a skipped check run, and it counts in the badge's total).
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
     # holding a red check over every commit behind it. A shard is a few minutes
@@ -475,7 +453,7 @@ jobs:
   # (tools/check_shapes.js over the union the cache keeps). Saved even then:
   # what is in it passed.
   cache:
-    name: ${{ 'corpus result cache' || 'corpus result cache (not needed)' }}
+    name: corpus result cache
     runs-on: ubuntu-latest
     needs: test
     if: always()

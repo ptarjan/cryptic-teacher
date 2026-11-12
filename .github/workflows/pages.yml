@@ -12,19 +12,36 @@
 # pages built the same way, and a broken test must never block a deploy.
 name: Build and deploy the site
 
-# A push that only added or edited puzzle files (tools/ci_scope.py, against the
-# push's own parent and everything since the live deploy) runs the annotation check and
-# nothing else: about a minute. Building and deploying the site is ~5 minutes of
-# work, so those puzzles go live from this workflow's own 15-minute clock: the
-# scope job lets a tick build only when master has moved since the last deploy
-# (a no-op tick skips build AND validate, so it never counts as a passed check
-# for validate's diff base). Any other push builds and deploys at once.
-# The 09:41 tick is the daily full check and build.
+# Puzzle-data pushes (the burn's "Annotate", "File" and "Update" commits) do not
+# start this workflow: the paths-ignore list below is the one tests.yml and
+# check.yml use. check.yml checks such a push in about a minute and, when it
+# passes, dispatches this workflow on master. Everything else (code, workflows,
+# docs) starts it directly.
+#
+# One run at a time, workflow-wide. With cancel-in-progress false GitHub keeps
+# the running run and ONE pending run, and a newer pending run replaces an older
+# one before it takes a runner. So a burst of dispatches folds into one build
+# of the newest master, and nothing queues up. cancel-in-progress must stay
+# false: cancelling the running build on every push meant no build ever reached
+# the deploy step. A dispatch that lands while a run is already checking out is
+# fine: the newer pending run picks the commit up.
+#
+# The 09:41 tick is the daily full check and build, and the backstop.
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - "puzzles/**/*.json"
+      - "puzzles/**/*.blog"
+      - "tools/data/source_clue_wrong.json"
+      - "tools/data/source_answer_wrong.json"
+      - "tools/data/setter_error.json"
+      - "tools/data/blog_disagree.json"
+      - "tools/data/shape_reannotate.json"
+      - "tools/annotation_backlog.json"
+      - "tools/data/blog_compare.json"
+      - "tools/data/blog_facts/inputs.sha256"
   schedule:
-    - cron: "*/15 * * * *"
     - cron: "41 9 * * *"
   workflow_dispatch:
     inputs:
@@ -36,138 +53,18 @@ on:
 
 permissions:
   contents: read
-  actions: read  # validate reads the jobs of earlier runs: its diff base; the build waits on validate
+  actions: read  # the build waits on the validate job's result
   deployments: read  # tools/last_deploy.py: the commit the live site came from
   pages: write
   id-token: write
 
-# One deploy at a time, and only the BUILD is in the group: a puzzle-only push
-# runs just the scope and validate jobs, which must not queue behind a build of
-# several minutes. cancel-in-progress must stay FALSE: a push takes about
-# 5 minutes to go live, longer when many social cards are redrawn, and the
-# annotation backfill pushes a commit per puzzle, so
-# cancelling on every push meant no build ever reached the deploy step and the
-# site stopped updating while the corpus grew. There is no pile-up either way —
-# GitHub keeps only the newest PENDING build in a group and cancels
-# the rest — so false costs one build's latency and buys a site that ships. A
-# cancelled pending build loses nothing: the next 15-minute tick sees master
-# ahead of the live site and builds again.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  # Does this run build and deploy the site? Beside validate, not in front of
-  # it: a puzzle-only push is done when validate is.
-  scope:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-      deployments: read
-      actions: read  # a tick looks for a build of this commit already under way
-    outputs:
-      deploy: ${{ steps.pick.outputs.deploy }}
-      # A scheduled tick with nothing to do: validate is skipped too.
-      idle: ${{ steps.pick.outputs.idle }}
-    steps:
-      # Cone mode, as validate does: the non-cone patterns (/tools/*.py) were
-      # matched against all ~106k index entries, 22s of a 35s step (run
-      # 41710733430: fetch 15s, checkout 22s) against validate's 5s for the
-      # same commit. The earlier worry that cone mode pulls every tools/data
-      # blob (run 39309089344) no longer holds: validate's cone checkout of
-      # tools takes 5-15s.
-      - name: Check out
-        uses: actions/checkout@v5
-        with:
-          filter: blob:none
-          sparse-checkout: |
-            tools
-            .github/workflows
-      - name: Decide whether this run deploys
-        id: pick
-        env:
-          GH_TOKEN: ${{ github.token }}
-          EVENT: ${{ github.event_name }}
-          REPO: ${{ github.repository }}
-          BEFORE: ${{ github.event.before }}
-          SCHEDULE: ${{ github.event.schedule }}
-          RUN_ID: ${{ github.run_id }}
-          HEAD: ${{ github.sha }}
-        run: |
-          set -uo pipefail
-          yes() { echo "deploys: $1"; echo "deploy=true" >> "$GITHUB_OUTPUT"; exit 0; }
-          idle() { echo "idle tick: $1"; echo "deploy=false" >> "$GITHUB_OUTPUT"; echo "idle=true" >> "$GITHUB_OUTPUT"; exit 0; }
-          if [ "$EVENT" = schedule ]; then
-            [ "$SCHEDULE" != "41 9 * * *" ] || yes "the daily full check and build"
-            [ "$(python3 tools/last_deploy.py "$REPO" --moved)" = yes ] || idle "master is what the site was last deployed from"
-            # A build of this very commit already queued or running (a code
-            # push builds on the push): a second one would deploy the same
-            # site again. A run waiting for the pages group reports "pending".
-            for status in pending waiting queued in_progress; do
-              while read -r id; do
-                [ -n "$id" ] && [ "$id" != "$RUN_ID" ] || continue
-                coming=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                           --jq '[.jobs[] | select(.name == "build" and .conclusion != "skipped")] | length')
-                [ "${coming:-0}" -gt 0 ] && idle "run $id is already building ${HEAD:0:8}"
-              done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?status=$status&per_page=30" \
-                         --jq ".workflow_runs[] | select(.head_sha == \"$HEAD\") | .id")
-            done
-            yes "master is at ${HEAD:0:8}, not deployed"
-          fi
-          [ "$EVENT" = push ] || yes "a $EVENT run"
-          # The base is the push's OWN parent, not the live deploy. The deploy
-          # is up to 15 minutes old, so against it every puzzle push after a
-          # code push still "contained code" and queued a full build in the
-          # pages group behind the running one (10-12 minutes instead of 1).
-          # A code push builds on its own push; if its build is replaced by a
-          # newer pending one, or the push was a burst, the next scheduled tick
-          # deploys whatever master is ahead with, so nothing is lost.
-          case "$BEFORE" in *[1-9a-f]*) ;; *) yes "no parent to diff against" ;; esac
-          # The live deploy's commit is fetched beside the parent, not after
-          # it: each blobless fetch carries a whole 100k-entry tree (15-20s),
-          # and the two ran one behind the other (40s, runs 41703010819,
-          # 41710498352).
-          live=$(python3 tools/last_deploy.py "$REPO") || live=""
-          live_ok=$(mktemp)
-          if [ -n "$live" ]; then
-            ( git fetch --no-tags --depth=1 --filter=blob:none origin "$live" && echo ok > "$live_ok" ) >/dev/null 2>&1 &
-            livepid=$!
-          fi
-          git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE" || yes "could not fetch $BEFORE"
-          verdict=$(python3 tools/ci_scope.py decide "$BEFORE") || yes "could not diff against $BEFORE"
-          [ "$verdict" = fast ] || yes "$verdict"
-          # Puzzle-only against its parent is not enough: a code push whose
-          # build was cancelled (a pending build is replaced by a newer queued
-          # one even with cancel-in-progress: false, run 40532982428) leaves
-          # code the live site never got, and every later puzzle push would
-          # say "not needed" about it. So count every non-puzzle change since
-          # the commit the site was deployed from. A build already running
-          # will deploy the code, so only then the fast path stands.
-          [ -z "${livepid:-}" ] || wait "$livepid" || true
-          if [ -n "$live" ] && [ -s "$live_ok" ]; then
-            undeployed=$(python3 tools/ci_scope.py decide "$live") || undeployed="full could not diff against $live"
-            if [ "$undeployed" != fast ]; then
-              running=$(gh api "repos/$REPO/actions/workflows/pages.yml/runs?status=in_progress&per_page=30" \
-                          --jq '.workflow_runs[].id' | while read -r id; do
-                  [ "$id" != "$RUN_ID" ] || continue
-                  gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                    --jq '[.jobs[] | select(.name == "build" and .status == "in_progress")] | length'
-                done | grep -c '^[1-9]' || true)
-              [ "${running:-0}" -gt 0 ] || yes "code not deployed since ${live:0:8}: $undeployed"
-            fi
-          fi
-          echo "puzzle-only push since its parent $BEFORE and the live deploy: validate only, the scheduled tick deploys it"
-          echo "deploy=false" >> "$GITHUB_OUTPUT"
-
   build:
-    needs: scope
-    # No `if:` on the job: a job skipped by its own `if` is still a check run,
-    # and the commit badge counts it ("4 / 9" on a green puzzle-only commit).
-    # Every step carries the deploy test instead, and a run with nothing to
-    # deploy gets a group and no environment of its own, so the stand-in
-    # neither queues behind a running build nor records a deployment.
-    name: ${{ needs.scope.outputs.deploy == 'true' && 'build' || 'build (not needed)' }}
-    concurrency:
-      group: ${{ needs.scope.outputs.deploy == 'true' && 'pages' || format('pages-not-needed-{0}', github.run_id) }}
-      cancel-in-progress: false
+    name: build
     runs-on: ubuntu-latest
     # A build takes a few minutes, a couple more when a change redraws a
     # full OG_LIMIT of social cards.
@@ -178,7 +75,7 @@ jobs:
     # environment.
     # (The string form: the page URL still shows, actions/deploy-pages reports
     # it on the deployment itself.)
-    environment: ${{ needs.scope.outputs.deploy == 'true' && 'github-pages' || '' }}
+    environment: github-pages
     steps:
       # The runner's free disk is shared by the checkout (~1GB tree plus up to
       # 1.5GB git store), the restored caches and the site, and run
@@ -190,7 +87,6 @@ jobs:
       # 41157117731), so nothing waits on it. df is printed here and before
       # the archive so the next failure shows its headroom.
       - name: Free disk space
-        if: needs.scope.outputs.deploy == 'true'
         run: |
           df -h / | tail -n 1
           sudo nohup rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL >/dev/null 2>&1 &
@@ -205,7 +101,6 @@ jobs:
       # offer no have. tests/test_ci_checkout.sh runs this script twice
       # against a local origin.
       - name: Restore the git store
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -215,7 +110,6 @@ jobs:
           key: git-store-${{ github.sha }}
           restore-keys: git-store-
       - name: Check out
-        if: needs.scope.outputs.deploy == 'true'
         id: checkout
         env:
           TOKEN: ${{ github.token }}
@@ -235,7 +129,6 @@ jobs:
           git update-ref refs/ct/base HEAD
           echo "git store: $(du -sm .git/objects | cut -f1)MB"
       - name: Set up Python
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -243,7 +136,6 @@ jobs:
       # tests.yml's), and the actions bring their own. It was 5s a run.
       # tools/og_palette.py, which make_og.sh runs on every card.
       - name: Install Pillow
-        if: needs.scope.outputs.deploy == 'true'
         run: pip install pillow
       # tools/row_cache.py's store: each puzzle's index row, difficulty inputs
       # and card facts, keyed on its file's git blob and the code that made
@@ -254,7 +146,6 @@ jobs:
       # restore-keys takes the newest. A stale or missing store is still
       # correct, just slow: a row is reused only when its key matches.
       - name: Restore the row cache
-        if: needs.scope.outputs.deploy == 'true'
         id: rowcache
         uses: actions/cache/restore@v5
         with:
@@ -270,7 +161,6 @@ jobs:
       # path of the row cache: a cache's paths are part of its version, so
       # adding one would have emptied the row store for a run.
       - name: Restore the clue index
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/cache/restore@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
@@ -278,7 +168,6 @@ jobs:
           restore-keys: clue-index-
       # (The puzzle pages' store, described at Unpack the puzzle pages below.)
       - name: Restore the puzzle pages
-        if: needs.scope.outputs.deploy == 'true'
         id: pagecache
         uses: actions/cache/restore@v5
         with:
@@ -301,7 +190,6 @@ jobs:
       # not the newest green run: the page and row caches are saved only after
       # a deploy, and the code they were made by is that commit's.
       - name: Choose the build path
-        if: needs.scope.outputs.deploy == 'true'
         id: scope
         env:
           GH_TOKEN: ${{ github.token }}
@@ -337,7 +225,6 @@ jobs:
       # before anything hashes it. That is this early because --reindex restamps
       # index.html on its way past, not only the stamping step further down.
       - name: Build the glossary table
-        if: needs.scope.outputs.deploy == 'true'
         run: python3 tools/build_abbreviations.py
       # puzzles/index.* and the ?v= stamp index.html points at them with are
       # generated from the puzzle files, so the build regenerates them here
@@ -359,7 +246,6 @@ jobs:
       # tools/series.py, so the reindex below files it where only ?p=authored-1
       # finds it. Before the reindex, which builds its shim.
       - name: Build the authored puzzle
-        if: needs.scope.outputs.deploy == 'true'
         run: >-
           python3 tools/build_authored_puzzle.py
           --clues tools/data/authored_A001_clues.json --number 1
@@ -372,7 +258,6 @@ jobs:
       # stale shim is never used: its row's key or deps no longer match, and
       # the row and shim are written again.
       - name: Restore the puzzle shims
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/cache/restore@v5
         with:
           path: .shim-cache.tar
@@ -380,7 +265,6 @@ jobs:
           restore-keys: puzzle-shims-
       # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
       - name: Unpack the puzzle shims
-        if: needs.scope.outputs.deploy == 'true'
         run: bash tools/cache_tar.sh unpack .shim-cache.tar
       # Then a restored shim the index no longer names (its puzzle deleted or
       # renamed since) is removed, so the site ships what a clean build would.
@@ -392,31 +276,30 @@ jobs:
       # cache is saved even when the code moved; on a warm cache they are
       # eight lookups.
       - name: Warm the row cache, slice 1 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 0/8
       - name: Warm the row cache, slice 2 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 1/8
       - name: Warm the row cache, slice 3 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 2/8
       - name: Warm the row cache, slice 4 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 3/8
       - name: Warm the row cache, slice 5 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 4/8
       - name: Warm the row cache, slice 6 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 5/8
       - name: Warm the row cache, slice 7 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 6/8
       - name: Warm the row cache, slice 8 of 8
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 7/8
       - name: Build the puzzle shims and reindex
-        if: needs.scope.outputs.deploy == 'true'
         run: |
           python3 tools/fetch_puzzle.py --reindex
           python3 tools/prune_shims.py
@@ -427,7 +310,6 @@ jobs:
       # slow. The key is per-commit so every run saves what it drew; restore-keys
       # is what actually hits, taking the newest cache from any earlier commit.
       - name: Restore the social cards
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/cache/restore@v5
         with:
           path: og
@@ -443,7 +325,6 @@ jobs:
       # change that does move every card (a template redesign) drains over
       # later runs instead of holding this deploy past its budget.
       - name: Draw the social cards
-        if: needs.scope.outputs.deploy == 'true'
         run: bash tools/make_og.sh --all
         env:
           OG_LIMIT: "120"
@@ -460,7 +341,6 @@ jobs:
       # Restored up in the build (before Choose the build path), which needs
       # to know the store is there; unpacked here.
       - name: Unpack the puzzle pages
-        if: needs.scope.outputs.deploy == 'true'
         run: bash tools/cache_tar.sh unpack .page-cache.tar
       # A cold render of the ~60k puzzle pages costs ~8.4ms a page (run 42540698988:
       # 9954 pages a shard of 6 in 84s plus 7s startup = 93-96s, over the 90s budget;
@@ -472,35 +352,35 @@ jobs:
       # then writes the hub, listings and sitemaps from what the shards left in
       # .page-shards/. Same files, byte for byte, as `python3 tools/build_seo_pages.py` makes alone.
       - name: Generate the crawlable pages, shard 1 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 0/9
       - name: Generate the crawlable pages, shard 2 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 1/9
       - name: Generate the crawlable pages, shard 3 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 2/9
       - name: Generate the crawlable pages, shard 4 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 3/9
       - name: Generate the crawlable pages, shard 5 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 4/9
       - name: Generate the crawlable pages, shard 6 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 5/9
       - name: Generate the crawlable pages, shard 7 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 6/9
       - name: Generate the crawlable pages, shard 8 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 7/9
       - name: Generate the crawlable pages, shard 9 of 9
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 8/9
       - name: Assemble the crawlable pages
         id: pages
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --assemble 9
       # The puzzle fast path's one step in place of the shards and the
       # assemble: the same build as `python3 tools/build_seo_pages.py`, whose
@@ -509,24 +389,21 @@ jobs:
       # workers. The hub, listings and sitemaps are written as ever.
       - name: Generate the crawlable pages (puzzle push)
         id: pages_fast
-        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast == 'true') }}
+        if: steps.scope.outputs.fast == 'true'
         run: python3 tools/build_seo_pages.py --reuse-first
       # Every page that is not a puzzle gets a card of its own title and
       # description, so these are drawn from the pages and come after them.
       # Their URLs are stamped with a hash of what they are drawn from, not of
       # the PNG, which is what lets the pages link them first.
       - name: Draw the page cards
-        if: needs.scope.outputs.deploy == 'true'
         run: bash tools/make_og.sh --pages
       - name: Stamp the assets
-        if: needs.scope.outputs.deploy == 'true'
         run: python3 tools/stamp_assets.py
       # The pages this deploy changes, for IndexNow once it is live. The cache
       # carries the last build's page hashes; a cold one sends the recent
       # sitemap (see tools/indexnow.py). Restored before the site checks
       # start, since one of them reads it.
       - name: Restore the IndexNow manifest
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/cache/restore@v5
         with:
           path: .indexnow
@@ -537,7 +414,6 @@ jobs:
       # where they are. It used to hard-link all ~138k into _site/ first,
       # 23s of a 45s step (run 38385716791) for a tree only tar read.
       - name: List the site
-        if: needs.scope.outputs.deploy == 'true'
         run: python3 tools/stage_site.py --list "$RUNNER_TEMP/site.list"
       # Both read every published page (~67k, the link check across the
       # cores) and neither writes anything the archive holds, so they run
@@ -546,7 +422,6 @@ jobs:
       # sit in series (run 38385716791). Wait for the site checks collects
       # them before the deploy, so a broken link still ships nothing.
       - name: Start the site checks
-        if: needs.scope.outputs.deploy == 'true'
         run: |
           # Each detached from the step's output, or the runner holds the step
           # open on the inherited pipe (5s in run 38389462732).
@@ -563,13 +438,11 @@ jobs:
       # artifact.tar in an artifact called github-pages, members ./-relative,
       # directories included), which is all deploy-pages reads.
       - name: Archive the site
-        if: needs.scope.outputs.deploy == 'true'
         run: |
           tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
           df -h / | tail -n 1
       - name: Upload the site
-        if: needs.scope.outputs.deploy == 'true'
         uses: actions/upload-artifact@v6
         with:
           name: github-pages
@@ -581,7 +454,6 @@ jobs:
       # its exit code (or hung) is caught by the timeout, and fails the
       # deploy the same way a broken link does.
       - name: Wait for the site checks
-        if: needs.scope.outputs.deploy == 'true'
         timeout-minutes: 5
         run: |
           while [ ! -f "$RUNNER_TEMP/links.rc" ] || [ ! -f "$RUNNER_TEMP/indexnow.rc" ]; do sleep 1; done
@@ -597,7 +469,6 @@ jobs:
       # step's timeout, so a validate job that never reports cannot hold the
       # pages concurrency group.
       - name: Wait for the annotation check
-        if: needs.scope.outputs.deploy == 'true'
         timeout-minutes: 35
         env:
           GH_TOKEN: ${{ github.token }}
@@ -622,21 +493,19 @@ jobs:
       # accept either attempt's success, and a retry that fails too leaves the
       # run red.
       - name: Deploy to Pages
-        if: needs.scope.outputs.deploy == 'true'
         id: deploy_first
         continue-on-error: true
         uses: actions/deploy-pages@v5
         with:
           timeout: 300000
       - name: Deploy to Pages (retry)
-        if: ${{ needs.scope.outputs.deploy == 'true' && steps.deploy_first.outcome == 'failure' }}
+        if: ${{ steps.deploy_first.outcome == 'failure' }}
         id: deployment
         uses: actions/deploy-pages@v5
       # Only once the deploy succeeded, so Bing fetches what is live; a failed
       # ping leaves the site deployed and the run red, with IndexNow's reply
       # in the log.
       - name: Ping IndexNow
-        if: needs.scope.outputs.deploy == 'true'
         run: python3 tools/indexnow.py ping indexnow-urls.txt
       # What this run's caches carry to the next, saved once the deploy has
       # succeeded and before the budgets are checked. Steps of their own, not
@@ -654,7 +523,7 @@ jobs:
       # each run restored the 02:45 store and fetched everything pushed since
       # (Check out 35s against 6s warm, runs 39226527488, 39228388950).
       - name: Save the git store
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.checkout.outcome == 'success') }}
+        if: ${{ (!cancelled() && steps.checkout.outcome == 'success') }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -663,7 +532,7 @@ jobs:
             .git/refs/ct
           key: git-store-${{ github.sha }}
       - name: Save the row cache
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -671,28 +540,28 @@ jobs:
             ~/.cache/cryptic-teacher/code_reach
           key: row-cache-${{ github.sha }}
       - name: Save the clue index
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
       - name: Pack the puzzle shims
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         run: bash tools/cache_tar.sh pack shims .shim-cache.tar
       - name: Save the puzzle shims
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: og
           key: og-cards-${{ github.sha }}
       - name: Save the IndexNow manifest
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: .indexnow
@@ -703,10 +572,10 @@ jobs:
       # the bar, nothing is saved, so the next push re-renders those and its
       # own (run 39262958136 rendered 1781 pages for 29 puzzles, ~40s).
       - name: Pack the puzzle pages
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
         run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
@@ -719,7 +588,7 @@ jobs:
       # before it, so a broken build is still timed; check-run skips the steps
       # still running, this one among them, and the post-job cache saves.
       - name: Check the step budgets
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled()) }}
+        if: ${{ (!cancelled()) }}
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
@@ -760,8 +629,6 @@ jobs:
   # Skipped on an idle scheduled tick: a skipped job is not a success, so the
   # diff base lookup below never picks a tick that checked nothing.
   validate:
-    needs: scope
-    if: needs.scope.outputs.idle != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
