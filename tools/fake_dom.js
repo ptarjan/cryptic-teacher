@@ -29,7 +29,7 @@ const NATIVE_FETCH = global.fetch;
 // puzzle) ran out of heap on the 7-per-series sample (10-13).
 const NODE_SET_TIMEOUT = global.setTimeout, NODE_CLEAR_TIMEOUT = global.clearTimeout;
 
-function boot(opts) {
+function bootApp(opts) {
   const options = opts || {};
   const registry = {};
   const unpublish = (el) => {
@@ -586,6 +586,16 @@ function boot(opts) {
   };
   return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
            appSrc, beacons, window: global.window, stop };
+}
+
+// The first-screen A/B (app-core.js, "A/B 1") enrols a first-ever visit in an arm
+// by Math.random, at load. Every boot draws a fixed low number, arm a (the
+// dialog), so the smoke checks that walk it never flip a coin; the app runs to
+// the end of its load inside this call.
+function boot(opts) {
+  const realRandom = Math.random;
+  Math.random = () => 0.25;
+  try { return bootApp(opts); } finally { Math.random = realRandom; }
 }
 
 module.exports = { boot, ROOT };

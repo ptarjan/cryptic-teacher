@@ -47,14 +47,8 @@ const readBuilt = (rel) => {
 // The DOM stub and the app boot live in tools/fake_dom.js, because
 // tools/make_hint_packets.js boots the same app to walk the same hint ladder.
 // One stub, so a grader can never mark a rung the app does not actually show.
-// The first-screen A/B (app-core.js, "A/B 1") enrols a first-ever visit in an arm
-// by Math.random. These checks walk arm a, the dialog (the behaviour newcomer.js
-// asserts), so the boot draws a fixed low number: a coin flip here failed about
-// half the slices.
-const realRandom = Math.random;
-Math.random = () => 0.25;
 const { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
-        appSrc, beacons } = (() => { try { return require("../fake_dom.js").boot(); } finally { Math.random = realRandom; } })();
+        appSrc, beacons } = require("../fake_dom.js").boot();
 // What this file needs of the app's own helpers, cut out of the source it just
 // booted rather than retyped: a copy is how this file and the page came to
 // disagree about what an entry's id or a clue's printed line is. Each is a
