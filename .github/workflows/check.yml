@@ -1,0 +1,106 @@
+# The burn path: the check for a push that moves puzzle data.
+#
+# The burn jobs push an "Annotate <id>" or "File <id>" commit every few minutes.
+# This workflow checks exactly what that push changed, against its own parent
+# (github.event.before), so there is no run-history search and nothing here
+# depends on what another run did or when. One job, no waits.
+#
+# Additive for now: tests.yml and pages.yml still start on these pushes and do
+# their own checks. Not here yet, on purpose: the dispatch of tests.yml on a
+# `full` verdict and the dispatch of pages.yml after a green run (either would
+# start runs today). A `full` verdict is only printed.
+#
+# Keep the paths in step with tools/ci_scope.py (puzzle and .blog files, the
+# validate_scope ENTRY_TABLES, QUEUE_STATE and BACKLOG, ci_scope.DERIVED_DATA).
+name: Check the burn push
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "puzzles/**/*.json"
+      - "puzzles/**/*.blog"
+      - "tools/data/source_clue_wrong.json"
+      - "tools/data/source_answer_wrong.json"
+      - "tools/data/setter_error.json"
+      - "tools/data/blog_disagree.json"
+      - "tools/data/shape_reannotate.json"
+      - "tools/annotation_backlog.json"
+      - "tools/data/blog_compare.json"
+      - "tools/data/blog_facts/inputs.sha256"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          # Non-cone, tools/data less yt_solvers: the changed puzzles' folders
+          # (with their .blog sidecars) are added below.
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/
+            !/tools/data/yt_solvers/
+            /.github/
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Restore the integrity row cache
+        id: rows
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-${{ github.sha }}
+          restore-keys: integrity-rows-
+      # The push's parent. A new branch or a force push leaves `before` zero or
+      # unfetchable; the commit's own parent is the answer then.
+      - name: Fetch the changed puzzles
+        shell: bash
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ "${BEFORE//0/}" = "" ] || ! git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE"; then
+            BEFORE=$(git rev-parse HEAD~1 2>/dev/null || true)
+            if [ -z "$BEFORE" ]; then
+              git fetch --no-tags --depth=2 --filter=blob:none origin "$GITHUB_SHA"
+              BEFORE=$(git rev-parse HEAD~1)
+            fi
+            git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE"
+          fi
+          echo "diff base: $BEFORE"
+          python3 tools/ci_scope.py decide "$BEFORE" | tee "$RUNNER_TEMP/verdict.txt"
+          python3 tools/ci_scope.py files "$BEFORE" > "$RUNNER_TEMP/changed.txt"
+          echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed in this push"
+          if [ -s "$RUNNER_TEMP/changed.txt" ]; then
+            # Non-cone patterns: each folder (its .blog sidecar comes with it).
+            sed 's|/[^/]*$|/|; s|^|/|' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
+          fi
+      - name: Puzzle schema
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/puzzle_schema.py < "$RUNNER_TEMP/changed.txt"
+      # The one step with the network: a row-cache miss reads the blob, and git
+      # fetches it on demand.
+      - name: Puzzle integrity
+        shell: bash
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/puzzle_integrity.py --quiet < "$RUNNER_TEMP/changed.txt"
+      - name: Annotations
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/validate_annotations.py --deploy < "$RUNNER_TEMP/changed.txt"
+      - name: Say what tests.yml still has to cover
+        shell: bash
+        run: |
+          grep -q '^full' "$RUNNER_TEMP/verdict.txt" && echo "::notice::$(cat "$RUNNER_TEMP/verdict.txt"): the full suite is tests.yml's" || echo "data-only push"
