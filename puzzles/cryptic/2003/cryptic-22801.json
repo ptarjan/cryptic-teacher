@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,53 @@
     "text": "\"The Monument\" is a church — not a pub!",
     "enumeration": "8"
    },
-   "solution": "CENOTAPH"
+   "solution": "CENOTAPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"The Monument\"",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "at": 20,
+       "gives": "CE",
+       "note": "CE is the usual abbreviation for the Church of England"
+      },
+      {
+       "words": "not",
+       "at": 29,
+       "gives": "NOT",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
+      },
+      {
+       "words": "pub",
+       "at": 35,
+       "gives": "PH",
+       "note": "PH, short for public house, is the map abbreviation for a pub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that a famous monument is really a church and certainly not a pub.",
+     "walkthrough": "The 'not' looks like a contradiction in the surface but simply supplies its own letters in the middle of the answer.",
+     "definitionFit": "The Cenotaph in Whitehall is Britain's national war memorial, often referred to simply as the monument to the fallen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +94,11 @@
     "text": "Lech Walesa's heart in pursuit of the Doge's",
     "enumeration": "4"
    },
-   "solution": "OGLE"
+   "solution": "OGLE",
+   "annotationWithheld": {
+    "why": "Lech Walesa's heart in pursuit of the Doge's (4): OGLE needs the middle of both Walesa (LE) and Doge (OG), so the single word 'heart' does two jobs, indicating both selections.",
+    "clue": "Lech Walesa's heart in pursuit of the Doge's"
+   }
   },
   {
    "number": 3,
@@ -59,7 +112,57 @@
     "text": "Health not right? Point to dairy product",
     "enumeration": "6"
    },
-   "solution": "CHEESE"
+   "solution": "CHEESE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dairy product",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 7,
+         "note": "not right means the letter for right is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Health",
+         "at": 0,
+         "gives": "CHEERS",
+         "note": "'Health!' and 'Cheers!' are both toasts said when raising a glass"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "Point",
+       "at": 18,
+       "gives": "E",
+       "note": "E, east, is a point of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worried question about one's health is followed by a pointer towards something from the dairy.",
+     "walkthrough": "'Health' here is the toast, not wellbeing: swapping it for its fellow toast and dropping an R leaves CHEES.",
+     "definitionFit": "Cheese is made from curdled milk, a classic product of the dairy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Health"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +190,46 @@
     "text": "Mature student works on one US academic subject",
     "enumeration": "8"
    },
-   "solution": "OPSIMATH"
+   "solution": "OPSIMATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mature student",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "works",
+       "at": 15,
+       "gives": "OPS",
+       "note": "OPS is short for opera, Latin for works"
+      },
+      {
+       "words": "one",
+       "at": 24,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "US academic subject",
+       "at": 28,
+       "gives": "MATH",
+       "note": "Americans say math where Britons say maths"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mature student is described as working on a single American college subject.",
+     "definitionFit": "An opsimath is someone who begins to learn late in life, a rare word for a late learner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +249,41 @@
      }
     ]
    },
-   "solution": "GIANTPANDA"
+   "solution": "GIANTPANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "endangered 17 animal",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "About",
+       "at": 0,
+       "note": "about can mean around or in a different order, so the following letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "adapting an",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something about adapting a rare Chinese creature to survive.",
+     "walkthrough": "17 is the solution CHINESE, so the definition is an endangered Chinese animal. 'About' looks like 'concerning' but is the anagram signal.",
+     "definitionFit": "The giant panda, native to China's bamboo forests, has long been the emblem of endangered species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +297,49 @@
     "text": "An inspiration in modern times, unlike Victoria",
     "enumeration": "6"
    },
-   "solution": "AMUSED"
+   "solution": "AMUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unlike Victoria",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in places the source of inspiration inside the modern-era abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "modern times",
+       "at": 18,
+       "gives": "AD",
+       "note": "AD, anno Domini, marks dates in the present era"
+      },
+      {
+       "words": "inspiration",
+       "at": 3,
+       "gives": "MUSE",
+       "note": "a muse is a source of artistic inspiration"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muse in the present day, in contrast to the stern Queen Victoria.",
+     "walkthrough": "Queen Victoria is famously credited with the remark 'We are not amused', which the definition plays on.",
+     "definitionFit": "Victoria was supposedly never entertained, so being tickled is the opposite of her reputed state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +359,41 @@
      }
     ]
    },
-   "solution": "FENGSHUI"
+   "solution": "FENGSHUI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "17 recipe for happiness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 48,
+       "note": "cooked suggests the ingredients are mixed up and transformed into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fungi she",
+       "at": 38
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese recipe for happiness made with mushrooms prepared by a woman.",
+     "walkthrough": "17 is CHINESE. 'Recipe' and 'cooked' suggest a dish, but the recipe is for a harmonious home.",
+     "definitionFit": "Feng shui is the Chinese art of arranging surroundings to bring harmony and good fortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +407,60 @@
     "text": "Optical equipment teacher returned in the afternoon",
     "enumeration": "5"
    },
-   "solution": "PRISM"
+   "solution": "PRISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Optical equipment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "in places the turned-round teacher inside the afternoon abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the afternoon",
+       "at": 38,
+       "gives": "PM",
+       "note": "PM, post meridiem, means the afternoon"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 26,
+         "note": "returned means the word for teacher is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teacher",
+         "at": 18,
+         "gives": "SIR",
+         "note": "pupils address a male teacher as sir"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher comes back in the afternoon with some optical apparatus.",
+     "walkthrough": "'Optical equipment' is the definition; 'the afternoon' is the abbreviation that 'in' signals as the container.",
+     "definitionFit": "A prism is a glass block that bends and splits light, a standard piece of optics kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +474,28 @@
     "text": "Excavator of beauty spot",
     "enumeration": "4"
    },
-   "solution": "MOLE"
+   "solution": "MOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excavator",
+      "at": 0,
+      "meaning": "the small burrowing mammal digs tunnels underground"
+     },
+     {
+      "text": "beauty spot",
+      "at": 13,
+      "meaning": "a small dark mark on the skin, sometimes called a beauty spot"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both a burrowing animal that digs and a dark spot on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +509,59 @@
     "text": "It's seen running round tree by one on the spot",
     "enumeration": "10"
    },
-   "solution": "EYEWITNESS"
+   "solution": "EYEWITNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one on the spot",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 18,
+       "note": "round means the jumbled letters are placed around the tree"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "running",
+         "at": 10,
+         "note": "running suggests the letters are in motion and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "It's seen",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "tree",
+       "at": 24,
+       "gives": "YEW",
+       "note": "a yew is an evergreen tree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something seen racing round a tree by a single person who happened to be there.",
+     "walkthrough": "'running' looks like a verb about the person seen, but it is the anagram signal, and 'round' is a container signal rather than a circuit.",
+     "definitionFit": "An eyewitness is a person who was present at the scene and saw events happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +575,28 @@
     "text": "Trade name",
     "enumeration": "6"
    },
-   "solution": "HANDLE"
+   "solution": "HANDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trade",
+      "at": 0,
+      "meaning": "to deal in goods, as a dealer does stolen property"
+     },
+     {
+      "text": "name",
+      "at": 6,
+      "meaning": "an informal word for a person's name or nickname"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both to deal commercially in goods and, informally, what someone is called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +610,65 @@
     "text": "Is wrong island in the river getting the wrong picture?",
     "enumeration": "10"
    },
-   "solution": "DISTORTION"
+   "solution": "DISTORTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the wrong picture",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the three pieces inside the name of the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the river",
+       "at": 19,
+       "gives": "DON",
+       "note": "the Don is a river in Yorkshire, Scotland and Russia"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Is",
+         "at": 0,
+         "gives": "IS",
+         "note": "taken as written"
+        },
+        {
+         "words": "wrong",
+         "at": 3,
+         "gives": "TORT",
+         "note": "a tort is a civil wrong in law"
+        },
+        {
+         "words": "island",
+         "at": 9,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether an island in the river is mistaken, giving a false impression.",
+     "walkthrough": "The surface reads as someone getting the wrong idea, but 'wrong' is TORT, the legal term.",
+     "definitionFit": "A distortion is a misrepresentation, an image or account bent out of its true shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +682,48 @@
     "text": "Mad rush to get stuffed in the Home Counties",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mad rush",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in places the word for stuffed inside the regional abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Home Counties",
+       "at": 27,
+       "gives": "SE",
+       "note": "the Home Counties surround London in the south-east of England, abbreviated SE"
+      },
+      {
+       "words": "stuffed",
+       "at": 16,
+       "gives": "TAMPED",
+       "note": "tamped means packed down tightly, as tobacco in a pipe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic dash to get filled up in the commuter belt around London.",
+     "walkthrough": "The Home Counties are the counties around London, such as Surrey and Kent; here they stand for SE.",
+     "definitionFit": "A stampede is a sudden panicked rush, of cattle or of a crowd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -239,7 +737,69 @@
     "text": "Science produces happy ends thus in an afterthought",
     "enumeration": "7"
    },
-   "solution": "PHYSICS"
+   "solution": "PHYSICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Science",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in puts the ends of happy and the word for thus inside the afterthought"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an afterthought",
+       "at": 36,
+       "gives": "PS",
+       "note": "PS, postscript, is an afterthought added to a letter"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "ends",
+           "at": 23,
+           "note": "ends means the first and last letters of happy"
+          }
+         ],
+         "parts": [
+          {
+           "words": "happy",
+           "at": 17
+          }
+         ]
+        },
+        {
+         "words": "thus",
+         "at": 28,
+         "gives": "SIC",
+         "note": "sic is Latin for thus, used to mark a quotation as printed"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A science produces a happy ending, as noted in a postscript.",
+     "walkthrough": "'happy ends' means the outer letters of happy, not a happy ending; 'produces' is only a link word.",
+     "definitionFit": "Physics is the natural science of matter, energy and motion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -253,7 +813,42 @@
     "text": "Study \"Endeavour\" and \"Victory\"",
     "enumeration": "8"
    },
-   "solution": "CONQUEST"
+   "solution": "CONQUEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Victory",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "CON",
+       "note": "to con is to study or learn by heart"
+      },
+      {
+       "words": "Endeavour",
+       "at": 7,
+       "gives": "QUEST",
+       "note": "a quest is a search or endeavour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A study of two famous ships, Endeavour and Victory.",
+     "walkthrough": "Endeavour and Victory are famous British ships, Cook's and Nelson's, which hides that they are ordinary words here.",
+     "definitionFit": "A conquest is a victory over an enemy, a territory won by force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Endeavour"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +873,50 @@
     "17-across",
     "23-across",
     "18-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hastens to order rice menu with nasty consequences!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to",
+       "at": 8,
+       "note": "to order means to arrange, so the letters are put into a new sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hastens",
+       "at": 0
+      },
+      {
+       "words": "order rice menu",
+       "at": 17
+      },
+      {
+       "words": "nasty",
+       "at": 32
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone rushes to order from a rice menu and pays an unpleasant price afterwards.",
+     "walkthrough": "'to order' sounds like ordering food but signals the anagram; the leftover 'with' and 'consequences' complete the picture of the after-effects of a takeaway.",
+     "definitionFit": "The phrase names the headaches and flushing once blamed on monosodium glutamate in takeaway food from China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +944,60 @@
     "text": "Don't pay expert to secure gold plate",
     "enumeration": "7"
    },
-   "solution": "DEFAULT"
+   "solution": "DEFAULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't pay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to secure",
+       "at": 17,
+       "note": "to secure means to hold fast, so the expert word surrounds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expert",
+       "at": 10,
+       "gives": "DEFT",
+       "note": "deft means skilful or expert"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 27,
+         "gives": "AU",
+         "note": "AU is the chemical symbol for gold"
+        },
+        {
+         "words": "plate",
+         "at": 32,
+         "gives": "L",
+         "note": "an L-plate is the learner's plate on a UK car, so plate gives L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who skips payment hires an expert to secure some gold plate.",
+     "walkthrough": "'gold plate' looks like one item but splits into AU and L; in Britain learner drivers display a red L on a white plate.",
+     "definitionFit": "To default is to fail to make a payment that is due on a loan or debt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1011,63 @@
     "text": "Peacemakers interrupting heartless miser with appeal for funds",
     "enumeration": "8"
    },
-   "solution": "SCROUNGE"
+   "solution": "SCROUNGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appeal for funds",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "at": 12,
+       "note": "interrupting means the peacemakers break into the middle of the miser"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 25,
+         "note": "heartless means the central letter of the miser's name is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "miser",
+         "at": 35,
+         "gives": "SCROOGE",
+         "note": "Scrooge is the miser in Dickens's A Christmas Carol"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "Peacemakers",
+       "at": 0,
+       "gives": "UN",
+       "note": "the UN, United Nations, sends peacekeeping forces"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peace envoys break in on a cold-hearted miser to ask for donations.",
+     "walkthrough": "The miser is Dickens's Ebenezer; 'heartless' drops his central letter and 'interrupting' breaks the remainder open for the peacemakers.",
+     "definitionFit": "To scrounge is to cadge or beg for money or goods from others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1081,29 @@
     "text": "24 across, or large-bottomed?",
     "enumeration": "6"
    },
-   "solution": "CHEEKY"
+   "solution": "CHEEKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "24 across",
+      "at": 0,
+      "meaning": "24 across is the clue for impudent, so this sense is saucy or impudent"
+     },
+     {
+      "text": "large-bottomed?",
+      "at": 14,
+      "meaning": "humorously, having big cheeks, that is buttocks"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means impudent, and jokingly suggests someone with sizeable buttock cheeks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1117,59 @@
     "text": "Get thee hence (relative to a 5)",
     "enumeration": "6"
    },
-   "solution": "AVAUNT"
+   "solution": "AVAUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get thee hence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to",
+       "at": 25,
+       "note": "to here means the relative is attached after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
+        },
+        {
+         "words": "5",
+         "at": 30,
+         "gives": "V",
+         "note": "V is the Roman numeral five"
+        }
+       ]
+      },
+      {
+       "words": "relative",
+       "at": 16,
+       "gives": "AUNT",
+       "note": "an aunt is a relative"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archaic dismissal with a parenthetical note about a relative and a number.",
+     "walkthrough": "5 here is not the clue 5 but the Roman numeral V.",
+     "definitionFit": "Avaunt is an archaic command meaning go away, the same as begone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "5"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1183,71 @@
     "text": "Mounted musical, keeping chorus leader busy",
     "enumeration": "6"
    },
-   "solution": "ACTIVE"
+   "solution": "ACTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "busy",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 17,
+       "note": "keeping means holding something within, so the musical surrounds the leader"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Mounted",
+         "at": 0,
+         "note": "in a down clue mounted means the musical is written upwards, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "musical",
+         "at": 8,
+         "gives": "EVITA",
+         "note": "Evita is the Lloyd Webber musical about Eva Peron"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 32,
+         "note": "leader means the first letter of chorus"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chorus",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical is staged and keeps its chorus leader busy.",
+     "walkthrough": "'Mounted' sounds like staging a show, but in a down clue it turns EVITA upwards to ATIVE; C goes inside.",
+     "definitionFit": "Active means busy, occupied and engaged in doing things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mounted"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1275,39 @@
     "text": "Impudent every time",
     "enumeration": "4"
    },
-   "solution": "PERT"
+   "solution": "PERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impudent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "every",
+       "at": 9,
+       "gives": "PER",
+       "note": "per means for each, as in once per day"
+      },
+      {
+       "words": "time",
+       "at": 15,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is cheeky on every single occasion.",
+     "definitionFit": "Pert describes a person who is saucily bold or forward in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1321,28 @@
     "text": "Succeed with a saucy suggestion",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Succeed",
+      "at": 0,
+      "meaning": "to get through an examination or test successfully"
+     },
+     {
+      "text": "a saucy suggestion",
+      "at": 13,
+      "meaning": "an amorous advance, as in making one at someone"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means to succeed in a test, and an amorous approach made to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1366,58 @@
    "group": [
     "25-across",
     "4-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "17 23 18",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 22,
+       "note": "to keep means to hold inside, so the jumbled letters surround the utensils"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Desperately",
+         "at": 0,
+         "note": "desperately suggests wild disorder, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seeks aid",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "17 23 utensils",
+       "at": 30,
+       "gives": "WOKS",
+       "note": "17 23 is CHINESE RESTAURANT, and woks are the pans used in its kitchens"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frantically seeks help to keep pans from a Chinese restaurant, having been made ill by its food.",
+     "walkthrough": "'Desperately' signals the anagram and 'to keep' the container. The definition refers to the linked answer 17 23 18; 'from' is a link.",
+     "definitionFit": "The condition was first described by Dr Robert Ho Man Kwok in 1968, and his name became an alternative label for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1431,48 @@
     "text": "To be that fond of the compiler is charming",
     "enumeration": "8"
    },
-   "solution": "LOVESOME"
+   "solution": "LOVESOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "charming",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fond of",
+       "at": 11,
+       "gives": "LOVE",
+       "note": "to be fond of someone is to love them"
+      },
+      {
+       "words": "that",
+       "at": 6,
+       "gives": "SO",
+       "note": "so means that much, as in so fond"
+      },
+      {
+       "words": "the compiler",
+       "at": 19,
+       "gives": "ME",
+       "note": "the setter refers to themselves as me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter suggests that being so fond of them would be delightful.",
+     "walkthrough": "The pieces read 'love so me' in order; the compiler is the crossword setter speaking of themselves.",
+     "definitionFit": "Lovesome is an old word meaning lovely or attractive, charming to look at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
