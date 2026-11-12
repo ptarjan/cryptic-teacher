@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "One's downtrodden in reprimand",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's downtrodden",
+      "at": 0,
+      "meaning": "something trodden underfoot all day, a floor covering walked on"
+     },
+     {
+      "text": "reprimand",
+      "at": 21,
+      "meaning": "to haul someone up for a telling-off, as a boss summons an employee"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone already oppressed is caught up in a scolding.",
+     "definitionFit": "A rug is literally trodden down, and to be called in for a dressing-down is an informal British idiom using the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "downtrodden"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,45 @@
     "text": "Spots locals speaking of their London borough?",
     "enumeration": "4"
    },
-   "solution": "ACNE"
+   "solution": "ACNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ACNE",
+     "indicators": [
+      {
+       "text": "locals speaking of",
+       "at": 6,
+       "note": "Cockney locals drop the initial H, so the borough's name is heard as they would say it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "their London borough",
+       "at": 25,
+       "gives": "HACKNEY",
+       "note": "Hackney is a borough of East London, home turf of Cockney speakers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how East Londoners pronounce the name of their borough.",
+     "walkthrough": "Cockneys famously drop their aitches, so 'Hackney' (an East London borough) comes out as 'Ackney'; 'locals speaking of' signals that sound.",
+     "definitionFit": "Acne is the skin condition marked by pimples, which are commonly called spots in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spots"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +124,69 @@
     "text": "Wonders if scrap heap contains new sign",
     "enumeration": "9"
    },
-   "solution": "PHENOMENA"
+   "solution": "PHENOMENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wonders",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 22,
+       "note": "the shuffled heap holds the other pieces within it, as the clue says it contains them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scrap",
+         "at": 11,
+         "note": "to scrap something is to break it up, so the letters of heap are broken and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heap",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 31,
+         "gives": "N"
+        },
+        {
+         "words": "sign",
+         "at": 35,
+         "gives": "OMEN",
+         "note": "an omen is a sign or portent"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a pile of junk might hold a fresh portent.",
+     "walkthrough": "'scrap' shuffles the clue's heap into PHEA, and 'contains' sets the new sign inside it after its third letter.",
+     "definitionFit": "Phenomena are remarkable occurrences or marvels, so wonders is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +200,49 @@
     "text": "Relative, the aforementioned proposition",
     "enumeration": "6"
    },
-   "solution": "THESIS"
+   "solution": "THESIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "proposition",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "aforementioned",
+       "at": 14,
+       "note": "mentioned before, so the word the is placed ahead of the relative in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the",
+       "at": 10,
+       "gives": "THE",
+       "note": "taken as written"
+      },
+      {
+       "words": "Relative",
+       "at": 0,
+       "gives": "SIS",
+       "note": "sis, short for sister, is a relative"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a fusty legal phrase about a relation and the proposition already referred to.",
+     "walkthrough": "The clue names the relative first, but 'aforementioned' tells you the definite article comes before it in the answer.",
+     "definitionFit": "A thesis is a proposition put forward and argued for, as in a dissertation's central claim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aforementioned"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +256,43 @@
     "text": "Retired coppers in conversation",
     "enumeration": "8"
    },
-   "solution": "EXCHANGE"
+   "solution": "EXCHANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "conversation",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Retired",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former, as someone retired is an ex-employee"
+      },
+      {
+       "words": "coppers",
+       "at": 8,
+       "gives": "CHANGE",
+       "note": "coppers are small coins, loose change"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Retired police officers chatting together.",
+     "walkthrough": "'coppers' looks like police but means copper coins, that is, small change.",
+     "definitionFit": "An exchange of words is a conversation, a back-and-forth between speakers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coppers"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +316,35 @@
      }
     ]
    },
-   "solution": "EATBETWEENMEALS"
+   "solution": "EATBETWEENMEALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tea — its anagram — tea?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tea — its anagram — tea",
+       "at": 0,
+       "note": "a rearrangement of the word tea sits between two teas, read as a mealtime on either side; the whole describes snacking"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Rearrange TEA to get EAT, and picture it placed between two teas, the afternoon meal; the phrase so formed means to snack.",
+     "definitionFit": "The clue is a visual picture of the phrase meaning to snack outside regular mealtimes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "anagram"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +358,47 @@
     "text": "Witches are often attractive women? Not right!",
     "enumeration": "8"
    },
-   "solution": "CACKLING"
+   "solution": "CACKLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Witches are often",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not",
+       "at": 36,
+       "note": "the letter for right is not to be included, so it is taken out of the slang word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attractive women",
+       "at": 18,
+       "gives": "CRACKLING",
+       "note": "a bit of crackling is old British slang for an attractive woman"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky claim that witches are frequently good-looking, promptly retracted.",
+     "walkthrough": "'crackling' (pork rind) is dated British slang for attractive women; 'Not right' removes R.",
+     "definitionFit": "Witches in stories are known for their harsh cackling laughter, so cackling is what they often are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "attractive"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +412,58 @@
     "text": "Earliest characters, the two of them, removing the last one in order",
     "enumeration": "5"
    },
-   "solution": "ABBOT"
+   "solution": "ABBOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in order",
+      "at": 60
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Earliest characters",
+       "at": 0,
+       "gives": "AB",
+       "note": "A and B are the first letters of the alphabet"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing the last one",
+         "at": 38,
+         "note": "the final letter of the word for the pair is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the two of them",
+         "at": 21,
+         "gives": "BOTH",
+         "note": "both means the two of them"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes the first letters of the alphabet being lined up in sequence.",
+     "walkthrough": "'in order' looks like 'in sequence' but means one in a religious order.",
+     "definitionFit": "An abbot is the head of a monastery, a man within a monastic religious order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +477,66 @@
     "text": "\"Lasses entertaining lieutenant\" encapsulating Russian cruises",
     "enumeration": "10"
    },
-   "solution": "GALLIVANTS"
+   "solution": "GALLIVANTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cruises",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 8,
+       "note": "to entertain guests is to hold them within, so the girls' word takes in the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lasses",
+       "at": 1,
+       "gives": "GALS",
+       "note": "gals are girls, lasses"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "encapsulating",
+         "at": 33,
+         "note": "to encapsulate is to enclose, so the abbreviation for lieutenant wraps around the Russian"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lieutenant",
+         "at": 21,
+         "gives": "LT"
+        },
+        {
+         "words": "Russian",
+         "at": 47,
+         "gives": "IVAN",
+         "note": "Ivan is a typical Russian man's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quoted headline about girls hosting an officer, followed by a Russian on a voyage.",
+     "walkthrough": "'encapsulating' wraps the officer's abbreviation round the Russian name; 'entertaining' then puts that inside the lasses after their third letter.",
+     "definitionFit": "To gallivant is to roam around seeking pleasure, and to cruise can mean to wander about idly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cruises"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +550,57 @@
     "text": "In coming 22, no son appears 13",
     "enumeration": "8"
    },
-   "solution": "INDECENT"
+   "solution": "INDECENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "13",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In",
+       "at": 0,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 14,
+         "note": "the son is not present, so his letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coming 22",
+         "at": 3,
+         "gives": "DESCENT",
+         "note": "with 22 standing for down, coming down is a descent"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-referenced riddle about coming down without a son.",
+     "walkthrough": "13 is BLUE in the sense of smutty; 22 is DOWN, so 'coming down' is DESCENT, and 'no son' takes away S.",
+     "definitionFit": "Blue humour is rude or risqué, so blue means improper, the sense of the answer here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +614,70 @@
     "text": "Black covered by type of black beginning to turn 13",
     "enumeration": "6"
    },
-   "solution": "COBALT"
+   "solution": "COBALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "13",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covered by",
+         "at": 6,
+         "note": "the letter for black is enclosed, covered over, by the type of black"
+        }
+       ],
+       "parts": [
+        {
+         "words": "type of black",
+         "at": 17,
+         "gives": "COAL",
+         "note": "coal-black is a type of black"
+        },
+        {
+         "words": "Black",
+         "at": 0,
+         "gives": "B",
+         "note": "B is the abbreviation for black, as on pencils"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 31,
+         "note": "only the first letter of turn is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turn",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painterly note on shades of black about to change to another colour.",
+     "walkthrough": "13 is BLUE: cobalt blue is a deep blue pigment.",
+     "definitionFit": "Cobalt blue is a vivid blue pigment, so cobalt names a shade of blue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Black"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +697,61 @@
      }
     ]
    },
-   "solution": "OLIVERLETWIN"
+   "solution": "OLIVERLETWIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "13",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inserted",
+         "at": 17,
+         "note": "the wire goes into the word or, as wiring is inserted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 3,
+         "gives": "OR",
+         "note": "taken as written"
+        },
+        {
+         "words": "brown wire",
+         "at": 6,
+         "gives": "LIVE",
+         "note": "in British electrical plugs the live wire is brown"
+        }
+       ]
+      },
+      {
+       "words": "Don't put up resistance",
+       "at": 27,
+       "gives": "LETWIN",
+       "note": "to let someone win is to offer no resistance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for wiring a plug: put in the brown wire and don't fight it.",
+     "walkthrough": "13 is BLUE, the colour of the Conservatives; this Tory MP was a prominent shadow minister. In UK plugs the brown wire is live.",
+     "definitionFit": "Blue is the Conservative Party colour, and this politician was a senior Conservative, a blue in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +765,82 @@
     "text": "They'll snap a measure of alcohol up during preparation of roast",
     "enumeration": "10"
    },
-   "solution": "ALLIGATORS"
+   "solution": "ALLIGATORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They'll snap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 37,
+       "note": "the reversed measure comes in the middle of the rearranged roast, during it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "preparation of",
+         "at": 44,
+         "note": "preparing a dish means working it up, so the letters of roast are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roast",
+         "at": 59
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 34,
+         "note": "in a down clue, up means the letters are read from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 13,
+           "gives": "A",
+           "note": "taken as written"
+          },
+          {
+           "words": "measure of alcohol",
+           "at": 15,
+           "gives": "GILL",
+           "note": "a gill is a small measure of spirits or beer"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something will crack while a drink is taken up as the roast is being made.",
+     "walkthrough": "'up' reads the measure backwards as LLIGA; 'preparation of' gives ATORS, and 'during' puts the reversed measure after its first letter.",
+     "definitionFit": "Alligators snap their powerful jaws shut, so they are creatures that snap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "snap"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +854,31 @@
     "text": "Rainy day mood, as the sky isn't?",
     "enumeration": "4"
    },
-   "solution": "BLUE"
+   "solution": "BLUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rainy day mood",
+      "at": 0,
+      "meaning": "feeling low or down in the dumps, as on a grey wet day"
+     },
+     {
+      "text": "as the sky isn't?",
+      "at": 16,
+      "meaning": "on a rainy day the sky is grey, not the colour of a clear sky"
+     }
+    ],
+    "explanation": {
+     "surface": "Feeling gloomy on a wet day under a grey sky.",
+     "definitionFit": "Feeling blue means sad, and a cloudless sky is that colour, which a rainy one lacks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rainy"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +892,35 @@
     "text": "A measure in knots",
     "enumeration": "8"
    },
-   "solution": "WINGSPAN"
+   "solution": "WINGSPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A measure in knots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A measure in knots",
+       "at": 0,
+       "note": "knots read as wading birds, not speed: a measurement taken of such birds from tip to tip"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'knots' looks like nautical speed, but the knot is a wading bird; the measure is taken across its outspread wings.",
+     "definitionFit": "A bird's wingspan is a measurement from one wingtip to the other, which applies to the knot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knots"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +934,50 @@
     "text": "Still I'm not into a certain type of rock",
     "enumeration": "9"
    },
-   "solution": "SEDENTARY"
+   "solution": "SEDENTARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not into",
+       "at": 10,
+       "note": "the letters for I'm are not in the word, so they are taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a certain type of rock",
+       "at": 19,
+       "gives": "SEDIMENTARY",
+       "note": "sedimentary rock is one of the main rock types"
+      },
+      {
+       "words": "I'm",
+       "at": 6,
+       "gives": "IM",
+       "note": "the contraction gives its letters I and M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares a lack of interest in a particular kind of rock music.",
+     "walkthrough": "'rock' suggests music, but it is geology; removing IM from SEDIMENTARY leaves the answer.",
+     "definitionFit": "Sedentary means sitting a lot and inactive, so still in the sense of motionless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +991,35 @@
     "text": "Guardian's clock setter?",
     "enumeration": "8"
    },
-   "solution": "WATCHDOG"
+   "solution": "WATCHDOG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guardian's clock setter?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Guardian's clock setter",
+       "at": 0,
+       "note": "a guardian dog read playfully as a setter breed that sets a timepiece"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A setter is a breed of dog, and a watch is a small clock, so a dog that 'sets' a watch fits; 'Guardian' is also a nod to the newspaper.",
+     "definitionFit": "A watchdog guards property, and the word playfully splits into a timepiece and a dog breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1033,70 @@
     "text": "Church leader cuts through storm where he lives",
     "enumeration": "8"
    },
-   "solution": "VICARAGE"
+   "solution": "VICARAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where he lives",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cuts",
+         "at": 14,
+         "note": "the leading letter cuts into the word for through, splitting it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "through",
+         "at": 19,
+         "gives": "VIA",
+         "note": "via means by way of, through"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 7,
+           "note": "only the first letter of church is used, its leader"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Church",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "storm",
+       "at": 27,
+       "gives": "RAGE",
+       "note": "rage means to storm, rant furiously"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman pushes through a tempest to reach his home.",
+     "walkthrough": "'Church leader' looks like a vicar or bishop but gives just C, which goes inside VIA.",
+     "definitionFit": "A vicarage is the house provided for a parish vicar, so his home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1110,11 @@
     "text": "Appointment has authority with a divorced man …",
     "enumeration": "4"
    },
-   "solution": "DATE"
+   "solution": "DATE",
+   "annotationWithheld": {
+    "why": "clue as held, 'Appointment has authority with a divorced man …', runs on into 20; 'a divorced man' is the anagram fodder for 20 (DAVID CAMERON), and 'has authority with' cannot be parsed as wordplay for DATE",
+    "clue": "Appointment has authority with a divorced man …"
+   }
   },
   {
    "number": 19,
@@ -313,7 +1128,82 @@
     "text": "Creative type has to pose by himself, standing on top of table",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Creative type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 47,
+       "note": "in a down clue, on means placed above the following piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "standing",
+         "at": 38,
+         "note": "in a down clue, standing upright means the letters run from the bottom upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "to pose",
+           "at": 18,
+           "gives": "SIT",
+           "note": "to sit is to pose for a portrait"
+          },
+          {
+           "words": "himself",
+           "at": 29,
+           "gives": "RA",
+           "note": "the painter himself is an RA, a Royal Academician"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 50,
+         "note": "only the first letter of table is used, its top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "table",
+         "at": 57
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter poses for his own portrait, perched on a table.",
+     "walkthrough": "'himself' is the artist as a Royal Academician; 'standing' reads the pose and him backwards as ARTIS, set 'on' the table's top letter.",
+     "definitionFit": "An artist is a creative person, a painter or sculptor, so a creative type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1223,11 @@
      }
     ]
    },
-   "solution": "DAVIDCAMERON"
+   "solution": "DAVIDCAMERON",
+   "annotationWithheld": {
+    "why": "clue as held is '… possibly 13'; its anagram fodder 'a divorced man' is printed in 18's clue, so the wordplay cannot be quoted from this clue",
+    "clue": "… possibly 13"
+   }
   },
   {
    "number": 21,
@@ -347,7 +1241,42 @@
     "text": "Popular to pop one's clogs with unconventional pop?",
     "enumeration": "5"
    },
-   "solution": "INDIE"
+   "solution": "INDIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unconventional pop",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means fashionable, popular"
+      },
+      {
+       "words": "pop one's clogs",
+       "at": 11,
+       "gives": "DIE",
+       "note": "British slang for to die"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a popular figure dies with a strange style of music.",
+     "walkthrough": "'pop one's clogs' is British slang for dying.",
+     "definitionFit": "Indie music is independent, alternative pop outside the mainstream labels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1290,31 @@
     "text": "13 as this clue?",
     "enumeration": "4"
    },
-   "solution": "DOWN"
+   "solution": "DOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "13",
+      "at": 0,
+      "meaning": "with 13 standing for blue, the sense meant is sad or low"
+     },
+     {
+      "text": "as this clue?",
+      "at": 3,
+      "meaning": "this clue is itself listed in the column running from top to bottom"
+     }
+    ],
+    "explanation": {
+     "surface": "A self-referential question about the direction of this very clue.",
+     "definitionFit": "Feeling down means feeling sad, the same as feeling blue, and the clue is a down entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1328,70 @@
     "text": "13, therefore free to admit heading for depression",
     "enumeration": "6"
    },
-   "solution": "SORDID"
+   "solution": "SORDID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "13",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "therefore",
+       "at": 4,
+       "gives": "SO",
+       "note": "so means therefore"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to admit",
+         "at": 19,
+         "note": "the word for free lets in the letter, admitting it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "free",
+         "at": 14,
+         "gives": "RID",
+         "note": "to rid is to free"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading for",
+           "at": 28,
+           "note": "only the first letter of depression is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "depression",
+           "at": 40
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cross-referenced instruction about freeing someone so they can own up to depression.",
+     "walkthrough": "13 is BLUE in the sense of smutty or seedy.",
+     "definitionFit": "Blue material is lewd and seedy, and sordid means squalid or morally base."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1405,70 @@
     "text": "An individual parent has to rejoice, primarily, as bringer of life",
     "enumeration": "8"
    },
-   "solution": "ANIMATOR"
+   "solution": "ANIMATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bringer of life",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An",
+       "at": 0,
+       "gives": "AN",
+       "note": "taken as written"
+      },
+      {
+       "words": "individual",
+       "at": 3,
+       "gives": "I",
+       "note": "I is the single individual, one"
+      },
+      {
+       "words": "parent",
+       "at": 14,
+       "gives": "MA",
+       "note": "ma is a mother, a parent"
+      },
+      {
+       "words": "to",
+       "at": 25,
+       "gives": "TO",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 37,
+         "note": "only the first letter of rejoice is taken, its primary letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rejoice",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone parent finds a reason to celebrate in being a giver of life.",
+     "walkthrough": "'bringer of life' suggests a parent, which is part of the wordplay; the answer brings drawings to life.",
+     "definitionFit": "An animator brings cartoon figures to life by making them appear to move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "parent"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1482,40 @@
     "text": "The sprinkling of holy water presages disaster",
     "enumeration": "8"
    },
-   "solution": "ASPERGES"
+   "solution": "ASPERGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The sprinkling of holy water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disaster",
+       "at": 38,
+       "note": "a disaster wrecks things, so the letters of presages are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "presages",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest's sprinkling of holy water foretells catastrophe.",
+     "definitionFit": "The Asperges is the Catholic rite of sprinkling a congregation with holy water before Mass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disaster"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1529,30 @@
     "text": "Difficult courtroom procedure?",
     "enumeration": "6"
    },
-   "solution": "TRYING"
+   "solution": "TRYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0,
+      "meaning": "tiresome, hard to bear"
+     },
+     {
+      "text": "courtroom procedure?",
+      "at": 10,
+      "meaning": "putting a case before a judge, hearing it in court"
+     }
+    ],
+    "explanation": {
+     "surface": "A tough day in court.",
+     "definitionFit": "Trying means testing one's patience, and it is also the act of hearing a case at trial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "procedure"
+    }
+   }
   }
  ]
 }
