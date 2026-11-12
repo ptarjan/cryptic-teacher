@@ -172,7 +172,7 @@ from validate_committed import (
     check_no_markup, text_errors, committed_entries, committed_top, check_theme_clue_unchanged,
     check_spelling_kept, OCR_MISREAD_EDITS, edit_distance, ocr_misread_edits, SCAN_READ, clue_row_problems,
     scan_read, check_clue_unchanged, check_clue_rows_held, letters_given_in,
-    check_indicator_notes_name_no_block, SELECT_NOUNS, SELECT_ADVERBS, _select_groups, SELECTOR_LEADS,
+    check_indicator_notes_name_no_block, TWO_END_LETTERS, check_no_two_end_letters, SELECT_NOUNS, SELECT_ADVERBS, _select_groups, SELECTOR_LEADS,
     SELECTOR_TAIL_WORDS, SELECTOR_TAIL, SELECTOR_ALONE, selector_in_block, check_selectors_are_indicators,
 )
 from validate_shape_base import (
@@ -601,6 +601,7 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings,
                                                light_solutions(e, by_id))
         check_indicator_notes_name_no_block(tag, ann, errors)
+        check_no_two_end_letters(tag, ann, errors)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
         check_coverage(tag, ann, clue, warnings)
