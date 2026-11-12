@@ -430,8 +430,8 @@ def rush_choice(left, until):
     """(rush, words) for `left` manual resets free now and the natural reset at
     `until` (owner 11-03: "spend any resets we have so rush when we have one and
     don't when we don't"), the last MANUAL_RESERVE kept unspent (11-08: rush only with two or
-    more free). Words are the status line's: "rushing; 2 of 15 manual resets left" or
-    "pacing to Wed 04:00 ABT reset; 1 of 15 manual resets left; 1 kept in reserve"."""
+    more free). Words are the status line's: "rushing; 2 of 25 manual resets left" or
+    "pacing to Wed 04:00 ABT reset; 1 of 25 manual resets left; 1 kept in reserve"."""
     tally = f"{left} of {MANUAL_RESETS} manual resets left"
     if left > MANUAL_RESERVE:
         return True, f"rushing; {tally}"
@@ -1369,10 +1369,10 @@ def width_self_test():
         print(f"FAIL abt() = {abt(when)!r}, want 'Wed HH:00 ABT'", file=sys.stderr)
         bad += 1
     # 11-08: one reset is always held back, so the rush needs two free.
-    for left, want in [(0, (False, f"pacing to {abt(when)} reset; 0 of 15 manual resets left")),
-                       (1, (False, f"pacing to {abt(when)} reset; 1 of 15 manual resets left; 1 kept in reserve")),
-                       (2, (True, "rushing; 2 of 15 manual resets left")),
-                       (3, (True, "rushing; 3 of 15 manual resets left"))]:
+    for left, want in [(0, (False, f"pacing to {abt(when)} reset; 0 of {MANUAL_RESETS} manual resets left")),
+                       (1, (False, f"pacing to {abt(when)} reset; 1 of {MANUAL_RESETS} manual resets left; 1 kept in reserve")),
+                       (2, (True, f"rushing; 2 of {MANUAL_RESETS} manual resets left")),
+                       (3, (True, f"rushing; 3 of {MANUAL_RESETS} manual resets left"))]:
         got = rush_choice(left, when)
         if got != want:
             print(f"FAIL rush_choice({left}) = {got!r}, want {want!r}", file=sys.stderr)
@@ -1542,10 +1542,10 @@ def reset_self_test():
     a_night = (50.0, 1000.0, 20.0, (0, 1000.0 + 20 * 3600, 2.0), 1.0, 1.0, None)
     if night_guard(*a_night, natural=True) is not None:
         fail("night_guard holds the meter when the target is the natural reset")
-    for args, want in [((USED, NOW, NATURAL), SLOTS),
-                       ((USED[2:], NOW, NATURAL), [NOW] * 3),   # 12 used: 3 free now
-                       ((USED + [NOW - 60], NOW, NATURAL), SLOTS[1:]),  # 15 used: none now
-                       ((USED, NOW, SLOTS[2]), SLOTS[:2]),       # a slot past the natural reset
+    for args, want in [((USED, NOW, NATURAL, 15), SLOTS),
+                       ((USED[2:], NOW, NATURAL, 15), [NOW] * 3),   # 12 used: 3 free now
+                       ((USED + [NOW - 60], NOW, NATURAL, 15), SLOTS[1:]),  # 15 used: none now
+                       ((USED, NOW, SLOTS[2], 15), SLOTS[:2]),       # a slot past the natural reset
                        (([], NOW, NATURAL, 2), [NOW, NOW])]:
         if reset_slots(*args) != want:
             fail(f"reset_slots of {len(args[0])} = {reset_slots(*args)} (want {want})")
