@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,31 @@
      }
     ]
    },
-   "solution": "WASHINGUP"
+   "solution": "WASHINGUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A job in the kitchen",
+      "at": 0,
+      "meaning": "cleaning the plates, pans and cutlery after a meal is a familiar kitchen chore"
+     },
+     {
+      "text": "wet clothes on the rack?",
+      "at": 29,
+      "meaning": "laundry that has been washed and hung up to dry on a rack or line"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone in the kitchen ends up drenched while hanging out the laundry.",
+     "walkthrough": "'getting' is only a link between the two senses; the question mark flags the punning second reading.",
+     "definitionFit": "A double definition: the chore of cleaning dishes, and laundry literally hung up after a wash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +77,65 @@
     "text": "Piece of bread and water, fine for tit initially",
     "enumeration": "5"
    },
-   "solution": "WAFER"
+   "solution": "WAFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece of bread",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 31,
+       "note": "fine for tit means the one letter replaces the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "water",
+       "at": 19,
+       "gives": "WATER",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 39,
+         "note": "initially means just the first letter of tit is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tit",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "words": "fine",
+       "at": 26,
+       "gives": "F",
+       "note": "F is the pencil-grade abbreviation for fine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meagre meal of bread and water, with a bird mentioned.",
+     "walkthrough": "'and' is a link; F replaces T, the first letter of 'tit', in WATER.",
+     "definitionFit": "A communion wafer is the thin piece of bread used in church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tit"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +155,49 @@
      }
     ]
    },
-   "solution": "SPENCERPERCEVAL"
+   "solution": "SPENCERPERCEVAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "PM shot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awful",
+       "at": 10,
+       "note": "awful suggests the words are a mess and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "creep",
+       "at": 16
+      },
+      {
+       "words": "claps",
+       "at": 22
+      },
+      {
+       "words": "Never",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone disgusted that a dreadful sycophant would ever applaud a prime minister.",
+     "walkthrough": "Spencer Perceval is the only British prime minister assassinated, shot in the House of Commons lobby in 1812.",
+     "definitionFit": "Perceval was the British prime minister shot dead in 1812, so he is the PM shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +221,34 @@
      }
     ]
    },
-   "solution": "INAFLASH"
+   "solution": "INAFLASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How quickly your clean driving record may be lost?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How quickly your clean driving record may be lost?",
+       "at": 0,
+       "note": "a speed camera's flash catches a speeding driver instantly, so the phrase for instantly fits both"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Musing on how fast a spotless licence can be ruined.",
+     "definitionFit": "The phrase is an idiom for instantly, and literally a camera's flash records speeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +262,40 @@
     "text": "Cut good wood",
     "enumeration": "4"
    },
-   "solution": "GASH"
+   "solution": "GASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "at": 4,
+       "gives": "G"
+      },
+      {
+       "words": "wood",
+       "at": 9,
+       "gives": "ASH",
+       "note": "ash is a type of wood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to chop decent timber.",
+     "definitionFit": "A gash is a deep cut or wound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +306,7 @@
    },
    "length": 10,
    "clue": {
-    "text": "Cricketer, first to purchase excel lent hat",
+    "text": "Cricketer, first to purchase excellent hat",
     "enumeration": "4,6",
     "separators": [
      {
@@ -128,7 +315,58 @@
      }
     ]
    },
-   "solution": "PACEBOWLER"
+   "solution": "PACEBOWLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cricketer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "at": 11,
+         "note": "first to means only the opening letter of purchase is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "purchase",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "excellent",
+       "at": 29,
+       "gives": "ACE",
+       "note": "ace is slang for excellent"
+      },
+      {
+       "words": "hat",
+       "at": 39,
+       "gives": "BOWLER",
+       "note": "a bowler is a hard round hat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer is the first to buy a fine hat.",
+     "walkthrough": "A bowler hat is the British round felt hat; in cricket a bowler delivers the ball.",
+     "definitionFit": "A fast bowler is a type of cricketer who delivers the ball at speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +380,47 @@
     "text": "Bugs seen round a sort of Spanish bar",
     "enumeration": "5"
    },
-   "solution": "TAPAS"
+   "solution": "TAPAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sort of Spanish bar",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 10,
+       "note": "seen round means the listening devices are placed around the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bugs",
+       "at": 0,
+       "gives": "TAPS",
+       "note": "to bug a phone is to tap it, so bugs are taps"
+      },
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hidden microphones have been found around a bar in Spain.",
+     "definitionFit": "A tapas bar is a Spanish bar serving small snacks, so the word names that sort of bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bugs"
+    }
+   }
   },
   {
    "number": 6,
@@ -156,7 +434,61 @@
     "text": "Extremely distressing, doughboy in vehicle that's flipped over",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extremely distressing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in means the soldier is placed inside the vehicle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "that's flipped over",
+         "at": 43,
+         "note": "flipped over means the vehicle's word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "at": 35,
+         "gives": "CART",
+         "note": "a cart is a vehicle"
+        }
+       ]
+      },
+      {
+       "words": "doughboy",
+       "at": 23,
+       "gives": "GI",
+       "note": "doughboy is old slang for an American soldier, a GI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier trapped in an overturned vehicle is a dreadful sight.",
+     "walkthrough": "'that's flipped over' turns CART into TRAC, which holds GI.",
+     "definitionFit": "Something tragic is deeply sad or calamitous, so extremely distressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doughboy"
+    }
+   }
   },
   {
    "number": 7,
@@ -184,7 +516,31 @@
      }
     ]
    },
-   "solution": "PAINTTHETOWNRED"
+   "solution": "PAINTTHETOWNRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go on a pub crawl",
+      "at": 0,
+      "meaning": "to go out celebrating and drinking in a lively way"
+     },
+     {
+      "text": "get rid of the blues?",
+      "at": 22,
+      "meaning": "whimsically, recolouring a whole town from blue to red"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to cheer yourself up by going out drinking.",
+     "walkthrough": "'to' is a link; the question mark marks the punning second sense, where blue meaning sad is literally painted over.",
+     "definitionFit": "The idiom means going out for a wild night of drinking and fun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -198,7 +554,41 @@
     "text": "Condemned in a few words put together by Democrat?",
     "enumeration": "9"
    },
-   "solution": "SENTENCED"
+   "solution": "SENTENCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Condemned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a few words put together",
+       "at": 13,
+       "gives": "SENTENCE",
+       "note": "a sentence is a group of words assembled"
+      },
+      {
+       "words": "Democrat",
+       "at": 41,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat briefly condemns something in a short statement.",
+     "walkthrough": "'by' just places D beside the rest.",
+     "definitionFit": "A condemned prisoner has been sentenced by a court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "words"
+    }
+   }
   },
   {
    "number": 9,
@@ -218,7 +608,43 @@
      }
     ]
    },
-   "solution": "FREEASSOCIATION"
+   "solution": "FREEASSOCIATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trick cyclist's technique",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unaffected by",
+       "at": 26,
+       "gives": "FREE",
+       "note": "free of, untouched by something, as in tax-free"
+      },
+      {
+       "words": "partnership",
+       "at": 40,
+       "gives": "ASSOCIATION",
+       "note": "an association is a union or partnership"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stunt cyclist's riding method owes nothing to working with anyone else.",
+     "walkthrough": "'Trick cyclist' is old British slang for a psychiatrist (rhyming loosely with psychiatrist), not a circus performer.",
+     "definitionFit": "Letting the patient say whatever comes to mind is a classic psychoanalytic technique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cyclist's"
+    }
+   }
   },
   {
    "number": 10,
@@ -232,7 +658,29 @@
     "text": "Remember to cancel",
     "enumeration": "6"
    },
-   "solution": "RECALL"
+   "solution": "RECALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remember",
+      "at": 0,
+      "meaning": "to call back to mind"
+     },
+     {
+      "text": "cancel",
+      "at": 12,
+      "meaning": "to revoke or withdraw, as a faulty product is called back"
+     }
+    ],
+    "explanation": {
+     "surface": "A note to oneself not to forget to cancel something.",
+     "definitionFit": "A double definition: bring back to memory, and withdraw or revoke an order or product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -246,7 +694,59 @@
     "text": "Article on a bishop's vice drink",
     "enumeration": "8"
    },
-   "solution": "ABSINTHE"
+   "solution": "ABSINTHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 8,
+       "note": "in an across clue one piece written on another comes after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "words": "bishop's",
+       "at": 13,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "vice",
+       "at": 22,
+       "gives": "SIN",
+       "note": "a vice is a sin"
+      },
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "the is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece exposes a bishop's weakness for drink.",
+     "definitionFit": "A green aniseed-flavoured spirit is a strong alcoholic drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 12,
@@ -260,7 +760,31 @@
     "text": "Preparations to build stadium?",
     "enumeration": "10"
    },
-   "solution": "GROUNDWORK"
+   "solution": "GROUNDWORK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Preparations",
+      "at": 0,
+      "meaning": "basic preliminary work done before a project"
+     },
+     {
+      "text": "build stadium?",
+      "at": 16,
+      "meaning": "playfully, construction work on a sports ground"
+     }
+    ],
+    "explanation": {
+     "surface": "Getting ready to put up a sports arena.",
+     "walkthrough": "'to' is a link; a ground is a sports stadium, so groundwork can mean building one.",
+     "definitionFit": "A double definition: preliminary preparation, and literally work on a sports ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -274,7 +798,53 @@
     "text": "Treacherous rocks confronting rowing teams — these'll help those who've got in the drink",
     "enumeration": "10"
    },
-   "solution": "CORKSCREWS"
+   "solution": "CORKSCREWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "these'll help those who've got in the drink",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Treacherous",
+         "at": 0,
+         "note": "treacherous suggests the rocks are not what they seem, so their letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rocks",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "rowing teams",
+       "at": 30,
+       "gives": "CREWS",
+       "note": "crews are rowing teams"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rowers face dangerous rocks, and something will rescue those who fall into the water.",
+     "walkthrough": "'Treacherous' rearranges ROCKS into CORKS; 'confronting' only places it first. 'In the drink' looks like fallen into the water, but here means having bought a bottle to open.",
+     "definitionFit": "Tools for drawing corks help anyone who has bought wine to open it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 13,
@@ -288,7 +858,45 @@
     "text": "Fellow worker in company left union",
     "enumeration": "9"
    },
-   "solution": "COLLEAGUE"
+   "solution": "COLLEAGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fellow worker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "at": 17,
+       "gives": "CO"
+      },
+      {
+       "words": "left",
+       "at": 25,
+       "gives": "L"
+      },
+      {
+       "words": "union",
+       "at": 30,
+       "gives": "LEAGUE",
+       "note": "a league is a union or alliance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A co-worker in the firm has quit the trade union.",
+     "definitionFit": "A colleague is someone one works alongside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 14,
@@ -302,7 +910,45 @@
     "text": "Stylish young woman? No end",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stylish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "No end",
+       "at": 21,
+       "note": "no end tells us the final letter of the word for a girl is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "young woman",
+       "at": 8,
+       "gives": "CHICK",
+       "note": "chick is slang for a young woman"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a fashionable girl is endlessly so.",
+     "definitionFit": "Chic is a borrowed French word for elegant and fashionable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 15,
@@ -316,7 +962,40 @@
     "text": "A curt one dancing a dance",
     "enumeration": "8"
    },
-   "solution": "COURANTE"
+   "solution": "COURANTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a dance",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dancing",
+       "at": 11,
+       "note": "dancing suggests the letters move about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A curt one",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brusque person is dancing.",
+     "definitionFit": "A courante is a Baroque dance in triple time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 16,
@@ -330,7 +1009,48 @@
     "text": "One inside conducted a piece of music",
     "enumeration": "4"
    },
-   "solution": "LIED"
+   "solution": "LIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a piece of music",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 4,
+       "note": "inside means the numeral goes within the word for conducted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conducted",
+       "at": 11,
+       "gives": "LED",
+       "note": "led means guided or conducted"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone within an orchestra led a performance of a work.",
+     "definitionFit": "A Lied is a German art song, a piece of music for voice and piano."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conducted"
+    }
+   }
   },
   {
    "number": 17,
@@ -350,7 +1070,40 @@
      }
     ]
    },
-   "solution": "SUREFOOTED"
+   "solution": "SUREFOOTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confident",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 24,
+       "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "refuse to do",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-assured person declines to go on air.",
+     "definitionFit": "Being steady on one's feet extends figuratively to being sure and confident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 18,
@@ -364,7 +1117,34 @@
     "text": "The sort of drink to give one courage?",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The sort of drink to give one courage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The sort of drink to give one courage?",
+       "at": 0,
+       "note": "strong liquor provides Dutch courage, and the word also means courage itself"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what kind of drink would make someone brave.",
+     "definitionFit": "Spirits are strong alcoholic drinks, and spirit also means mettle or courage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -378,7 +1158,65 @@
     "text": "Get away, carrying diamonds after a stunt",
     "enumeration": "8"
    },
-   "solution": "ESCAPADE"
+   "solution": "ESCAPADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stunt",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 10,
+       "note": "carrying means the escape word holds the other letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get away",
+       "at": 0,
+       "gives": "ESCAPE",
+       "note": "to escape is to get away"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 28,
+         "note": "the diamonds letter is placed after the article"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 34,
+         "gives": "A"
+        },
+        {
+         "words": "diamonds",
+         "at": 19,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief flees with jewels after some daring act.",
+     "definitionFit": "An escapade is a daring or reckless adventure, much like a stunt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 20,
@@ -389,7 +1227,7 @@
    },
    "length": 6,
    "clue": {
-    "text": ". Mature wife is in band",
+    "text": "Mature wife is in band",
     "enumeration": "4,2",
     "separators": [
      {
@@ -398,7 +1236,47 @@
      }
     ]
    },
-   "solution": "GROWUP"
+   "solution": "GROWUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 12,
+       "note": "is in means the abbreviation sits inside the word for band"
+      }
+     ],
+     "parts": [
+      {
+       "words": "band",
+       "at": 18,
+       "gives": "GROUP",
+       "note": "a group is a musical band"
+      },
+      {
+       "words": "wife",
+       "at": 7,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up woman plays in a band with her husband.",
+     "definitionFit": "To mature is to become adult, the phrasal verb for growing older."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 21,
@@ -412,7 +1290,51 @@
     "text": "Vitality plus unusual energy",
     "enumeration": "5"
    },
-   "solution": "PULSE"
+   "solution": "PULSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vitality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "at": 14,
+         "note": "unusual means the letters appear in an unexpected order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plus",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "at": 22,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liveliness plus unusual energy.",
+     "definitionFit": "Pulse can mean the rhythm of life, a sense of vitality or energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plus"
+    }
+   }
   },
   {
    "number": 22,
@@ -426,7 +1348,42 @@
     "text": "Fruit of unpleasant appearance, so they say",
     "enumeration": "4"
    },
-   "solution": "UGLI"
+   "solution": "UGLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "UGLI",
+     "indicators": [
+      {
+       "text": "so they say",
+       "at": 32,
+       "note": "so they say signals that the word is as heard when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of unpleasant appearance",
+       "at": 6,
+       "gives": "UGLY",
+       "note": "ugly means unpleasant to look at"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit said to look unpleasant.",
+     "definitionFit": "An ugli is a Jamaican citrus fruit, a tangelo with wrinkled skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -446,7 +1403,48 @@
      }
     ]
    },
-   "solution": "GOVERNORGENERAL"
+   "solution": "GOVERNORGENERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "acting head of state",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 13,
+       "note": "follows puts the army rank after the word for father"
+      }
+     ],
+     "parts": [
+      {
+       "words": "father",
+       "at": 21,
+       "gives": "GOVERNOR",
+       "note": "governor is old slang for one's father, the guv'nor"
+      },
+      {
+       "words": "Army officer",
+       "at": 0,
+       "gives": "GENERAL",
+       "note": "a general is a senior army officer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier follows in his father's footsteps to become acting head of state.",
+     "definitionFit": "In Commonwealth realms this official represents the monarch, standing in as head of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "number": 24,
@@ -460,7 +1458,61 @@
     "text": "Backed story about one Israeli port",
     "enumeration": "5"
    },
-   "solution": "EILAT"
+   "solution": "EILAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Israeli port",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means the backwards word goes round the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Backed",
+         "at": 0,
+         "note": "backed means the word for story is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 7,
+         "gives": "TALE",
+         "note": "a tale is a story"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 19,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone supported a tale about an Israeli port.",
+     "walkthrough": "'Backed' turns TALE into ELAT, which goes round I.",
+     "definitionFit": "Eilat is Israel's southern port, on the Gulf of Aqaba."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Backed"
+    }
+   }
   },
   {
    "number": 25,
@@ -480,7 +1532,75 @@
      }
     ]
    },
-   "solution": "KNIFEEDGE"
+   "solution": "KNIFEEDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a critical situation",
+      "at": 63
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "packed into",
+       "at": 7,
+       "note": "packed into means the charge is stuffed inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 41,
+         "note": "possibly signals that the letters could be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "keg in",
+         "at": 19
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 26,
+           "note": "front of means only the first letter of the Irish parliament's name is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dail",
+           "at": 35
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Charge",
+       "at": 0,
+       "gives": "FEE",
+       "note": "a fee is a charge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keg packed with explosive sits outside Ireland's parliament, threatening a crisis.",
+     "walkthrough": "'possibly' rearranges KEG IN plus D (front of Dáil) into KNIDGE, and 'packed into' puts FEE inside it. The Dáil is the Irish lower house.",
+     "definitionFit": "Being on a blade's sharp edge is the idiom for a finely balanced, precarious situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charge"
+    }
+   }
   }
  ]
 }
