@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Clear the list of passengers for customs",
     "enumeration": "8"
    },
-   "solution": "MANIFEST"
+   "solution": "MANIFEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0,
+      "meaning": "obvious or evident, an adjective"
+     },
+     {
+      "text": "the list of passengers for customs",
+      "at": 6,
+      "meaning": "a document listing a ship's or plane's passengers and cargo for customs officers"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As an adjective the word means plain to see; as a noun it is the shipping document declared to customs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,41 @@
     "text": "Stone found at entrance to a garden?",
     "enumeration": "5"
    },
-   "solution": "AGATE"
+   "solution": "AGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a garden",
+       "at": 27,
+       "gives": "A",
+       "note": "the article a in a garden gives A, the garden being the place the gate leads into"
+      },
+      {
+       "words": "entrance",
+       "at": 15,
+       "gives": "GATE",
+       "note": "a gate is the entrance to a garden"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gemstone turns up by a garden gate.",
+     "walkthrough": "The question mark flags the split: A plus GATE read as 'a garden entrance'.",
+     "definitionFit": "This banded chalcedony is a semi-precious stone used in jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +117,65 @@
     "text": "Headdress, not wide at the top: wacky but effective",
     "enumeration": "11"
    },
-   "solution": "IMPLEMENTAL"
+   "solution": "IMPLEMENTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "effective",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 11,
+         "note": "not says a letter is to be left out of the headdress"
+        },
+        {
+         "text": "at the top",
+         "at": 20,
+         "note": "at the top says the letter dropped is the opening one of the headdress word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Headdress",
+         "at": 0,
+         "gives": "WIMPLE",
+         "note": "a wimple is a nun's cloth headdress"
+        },
+        {
+         "words": "wide",
+         "at": 15,
+         "gives": "W",
+         "note": "W is the cricket abbreviation for a wide"
+        }
+       ]
+      },
+      {
+       "words": "wacky",
+       "at": 32,
+       "gives": "MENTAL",
+       "note": "wacky means crazy, mental"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A verdict on a nun's headdress: absurd-looking, yet it does the job.",
+     "walkthrough": "Drop the opening W from WIMPLE to get IMPLE, then add MENTAL.",
+     "definitionFit": "Implemental is an old word for instrumental, serving to bring something about, hence effective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wide"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +189,45 @@
     "text": "Wind blowing up later? Yes",
     "enumeration": "8"
    },
-   "solution": "EASTERLY"
+   "solution": "EASTERLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "blowing up",
+       "at": 5,
+       "note": "blowing up suggests the words later and yes are blasted apart and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "later",
+       "at": 16
+      },
+      {
+       "words": "Yes",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the wind will get up later and gets an answer of yes.",
+     "walkthrough": "The surface reads 'Wind' as a verb to the question; it is the definition, a noun.",
+     "definitionFit": "An easterly is a noun for a wind blowing from the east."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blowing"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +255,73 @@
      }
     ]
    },
-   "solution": "THINEBETHEGLORY"
+   "solution": "THINEBETHEGLORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hymn",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 25,
+       "note": "about says the rearranged letters go around another piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crazy",
+         "at": 19,
+         "note": "crazy tells the letters of In Bethel they go to run wild into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In Bethel",
+         "at": 0
+        },
+        {
+         "words": "they go",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 31,
+         "note": "start of picks the opening letter of revivalist"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revivalist",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Worshippers in a chapel called Bethel get carried away over a revivalist hymn.",
+     "walkthrough": "The anagram of INBETHELTHEYGO is placed about R, from 'start of revivalist'.",
+     "definitionFit": "This is the title of a well-known Easter hymn, set to a tune by Handel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bethel"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +335,75 @@
     "text": "Preparation a help, some say, when applied to receding hair?",
     "enumeration": "6"
    },
-   "solution": "POMADE"
+   "solution": "POMADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Preparation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "when applied to",
+       "at": 30,
+       "note": "when applied to joins the two pieces side by side"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "receding",
+         "at": 46,
+         "note": "receding has the hair word going backwards, as a hairline recedes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hair",
+         "at": 55,
+         "gives": "MOP",
+         "note": "a mop is a thick mass of hair"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "ADE",
+       "indicators": [
+        {
+         "text": "some say",
+         "at": 20,
+         "note": "some say flags that the letters are what the words sound like"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a help",
+         "at": 12,
+         "gives": "AID",
+         "note": "a help is an aid"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a hair cream will help a balding man.",
+     "walkthrough": "MOP, read backwards, is POM; AID said aloud gives ADE, as in lemonade.",
+     "definitionFit": "A preparation is a prepared cosmetic or medicine; this scented hair oil is one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "receding"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +417,49 @@
     "text": "Such language from the terraces getting one down a bit?",
     "enumeration": "6"
    },
-   "solution": "PATOIS"
+   "solution": "PATOIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Such language",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "down a bit",
+       "at": 44,
+       "note": "down a bit tells the letter for one to slip a place further along in this down light"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the terraces",
+       "at": 19,
+       "gives": "PATIOS",
+       "note": "patios are paved terraces beside a house"
+      },
+      {
+       "words": "one",
+       "at": 40,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football fans on the terraces swear in a dialect that brings someone down.",
+     "walkthrough": "In PATIOS the I moves down one place to give the dialect.",
+     "definitionFit": "Patois is a regional dialect, the kind of speech the clue points to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terraces"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +473,29 @@
     "text": "A windy month sometimes causing damage",
     "enumeration": "3"
    },
-   "solution": "MAR"
+   "solution": "MAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A windy month sometimes",
+      "at": 0,
+      "meaning": "March, famous for wind, is sometimes shortened in dates"
+     },
+     {
+      "text": "damage",
+      "at": 32,
+      "meaning": "to damage or spoil, a verb"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "It is the standard abbreviation of the third month and also a verb meaning spoil or impair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "windy"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +509,47 @@
     "text": "Striker, perhaps, put through hell by worker",
     "enumeration": "9"
    },
-   "solution": "DISPUTANT"
+   "solution": "DISPUTANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Striker, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hell",
+       "at": 30,
+       "gives": "DIS",
+       "note": "Dis is the classical underworld, hell"
+      },
+      {
+       "words": "put",
+       "at": 18,
+       "note": "taken as written"
+      },
+      {
+       "words": "worker",
+       "at": 38,
+       "gives": "ANT",
+       "note": "an ant is the classic crossword worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer is given a hard time by a labourer.",
+     "walkthrough": "'Striker' suggests football but means someone on strike, a party to an industrial dispute.",
+     "definitionFit": "A disputant is someone engaged in a dispute, as a striking worker is, so a striker is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Striker"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +563,58 @@
     "text": "Factions surrounding front of union buildings in Nottingham, say",
     "enumeration": "6"
    },
-   "solution": "CAMPUS"
+   "solution": "CAMPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "buildings in Nottingham, say",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounding",
+       "at": 9,
+       "note": "surrounding says the factions word goes around another piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Factions",
+       "at": 0,
+       "gives": "CAMPS",
+       "note": "camps are opposing factions"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front of",
+         "at": 21,
+         "note": "front of picks the opening letter of union"
+        }
+       ],
+       "parts": [
+        {
+         "words": "union",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rival groups gather around a student union in Nottingham.",
+     "definitionFit": "A university's grounds and buildings, as at Nottingham, form its campus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +628,56 @@
     "text": "Excite curiosity among everyone else except husband!",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excite curiosity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "among",
+       "at": 17,
+       "gives": "IN",
+       "note": "among means in"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "except",
+         "at": 37,
+         "note": "except says the husband letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everyone else",
+         "at": 23,
+         "gives": "THEREST",
+         "note": "everyone else is the rest"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stirs up curiosity among all the others, though not the husband.",
+     "definitionFit": "To interest someone is to arouse their curiosity, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "husband"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +691,40 @@
     "text": "Keep wild dog",
     "enumeration": "4"
    },
-   "solution": "PEKE"
+   "solution": "PEKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wild",
+       "at": 5,
+       "note": "wild suggests the letters of keep running loose into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Keep",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to keep an untamed dog.",
+     "definitionFit": "A peke is a Pekinese, a small toy breed of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +744,29 @@
      }
     ]
    },
-   "solution": "EVENINGOUT"
+   "solution": "EVENINGOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trip to the theatre, perhaps",
+      "at": 0,
+      "meaning": "a night out somewhere, a theatre visit being one example"
+     },
+     {
+      "text": "becoming regular",
+      "at": 33,
+      "meaning": "smoothing into an even, level state"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase names a night out for leisure and also the act of levelling things off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +780,60 @@
     "text": "Assorted sugar lumps put in round dish",
     "enumeration": "11"
    },
-   "solution": "GLAMOURPUSS"
+   "solution": "GLAMOURPUSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 21,
+       "note": "put in says the round piece goes into the mixed letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Assorted",
+         "at": 0,
+         "note": "assorted suggests the letters of sugar lumps are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sugar lumps",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "round",
+       "at": 28,
+       "gives": "O",
+       "note": "a round shape is O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet assortment of sugar lumps is put into a bowl.",
+     "walkthrough": "'Dish' looks like a bowl but is slang for an attractive person; O goes inside GLAMURPUSS, the rearranged SUGARLUMPS.",
+     "definitionFit": "Dish is slang for a good-looking person, as is the glamour word for a glamorous one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +847,33 @@
     "text": "A wake-up call for Tommy",
     "enumeration": "8"
    },
-   "solution": "REVEILLE"
+   "solution": "REVEILLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A wake-up call for Tommy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A wake-up call for Tommy",
+       "at": 0,
+       "note": "Tommy is the nickname for a British soldier, so this is the bugle signal that rouses troops in the morning"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The bugle call that wakes soldiers at dawn is the military morning signal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tommy"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +887,47 @@
     "text": "English party has to make speech very detailed",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very detailed",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "party",
+       "at": 8,
+       "gives": "LAB",
+       "note": "Lab is short for Labour, the British political party"
+      },
+      {
+       "words": "make speech",
+       "at": 21,
+       "gives": "ORATE",
+       "note": "to orate is to make a speech"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English political party has to deliver a speech in great detail.",
+     "walkthrough": "LAB is short for Labour, a UK political party.",
+     "definitionFit": "Elaborate as an adjective means intricate and worked out in great detail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +941,11 @@
     "text": "With cross, honours a war hero",
     "enumeration": "4"
    },
-   "solution": "AJAX"
+   "solution": "AJAX",
+   "annotationWithheld": {
+    "why": "Clue as held 'With cross, honours a war hero' (4): X is cross, but no reading of 'honours' gives AJA, and the scan is blank, so the clue appears misread.",
+    "clue": "With cross, honours a war hero"
+   }
   },
   {
    "number": 17,
@@ -288,7 +959,41 @@
     "text": "Pole at boxing venue, practising for the fight",
     "enumeration": "8"
    },
-   "solution": "SPARRING"
+   "solution": "SPARRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "practising for the fight",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pole",
+       "at": 0,
+       "gives": "SPAR",
+       "note": "a spar is a pole, as on a ship"
+      },
+      {
+       "words": "boxing venue",
+       "at": 8,
+       "gives": "RING",
+       "note": "boxers fight in a ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A post at a boxing hall is used for training before a bout.",
+     "definitionFit": "Sparring is boxing practice with a partner before a real contest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1007,48 @@
     "text": "Like taking part in gym lesson and history",
     "enumeration": "4"
    },
-   "solution": "PAST"
+   "solution": "PAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "history",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking part in",
+       "at": 5,
+       "note": "taking part in places the like word within the gym lesson"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gym lesson",
+       "at": 20,
+       "gives": "PT",
+       "note": "PT is physical training, the school gym lesson"
+      },
+      {
+       "words": "Like",
+       "at": 0,
+       "gives": "AS",
+       "note": "like means as"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comparing joining in a gym class with studying history.",
+     "definitionFit": "The past is everything that has happened before now, the subject of history."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1062,42 @@
     "text": "She produced sculptures with it, at a price",
     "enumeration": "8"
    },
-   "solution": "HEPWORTH"
+   "solution": "HEPWORTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She produced sculptures",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with it",
+       "at": 24,
+       "gives": "HEP",
+       "note": "hep is old slang for fashionable or with it"
+      },
+      {
+       "words": "at a price",
+       "at": 33,
+       "gives": "WORTH",
+       "note": "worth means valued at a given price"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sculptor working fashionably and expensively.",
+     "walkthrough": "Barbara Hepworth was a celebrated twentieth-century English sculptor.",
+     "definitionFit": "Barbara Hepworth was a leading English modernist sculptor, so she fits the description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1111,47 @@
     "text": "Female was company director and leader, once",
     "enumeration": "6"
    },
-   "solution": "FRANCO"
+   "solution": "FRANCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leader, once",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Female",
+       "at": 0,
+       "gives": "F"
+      },
+      {
+       "words": "was company director",
+       "at": 7,
+       "gives": "RAN",
+       "note": "ran means managed, as a director does, and CO is short for company"
+      },
+      {
+       "words": "was company director",
+       "at": 7,
+       "gives": "CO",
+       "note": "ran means managed, as a director does, and CO is short for company"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who ran a firm and led it in her day.",
+     "walkthrough": "Francisco Franco was Spain's dictator from 1939 to 1975.",
+     "definitionFit": "General Franco was Spain's head of state for decades, a former leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Female"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1171,42 @@
      }
     ]
    },
-   "solution": "JOLLYROGER"
+   "solution": "JOLLYROGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "standard",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Trip at the public's expense",
+       "at": 0,
+       "gives": "JOLLY",
+       "note": "a jolly is a junket, a trip enjoyed on public money"
+      },
+      {
+       "words": "I've understood",
+       "at": 29,
+       "gives": "ROGER",
+       "note": "roger is radio talk for message received and understood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official complains that taxpayer-funded jaunts have become the norm.",
+     "walkthrough": "'Standard' looks like 'the norm' but is a flag; the pirate flag is the answer.",
+     "definitionFit": "A standard is a flag, and this is the skull-and-crossbones flag flown by pirates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1220,45 @@
     "text": "Unattractive woman's first to hide bottom",
     "enumeration": "4"
    },
-   "solution": "RUMP"
+   "solution": "RUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bottom",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "first to hide",
+       "at": 21,
+       "note": "first to hide says the opening letter of the woman word disappears"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unattractive woman's",
+       "at": 0,
+       "gives": "FRUMP",
+       "note": "a frump is a dowdy, unattractive woman"
+      },
+      {
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plain woman is the first to cover her behind.",
+     "definitionFit": "The rump is the hindquarters, a synonym for the bottom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1272,58 @@
     "text": "Short magazine article about new cartoon genre",
     "enumeration": "5"
    },
-   "solution": "MANGA"
+   "solution": "MANGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cartoon genre",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 23,
+         "note": "about says the magazine and article letters go round the new piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Short magazine",
+         "at": 0,
+         "gives": "MAG",
+         "note": "mag is short for magazine"
+        },
+        {
+         "words": "new",
+         "at": 29,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "article",
+       "at": 15,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief magazine piece reports on a fresh style of cartoon.",
+     "definitionFit": "Manga is the Japanese style of comic book and cartoon art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1337,60 @@
     "text": "Even in cooler, getting turn to dance",
     "enumeration": "8"
    },
-   "solution": "FANDANGO"
+   "solution": "FANDANGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "in places one piece inside the cooler word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cooler",
+         "at": 8,
+         "gives": "FAN",
+         "note": "a fan cools the air"
+        },
+        {
+         "words": "Even",
+         "at": 0,
+         "gives": "AND",
+         "note": "and can carry the sense of even, as in archaic usage meaning also"
+        }
+       ]
+      },
+      {
+       "words": "turn",
+       "at": 24,
+       "gives": "GO",
+       "note": "a go is a turn"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a turn on the dance floor even in the cool room.",
+     "walkthrough": "'Even' is the odd piece: AND in the old sense of also or even, put inside FAN before GO is added.",
+     "definitionFit": "The fandango is a lively Spanish courtship dance in triple time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Even"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1404,42 @@
     "text": "Note something for carrying bricks up",
     "enumeration": "3"
    },
-   "solution": "DOH"
+   "solution": "DOH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 35,
+       "note": "up, in a down light, says the bricks carrier is read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something for carrying bricks",
+       "at": 5,
+       "gives": "HOD",
+       "note": "a hod is a builder's trough for carrying bricks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note about a gadget for lifting bricks.",
+     "definitionFit": "Doh is the first note of the tonic sol-fa scale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1453,40 @@
     "text": "Creature found in Antigua, naturally",
     "enumeration": "6"
    },
-   "solution": "IGUANA"
+   "solution": "IGUANA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 9,
+       "note": "found in says the creature lies within the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Antigua, naturally",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature that lives in Antigua as a matter of course.",
+     "definitionFit": "The iguana is a large tropical lizard, a creature of the Caribbean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naturally"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1500,59 @@
     "text": "After college, turned on loud music",
     "enumeration": "6"
    },
-   "solution": "TECHNO"
+   "solution": "TECHNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "loud music",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "after places the reversed piece behind the college"
+      }
+     ],
+     "parts": [
+      {
+       "words": "college",
+       "at": 6,
+       "gives": "TECH",
+       "note": "a tech is a technical college"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 15,
+         "note": "turned says the word on is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 22,
+         "gives": "ON"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, having left college, discovers a taste for loud music.",
+     "definitionFit": "Techno is a loud electronic dance music style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 28,
@@ -448,7 +1566,74 @@
     "text": "Setback for man, old low-paid worker finally expelled from Croatia?",
     "enumeration": "8"
    },
-   "solution": "YUGOSLAV"
+   "solution": "YUGOSLAV",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from Croatia?",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Setback for",
+         "at": 0,
+         "note": "setback says the man word goes backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 12,
+         "gives": "GUY",
+         "note": "a guy is a man"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "at": 17,
+       "gives": "O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally expelled",
+         "at": 37,
+         "note": "finally expelled says the last letter of the worker word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "low-paid worker",
+         "at": 21,
+         "gives": "SLAVE",
+         "note": "a slave is a worker paid little or nothing"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in old Croatia suffers a setback as a poorly paid labourer is thrown out.",
+     "walkthrough": "GUY backwards is YUG; SLAVE without its last letter is SLAV. The question mark admits Croatia was only part of the old federation.",
+     "definitionFit": "Croatia was once part of the Yugoslav federation, so something from there could be described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Setback"
+    }
+   }
   }
  ]
 }
