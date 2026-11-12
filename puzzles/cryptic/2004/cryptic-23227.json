@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,31 @@
     "text": "Not what Charles raked in for tales of Charlie!",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not what Charles raked in",
+      "at": 0,
+      "meaning": "Charles Schulz earned a fortune from his comic strip, so he earned far from a trifling sum; slang for a pittance"
+     },
+     {
+      "text": "tales of Charlie",
+      "at": 30,
+      "meaning": "the comic strip whose hero is Charlie Brown"
+     }
+    ],
+    "explanation": {
+     "surface": "A joke that Charles Schulz earned a fortune, not a pittance, from his stories about Charlie Brown.",
+     "definitionFit": "Slang for a trivial sum of money, and also the title of the strip starring Charlie Brown, drawn by Charles Schulz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raked"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +73,48 @@
     "text": "Man who kicked ball round street for pound",
     "enumeration": "6"
    },
-   "solution": "PESTLE"
+   "solution": "PESTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pound",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 20,
+       "note": "the footballer's name goes round the street abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Man who kicked ball",
+       "at": 0,
+       "gives": "PELE",
+       "note": "Pele, the Brazilian footballer"
+      },
+      {
+       "words": "street",
+       "at": 26,
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer kicking a ball around the street to earn a pound.",
+     "walkthrough": "'pound' is not money but a verb or the tool used to pound in a mortar.",
+     "definitionFit": "The club-shaped tool used with a mortar to crush and grind is named for the action of pounding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +128,59 @@
     "text": "A second assassinated President's shown up the lowest form of life",
     "enumeration": "6"
    },
-   "solution": "AMOEBA"
+   "solution": "AMOEBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the lowest form of life",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "second",
+       "at": 2,
+       "gives": "MO",
+       "note": "a mo is a moment or second"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "shown up",
+         "at": 34,
+         "note": "in a down clue, shown up means the president's name is read upwards, from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assassinated President's",
+         "at": 9,
+         "gives": "ABE",
+         "note": "Abe Lincoln, the assassinated US President"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Within a second, an assassinated President is shown up as the lowest form of life.",
+     "walkthrough": "'shown up' reverses ABE in this down entry to EBA.",
+     "definitionFit": "A single-celled organism is the proverbial lowest form of life, often used as an insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shown"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +204,81 @@
      }
     ]
    },
-   "solution": "UPTHESPOUT"
+   "solution": "UPTHESPOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ruined",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turn",
+       "at": 0,
+       "gives": "U",
+       "note": "U as in a U-turn"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 25,
+         "note": "the cross and the scrambled hopes go inside the word for venture"
+        }
+       ],
+       "parts": [
+        {
+         "words": "venture",
+         "at": 28,
+         "gives": "PUT",
+         "note": "to put is to stake or venture, as with a bet"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cross",
+           "at": 5,
+           "gives": "T",
+           "note": "T is shaped like a cross"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "dashed",
+             "at": 18,
+             "note": "dashed suggests the hopes are smashed and their letters rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "hopes",
+             "at": 12
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler becomes angry when hopes of a venture are dashed and everything is ruined.",
+     "walkthrough": "'Turn' gives U from a U-turn, and 'cross' is T for its shape; 'dashed' scrambles the hopes, and the venture word is split open around them.",
+     "definitionFit": "A British idiom for ruined or hopeless, also used of a pawned item or an unplanned pregnancy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +305,59 @@
     "text": "Covering northern bit is West Brazilian river mammal",
     "enumeration": "7"
    },
-   "solution": "MANATEE"
+   "solution": "MANATEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brazilian river mammal",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Covering",
+       "at": 0,
+       "note": "the actress's first name wraps round the other pieces, covering them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "West",
+       "at": 25,
+       "gives": "MAE",
+       "note": "Mae West, the film star, so West leads to her first name MAE"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "at": 9,
+         "gives": "N"
+        },
+        {
+         "words": "bit",
+         "at": 18,
+         "gives": "ATE",
+         "note": "bit, in the sense of having bitten, equals ATE (ate into)"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geography note about something covering a northern area west of a Brazilian river.",
+     "walkthrough": "'West' looks like a compass point beside Brazilian, but it is the film star Mae West; crosswords often clue her first name this way.",
+     "definitionFit": "The Amazonian sea cow is a large aquatic mammal living in the rivers of Brazil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +377,73 @@
      }
     ]
    },
-   "solution": "MILKSTOUT"
+   "solution": "MILKSTOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweeter beer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "break",
+       "at": 22,
+       "note": "break means the types and to burst into the middle of the silence word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Inconclusive",
+         "at": 37,
+         "note": "inconclusive means the word lacks its conclusion, its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silence",
+         "at": 28,
+         "gives": "MUTE",
+         "note": "to mute is to silence"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "types",
+         "at": 13,
+         "gives": "ILKS",
+         "note": "ilks are types or kinds"
+        },
+        {
+         "words": "to",
+         "at": 19,
+         "gives": "TO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether different beer types might break a silence, without reaching a conclusion.",
+     "walkthrough": "'silence' is a verb here, and 'Inconclusive' docks its last letter before the types and 'to' break into it.",
+     "definitionFit": "A dark beer brewed with lactose, which leaves it sweeter than ordinary stout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +457,52 @@
     "text": "Name one liquid, a light element?",
     "enumeration": "4"
    },
-   "solution": "NEON"
+   "solution": "NEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a light element?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Name",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "liquid",
+         "at": 9,
+         "note": "liquid suggests the letters of one flow into a new shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naming a liquid as a light element.",
+     "walkthrough": "'liquid' rearranges ONE to EON. The question mark warns that light means both low in weight and glowing, as in neon signs.",
+     "definitionFit": "A light inert gas used in glowing advertising tubes, so both a light element and a lighting element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "liquid"
+    }
+   }
   },
   {
    "number": 7,
@@ -173,7 +530,61 @@
    "group": [
     "7-down",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "song?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 5,
+       "note": "touring means the fool's name goes round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fool",
+       "at": 0,
+       "gives": "TWIT",
+       "note": "a twit is a fool"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "endures",
+         "at": 13,
+         "gives": "STANDS",
+         "note": "stands means endures, as in can't stand it"
+        },
+        {
+         "words": "45-minute",
+         "at": 21,
+         "gives": "HOU",
+         "note": "45 minutes is three-quarters of an hour, so take three of the four letters of hour"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool going on tour puts up with a song lasting three-quarters of an hour.",
+     "walkthrough": "'45-minute' gives three of the four letters of HOUR, HOU. The question mark hints at a 45 rpm single record.",
+     "definitionFit": "A famous rock and roll number recorded by the Isley Brothers and the Beatles, released as a 45 rpm single."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "45-minute"
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +598,58 @@
     "text": "Unnatural selection of odd cues about Biblical opening",
     "enumeration": "8"
    },
-   "solution": "EUGENICS"
+   "solution": "EUGENICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unnatural selection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 32,
+       "note": "about means the scrambled cues go round the biblical reference"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "odd",
+         "at": 23,
+         "note": "odd suggests the letters of cues are arranged strangely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cues",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "Biblical opening",
+       "at": 38,
+       "gives": "GENI",
+       "note": "Gen. I, chapter one of Genesis, the opening of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on unnatural selection among strange cues around the opening of the Bible.",
+     "walkthrough": "Gen. I is the conventional citation for chapter one of Genesis, the Bible's opening book; 'odd' scrambles the cues around it.",
+     "definitionFit": "The discredited doctrine of controlled human breeding replaces natural selection with artificial choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 9,
@@ -214,7 +676,72 @@
     "text": "The Observer's role with respect to two blood groups in record",
     "enumeration": "9"
    },
-   "solution": "ONLOOKING"
+   "solution": "ONLOOKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Observer's role",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with respect to",
+       "at": 20,
+       "gives": "ON",
+       "note": "on means about or concerning, as in a talk on art"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 53,
+         "note": "the two blood groups sit inside the word for a record"
+        }
+       ],
+       "parts": [
+        {
+         "words": "record",
+         "at": 56,
+         "gives": "LOG",
+         "note": "a log is a written record, as in a ship's log"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "two blood groups",
+           "at": 36,
+           "gives": "O",
+           "note": "O is one blood group in the ABO system"
+          },
+          {
+           "words": "two blood groups",
+           "at": 36,
+           "gives": "KIN",
+           "note": "kin are a group related by blood"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper-sounding remark about the role of The Observer and a record of blood groups.",
+     "walkthrough": "One phrase, 'two blood groups', supplies two different things: a type in the ABO system, and a family group bound by blood.",
+     "definitionFit": "An observer's role is to watch events without taking part, which is the activity of a spectator looking on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Observer's"
+    }
+   }
   },
   {
    "number": 11,
@@ -228,7 +755,60 @@
     "text": "Gilbert's awfully bitter in catalogue",
     "enumeration": "10"
    },
-   "solution": "LIBRETTIST"
+   "solution": "LIBRETTIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gilbert's",
+      "at": 0,
+      "note": "read as Gilbert is, so the definition is W. S. Gilbert, writer of words for Sullivan's operas"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "the rearranged letters go inside the catalogue word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "catalogue",
+       "at": 28,
+       "gives": "LIST",
+       "note": "a list is a catalogue of items"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 10,
+         "note": "awfully suggests the letters of bitter are badly mangled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bitter",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre critic's remark that W. S. Gilbert is dreadfully sour in some catalogue.",
+     "walkthrough": "'awfully' rearranges BITTER to BRETTI, which goes inside LIST. The 's on Gilbert stands for 'is', linking definition and wordplay.",
+     "definitionFit": "W. S. Gilbert wrote the words for the Gilbert and Sullivan operettas, making him the writer of their texts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awfully"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +822,45 @@
     "text": "Machine gun from Essex, are we told?",
     "enumeration": "4"
    },
-   "solution": "STEN"
+   "solution": "STEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Machine gun",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "STEN",
+     "indicators": [
+      {
+       "text": "are we told",
+       "at": 24,
+       "note": "are we told signals that the county name is to be heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Essex",
+       "at": 17,
+       "gives": "ESSEX",
+       "note": "the county name spoken sounds like the letters S and X, and X is the Roman numeral ten"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a machine gun comes from the county of Essex.",
+     "walkthrough": "Say Essex aloud and you hear 'S X'; X is the Roman numeral for ten, so read it as S + TEN. Essex is an English county east of London.",
+     "definitionFit": "The British Second World War submachine gun of that name was a cheap, mass-produced automatic weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Essex"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +880,57 @@
      }
     ]
    },
-   "solution": "SHORTRANGE"
+   "solution": "SHORTRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not going far",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "limits",
+       "at": 42,
+       "note": "limits means the unfamiliar word forms the boundaries round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unfamiliar",
+       "at": 31,
+       "gives": "STRANGE",
+       "note": "strange means unfamiliar"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hospital",
+         "at": 19,
+         "gives": "H"
+        },
+        {
+         "words": "or",
+         "at": 28,
+         "gives": "OR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone not going far from hospital, or confined within unfamiliar boundaries.",
+     "walkthrough": "'from' is only a link; 'limits' makes the unfamiliar word the boundary around the hospital and 'or'.",
+     "definitionFit": "A weapon or forecast of limited reach covers only a small distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +944,60 @@
     "text": "Little child's chicken, in terror from all quarters",
     "enumeration": "11"
    },
-   "solution": "PANTOTHENIC"
+   "solution": "PANTOTHENIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from all quarters",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the child and the chicken are placed inside the word for terror"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terror",
+       "at": 27,
+       "gives": "PANIC",
+       "note": "panic is sudden terror"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Little child's",
+         "at": 0,
+         "gives": "TOT",
+         "note": "a tot is a little child"
+        },
+        {
+         "words": "chicken",
+         "at": 15,
+         "gives": "HEN",
+         "note": "a hen is a chicken"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small child's pet chicken in a state of terror.",
+     "walkthrough": "The definition is a translation: the word comes from Greek pantothen, meaning from every side; pantothenic acid (vitamin B5) is so called because it is found everywhere.",
+     "definitionFit": "The Greek root of this vitamin's name means from every side, because the acid occurs in nearly all foods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarters"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +1011,66 @@
     "text": "3 collecting it, sister's swallowing food",
     "enumeration": "9"
    },
-   "solution": "NUTRITION"
+   "solution": "NUTRITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "at": 26,
+       "note": "the sister swallows the rest, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sister's",
+       "at": 17,
+       "gives": "NUN",
+       "note": "a nun is a religious sister"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "collecting",
+         "at": 2,
+         "note": "the group of three collects it inside itself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "3",
+         "at": 0,
+         "gives": "TRIO",
+         "note": "a trio is a group of three"
+        },
+        {
+         "words": "it",
+         "at": 13,
+         "gives": "IT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three people collecting something while a sister swallows her food.",
+     "walkthrough": "'3' looks like a cross-reference to 3-down but is simply a number, giving TRIO.",
+     "definitionFit": "Nourishment taken in as food is what the body needs for health and growth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "3"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1084,70 @@
     "text": "Affecting all the people — and yours truly, looking up in photo",
     "enumeration": "8"
    },
-   "solution": "PANDEMIC"
+   "solution": "PANDEMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Affecting all the people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 55,
+       "note": "and plus the reversed setter go inside the photo word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "photo",
+       "at": 58,
+       "gives": "PIC",
+       "note": "a pic is a photo"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "and",
+         "at": 27,
+         "gives": "AND"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "looking up",
+           "at": 44,
+           "note": "in a down clue, looking up means the setter's pronoun reads from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "yours truly",
+           "at": 31,
+           "gives": "ME",
+           "note": "yours truly is the speaker, me"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photo of everyone, including the setter looking upward.",
+     "walkthrough": "'looking up' reverses ME to EM in this down entry.",
+     "definitionFit": "A disease spread across a whole population or country affects nearly everyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1161,56 @@
     "text": "Representation of star a young woman's moulding",
     "enumeration": "8"
    },
-   "solution": "ASTRAGAL"
+   "solution": "ASTRAGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moulding",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Representation of",
+         "at": 0,
+         "note": "a representation of a word reshapes it, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "star",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "words": "young woman's",
+       "at": 25,
+       "gives": "GAL",
+       "note": "a gal is a young woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drawing of a star belonging to a young woman.",
+     "walkthrough": "'Representation of' rearranges STAR to ASTR.",
+     "definitionFit": "An architectural moulding: a small convex bead round the top or bottom of a column."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1224,48 @@
     "text": "Scientology, say, located in Oregon? I hear what's going on within",
     "enumeration": "11"
    },
-   "solution": "AUSCULTATOR"
+   "solution": "AUSCULTATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I hear what's going on within",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scientology, say",
+       "at": 0,
+       "gives": "AUSCULT",
+       "note": "Scientology is an example of a US cult, read as A US CULT"
+      },
+      {
+       "words": "located in",
+       "at": 18,
+       "gives": "AT",
+       "note": "at means located in, as in at home"
+      },
+      {
+       "words": "Oregon",
+       "at": 29,
+       "gives": "OR",
+       "note": "OR is the postal abbreviation for the US state of Oregon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether Scientology is based in Oregon.",
+     "walkthrough": "Read 'Scientology, say' as 'a US cult', giving A US CULT. The definition is spoken by the device itself: a stethoscope or doctor listening to the body's interior.",
+     "definitionFit": "One who auscultates listens to sounds inside the body, as a doctor does with a stethoscope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "located"
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1289,41 @@
    "group": [
     "19-down",
     "4-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "high English Peak",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German kids",
+       "at": 0,
+       "gives": "KINDER",
+       "note": "Kinder is German for children"
+      },
+      {
+       "words": "go looking for",
+       "at": 12,
+       "gives": "SCOUT",
+       "note": "to scout is to go looking for something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "German children going in search of a high English summit.",
+     "walkthrough": "The answer is the highest point in the Peak District, a national park in northern England.",
+     "definitionFit": "A moorland plateau in Derbyshire, the highest ground in the Peak District national park."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1337,41 @@
     "text": "Crossword compiler forbidding vertigo",
     "enumeration": "6"
    },
-   "solution": "MEGRIM"
+   "solution": "MEGRIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vertigo",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crossword compiler",
+       "at": 0,
+       "gives": "ME",
+       "note": "the setter refers to themself as me"
+      },
+      {
+       "words": "forbidding",
+       "at": 19,
+       "gives": "GRIM",
+       "note": "grim means forbidding or stern"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter with a stern, forbidding manner suffers from dizziness.",
+     "definitionFit": "An old word for a migraine or giddiness, and so a fair synonym for dizzy spells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forbidding"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1385,42 @@
     "text": "It's not fair — Richard Arkwright took this to heart",
     "enumeration": "4"
    },
-   "solution": "DARK"
+   "solution": "DARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's not fair",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "took this to heart",
+       "at": 34,
+       "note": "the answer is held at the heart of the inventor's name, inside the run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Richard Arkwright",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about injustice, and the inventor Richard Arkwright taking it to heart.",
+     "walkthrough": "'fair' looks like justice but means light-coloured; its opposite is the answer. The letters sit across 'RicharD ARKwright'.",
+     "definitionFit": "Fair can mean pale or light in colour, and its opposite is a deep, unlit shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 22,
@@ -404,7 +1440,11 @@
      }
     ]
    },
-   "solution": "LIPSERVICE"
+   "solution": "LIPSERVICE",
+   "annotationWithheld": {
+    "why": "Large employment, but not real professions (3-7): definition 'not real professions' is clear, but no parse of 'Large employment' gives L + IP + SERVICE; the IP is unaccounted for",
+    "clue": "Large employment, but not real professions"
+   }
   },
   {
    "number": 23,
@@ -431,7 +1471,30 @@
     "text": "More sanctimonious mole?",
     "enumeration": "4"
    },
-   "solution": "PIER"
+   "solution": "PIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More sanctimonious",
+      "at": 0,
+      "meaning": "pi is slang for sanctimonious, so the comparative adds -er"
+     },
+     {
+      "text": "mole",
+      "at": 19,
+      "meaning": "a mole is a stone breakwater or jetty jutting into the sea"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both a comparative of pi (smug and pious) and a structure built out into the sea, like a breakwater."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mole"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1508,69 @@
     "text": "Noble Italian knight's uncertainty, wearing enchanting ring",
     "enumeration": "9"
    },
-   "solution": "MAGNIFICO"
+   "solution": "MAGNIFICO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Noble Italian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "at": 36,
+         "note": "the magic word wears the knight and doubt as clothing, so it goes round them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enchanting",
+         "at": 44,
+         "gives": "MAGIC",
+         "note": "magic means enchanting, as in a magic moment"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "knight's",
+           "at": 14,
+           "gives": "N",
+           "note": "N is the chess notation for a knight"
+          },
+          {
+           "words": "uncertainty",
+           "at": 23,
+           "gives": "IF",
+           "note": "if expresses uncertainty, as in ifs and buts"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "ring",
+       "at": 55,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noble Italian knight unsure of himself while wearing an enchanted ring.",
+     "definitionFit": "A Venetian grandee or nobleman was given this title, later used of any important person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1584,52 @@
     "text": "Get staff in over cooking smell",
     "enumeration": "5"
    },
-   "solution": "NIDOR"
+   "solution": "NIDOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cooking smell",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 13,
+       "note": "over signals that the phrase staff in is turned round and read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "staff",
+         "at": 4,
+         "gives": "ROD",
+         "note": "a rod is a staff or stick"
+        },
+        {
+         "words": "in",
+         "at": 10,
+         "gives": "IN"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to bring staff in to deal with a cooking smell.",
+     "walkthrough": "'over' reverses ROD IN as a whole to give the answer.",
+     "definitionFit": "An archaic word for the savoury smell of roasting meat or cooked food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1653,11 @@
    "group": [
     "27-across",
     "23-down"
-   ]
+   ],
+   "annotationWithheld": {
+    "why": "A trainee medic does nothing, we hear, to get around English waterfall (7,5): CA, L, DR and a 's nowt sound for SNOUT can be seen, but ON and 'English' are unaccounted for and no full parse is confirmed",
+    "clue": "A trainee medic does nothing, we hear, to get around English waterfall"
+   }
   },
   {
    "number": 28,
@@ -497,7 +1671,48 @@
     "text": "This principle can demonstrate mineral has been taken in by people other than us",
     "enumeration": "7"
    },
-   "solution": "THEOREM"
+   "solution": "THEOREM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This principle can demonstrate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 48,
+       "note": "the mineral is taken into the middle of the word for other people"
+      }
+     ],
+     "parts": [
+      {
+       "words": "people other than us",
+       "at": 60,
+       "gives": "THEM",
+       "note": "them is people other than us"
+      },
+      {
+       "words": "mineral",
+       "at": 31,
+       "gives": "ORE",
+       "note": "ore is a mineral mined for metal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist's principle demonstrating that a mineral was taken by outsiders.",
+     "definitionFit": "A proposition in mathematics proved by reasoning, the kind of principle a proof can demonstrate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demonstrate"
+    }
+   }
   }
  ]
 }
