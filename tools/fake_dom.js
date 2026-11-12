@@ -591,10 +591,11 @@ function bootApp(opts) {
 // The first-screen A/B (app-core.js, "A/B 1") enrols a first-ever visit in an arm
 // by Math.random, at load. Every boot draws a fixed low number, arm a (the
 // dialog), so the smoke checks that walk it never flip a coin; the app runs to
-// the end of its load inside this call.
+// the end of its load inside this call. opts.arm === "b" draws a high one
+// instead, for the one first-screen check that walks arm b (tests/test_first_screen_arm_b.js).
 function boot(opts) {
   const realRandom = Math.random;
-  Math.random = () => 0.25;
+  Math.random = () => (opts && opts.arm === "b" ? 0.75 : 0.25);
   try { return bootApp(opts); } finally { Math.random = realRandom; }
 }
 
