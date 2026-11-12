@@ -1371,14 +1371,18 @@
   // never carried to another puzzle.
   let paperVerdict = null;
   const paperAsked = () => !!P && paperVerdict === P.id;
+  // Is it right? Verify only: solved finishes as below, anything else is
+  // a verdict that marks nothing and counts no wrong letters. endPaper is the
+  // other button, "Show what's wrong", which ends paper mode regardless.
+  function verifyPaper() {
+    if (entries.every(lettersRight) && uncluedSolved()) { endPaper(); return; }
+    let blank = 0;
+    forEachCell((c) => { if (!c.letter) blank++; });
+    paperVerdict = P.id;
+    announceVerdict(blank);
+    refreshAll();
+  }
   function endPaper() {
-    const right = entries.every(lettersRight) && uncluedSolved();
-    if (!right && !paperAsked()) {
-      paperVerdict = P.id;
-      announceVerdict();
-      refreshAll();
-      return;
-    }
     paperVerdict = null;
     setOnPaper(P.id, false);
     const credited = entries.filter((e) => isEntrySolved(e) && solvedWith[entryId(e)] === undefined).length;

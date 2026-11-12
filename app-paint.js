@@ -842,8 +842,8 @@
     const on = paperHides();
     ["chk-label", "chk-letter", "chk-entry", "chk-grid"].forEach((id) => $(id).classList.toggle("hidden", on));
     $("paper-done").classList.toggle("hidden", !on);
-    // After a "not solved yet" verdict the same button is the way to see where.
-    $("paper-done").textContent = on && paperAsked() ? "Show what’s wrong" : "I’m done — check grid";
+    // After a verdict, a second button is the way to see where (and end paper).
+    $("paper-reveal").classList.toggle("hidden", !(on && paperAsked()));
     $("paper-toggle").checked = on;
     $("paper-switch").classList.toggle("hidden", !on && !paperable());
   }
@@ -860,7 +860,7 @@
   function renderScore() {
     drawPaperTools();
     if (paperHides()) {
-      $("scorebar").innerHTML = "Paper mode: no ticks, hints or checks until you press <strong>I’m done</strong>.";
+      $("scorebar").innerHTML = "Paper mode: no auto-check, nothing marked as you type. When you are done, press <strong>Is it right?</strong> to verify the whole grid.";
       drawScoreExtras();
       return;
     }

@@ -176,7 +176,8 @@
       if (e || light) checkCells(e ? entryCells(e) : light, "word");
     };
     $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
-    $("paper-done").onclick = () => { if (paperHides()) endPaper(); };
+    $("paper-done").onclick = () => { if (paperHides()) verifyPaper(); };
+    $("paper-reveal").onclick = () => { if (paperHides()) endPaper(); };
     $("paper-toggle").onchange = () => togglePaper($("paper-toggle").checked);
     $("clear-entry").onclick = () => {
       const e = gridEntry();
