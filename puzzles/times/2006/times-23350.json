@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Opinion revealed in general survey",
     "enumeration": "4"
    },
-   "solution": "VIEW"
+   "solution": "VIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opinion",
+      "at": 0,
+      "meaning": "a personal ... is an opinion held on a matter"
+     },
+     {
+      "text": "general survey",
+      "at": 20,
+      "meaning": "a ... can be an overall survey or overview of a subject"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: one's take on something, and a broad look over a scene or topic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revealed"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,61 @@
     "text": "Token vicar turned over, stifling pained cry",
     "enumeration": "7"
    },
-   "solution": "VOUCHER"
+   "solution": "VOUCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Token",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stifling",
+       "at": 25,
+       "note": "stifling means smothering, so one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned over",
+         "at": 12,
+         "note": "turned over tells us the vicar's abbreviation is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vicar",
+         "at": 6,
+         "gives": "REV",
+         "note": "Rev, short for Reverend, is the title of a vicar"
+        }
+       ]
+      },
+      {
+       "words": "pained cry",
+       "at": 34,
+       "gives": "OUCH",
+       "note": "ouch is what you cry when hurt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman is upended while someone muffles a yelp of pain.",
+     "walkthrough": "'Token' reads as an adjective in the surface, but it is the definition; 'turned over' and 'stifling' both act on the vicar's title.",
+     "definitionFit": "A voucher is a token exchangeable for goods or services."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Token"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +137,60 @@
     "text": "Sally's boyfriends invested in film gear",
     "enumeration": "9"
    },
-   "solution": "EQUIPMENT"
+   "solution": "EQUIPMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gear",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invested in",
+       "at": 19,
+       "note": "invested in means put inside, like money put into something"
+      }
+     ],
+     "parts": [
+      {
+       "words": "film",
+       "at": 31,
+       "gives": "ET",
+       "note": "ET is Spielberg's film about an extraterrestrial"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sally's",
+         "at": 0,
+         "gives": "QUIP",
+         "note": "a sally is a witty remark, a quip"
+        },
+        {
+         "words": "boyfriends",
+         "at": 8,
+         "gives": "MEN",
+         "note": "boyfriends are men"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's suitors put money into a movie's equipment.",
+     "walkthrough": "Sally looks like a woman's name, but a sally is a witty retort; 'invested in' wraps the film round the other two pieces.",
+     "definitionFit": "Gear is a general word for the tools and kit needed for an activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sally's"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +204,49 @@
     "text": "Beam, seeing talented opponent brought in",
     "enumeration": "10"
    },
-   "solution": "CANTILEVER"
+   "solution": "CANTILEVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beam",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 31,
+       "note": "brought in signals one piece being taken inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "talented",
+       "at": 13,
+       "gives": "CLEVER",
+       "note": "talented means clever"
+      },
+      {
+       "words": "opponent",
+       "at": 22,
+       "gives": "ANTI",
+       "note": "anti means a person opposed to something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees a gifted rival being recruited.",
+     "walkthrough": "'seeing' is only a link; 'brought in' signals the container.",
+     "definitionFit": "A cantilever is a beam fixed at one end only, projecting out to carry a load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beam"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +260,42 @@
     "text": "Fifth Avenue is one, nevertheless",
     "enumeration": "6"
    },
-   "solution": "ANYWAY"
+   "solution": "ANYWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nevertheless",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 16,
+       "gives": "A",
+       "note": "one means a, the indefinite article"
+      },
+      {
+       "words": "Fifth Avenue",
+       "at": 0,
+       "gives": "NYWAY",
+       "note": "Fifth Avenue is a New York (NY) way, a street in Manhattan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that the famous Manhattan street is one, all the same.",
+     "walkthrough": "Fifth Avenue is 'a NY way': a street in New York.",
+     "definitionFit": "Anyway and nevertheless are both adverbs meaning in spite of that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fifth"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +309,31 @@
     "text": "Aiming to secure practical instruction",
     "enumeration": "8"
    },
-   "solution": "TRAINING"
+   "solution": "TRAINING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aiming",
+      "at": 0,
+      "meaning": "... a gun on a target means pointing it, so this sense is pointing at something"
+     },
+     {
+      "text": "practical instruction",
+      "at": 17,
+      "meaning": "teaching of skills by drill and practice, as in job coaching"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sets out to obtain hands-on teaching.",
+     "walkthrough": "Two senses of one word, with 'to secure' joining them in the surface: to train a weapon is to aim it.",
+     "definitionFit": "Pointing a weapon is called training it, and coaching in skills is also called by the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +353,66 @@
      }
     ]
    },
-   "solution": "LIGHTHEARTEDLY"
+   "solution": "LIGHTHEARTEDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having no care",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pale",
+       "at": 16,
+       "gives": "LIGHT",
+       "note": "pale means light, as in a pale colour"
+      },
+      {
+       "words": "hospital",
+       "at": 34,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 25,
+         "note": "entering means going inside, so one piece sits within the others"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in good time",
+         "at": 43,
+         "gives": "EARLY",
+         "note": "in good time means early"
+        },
+        {
+         "words": "man",
+         "at": 21,
+         "gives": "TED",
+         "note": "Ted is a man's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pallid fellow checks into hospital punctually.",
+     "walkthrough": "'entering' puts the man inside hospital plus the word for in good time.",
+     "definitionFit": "Acting lightheartedly means doing so cheerfully and without worry, as one having no care would."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pale"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +426,47 @@
     "text": "Sign right in centre of Spanish port",
     "enumeration": "5"
    },
-   "solution": "VIRGO"
+   "solution": "VIRGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in centre of",
+       "at": 11,
+       "note": "in centre of places one piece in the middle of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spanish port",
+       "at": 24,
+       "gives": "VIGO",
+       "note": "Vigo is a port in Galicia, north-west Spain"
+      },
+      {
+       "words": "right",
+       "at": 5,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A signpost points right in the middle of a Spanish harbour town.",
+     "definitionFit": "Virgo is one of the twelve signs of the zodiac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +486,48 @@
      }
     ]
    },
-   "solution": "REDHEAT"
+   "solution": "REDHEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High temperature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in places one piece inside the other here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cardinal's headgear",
+       "at": 32,
+       "gives": "REDHAT",
+       "note": "a cardinal wears a red hat as a sign of office"
+      },
+      {
+       "words": "European",
+       "at": 20,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European wears a cardinal's scarlet hat.",
+     "walkthrough": "'in' puts E inside RED HAT.",
+     "definitionFit": "Red heat is the temperature at which metal glows red, a very high one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cardinal's"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +555,35 @@
      }
     ]
    },
-   "solution": "CLEANUPONESACT"
+   "solution": "CLEANUPONESACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Start to behave responsibly when playing?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Start to behave responsibly when playing?",
+       "at": 0,
+       "note": "an idiom for reforming one's conduct, read literally as tidying up a stage performance"
+      }
+     ]
+    },
+    "spelling": "CLEAN UP ONE'S ACT",
+    "explanation": {
+     "definitionFit": "The idiom means to begin behaving better, and the question mark invites a literal theatrical reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +597,59 @@
     "text": "Posh girl university accepted as a rule",
     "enumeration": "7"
    },
-   "solution": "USUALLY"
+   "solution": "USUALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as a rule",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Posh",
+       "at": 0,
+       "gives": "U",
+       "note": "U means upper-class, the posh usage"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepted",
+         "at": 21,
+         "note": "accepted means taken in, so one piece goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 5,
+         "gives": "SALLY",
+         "note": "Sally is a girl's name"
+        },
+        {
+         "words": "university",
+         "at": 10,
+         "gives": "U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-to-do young woman gets into university as expected.",
+     "walkthrough": "U meaning upper-class comes from Nancy Mitford's 'U and non-U' speech. 'accepted' puts U inside SALLY.",
+     "definitionFit": "Usually and as a rule both mean normally, in most cases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +663,47 @@
     "text": "In high dudgeon, being endlessly at risk",
     "enumeration": "7"
    },
-   "solution": "ANGERED"
+   "solution": "ANGERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In high dudgeon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 23,
+       "note": "endlessly read as end-less: the word for risk loses its letters spelling end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at risk",
+       "at": 33,
+       "gives": "ENDANGERED",
+       "note": "at risk means endangered"
+      },
+      {
+       "gives": "END"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is furious at being in perpetual danger.",
+     "walkthrough": "'endlessly' is read as 'without END': ENDANGERED minus END.",
+     "definitionFit": "High dudgeon is a state of deep resentment, so someone in it is angry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 12,
@@ -234,7 +727,47 @@
      }
     ]
    },
-   "solution": "HOPEAGAINSTHOPE"
+   "solution": "HOPEAGAINSTHOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cling to mere possibility",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Novelist",
+       "at": 0,
+       "gives": "HOPE",
+       "note": "Anthony Hope wrote The Prisoner of Zenda"
+      },
+      {
+       "words": "opposed to",
+       "at": 9,
+       "gives": "AGAINST",
+       "note": "opposed to means against"
+      },
+      {
+       "words": "comedian",
+       "at": 20,
+       "gives": "HOPE",
+       "note": "Bob Hope was a famous comedian"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is set up against a comic.",
+     "definitionFit": "The idiom means to keep hoping when there is very little chance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novelist"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +781,40 @@
     "text": "In Qatar he sustained an Asian macaque",
     "enumeration": "6"
    },
-   "solution": "RHESUS"
+   "solution": "RHESUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asian macaque",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In tells us the answer sits within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Qatar he sustained",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Gulf state supported a monkey from Asia.",
+     "definitionFit": "The rhesus is a macaque monkey of South and East Asia, used widely in research."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sustained"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +828,29 @@
     "text": "Diversion that may be simple",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diversion",
+      "at": 0,
+      "meaning": "a pastime or hobby that holds one's attention"
+     },
+     {
+      "text": "that may be simple",
+      "at": 10,
+      "meaning": "money charged on a loan, which may be simple or compound"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A hobby is an interest, and charges on a loan are interest, simple or compound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +864,41 @@
     "text": "A girl then represented as a sci-fi character",
     "enumeration": "9"
    },
-   "solution": "EARTHLING"
+   "solution": "EARTHLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sci-fi character",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "represented",
+       "at": 12,
+       "note": "represented means presented again in a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A girl then",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is depicted as a figure in science fiction.",
+     "walkthrough": "'represented' signals the anagram of A GIRL THEN.",
+     "definitionFit": "In science fiction, aliens call a human from Earth by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +912,60 @@
     "text": "Pass work in note for writer",
     "enumeration": "8"
    },
-   "solution": "TROLLOPE"
+   "solution": "TROLLOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in places the first pieces inside the note"
+      }
+     ],
+     "parts": [
+      {
+       "words": "note",
+       "at": 13,
+       "gives": "TE",
+       "note": "te is a note of the sol-fa scale"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Pass",
+         "at": 0,
+         "gives": "ROLL",
+         "note": "to pass, as time does, is to roll (the years roll by)"
+        },
+        {
+         "words": "work",
+         "at": 5,
+         "gives": "OP",
+         "note": "op, short for opus, is a work"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A message tells someone to hand over a piece of work to an author.",
+     "walkthrough": "'in' signals the container; Anthony Trollope was a Victorian novelist.",
+     "definitionFit": "Anthony Trollope was an English writer of novels such as Barchester Towers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +979,41 @@
     "text": "Last lines in maritime contract?",
     "enumeration": "8"
    },
-   "solution": "BOTTOMRY"
+   "solution": "BOTTOMRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "maritime contract",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Last",
+       "at": 0,
+       "gives": "BOTTOM",
+       "note": "bottom means last, as in bottom of the class"
+      },
+      {
+       "words": "lines",
+       "at": 5,
+       "gives": "RY",
+       "note": "RY, railway, means lines"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Final clauses in a shipping agreement.",
+     "definitionFit": "Bottomry is a historical contract in which a ship's owner pledged the vessel as security for a loan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1027,29 @@
     "text": "A poet's connections",
     "enumeration": "7"
    },
-   "solution": "BRIDGES"
+   "solution": "BRIDGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A poet's",
+      "at": 0,
+      "meaning": "Robert ..., the Poet Laureate, is a poet; 's stands for is"
+     },
+     {
+      "text": "connections",
+      "at": 9,
+      "meaning": "spans or links joining two things"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Robert Bridges was Poet Laureate, and spans linking two sides are also the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "connections"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1063,41 @@
     "text": "Description of member from cold country",
     "enumeration": "6"
    },
-   "solution": "CRURAL"
+   "solution": "CRURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Description of member",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cold",
+       "at": 27,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      },
+      {
+       "words": "country",
+       "at": 32,
+       "gives": "RURAL",
+       "note": "country used as an adjective means rural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An account of an MP from a chilly land.",
+     "definitionFit": "Crural is the anatomical adjective for the leg, a limb or member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1111,59 @@
     "text": "Dog with feathered decoy runs round church",
     "enumeration": "7"
    },
-   "solution": "LURCHER"
+   "solution": "LURCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 30,
+         "note": "round means surrounding, so the first pieces go round the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feathered decoy",
+         "at": 9,
+         "gives": "LURE",
+         "note": "a lure is a bunch of feathers used by falconers to recall a hawk"
+        },
+        {
+         "words": "church",
+         "at": 36,
+         "gives": "CH"
+        }
+       ]
+      },
+      {
+       "words": "runs",
+       "at": 25,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog with a decoy bird races around a church.",
+     "walkthrough": "'with' is a link; 'round' signals the container. A falconer's lure is a bundle of feathers.",
+     "definitionFit": "A lurcher is a crossbred dog, typically greyhound with collie or terrier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1177,58 @@
     "text": "Drat relative, dispatching first rook!",
     "enumeration": "6"
    },
-   "solution": "BOTHER"
+   "solution": "BOTHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dispatching",
+       "at": 15,
+       "note": "dispatching means sending away, so letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "relative",
+       "at": 5,
+       "gives": "BROTHER",
+       "note": "a brother is a relative"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 27,
+         "note": "first means just the initial letter of rook is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rook",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of annoyance at a family member who has just taken a chess piece.",
+     "definitionFit": "Both are mild exclamations of annoyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1252,58 @@
      }
     ]
    },
-   "solution": "INTHEALTOGETHER"
+   "solution": "INTHEALTOGETHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wearing nothing",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockneys",
+         "at": 6,
+         "note": "Cockneys famously drop their aitches, so an H is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Where",
+         "at": 0,
+         "gives": "INTHEHAL",
+         "note": "where people assemble: in the hall"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "assemble as a group",
+       "at": 15,
+       "gives": "TOGETHER",
+       "note": "to assemble as a group is to gather together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "East Londoners gather as a crowd, perhaps in the nude.",
+     "walkthrough": "'Cockneys' drops the H of HALL: London Cockney speech drops initial H. 'say' signals the sense is read from the phrase as spoken.",
+     "definitionFit": "The idiom means naked, being clothed in nothing at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cockneys"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1317,29 @@
     "text": "Discover whereabouts of strap for drawing carriage",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discover whereabouts of",
+      "at": 0,
+      "meaning": "to find or track down something"
+     },
+     {
+      "text": "strap for drawing carriage",
+      "at": 24,
+      "meaning": "one of the two side straps by which a horse pulls a cart"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To find someone is to track them down, and the harness strap of a carriage horse has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drawing"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1353,59 @@
     "text": "Hoofed mammal droppings seen around a cape",
     "enumeration": "7"
    },
-   "solution": "GUANACO"
+   "solution": "GUANACO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hoofed mammal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 29,
+       "note": "around means the first piece encloses the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "droppings",
+       "at": 14,
+       "gives": "GUANO",
+       "note": "guano is the droppings of seabirds or bats"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 36,
+         "gives": "A"
+        },
+        {
+         "words": "cape",
+         "at": 38,
+         "gives": "C",
+         "note": "C is the abbreviation for cape on maps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal's dung is found near a headland.",
+     "walkthrough": "'around' puts A + C inside GUANO.",
+     "definitionFit": "The guanaco is a wild South American relative of the llama, a hoofed animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "droppings"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1419,52 @@
     "text": "Diabolical explosive damaged hills",
     "enumeration": "7"
    },
-   "solution": "HELLISH"
+   "solution": "HELLISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diabolical",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "explosive",
+       "at": 11,
+       "gives": "HE",
+       "note": "HE is the abbreviation for high explosive"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "at": 21,
+         "note": "damaged means broken up, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hills",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bomb wrecks the hillsides.",
+     "walkthrough": "'damaged' rearranges HILLS to LLISH.",
+     "definitionFit": "Hellish and diabolical both mean devilish, fit for hell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1478,42 @@
     "text": "One loved the sherbet centre, for example",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One loved",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sherbet",
+       "at": 14,
+       "gives": "SWEET",
+       "note": "sherbet is an example of a sweet, a fizzy confection"
+      },
+      {
+       "words": "centre",
+       "at": 22,
+       "gives": "HEART",
+       "note": "the heart is the centre of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A treat's middle filling is someone's favourite.",
+     "walkthrough": "'for example' marks sherbet as an instance of a sweet; 'the' is a link.",
+     "definitionFit": "A sweetheart is a person someone is in love with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sherbet"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1527,40 @@
     "text": "Gelatinous substance obtained from a fish",
     "enumeration": "4"
    },
-   "solution": "AGAR"
+   "solution": "AGAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gelatinous substance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
+      },
+      {
+       "words": "fish",
+       "at": 37,
+       "gives": "GAR",
+       "note": "the gar is a long-snouted fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jelly taken from a fish.",
+     "definitionFit": "Agar is a jelly-like substance from seaweed, used in cooking and laboratories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   }
  ]
 }
