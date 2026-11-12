@@ -4,8 +4,7 @@
 # brings back, where it must fetch only what the new commit added rather than
 # the whole tree again (that refetch was ~58s a run). Then that every cache
 # the build restores is saved again with the same paths and key, and that
-# tools/trim_codeql_caches.py keeps the newest CodeQL entry per language and
-# touches nothing else, and that the site is uploaded stored, not deflated.
+# the site is uploaded stored, not deflated.
 set -euo pipefail
 trap 'echo "test_ci_checkout: failed at line $LINENO: $BASH_COMMAND" >&2' ERR
 cd "$(dirname "$0")/.."
@@ -82,12 +81,4 @@ mkdir -p "$tmp/noref/.git"
 cp -r "$tmp/cold/.git/objects" "$tmp/noref/.git/"
 run "$tmp/noref" "$b"
 
-picked=$(printf '%s\t%s\t%s\n' \
-  1 codeql-overlay-base-database-1-aaa-python-2.27.2-s1-1-1 2026-10-13T09:00:00Z \
-  2 codeql-overlay-base-database-1-aaa-python-2.27.2-s2-2-1 2026-10-13T09:10:00Z \
-  3 codeql-overlay-base-database-1-bbb-javascript-2.27.2-s1-1-1 2026-10-13T09:00:00Z \
-  4 codeql-overlay-base-database-1-aaa-python-2.27.3-s3-3-1 2026-10-13T09:20:00Z \
-  5 og-cards-s1 2026-10-13T08:00:00Z \
-  | python3 tools/trim_codeql_caches.py --pick | sort | tr '\n' ' ')
-[ "$picked" = "1 2 " ] || { echo "test_ci_checkout: trim picked '$picked', wanted '1 2 '"; exit 1; }
 echo "test_ci_checkout: all passed"

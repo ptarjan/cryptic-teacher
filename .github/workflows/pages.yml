@@ -772,7 +772,7 @@ jobs:
     # A job's permissions replace the workflow's, so this restates contents.
     permissions:
       contents: write  # the requeue step pushes the allowance raises
-      actions: write  # reads the last run whose validate passed (its diff base); deletes stale CodeQL caches
+      actions: read  # reads the last run whose validate passed (its diff base)
     steps:
       - name: Check out
         uses: actions/checkout@v5
@@ -938,19 +938,3 @@ jobs:
           else
             echo "no puzzle changed since the last deploy"
           fi
-      # GitHub's CodeQL default setup stores an overlay database (~50MB) per
-      # language per push in this repo's Actions cache and never deletes one:
-      # 196 of them were 9.6GB of the 11.3GB in use (2026-10-13). GitHub makes
-      # room by evicting the least recently used entries, which are the
-      # build's own (cards, shims, pages, the git store), so a deploy could
-      # start cold for no reason of its own. CodeQL restores only the newest
-      # per language, so the rest go. Here beside the build rather than in
-      # it, and never failing the run: a failed trim costs cache space, not
-      # a deploy.
-      - name: Trim the CodeQL caches
-        if: ${{ !cancelled() }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPO: ${{ github.repository }}
-        run: python3 tools/trim_codeql_caches.py "$REPO"
