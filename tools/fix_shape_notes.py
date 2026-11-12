@@ -145,11 +145,15 @@ def r_does_not_give(node, parent, ctx):
     except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
         return None
     found, seen = [], set()
-    for late in (False, True):
+    for late in (False, True, "inside"):
         # the end cut of a leaf is the last resort: beside the plural-S / surplus-leaf edits it only adds a
-        # second way (HIFT for SHIFT) to a tree that has one right edit already
-        if late and (found or not _one_trim_candidate(node, answer)):
+        # second way (HIFT for SHIFT) to a tree that has one right edit already; a piece pulled inside the
+        # container or anagram beside it (and a reversed argument) is tried only when no other edit works
+        # (TSHIRT: a reordered charade, though the last piece would also fit into the anagram)
+        if late and found:
             break
+        if late is True and not _one_trim_candidate(node, answer):
+            continue
         for k in range(len(list(walk(node)))):
             for new in _does_not_give_edits(node, k, ctx.get("clue"), late):
                 try:
@@ -195,6 +199,8 @@ def _does_not_give_edits(node, k, clue=None, late=False):
         return new, list(walk(new))[k][0]
     n = list(walk(node))[k][0]
     parts = n.get("parts") or []
+    if late == "inside":
+        return _inside_tier(fresh, n, parts, node, clue)
     if late:
         # the last-resort tier of r_does_not_give: only the one-letter end cut of a leaf
         if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
@@ -365,6 +371,12 @@ def _does_not_give_edits(node, k, clue=None, late=False):
                 t.clear()
                 t.update(only)
             out.append(new)
+    return [_flat_charades(new) for new in out]
+
+
+def _inside_tier(fresh, n, parts, node, clue):
+    """The edits of the last tier of r_does_not_give: see _inside_edits and the reversed container argument."""
+    out = []
     if n.get("op") == "charade" and clue:
         out += _inside_edits(fresh, parts)
     if n.get("op") == "container" and len(parts) == 2 and clue:
