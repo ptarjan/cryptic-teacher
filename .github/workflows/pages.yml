@@ -18,13 +18,22 @@ name: Build and deploy the site
 # passes, dispatches this workflow on master. Everything else (code, workflows,
 # docs) starts it directly.
 #
-# One run at a time, workflow-wide. With cancel-in-progress false GitHub keeps
-# the running run and ONE pending run, and a newer pending run replaces an older
-# one before it takes a runner. So a burst of dispatches folds into one build
-# of the newest master, and nothing queues up. cancel-in-progress must stay
-# false: cancelling the running build on every push meant no build ever reached
-# the deploy step. A dispatch that lands while a run is already checking out is
-# fine: the newer pending run picks the commit up.
+# One build at a time and, separately, one deploy at a time: the build job is
+# in the concurrency group "pages" and the deploy job in "pages-deploy". With
+# cancel-in-progress false GitHub keeps the running job and ONE pending job per
+# group, and a newer pending job replaces an older one before it takes a
+# runner. So a burst of dispatches folds into one build of the newest master,
+# and nothing queues up. cancel-in-progress must stay false: cancelling the
+# running build on every push meant no build ever reached the deploy. A
+# dispatch that lands while a build is already checking out is fine: the newer
+# pending build picks the commit up.
+#
+# Two groups, not one workflow-wide group, so the next build starts while
+# GitHub is still deploying the last one. The Pages deploy is ~110s of
+# waiting on GitHub whatever the artifact's size (111s at 1.05GB in run
+# 38370347047, 104-129s at 3.8GB on 2026-11-12), and with the whole run in
+# one group every push waited for it twice: once behind the deploy in front
+# of it, once for its own.
 #
 # The 09:41 tick is the daily full check and build, and the backstop.
 on:
@@ -58,24 +67,18 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   build:
     name: build
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     # A build takes a few minutes, a couple more when a change redraws a
     # full OG_LIMIT of social cards.
     # Without a cap a hung step holds the pages concurrency group, and so every
     # deploy behind it, for GitHub's 6 hours.
     timeout-minutes: 90
-    # The deploy is this job's step (Deploy to Pages), so the job carries the
-    # environment.
-    # (The string form: the page URL still shows, actions/deploy-pages reports
-    # it on the deployment itself.)
-    environment: github-pages
     steps:
       # The runner's free disk is shared by the checkout (~1GB tree plus up to
       # 1.5GB git store), the restored caches and the site, and run
@@ -456,78 +459,35 @@ jobs:
       # its exit code (or hung) is caught by the timeout, and fails the
       # deploy the same way a broken link does.
       - name: Wait for the site checks
+        id: checks
         timeout-minutes: 5
         run: |
           while [ ! -f "$RUNNER_TEMP/links.rc" ] || [ ! -f "$RUNNER_TEMP/indexnow.rc" ]; do sleep 1; done
           cat "$RUNNER_TEMP/indexnow.log" "$RUNNER_TEMP/links.log"
           [ "$(cat "$RUNNER_TEMP/links.rc")" = 0 ] && [ "$(cat "$RUNNER_TEMP/indexnow.rc")" = 0 ]
-      # The deploy is a step of this job, not a job of its own: every job in
-      # the old build -> deploy -> budgets chain waited 15-75s for a runner
-      # and set itself up again, about a minute and a half of each run's
-      # total. A failing check must still ship nothing, so the deploy waits
-      # here for the validate job to finish and stops unless it passed. That
-      # is nearly always already true: validate is done in a minute on a
-      # puzzle push and in under five on a full check. Bounded by the
-      # step's timeout, so a validate job that never reports cannot hold the
-      # pages concurrency group.
-      - name: Wait for the annotation check
-        timeout-minutes: 35
-        env:
-          GH_TOKEN: ${{ github.token }}
-          JOBS: repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}/jobs?per_page=100
-        run: |
-          set -euo pipefail
-          # The check is the validate job, then (a full check only) the nine
-          # annotate shards and the requeue job. Any of them ending other than
-          # success or skipped stops the deploy at once; it ships when validate
-          # succeeded and requeue, the last of them, has finished (skipped
-          # when validate chose the incremental check).
-          while :; do
-            jobs=$(gh api --paginate "$JOBS" --jq '.jobs[] | select(.name == "validate" or .name == "requeue" or (.name | startswith("annotate"))) | "\(.name | sub(" \\(.*"; "")) \(.status) \(.conclusion)"')
-            bad=$(grep -E ' completed (failure|cancelled|timed_out|action_required|neutral|stale)$' <<<"$jobs" || true)
-            if [ -n "$bad" ]; then echo "::error title=Not deployed::the annotation check ended: $bad"; exit 1; fi
-            if grep -qx 'validate completed skipped' <<<"$jobs"; then echo "::error title=Not deployed::the validate job was skipped"; exit 1; fi
-            if grep -qx 'validate completed success' <<<"$jobs" && grep -qE '^requeue completed (success|skipped)$' <<<"$jobs" \
-               && ! grep -E '^annotate ' <<<"$jobs" | grep -vq ' completed \(success\|skipped\)$'; then
-              echo "annotation check passed"; exit 0
-            fi
-            echo "waiting: $(tr '\n' ';' <<<"$jobs")"
-            sleep 10
-          done
-      # GitHub's deploy sometimes stalls (deployment_in_progress, syncing_files,
-      # then nothing until the action's 600s timeout; six runs on 2026-11-07,
-      # e.g. 42358494050, 42358870222, 42356010055) while the next push's
-      # deploy succeeds. A normal one takes under 140s, so the first attempt
-      # gives up at 300s without failing the run, and a second attempt runs
-      # only if it failed. The retry keeps the id `deployment`: the steps below
-      # accept either attempt's success, and a retry that fails too leaves the
-      # run red.
-      - name: Deploy to Pages
-        id: deploy_first
-        continue-on-error: true
-        uses: actions/deploy-pages@v5
+      # The pages this deploy changes, for the deploy job's Ping IndexNow.
+      - name: Keep the IndexNow list
+        uses: actions/upload-artifact@v6
         with:
-          timeout: 300000
-      - name: Deploy to Pages (retry)
-        if: ${{ steps.deploy_first.outcome == 'failure' }}
-        id: deployment
-        uses: actions/deploy-pages@v5
-      # Only once the deploy succeeded, so Bing fetches what is live; a failed
-      # ping leaves the site deployed and the run red, with IndexNow's reply
-      # in the log.
-      - name: Ping IndexNow
-        run: python3 tools/indexnow.py ping indexnow-urls.txt
-      # What this run's caches carry to the next, saved once the deploy has
-      # succeeded and before the budgets are checked. Steps of their own, not
-      # actions/cache's post-job saves: those run only when every step passed,
-      # so a run that went red on Check the step budgets (a slow step, not a
-      # broken site) saved nothing and the next run started cold and slower
-      # still. Run 38370347047 failed its budgets and saved no shims or clue
-      # index; 38376042604's reindex then took 119s instead of ~50s and its
-      # authored puzzle 31s. Paths match each restore exactly: they are part
-      # of the cache's version. tests/test_ci_checkout.sh checks each
-      # restore has its save.
-      # Not gated on the deploy: the store is the checkout's, and it is good
+          name: indexnow
+          path: indexnow-urls.txt
+          retention-days: 1
+          if-no-files-found: error
+      # What this run's caches carry to the next, saved once the site has
+      # passed its checks, before the deploy job ships it. Steps of their own,
+      # not actions/cache's post-job saves: those run only when every step
+      # passed. Run 38370347047 saved no shims or clue index;
+      # 38376042604's reindex then took 119s instead of ~50s and its authored
+      # puzzle 31s. Paths match each restore exactly: they are part of the
+      # cache's version. tests/test_ci_checkout.sh checks each restore has its
+      # save.
+      # Saved without waiting for the deploy, which is now a job of its own:
+      # every store is keyed on what made each entry (a blob, the code a page
+      # reaches), so a store from a build whose deploy then failed is reused
+      # only where it is still right. Choose the build path diffs against the
+      # live commit, which is older than any store, so it sees every change
+      # the store's build saw.
+      # Not gated on the checks: the store is the checkout's, and it is good
       # once the checkout succeeded. Gated on the deploy it was never saved
       # while the build was failing (every run 2026-10-19 02:45 to 09:38), so
       # each run restored the 02:45 store and fetched everything pushed since
@@ -546,7 +506,7 @@ jobs:
       # rows, shims and cards is ~50s of packing and uploading, and the next
       # run makes those few again until a full build (~20 a day) saves them.
       - name: Save the row cache
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -554,42 +514,44 @@ jobs:
             ~/.cache/cryptic-teacher/code_reach
           key: row-cache-${{ github.sha }}
       - name: Save the clue index
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
       - name: Pack the puzzle shims
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         run: bash tools/cache_tar.sh pack shims .shim-cache.tar
       - name: Save the puzzle shims
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
         uses: actions/cache/save@v5
         with:
           path: og
           key: og-cards-${{ github.sha }}
+      # Before the deploy, like the stores above: a deploy that then fails
+      # leaves these pages unannounced until they next change.
       - name: Save the IndexNow manifest
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success') }}
         uses: actions/cache/save@v5
         with:
           path: .indexnow
           key: indexnow-${{ github.sha }}
-      # After everything the deploy needs, and only when this run rendered
+      # Last, and only when this run rendered
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
       # 800, not 2000: puzzle pushes each move a hundred-odd pages and, below
       # the bar, nothing is saved, so the next push re-renders those and its
       # own (run 39262958136 rendered 1781 pages for 29 puzzles, ~40s).
       - name: Pack the puzzle pages
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
         run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
-        if: ${{ (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
@@ -619,6 +581,59 @@ jobs:
           " | while read -r k; do gh cache delete "$k" --repo "$GITHUB_REPOSITORY" || true; done
           gh api "repos/$GITHUB_REPOSITORY/actions/cache/usage" --jq '"cache total: \(.active_caches_size_in_bytes/1e9) GB"'
 
+  # The deploy, a job of its own in its own concurrency group (see the top of
+  # this file), so the next build need not wait for GitHub's ~110s here. It
+  # needs the annotation check as well as the build: a failing check ships
+  # nothing. A full check is validate, the nine annotate shards and requeue;
+  # an incremental one skips the last two.
+  deploy:
+    name: deploy
+    needs: [build, validate, annotate, requeue]
+    if: >-
+      ${{ !cancelled() && needs.build.result == 'success' && needs.validate.result == 'success'
+      && (needs.annotate.result == 'success' || needs.annotate.result == 'skipped')
+      && (needs.requeue.result == 'success' || needs.requeue.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
+    # (The string form: the page URL still shows, actions/deploy-pages reports
+    # it on the deployment itself.)
+    environment: github-pages
+    steps:
+      # GitHub's deploy sometimes stalls (deployment_in_progress, syncing_files,
+      # then nothing until the action's 600s timeout; six runs on 2026-11-07,
+      # e.g. 42358494050, 42358870222, 42356010055) while the next push's
+      # deploy succeeds. A normal one takes under 140s, so the first attempt
+      # gives up at 300s without failing the run, and a second attempt runs
+      # only if it failed. A retry that fails too leaves the run red.
+      - name: Deploy to Pages
+        id: deploy_first
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 300000
+      - name: Deploy to Pages (retry)
+        if: ${{ steps.deploy_first.outcome == 'failure' }}
+        id: deployment
+        uses: actions/deploy-pages@v5
+      # tools/indexnow.py and the build's list of changed pages, for the ping.
+      - name: Check out
+        uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: tools
+      - name: Fetch the IndexNow list
+        uses: actions/download-artifact@v7
+        with:
+          name: indexnow
+      # Only once the deploy succeeded, so Bing fetches what is live; a failed
+      # ping leaves the site deployed and the run red, with IndexNow's reply
+      # in the log.
+      - name: Ping IndexNow
+        run: python3 tools/indexnow.py ping indexnow-urls.txt
+
   # Every step's time against its budget in tools/data/deploy_budgets.json,
   # read off the jobs API. A job of its own, after the build: a failure in
   # the build job after Deploy to Pages marks the github-pages deployment
@@ -631,7 +646,7 @@ jobs:
   # check-run, so this job's own steps are not timed.
   budgets:
     name: budgets
-    needs: build
+    needs: [build, deploy]
     if: ${{ (!cancelled()) }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -656,8 +671,8 @@ jobs:
 
   # Its own job so it runs beside the build instead of in front of the
   # staging: it reads only the puzzle sources and tools/, none of what the
-  # build generates. The build's deploy step waits for it (Wait for the
-  # annotation check), so a failing check still ships nothing.
+  # build generates. The deploy job needs it, so a failing check still ships
+  # nothing.
   #
   # Incremental, because the full check is minutes long and nearly every push
   # changes one puzzle file.
@@ -728,9 +743,9 @@ jobs:
           # only ships after its validate passed, so everything up to that
           # commit has been checked, and the diff covers all that came since:
           # the burn's puzzle pushes (which do not start this workflow) as well
-          # as code. Only one run at a time is in the pages group, so no two
-          # full checks can run at once. No live commit to be found: the full
-          # check.
+          # as code. Two runs' checks can overlap now that only the build and
+          # the deploy are serialized; requeue, the one job that pushes, has a
+          # group of its own. No live commit to be found: the full check.
           base=$(python3 tools/last_deploy.py "$REPO") || full "no live deploy to diff against"
           echo "diff base: $base"
           git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
@@ -755,7 +770,7 @@ jobs:
 
   # A full check's nine ninths, one runner each. They ran as nine steps of the
   # validate job, one after another (~145s each, ~22 min in all) while the
-  # build waited for them at "Wait for the annotation check"; as nine jobs the
+  # deploy waited for them; as nine jobs the
   # check takes one shard's time. Every puzzle is checked by exactly one shard
   # (`--shard i/n`: the puzzles whose id hashes to i of n) and the backlog
   # ratchet is per puzzle, so each shard enforces its own slice. Skipped
@@ -814,6 +829,10 @@ jobs:
     name: requeue
     needs: annotate
     runs-on: ubuntu-latest
+    # One push of allowance raises at a time (see Choose what to check).
+    concurrency:
+      group: pages-requeue
+      cancel-in-progress: false
     timeout-minutes: 15
     permissions:
       contents: write  # pushes the allowance raises
