@@ -78,6 +78,26 @@ function* blogSidecars() {
     }
   }
 }
+// The blog ladder is what the app builds for a clue we have NOT annotated, and
+// the hint burn annotates puzzles newest-first, so the corpus eventually holds
+// no such clue for a given blog shape. The checks below therefore do not hunt
+// for an un-annotated clue: they take a sidecar fact whose clue is annotated
+// or not and make the clue un-annotated in memory, as fetch_puzzle.with_blog_facts
+// ships it (no annotation, the fact as `blog`), before the app opens the puzzle.
+function asUnannotated(pid, eid, fact) {
+  const meta = allPuzzles.find((p) => p.id === pid);
+  if (!meta) return false;
+  if (!global.window.CRYPTIC_PUZZLES[pid]) {
+    new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", meta.file), "utf8"))(global.window);
+  }
+  const puz = global.window.CRYPTIC_PUZZLES[pid];
+  const e = puz && (puz.entries || []).find((x) => entryId(x) === eid);
+  if (!e) return false;
+  delete e.annotation;
+  e.blog = fact;
+  puz.blog = puz.blog || { name: "smoke blog", url: "https://example.com/" };
+  return true;
+}
 {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   let target = null;
@@ -88,13 +108,13 @@ function* blogSidecars() {
       const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
       const hit = Object.entries(rec.entries).find(([eid, fa]) => JSON.stringify(fa.type) === '["hidden_word"]'
         && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
-        && ents.some((x) => entryId(x) === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0].gives)
+        && ents.some((x) => entryId(x) === eid && x.solution && bare(x.solution) === bare(fa.blocks[0].gives)
           && clueText(x).includes(fa.blocks[0].clueFragment)));
-      if (hit) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0].gives) }; break; }
+      if (hit && asUnannotated(pid, hit[0], hit[1])) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0].gives) }; break; }
     }
     if (target) break;
   }
-  if (assert(target, "the blog facts hold an un-annotated hidden word with its carrier") && openFromPicker(target.pid)) {
+  if (assert(target, "the blog facts hold a hidden word with its carrier") && openFromPicker(target.pid)) {
     const { pid, eid, answer } = target;
     registry["clue-" + eid].listeners.click[0]();
     for (let guard = 0; guard < 6; guard++) {
@@ -131,14 +151,14 @@ function* blogSidecars() {
       if (!hit) continue;
       const file = pp.find(pid);
       const e = file && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => entryId(x) === hit[0]);
-      if (e && !e.annotation && e.solution && clueText(e).includes(hit[1].blocks[0].clueFragment)) {
+      if (e && e.solution && clueText(e).includes(hit[1].blocks[0].clueFragment) && asUnannotated(pid, hit[0], hit[1])) {
         target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].soundsLike };
         break;
       }
     }
     if (target) break;
   }
-  if (assert(target, "the blog facts hold an un-annotated homophone with the word heard") && openFromPicker(target.pid)) {
+  if (assert(target, "the blog facts hold a homophone with the word heard") && openFromPicker(target.pid)) {
     const { pid, eid, answer, heard } = target;
     registry["clue-" + eid].listeners.click[0]();
     for (let guard = 0; guard < 6; guard++) {
