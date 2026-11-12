@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Join with a colleague",
     "enumeration": "9"
    },
-   "solution": "ASSOCIATE"
+   "solution": "ASSOCIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Join with",
+      "at": 0,
+      "meaning": "to join with someone is to ally or link yourself to them, used as a verb"
+     },
+     {
+      "text": "a colleague",
+      "at": 10,
+      "meaning": "a partner or fellow worker, used as a noun"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to team up with someone from work.",
+     "definitionFit": "The word works as a verb meaning to link up and as a noun for a partner or co-worker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Join"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,42 @@
     "text": "'Before Christ' for a Roman clergyman, to be exact",
     "enumeration": "8"
    },
-   "solution": "ACCURATE"
+   "solution": "ACCURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exact",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "'Before Christ' for a Roman",
+       "at": 0,
+       "gives": "AC",
+       "note": "a Roman would say ante Christum, abbreviated AC, rather than BC"
+      },
+      {
+       "words": "clergyman",
+       "at": 28,
+       "gives": "CURATE",
+       "note": "a curate is an assistant member of the clergy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pedantic note on how a Roman priest would date things.",
+     "walkthrough": "BC is English; the Latin equivalent is ante Christum, AC.",
+     "definitionFit": "Exact and precise are synonyms describing something correct in every detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roman"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +120,42 @@
     "text": "Cutting point on instrument",
     "enumeration": "5"
    },
-   "solution": "SHARP"
+   "solution": "SHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cutting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "point",
+       "at": 8,
+       "gives": "S",
+       "note": "S is south, a point of the compass"
+      },
+      {
+       "words": "instrument",
+       "at": 17,
+       "gives": "HARP",
+       "note": "a harp is a stringed musical instrument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing the blade or tip of some tool.",
+     "walkthrough": "'point' is a compass point here, not a sharp tip.",
+     "definitionFit": "A cutting remark or edge is keen and biting, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +169,48 @@
     "text": "Colleague attending assembly in the customary manner",
     "enumeration": "14"
    },
-   "solution": "CONVENTIONALLY"
+   "solution": "CONVENTIONALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the customary manner",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "attending",
+       "at": 10,
+       "note": "attending means accompanying, so the colleague goes alongside, after the assembly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "assembly",
+       "at": 20,
+       "gives": "CONVENTION",
+       "note": "a convention is a formal gathering or assembly"
+      },
+      {
+       "words": "Colleague",
+       "at": 0,
+       "gives": "ALLY",
+       "note": "an ally is a partner or colleague"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coworker going to a conference where everything is done the usual way.",
+     "definitionFit": "Doing something according to custom is doing it by the accepted norms, a synonym phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +224,68 @@
     "text": "Rising artist isn't a bad craftsman",
     "enumeration": "7"
    },
-   "solution": "ARTISAN"
+   "solution": "ARTISAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "craftsman",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rising",
+         "at": 0,
+         "note": "in a down clue rising means the letters for artist are read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "artist",
+         "at": 7,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, a crossword artist"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 22,
+         "note": "bad signals that the letters of isn't and a are spoilt into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isn't",
+         "at": 14
+        },
+        {
+         "words": "a",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that an up-and-coming painter is a decent maker of things.",
+     "walkthrough": "'Rising' turns RA (Royal Academician) into AR; 'bad' rearranges ISNT plus A into TISAN.",
+     "definitionFit": "A skilled manual worker who makes things by hand is a craftsman, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +299,41 @@
     "text": "Listener let fall a pendant",
     "enumeration": "7"
    },
-   "solution": "EARDROP"
+   "solution": "EARDROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pendant",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Listener",
+       "at": 0,
+       "gives": "EAR",
+       "note": "the ear is the organ that listens"
+      },
+      {
+       "words": "let fall",
+       "at": 9,
+       "gives": "DROP",
+       "note": "to let something fall is to drop it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eavesdropping drops a piece of jewellery.",
+     "definitionFit": "A pendant hanging from the earlobe is an earring of a dangling kind, an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Listener"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +347,41 @@
     "text": "Makes me eager to find ducks",
     "enumeration": "4"
    },
-   "solution": "SMEE"
+   "solution": "SMEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ducks",
+      "at": 23,
+      "note": "plural, as the bird name is the same in singular and plural"
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to find",
+       "at": 15,
+       "note": "to find means the letters are to be found running across the words of the clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Makes me eager",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that gets me keen on spotting waterfowl.",
+     "definitionFit": "A dialect name for certain wild ducks such as the wigeon or pintail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +395,60 @@
     "text": "Quiet journalist taken in by girl, one with exceptional legs",
     "enumeration": "9"
    },
-   "solution": "MILLIPEDE"
+   "solution": "MILLIPEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one with exceptional legs",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 17,
+       "note": "taken in by means the quiet journalist goes inside the girl's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl",
+       "at": 29,
+       "gives": "MILLIE",
+       "note": "Millie is a girl's name"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Quiet",
+         "at": 0,
+         "gives": "P",
+         "note": "P is piano, the musical direction for quietly"
+        },
+        {
+         "words": "journalist",
+         "at": 6,
+         "gives": "ED",
+         "note": "ED is short for editor, a journalist"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl takes in a quiet reporter, someone with remarkable legs.",
+     "walkthrough": "The creature's name suggests a thousand feet, hence 'exceptional legs'.",
+     "definitionFit": "A many-legged creature like this has more legs than almost any animal, so it is fair to call them exceptional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "legs"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +462,45 @@
     "text": "This fellow sounds serious",
     "enumeration": "6"
    },
-   "solution": "ERNEST"
+   "solution": "ERNEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This fellow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ERNEST",
+     "indicators": [
+      {
+       "text": "sounds",
+       "at": 12,
+       "note": "sounds signals that the word for serious is heard, not seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "serious",
+       "at": 19,
+       "gives": "EARNEST",
+       "note": "earnest means serious and sincere"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man whose very name suggests gravity.",
+     "walkthrough": "A nod to Wilde's play about the importance of being so named.",
+     "definitionFit": "A man's first name, so the clue's fellow is a man bearing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "serious"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +520,42 @@
      }
     ]
    },
-   "solution": "CAPITALPROJECT"
+   "solution": "CAPITALPROJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Investment scheme",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "splendid",
+       "at": 28,
+       "gives": "CAPITAL",
+       "note": "capital is old-fashioned British slang for excellent"
+      },
+      {
+       "words": "idea",
+       "at": 37,
+       "gives": "PROJECT",
+       "note": "a project is a planned idea or undertaking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial plan is praised as an excellent notion.",
+     "walkthrough": "'Capital!' is dated British for splendid.",
+     "definitionFit": "A plan for spending money on long-term assets like buildings, an investment scheme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "splendid"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +569,41 @@
     "text": "Tea's fashionable in this group",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tea's",
+       "at": 0,
+       "gives": "CHA",
+       "note": "cha is a slang word for tea"
+      },
+      {
+       "words": "fashionable",
+       "at": 6,
+       "gives": "IN",
+       "note": "in means fashionable, as in the in thing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tea is the trendy drink among this crowd.",
+     "definitionFit": "A connected series or a set of linked shops is a chain, a kind of group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tea's"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +617,47 @@
     "text": "Sailor boy in waterproof hat",
     "enumeration": "9"
    },
-   "solution": "TARPAULIN"
+   "solution": "TARPAULIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waterproof hat",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "at": 0,
+       "gives": "TAR",
+       "note": "tar is an old word for a sailor"
+      },
+      {
+       "words": "boy",
+       "at": 7,
+       "gives": "PAUL",
+       "note": "Paul is a boy's name"
+      },
+      {
+       "words": "in",
+       "at": 11,
+       "gives": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman's son wearing a sou'wester.",
+     "walkthrough": "'in' looks like a link but supplies its own letters.",
+     "definitionFit": "Besides the canvas sheet, the word names a sailor's tarred waterproof hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +671,31 @@
     "text": "Put down iron again",
     "enumeration": "7"
    },
-   "solution": "REPRESS"
+   "solution": "REPRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put down",
+      "at": 0,
+      "meaning": "to put down means to suppress or crush"
+     },
+     {
+      "text": "iron again",
+      "at": 9,
+      "meaning": "to iron again is to press a second time"
+     }
+    ],
+    "explanation": {
+     "surface": "Doing the laundry a second time.",
+     "definitionFit": "Means suppress, and can also be read as press once more, as with clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +709,47 @@
     "text": "Fruit is found in the monsoon season",
     "enumeration": "7"
    },
-   "solution": "RAISINS"
+   "solution": "RAISINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 9,
+       "note": "found in means is goes inside the word for the wet season"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the monsoon season",
+       "at": 18,
+       "gives": "RAINS",
+       "note": "the rains is the name for the monsoon season"
+      },
+      {
+       "words": "is",
+       "at": 6,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Produce that grows during the wet season.",
+     "definitionFit": "Dried grapes are a type of fruit, an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "monsoon"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +769,47 @@
      }
     ]
    },
-   "solution": "TRYSTINGPLACE"
+   "solution": "TRYSTINGPLACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "romantic rendezvous",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Go",
+       "at": 0,
+       "gives": "TRY",
+       "note": "to have a go is to try"
+      },
+      {
+       "words": "smart",
+       "at": 6,
+       "gives": "STING",
+       "note": "to smart is to sting"
+      },
+      {
+       "words": "spot",
+       "at": 12,
+       "gives": "PLACE",
+       "note": "a spot is a place"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to visit a chic venue for a date.",
+     "definitionFit": "A tryst is a lovers' meeting, so its location is the place for a romantic rendezvous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +823,41 @@
     "text": "Recalling many chats with a sailor",
     "enumeration": "9"
    },
-   "solution": "YACHTSMAN"
+   "solution": "YACHTSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sailor",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Recalling",
+       "at": 0,
+       "note": "recalling read as re-calling, setting the letters of many chats out again in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "many chats",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remembering lots of conversations with a mariner.",
+     "walkthrough": "'Recalling' is read as calling again, so MANYCHATS is rearranged.",
+     "definitionFit": "Someone who sails a yacht is a sailor, a specific kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Recalling"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +871,48 @@
     "text": "Lady's record race, taking place over the mountainside?",
     "enumeration": "8"
    },
-   "solution": "SHEEPRUN"
+   "solution": "SHEEPRUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place over the mountainside?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lady",
+       "at": 0,
+       "gives": "SHE",
+       "note": "she is a pronoun for a lady"
+      },
+      {
+       "words": "record",
+       "at": 7,
+       "gives": "EP",
+       "note": "EP is an extended-play record"
+      },
+      {
+       "words": "race",
+       "at": 14,
+       "gives": "RUN",
+       "note": "a run is a race"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's record time in a fell race.",
+     "walkthrough": "The question mark marks the loose definition: a hill pasture for flocks.",
+     "definitionFit": "An area of hill pasture where flocks graze, often on a mountainside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +932,43 @@
      }
     ]
    },
-   "solution": "CLOSINGSPEECH"
+   "solution": "CLOSINGSPEECH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the last address?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shutting up",
+       "at": 8,
+       "gives": "CLOSING",
+       "note": "shutting up a shop is closing it"
+      },
+      {
+       "words": "Talk",
+       "at": 0,
+       "gives": "SPEECH",
+       "note": "a speech is a talk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering about a final speech or one about falling silent.",
+     "walkthrough": "'shutting up' suggests silence, but means closing.",
+     "definitionFit": "The final speech by counsel in a trial is the last address to the court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shutting"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +982,30 @@
     "text": "Encourage one to breathe in",
     "enumeration": "7"
    },
-   "solution": "INSPIRE"
+   "solution": "INSPIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Encourage one",
+      "at": 0,
+      "meaning": "to encourage or stimulate someone"
+     },
+     {
+      "text": "to breathe in",
+      "at": 14,
+      "meaning": "to draw air into the lungs, the medical sense"
+     }
+    ],
+    "explanation": {
+     "surface": "Coaching someone to take a breath.",
+     "definitionFit": "Means to motivate someone and, literally, to inhale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breathe"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1019,54 @@
     "text": "Note Lister's damaged cartilage",
     "enumeration": "7"
    },
-   "solution": "GRISTLE"
+   "solution": "GRISTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cartilage",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "G",
+       "note": "G is a musical note"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "at": 14,
+         "note": "damaged signals the letters of Lister are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lister's",
+         "at": 5,
+         "gives": "LISTER",
+         "note": "the 's only shows possession or stands for 'is', so it adds no letters: the word before it gives these letters as it is written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that the surgeon Lister has injured cartilage.",
+     "walkthrough": "Joseph Lister was the pioneer of antiseptic surgery, fitting the medical surface.",
+     "definitionFit": "Tough gristly tissue in meat is cartilage, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lister's"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1080,30 @@
     "text": "Was evasive, having received hot property",
     "enumeration": "6"
    },
-   "solution": "FENCED"
+   "solution": "FENCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was evasive",
+      "at": 0,
+      "meaning": "to fence is to parry questions evasively"
+     },
+     {
+      "text": "having received hot property",
+      "at": 13,
+      "meaning": "a fence deals in stolen goods, so to fence is to handle them"
+     }
+    ],
+    "explanation": {
+     "surface": "A suspect dodging questions about stolen goods.",
+     "definitionFit": "Fencing is both verbal sparring and receiving stolen goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1117,40 @@
     "text": "Catches parents out",
     "enumeration": "7"
    },
-   "solution": "ENTRAPS"
+   "solution": "ENTRAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catches",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 16,
+       "note": "out indicates the letters of parents are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parents",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child catching their parents out.",
+     "definitionFit": "To trap someone is to catch them, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1164,47 @@
     "text": "Keep away when one's love has departed",
     "enumeration": "7"
    },
-   "solution": "ISOLATE"
+   "solution": "ISOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep away",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one's",
+       "at": 15,
+       "gives": "IS",
+       "note": "I is one, so one's is I plus S"
+      },
+      {
+       "words": "love",
+       "at": 21,
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      },
+      {
+       "words": "departed",
+       "at": 30,
+       "gives": "LATE",
+       "note": "late means dead, departed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Withdrawing from others after a lover has gone.",
+     "definitionFit": "To set apart or quarantine is to keep away, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "departed"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1218,54 @@
     "text": "Large vessel used up in \"The Mouse That Roared\"",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Large vessel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 18,
+       "note": "up means read upwards in this down clue"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "in means the letters are inside the film title's words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "That Roared",
+         "at": 35,
+         "gives": "ATROA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big ship appears in the old satirical film comedy.",
+     "walkthrough": "'vessel' suggests a ship but means a blood vessel.",
+     "definitionFit": "The main artery of the body is the largest blood vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1279,30 @@
     "text": "Grief expressed at condition",
     "enumeration": "9"
    },
-   "solution": "COMPLAINT"
+   "solution": "COMPLAINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grief expressed",
+      "at": 0,
+      "meaning": "an expression of grievance or dissatisfaction"
+     },
+     {
+      "text": "condition",
+      "at": 19,
+      "meaning": "an ailment or illness, as in a medical condition"
+     }
+    ],
+    "explanation": {
+     "surface": "Mourning voiced about some state of affairs.",
+     "definitionFit": "Means both a grievance voiced and an illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grief"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1316,59 @@
     "text": "Something wrong when the Queen has nothing in the car",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something wrong",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the Queen",
+       "at": 21,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 43,
+         "note": "in means nothing goes inside the car's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "at": 50,
+         "gives": "RR",
+         "note": "RR is a Rolls-Royce"
+        },
+        {
+         "words": "nothing",
+         "at": 35,
+         "gives": "O",
+         "note": "O is zero, nothing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slip when the monarch's car is empty.",
+     "definitionFit": "A mistake is something wrong, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1382,41 @@
     "text": "Finished at 500 to 1",
     "enumeration": "4"
    },
-   "solution": "DONE"
+   "solution": "DONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Finished",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "500",
+       "at": 12,
+       "gives": "D",
+       "note": "D is the Roman numeral 500"
+      },
+      {
+       "words": "1",
+       "at": 19,
+       "gives": "ONE",
+       "note": "one is 1"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Done at long odds.",
+     "definitionFit": "Completed means finished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "500"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1436,41 @@
      }
     ]
    },
-   "solution": "EYESTRAIN"
+   "solution": "EYESTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "physical discomfort",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Looks at",
+       "at": 0,
+       "gives": "EYES",
+       "note": "to eye is to look at"
+      },
+      {
+       "words": "tutor",
+       "at": 9,
+       "gives": "TRAIN",
+       "note": "to tutor is to train"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gazing at a tutor gives a headache.",
+     "definitionFit": "Tired, aching eyes from overuse are a form of physical discomfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tutor"
+    }
+   }
   }
  ]
 }
