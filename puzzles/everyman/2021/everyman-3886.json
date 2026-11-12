@@ -321,55 +321,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Pastry",
+      "text": "Pastry's",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "included",
-       "note": "being included means added on to the rest, joining the build at the end"
+       "at": 42,
+       "note": "the French article is put inside the other letters"
       }
      ],
      "parts": [
       {
-       "words": "sour",
-       "gives": "TART",
-       "note": "tart means sharp or sour in taste"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sour",
+         "at": 9,
+         "gives": "TART",
+         "note": "tart means sharp or sour in taste"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 15,
+           "note": "a small bit of the herb's name, its first letter, is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tarragon",
+           "at": 22
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "the French",
+       "at": 31,
        "gives": "LE",
-       "note": "le is French for the"
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "bit of",
-         "note": "a small bit of a word is its opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "tarragon",
-         "note": "the first letter of the herb"
-        }
-       ]
+       "note": "le is a French word for the"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook complains a pastry is sour, perhaps from the French tarragon in it.",
-     "walkthrough": "The herb looks like an ingredient of the dish, but only its initial is used, placed last.",
-     "definitionFit": "A tartlet is a small pastry case with a filling, a miniature tart."
+     "surface": "A baker complains that a pastry tastes sour because of some tarragon in it.",
+     "walkthrough": "'included' sets the French article inside the other letters, just before the final T; 'sour' tempts as the definition but the pastry is.",
+     "definitionFit": "A tartlet is a small pastry case with a filling, so it is a kind of pastry."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "sour"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
