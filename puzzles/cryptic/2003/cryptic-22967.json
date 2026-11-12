@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,59 @@
     "text": "Poem in neat Milton fashion, but cloying",
     "enumeration": "15"
    },
-   "solution": "OVERSENTIMENTAL"
+   "solution": "OVERSENTIMENTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cloying",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "the poem's word sits inside the rearranged letters of the two following words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fashion",
+         "at": 20,
+         "note": "to fashion something is to shape it anew, so the letters of neat Milton are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neat Milton",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "Poem",
+       "at": 0,
+       "gives": "VERSE",
+       "note": "verse is poetry, a poem"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic complains that a poem written in tidy Miltonic style is sickly sweet.",
+     "walkthrough": "'Poem' looks like part of the surface's subject, but it supplies the inserted piece; 'but' is only a link to the definition.",
+     "definitionFit": "Something cloying is excessively sweet or sentimental, laying on the feeling too thickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +100,48 @@
     "text": "Curse articles leading to a degree",
     "enumeration": "8"
    },
-   "solution": "ANATHEMA"
+   "solution": "ANATHEMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading to",
+       "at": 15,
+       "note": "the articles come first, ahead of the degree, in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "articles",
+       "at": 6,
+       "gives": "ANATHE",
+       "note": "AN, A and THE are the three English articles, indefinite and definite"
+      },
+      {
+       "words": "a degree",
+       "at": 26,
+       "gives": "MA",
+       "note": "MA is a Master of Arts degree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some grammatical articles lead to an academic qualification, which is a curse.",
+     "definitionFit": "An anathema is a formal ecclesiastical curse, or something cursed and loathed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +155,29 @@
     "text": "Curse with 8",
     "enumeration": "4"
    },
-   "solution": "DARN"
+   "solution": "DARN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0,
+      "meaning": "a mild oath, a softened 'damn'"
+     },
+     {
+      "text": "with 8",
+      "at": 6,
+      "meaning": "to mend a hole by sewing, done with needle and thread (the answer to 8)"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'8' points to the answer of 8 down, NEEDLE AND THREAD, the tools of mending socks.",
+     "definitionFit": "Darn is a euphemistic curse word, and darning is mending holes with needle and thread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +191,43 @@
     "text": "A girl to beat vigourously, perhaps",
     "enumeration": "8"
    },
-   "solution": "MISSPELT"
+   "solution": "MISSPELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vigourously, perhaps",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A girl",
+       "at": 0,
+       "gives": "MISS",
+       "note": "a miss is a girl or young unmarried woman"
+      },
+      {
+       "words": "beat",
+       "at": 10,
+       "gives": "PELT",
+       "note": "to pelt is to beat or strike repeatedly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Apparently someone wants a young woman given a vigorous beating.",
+     "walkthrough": "The definition is a joke: 'vigourously' is itself spelt wrongly (the usual spelling drops the U), so it is an example of a word with an error.",
+     "definitionFit": "The clue word is wrongly spelt, an example of a word with a spelling error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vigourously"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +241,34 @@
     "text": "Eric Walker?",
     "enumeration": "6"
    },
-   "solution": "AMBLER"
+   "solution": "AMBLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eric Walker?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Eric Walker?",
+       "at": 0,
+       "note": "a pedestrian named Eric, read as the thriller writer Eric whose surname means one who strolls"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Eric Ambler wrote spy novels such as The Mask of Dimitrios; the question mark flags the pun on his surname.",
+     "definitionFit": "Eric Ambler was an English thriller writer, and an ambler is someone who walks at a leisurely pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +288,29 @@
      }
     ]
    },
-   "solution": "BEARSOUT"
+   "solution": "BEARSOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confirms",
+      "at": 0,
+      "meaning": "to support or corroborate, as evidence does a theory"
+     },
+     {
+      "text": "findings of Goldilocks",
+      "at": 9,
+      "meaning": "in the fairy tale, the girl finds the three bears' cottage empty because they are away from home"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To bear out a claim is to confirm it; Goldilocks discovered that the bears were not at home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +324,69 @@
     "text": "Next to nothing in offertory tray to begin with",
     "enumeration": "6"
    },
-   "solution": "ALMOST"
+   "solution": "ALMOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Next to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "the letter for nothing goes inside the word for the offertory"
+        }
+       ],
+       "parts": [
+        {
+         "words": "offertory",
+         "at": 19,
+         "gives": "ALMS",
+         "note": "alms are the charitable gifts collected at the offertory"
+        },
+        {
+         "words": "nothing",
+         "at": 8,
+         "gives": "O",
+         "note": "O, the figure zero, stands for nothing"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 34,
+         "note": "only the opening letter of tray is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tray",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hardly anything has been put in the church collection plate at the start.",
+     "definitionFit": "'Next to' in the sense 'next to impossible' means nearly, virtually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Next"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +410,43 @@
      }
     ]
    },
-   "solution": "NEEDLEANDTHREAD"
+   "solution": "NEEDLEANDTHREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Could the ladder need an operation with these?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "operation",
+       "at": 25,
+       "note": "an operation works on the letters, rearranging the four words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the ladder need an",
+       "at": 6,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A laddered stocking might need repair work using sewing tools.",
+     "walkthrough": "A 'ladder' is the British word for a run in tights or stockings, which is mended by sewing. 'operation' rearranges THE LADDER NEED AN.",
+     "definitionFit": "A ladder in a stocking is mended by sewing, which needs a needle threaded with cotton."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +460,67 @@
     "text": "Pointless crazy smile at museum's wanton destruction",
     "enumeration": "9"
    },
-   "solution": "VANDALISM"
+   "solution": "VANDALISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wanton destruction",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "museum's",
+       "at": 25,
+       "gives": "VANDA",
+       "note": "the V and A is the Victoria and Albert Museum in London"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crazy",
+         "at": 10,
+         "note": "crazy letters are jumbled, reworking what remains of smile"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Pointless",
+           "at": 0,
+           "note": "a point is a compass point; here East, E, is dropped from smile"
+          }
+         ],
+         "parts": [
+          {
+           "words": "smile",
+           "at": 16
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gallery visitor's daft grin turns into wanton damage to the exhibits.",
+     "walkthrough": "'Pointless' is a crossword device: the 'points' are compass points N, S, E, W, and one of them is dropped. The V and A is London's Victoria and Albert Museum.",
+     "definitionFit": "Vandalism is the wilful, senseless destruction or damage of property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pointless"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +534,46 @@
     "text": "Dean loses head over another girl",
     "enumeration": "5"
    },
-   "solution": "ELLIE"
+   "solution": "ELLIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another girl",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loses head",
+       "at": 5,
+       "note": "the first letter of the name is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dean",
+       "at": 0,
+       "gives": "NELLIE",
+       "note": "Nellie Dean is an old British music-hall song, so Dean suggests Nellie"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Dean is beheaded over a woman.",
+     "walkthrough": "'Nellie Dean' is a sentimental British music-hall song of 1905, a favourite of pub singalongs; 'Dean' calls up NELLIE.",
+     "definitionFit": "Ellie is a girl's name, a second woman's name after the Nellie of the wordplay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dean"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +587,55 @@
     "text": "League tables of art work in grammar school",
     "enumeration": "7"
    },
-   "solution": "RATINGS"
+   "solution": "RATINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "League tables",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "work",
+         "at": 21,
+         "note": "to work something is to shape it, so the letters of art are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "art",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 26,
+       "note": "taken as written"
+      },
+      {
+       "words": "grammar school",
+       "at": 29,
+       "gives": "GS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school's art projects are being ranked in performance tables.",
+     "definitionFit": "Ratings are rankings or scores, as shown in league tables of performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "League"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +649,41 @@
     "text": "Low road taken by body-liner",
     "enumeration": "7"
    },
-   "solution": "LARWOOD"
+   "solution": "LARWOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "body-liner",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "taken",
+       "at": 9,
+       "note": "taken in the sense of altered or seized, prompting a rearrangement of low road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Low road",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes the low road on foot.",
+     "walkthrough": "Harold LARWOOD was the England fast bowler of the 1932-33 Bodyline cricket series in Australia, who aimed short balls at batsmen's bodies.",
+     "definitionFit": "The fast bowler behind the infamous Bodyline tactic bowled at the line of the batsman's body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "body-liner"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +697,29 @@
     "text": "Project of former politician",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Project",
+      "at": 0,
+      "meaning": "the ... Project is a giant greenhouse attraction in Cornwall"
+     },
+     {
+      "text": "former politician",
+      "at": 11,
+      "meaning": "Sir Anthony ..., UK Prime Minister 1955-57"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The Eden Project is a Cornish garden attraction, and Anthony Eden was a British Prime Minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +739,34 @@
      }
     ]
    },
-   "solution": "BEERBOTTLE"
+   "solution": "BEERBOTTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dutch Courage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Dutch Courage?",
+       "at": 0,
+       "note": "Dutch courage is boldness from drink; Courage is also a brewer, and bottle is slang for nerve"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Bottle' is British slang for courage, and Courage was a famous British beer brand; the capital C hides that.",
+     "definitionFit": "A container of ale is a source of Dutch courage, and Courage was a well-known British brewery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +780,40 @@
     "text": "Start in edited passage",
     "enumeration": "7"
    },
-   "solution": "TRANSIT"
+   "solution": "TRANSIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "edited",
+       "at": 9,
+       "note": "an edited text has been changed, so the letters of the words before are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Start in",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer begins with a passage that has been revised.",
+     "definitionFit": "Transit is passage from one place to another, as of goods or people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edited"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +827,11 @@
     "text": "Their leader after Tories unfortunately lost one given to body building",
     "enumeration": "8"
    },
-   "solution": "STEROIDS"
+   "solution": "STEROIDS",
+   "annotationWithheld": {
+    "why": "Their leader after Tories unfortunately lost one given to body building (8): an anagram of TORIES plus an S leaves a D that no clue word supplies, and 'lost one' removes an I the answer keeps",
+    "clue": "Their leader after Tories unfortunately lost one given to body building"
+   }
   },
   {
    "number": 17,
@@ -277,7 +845,29 @@
     "text": "Gettin' a lift in Hertfordshire",
     "enumeration": "7"
    },
-   "solution": "HITCHIN"
+   "solution": "HITCHIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gettin' a lift",
+      "at": 0,
+      "meaning": "hitching a ride, with the final G dropped as in casual speech"
+     },
+     {
+      "text": "in Hertfordshire",
+      "at": 15,
+      "meaning": "a market town found in that English county"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Hitchin is a town in Hertfordshire, and hitchin' is a clipped form of hitching, thumbing a lift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +881,57 @@
     "text": "Hangs about — it's unusual by the sea",
     "enumeration": "8"
    },
-   "solution": "HASTINGS"
+   "solution": "HASTINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "by the sea",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 6,
+       "note": "the letters of hangs go around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hangs",
+       "at": 0
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "at": 19,
+         "note": "unusual signals that the letters of it's appear in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loiters, which is odd for a seaside visit.",
+     "walkthrough": "'by the sea' defines a seaside town: Hastings, on the south coast of England, site of the 1066 battle.",
+     "definitionFit": "Hastings is a resort town on the Sussex coast, a place beside the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hangs"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +945,49 @@
     "text": "One's inclined to conceal internal ailments",
     "enumeration": "8"
    },
-   "solution": "HILLSIDE"
+   "solution": "HILLSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's inclined",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "internal",
+       "at": 26,
+       "note": "the ailments are placed inside the word for conceal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conceal",
+       "at": 18,
+       "gives": "HIDE",
+       "note": "to hide is to conceal"
+      },
+      {
+       "words": "ailments",
+       "at": 35,
+       "gives": "ILLS",
+       "note": "ills are ailments or sicknesses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tends to keep quiet about their internal illnesses.",
+     "walkthrough": "'One's inclined' reads as a person's tendency, but it means a thing that slopes.",
+     "definitionFit": "A slope of a hill is literally on an incline, a tilted stretch of ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inclined"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1007,33 @@
      }
     ]
    },
-   "solution": "MAILEDFIST"
+   "solution": "MAILEDFIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manual delivery?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Manual delivery?",
+       "at": 0,
+       "note": "a delivery by hand read as a hand that has been posted; mailed also means armoured"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A mailed fist is an armoured gauntlet, figuratively a threat of force, and punningly a posted hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1047,40 @@
     "text": "Land of serial disruption",
     "enumeration": "6"
    },
-   "solution": "ISRAEL"
+   "solution": "ISRAEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disruption",
+       "at": 15,
+       "note": "disruption breaks the order of the letters of serial"
+      }
+     ],
+     "parts": [
+      {
+       "words": "serial",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country troubled by a run of disturbances.",
+     "definitionFit": "Israel is a country in the Middle East, a land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disruption"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1094,34 @@
     "text": "They pretend to be ascetics out East",
     "enumeration": "6"
    },
-   "solution": "FAKERS"
+   "solution": "FAKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They pretend to be ascetics out East",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They pretend to be ascetics out East",
+       "at": 0,
+       "note": "impostors posing as holy men of India, whose name sounds like the word for pretenders"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Fakirs are Hindu or Muslim holy men in India; pretenders to that role are punningly a near-homophone of them.",
+     "definitionFit": "Fakers are people who pretend or counterfeit, near-homophones of fakirs, Eastern ascetics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1135,60 @@
     "text": "Time taken by mountain to turn into level ground …",
     "enumeration": "4"
    },
-   "solution": "PLAT"
+   "solution": "PLAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "level ground",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taken by",
+       "at": 5,
+       "note": "the time letter is attached to the reversed mountain"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to turn",
+         "at": 23,
+         "note": "the mountain's word is turned round, reading backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain",
+         "at": 14,
+         "gives": "ALP",
+         "note": "an alp is a high mountain"
+        }
+       ]
+      },
+      {
+       "words": "Time",
+       "at": 0,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain takes ages to wear down into flat land.",
+     "walkthrough": "'to turn' reverses ALP into PLA, then T for time is added.",
+     "definitionFit": "A plat is a small piece of flat ground, a plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1202,41 @@
     "text": "… a large area and not with people",
     "enumeration": "7"
    },
-   "solution": "NORFOLK"
+   "solution": "NORFOLK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a large area",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "and not",
+       "at": 15,
+       "gives": "NOR",
+       "note": "nor means and not"
+      },
+      {
+       "words": "people",
+       "at": 28,
+       "gives": "FOLK",
+       "note": "folk are people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: a big region that is not inhabited.",
+     "walkthrough": "The ellipsis links back to 22: Norfolk, a large county in eastern England, is famously flat, level ground.",
+     "definitionFit": "Norfolk is a large county in East Anglia, a substantial area of England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1250,29 @@
     "text": "Setter's function, one given to deceive",
     "enumeration": "7"
    },
-   "solution": "IMPOSER"
+   "solution": "IMPOSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Setter's function",
+      "at": 0,
+      "meaning": "in printing, imposing is arranging set pages of type for the press, a compositor's task"
+     },
+     {
+      "text": "one given to deceive",
+      "at": 19,
+      "meaning": "someone who practises imposition, cheating or taking advantage"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An imposer arranges pages for printing, and one who imposes on people deceives them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1286,49 @@
     "text": "Exercise with it in Chatham",
     "enumeration": "4"
    },
-   "solution": "PITT"
+   "solution": "PITT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chatham",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "it goes inside the abbreviation for exercise"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Exercise",
+       "at": 0,
+       "gives": "PT",
+       "note": "PT is physical training, exercise"
+      },
+      {
+       "words": "it",
+       "at": 14,
+       "gives": "IT",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works out in a Kentish dockyard town.",
+     "walkthrough": "Chatham is a Kent town, but here it is the Earl of Chatham, William Pitt the Elder, 18th-century British statesman.",
+     "definitionFit": "William Pitt the Elder was created Earl of Chatham, so the title stands for the man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chatham"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1342,47 @@
     "text": "Maiden could be better without one",
     "enumeration": "5"
    },
-   "solution": "AMEND"
+   "solution": "AMEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "better",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 7,
+       "note": "the letters of maiden could be rearranged, once the letter for one is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Maiden",
+       "at": 0
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "I, the Roman numeral, is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman might be improved by doing without a certain person.",
+     "walkthrough": "'without one' takes I from MAIDEN, leaving MADEN, which 'could be' rearranges.",
+     "definitionFit": "To amend is to improve, correct or make better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Maiden"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1402,52 @@
      }
     ]
    },
-   "solution": "RIGHTIDEA"
+   "solution": "RIGHTIDEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grade one hit could arise from it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could arise",
+       "at": 14,
+       "note": "arise suggests the letters spring up in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grade",
+       "at": 0
+      },
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I, the Roman numeral, is one"
+      },
+      {
+       "words": "hit",
+       "at": 10
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A top-quality success might come from a good concept.",
+     "walkthrough": "'could arise' rearranges GRADE + I + HIT.",
+     "definitionFit": "The right idea is a correct notion, which might well produce a first-rate success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grade"
+    }
+   }
   }
  ]
 }
