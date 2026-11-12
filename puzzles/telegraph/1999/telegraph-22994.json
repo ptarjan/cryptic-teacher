@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Explain where the lost dog came from",
     "enumeration": "7"
    },
-   "solution": "EXPOUND"
+   "solution": "EXPOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Explain",
+      "at": 0,
+      "meaning": "to set out a matter in detail, clarifying it"
+     },
+     {
+      "text": "where the lost dog came from",
+      "at": 8,
+      "meaning": "a rescued stray is a former inmate of the dog pound"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is asked to account for the origins of a stray dog.",
+     "walkthrough": "The second definition is a pun: split the word as EX (former) and POUND (the compound for stray dogs).",
+     "definitionFit": "To expound a theory is to set it out and interpret it in detail, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,48 @@
     "text": "Right in but it's taken out",
     "enumeration": "7"
    },
-   "solution": "EXCERPT"
+   "solution": "EXCERPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's taken out",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "Right is placed in the middle of the word for but"
+      }
+     ],
+     "parts": [
+      {
+       "words": "but",
+       "at": 9,
+       "gives": "EXCEPT",
+       "note": "but, as in everyone but me, means except"
+      },
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling claim that something is both inside and removed.",
+     "walkthrough": "'in' puts R inside EXCEPT. The definition reads as a whole phrase: an extract is something that is taken out of a longer text.",
+     "definitionFit": "An excerpt is a passage lifted from a book or film, so it is a thing taken out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "but"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +127,48 @@
     "text": "Correct to hold son is to succeed",
     "enumeration": "7"
    },
-   "solution": "PROSPER"
+   "solution": "PROSPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "succeed",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to hold",
+       "at": 8,
+       "note": "the word for correct grips the son inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Correct",
+       "at": 0,
+       "gives": "PROPER",
+       "note": "correct, as in correct behaviour, means proper"
+      },
+      {
+       "words": "son",
+       "at": 16,
+       "gives": "S",
+       "note": "S is the genealogical abbreviation for son"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that behaving properly towards a son leads to success.",
+     "walkthrough": "'to hold' puts S inside PROPER.",
+     "definitionFit": "To prosper is to thrive or do well, a plain synonym of succeeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +182,28 @@
     "text": "Commanded by junior",
     "enumeration": "5"
    },
-   "solution": "UNDER"
+   "solution": "UNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Commanded by",
+      "at": 0,
+      "meaning": "a soldier serving ... a general is commanded by that general"
+     },
+     {
+      "text": "junior",
+      "at": 13,
+      "meaning": "an ...-secretary or ...-manager is junior in rank"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Being under someone means subordinate to them, both commanded by them and junior to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +217,36 @@
     "text": "Target area for local missile launchers",
     "enumeration": "9"
    },
-   "solution": "DARTBOARD"
+   "solution": "DARTBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Target area for local missile launchers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Target area for local missile launchers",
+       "at": 0,
+       "note": "sounds military, but the local is the pub and the missiles are darts thrown by its players"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military briefing about a target for nearby rocket launchers.",
+     "walkthrough": "In Britain 'the local' is one's neighbourhood pub, where darts is a traditional game.",
+     "definitionFit": "The circular board in a pub is the target the darts players aim their small missiles at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +260,40 @@
     "text": "The mace in a form still used as a weapon",
     "enumeration": "7"
    },
-   "solution": "MACHETE"
+   "solution": "MACHETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a form",
+       "at": 9,
+       "note": "the letters are reshaped into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The mace",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that the mace, in some version, remains a weapon today.",
+     "walkthrough": "'in a form' rearranges the letters of THE MACE; 'still used as a' joins the anagram to the definition.",
+     "definitionFit": "A machete is a broad-bladed chopping knife that can be wielded as a weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +307,41 @@
     "text": "Ecclesiastical residence for chap from the home counties",
     "enumeration": "5"
    },
-   "solution": "MANSE"
+   "solution": "MANSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ecclesiastical residence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chap",
+       "at": 29,
+       "gives": "MAN",
+       "note": "a chap is a man"
+      },
+      {
+       "words": "the home counties",
+       "at": 39,
+       "gives": "SE",
+       "note": "the home counties are the counties around London, in the south-east of England, SE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicarage is described as home to a man from near London.",
+     "walkthrough": "The home counties are the English counties that surround London, so they stand for SE, south-east.",
+     "definitionFit": "A manse is the house provided for a minister, especially in Scotland, so a church residence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +355,42 @@
     "text": "Check study on stress",
     "enumeration": "9"
    },
-   "solution": "CONSTRAIN"
+   "solution": "CONSTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "study",
+       "at": 6,
+       "gives": "CON",
+       "note": "to con is an old word meaning to study or learn"
+      },
+      {
+       "words": "stress",
+       "at": 15,
+       "gives": "STRAIN",
+       "note": "stress and strain are synonyms"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to examine a study for signs of stress.",
+     "walkthrough": "'on' links the pieces, one placed on top of the other in this down entry.",
+     "definitionFit": "To constrain is to restrain or hold back, which is one sense of to check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +404,34 @@
     "text": "Dead to the world",
     "enumeration": "7"
    },
-   "solution": "EXTINCT"
+   "solution": "EXTINCT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dead to the world",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Dead to the world",
+       "at": 0,
+       "note": "the idiom means fast asleep, but read literally it means gone from the earth for good"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A species that has died out completely is gone from the whole world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "world"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +445,34 @@
     "text": "His choice will get cross",
     "enumeration": "7"
    },
-   "solution": "ELECTOR"
+   "solution": "ELECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "His choice will get cross",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "His choice will get cross",
+       "at": 0,
+       "note": "sounds like someone sulking, but a voter marks a cross by the candidate chosen"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A voter at an election marks the chosen candidate on the ballot with an X."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +486,40 @@
     "text": "Thick soup — food to the German",
     "enumeration": "7"
    },
-   "solution": "CHOWDER"
+   "solution": "CHOWDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thick soup",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "food",
+       "at": 13,
+       "gives": "CHOW",
+       "note": "chow is slang for food"
+      },
+      {
+       "words": "the German",
+       "at": 21,
+       "gives": "DER",
+       "note": "der is a German word for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thick soup is handed over as food for a German guest.",
+     "definitionFit": "Chowder is a thick soup, typically of clams or fish with potatoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +533,34 @@
     "text": "No, no Miss Newman!",
     "enumeration": "7"
    },
-   "solution": "NANETTE"
+   "solution": "NANETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No, no Miss Newman!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "No, no Miss Newman!",
+       "at": 0,
+       "note": "a musical comedy title begins No, No and ends with the first name of the English actress Miss Newman"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The actress Nanette Newman shares her first name with the heroine of the 1925 musical No, No, Nanette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +574,46 @@
     "text": "Note golf score, adequate — may be fixed",
     "enumeration": "9"
    },
-   "solution": "REPARABLE"
+   "solution": "REPARABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may be fixed",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "RE",
+       "note": "re is the second note of the tonic sol-fa scale"
+      },
+      {
+       "words": "golf score",
+       "at": 5,
+       "gives": "PAR",
+       "note": "par is the standard score for a golf hole"
+      },
+      {
+       "words": "adequate",
+       "at": 17,
+       "gives": "ABLE",
+       "note": "able means competent or adequate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer notes an acceptable score that might be improved.",
+     "definitionFit": "Something reparable can be mended, which is to say it is capable of being fixed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +627,44 @@
     "text": "Principle of having it both ways?",
     "enumeration": "5"
    },
-   "solution": "TENET"
+   "solution": "TENET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Principle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "having it both ways",
+       "at": 13,
+       "note": "the word reads identically forwards and backwards, so it goes either way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Principle",
+       "at": 0,
+       "gives": "TENET",
+       "note": "these definition words give the whole answer, and the answer is itself the palindrome: it reads the same from either end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the principle of wanting things both ways.",
+     "walkthrough": "The idiom 'having it both ways' is reinterpreted: the answer reads the same in both directions.",
+     "definitionFit": "A tenet is a belief or doctrine held as true, a firm principle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "both"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +678,40 @@
     "text": "Sort of broth to beat",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beat",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Sort of",
+       "at": 0,
+       "note": "sort is read as a verb, so the letters are sorted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "broth",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a kind of soup is to be whisked.",
+     "walkthrough": "'Sort of' rearranges BROTH; 'to' links to the definition.",
+     "definitionFit": "To throb is to pulse or beat rhythmically, as a heart does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +725,40 @@
     "text": "A lone crab scuttles round by the sea in Spain",
     "enumeration": "9"
    },
-   "solution": "BARCELONA"
+   "solution": "BARCELONA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "by the sea in Spain",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "scuttles round",
+       "at": 12,
+       "note": "a crab scuttling round moves about, so its letters are shifted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A lone crab",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solitary crab scurries around a Spanish beach.",
+     "walkthrough": "'scuttles round' rearranges A LONE CRAB.",
+     "definitionFit": "Barcelona is a Spanish port city on the Mediterranean coast, so a place by the sea in Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +778,34 @@
      }
     ]
    },
-   "solution": "ARTMASTER"
+   "solution": "ARTMASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Students should draw on his advice",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Students should draw on his advice",
+       "at": 0,
+       "note": "draw on seems to mean make use of, but here the students literally draw as their teacher advises"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "An art teacher instructs pupils in drawing, so they draw following his guidance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +819,34 @@
     "text": "Artist who has designs on his clients",
     "enumeration": "9"
    },
-   "solution": "TATTOOIST"
+   "solution": "TATTOOIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist who has designs on his clients",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Artist who has designs on his clients",
+       "at": 0,
+       "note": "having designs on someone suggests scheming, but here the designs are inked onto customers' skin"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A tattoo artist literally puts designs on the bodies of the people who hire him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "designs"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +860,28 @@
     "text": "Shame! Don't believe it!",
     "enumeration": "9"
    },
-   "solution": "DISCREDIT"
+   "solution": "DISCREDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 0,
+      "meaning": "disgrace or loss of reputation, a noun sense"
+     },
+     {
+      "text": "Don't believe it",
+      "at": 7,
+      "meaning": "an instruction to refuse credence to a claim, the verb sense"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Discredit is both disgrace or dishonour and, as a verb, to doubt or disbelieve something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +895,48 @@
     "text": "Richard admits blunder with lifting equipment",
     "enumeration": "7"
    },
-   "solution": "DERRICK"
+   "solution": "DERRICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lifting equipment",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admits",
+       "at": 8,
+       "note": "the name for Richard lets the blunder into its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Richard",
+       "at": 0,
+       "gives": "DICK",
+       "note": "Dick is a familiar form of Richard"
+      },
+      {
+       "words": "blunder",
+       "at": 15,
+       "gives": "ERR",
+       "note": "to err is to make a mistake or blunder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Richard confesses to making a mistake with some machinery.",
+     "walkthrough": "'admits' is the container signal, not a confession; the surface Richard is just a familiar name to be shortened.",
+     "definitionFit": "A derrick is a type of crane or framework used for hoisting heavy loads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +950,33 @@
     "text": "A sign of a poisonous creature",
     "enumeration": "7"
    },
-   "solution": "SCORPIO"
+   "solution": "SCORPIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A sign of a poisonous creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A sign of a poisonous creature",
+       "at": 0,
+       "note": "seems to mean evidence of a venomous animal nearby, but means the zodiac sign named after one"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The eighth sign of the zodiac is symbolised by the scorpion, a venomous animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +990,41 @@
     "text": "When it reacts saltpetre may be extracted",
     "enumeration": "5"
    },
-   "solution": "NITRE"
+   "solution": "NITRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "saltpetre",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "may be extracted",
+       "at": 25,
+       "note": "the letters are pulled out of the run of words in the clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "When it reacts",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note on obtaining saltpetre from a reaction.",
+     "walkthrough": "'may be extracted' signals letters taken from inside WHEN IT REACTS; the surface sounds like laboratory chemistry.",
+     "definitionFit": "Nitre is another name for saltpetre, potassium nitrate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extracted"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1044,28 @@
      }
     ]
    },
-   "solution": "TURNOFF"
+   "solution": "TURNOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leave the road",
+      "at": 0,
+      "meaning": "to exit a main road onto a side road"
+     },
+     {
+      "text": "stop",
+      "at": 19,
+      "meaning": "to switch off a machine or tap, halting it"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To turn off is both to leave one road for another and to switch something off, stopping it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1079,34 @@
     "text": "Comes into force?",
     "enumeration": "7"
    },
-   "solution": "ENLISTS"
+   "solution": "ENLISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comes into force?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Comes into force?",
+       "at": 0,
+       "note": "the phrase usually means takes legal effect, but here someone joins the armed forces"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone who signs up for military service joins one of the armed forces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1120,42 @@
     "text": "It flows by river edge",
     "enumeration": "5"
    },
-   "solution": "RHONE"
+   "solution": "RHONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It flows",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "river",
+       "at": 12,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
+      },
+      {
+       "words": "edge",
+       "at": 18,
+       "gives": "HONE",
+       "note": "to edge a blade is to hone it, sharpening it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something runs past a riverbank.",
+     "walkthrough": "'by' links the pieces; 'edge' is a verb meaning sharpen.",
+     "definitionFit": "The Rhone is a major river of Switzerland and France, so something that flows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1169,40 @@
     "text": "Villain knocked nurse cold",
     "enumeration": "9"
    },
-   "solution": "SCOUNDREL"
+   "solution": "SCOUNDREL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Villain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "knocked",
+       "at": 8,
+       "note": "the letters are knocked about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse cold",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain strikes a nurse unconscious.",
+     "walkthrough": "'knocked' rearranges NURSE COLD.",
+     "definitionFit": "A scoundrel is a dishonest rogue, a synonym for villain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1216,28 @@
     "text": "Time for some magic",
     "enumeration": "5"
    },
-   "solution": "SPELL"
+   "solution": "SPELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Time",
+      "at": 0,
+      "meaning": "a period, as in a ... of fine weather"
+     },
+     {
+      "text": "some magic",
+      "at": 9,
+      "meaning": "a charm or incantation that works magic"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A spell is both a stretch of time and a magical incantation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1251,40 @@
     "text": "Dinar in trouble, at its lowest point",
     "enumeration": "5"
    },
-   "solution": "NADIR"
+   "solution": "NADIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lowest point",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in trouble",
+       "at": 6,
+       "note": "the word is troubled, stirred into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dinar",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A currency in crisis, at its lowest value.",
+     "walkthrough": "'in trouble' rearranges DINAR, a currency of several countries.",
+     "definitionFit": "The nadir is the bottom or worst point of something, opposite of the zenith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1298,47 @@
     "text": "I am quietly learning to beg",
     "enumeration": "7"
    },
-   "solution": "IMPLORE"
+   "solution": "IMPLORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beg",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I am",
+       "at": 0,
+       "gives": "IM",
+       "note": "I am contracts to I'm"
+      },
+      {
+       "words": "quietly",
+       "at": 5,
+       "gives": "P",
+       "note": "p, piano, is the musical direction for quietly"
+      },
+      {
+       "words": "learning",
+       "at": 13,
+       "gives": "LORE",
+       "note": "lore is knowledge or learning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they are studying quietly in order to plead.",
+     "walkthrough": "'to' links the wordplay to the definition.",
+     "definitionFit": "To implore someone is to beg them earnestly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1352,34 @@
     "text": "Eating here is no picnic",
     "enumeration": "7"
    },
-   "solution": "INDOORS"
+   "solution": "INDOORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eating here is no picnic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Eating here is no picnic",
+       "at": 0,
+       "note": "no picnic usually means hard going, but literally a meal not taken outdoors"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A picnic is eaten out of doors, so a meal inside the house is not a picnic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picnic"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1399,34 @@
      }
     ]
    },
-   "solution": "KNOWALL"
+   "solution": "KNOWALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A professor of infinite wisdom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A professor of infinite wisdom",
+       "at": 0,
+       "note": "not an academic but someone who professes, or claims, to understand everything"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A know-it-all claims to be wise about every subject, professing limitless knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "professor"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1440,41 @@
     "text": "Menus, perhaps, thanks to Berbers",
     "enumeration": "7"
    },
-   "solution": "TARIFFS"
+   "solution": "TARIFFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Menus, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "thanks",
+       "at": 16,
+       "gives": "TA",
+       "note": "ta is British informal for thanks"
+      },
+      {
+       "words": "Berbers",
+       "at": 26,
+       "gives": "RIFFS",
+       "note": "the Riffs are a Berber people of the Rif mountains of Morocco"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner thanks some North African tribesmen for the bill of fare.",
+     "walkthrough": "'to' links the pieces. TA is an everyday British word for thanks.",
+     "definitionFit": "A tariff is a list of prices, so a menu is an example of one, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
