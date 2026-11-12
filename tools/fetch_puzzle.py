@@ -1976,9 +1976,19 @@ def load_source_table(name):
     """{(puzzle id, entry id): (served, corrected, why)} from tools/data/<name>.json,
     a flat object keyed "puzzle id/entry id", one row per line, sorted: writers add
     different lines, and tools/json_merge.py (named in .gitattributes) merges them."""
-    with open(Path(__file__).resolve().parent / "data" / f"{name}.json",
-              encoding="utf-8") as f:
-        return {tuple(key.split("/", 1)): tuple(row) for key, row in json.load(f).items()}
+    path = Path(__file__).resolve().parent / "data" / f"{name}.json"
+    for attempt in (0, 1):
+        try:
+            with open(path, encoding="utf-8") as f:
+                held = json.load(f)
+            break
+        except json.JSONDecodeError:
+            # a writer caught mid-rewrite (they replace atomically now, but an
+            # older one may still be running): look once more, shortly
+            if attempt:
+                raise
+            time.sleep(0.5)
+    return {tuple(key.split("/", 1)): tuple(row) for key, row in held.items()}
 
 
 # The answers the SOURCE got wrong, and what its own clues say they are.

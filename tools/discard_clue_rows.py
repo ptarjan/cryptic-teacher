@@ -21,7 +21,7 @@ from pathlib import Path
 
 import fetch_puzzle as fetcher
 from groups import entry_id
-from json_merge import dump_lines
+from json_merge import dump_lines, write_atomic
 
 DATA = Path(fetcher.__file__).resolve().parent / "data" / "source_clue_wrong.json"
 
@@ -48,7 +48,7 @@ def drop_unshown(pid, data_path=DATA):
             gone.append(eid)
             del rows[key]
     if gone:
-        data_path.write_text(dump_lines(rows), encoding="utf-8")
+        write_atomic(data_path, dump_lines(rows))
     return gone
 
 

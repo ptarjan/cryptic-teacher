@@ -2565,7 +2565,7 @@ def repair_annotated_mends(apply_it=False, paths=None, request=True):
     import corroborate
     import provenance
     import validate_annotations as V
-    from json_merge import dump_lines
+    from json_merge import dump_lines, write_atomic
     is_word, _ = clue_repair.lexicon()
     if paths is None:
         paths = puzzle_paths.puzzle_files("times")
@@ -2664,7 +2664,7 @@ def repair_annotated_mends(apply_it=False, paths=None, request=True):
             if scan_queue.request_reread(held, clues, ["annotatorNote"]):
                 out["requests"] += 1
     if apply_it and rows_added:
-        CLUE_ROWS.write_text(dump_lines(rows), encoding="utf-8")
+        write_atomic(CLUE_ROWS, dump_lines(rows))
     return out
 
 

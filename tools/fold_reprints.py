@@ -110,11 +110,11 @@ def rekey(pairs):
     for name in REKEYED:
         path = root / name
         path.write_text(sub(path.read_text(encoding="utf-8")), encoding="utf-8")
-    from json_merge import dump_lines
+    from json_merge import dump_lines, write_atomic
     for name in REKEYED_BY_KEY:
         path = root / name
         rows = json.loads(sub(path.read_text(encoding="utf-8")), object_pairs_hook=unique_keys)
-        path.write_text(dump_lines(rows), encoding="utf-8")
+        write_atomic(path, dump_lines(rows))
     ninas = root / "tools" / "data" / "ninas.json"
     ninas.write_text(dump_lines(json.loads(sub(ninas.read_text(encoding="utf-8")))),
                      encoding="utf-8")
