@@ -50,7 +50,6 @@
   const voteTarget = (e) => (e ? `c:${P.id}:${entryKey(e)}` : `p:${P.id}`);
 
   let votesAsked = null;   // the puzzle id whose tally has been asked for
-  const BOT_UA = /bot|crawl|spider|slurp|headless|lightpanda|phantom|puppeteer|playwright/i;
 
   function forgetVotes() { voteTally = {}; votesAsked = null; }
 
@@ -58,7 +57,7 @@
     if (votesAsked === id) return;
     votesAsked = id;
     if (!SYNC_ENDPOINT || typeof fetch !== "function") return;
-    if (navigator.webdriver || BOT_UA.test(navigator.userAgent || "")) return;
+    if (looksAutomated()) return;
     fetch(`${SYNC_ENDPOINT}/v?p=${encodeURIComponent(id)}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((t) => {
@@ -179,6 +178,7 @@
     if (looksAutomated()) return;
     try { if (localStorage.getItem(INTERNAL_KEY)) return; } catch (e) { /* counted */ }
     eventsSent.add(name);
+    if (AB_MIRROR[name]) abSend(AB_MIRROR[name]);
     // The list is the contract with the Worker and is checked at both ends, so a
     // name that is not on it is a bug in this file and stops here.
     if (typeof CTEvents === "undefined" || CTEvents.indexOf(name) < 0) return;
@@ -252,7 +252,10 @@
     // is how anyone checks. A tally of one is a browser on its first ever day,
     // however many times it opens the grid; a browser with grids already in it
     // has plainly been here before, whatever the tally says.
-    nuxSeed(seen ? seen.days === 1 : !hasAnySave());
+    const first = seen ? seen.days === 1 : !hasAnySave();
+    if (nux === undefined && first) abEnroll(); // A/B 1: only a browser at the first-visit step
+    nuxSeed(first);
+    abSend("visit");
     if (seen && seen.last === today) return;
     const days = (seen ? seen.days : (hasAnySave() ? 1 : 0)) + 1;
     store.set("ct:seen", { last: today, days });
@@ -323,8 +326,33 @@
   // Whether this browser has taken a rung since the ladder line went up, which
   // is the difference between the two wordings of that line.
   let nuxWalked = false;
-  // The intro is opt-in now: a link opens it. typedYet hides the hint line once a letter is typed.
+  /* ---------- A/B 1: first screen (delete the losing arm, then this block) ----------
+     Arm "a" is the blocking #welcome dialog; arm "b" is the #tap-hint line with
+     the dialog behind a link. Enrolled on the first-ever visit only (see
+     reportVisit), kept in one key: {arm, day, sent}. Nothing identifying: the
+     arm only ever leaves the browser inside an event name, ab1-<arm>-<step>, and
+     only on the enrolment day, once each. A browser with no key is not enrolled
+     and gets arm a's behaviour (master's). */
+  const AB_KEY = "ct-ab1"; // not "ct:"-prefixed: it is not a puzzle
+  let ab = null;
+  try { ab = JSON.parse(localStorage.getItem(AB_KEY) || "null"); } catch (e) { ab = null; }
+  const abToday = () => new Date().toISOString().slice(0, 10);
+  const armB = () => !!ab && ab.arm === "b";
+  function abSave() { try { localStorage.setItem(AB_KEY, JSON.stringify(ab)); } catch (e) { /* not enrolled */ } }
+  function abEnroll() {
+    if (ab) return;
+    ab = { arm: Math.random() < 0.5 ? "a" : "b", day: abToday(), sent: [] };
+    abSave();
+  }
+  function abSend(step) {
+    if (!ab || ab.day !== abToday() || ab.sent.indexOf(step) >= 0) return;
+    ab.sent.push(step); abSave();
+    beacon("ab1-" + ab.arm + "-" + step);
+  }
+  const AB_MIRROR = { letter: "letter", entry: "entry", done: "done" };
+  // Arm b: the dialog is opt-in via the link. typedYet hides the hint line once a letter is typed.
   let introOpen = false, typedYet = false;
+  // ---------- end A/B 1 ----------
 
   function nuxSeed(first) {
     if (nux !== undefined) return;
@@ -439,10 +467,14 @@
   // promised and the rung it points at; saying you have solved cryptics before
   // spends the lot, because everything left is the same lesson.
   function bindWelcome() {
+    // A/B 1: keep only this browser's card (arm a = master's dialog, arm b = short one).
+    document.querySelectorAll("#welcome .welcome-card").forEach((c) => {
+      if (c.dataset.arm !== (armB() ? "b" : "a")) c.remove();
+    });
     const go = $("welcome-go"), skip = $("welcome-skip"), open = $("intro-open");
     if (!go) return;
-    if (open) open.onclick = () => { introOpen = true; beacon("intro-open"); nuxDraw(); };
-    document.addEventListener("keydown", (ev) => {
+    if (open) open.onclick = () => { introOpen = true; abSend("intro"); nuxDraw(); };
+    if (armB()) document.addEventListener("keydown", (ev) => {
       if (!typedYet && /^[a-zA-Z]$/.test(ev.key) && !ev.metaKey && !ev.ctrlKey) { typedYet = true; nuxDraw(); }
     });
     go.onclick = () => {
@@ -487,10 +519,10 @@
     const modal = $("welcome");
     // Toggled above the redraw guard below: the dialog and the line are two
     // states of one cursor, and whichever is not current has to be gone.
-    if (modal) modal.classList.toggle("hidden", !(line && line.modal && introOpen));
+    if (modal) modal.classList.toggle("hidden", !(line && line.modal && (introOpen || !armB())));
     // First visit: no dialog in the way, just one line beside the grid.
     const tap = $("tap-hint");
-    if (tap) tap.classList.toggle("hidden", !(line && line.modal && !introOpen && !typedYet));
+    if (tap) tap.classList.toggle("hidden", !(armB() && line && line.modal && !introOpen && !typedYet));
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
                  && $("hint-next").childElementCount > 0;

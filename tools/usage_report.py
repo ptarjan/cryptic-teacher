@@ -44,6 +44,39 @@ def events():
     return re.findall(r'"([^"]+)"', body)
 
 
+def ab_section(total):
+    """A/B 1, the first screen: arm a is the blocking dialog, arm b the hint
+    line. Counts are browsers on their enrolment day (app-core.js sends each
+    step once). Delete with the test."""
+    from math import erfc, sqrt
+    v = {arm: total[f"ab1-{arm}-visit"] for arm in "ab"}
+    print("\nA/B 1: first screen (a = dialog, b = hint line)")
+    print(f"  {'':<8}{'visits':>8}{'letter':>16}{'entry':>16}{'done':>16}")
+    for arm in "ab":
+        cells = []
+        for step in ("letter", "entry", "done"):
+            n = total[f"ab1-{arm}-{step}"]
+            cells.append(f"{n} ({100 * n / v[arm]:.1f}%)" if v[arm] else "-")
+        print(f"  {'arm ' + arm:<8}{v[arm]:>8}" + "".join(c.rjust(16) for c in cells))
+    if min(v.values()) == 0:
+        print("  too little data: an arm has no visits yet")
+        return
+    x1, x2 = total["ab1-a-letter"], total["ab1-b-letter"]
+    p1, p2 = x1 / v["a"], x2 / v["b"]
+    pool = (x1 + x2) / (v["a"] + v["b"])
+    se = sqrt(pool * (1 - pool) * (1 / v["a"] + 1 / v["b"]))
+    if se:
+        z = (p2 - p1) / se
+        print(f"  letter rate b - a = {100 * (p2 - p1):+.1f} points, z = {z:.2f}, "
+              f"two-sided p = {erfc(abs(z) / sqrt(2)):.3f}")
+    else:
+        print("  letter rate: no variance yet, no p-value")
+    if min(v.values()) < 145:
+        print(f"  too little data: {min(v.values())} on the smaller arm. 145 per arm detects "
+              "13% -> 26% (about 15 days at roughly 19 new visits a day); "
+              "a smaller lift needs about 440 per arm.")
+
+
 def bar(n, top, width=24):
     return "#" * (round(width * n / top) if top else 0)
 
@@ -151,6 +184,7 @@ def main():
     # of OPENS throughout rather than of the previous step, because the steps are
     # not a strict sequence — plenty of solvers take a hint without ever pressing
     # check — and a chain of conditional rates would read as one when it is not.
+    ab_section(total)
     opens = total["open"]
     # Each hint name goes at most once a session, so a session that took the
     # definition and then the walkthrough is counted in two of them and the sum

@@ -66,6 +66,10 @@
     // clue a search visitor came for was found and marked, and its "solve the
     // rest with hints" line was followed. The second over the first is how
     // many answer-seekers the solver turns into solvers.
-    "clue-landed", "clue-hint"
+    "clue-landed", "clue-hint",
+    // A/B 1 (first screen), arm-tagged copies of milestones on a browser's
+    // first day only. Delete the losing arm's names when the test ends.
+    "ab1-a-visit", "ab1-a-letter", "ab1-a-entry", "ab1-a-done",
+    "ab1-b-visit", "ab1-b-letter", "ab1-b-entry", "ab1-b-done", "ab1-b-intro"
   ]);
 });
