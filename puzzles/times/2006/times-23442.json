@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,41 @@
     "text": "Too illogical somehow? Not entirely",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Too",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Not entirely",
+       "at": 23,
+       "note": "only part of the words illogical somehow is used, so the letters sit inside that phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "illogical somehow",
+       "at": 4,
+       "gives": "ALSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether an argument is too illogical, then decides it only partly is.",
+     "walkthrough": "'Not entirely' tells you to take a run from inside 'illogical somehow', spanning the end of one word and the start of the next.",
+     "definitionFit": "Both words mean in addition or as well, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +81,47 @@
     "text": "Representation of Titian's cat not attracting dust",
     "enumeration": "10"
    },
-   "solution": "ANTISTATIC"
+   "solution": "ANTISTATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not attracting dust",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Representation of",
+       "at": 0,
+       "note": "a representation is a depiction made anew, so the letters of the painter's name and the animal are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Titian's",
+       "at": 18,
+       "gives": "TITIANS",
+       "note": "the possessive s counts here as a letter, giving the painter's name plus S"
+      },
+      {
+       "words": "cat",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Titian painting of a cat is praised for not gathering dust.",
+     "walkthrough": "'Representation of' signals the anagram; the S of Titian's is part of the fodder.",
+     "definitionFit": "Material free of static charge does not pull dust particles onto itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Representation"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +135,51 @@
     "text": "Eating rabbit, he's initially satisfied perfectly",
     "enumeration": "5"
    },
-   "solution": "STOAT"
+   "solution": "STOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eating rabbit, he's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 20,
+         "note": "initially points at the opening letter of the word satisfied"
+        }
+       ],
+       "parts": [
+        {
+         "words": "satisfied",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "perfectly",
+       "at": 40,
+       "gives": "TOAT",
+       "note": "to a T is an idiom meaning perfectly or exactly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner is perfectly content after a meal of rabbit.",
+     "walkthrough": "The definition describes a predator that feeds on rabbits. TO A T is the idiom for 'perfectly'.",
+     "definitionFit": "This small carnivorous mammal of the weasel family preys largely on rabbits, a cryptic description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +193,73 @@
     "text": "Second election almost lets in final academic",
     "enumeration": "10"
    },
-   "solution": "SCHOLASTIC"
+   "solution": "SCHOLASTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "academic",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "lets in",
+         "at": 23,
+         "note": "lets in means one piece is admitted inside another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 16,
+           "note": "almost means the word is cut short of its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "election",
+           "at": 7,
+           "gives": "CHOICE",
+           "note": "an election is a choice made between options"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "final",
+         "at": 31,
+         "gives": "LAST",
+         "note": "final means last"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second vote is nearly over and lets in a final academic candidate.",
+     "walkthrough": "'almost' trims CHOICE to CHOIC, which 'lets in' LAST.",
+     "definitionFit": "Scholastic describes matters of schools and learning, a synonym for academic as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +273,77 @@
     "text": "Defy woman climber replacing instructor ultimately in control",
     "enumeration": "9"
    },
-   "solution": "CHALLENGE"
+   "solution": "CHALLENGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Defy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replacing",
+       "at": 19,
+       "note": "replacing tells you one piece is swapped in for a letter of another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "control",
+       "at": 54,
+       "gives": "CHARGE",
+       "note": "in charge means in control"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 40,
+         "note": "ultimately points at the final letter of instructor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "instructor",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climber",
+         "at": 11,
+         "note": "in a down clue a climber goes upward, so the woman's name is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "woman",
+         "at": 5,
+         "gives": "NELL",
+         "note": "Nell is a woman's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A female mountaineer takes over from an instructor who is in charge.",
+     "walkthrough": "'in control' is IN CHARGE; NELL read upwards ('climber') gives LLEN, which replaces R, the last letter of instructor.",
+     "definitionFit": "To challenge someone is to defy them or dare them to resist, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +357,41 @@
     "text": "Fibre obtained from tree with hesitation",
     "enumeration": "5"
    },
-   "solution": "OAKUM"
+   "solution": "OAKUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fibre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tree",
+       "at": 20,
+       "gives": "OAK",
+       "note": "the oak is a tree"
+      },
+      {
+       "words": "hesitation",
+       "at": 30,
+       "gives": "UM",
+       "note": "um is the sound of a hesitation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitantly explains that some fibre came from a tree.",
+     "walkthrough": "'with' just joins the two pieces.",
+     "definitionFit": "Oakum is loose fibre from old rope, used to caulk the seams of wooden ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +405,46 @@
     "text": "One of twelve old plates broken",
     "enumeration": "7"
    },
-   "solution": "APOSTLE"
+   "solution": "APOSTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of twelve",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broken",
+       "at": 25,
+       "note": "broken means the letters are smashed up and put together differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "at": 14,
+       "gives": "O"
+      },
+      {
+       "words": "plates",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds that one of a set of twelve old plates is broken.",
+     "walkthrough": "'broken' rearranges O plus PLATES.",
+     "definitionFit": "The twelve apostles were the chosen disciples of Jesus in the Gospels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twelve"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +458,59 @@
     "text": "He conducted an opera popular in the Province",
     "enumeration": "9"
    },
-   "solution": "TOSCANINI"
+   "solution": "TOSCANINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He conducted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "opera",
+       "at": 16,
+       "gives": "TOSCA",
+       "note": "Tosca is an opera by Puccini"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 30,
+         "note": "in means one piece is placed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Province",
+         "at": 33,
+         "gives": "NI",
+         "note": "Northern Ireland is often called the Province, abbreviated NI"
+        },
+        {
+         "words": "popular",
+         "at": 22,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opera turns out to be popular in Northern Ireland.",
+     "walkthrough": "'the Province' is the usual name for Northern Ireland; 'in' is both the popular word and the container signal here, read once each.",
+     "definitionFit": "Arturo Toscanini was a famous Italian conductor, so this is a description of the man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +524,29 @@
     "text": "Little room that may be wet or dry?",
     "enumeration": "4"
    },
-   "solution": "CELL"
+   "solution": "CELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little room",
+      "at": 0,
+      "meaning": "a small room, as in a prison or monastery"
+     },
+     {
+      "text": "that may be wet or dry?",
+      "at": 12,
+      "meaning": "an electric battery unit may be of the wet or dry type"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both a small chamber and an electrochemical unit in a battery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wet"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +560,41 @@
     "text": "Gangster with girl to toughen",
     "enumeration": "6"
    },
-   "solution": "ANNEAL"
+   "solution": "ANNEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to toughen",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "girl",
+       "at": 14,
+       "gives": "ANNE",
+       "note": "Anne is a girl's name"
+      },
+      {
+       "words": "Gangster",
+       "at": 0,
+       "gives": "AL",
+       "note": "Al Capone is the archetypal gangster, giving AL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster and his girlfriend set out to toughen up.",
+     "walkthrough": "AL is Al Capone, the crossword's usual gangster; 'with' joins the pieces.",
+     "definitionFit": "Annealing heats and slowly cools metal or glass to toughen it, a technical synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +608,70 @@
     "text": "Ray's instrument initially blown during course",
     "enumeration": "9"
    },
-   "solution": "THORNBACK"
+   "solution": "THORNBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ray's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 33,
+       "note": "during means one piece occurs within the span of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "course",
+       "at": 40,
+       "gives": "TACK",
+       "note": "a tack is a sailing course"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "instrument",
+         "at": 6,
+         "gives": "HORN",
+         "note": "a horn is a musical instrument"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 17,
+           "note": "initially points at the opening letter of blown"
+          }
+         ],
+         "parts": [
+          {
+           "words": "blown",
+           "at": 27
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Ray's horn is played initially while on a course.",
+     "walkthrough": "'Ray's' reads as a man's possessive, but it is 'Ray is', a fish; a tack is a sailing course.",
+     "definitionFit": "The thornback is a species of ray, a flat fish with spines on its back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ray's"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +685,48 @@
     "text": "Singer in musical needing no car",
     "enumeration": "5"
    },
-   "solution": "OUSEL"
+   "solution": "OUSEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "needing no",
+       "at": 18,
+       "note": "needing no means the following word is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "musical",
+       "at": 10,
+       "gives": "CAROUSEL",
+       "note": "Carousel is a Rodgers and Hammerstein musical"
+      },
+      {
+       "words": "car",
+       "at": 29,
+       "gives": "CAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer in a stage musical manages without a car.",
+     "walkthrough": "'Singer' suggests a performer in the show, but it is a songbird.",
+     "definitionFit": "The ousel is the blackbird, a songbird, so it counts as a singer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Singer"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +740,29 @@
     "text": "Edith, for example, should be comfortable on horseback",
     "enumeration": "7"
    },
-   "solution": "SITWELL"
+   "solution": "SITWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Edith, for example",
+      "at": 0,
+      "meaning": "Dame Edith ..., the English poet, is one member of a literary family"
+     },
+     {
+      "text": "should be comfortable on horseback",
+      "at": 20,
+      "meaning": "to ... is to be at ease in the saddle"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Edith was one of the literary Sitwell family, so she is an example of the surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comfortable"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +776,29 @@
     "text": "Common like Dickens's friend?",
     "enumeration": "6"
    },
-   "solution": "MUTUAL"
+   "solution": "MUTUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Common",
+      "at": 0,
+      "meaning": "shared in common between two parties"
+     },
+     {
+      "text": "like Dickens's friend?",
+      "at": 7,
+      "meaning": "Dickens wrote the novel Our ... Friend"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means shared or common, and it describes the friend in a Dickens title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +812,68 @@
     "text": "Utter beauty, say, if she leads the flock",
     "enumeration": "10"
    },
-   "solution": "BELLWETHER"
+   "solution": "BELLWETHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "she leads the flock",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BELL",
+       "indicators": [
+        {
+         "text": "Utter",
+         "at": 0,
+         "note": "utter means speak, so the next word counts as heard rather than written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beauty",
+         "at": 6,
+         "gives": "BELLE",
+         "note": "a belle is a beauty"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WETHER",
+       "indicators": [
+        {
+         "text": "say",
+         "at": 14,
+         "note": "say means the word is taken as heard, giving a soundalike"
+        }
+       ],
+       "parts": [
+        {
+         "words": "if",
+         "at": 19,
+         "gives": "WHETHER",
+         "note": "whether is a synonym of if"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd says the beauty leading the flock is a ewe.",
+     "walkthrough": "BELLE ('Utter beauty') sounds like BELL, and WHETHER ('if', 'say') sounds like WETHER, a castrated ram.",
+     "definitionFit": "A bellwether is the belled sheep that leads a flock, hence any leader or trendsetter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +901,30 @@
      }
     ]
    },
-   "solution": "ALLALONGTHELINE"
+   "solution": "ALLALONGTHELINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where sleepers are found",
+      "at": 0,
+      "meaning": "railway sleepers lie the whole length of a track"
+     },
+     {
+      "text": "at every point",
+      "at": 25,
+      "meaning": "an idiom meaning completely, in every respect"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase is an idiom for thoroughly, and literally describes where track sleepers lie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sleepers"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +938,62 @@
     "text": "Well-paid vicar let loose around university",
     "enumeration": "9"
    },
-   "solution": "LUCRATIVE"
+   "solution": "LUCRATIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-paid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 26,
+       "note": "around means one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "loose",
+         "at": 20,
+         "note": "loose means the letters are set free and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vicar",
+         "at": 10
+        },
+        {
+         "words": "let",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 33,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-paid vicar is let loose around the university town.",
+     "walkthrough": "'let loose' looks like a single phrase, but only 'loose' signals the anagram; 'let' is fodder alongside 'vicar'.",
+     "definitionFit": "Lucrative work brings in plenty of money, so it is well-paid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vicar"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1007,41 @@
     "text": "Sort of sketch Tom needs to secure",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of sketch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tom",
+       "at": 15,
+       "gives": "THUMB",
+       "note": "Tom Thumb is the tiny hero of a folk tale"
+      },
+      {
+       "words": "secure",
+       "at": 28,
+       "gives": "NAIL",
+       "note": "to nail is to fasten or secure"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tom must tie down a sketch before it is done.",
+     "walkthrough": "Tom Thumb is the tiny folk-tale hero; 'needs to' joins the pieces.",
+     "definitionFit": "A thumbnail sketch is a small, brief drawing or description, so it is a kind of sketch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1055,40 @@
     "text": "Quaint lines once oddly unrelated to the foregoing",
     "enumeration": "15"
    },
-   "solution": "INCONSEQUENTIAL"
+   "solution": "INCONSEQUENTIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unrelated to the foregoing",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "oddly",
+       "at": 18,
+       "note": "oddly means the letters behave strangely and come out rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Quaint lines once",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some quaint verse lines from an old poem come oddly out of nowhere.",
+     "walkthrough": "'oddly' rearranges all fifteen letters of QUAINT LINES ONCE.",
+     "definitionFit": "Something not following from what went before is a non sequitur, irrelevant to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1102,59 @@
     "text": "Loyal friend upset over one caught wandering",
     "enumeration": "7"
    },
-   "solution": "NOMADIC"
+   "solution": "NOMADIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wandering",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 13,
+         "note": "upset in a down clue means the word is turned upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Loyal friend",
+         "at": 0,
+         "gives": "DAMON",
+         "note": "Damon was the loyal friend of Pythias in Greek legend"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 24,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "caught",
+       "at": 28,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faithful friend is upset when someone is caught wandering off.",
+     "walkthrough": "'upset' turns DAMON to NOMAD; 'over' places it above I and C in this down clue.",
+     "definitionFit": "Nomadic peoples move from place to place, so the word means roaming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1168,39 @@
     "text": "New weapon of limited scope",
     "enumeration": "6"
    },
-   "solution": "NARROW"
+   "solution": "NARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of limited scope",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "words": "weapon",
+       "at": 4,
+       "gives": "ARROW",
+       "note": "an arrow is a weapon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new weapon has only a limited range.",
+     "definitionFit": "Narrow means restricted in range or breadth, a synonym for limited in scope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1214,43 @@
     "text": "Obstructed and anathematised, so to speak",
     "enumeration": "6"
    },
-   "solution": "DAMMED"
+   "solution": "DAMMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obstructed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DAMMED",
+     "indicators": [
+      {
+       "text": "so to speak",
+       "at": 30,
+       "note": "so to speak means spoken out loud, so a soundalike is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "anathematised",
+       "at": 15,
+       "gives": "DAMNED",
+       "note": "to anathematise is to curse, so to be damned"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something was blocked and solemnly cursed, as it were.",
+     "walkthrough": "DAMNED, 'anathematised', is said to sound like the answer.",
+     "definitionFit": "A river that is dammed has been blocked by a barrier, so it is obstructed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1264,48 @@
     "text": "Chief magistrate concealing daughter's shady scheme",
     "enumeration": "5"
    },
-   "solution": "DODGE"
+   "solution": "DODGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shady scheme",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "at": 17,
+       "note": "concealing means one word hides another inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chief magistrate",
+       "at": 0,
+       "gives": "DOGE",
+       "note": "the Doge was the chief magistrate of Venice and Genoa"
+      },
+      {
+       "words": "daughter's",
+       "at": 28,
+       "gives": "D",
+       "note": "D is the standard abbreviation for daughter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chief magistrate hides his daughter's shady scheme.",
+     "walkthrough": "The Doge ruled Venice; 'concealing' puts D within him.",
+     "definitionFit": "A dodge is a crafty trick or evasion, a dishonest scheme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1319,59 @@
     "text": "Highly ornate vessel crossing mouth of Orinoco",
     "enumeration": "7"
    },
-   "solution": "BAROQUE"
+   "solution": "BAROQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highly ornate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 21,
+       "note": "crossing means the boat goes across, so it holds the letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vessel",
+       "at": 14,
+       "gives": "BARQUE",
+       "note": "a barque is a sailing ship"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "mouth of",
+         "at": 30,
+         "note": "the mouth of a river is its start, so this picks the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Orinoco",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ornate vessel sails across the mouth of the Orinoco river.",
+     "walkthrough": "The Orinoco is a South American river; its 'mouth' is O, placed inside BARQUE.",
+     "definitionFit": "Baroque describes an elaborately decorated style of art and architecture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mouth"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1385,28 @@
     "text": "Without reservation? Indeed, yes",
     "enumeration": "5"
    },
-   "solution": "QUITE"
+   "solution": "QUITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Without reservation?",
+      "at": 0,
+      "meaning": "completely, entirely, with no holding back"
+     },
+     {
+      "text": "Indeed, yes",
+      "at": 21,
+      "meaning": "an expression of agreement, as in a reply"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means entirely or completely, and in British use it also expresses agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1420,49 @@
     "text": "Lighter about to be used in broadcast",
     "enumeration": "4"
    },
-   "solution": "SCOW"
+   "solution": "SCOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lighter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be used in",
+       "at": 14,
+       "note": "to be used in means one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "broadcast",
+       "at": 28,
+       "gives": "SOW",
+       "note": "to broadcast seed is to sow it"
+      },
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "C",
+       "note": "C stands for circa, Latin for about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cigarette lighter is about to be shown in a broadcast.",
+     "walkthrough": "'Lighter' looks like a cigarette lighter but is a barge; C goes inside SOW.",
+     "definitionFit": "A lighter is a flat-bottomed barge, and a scow is such a boat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lighter"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1476,48 @@
     "text": "Youngster once told off, pinching pound",
     "enumeration": "5"
    },
-   "solution": "CHILD"
+   "solution": "CHILD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Youngster",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinching",
+       "at": 25,
+       "note": "pinching means grabbing, so one piece is held within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "once told off",
+       "at": 10,
+       "gives": "CHID",
+       "note": "chid is an old past tense of chide, to scold"
+      },
+      {
+       "words": "pound",
+       "at": 34,
+       "gives": "L",
+       "note": "L is the abbreviation for pound, from Latin libra"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster who was once scolded for stealing a pound.",
+     "walkthrough": "'once' marks CHID as archaic; 'pinching' puts L inside.",
+     "definitionFit": "A child is a young person, so youngster is a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1531,53 @@
     "text": "Monstrous, one's husband wearing women's clothes!",
     "enumeration": "9"
    },
-   "solution": "DRAGONISH"
+   "solution": "DRAGONISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monstrous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "women's clothes",
+       "at": 33,
+       "gives": "DRAG",
+       "note": "drag is women's clothing worn by a man"
+      },
+      {
+       "words": "wearing",
+       "at": 25,
+       "gives": "ON",
+       "note": "on means wearing, as clothes are on"
+      },
+      {
+       "words": "one's",
+       "at": 11,
+       "gives": "IS",
+       "note": "I's is one is, using I for one"
+      },
+      {
+       "words": "husband",
+       "at": 17,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shock that one's husband is wearing women's clothes.",
+     "walkthrough": "Read as DRAG ON I'S H: drag is on, worn by one's husband.",
+     "definitionFit": "Dragonish means like a dragon, fierce and monstrous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Monstrous"
+    }
+   }
   },
   {
    "number": 28,
@@ -436,7 +1591,58 @@
     "text": "Miserably accepted cut in western trains",
     "enumeration": "10"
    },
-   "solution": "WRETCHEDLY"
+   "solution": "WRETCHEDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miserably",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "western",
+       "at": 26,
+       "gives": "W"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepted",
+         "at": 10,
+         "note": "accepted means one piece takes another in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trains",
+         "at": 34,
+         "gives": "RLY",
+         "note": "RLY is the abbreviation for railway, the trains"
+        },
+        {
+         "words": "cut",
+         "at": 19,
+         "gives": "ETCHED",
+         "note": "etched means cut into a surface"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Passengers on western trains miserably accepted a service cut.",
+     "walkthrough": "RLY is the standard abbreviation for railway; 'in' is just a link word here.",
+     "definitionFit": "Wretchedly means in a miserable, unhappy way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -450,7 +1656,30 @@
     "text": "Brook in Paddington, for example?",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brook",
+      "at": 0,
+      "meaning": "to brook is to tolerate or put up with"
+     },
+     {
+      "text": "Paddington, for example?",
+      "at": 9,
+      "meaning": "Paddington is the famous fictional ... from Peru, named after a London station"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Bear means tolerate, and Paddington is a famous bear in children's books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brook"
+    }
+   }
   }
  ]
 }
