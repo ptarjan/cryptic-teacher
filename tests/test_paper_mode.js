@@ -15,7 +15,7 @@
       "I'm done" is shown; off paper the reverse.
    3. pickerWaits: a finished grid on paper is not "solved ✓" in the picker
       and solves no clue on the stats sheet; the same save off paper does both.
-   4. doneCredits: "I'm done" ends paper mode for the puzzle, checks the grid,
+   4. doneCredits: "Is it right?" on a solved grid, or "Show what's wrong", ends paper mode for the puzzle, checks the grid,
       and credits every correct clue as solved with no rungs (solvedWith 0,
       the clean star), stamping the finish so the streak can count it.
    5. switchInPuzzle: the one paper switch is in the puzzle's toolbar, not on
@@ -105,8 +105,12 @@ for (const paperOn of [true, false]) {
     check(!t.hidden("paper-switch") && t.reg["paper-toggle"].checked === true,
       `paperTools (${tag}): the switch is shown, ticked`);
 
-    // --- 4 (partial grid): I'm done credits the one clue, clean ---
+    // --- 4 (partial grid): "Is it right?" is a verdict only; "Show what's wrong" credits the one clue, clean ---
     t.reg["paper-done"].onclick();
+    check(/still empty/.test(t.reg["check-result"].textContent) && !t.hidden("paper-reveal") && !t.hidden("paper-done")
+          && !!JSON.parse(t.d.storage["ct:paper"]).open[ID],
+      "verifyOnly: a partial grid gets the empty count, stays on paper: " + t.reg["check-result"].textContent);
+    t.reg["paper-reveal"].onclick();
     t.flush();
     const after = t.saved() || {};
     check(li.classList.contains("solved") && li.classList.contains("no-hints"),
@@ -188,6 +192,23 @@ for (const paperOn of [true, false]) {
   check(off.on === false && !off.open[ID], "switchInPuzzle: unticking it takes the puzzle off paper and the default off");
   check(li.classList.contains("solved") && !t.hidden("chk-entry") && t.hidden("paper-done"),
     "switchInPuzzle: the tick and the checks come back");
+}
+
+// --- verifyOnly: a full grid with one wrong letter says "not right", marks and credits nothing ---
+{
+  const puz = open({}).puz;
+  const sv = finishedSave(puz);
+  const k = Object.keys(sv.letters)[0];
+  sv.letters[k] = sv.letters[k] === "Z" ? "Q" : "Z";
+  const t = open({ [KEY]: JSON.stringify(sv), "ct:paper": JSON.stringify({ on: true, open: { [ID]: 1 } }) });
+  t.reg["picker-panel"].classList.add("hidden");
+  t.reg["paper-done"].onclick();
+  t.flush();
+  const msg = t.reg["check-result"].textContent;
+  check(/Not right yet/.test(msg) && !/\d/.test(msg), "verifyOnly: a wrong full grid says only not right, no count: " + msg);
+  check(!!JSON.parse(t.d.storage["ct:paper"]).open[ID] && !t.hidden("paper-done") && !t.hidden("paper-reveal"),
+    "verifyOnly: and the puzzle stays on paper");
+  check(Object.keys((t.saved() || {}).solvedWith || {}).length === 0, "verifyOnly: and credits no clue");
 }
 
 if (failures) { console.log(failures + " failure(s)"); process.exit(1); }

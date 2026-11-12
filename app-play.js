@@ -657,12 +657,15 @@
   // solved, and nothing about where. No count either, since "1 wrong" is
   // already a clue to which one. Held until the solver acts, not timed out,
   // because it is the answer to the question they asked.
-  function announceVerdict() {
+  function announceVerdict(blank) {
     const el = $("check-result");
     if (!el) return;
     clearTimeout(checkMsgTimer);
     el.className = "check-result bad";
-    el.textContent = "Not solved yet — something is wrong or blank. Keep going, or press “Show what’s wrong”.";
+    el.textContent = (blank
+      ? `Not solved yet — ${blank} square${blank === 1 ? "" : "s"} still empty.`
+      : "Not right yet — at least one letter is wrong.")
+      + " Keep going, or press “Show what’s wrong”.";
   }
 
   function pulseCells(list) {

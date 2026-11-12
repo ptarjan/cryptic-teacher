@@ -307,12 +307,14 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
         <button id="chk-letter" class="tool">letter</button>
         <button id="chk-entry" class="tool">word</button>
         <button id="chk-grid" class="tool">grid</button>
-        <!-- Paper mode's one check: a solved/not-solved verdict first, then Check grid and the end of paper mode. -->
-        <button id="paper-done" class="tool hidden">I’m done — check grid</button>
+        <!-- Paper mode's checks: "Is it right?" only says solved / not (nothing marked, no count of wrong
+             letters); "Show what's wrong" appears after a verdict and ends paper mode with Check grid. -->
+        <button id="paper-done" class="tool hidden" title="Checks the whole grid and only says whether it is solved. Nothing is marked.">Is it right?</button>
+        <button id="paper-reveal" class="tool hidden">Show what’s wrong</button>
         <!-- Paper mode's switch, on the puzzle it hides things from. On puts this
              puzzle on paper and makes paper this device's default for new ones;
              off hands everything back everywhere. See paper mode in app.js. -->
-        <label id="paper-switch" class="paper-toggle" title="No ticks, hints or checks until you press “I’m done”. Stays on for puzzles you start next on this device.">
+        <label id="paper-switch" class="paper-toggle" title="No auto-check: nothing is ticked or marked as you type. Verify the whole grid at the end with “Is it right?”. Stays on for puzzles you start next on this device.">
           <input type="checkbox" id="paper-toggle"> paper mode</label>
         <span class="toolbar-gap"></span>
         <button id="clear-entry" class="tool">clear word</button>
