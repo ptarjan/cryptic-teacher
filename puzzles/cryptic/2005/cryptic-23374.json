@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,32 @@
      }
     ]
    },
-   "solution": "LAWTERM"
+   "solution": "LAWTERM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Say \"nolle prosequi\"",
+      "at": 0,
+      "meaning": "nolle prosequi is a legal phrase, a prosecutor's notice of abandoning a case, so it is an example of legal jargon"
+     },
+     {
+      "text": "Hilary?",
+      "at": 22,
+      "meaning": "Hilary is one of the sittings of the English courts and Inns of Court, named after St Hilary's day"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Hilary is asked to utter a Latin phrase.",
+     "walkthrough": "Both halves define: the Latin phrase is a piece of legal vocabulary, and Hilary is the name of the court sitting that begins in January. The question mark flags Hilary as an example.",
+     "definitionFit": "Both a technical legal expression and a sitting of the courts are called by this two-word phrase, one sense for each half."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hilary"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +79,30 @@
     "text": "Waterway on stone",
     "enumeration": "4"
    },
-   "solution": "LODE"
+   "solution": "LODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Waterway",
+      "at": 0,
+      "meaning": "in the Fens of eastern England a ... is a drainage channel or watercourse"
+     },
+     {
+      "text": "stone",
+      "at": 12,
+      "meaning": "a vein of metal ore running through rock, as miners use the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A canal built over a rock bed.",
+     "definitionFit": "The word names both a fenland drainage channel and a mineral vein in rock, two unrelated senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +126,11 @@
      }
     ]
    },
-   "solution": "WARMINGTONONSEA"
+   "solution": "WARMINGTONONSEA",
+   "annotationWithheld": {
+    "why": "A lot of nonsense follows global problem to a Dad's Army base (10-2-3): WARMING is the global problem and TON a lot, but no reading of 'of nonsense' gives ONSEA, and the answer itself plays on Walmington-on-Sea; the parse cannot be completed honestly",
+    "clue": "A lot of nonsense follows global problem to a Dad's Army base"
+   }
   },
   {
    "number": 3,
@@ -89,7 +144,59 @@
     "text": "Currency did and does change, including copper",
     "enumeration": "6"
    },
-   "solution": "ESCUDO"
+   "solution": "ESCUDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Currency",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 30,
+       "note": "including tells us the rearranged word holds the next piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change",
+         "at": 22,
+         "note": "change tells us to rearrange the letters of does"
+        }
+       ],
+       "parts": [
+        {
+         "words": "does",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "copper",
+       "at": 40,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that money has altered in the past and keeps altering.",
+     "walkthrough": "'did and' only adds to the surface: the escudo did change, when Portugal replaced it with the euro. 'change' is the anagram signal and 'including' the container signal.",
+     "definitionFit": "The escudo was the monetary unit of Portugal before the euro, and is still used in Cape Verde."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +210,41 @@
     "text": "Native American with little time to seek a buyer",
     "enumeration": "6"
    },
-   "solution": "MOHAWK"
+   "solution": "MOHAWK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Native American",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "little time",
+       "at": 21,
+       "gives": "MO",
+       "note": "mo, short for moment, as in 'wait a mo'"
+      },
+      {
+       "words": "to seek a buyer",
+       "at": 33,
+       "gives": "HAWK",
+       "note": "to hawk goods is to peddle them around looking for customers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indigenous American, short of time, tries to sell something.",
+     "definitionFit": "The Mohawk are an Iroquois people of New York State and Canada, so this names a member of that nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seek"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +258,41 @@
     "text": "Boy or girl with people who deserve a white robe",
     "enumeration": "7"
    },
-   "solution": "CHRISOM"
+   "solution": "CHRISOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "white robe",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boy or girl",
+       "at": 0,
+       "gives": "CHRIS",
+       "note": "Chris is a name used for both sexes, short for Christopher or Christine"
+      },
+      {
+       "words": "people who deserve",
+       "at": 17,
+       "gives": "OM",
+       "note": "OM is the Order of Merit, given to people of great distinction who have earned it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child keeps company with worthy people and earns white clothing.",
+     "definitionFit": "A chrisom is the white cloth or robe put on a child at baptism, so it is a christening garment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deserve"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +306,42 @@
     "text": "State parrots are unpopular with weight watchers",
     "enumeration": "8"
    },
-   "solution": "CALORIES"
+   "solution": "CALORIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unpopular with weight watchers",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "State",
+       "at": 0,
+       "gives": "CA",
+       "note": "CA is the postal abbreviation of California, a US state"
+      },
+      {
+       "words": "parrots",
+       "at": 6,
+       "gives": "LORIES",
+       "note": "lories are small brightly coloured parrots of Australasia"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that birds from one American state are disliked by dieters.",
+     "walkthrough": "'are' links the wordplay to the definition, which describes the answer by how slimmers feel about it.",
+     "definitionFit": "Dieters count and avoid units of food energy, so these are what slimmers dislike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "parrots"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +355,48 @@
     "text": "The Sun on island of politician who cheats bookies",
     "enumeration": "8"
    },
-   "solution": "RAMPSMAN"
+   "solution": "RAMPSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who cheats bookies",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The Sun",
+       "at": 0,
+       "gives": "RA",
+       "note": "Ra was the Egyptian sun god"
+      },
+      {
+       "words": "of politician",
+       "at": 18,
+       "gives": "MPS",
+       "note": "an MP is a Member of Parliament, and 'of politician' turns into the possessive MP'S placed before what it owns"
+      },
+      {
+       "words": "island",
+       "at": 11,
+       "gives": "MAN",
+       "note": "the Isle of Man lies in the Irish Sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid newspaper report on an island politician who swindles bookmakers.",
+     "walkthrough": "'The Sun' looks like the British tabloid but gives RA. 'island of politician' becomes MP'S MAN, a politician's island, with 'on' joining RA to it.",
+     "definitionFit": "A rampsman is old slang for a swindler, especially one who defrauds bookmakers at the races."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +420,55 @@
      }
     ]
    },
-   "solution": "STRAITANDNARROW"
+   "solution": "STRAITANDNARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "correct 26 (as originally spelt)",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "newly",
+       "at": 30,
+       "note": "newly means the gathered letters are made afresh in a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Down",
+       "at": 0
+      },
+      {
+       "words": "trains",
+       "at": 5
+      },
+      {
+       "words": "arrive shortly",
+       "at": 12,
+       "gives": "ARR",
+       "note": "arr. is the timetable abbreviation for arrive"
+      },
+      {
+       "words": "at",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trains heading out of London pull in at a station.",
+     "walkthrough": "'Down trains' are those leaving London. 26 is PATHWAY, so the correct path is the straight and narrow, which comes from the Bible's 'strait is the gate, and narrow is the way', strait meaning tight.",
+     "definitionFit": "The phrase means the path of right conduct, and its original spelling uses the word for narrow or tight, not straight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Down"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +482,40 @@
     "text": "Missing toy, possibly, but I don't want a woman",
     "enumeration": "10"
    },
-   "solution": "MISOGYNIST"
+   "solution": "MISOGYNIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I don't want a woman",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 13,
+       "note": "possibly says the letters may be put together in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Missing toy",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child has lost a plaything but refuses a girl's help.",
+     "definitionFit": "A woman-hater would say he wants no woman, so the definition is the man's own words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "toy"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +529,57 @@
     "text": "Having massive columns — note: not fully loaded",
     "enumeration": "5"
    },
-   "solution": "DORIC"
+   "solution": "DORIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having massive columns",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "note",
+       "at": 25,
+       "gives": "DO",
+       "note": "do (or doh) is a note of the tonic sol-fa scale"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not fully",
+         "at": 31,
+         "note": "not fully means the word is cut short at its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loaded",
+         "at": 41,
+         "gives": "RICH",
+         "note": "loaded is slang for rich"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building with heavy pillars is described along with a remark about money.",
+     "walkthrough": "'not fully' drops the last letter of RICH, leaving RIC.",
+     "definitionFit": "The Doric order is the oldest and plainest Greek architectural style, known for its stout, massive columns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loaded"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +599,58 @@
      }
     ]
    },
-   "solution": "HALFMARKS"
+   "solution": "HALFMARKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "getting as much wrong as right?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hard",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bald",
+         "at": 9,
+         "note": "bald means losing the red hair, so the colour word drops out of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comedian",
+         "at": 14,
+         "gives": "ALFREDMARKS",
+         "note": "Alfred Marks was a British comic actor and entertainer"
+        },
+        {
+         "gives": "RED"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough deal for a hairless comic who errs as often as he succeeds.",
+     "walkthrough": "'bald' removes RED from ALFRED, the hair gone, leaving ALF MARKS after H. 'for' is a link.",
+     "definitionFit": "A candidate scoring half marks has as many answers wrong as right, so the definition describes that score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bald"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +670,56 @@
      }
     ]
    },
-   "solution": "WINDOWDRESSING"
+   "solution": "WINDOWDRESSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "putting on a show",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Blow",
+       "at": 0,
+       "gives": "WIND",
+       "note": "to blow is what wind does, and a blow can mean a gale"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worked",
+         "at": 5,
+         "note": "worked means the letters are kneaded into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wonders",
+         "at": 12
+        },
+        {
+         "words": "GIs",
+         "at": 25,
+         "note": "GIs are American soldiers"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trumpet blast performed miracles for American troops at a concert.",
+     "definitionFit": "Window-dressing is a display designed to impress, so it is a show put on for appearances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blow"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +733,11 @@
     "text": "I, would-be president Ralph, losing my head as testing starts, am not up to the job",
     "enumeration": "10"
    },
-   "solution": "INADEQUATE"
+   "solution": "INADEQUATE",
+   "annotationWithheld": {
+    "why": "I, would-be president Ralph, losing my head as testing starts, am not up to the job (10): I + NADE(R) + AT can be seen, but no reading of 'losing my head' supplies QU and E, so the wordplay cannot be completed honestly",
+    "clue": "I, would-be president Ralph, losing my head as testing starts, am not up to the job"
+   }
   },
   {
    "number": 13,
@@ -265,7 +751,47 @@
     "text": "Not quite … dark?",
     "enumeration": "4"
    },
-   "solution": "NIGH"
+   "solution": "NIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not quite … dark?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not quite",
+       "at": 0,
+       "note": "not quite means the word falls just short of complete, its final letter missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dark",
+       "at": 12,
+       "gives": "NIGHT",
+       "note": "dark is used as a noun for night-time, as in 'after dark'"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Something nearly but not wholly dark, a twilight question.",
+     "walkthrough": "'Not quite' both defines the answer (nearly) and cuts the last letter from NIGHT, so the whole clue is definition and wordplay at once.",
+     "definitionFit": "Nigh means near or almost, so it is close to but not quite something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dark"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +811,70 @@
      }
     ]
    },
-   "solution": "YETAGAIN"
+   "solution": "YETAGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another one!",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "placed round",
+         "at": 8,
+         "note": "placed round means the creature's name surrounds the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Snowman",
+         "at": 0,
+         "gives": "YETI",
+         "note": "the yeti is the abominable snowman of the Himalaya"
+        },
+        {
+         "words": "cooker",
+         "at": 21,
+         "gives": "AGA",
+         "note": "an Aga is a heavy British range cooker"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start",
+         "at": 37,
+         "note": "start means the first letter of new"
+        }
+       ],
+       "parts": [
+        {
+         "words": "new",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snowman wrapped round a stove gets a fresh beginning, and another appears.",
+     "walkthrough": "An Aga is a brand of cast-iron range cooker found in British country kitchens. 'placed round' is the container signal, and 'start' takes only the first letter of new.",
+     "definitionFit": "Saying 'yet again!' greets one more repeat, the exasperated cry when another one turns up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Snowman"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +888,30 @@
     "text": "Headgear found near water",
     "enumeration": "8"
    },
-   "solution": "SKULLCAP"
+   "solution": "SKULLCAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Headgear",
+      "at": 0,
+      "meaning": "a close-fitting brimless cap, like a Jewish kippah"
+     },
+     {
+      "text": "found near water",
+      "at": 9,
+      "meaning": "a plant of the mint family that grows in damp places beside streams and ponds"
+     }
+    ],
+    "explanation": {
+     "surface": "A hat turns up beside a lake.",
+     "definitionFit": "The word names both a brimless cap and Scutellaria, a waterside flowering plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 16,
@@ -319,7 +931,60 @@
      }
     ]
    },
-   "solution": "BOMBCASE"
+   "solution": "BOMBCASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to contain explosives",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "about means the snakes go round the date"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Snakes",
+         "at": 0,
+         "gives": "BOAS",
+         "note": "boas are large constricting snakes"
+        },
+        {
+         "words": "3,000 years ago",
+         "at": 13,
+         "gives": "MBC",
+         "note": "three thousand years ago is about 1000 BC, written MBC with M the Roman thousand"
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "at": 34,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient serpents, full of energy, are kept in a box for explosives.",
+     "walkthrough": "'about' looks part of the date but is the container signal, putting M BC inside BOAS.",
+     "definitionFit": "A bomb case is the shell or casing that holds the explosive charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Snakes"
+    }
+   }
   },
   {
    "number": 17,
@@ -339,7 +1004,64 @@
      }
     ]
    },
-   "solution": "DOORKNOB"
+   "solution": "DOORKNOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "my turn to go in?",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Party",
+       "at": 0,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 13,
+         "note": "most of means the last letters are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the northern islands",
+         "at": 21,
+         "gives": "ORKNEY",
+         "note": "Orkney is the island group off the north tip of Scotland"
+        },
+        {
+         "gives": "EY"
+        }
+       ]
+      },
+      {
+       "words": "died",
+       "at": 42,
+       "gives": "OB",
+       "note": "ob. is short for obiit, Latin for 'died', seen on gravestones"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party before a trip to the northern isles, where someone died, and whose turn is next?",
+     "walkthrough": "'most of' drops EY from ORKNEY, leaving ORKN.",
+     "definitionFit": "A doorknob is the handle you turn to go into a room, so it speaks as the thing turned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1075,30 @@
     "text": "Fish on the thirteenth this month",
     "enumeration": "4"
    },
-   "solution": "IDES"
+   "solution": "IDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0,
+      "meaning": "more than one ide, a freshwater fish of the carp family"
+     },
+     {
+      "text": "the thirteenth this month",
+      "at": 8,
+      "meaning": "in the Roman calendar the ... fell on the thirteenth of most months, including November"
+     }
+    ],
+    "explanation": {
+     "surface": "A diary note to eat fish on a particular date.",
+     "definitionFit": "The word is both the plural of a carp-like fish and the Roman name for the mid-month day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1112,53 @@
     "text": "Actor on the way with lord's backing",
     "enumeration": "6"
    },
-   "solution": "STREEP"
+   "solution": "STREEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the way",
+       "at": 9,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 29,
+         "note": "backing means the word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lord's",
+         "at": 22,
+         "gives": "PEER",
+         "note": "a peer is a lord"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer on the road, with an aristocrat's support.",
+     "definitionFit": "Meryl Streep is an American film actor, so her surname stands for an actor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1172,49 @@
     "text": "Health comes first in racing driver",
     "enumeration": "6"
    },
-   "solution": "PROSIT"
+   "solution": "PROSIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Health",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in puts the next piece inside the driver's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "racing driver",
+       "at": 22,
+       "gives": "PROST",
+       "note": "Alain Prost is a French Formula One champion"
+      },
+      {
+       "words": "first",
+       "at": 13,
+       "gives": "I",
+       "note": "I is one, the first number"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fitness is the top priority for a racing driver.",
+     "walkthrough": "'first' is I, the Roman one, rather than a position.",
+     "definitionFit": "Prosit is a toast meaning 'may it benefit you', like saying 'good health!' as you drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Health"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1228,52 @@
     "text": "Old (I bar \"antique\") translator of philosophical disputant",
     "enumeration": "14"
    },
-   "solution": "QUODLIBETARIAN"
+   "solution": "QUODLIBETARIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "philosophical disputant",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "translator of",
+       "at": 22,
+       "note": "a translator turns words into another form, so these letters become a different word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0
+      },
+      {
+       "words": "I",
+       "at": 5
+      },
+      {
+       "words": "bar",
+       "at": 7
+      },
+      {
+       "words": "antique",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A translator renders old texts for a disputing philosopher.",
+     "definitionFit": "A quodlibetarian argues over quodlibets, scholastic questions put up for formal debate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translator"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1287,35 @@
     "text": "She was nimble with flowers",
     "enumeration": "4"
    },
-   "solution": "SPRY"
+   "solution": "SPRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She was nimble with flowers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "She was nimble with flowers",
+       "at": 0,
+       "note": "reads as a woman deft at handling blooms, and also as a word for agile alongside the surname of a famous British flower arranger"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who was deft at arranging blooms.",
+     "walkthrough": "Constance Spry was a celebrated British flower arranger; the adjective for nimble is spelt the same.",
+     "definitionFit": "The word means agile or lively, and it is the surname of a renowned florist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1329,73 @@
     "text": "Fellow of Oxford and Cambridge initially after the fool I had for dinner",
     "enumeration": "9"
    },
-   "solution": "ASSOCIATE"
+   "solution": "ASSOCIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fellow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 41,
+       "note": "after means the university letters come behind the fool"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the fool",
+       "at": 47,
+       "gives": "ASS",
+       "note": "an ass is a fool"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 31,
+         "note": "initially takes the first letters of the two university names"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oxford",
+         "at": 10
+        },
+        {
+         "words": "Cambridge",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 56,
+       "gives": "I"
+      },
+      {
+       "words": "had for dinner",
+       "at": 58,
+       "gives": "ATE",
+       "note": "to have eaten a meal is to have had it for dinner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college fellow dined after a foolish remark.",
+     "definitionFit": "An associate is a companion or partner, so it can mean a fellow or colleague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1409,43 @@
     "text": "Supporter maybe played back",
     "enumeration": "5"
    },
-   "solution": "STRAP"
+   "solution": "STRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporter maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 23,
+       "note": "back means the word is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "played",
+       "at": 16,
+       "gives": "PARTS",
+       "note": "parts are what actors play, the roles played"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supporter perhaps took part in a game long ago.",
+     "walkthrough": "'maybe' marks the definition as an example: a strap supports a bag or a garment.",
+     "definitionFit": "A strap holds things up, like a shoulder strap, so it is one kind of support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1459,64 @@
     "text": "Inconclusive appeal following test case",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "case",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 20,
+       "note": "following places the cut appeal after the test"
+      }
+     ],
+     "parts": [
+      {
+       "words": "test",
+       "at": 30,
+       "gives": "EXAM",
+       "note": "an exam is a test"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Inconclusive",
+         "at": 0,
+         "note": "inconclusive means the word lacks its ending"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appeal",
+         "at": 13,
+         "gives": "PLEA",
+         "note": "a plea is an appeal"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unresolved appeal comes after a trial case.",
+     "walkthrough": "'Inconclusive' removes the final A from PLEA.",
+     "definitionFit": "A case is an instance of something, the same as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1530,80 @@
     "text": "Road or roads going quietly almost across yard",
     "enumeration": "7"
    },
-   "solution": "PATHWAY"
+   "solution": "PATHWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Road",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quietly",
+       "at": 20,
+       "gives": "P",
+       "note": "p (piano) is the musical direction for quietly"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "going",
+         "at": 14,
+         "note": "going means the road letter leaves the word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 28,
+           "note": "almost cuts the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "across",
+           "at": 35,
+           "gives": "ATHWART",
+           "note": "athwart means across, from side to side"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "words": "roads",
+         "at": 8,
+         "gives": "R",
+         "note": "R is short for road, the letter used here for roads"
+        }
+       ]
+      },
+      {
+       "words": "yard",
+       "at": 42,
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A road or several roads run quietly across a yard.",
+     "walkthrough": "Two cuts are made to the word for across: 'almost' drops its last letter and 'going' removes the R for road. 'Road' alone is the definition.",
+     "definitionFit": "A pathway is a track or route, a road in the broad sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "across"
+    }
+   }
   }
  ]
 }
