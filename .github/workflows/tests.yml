@@ -372,6 +372,12 @@ jobs:
           pids=()
           for n in "${!par[@]}"; do
             item=${par[$n]}
+            # Run 43263197343 (tests 2): four slices grew from 2.4GB to 3.4GB
+            # each, swap filled and the runner took SIGTERM (exit 143, "shutdown
+            # signal"). Node's default heap limit lets garbage pile up until
+            # that point; 2400MB makes V8 collect instead, and a slice whose
+            # live data really exceeded it would fail loudly, not kill the host.
+            NODE_OPTIONS="--max-old-space-size=2400" \
             CI_SLICE="${item#* }" CT_CACHE="$RUNNER_TEMP/ci-cache.json" \
               CT_RESULTS_OUT="$RUNNER_TEMP/results/$SHARD-$n.json" \
               node "${item%% *}" > "$RUNNER_TEMP/par-$n.log" 2>&1 &
