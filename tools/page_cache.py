@@ -28,7 +28,7 @@ its checks say so. A page is reused when all of these are what they were:
   - the file on disk, whose hash must be the one the render wrote. A cold
     cache, a hand-edited page or another tree's page is rendered again.
 
-Two data files the reached code names are not in the build-wide key, because
+Three data files the reached code names are not in the build-wide key, because
 a page's own check already covers them and both move with every "daily
 blog-facts" commit (every few hours), which re-rendered all ~42k pages each
 time for the few hundred whose text moved:
@@ -39,6 +39,9 @@ time for the few hundred whose text moved:
     annotation.abbreviation_pairs() reads (the table view() glosses a leaf
     from): each (clue word, letters) pair a render looked up is stored with
     its answer and looked up again before reuse;
+  - setter_error.json (PER_PUZZLE): keyed "puzzle id/entry id", so a page's
+    key holds its own puzzle's rows, and a "Annotate <id>" burn commit that
+    files one re-renders that puzzle's page alone;
   - indicators.json (PER_ENTRY): a page's HTML does not read it; only the
     /indicators/ candidates matched against it do, and a stored page keeps
     its candidates unmatched with the lexicon's hash, so a moved lexicon
@@ -61,7 +64,7 @@ ROOT = puzzle_paths.ROOT
 #: The store; gitignored, carried between deploys by the workflow's cache.
 STORE = ROOT / ".page-cache.pickle"
 #: Bump to drop every stored page (a change to how keys are made).
-VERSION = "4"
+VERSION = "5"
 
 PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.json")
 #: A puzzle's blog-facts sidecar, beside its file: a per-page input like it.
@@ -71,7 +74,11 @@ BLOG_SIDECAR = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.blog")
 NOT_GLOBAL = ("docs/", "tools/data/blog_facts/")
 #: Data the stored entry itself is checked against (see the docstring).
 PER_ENTRY = {"tools/data/lexicons/indicators.json"}
-NOT_GLOBAL_FILES = {"index.html"} | PER_ENTRY
+#: A table keyed "puzzle id/entry id": wordplay.slipped_run reads it, but a
+#: page's key holds its own puzzle's rows (build_seo_pages.setter_rows), so a
+#: row filed for another puzzle (a burn commit, ~10 a day) re-renders nothing.
+PER_PUZZLE = {"tools/data/setter_error.json"}
+NOT_GLOBAL_FILES = {"index.html"} | PER_ENTRY | PER_PUZZLE
 #: Where a puzzle page's code starts, in build_seo_pages: what outputs() runs
 #: per page in its workers, and the list and pager those pages are made from.
 ROOTS = ("puzzle_page_job", "page_key", "puzzles", "series_neighbours")

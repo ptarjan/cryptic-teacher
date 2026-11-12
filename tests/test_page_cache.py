@@ -86,6 +86,7 @@ same("the blocks lexicon, read only to stamp an asset each page re-checks",
 moved("the stylesheet", fp(blob_of={"style.css": Z}))
 same("the budgets table, a test, a doc", fp(blob_of={"tools/data/deploy_budgets.json": Z,
                                                       "tests/test_validate_scope.sh": Z, "docs/APP.md": Z}))
+same("setter_error.json, keyed per puzzle in page_key", fp(blob_of={"tools/data/setter_error.json": Z}))
 same("the homepage, restamped by every reindex", fp(blob_of={"index.html": Z}))
 
 code = pc.reached()
@@ -142,6 +143,30 @@ for label, r in (("the percentile", changed(percentile=33)), ("the band", change
         sys.exit(f"test_page_cache: {label} moved: reuses a stale page")
     if B.puzzle_page(puz, r, None, None) == page0:
         sys.exit(f"test_page_cache: {label} is keyed but the page does not print it")
+# setter_error.json is keyed "puzzle id/entry id": a page's key holds its own
+# puzzle's rows, so a row filed for another puzzle (a burn commit) moves no key.
+import json
+import tempfile
+real_root = B.ROOT
+with tempfile.TemporaryDirectory() as tmp:
+    (Path(tmp) / "tools/data").mkdir(parents=True)
+    table = Path(tmp) / "tools/data/setter_error.json"
+    rows = {"cryptic-30000/1-across": ["a", "b", "why"], "cryptic-30001/2-down": ["c", "d", "why"]}
+    B.ROOT, B._SETTER_ROWS = Path(tmp), (None, {})
+    try:
+        def keyed(rs):
+            table.write_text(json.dumps(rs), encoding="utf-8")
+            return key(row)
+        base = keyed(rows)
+        other = dict(rows, **{"cryptic-30001/3-down": ["e", "f", "new"]})
+        if keyed(other) != base:
+            sys.exit("test_page_cache: another puzzle's setter_error row moved this page's key")
+        mine = dict(rows, **{"cryptic-30000/4-down": ["g", "h", "new"]})
+        if keyed(mine) == base:
+            sys.exit("test_page_cache: this puzzle's setter_error row did not move its key")
+    finally:
+        B.ROOT, B._SETTER_ROWS = real_root, (None, {})
+
 # A stored page keeps its indicator candidates unmatched: matched against a
 # moved lexicon they give what a fresh render's clue_indicators() would.
 ipuz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
