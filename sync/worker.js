@@ -239,12 +239,10 @@ export default {
     if (url.pathname === "/e" && request.method === "POST") {
       const ok = new Response(null, { status: 204, headers: cors(origin) });
       if (Number(request.headers.get("content-length") || 0) > MAX_EVENT) return ok;
-      // Bots: no UA at all, or one that names itself. Real browsers also send
-      // sec-fetch-site on a sendBeacon; scripted POSTs usually do not. Nothing
+      // Bots: no UA at all, or one that names itself. Nothing
       // is stored about the caller, the request is just not counted.
       const ua = request.headers.get("user-agent") || "";
       if (!ua || /bot|crawl|spider|slurp|headless|phantom|lighthouse|puppeteer|playwright|selenium|python|curl|wget|httpclient|facebookexternalhit|preview|monitor|go-http|node-fetch|axios/i.test(ua)) return ok;
-      if (!request.headers.get("sec-fetch-site")) return ok;
       const name = (await request.text()).trim();
       if (CTEvents.indexOf(name) < 0 || !env.EVENTS) return ok;
       const day = new Date().toISOString().slice(0, 10);
