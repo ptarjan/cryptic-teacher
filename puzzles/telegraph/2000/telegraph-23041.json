@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Wealthy drunk",
     "enumeration": "6"
    },
-   "solution": "LOADED"
+   "solution": "LOADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wealthy",
+      "at": 0,
+      "meaning": "someone with plenty of money is said to be rolling in it, informally well stocked with cash"
+     },
+     {
+      "text": "drunk",
+      "at": 8,
+      "meaning": "slang for intoxicated, full to the brim with alcohol"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are informal slang: rich and also heavily intoxicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +75,29 @@
      }
     ]
    },
-   "solution": "LAIDDOWN"
+   "solution": "LAIDDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insisted upon",
+      "at": 0,
+      "meaning": "a rule firmly established or stipulated, as in setting the law"
+     },
+     {
+      "text": "abandoned?",
+      "at": 17,
+      "meaning": "put down and given up, as soldiers surrender their arms"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A rule stipulated is set firmly; arms surrendered are put down and given up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +111,45 @@
     "text": "Flirting, having no head for marriage",
     "enumeration": "8"
    },
-   "solution": "ALLIANCE"
+   "solution": "ALLIANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "marriage",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having no head",
+       "at": 10,
+       "note": "having no head means the first letter of the synonym is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Flirting",
+       "at": 0,
+       "gives": "DALLIANCE",
+       "note": "dalliance is amorous trifling or flirting"
+      },
+      {
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flirt with no intention of settling down to wedlock.",
+     "walkthrough": "'having no head' takes the D off DALLIANCE.",
+     "definitionFit": "An alliance is a union by marriage between families or people, an old but standard sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +163,43 @@
     "text": "Raise the stake — a threat to Sicilians",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a threat to Sicilians",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Raise",
+       "at": 0,
+       "note": "in a down clue, raising a word means writing it upwards, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the stake",
+       "at": 6,
+       "gives": "ANTE",
+       "note": "the ante is the stake put up in poker before betting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler upping the stakes in a dangerous Sicilian game.",
+     "walkthrough": "'Raise' looks like poker talk alongside 'stake', but in a down clue it turns ANTE upwards.",
+     "definitionFit": "The Sicilian volcano periodically erupts and endangers the towns on its slopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Raise"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +213,48 @@
     "text": "Acceptance of notice before election",
     "enumeration": "8"
    },
-   "solution": "ADOPTION"
+   "solution": "ADOPTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Acceptance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 21,
+       "note": "before places the notice ahead of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "notice",
+       "at": 14,
+       "gives": "AD",
+       "note": "an ad is a notice or advertisement"
+      },
+      {
+       "words": "election",
+       "at": 28,
+       "gives": "OPTION",
+       "note": "election in its old sense of choosing; an option is a choice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party accepting a notice published ahead of polling day.",
+     "definitionFit": "Adopting a proposal means formally accepting it, as with a motion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "election"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +274,36 @@
      }
     ]
    },
-   "solution": "DOMINOEFFECT"
+   "solution": "DOMINOEFFECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Somewhat dotty chain reaction?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Somewhat dotty chain reaction?",
+       "at": 0,
+       "note": "a chain reaction involving spotted gaming tiles, each toppling the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slightly crazy sequence of events set off by one cause.",
+     "walkthrough": "The tiles in question carry dots, so a row of them falling in turn is literally a dotty chain reaction.",
+     "definitionFit": "The phrase names a cumulative sequence where one event sets off the next, like tiles toppling in a row."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dotty"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +317,43 @@
     "text": "Raise the pace for the favourites",
     "enumeration": "4"
    },
-   "solution": "PETS"
+   "solution": "PETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "favourites",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Raise",
+       "at": 0,
+       "note": "in a down clue, raising a word writes it upwards, reading backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the pace",
+       "at": 6,
+       "gives": "STEP",
+       "note": "a pace is a step"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Racing favourites being urged to go faster.",
+     "walkthrough": "'Raise the pace' reads as speeding up, but 'Raise' turns STEP upwards in this down entry.",
+     "definitionFit": "Favoured people are a teacher's or parent's darlings, the favourites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Raise"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +367,48 @@
     "text": "Wagnerian heroine that is about to be disposed of",
     "enumeration": "6"
    },
-   "solution": "ISOLDE"
+   "solution": "ISOLDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wagnerian heroine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 26,
+       "note": "about means the first piece goes round the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that is",
+       "at": 18,
+       "gives": "IE",
+       "note": "i.e. abbreviates id est, that is"
+      },
+      {
+       "words": "disposed of",
+       "at": 38,
+       "gives": "SOLD",
+       "note": "goods disposed of in a sale are sold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Wagner heroine about to be killed off in the opera.",
+     "walkthrough": "'to be' is only a link; 'disposed of' reads as killed off in the surface but means sold at market.",
+     "definitionFit": "She is the Irish princess in Wagner's opera Tristan und Isolde."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +422,44 @@
     "text": "It may be recommended as a sun resort",
     "enumeration": "6"
    },
-   "solution": "NASSAU"
+   "solution": "NASSAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It may be recommended as a sun resort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "resort",
+       "at": 31,
+       "note": "read as re-sort, to sort again, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as a sun",
+       "at": 22,
+       "note": "the anagram fodder, taken as written"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A travel agent recommending a sunny holiday destination.",
+     "walkthrough": "'resort' does double duty in the surface as a holiday place but cryptically is re-sort, rearranging AS A SUN.",
+     "definitionFit": "The Bahamas capital is a well-known sunny holiday destination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +473,29 @@
     "text": "Easter is one, Christmas another",
     "enumeration": "6"
    },
-   "solution": "ISLAND"
+   "solution": "ISLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Easter is one",
+      "at": 0,
+      "meaning": "the Pacific landmass famous for its stone heads is named after the festival"
+     },
+     {
+      "text": "Christmas another",
+      "at": 15,
+      "meaning": "a Pacific atoll in Kiribati also bears the festival's name"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both Easter and Christmas name Pacific landmasses surrounded by sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Easter"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +509,42 @@
     "text": "Feelings shown by people put into some distress",
     "enumeration": "8"
    },
-   "solution": "EMOTIONS"
+   "solution": "EMOTIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feelings shown by people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "distress",
+       "at": 39,
+       "note": "distress suggests something damaged or disordered, so these letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "into some",
+       "at": 29,
+       "note": "the anagram fodder, taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People shown to be upset by being put under strain.",
+     "walkthrough": "'put' is a link; the anagram of INTO SOME, signalled by 'distress', gives the answer.",
+     "definitionFit": "Human feelings such as joy or anger are the emotional states people display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +568,34 @@
      }
     ]
    },
-   "solution": "BUCKLEMYSHOE"
+   "solution": "BUCKLEMYSHOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One, two",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One, two",
+       "at": 0,
+       "note": "the opening of a counting nursery rhyme whose next words complete the line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Just a count of one and two.",
+     "walkthrough": "The nursery rhyme runs 'One, two, buckle my shoe; three, four, knock at the door', so the clue is answered by what comes next.",
+     "definitionFit": "In the nursery rhyme the words that follow the counting are this phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +609,41 @@
     "text": "Squirrel's home moved back three feet",
     "enumeration": "4"
    },
-   "solution": "DRAY"
+   "solution": "DRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Squirrel's home",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "moved back",
+       "at": 16,
+       "note": "moved back means the word is written in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "three feet",
+       "at": 27,
+       "gives": "YARD",
+       "note": "a yard is three feet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A squirrel's nest shifted a yard away.",
+     "definitionFit": "A squirrel's nest of twigs is called a drey, also spelt this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +657,40 @@
     "text": "Fish vessel reaches New York",
     "enumeration": "5"
    },
-   "solution": "TUNNY"
+   "solution": "TUNNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vessel",
+       "at": 5,
+       "gives": "TUN",
+       "note": "a tun is a large cask or vessel"
+      },
+      {
+       "words": "New York",
+       "at": 20,
+       "gives": "NY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish-carrying boat arriving in New York.",
+     "definitionFit": "This is an old name for the tuna fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +704,48 @@
     "text": "Fancy it could be perfect with a student",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 26,
+       "note": "it with a student would be perfect, so the student is what has been taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "perfect",
+       "at": 18,
+       "gives": "IDEAL",
+       "note": "ideal means perfect"
+      },
+      {
+       "words": "student",
+       "at": 33,
+       "gives": "L",
+       "note": "L, for learner, stands for a student"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fancy notion that might be perfect given a student's input.",
+     "walkthrough": "Read the clue as 'it, with a student, could be perfect': the answer plus L makes IDEAL, so remove L from IDEAL.",
+     "definitionFit": "A fancy, as a noun, is a notion or thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +759,44 @@
     "text": "Picked up the sound of cattle",
     "enumeration": "5"
    },
-   "solution": "HEARD"
+   "solution": "HEARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picked up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HEARD",
+     "indicators": [
+      {
+       "text": "the sound of",
+       "at": 10,
+       "note": "the sound of means a word that is pronounced the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cattle",
+       "at": 23,
+       "gives": "HERD",
+       "note": "a herd is a group of cattle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hearing cattle lowing in the distance.",
+     "walkthrough": "'Picked up the sound' looks like one phrase, but the definition is 'Picked up' and 'the sound of' signals the homophone.",
+     "definitionFit": "To pick up a noise is to hear it; picked up means perceived by ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +810,29 @@
     "text": "Intends to get sufficient funds",
     "enumeration": "5"
    },
-   "solution": "MEANS"
+   "solution": "MEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intends",
+      "at": 0,
+      "meaning": "to intend is to have in mind as a purpose"
+     },
+     {
+      "text": "sufficient funds",
+      "at": 15,
+      "meaning": "money enough to live on, resources"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is both a verb for intending and a noun for financial resources."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Intends"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +852,36 @@
      }
     ]
    },
-   "solution": "WICKETKEEPER"
+   "solution": "WICKETKEEPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put a foot wrong and his job is to bail you out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Put a foot wrong and his job is to bail you out",
+       "at": 0,
+       "note": "a cricket fielder who removes the bails to stump a batsman who steps out of the crease"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rescuer who gets you out of trouble when you make a mistake.",
+     "walkthrough": "In cricket, a batsman who steps out of the crease can be stumped: the fielder behind the stumps knocks off the bails, putting him out.",
+     "definitionFit": "The fielder behind the stumps removes the bails to stump a batsman who strays from his ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bail"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +895,41 @@
     "text": "Critic about to join one of the audience",
     "enumeration": "8"
    },
-   "solution": "REVIEWER"
+   "solution": "REVIEWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Critic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 7,
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "words": "one of the audience",
+       "at": 21,
+       "gives": "VIEWER",
+       "note": "a viewer is one person watching"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic about to sit down with the rest of the audience.",
+     "walkthrough": "'to join' is a link.",
+     "definitionFit": "A critic who writes reviews of shows or books is a reviewer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +943,48 @@
     "text": "Gave credit to a writer in the present era",
     "enumeration": "8"
    },
-   "solution": "ASCRIBED"
+   "solution": "ASCRIBED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gave credit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in means the writer is placed inside the era"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the present era",
+       "at": 27,
+       "gives": "AD",
+       "note": "AD, anno Domini, marks the present era"
+      },
+      {
+       "words": "writer",
+       "at": 17,
+       "gives": "SCRIBE",
+       "note": "a scribe is a writer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modern writer being given credit for his work.",
+     "walkthrough": "The surface's 'a writer' tempts you to keep the A, but here it comes from the era abbreviation instead, so the article is just a link.",
+     "definitionFit": "To ascribe is to attribute or credit something to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1004,42 @@
      }
     ]
    },
-   "solution": "GREENFINGERS"
+   "solution": "GREENFINGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "growing talent",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Inexperienced",
+       "at": 0,
+       "gives": "GREEN",
+       "note": "green means inexperienced, new to the job"
+      },
+      {
+       "words": "hands",
+       "at": 14,
+       "gives": "FINGERS",
+       "note": "fingers are parts of the hands, standing for them here"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Novice workers revealing a budding talent.",
+     "walkthrough": "'reveal' is a link; 'growing' means cultivating plants.",
+     "definitionFit": "A skill at growing plants is the gardener's knack, an established idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "growing"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1053,42 @@
     "text": "A steel assembly plant",
     "enumeration": "6"
    },
-   "solution": "TEASEL"
+   "solution": "TEASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "assembly",
+       "at": 8,
+       "note": "assembly suggests putting parts together anew, so these letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A steel",
+       "at": 0,
+       "note": "the anagram fodder, taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steel assembly plant, as in a factory.",
+     "walkthrough": "'plant' looks like a factory, but it is a growing plant.",
+     "definitionFit": "The prickly-headed plant once used for raising the nap on cloth is the teasel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1102,58 @@
     "text": "How about a posh car for school?",
     "enumeration": "6"
    },
-   "solution": "HARROW"
+   "solution": "HARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "school",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 4,
+       "note": "about means the first word goes round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "How",
+       "at": 0,
+       "gives": "HOW",
+       "note": "taken as written"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10,
+         "gives": "A"
+        },
+        {
+         "words": "posh car",
+         "at": 12,
+         "gives": "RR",
+         "note": "RR stands for Rolls-Royce, a luxury car"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a posh car suits a public school.",
+     "walkthrough": "The surface asks whether a smart car suits a pupil; HARROW is a famous English private boarding school.",
+     "definitionFit": "Harrow is a well-known English public school in north-west London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1167,42 @@
     "text": "A cheese that's made round",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A cheese",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 21,
+       "note": "round means turned around, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "made",
+       "at": 16,
+       "note": "the word taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese produced in a round shape.",
+     "walkthrough": "'round' suits the shape of the cheese but turns MADE backwards.",
+     "definitionFit": "This is a Dutch cheese with a red wax rind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1216,36 @@
     "text": "One's executor has no legality under such law",
     "enumeration": "5"
    },
-   "solution": "LYNCH"
+   "solution": "LYNCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's executor has no legality under such law",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One's executor has no legality under such law",
+       "at": 0,
+       "note": "summary mob justice, where a person is put to death without any lawful trial"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A will's executor lacking legal standing.",
+     "walkthrough": "'executor' suggests someone handling a will, but here it means someone who executes, under mob rule.",
+     "definitionFit": "The phrase names mob punishment, especially hanging, without legal trial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "executor"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1259,36 @@
     "text": "Outstanding coastal feature",
     "enumeration": "4"
    },
-   "solution": "PIER"
+   "solution": "PIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outstanding coastal feature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Outstanding coastal feature",
+       "at": 0,
+       "note": "a seaside structure that literally stands out into the sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remarkable feature of the coastline.",
+     "walkthrough": "'Outstanding' means remarkable on the surface, but literally the structure stands out from the shore.",
+     "definitionFit": "A seaside promenade structure projects from the shore into the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Outstanding"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1302,36 @@
     "text": "Location of well-known listed building",
     "enumeration": "4"
    },
-   "solution": "PISA"
+   "solution": "PISA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Location of well-known listed building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Location of well-known listed building",
+       "at": 0,
+       "note": "a Tuscan city whose famous bell tower leans, so it is listed in the sense of tilted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where a famous protected historic building stands.",
+     "walkthrough": "A 'listed building' in Britain is legally protected for its history; here 'listed' means leaning, as a ship lists.",
+     "definitionFit": "This Italian city is home to the famous leaning tower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "listed"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1345,41 @@
     "text": "Common complaint of many of advanced years",
     "enumeration": "4"
    },
-   "solution": "COLD"
+   "solution": "COLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Common complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "many",
+       "at": 20,
+       "gives": "C",
+       "note": "C, the Roman numeral for a hundred, stands for many"
+      },
+      {
+       "words": "advanced years",
+       "at": 28,
+       "gives": "OLD",
+       "note": "old means advanced in years"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ailment common among the elderly.",
+     "walkthrough": "'of' is a link.",
+     "definitionFit": "The common cold is a mild, widespread viral illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1393,11 @@
     "text": "Retrograde painting seen in exhibition",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotationWithheld": {
+    "why": "Clue held as 'Retrograde painting seen in exhibition' has no definition: rev ART inside SIGHT gives STRAIGHT, but no word defines it; the defining word appears lost in OCR and no search recovers it.",
+    "clue": "Retrograde painting seen in exhibition"
+   }
   },
   {
    "number": 29,
@@ -470,7 +1411,36 @@
     "text": "She plays a Shakespearean part for the network?",
     "enumeration": "6"
    },
-   "solution": "COBWEB"
+   "solution": "COBWEB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She plays a Shakespearean part for the network?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "She plays a Shakespearean part for the network?",
+       "at": 0,
+       "note": "an actress taking a fairy's role in A Midsummer Night's Dream, a name that also suggests a spider's net"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress playing a Shakespeare role for a broadcasting network.",
+     "walkthrough": "'network' suggests a TV channel, but the fairy's name is a spider's silken network.",
+     "definitionFit": "This is one of Titania's fairies in A Midsummer Night's Dream, and its name means a spider's web."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "network"
+    }
+   }
   },
   {
    "number": 30,
@@ -490,7 +1460,36 @@
      }
     ]
    },
-   "solution": "LOWWATER"
+   "solution": "LOWWATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Period of maritime decline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Period of maritime decline",
+       "at": 0,
+       "note": "the ebb of the tide, when the sea is at its lowest point"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An era when a nation's naval power declined.",
+     "walkthrough": "The clue reads like naval history, but the sea itself declines at the ebb of the tide.",
+     "definitionFit": "The phrase names the state of the tide at its lowest ebb, also a figurative low point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "maritime"
+    }
+   }
   },
   {
    "number": 31,
@@ -504,7 +1503,46 @@
     "text": "Loved seeing a cheat blushing",
     "enumeration": "6"
    },
-   "solution": "ADORED"
+   "solution": "ADORED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Loved",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 13,
+       "gives": "A"
+      },
+      {
+       "words": "cheat",
+       "at": 15,
+       "gives": "DO",
+       "note": "to do someone is slang for cheating them"
+      },
+      {
+       "words": "blushing",
+       "at": 21,
+       "gives": "RED",
+       "note": "a blushing face goes red"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loved despite being caught out cheating and blushing.",
+     "walkthrough": "'seeing' is a link.",
+     "definitionFit": "Adored means loved deeply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
