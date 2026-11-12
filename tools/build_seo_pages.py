@@ -2893,11 +2893,34 @@ def series_neighbours(stubs):
     return [tuple(n) for n in out]
 
 
+_SETTER_ROWS = (None, {})  # (file stamp, {puzzle id: its rows' json})
+
+
+def setter_rows(pid):
+    """Puzzle `pid`'s rows of tools/data/setter_error.json (keyed "puzzle id/entry id"),
+    as json text; None when it has none. A page's key holds them, as the global
+    fingerprint leaves the file out (page_cache.PER_PUZZLE). Read again when the
+    file's stamp moves."""
+    global _SETTER_ROWS
+    path = ROOT / "tools/data/setter_error.json"
+    try:
+        st = path.stat()
+        stamp = (st.st_mtime_ns, st.st_size)
+    except OSError:
+        return None
+    if _SETTER_ROWS[0] != stamp:
+        by = {}
+        for k, v in json.loads(path.read_text(encoding="utf-8")).items():
+            by.setdefault(k.split("/", 1)[0], {})[k] = v
+        _SETTER_ROWS = (stamp, {p: json.dumps(r, sort_keys=True) for p, r in by.items()})
+    return _SETTER_ROWS[1].get(pid)
+
+
 def page_key(i):
     """Puzzle page i's per-page inputs, under the build's fingerprint: what
     tools/page_cache.py reuses a stored page by. Its puzzle file, its blog
     facts, the part of its index row it prints (page_row), its pager
-    neighbours and whether its card is drawn; everything else it reads is
+    neighbours, its setter-error rows and whether its card is drawn; everything else it reads is
     code or data, in the fingerprint."""
     solved, neighbours, meta, _, fp, _ = _PAGES
     path, stub = solved[i]
@@ -2906,6 +2929,7 @@ def page_key(i):
     for part in (fp, puzzle_paths.relative(path, ROOT) or str(path),
                  hashlib.sha256(Path(path).read_bytes()).hexdigest(),
                  blog_fact_hashes().get(pid),
+                 setter_rows(pid),
                  json.dumps(page_row(meta.get(pid)), sort_keys=True, default=str),
                  json.dumps(neighbours[i], sort_keys=True, default=str),
                  (ROOT / f"og/{pid}.png").exists()):
