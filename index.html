@@ -176,22 +176,17 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
 <div id="spotlight" class="spotlight hidden" aria-hidden="true"><div id="spot-say" class="spot-say"></div></div>
 <div id="welcome" class="welcome hidden" role="dialog" aria-modal="true" aria-labelledby="welcome-h">
   <div class="welcome-card">
-    <h2 id="welcome-h">Never solved a cryptic?</h2>
-    <p>Every clue has two parts: a plain <strong>definition</strong> of the answer at one
-       end, and <strong>wordplay</strong> that builds the same answer another way.</p>
+    <h2 id="welcome-h">Cryptics in 30 seconds</h2>
+    <p>Every clue has a plain <strong>definition</strong> of the answer, plus <strong>wordplay</strong> that builds it another way.</p>
     <figure class="welcome-eg">
       <p class="eg-clue">Woman found in <span class="eg-hit">Oreg<u>on or Ma</u>ine</span> (5)</p>
       <ul>
-        <li><strong>Woman</strong> — the definition, at the start of the clue</li>
-        <li><strong>found in</strong> — the <em>indicator</em>, a word telling you what to do: here, look for the answer hidden inside the next words</li>
-        <li>Oreg<strong>on or Ma</strong>ine — <strong>NORMA</strong>: a woman, and 5 letters long. The number in brackets is always the answer’s length.</li>
+        <li><strong>Woman</strong> is the definition; <strong>found in</strong> says the answer is hidden in the next words: <strong>NORMA</strong>.</li>
       </ul>
     </figure>
-    <p>Nobody spots that on day one. Every clue here comes with a row of hints, and
-       each one gives away a little more than the one before. Start with the first,
-       and stop as soon as you can see the answer.</p>
-    <p class="welcome-do"><button type="button" id="welcome-go" class="tool welcome-cta">Show me on today's puzzle</button></p>
-    <p><button type="button" id="welcome-skip" class="ghost small">I've solved cryptics before</button></p>
+    <p>Nobody spots that on day one. The hint buttons under each clue give away a little more each time, so stop as soon as you can see the answer.</p>
+    <p class="welcome-do"><button type="button" id="welcome-go" class="tool welcome-cta">Got it, let me play</button></p>
+    <p><button type="button" id="welcome-skip" class="ghost small">Close</button></p>
   </div>
 </div>
 
@@ -299,6 +294,7 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
     <div class="left-col">
       <div id="clue-strip" class="clue-strip" aria-live="polite"></div>
       <div id="grid-wrap">
+        <p id="tap-hint" class="tap-hint hidden"><strong>Tap a clue and type.</strong> Stuck? Every clue has hints. <button type="button" id="intro-open" class="linklike">New to cryptics? 30-second intro</button></p>
         <div id="grid" tabindex="0" aria-label="Crossword grid"></div>
       </div>
       <p id="hidden-message" class="hidden-message hidden" aria-live="polite"></p>
