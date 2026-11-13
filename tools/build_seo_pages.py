@@ -2436,8 +2436,12 @@ def indicator_lexicon_hash():
     """What a stored page's indicator candidates were matched against: the
     lexicon and the corpus's counts of each word's role and kind."""
     data = ROOT / "tools" / "data"
-    return "+".join(str(page_cache.file_hash(p)) for p in
-                    (INDICATORS, data / "indicator_roles.json", data / "indicator_kinds.json"))
+    # Plus clue_pairs' code, which is not in the page fingerprint (OPAQUE): a
+    # change to it matches the stored candidates again and renders nothing.
+    import code_reach
+    pairs = code_reach.key("indicator_keys", ["clue_pairs"])
+    return "+".join([pairs] + [str(page_cache.file_hash(p)) for p in
+                    (INDICATORS, data / "indicator_roles.json", data / "indicator_kinds.json")])
 
 
 def ranked_indicators(t):
@@ -2926,7 +2930,11 @@ def page_key(i):
     path, stub = solved[i]
     pid = stub["id"]
     h = hashlib.sha256()
-    for part in (fp, puzzle_paths.relative(path, ROOT) or str(path),
+    # The solver's code is not in fp: the puzzle's view, hashed in its index row,
+    # stands for it. A row without the hash makes a key no stored page has.
+    view = (meta.get(pid) or {}).get("pageView") or os.urandom(8).hex()
+    for part in (fp, view, json.dumps(stub, sort_keys=True, default=str),
+                 puzzle_paths.relative(path, ROOT) or str(path),
                  hashlib.sha256(Path(path).read_bytes()).hexdigest(),
                  blog_fact_hashes().get(pid),
                  setter_rows(pid),

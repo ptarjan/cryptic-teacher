@@ -31,6 +31,9 @@ DATE = re.compile(r"^(\d{4})-(\d\d)-(\d\d)$")
 # Keys a compact row spells differently; anything else is copied as it is.
 HANDLED = {"id", "number", "series", "name", "setter", "date", "year", "file", "v",
            "annotated", "hasSolutions", "solutionsUnofficial", "difficulty"}
+# Row keys only the build reads (the page cache's hash of a puzzle's view): not
+# in the compact rows the browser downloads.
+BUILD_ONLY = {"pageView"}
 # What the static head leaves to the live one, because they change per filing
 # or per rating.
 LIVE_KEYS = {"latest", "build", "snitchRanges"}
@@ -163,7 +166,7 @@ def compact_row(row, ctx):
         else:
             out["df"] = df
     for k, v in row.items():
-        if k not in HANDLED and k not in out:
+        if k not in HANDLED and k not in out and k not in BUILD_ONLY:
             out[k] = v
     if "date" in row and not m:
         out["date"] = row["date"]

@@ -3134,6 +3134,11 @@ def index_row(path):
         # The generated shim, because that is what app.js injects — the
         # .json beside it is the source the shim was built from.
         "file": shim.name,
+        # What a puzzle page is made from (build_seo_pages.page_key): the view
+        # of the puzzle with its blog's facts, hashed. The page cache keys on
+        # this instead of the solver's code, so a solver commit re-renders the
+        # pages whose view it changed. Build-only: index_idx leaves it out.
+        "pageView": view_hash(browser),
         # content hash → app.js appends it as ?v= so browsers never serve a
         # stale puzzle after a re-annotation (see docs/APP.md, cache busting)
         "v": hashlib.md5(text.encode("utf-8")).hexdigest()[:8],
@@ -3187,6 +3192,12 @@ def index_row(path):
         # reindex() turns each into a `reprints` row and drops this.
         "reprintedIn": p.get("source", {}).get("reprintedIn", []),
     }
+
+
+def view_hash(view):
+    """A short hash of a puzzle view's full content (build-only `pageView`)."""
+    return hashlib.sha256(json.dumps(view, sort_keys=True, ensure_ascii=False, default=str)
+                          .encode("utf-8", "surrogateescape")).hexdigest()[:16]
 
 
 def index_row_deps(path, row):

@@ -20,7 +20,10 @@ its checks say so. A page is reused when all of these are what they were:
     missed; the reached code builds only per-page ones (a puzzle's own file,
     its blog facts, its card), which page_key covers;
   - the page's own inputs, which build_seo_pages.page_key() lists: its
-    puzzle file's bytes, its blog-facts lines, the part of its index row
+    puzzle file's bytes, the hash of the puzzle as the solver's view of it
+    gives it (the index row's "pageView": the solver's code is not in the
+    build-wide key, only what it made of this puzzle, so a solver commit
+    re-renders the pages whose view it changed), its blog-facts lines, the part of its index row
     the page prints (build_seo_pages.page_row()), its pager
     neighbours and whether its card is on disk;
   - every stamped asset URL the render asked for (asset(): the card's ?v=,
@@ -64,7 +67,7 @@ ROOT = puzzle_paths.ROOT
 #: The store; gitignored, carried between deploys by the workflow's cache.
 STORE = ROOT / ".page-cache.pickle"
 #: Bump to drop every stored page (a change to how keys are made).
-VERSION = "5"
+VERSION = "6"
 
 PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.json")
 #: A puzzle's blog-facts sidecar, beside its file: a per-page input like it.
@@ -84,7 +87,18 @@ NOT_GLOBAL_FILES = {"index.html"} | PER_ENTRY | PER_PUZZLE
 ROOTS = ("puzzle_page_job", "page_key", "puzzles", "series_neighbours")
 #: Definitions whose output a stored page is checked against before reuse,
 #: so neither their code nor the data they read is in the build-wide key.
-OPAQUE = ("stamp_assets.asset_url", "annotation.abbreviation_pairs")
+OPAQUE = ("stamp_assets.asset_url", "annotation.abbreviation_pairs",
+          # The solver: a page is made from what it printed of these, whose
+          # output the index row hashes (fetch_puzzle.index_row's "pageView",
+          # build_seo_pages.page_key), so a solver commit moves the hash of the
+          # puzzles it changed and no other page's key. annotation.whole_answer
+          # and whole_anagram are called by the page itself and stay code.
+          "fetch_puzzle.read_puzzle_view", "fetch_puzzle.with_blog_facts", "annotation.view_puzzle",
+          # Matched again, not rendered again, when its code moves (the stored
+          # lexicon hash, build_seo_pages.indicator_lexicon_hash).
+          "indicator_keys.clue_pairs",
+          # The row machinery behind puzzles(): its code moves rows, not pages.
+          "row_cache.cached_map", "puzzle_integrity", "budget", "unit_more")
 #: A file name (the last part of a path) in a string constant, as ast.dump
 #: writes one in code_reach's hashed form.
 NAMED = re.compile(r"Constant\(value='(?:[^'\\]*/)?([\w.\-]+\.(?:json|tsv|txt|md|csv|yaml|yml|html|js|"
