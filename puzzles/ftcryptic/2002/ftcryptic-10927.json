@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Don't agree to amalgamate once more",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't agree",
+      "at": 0,
+      "meaning": "to decline or turn down a request"
+     },
+     {
+      "text": "amalgamate once more",
+      "at": 15,
+      "meaning": "to join or melt together again"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Declining is the plain sense; the second reading splits the word into the prefix for again plus a verb for melting together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +70,31 @@
     "text": "Book is in stock",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0,
+      "meaning": "to book a table or seat is to secure it in advance"
+     },
+     {
+      "text": "stock",
+      "at": 11,
+      "meaning": "a stock or store kept back for later use"
+     }
+    ],
+    "explanation": {
+     "surface": "A volume is available in the shop.",
+     "walkthrough": "'Book' looks like a noun in the surface but is the verb meaning to arrange ahead; 'is in' just joins the two senses.",
+     "definitionFit": "Booking a seat means setting it aside, and a stockpile kept back for later is the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +108,41 @@
     "text": "Produce a brief act in play",
     "enumeration": "9"
    },
-   "solution": "FABRICATE"
+   "solution": "FABRICATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in play",
+       "at": 20,
+       "note": "something in play is moving about freely, so these letters are set loose and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a brief act",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stage a short piece of drama.",
+     "walkthrough": "'Produce' looks like a theatre verb to go with 'act' and 'play', but it means to make up or manufacture.",
+     "definitionFit": "To manufacture or invent something is to make it, as in producing goods or a story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Produce"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +156,61 @@
     "text": "Rates at which the sea comes up on board",
     "enumeration": "6"
    },
-   "solution": "SPEEDS"
+   "solution": "SPEEDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rates",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 32,
+       "note": "on board a ship means within it, so the ship's letters wrap round the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 35,
+       "gives": "SS",
+       "note": "SS stands for steamship, the vessel you would be on board"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "comes up",
+         "at": 23,
+         "note": "in a down clue, coming up means the word for the sea is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the sea",
+         "at": 15,
+         "gives": "DEEP",
+         "note": "the deep is a poetic name for the sea"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The speed at which water rises over the deck of a ship.",
+     "walkthrough": "'On board' is the convention for putting something inside SS; 'comes up' turns DEEP into PEED.",
+     "definitionFit": "Velocities are rates of movement, so the plural noun matches the plural definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +230,41 @@
      }
     ]
    },
-   "solution": "NOSEDIVE"
+   "solution": "NOSEDIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "take the plunge",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "resolved",
+       "at": 13,
+       "note": "resolved here means broken down and reworked, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Even so, I'd",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Despite everything, someone has made up their mind to commit to a risky step.",
+     "walkthrough": "'resolved' reads as determined, but it signals that EVEN SO I'D is rearranged.",
+     "definitionFit": "To plunge steeply downwards, like an aircraft heading for the ground, is the literal sense of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "resolved"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +278,29 @@
     "text": "One-time or one time",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One-time",
+      "at": 0,
+      "meaning": "former, as in a one-time champion"
+     },
+     {
+      "text": "one time",
+      "at": 12,
+      "meaning": "on a single occasion"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Formerly is the adverb sense; on a single occasion is the counting sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +314,34 @@
     "text": "Match-fit?",
     "enumeration": "8"
    },
-   "solution": "ELIGIBLE"
+   "solution": "ELIGIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Match-fit?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Match-fit?",
+       "at": 0,
+       "note": "a sporting term for being ready to play, reread as being suitable for a marriage match"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A suitable bachelor is described as qualified or fit for marriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Match-fit?"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +355,41 @@
     "text": "Paint turns out to be unsuitable",
     "enumeration": "5"
    },
-   "solution": "INAPT"
+   "solution": "INAPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unsuitable",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turns out",
+       "at": 6,
+       "note": "the letters turn about and come out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Paint",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coat of paint proves to be the wrong choice.",
+     "walkthrough": "'turns out' reads as 'proves', but it rearranges PAINT.",
+     "definitionFit": "Inappropriate and unfitting are synonyms of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +403,45 @@
     "text": "English queen, one with real potential",
     "enumeration": "7"
    },
-   "solution": "ELEANOR"
+   "solution": "ELEANOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "English queen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "potential",
+       "at": 29,
+       "note": "something with potential could become something else, so these letters can be rearranged into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 15
+      },
+      {
+       "words": "real",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal consort who truly showed promise.",
+     "walkthrough": "'potential' signals that ONE and REAL are rearranged; 'with' just joins them.",
+     "definitionFit": "Several queen consorts of England bore this name, among them Eleanor of Aquitaine and Eleanor of Castile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "potential"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +455,42 @@
     "text": "Release a subtle design",
     "enumeration": "6"
    },
-   "solution": "SUBLET"
+   "solution": "SUBLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Release",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "design",
+       "at": 17,
+       "note": "a design is a fresh arrangement, so the letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "subtle",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bring out a delicate pattern.",
+     "walkthrough": "'Release' reads as set free, but it is RE-LEASE: to lease again to someone else.",
+     "definitionFit": "Renting out a property you yourself rent is leasing it on to another tenant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Release"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +504,47 @@
     "text": "Busy outside at start",
     "enumeration": "8"
    },
-   "solution": "ACTIVATE"
+   "solution": "ACTIVATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "start",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 5,
+       "note": "the first word wraps round the outside of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Busy",
+       "at": 0,
+       "gives": "ACTIVE",
+       "note": "busy means active, occupied"
+      },
+      {
+       "words": "at",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is bustling about outdoors from the off.",
+     "walkthrough": "'outside' sounds like outdoors, but here it is a container signal; 'start' is a verb, as in starting an engine.",
+     "definitionFit": "To set a machine going is to switch it on or trigger it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +558,29 @@
     "text": "Touching sympathy",
     "enumeration": "7"
    },
-   "solution": "PEELING"
+   "solution": "FEELING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Touching",
+      "at": 0,
+      "meaning": "the act of touching with the hands"
+     },
+     {
+      "text": "sympathy",
+      "at": 9,
+      "meaning": "compassion or tender emotion for another"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Tactile groping is the physical sense; emotional fellow-sympathy is the abstract sense of the noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +594,55 @@
     "text": "Check on expensive-sounding animals",
     "enumeration": "8"
    },
-   "solution": "REINDEER"
+   "solution": "REINDEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "animals",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Check",
+       "at": 0,
+       "gives": "REIN",
+       "note": "to check a horse is to rein it in"
+      },
+      {
+       "op": "homophone",
+       "spelt": "DEER",
+       "indicators": [
+        {
+         "text": "sounding",
+         "at": 19,
+         "note": "sounding means the next word is heard rather than read"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expensive",
+         "at": 9,
+         "gives": "DEAR",
+         "note": "expensive means dear, which is said like the word for a woodland animal"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks on costly creatures.",
+     "walkthrough": "'-sounding' signals a homophone: DEAR (expensive) heard as DEER.",
+     "definitionFit": "Caribou are Arctic deer, the beasts that pull Santa's sleigh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +656,41 @@
     "text": "Attend and possibly enlist",
     "enumeration": "6"
    },
-   "solution": "LISTEN"
+   "solution": "LISTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 11,
+       "note": "possibly says the letters might take another arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "enlist",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turn up and maybe sign up for the army.",
+     "walkthrough": "'Attend' looks like 'be present', but here it means pay attention.",
+     "definitionFit": "To attend to a speaker is to pay heed with your ears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attend"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +704,29 @@
     "text": "Had the best part marked with an asterisk",
     "enumeration": "7"
    },
-   "solution": "STARRED"
+   "solution": "STARRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Had the best part",
+      "at": 0,
+      "meaning": "played the lead role in a film or play"
+     },
+     {
+      "text": "marked with an asterisk",
+      "at": 18,
+      "meaning": "given a little star symbol"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Taking the lead role in a film and being given a little printed star symbol are both senses of this verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +740,46 @@
     "text": "One test out of a thousand",
     "enumeration": "4"
    },
-   "solution": "EXAM"
+   "solution": "EXAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One test",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "out",
+       "at": 9,
+       "gives": "EX",
+       "note": "ex means former or out, as in an ex-player"
+      },
+      {
+       "words": "a",
+       "at": 16
+      },
+      {
+       "words": "thousand",
+       "at": 18,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single trial chosen from a thousand.",
+     "walkthrough": "'out of' reads as a selection, but 'out' gives EX and 'of' is only a link.",
+     "definitionFit": "A school examination is a formal test of knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +793,34 @@
     "text": "His work may disturb the sleepers",
     "enumeration": "10"
    },
-   "solution": "PLATELAYER"
+   "solution": "PLATELAYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "His work may disturb the sleepers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "His work may disturb the sleepers",
+       "at": 0,
+       "note": "sleepers are the wooden or concrete beams under a railway track, which a worker laying the line handles, not people in bed"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A railway worker who lays and maintains track deals with the sleepers that hold the rails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sleepers"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +844,34 @@
      }
     ]
    },
-   "solution": "YOHEAVEHO"
+   "solution": "YOHEAVEHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An uplifting sailors' cry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "An uplifting sailors' cry",
+       "at": 0,
+       "note": "uplifting suggests cheering, but the shout is one sailors chant while hauling or heaving up a load together"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The traditional chant of seamen hauling on a rope or capstan together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "uplifting"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +885,50 @@
     "text": "He wrongly assumes money-lenders carry cash",
     "enumeration": "8"
    },
-   "solution": "USURPERS"
+   "solution": "USURPERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He wrongly assumes",
+      "at": 0,
+      "note": "singular in the clue though the answer is plural; each one wrongly assumes power"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carry",
+       "at": 33,
+       "note": "to carry something is to hold it within, so the lenders wrap round the cash"
+      }
+     ],
+     "parts": [
+      {
+       "words": "money-lenders",
+       "at": 19,
+       "gives": "USURERS",
+       "note": "usurers lend money at extortionate interest"
+      },
+      {
+       "words": "cash",
+       "at": 39,
+       "gives": "P",
+       "note": "P is a penny, a small piece of cash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man presumes that lenders have cash about them.",
+     "walkthrough": "'assumes' means seizes, as one assumes a throne; 'carry' puts P inside USURERS.",
+     "definitionFit": "Those who seize a throne or power without right take it wrongfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assumes"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +942,46 @@
     "text": "Requests put with an attempt at jocularity",
     "enumeration": "10"
    },
-   "solution": "PLEASANTRY"
+   "solution": "PLEASANTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jocularity",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Requests",
+       "at": 0,
+       "gives": "PLEAS",
+       "note": "pleas are requests or appeals"
+      },
+      {
+       "words": "an",
+       "at": 18
+      },
+      {
+       "words": "attempt",
+       "at": 21,
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Appeals made along with an effort to be funny.",
+     "walkthrough": "'put with' and 'at' are links joining the pieces and the definition.",
+     "definitionFit": "A light joke or polite banter is a piece of humour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Requests"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +995,49 @@
     "text": "Saw dog's name inside lead",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 15,
+       "note": "the second piece goes inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lead",
+       "at": 22,
+       "gives": "PB",
+       "note": "Pb is the chemical symbol for lead"
+      },
+      {
+       "words": "dog's name",
+       "at": 4,
+       "gives": "ROVER",
+       "note": "Rover is a traditional name for a dog"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saw a dog's name on its leash.",
+     "walkthrough": "'Saw' is a noun, an old saying, not the verb; 'lead' is the metal, not a dog's leash.",
+     "definitionFit": "An old saw is a traditional saying or maxim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1051,49 @@
     "text": "Gosh, it's hard to fit into seat in church",
     "enumeration": "4"
    },
-   "solution": "PHEW"
+   "solution": "PHEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gosh",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fit into",
+       "at": 16,
+       "note": "the second piece is made to fit inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seat in church",
+       "at": 28,
+       "gives": "PEW",
+       "note": "a pew is a bench seat in a church"
+      },
+      {
+       "words": "hard",
+       "at": 11,
+       "gives": "H",
+       "note": "H stands for hard, as in pencil grades"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds it difficult to squeeze into a church bench.",
+     "walkthrough": "'it's' just links the definition to the wordplay.",
+     "definitionFit": "Both are exclamations of surprise or relief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1107,29 @@
     "text": "Is curious about seven world phenomena",
     "enumeration": "7"
    },
-   "solution": "WONDERS"
+   "solution": "WONDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is curious about",
+      "at": 0,
+      "meaning": "ponders, asks oneself"
+     },
+     {
+      "text": "seven world phenomena",
+      "at": 17,
+      "meaning": "the Seven ... of the ancient world"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To ponder something is the verb sense; the ancient world's seven great marvels give the plural noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1143,52 @@
     "text": "Street name changed — it's a bit flowery",
     "enumeration": "6"
    },
-   "solution": "STAMEN"
+   "solution": "STAMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's a bit flowery",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Street",
+       "at": 0,
+       "gives": "ST"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "at": 12,
+         "note": "the letters of the word are changed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "name",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A road was renamed, and the result is rather ornate.",
+     "walkthrough": "'flowery' suggests ornate language, but the definition is literal: part of a flower. 'changed' turns NAME into AMEN.",
+     "definitionFit": "The pollen-bearing organ of a bloom is literally a part of a flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flowery"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1202,45 @@
     "text": "Smells could be indecorous, not nice",
     "enumeration": "6"
    },
-   "solution": "ODOURS"
+   "solution": "ODOURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Smells",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 7,
+       "note": "says the letters of the first word could be rearranged, once the letters of the second are taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "indecorous",
+       "at": 16
+      },
+      {
+       "words": "nice",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad smells may be improper and unpleasant.",
+     "walkthrough": "'not nice' tells you to remove N, I, C, E from INDECOROUS; 'could be' rearranges the remaining DOROUS.",
+     "definitionFit": "Scents and whiffs are smells; the plural noun matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nice"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1254,41 @@
     "text": "Involved in seeing there's a change of topic",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Involved in seeing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "there's a change of",
+       "at": 19,
+       "note": "a change means the letters of the next word take a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "topic",
+       "at": 39
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In watching something, the subject shifts.",
+     "walkthrough": "The surface suggests a conversation moving on; 'change of' rearranges TOPIC.",
+     "definitionFit": "Relating to the eye or vision describes the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1302,49 @@
     "text": "Hold back and shower after all the others",
     "enumeration": "8"
    },
-   "solution": "RESTRAIN"
+   "solution": "RESTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hold back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "the shower comes after the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all the others",
+       "at": 27,
+       "gives": "REST",
+       "note": "the rest means all the others"
+      },
+      {
+       "words": "shower",
+       "at": 14,
+       "gives": "RAIN",
+       "note": "rain is a shower"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restrain yourself and wash once everybody else has finished.",
+     "walkthrough": "'shower' suggests washing, but it is the weather; 'after all the others' sounds like waiting your turn.",
+     "definitionFit": "To curb or keep in check is to hold back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1358,41 @@
     "text": "Girl getting rave review",
     "enumeration": "4"
    },
-   "solution": "VERA"
+   "solution": "VERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "review",
+       "at": 18,
+       "note": "to re-view is to look again in a new way, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rave",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman gets a glowing write-up.",
+     "walkthrough": "'rave review' reads as high praise; 'review' rearranges RAVE.",
+     "definitionFit": "A female given name, so a girl in crossword shorthand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "review"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1406,34 @@
     "text": "Well held!",
     "enumeration": "8"
    },
-   "solution": "ESTEEMED"
+   "solution": "ESTEEMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well held!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Well held!",
+       "at": 0,
+       "note": "a cricket shout for a good catch, reread as describing someone held in high regard"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone highly regarded is well thought of and respected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1447,32 @@
     "text": "Frenchman in our power",
     "enumeration": "6"
    },
-   "solution": "AMPERE"
+   "solution": "AMPERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frenchman",
+      "at": 0,
+      "meaning": "the French physicist André-Marie of Lyon, pioneer of electrodynamics"
+     },
+     {
+      "text": "our power",
+      "at": 13,
+      "meaning": "the unit of electric current that powers our homes"
+     }
+    ],
+    "explanation": {
+     "surface": "A Frenchman holds sway over us.",
+     "walkthrough": "'in' merely links the two senses: the physicist and the unit named after him.",
+     "definitionFit": "The SI unit of current honours the French physicist of that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1492,34 @@
      }
     ]
    },
-   "solution": "BACKSEAT"
+   "solution": "BACKSEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inferior position of some driving instructors",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Inferior position of some driving instructors",
+       "at": 0,
+       "note": "a subordinate role, which is also where a ... driver sits issuing unwanted instructions"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Taking a minor role is idiomatically sitting in the rear of the car, where nagging passengers sit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "instructors"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +1533,45 @@
     "text": "Vegetables that need to be set in soon",
     "enumeration": "6"
    },
-   "solution": "ONIONS"
+   "solution": "ONIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetables",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "set",
+       "at": 27,
+       "note": "set means the letters are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 31
+      },
+      {
+       "words": "soon",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bulbs that must be planted shortly.",
+     "walkthrough": "'set' sounds like planting sets, but it rearranges IN and SOON.",
+     "definitionFit": "Alliums grown as bulbs are common kitchen vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   }
  ]
 }
