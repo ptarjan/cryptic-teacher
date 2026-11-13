@@ -3573,6 +3573,11 @@ _lone_cols = f.columns(_lone, (1000, 500, 1400, 900), None, 40, None, (200, 600,
 check("a lone number over a column's ACROSS or DOWN heading is no clue and does not end the column there",
       [["ACROSS", "1 Foo bar (4)"], ["DOWN", "2 Baz (3)"]],
       [[line[4] for line in col] for col in _lone_cols])
+check("the Independent on Sunday's winners notice is read with its setter and competition before 1995 too, as run together",
+      ["315", "234", "114", "114"],
+      [(f.IOS_WINNERS.search(t) or [None, None])[1] for t in
+       ("Winners of 315: J E Pert", "Winners of Beelzebub 234: M H Miller", "The winners of Beelzebub competition number 114 are:",
+        "The winnersofBeeizebub competitionnumber114are:")])
 def _ios_found(thick, thin_sides=()):
     """A listener_grid-like 12x12 grid: `thick` sides 4 thin rules wide, the rest 1 (the thin rule 1)."""
     _s = {(r, c, "r"): 1.0 for r in range(12) for c in range(11)}

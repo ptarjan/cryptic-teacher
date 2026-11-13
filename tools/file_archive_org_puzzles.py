@@ -4933,7 +4933,11 @@ def sunday_tel_headings(lines, titles=()):
 
 #: The notice the Independent on Sunday sets by its small headingless solution grid: "... Winners of 315: J E Pert,
 #: Bromley; ..." (the number on the line under the words when the print breaks there). The grid is that puzzle's.
-IOS_WINNERS = re.compile(r"w[il1]nners\s*[o0]f\s*(?:(\d{2,4})\b|\W*$)", re.IGNORECASE)
+#: Before 1995-07-23 the notice names the setter and the competition: "Winners of Beelzebub 234: M H Miller ..." (1994-08-14),
+#: "The winners of Beelzebub competition number 114 are: ..." (1992-04-19), the words often run together by the readers
+#: ("competitionnumber114are"). 11-13 census of 527 cached 1990-2000 pages: 224 notices, all of 1995-07 on, none before.
+IOS_WINNERS = re.compile(r"w[il1]nners\s*[o0]f\s*(?:(?:[A-Za-z]{5,12}\s*)?(?:competition\s*)?(?:n[uo][a-z]{0,5}\.?\s*)?(\d{2,4})(?!\d)|\W*$)",
+                         re.IGNORECASE)
 #: The most weeks before a page's own title a winners notice names a puzzle (1996: three; four is slack).
 IOS_WINNERS_LAG = 6
 
@@ -11495,6 +11499,8 @@ def near_read(answers, stats, grid, classify):
 #: The window (left, top, right, foot), from the "Winners of N" notice's top left, the Independent on Sunday's solution
 #: grid is looked for in: 1996-03-10 sets the grid 140 px under the notice's line, its left edge at the notice's.
 IOS_SOLUTION_WINDOW = (-150, -60, 800, 1100)
+#: The same for a grid over its notice (1992: the notice at the page's foot).
+IOS_SOLUTION_ABOVE = (-150, -1000, 800, 60)
 
 
 def ios_solution(img, sol, grid):
@@ -11502,9 +11508,14 @@ def ios_solution(img, sol, grid):
     IOS_SOLUTION_WINDOW of the notice box (ios_barred.solution_reads)."""
     import ios_barred
     x0, y0 = sol["box"][:2]
-    left, top, right, foot = IOS_SOLUTION_WINDOW
-    window = img.crop((max(0, x0 + left), max(0, y0 + top), min(img.width, x0 + right), min(img.height, y0 + foot)))
-    answers, stats = ios_barred.solution_reads(window, grid)
+    best = ({}, {})
+    # The grid stands under the notice (1996), or over it (1992-04-19: the notice 3430, the grid's lettering 3200-3400).
+    for left, top, right, foot in (IOS_SOLUTION_WINDOW, IOS_SOLUTION_ABOVE):
+        window = img.crop((max(0, x0 + left), max(0, y0 + top), min(img.width, x0 + right), min(img.height, y0 + foot)))
+        answers, stats = ios_barred.solution_reads(window, grid)
+        if len(answers) > len(best[0]):
+            best = (answers, stats)
+    answers, stats = best
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
 
 
@@ -13552,7 +13563,11 @@ INDY_BARRED = "Independent on Sunday Beelzebub page refused for its barred 12x12
 #: 11-13 18:45Z: the pages' "Winners of N" notice sets a small headingless barred solution grid (ios_winners, read by
 #: ios_barred.solution_reads against the puzzle's bars: 1996-03-10's is No 315's, 0.94 of the bars, 33 of 36 lights read):
 #: every such page not filed is read again, its host scanned first (the Independent on Sunday scan key moved).
-REREAD_INDY_BARRED = "2026-11-13T18:45:00+00:00"
+#: 11-13 19:30Z: the pages before 1995-07-23 (four clue columns left of the grid, or two right of a left-edge grid) fitted to
+#: the wide read's words (ios_columns: 1994-08-14 and 1992-04-19 read 36 of 36 clues), a lone number over a column's heading
+#: dropped, the notice read with its setter before 1995 ("Winners of Beelzebub 234", 36 of 46 cached 1994 pages; 1991-93
+#: print it too small for the page-wide read) and the grid looked for over it as well as under. 335 pages due.
+REREAD_INDY_BARRED = "2026-11-13T19:30:00+00:00"
 
 
 def indy_barred_due(row):
