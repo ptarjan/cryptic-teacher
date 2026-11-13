@@ -286,6 +286,14 @@ for wp, clue, ans, want in [
         ("[Revolutionary's]CHE + [son]S + [staff]MAN", "Revolutionary's son staff", "CHESSMAN", None)]:
     msg = mend(wp, clue, ans)
     check("doesNotGive mends in place: " + ans, not msg.startswith("REFUSED") and (want is None or msg.replace(", ", ",") == want.replace(", ", ",") or want in msg))
+# doesNotGive, 11-13 audit (24 refusal lines in 10 sessions): the one leaf a letter long INSIDE ([girl]GAIL for GA(BRIE)L)
+# is cut in place when no end cut works and no other leaf can lose a letter
+for wp, clue, ans, want in [
+        ("ins<sandwiches>([girl]GAIL, [cheese]BRIE)", "Girl sandwiches cheese", "GABRIEL", "[girl]GAL"),
+        ("ins<in>([costume]WEAR, [I am]IAM)", "Costume in I am", "WEIMAR", "[I am]IM"),
+        ("[US sportsman]JOCK + [Watching]EYEING", "US sportsman watching", "JOCKEYING", "[Watching]EYING")]:
+    msg = mend(wp, clue, ans)
+    check("doesNotGive cuts the one leaf a letter long inside: " + ans, want.lower() in msg.lower() and not msg.startswith("REFUSED"))
 msg = mend("[popular]IN + ins<in>([cube]DICE, [pet]CAT)", "popular pet in cube", "INDICATE")
 check("doesNotGive names both leaves a letter long, inside or at an end", msg.startswith("REFUSED") and "[cube]DIE or [pet]AT" in msg)
 # doesNotGive, round 3 (10-31 audit): a plural S at a join, the one surplus leaf cut in place; partial reversal and
