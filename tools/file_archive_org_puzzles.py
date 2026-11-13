@@ -10692,7 +10692,7 @@ def located_loose(d, img, title, right=False):
         again = locate_grid(img, title, right, loose=True)
         if again[1] == "below" and again[0] is not None and again[0] != found[0] \
                 and again[0][0] <= found[0][0] + 4 and again[0][1] <= found[0][1] + 4 \
-                and again[0][2] >= found[0][2] and again[0][3] >= found[0][3] \
+                and again[0][2] >= found[0][2] - 4 and again[0][3] >= found[0][3] - 4 \
                 and not shaped_on(img, again[0]) and loose_shaped(img, again[0]):
             return again
     return found
@@ -14687,7 +14687,7 @@ def indy_above_due(row):
 #: 11-13 census of the ledger's latest rows not due under any reason: 63 "the white cells span" rows, 2007-15; 64 of 70
 #: read 15x15 offline since (located_loose, INDY_WIDE: ink_in's loose shape). Read once, before REREAD_INDY_WIDE.
 INDY_WIDE = "Independent page whose grid was cut a row and columns short, the whole grid read since"
-REREAD_INDY_WIDE = "2026-11-14T08:00:00+00:00"
+REREAD_INDY_WIDE = "2026-11-14T12:00:00+00:00"  # 11-13 later: 2013-08-01, 2013-06-25, 2012-07-06 still cut (right edge 1px short of the strict box)
 _INDY_SPAN = re.compile(r"the white cells span 1[2-5] rows and 1[2-5] columns")
 
 
