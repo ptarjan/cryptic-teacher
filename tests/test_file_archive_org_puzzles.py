@@ -3515,6 +3515,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._FT_HEADINGS_FIX:
+        return f._FT_HEADINGS_FIX[paper][2]
     if paper in f._INDEPENDENT_HEADINGS_FIX:
         return f._INDEPENDENT_HEADINGS_FIX[paper][2]
     if paper in f._TELEGRAPH_SOLUTION_FIX:
@@ -4805,6 +4807,33 @@ check("the Gale Independent's old scans with no solution heading are due again, 
        f.indy_next_due({**_irow, "verdicts": [{**_irow["verdicts"][0], "solution": {}}]}),
        all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)}
            for o in f._INDEPENDENT_HEADINGS_FIX["galeindependent"][:2])])
+
+# The Gale FT's Chinese reader prints its title and solution heading glued ("CROSSWORDNo.11,738SetbyCINCINNUS").
+check("a glued Gale FT title is read (setter, weekday No/Set by line, Crossword12,675), a spaced one stands once, "
+      "prose is no title; a glued solution heading is read, and with a title read the generic one too",
+      [[(11738, "Cincinnus")], [10116], [12675], [(11738, "Cincinnus")], [], [11726], [11726]],
+      [[(n, s) for n, _, s in f.gale_ft_headings([line("CROSSWORDNo.11,738SetbyCINCINNUS", 1869, 2903)])[0]],
+       [n for n, _, _ in f.gale_ft_headings([line("No.10,116SetbyDANTE", 1869, 2903)])[0]],
+       [n for n, _, _ in f.gale_ft_headings([line("Crossword12,675SETBYCINCINNUS", 1869, 2903)])[0]],
+       [(n, s) for n, _, s in f.gale_ft_headings([line("CROSSWORD No.11,738 Set by CINCINNUS", 1869, 2903)])[0]],
+       [n for n, _, _ in f.gale_ft_headings([line("Crossword No crossword appears today", 1869, 2903)])[0]],
+       [n for n, _ in f.gale_ft_headings([line("Solution11,726", 2348, 4602)])[1]],
+       [n for n, _ in f.gale_ft_headings([line("Solution 11,726", 2348, 4602)], [11727])[1]]])
+_ftrow = {"edition": "GaleFT2005UKEnglish/2005-01-14", "inputs": {}, "scanKey": next(iter(f._GALE_FT_OLD)),
+          "scan": {"puzzles": [{"number": 11737}], "solutions": []},
+          "verdicts": [{"number": 11737, "complete": False, "solution": None, "grid": "image", "wrote": True}]}
+check("the Gale FT's old scans with no title or solution heading are due again, an untitled one with its read, a "
+      "puzzle with no solution or refused for its number before REREAD_FT_HEADINGS; a scan by the new code, one "
+      "with both headings, another paper's stand, and the old keys are pinned to the new one",
+      [True, True, True, False, False, False, False, True],
+      [f.ft_host(_ftrow), f.ft_next_due({**_ftrow, "scan": {"puzzles": [], "solutions": []}, "verdicts": []})
+       and f.FT_HEADINGS in f.RANKS,
+       f.ft_next_due({**_ftrow, "verdicts": [{"number": 1738, "refused": "x", "cause": "number-date-mismatch"}]}),
+       f.ft_host({**_ftrow, "scanKey": f.scan_key(f.GALE_FT)}),
+       f.ft_host({**_ftrow, "scan": {"puzzles": [{"number": 11737}], "solutions": [{"number": 11736}]}}),
+       f.ft_host({**_ftrow, "edition": "GaleTelegraph2005UKEnglish/2005-01-14"}),
+       f.ft_next_due({**_ftrow, "verdicts": [{**_ftrow["verdicts"][0], "solution": {}}]}),
+       all(f.CORPUS_KEYS[o] == {"galeft": f.scan_key(f.GALE_FT)} for o in f._FT_HEADINGS_FIX["galeft"][:2])])
 
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.

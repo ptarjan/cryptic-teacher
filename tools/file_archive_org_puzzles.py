@@ -4364,14 +4364,45 @@ FT_WEEKEND = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word\s+(?=\d{1,2}[,.?^]
 FT_TITLE_ONLY = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word(?:\s+across)?\W*$", re.IGNORECASE)
 
 
+def ft_unglued(lines):
+    """[line] of each line of `lines` whose words the reader ran together ("CROSSWORDNo.11,738SetbyCINCINNUS",
+    "Solution11,726"), as one word of the whole line's box with its spaces put back, where that reads as an FT title,
+    solution heading or "No.10,116 Set by DANTE" line (FT_TITLE, FT_SOLUTION, FT_SET_LINE, FT_WEEKEND) and the
+    line as read did not. Only the Chinese reader (ch) glues: with it and the times reader's read a title needs two of
+    the three readers, and en5 alone read it whole."""
+    found = []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        spaced = re.sub(r"(?i)(cross\s?word)(?=no\W|\d)", r"\1 ", text)
+        spaced = re.sub(r"(?i)^(\W*solution)(?=\d)", r"\1 ", spaced)
+        spaced = re.sub(r"(?i)(\d{3})(?=[a-z])", r"\1 ", spaced)
+        spaced = re.sub(r"(?i)\b(s[eo]t)(b[yv])", r"\1 \2 ", spaced)
+        spaced = re.sub(r"\s+", " ", spaced).strip()
+        if spaced != text and (FT_TITLE.match(spaced) and re.search(r"\d{3}", spaced) or FT_SOLUTION.match(spaced)
+                               or FT_SET_LINE.match(spaced) or FT_WEEKEND.match(spaced)):
+            found.append([(*box_of(ws), spaced)])
+    return found
+
+
 def gale_ft_headings(lines, titles=()):
     """ft_headings() of a Gale FT page, with each "No.10,116 Set by DANTE" line (FT_SET_LINE) read as the
     title it is, where ft_headings finds none for its number: its title word ("Crossword", FT_TITLE_ONLY) over
     it (its top within a height of the word's foot, as the lines of 2008 stand) or left of it on its row
     (2004-05), the puzzle's box that word's span down its two lines; the line's own box where the word was
     not read. Dated 1999-2010, the numbers five digits (FT_NUMBER) and the lines a column wide of the word.
-    A Saturday's "Crossword 12,675 SET BY CINCINNUS" on one line (FT_WEEKEND) is read as the same."""
+    A Saturday's "Crossword 12,675 SET BY CINCINNUS" on one line (FT_WEEKEND) is read as the same.
+    A line the readers that run words together print glued ("CROSSWORDNo.11,738SetbyCINCINNUS") is read as its
+    spaced form (ft_unglued), and with a title read the generic solution_headings add each number FT_SOLUTION
+    did not return ("Solution11,726"), their boxes widened to the grid's."""
+    glued = ft_unglued(lines)
+    lines = lines + glued
     puzzles, solutions = ft_headings(lines, titles)
+    if glued:  # (a line read both ways stands once)
+        puzzles = [p for k, p in enumerate(puzzles) if p[0] not in {q[0] for q in puzzles[:k]}]
+        solutions = [s for k, s in enumerate(solutions) if s[0] not in {q[0] for q in solutions[:k]}]
+    if titles:
+        have = {n for n, _ in solutions}
+        solutions += [(n, centred(b, FT_SOLUTION_SPAN)) for n, b in solution_headings(lines, titles) if n not in have]
     seen = {p[0] for p in puzzles}
     extra = []
     for v in lines:
@@ -11775,6 +11806,22 @@ for _paper, _pins in _INDEPENDENT_HEADINGS_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before gale_ft_headings read the title and solution heading
+#: the Chinese reader prints glued ("CROSSWORDNo.11,738SetbyCINCINNUS", "Solution11,726") and added the generic
+#: solution_headings: only the Gale FT's pages read otherwise, so every other paper's scans stand, and the Gale FT's old
+#: scans stand but for the pages with no title or no solution heading, due FT_HEADINGS (ft_host).
+_FT_HEADINGS_FIX = {
+    "galeft": ("1127ff923ab3fa04", "7dabcddc358eb475", "7eb9cc2726a41ad9"),
+}
+#: The scan keys a Gale FT scan stood under before the fix above: the old key, its sized twin, and every corpus-wide
+#: key then standing for it (ft_host).
+_GALE_FT_OLD = frozenset({*_FT_HEADINGS_FIX["galeft"][:2],
+                          *(k for k, v in CORPUS_KEYS.items() if v.get("galeft") == _FT_HEADINGS_FIX["galeft"][0])})
+for _paper, _pins in _FT_HEADINGS_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -11851,7 +11898,7 @@ def rekey_scans(ledger):
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
                     and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not telegraph_host(r) \
-                    and not indy_host(r):
+                    and not indy_host(r) and not ft_host(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -11951,7 +11998,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   # independent_headings' glued titles and weekday-only solution headings (_INDEPENDENT_HEADINGS_FIX):
                   # a scan's headings only; due once as INDEPENDENT_HEADINGS.
                   "9527e5bdf21d0b19": "17927db190a32678", "48387bd5dbb700cc": "17927db190a32678",
-                  "63d2303b9df9ee9f": "17927db190a32678"}
+                  "63d2303b9df9ee9f": "17927db190a32678",
+                  # gale_ft_headings' glued titles and generic solution headings (_FT_HEADINGS_FIX): a scan's headings
+                  # only; due once as FT_HEADINGS.
+                  "bb5517b5a90821a8": "17927db190a32678"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -13078,6 +13128,40 @@ def indy_next_due(row):
     return "inputs" in row and any(not v.get("refused") and v.get("grid") in ("image", "rebuilt") and v.get("solution") is None
                                    for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_INDEPENDENT_HEADINGS))
+
+
+#: The due reason of a Gale FT page scanned before gale_ft_headings read the title and the solution heading the Chinese
+#: reader prints glued ("CROSSWORDNo.11,738SetbyCINCINNUS", "Solution11,726"), under the old scan key. A title needs two of
+#: the three readers (ocr_headings), and where ch glued it only en5 read it whole: the third, times, drops a digit at times
+#: ("1,738" for "11,738": 165 puzzles of 2001-09 refused "No 1738 is not near the 11744") or reads none (~160 untitled
+#: pages); ~800 puzzles had no solution heading found with the next day's page downloaded. Such a page with no title or no
+#: solution heading found is scanned again (ft_host), then a puzzle of it read with no solution, or refused for its number,
+#: or a page found no title, is read once more, before REREAD_FT_HEADINGS.
+FT_HEADINGS = "FT page, its glued title and solution heading read since"
+REREAD_FT_HEADINGS = "2026-11-13T17:30:00+00:00"
+
+
+def ft_host(row):
+    """Whether Gale FT ledger `row` is a page scanned under a key from before _FT_HEADINGS_FIX with no title or no
+    solution heading found: its scan is stale (scan_current) and rekey_scans leaves it, so it is scanned again by this
+    code once."""
+    scan = (row or {}).get("scan") or {}
+    return row.get("scanKey") in _GALE_FT_OLD and not (scan.get("puzzles") and scan.get("solutions")) \
+        and not scan.get("failed") and paper_of(row.get("edition") or "").key == "galeft"
+
+
+def ft_next_due(row):
+    """Whether Gale FT ledger `row` is due FT_HEADINGS: a page whose scan found no title and is due scanned again
+    (ft_host), or one read before REREAD_FT_HEADINGS with a verdict refused for its number's mismatch with its date,
+    or one whose grid is read from an image and whose solution was never read."""
+    if paper_of((row or {}).get("edition") or "").key != "galeft":
+        return False
+    if ft_host(row) and not (row.get("scan") or {}).get("puzzles") and not row.get("verdicts"):
+        return True
+    return "inputs" in row and any(v.get("cause") == "number-date-mismatch"
+                                   or not v.get("refused") and v.get("grid") in ("image", "rebuilt") and v.get("solution") is None
+                                   for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_FT_HEADINGS))
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -18555,6 +18639,8 @@ def fix_reason(row):
         return TELEGRAPH_NEXT_DAY
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
+    if ft_next_due(row):
+        return FT_HEADINGS
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -19172,7 +19258,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   TELEGRAPH_NEXT_DAY,
                   # 11-13: a Gale Independent page (daily) with a glued title or a weekday-only solution heading
                   # read since (indy_next_due); the pages are scanned again first.
-                  INDEPENDENT_HEADINGS)
+                  INDEPENDENT_HEADINGS,
+                  # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
+                  # pages are scanned again first.
+                  FT_HEADINGS)
 
 
 def refusal_passes(why):
@@ -19432,7 +19521,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, FT_HEADINGS: 2,SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -19471,7 +19560,7 @@ def scan_current(row, fh, rel=None):
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not telegraph_host(row) \
-        and not indy_host(row)
+        and not indy_host(row) and not ft_host(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
@@ -20058,7 +20147,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS, FT_HEADINGS)
 
 
 def keeps_vlm(why, row, unit=None):
