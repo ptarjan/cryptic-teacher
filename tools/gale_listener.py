@@ -439,7 +439,13 @@ def words_only(words):
     words beside it (a grid's cell number) is not one."""
     out = []
     for w in words:
-        if re.fullmatch(r"\W*\d{1,3}\W*", w[4]) and not any(
+        # a bracketed count alone on its line (1992-06-05's "(11)", a clue that wrapped) is its clue's own
+        h = w[3] - w[1]
+        under = re.search(r"[()]", w[4]) and any(
+            o is not w and not re.fullmatch(r"\W*\d{1,3}\W*", o[4]) and -h / 2 <= w[1] - o[3] < 2 * h
+            and abs(o[0] - w[0]) < 3 * h
+            for o in words)
+        if re.fullmatch(r"\W*\d{1,3}\W*", w[4]) and not under and not any(
                 o is not w and not re.fullmatch(r"\W*\d{1,3}\W*", o[4])
                 and w[0] < o[0] and o[0] - w[2] <= max(40, BESIDE * (w[3] - w[1]))
                 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) for o in words):
