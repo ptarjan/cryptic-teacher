@@ -96,6 +96,10 @@ def _fold_accents(s):
     return "".join(c for c in unicodedata.normalize("NFD", s) if not unicodedata.combining(c))
 
 
+# A last word the clue prints whole but for one of these endings is the model's inflection, not a cut.
+INFLECTIONS = {"s", "es", "d", "ed", "ing", "ly", "er", "ers", "est", "y"}
+
+
 def damaged_run(text, clue):
     """The clue's one run that `text` quotes when the clue is scan-damaged (the
     refusals' commonest cause: the model quotes the clue as printed, the stored
@@ -135,7 +139,7 @@ def damaged_run(text, clue):
                 break
             j += 1
         if qi == len(want) - 1 and got and q.startswith(got) and got != q and len(got) >= 2 \
-                and j == len(toks):
+                and j == len(toks) and q[len(got):] not in INFLECTIONS:
             out.append(j - 1)
         return out
 
