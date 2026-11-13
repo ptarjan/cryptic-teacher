@@ -3725,6 +3725,21 @@ check("a glued cross-reference and a figure a dash joins to a word are no digit 
        [bool(f.telegraph_figure_due(_tf)),
         bool(f.telegraph_figure_due({**_tf, "verdicts": [{"number": 1, "blank": {"1-down": "'Rad1o': a digit inside a word"}}]})),
         bool(f.telegraph_figure_due({**_tf, "readAt": "2026-11-14T13:00:00+00:00"})), f.TELEGRAPH_FIGURE in f.RANKS]])
+_ir = {"edition": "GaleIndependent2015UKEnglish/2015-07-17", "inputs": "x", "readAt": "2026-11-06T19:10:23+00:00",
+       "scan": {"date": "2015-07-17", "puzzles": [{"number": 8972}]},
+       "verdicts": [{"number": 8972, "cause": "number-date-mismatch", "refused": "No 8972 is already filed for 2015-07-18, not 2015-07-17"}]}
+_held = f.Held({8972: _d.date(2015, 7, 17), 8971: _d.date(2015, 7, 16)})
+_held_dates, f.held_dates = f.held_dates, lambda series: _held
+try:
+    check("an Independent page refused for a number held on another date, the number now held on its day, is due INDY_REDATED; "
+          "one read since, a number held elsewhere and a title a verdict read are not",
+          [True, False, False, False, True],
+          [bool(f.indy_redated_due(_ir)), bool(f.indy_redated_due({**_ir, "readAt": "2026-11-14T17:00:00+00:00"})),
+           bool(f.indy_redated_due({**_ir, "scan": {"date": "2015-07-18", "puzzles": [{"number": 8972}]}})),
+           bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8972}]})),
+           bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8973, "read_as": 8973}]})) and f.INDY_REDATED in f.RANKS])
+finally:
+    f.held_dates = _held_dates
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
