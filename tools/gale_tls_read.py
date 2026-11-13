@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 20
+VERSION = 21
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -560,6 +560,33 @@ def mended_counts(laid, lengths):
     return out
 
 
+MAC_NAME = re.compile(r"^(\W*M(?:a?c))([a-z])([a-z]{3,}\W*)$")
+
+
+def mended_tokens(laid, lengths):
+    """`laid` with each token ocr_clues.suspect doubts mended where the mend is no longer doubted: a Mac/Mc name
+    read with its second capital small ("Rob Roy Macgregor", 1996-11-22's 14-across, whole on the reread)
+    capitalised."""
+    import ocr_clues
+    out = dict(laid)
+    for lid, (text, enum, group) in laid.items():
+        if not text:
+            continue
+        flagged = {tok for tok, _ in ocr_clues.suspect(text)}
+        if not flagged:
+            continue
+        words = text.split(" ")
+        for i, w in enumerate(words):
+            if w not in flagged:
+                continue
+            if m := MAC_NAME.match(w):
+                words[i] = m.group(1) + m.group(2).upper() + m.group(3)
+        new = " ".join(words)
+        if new != text and len(ocr_clues.suspect(new)) < len(flagged):
+            out[lid] = (new, enum, group)
+    return out
+
+
 def no_lists_why(words):
     """Why a page with a TLS citation and a grid-shaped patch has no clue lists: a page that prints no ACROSS
     and DOWN headings and under COLUMN_COUNTS clue counts (1992-04-17's, a correction notice and the grid of
@@ -693,7 +720,7 @@ def read_page(path, store=STORE, asker=None):
     if laid is None:
         return verdict, None
     voted = dict(laid)
-    laid = mended_counts(laid, lengths)
+    laid = mended_tokens(mended_counts(laid, lengths), lengths)
     laid, blank = aj.lay_on(dict(laid), g)
     verdict["lights"] = len(laid)
     blank = {**(read.get("blank") or {}), **blank}
