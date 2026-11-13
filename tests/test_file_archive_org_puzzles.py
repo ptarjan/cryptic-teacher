@@ -3645,6 +3645,15 @@ check("an Independent page whose grid image was unread for a lattice it could no
       [f.indy_above_due(_iad), f.indy_above_due({**_iad, "edition": "GaleTimes2010UKEnglish/2010-03-05"}),
        f.indy_above_due({**_iad, "verdicts": [{"number": 99327, "leaf": 0, "complete": True}]}),
        f.indy_above_due({**_iad, "readAt": "2026-11-14T07:00:00+00:00"}), f.INDY_ABOVE in f.RANKS])
+_iw = {"edition": "GaleIndependent2012UKEnglish/2012-04-06", "inputs": "x", "readAt": "2026-11-07T06:48:38+00:00",
+       "verdicts": [{"number": 99999, "leaf": 0, "imageUnread": "the white cells span 15 rows and 13 columns",
+                     "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("an Independent page whose grid image spanned 15 rows and 13 columns is due INDY_WIDE, a Times page, a "
+      "12x12 span and one read since are not",
+      [True, False, False, False, True],
+      [f.indy_wide_due(_iw), f.indy_wide_due({**_iw, "edition": "GaleTimes2012UKEnglish/2012-04-06"}),
+       f.indy_wide_due({**_iw, "verdicts": [{**_iw["verdicts"][0], "imageUnread": "the white cells span 27 rows and 30 columns"}]}),
+       f.indy_wide_due({**_iw, "readAt": "2026-11-14T09:00:00+00:00"}), f.INDY_WIDE in f.RANKS])
 _ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
 _ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
           "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
