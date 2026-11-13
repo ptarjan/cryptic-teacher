@@ -38,6 +38,17 @@ class Decide(unittest.TestCase):
             self.assertEqual(S.decide([("M", P), ("M", path)], site=True)[0], "full", path)
         self.assertEqual(S.decide([("D", P), ("M", "tests/x.py")], site=True)[0], "full")
 
+    def test_code_ok_names_tools_modules_and_nothing_else(self):
+        code = lambda changes: S.decide(changes, site=True, code_ok=True)
+        self.assertEqual(code([("M", P), ("M", "tools/fix_shape_notes.py")]), ("code", "tools/fix_shape_notes.py"))
+        self.assertEqual(code([("M", P), ("A", "tools/new.py"), ("M", "tests/x.py")])[0], "code")
+        self.assertEqual(code([("M", P)])[0], "fast")
+        for path in ("app.js", "tools/data/other.json", "tools/sub/x.py", "tools/make_og.sh"):
+            self.assertEqual(code([("M", P), ("M", "tools/x.py"), ("M", path)])[0], "full", path)
+        self.assertEqual(code([("D", P), ("M", "tools/x.py")])[0], "full")
+        # Without it a module is full, as before.
+        self.assertEqual(S.decide([("M", P), ("M", "tools/x.py")], site=True)[0], "full")
+
     def test_a_puzzle_deleted_or_renamed_is_full(self):
         self.assertEqual(verdict([("D", P)]), "full")
         self.assertEqual(verdict([("R", P)]), "full")
