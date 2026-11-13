@@ -4869,12 +4869,42 @@ def sunday_tel_headings(lines, titles=()):
     return puzzles, solutions
 
 
+#: The notice the Independent on Sunday sets by its small headingless solution grid: "... Winners of 315: J E Pert,
+#: Bromley; ..." (the number on the line under the words when the print breaks there). The grid is that puzzle's.
+IOS_WINNERS = re.compile(r"w[il1]nners\s*[o0]f\s*(?:(\d{2,4})\b|\W*$)", re.IGNORECASE)
+#: The most weeks before a page's own title a winners notice names a puzzle (1996: three; four is slack).
+IOS_WINNERS_LAG = 6
+
+
+def ios_winners(lines, titles=()):
+    """[(number, box)] of the "Winners of N" notices of `lines`, each the box of its line, kept when N lies 1 to
+    IOS_WINNERS_LAG before a title read on the page (any, when none is)."""
+    out = []
+    for i, ws in enumerate(lines):
+        # A line holds the words of every column at its height: the notice's is the word (a column's line) it ends.
+        for w in ws:
+            m = IOS_WINNERS.search(w[4])
+            if not m:
+                continue
+            digits = m.group(1)
+            if not digits:
+                # The number opens the next line of the same column (under the notice, by its left edge).
+                under = sorted((v[1], re.match(r"^\W*(\d{2,4})\b", v[4])) for row in lines[i:i + 4] for v in row
+                               if abs(v[0] - w[0]) < 60 and 0 < v[1] - w[1] < 120)
+                digits = next((x.group(1) for _, x in under if x), None)
+            if digits and (not titles or any(0 < t - int(digits) <= IOS_WINNERS_LAG for t in titles)):
+                out.append((int(digits), tuple(w[:4])))
+    return out
+
+
 def indy_sunday_headings(lines, titles=()):
     """titled_headings() of an Independent on Sunday page, and each INDEPENDENT_BY_TITLE title ("Prize
-    Crossword by Beelzebub No 954")."""
+    Crossword by Beelzebub No 954"), and the solution its "Winners of N" notice sets a headingless grid by."""
     puzzles, solutions = titled_headings(lines + joined_titles(lines, INDY_SUNDAY_TITLE.match, under=True,
                                                           number_line=SHORT_NUMBER_LINE),
                                          INDY_SUNDAY_TITLE, INDEPENDENT_SOLUTION)
+    have = {n for n, _ in solutions}
+    solutions += [(n, b) for n, b in ios_winners(lines, titles or [p[0] for p in puzzles]) if n not in have]
     for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
         m = INDEPENDENT_BY_TITLE.match(" ".join(w[4] for w in ws))
         if m:
@@ -11389,6 +11419,22 @@ def near_read(answers, stats, grid, classify):
                 and len(answers) >= NEAR_SHARE * len(trove_solution_ocr.lights(grid)))
 
 
+#: The window (left, top, right, foot), from the "Winners of N" notice's top left, the Independent on Sunday's solution
+#: grid is looked for in: 1996-03-10 sets the grid 140 px under the notice's line, its left edge at the notice's.
+IOS_SOLUTION_WINDOW = (-150, -60, 800, 1100)
+
+
+def ios_solution(img, sol, grid):
+    """read_solution for a Gale Independent on Sunday Beelzebub: ({light: answer}, stats) of the barred grid in
+    IOS_SOLUTION_WINDOW of the notice box (ios_barred.solution_reads)."""
+    import ios_barred
+    x0, y0 = sol["box"][:2]
+    left, top, right, foot = IOS_SOLUTION_WINDOW
+    window = img.crop((max(0, x0 + left), max(0, y0 + top), min(img.width, x0 + right), min(img.height, y0 + foot)))
+    answers, stats = ios_barred.solution_reads(window, grid)
+    return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
+
+
 def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     """({light: answer}, stats) read off the solution grid under a "Solution
     to Puzzle No N" heading on page `img`, or with `above`, over it (the
@@ -11401,6 +11447,9 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     (squares()) are read too, and the one whose blocks agree most is the grid."""
     d = sol["dir"]
     x0, y0, x1, y1 = sol["box"]
+    if paper_of(d).key == "galeindysunday":
+        # A Beelzebub's solution: a small barred grid with no heading, by the "Winners of N" notice (ios_solution).
+        return ios_solution(img, sol, grid)
     from PIL import Image
     w = x1 - x0
     crop = (max(0, x0 - 80), y1, min(img.width, x1 + 140), min(img.height, y1 + int(1.4 * w) + 60))
@@ -12213,7 +12262,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # only; due once as FT_HEADINGS.
                   "bb5517b5a90821a8": "432a5818529a9b11",
                   # independent_headings' one entry a number (_INDEPENDENT_DEDUP_FIX): a scan's headings only.
-                  "17927db190a32678": "432a5818529a9b11"}
+                  "17927db190a32678": "432a5818529a9b11",
+                  # ios_solution (read_solution's branch for a Gale Independent on Sunday Beelzebub's headingless barred
+                  # solution grid): no other paper's reading moves; the IoS rows are due once as INDY_BARRED.
+                  "c48eaaea65f0af45": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -13381,7 +13433,10 @@ INDY_BARRED = "Independent on Sunday Beelzebub page refused for its barred 12x12
 #: 11-13 18:15Z: the clue lists' third column under the grid (UnderLeft), the bars set as mirror pairs and decided by the
 #: lists (ios_barred.fit_rows), the lists' foot the page's: 1996-03-10 reads 34 of 34 clues whole (22 of 39 before). Due
 #: for every such page not filed, whatever it read before (a page read with the bars and two columns stays unfiled).
-REREAD_INDY_BARRED = "2026-11-13T18:15:00+00:00"
+#: 11-13 18:45Z: the pages' "Winners of N" notice sets a small headingless barred solution grid (ios_winners, read by
+#: ios_barred.solution_reads against the puzzle's bars: 1996-03-10's is No 315's, 0.94 of the bars, 33 of 36 lights read):
+#: every such page not filed is read again, its host scanned first (the Independent on Sunday scan key moved).
+REREAD_INDY_BARRED = "2026-11-13T18:45:00+00:00"
 
 
 def indy_barred_due(row):
