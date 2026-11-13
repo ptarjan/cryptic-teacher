@@ -886,7 +886,7 @@ def evidence_reason(reason):
                           fa.INDEPENDENT_HEADINGS,  # a Gale Independent page, its glued title / weekday-only solution heading read since
                           fa.INDEPENDENT_RIGHT, fa.INDY_BARRED,  # a Gale Independent page refused for its grid / clue lists, clues right of the grid read since
                           fa.FT_HEADINGS,  # a Gale FT page, its glued title / solution heading read since
-                          fa.FT_CLUES,  # a Gale FT page with a blank clue or unparsed list, its columns read from the title's line since
+                          fa.FT_CLUES, fa.FT_GLUED,  # a Gale FT page with a blank clue or unparsed list, its columns read from the title's line since
                           fa.SIDES_READ,  # a Gale Telegraph page refused no reading parses, its columns either side of its grid
                           fa.SUNDAY_SIDES,  # the same for a Gale Sunday Telegraph 1987-98 page
                           fa.SUNDAY_RIGHT,  # that page read since, still no clue lists: its columns right of its grid
@@ -2115,7 +2115,7 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.FT_HEADINGS,
                  # 11-13: a Gale FT page read with a blank clue or an unparsed list, its columns read from the
                  # title's line since (fa.ft_clues_due); the newest fix goes first.
-                 fa.FT_CLUES)
+                 fa.FT_CLUES, fa.FT_GLUED)
 
 
 def times_solution_work(unit):
@@ -2142,7 +2142,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED)
 
 
 def unproven_first(unit):
@@ -2171,7 +2171,7 @@ def files_likely_tier(rank, unit):
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
     if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.LOST_WRITE,
-                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES):
+                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1

@@ -574,6 +574,12 @@ def clues(text, see=True, tails=False):
         if not m:
             lost = lost_opening(text, pos, start, spaced=tails)
             if lost is None:
+                # A number run into its first word ("1.5Carolyn", "1,7Breach"): the next number in order, split.
+                prev = max(out[-1]["tokens"][0], default=0) if out and out[-1]["tokens"] else 0
+                glued = clue_text.glued_number(text[pos:], prev)
+                if glued:
+                    text = text[:pos] + f" {glued[0]} " + text[pos + glued[1]:]
+                    continue
                 return None, f"cannot find a clue number at: {text[pos:pos + 40]!r}"
             out.append(lost[0])
             pos = lost[1]

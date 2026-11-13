@@ -4883,6 +4883,29 @@ check("a Gale FT's columns start over its title (the grid's top 65 under it, 60 
         f.ft_clues_due({**_ftrow, "edition": "GaleTelegraph2005UKEnglish/2005-01-14",
                         "verdicts": [{"number": 1, "blank": {"1-across": "x"}}]})]])
 
+# A clue's number run into its first word ("1.5Carolyn", "1,7Breach", "1lluminate") opens a list: split off when it is
+# the next number in order; a figure inside a clue, an ordinal or an out-of-order number is not.
+import clue_text
+_gl = lambda s: [([sorted(t) for t in c["tokens"]], c["text"][:10]) for c in (ftp.clues(s)[0] or [])]
+check("a clue number run into its word (1.5Carolyn, 1,7Breach, 1lluminate) is split at a list's start; 'cannot find a "
+      "clue number' stays for an ordinal, a 3-digit run and a number out of order; FT_GLUED is due for a read FT page "
+      "that stopped at one, once, ranked, and in BLANKET_PASSES",
+      [[([[15]], "Carolyn li"), ([[16]], "Next one")], [([[17]], "Breach of "), ([[19]], "Behold cag")],
+       [([[1]], "lluminate "), ([[2]], "Mad thing")], None, None, (1, 15, None, None, None),
+       [True, False, False], True],
+      [_gl("1.5Carolyn lied -saw poor clergyman accused (6) 16 Next one (4)"),
+       _gl("1,7Breach of faith？(11,3) 19 Behold caged (4)"), _gl("1lluminate tram (8) 2 Mad thing (4)"),
+       ftp.clues("1st of the month (6) 2 Mad thing (4)")[0], ftp.clues("114 forgotwords (6) 12 Next (3)")[0],
+       (__import__("clue_text").glued_number("1lluminate", 0)[0], clue_text.glued_number("1.5Carolyn", 0)[0],
+        clue_text.glued_number("1.5Carolyn", 15), clue_text.glued_number("1st of", 0), clue_text.glued_number("114 for", 0)),
+       [f.ft_glued_due({**_ftrow, "verdicts": [{"number": 1, "unparsed": {"ch": "across clues do not parse: cannot find a "
+                                                                             "clue number at: '1.5Carolyn lied -saw poor'"}}]}),
+        f.ft_glued_due({**_ftrow, "readAt": "2027-01-01T00:00:00+00:00", "verdicts": [{"number": 1, "unparsed": {
+            "ch": "cannot find a clue number at: '1.5Carolyn lied'"}}]}),
+        f.ft_glued_due({**_ftrow, "verdicts": [{"number": 1, "unparsed": {"ch": "cannot find a clue number at: ' paniment (7)'"}}]})],
+       f.RANKS[f.FT_GLUED] == 2 and f.FT_GLUED in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.FT_GLUED) is not None
+       and f.FT_GLUED in _eq_bp.FIX_LANDED and f.FT_GLUED in _eq_bp.UNFILED_FIRST])
+
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
 _ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]

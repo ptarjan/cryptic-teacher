@@ -602,6 +602,27 @@ def clue_number_opening(line):
     return re.sub(r"^(?:[^\w\s(\"'][^\w\s(]{0,2}\s?){1,3}(?=[A-Z][a-z])", "", line)
 
 
+#: A clue's number run into its first word, where a list stops "cannot find a clue number" (Gale FT 2000, the
+#: ch reader): "1.5Carolyn lied" (15), "1,7Breach of faith" (17), "1lluminate tram" (1). The number is read
+#: only where the list's own order allows it (glued_number's `prev`).
+GLUED_PAIR = re.compile(r"\s*(\d)[.,](\d)\s?(?=[A-Z][a-z])")
+GLUED_NUMBER = re.compile(r"\s*(\d{1,2})(?=[A-Za-z]{3,})(?!(?:st|nd|rd|th)\b)")
+
+
+def glued_number(text, prev):
+    """(number, length of what to cut) when `text`, where a clue should open, opens on a clue number run into
+    its first word, else None. `prev` is the clue before's number (0 at a list's start): the number must be
+    the one after it, or at most 12 on, so a figure inside a clue's text is not taken for one. "1.5Carolyn"
+    and "1,7Breach" read their two digits as one number; "1lluminate" is 1 and the word."""
+    for rx in (GLUED_PAIR, GLUED_NUMBER):
+        m = rx.match(text)
+        if m:
+            n = int("".join(m.groups()))
+            if prev < n <= (prev + 12 if prev else 40):  # a column may open on any number
+                return n, m.end()
+    return None
+
+
 # ----------------------------------------------------------- torn brackets
 
 #: The brackets a clue pairs.
