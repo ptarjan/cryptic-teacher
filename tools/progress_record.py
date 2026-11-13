@@ -15,6 +15,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 import annotation
@@ -65,18 +66,31 @@ def puzzle_row(path):
     return p["id"], series, got, solved, fetch_puzzle.puzzle_is_annotated(p)
 
 
-def cached_rows(paths, cache=None):
-    """puzzle_row() for each of paths that exists, reading again only the
-    files whose (size, mtime_ns) moved, or all of them when code_digest()
-    did; rewrites the cache with exactly these paths."""
+#: Wall-clock seconds a night spends re-deriving rows that are only stale (their
+#: file did not move, the deriving code did). New and moved files always are read.
+REFRESH_SECONDS = 20 * 60
+#: Stale rows re-derived between two looks at the clock.
+REFRESH_BATCH = 200
+
+
+def cached_rows(paths, cache=None, clock=time.monotonic, budget=REFRESH_SECONDS,
+                batch=REFRESH_BATCH):
+    """puzzle_row() for each of paths that exists. Each cached row remembers the
+    code_digest() and time it was derived under. A file that moved (size,
+    mtime_ns) or is new is read at once; a row from an older digest is stale:
+    stale rows are re-derived annotated first, then oldest first, until `budget`
+    seconds of clock() pass, and the rest are kept as they are, so a night
+    always finishes and the cache converges over a few nights. Rewrites the
+    cache with exactly these paths."""
     cache = cache or ROWS_CACHE
     code = code_digest()
     try:
         held = json.loads(cache.read_text())
-        held = held["rows"] if held.get("code") == code else {}
+        old = held.get("code")
+        held = held["rows"]
     except (OSError, ValueError, AttributeError, KeyError, TypeError):
-        held = {}
-    stamps, out, todo = {}, {}, []
+        held, old = {}, None
+    stamps, out, when, fresh, stale = {}, {}, {}, [], []
     for path in paths:
         key = str(path)
         try:
@@ -85,17 +99,35 @@ def cached_rows(paths, cache=None):
             continue
         stamps[key] = [st.st_size, st.st_mtime_ns]
         hit = held.get(key)
-        if isinstance(hit, list) and hit[:2] == stamps[key]:
+        if isinstance(hit, list) and len(hit) >= 3 and hit[:2] == stamps[key]:
             out[key] = tuple(hit[2])
+            digest = hit[3] if len(hit) > 3 else old
+            when[key] = hit[4] if len(hit) > 4 else 0
+            if digest != code:
+                stale.append(path)
         else:
-            todo.append(path)
-    for path, row in zip(todo, parallel.pmap(puzzle_row, todo)):
-        out[str(path)] = tuple(row)
+            fresh.append(path)
+    now = int(time.time())
+    for path, row in zip(fresh, parallel.pmap(puzzle_row, fresh)):
+        out[str(path)], when[str(path)] = tuple(row), now
+    stale.sort(key=lambda p: (not out[str(p)][4], when[str(p)]))
+    start, done = clock(), set()
+    for i in range(0, len(stale), batch):
+        if clock() - start >= budget:
+            break
+        chunk = stale[i:i + batch]
+        for path, row in zip(chunk, parallel.pmap(puzzle_row, chunk)):
+            out[str(path)], when[str(path)] = tuple(row), now
+            done.add(str(path))
+    left = {str(p) for p in stale} - done
     try:
         cache.parent.mkdir(parents=True, exist_ok=True)
         tmp = cache.with_name(f"{cache.name}.{os.getpid()}.tmp")
-        tmp.write_text(json.dumps({"code": code, "rows": {
-            k: stamps[k] + [list(out[k])] for k in stamps}}))
+        tmp.write_text(json.dumps({"rows": {
+            k: stamps[k] + [list(out[k]),
+                            held[k][3] if k in left and len(held[k]) > 3 else
+                            (old if k in left else code), when[k]]
+            for k in stamps}}))
         os.replace(tmp, cache)
     except OSError:
         pass
