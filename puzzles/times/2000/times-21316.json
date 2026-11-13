@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,64 @@
     "text": "In container, almost fit large cat",
     "enumeration": "6"
    },
-   "solution": "JAGUAR"
+   "solution": "JAGUAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "large cat",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In tells us the shortened fit is placed inside the container word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "container",
+       "at": 3,
+       "gives": "JAR",
+       "note": "a jar is a container"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the word for a fit loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fit",
+         "at": 21,
+         "gives": "AGUE",
+         "note": "an ague is a fit of shivering"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to squeeze a big cat into a box that nearly fits it.",
+     "walkthrough": "'fit' is not about size here: an ague is a shivering fit, and 'almost' drops its last letter before 'In' places it.",
+     "definitionFit": "The jaguar is the big spotted feline of the Americas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +110,30 @@
      }
     ]
    },
-   "solution": "ALLHAIL"
+   "solution": "ALLHAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relentlessly bad weather",
+      "at": 0,
+      "meaning": "read whimsically, nothing but hailstones falling"
+     },
+     {
+      "text": "that greeted Macbeth",
+      "at": 25,
+      "meaning": "the three witches salute Macbeth with this cry in Shakespeare's play"
+     }
+    ],
+    "explanation": {
+     "surface": "A storm of nonstop hail welcomes the Scottish king.",
+     "definitionFit": "The witches' greeting in Macbeth is a salutation, and read literally it describes weather consisting entirely of hailstones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +147,42 @@
     "text": "Divert attention from revolting scene of action",
     "enumeration": "7"
    },
-   "solution": "UPSTAGE"
+   "solution": "UPSTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divert attention from",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "revolting",
+       "at": 22,
+       "gives": "UP",
+       "note": "people in revolt are up in arms, so revolting gives up"
+      },
+      {
+       "words": "scene of action",
+       "at": 32,
+       "gives": "STAGE",
+       "note": "the stage is where the action of a play happens"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful scene distracts onlookers.",
+     "walkthrough": "'revolting' looks like disgusting, but here it means rising up: UP.",
+     "definitionFit": "To steal the limelight from another performer is to draw notice away from them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +196,31 @@
     "text": "Give a further demonstration of carpet",
     "enumeration": "7"
    },
-   "solution": "REPROVE"
+   "solution": "REPROVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give a further demonstration of",
+      "at": 0,
+      "meaning": "to prove again, split as re- plus prove"
+     },
+     {
+      "text": "carpet",
+      "at": 32,
+      "meaning": "to carpet someone is to reprimand them, a British idiom for a telling-off"
+     }
+    ],
+    "explanation": {
+     "surface": "A salesman demonstrates a rug a second time.",
+     "walkthrough": "'carpet' is a verb here: to be called on the carpet is to be scolded by a superior.",
+     "definitionFit": "To reprove is to rebuke, the same as giving someone a carpeting; and re-prove means show again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +234,49 @@
     "text": "Got urge to inject fix",
     "enumeration": "8"
    },
-   "solution": "PROCURED"
+   "solution": "PROCURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Got",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to inject",
+       "at": 9,
+       "note": "to inject places one thing inside another, here the fix inside the urge"
+      }
+     ],
+     "parts": [
+      {
+       "words": "urge",
+       "at": 4,
+       "gives": "PROD",
+       "note": "to prod is to urge someone on"
+      },
+      {
+       "words": "fix",
+       "at": 19,
+       "gives": "CURE",
+       "note": "to cure is to fix a problem"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An addict feels the craving for a shot of drugs.",
+     "walkthrough": "The surface reads like a drug addict's craving; 'fix' is a remedy and 'to inject' is the container signal.",
+     "definitionFit": "Procured means obtained, acquired, just as got does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +296,31 @@
      }
     ]
    },
-   "solution": "REDHANDED"
+   "solution": "REDHANDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Villain captured so",
+      "at": 0,
+      "meaning": "caught in the act, with the evidence still on him"
+     },
+     {
+      "text": "presumed to be from Ulster?",
+      "at": 20,
+      "meaning": "the Red Hand is the emblem of Ulster, so someone with a red hand is jokingly assumed to be an Ulsterman"
+     }
+    ],
+    "explanation": {
+     "surface": "A criminal is caught and assumed to be Northern Irish.",
+     "walkthrough": "The Red Hand of Ulster is the heraldic symbol of the Northern Irish province.",
+     "definitionFit": "Caught in the act of a crime is the idiom; the second reading plays on Ulster's emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +334,41 @@
     "text": "Compel to create non-racist organisation",
     "enumeration": "9"
    },
-   "solution": "CONSTRAIN"
+   "solution": "CONSTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Compel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organisation",
+       "at": 28,
+       "note": "organisation means arranging the letters of non-racist into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "non-racist",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A campaigner insists on forming an anti-racism group.",
+     "walkthrough": "'organisation' looks like the group being founded, but it is the signal to rearrange NONRACIST.",
+     "definitionFit": "To constrain someone is to force or oblige them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +382,70 @@
     "text": "Some film star accepting lead in Bounty Mutiny",
     "enumeration": "9"
    },
-   "solution": "REBELLION"
+   "solution": "REBELLION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mutiny",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 15,
+         "note": "accepting means the film-and-star words take in a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "film",
+         "at": 5,
+         "gives": "REEL",
+         "note": "a reel is a spool of film"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "lead in",
+           "at": 25,
+           "note": "the lead in a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bounty",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "star",
+       "at": 10,
+       "gives": "LION",
+       "note": "a lion is a celebrity, a star of society"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a film star's role in a famous film about a naval uprising.",
+     "walkthrough": "A lion is a celebrity, as in 'literary lion'. 'accepting' places the B from 'lead in' Bounty after the second letter. The surface recalls the film Mutiny on the Bounty.",
+     "definitionFit": "A rebellion is an uprising against authority, as a mutiny is aboard ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bounty"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +456,7 @@
    },
    "length": 9,
    "clue": {
-    "text": "Hurry' up rate of 'progress in far distant region",
+    "text": "Hurry up rate of progress in far distant region",
     "enumeration": "4,5",
     "separators": [
      {
@@ -160,7 +465,54 @@
      }
     ]
    },
-   "solution": "DEEPSPACE"
+   "solution": "DEEPSPACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "far distant region",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 6,
+         "note": "up in a down clue means the word is read from bottom to top, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hurry",
+         "at": 0,
+         "gives": "SPEED",
+         "note": "to speed is to hurry"
+        }
+       ]
+      },
+      {
+       "words": "rate of progress",
+       "at": 9,
+       "gives": "PACE",
+       "note": "pace is a rate of movement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges a faster rate of progress in some remote area.",
+     "walkthrough": "'up' turns SPEED into DEEPS in this down clue.",
+     "definitionFit": "Deep space is the vast region of the universe far beyond Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hurry"
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +526,49 @@
     "text": "Advantage of being rich not hard to see",
     "enumeration": "4"
    },
-   "solution": "PLUS"
+   "solution": "PLUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advantage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 24,
+       "note": "not means the letter for hard is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rich",
+       "at": 19,
+       "gives": "PLUSH",
+       "note": "plush means luxurious, rich"
+      },
+      {
+       "words": "hard",
+       "at": 28,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The benefit of wealth is not hard to see.",
+     "walkthrough": "'not' removes H (hard) from PLUSH.",
+     "definitionFit": "A plus is a benefit, a point in something's favour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +582,60 @@
     "text": "About to drop off during Bible story — that's venial",
     "enumeration": "10"
    },
-   "solution": "PARDONABLE"
+   "solution": "PARDONABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "venial",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 18,
+       "note": "during places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bible story",
+       "at": 25,
+       "gives": "PARABLE",
+       "note": "a parable is a story told by Jesus in the Bible"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "About",
+         "at": 0,
+         "note": "About signals turning round the word for dozing off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to drop off",
+         "at": 6,
+         "gives": "NOD",
+         "note": "to nod is to drop off to sleep"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dozing off during a scripture reading is forgivable.",
+     "walkthrough": "'About' turns the dozing word round and 'during' sets it inside the Bible story; venial sins are the forgivable kind in Catholic teaching.",
+     "definitionFit": "A venial sin is a minor one that can be forgiven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +655,49 @@
      }
     ]
    },
-   "solution": "DACAPO"
+   "solution": "DACAPO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from the start",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ahead of",
+       "at": 20,
+       "note": "ahead of places the prosecutor in front of the gangster"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American prosecutor",
+       "at": 0,
+       "gives": "DA",
+       "note": "DA is a district attorney, a US prosecutor"
+      },
+      {
+       "words": "Mafia chief",
+       "at": 29,
+       "gives": "CAPO",
+       "note": "a capo is a Mafia boss"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US district attorney gets the jump on a mobster.",
+     "walkthrough": "The definition is a musical direction, Italian for 'from the head'.",
+     "definitionFit": "In music the instruction means go back and repeat from the beginning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chief"
+    }
+   }
   },
   {
    "number": 13,
@@ -222,7 +711,42 @@
     "text": "Thrash at part of joint in which one can secure drink",
     "enumeration": "8"
    },
-   "solution": "TANTALUS"
+   "solution": "TANTALUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in which one can secure drink",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Thrash",
+       "at": 0,
+       "gives": "TAN",
+       "note": "to tan someone's hide is to thrash them"
+      },
+      {
+       "words": "part of joint",
+       "at": 10,
+       "gives": "TALUS",
+       "note": "the talus is the ankle bone, part of the ankle joint"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beating at a joint where a drink can be locked away.",
+     "walkthrough": "A tantalus is a stand in which decanters are locked, visible but out of reach, named after the Greek figure tormented by unreachable drink.",
+     "definitionFit": "The decanter stand locks its spirits away so they can be seen but not taken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +760,41 @@
     "text": "Depressed, having to confront man with terrible secret",
     "enumeration": "9"
    },
-   "solution": "BLUEBEARD"
+   "solution": "BLUEBEARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "man with terrible secret",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Depressed",
+       "at": 0,
+       "gives": "BLUE",
+       "note": "feeling blue is feeling depressed"
+      },
+      {
+       "words": "to confront",
+       "at": 18,
+       "gives": "BEARD",
+       "note": "to beard someone is to confront them boldly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy person must face up to someone hiding something dreadful.",
+     "walkthrough": "In the folk tale, the nobleman's locked room hides the bodies of his earlier wives.",
+     "definitionFit": "The fairy-tale wife-killer kept the remains of former brides in a forbidden chamber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +808,62 @@
     "text": "Skewer to cook better chop, mostly",
     "enumeration": "9"
    },
-   "solution": "BROCHETTE"
+   "solution": "BROCHETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skewer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to cook",
+       "at": 7,
+       "note": "to cook the books is to falsify, so cook signals the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "better",
+       "at": 15
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 28,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chop",
+         "at": 22,
+         "gives": "CHOP",
+         "note": "taken as written, then shortened"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kebab skewer is for grilling a better cut of meat.",
+     "walkthrough": "'mostly' trims CHOP to CHO; 'to cook' rearranges BETTER + CHO.",
+     "definitionFit": "A brochette is a small skewer for grilling chunks of meat, French in origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +877,40 @@
     "text": "Not wanted, but is endured somehow",
     "enumeration": "9"
    },
-   "solution": "UNDESIRED"
+   "solution": "UNDESIRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not wanted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 27,
+       "note": "somehow means the letters of is endured are put together in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is endured",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something unwelcome is nonetheless put up with.",
+     "walkthrough": "'somehow' rearranges ISENDURED.",
+     "definitionFit": "Undesired means unwanted, not wished for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +930,30 @@
      }
     ]
    },
-   "solution": "BORNAGAIN"
+   "solution": "BORNAGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Converted",
+      "at": 0,
+      "meaning": "having had a religious conversion, newly committed to the faith"
+     },
+     {
+      "text": "as Hindus believe one may be",
+      "at": 12,
+      "meaning": "Hindu belief in reincarnation holds that a soul is reborn into a new life"
+     }
+    ],
+    "explanation": {
+     "surface": "A religious convert, and the cycle of rebirth in Hinduism.",
+     "definitionFit": "An evangelical convert describes being spiritually renewed; literally the phrase describes reincarnation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,10 +964,71 @@
    },
    "length": 9,
    "clue": {
-    "text": "One of the earliest arrivals, a tedious type must fill with drink",
+    "text": "One of the earliest arrivals, a tedious type I must fill with drink",
     "enumeration": "9"
    },
-   "solution": "ABORIGINE"
+   "solution": "ABORIGINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of the earliest arrivals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 30,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "fill",
+         "at": 52,
+         "note": "fill means the I and the drink go inside the bore"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tedious type",
+         "at": 32,
+         "gives": "BORE",
+         "note": "a bore is a tedious person"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "at": 45,
+           "gives": "I"
+          },
+          {
+           "words": "drink",
+           "at": 62,
+           "gives": "GIN",
+           "note": "gin is a drink"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull settler has to be plied with spirits.",
+     "walkthrough": "The scan prints 'type I must', which the OCR dropped; 'fill' sets I plus the drink inside the bore after the second letter.",
+     "definitionFit": "An aborigine is one of a land's original inhabitants, there before later settlers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -309,10 +1039,43 @@
    },
    "length": 5,
    "clue": {
-    "text": "Innermost self hidden by' Superman image",
+    "text": "Innermost self hidden by Superman image",
     "enumeration": "5"
    },
-   "solution": "ANIMA"
+   "solution": "ANIMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Innermost self",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hidden by",
+       "at": 15,
+       "note": "hidden by says the answer is concealed within the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Superman image",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clark Kent's true identity is concealed behind the Superman persona.",
+     "walkthrough": "The letters run across 'SupermAN IMAge'.",
+     "definitionFit": "In Jungian psychology the anima is the inner soul, the true inner personality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1089,46 @@
     "text": "Arrangement to clear British from frontier",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arrangement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to clear",
+       "at": 12,
+       "note": "to clear something from a word is to strip it out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "frontier",
+       "at": 34,
+       "gives": "BORDER",
+       "note": "a border is a frontier"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plan to remove British troops from the border.",
+     "walkthrough": "'to clear' (with 'from') removes B from BORDER.",
+     "definitionFit": "Order is an orderly arrangement, a sequence or layout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1142,57 @@
     "text": "Potential minister stopped short by church edict",
     "enumeration": "9"
    },
-   "solution": "ORDINANCE"
+   "solution": "ORDINANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "edict",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stopped short",
+         "at": 19,
+         "note": "stopped short means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Potential minister",
+         "at": 0,
+         "gives": "ORDINAND",
+         "note": "an ordinand is someone training for ordination as a minister"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 36,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee clergyman is halted by a church ruling.",
+     "walkthrough": "An ordinand is a candidate for ordination; 'stopped short' drops its final D, giving ORDINAN.",
+     "definitionFit": "An ordinance is an authoritative decree or regulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopped"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1206,31 @@
     "text": "Disparage what constituencies have",
     "enumeration": "7"
    },
-   "solution": "IMPEACH"
+   "solution": "IMPEACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disparage",
+      "at": 0,
+      "meaning": "to impugn or call into question someone's character"
+     },
+     {
+      "text": "what constituencies have",
+      "at": 10,
+      "meaning": "each parliamentary constituency elects one member, read as I for one, then MP and each"
+     }
+    ],
+    "explanation": {
+     "surface": "A rude remark about the representatives every electoral district has.",
+     "walkthrough": "The second reading splits into I (one) MP EACH: every UK constituency returns one Member of Parliament.",
+     "definitionFit": "To impeach is to challenge or discredit someone's honesty or character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1244,50 @@
     "text": "A line to include in pantomime",
     "enumeration": "7"
    },
-   "solution": "ALADDIN"
+   "solution": "ALADDIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pantomime",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "line",
+       "at": 2,
+       "gives": "L"
+      },
+      {
+       "words": "to include",
+       "at": 7,
+       "gives": "ADD",
+       "note": "to add is to include"
+      },
+      {
+       "words": "in",
+       "at": 18,
+       "gives": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extra line is written into a Christmas show.",
+     "walkthrough": "A pantomime is a British Christmas stage show for families; this tale is a classic one.",
+     "definitionFit": "The story of the lamp and the genie is one of the best-known British Christmas shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1301,48 @@
     "text": "Regular series of events put on in depression",
     "enumeration": "7"
    },
-   "solution": "CYCLONE"
+   "solution": "CYCLONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "depression",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in places the second piece inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Regular series of events",
+       "at": 0,
+       "gives": "CYCLE",
+       "note": "a cycle is a regularly repeating series"
+      },
+      {
+       "words": "on",
+       "at": 29,
+       "gives": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recurring programme of events staged during an economic slump.",
+     "walkthrough": "'depression' is the meteorological sense: a low-pressure system.",
+     "definitionFit": "A cyclone is a weather system of low pressure, which forecasters call a depression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1356,30 @@
     "text": "Spanish speaker revealing it in flight?",
     "enumeration": "8"
    },
-   "solution": "HISPANIC"
+   "solution": "HISPANIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish speaker",
+      "at": 0,
+      "meaning": "a person of Spanish-speaking heritage"
+     },
+     {
+      "text": "revealing it in flight?",
+      "at": 16,
+      "meaning": "split into a possessive plus a word for terror, a man showing fear as he flees"
+     }
+    ],
+    "explanation": {
+     "surface": "A Spanish-speaking man betrays his fear while running away.",
+     "definitionFit": "The word describes someone from a Spanish-speaking culture, and also splits as a man's fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1393,47 @@
     "text": "Spot in which I fish",
     "enumeration": "6"
    },
-   "solution": "PLAICE"
+   "solution": "PLAICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 5,
+       "note": "in which means I goes inside the word for spot"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spot",
+       "at": 0,
+       "gives": "PLACE",
+       "note": "a spot is a place"
+      },
+      {
+       "words": "I",
+       "at": 14,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone names the place where they go fishing.",
+     "walkthrough": "'in which' puts I inside PLACE.",
+     "definitionFit": "Plaice is a flatfish common in British waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1453,36 @@
      }
     ]
    },
-   "solution": "TERRAFIRMA"
+   "solution": "TERRAFIRMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A solid grounding in a classical language",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A solid grounding in a classical language",
+       "at": 0,
+       "note": "Latin words for firm ground, so literally a solid footing expressed in Latin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thorough education in Latin or Greek.",
+     "walkthrough": "'solid grounding' looks like a good education, but it is literal: firm earth, said in Latin.",
+     "definitionFit": "The Latin phrase means dry land, firm earth as opposed to sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grounding"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1496,31 @@
     "text": "Pass capital sentence on a bad lot",
     "enumeration": "4"
    },
-   "solution": "DOOM"
+   "solution": "DOOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pass capital sentence on",
+      "at": 0,
+      "meaning": "to condemn someone to death"
+     },
+     {
+      "text": "a bad lot",
+      "at": 25,
+      "meaning": "one's lot is one's fate, so a bad lot is a terrible fate"
+     }
+    ],
+    "explanation": {
+     "surface": "A judge sentences a wicked gang to death.",
+     "walkthrough": "'a bad lot' reads as a villain, but here 'lot' means fate.",
+     "definitionFit": "Doom as a verb means condemn; as a noun it means ruin or an evil fate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1534,30 @@
     "text": "Calm down, being put in peril",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calm down",
+      "at": 0,
+      "meaning": "read whimsically, to finish being angry, split as end plus anger"
+     },
+     {
+      "text": "put in peril",
+      "at": 17,
+      "meaning": "to place in danger"
+     }
+    ],
+    "explanation": {
+     "surface": "Telling someone to calm down only puts them at risk.",
+     "definitionFit": "To endanger is to expose to harm; split, the word reads as stopping one's rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1571,31 @@
     "text": "Wood that's often used in wardrobe",
     "enumeration": "6"
    },
-   "solution": "HANGER"
+   "solution": "HANGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0,
+      "meaning": "a wood on a steep hillside"
+     },
+     {
+      "text": "that's often used in wardrobe",
+      "at": 5,
+      "meaning": "a frame on which clothes hang in a cupboard"
+     }
+    ],
+    "explanation": {
+     "surface": "Wood is often used to make wardrobes.",
+     "walkthrough": "'Wood' is a hanging wood on a slope, an old English word, not timber.",
+     "definitionFit": "The coat frame holds clothes in a cupboard; the dialect sense is a hillside copse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wood"
+    }
+   }
   }
  ]
 }
