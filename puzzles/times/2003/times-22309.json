@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Stopping regularly where the neighbours drink?",
     "enumeration": "5"
    },
-   "solution": "LOCAL"
+   "solution": "LOCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stopping regularly",
+      "at": 0,
+      "meaning": "a stopping train that calls at every station on its route"
+     },
+     {
+      "text": "where the neighbours drink?",
+      "at": 19,
+      "meaning": "the neighbourhood pub nearest home, where people from the street go for a pint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A local train stops at every station, and the local is British slang for one's nearest pub.",
+     "definitionFit": "Both senses are everyday British usage: a slow train calling everywhere, and the nearby pub frequented by residents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stopping"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,48 @@
     "text": "\"Citrus fruit lay on pile of hay\" short verse",
     "enumeration": "8"
    },
-   "solution": "LIMERICK"
+   "solution": "LIMERICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short verse",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "lay on",
+       "at": 14,
+       "note": "in a down answer, one piece lies on top of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Citrus fruit",
+       "at": 1,
+       "gives": "LIME",
+       "note": "a lime is a citrus fruit"
+      },
+      {
+       "words": "pile of hay",
+       "at": 21,
+       "gives": "RICK",
+       "note": "a rick is a stack of hay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quotation about a lime resting on a haystack is offered as a little poem.",
+     "definitionFit": "A limerick is a short comic five-line poem, an example of light verse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lay"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +126,59 @@
     "text": "Tory tears up European plan",
     "enumeration": "8"
    },
-   "solution": "CONSPIRE"
+   "solution": "CONSPIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tory",
+       "at": 0,
+       "gives": "CON",
+       "note": "CON abbreviates Conservative, the party of the Tories"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 11,
+         "note": "in a down answer, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "at": 5,
+         "gives": "RIPS",
+         "note": "rips means tears"
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "at": 14,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative politician rips up a European scheme.",
+     "walkthrough": "'tears' is the verb rip, not crying; 'up' turns RIPS into SPIR.",
+     "definitionFit": "To conspire is to plot or plan together in secret, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 3,
@@ -86,7 +206,42 @@
      }
     ]
    },
-   "solution": "LETONESHAIRDOWN"
+   "solution": "LETONESHAIRDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "party",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terrible",
+       "at": 18,
+       "note": "terrible signals that the letters are in a dreadful jumble"
+      }
+     ],
+     "parts": [
+      {
+       "words": "London weather is",
+       "at": 0
+      }
+     ]
+    },
+    "spelling": "LET ONE'S HAIR DOWN",
+    "explanation": {
+     "surface": "The capital's awful weather is a perfect excuse for a celebration.",
+     "walkthrough": "'party' is a verb here: to celebrate wildly.",
+     "definitionFit": "To let one's hair down is an idiom for relaxing and enjoying oneself, partying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +261,82 @@
      }
     ]
    },
-   "solution": "HARDGRAFT"
+   "solution": "HARDGRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Demanding work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "given during",
+       "at": 34,
+       "note": "the inner pieces are placed in the middle of the outer pair, between its two parts"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hospital",
+         "at": 47,
+         "gives": "H",
+         "note": "H is the abbreviation for hospital, as on road signs"
+        },
+        {
+         "words": "transplant",
+         "at": 56,
+         "gives": "GRAFT",
+         "note": "a graft is surgical transplanting of tissue"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "retired",
+           "at": 17,
+           "note": "something retired has gone back, so the doctor's abbreviation is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doctor's",
+           "at": 25,
+           "gives": "DR",
+           "note": "DR is the standard abbreviation for doctor"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who has stopped working is brought in for an organ transplant at a hospital.",
+     "walkthrough": "'retired' means gone back, so the doctor's abbreviation reverses; 'given during' splits the hospital transplant pair to admit it.",
+     "definitionFit": "Hard graft is British informal for strenuous, demanding labour, synonym phrase for toil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 4,
@@ -120,7 +350,46 @@
     "text": "Topless photo session is a scream",
     "enumeration": "4"
    },
-   "solution": "HOOT"
+   "solution": "HOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a scream",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Topless",
+       "at": 0,
+       "note": "without its top, the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "photo session",
+       "at": 8,
+       "gives": "SHOOT",
+       "note": "a shoot is a photographic session"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A provocative glamour photo session causes laughter.",
+     "definitionFit": "A hoot is something hilarious, as is a scream, both informal for very funny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Topless"
+    }
+   }
   },
   {
    "number": 5,
@@ -140,7 +409,70 @@
      }
     ]
    },
-   "solution": "ROSEWINDOW"
+   "solution": "ROSEWINDOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wine",
+       "at": 6,
+       "gives": "ROSE",
+       "note": "rosé is a pink wine"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "imbibed by",
+         "at": 25,
+         "note": "drunk by, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bereaved woman",
+         "at": 36,
+         "gives": "WIDOW",
+         "note": "a widow is a woman whose husband has died"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 15,
+           "note": "only the first letter of the following word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "at": 11
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grieving widow abstains from a light wine.",
+     "walkthrough": "'Light' looks like it describes the wine but is the definition: a window letting in light.",
+     "definitionFit": "A rose window is a circular church window, a kind of light in architecture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Light"
+    }
+   }
   },
   {
    "number": 6,
@@ -168,7 +500,31 @@
      }
     ]
    },
-   "solution": "GETOFFTHEGROUND"
+   "solution": "GETOFFTHEGROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Successfully start",
+      "at": 0,
+      "meaning": "for a project to begin and make headway"
+     },
+     {
+      "text": "to leave the pitch?",
+      "at": 19,
+      "meaning": "literally to rise up off the playing field"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is literal: an aircraft or ball rising off the field.",
+     "definitionFit": "The idiom means a venture starts well, and literally it is rising off the land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 7,
@@ -182,7 +538,59 @@
     "text": "Weapon is protecting a musketeer",
     "enumeration": "6"
    },
-   "solution": "ARAMIS"
+   "solution": "ARAMIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musketeer",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "protecting",
+         "at": 10,
+         "note": "the outer pieces surround and guard the inner one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Weapon",
+         "at": 0,
+         "gives": "ARM",
+         "note": "an arm is a weapon"
+        },
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 7,
+       "gives": "IS",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An armed man defends one of the king's guards.",
+     "walkthrough": "The 'a' that looks like part of the definition is wordplay: it is the letter held inside by 'protecting'.",
+     "definitionFit": "Aramis is one of Dumas's Three Musketeers, an example of a musketeer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weapon"
+    }
+   }
   },
   {
    "number": 8,
@@ -196,7 +604,45 @@
     "text": "Receipts slightly reduced? Charming",
     "enumeration": "6"
    },
-   "solution": "TAKING"
+   "solution": "TAKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charming",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "slightly reduced",
+       "at": 9,
+       "note": "a small cut, removing just the final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Receipts",
+       "at": 0,
+       "gives": "TAKINGS",
+       "note": "takings are the money received by a business"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper's income has dipped a little, yet someone remains delightful.",
+     "definitionFit": "Taking is an old-fashioned adjective for attractive or captivating, a synonym of charming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Receipts"
+    }
+   }
   },
   {
    "number": 9,
@@ -210,7 +656,52 @@
     "text": "Shocking battle site has organised tours",
     "enumeration": "9"
    },
-   "solution": "MONSTROUS"
+   "solution": "MONSTROUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shocking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "battle site",
+       "at": 9,
+       "gives": "MONS",
+       "note": "Mons in Belgium was the site of a famous 1914 battle"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "organised",
+         "at": 25,
+         "note": "the letters of tours are arranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tours",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A First World War battlefield has guided tour groups visiting it.",
+     "walkthrough": "'organised' rearranges TOURS into TROUS. MONS is a Belgian town, scene of the first British battle of the First World War.",
+     "definitionFit": "Something monstrous is outrageous or appalling, a close synonym for shocking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 10,
@@ -224,7 +715,64 @@
     "text": "Follow vehicle back, ending in shtook",
     "enumeration": "5"
    },
-   "solution": "TRACK"
+   "solution": "TRACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 15,
+         "note": "back tells us to read the word for vehicle in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "at": 7,
+         "gives": "CART",
+         "note": "a cart is a simple vehicle"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "at": 21,
+         "note": "only the final letter of the following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shtook",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in trouble follows a vehicle in reverse.",
+     "walkthrough": "'back' turns CART into TRAC; 'ending in' takes the K of shtook, British slang for trouble.",
+     "definitionFit": "To track someone is to follow their trail, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 11,
@@ -238,7 +786,47 @@
     "text": "Express regret about exercise books",
     "enumeration": "6"
    },
-   "solution": "REPENT"
+   "solution": "REPENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Express regret",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 15,
+       "gives": "RE",
+       "note": "re means about or concerning, as in business letters"
+      },
+      {
+       "words": "exercise",
+       "at": 21,
+       "gives": "PE",
+       "note": "PE is physical education, school exercise"
+      },
+      {
+       "words": "books",
+       "at": 30,
+       "gives": "NT",
+       "note": "NT, the New Testament, is a set of books of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apologises over a pile of school exercise books.",
+     "definitionFit": "To repent is to feel and show sorrow for wrongdoing, a verb meaning expressing regret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 12,
@@ -252,7 +840,42 @@
     "text": "How like an Irish writer, quick to take name of Gaelic origin",
     "enumeration": "8"
    },
-   "solution": "SWIFTIAN"
+   "solution": "SWIFTIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like an Irish writer",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quick",
+       "at": 26,
+       "gives": "SWIFT",
+       "note": "swift means quick"
+      },
+      {
+       "words": "name of Gaelic origin",
+       "at": 40,
+       "gives": "IAN",
+       "note": "Ian is the Scottish Gaelic form of John"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about an Irish author who readily adopts a Celtic first name.",
+     "walkthrough": "The writer is Jonathan Swift, Dublin-born author of Gulliver's Travels.",
+     "definitionFit": "Swiftian describes satire in the manner of Jonathan Swift, the Irish satirist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quick"
+    }
+   }
   },
   {
    "number": 13,
@@ -266,7 +889,65 @@
     "text": "Holy Land at first ghastly — long time travelling to it?",
     "enumeration": "10"
    },
-   "solution": "PILGRIMAGE"
+   "solution": "PILGRIMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holy Land at first ghastly — long time travelling to it?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Holy",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi is crossword shorthand for pious, holy"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 10,
+         "note": "only the first letter of the preceding word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Land",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "ghastly",
+       "at": 19,
+       "gives": "GRIM",
+       "note": "grim means ghastly"
+      },
+      {
+       "words": "long time",
+       "at": 29,
+       "gives": "AGE",
+       "note": "an age is a long time"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A traveller finds the Holy Land grim at first after a long journey there.",
+     "walkthrough": "PI (pious) is a schoolboy abbreviation; the whole clue doubles as a description of a journey to the Holy Land.",
+     "definitionFit": "A pilgrimage is a long devotional journey to a sacred place, such as the Holy Land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Holy"
+    }
+   }
   },
   {
    "number": 14,
@@ -280,7 +961,74 @@
     "text": "In Rome, perhaps, converted historian abandons old religion",
     "enumeration": "12"
    },
-   "solution": "CHRISTIANITY"
+   "solution": "CHRISTIANITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "religion",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the rearranged letters are put inside the word for what Rome is an example of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rome, perhaps",
+       "at": 3,
+       "gives": "CITY",
+       "note": "Rome is an example of a city"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "converted",
+         "at": 18,
+         "note": "converted means changed in form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "abandons",
+           "at": 38,
+           "note": "the letter for old is dropped from historian before rearranging"
+          }
+         ],
+         "parts": [
+          {
+           "words": "historian",
+           "at": 28
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historian in Rome gives up an ancient faith and converts.",
+     "walkthrough": "'abandons' removes the O from HISTORIAN, and 'converted' rearranges the remaining HISTRIAN into HRISTIAN, which goes 'In' C...ITY.",
+     "definitionFit": "Christianity is a major world religion, a specific example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "converted"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1042,56 @@
     "text": "Companion given a variety of pitta bread",
     "enumeration": "8"
    },
-   "solution": "CHAPATTI"
+   "solution": "CHAPATTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Companion",
+       "at": 0,
+       "gives": "CH",
+       "note": "CH stands for Companion of Honour, a British order"
+      },
+      {
+       "words": "a",
+       "at": 16
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "variety of",
+         "at": 18,
+         "note": "a variety is a different form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pitta",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend brings an assortment of Middle Eastern flatbreads.",
+     "walkthrough": "'variety of' rearranges A PITTA into APATTI.",
+     "definitionFit": "A chapatti is an Indian unleavened flatbread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Companion"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1105,40 @@
     "text": "Field for American football or riding, possibly",
     "enumeration": "8"
    },
-   "solution": "GRIDIRON"
+   "solution": "GRIDIRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Field for American football",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 39,
+       "note": "possibly signals that the letters may be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or riding",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pitch suitable for American football or horse riding.",
+     "definitionFit": "Gridiron is the name for an American football field, from its grid of lines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riding"
+    }
+   }
   },
   {
    "number": 17,
@@ -328,7 +1158,31 @@
      }
     ]
    },
-   "solution": "HANGTOGETHER"
+   "solution": "HANGTOGETHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remain united",
+      "at": 0,
+      "meaning": "to stay together and stay consistent as a group"
+     },
+     {
+      "text": "as group of convicts once may have done?",
+      "at": 15,
+      "meaning": "criminals executed together on the gallows in former times"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading is a grim joke: convicts were once publicly hanged together.",
+     "definitionFit": "To hang together means to stay united or remain consistent, an idiom with a literal gallows sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1202,59 @@
      }
     ]
    },
-   "solution": "SUCHAS"
+   "solution": "SUCHAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for example",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "southern",
+       "at": 16,
+       "gives": "S"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "obtained in",
+         "at": 4,
+         "note": "one piece is held within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "states",
+         "at": 25,
+         "gives": "US",
+         "note": "US, the United States"
+        },
+        {
+         "words": "Tea",
+         "at": 0,
+         "gives": "CHA",
+         "note": "cha is slang for tea"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tea is bought in the Deep South, as an illustration.",
+     "walkthrough": "'obtained in' puts CHA between SU and S.",
+     "definitionFit": "Such as introduces examples, a phrase equivalent in meaning to for example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "states"
+    }
+   }
   },
   {
    "number": 19,
@@ -362,7 +1268,30 @@
     "text": "One celebrating a music-hall entertainer",
     "enumeration": "6"
    },
-   "solution": "LAUDER"
+   "solution": "LAUDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One celebrating",
+      "at": 0,
+      "meaning": "someone who praises or extols"
+     },
+     {
+      "text": "a music-hall entertainer",
+      "at": 16,
+      "meaning": "Sir Harry ..., the Scottish music-hall singer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Harry Lauder was a famous Scottish singer of early 20th-century British variety theatre.",
+     "definitionFit": "One sense is a person who lauds; the other is the surname of the famous Scottish performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "celebrating"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1305,69 @@
     "text": "A female caught in UN attack, showing no fear",
     "enumeration": "8"
    },
-   "solution": "UNAFRAID"
+   "solution": "UNAFRAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing no fear",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "at": 9,
+       "note": "the first pieces are held inside the phrase for UN attack"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "UN",
+         "at": 19,
+         "gives": "UN",
+         "note": "taken as written"
+        },
+        {
+         "words": "attack",
+         "at": 22,
+         "gives": "RAID",
+         "note": "a raid is a sudden attack"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "female",
+         "at": 2,
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is trapped during an assault by United Nations forces, yet stays brave.",
+     "walkthrough": "'attack' reads as a verb in the surface, but it supplies a noun, a raid, joined to UN as one outer phrase.",
+     "definitionFit": "Unafraid means fearless, an adjective synonym for showing no fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1381,56 @@
     "text": "Stand oral test at school",
     "enumeration": "6"
    },
-   "solution": "TRIPOD"
+   "solution": "TRIPOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "TRI",
+       "indicators": [
+        {
+         "text": "oral",
+         "at": 6,
+         "note": "oral means spoken, so a word for test is heard rather than seen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "test",
+         "at": 11,
+         "gives": "TRY",
+         "note": "to try something is to test it"
+        }
+       ]
+      },
+      {
+       "words": "school",
+       "at": 19,
+       "gives": "POD",
+       "note": "a pod is a school of whales or dolphins"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sits a spoken examination at school.",
+     "walkthrough": "'school' looks like a classroom but is a group of whales; 'oral' gives TRI from the sound of TRY.",
+     "definitionFit": "A tripod is a three-legged stand, for a camera or telescope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1450,65 @@
      }
     ]
    },
-   "solution": "ISPY"
+   "solution": "ISPY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      },
+      {
+       "words": "succeeded",
+       "at": 2,
+       "gives": "S",
+       "note": "S is the abbreviation for succeeded in genealogies"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 20,
+         "note": "the word for skill is taken out of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 37,
+         "gives": "PARTY",
+         "note": "taken as written"
+        },
+        {
+         "words": "skill",
+         "at": 28,
+         "gives": "ART",
+         "note": "art means skill"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wins at a party game despite having no talent for it.",
+     "walkthrough": "'party game' looks like the definition, but 'party' is fodder: PARTY without ART leaves PY.",
+     "definitionFit": "I spy is a guessing game, especially popular with children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1522,40 @@
     "text": "Lengthy drought limits business in spa town",
     "enumeration": "5"
    },
-   "solution": "HYDRO"
+   "solution": "HYDRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "business in spa town",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "limits",
+       "at": 16,
+       "note": "the letters straddle the end of one word and the start of the next, their limits"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lengthy drought",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long dry spell restricts commerce in a resort famous for its waters.",
+     "definitionFit": "A hydro is a hotel or establishment offering water cures, a typical business in a spa resort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1569,40 @@
     "text": "Mugger's punished as a result",
     "enumeration": "9"
    },
-   "solution": "ASSAULTER"
+   "solution": "ASSAULTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mugger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "punished",
+       "at": 9,
+       "note": "punished suggests being knocked about, so the letters are roughed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as a result",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A street robber is given a sentence as a consequence.",
+     "definitionFit": "A mugger attacks people in the street, so is someone who commits assault."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punished"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1616,63 @@
     "text": "Surprisingly virtuous person phoned bank after losing capital",
     "enumeration": "9"
    },
-   "solution": "STRANGELY"
+   "solution": "STRANGELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surprisingly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "virtuous person",
+       "at": 13,
+       "gives": "ST",
+       "note": "ST abbreviates saint, a virtuous person"
+      },
+      {
+       "words": "phoned",
+       "at": 29,
+       "gives": "RANG",
+       "note": "rang means phoned"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing capital",
+         "at": 41,
+         "note": "the word for bank comes last and drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 36,
+         "gives": "RELY",
+         "note": "to bank on something is to rely on it"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saintly person rings a bank after the city lost its status as capital.",
+     "walkthrough": "'bank' is the verb as in 'bank on', RELY; 'losing capital' drops its R to leave ELY.",
+     "definitionFit": "Strangely means in an unexpected way, an adverb synonym for surprisingly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1686,42 @@
     "text": "Disc jockey at pub supplying spirits",
     "enumeration": "5"
    },
-   "solution": "DJINN"
+   "solution": "DJINN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spirits",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Disc jockey",
+       "at": 0,
+       "gives": "DJ"
+      },
+      {
+       "words": "pub",
+       "at": 15,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio presenter performs at a pub that sells strong drink.",
+     "walkthrough": "'spirits' looks like alcohol, but the answer is supernatural beings from Arabian folklore.",
+     "definitionFit": "Djinn are spirits of Islamic and Arabian mythology, the word serving as a plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   }
  ]
 }
