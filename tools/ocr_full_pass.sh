@@ -83,7 +83,11 @@ CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 # shellcheck disable=SC2034  # read by the sourced durable.sh
-DURABLE_PATHS=(puzzles)
+# The filer records book twins and renames (fetch_puzzle.check_not_copy,
+# unsolved_book_yields) beside what it files. Left uncommitted, the changed
+# file blocked every rebase: 11-12 20:18 the tree stuck 640 commits behind
+# and the queue reloaded every poll for 4.5 h, starting almost nothing.
+DURABLE_PATHS=(puzzles tools/data/book_twins.json tools/data/renamed_ids.json)
 DURABLE_RESYNC=1
 . tools/durable.sh
 
