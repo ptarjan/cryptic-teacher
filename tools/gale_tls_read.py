@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 19
+VERSION = 20
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -590,6 +590,17 @@ def pick_grid(boxes, reader, pads=(6, 0.08)):
     return None, None, first
 
 
+def lending(read, *args):
+    """read(*args) with gale_listener's LEND_NUMBERS set: a clue number the Tesseract reading reads and a
+    RapidOCR reading drops is lent to it (1996-03-22's 4 and 5 down, "no reading laid a clue on it")."""
+    import gale_listener as gl
+    old, gl.LEND_NUMBERS = gl.LEND_NUMBERS, True
+    try:
+        return read(*args)
+    finally:
+        gl.LEND_NUMBERS = old
+
+
 def read_page(path, store=STORE, asker=None):
     """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (jr.vlm_mended)."""
     import gale_listener as gl
@@ -663,14 +674,14 @@ def read_page(path, store=STORE, asker=None):
         verdict["refused"] = no_lists_why(gl.page_words(img, key))
         return verdict, None
     lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
-    read, laid = gl.times_read(blocks, lengths)
+    read, laid = lending(gl.times_read, blocks, lengths)
     if (laid is None or set(lengths) - set(laid)) and verdict.get("cut") != "layout":
         # The title's cut left a light unread (its lists lie beside the grid or run on in columns under it, in a
         # shape the page's headings do not frame): the lists found by their own shape (layout_block), kept
         # where they read more.
         block = layout_block(img, gl.page_words(img, key), box)
         if block:
-            again, laid2 = gl.times_read([block], lengths)
+            again, laid2 = lending(gl.times_read, [block], lengths)
             if laid2 is not None and (laid is None or again.get("agreed", 0) > read.get("agreed", 0)):
                 read, laid, laid2 = again, laid2, laid
                 verdict["cut"] = "layout"
