@@ -890,6 +890,7 @@ for _name, _q, _clue, _want in [
     check("damaged clue: " + _name, _D.damaged_run(_q, _clue) == _want, _D.damaged_run(_q, _clue))
     check("damaged clue, definition respelt: " + _name, _D.respell(_q, _clue) == _want)
 check("damaged clue: a real word between is not debris", _D.damaged_run("Dime divided in two", "Dime reportedly divided in two") is None)
+check("damaged clue: an inflected word is not a cut one", _D.damaged_run("delusions", "a crazy delusion") is None)
 check("damaged clue: a pronoun I is not debris", _D.damaged_run("dog saw", "Dog I saw") is None)
 check("damaged clue: a cut-short word in mid-clue is not mended", _D.damaged_run("a bribe", "a br and more") is None)
 check("damaged clue: wordplay quote is located", spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?")
