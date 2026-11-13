@@ -400,8 +400,11 @@ def run_unit(unit, cache, puzzles, reread):
         return m.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
     if unit["paper"] == "listener":
         import gale_jumbo_read as jumbo  # a unit process exits before the queue's own imports
+        import gale_tls_read as tls
         if unit["rel"].startswith(jumbo.PREFIX):
             return jumbo.read_unit(unit["rel"])
+        if unit["rel"].startswith(tls.PREFIX):
+            return tls.read_unit(unit["rel"])
         return m.read_unit(unit["rel"])
     paper = m.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
@@ -500,6 +503,7 @@ import fetch_trove
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_jumbo_read
+import gale_tls_read
 import gale_listener
 import hot_reload
 import media_manifest
@@ -1364,7 +1368,7 @@ def plan_inputs(papers, cache, reread, asked):
         stamps[k] = None if stamp is None else (stamp, ledger_held(fa.ledger_of(cache, paper)))
     extra = {}
     if "listener" in papers:
-        extra["listener"] = gale_jumbo_read.plan() + gale_listener.plan()
+        extra["listener"] = gale_jumbo_read.plan() + gale_tls_read.plan() + gale_listener.plan()
     if "trove" in papers:
         led = media_manifest.trove_ledger(ftp.CACHE)
         trove_held = ledger_held(led)
@@ -1411,7 +1415,7 @@ def _plan(papers, cache, reread, out, asked=None):
         took[key] = time.monotonic()
         if key == "listener":
             reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
-                      for n, u in enumerate(gale_jumbo_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
+                      for n, u in enumerate(gale_jumbo_read.plan() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
             continue
         if key == "trove":
             led = media_manifest.trove_ledger(ftp.CACHE)
@@ -1959,7 +1963,9 @@ def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=fro
             (again if refusal_reread(u.get("reason") or "") else listener).append(u)
     listener_order = alternate(again, listener)
     # Times Jumbo pages (gale_jumbo_read, rel "jumbo:NAME") go right after the Times work, ahead of the Listener's.
-    listener_order.sort(key=lambda u: not str(u.get("rel", "")).startswith(gale_jumbo_read.PREFIX))
+    # The TLS's (gale_tls_read, "tls:NAME") follow the Jumbo's, still ahead of the Listener's.
+    listener_order.sort(key=lambda u: 0 if str(u.get("rel", "")).startswith(gale_jumbo_read.PREFIX)
+                        else 1 if str(u.get("rel", "")).startswith(gale_tls_read.PREFIX) else 2)
     others = [u for *_, u in units if u.get("paper") != "listener"]
     # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
     # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of

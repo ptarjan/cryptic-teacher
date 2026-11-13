@@ -259,6 +259,11 @@ ACQUIRED_BY = {
                 "(tools/gale_fetch.py): clues voted across the OCR readers and the VLM's column "
                 "reads, the grid read off the scan by tools/trove_grid.py, answers off the later "
                 "issue's printed solution grid"},
+    "tools/gale_tls_read.py": {
+        "channel": "newspaper",
+        "what": "a TLS crossword page saved from Gale's TLS Historical Archive "
+                "(tools/gale_fetch.py): clues voted across the OCR readers and the VLM's column "
+                "reads, the 15x15 grid read off the scan by tools/trove_grid.py"},
     "tools/file_times_puzzles.py": {
         "channel": "blog",
         "what": "a times-for-the-times write-up's clue list and answers, the "
@@ -405,7 +410,7 @@ ACQUISITION_BY_SOURCE = {
     ("ftcryptic", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("independent", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("sundaytimes", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
-    ("tls", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("tls", "link.gale.com"): ("tools/file_archive_org_puzzles.py", "tools/gale_tls_read.py"),
     ("timesjumbo", "link.gale.com"): ("tools/gale_jumbo_read.py",),
     ("sundaytel", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("indysunday", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
