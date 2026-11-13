@@ -457,7 +457,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._SPECIAL_TITLE_FIX[gt.key][:2],
                                                                       *f._WINNERS_BAND_FIX[gt.key][:2],
                                                                       *f._TELEGRAPH_SATURDAY_FIX[gt.key][:2],
-                                                                      *f._TELEGRAPH_PRIZE_OF_FIX[gt.key][:2]},
+                                                                      *f._TELEGRAPH_PRIZE_OF_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_TITLE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3557,6 +3558,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TELEGRAPH_TITLE_FIX:
+        return f._TELEGRAPH_TITLE_FIX[paper][2]
     if paper in f._TELEGRAPH_PRIZE_OF_FIX:
         return f._TELEGRAPH_PRIZE_OF_FIX[paper][2]
     if paper in f._TELEGRAPH_SATURDAY_FIX:
@@ -5061,6 +5064,13 @@ _of = [[(1021, 3308, 1326, 3346, "of SEPTEMBER 6-No. 18,859"), (1087, 3282, 1261
 check("a 1986 Monday's 'PRIZE SOLUTION' with 'of SEPTEMBER 6-No. 18,859' joined in its row is the Saturday prize's heading",
       [[18859], []],
       [[n for n, _ in f.telegraph_prize_headings(_of, [18865])], [n for n, _ in f.telegraph_prize_headings(_of, [19000])]])
+_lost = [[(941, 3384, 1321, 3428, "SOLUTIONNo.19,190")], [(841, 4252, 941, 4291, "ACROSS"), (1400, 4252, 1500, 4291, "DOWN")]]
+check("a Gale Telegraph page with no title read, one glued 'SOLUTIONNo.19,190' heading and one ACROSS word is the puzzle "
+      "after it, its box the ACROSS word's; two ACROSS words, or a title read, none",
+      [[19191], [], [19000]],
+      [[n for n, _, _ in f.gale_telegraph_headings(_lost)[0]],
+       [n for n, _, _ in f.gale_telegraph_headings(_lost + [[(10, 4300, 90, 4330, "ACROSS")]])[0]],
+       [n for n, _, _ in f.gale_telegraph_headings(_lost + [[(300, 2400, 600, 2440, "CROSSWORD"), (1170, 2400, 1300, 2440, "19,000")]])[0]]])
 _fri = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-30", "readAt": "2026-11-13T16:00:00+00:00"}
 _sat90 = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-31", "scanKey": "3a96114ccf041759"}
 check("a Gale Telegraph Friday puzzle of 1980-2000 with no solution read is due TELEGRAPH_SATURDAY (ranked, kept), not a "
