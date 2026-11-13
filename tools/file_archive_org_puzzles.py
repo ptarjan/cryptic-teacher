@@ -5033,6 +5033,11 @@ SUNDAY_TEL_ANCHORS = ((datetime.date(1961, 2, 5), 1), (datetime.date(1965, 3, 7)
 INDY_SUNDAY_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+on\s+sunday\s+)?(?:[A-Za-z']+\s+){0,3}?"
                                r"(?:(?:sunday|prize|cryptic)\s+){0,2}cr[o0]ss\s?w[o0]rd\W{0,3}(?:puzzle\W{0,3})?"
                                r"(?:n[o0]\W{0,3}|#)?\s*" + SMALL_NUMBER + r"(?!\s*:)(.*)$", re.IGNORECASE)
+#: The same title as the readers that run words together and misread digits print it ("BeelzebubPrizeCrossword No760",
+#: "Beelzebub Prize Crossword NO 4I0"): the spaces optional, the number's digits read as I, l, O, T or | (clue_text.digits_read).
+#: A line it matches is that title, whatever INDY_SUNDAY_TITLE made of it ("No 76" of "No760"; "4" of "4I0").
+IOS_BEELZEBUB_TITLE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:prize\s*)?cr[o0]ss\s?w[o0]rd\W{0,3}(?:n[o0]\W{0,3}|#)?\s*"
+                                 r"([\dIlOT|]{1,4})(?![\dIlOT|,])", re.IGNORECASE)
 #: Dated Independent on Sunday numbers: its first issue (28 January 1990) as No 1, "Beelzebub Prize Crossword
 #: No 954" (1 June 2008), and our first and latest indysunday files.
 INDY_SUNDAY_ANCHORS = ((datetime.date(1990, 1, 28), 1), (datetime.date(2008, 6, 1), 954),
@@ -5113,6 +5118,12 @@ def indy_sunday_headings(lines, titles=()):
     puzzles, solutions = titled_headings(lines + joined_titles(lines, INDY_SUNDAY_TITLE.match, under=True,
                                                           number_line=SHORT_NUMBER_LINE),
                                          INDY_SUNDAY_TITLE, INDEPENDENT_SOLUTION)
+    for ws in lines:
+        m = IOS_BEELZEBUB_TITLE.match(" ".join(w[4] for w in ws))
+        if m:
+            box = box_of(ws)
+            puzzles[:] = [p for p in puzzles if p[1] != box]
+            puzzles.append((number_digits(clue_text.digits_read(m.group(1))), box, None))
     have = {n for n, _ in solutions}
     solutions += [(n, b) for n, b in ios_winners(lines, titles or [p[0] for p in puzzles]) if n not in have]
     for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
@@ -13900,6 +13911,30 @@ def indy_links_due(row):
                for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale Independent on Sunday page (1993-2008) refused "No 76 is not near the 759 the date implies":
+#: the Beelzebub title the readers print glued ("BeelzebubPrizeCrossword No760": INDY_SUNDAY_TITLE needed a space before
+#: "Crossword", and only en5 read 760, too few votes) or with a digit read as a letter ("NO 4I0": its number stopped at
+#: the I), taken as the page's own number. 11-13 census of the ledger: 39 such pages; 2004-08-29 and 1997-12-14 find 760
+#: and 410 since (IOS_BEELZEBUB_TITLE). Its scan is stale (the key moved with the barred reader), so it is scanned again first, then read once, before
+#: REREAD_IOS_TITLES.
+IOS_TITLES = "Independent on Sunday page refused for a title number far from its date's, its glued or misread title read since"
+REREAD_IOS_TITLES = "2026-11-13T20:15:00+00:00"
+
+
+def ios_title_mismatch(row):
+    """Whether Gale Independent on Sunday ledger `row` of 1993-2008 holds a verdict refused for a puzzle number not near
+    the date's (number-date-mismatch)."""
+    rel = (row or {}).get("edition") or ""
+    return paper_of(rel).key == "galeindysunday" and "1993" <= Path(rel).name[:4] <= "2008" \
+        and any(v.get("cause") == "number-date-mismatch" for v in row.get("verdicts") or ())
+
+
+def ios_title_due(row):
+    """Whether Gale Independent on Sunday ledger `row`, read before REREAD_IOS_TITLES, holds a title-number mismatch
+    (ios_title_mismatch): read again with the title the scan found since."""
+    return ios_title_mismatch(row) and "inputs" in row and scan_queue.read_before(row, scan_queue.when(REREAD_IOS_TITLES))
+
+
 def indy_right_due(row):
     """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDEPENDENT_RIGHT, holds a puzzle refused
     "not-a-grid" for the ink under its title, or "no-reading-parses" with a reading that found no ACROSS and DOWN
@@ -19505,6 +19540,8 @@ def fix_reason(row):
         return INDY_BARRED_LATE
     if indy_links_due(row):
         return INDY_LINKS
+    if ios_title_due(row):
+        return IOS_TITLES
     if ft_next_due(row):
         return FT_HEADINGS
     if sunday_grid_due(row):
@@ -20150,6 +20187,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_BARRED_LATE,
                   # 11-13: an Independent page whose list stopped at a slashed linked head (indy_links_due).
                   INDY_LINKS,
+                  # 11-13: an Independent on Sunday page refused for a glued or misread title number (ios_title_due).
+                  IOS_TITLES,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
                   # pages are scanned again first.
                   FT_HEADINGS,
@@ -20417,7 +20456,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -21048,7 +21087,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID)
 
 
 def keeps_vlm(why, row, unit=None):
