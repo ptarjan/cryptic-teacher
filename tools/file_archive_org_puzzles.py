@@ -1154,6 +1154,32 @@ def sides_columns(img, grid, title, x0, paper, right_of=False):
     return x0, (min(img.width, edge) if grid[0] - x0 > gw else edge,), min(img.height, int(grid[3] + 1.8 * gw))
 
 
+#: How far left of a Saturday prize grid the across column's heading is sought, as a share of the grid's width,
+#: and how far under the grid's top (px at SCAN_WIDTH) its line may stand (1998-12-26: ACROSS at x 1689-1803,
+#: y 2976, the grid 2062-2766 from y 2981; the title "PRIZE CROSSWORD" over the grid's middle, x 2142-2687).
+ACROSS_REACH, ACROSS_BAND = 0.9, 100
+TELEGRAPH_ACROSS_MAX = 12
+
+
+def across_left(img, grid, title, paper, cache_path):
+    """The x where the across column of a Gale Telegraph Saturday prize page starts, read from its ACROSS heading
+    left of the grid, when the title stands over the grid (sides_columns found no room for the column from the
+    title's own left edge: 1998-12-26 and 1999-09-11, every reading "no clue words" for the heading line between
+    title and grid), else None."""
+    if paper.key != "galetelegraph":
+        return None
+    k = img.width / SCAN_WIDTH
+    gw = grid[2] - grid[0]
+    if grid[1] - title[3] > SIDES_BAND * k or grid[0] < ACROSS_REACH * gw:
+        return None
+    words = rapid_lines(img, grid, "ch", cache_path, None, paper.margin, None,
+                        (int(grid[0] - ACROSS_REACH * gw), int(grid[1] + ACROSS_BAND * k)), None, None, None)
+    heads = [w[0] for ws in words for w in ws[:1]
+             if "ACROSS" in w[4].upper() and len(w[4].strip()) <= TELEGRAPH_ACROSS_MAX
+             and abs(w[1] - grid[1]) <= ACROSS_BAND * k]
+    return min(heads) - paper.margin if heads else None
+
+
 #: The Gale Sunday Telegraph's Two-in-One prize crossword (1987-05-10: every full read "no reading parses", its
 #: crop the winners' list under the grid): the across column stands left of the grid, the down column right of it,
 #: the title over the grid's top left, so the title's own left edge is no guide to the column's. The left column's
@@ -1300,8 +1326,12 @@ def sunday_right_due(row):
 #: 11-09 tally of the 278 HEADINGS_JOINED reads that ended: Telegraph 2000 112 of them "no reading parses", and by
 #: weekday every Saturday since 1999-10 (52 of 54 pages, none ever filed). Once each (read before the stamp).
 SIDES_READ = "Gale Telegraph page refused no reading parses, its clue columns either side of its grid read since"
-REREAD_SIDES_READ = "2026-11-09T10:00:00+00:00"
-SIDES_FROM = datetime.date(1999, 10, 1)
+#: Moved 11-13 (the 209 Telegraph "no reading parses" rows of 11-09 10:00:17 were read by a process still holding
+#: the old code; across_left and the weekday right_of cut came since): Saturdays from 1998 and 2000 weekdays are
+#: due again, once, SIDES_READ's rank and evidence unchanged.
+REREAD_SIDES_READ = "2026-11-13T20:00:00+00:00"
+SIDES_FROM = datetime.date(1998, 1, 1)
+SIDES_WEEKDAY = (datetime.date(2000, 1, 1), datetime.date(2000, 12, 31))
 
 
 def sides_due(row):
@@ -1315,7 +1345,7 @@ def sides_due(row):
     except ValueError:
         return False
     # Only a Saturday of the print (the weekday pages of 2000 set their clues right of the grid, not either side).
-    if day.weekday() != 5 or day < SIDES_FROM:
+    if (day.weekday() != 5 or day < SIDES_FROM) and not (SIDES_WEEKDAY[0] <= day <= SIDES_WEEKDAY[1]):
         return False
     return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))
 
@@ -10673,8 +10703,18 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     sunday = paper.key == "galesundaytelegraph" and d.name[:4] < SUNDAY_SIDES_END
     quickie = sunday and d.name[:10] < SUNDAY_QUICKIE_END
     x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox, quickie) if sunday else None
-    sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) if top is not None or sunday else None
-    beside = side == "left" or indy_sunday_beside(paper, d, gbox)
+    # A Gale Telegraph 2000 weekday page prints its title over a grid at the page's left edge, both clue
+    # columns right of it (sides_columns' right_of: 2000-12-28, every reading "no clue words").
+    sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday or paper.key == "galetelegraph") \
+        if top is not None or sunday else None
+    # A Saturday prize page whose title stands over its grid (not over the across column): that column's
+    # ACROSS heading, read left of the grid, gives its left edge (across_left).
+    if sides is None and top is not None and not sunday:
+        probed = across_left(img, gbox, hit["box"], paper, CROPS / "rapid" / f"{key}.across.json")
+        sides = sides_columns(img, gbox, hit["box"], probed, paper) if probed is not None else None
+        if sides:
+            x0 = probed
+    beside =side == "left" or indy_sunday_beside(paper, d, gbox)
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
     column = left_column(lines, gbox) if side == "below" and top is None and not paper.four else None

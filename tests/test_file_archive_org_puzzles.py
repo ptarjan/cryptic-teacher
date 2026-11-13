@@ -4585,8 +4585,8 @@ check("sides_columns: a Gale Telegraph title on its grid's top with a column's w
        f.sides_columns(_SidesImg, _sg, (219, 2500, 744, 2540), 204, f.GALE_TELEGRAPH),
        f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 500, f.GALE_TELEGRAPH),
        f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.TELEGRAPH)])
-check("sides_due: only a Gale Telegraph Saturday from 1999-10 refused no reading parses, read before the stamp",
-      [True, False, False],
+check("sides_due: a Gale Telegraph Saturday from 1998 or a 2000 weekday refused no reading parses, read before the stamp",
+      [True, True, True],
       [f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
                      "verdicts": [{"refused": "no reading parses"}]}),
        f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-29", "readAt": "2026-11-09T04:55:18+00:00",
