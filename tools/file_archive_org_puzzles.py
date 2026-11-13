@@ -4773,7 +4773,7 @@ def independent_headings(lines, titles=()):
 #: "Last week's solution No. 3,455". Never a winners entry, "Crossword No.
 #: 3530: Ross Bryant": that is last week's number (the 1994-01-23 page
 #: is No 3532, its winners box names No 3530), so a number followed by a colon is no title.
-SUNDAY_TIMES_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+times\s+)?(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}"
+SUNDAY_TIMES_TITLE = re.compile(r"^\W*(?:the\s*)?(?:sunday\s*times\s*)?(?:prize\s*)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}"
                                 r"(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(?!\s*:)(.*)$", re.IGNORECASE)
 SUNDAY_TIMES_SOLUTION = re.compile(r"^\W*(?:last\s+week'?s\s+)?s[o0][l1]ut[il1][o0]n\W{0,3}(?:(?:t[o0]|of)\s+)?"
                                    r"(?:(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3})?(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
@@ -4795,8 +4795,40 @@ def sunday_times_expected_number(day):
 def sunday_times_headings(lines, titles=()):
     """titled_headings() of a Sunday Times page, its title's number taken from the line under it
     ("THE SUNDAY TIMES Crossword" over "No 3217", 1987-92: joined_titles)."""
-    return titled_headings(lines + joined_titles(lines, SUNDAY_TIMES_TITLE.match, under=True),
-                           SUNDAY_TIMES_TITLE, SUNDAY_TIMES_SOLUTION)
+    puzzles, solutions = titled_headings(lines + joined_titles(lines, SUNDAY_TIMES_TITLE.match, under=True),
+                                         SUNDAY_TIMES_TITLE, SUNDAY_TIMES_SOLUTION)
+    return (puzzles or numbered_across(lines)), solutions
+
+
+#: A line that is only a Sunday Times title's number, "No 3167" (the title words over it lost to the page's art or
+#: to the readers: 1987-92's "THE SUNDAY TIMES CROSSWORD" masthead, "SUNDAY" alone, a radio guide's heading laid
+#: over it), and the "ACROSS" word that opens the clue list, a line under it and left of it or under it.
+SUNDAY_NUMBER_LINE = re.compile(r"^\W*n[o0]\W{0,3}\s*" + SMALL_NUMBER + r"\W*$", re.IGNORECASE)
+ACROSS_LINE = re.compile(r"^\W*[a4]cr[o0]ss\W*$", re.IGNORECASE)
+#: The least number a numbered_across title may bear: the weekly puzzle's numbers pass 3,000 in 1983, and the page's
+#: other "No N" lines stand under it (the Mephisto's 1,7xx, a Clue Writing Contest's two digits).
+SUNDAY_NUMBER_FLOOR = 3000
+
+
+def numbered_across(lines):
+    """[(number, box, None)] of each line of `lines` that is only "No N" (SUNDAY_NUMBER_LINE), N from
+    SUNDAY_NUMBER_FLOOR, with an "ACROSS" line (ACROSS_LINE) under its first half-height, at most three heights
+    below its foot and no more than two widths of it left or right: the heading of a Sunday Times puzzle whose
+    title words the reads lost (1987-92: 143 of 154 untitled pages and 166 pages whose winners box was the only
+    title, 1987-02-01's "No 3169" over "ACROSS")."""
+    found = []
+    for ws in lines:
+        m = SUNDAY_NUMBER_LINE.match(" ".join(w[4] for w in ws))
+        if not m or number_digits(m.group(1)) < SUNDAY_NUMBER_FLOOR:
+            continue
+        box = box_of(ws)
+        h = max(box[3] - box[1], 1)
+        width = max(box[2] - box[0], 1)
+        if any(v is not ws and ACROSS_LINE.match(" ".join(w[4] for w in v))
+               and box[1] + h / 2 <= box_of(v)[1] <= box[3] + 3 * h
+               and abs(box_of(v)[0] - box[0]) <= 2 * width for v in lines):
+            found.append((number_digits(m.group(1)), box, None))
+    return found
 
 
 
@@ -12081,6 +12113,19 @@ for _paper, _pins in _FT_HEADINGS_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before sunday_times_headings read the heading whose title
+#: words the reads lost (numbered_across: "No 3169" over "ACROSS") and SUNDAY_TIMES_TITLE took the words the Chinese
+#: reader runs together ("THESUNDAYTIMESCROSSWORD"): only the Gale Sunday Times's pages read otherwise, and only a
+#: page with no title found (a page with one finds the same), so every scan stands but for the 1987-94 pages
+#: sunday_number_rescan names, due SUNDAY_NUMBER.
+_SUNDAY_NUMBER_FIX = {
+    "galesundaytimes": ("d71cebdc1107fdef", "5ece74becd99ad96", "0b529b8091f2de6e"),
+}
+for _paper, _pins in _SUNDAY_NUMBER_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -12156,7 +12201,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not telegraph_host(r) \
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not telegraph_host(r) \
                     and not indy_host(r) and not ft_host(r):
                 moved[k] = new
         if moved:
@@ -12265,7 +12310,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "17927db190a32678": "432a5818529a9b11",
                   # ios_solution (read_solution's branch for a Gale Independent on Sunday Beelzebub's headingless barred
                   # solution grid): no other paper's reading moves; the IoS rows are due once as INDY_BARRED.
-                  "c48eaaea65f0af45": "432a5818529a9b11"}
+                  "c48eaaea65f0af45": "432a5818529a9b11",
+                  # sunday_times_headings' numbered_across and SUNDAY_TIMES_TITLE's glued words (_SUNDAY_NUMBER_FIX): a scan's
+                  # headings only; due once as SUNDAY_NUMBER.
+                  "f61b6266a39c0171": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -13324,6 +13372,33 @@ def winners_rescan(row):
     ed = str((row or {}).get("edition") or "")
     return "inputs" in row and any(ed.startswith(f"GaleSundayTimes{y}") for y in WINNERS_YEARS) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_WINNERS_TITLE))
+
+
+#: The due reason of a Gale Sunday Times page of 1987-94 whose scan found no title, or only a winners box (the
+#: ledger's "not a grid" for a 14x16 or 576x336 ink under "Crossword No. 3486: Jean ..."), read before
+#: REREAD_SUNDAY_NUMBER. 11-13 census of the ledger: 154 untitled pages and 166 of the 209 "not a grid" rows (1987-92
+#: pages read before the winners-box fix of 11-08 and never rescanned: WINNERS_YEARS holds 1993-94 only). The page's
+#: heading is "No 3167" alone over "ACROSS" (its "THE SUNDAY TIMES CROSSWORD" masthead lost to the reads, hidden by a
+#: radio guide's heading or a lone "SUNDAY"), 69 of 77 sampled; or the Chinese reader read the masthead run together,
+#: which SUNDAY_TIMES_TITLE needed spaces for (8 of 154). sunday_times_headings reads both since. Scanned again,
+#: then read, once. No page with a title found reads otherwise (its scan key is pinned: _SUNDAY_NUMBER_FIX).
+SUNDAY_NUMBER = "Sunday Times 1987-94 page with no title, its heading's number alone over ACROSS read since"
+REREAD_SUNDAY_NUMBER = "2026-11-13T18:00:00+00:00"
+SUNDAY_NUMBER_YEARS = tuple(str(y) for y in range(1987, 1995))
+
+
+def sunday_number_rescan(row):
+    """Whether ledger `row` is due SUNDAY_NUMBER: a read (its "inputs" kept) edition of an item of
+    GaleSundayTimes<SUNDAY_NUMBER_YEARS>, read before REREAD_SUNDAY_NUMBER, its scan not failed and with no title
+    found (no puzzle) or none filed (every verdict a "not a grid" refusal, the winners box's). Its scan is stale
+    (scan_current) and rekey_scans leaves it, so it is scanned again by this code once."""
+    ed = str((row or {}).get("edition") or "")
+    if "inputs" not in row or not any(ed.startswith(f"GaleSundayTimes{y}") for y in SUNDAY_NUMBER_YEARS):
+        return False
+    scan, verdicts = row.get("scan") or {}, row.get("verdicts") or []
+    return not scan.get("failed") and (not verdicts and not scan.get("puzzles")
+                                       or bool(verdicts) and all(v.get("cause") == "not-a-grid" for v in verdicts)) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_NUMBER))
 
 
 #: The due reason of a Gale Telegraph Mon-Fri puzzle of 1980 on read incomplete from its grid image with no solution
@@ -19023,6 +19098,8 @@ def fix_reason(row):
         return HEADINGS_JOINED
     if winners_rescan(row):
         return WINNERS_TITLE
+    if sunday_number_rescan(row):
+        return SUNDAY_NUMBER
     if telegraph_next_due(row):
         return TELEGRAPH_NEXT_DAY
     if telegraph_hosted_due(row):
@@ -19641,6 +19718,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-09: a Gale Sunday Times 1993-94 page scanned before its winners box was refused as the title
                   # (winners_rescan), scanned again then read once.
                   WINNERS_TITLE,
+                  # 11-13: a Gale Sunday Times 1987-94 page with no title or only its winners box, its "No N" alone over
+                  # ACROSS read since (sunday_number_rescan), scanned again then read once.
+                  SUNDAY_NUMBER,
                   # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
                   SIDES_READ,
                   # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
@@ -19932,7 +20012,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -19970,7 +20050,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not telegraph_host(row) \
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row)
 
 
