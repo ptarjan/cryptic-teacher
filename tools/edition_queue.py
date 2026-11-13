@@ -4422,11 +4422,16 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         self.planned_took = [0.0]  # seconds the last whole plan took (replan_after)
         if self.handoff or self.resume:
             kept, self.plan_at, kept_took = last_plan(self.plan_file, self.plan_key)
+            other_code = False
+            if not kept:
+                kept, self.plan_at, kept_took = last_plan(self.plan_file, self.plan_key, loose=True)
+                other_code = bool(kept)
             if kept:
                 self.scans, self.reads, self.fetches = kept
                 self.planned = time.monotonic()
-                log(f"started from the last plan: {len(self.scans)} scans, {len(self.reads)} reads, {len(self.fetches)} fetches")
-                if time.time() - self.plan_at < plan_reuse:
+                log(f"started from the last plan{' (made by other code: the whole plan follows)' if other_code else ''}: "
+                    f"{len(self.scans)} scans, {len(self.reads)} reads, {len(self.fetches)} fetches")
+                if not other_code and time.time() - self.plan_at < plan_reuse:
                     # Young enough to stand as made: the next whole plan comes when it
                     # would have without the re-exec (fresh() already looks for new
                     # editions every FRESH_POLL), and the image may re-exec again at once.
@@ -4732,17 +4737,29 @@ def keep_plan(path, key, made, at, took=0.0):
     tmp.replace(path)
 
 
-def last_plan(path, key):
+def last_plan(path, key, loose=False):
     """(the plan keep_plan saved at `path` for these arguments, when it was
     made, how long it took), if under PLAN_KEPT seconds old, else
     (None, None, 0.0): its units may be done by now, and each says so as it
-    starts (\"current\")."""
+    starts (\"current\"). `loose` also takes a plan kept by other planner
+    code (key[4][0], the files' digests) when the arguments, scan keys,
+    solution key and the rest agree: a hot reload changes those digests on
+    nearly every push, and the new run starts units from it while it plans."""
     try:
         kept = json.loads(Path(path).read_text())
     except (FileNotFoundError, ValueError):
         return None, None, 0.0
-    if kept.get("key") != json.loads(json.dumps(key)) or time.time() - kept.get("at", 0) > PLAN_KEPT:
+    if time.time() - kept.get("at", 0) > PLAN_KEPT:
         return None, None, 0.0
+    key = json.loads(json.dumps(key))
+    then = kept.get("key")
+    if then != key:
+        try:
+            same = loose and then[:4] == key[:4] and then[4][1:] == key[4][1:]
+        except (TypeError, IndexError, KeyError):
+            same = False
+        if not same:
+            return None, None, 0.0
     return tuple(kept["plan"]), kept["at"], kept.get("took", 0.0)
 
 
