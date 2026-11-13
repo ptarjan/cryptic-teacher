@@ -4976,6 +4976,8 @@ def independent_expected_number(day):
     return anchored(INDEPENDENT_ANCHORS, day)
 
 
+#: A line ending in a clue's bracketed count, "crossword puzzle (10)".
+INDEPENDENT_COUNTED = re.compile(r"cr[o0]ss\s?w[o0]rd\W{0,3}(?:puzzle\s*)?\(\s*\d[\d,\-\s]*\)\s*$", re.IGNORECASE)
 #: The Independent's title from 2008 to early 2010: "The Wednesday Crossword by Dac" over the left clue column and
 #: its "No 6828, 3 September 2008" over the right (a line each), or on Saturday "The Saturday Prize Crossword by
 #: Bannsider #7010 4 April 2009" (its last digit read "o"); never the Concise.
@@ -5065,6 +5067,10 @@ def independent_headings(lines, titles=()):
         if m:
             puzzles.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws), None))
     puzzles += independent_bare_titles(lines)
+    # A clue ending "crossword puzzle (10)" is no title: the count in brackets is no number (2014-04-26's "No 10"
+    # hid its "Prize cryptic crossword #8590").
+    counted = {box_of(ws) for ws in lines if INDEPENDENT_COUNTED.search(" ".join(w[4] for w in ws))}
+    puzzles = [p for p in puzzles if p[1] not in counted]
     seen = set()
     once = []
     for p in puzzles:
@@ -5221,6 +5227,10 @@ INDY_SUNDAY_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+on\s+sunday\s+)
 #: A line it matches is that title, whatever INDY_SUNDAY_TITLE made of it ("No 76" of "No760"; "4" of "4I0").
 IOS_BEELZEBUB_TITLE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:prize\s*)?cr[o0]ss\s?w[o0]rd\W{0,3}(?:n[o0]\W{0,3}|#)?\s*"
                                  r"([\dIlOT|]{1,4})(?![\dIlOT|,])", re.IGNORECASE)
+#: The entry instruction under the Independent on Sunday's grid, "Mark entries Beelzebub 697 and send ...", its words
+#: run together by some readers; and the Beelzebub title line whose number it corrects.
+IOS_ENTRIES = re.compile(r"mark\s*entries\s*beelzeb\w*?\s*(\d{3,4})(?!\d)", re.IGNORECASE)
+IOS_BEELZEBUB_LINE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:prize\s*)?cr[o0]ss", re.IGNORECASE)
 #: The Independent on Sunday's 2011-15 note over last issue's solution grid ("Solution for last issue").
 IOS_LAST_ISSUE = re.compile(r"solution\s*for\s*last\s*issue", re.IGNORECASE)
 #: Dated Independent on Sunday numbers: its first issue (28 January 1990) as No 1, "Beelzebub Prize Crossword
@@ -5309,6 +5319,18 @@ def indy_sunday_headings(lines, titles=()):
             box = box_of(ws)
             puzzles[:] = [p for p in puzzles if p[1] != box]
             puzzles.append((number_digits(clue_text.digits_read(m.group(1))), box, None))
+    # The page's entry instruction ("Mark entries Beelzebub 697 and send") names the puzzle the title heads: a title
+    # read short ("6" for 697) or wrong ("722" for 806) takes that number, two readers agreeing on the line.
+    entries = {int(m.group(1)) for ws in lines for m in [IOS_ENTRIES.search(" ".join(w[4] for w in ws))] if m}
+    if len(entries) == 1:
+        (entry,) = entries
+        puzzles[:] = [(entry, box, setter) if n != entry and IOS_BEELZEBUB_LINE.match(
+            " ".join(w[4] for ws in lines if box_of(ws) == box for w in ws)) else (n, box, setter)
+            for n, box, setter in puzzles]
+        # A reader that could not read the number at all ("Beelzebub Prize Crossword Noee7") still found the title.
+        have_boxes = {p[1] for p in puzzles}
+        puzzles += [(entry, box_of(ws), None) for ws in lines if box_of(ws) not in have_boxes
+                    and IOS_BEELZEBUB_LINE.match(" ".join(w[4] for w in ws))]
     # 2011-15: the Concise's own numbered title is no Beelzebub's, and the Beelzebub title set under "Solution for last
     # issue" heads last week's solution grid (No.1150 on 2012-03-18, the 2012-03-11 puzzle), not this week's puzzle.
     boxes = {box_of(ws): " ".join(w[4] for w in ws) for ws in lines}
@@ -6136,6 +6158,11 @@ def mended_digit(n, day, expected, held, lost=False):
             m = int(text[:k] + digit + text[k + 1:])
             if digit != text[k] and abs(m - expected) <= DIGIT_SLACK:
                 return m
+    # One digit too many ("2O67" read for 207): the number with one digit dropped, within DIGIT_SLACK of `expected`.
+    for k in range(len(text) if len(text) > 3 else 0):
+        m = int(text[:k] + text[k + 1:])
+        if abs(m - expected) <= DIGIT_SLACK:
+            return m
     # A digit lost whole ("1738" for 11,738: the thousands' comma read for it, FT 2001-06): the one number a digit
     # put in anywhere makes within LOST_DIGIT_SLACK of `expected`, when only one does.
     near = {int(text[:k] + digit + text[k:]) for k in range(len(text) + 1) for digit in "0123456789"
@@ -13068,6 +13095,20 @@ for _paper, _pins in _TELEGRAPH_TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before independent_headings dropped a clue's bracketed count
+#: ("crossword puzzle (10)": 2014-04-26's "No 10"), indy_sunday_headings took the Beelzebub title's number from the entry
+#: line ("Mark entries Beelzebub 697") and mended_digit dropped a digit too many: only the Gale Independent's and the Gale
+#: Independent on Sunday's headings read otherwise, so their old scans stand but for the pages refused for a title far
+#: from its date's, scanned again by ios_title_rescan (IOS_TITLES).
+_INDY_ENTRIES_FIX = {
+    "galeindependent": ("86b8934fa0721233", "4e0e76321c7eb4bb", "15b4f7c04b9c395d"),
+    "galeindysunday": ("47e306ae688568ab", "02bc23b9b58ceaa0", "8c6f801319787437"),
+}
+for _paper, _pins in _INDY_ENTRIES_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -13145,7 +13186,7 @@ def rekey_scans(ledger):
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
                     and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not telegraph_host(r) \
-                    and not indy_host(r) and not ft_host(r):
+                    and not indy_host(r) and not ft_host(r) and not ios_title_rescan(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -14761,15 +14802,27 @@ def sunday_foot_due(row):
 #: and 410 since (IOS_BEELZEBUB_TITLE). Its scan is stale (the key moved with the barred reader), so it is scanned again first, then read once, before
 #: REREAD_IOS_TITLES.
 IOS_TITLES = "Independent on Sunday page refused for a title number far from its date's, its glued or misread title read since"
-REREAD_IOS_TITLES = "2026-11-13T20:15:00+00:00"
+REREAD_IOS_TITLES = "2026-11-14T08:00:00+00:00"  # 11-13 later: entry line "Mark entries Beelzebub N" corrects a short title
 
 
 def ios_title_mismatch(row):
     """Whether Gale Independent on Sunday ledger `row` of 1993-2015 holds a verdict refused for a puzzle number not near
     the date's (number-date-mismatch)."""
     rel = (row or {}).get("edition") or ""
+    if paper_of(rel).key == "galeindependent":
+        # A daily's title read as a bracketed count ("No 10" of "crossword puzzle (10)"): far under its date's number.
+        return any(v.get("cause") == "number-date-mismatch" and (v.get("number") or 999) < 100
+                   and "is not near the" in str(v.get("refused")) for v in row.get("verdicts") or ())
     return paper_of(rel).key == "galeindysunday" and "1993" <= Path(rel).name[:4] <= "2015" \
         and any(v.get("cause") == "number-date-mismatch" for v in row.get("verdicts") or ())
+
+
+def ios_title_rescan(row):
+    """Whether ledger `row` is a Gale Independent or Independent on Sunday page scanned under a key from before
+    _INDY_ENTRIES_FIX and refused for a title number far from its date's (ios_title_mismatch): its scan is stale
+    (scan_current) and rekey_scans leaves it, so it is scanned again by this code once."""
+    rel = (row or {}).get("edition") or ""
+    return ios_title_mismatch(row) and row.get("scanKey") != scan_key(paper_of(rel))
 
 
 def ios_title_due(row):
@@ -21458,7 +21511,7 @@ def scan_current(row, fh, rel=None):
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not telegraph_host(row) \
-        and not indy_host(row) and not ft_host(row)
+        and not indy_host(row) and not ft_host(row) and not ios_title_rescan(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
