@@ -1764,6 +1764,15 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
+def jumbo_tls_alternate(units, jumbo_prefix, tls_prefix):
+    """`units` with the Jumbo's and the TLS's taken one for one first, then the rest, each in its order."""
+    jumbo = [u for u in units if str(u.get("rel", "")).startswith(jumbo_prefix)]
+    tls = [u for u in units if str(u.get("rel", "")).startswith(tls_prefix)]
+    taken = {id(u) for u in jumbo + tls}
+    rest = [u for u in units if id(u) not in taken]
+    return alternate(tls, jumbo) + rest
+
+
 #: 11-07/08: ~24 h went to Gale Telegraph 1990-91, FT 1999-2000, Independent 2008-09 and Sunday Times 1987,
 #: nearly every unit ending "checked, no puzzle" or "nothing filed (vlm 0)", while productive work waited.
 #: A (paper, year) band whose last BAND_RUN completed units in a row found no puzzle and filed nothing goes
@@ -1974,8 +1983,8 @@ def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=fro
     listener_order = alternate(again, listener)
     # Times Jumbo pages (gale_jumbo_read, rel "jumbo:NAME") go right after the Times work, ahead of the Listener's.
     # The TLS's (gale_tls_read, "tls:NAME") follow the Jumbo's, still ahead of the Listener's.
-    listener_order.sort(key=lambda u: 0 if str(u.get("rel", "")).startswith(gale_jumbo_read.PREFIX)
-                        else 1 if str(u.get("rel", "")).startswith(gale_tls_read.PREFIX) else 2)
+    # 11-13: with the Jumbo's all ahead, no TLS unit ever started (944 never read): they now alternate one for one.
+    listener_order = jumbo_tls_alternate(listener_order, gale_jumbo_read.PREFIX, gale_tls_read.PREFIX)
     others = [u for *_, u in units if u.get("paper") != "listener"]
     # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
     # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of
