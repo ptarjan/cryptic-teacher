@@ -444,6 +444,7 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
                                                                       *f._PRIZE_HEADINGS_FIX[gt.key][:2],
                                                                       *f._TELEGRAPH_SOLUTION_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_PRIZE_FIX[gt.key][:2],
                                                                       *f._BAND_WIDTH_FIX[gt.key][:2],
                                                                       *f._GRID_CAP_FIX[gt.key][:2],
                                                                       *f._NEG_EXPECTED_FIX[gt.key][:2],
@@ -1200,7 +1201,7 @@ check("TELEGRAPH_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix
        f.TELEGRAPH_CELLS in __import__("edition_queue").LOW_ASK, f.TELEGRAPH_CELLS in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.TELEGRAPH_CELLS),
        f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST,
-       __import__("edition_queue").UNFILED_FIRST[-1] == f.TELEGRAPH_CELLS,
+       f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST[-8:],
        f.blanket_or_fix(_tc_row, "inputs changed"), f._SOLUTION_PINS["50b55099851b3f47"]))
 check("printed_stale: an unmarked short unclassified TIMES_1930 reading is read again; marked, classified, whole, "
       "refused or another paper's is not",
@@ -3564,6 +3565,8 @@ def _final(paper):
         return f._INDEPENDENT_DEDUP_FIX[paper][2]
     if paper in f._INDEPENDENT_HEADINGS_FIX:
         return f._INDEPENDENT_HEADINGS_FIX[paper][2]
+    if paper in f._TELEGRAPH_PRIZE_FIX:
+        return f._TELEGRAPH_PRIZE_FIX[paper][2]
     if paper in f._TELEGRAPH_SOLUTION_FIX:
         return f._TELEGRAPH_SOLUTION_FIX[paper][2]
     if paper in f._WINNERS_BAND_FIX:
@@ -4963,6 +4966,23 @@ check("a Mon-Fri Gale Telegraph puzzle with no solution read is due TELEGRAPH_HO
        f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"}),
        f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-12"}),
        f.telegraph_hosted_due({**_tgrow, "readAt": "2026-11-14T16:00:00+00:00"})])
+_sat = {**_tgrow, "edition": "GaleTelegraph1994UKEnglish/1994-12-10", "readAt": "2026-11-13T16:00:00+00:00"}
+_mon = {**_tgrow, "edition": "GaleTelegraph1994UKEnglish/1994-12-12"}
+check("a Gale Telegraph Saturday puzzle of 1987-2000 with no solution read is due TELEGRAPH_PRIZE_DAY (ranked), not a "
+      "Monday's, a 1979 one or one read since; the Monday's old scan of a title and no heading is due again",
+      [True, True, False, False, False, True, False, False],
+      [f.telegraph_prize_due(_sat), f.TELEGRAPH_PRIZE_DAY in f.RANKS,
+       f.telegraph_prize_due({**_sat, "edition": "GaleTelegraph1994UKEnglish/1994-12-12"}),
+       f.telegraph_prize_due({**_sat, "edition": "GaleTelegraph1979UKEnglish/1979-11-10"}),
+       f.telegraph_prize_due({**_sat, "readAt": "2026-11-14T16:00:00+00:00"}),
+       f.telegraph_host(_mon), f.telegraph_host({**_mon, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
+       f.telegraph_host({**_mon, "edition": "GaleTelegraph1985UKEnglish/1985-12-16", "scanKey": f.scan_key(f.GALE_TELEGRAPH)})])
+_prize = [line("PRIZE SOLUTION of", 1026, 3635), line("DECEMBER 3 3-No.21,423", 993, 3656)]
+check("a Monday's two-line prize heading ('PRIZE SOLUTION of' over 'DECEMBER 3-No.21,423') is the Saturday prize's number, "
+      "seven titles before its own, read clean only",
+      [[21423], [21423], [], []],
+      [[n for n, _ in f.gale_telegraph_headings(_prize, [21430])[1]], [n for n, _ in f.telegraph_prize_headings(_prize, [21429])],
+       [n for n, _ in f.telegraph_prize_headings(_prize, [21460])], [n for n, _ in f.gale_telegraph_headings(_prize)[1]]])
 
 # The Gale Independent's readers that run words together read its title glued, and its day-before solution is headed by
 # the weekday alone ("Wednesday's solution"), so the number is the title's less a lag.

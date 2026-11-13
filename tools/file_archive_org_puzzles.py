@@ -4739,14 +4739,65 @@ TELEGRAPH_BANNER = re.compile(r"^\W*(?:prize\s+)?cr[o0]ssw[o0]rd\W{1,4}(?:n[o0]\
                               re.IGNORECASE)
 
 
+#: A Gale Telegraph Monday's heading of the Saturday prize's solution, nine days on (1987-2000): "PRIZE SOLUTION of
+#: DECEMBER 3-No.21,423" (the date the puzzle printed, then its number). No "Solution No." follows "Solution", so
+#: neither TELEGRAPH_SOLUTION nor solution_headings (SOLUTION_LAGS 1 and 6 before a title) read it: ~700 Saturday
+#: puzzles of 1987-2000 had no solution linked.
+#: Set on two lines ("PRIZE SOLUTION of" over "DECEMBER 3-No.21,423"), or one: its first half, then the rest.
+TELEGRAPH_PRIZE = re.compile(r"s\w?[l1]ut[il1][o0]n\s+[o0][fl]\W*$", re.IGNORECASE)
+TELEGRAPH_PRIZE_REST = re.compile(r"^\W*[a-z]{3,9}\W{0,3}(?:\s*[\dTIl]{1,2}\W{0,2}){1,2}\s*n[o0]\W{0,3}\s*"
+                                  r"([\dTIl]\d?[,.\-\s]?\d{3})\W*$", re.IGNORECASE)
+#: How far under a heading's first line (px) its second line's top may lie.
+TELEGRAPH_PRIZE_DROP = 70
+#: How many titles before a Monday's title its Saturday prize is (a week with a holiday, one less or more).
+TELEGRAPH_PRIZE_LAGS = (6, 7, 8)
+
+
+def telegraph_prize_headings(lines, titles):
+    """[(number, box)] of each TELEGRAPH_PRIZE heading in `lines` whose number, read clean (digit for digit), is
+    TELEGRAPH_PRIZE_LAGS before one of `titles`, its box widened to the solution grid's (TELEGRAPH_SOLUTION_SPAN)."""
+    want = {t - lag for t in titles for lag in TELEGRAPH_PRIZE_LAGS}
+    found = []
+    for ws in lines:
+        for k in range(len(ws)):
+            if not re.search(r"(?i)s\w?[l1]ut", ws[k][4]):
+                continue
+            text = ""
+            for j in range(k, min(len(ws), k + 4)):
+                text = (text + " " + ws[j][4]).strip()
+                if not TELEGRAPH_PRIZE.search(text):
+                    continue
+                head = ws[k:j + 1]
+                bottom = max(w[3] for w in head)
+                rests = [ws[j + 1:]] + [other for other in lines if other is not ws and other
+                                        and bottom - 10 <= min(w[1] for w in other) <= bottom + TELEGRAPH_PRIZE_DROP]
+                for rest in rests:
+                    for s in range(len(rest)):
+                        tail = ""
+                        for e in range(s, min(len(rest), s + 4)):
+                            tail = (tail + " " + rest[e][4]).strip()
+                            m = TELEGRAPH_PRIZE_REST.match(tail)
+                            if not m:
+                                continue
+                            read = clue_text.number_figures(m.group(1))
+                            if read.isdigit() and int(read) in want:
+                                found.append((int(read), centred(box_of(head + rest[s:e + 1]), TELEGRAPH_SOLUTION_SPAN)))
+                            break
+                break
+    return found
+
+
 def gale_telegraph_headings(lines, titles=()):
     """telegraph_headings(), and each TELEGRAPH_BANNER title, its number's line joined to "CROSSWORD" where
     the 1990-91 page prints it a column away (joined_titles). With a title read, the generic solution_headings
-    add each number TELEGRAPH_SOLUTION did not return ("Sohudon No.22,9e0" is its next-day heading, garbled)."""
+    add each number TELEGRAPH_SOLUTION did not return ("Sohudon No.22,9e0" is its next-day heading, garbled),
+    and telegraph_prize_headings a Monday's Saturday prize solution."""
     puzzles, solutions = telegraph_headings(lines)
     if titles:
         have = {n for n, _ in solutions}
         solutions += [(n, b) for n, b in solution_headings(lines, titles) if n not in have]
+        have = {n for n, _ in solutions}
+        solutions += [(n, b) for n, b in telegraph_prize_headings(lines, titles) if n not in have]
     for ws in lines + joined_titles(lines, TELEGRAPH_BANNER.match):
         m = TELEGRAPH_BANNER.match(" ".join(w[4] for w in ws))
         if m:
@@ -12353,6 +12404,22 @@ for _paper, _pins in _TELEGRAPH_SOLUTION_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before gale_telegraph_headings added telegraph_prize_headings
+#: (a Monday's "PRIZE SOLUTION of DECEMBER 3-No.21,423", the Saturday prize's, nine days on): only the Gale Telegraph's
+#: pages read otherwise, so the old scans stand but for the Mondays due telegraph_prize_host.
+_TELEGRAPH_PRIZE_FIX = {
+    "galetelegraph": ("2756a34b5ea87ecb", "6e0a58e4e6c92f7d", "3a96114ccf041759"),
+}
+#: Every scan key a Gale Telegraph scan stood under before the fix above: _TELEGRAPH_OLD's, the old key and its sized
+#: twin, and every corpus-wide key then standing for it.
+_TELEGRAPH_PRIZE_OLD = frozenset({*_TELEGRAPH_OLD, *_TELEGRAPH_PRIZE_FIX["galetelegraph"][:2],
+                                  *(k for k, v in CORPUS_KEYS.items()
+                                    if v.get("galetelegraph") == _TELEGRAPH_PRIZE_FIX["galetelegraph"][0])})
+for _paper, _pins in _TELEGRAPH_PRIZE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: {paper key: (scan_key, sized_scan_key, scan_key after)} before independent_headings read the title the readers
 #: that run words together print ("CrosswordbyVirgilius No 6134", "THE MONDAY Crossword" over "No. 5682 Monday 3
 #: January") and the weekday-only solution headings ("Wednesday's solution") of 2005-15: only the Gale Independent's
@@ -12617,7 +12684,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "6c54fb811cba03cc": "432a5818529a9b11",
                   # PRINT_CLASSIFIED's "galetelegraph": only a Telegraph grid read with no cell classified reads otherwise;
                   # due once as TELEGRAPH_CELLS (solved() reads such a kept one again, printed_stale).
-                  "50b55099851b3f47": "432a5818529a9b11"}
+                  "50b55099851b3f47": "432a5818529a9b11",
+                  # telegraph_prize_headings (a Monday's Saturday prize solution heading, _TELEGRAPH_PRIZE_FIX): a scan's
+                  # headings only; due once as TELEGRAPH_PRIZE.
+                  "a92bf3d3e0ddf049": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -13741,7 +13811,7 @@ def telegraph_host(row):
     day = telegraph_day(row)
     scan = (row or {}).get("scan") or {}
     return day is not None and day.weekday() in (1, 2, 3, 4, 5) and row.get("scanKey") in _TELEGRAPH_OLD \
-        and bool(scan.get("puzzles")) and not scan.get("solutions")
+        and bool(scan.get("puzzles")) and not scan.get("solutions") or telegraph_prize_host(row)
 
 
 def telegraph_next_due(row):
@@ -13772,6 +13842,38 @@ def telegraph_hosted_due(row):
         and any(v.get("complete") is False and v.get("solution") is None and v.get("grid") == "image"
                 for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_HOSTED))
+
+
+#: The due reason of a Gale Telegraph Saturday puzzle (July 1987 to 2000) with no solution read, read before
+#: REREAD_TELEGRAPH_PRIZE: its prize solution prints on the Monday nine days on, under "PRIZE SOLUTION of DECEMBER
+#: 3-No.21,423" on two lines (TELEGRAPH_PRIZE), which no heading reader took (11-13: of 2,139 unlinked Telegraph
+#: puzzles, ~840 were Saturdays of 1985-2000, solutionFrom never set; the cached Monday bands read it nine days
+#: on, every year 1987-2000). The Mondays (telegraph_prize_host) are scanned again, then the puzzle is read, answers only, once.
+TELEGRAPH_PRIZE_DAY = "Telegraph Saturday puzzle with no solution read, its Monday prize heading read since"
+REREAD_TELEGRAPH_PRIZE = "2026-11-13T20:30:00+00:00"
+TELEGRAPH_PRIZE_FROM = datetime.date(1987, 7, 1)
+#: How many days after a Saturday puzzle its prize solution prints (the Monday week after).
+TELEGRAPH_PRIZE_DAYS = 9
+
+
+def telegraph_prize_host(row):
+    """Whether Gale Telegraph ledger `row` is a Monday of July 1987 to 2000 scanned under a key from before
+    _TELEGRAPH_PRIZE_FIX that read a title and no solution heading: the page a Saturday prize's solution prints on,
+    nine days on. Its scan is stale (scan_current) and rekey_scans leaves it, so it is scanned again by this code once."""
+    day = telegraph_day(row)
+    scan = (row or {}).get("scan") or {}
+    return day is not None and day.weekday() == 0 and TELEGRAPH_PRIZE_FROM <= day <= datetime.date(2000, 12, 31) \
+        and row.get("scanKey") in _TELEGRAPH_PRIZE_OLD and bool(scan.get("puzzles")) and not scan.get("solutions")
+
+
+def telegraph_prize_due(row):
+    """Whether Gale Telegraph ledger `row` is due TELEGRAPH_PRIZE_DAY: a Saturday edition of July 1987 to 2000, read
+    before REREAD_TELEGRAPH_PRIZE, with a verdict whose grid is an image and no solution read."""
+    day = telegraph_day(row)
+    return day is not None and day.weekday() == 5 and TELEGRAPH_PRIZE_FROM <= day <= datetime.date(2000, 12, 31) \
+        and "inputs" in row \
+        and any(v.get("solution") is None and v.get("grid") == "image" for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_PRIZE))
 
 
 #: The due reason of a Gale Telegraph edition read before REREAD_TELEGRAPH_CELLS whose linked solution grid read short with
@@ -19540,6 +19642,8 @@ def fix_reason(row):
         return TELEGRAPH_NEXT_DAY
     if telegraph_hosted_due(row):
         return TELEGRAPH_HOSTED
+    if telegraph_prize_due(row):
+        return TELEGRAPH_PRIZE_DAY
     if telegraph_cells_due(row):
         return TELEGRAPH_CELLS
     if indy_next_due(row):
@@ -20187,6 +20291,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13 (later): the same puzzles read again once their next day's page is scanned
                   # (telegraph_hosted_due; plan keeps those scans).
                   TELEGRAPH_HOSTED,
+                  # 11-13: a Gale Telegraph Saturday puzzle with no solution read, its Monday prize heading read since
+                  # (telegraph_prize_due); the Monday is scanned again first.
+                  TELEGRAPH_PRIZE_DAY,
                   # 11-13: a Gale Independent page (daily) with a glued title or a weekday-only solution heading
                   # read since (indy_next_due); the pages are scanned again first.
                   INDEPENDENT_HEADINGS,
@@ -20468,7 +20575,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20772,7 +20879,9 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         if day is None:
             return [rels[s] for s in stale]
         lo = bisect.bisect_left(days, day)
-        hi = bisect.bisect_right(days, day + datetime.timedelta(days=SOLUTION_DAYS))
+        # A Gale Telegraph Saturday's prize solution prints on the Monday nine days on (TELEGRAPH_PRIZE).
+        span = TELEGRAPH_PRIZE_DAYS if paper is GALE_TELEGRAPH and day.weekday() == 5 else SOLUTION_DAYS
+        hi = bisect.bisect_right(days, day + datetime.timedelta(days=span))
         return [rel for _, rel in dated[lo:hi]] + undated
     if paper.key in NEWEST_FIRST:
         def newest(d):
@@ -21099,7 +21208,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID)
 
 
 def keeps_vlm(why, row, unit=None):
