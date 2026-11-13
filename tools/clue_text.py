@@ -310,7 +310,8 @@ COUNT_IN = r"\(\d{1,2}(?:\s*[,;\-.]\s*\d{1,2})*\)"
 LIGHT_WORD = re.compile(r"(?:across|down|ac|dn|ack|dwn)\b", re.IGNORECASE)
 #: A clue number opening a capitalised clue, not a cross-reference ("1
 #: Down", "No. 1 Court", "e.g. 10 Downing Street").
-NEXT_CLUE = r"\s+\d{1,2}\.?\s+(?!(?:Down|Across|Ac|Dn)\b)[A-Z\"'][a-z]"
+#: (One stray letter or mark before a two-digit number, "l33 If", reads as a number too: LEAD_NUMBER.)
+NEXT_CLUE = r"\s+(?:\d{1,2}\.?|[a-zIJ|!^]\d{2})\s+(?!(?:Down|Across|Ac|Dn)\b)[A-Z\"'][a-z]"
 
 #: A clue number opening a capitalised clue anywhere in a filed clue's
 #: text: another clue, or the page's text, read into this one ("Poles 22
@@ -572,6 +573,14 @@ def edge_letter_cut(line):
     return EDGE_LETTER_OPENING.sub("", line)
 
 
+#: One stray letter or mark a reader gives a clue's two-digit number ("l33 If the use", "a16 It is quite", "i31 A
+#: timely", the Gale Telegraph 1949-58): in front of the number, a clue opening that no first-line test or
+#: NEXT_CLUE-like split read (no reading laid it).
+STRAY_LEAD = r"[a-zIJ|!^]"
+LEAD_NUMBER_START = rf"{STRAY_LEAD}\d{{2}}(?=\s+[A-Z\"'‘“])"
+LEAD_NUMBER = re.compile(rf"^{STRAY_LEAD}(?=\d{{2}}\s+[A-Z\"'‘“])")
+
+
 def clue_number_opening(line):
     """`line`, a clue's line after a count or a heading, with its clue number
     put right: a speck before the number dropped, its 1 read as I, l, J, ! or
@@ -583,6 +592,8 @@ def clue_number_opening(line):
     line = re.sub(r"^[.,:;*'_\u2022\u00b7]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
     # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
     line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
+    # One stray mark before a two-digit number ("l33 If", "a16 It", "i31 A timely": TELEGRAPH_LEAD_NUMBER).
+    line = LEAD_NUMBER.sub("", line, count=1)
     # A clue's number 11 read as two or three ones-shaped letters before a
     # capitalised word: "ll1 Red", "ll At", "1l After", "IIl Flier", "II Flier",
     # "!! Examine" (RapidOCR's both readers on the 2000-14 Gale Times, whose

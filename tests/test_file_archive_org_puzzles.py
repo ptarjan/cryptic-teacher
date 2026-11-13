@@ -3727,6 +3727,18 @@ check("a glued cross-reference and a figure a dash joins to a word are no digit 
        [bool(f.telegraph_figure_due(_tf)),
         bool(f.telegraph_figure_due({**_tf, "verdicts": [{"number": 1, "blank": {"1-down": "'Rad1o': a digit inside a word"}}]})),
         bool(f.telegraph_figure_due({**_tf, "readAt": "2026-11-14T13:00:00+00:00"})), f.TELEGRAPH_FIGURE in f.RANKS]])
+_tl = {"edition": "GaleTelegraph1953UKEnglish/1953-05-14", "inputs": "x", "readAt": "2026-11-11T09:38:15+00:00",
+       "verdicts": [{"number": 8574, "blank": {"33-across": "no reading laid a clue on it"}, "unfiled": 1}]}
+check("a clue number with one stray letter before its two digits ('l33 If', 'a16 It') is read as the number, and starts a "
+      "clue inside a line (NEXT_CLUE); a Telegraph 1949-58 row with a clue no reading laid, read before the cutoff, is due "
+      "TELEGRAPH_LEAD_NUMBER, a 1960 row and one read since are not",
+      ["33 If the use (7)", "16 It is quite", [4], [True, False, False, True]],
+      [_ct.clue_number_opening("l33 If the use (7)"), _ct.clue_number_opening("a16 It is quite"),
+       [m.start() for m in f.NEXT_CLUE.finditer("(7) l33 If the use (5)")],
+       [bool(f.telegraph_lead_number_due(_tl)),
+        bool(f.telegraph_lead_number_due({**_tl, "edition": "GaleTelegraph1960UKEnglish/1960-05-14"})),
+        bool(f.telegraph_lead_number_due({**_tl, "readAt": "2026-11-14T19:00:00+00:00"})),
+        f.TELEGRAPH_LEAD_NUMBER in f.RANKS]])
 _ir = {"edition": "GaleIndependent2015UKEnglish/2015-07-17", "inputs": "x", "readAt": "2026-11-06T19:10:23+00:00",
        "scan": {"date": "2015-07-17", "puzzles": [{"number": 8972}]},
        "verdicts": [{"number": 8972, "cause": "number-date-mismatch", "refused": "No 8972 is already filed for 2015-07-18, not 2015-07-17"}]}
