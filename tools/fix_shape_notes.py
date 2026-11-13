@@ -145,14 +145,14 @@ def r_does_not_give(node, parent, ctx):
     except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
         return None
     found, seen = [], set()
-    for late in (False, True, "inside"):
+    for late in (False, True, "inside", "cut"):
         # the end cut of a leaf is the last resort: beside the plural-S / surplus-leaf edits it only adds a
         # second way (HIFT for SHIFT) to a tree that has one right edit already; a piece pulled inside the
         # container or anagram beside it (and a reversed argument) is tried only when no other edit works
         # (TSHIRT: a reordered charade, though the last piece would also fit into the anagram)
         if late and found:
             break
-        if late is True and not _one_trim_candidate(node, answer):
+        if late in (True, "cut") and not _one_trim_candidate(node, answer):
             continue
         for k in range(len(list(walk(node)))):
             for new in _does_not_give_edits(node, k, ctx.get("clue"), late):
@@ -199,6 +199,16 @@ def _does_not_give_edits(node, k, clue=None, late=False):
         return new, list(walk(new))[k][0]
     n = list(walk(node))[k][0]
     parts = n.get("parts") or []
+    if late == "cut":
+        # the last resort of all: one letter dropped from inside a leaf ([girl]GAIL -> GAL for GA(BRIE)L,
+        # [Watching]EYEING -> EYING), tried only when no end cut gave the answer; r_does_not_give keeps it
+        # only when it is the one edit in the tree that works (_one_trim_candidate names one leaf)
+        if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
+            for i in range(1, len(n["gives"]) - 1):
+                new, t = fresh()
+                t["gives"] = n["gives"][:i] + n["gives"][i + 1:]
+                out.append(new)
+        return [_flat_charades(new) for new in out]
     if late == "inside":
         return _inside_tier(fresh, n, parts, node, clue)
     if late:
