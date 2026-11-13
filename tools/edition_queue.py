@@ -882,6 +882,7 @@ def evidence_reason(reason):
                           fa.CLUE_GARBLED,  # named Gale Times puzzles whose stored clue text is cut or garbled
                           fa.VLM_PLAIN,  # a 1930-33 page unfiled over a count-less clue the VLM's column reply holds
                           fa.WINNERS_TITLE,  # a Gale Sunday Times 1993-94 page scanned before its winners box was refused
+                          fa.TELEGRAPH_NEXT_DAY,  # a Gale Telegraph 1980+ puzzle with no solution read, its next day's heading garbled
                           fa.SIDES_READ,  # a Gale Telegraph page refused no reading parses, its columns either side of its grid
                           fa.SUNDAY_SIDES,  # the same for a Gale Sunday Telegraph 1987-98 page
                           fa.SUNDAY_RIGHT,  # that page read since, still no clue lists: its columns right of its grid
@@ -1329,7 +1330,7 @@ def only_evidence(paper, scans, reads, out=None):
     scans = [u for u in scans if u["reason"] in ("never scanned", *fa.HOST_REASONS) or u["rel"] in needed]
     # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
     # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
-    fixed = {rel for u in reads if year_evidence(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE)
+    fixed = {rel for u in reads if year_evidence(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY)
              for rel in u.get("needs") or ()}
     scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
     if gated and out is not None:
@@ -1489,7 +1490,7 @@ NEW_WORK = ("never read", "never scanned", "never read (Gale fetch)", "just laid
 
 #: Title and heading rescans of a fix: pages scanned wrong, so as good as never read; never refusal rereads,
 #: so hold_refusal_rereads leaves them at the front while never-read work remains.
-TITLE_RESCANS = (fa.HEADINGS_JOINED, fa.WINNERS_TITLE)
+TITLE_RESCANS = (fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY)
 
 
 def refusal_reread(reason):
@@ -2095,7 +2096,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.QUICK_HELD,
                  # 11-11: a Times Jumbo puzzle gale_jumbo_read filed whose Gale solution page is on disk
                  # (answers only); the newest fix goes first.
-                 fa.JUMBO_SOLUTION)
+                 fa.JUMBO_SOLUTION,
+                 # 11-13: a Gale Telegraph Mon-Fri 1980+ puzzle with no solution read, its next day's page scanned
+                 # again for a garbled "Solution No." heading (fa.telegraph_next_due); the newest fix goes first.
+                 fa.TELEGRAPH_NEXT_DAY)
 
 
 def times_solution_work(unit):
@@ -2122,7 +2126,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY)
 
 
 def unproven_first(unit):
@@ -2151,7 +2155,7 @@ def files_likely_tier(rank, unit):
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
     if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.LOST_WRITE,
-                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE):
+                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
