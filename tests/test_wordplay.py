@@ -78,6 +78,9 @@ OK = [
     ("EARTH", "cyc<moving head to tail>([heart])"),
     ("TOE", "T + outer<edges of>([obstinate])"),
     ("DL", "alt<regularly>([oddly])"),
+    # alternate letters run along a comma list of words as one string (the joined words are a reading)
+    ("ERNST", "alt<dropping odd bits of>([gear], [on], [a], [site])"),
+    ("AORTA", "alt<not viewing odds>([favour], [a], [team])"),
     ("KTDW", "regular<every third>([unknotted saw])"),
     ("E", "last<finally>([the])"),
     ("TA", "first<initially>([taken aback])"),

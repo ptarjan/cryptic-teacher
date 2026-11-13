@@ -1092,6 +1092,12 @@ def values(node):
             out = {a + b for a in out for b in values({**node, "parts": [p]})}
             if len(out) > CAP:
                 raise WordplayError(f"{render(node)} has too many readings to check")
+        if op in ("alternate", "regular", "nth") and all(_words(p) for p in parts):
+            # alternate/regular/nth letters of "gear on a site" run along the words as one
+            # string (ERNST, Painter: alt<dropping odd bits of>([gear], [on], [a], [site])), not
+            # word by word: the joined words are a reading too
+            joined = {"words": " ".join(p["words"] for p in parts)}
+            out |= values({**node, "parts": [joined]})
         return out
     if op in SELECT:
         leaf = parts[0]
