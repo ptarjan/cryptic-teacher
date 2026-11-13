@@ -10611,7 +10611,19 @@ def located_loose(d, img, title, right=False):
         again = locate_grid(img, title, right, loose=True)
         if again[1] is not None:
             return again
+    # A small grid under a wide title was taken as the day's solution (solution_shaped) and a photograph over the
+    # title as the live grid ("above": 2010-03-05, 2009-12-22, ~47 pages 2008-13, "too few neighbouring white cells"):
+    # the loose test's grid under the title is the one when it is a lattice and the strict one is not (INDY_ABOVE).
+    elif found[1] != "below" and found[0] is not None and not right and paper_of(d).key == "galeindependent":
+        again = locate_grid(img, title, right, loose=True)
+        if again[1] == "below" and again[0] != found[0] and not box_lattice(img, found[0]) and box_lattice(img, again[0]):
+            return again
     return found
+
+
+def box_lattice(img, box):
+    """Whether the ink of `box` on page `img` shows a crossword's lattice (trove_grid.lattice)."""
+    return trove_grid.lattice(img.crop(tuple(box)))
 
 
 #: Papers whose page prints its puzzle's solution nowhere the scan reads: the Gale Sunday Telegraph's (1961-2000)
@@ -14266,6 +14278,29 @@ def ios_title_due(row):
     """Whether Gale Independent on Sunday ledger `row`, read before REREAD_IOS_TITLES, holds a title-number mismatch
     (ios_title_mismatch): read again with the title the scan found since."""
     return ios_title_mismatch(row) and "inputs" in row and scan_queue.read_before(row, scan_queue.when(REREAD_IOS_TITLES))
+
+
+#: The due reason of a Gale Independent page (2008-13) whose grid image was unread ("too few neighbouring white cells to
+#: measure the lattice", "only N white cells found", "the largest ink patch is ..."): its small grid under a wide title
+#: (720px of a 4602px page, title 2000px) was taken as the day's solution and a photograph over the title as the live
+#: grid. 11-13 census: 47 "too few neighbouring" rows, 2008-2013; 2010-03-05 and 2009-12-22 find the 720px grid under
+#: the title since (located_loose: box_lattice). Read once, before REREAD_INDY_ABOVE.
+INDY_ABOVE = "Independent page whose grid was taken from over its title, the lattice under it read since"
+REREAD_INDY_ABOVE = "2026-11-14T06:00:00+00:00"
+_INDY_UNREAD = ("too few neighbouring white cells", "only ", "the largest ink patch")
+
+
+def indy_above_due(row):
+    """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDY_ABOVE, holds a puzzle not filed whose
+    grid image was unread for a lattice it could not measure (_INDY_UNREAD)."""
+    if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_ABOVE)):
+        return False
+    series = paper_of(row["edition"]).series
+    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
+               and filed_state(series, v.get("number")) is None
+               and str(v.get("imageUnread") or "").startswith(_INDY_UNREAD)
+               for v in row.get("verdicts") or ())
 
 
 def indy_right_due(row):
@@ -19881,6 +19916,8 @@ def fix_reason(row):
         return INDY_COLUMNS
     if sunday_foot_due(row):
         return SUNDAY_FOOT
+    if indy_above_due(row):
+        return INDY_ABOVE
     if ios_title_due(row):
         return IOS_TITLES
     if ft_next_due(row):
@@ -20534,9 +20571,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: the same Beelzebub of 2001-15 (indy_barred_late_due).
                   INDY_BARRED_LATE,
                   # 11-13: an Independent page whose list stopped at a slashed linked head (indy_links_due).
-                  INDY_LINKS, INDY_COLUMNS,
-                  # 11-13: a Gale Sunday Telegraph 1991-95 page whose grid was a row short (sunday_foot_due).
-                  SUNDAY_FOOT,
+                  INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, SUNDAY_FOOT,
                   # 11-13: an Independent on Sunday page refused for a glued or misread title number (ios_title_due).
                   IOS_TITLES,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
@@ -20806,7 +20841,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -21439,7 +21474,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT)
 
 
 def keeps_vlm(why, row, unit=None):
