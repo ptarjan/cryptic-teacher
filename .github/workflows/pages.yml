@@ -793,11 +793,10 @@ jobs:
     needs: validate
     if: ${{ needs.validate.outputs.mode == 'full' }}
     runs-on: ubuntu-latest
-    # Each shard one run at a time, so two runs' full checks do not fill the
-    # runners together; a newer pending shard replaces an older.
-    concurrency:
-      group: pages-annotate-${{ matrix.shard }}
-      cancel-in-progress: false
+    # No group here: a shard queued behind another run's was replaced by the
+    # newer run's, which cancelled the shard of a build that was still
+    # running, and that build then never deployed (2026-11-13 03:38Z). The
+    # validate group already keeps full checks to one running and one pending.
     timeout-minutes: 30
     strategy:
       fail-fast: false
