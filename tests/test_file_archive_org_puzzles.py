@@ -3740,6 +3740,17 @@ check("a clue number with one stray letter before its two digits ('l33 If', 'a16
         bool(f.telegraph_lead_number_due({**_tl, "edition": "GaleTelegraph1960UKEnglish/1960-05-14"})),
         bool(f.telegraph_lead_number_due({**_tl, "readAt": "2026-11-14T19:00:00+00:00"})),
         f.TELEGRAPH_LEAD_NUMBER in f.RANKS]])
+_ts = {"edition": "GaleTelegraph1993UKEnglish/1993-05-21", "inputs": "x", "readAt": "2026-11-11T09:38:15+00:00",
+       "verdicts": [{"number": 20943, "blank": {"18-across": "'faces.It': a stray mark inside a word"}}]}
+check("a sentence's stop run into the capitalised word after it ('faces.It') is parted where both are words ('mid.December', "
+      "'Dr.Who' are not), and a Gale Telegraph row with a clue blank over one, read before the cutoff, is due TELEGRAPH_STOP; "
+      "a blank over a lowercase run-on and a row read since are not",
+      ["Hides from the faces. It is (5)", "Hot in mid.December (4)", "Dr.Who is odd (3)", [True, False, False, True]],
+      [_ocr.parted("Hides from the faces.It is (5)", []), _ocr.parted("Hot in mid.December (4)", []),
+       _ocr.parted("Dr.Who is odd (3)", []),
+       [bool(f.telegraph_stop_due(_ts)),
+        bool(f.telegraph_stop_due({**_ts, "verdicts": [{"number": 1, "blank": {"1-down": "'long.lanky': a stray mark inside a word"}}]})),
+        bool(f.telegraph_stop_due({**_ts, "readAt": "2026-11-14T19:00:00+00:00"})), f.TELEGRAPH_STOP in f.RANKS]])
 _ir = {"edition": "GaleIndependent2015UKEnglish/2015-07-17", "inputs": "x", "readAt": "2026-11-06T19:10:23+00:00",
        "scan": {"date": "2015-07-17", "puzzles": [{"number": 8972}]},
        "verdicts": [{"number": 8972, "cause": "number-date-mismatch", "refused": "No 8972 is already filed for 2015-07-18, not 2015-07-17"}]}

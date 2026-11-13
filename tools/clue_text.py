@@ -1281,6 +1281,15 @@ def mend_between_clues(text):
                   lambda m: m[1] + m[2].replace(".", ",") + " ", text)
 
 
+#: A sentence's stop run into the capitalised word after it with the space lost ("faces.It", "it.Sound",
+#: "shreds.It's", "Bedford.Paris"): the word before (a known word of three letters or more, or one of
+#: STOP_SMALL) and the word after, which ocr_clues.parted() parts where both are words that do not join
+#: into one, never after a hyphen's prefix (STOP_PREFIXES: "mid.December" is mid-December).
+STOP_SPACE_LOST = re.compile(r"(?<![\w.'’])([A-Za-z]{2,})\.([A-Z][a-z]+)(?=['’]s\b|[\s,;:!?\"”)]|$)")
+STOP_SMALL = ("it", "us", "me", "so", "go", "do", "he", "we", "be", "up")
+STOP_PREFIXES = ("mid", "non", "pre", "pro", "ex", "anti", "semi", "self", "half", "post", "vice")
+
+
 def space_before_quote(text):
     """A quote or bracket run onto the word before it: "in\u201cThe" is
     "in \u201cThe", "sire?(anag.)" is "sire? (anag.)"."""
