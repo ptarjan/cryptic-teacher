@@ -183,15 +183,14 @@ def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES):
 
 
 #: A title's own print date: "(Saturday Prize Puzzle, 05/02/16)", "Sat 23-May-2015", "(07-11-2015)".
-NUMERIC_DAY = re.compile(r"(?<!\d)(\d{1,2})[/.\-](\d{1,2})[/.\-](20\d\d|\d\d)(?!\d)")
-NAMED_DAY = re.compile(r"(?<!\d)(\d{1,2})(?:st|nd|rd|th)?[\s\-]+([A-Za-z]{3})[a-z]*[\s\-,]+(\d{4})")
+NUMERIC_DAY = re.compile(r"(?<!\d)(\d{1,2})[/.\-–](\d{1,2})[/.\-–](20\d\d|\d\d)(?!\d)")
+NAMED_DAY = re.compile(r"(?<!\d)(\d{1,2})(?:st|nd|rd|th)?[\s\-–]+([A-Za-z]{3})[a-z]*[\s\-–,]+(\d{4})")
 #: A title that says the puzzle was a Saturday prize: its post comes weeks after the print day.
 PRIZE_TITLE = re.compile(r"prize|\bsat\b|saturday", re.IGNORECASE)
 
 
 def title_day(title):
     """The date a title prints for its puzzle, or None."""
-    title = title.replace("\u2013", "-")
     for m in NUMERIC_DAY.finditer(title):
         day, month, year = map(int, m.groups())
         try:
