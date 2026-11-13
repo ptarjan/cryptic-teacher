@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,61 @@
     "text": "Books time off, shortly, somewhere in Canada",
     "enumeration": "6"
    },
-   "solution": "OTTAWA"
+   "solution": "OTTAWA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere in Canada",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Books",
+       "at": 0,
+       "gives": "OT",
+       "note": "OT is the Old Testament, the first books of the Bible"
+      },
+      {
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 16,
+         "note": "said shortly, the word for off loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "off",
+         "at": 11,
+         "gives": "AWAY",
+         "note": "off in the sense of away, absent"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a quick break from their reading somewhere in Canada.",
+     "walkthrough": "'shortly' trims AWAY to AWA.",
+     "definitionFit": "The capital city of Canada is one place in that country, so a vague locator fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +101,45 @@
     "text": "To English newspaper, he's a despicable sort",
     "enumeration": "6"
    },
-   "solution": "TOERAG"
+   "solution": "TOERAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a despicable sort",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "To",
+       "at": 0,
+       "gives": "TO"
+      },
+      {
+       "words": "English",
+       "at": 3,
+       "gives": "E"
+      },
+      {
+       "words": "newspaper",
+       "at": 11,
+       "gives": "RAG",
+       "note": "a rag is a slang term for a low-grade newspaper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is denounced as contemptible in a letter to an English paper.",
+     "definitionFit": "A toerag is British slang for a contemptible, worthless person; it means a scoundrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "newspaper"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +153,39 @@
     "text": "Works of art made from lace a priest spread out",
     "enumeration": "11"
    },
-   "solution": "ALTARPIECES"
+   "solution": "ALTARPIECES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Works of art",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spread out",
+       "at": 37,
+       "note": "spreading things out disturbs their order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lace a priest",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Church artworks are said to be made from lace a priest laid out.",
+     "definitionFit": "An altarpiece is a painting or carving placed behind a church altar, a kind of artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +199,68 @@
     "text": "In several countries, fix right time to sow species of plant",
     "enumeration": "9"
    },
-   "solution": "ARTEMISIA"
+   "solution": "ARTEMISIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "species of plant",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to sow",
+       "at": 37,
+       "note": "sowing scatters seed, so the letters of the word time are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "several countries",
+       "at": 3,
+       "gives": "ASIA",
+       "note": "Asia is a continent made up of several countries"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 26,
+         "gives": "R"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "fix",
+           "at": 22,
+           "note": "to fix something in a place is to set it inside, so these letters go into the continent"
+          }
+         ],
+         "parts": [
+          {
+           "words": "time",
+           "at": 32
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gardeners abroad try to settle on the right moment for planting.",
+     "walkthrough": "'to sow' scatters the letters of the word time into EMI; 'fix' sets the result, with R, inside the continent. 'In' is a link.",
+     "definitionFit": "Artemisia is a genus of aromatic plants including wormwood and mugwort, so it names a plant type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +274,69 @@
     "text": "Lover of luxury's place, round ultimately trendy pub",
     "enumeration": "8"
    },
-   "solution": "SYBARITE"
+   "solution": "SYBARITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lover of luxury",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 25,
+       "note": "the word for place is set round the other letters, enclosing them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "place",
+       "at": 18,
+       "gives": "SITE",
+       "note": "a site is a place or location"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 31,
+           "note": "ultimately points to the final letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trendy",
+           "at": 42
+          }
+         ]
+        },
+        {
+         "words": "pub",
+         "at": 49,
+         "gives": "BAR",
+         "note": "a bar is a pub or drinking place"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasure-seeker's favourite spot is a fashionable pub nearby.",
+     "walkthrough": "The possessive on luxury is a link meaning is, not part of the definition.",
+     "definitionFit": "A sybarite is someone devoted to luxury and sensual pleasure, after the ancient Greek city of Sybaris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +350,49 @@
     "text": "More flexible caterer one's forgotten",
     "enumeration": "7"
    },
-   "solution": "SUPPLER"
+   "solution": "SUPPLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More flexible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "forgotten",
+       "at": 28,
+       "note": "something forgotten is left out, so the letter is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "caterer",
+       "at": 14,
+       "gives": "SUPPLIER",
+       "note": "a supplier is one who caters or provides goods"
+      },
+      {
+       "words": "one's",
+       "at": 22,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A catering firm seems more adaptable once one item slips its mind.",
+     "walkthrough": "'forgotten' removes I from SUPPLIER.",
+     "definitionFit": "Supple means bendy or pliant, so the comparative form means bending more easily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caterer"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +406,55 @@
     "text": "Butler turned on member of nobility",
     "enumeration": "5"
    },
-   "solution": "BARON"
+   "solution": "BARON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member of nobility",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 7,
+         "note": "turned means the name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Butler",
+         "at": 0,
+         "gives": "RAB",
+         "note": "Rab Butler was a prominent British Conservative politician of the mid-twentieth century"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "at": 14,
+       "gives": "ON",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butler rounds on an aristocrat he serves.",
+     "walkthrough": "'turned' makes RAB into BAR. The capital B on Butler disguises the politician as a servant.",
+     "definitionFit": "A baron is a rank in the peerage, so he is one member of the nobility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Butler"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +468,70 @@
     "text": "Drive hard down motorway, after a right turn",
     "enumeration": "3"
    },
-   "solution": "RAM"
+   "solution": "RAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drive hard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "after places the motorway letter behind the other two"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 40,
+         "note": "a turn swings these letters round, so they are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 32,
+           "gives": "A"
+          },
+          {
+           "words": "right",
+           "at": 34,
+           "gives": "R"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "motorway",
+       "at": 16,
+       "gives": "M",
+       "note": "M is the abbreviation for motorway, as in the M1"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist speeds down a motorway after turning right.",
+     "walkthrough": "'turn' makes AR into RA, and 'after' puts M behind it; 'down' is a link.",
+     "definitionFit": "To ram something is to force or drive it in hard, as with a ram."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drive"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +545,77 @@
     "text": "One boarding streetcar is head of university's Italian course",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian course",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boarding",
+         "at": 4,
+         "note": "someone boarding a vehicle gets inside it, so the letter goes inside the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "streetcar",
+         "at": 13,
+         "gives": "TRAM",
+         "note": "a tram is a streetcar running on rails in the street"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 23,
+       "gives": "IS",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 26,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "university's",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university chief hops on a tram for an Italian lesson.",
+     "walkthrough": "'boarding' puts I inside TRAM. The surface suggests a language course; it is a dessert course.",
+     "definitionFit": "Tiramisu is a coffee-flavoured Italian dessert, eaten as one course of a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +635,40 @@
      }
     ]
    },
-   "solution": "RESTSTOP"
+   "solution": "RESTSTOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lay-by next to highway",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Train",
+       "at": 0,
+       "note": "to train is to direct or shape, so the letters are reshaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spotters",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trainspotters gather in a lay-by beside the road.",
+     "definitionFit": "A rest stop is a roadside parking area where drivers pull off the highway to take a break."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +682,40 @@
     "text": "Comment on model",
     "enumeration": "6"
    },
-   "solution": "REMARK"
+   "solution": "REMARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 8,
+       "gives": "RE",
+       "note": "re means on or concerning, as in business letters"
+      },
+      {
+       "words": "model",
+       "at": 11,
+       "gives": "MARK",
+       "note": "a mark is a model or version, as in Mark II"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passes comment on a fashion model.",
+     "definitionFit": "A remark is a spoken observation or comment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +735,50 @@
      }
     ]
    },
-   "solution": "BAYRUM"
+   "solution": "BAYRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medicinal drink?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imbibing",
+       "at": 6,
+       "note": "imbibing means drinking in, so one word takes the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tramp",
+       "at": 0,
+       "gives": "BUM",
+       "note": "a bum is a tramp or vagrant"
+      },
+      {
+       "words": "port",
+       "at": 15,
+       "gives": "AYR",
+       "note": "Ayr is a port on the west coast of Scotland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vagrant drinks port as if it were medicine.",
+     "walkthrough": "The question mark admits bay rum is really a hair lotion, though its name suggests a drink.",
+     "definitionFit": "Bay rum is an aromatic lotion distilled with rum and bay leaves, so the question mark licenses calling it a medicinal drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +792,44 @@
     "text": "Sole mortgage — amount of money being discussed?",
     "enumeration": "8"
    },
-   "solution": "LONESOME"
+   "solution": "LONESOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sole",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LONESOME",
+     "indicators": [
+      {
+       "text": "being discussed",
+       "at": 32,
+       "note": "being discussed means spoken about, so the pieces are heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mortgage — amount of money",
+       "at": 5,
+       "gives": "LOANSUM",
+       "note": "a mortgage is a loan for a house; a sum is an amount of money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone house buyer thinks over a mortgage figure.",
+     "walkthrough": "'being discussed' says LOAN SUM is heard.",
+     "definitionFit": "Sole can mean alone and solitary, which is the feeling of being lonely and isolated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sole"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +849,40 @@
      }
     ]
    },
-   "solution": "STRIPSEARCH"
+   "solution": "STRIPSEARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "examination",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organised",
+       "at": 14,
+       "note": "organising things arranges them anew, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arch-priest's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior cleric arranges an inspection.",
+     "definitionFit": "A strip-search is a search of a person's naked body, a kind of examination by police or guards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +896,75 @@
     "text": "Teacher in state of tension about the endless traffic",
     "enumeration": "12"
    },
-   "solution": "INSTRUCTRESS"
+   "solution": "INSTRUCTRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teacher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 8,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 28,
+         "note": "about means surrounding, so the word for tension encloses the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "state of tension",
+         "at": 11,
+         "gives": "STRESS",
+         "note": "stress is a state of mental or physical tension"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 38,
+           "note": "endless means the final letter is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "traffic",
+           "at": 46,
+           "gives": "TRUCK",
+           "note": "truck means dealings or traffic, as in having no truck with someone"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stressed teacher is worried by the never-ending traffic.",
+     "walkthrough": "'about' puts the trimmed word inside, after the first letter of the word for tension; 'the' is a link.",
+     "definitionFit": "An instructress is a woman who teaches or instructs, the feminine form of instructor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "traffic"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +978,34 @@
     "text": "I cannot succeed alone",
     "enumeration": "9"
    },
-   "solution": "COHERITOR"
+   "solution": "COHERITOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I cannot succeed alone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I cannot succeed alone",
+       "at": 0,
+       "note": "succeed is read as inheriting a title or estate; one who shares an inheritance cannot inherit alone"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A coheritor is a joint heir, someone who inherits together with others rather than solely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1019,39 @@
     "text": "Plant, one vicar cultivated",
     "enumeration": "8"
    },
-   "solution": "VERONICA"
+   "solution": "VERONICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cultivated",
+       "at": 17,
+       "note": "cultivating soil turns it over, so the letters are turned into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one vicar",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman grows a flower in the vicarage garden.",
+     "definitionFit": "Veronica, or speedwell, is a genus of flowering plants, so it is one kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1071,46 @@
      }
     ]
    },
-   "solution": "MERCHANTSHIP"
+   "solution": "MERCHANTSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trading boat",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "French sea",
+       "at": 0,
+       "gives": "MER",
+       "note": "mer is the French word for sea"
+      },
+      {
+       "words": "songs",
+       "at": 11,
+       "gives": "CHANTS",
+       "note": "chants are songs, especially sung in unison"
+      },
+      {
+       "words": "in style",
+       "at": 18,
+       "gives": "HIP",
+       "note": "hip means fashionable or in style"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors sing sea shanties in fine style aboard a cargo vessel.",
+     "definitionFit": "A merchant ship is a vessel carrying cargo for trade rather than for war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1124,70 @@
     "text": "Artist upset, initially ordered to run with it",
     "enumeration": "7"
    },
-   "solution": "TIEPOLO"
+   "solution": "TIEPOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 7,
+       "note": "in a down answer, upset turns the letters upside down, reading them from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 14,
+           "note": "initially points to the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ordered",
+           "at": 24
+          }
+         ]
+        },
+        {
+         "words": "run",
+         "at": 35,
+         "gives": "LOPE",
+         "note": "to lope is to run with a long easy stride"
+        },
+        {
+         "words": "it",
+         "at": 44,
+         "gives": "IT",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter, shaken, is told to make a run for it.",
+     "walkthrough": "'upset' turns O + LOPE + IT so it reads from the bottom: OLOPEIT becomes the answer. 'to' and 'with' are links.",
+     "definitionFit": "Giovanni Battista Tiepolo was an eighteenth-century Venetian painter famous for ceiling frescoes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1207,49 @@
      }
     ]
    },
-   "solution": "LEMANS"
+   "solution": "LEMANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French town",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "chopped off",
+       "at": 18,
+       "note": "chopped off means the word for head is cut away from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Maybe 6's",
+       "at": 0,
+       "gives": "NOBLEMANS",
+       "note": "6 down is a baron, which is an example of a nobleman"
+      },
+      {
+       "words": "head",
+       "at": 10,
+       "gives": "NOB",
+       "note": "nob is slang for the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat is beheaded in a provincial French town.",
+     "walkthrough": "'chopped off' removes NOB from NOBLEMAN'S. 'Maybe' says a baron is only one kind of nobleman.",
+     "definitionFit": "Le Mans is a town in north-western France, famous for its 24-hour motor race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1269,33 @@
      }
     ]
    },
-   "solution": "JOBSHARE"
+   "solution": "JOBSHARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not all one's own work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Not all one's own work",
+       "at": 0,
+       "note": "reads like a confession of plagiarism, but describes an arrangement where two people divide one post between them"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A job-share is an arrangement in which two part-timers split one full-time position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1309,49 @@
     "text": "Indian disposes of horse quickly",
     "enumeration": "5"
    },
-   "solution": "APACE"
+   "solution": "APACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quickly",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "disposes of",
+       "at": 7,
+       "note": "disposing of something gets rid of it, so the letter is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Indian",
+       "at": 0,
+       "gives": "APACHE",
+       "note": "the Apache are a Native American people"
+      },
+      {
+       "words": "horse",
+       "at": 19,
+       "gives": "H",
+       "note": "horse is slang for heroin, abbreviated H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Native American rider quickly gets rid of his horse.",
+     "walkthrough": "'disposes of' removes H from APACHE.",
+     "definitionFit": "Apace is an adverb meaning swiftly or at a fast rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1365,41 @@
     "text": "Interior of Greek edifice was humming",
     "enumeration": "6"
    },
-   "solution": "REEKED"
+   "solution": "REEKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "was humming",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Interior of",
+       "at": 0,
+       "note": "the interior of a phrase is the run of letters inside it, here spanning both words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greek edifice",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inside an ancient Greek building, something smelled or buzzed.",
+     "definitionFit": "Humming is slang for smelling bad, and reeked means gave off a strong unpleasant smell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "humming"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1413,50 @@
     "text": "Square meal in Italy? Adult tucks in",
     "enumeration": "6"
    },
-   "solution": "PIAZZA"
+   "solution": "PIAZZA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Square",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucks in",
+       "at": 28,
+       "note": "to tuck in is to slip something inside, so the letter goes inside the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal in Italy",
+       "at": 7,
+       "gives": "PIZZA",
+       "note": "pizza is a typical Italian meal"
+      },
+      {
+       "words": "Adult",
+       "at": 22,
+       "gives": "A",
+       "note": "A is the abbreviation for adult, as in film ratings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up tucks into a proper Italian meal.",
+     "walkthrough": "'tucks in' puts A inside PIZZA. 'Square meal' reads as one phrase, but Square is the definition.",
+     "definitionFit": "A piazza is an open public square in an Italian town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1470,33 @@
     "text": "Character comes last in quiz, we've heard",
     "enumeration": "3"
    },
-   "solution": "ZED"
+   "solution": "ZED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Character comes last in quiz, we've heard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Character comes last in quiz, we've heard",
+       "at": 0,
+       "note": "the final letter of the word quiz is named as British speakers say it"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Zed is the British name for the letter Z, a character of the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1510,47 @@
     "text": "Refusing to work before playtime causes disturbance",
     "enumeration": "8"
    },
-   "solution": "OUTBREAK"
+   "solution": "OUTBREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disturbance",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 17,
+       "note": "before places the first piece ahead of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Refusing to work",
+       "at": 0,
+       "gives": "OUT",
+       "note": "workers who are out are on strike, refusing to work"
+      },
+      {
+       "words": "playtime",
+       "at": 24,
+       "gives": "BREAK",
+       "note": "break is the school playtime between lessons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pupils who refuse work before break cause trouble.",
+     "definitionFit": "An outbreak is a sudden eruption of violence or disorder, a disturbance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1570,11 @@
      }
     ]
    },
-   "solution": "SANDIEGO"
+   "solution": "SANDIEGO",
+   "annotationWithheld": {
+    "why": "Californian resort with beach area that's half-disappeared (3,5): SAND gives beach, but no reading of area that's half-disappeared gives IEGO; the clue appears garbled in OCR and no source gives the printed text",
+    "clue": "Californian resort with beach area that's half-disappeared"
+   }
   },
   {
    "number": 27,
@@ -450,7 +1588,60 @@
     "text": "Fellow's back covered in spots? That's nothing new",
     "enumeration": "6"
    },
-   "solution": "REHASH"
+   "solution": "REHASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing new",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 14,
+       "note": "covered in means held inside, so the reversed pronoun sits within the word for spots"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spots",
+       "at": 25,
+       "gives": "RASH",
+       "note": "a rash is an outbreak of spots on the skin"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 9,
+         "note": "back means the word is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fellow's",
+         "at": 0,
+         "gives": "HE",
+         "note": "he is a fellow, a man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man's back is covered in spots, which is old news.",
+     "walkthrough": "'back' turns the pronoun round to EH; 'That's' is a link.",
+     "definitionFit": "A rehash is old material reworked and presented again, so it offers nothing new or original."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
