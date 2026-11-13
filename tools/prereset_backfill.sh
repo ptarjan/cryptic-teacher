@@ -1172,8 +1172,11 @@ run_pool() {
 # one's end off its status file since it cannot wait for them, and goes on
 # with the queue where the old one stopped. Nothing in flight is stopped or
 # run again.
+# tools/burn_log.py is here too: its filter only restarts on a re-exec, so a change to it
+# alone moved the tree but left the old filter warning (11-12 23:40, a fixed false alert).
 SHELL_FILES=("$REPO/tools/prereset_backfill.sh" "$REPO/tools/puzzle_worker.sh"
-  "$REPO/tools/claude_session.sh" "$REPO/tools/alert.sh" "$REPO/tools/claude_path.sh")
+  "$REPO/tools/claude_session.sh" "$REPO/tools/alert.sh" "$REPO/tools/claude_path.sh"
+  "$REPO/tools/burn_log.py")
 PRERESET_SELF="$REPO/tools/prereset_backfill.sh"
 shell_sum() {
   cat "${SHELL_FILES[@]}" 2>/dev/null </dev/null | cksum
