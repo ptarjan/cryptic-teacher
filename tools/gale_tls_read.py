@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 4
+VERSION = 5
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -224,6 +224,32 @@ def layout_columns(words, grid):
     return cols
 
 
+def pitch_columns(words, grid, cols):
+    """[(x0, y0, x1, y1)] candidate columns at the pitch of the lists' own columns, under the grid: a list
+    runs on in more columns under it, set at the columns' regular pitch with no gutter the OCR finds among
+    the prose there. Each candidate is kept by layout_block only if its re-read crop holds the counts of
+    clue lines."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    if not cols or not words:
+        return []
+    below = grid[3] + lh / 2
+    # the pitch is that of the widest list column found, a gutter's half-line added
+    left, top, right, bottom = max(cols, key=lambda c: c[2] - c[0])
+    pitch = right - left + lh / 2
+    wide = max(w[2] for w in words)
+    out = []
+    k = 1
+    while left + k * pitch + pitch / 2 < wide:
+        x0 = left + k * pitch
+        box = (int(x0), int(below), int(x0 + pitch - lh / 2), int(max(below + 10 * lh, bottom + 8 * lh)))
+        # a column found already, or one lying beside the grid's height, is not a pitch column
+        if not any(c[0] < box[2] and box[0] < c[2] and c[1] < box[3] and box[1] < c[3] for c in cols):
+            out.append(box)
+        k += 1
+    return out
+
+
 def line_numbers(words, lh):
     """[(top, bottom, number, left)] of the lines of `words` opening on a clue's number and a word."""
     ws = sorted(words, key=lambda w: ((w[1] + w[3]) / 2, w[0]))
@@ -252,7 +278,9 @@ def layout_block(img, words, grid, ocr=None):
     ocr = ocr or (lambda im: gl.page_words(im, gl.image_key(im)))
     lh = gl.line_height(words)
     pieces = []  # (column index, crop, its words)
-    for k, box in enumerate(layout_columns(words, grid)):
+    found = layout_columns(words, grid)
+    boxes = found + pitch_columns(words, grid, found)
+    for k, box in enumerate(boxes):
         crop = img.crop(box).copy()
         draw = ImageDraw.Draw(crop)
         draw.rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]), fill="white")
@@ -262,6 +290,13 @@ def layout_block(img, words, grid, ocr=None):
             # the column's matter under its last count (prose, a notice) is not the lists'
             crop = crop.crop((0, 0, crop.width, int(max(ends) + lh / 2)))
             ws = [w for w in ws if w[3] <= crop.height]
+        if k >= len(found):
+            # a pitch column is kept only where its clue numbers run on from the last column kept
+            nums = [n for _, _, n, _ in line_numbers(ws, lh)]
+            before = [n for _, _, n, _ in line_numbers(pieces[-1][2], lh)]
+            if not nums or not before or not before[-1] < nums[0] <= before[-1] + 5 or \
+                    len([w for w in ws if COUNT_WORD.search(w[4])]) < 2:
+                continue
         pieces.append((k, crop, ws))
     if not pieces:
         return None
