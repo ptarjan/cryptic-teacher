@@ -2570,6 +2570,16 @@ check("a re-exec starts from a plan under plan_reuse old and keeps it as its own
 kp = T / "took.plan"
 eq.keep_plan(kp, ["k"], ([], [], []), time.time(), 123.0)
 check("a kept plan carries how long it took", (([], [], []), 123.0), (eq.last_plan(kp, ["k"])[0], eq.last_plan(kp, ["k"])[2]))
+# A hot reload changes the planner files' digests: the plan kept by the old code still starts units
+# (loose), unless the scan keys changed too, or loose is not asked.
+kl = T / "loose.plan"
+old_key = [["times"], "c", None, [], [["d1"], [["k1"]], "s", [], "r"]]
+new_key = [["times"], "c", None, [], [["d2"], [["k1"]], "s", [], "r"]]
+rekeyed = [["times"], "c", None, [], [["d2"], [["k2"]], "s", [], "r"]]
+eq.keep_plan(kl, old_key, ([{"u": 1}], [{"u": 2}], []), time.time())
+check("a plan kept by other planner code is taken only loosely, and only with the same scan keys",
+      (None, 1, None, None), (eq.last_plan(kl, new_key)[0], len(eq.last_plan(kl, new_key, loose=True)[0][1]),
+                              eq.last_plan(kl, rekeyed, loose=True)[0], eq.last_plan(kl, ["x"], loose=True)[0]))
 # Mirror: a plan that takes minutes (a cold cache on the media mount) holds
 # no re-exec back; the old code would run until the plan ended.
 log.unlink(missing_ok=True)
