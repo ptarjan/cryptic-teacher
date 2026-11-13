@@ -6,7 +6,12 @@ answer wearing a block's clothes: it is dropped. Text in it that is not the answ
 moves into the block's `note`, unless that would spell the answer. A note that is
 nothing but the answer ("= WATCHSTRAP", "the answer is WATCHSTRAP") is stripped.
 Anything subtler (a definition that hides the answer, a note that works the answer
-into a sentence) is the model's to retype or reword."""
+into a sentence) is the model's to retype or reword.
+
+The check reads letters, not words, so a note that merely carries the answer inside a longer
+word ("Lancelot" for LANCE, "typewriter" for TYPE, "distilling" for STILL) fails it as much as
+one that names it. `blank_note_words` writes "..." over each such word, the corpus's way of
+quoting a phrase without its missing word."""
 import re
 
 
@@ -60,3 +65,21 @@ def mend(ann, answer):
         if isinstance(b, dict):
             changed |= mend_block(b, ans)
     return changed
+
+
+def blank_note_words(note, answer):
+    """`note` with every whitespace-separated word that holds `answer`'s letters (letters only,
+    4 or more) blanked to "...", or None when nothing holds them, when the letters only appear
+    across a word join (not mendable by blanking a word), or when too little of the note is left
+    to teach anything (under 4 words, or under 40% of its letters)."""
+    ans = _bare(answer)
+    if not isinstance(note, str) or len(ans) < 4 or ans not in _bare(note):
+        return None
+    words = note.split()
+    out = [re.sub(r"[A-Za-z\u2019']+", "...", w) if ans in _bare(w) else w for w in words]
+    new = " ".join(out)
+    if new == note or ans in _bare(new):
+        return None
+    if len(_bare(new)) < 0.4 * len(_bare(note)) or sum(w != "..." for w in out) < 4:
+        return None
+    return new

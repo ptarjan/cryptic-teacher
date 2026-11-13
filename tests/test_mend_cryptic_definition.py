@@ -44,4 +44,14 @@ for note, want in [("= WATCHSTRAP", None), ("the answer is Watchstrap.", None),
 a = ann([{"clueFragment": "x", "gives": "A"}], typ=("charade",))
 check("other types untouched", not M.mend(a, "WATCHSTRAP") and a["blocks"][0].get("gives") == "A")
 
+for note, ans, want in [
+        ("Sir Lancelot of the Round Table, split as a weapon plus 'a lot', is a weapon",
+         "LANCE", "Sir ... of the Round Table, split as a weapon plus 'a lot', is a weapon"),
+        ("not unlocking a door but pressing the keys of a typewriter at work", "TYPE",
+         "not unlocking a door but pressing the keys of a ... at work"),
+        ("a plain note that says nothing of it", "TYPE", None),
+        ("Hale is a town in Cheshire, so people there are in it", "INHALE", None),
+        ("a kneading of dough", "KNEE", None)]:
+    check(f"blank_note_words {ans}: {note[:30]!r}", M.blank_note_words(note, ans) == want)
+
 raise SystemExit(1 if fails else 0)

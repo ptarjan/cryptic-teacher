@@ -1113,6 +1113,43 @@ def mend_cryptic_definitions(path, pending):
     return changed
 
 
+def mend_cryptic_definition_notes(path, pending):
+    """Blank, in each pure cryptic definition written in the model's shape (`wp` is `cd(...)`),
+    the note words that hold the answer's letters (mend_cryptic_definition.blank_note_words);
+    the entry ids changed. check_cryptic_definition_blocks reads letters, so "Lancelot" in a
+    note for LANCE sends the run back at a turn each (28 of 51 sessions it failed, 11-12/13).
+    A clue that hides its own answer is left: that one is retyped as a hidden word."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = read_puzzle_file(path)["entries"]
+    except (ValueError, OSError, KeyError):
+        return []
+    by_id = {entry_id(e): e for e in entries}
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        if not (annotation.is_model(a) and isinstance(a.get("notes"), dict) and eid in by_id
+                and str(a.get("wp") or "").lstrip().startswith("cd(")):
+            continue
+        try:
+            seen = seen_as(a, by_id[eid], entries)
+        except (ValueError, KeyError, TypeError):
+            continue
+        if seen.get("type") != ["cryptic_definition"]:
+            continue
+        ans = seen.get("answer")
+        if mend_cryptic_definition._bare(ans) in mend_cryptic_definition._bare(
+                " / ".join(definitions.texts(seen))):
+            continue
+        for key, note in list(a["notes"].items()):
+            new = mend_cryptic_definition.blank_note_words(note, ans)
+            if new:
+                a["notes"][key] = new
+                changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return sorted(set(changed), key=changed.index)
+
+
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
     can do it without judgement, or else blank the answer's words in the note
@@ -1458,6 +1495,10 @@ def main(argv):
         if cdm:
             print(f"cryptic definition blocks that gave letters or named the answer, mended "
                   f"in {pending.name}: {', '.join(cdm)}\n")
+        cdn = mend_cryptic_definition_notes(path, pending)
+        if cdn:
+            print(f"cryptic definition notes holding the answer's letters inside a longer "
+                  f"word, blanked to ... in {pending.name}: {', '.join(cdn)}\n")
         flipped = fix_directions(path, pending)
         if flipped:
             print(f"keys naming a clue in the wrong direction, renamed in {pending.name}: "
