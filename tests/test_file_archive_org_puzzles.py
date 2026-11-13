@@ -3587,6 +3587,15 @@ check("an Independent on Sunday 1990s page with its 12x12 grid unread is due IND
        f.indy_barred_due({**_ib, "edition": "GaleTimes1996UKEnglish/1996-03-10"}), f.INDY_BARRED in f.RANKS,
        __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 9 + ["." * 11 + "b"] + ["." * 12]),
        __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 11) < 0.8])
+_il = {"edition": "GaleIndependentSunday2002UKEnglish/2002-06-30", "inputs": "x", "readAt": "2026-11-11T18:40:39+00:00",
+       "verdicts": [{"number": 99647, "leaf": 0, "imageUnread": "the white cells span 12 rows and 12 columns",
+                     "readings": ["ch", "en5"], "clues": 31, "complete": False, "pending": "no grid: the search found no grid"}]}
+check("an Independent on Sunday 2001-15 page left pending with its 12x12 grid unread is due INDY_BARRED_LATE; a 1996 page, "
+      "a Times page and one read since are not; the reason is ranked",
+      [True, False, False, False, True],
+      [f.indy_barred_late_due(_il), f.indy_barred_late_due({**_il, "edition": "GaleIndependentSunday1996UKEnglish/1996-03-10"}),
+       f.indy_barred_late_due({**_il, "edition": "GaleTimes2002UKEnglish/2002-06-30"}),
+       f.indy_barred_late_due({**_il, "readAt": "2026-11-14T00:00:00+00:00"}), f.INDY_BARRED_LATE in f.RANKS])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.

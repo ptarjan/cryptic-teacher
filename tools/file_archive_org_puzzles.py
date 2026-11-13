@@ -13768,6 +13768,30 @@ def indy_barred_due(row):
                for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale Independent on Sunday page of 2001-15 (the Beelzebub's 12x12 barred grid, its clue lists
+#: under the grid) refused or left pending with its grid unread ("the white cells span 12 rows and 12 columns": "no grid:
+#: the search found no grid" or "numbers [..] lost from the clue list", the lists read but no grid to lay them on).
+#: 11-13 census of the ledger: 270 such pages (2001-04: 112 lost numbers, 2005-08: 87 found no grid), read 11-11 before
+#: scaled_grid_read took ios_barred's bars for the 12x12; 2002-06-30 and 2002-06-09 read since with their grid (31 and 34
+#: clues laid, 31 and 34 lights agreed). Read once, before REREAD_INDY_BARRED_LATE.
+INDY_BARRED_LATE = "Independent on Sunday 2001-15 Beelzebub page with its barred 12x12 grid unread, its bars read since"
+REREAD_INDY_BARRED_LATE = "2026-11-13T23:30:00+00:00"
+
+
+def indy_barred_late_due(row):
+    """Whether Gale Independent on Sunday ledger `row` of 2001-15, read before REREAD_INDY_BARRED_LATE, holds a verdict
+    not filed whose grid was unread for its 12 rows and 12 columns."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] <= INDY_SUNDAY_BARRED_END \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_BARRED_LATE)):
+        return False
+    series = paper_of(rel).series
+    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
+               and filed_state(series, v.get("number")) is None
+               and str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
+               for v in row.get("verdicts") or ())
+
+
 def indy_right_due(row):
     """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDEPENDENT_RIGHT, holds a puzzle refused
     "not-a-grid" for the ink under its title, or "no-reading-parses" with a reading that found no ACROSS and DOWN
@@ -19369,6 +19393,8 @@ def fix_reason(row):
         return INDEPENDENT_RIGHT
     if indy_barred_due(row):
         return INDY_BARRED
+    if indy_barred_late_due(row):
+        return INDY_BARRED_LATE
     if ft_next_due(row):
         return FT_HEADINGS
     if sunday_times_foot_due(row):
@@ -20008,6 +20034,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDEPENDENT_RIGHT,
                   # 11-13: an Independent on Sunday Beelzebub page whose barred 12x12 grid and left clue columns are read since.
                   INDY_BARRED,
+                  # 11-13: the same Beelzebub of 2001-15 (indy_barred_late_due).
+                  INDY_BARRED_LATE,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
                   # pages are scanned again first.
                   FT_HEADINGS,
@@ -20275,7 +20303,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20906,7 +20934,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT)
 
 
 def keeps_vlm(why, row, unit=None):
