@@ -3663,6 +3663,15 @@ check("an Independent page whose grid image spanned 15 rows and 13 columns is du
       [f.indy_wide_due(_iw), f.indy_wide_due({**_iw, "edition": "GaleTimes2012UKEnglish/2012-04-06"}),
        f.indy_wide_due({**_iw, "verdicts": [{**_iw["verdicts"][0], "imageUnread": "the white cells span 27 rows and 30 columns"}]}),
        f.indy_wide_due({**_iw, "readAt": "2026-11-14T09:00:00+00:00"}), f.INDY_WIDE in f.RANKS])
+_idr = {"edition": "GaleIndependent2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2026-11-10T13:37:56+00:00",
+        "verdicts": [{"number": 99998, "leaf": 0, "dropped": {"times": "0 of 13 counted clues lie on the grid"},
+                      "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("an Independent page refused with every reading dropped is due INDY_DROPPED, a Times page, one with an unparsed "
+      "reading and one read since are not",
+      [True, False, False, False, True],
+      [f.indy_dropped_due(_idr), f.indy_dropped_due({**_idr, "edition": "GaleTimes2008UKEnglish/2008-01-19"}),
+       f.indy_dropped_due({**_idr, "verdicts": [{**_idr["verdicts"][0], "unparsed": {"ch": "x"}}]}),
+       f.indy_dropped_due({**_idr, "readAt": "2026-11-14T11:00:00+00:00"}), f.INDY_DROPPED in f.RANKS])
 _ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
 _ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
           "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
