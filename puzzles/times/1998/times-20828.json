@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "May racing driver set record here? That's a bit of a coincidence",
     "enumeration": "7"
    },
-   "solution": "OVERLAP"
+   "solution": "OVERLAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "May racing driver set record here?",
+      "at": 0,
+      "meaning": "a record-setting driver does so over one circuit of the track, read as two words"
+     },
+     {
+      "text": "That's a bit of a coincidence",
+      "at": 35,
+      "meaning": "a partial coinciding or shared stretch between two things"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that a racing driver's record on a particular track is something of a fluke.",
+     "walkthrough": "The first half is cryptic: split the answer into OVER LAP, where a driver might set a lap record. 'May' is just 'might', not the month.",
+     "definitionFit": "Where two ranges partly share ground, they coincide over a portion, which is exactly a partial match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,42 @@
     "text": "Royal building too large to be tolerated?",
     "enumeration": "7"
    },
-   "solution": "OSBORNE"
+   "solution": "OSBORNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Royal building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "too large",
+       "at": 15,
+       "gives": "OS",
+       "note": "OS is the abbreviation for outsize, a clothing size that is too large for most"
+      },
+      {
+       "words": "to be tolerated",
+       "at": 25,
+       "gives": "BORNE",
+       "note": "borne means put up with or tolerated"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a palace is too big to put up with.",
+     "walkthrough": "OSBORNE House on the Isle of Wight was Queen Victoria's country residence.",
+     "definitionFit": "Osborne House is a former royal residence, so it is a palace or royal building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +121,48 @@
     "text": "Learning from a number of papers about game",
     "enumeration": "9"
    },
-   "solution": "ERUDITION"
+   "solution": "ERUDITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Learning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 33,
+       "note": "the word for papers goes around the game, so it is placed about it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a number of papers",
+       "at": 14,
+       "gives": "EDITION",
+       "note": "an edition is a batch of newspapers printed at one time"
+      },
+      {
+       "words": "game",
+       "at": 39,
+       "gives": "RU",
+       "note": "RU is rugby union, a football game"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gains knowledge by reading several newspapers about a sport.",
+     "definitionFit": "Erudition is deep scholarship, the knowledge acquired through study."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +176,34 @@
     "text": "This castle's a long way south of the city",
     "enumeration": "5"
    },
-   "solution": "LEEDS"
+   "solution": "LEEDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This castle's a long way south of the city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "This castle's a long way south of the city",
+       "at": 0,
+       "note": "a famous castle in Kent shares its name with a large Yorkshire city far to the north"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist remarks that a castle is nowhere near the city it is named after.",
+     "walkthrough": "LEEDS Castle stands in Kent in south-east England, some two hundred miles from the northern city of the same name.",
+     "definitionFit": "The castle bears the same name as the city but lies far to the south, in Kent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +217,52 @@
     "text": "Soldier extremely eager to join warship",
     "enumeration": "9"
    },
-   "solution": "PRIVATEER"
+   "solution": "PRIVATEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "warship",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldier",
+       "at": 0,
+       "gives": "PRIVATE",
+       "note": "a private is the lowest-ranking soldier"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 8,
+         "note": "extremely means taking only the extreme letters, the first and last, of eager"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eager",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keen soldier wants to sign up for service on a fighting ship.",
+     "walkthrough": "'extremely' gives ER, the first and last letters of 'eager'.",
+     "definitionFit": "A privateer was an armed privately owned vessel licensed to attack enemy shipping, a type of warship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +282,30 @@
      }
     ]
    },
-   "solution": "ONPAPER"
+   "solution": "ONPAPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "As a journalist's job usually is",
+      "at": 0,
+      "meaning": "a journalist's work normally appears printed in a newspaper"
+     },
+     {
+      "text": "in theory",
+      "at": 34,
+      "meaning": "theoretically, as opposed to in practice"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment that a reporter's work is, theoretically, what it seems.",
+     "definitionFit": "Something that works only in principle looks fine when written down but may fail in practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +319,59 @@
     "text": "Mineral core, unusually hard inside",
     "enumeration": "5"
    },
-   "solution": "OCHRE"
+   "solution": "OCHRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 29,
+       "note": "inside means the hard letter goes within the rearranged word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "at": 14,
+         "note": "unusually suggests the letters of core are arranged in an unusual way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "core",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 24,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist notes a mineral whose centre is unexpectedly tough.",
+     "walkthrough": "'unusually' rearranges CORE to OCRE, and 'inside' puts H within it.",
+     "definitionFit": "Ochre is an earthy iron-oxide pigment mined from the ground, so it counts as a mineral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "core"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +391,60 @@
      }
     ]
    },
-   "solution": "PARTIPRIS"
+   "solution": "PARTIPRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not disinterested",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "at": 22,
+       "note": "through means the pieces pass into the middle of the city name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "capital",
+       "at": 30,
+       "gives": "PARIS",
+       "note": "Paris is the capital of France"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Recommendation",
+         "at": 0,
+         "gives": "TIP",
+         "note": "a tip is a piece of advice or recommendation"
+        },
+        {
+         "words": "run",
+         "at": 18,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggested route across a capital city is said to be biased.",
+     "walkthrough": "PARTI PRIS is French for a preconceived view; used as an adjective it means prejudiced. 'to' and 'is' are link words.",
+     "definitionFit": "A parti pris position is a biased, prejudiced one, the opposite of impartial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +458,32 @@
     "text": "Not flush? May look flushed, so",
     "enumeration": "5"
    },
-   "solution": "PROUD"
+   "solution": "PROUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not flush",
+      "at": 0,
+      "meaning": "sticking out from a surface rather than level with it"
+     },
+     {
+      "text": "May look flushed, so",
+      "at": 11,
+      "meaning": "someone pleased with an achievement may go red with self-satisfaction"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark about a person who is short of money yet looks red in the face.",
+     "walkthrough": "'flush' tempts as 'rich', but here it is the carpenter's sense of level with a surface.",
+     "definitionFit": "Projecting beyond a surface is called standing out; a self-satisfied person may glow with pleasure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flush"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +503,34 @@
      }
     ]
    },
-   "solution": "REDTAPE"
+   "solution": "REDTAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Official procedure that's legally binding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Official procedure that's legally binding",
+       "at": 0,
+       "note": "bureaucratic formality, read literally as the coloured ribbon once used to tie up legal documents"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a formal process that has the force of law.",
+     "definitionFit": "Bureaucratic rules are named after the coloured ribbon lawyers literally bound their papers with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +544,48 @@
     "text": "Beast runs in interior of Scottish island",
     "enumeration": "5"
    },
-   "solution": "BRUTE"
+   "solution": "BRUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in interior of",
+       "at": 11,
+       "note": "in interior of means placed inside the island's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish island",
+       "at": 26,
+       "gives": "BUTE",
+       "note": "Bute is an island in the Firth of Clyde"
+      },
+      {
+       "words": "runs",
+       "at": 6,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal charges about the inland parts of an island off Scotland.",
+     "definitionFit": "A brute is a wild animal, as opposed to a human being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +599,42 @@
     "text": "Writer takes one to the forest",
     "enumeration": "9"
    },
-   "solution": "ISHERWOOD"
+   "solution": "ISHERWOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 13,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "the forest",
+       "at": 20,
+       "gives": "SHERWOOD",
+       "note": "Sherwood is the famous forest of Robin Hood in Nottinghamshire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author brings someone along to the woods.",
+     "walkthrough": "'takes' and 'to' simply join the pieces. Christopher ISHERWOOD wrote the Berlin stories behind Cabaret.",
+     "definitionFit": "Christopher Isherwood was an Anglo-American novelist, so he is a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +648,54 @@
     "text": "Restore returning monarch with all due ceremony",
     "enumeration": "9"
    },
-   "solution": "REINSTATE"
+   "solution": "REINSTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Restore",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 8,
+         "note": "returning means the abbreviation for the monarch is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "monarch",
+         "at": 18,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the Queen"
+        }
+       ]
+      },
+      {
+       "words": "with all due ceremony",
+       "at": 26,
+       "gives": "INSTATE",
+       "note": "in state means with full formal pomp"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king coming home is put back on the throne with full pageantry.",
+     "walkthrough": "'returning' turns ER round to RE.",
+     "definitionFit": "To reinstate is to put someone back in a former position, to restore them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +709,48 @@
     "text": "In centres of Hindu art can see this deity?",
     "enumeration": "5"
    },
-   "solution": "INDRA"
+   "solution": "INDRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deity",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "centres of",
+       "at": 3,
+       "note": "centres of means taking the central letters of each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hindu",
+       "at": 14
+      },
+      {
+       "words": "art",
+       "at": 20
+      },
+      {
+       "words": "can",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a Hindu god can be seen at the heart of Hindu art.",
+     "walkthrough": "The centres are IND from Hindu, R from art and A from can. 'In' and 'see this' are link words.",
+     "definitionFit": "Indra is the Vedic king of the gods, lord of thunder and rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +764,54 @@
     "text": "Order return of fish caught",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return of",
+         "at": 6,
+         "note": "return of means the fish's name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 16,
+         "gives": "IDE",
+         "note": "the ide is a freshwater fish"
+        }
+       ]
+      },
+      {
+       "words": "caught",
+       "at": 21,
+       "gives": "CT",
+       "note": "CT is a scorecard abbreviation for caught in cricket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to send back a fish that has been landed.",
+     "walkthrough": "'return of' turns IDE into EDI.",
+     "definitionFit": "An edict is an official decree or command."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +825,36 @@
     "text": "Tense supporter of highly dangerous performance",
     "enumeration": "9"
    },
-   "solution": "TIGHTROPE"
+   "solution": "TIGHTROPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tense supporter of highly dangerous performance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tense supporter of highly dangerous performance",
+       "at": 0,
+       "note": "a taut line holding up a performer who walks high above the circus ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous fan watching a risky show.",
+     "walkthrough": "'Tense' reads as anxious, but it describes the stretched line itself.",
+     "definitionFit": "A high-wire act is performed on a taut cable that bears the walker's weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +868,59 @@
     "text": "Skill shown by priest swimming in river",
     "enumeration": "9"
    },
-   "solution": "EXPERTISE"
+   "solution": "EXPERTISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in means the rearranged letters go inside the river's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 34,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swimming",
+         "at": 22,
+         "note": "swimming suggests the letters of priest moving about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "priest",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman shows prowess by bathing in a river.",
+     "walkthrough": "'swimming' rearranges PRIEST to PERTIS, which goes inside EXE.",
+     "definitionFit": "Expertise is specialist know-how, a high level of ability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +934,41 @@
     "text": "Quietly pointed to favourite",
     "enumeration": "9"
    },
-   "solution": "PREFERRED"
+   "solution": "PREFERRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "favourite",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "at": 0,
+       "gives": "P",
+       "note": "P is piano, the musical direction for quietly"
+      },
+      {
+       "words": "pointed to",
+       "at": 8,
+       "gives": "REFERRED",
+       "note": "referred to means indicated or mentioned"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discreetly indicates the one they like best.",
+     "definitionFit": "A preferred option is the one favoured above others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pointed"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +982,60 @@
     "text": "Fancy one girl that's averse to being embraced",
     "enumeration": "9"
    },
-   "solution": "IMAGINARY"
+   "solution": "IMAGINARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "being embraced",
+         "at": 32,
+         "note": "being embraced means held within the girl's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 10,
+         "gives": "MARY",
+         "note": "Mary is a girl's name"
+        },
+        {
+         "words": "averse to",
+         "at": 22,
+         "gives": "AGIN",
+         "note": "agin is dialect for against, opposed to"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Imagine a girl who does not like being hugged.",
+     "walkthrough": "AGIN is an informal word for 'against'. 'that's' is a link.",
+     "definitionFit": "Something imaginary exists only in fancy, the imagination, as in a fanciful notion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1049,48 @@
     "text": "Contents of Ark emerge in a muddle",
     "enumeration": "9"
    },
-   "solution": "MENAGERIE"
+   "solution": "MENAGERIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contents of Ark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "muddle",
+       "at": 28,
+       "note": "a muddle is a confused jumble, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "emerge",
+       "at": 16
+      },
+      {
+       "words": "in",
+       "at": 23
+      },
+      {
+       "words": "a",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noah's animals come out in a disorderly crowd.",
+     "walkthrough": "'muddle' rearranges EMERGE IN A.",
+     "definitionFit": "Noah's Ark held a collection of animals, which is what a menagerie is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1104,61 @@
     "text": "Turned up information in memory identifying Spanish killer",
     "enumeration": "7"
    },
-   "solution": "MATADOR"
+   "solution": "MATADOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish killer",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Turned up",
+       "at": 0,
+       "note": "turned up in a down clue means the whole assembled piece is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 22,
+         "note": "in means the information goes inside the memory abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "memory",
+         "at": 25,
+         "gives": "ROM",
+         "note": "ROM is read-only memory in computing"
+        },
+        {
+         "words": "information",
+         "at": 10,
+         "gives": "DATA",
+         "note": "data means information"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls information that names a Spanish murderer.",
+     "walkthrough": "DATA inside ROM gives RODATAM, which 'Turned up' reverses.",
+     "definitionFit": "A matador is the bullfighter who kills the bull in a Spanish bullfight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "killer"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1172,36 @@
     "text": "Brave decision to take off the top of one's head like this?",
     "enumeration": "5"
    },
-   "solution": "SCALP"
+   "solution": "SCALP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brave decision to take off the top of one's head like this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Brave decision to take off the top of one's head like this?",
+       "at": 0,
+       "note": "a warrior's choice to remove the hair and skin from the crown of a foe's head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courageous choice made on the spur of the moment.",
+     "walkthrough": "'Brave' looks like courageous, but it is an old word for a Native American warrior; 'off the top of one's head' suggests improvisation.",
+     "definitionFit": "Taking a trophy of skin and hair from an enemy's head was a warrior's practice, as described."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brave"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1215,49 @@
     "text": "Breathe hard, about to ligature one in surgery, perhaps",
     "enumeration": "7"
    },
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one in surgery, perhaps",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about means the panting word goes around the ligature word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Breathe hard",
+       "at": 0,
+       "gives": "PANT",
+       "note": "pant means breathe hard and fast"
+      },
+      {
+       "words": "ligature",
+       "at": 23,
+       "gives": "TIE",
+       "note": "a tie is a binding or ligature"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon breathes heavily before tying off a vessel.",
+     "walkthrough": "'to' is a link. 'perhaps' marks a doctor's surgery as one example of where a sick person is found.",
+     "definitionFit": "A sick person in a doctor's surgery or on the operating table is under treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surgery"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1271,46 @@
     "text": "Apocryphal story of American's worthless wife rejected",
     "enumeration": "5"
    },
-   "solution": "TOBIT"
+   "solution": "TOBIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apocryphal story",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "rejected",
+       "at": 46,
+       "note": "rejected means the wife is thrown out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American's worthless",
+       "at": 20,
+       "gives": "TWOBIT",
+       "note": "two-bit is American slang for cheap or worthless"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale told about an American's no-good spouse being cast aside.",
+     "walkthrough": "The Book of TOBIT is in the Apocrypha. 'of' is a link.",
+     "definitionFit": "Tobit is a book of the Apocrypha telling the tale of a devout Israelite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1324,58 @@
     "text": "Attack and defeat, capturing enemy leader",
     "enumeration": "5"
    },
-   "solution": "BESET"
+   "solution": "BESET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "at": 19,
+       "note": "capturing means the word for defeat holds the letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "defeat",
+       "at": 11,
+       "gives": "BEST",
+       "note": "to best someone is to beat them"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 35,
+         "note": "leader means the first letter of enemy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enemy",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army assaults and beats its foes, taking their commander prisoner.",
+     "definitionFit": "To beset is to assail or harass from all sides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1389,56 @@
     "text": "Branch I grafted into exhausted garden plant",
     "enumeration": "9"
    },
-   "solution": "SPEARMINT"
+   "solution": "SPEARMINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garden plant",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grafted into",
+       "at": 9,
+       "note": "grafted into means the pieces are set inside, as a cutting is inserted into stock"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exhausted",
+       "at": 22,
+       "gives": "SPENT",
+       "note": "spent means used up or exhausted"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Branch",
+         "at": 0,
+         "gives": "ARM",
+         "note": "an arm is a branch, as of a river or organisation"
+        },
+        {
+         "words": "I",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener grafts a cutting into a worn-out plant.",
+     "definitionFit": "Spearmint is a common herb grown in gardens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1452,31 @@
     "text": "Call in turn to get round",
     "enumeration": "5"
    },
-   "solution": "SHOUT"
+   "solution": "SHOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0,
+      "meaning": "a loud cry"
+     },
+     {
+      "text": "turn to get round",
+      "at": 8,
+      "meaning": "a person's turn to buy the drinks for a group"
+     }
+    ],
+    "explanation": {
+     "surface": "A person is told it is their go to buy the drinks.",
+     "walkthrough": "'in' is a link. 'My shout' is everyday British for 'my turn to pay'.",
+     "definitionFit": "A loud cry is a yell; in pub slang it is one's turn to stand a round of drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1490,48 @@
     "text": "Catholic priest concealing sacred object",
     "enumeration": "5"
    },
-   "solution": "RELIC"
+   "solution": "RELIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sacred object",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "at": 16,
+       "note": "concealing means the Catholic abbreviation hides the priest inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Catholic",
+       "at": 0,
+       "gives": "RC",
+       "note": "RC stands for Roman Catholic"
+      },
+      {
+       "words": "priest",
+       "at": 9,
+       "gives": "ELI",
+       "note": "Eli was the priest who raised Samuel in the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic cleric hides a holy item.",
+     "definitionFit": "A relic is a venerated object, such as a saint's remains or belongings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "priest"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1545,73 @@
     "text": "I almost achieved distinction in grim, shameful state",
     "enumeration": "9"
    },
-   "solution": "DISHONOUR"
+   "solution": "DISHONOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shameful state",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in means the pieces go inside the word for grim"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grim",
+       "at": 33,
+       "gives": "DOUR",
+       "note": "dour means stern and grim"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 2,
+           "note": "almost means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "achieved distinction",
+           "at": 9,
+           "gives": "SHONE",
+           "note": "shone means excelled or stood out"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly gained honours but ended up in disgrace.",
+     "walkthrough": "'almost' trims SHONE to SHON; I plus SHON goes inside DOUR.",
+     "definitionFit": "Dishonour is disgrace, a condition of shame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distinction"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1625,53 @@
     "text": "Without money up front, satisfy legal agreement",
     "enumeration": "5"
    },
-   "solution": "LEASE"
+   "solution": "LEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "legal agreement",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Without",
+       "at": 0,
+       "note": "without means the money letter is taken away"
+      },
+      {
+       "text": "up front",
+       "at": 14,
+       "note": "up front means the letter removed is the one at the start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "satisfy",
+       "at": 24,
+       "gives": "PLEASE",
+       "note": "to please is to satisfy"
+      },
+      {
+       "words": "money",
+       "at": 8,
+       "gives": "P",
+       "note": "P is penny or pence, money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant without cash in advance must meet the terms of a contract.",
+     "definitionFit": "A lease is a contract granting use of property for a time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1685,31 @@
     "text": "Go back to buy another round?",
     "enumeration": "7"
    },
-   "solution": "RETREAT"
+   "solution": "RETREAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go back",
+      "at": 0,
+      "meaning": "withdraw or move backwards"
+     },
+     {
+      "text": "buy another round?",
+      "at": 11,
+      "meaning": "treat someone again, read as a word with a 're-' prefix"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether to return to the bar for more drinks.",
+     "walkthrough": "'to' is a link. The second sense splits the answer as RE-TREAT, to treat again.",
+     "definitionFit": "To withdraw is to pull back; to stand drinks again is to treat once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1723,48 @@
     "text": "Unscramble call received in small branch",
     "enumeration": "7"
    },
-   "solution": "DECRYPT"
+   "solution": "DECRYPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unscramble",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "received in",
+       "at": 16,
+       "note": "received in means the call is taken inside the branch abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small branch",
+       "at": 28,
+       "gives": "DEPT",
+       "note": "dept is the short form of department, a branch of an organisation"
+      },
+      {
+       "words": "call",
+       "at": 11,
+       "gives": "CRY",
+       "note": "cry means call out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phone call comes in to a small office of a company.",
+     "definitionFit": "To decrypt a coded message is to decode it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unscramble"
+    }
+   }
   }
  ]
 }
