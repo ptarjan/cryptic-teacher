@@ -191,6 +191,14 @@ jobs:
       # than MAX_FILES puzzles, a manual or scheduled run, no deploy to diff
       # against or no restored row and page caches (a cold build is what the
       # slices and shards are for) is the full path below.
+      # A tools/*.py module among the changes is not by itself the full path
+      # (ci_scope --code-ok answers "code"): tools/cache_warmth.py then asks
+      # the restored stores whether they hold this code's rows and were saved
+      # under this code's page fingerprint, and only a cold store sends the
+      # build down the full path. Before that, any module edit since the live
+      # commit did, and with the live site ~20 minutes behind master nearly
+      # every build was full (run 43385445065: 16.5 minutes, full for
+      # tools/fix_shape_notes.py, which no step here runs).
       # The base is the newest commit whose Deploy to Pages step succeeded,
       # not the newest green run: the page and row caches are saved only after
       # a deploy, and the code they were made by is that commit's.
@@ -202,6 +210,7 @@ jobs:
           REPO: ${{ github.repository }}
           FULL: ${{ inputs.full || github.event.schedule == '41 9 * * *' }}
           CACHED: ${{ steps.rowcache.outputs.cache-matched-key != '' && steps.pagecache.outputs.cache-matched-key != '' }}
+          PAGEKEY: ${{ steps.pagecache.outputs.cache-matched-key }}
         run: |
           set -uo pipefail
           full() { echo "full build: $1"; echo "fast=false" >> "$GITHUB_OUTPUT"; exit 0; }
@@ -221,8 +230,18 @@ jobs:
           auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           GIT_TERMINAL_PROMPT=0 git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
             fetch --no-tags --no-recurse-submodules --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
-          verdict=$(GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py decide --site "$base") || full "could not diff against $base"
-          [ "$verdict" = fast ] || full "$verdict"
+          verdict=$(GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py decide --site --code-ok "$base") || full "could not diff against $base"
+          case "$verdict" in
+            fast) ;;
+            code\ *)
+              echo "tools/ modules moved since $base: ${verdict#code }"
+              # seo-pages-<page fingerprint>-<sha>; an older key carries none.
+              fp=$(printf '%s' "$PAGEKEY" | sed -nE 's/^seo-pages-([0-9a-f]{64})-[0-9a-f]{40}$/\1/p')
+              warmth=$(python3 tools/cache_warmth.py "$fp")
+              [ "$warmth" = warm ] || full "$verdict, and the stores are $warmth"
+              echo "the row and page stores fit this code" ;;
+            *) full "$verdict" ;;
+          esac
           GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py files "$base" > "$RUNNER_TEMP/puzzles.txt" || full "too many puzzles changed since $base"
           echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/puzzles.txt") puzzle file(s) since $base"
           echo "fast=true" >> "$GITHUB_OUTPUT"
@@ -547,15 +566,19 @@ jobs:
       # 800, not 2000: puzzle pushes each move a hundred-odd pages and, below
       # the bar, nothing is saved, so the next push re-renders those and its
       # own (run 39262958136 rendered 1781 pages for 29 puzzles, ~40s).
+      # Also whenever the store restored was saved under another page
+      # fingerprint (or under a key that names none): the key carries this
+      # run's, for tools/cache_warmth.py in the next build's Choose the build
+      # path, and a store whose key does not match its pages reads as cold.
       - name: Pack the puzzle pages
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && (fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 || !contains(steps.pagecache.outputs.cache-matched-key, steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint || 'none'))) }}
         run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && (fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 || !contains(steps.pagecache.outputs.cache-matched-key, steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint || 'none'))) }}
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
-          key: seo-pages-${{ github.sha }}
+          key: seo-pages-${{ steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint }}-${{ github.sha }}
       # The repo's caches are capped at 10GB and each run saves ~3.6GB under
       # a new key, so three runs filled it and GitHub evicted the oldest,
       # restores missed, and Save the git store and the shim build ran slow.
