@@ -3614,6 +3614,20 @@ check("an Independent page whose list stopped at a slashed linked head is due IN
        f.INDY_LINKS in f.RANKS,
        [[min(t) for t in c["tokens"]] for c in __import__("file_trove_puzzles").clues(
            "1/9 Suspends car driver (5,2,3) 17/5A/15 Barman quick (6)")[0]]])
+_ic = [[(x, 2400 + 60 * k, x + 250, 2430 + 60 * k, f"{k + 1} Clue words")] for x in (957, 1311, 1667) for k in range(5)]
+_ic2 = [ws for ws in _ic if ws[0][0] < 1500]
+_icr = (2004, 1303, 3024)
+_icg = (191, 2310, 911, 3029)
+_icd = {"edition": "GaleIndependent2011UKEnglish/2011-12-09", "inputs": "x", "readAt": "2026-11-13T12:00:00+00:00",
+        "verdicts": [{"number": 99326, "leaf": 0, "clues": 26, "complete": False, "imageDisagrees": "across clue [] names no light the grid numbers after 26"}]}
+check("an Independent page whose clue numbers stand in three print columns right of the grid gets a third window (the "
+      "gutters between the columns, the old edge the third's); two columns stay two; a page left incomplete with a lost-number "
+      "clue is due INDY_COLUMNS, a Times page and one read since are not",
+      [(1611, 1256, 3024), 2004, (2004, 1303, 3024), [True, False, False, True]],
+      [tuple(f.indy_columns(_ic, _icg, _icr)[:3]),
+       f.third_of(f.indy_columns(_ic, _icg, _icr)), f.indy_columns(_ic2, _icg, _icr),
+       [f.indy_columns_due(_icd), f.indy_columns_due({**_icd, "edition": "GaleTimes2011UKEnglish/2011-12-09"}),
+        f.indy_columns_due({**_icd, "readAt": "2026-11-14T04:00:00+00:00"}), f.INDY_COLUMNS in f.RANKS]])
 _ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
 _ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
           "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
