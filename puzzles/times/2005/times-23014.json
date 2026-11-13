@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,66 @@
     "text": "For example, one group of cops coming in about serious crime",
     "enumeration": "8"
    },
-   "solution": "REGICIDE"
+   "solution": "REGICIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "serious crime",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming in",
+       "at": 31,
+       "note": "the run of pieces comes in, entering the word for about and splitting it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "about",
+       "at": 41,
+       "gives": "RE",
+       "note": "re is Latin-derived crossword shorthand for about or concerning"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "For example",
+         "at": 0,
+         "gives": "EG",
+         "note": "eg is the abbreviation for exempli gratia, for example"
+        },
+        {
+         "words": "one",
+         "at": 13,
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "group of cops",
+         "at": 17,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, the plain-clothes detectives of a British police force"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police officers arrive to investigate a grave offence.",
+     "walkthrough": "'coming in' makes the cops' pieces enter the two letters for 'about', splitting them. CID is British police shorthand worth knowing.",
+     "definitionFit": "Killing a monarch is an especially grave offence, historically treated as treason of the highest order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +106,50 @@
     "text": "Carpet material black beetle gets under",
     "enumeration": "8"
    },
-   "solution": "REPROACH"
+   "solution": "REPROACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carpet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "gets under",
+       "at": 29,
+       "note": "in a down clue the beetle gets under, placed below, the material"
+      }
+     ],
+     "parts": [
+      {
+       "words": "material",
+       "at": 7,
+       "gives": "REP",
+       "note": "rep is a ribbed fabric used in upholstery"
+      },
+      {
+       "words": "black beetle",
+       "at": 16,
+       "gives": "ROACH",
+       "note": "roach is short for cockroach, often called a black beetle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A black beetle crawls beneath the carpet fabric.",
+     "walkthrough": "'Carpet' looks like a floor covering, but here it is the verb meaning to scold.",
+     "definitionFit": "To carpet someone is British idiom for calling them in to rebuke them, as with a boss's carpet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Carpet"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +163,41 @@
     "text": "Allow the old lady a little time?",
     "enumeration": "5"
    },
-   "solution": "GRANT"
+   "solution": "GRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the old lady",
+       "at": 6,
+       "gives": "GRAN",
+       "note": "gran is an affectionate word for grandmother"
+      },
+      {
+       "words": "a little time",
+       "at": 19,
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Give grandma a few minutes?",
+     "definitionFit": "To grant is to permit or concede something, a synonym of allow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +217,69 @@
      }
     ]
    },
-   "solution": "CATHERINEHOWARD"
+   "solution": "CATHERINEHOWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who carried the can, losing head sadly?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sadly",
+       "at": 33,
+       "note": "sadly signals the letters are rearranged, the misfortune shaking them up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Who",
+       "at": 0
+      },
+      {
+       "words": "carried",
+       "at": 4
+      },
+      {
+       "words": "the",
+       "at": 12
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 21,
+         "note": "the word can loses its head, its first letter, before the shuffle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 16
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Whoever took the blame paid with their head.",
+     "walkthrough": "CAN loses its first letter to leave AN; WHO, CARRIED, THE and AN are then rearranged. Henry VIII's fifth wife was beheaded in 1542.",
+     "definitionFit": "The fifth wife of Henry VIII took the blame for adultery and was executed by beheading."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +293,49 @@
     "text": "The old man gets to cuddle a heavenly body, the despicable fellow!",
     "enumeration": "7"
    },
-   "solution": "DASTARD"
+   "solution": "DASTARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the despicable fellow",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets to cuddle",
+       "at": 12,
+       "note": "to cuddle is to hold in your arms, so the father's word wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The old man",
+       "at": 0,
+       "gives": "DAD",
+       "note": "old man is informal for father, dad"
+      },
+      {
+       "words": "heavenly body",
+       "at": 29,
+       "gives": "STAR",
+       "note": "a star is a heavenly body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father hugs a celebrity, the scoundrel!",
+     "walkthrough": "'gets to cuddle' wraps the father round the rest. 'Dastard' is an archaic word, the root of dastardly.",
+     "definitionFit": "A dastard is an old word for a contemptible, cowardly villain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heavenly"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +349,49 @@
     "text": "Perplex two females beset by woe",
     "enumeration": "6"
    },
-   "solution": "BAFFLE"
+   "solution": "BAFFLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perplex",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "at": 20,
+       "note": "the females are surrounded on all sides by the word for woe, so it wraps them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "woe",
+       "at": 29,
+       "gives": "BALE",
+       "note": "bale is an archaic and poetic word for misery or sorrow"
+      },
+      {
+       "words": "two females",
+       "at": 8,
+       "gives": "FF",
+       "note": "F is the abbreviation for female, so two of them give FF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of women are confused while beset by sorrow.",
+     "walkthrough": "'beset by' wraps the woe word round the females. 'Bale' for woe survives today mainly in the adjective baleful.",
+     "definitionFit": "Both verbs mean to puzzle someone completely, leaving them bewildered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "woe"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +423,30 @@
      }
     ]
    },
-   "solution": "ASWHITEASASHEET"
+   "solution": "ASWHITEASASHEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a blank page",
+      "at": 0,
+      "meaning": "an unwritten sheet of paper is pure white"
+     },
+     {
+      "text": "ghastly to look at?",
+      "at": 19,
+      "meaning": "a person who looks ghastly has a deathly pale face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading is literal: an empty sheet of paper is white; the second is the idiom for pallor from shock.",
+     "definitionFit": "A simile for extreme paleness, used of a frightened or ill person's face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +466,67 @@
      }
     ]
    },
-   "solution": "FAIRYTALE"
+   "solution": "FAIRYTALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Primarily fiction — but with a strange reality?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Primarily",
+         "at": 0,
+         "note": "primarily means first of all, pointing to the opening letter of fiction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fiction",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 29
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "at": 31,
+         "note": "strange signals that the following letters are rearranged into something odd"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reality",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A make-believe tale nonetheless has a curious truth to it.",
+     "walkthrough": "F from 'fiction' is followed by a rearrangement of A REALITY.",
+     "definitionFit": "A children's story of magic and enchantment, fiction with its own strange logic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +540,59 @@
     "text": "Overwhelm mischief-maker carrying gun around",
     "enumeration": "6"
    },
-   "solution": "ENGULF"
+   "solution": "ENGULF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overwhelm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 25,
+       "note": "the mischief-maker carries the shuffled weapon inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mischief-maker",
+       "at": 10,
+       "gives": "ELF",
+       "note": "an elf is a mischievous sprite"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 38,
+         "note": "around means the letters of gun are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gun",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker armed with a gun takes over.",
+     "walkthrough": "'around' rearranges the gun's letters (to NGU) and 'carrying' puts them inside the elf. Elves are the classic mischievous sprites of folklore.",
+     "definitionFit": "To engulf is to sweep over and swamp completely, to overwhelm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 9,
@@ -186,7 +606,42 @@
     "text": "Member may be surrounded by this band",
     "enumeration": "6"
    },
-   "solution": "ARMLET"
+   "solution": "ARMLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "band",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Member",
+       "at": 0,
+       "gives": "ARM",
+       "note": "an arm is a member, a limb"
+      },
+      {
+       "words": "may",
+       "at": 7,
+       "gives": "LET",
+       "note": "let means may, as in being allowed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A limb might be encircled by this strip of cloth.",
+     "walkthrough": "The whole clue also describes the answer: an arm, a member, is encircled by this band. Only 'band' is the strict definition.",
+     "definitionFit": "An armlet is a band worn round the upper arm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +655,42 @@
     "text": "The twentieth scheme for factory?",
     "enumeration": "5"
    },
-   "solution": "PLANT"
+   "solution": "PLANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "factory",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scheme",
+       "at": 14,
+       "gives": "PLAN",
+       "note": "a scheme is a plan"
+      },
+      {
+       "words": "The twentieth",
+       "at": 0,
+       "gives": "T",
+       "note": "T is the twentieth letter of the alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A twentieth-century plan for an industrial site.",
+     "walkthrough": "'The twentieth' sounds like a century but means the twentieth letter, T.",
+     "definitionFit": "A plant is an industrial works or manufacturing facility, a synonym of factory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twentieth"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +704,50 @@
     "text": "Bound, with something boring introduced, to be slumping untidily",
     "enumeration": "9"
    },
-   "solution": "SPRAWLING"
+   "solution": "SPRAWLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slumping untidily",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introduced",
+       "at": 29,
+       "note": "the boring tool is introduced into the word for bound, going inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bound",
+       "at": 0,
+       "gives": "SPRING",
+       "note": "to bound is to leap or spring"
+      },
+      {
+       "words": "something boring",
+       "at": 12,
+       "gives": "AWL",
+       "note": "an awl is a pointed tool for boring holes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leaping about, then slumping in a heap after a dull interlude.",
+     "walkthrough": "'Something boring' suggests a dull thing; it is a tool that bores holes, and 'introduced' sets it inside the leap.",
+     "definitionFit": "Lying with limbs spread out awkwardly and carelessly is what sprawling describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +771,30 @@
      }
     ]
    },
-   "solution": "ONTHEBALL"
+   "solution": "ONTHEBALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alert",
+      "at": 0,
+      "meaning": "alert means quick-witted and attentive, sharp"
+     },
+     {
+      "text": "umpire may look for suspicious scratches here",
+      "at": 6,
+      "meaning": "in cricket, ball tampering means scratching the ball's surface to make it swing, so an umpire inspects the ball itself"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading is literal: the scratches would be found on the cricket ball, so the umpire looks on it.",
+     "definitionFit": "An idiom for being sharp and quick to react, as a player watching the ball closely is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +808,66 @@
     "text": "Sick over many hours — not a very happy scene",
     "enumeration": "5"
    },
-   "solution": "IDYLL"
+   "solution": "IDYLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very happy scene",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 5,
+       "note": "the word for sick goes over, covering, the shortened hours so they sit within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sick",
+       "at": 0,
+       "gives": "ILL",
+       "note": "ill means sick"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 23,
+         "note": "not tells us the following a is left out of the hours"
+        }
+       ],
+       "parts": [
+        {
+         "words": "many hours",
+         "at": 10,
+         "gives": "DAY",
+         "note": "a day is many hours, twenty-four of them"
+        },
+        {
+         "words": "a",
+         "at": 27,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling ill for hours on end is hardly a blissful picture.",
+     "walkthrough": "'not a' removes A from the day (leaving DY), and 'over' sets the sick word over it. 'not a very happy scene' reads as a sad one, but 'not a' is the deletion.",
+     "definitionFit": "An idyll is a picture of perfect, peaceful contentment, often pastoral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +881,49 @@
     "text": "Sugared drug Frank has swallowed",
     "enumeration": "7"
    },
-   "solution": "CANDIED"
+   "solution": "CANDIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sugared",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has swallowed",
+       "at": 19,
+       "note": "the frank word takes the drug inside it as if it were swallowing a pill"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Frank",
+       "at": 13,
+       "gives": "CANDID",
+       "note": "frank means candid, open and honest"
+      },
+      {
+       "words": "drug",
+       "at": 8,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Frank has taken a sweetened pill.",
+     "walkthrough": "'Frank' looks like a man's name; it means CANDID, which takes E inside as CANDI-E-D.",
+     "definitionFit": "Candied fruit is preserved by coating or soaking it in sugar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +937,11 @@
     "text": "Number endlessly threatening someone Check tod who makes proposal",
     "enumeration": "9"
    },
-   "solution": "NOMINATOR"
+   "solution": "NOMINATOR",
+   "annotationWithheld": {
+    "why": "Clue held as 'Number endlessly threatening someone Check tod who makes proposal': NO + MINATOR(Y) gives the answer, but 'Check tod' is stray OCR text the scan (blank) cannot confirm or correct.",
+    "clue": "Number endlessly threatening someone Check tod who makes proposal"
+   }
   },
   {
    "number": 16,
@@ -294,7 +955,61 @@
     "text": "Contemptible person captured on return — about time!",
     "enumeration": "6"
    },
-   "solution": "TOERAG"
+   "solution": "TOERAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contemptible person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 41,
+       "note": "the reversed word for captured goes about, surrounding, the word for time"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on return",
+         "at": 29,
+         "note": "on return means the word for captured is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "captured",
+         "at": 20,
+         "gives": "GOT",
+         "note": "got means captured, caught"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 47,
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain is taken back into custody, and not before time.",
+     "walkthrough": "'on return' turns the capture word into TOG, and 'about' wraps it round the time. TOERAG is British slang for a worthless person.",
+     "definitionFit": "British slang for a scoundrel or despicable lowlife, the sort of rogue a policeman might collar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1023,11 @@
     "text": "In a particular phase belt up and minute, become inactive",
     "enumeration": "8"
    },
-   "solution": "STAGNATE"
+   "solution": "STAGNATE",
+   "annotationWithheld": {
+    "why": "Clue held as 'In a particular phase belt up and minute, become inactive': STAGE around rev(TAN) gives the answer, but 'and minute' fits no parse; likely an OCR misreading that the blank scan cannot settle.",
+    "clue": "In a particular phase belt up and minute, become inactive"
+   }
   },
   {
    "number": 18,
@@ -322,7 +1041,49 @@
     "text": "Local tourists encountered in German town",
     "enumeration": "6"
    },
-   "solution": "EMMETS"
+   "solution": "EMMETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Local tourists",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "the word for encountered sits in the German town's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German town",
+       "at": 30,
+       "gives": "EMS",
+       "note": "Ems (Bad Ems) is a spa town in Germany"
+      },
+      {
+       "words": "encountered",
+       "at": 15,
+       "gives": "MET",
+       "note": "met means encountered"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers bumped into each other in a German spa.",
+     "walkthrough": "'in' places the meeting word inside the spa town. EMMETS is Cornish dialect, literally ants, for tourists swarming in each summer.",
+     "definitionFit": "In Cornwall the dialect word for ants is applied, not kindly, to summer visitors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1097,54 @@
     "text": "Man with large vehicle coming up? Give way",
     "enumeration": "6"
    },
-   "solution": "SUBMIT"
+   "solution": "SUBMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give way",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "coming up",
+       "at": 23,
+       "note": "in a down clue coming up means both pieces together are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Man",
+         "at": 0,
+         "gives": "TIM",
+         "note": "Tim is a man's name"
+        },
+        {
+         "words": "large vehicle",
+         "at": 9,
+         "gives": "BUS",
+         "note": "a bus is a large vehicle"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow in a big lorry approaches; better let him pass.",
+     "walkthrough": "TIM then BUS, read upwards as a whole, gives SUB MIT.",
+     "definitionFit": "To submit is to yield or surrender, to give way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1158,48 @@
     "text": "End of meal? Leave after eating seconds",
     "enumeration": "7"
    },
-   "solution": "DESSERT"
+   "solution": "DESSERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End of meal?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after eating",
+       "at": 19,
+       "note": "the word for leave eats the abbreviation, taking it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Leave",
+       "at": 13,
+       "gives": "DESERT",
+       "note": "to desert is to leave or abandon"
+      },
+      {
+       "words": "seconds",
+       "at": 32,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks out of dinner after a second helping.",
+     "walkthrough": "'seconds' looks like a second helping but is just S; it goes inside DESERT to give DES-S-ERT.",
+     "definitionFit": "The sweet course comes at the close of a meal, hence the question mark on a descriptive definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1213,58 @@
     "text": "Go into complicated dance figure",
     "enumeration": "7"
    },
-   "solution": "DECAGON"
+   "solution": "DECAGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "figure",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 3,
+       "note": "into means the word go is put inside the rearranged dance"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "complicated",
+         "at": 8,
+         "note": "complicated signals the letters of dance are tangled into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dance",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "Go",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get into an intricate dance step.",
+     "walkthrough": "'complicated' turns the dance into DECAN and 'into' sets GO inside it. 'figure' sounds like a dance figure; it is a shape.",
+     "definitionFit": "A decagon is a geometric figure with ten sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1278,44 @@
     "text": "A combination of notes heard in harmony",
     "enumeration": "6"
    },
-   "solution": "ACCORD"
+   "solution": "ACCORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "harmony",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ACCORD",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 23,
+       "note": "heard tells us to listen to the phrase spoken, not read it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A combination of notes",
+       "at": 0,
+       "gives": "ACHORD",
+       "note": "a chord is a combination of notes played together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blend of musical notes sounds harmonious.",
+     "walkthrough": "'A chord' said out loud sounds like the answer; 'in' is a link.",
+     "definitionFit": "To be in accord is to be in agreement, in harmony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1329,41 @@
     "text": "Peculiar language associated with love in some poetry",
     "enumeration": "5"
    },
-   "solution": "CANTO"
+   "solution": "CANTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some poetry",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Peculiar language",
+       "at": 0,
+       "gives": "CANT",
+       "note": "cant is the jargon peculiar to a particular group"
+      },
+      {
+       "words": "love",
+       "at": 34,
+       "gives": "O",
+       "note": "love is zero in tennis, which looks like O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Odd turns of phrase about romance in verse.",
+     "definitionFit": "A canto is one of the major divisions of a long poem, so it is a portion of poetry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1383,43 @@
      }
     ]
    },
-   "solution": "BACKSLANG"
+   "solution": "BACKSLANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "well-turned speech",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Supports",
+       "at": 0,
+       "gives": "BACKS",
+       "note": "backs means supports"
+      },
+      {
+       "words": "archbishop's",
+       "at": 9,
+       "gives": "LANG",
+       "note": "Cosmo Lang was Archbishop of Canterbury from 1928 to 1942"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Endorses a churchman's eloquent address.",
+     "walkthrough": "'well-turned' seems to praise the speech; it means its words are turned round, as in back slang (yob for boy).",
+     "definitionFit": "Back slang is speech in which words are spoken backwards, so it is turned in a literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well-turned"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1433,47 @@
     "text": "What can affect muscles? A cold can",
     "enumeration": "5"
    },
-   "solution": "ACTIN"
+   "solution": "ACTIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What can affect muscles?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "words": "cold",
+       "at": 27,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      },
+      {
+       "words": "can",
+       "at": 32,
+       "gives": "TIN",
+       "note": "a tin is a can"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Can a chill from a tin affect your muscles?",
+     "walkthrough": "Actin is a protein in muscle fibres, working with myosin to make them contract.",
+     "definitionFit": "A protein that, with myosin, drives muscle contraction, so it acts on muscles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1487,56 @@
     "text": "Banning unruly lout wanting to join a side",
     "enumeration": "9"
    },
-   "solution": "OUTLAWING"
+   "solution": "OUTLAWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Banning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unruly",
+         "at": 8,
+         "note": "unruly means disorderly, so the letters of lout are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lout",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 36
+      },
+      {
+       "words": "side",
+       "at": 38,
+       "gives": "WING",
+       "note": "a wing is a side, as of a building or a team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy yob is barred from joining a team.",
+     "walkthrough": "'unruly' rearranges LOUT into OUTL; 'wanting to join' is a link.",
+     "definitionFit": "To outlaw something is to prohibit or forbid it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1550,43 @@
     "text": "More pulling out half way through",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "half way through",
+       "at": 17,
+       "note": "we stop half way through the word for pulling out, keeping only its first half"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pulling out",
+       "at": 5,
+       "gives": "EXTRACTING",
+       "note": "extracting means pulling out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone withdraws from a task midway.",
+     "walkthrough": "EXTRACTING has ten letters; its first five give the answer.",
+     "definitionFit": "Extra means additional, so it is a synonym of more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulling"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1600,54 @@
     "text": "Poke fun at some of the dire dancers falling over",
     "enumeration": "6"
    },
-   "solution": "DERIDE"
+   "solution": "DERIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poke fun at",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "falling over",
+       "at": 37,
+       "note": "falling over means the run of letters is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "some of",
+         "at": 12,
+         "note": "the answer is formed from some of the letters of the dancers' phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the dire dancers",
+         "at": 20,
+         "gives": "EDIRED"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking the awful dancers as they tumble.",
+     "walkthrough": "EDIRED runs through 'thE DIRE Dancers'; read backwards it gives the answer.",
+     "definitionFit": "To deride is to mock or ridicule, to poke fun at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "falling"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1661,42 @@
     "text": "Batting posture at the crease for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "example",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Batting",
+       "at": 0,
+       "gives": "IN",
+       "note": "a batsman in cricket who is batting is said to be in"
+      },
+      {
+       "words": "posture at the crease",
+       "at": 8,
+       "gives": "STANCE",
+       "note": "a batsman's stance is how they stand at the crease ready to receive the ball"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman's position at the wicket, as an illustration.",
+     "walkthrough": "The crease is the line where a cricket batsman stands; 'for' is a link.",
+     "definitionFit": "An instance is a single case or illustration, so an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Batting"
+    }
+   }
   }
  ]
 }
