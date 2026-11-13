@@ -233,6 +233,12 @@ def printed_days(rows):
             if len(days) == 1 and None not in days and next(iter(days)).weekday() != ftp.SUNDAY}
 
 
+#: Before this post date the blog's Sunday is the week after the puzzle ran (Gale's print
+#: dates: 1,099 on 2011-03-06, blogged 03-13; 1,144 on 2012-01-22, blogged 01-29). From No
+#: 1,146 (blogged 2012-02-12) the blog's Sunday stands; Gale's own dates slip there.
+IOS_POST_LAG_BEFORE = "2012-02-12"
+
+
 def sunday_dates(rows):
     """{number: Sunday}: the Sunday on or before the post, kept only where
     the dates rise strictly with the numbers."""
@@ -240,6 +246,8 @@ def sunday_dates(rows):
     for r in rows:
         day = datetime.date.fromisoformat(r["date"])
         day -= datetime.timedelta(days=(day.weekday() - ftp.SUNDAY) % 7)
+        if r["date"] < IOS_POST_LAG_BEFORE:
+            day -= datetime.timedelta(days=7)
         guess[r["number"]] = min(day, guess.get(r["number"], day))
     out, last = {}, None
     for n in sorted(guess):
