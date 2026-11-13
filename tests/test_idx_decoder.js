@@ -64,6 +64,8 @@ function sameRow(want, got, label) {
   got = Object.assign({}, got);
   assert.strictEqual(got.v, want.v.slice(0, 5), label + ": v");
   delete want.v; delete got.v;
+  delete want.pageView; // build-only (tools/index_idx.py BUILD_ONLY): the idx leaves it out
+
   const wd = want.difficulty, gd = got.difficulty;
   if (wd && gd) {
     assert(Math.abs(wd.percentile - gd.percentile) <= 1,
