@@ -14941,6 +14941,35 @@ def indy_dropped_due(row):
                for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale Independent page (daily, 2015) read while the puzzle it prints was held under another date: the
+#: read refused "No 8928 is already filed for 2015-05-26, not 2015-05-27" (number-date-mismatch), or filed its title
+#: renumbered to the number its edition's date implied then (title 8923 on 2015-05-21 read as 8924). 11-13: the blog-filed
+#: dailies were redated (51 of 2015-04..08), their numbers now held on the edition's own date. The held dates are read fresh
+#: each plan, so the row is due only while a title or refusal names a number held on the edition's day. Only answers and
+#: clues our read agrees with are added; a blog answer is never overwritten. Read once, before REREAD_INDY_REDATED.
+INDY_REDATED = "Independent page refused for a number held under another date, the held date corrected since"
+REREAD_INDY_REDATED = "2026-11-14T16:00:00+00:00"
+
+
+def indy_redated_due(row):
+    """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDY_REDATED, holds a number-date-mismatch refusal of
+    a number now held on the edition's day, or a scan title now held on that day that no verdict read as."""
+    if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_REDATED)):
+        return False
+    scan = row.get("scan") or {}
+    try:
+        day = datetime.date.fromisoformat(scan.get("date") or "")
+    except ValueError:
+        return False
+    held = held_dates(paper_of(row["edition"]).series)
+    verdicts = row.get("verdicts") or ()
+    if any(v.get("cause") == "number-date-mismatch" and held.get(v.get("number")) == day for v in verdicts):
+        return True
+    read = {v.get("read_as", v.get("number")) for v in verdicts}
+    return any(p.get("number") not in read and held.get(p.get("number")) == day for p in scan.get("puzzles") or ())
+
+
 def indy_right_due(row):
     """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDEPENDENT_RIGHT, holds a puzzle refused
     "not-a-grid" for the ink under its title, or "no-reading-parses" with a reading that found no ACROSS and DOWN
@@ -20587,6 +20616,8 @@ def fix_reason(row):
         return INDY_WIDE
     if indy_dropped_due(row):
         return INDY_DROPPED
+    if indy_redated_due(row):
+        return INDY_REDATED
     if ios_title_due(row):
         return IOS_TITLES
     if ft_next_due(row):
@@ -21258,7 +21289,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # the title's line since (ft_clues_due).
                   FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
-                  TELEGRAPH_OWN, TELEGRAPH_FIGURE)
+                  TELEGRAPH_OWN, TELEGRAPH_FIGURE,
+                  # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
+                  INDY_REDATED)
 
 
 def refusal_passes(why):
@@ -21521,7 +21554,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
