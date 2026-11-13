@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Wake and perform one's ablutions",
     "enumeration": "4"
    },
-   "solution": "WASH"
+   "solution": "WASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wake",
+      "at": 0,
+      "meaning": "the disturbed water left behind a moving boat"
+     },
+     {
+      "text": "perform one's ablutions",
+      "at": 9,
+      "meaning": "to clean oneself with soap and water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Wake' looks like a verb about getting up, but it is the noun for the trail a boat leaves.",
+     "definitionFit": "A ship's wake is also called its wash, and washing is the everyday word for performing ablutions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wake"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,43 @@
     "text": "We had become engaged — with this result",
     "enumeration": "7"
    },
-   "solution": "WEDLOCK"
+   "solution": "WEDLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "We had become engaged — with this result",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "We had",
+       "at": 0,
+       "gives": "WED",
+       "note": "we'd is the short form of we had"
+      },
+      {
+       "words": "become engaged",
+       "at": 7,
+       "gives": "LOCK",
+       "note": "gears or parts lock when they engage"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A couple got engaged and marriage followed.",
+     "walkthrough": "'become engaged' points to a betrothal; in the wordplay it is the mechanical sense of parts meshing together.",
+     "definitionFit": "Marriage is the usual outcome of an engagement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +120,30 @@
     "text": "Underwear hangs around?",
     "enumeration": "5"
    },
-   "solution": "STAYS"
+   "solution": "STAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Underwear",
+      "at": 0,
+      "meaning": "an old-fashioned laced corset"
+     },
+     {
+      "text": "hangs around?",
+      "at": 10,
+      "meaning": "remains in a place, lingers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that 'hangs around' is a verb, not the corset hanging on the body.",
+     "definitionFit": "A boned corset was called a pair of these, and someone who lingers remains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hangs"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +157,41 @@
     "text": "Hero has some female admirers",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hero",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 9,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "female admirers",
+       "at": 14,
+       "gives": "LEAD",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dashing hero attracts a following of female fans.",
+     "definitionFit": "The hero of a film or play is its star, the actor who plays the main part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +205,58 @@
     "text": "Catch up with spouse, almost!",
     "enumeration": "6"
    },
-   "solution": "ENTRAP"
+   "solution": "ENTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 6,
+       "note": "in a down clue the letters are read upwards, in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 22,
+         "note": "the word for spouse loses its final letter, so it is nearly complete"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spouse",
+         "at": 14,
+         "gives": "PARTNER",
+         "note": "a husband or wife is one's partner"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Catch up with your other half, nearly!",
+     "walkthrough": "'almost' trims PARTNER to PARTNE; 'up' turns that round. 'Catch up' reads as one phrase but splits after 'Catch'.",
+     "definitionFit": "To trap or ensnare someone is to catch them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +270,48 @@
     "text": "Cash put in taken out, completely emptied",
     "enumeration": "8"
    },
-   "solution": "DEPLETED"
+   "solution": "DEPLETED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "completely emptied",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 5,
+       "note": "the cash letter is placed inside the word for taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "taken out",
+       "at": 12,
+       "gives": "DELETED",
+       "note": "something deleted has been taken out"
+      },
+      {
+       "words": "Cash",
+       "at": 0,
+       "gives": "P",
+       "note": "P, a penny, stands for a little cash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Money deposited is withdrawn, leaving the account cleaned out.",
+     "definitionFit": "Stocks that are used up have been drained or exhausted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cash"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +325,49 @@
     "text": "Man, for example, ordered to receive training for games",
     "enumeration": "5"
    },
-   "solution": "BIPED"
+   "solution": "BIPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man, for example",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to receive",
+       "at": 26,
+       "note": "the word for ordered takes in another piece, so it is opened up to hold it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ordered",
+       "at": 18,
+       "gives": "BID",
+       "note": "to bid someone do something is to order them"
+      },
+      {
+       "words": "training for games",
+       "at": 37,
+       "gives": "PE",
+       "note": "PE is physical education, school sports training"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is commanded to take some sports coaching.",
+     "walkthrough": "'Man' looks like a person being ordered about, but 'Man, for example' defines a kind of animal: humans walk on two legs.",
+     "definitionFit": "Humans are a standard example of a two-legged animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +391,48 @@
      }
     ]
    },
-   "solution": "BURYTHEHATCHET"
+   "solution": "BURYTHEHATCHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put an end to fighting",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ordered",
+       "at": 17,
+       "note": "the letters of the first three words are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Butchery",
+       "at": 0
+      },
+      {
+       "words": "that",
+       "at": 9
+      },
+      {
+       "words": "he",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "He commanded the slaughter, then called a truce.",
+     "definitionFit": "An idiom from Native American custom: burying the axe meant making peace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +446,41 @@
     "text": "Nonentity — hero of 18dn — has a narrow escape",
     "enumeration": "9"
    },
-   "solution": "PIPSQUEAK"
+   "solution": "PIPSQUEAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nonentity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hero of 18dn",
+       "at": 12,
+       "gives": "PIP",
+       "note": "Pip is the hero of Great Expectations by Charles Dickens, answer to 18 down"
+      },
+      {
+       "words": "narrow escape",
+       "at": 33,
+       "gives": "SQUEAK",
+       "note": "a narrow squeak is a narrow escape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insignificant character in a novel only just gets away.",
+     "definitionFit": "An insignificant, often small and noisy, person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hero"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +494,54 @@
     "text": "Uncertain, indefinite article in journal becoming definite",
     "enumeration": "7"
    },
-   "solution": "DITHERY"
+   "solution": "DITHERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncertain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "becoming",
+       "at": 41,
+       "note": "the first article changes into the second inside the journal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "journal",
+       "at": 33,
+       "gives": "DIARY",
+       "note": "a diary is a daily journal"
+      },
+      {
+       "words": "indefinite article",
+       "at": 11,
+       "gives": "A",
+       "note": "a is the indefinite article in English"
+      },
+      {
+       "words": "definite",
+       "at": 50,
+       "gives": "THE",
+       "note": "the definite article, the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doubtful word in a magazine is made more certain.",
+     "definitionFit": "Someone uncertain is hesitant and unable to make up their mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "journal"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +565,30 @@
      }
     ]
    },
-   "solution": "BEHINDONESBACK"
+   "solution": "BEHINDONESBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Train may go thus",
+      "at": 0,
+      "meaning": "the train of a long dress trails at the wearer's rear"
+     },
+     {
+      "text": "secretly",
+      "at": 18,
+      "meaning": "without someone's knowledge"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Train' suggests a railway; it is the trailing part of a gown.",
+     "definitionFit": "A gown's train trails at the rear, and acting covertly is acting behind someone's back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +602,41 @@
     "text": "Citadel demolished, in a manner of speaking",
     "enumeration": "7"
    },
-   "solution": "DIALECT"
+   "solution": "DIALECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "manner of speaking",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "demolished",
+       "at": 8,
+       "note": "a citadel knocked down leaves its letters to be rebuilt in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Citadel",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fortress is torn down, so to speak.",
+     "walkthrough": "'in a manner of speaking' reads as the idiom 'so to speak'; here 'in a' is the link and 'manner of speaking' is the definition.",
+     "definitionFit": "A regional variety of a language is a particular way of talking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manner"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +650,47 @@
     "text": "Separate wild animal inside wall for safety",
     "enumeration": "7"
    },
-   "solution": "PARAPET"
+   "solution": "PARAPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wall for safety",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 21,
+       "note": "the animal's word goes within the word for separate"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Separate",
+       "at": 0,
+       "gives": "PART",
+       "note": "to separate things is to part them"
+      },
+      {
+       "words": "wild animal",
+       "at": 9,
+       "gives": "APE",
+       "note": "an ape is a wild animal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous beast is kept apart behind a protective wall.",
+     "definitionFit": "A low protective wall along the edge of a roof, bridge or balcony stops people falling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +704,59 @@
     "text": "Pig-headed old boy at home in the country",
     "enumeration": "9"
    },
-   "solution": "OBSTINATE"
+   "solution": "OBSTINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pig-headed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old boy",
+       "at": 11,
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "the word for at home is placed within the word for the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the country",
+         "at": 30,
+         "gives": "STATE",
+         "note": "a state is a country"
+        },
+        {
+         "words": "at home",
+         "at": 19,
+         "gives": "IN",
+         "note": "to be in is to be at home"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stubborn former pupil stays at home in his own land.",
+     "definitionFit": "A stubborn person refuses to change their mind, as a pig is said to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +770,40 @@
     "text": "Cap with a different quote",
     "enumeration": "5"
    },
-   "solution": "TOQUE"
+   "solution": "TOQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "different",
+       "at": 11,
+       "note": "the letters of quote are made into a different word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quote",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hat comes with a different saying attached.",
+     "definitionFit": "A chef's tall white hat, or a small brimless woman's hat, is a kind of cap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quote"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +817,44 @@
     "text": "Works, of necessity, in sound only",
     "enumeration": "6"
    },
-   "solution": "KNEADS"
+   "solution": "KNEADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Works",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNEADS",
+     "indicators": [
+      {
+       "text": "in sound only",
+       "at": 21,
+       "note": "the word is matched by how it is pronounced, not how it is written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of necessity",
+       "at": 7,
+       "gives": "NEEDS",
+       "note": "the old adverb 'needs', as in 'he must needs go', means of necessity"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something functions, necessarily, only as far as the noise goes.",
+     "walkthrough": "'Works' looks like 'functions', but it is the verb for working dough with the hands.",
+     "definitionFit": "A baker works dough by pressing and folding it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Works"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +868,44 @@
     "text": "Something added to letter once rules have been broken",
     "enumeration": "9"
    },
-   "solution": "ENCLOSURE"
+   "solution": "ENCLOSURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something added to letter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "have been broken",
+       "at": 37,
+       "note": "the words once and rules are broken up and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "once",
+       "at": 26
+      },
+      {
+       "words": "rules",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter gets a postscript after the regulations were flouted.",
+     "definitionFit": "A document or item put in the same envelope as a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +919,42 @@
     "text": "Badly cut, see!",
     "enumeration": "8"
    },
-   "solution": "SEVERELY"
+   "solution": "SEVERELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Badly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cut",
+       "at": 6,
+       "gives": "SEVER",
+       "note": "to sever is to cut"
+      },
+      {
+       "words": "see",
+       "at": 11,
+       "gives": "ELY",
+       "note": "Ely is a cathedral city and bishop's see in Cambridgeshire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is badly gashed and calls out 'look!'.",
+     "walkthrough": "'see!' looks like an exclamation, but a see is a bishop's diocese: Ely is the crossword favourite.",
+     "definitionFit": "To be hurt badly is to be hurt seriously or gravely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +968,48 @@
     "text": "Immoral books appearing after a period of years",
     "enumeration": "8"
    },
-   "solution": "DECADENT"
+   "solution": "DECADENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Immoral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "appearing after",
+       "at": 14,
+       "note": "the word for books comes after the period of years"
+      }
+     ],
+     "parts": [
+      {
+       "words": "period of years",
+       "at": 32,
+       "gives": "DECADE",
+       "note": "a decade is a period of ten years"
+      },
+      {
+       "words": "books",
+       "at": 8,
+       "gives": "NT",
+       "note": "NT, the New Testament, is a group of books of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Indecent literature published after a stretch of years.",
+     "definitionFit": "Someone self-indulgent and morally declining, given to excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1023,48 @@
     "text": "Bottle and tin stop outside",
     "enumeration": "8"
    },
-   "solution": "DECANTER"
+   "solution": "DECANTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 20,
+       "note": "the word for stop goes around the word for tin"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stop",
+       "at": 15,
+       "gives": "DETER",
+       "note": "to deter someone is to stop them acting"
+      },
+      {
+       "words": "tin",
+       "at": 11,
+       "gives": "CAN",
+       "note": "a can is a tin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle and a tin are blocked from getting out.",
+     "definitionFit": "A glass vessel with a stopper, used for serving wine or spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1078,34 @@
     "text": "Diabolical writer?",
     "enumeration": "7"
    },
-   "solution": "DICKENS"
+   "solution": "DICKENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diabolical writer?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Diabolical writer",
+       "at": 0,
+       "note": "a novelist whose surname is also a mild word for the devil, as in 'what the deuce'"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Victorian novelist's surname is an old euphemism for the devil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Diabolical"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1119,43 @@
     "text": "Two boys — one had his day",
     "enumeration": "6"
    },
-   "solution": "JACKAL"
+   "solution": "JACKAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one had his day",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two boys",
+       "at": 0,
+       "gives": "JACK",
+       "note": "Jack is a boy's name"
+      },
+      {
+       "words": "Two boys",
+       "at": 0,
+       "gives": "AL",
+       "note": "Al is a boy's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Of two lads, one got his moment of glory.",
+     "walkthrough": "The definition plays on the saying 'every dog has his day'; this wild dog is one that had his.",
+     "definitionFit": "A wild dog of Africa and Asia, so one of the dogs the proverb promises a day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "day"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1169,48 @@
     "text": "Dreaded disease — catching it is a ritual",
     "enumeration": "7"
    },
-   "solution": "LITURGY"
+   "solution": "LITURGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ritual",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "at": 18,
+       "note": "the disease word catches the word it, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dreaded disease",
+       "at": 0,
+       "gives": "LURGY",
+       "note": "the dreaded lurgy is a British jokey name for any vague infectious illness"
+      },
+      {
+       "words": "it",
+       "at": 27,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frightening illness is contracted, as if it were a ceremony.",
+     "walkthrough": "'the dreaded lurgy' is British slang from the Goon Show for an unspecified illness.",
+     "definitionFit": "A fixed form of public worship is a church ritual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "catching"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1224,51 @@
     "text": "Residue obtained from tree beginning to melt",
     "enumeration": "6"
    },
-   "solution": "BALSAM"
+   "solution": "BALSAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Residue obtained",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tree",
+       "at": 22,
+       "gives": "BALSA",
+       "note": "balsa is a tropical American tree with very light wood"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 27,
+         "note": "only the first letter of the following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "melt",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sap from a tree starts to melt.",
+     "definitionFit": "An aromatic resin given off by certain trees and plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "melt"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1282,34 @@
     "text": "Sign of the times?",
     "enumeration": "5"
    },
-   "solution": "CROSS"
+   "solution": "CROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign of the times?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sign of the times",
+       "at": 0,
+       "note": "read literally, the mathematical symbol for times, the multiplication mark shaped like an X"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The multiplication sign is an X-shaped mark, the same shape as a saltire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1323,68 @@
     "text": "With a Christian conversion, one less revolutionary",
     "enumeration": "9"
    },
-   "solution": "ANARCHIST"
+   "solution": "ANARCHIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revolutionary",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 5
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "conversion",
+         "at": 17,
+         "note": "the letters undergo a conversion, being changed into a new word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "less",
+           "at": 33,
+           "note": "the letter for one is taken away from the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Christian",
+           "at": 7
+          },
+          {
+           "words": "one",
+           "at": 29,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone converts to Christianity and becomes less of a rebel.",
+     "walkthrough": "'less' removes the I from CHRISTIAN, leaving CHRISTAN; 'conversion' then rearranges A plus CHRISTAN.",
+     "definitionFit": "Someone who wants to overthrow all government is a political revolutionary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conversion"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1398,59 @@
     "text": "Abominable lie about police force",
     "enumeration": "5"
    },
-   "solution": "IMPEL"
+   "solution": "IMPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "force",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 15,
+       "note": "the scrambled letters sit round the police abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Abominable",
+         "at": 0,
+         "note": "the letters of lie are made dreadful, scrambled into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lie",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "police",
+       "at": 21,
+       "gives": "MP",
+       "note": "MP is military police"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A terrible lie concerning the police service.",
+     "walkthrough": "'Abominable' scrambles LIE into IEL, which goes 'about' MP.",
+     "definitionFit": "To impel someone is to drive or force them to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1464,42 @@
     "text": "Imitate bird resembling Pythonesque parrot",
     "enumeration": "7"
    },
-   "solution": "EMULATE"
+   "solution": "EMULATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Imitate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bird",
+       "at": 8,
+       "gives": "EMU",
+       "note": "the emu is a large Australian bird"
+      },
+      {
+       "words": "resembling Pythonesque parrot",
+       "at": 13,
+       "gives": "LATE",
+       "note": "in the Monty Python sketch the parrot is dead, and late means dead"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Copy a bird that behaves like the famous comedy parrot.",
+     "walkthrough": "Monty Python's Dead Parrot sketch is famous for its string of synonyms for dead, including 'late'.",
+     "definitionFit": "To emulate someone is to copy them, trying to match their achievements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1513,30 @@
     "text": "Tie for American spy",
     "enumeration": "7"
    },
-   "solution": "SLEEPER"
+   "solution": "SLEEPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tie for American",
+      "at": 0,
+      "meaning": "a railway tie in American usage is the beam under the rails that Britons call by this name"
+     },
+     {
+      "text": "spy",
+      "at": 17,
+      "meaning": "an agent planted to lie dormant until activated"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Tie' looks like neckwear, but it is the American word for the beam supporting a railway track.",
+     "definitionFit": "The British word for a railway tie also names a deep-cover agent who waits years before acting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tie"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1550,42 @@
     "text": "Prosperous-looking ships turned back",
     "enumeration": "5"
    },
-   "solution": "SLEEK"
+   "solution": "SLEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prosperous-looking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned back",
+       "at": 25,
+       "note": "the word for ships is read in reverse order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ships",
+       "at": 19,
+       "gives": "KEELS",
+       "note": "keels stand for ships, as in poetry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wealthy-looking vessels head home.",
+     "definitionFit": "Glossy and well-groomed in a way that suggests wealth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1599,51 @@
     "text": "Starts from table of metric equivalents for volume",
     "enumeration": "4"
    },
-   "solution": "TOME"
+   "solution": "TOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "volume",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Starts from",
+       "at": 0,
+       "note": "the opening letters are taken from each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "table",
+       "at": 12
+      },
+      {
+       "words": "of",
+       "at": 18
+      },
+      {
+       "words": "metric",
+       "at": 21
+      },
+      {
+       "words": "equivalents",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reference book opens with a conversion table for metric units.",
+     "definitionFit": "A large heavy book is a single volume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -484,7 +1657,43 @@
     "text": "Put an end to noise of transport",
     "enumeration": "4"
    },
-   "solution": "SLAY"
+   "solution": "SLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put an end to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SLAY",
+     "indicators": [
+      {
+       "text": "noise of",
+       "at": 14,
+       "note": "what counts is how the word for transport sounds when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transport",
+       "at": 23,
+       "gives": "SLEIGH",
+       "note": "a sleigh is a form of transport over snow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stop the din made by traffic.",
+     "definitionFit": "To kill someone is to end their life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noise"
+    }
+   }
   }
  ]
 }
