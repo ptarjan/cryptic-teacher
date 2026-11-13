@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 11
+VERSION = 12
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -292,6 +292,30 @@ def pitch_columns(words, grid, cols):
     return out
 
 
+#: A second list's clue numbers stand this many line heights or more in from the crop's left edge...
+SIDE_REACH = 8
+#: ...at least this many of them, at one x within a line height.
+SIDE_NUMBERS = 3
+
+
+def side_by_side(ws, width, lh):
+    """The x of the gutter between two lists a crop holds side by side (1992-06-05's across tail and its first
+    down column, the second down column set right of them with no gap the OCR sees: their lines read as one,
+    each across line followed by the other list's), or None: where SIDE_NUMBERS clue numbers stand at one x
+    SIDE_REACH line heights or more in and no more than one word's box crosses the cut left of them."""
+    nums = [w for w in ws if NUMBER_WORD.match(w[4]) and w[0] > SIDE_REACH * lh and w[0] < width - 4 * lh]
+    for n in sorted(nums, key=lambda w: w[0]):
+        mine = [w for w in nums if abs(w[0] - n[0]) <= lh]
+        if len(mine) < SIDE_NUMBERS:
+            continue
+        x = int(min(w[0] for w in mine) - lh / 2)
+        # looked at over the lines of those numbers alone (prose columns run on under the lists)
+        near = [w for w in ws if min(m[1] for m in mine) - 3 * lh <= w[1] <= max(m[3] for m in mine) + lh]
+        if sum(1 for w in near if w[0] < x < w[2]) <= 1 and sum(1 for w in near if w[2] <= x) >= 12:
+            return x
+    return None
+
+
 def line_numbers(words, lh):
     """[(top, bottom, number, left)] of the lines of `words` opening on a clue's number and a word."""
     ws = sorted(words, key=lambda w: ((w[1] + w[3]) / 2, w[0]))
@@ -352,7 +376,17 @@ def layout_block(img, words, grid, ocr=None):
     pieces = []  # (column index, crop, its words)
     found = layout_columns(words, grid)
     boxes = found + pitch_columns(words, grid, found)
+    # a box holding two lists side by side (no gutter the page's words show) is cut where the second's numbers start
+    cut = []
     for k, box in enumerate(boxes):
+        probe = img.crop(box).copy()
+        ImageDraw.Draw(probe).rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]),
+                                        fill="white")
+        x = side_by_side(ocr(probe), probe.width, lh)
+        cut += [(k, (box[0], box[1], box[0] + x, box[3])), (k, (box[0] + x, box[1], box[2], box[3]))] if x else [(k, box)]
+    # a column index per piece: a pitch column's is past the found ones, a box's halves keep its own
+    order = [(k, box) for k, box in cut]
+    for i, (k, box) in enumerate(order):
         crop = img.crop(box).copy()
         draw = ImageDraw.Draw(crop)
         draw.rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]), fill="white")
@@ -369,7 +403,7 @@ def layout_block(img, words, grid, ocr=None):
             if not nums or not before or not max(before) < nums[0] <= max(before) + 5 or \
                     len([w for w in ws if COUNT_WORD.search(w[4])]) < 1:
                 continue
-        pieces.append((k, crop, ws))
+        pieces.append((i, crop, ws))
     if not pieces:
         return None
     # the headings the OCR read in a column are blanked, so the ones drawn are the only ones
