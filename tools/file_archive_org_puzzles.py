@@ -1535,8 +1535,7 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         return out + [(x1, edge, edge, top)] if edge else out
     if left and getattr(left, "band", None):
         # SUNDAY_BAND's page: the ACROSS band's two columns over the grid, the third from the band's top down beside it.
-        a, b, c, d = left.edges
-        return [(a, b, b, left.top), (b, c, c, left.top), (c, d, d, left.top)]
+        return [(a, b, b, left.top) for a, b in zip(left.edges, left.edges[1:])]
     if left and getattr(left, "edges", None):
         # A pre-1995 Beelzebub's columns fitted to the ink (ios_columns.fit): each between two edges, from the title's foot.
         out = [(a, b, b, left.top) for a, b in zip(left.edges, left.edges[1:])]
@@ -1693,9 +1692,14 @@ LONE_NUMBER = re.compile(r"\W*\d{1,2}\W*")
 BAND_GLUED = re.compile(r"(?<=[A-Za-z?!.)\]'])(\d{1,2})(?=\s?[A-Z\"'])")
 
 
+BAND_PUZZLE_NUMBER = re.compile(r"\W*(?:No\W*)?\d,?\d{3}\W*", re.I)
+
+
 def band_unglued(ws, gutters):
     """`ws` with a space put before the glued clue number of each word that stands across one of `gutters`."""
-    return [(*w[:4], BAND_GLUED.sub(r" \1", w[4])) if any(w[0] < x < w[2] for x in gutters) else w for w in ws]
+    # (The puzzle's number printed after its ACROSS heading, "ACROSS 2921", is no clue's: no clue number has four digits.)
+    return [(*w[:4], BAND_GLUED.sub(r" \1", w[4])) if any(w[0] < x < w[2] for x in gutters) else w
+            for w in ws if not BAND_PUZZLE_NUMBER.fullmatch(w[4])]
 
 
 def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None, strip=None):
@@ -10964,7 +10968,7 @@ SUNDAY_BAND_YEARS = ("1980", "1984")
 #: The band's depth as a share of the grid's width (least, most), how far right of the grid the crop reaches and how
 #: far under it the DOWN list may run (shares of its width), the fewest numbered lines that make a column, the gap
 #: (px) that starts another column's numbers, and the left edge's room.
-SUNDAY_BAND_DEPTH, SUNDAY_BAND_REACH, SUNDAY_BAND_FOOT = (0.2, 1.0), 0.75, 0.6
+SUNDAY_BAND_DEPTH, SUNDAY_BAND_REACH, SUNDAY_BAND_FOOT = (0.2, 1.0), 1.05, 0.6
 SUNDAY_BAND_LINES, SUNDAY_BAND_GAP, SUNDAY_BAND_PAD, SUNDAY_BAND_RISE = 2, 40, 25, 25
 #: How far apart (share of the grid's width) the columns' pitches may differ.
 SUNDAY_BAND_PITCH = 0.12
@@ -11021,10 +11025,17 @@ def sunday_times_band(img, gbox, title, key, paper):
     if abs((c2 - c1) - (c3 - c2)) > SUNDAY_BAND_PITCH * gw or c3 < gx1 - 0.25 * gw or c1 > gx0 + 0.3 * gw:
         return None
     pitch = c3 - c2
-    # The column right of the third, if one is read, is another article's: it ends the third.
-    right = min(c3 + pitch + 5, heads[3] - 15) if len(heads) > 3 else c3 + pitch + 5
+    # Further columns at the same pitch (1982: a fourth, from x 1436 beside a grid ending 1052) are the list's too;
+    # a column at another pitch is another article's and ends the last.
+    cols = [c1, c2, c3]
+    for c in heads[3:]:
+        if abs((c - cols[-1]) - pitch) > SUNDAY_BAND_PITCH * gw:
+            break
+        cols.append(c)
+    later = [c for c in heads[len(cols):] if c > cols[-1]]
+    right = min(cols[-1] + pitch + 5, later[0] - 15) if later else cols[-1] + pitch + 5
     out = BandLeft((max(0, c1 - SUNDAY_BAND_PAD), None, crop[1]))
-    out.edges = (out[0], c2 - 8, c3 - 8, min(img.width, right))
+    out.edges = (out[0], *[c - 8 for c in cols[1:]], min(img.width, crop[2], right))
     out.top, out.crop = start, crop
     return out
 
@@ -11032,7 +11043,7 @@ def sunday_times_band(img, gbox, title, key, paper):
 #: The reason of a Gale Sunday Times 1980-84 page refused "no reading parses" or written incomplete with a clue no
 #: reading laid: its ACROSS band over its grid and the DOWN column right of it read since (sunday_times_band).
 SUNDAY_BAND = "Gale Sunday Times 1980-84 page refused no reading parses, its ACROSS band over its grid and its DOWN column right of it read since"
-REREAD_SUNDAY_BAND = "2026-11-14T08:00:00+00:00"
+REREAD_SUNDAY_BAND = "2026-11-14T15:30:00+00:00"
 
 
 def sunday_band_due(row):
