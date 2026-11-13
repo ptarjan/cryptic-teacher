@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 10
+VERSION = 11
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -411,6 +411,55 @@ def layout_block(img, words, grid, ocr=None):
     return out, gl.image_key(out)
 
 
+#: Figures a scan's OCR reads for each other (a 9's loop open, an 8's closed up): a count read with one of them
+#: for the light's own length is the light's count misread, the clue's text and number being the voted ones.
+LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08")}
+#: A page whose lights fit their counts less often than this has a grid no count may be mended by.
+MEND_FIT = 0.7
+
+
+def mended_counts(laid, lengths):
+    """`laid` with each clue whose count is short of its light (the grid's cells in `lengths`) by figures the OCR
+    mistakes for each other (LOOKALIKES: 1992-10-02's "(5)" for a 9-letter 7-down's "(9)", "(8)" for 3-down's),
+    its count put as the light's, only on a page whose other lights mostly fit their counts (the grid read is
+    then right, not the clue's count). A group of a linked count is mended alone, the others standing."""
+    import file_trove_puzzles as ftp
+    fits = [lid for lid, (text, enum, _) in laid.items() if lid in lengths and text and enum
+            and ftp.count(enum) == lengths[lid]]
+    counted = [lid for lid, (text, enum, _) in laid.items() if lid in lengths and text and enum]
+    if not counted or len(fits) < MEND_FIT * len(counted):
+        return laid
+    out = dict(laid)
+    for lid, (text, enum, group) in laid.items():
+        if lid not in lengths or not text or not enum or ftp.count(enum) >= lengths[lid]:
+            continue
+        parts = re.split(r"(\d+)", enum)
+        figures = [i for i, p in enumerate(parts) if p.isdigit()]
+        fixed = []
+        for i in figures:
+            for new in sorted(c for c in "0123456789" if frozenset(parts[i] + c) in LOOKALIKES and len(parts[i]) == 1):
+                mended = parts[:i] + [new] + parts[i + 1:]
+                if ftp.count("".join(mended)) == lengths[lid]:
+                    fixed.append("".join(mended))
+        if len(set(fixed)) == 1:
+            out[lid] = (text, fixed[0], group)
+    return out
+
+
+def no_lists_why(words):
+    """Why a page with a TLS citation and a grid-shaped patch has no clue lists: a page that prints no ACROSS
+    and DOWN headings and under COLUMN_COUNTS clue counts (1992-04-17's, a correction notice and the grid of
+    No 100 reprinted, its clues on the page before) holds no puzzle; any other is a list the readers lost."""
+    import ocr_clues
+    counts = len([w for w in words if COUNT_WORD.search(w[4])])
+    heads = len([w for w in words if re.fullmatch(r"(ACROSS|DOWN)\W*", w[4])])
+    if counts >= COLUMN_COUNTS or heads:
+        return "no TLS clue lists found on the page"
+    notice = re.search(r"(?i)apologi[sz]e|in error|errors in|given correctly", ocr_clues.lines_of(words))
+    return ("no puzzle on the page: a correction notice and a grid with no clue lists (" if notice
+            else "no puzzle on the page: no clue lists (") + f"{counts} clue counts, no ACROSS or DOWN)"
+
+
 def pick_grid(boxes, reader, pads=(6, 0.08)):
     """(box, grid, None) of the first of `boxes` whose `reader(box, pad)` reads a 15x15 lattice, else
     (None, None, why of the first refusal)."""
@@ -460,6 +509,10 @@ def read_page(path, store=STORE, asker=None):
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
     boxes = jr.grid_boxes(img)
     if not boxes:
+        # The page's ink patches the lists' gutter-shaped test passes may all be small (1992-05-01's real grid
+        # is the largest square of ink, its "grid" patch the little solution of the last puzzle beside it).
+        boxes = jr.extra_boxes(img, [])
+    if not boxes:
         verdict["refused"] = "no grid on the page"
         return verdict, None
     gpath = Path(store) / "grids" / f"{path.stem}.png"
@@ -493,7 +546,7 @@ def read_page(path, store=STORE, asker=None):
         if blocks:
             verdict["cut"] = "layout"
     if not blocks:
-        verdict["refused"] = "no TLS clue lists found on the page"
+        verdict["refused"] = no_lists_why(gl.page_words(img, key))
         return verdict, None
     lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
@@ -515,6 +568,7 @@ def read_page(path, store=STORE, asker=None):
     if laid is None:
         return verdict, None
     voted = dict(laid)
+    laid = mended_counts(laid, lengths)
     laid, blank = aj.lay_on(dict(laid), g)
     verdict["lights"] = len(laid)
     blank = {**(read.get("blank") or {}), **blank}
