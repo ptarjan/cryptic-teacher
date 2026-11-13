@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,31 @@
      }
     ]
    },
-   "solution": "ADLIB"
+   "solution": "ADLIB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Improvise",
+      "at": 0,
+      "meaning": "to make something up on the spot without preparation"
+     },
+     {
+      "text": "As You Like It",
+      "at": 13,
+      "meaning": "the Latin phrase ad libitum, shortened, means at one's pleasure, as one likes"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor makes up lines during a performance of Shakespeare's comedy.",
+     "definitionFit": "The shortened Latin tag means freely at pleasure, and as a verb it means to speak without a script."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +77,48 @@
     "text": "Manage area with two different heads of department",
     "enumeration": "10"
    },
-   "solution": "ADMINISTER"
+   "solution": "ADMINISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "area",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "words": "two different heads of department",
+       "at": 17,
+       "gives": "D",
+       "note": "the head letter of department is D, and the political head of a government department is a minister"
+      },
+      {
+       "words": "two different heads of department",
+       "at": 17,
+       "gives": "MINISTER",
+       "note": "a minister is the political head of a government department"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running a section of an office where two rival bosses are in charge.",
+     "walkthrough": "The one phrase is read two ways: the first letter of 'department', and the person who heads a ministry.",
+     "definitionFit": "To administer affairs is to run or manage them, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,10 +129,57 @@
    },
    "length": 3,
    "clue": {
-    "text": "Likely to hold up change in the A Balkans",
+    "text": "Likely to hold up change in the Balkans",
     "enumeration": "3"
    },
-   "solution": "LEK"
+   "solution": "LEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "change in the Balkans",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 15,
+       "note": "in a down clue, up means the letters are read from bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to hold",
+         "at": 7,
+         "note": "the word Likely is said to hold the answer within its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Likely",
+         "at": 0,
+         "gives": "KEL"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forecast that prices in south-east Europe will climb.",
+     "walkthrough": "'to hold' picks KEL out of 'Likely'; 'up' turns it round in this down entry.",
+     "definitionFit": "The lek is the currency of Albania, a Balkan country, so it is the change people carry there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +193,48 @@
     "text": "American waiter's assistant in tall hat carrying round",
     "enumeration": "6"
    },
-   "solution": "BUSBOY"
+   "solution": "BUSBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American waiter's assistant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 40,
+       "note": "the hat word carries the round letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tall hat",
+       "at": 31,
+       "gives": "BUSBY",
+       "note": "a busby is the tall fur hat worn by some British soldiers, such as the guards"
+      },
+      {
+       "words": "round",
+       "at": 49,
+       "gives": "O",
+       "note": "O is round in shape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant helper in a towering hat brings round the drinks.",
+     "walkthrough": "A BUSBY is the tall bearskin-style hat of British ceremonial soldiers.",
+     "definitionFit": "In US restaurants a busboy clears tables and helps the waiting staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +248,60 @@
     "text": "Member of press team's arrived — time for fast publicity to be put out",
     "enumeration": "9"
    },
-   "solution": "CAMERAMAN"
+   "solution": "CAMERAMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Member of press team",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "arrived",
+       "at": 23,
+       "gives": "CAME",
+       "note": "came is the past tense of come, to arrive"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to be put out",
+         "at": 57,
+         "note": "the publicity letters are put out of the fasting-month word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time for fast",
+         "at": 33,
+         "gives": "RAMADAN",
+         "note": "Ramadan is the Muslim month of fasting"
+        },
+        {
+         "words": "publicity",
+         "at": 47,
+         "gives": "AD",
+         "note": "an ad, an advertisement, is publicity"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer has turned up just as a quick press release must be issued.",
+     "walkthrough": "Removing AD from RAMADAN leaves RAMAN. 'Fast' looks like speed; it means going without food.",
+     "definitionFit": "A film or television camera operator is part of a news crew covering events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +315,57 @@
     "text": "Band in charts rocks with power",
     "enumeration": "9"
    },
-   "solution": "CHINSTRAP"
+   "solution": "CHINSTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rocks",
+         "at": 15,
+         "note": "rocks means shakes about, so the letters are disturbed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 5
+        },
+        {
+         "words": "charts",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "power",
+       "at": 26,
+       "gives": "P",
+       "note": "P is the standard abbreviation for power in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock group climbing the charts with a powerful sound.",
+     "walkthrough": "'rocks' scrambles IN CHARTS into CHINSTRA, and P is added. 'Band' and 'rocks' lead to music, but the band is a strap.",
+     "definitionFit": "A chinstrap is a band passing under the chin to hold a helmet or hat on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +379,61 @@
     "text": "Saw maiden, sober, in pair of spectacles",
     "enumeration": "5"
    },
-   "solution": "MOTTO"
+   "solution": "MOTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "maiden",
+       "at": 4,
+       "gives": "M",
+       "note": "M is the cricket abbreviation for a maiden over"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "the sober letters sit in the pair of round shapes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pair of spectacles",
+         "at": 22,
+         "gives": "OO",
+         "note": "two round lenses look like the letters O O"
+        },
+        {
+         "words": "sober",
+         "at": 12,
+         "gives": "TT",
+         "note": "TT means teetotal, never drinking alcohol"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman, not drinking, looks through her glasses at something.",
+     "walkthrough": "'Saw' looks like the past of see, but it is the noun for a saying. A maiden in cricket is an over with no runs scored.",
+     "definitionFit": "A saw is an old saying or maxim, as is a motto."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +447,11 @@
     "text": "Give up and desert city — relative ENWR hasn't left",
     "enumeration": "8"
    },
-   "solution": "RENOUNCE"
+   "solution": "RENOUNCE",
+   "annotationWithheld": {
+    "why": "Held as 'Give up and desert city — relative ENWR hasn't left': ENWR is OCR garbage with no job (RENO + UNCLE without L gives the answer), the scan is unreadable and a search found no clean text",
+    "clue": "Give up and desert city — relative ENWR hasn't left"
+   }
   },
   {
    "number": 7,
@@ -154,7 +471,30 @@
      }
     ]
    },
-   "solution": "MEMENTOMORI"
+   "solution": "MEMENTOMORI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reminder",
+      "at": 0,
+      "meaning": "something that brings a fact to mind, here an object recalling death"
+     },
+     {
+      "text": "one must pass in Latin",
+      "at": 9,
+      "meaning": "the Latin words translate as remember that you must die, pass away"
+     }
+    ],
+    "explanation": {
+     "surface": "A note in a classical language warning that everyone has to die.",
+     "definitionFit": "A skull or similar object kept as a reminder of mortality, named from the Latin for remember you must die."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +508,43 @@
     "text": "Boy is right to keep up",
     "enumeration": "4"
    },
-   "solution": "NEIL"
+   "solution": "NEIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 21,
+       "note": "in a down clue, up means the letters read bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right to keep",
+       "at": 7,
+       "gives": "LIEN",
+       "note": "a lien is a legal right to keep another's property until a debt is paid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad is entitled to stay awake late.",
+     "walkthrough": "'keep up' looks like a phrase, but 'up' is the reversal signal.",
+     "definitionFit": "Neil is a boy's name, a typical example of a male given name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +558,31 @@
     "text": "Work as seamstress maybe not meant to last",
     "enumeration": "9"
    },
-   "solution": "MAKESHIFT"
+   "solution": "MAKESHIFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work as seamstress maybe",
+      "at": 0,
+      "meaning": "a seamstress might make a shift, a simple dress"
+     },
+     {
+      "text": "not meant to last",
+      "at": 25,
+      "meaning": "describing a stopgap thing used only for the time being"
+     }
+    ],
+    "explanation": {
+     "surface": "Sewing work is only ever temporary.",
+     "definitionFit": "A makeshift arrangement is a temporary stopgap, not a permanent fixture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +596,60 @@
     "text": "Some number leads to doctor in two rings",
     "enumeration": "5"
    },
-   "solution": "NIMBI"
+   "solution": "NIMBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rings",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some number",
+       "at": 0,
+       "gives": "N",
+       "note": "n stands for an unspecified number in mathematics"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 28,
+         "note": "the doctor letters go in the two numerals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "two",
+         "at": 31,
+         "gives": "II",
+         "note": "II is two in Roman numerals"
+        },
+        {
+         "words": "doctor",
+         "at": 21,
+         "gives": "MB",
+         "note": "MB is a medical degree, Bachelor of Medicine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A few people are directed to a physician at two clinics.",
+     "walkthrough": "'leads to' is only a link joining the pieces.",
+     "definitionFit": "Nimbi are haloes, the bright rings painted round saints' heads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +669,44 @@
      }
     ]
    },
-   "solution": "NELSONSCOLUMN"
+   "solution": "NELSONSCOLUMN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sailor's memorial",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Holds",
+       "at": 0,
+       "gives": "NELSONS",
+       "note": "a nelson is a wrestling hold, so holds gives the plural"
+      },
+      {
+       "words": "troop formation",
+       "at": 6,
+       "gives": "COLUMN",
+       "note": "soldiers marching in a line one behind another form a column"
+      }
+     ]
+    },
+    "spelling": "NELSON'S COLUMN",
+    "explanation": {
+     "surface": "Soldiers keep in step for a naval memorial parade.",
+     "walkthrough": "The monument to Admiral Nelson stands in Trafalgar Square, London. A nelson is a wrestling grip round the neck.",
+     "definitionFit": "The London column topped by Admiral Nelson's statue commemorates the naval hero of Trafalgar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Holds"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +726,35 @@
      }
     ]
    },
-   "solution": "LIQUIDLUNCH"
+   "solution": "LIQUIDLUNCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Glasses only needed for this daytime course?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Glasses only needed for this daytime course?",
+       "at": 0,
+       "note": "a midday meal where only drinking glasses are needed, because it consists of alcohol rather than food"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diners at lunch need only their drinking vessels, no cutlery.",
+     "definitionFit": "A midday session spent drinking alcohol instead of eating, so only glasses are used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Glasses"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +774,53 @@
      }
     ]
    },
-   "solution": "FLYINGBOMB"
+   "solution": "FLYINGBOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deadly craft",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Knowing",
+       "at": 0,
+       "gives": "FLY",
+       "note": "fly is slang for shrewd, knowing"
+      },
+      {
+       "words": "through",
+       "at": 33,
+       "gives": "IN",
+       "note": "in can mean by way of, through"
+      },
+      {
+       "words": "good",
+       "at": 8,
+       "gives": "G"
+      },
+      {
+       "words": "fortune",
+       "at": 13,
+       "gives": "BOMB",
+       "note": "a bomb is slang for a lot of money, as in costing a bomb"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Knowing your luck turns through a dangerous voyage.",
+     "walkthrough": "'comes about' is only a link here, so the good-fortune pieces follow 'through'. 'craft' means an aircraft, not a skill: the V-1 doodlebug of the Second World War was the classic example.",
+     "definitionFit": "A pilotless explosive aircraft, like the V-1 of the Second World War, is a lethal flying machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +834,53 @@
     "text": "Markets stock up, quietly sensing openings",
     "enumeration": "4"
    },
-   "solution": "SUQS"
+   "solution": "SUQS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Markets",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "openings",
+       "at": 34,
+       "note": "the openings of the words are their first letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stock",
+       "at": 8
+      },
+      {
+       "words": "up",
+       "at": 14
+      },
+      {
+       "words": "quietly",
+       "at": 18
+      },
+      {
+       "words": "sensing",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Traders restock quietly, sensing opportunities.",
+     "walkthrough": "'openings' takes the first letters of 'stock up quietly sensing'.",
+     "definitionFit": "Suqs, or souks, are open-air marketplaces in Arab countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "openings"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +900,52 @@
      }
     ]
    },
-   "solution": "PREPSCHOOL"
+   "solution": "PREPSCHOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "college",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Flying",
+         "at": 0,
+         "note": "flying shows the letters of corps hope sent all over the place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corps hope",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "novice",
+       "at": 18,
+       "gives": "L",
+       "note": "L, for learner, marks a novice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An air force group hopes a beginner will get into university.",
+     "walkthrough": "'Flying' rearranges CORPS HOPE into PREPSCHOO, and L comes last. 'Flying corps' looks like an air force unit.",
+     "definitionFit": "Some fee-paying schools are called colleges, and a preparatory school is one such private school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flying"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +959,41 @@
     "text": "Determine early broadcast aired porn",
     "enumeration": "9"
    },
-   "solution": "PREORDAIN"
+   "solution": "PREORDAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Determine early",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 16,
+       "note": "broadcast means scattered widely, so the letters are scattered into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aired porn",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deciding in advance that adult films were shown on air.",
+     "walkthrough": "'broadcast' rearranges AIRED PORN.",
+     "definitionFit": "To preordain is to decide or fix something beforehand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1007,11 @@
     "text": "With clipped accent fabricate mean The Tim accusation",
     "enumeration": "8"
    },
-   "solution": "GRAVAMEN"
+   "solution": "GRAVAMEN",
+   "annotationWithheld": {
+    "why": "Held as 'With clipped accent fabricate mean The Tim accusation': 'The Tim' is OCR garbage with no job (GRAVE clipped + anagram of MEAN gives the answer), the scan is unreadable and a search found no clean text",
+    "clue": "With clipped accent fabricate mean The Tim accusation"
+   }
   },
   {
    "number": 18,
@@ -332,7 +1025,59 @@
     "text": "Student of old writing English column containing chart",
     "enumeration": "10"
    },
-   "solution": "EPIGRAPHER"
+   "solution": "EPIGRAPHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Student of old writing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 23,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 38,
+         "note": "the column word contains the chart word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "column",
+         "at": 31,
+         "gives": "PIER",
+         "note": "a pier is a pillar or column supporting a structure"
+        },
+        {
+         "words": "chart",
+         "at": 49,
+         "gives": "GRAPH",
+         "note": "a graph is a chart of data"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English monument carries a diagram.",
+     "walkthrough": "'column' makes you think of newspaper text, but here it is a supporting pillar, opened up around the chart.",
+     "definitionFit": "An epigrapher studies inscriptions, the old writing carved on stone and similar materials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1091,53 @@
     "text": "Spiritualist returned in glory, oddly",
     "enumeration": "4"
    },
-   "solution": "YOGI"
+   "solution": "YOGI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spiritualist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returned",
+       "at": 13,
+       "note": "returned means the letters picked are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 32,
+         "note": "oddly takes the first, third, fifth and seventh letters of in glory"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in glory",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medium comes back, strangely bathed in splendour.",
+     "walkthrough": "'oddly' takes IGOY from 'in glory', and 'returned' turns it round.",
+     "definitionFit": "A yogi is a spiritual teacher of yoga, a mystic or holy man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1151,41 @@
     "text": "So friendly with crowds everywhere",
     "enumeration": "6"
    },
-   "solution": "ASWARM"
+   "solution": "ASWARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with crowds everywhere",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "So",
+       "at": 0,
+       "gives": "AS",
+       "note": "as and so both mean in that way"
+      },
+      {
+       "words": "friendly",
+       "at": 3,
+       "gives": "WARM",
+       "note": "warm means friendly and kindly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being so friendly when surrounded by people.",
+     "definitionFit": "Aswarm means teeming, full of crowds moving about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "friendly"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1205,43 @@
      }
     ]
    },
-   "solution": "LEVELCROSSING"
+   "solution": "LEVELCROSSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Here motorist comes by train",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "plane",
+       "at": 30,
+       "gives": "LEVEL",
+       "note": "a plane is a flat level surface"
+      },
+      {
+       "words": "ferry journey",
+       "at": 40,
+       "gives": "CROSSING",
+       "note": "a trip by ferry over water is a crossing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller lists his car trip, rail, flight and boat ride.",
+     "walkthrough": "'train, plane and ferry' looks like a list of transport; 'by train' means beside a train. Where road meets rail, the driver comes next to a train.",
+     "definitionFit": "At a level crossing a road crosses a railway on the flat, so drivers come close to trains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1255,11 @@
     "text": "Sound from cheap pub relating to ear- Books Fi piece?",
     "enumeration": "5"
    },
-   "solution": "LOBAR"
+   "solution": "LOBAR",
+   "annotationWithheld": {
+    "why": "Held as 'Sound from cheap pub relating to ear- Books Fi piece?': 'Books Fi' is OCR garbage splitting ear-piece (LOW BAR said aloud gives the answer), the scan is unreadable and a search found no clean text",
+    "clue": "Sound from cheap pub relating to ear- Books Fi piece?"
+   }
   },
   {
    "number": 23,
@@ -408,7 +1273,36 @@
     "text": "Form of office in Washington",
     "enumeration": "4"
    },
-   "solution": "OVAL"
+   "solution": "OVAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Form of office in Washington",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Form of office in Washington",
+       "at": 0,
+       "note": "the shape of the room the US President works in at the White House"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The paperwork used in a government office in the US capital.",
+     "walkthrough": "'Form' looks like a document, but it is a shape: the shape that names the President's office.",
+     "definitionFit": "The President's office in the White House is named for its egg-like outline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Form"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1316,42 @@
     "text": "Churchman joining order generates bitterness",
     "enumeration": "5"
    },
-   "solution": "VENOM"
+   "solution": "VENOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bitterness",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Churchman",
+       "at": 0,
+       "gives": "VEN",
+       "note": "Ven, short for Venerable, is the title of an archdeacon"
+      },
+      {
+       "words": "order",
+       "at": 18,
+       "gives": "OM",
+       "note": "OM is the Order of Merit, a British honour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric receives an honour, causing resentment.",
+     "walkthrough": "Ven is the abbreviation for Venerable, an archdeacon's title. 'joining' and 'generates' are links.",
+     "definitionFit": "Venom is spite or bitterness in speech, beyond its sense of poison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1365,42 @@
     "text": "Obtain bar for adjusting part of Venetian",
     "enumeration": "9"
    },
-   "solution": "BRABANTIO"
+   "solution": "BRABANTIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of Venetian",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "for adjusting",
+       "at": 11,
+       "note": "the letters of obtain bar are given for rearranging, adjusted into new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Obtain bar",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a metal rod to fix part of a window blind.",
+     "walkthrough": "'adjusting' rearranges OBTAIN BAR. 'Venetian' suggests a blind, but it is a role in Othello.",
+     "definitionFit": "Brabantio is a Venetian senator, Desdemona's father, a role in Shakespeare's Othello."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Venetian"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1414,11 @@
     "text": "Old Indian crown cheers leader in Times re Jaipur",
     "enumeration": "3"
    },
-   "solution": "TAJ"
+   "solution": "TAJ",
+   "annotationWithheld": {
+    "why": "Held as 'Old Indian crown cheers leader in Times re Jaipur': 'Times re' is OCR garbage with no job (TA + J from Jaipur gives the answer), the scan is unreadable and a search found no clean text",
+    "clue": "Old Indian crown cheers leader in Times re Jaipur"
+   }
   },
   {
    "number": 27,
@@ -464,7 +1432,60 @@
     "text": "Behold one knight led by bird to king",
     "enumeration": "9"
    },
-   "solution": "LOHENGRIN"
+   "solution": "LOHENGRIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Behold one knight led by bird to king",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Behold",
+       "at": 0,
+       "gives": "LO",
+       "note": "lo is an old word meaning look, behold"
+      },
+      {
+       "words": "bird",
+       "at": 25,
+       "gives": "HEN",
+       "note": "a hen is a bird"
+      },
+      {
+       "words": "king",
+       "at": 33,
+       "gives": "GR",
+       "note": "GR, for Georgius Rex, stands for a king"
+      },
+      {
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "I is one in Roman numerals"
+      },
+      {
+       "words": "knight",
+       "at": 11,
+       "gives": "N",
+       "note": "N is the chess notation for a knight"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Look at a knight guided to the king by a bird.",
+     "walkthrough": "'led by' puts one and knight after bird and king. The whole clue also tells the legend: Wagner's swan knight, brought by a swan to help his king.",
+     "definitionFit": "In Wagner's opera the hero arrives in a boat drawn by a swan to serve the king, a knight led by a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1499,49 @@
     "text": "Chief Justice among the masses? A poor placement",
     "enumeration": "5"
    },
-   "solution": "MCJOB"
+   "solution": "MCJOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A poor placement",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 14,
+       "note": "the judge letters go among the crowd word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the masses",
+       "at": 20,
+       "gives": "MOB",
+       "note": "the mob is the common people, the masses"
+      },
+      {
+       "words": "Chief Justice",
+       "at": 0,
+       "gives": "CJ",
+       "note": "CJ is the abbreviation for Chief Justice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior judge mixing with ordinary people in a lowly role.",
+     "walkthrough": "'placement' is a job, and a McJob is a dull low-paid one.",
+     "definitionFit": "A McJob is a low-paid, low-prospect job, so a poor employment position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "placement"
+    }
+   }
   }
  ]
 }
