@@ -4812,7 +4812,7 @@ def telegraph_expected_number(day):
 #: The previous Telegraph puzzle's solution grid, under "SOLUTION No.
 #: 18,339", which is narrower than the grid: the box read_solution crops
 #: around is this wide, centred on the heading.
-TELEGRAPH_SOLUTION = re.compile(r"^\W*s\w?[l1]ut[il1]on\s+n[o0]\W{0,3}\s*([\dTIl]\d?[,.\-\s]?\d{3})\W*$",
+TELEGRAPH_SOLUTION = re.compile(r"^\W*s\w?[l1]ut[il1]on\s*n[o0]\W{0,3}\s*([\dTIl]\d?[,.\-\s]?\d{3})\W*$",
                                 re.IGNORECASE)
 TELEGRAPH_SOLUTION_SPAN = 380
 
@@ -4902,6 +4902,7 @@ def gale_telegraph_headings(lines, titles=()):
     add each number TELEGRAPH_SOLUTION did not return ("Sohudon No.22,9e0" is its next-day heading, garbled),
     and telegraph_prize_headings a Monday's Saturday prize solution."""
     puzzles, solutions = telegraph_headings(lines)
+    strict = list(solutions)
     if titles:
         have = {n for n, _ in solutions}
         # (a heading narrower than the grid under it, "SOLUTIONS" over "No.19,965", is widened to it)
@@ -4909,10 +4910,25 @@ def gale_telegraph_headings(lines, titles=()):
                       for n, b in solution_headings(lines, titles) if n not in have]
         have = {n for n, _ in solutions}
         solutions += [(n, b) for n, b in telegraph_prize_headings(lines, titles) if n not in have]
+        # A heading's number one digit off the title's one before it (1999-01-06's "22595" and "22996" for 22,695,
+        # the two readers' misreads: solution_number leaves a clean read near an expected one) is that one's.
+        want = {t - 1 for t in titles}
+        solutions = [(next((e for e in want if len(str(e)) == len(str(n)) and n not in want
+                            and sum(a != b2 for a, b2 in zip(str(n), str(e))) == 1
+                            and sum(sum(a != b2 for a, b2 in zip(str(n), str(x))) == 1 for x in want) == 1), n), b)
+                     for n, b in solutions]
+        solutions = list(dict.fromkeys(solutions))
     for ws in lines + joined_titles(lines, TELEGRAPH_BANNER.match):
         m = TELEGRAPH_BANNER.match(" ".join(w[4] for w in ws))
         if m:
             puzzles.append((number_digits(m.group(1)), box_of(ws), None))
+    # No title read, one "SOLUTION No. N" heading and one ACROSS line (1986-90, the Saturdays': the title lost to the
+    # page's art): the puzzle is N + 1, its box the ACROSS line's. The filing checks the number against the date.
+    if not puzzles and len({n for n, _ in strict}) == 1:
+        # (the ACROSS word may share its row with another column's words)
+        across = [tuple(w[:4]) for ws in lines for w in ws if ACROSS_LINE.match(w[4])]
+        if len(across) == 1:
+            puzzles = [(strict[0][0] + 1, across[0], None)]
     return puzzles, solutions
 
 
@@ -12853,6 +12869,20 @@ for _paper, _pins in _TELEGRAPH_PRIZE_OF_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before gale_telegraph_headings titled a page with no title
+#: read from its one "SOLUTION No. N" heading (the puzzle N + 1, over the page's one ACROSS word: 1986-90 pages whose
+#: title the art lost) and TELEGRAPH_SOLUTION took a glued "SOLUTIONNo.19,190": only the Gale Telegraph's and the
+#: Daily Telegraph's headings parsers read otherwise, so every other scan stands, and these papers' too but for the
+#: untitled pages telegraph_untitled_host names.
+_TELEGRAPH_TITLE_FIX = {
+    "galetelegraph": ("e3cf2f97c1111e48", "3257f2f06c1df750", "31dcebfe742d7cd9"),
+    "telegraph": ("e90e20e856090d33", "fc7a7cdb09a8391b", "95442160c921f8af"),
+}
+for _paper, _pins in _TELEGRAPH_TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14177,6 +14207,35 @@ def telegraph_day(row):
     return day if day is not None and day.year >= 1980 else None
 
 
+def telegraph_untitled_host(row):
+    """Whether Gale Telegraph ledger `row` is a Mon-Sat page of 1985-2000 scanned (read whole, WHOLE_UNTITLED) under a key
+    from before _TELEGRAPH_TITLE_FIX that found no title: its scan is stale and is made again by this code once, the
+    title now taken from the page's one solution heading and ACROSS word."""
+    day = telegraph_day(row)
+    scan = (row or {}).get("scan") or {}
+    old = {*_TELEGRAPH_TITLE_FIX["galetelegraph"][:2], *_TELEGRAPH_PRIZE_OF_FIX["galetelegraph"][:2],
+           *_TELEGRAPH_SATURDAY_FIX["galetelegraph"]}
+    return day is not None and day.weekday() < 6 and datetime.date(1985, 1, 1) <= day <= datetime.date(2000, 12, 31) \
+        and row.get("scanKey") in old and not scan.get("puzzles") and not scan.get("failed") \
+        and bool(scan.get(WHOLE_UNTITLED))
+
+
+def telegraph_misread_host(row):
+    """Whether Gale Telegraph ledger `row` is a Mon-Sat page of 1985-2000 scanned under a key from before
+    _TELEGRAPH_TITLE_FIX whose solution heading's number stands one digit off the number before its title (22,595 and
+    22,995 for the 22,695 a title 22,696 follows): it is scanned again, the heading mended to the title's one before."""
+    day = telegraph_day(row)
+    scan = (row or {}).get("scan") or {}
+    old = {*_TELEGRAPH_TITLE_FIX["galetelegraph"][:2], *_TELEGRAPH_PRIZE_OF_FIX["galetelegraph"][:2],
+           *_TELEGRAPH_SATURDAY_FIX["galetelegraph"]}
+    if day is None or day.weekday() > 5 or day > datetime.date(2000, 12, 31) or row.get("scanKey") not in old:
+        return False
+    want = {p["number"] - 1 for p in scan.get("puzzles") or () if isinstance(p.get("number"), int)}
+    return any(isinstance(s.get("number"), int) and s["number"] not in want and any(
+        len(str(s["number"])) == len(str(e)) and sum(a != b for a, b in zip(str(s["number"]), str(e))) == 1 for e in want)
+        for s in scan.get("solutions") or ())
+
+
 def telegraph_host(row):
     """Whether Gale Telegraph ledger `row` is a Tuesday-Saturday page of 1980 on scanned under a key from before
     _TELEGRAPH_SOLUTION_FIX that read a title and no solution heading: the page a puzzle's solution may be printed on.
@@ -14185,7 +14244,8 @@ def telegraph_host(row):
     scan = (row or {}).get("scan") or {}
     return day is not None and day.weekday() in (1, 2, 3, 4, 5) and row.get("scanKey") in _TELEGRAPH_OLD \
         and bool(scan.get("puzzles")) and not scan.get("solutions") or telegraph_prize_host(row) \
-        or telegraph_saturday_host(row)
+        or telegraph_saturday_host(row) or telegraph_untitled_host(row) \
+        or telegraph_misread_host(row)
 
 
 def telegraph_next_due(row):
@@ -14205,7 +14265,7 @@ def telegraph_next_due(row):
 #: holds, so once the read was due the page it needs was not. The scans are kept now (plan, telegraph_host), ranked
 #: as TELEGRAPH_NEXT_DAY's, and the puzzles are read again, waiting on them.
 TELEGRAPH_HOSTED = "Telegraph puzzle with no solution read, its next day's page scanned since"
-REREAD_TELEGRAPH_HOSTED = "2026-11-13T19:00:00+00:00"
+REREAD_TELEGRAPH_HOSTED = "2026-11-14T09:00:00+00:00"
 
 
 def telegraph_hosted_due(row):
@@ -14227,7 +14287,7 @@ def telegraph_hosted_due(row):
 #: Thursdays, 93 each of Mondays, Tuesdays and Wednesdays of 1998-99 alone. Their host pages are scanned again
 #: (telegraph_host), then the puzzle is read, answers only, once.
 TELEGRAPH_WHOLE = "Telegraph puzzle with clues complete, no solution read, its next day's page scanned since"
-REREAD_TELEGRAPH_WHOLE = "2026-11-13T22:00:00+00:00"
+REREAD_TELEGRAPH_WHOLE = "2026-11-14T09:00:00+00:00"
 
 
 def telegraph_whole_due(row):
