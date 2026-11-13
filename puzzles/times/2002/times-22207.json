@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Illness caused by grouse",
     "enumeration": "9"
    },
-   "solution": "COMPLAINT"
+   "solution": "COMPLAINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Illness",
+      "at": 0,
+      "meaning": "an ailment or disorder of the body"
+     },
+     {
+      "text": "grouse",
+      "at": 18,
+      "meaning": "as a noun, a grumble or moan"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both a medical disorder and an expressed grievance, two unrelated senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grouse"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,49 @@
     "text": "Pace had famous sportsman perhaps bowled out",
     "enumeration": "8"
    },
-   "solution": "CELERITY"
+   "solution": "CELERITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pace",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 41,
+       "note": "out signals that the bowled letter is dropped from the famous person"
+      }
+     ],
+     "parts": [
+      {
+       "words": "famous sportsman perhaps",
+       "at": 9,
+       "gives": "CELEBRITY",
+       "note": "a well-known sports star is one example of a celebrity"
+      },
+      {
+       "words": "bowled",
+       "at": 34,
+       "gives": "B",
+       "note": "B is the cricket scorecard abbreviation for bowled"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star player's speed counted for little once he was bowled out at cricket.",
+     "walkthrough": "'bowled out' reads as cricket, but 'out' removes B (bowled) from CELEBRITY.",
+     "definitionFit": "Celerity is a formal synonym for swiftness or speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +126,42 @@
     "text": "Dam in China river",
     "enumeration": "5"
    },
-   "solution": "MATER"
+   "solution": "MATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dam",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "China",
+       "at": 7,
+       "gives": "MATE",
+       "note": "rhyming slang: china plate = mate"
+      },
+      {
+       "words": "river",
+       "at": 13,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reservoir wall stands across a river in China.",
+     "walkthrough": "China is Cockney rhyming slang: 'china plate' rhymes with mate, meaning friend. Dam is a mother, usually of an animal.",
+     "definitionFit": "A dam is an animal's mother, and the Latin-derived word is schoolboy slang for mother."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dam"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +181,42 @@
      }
     ]
    },
-   "solution": "LASTDITCH"
+   "solution": "LASTDITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in which to build a stand",
+      "at": 22,
+      "note": "describes the kind of final defensive position, used adjectivally"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Least suitable",
+       "at": 0,
+       "gives": "LAST",
+       "note": "the last person for a job is the least suitable one"
+      },
+      {
+       "words": "trench",
+       "at": 15,
+       "gives": "DITCH",
+       "note": "a ditch is a dug trench"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers pick the worst possible trench to dig in for a defence.",
+     "walkthrough": "A last-ditch stand is a final desperate defence, made in the last trench before defeat.",
+     "definitionFit": "A final desperate defence is called a last-ditch stand, so the phrase describes where such resistance is made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +230,46 @@
     "text": "Island motorway, out of date, causing standstill",
     "enumeration": "7"
    },
-   "solution": "IMPASSE"
+   "solution": "IMPASSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "standstill",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Island",
+       "at": 0,
+       "gives": "I"
+      },
+      {
+       "words": "motorway",
+       "at": 7,
+       "gives": "M",
+       "note": "M is a British motorway, as in the M1"
+      },
+      {
+       "words": "out of date",
+       "at": 17,
+       "gives": "PASSE",
+       "note": "passé means old-fashioned"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned motorway on an island leads to traffic jams.",
+     "walkthrough": "British motorways are numbered with M, as in the M25.",
+     "definitionFit": "An impasse is a deadlock, a situation where no progress is possible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +283,72 @@
     "text": "Chap got up in new suit can be a crashing bore",
     "enumeration": "7"
    },
-   "solution": "TSUNAMI"
+   "solution": "TSUNAMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crashing bore",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in places one piece within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 15,
+         "note": "new signals the letters of suit are made over into a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suit",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "got up",
+         "at": 5,
+         "note": "in a down clue, got up means the word is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chap",
+         "at": 0,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man dressed in a new suit turns out to be a dreadful bore.",
+     "walkthrough": "'got up' turns MAN into NAM, which goes 'in' TSUI, the anagram of SUIT signalled by 'new'. A bore is also a tidal wave in a river.",
+     "definitionFit": "A tidal bore is a wave surging up a river, so a giant crashing wave is a crashing bore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +362,52 @@
     "text": "Source of Doyle's Study in Fear",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Source of",
+         "at": 0,
+         "note": "the source of a word is where it starts, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Doyle's",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "Study",
+       "at": 18,
+       "gives": "READ",
+       "note": "to read a subject is to study it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Sherlock Holmes title, 'A Study in Scarlet', is twisted into a study in fear.",
+     "walkthrough": "The surface echoes Conan Doyle's first Holmes novel, A Study in Scarlet.",
+     "definitionFit": "Dread is a strong synonym for fear or terror."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +421,29 @@
     "text": "Submit to delay",
     "enumeration": "5"
    },
-   "solution": "DEFER"
+   "solution": "DEFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Submit to",
+      "at": 0,
+      "meaning": "to yield to someone's judgement"
+     },
+     {
+      "text": "delay",
+      "at": 10,
+      "meaning": "to put off or postpone"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One verb means both to yield to another's authority and to postpone an action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Submit"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +457,47 @@
     "text": "Kick out menial attempting to become equal",
     "enumeration": "9"
    },
-   "solution": "EMULATION"
+   "solution": "EMULATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attempting to become equal",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Kick",
+       "at": 0,
+       "note": "a kick sends these letters flying into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "words": "menial",
+       "at": 9,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant is thrown out for trying to rise to his master's level.",
+     "walkthrough": "'Kick out' reads as dismissal, but only 'Kick' is the anagram signal; OUT is part of the letters with MENIAL.",
+     "definitionFit": "Emulation is the effort to match or equal another person, a close synonym of imitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +511,41 @@
     "text": "Confounded race journalist!",
     "enumeration": "6"
    },
-   "solution": "DASHED"
+   "solution": "DASHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confounded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "race",
+       "at": 11,
+       "gives": "DASH",
+       "note": "a dash is a sprint"
+      },
+      {
+       "words": "journalist",
+       "at": 16,
+       "gives": "ED",
+       "note": "ED is short for editor, a journalist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation at a reporter rushing about.",
+     "definitionFit": "Dashed and confounded are both mild old-fashioned oaths meaning damned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +559,34 @@
     "text": "Fruit that sent many round the bend",
     "enumeration": "5"
    },
-   "solution": "LOTUS"
+   "solution": "LOTUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit that sent many round the bend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fruit that sent many round the bend",
+       "at": 0,
+       "note": "in Homer, a fruit eaten by Odysseus's men made them forget home and lose their wits"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Lotus-eaters in the Odyssey ate a fruit that left them dreamy and indifferent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +606,43 @@
      }
     ]
    },
-   "solution": "PLUSFOURS"
+   "solution": "PLUSFOURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bags",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "extra",
+       "at": 5,
+       "gives": "PLUS",
+       "note": "plus means in addition"
+      },
+      {
+       "words": "boundaries",
+       "at": 11,
+       "gives": "FOURS",
+       "note": "in cricket a boundary along the ground scores four runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman gets extra boundaries in bulk.",
+     "walkthrough": "Bags is slang for loose trousers; a ball hit along the ground to the boundary scores four runs in cricket.",
+     "definitionFit": "Bags is old slang for baggy trousers, and these are wide knickerbockers worn by golfers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bags"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +656,70 @@
     "text": "Church screen was about twice the same size originally",
     "enumeration": "7"
    },
-   "solution": "REREDOS"
+   "solution": "REREDOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Church screen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 24,
+         "note": "twice means the piece is used two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "at": 18,
+         "gives": "RE",
+         "note": "re means concerning"
+        }
+       ]
+      },
+      {
+       "words": "the same",
+       "at": 30,
+       "gives": "DO",
+       "note": "do., short for ditto, means the same"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 44,
+         "note": "originally points to the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "size",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church screen was once about double its present size.",
+     "walkthrough": "'about' gives RE, doubled by 'twice'; DO is ditto; 'originally' takes the S of size. 'was' is a link.",
+     "definitionFit": "A reredos is an ornamental screen or panel behind a church altar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "same"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +739,34 @@
      }
     ]
    },
-   "solution": "AIRFARE"
+   "solution": "AIRFARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What you pay to get this up on a plastic tray",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What you pay to get this up on a plastic tray",
+       "at": 0,
+       "note": "the price of a flight, punning on fare as the food served aloft on a tray"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The ticket price for flying is named from the air plus fare, which also means food served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +790,47 @@
      }
     ]
    },
-   "solution": "TAKETHEBISCUIT"
+   "solution": "TAKETHEBISCUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to produce a big surprise",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grasp",
+       "at": 0,
+       "gives": "TAKE",
+       "note": "to grasp is to take"
+      },
+      {
+       "words": "the",
+       "at": 6,
+       "gives": "THE",
+       "note": "taken as written"
+      },
+      {
+       "words": "cracker",
+       "at": 10,
+       "gives": "BISCUIT",
+       "note": "a cracker is a dry biscuit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seizing a cracker causes a shock.",
+     "definitionFit": "The idiom describes something so outrageous it surpasses everything, a startling surprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracker"
+    }
+   }
   },
   {
    "number": 14,
@@ -274,7 +850,49 @@
      }
     ]
    },
-   "solution": "KNIFEEDGE"
+   "solution": "KNIFEEDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "position of great danger",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disguised",
+       "at": 18,
+       "note": "disguised means these letters appear in altered form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Feed",
+       "at": 0
+      },
+      {
+       "words": "English",
+       "at": 5,
+       "gives": "E"
+      },
+      {
+       "words": "king",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeding a king in disguise is a risky business.",
+     "walkthrough": "'disguised' rearranges FEED, E and KING.",
+     "definitionFit": "Being on a knife-edge means being in a precarious, dangerous balance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +912,43 @@
      }
     ]
    },
-   "solution": "CARDSHARP"
+   "solution": "CARDSHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "You won't get a good deal out of one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "character",
+       "at": 37,
+       "gives": "CARD",
+       "note": "a card is an eccentric or amusing person"
+      },
+      {
+       "words": "that's not natural",
+       "at": 47,
+       "gives": "SHARP",
+       "note": "in music a sharp note is not natural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shady and peculiar will never give you a fair bargain.",
+     "walkthrough": "'deal' refers to dealing cards; in music a note is natural, sharp or flat.",
+     "definitionFit": "A cheat at card games deals dishonestly, so a fair hand is never on offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +962,55 @@
     "text": "Climber needs a sound transmitter",
     "enumeration": "8"
    },
-   "solution": "ASCENDER"
+   "solution": "ASCENDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Climber",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SCENDER",
+       "indicators": [
+        {
+         "text": "sound",
+         "at": 16,
+         "note": "sound means the word is spoken and heard, giving a soundalike spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "transmitter",
+         "at": 22,
+         "gives": "SENDER",
+         "note": "a sender transmits a message"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineer requires a good radio.",
+     "walkthrough": "'sound' looks like an adjective (a sound transmitter), but it signals SENDER said aloud, spelt SCENDER.",
+     "definitionFit": "An ascender is one who climbs, and also a climbing device or letter stroke rising up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 17,
@@ -328,7 +1030,30 @@
      }
     ]
    },
-   "solution": "WITHOUTSTRINGS"
+   "solution": "WITHOUTSTRINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In the absence of horses",
+      "at": 0,
+      "meaning": "a string is a trainer's stable of racehorses, so lacking such strings"
+     },
+     {
+      "text": "unrestricted",
+      "at": 34,
+      "meaning": "with no conditions attached"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An offer with no strings attached has no conditions, while strings of racehorses supply the literal pun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "horses"
+    }
+   }
   },
   {
    "number": 18,
@@ -342,7 +1067,40 @@
     "text": "In court drunk, and in a nervy state",
     "enumeration": "7"
    },
-   "solution": "UPTIGHT"
+   "solution": "UPTIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in a nervy state",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In court",
+       "at": 0,
+       "gives": "UP",
+       "note": "to be up before a judge is to be in court"
+      },
+      {
+       "words": "drunk",
+       "at": 9,
+       "gives": "TIGHT",
+       "note": "tight is slang for drunk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk in court is understandably anxious.",
+     "definitionFit": "Uptight is informal for tense, anxious and on edge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1114,41 @@
     "text": "Relative makes his way over",
     "enumeration": "7"
    },
-   "solution": "STEPSON"
+   "solution": "STEPSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "makes his way",
+       "at": 9,
+       "gives": "STEPS",
+       "note": "steps means walks or makes progress"
+      },
+      {
+       "words": "over",
+       "at": 23,
+       "gives": "ON",
+       "note": "on means on top of, over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member travels across.",
+     "definitionFit": "A stepson is a relation by marriage, a spouse's son."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1162,29 @@
     "text": "Discharges radio operator.",
     "enumeration": "6"
    },
-   "solution": "SPARKS"
+   "solution": "SPARKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discharges",
+      "at": 0,
+      "meaning": "electrical flashes, or the verb throws off fiery particles"
+     },
+     {
+      "text": "radio operator",
+      "at": 11,
+      "meaning": "nickname for a ship's wireless operator"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means electrical discharges and is the traditional nickname of a ship's wireless operator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharges"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1198,34 @@
     "text": "An old overseas entertainer",
     "enumeration": "7"
    },
-   "solution": "PIERROT"
+   "solution": "PIERROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An old overseas entertainer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "An old overseas entertainer",
+       "at": 0,
+       "note": "a white-faced clown from the old seaside pier shows, performing on a pier over the sea"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A pierrot was a seaside clown who performed in troupes on piers built out over the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overseas"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1239,45 @@
     "text": "Not fully, reliable, being out of practice",
     "enumeration": "5"
    },
-   "solution": "RUSTY"
+   "solution": "RUSTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out of practice",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not fully",
+       "at": 0,
+       "note": "not fully means a piece of the word is missing, here its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reliable",
+       "at": 11,
+       "gives": "TRUSTY",
+       "note": "trusty means dependable"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Not entirely dependable after a long lay-off.",
+     "walkthrough": "'Not fully' removes the first letter T from TRUSTY.",
+     "definitionFit": "Rusty skills have deteriorated through lack of use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1291,42 @@
     "text": "The heart of a city church",
     "enumeration": "7"
    },
-   "solution": "ESSENCE"
+   "solution": "ESSENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The heart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "city",
+       "at": 15,
+       "gives": "ESSEN",
+       "note": "Essen is a German city"
+      },
+      {
+       "words": "church",
+       "at": 20,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the centre of a city stands its church.",
+     "walkthrough": "Essen is a city in Germany's Ruhr; CE is the Church of England.",
+     "definitionFit": "The essence of something is its core or heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1340,51 @@
     "text": "Order only new fabric",
     "enumeration": "5"
    },
-   "solution": "NYLON"
+   "solution": "NYLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Order",
+         "at": 0,
+         "note": "order means the letters are put into a new sequence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "only",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "at": 11,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to buy only new cloth.",
+     "walkthrough": "'Order' rearranges ONLY with N.",
+     "definitionFit": "Nylon is a synthetic fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1398,60 @@
     "text": "Makes new, arrangement of coloured flags without using first pole",
     "enumeration": "9"
    },
-   "solution": "REDESIGNS"
+   "solution": "REDESIGNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Makes new",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "coloured",
+       "at": 26,
+       "gives": "RED",
+       "note": "red is a colour"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without using first",
+         "at": 41,
+         "note": "the first instance of the pole letter in flags is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flags",
+         "at": 35,
+         "gives": "ENSIGNS",
+         "note": "ensigns are flags"
+        },
+        {
+         "words": "pole",
+         "at": 61,
+         "gives": "N",
+         "note": "N is a pole, the North Pole"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A designer reorders a display of coloured flags without the first pole.",
+     "walkthrough": "'without using first' drops the first N of ENSIGNS, leaving ESIGNS; 'arrangement of' is link.",
+     "definitionFit": "To redesign is to make something afresh to a new plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1465,44 @@
     "text": "Girl's back was giving trouble",
     "enumeration": "5"
    },
-   "solution": "AILED"
+   "solution": "AILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "was giving trouble",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 7,
+       "note": "back means the name is read from the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl's",
+       "at": 0,
+       "gives": "DELIA",
+       "note": "Delia is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's back was hurting.",
+     "walkthrough": "'back' reads like her spine but turns DELIA round.",
+     "definitionFit": "Ailed means troubled or was unwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1516,44 @@
     "text": "Unseemly compact disc is broadcast",
     "enumeration": "5"
    },
-   "solution": "SEEDY"
+   "solution": "SEEDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unseemly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEEDY",
+     "indicators": [
+      {
+       "text": "is broadcast",
+       "at": 22,
+       "note": "broadcast signals the letters said out loud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "compact disc",
+       "at": 9,
+       "gives": "CD",
+       "note": "CD is a compact disc"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indecent disc gets airplay.",
+     "walkthrough": "'is broadcast' reads CD aloud.",
+     "definitionFit": "Seedy means sordid or disreputable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 28,
@@ -488,7 +1573,44 @@
      }
     ]
    },
-   "solution": "TINOPENER"
+   "solution": "TINOPENER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Can batsman take off cap, having secured this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Can",
+       "at": 0,
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "words": "batsman",
+       "at": 4,
+       "gives": "OPENER",
+       "note": "an opener is a batsman who starts the innings"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A cricketer wonders whether he can doff his cap after securing a win.",
+     "walkthrough": "An opener starts the batting in cricket; the device takes the lid off a tin.",
+     "definitionFit": "The whole clue asks whether, having obtained such a tool, one can remove a tin's lid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cap"
+    }
+   }
   }
  ]
 }
