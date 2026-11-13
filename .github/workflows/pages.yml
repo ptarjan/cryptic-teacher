@@ -170,12 +170,18 @@ jobs:
           key: clue-index-${{ github.sha }}
           restore-keys: clue-index-
       # (The puzzle pages' store, described at Unpack the puzzle pages below.)
+      # Its key names this checkout's page fingerprint, computed here so the
+      # restore and the save share one key (the restore misses it and falls
+      # back to the newest store through restore-keys).
+      - name: Name the puzzle pages' key
+        id: pagefp
+        run: echo "key=seo-pages-$(python3 tools/cache_warmth.py --fingerprint)-$GITHUB_SHA" >> "$GITHUB_OUTPUT"
       - name: Restore the puzzle pages
         id: pagecache
         uses: actions/cache/restore@v5
         with:
           path: .page-cache.tar
-          key: seo-pages-${{ github.sha }}
+          key: ${{ steps.pagefp.outputs.key }}
           restore-keys: seo-pages-
       # A push that only added or edited puzzle files, against the commit the
       # last deploy shipped, takes the puzzle fast path (Paul 10-19: "like 1
@@ -578,7 +584,7 @@ jobs:
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
-          key: seo-pages-${{ steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint }}-${{ github.sha }}
+          key: ${{ steps.pagefp.outputs.key }}
       # The repo's caches are capped at 10GB and each run saves ~3.6GB under
       # a new key, so three runs filled it and GitHub evicted the oldest,
       # restores missed, and Save the git store and the shim build ran slow.
