@@ -4908,8 +4908,6 @@ def gale_telegraph_headings(lines, titles=()):
         # (a heading narrower than the grid under it, "SOLUTIONS" over "No.19,965", is widened to it)
         solutions += [(n, centred(b, TELEGRAPH_SOLUTION_SPAN) if b[2] - b[0] < TELEGRAPH_SOLUTION_SPAN else b)
                       for n, b in solution_headings(lines, titles) if n not in have]
-        have = {n for n, _ in solutions}
-        solutions += [(n, b) for n, b in telegraph_prize_headings(lines, titles) if n not in have]
         # A heading's number one digit off the title's one before it (1999-01-06's "22595" and "22996" for 22,695,
         # the two readers' misreads: solution_number leaves a clean read near an expected one) is that one's.
         want = {t - 1 for t in titles}
@@ -4917,6 +4915,10 @@ def gale_telegraph_headings(lines, titles=()):
                             and sum(a != b2 for a, b2 in zip(str(n), str(e))) == 1
                             and sum(sum(a != b2 for a, b2 in zip(str(n), str(x))) == 1 for x in want) == 1), n), b)
                      for n, b in solutions]
+        # (a Monday's prize heading, read clean, is added after the mend: its number is the Saturday's, six to eight
+        # titles back, and was one digit off the title's one before it when the title ended in 7 to 9)
+        have = {n for n, _ in solutions}
+        solutions += [(n, b) for n, b in telegraph_prize_headings(lines, titles) if n not in have]
         solutions = list(dict.fromkeys(solutions))
     for ws in lines + joined_titles(lines, TELEGRAPH_BANNER.match):
         m = TELEGRAPH_BANNER.match(" ".join(w[4] for w in ws))
@@ -13109,6 +13111,18 @@ for _paper, _pins in _INDY_ENTRIES_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before gale_telegraph_headings stopped mending a Monday's
+#: prize-solution heading (telegraph_prize_headings, read clean) to the number one before the title, one digit off
+#: when the title ended in 7 to 9 (heading 21423 under title 21430 became 21429): only the Gale Telegraph's parser
+#: reads otherwise, so its old scans stand; the Mondays whose prize heading was so mended are due TELEGRAPH_PRIZE_MENDED.
+_TELEGRAPH_PRIZE_MEND_FIX = {
+    "galetelegraph": ("31dcebfe742d7cd9", "6411cc4cccdae040", "b8f19a2aaa21e001"),
+}
+for _paper, _pins in _TELEGRAPH_PRIZE_MEND_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -13226,6 +13240,9 @@ _SOLUTION_KEY = []
 _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved into clue_text: the same read
                   # clue_text.own_number_mended / ocr_clues (TELEGRAPH_OWN): clue text only, no solution grid's reading moves.
                   "edce9031f340db29": "432a5818529a9b11",
+                  # gale_telegraph_headings keeps a Monday's clean prize heading out of the one-digit-off mend: the
+                  # rows it may mend are due once as TELEGRAPH_PRIZE_MENDED.
+                  "ade85d60fc3cb63a": "432a5818529a9b11",
                   # SUNDAY_TIMES_TITLE refuses a winners entry ("No. 3530:"; back in after 2e0de5d8d00 backed it out):
                   # a scan's title, no solution's reading moves. The scan key lands on _JOINED_TITLE_FIX's own.
                   "e8b1229ab48f7223": "432a5818529a9b11",
