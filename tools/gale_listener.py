@@ -1027,11 +1027,32 @@ def lend_heads(words):
 LEND_NUMBERS = False
 
 
+SYMBOL_NUMBER = re.compile(r"[§$&%#@!?]")
+
+
+def symbol_numbers(ws):
+    """`ws` with each word that is one symbol ("§") standing in a column of clue numbers between two whose
+    figures skip one (4 above, 6 below) read as the figure between (1993-09-03's 5 down read "§")."""
+    nums = [o for o in ws if re.fullmatch(r"\d{1,2}", o[4])]
+    out = list(ws)
+    for i, w in enumerate(ws):
+        if not SYMBOL_NUMBER.fullmatch(w[4]):
+            continue
+        h = w[3] - w[1]
+        col = sorted((o for o in nums if abs(o[0] - w[0]) <= h), key=lambda o: o[1])
+        above = [o for o in col if o[3] <= w[3] and o[1] < w[1]]
+        below = [o for o in col if o[1] > w[1]]
+        if above and below and int(below[0][4]) - int(above[-1][4]) == 2 and w[1] - above[-1][1] < 15 * h:
+            out[i] = (*w[:4], str(int(above[-1][4]) + 1))
+    return out
+
+
 def lend_numbers(words):
     """{reader: words} with each clue number the Tesseract page reading reads at a line's start that another
     reading lacks (a RapidOCR reading drops a lone "4" or "5" set a gap before its clue, so the line joins the
     clue above: 1996-03-22's 4 and 5 down) lent it: put in where no word of that reading stands on the number
     and a word follows it on the line within three line heights."""
+    words = {k: symbol_numbers(ws) for k, ws in words.items()}
     page = words.get("page")
     if not page:
         return words
@@ -1054,8 +1075,34 @@ def lend_numbers(words):
             first = min(row, key=lambda o: o[0])
             if n[2] - 5 <= first[0] <= n[2] + 3 * h and not re.fullmatch(r"\d{1,2}\W?", first[4]):
                 add.append(n)
-        out[k] = [*ws, *add]
+        out[k] = skipped_number([*ws, *add])
     return out
+
+
+COUNT_ENDED = re.compile(r"\(\s*\d[\d,.\- ]*\)\W*$")
+
+
+def skipped_number(ws):
+    """`ws` with the clue number a column of numbers skips (4 then 6) put at the clue between them when the
+    lines from the 4's to the 6's hold two clues, the first line after the first ending in a count being the
+    skipped one's: a number no reading reads (1993-09-03's 5 down, "§" on the page reading and nothing else)."""
+    nums = sorted((o for o in ws if re.fullmatch(r"\d{1,2}", o[4])), key=lambda o: o[1])
+    add = []
+    for a in nums:
+        h = a[3] - a[1]
+        col = [o for o in nums if abs(o[0] - a[0]) <= h and o[1] > a[1]]
+        if not col or int(col[0][4]) - int(a[4]) != 2 or col[0][1] - a[1] > 20 * h:
+            continue
+        b = col[0]
+        lines = sorted((o for o in ws if o[0] >= a[2] and a[1] - h / 2 <= o[1] < b[1] - h / 2
+                        and not re.fullmatch(r"\d{1,2}", o[4])), key=lambda o: o[1])
+        ends = [i for i, o in enumerate(lines) if COUNT_ENDED.search(o[4])]
+        if len(ends) == 2 and ends[0] + 1 < len(lines) and ends[1] == len(lines) - 1:
+            first = lines[ends[0] + 1]
+            if not any(abs((o[1] + o[3]) / 2 - (first[1] + first[3]) / 2) < h / 2 and re.fullmatch(r"\d{1,2}", o[4])
+                       for o in ws):
+                add.append((a[0], first[1], a[2], first[3], str(int(a[4]) + 1)))
+    return [*ws, *add]
 
 
 def headed_columns(words):
