@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "In the same position, showing no emotion",
     "enumeration": "7"
    },
-   "solution": "UNMOVED"
+   "solution": "UNMOVED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In the same position",
+      "at": 0,
+      "meaning": "not shifted from where it was, still in place"
+     },
+     {
+      "text": "showing no emotion",
+      "at": 22,
+      "meaning": "untouched, impassive, not stirred by feeling"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses come from one word: physically not shifted, and emotionally not stirred."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,45 @@
     "text": "Pronounced fruit so unlike a peach!",
     "enumeration": "4"
    },
-   "solution": "UGLY"
+   "solution": "UGLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "so unlike a peach!",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "UGLY",
+     "indicators": [
+      {
+       "text": "Pronounced",
+       "at": 0,
+       "note": "pronounced says the fruit's name is heard spoken, not seen written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "at": 11,
+       "gives": "UGLI",
+       "note": "the ugli is a Jamaican citrus fruit, a tangelo"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks how far a certain fruit is from being a peach.",
+     "walkthrough": "A peach is slang for a beauty, so 'so unlike a peach' means plain-looking.",
+     "definitionFit": "A peach is slang for a lovely person, and the opposite is unattractive or plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peach"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +121,30 @@
     "text": "Picture result of pouring in tea?",
     "enumeration": "7"
    },
-   "solution": "MUGSHOT"
+   "solution": "MUGSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0,
+      "meaning": "a police photo of a face"
+     },
+     {
+      "text": "result of pouring in tea?",
+      "at": 8,
+      "meaning": "read as two words, a cup made warm once tea is poured into it"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A police photograph of a face, and split in two it says the cup has warmed up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pouring"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +158,56 @@
     "text": "Living in very restricted part of Europe",
     "enumeration": "5"
    },
-   "solution": "VITAL"
+   "solution": "VITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Living",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very",
+       "at": 10,
+       "gives": "V"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "restricted",
+         "at": 15,
+         "note": "restricted means cut short, so the last letter of the country is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "part of Europe",
+         "at": 26,
+         "gives": "ITALY",
+         "note": "Italy is a country forming part of Europe"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lives in a small, confined corner of Europe.",
+     "walkthrough": "'restricted' looks like describing the area, but it cuts the Y from ITALY.",
+     "definitionFit": "Vital means relating to life, as in vital signs, so it fits being alive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "restricted"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +221,45 @@
     "text": "Reckoning occasion's so odd, and may become crazy",
     "enumeration": "8"
    },
-   "solution": "DOOMSDAY"
+   "solution": "DOOMSDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reckoning occasion's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "become crazy",
+       "at": 37,
+       "note": "become crazy says the letters go wild and are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "so odd",
+       "at": 21
+      },
+      {
+       "words": "may",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The day of judgement is so strange that it may drive people mad.",
+     "walkthrough": "'become crazy' rearranges SO ODD and MAY; the 's of 'occasion's' stands for 'is' joining definition to wordplay.",
+     "definitionFit": "Judgement Day is the day of the final reckoning, when all are called to account."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crazy"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +273,55 @@
     "text": "Working on a motorway, so -providing diversion",
     "enumeration": "7"
    },
-   "solution": "AMUSING"
+   "solution": "AMUSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "providing diversion",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 8,
+       "note": "on puts the word for working after the motorway pieces in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "words": "motorway",
+       "at": 13,
+       "gives": "M",
+       "note": "M is the abbreviation for motorway, as in the M1"
+      },
+      {
+       "words": "Working",
+       "at": 0,
+       "gives": "USING",
+       "note": "something in use is working, hence using"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes roadworks on a motorway as a welcome distraction.",
+     "walkthrough": "'Working on' reads as labouring at a site, but 'on' places USING after A and M (M as in M1, a British motorway).",
+     "definitionFit": "Something entertaining provides a diversion, a pleasant distraction from routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Working"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +335,42 @@
     "text": "Vigorous middle age, according to Jaques? Point taken",
     "enumeration": "6"
    },
-   "solution": "ACTIVE"
+   "solution": "ACTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vigorous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "middle age, according to Jaques",
+       "at": 9,
+       "gives": "ACTIV",
+       "note": "in As You Like It Jaques says a man's life has seven ages as acts, so the middle one is the fourth act"
+      },
+      {
+       "words": "Point",
+       "at": 42,
+       "gives": "E",
+       "note": "E, east, is a point of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in their middle years is still energetic, as a Shakespeare speech might note.",
+     "walkthrough": "Jaques's 'All the world's a stage' speech gives seven ages as acts; the fourth, ACT IV, is the middle. 'taken' just joins E on.",
+     "definitionFit": "Being vigorous means being energetic and lively, always on the go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "middle"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +384,58 @@
     "text": "Primarily chancy in nature, perhaps",
     "enumeration": "9"
    },
-   "solution": "UNCERTAIN"
+   "solution": "UNCERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Primarily chancy in nature, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 28,
+       "note": "perhaps says the letters might be arranged in some other order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Primarily",
+         "at": 0,
+         "note": "primarily points to the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chancy",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "in nature",
+       "at": 17
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Things are basically risky by their very nature.",
+     "walkthrough": "'Primarily' gives C, the start of 'chancy', and 'perhaps' rearranges it with IN NATURE; the whole clue also defines the answer.",
+     "definitionFit": "Something chancy is risky or doubtful, and so not sure to turn out well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +455,42 @@
      }
     ]
    },
-   "solution": "ICEPICK"
+   "solution": "ICEPICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "equipment climber can have",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rocks",
+       "at": 5,
+       "gives": "ICE",
+       "note": "ice is slang for diamonds, which are also called rocks"
+      },
+      {
+       "words": "the best",
+       "at": 12,
+       "gives": "PICK",
+       "note": "the pick of something is its best"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With proper boulders to scale, a mountaineer can bring top-quality gear.",
+     "walkthrough": "'rocks' looks like a climbing face but means diamonds, ICE.",
+     "definitionFit": "An ice-axe-like tool with a pointed head is standard kit for mountaineers cutting holds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +510,30 @@
      }
     ]
    },
-   "solution": "GETKNOTTED"
+   "solution": "GETKNOTTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Safety instruction to mountaineers",
+      "at": 0,
+      "meaning": "taken literally, a reminder to tie on to the rope"
+     },
+     {
+      "text": "angry response?",
+      "at": 44,
+      "meaning": "British slang for 'go away', a rude dismissal"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Literally it tells climbers to tie in, and as British slang it is a rude way of saying clear off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Safety"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +553,29 @@
      }
     ]
    },
-   "solution": "LIGHTSOUT"
+   "solution": "LIGHTSOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quickly departs",
+      "at": 0,
+      "meaning": "to 'light out' is slang for leaving in a hurry, so he does this when he departs fast"
+     },
+     {
+      "text": "when it's time to retire",
+      "at": 16,
+      "meaning": "the call at bedtime in a dormitory or barracks to switch off and sleep"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One phrase is slang for bolting off and also the bedtime signal in a barracks or boarding school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +589,50 @@
     "text": "Fleece providing warmth when there's cold front",
     "enumeration": "5"
    },
-   "solution": "CHEAT"
+   "solution": "CHEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fleece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "front",
+       "at": 42,
+       "note": "front says the abbreviation for cold goes at the start of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cold",
+       "at": 37,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "words": "warmth",
+       "at": 17,
+       "gives": "HEAT",
+       "note": "heat is warmth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fleece jacket keeps you warm when a cold front arrives.",
+     "walkthrough": "'Fleece' looks like the woolly garment from the weather picture, but here it is the verb meaning to swindle.",
+     "definitionFit": "To fleece someone is to swindle or defraud them out of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fleece"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +652,66 @@
      }
     ]
    },
-   "solution": "HALFSOVEREIGN"
+   "solution": "HALFSOVEREIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 16,
+       "note": "initially says the Henry piece and its attachment come first, before the word for king"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "presented to",
+         "at": 26,
+         "note": "presented to says the abbreviation for female is attached right after the name for Henry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Henry",
+         "at": 10,
+         "gives": "HAL",
+         "note": "Prince Hal is Shakespeare's familiar name for Henry V"
+        },
+        {
+         "words": "female",
+         "at": 39,
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "words": "King",
+       "at": 5,
+       "gives": "SOVEREIGN",
+       "note": "a king is a sovereign, a reigning monarch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king named Henry first gives a coin to a woman.",
+     "walkthrough": "HAL is Henry, as Prince Hal in Shakespeare. A half-sovereign was an old British gold coin worth ten shillings.",
+     "definitionFit": "It was a British gold coin worth ten shillings, half the value of the pound coin it is named from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +731,42 @@
      }
     ]
    },
-   "solution": "HIGHSEASON"
+   "solution": "HIGHSEASON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "July and August?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Main area",
+       "at": 0,
+       "gives": "HIGHSEAS",
+       "note": "the main is the open sea, and the open ocean beyond territorial waters is the high seas"
+      },
+      {
+       "words": "available",
+       "at": 10,
+       "gives": "ON",
+       "note": "on means available, as a dish on the menu"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big holiday region is open during the summer months.",
+     "walkthrough": "'Main' looks like chief, but it is the old word for the sea.",
+     "definitionFit": "Midsummer is the busiest, most expensive time of year for holiday resorts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +780,42 @@
     "text": "Another mathematical term for — triangle that's not right",
     "enumeration": "8"
    },
-   "solution": "INTEGRAL"
+   "solution": "INTEGRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Another mathematical term",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "that's not right",
+       "at": 41,
+       "note": "something not right is out of order, so the letters of the shape are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "triangle",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A maths student looks for a different word for a triangle without a right angle.",
+     "walkthrough": "'not right' suggests a non-right-angled triangle, but it is the anagram signal on TRIANGLE.",
+     "definitionFit": "In calculus this is the result of integration, a mathematical term just as the shape named in the clue is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +829,77 @@
     "text": "Musician's variation on air after it is taken up by wind",
     "enumeration": "9"
    },
-   "solution": "GUITARIST"
+   "solution": "GUITARIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musician's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is taken up by",
+       "at": 37,
+       "note": "taken up by says the other pieces are held inside the word for wind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wind",
+       "at": 52,
+       "gives": "GUST",
+       "note": "a gust is a blast of wind"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 28,
+         "note": "after says the rearranged letters come after the word it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 34,
+         "gives": "IT",
+         "note": "taken as written"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "variation on",
+           "at": 11,
+           "note": "a variation on something is a changed version, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "air",
+           "at": 24
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician improvises on a tune after it is picked up by a wind section.",
+     "walkthrough": "'variation on' rearranges AIR as ARI; IT + ARI goes inside GUST. The 's of 'Musician's' stands for 'is'.",
+     "definitionFit": "A player of a six-stringed instrument is one kind of musician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +913,30 @@
     "text": "Garment put on Emma, for example",
     "enumeration": "6"
    },
-   "solution": "JACKET"
+   "solution": "JACKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Garment",
+      "at": 0,
+      "meaning": "a coat or short outer garment"
+     },
+     {
+      "text": "put on Emma, for example",
+      "at": 8,
+      "meaning": "Emma is a Jane Austen novel, and a book has a dust cover wrapped round it"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "It is a short coat and also the paper cover put round a book such as the novel Emma."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Emma"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +950,50 @@
     "text": "One's entered the church",
     "enumeration": "8"
    },
-   "solution": "MINISTER"
+   "solution": "MINISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's entered the church",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered",
+       "at": 6,
+       "note": "entered says the letter for one goes inside the church word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the church",
+       "at": 14,
+       "gives": "MINSTER",
+       "note": "a minster is a large church, such as York Minster"
+      },
+      {
+       "words": "One's",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one; the 's means has"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone has joined the clergy.",
+     "walkthrough": "I goes inside MINSTER; the whole clue also describes a person who has gone into the church as a career.",
+     "definitionFit": "A clergyman is someone who has made the church his calling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entered"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1007,42 @@
     "text": "Old woman serving Americans ethnic food",
     "enumeration": "6"
    },
-   "solution": "HAGGIS"
+   "solution": "HAGGIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ethnic food",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old woman",
+       "at": 0,
+       "gives": "HAG",
+       "note": "a hag is an ugly old woman"
+      },
+      {
+       "words": "serving Americans",
+       "at": 10,
+       "gives": "GIS",
+       "note": "GIs are American servicemen, so serving Americans"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman waits on American diners with a national dish.",
+     "walkthrough": "'serving' looks like waiting at table but means in the armed services: GIS, American soldiers. Haggis is the Scottish national dish of offal in a sheep's stomach.",
+     "definitionFit": "It is Scotland's national dish, a food tied to one nation and its people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1062,49 @@
      }
     ]
    },
-   "solution": "GATELEG"
+   "solution": "GATELEG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "table",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "being at top",
+       "at": 20,
+       "note": "being at top says the crowd word sits above the support in this down answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crowd",
+       "at": 13,
+       "gives": "GATE",
+       "note": "the gate is the crowd attending a match"
+      },
+      {
+       "words": "Support",
+       "at": 0,
+       "gives": "LEG",
+       "note": "a leg is a support, as of furniture"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A table leg holds up a heavy crowd gathered on top of it.",
+     "walkthrough": "The gate is British usage for the number attending a sports match.",
+     "definitionFit": "A gateleg is a folding table whose legs swing out like a gate to hold up its leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1118,48 @@
     "text": "Highest point reached by salt in -'tree",
     "enumeration": "8"
    },
-   "solution": "PINNACLE"
+   "solution": "PINNACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highest point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in says the chemical formula goes inside the tree"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tree",
+       "at": 35,
+       "gives": "PINE",
+       "note": "a pine is a tree"
+      },
+      {
+       "words": "salt",
+       "at": 25,
+       "gives": "NACL",
+       "note": "NaCl is the chemical formula for common salt, sodium chloride"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber reaches the top of a tree that has salt in it.",
+     "definitionFit": "A pinnacle is a peak or summit, the topmost point of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1179,42 @@
      }
     ]
    },
-   "solution": "COYWOLF"
+   "solution": "CRYWOLF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cause unnecessary alarm",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Keen",
+       "at": 0,
+       "gives": "CRY",
+       "note": "to keen is to wail or cry in grief"
+      },
+      {
+       "words": "to bolt",
+       "at": 5,
+       "gives": "WOLF",
+       "note": "to wolf food is to bolt it down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eager to run off sets off a false alarm.",
+     "walkthrough": "'Keen' looks like eager, but it is the verb to wail; 'bolt' is to gobble food, not to run.",
+     "definitionFit": "From the fable of the shepherd boy, raising false alarms means warning of danger that is not there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keen"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1228,34 @@
     "text": "Put house in order",
     "enumeration": "6"
    },
-   "solution": "FRIARY"
+   "solution": "FRIARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put house in order",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Put house in order",
+       "at": 0,
+       "note": "reads as tidying a home, but means a dwelling belonging to a religious order of brothers"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Members of a mendicant religious order live together in this kind of community building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1269,43 @@
     "text": "Remarkable addition to coat of arms?",
     "enumeration": "13"
    },
-   "solution": "EXTRAORDINARY"
+   "solution": "EXTRAORDINARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remarkable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "addition",
+       "at": 11,
+       "gives": "EXTRA",
+       "note": "an extra is an addition"
+      },
+      {
+       "words": "to coat of arms",
+       "at": 20,
+       "gives": "ORDINARY",
+       "note": "in heraldry an ordinary is one of the simple basic charges on a shield, such as a bend or chevron"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admires a striking new feature added to a family crest.",
+     "walkthrough": "An ordinary is a heraldry term for a simple geometric charge on a shield, a sense few solvers know.",
+     "definitionFit": "Something remarkable is out of the usual run, exceptional or astonishing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1319,41 @@
     "text": "A short piece of poetry in circulation",
     "enumeration": "5"
    },
-   "solution": "AFOOT"
+   "solution": "AFOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in circulation",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "short piece of poetry",
+       "at": 2,
+       "gives": "FOOT",
+       "note": "a foot is a short metrical unit of verse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief poem is being passed around.",
+     "walkthrough": "'short piece of poetry' looks like a little poem but is the metrical foot.",
+     "definitionFit": "Something afoot is going on, in progress or about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1367,41 @@
     "text": "She's tucked into army rations",
     "enumeration": "4"
    },
-   "solution": "MYRA"
+   "solution": "MYRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "tucked into",
+       "at": 6,
+       "note": "tucked into says the name lies inside the run of words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "army rations",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier eats her army meals.",
+     "walkthrough": "'tucked into' reads as eating, but it signals the girl's name inside 'army rations'.",
+     "definitionFit": "A girl's name stands for a woman, any 'she'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1415,49 @@
     "text": "One piece of sausage removed for casserole",
     "enumeration": "5"
    },
-   "solution": "SALMI"
+   "solution": "SALMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "casserole",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removed",
+       "at": 21,
+       "note": "removed says one letter is taken out of the sausage word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sausage",
+       "at": 13,
+       "gives": "SALAMI",
+       "note": "salami is a spicy sausage"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "A",
+       "note": "a means one, as in a dozen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook takes a slice of sausage out of a stew.",
+     "walkthrough": "'piece of' looks as if it wants a fragment of the sausage, but the deletion is just one A from SALAMI.",
+     "definitionFit": "A salmi is a ragout or stew of game birds, a kind of casserole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1471,34 @@
     "text": "It puts everyone into a' house",
     "enumeration": "9"
    },
-   "solution": "ASTROLOGY"
+   "solution": "ASTROLOGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It puts everyone into a' house",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It puts everyone into a' house",
+       "at": 0,
+       "note": "reads as a housing scheme, but means the zodiac practice of placing each person's birth chart within twelve houses"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Horoscope readers divide the sky into twelve houses and place each person's planets in them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1512,70 @@
     "text": "Lying absurdly about high tension as play is performed?",
     "enumeration": "7"
    },
-   "solution": "NIGHTLY"
+   "solution": "NIGHTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as play is performed?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 15,
+       "note": "about says the scrambled letters go round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "absurdly",
+         "at": 6,
+         "note": "absurdly says the letters of the first word are thrown into nonsense order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lying",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "high",
+         "at": 21,
+         "gives": "H",
+         "note": "H is the abbreviation for high, as on pencils"
+        },
+        {
+         "words": "tension",
+         "at": 26,
+         "gives": "T",
+         "note": "T is the symbol for tension in physics"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A liar spins silly tales about how tense things are during a performance.",
+     "walkthrough": "'absurdly' turns LYING into NIGLY, and 'about' puts H and T inside it after the third letter.",
+     "definitionFit": "A play in a run is performed every evening, which is what the adverb says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lying"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1589,69 @@
     "text": ".If a sailor returns, have a drink",
     "enumeration": "7"
    },
-   "solution": "RATAFIA"
+   "solution": "RATAFIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 13,
+         "note": "returns says the opening words are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "If",
+           "at": 1,
+           "gives": "IF",
+           "note": "taken as written"
+          },
+          {
+           "words": "a",
+           "at": 4,
+           "gives": "A"
+          },
+          {
+           "words": "sailor",
+           "at": 6,
+           "gives": "TAR",
+           "note": "a tar is a sailor"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 27,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host offers a drink if a seaman comes back home.",
+     "walkthrough": "'returns' turns IF A TAR into RATAFI, then 'have a' adds the final A.",
+     "definitionFit": "Ratafia is an almond-flavoured liqueur, a kind of alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   }
  ]
 }
