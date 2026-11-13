@@ -3700,6 +3700,7 @@ check("an Independent on Sunday title run together or with a digit read as a let
         bool(f.ios_title_due({**_ios_r, "edition": "GaleTimes2004UKEnglish/2004-08-29"})),
         bool(f.ios_title_due({**_ios_r, "readAt": "2026-11-14T00:00:00+00:00"})), f.IOS_TITLES in f.RANKS]])
 _ct = __import__("clue_text")
+_ocr = __import__("ocr_clues")
 _tr = {"edition": "GaleTelegraph1997UKEnglish/1997-11-08", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
        "verdicts": [{"number": 22336, "blank": {"25-across": "starts mid-clue"}, "unfiled": 1}]}
 check("a clue laid with the clue before's torn tail and its own number glued or misread is mended (251 for 25 'I', 30 for "
@@ -3714,6 +3715,16 @@ check("a clue laid with the clue before's torn tail and its own number glued or 
         bool(f.telegraph_own_due({**_tr, "readAt": "2026-11-14T13:00:00+00:00"})),
         bool(f.telegraph_own_due({**_tr, "verdicts": [{"number": 1, "blank": {"1-down": "not a word"}}]})),
         f.TELEGRAPH_OWN in f.RANKS]])
+_tf = {"edition": "GaleTelegraph1988UKEnglish/1988-03-11", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+       "verdicts": [{"number": 19326, "blank": {"1-down": "'24down': a digit inside a word"}, "unfiled": 1}]}
+check("a glued cross-reference and a figure a dash joins to a word are no digit inside a word, and the reference is spaced; "
+      "a Telegraph row with such a blank read before the cutoff is due TELEGRAPH_FIGURE, a row blank over 'Rad1o' and one read since are not",
+      [[], [], "see 24 down", True, [True, False, False, True]],
+      [[w for w, _ in _ocr.suspect("see 24down and 500—and")], [w for w, _ in _ocr.suspect("time—1.50? 51—a")],
+       _ct.xrefs_spaced("see 24down"), _ct.figure_dashed("500—and"),
+       [bool(f.telegraph_figure_due(_tf)),
+        bool(f.telegraph_figure_due({**_tf, "verdicts": [{"number": 1, "blank": {"1-down": "'Rad1o': a digit inside a word"}}]})),
+        bool(f.telegraph_figure_due({**_tf, "readAt": "2026-11-14T13:00:00+00:00"})), f.TELEGRAPH_FIGURE in f.RANKS]])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.

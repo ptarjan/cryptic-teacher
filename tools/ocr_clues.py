@@ -3622,7 +3622,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             out[lid] = ("", enum, group)
             continue
         text = own_number_dropped(clean(text), lid)
-        text = join_split(numbers_joined(text, streams), other)
+        text = join_split(numbers_joined(clue_text.xrefs_spaced(text), streams), other)
         got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid],
                          str(own), enum, counted=not uncounted)
         got = trimmed(cut_at_count(got, enum), lid)
@@ -4374,6 +4374,8 @@ def suspect(text, vouched=(), printed=()):
     for raw in dash_parted((text or "").split(), printed):
         s = raw.strip(EDGE)
         if not s or raw in printed or PRINT_OWN.fullmatch(raw.rstrip(",;:)\"'”")):
+            continue
+        if clue_text.figure_dashed(raw.strip(",.;:!?()\"'")) or clue_text.XREF_GLUED.fullmatch(s):
             continue
         if DIGIT_IN_WORD.search(s) and not COUNTED.fullmatch(s.lstrip("£$")):
             out.append((raw, "a digit inside a word"))

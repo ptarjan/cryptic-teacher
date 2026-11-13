@@ -14648,6 +14648,28 @@ def telegraph_own_due(row):
     return any("starts mid-clue" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale Telegraph page read before REREAD_TELEGRAPH_FIGURE with a clue blank "a digit inside a word" over a
+#: token the print sets: a glued cross-reference ("24down", "23across": 1988, 14 clues) or a figure and a word a dash joins
+#: ("500—and", "51—a"). suspect() takes these now (clue_text.XREF_GLUED, figure_dashed) and the cross-reference is spaced.
+#: 1996-07-25 files whole offline. Read once.
+TELEGRAPH_FIGURE = "Telegraph page with a clue blank over a figure inside a word, its cross-references and dashes read since"
+REREAD_TELEGRAPH_FIGURE = "2026-11-14T12:00:00+00:00"
+
+
+def telegraph_figure_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_TELEGRAPH_FIGURE, has a clue blank "NNdown: a digit inside a word"
+    or a figure-and-dash token."""
+    if paper_of((row or {}).get("edition") or "").key not in ("galetelegraph", "galesundaytelegraph") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_FIGURE)):
+        return False
+    for v in row.get("verdicts") or ():
+        for why in (v.get("blank") or {}).values():
+            m = re.fullmatch(r"(['\"])(.*)\1: a digit inside a word", str(why))
+            if m and (clue_text.XREF_GLUED.fullmatch(m.group(2)) or clue_text.figure_dashed(m.group(2))):
+                return True
+    return False
+
+
 #: The due reason of a Gale Independent page (daily, 2004-15) scanned before independent_headings read the title its
 #: readers print glued ("CrosswordbyVirgilius No 6134": 730 of 850 untitled pages, only en5 read them whole) and the
 #: weekday-only solution heading the next day's page prints ("Wednesday's solution": the Independent prints no number
@@ -20541,6 +20563,8 @@ def fix_reason(row):
         return TELEGRAPH_CELLS
     if telegraph_own_due(row):
         return TELEGRAPH_OWN
+    if telegraph_figure_due(row):
+        return TELEGRAPH_FIGURE
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -21232,7 +21256,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # the title's line since (ft_clues_due).
                   FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
-                  TELEGRAPH_OWN)
+                  TELEGRAPH_OWN, TELEGRAPH_FIGURE)
 
 
 def refusal_passes(why):
@@ -21275,7 +21299,8 @@ def blanket_or_fix(row, blanket):
             return QUICK_SET
         if quick_held_due(row):
             return QUICK_HELD
-        return TELEGRAPH_CELLS if telegraph_cells_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) else blanket
+        return TELEGRAPH_CELLS if telegraph_cells_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) \
+            else TELEGRAPH_FIGURE if telegraph_figure_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -21494,7 +21519,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,

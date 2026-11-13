@@ -623,6 +623,27 @@ FIGURE_WORD = re.compile(r"\d{1,2}\s?(?:hours?|days?|minutes?|seconds?|weeks?|mo
                          r"across|down|ac|dn)\b", re.IGNORECASE)
 
 
+#: A cross-reference's number run into its direction ("24down", "23across": the Gale Telegraph 1988's, whose readers lose
+#: the space): a figure and a word, the clue's own text, no digit slip.
+XREF_GLUED = re.compile(r"(?<!\w)(\d{1,2})(down|across)\b", re.IGNORECASE)
+
+
+def xrefs_spaced(text):
+    """`text` with each glued cross-reference ("see 24down") spaced ("see 24 down")."""
+    return XREF_GLUED.sub(r"\1 \2", text or "")
+
+
+def figure_dashed(raw):
+    """Whether token `raw` is a figure and a word (or a figure and a figure) a dash joins, as the print sets them
+    ("500—and", "51—a", "23—useless", "maths—" + "0", "time—1.50?"): no digit inside a word."""
+    parts = re.split(r"[—–]", raw)
+    if len(parts) < 2:
+        return False
+    bare = [p.strip(",.;:!?()\"'‘’“”") for p in parts]
+    return any(re.search(r"\d", p) for p in bare) and all(
+        re.fullmatch(r"[£$]?[\d,.]*|[A-Za-z'’]*", p) for p in bare)
+
+
 #: The clue before's torn tail ("f (7)", "h (7)": its last letter and count) a loose reading laid in front of the
 #: clue, whose own number follows glued and misread.
 TORN_TAIL = re.compile(r"[a-z]{1,2}\s?\(\d{1,2}(?:[,\-]\d{1,2})*\)\s*")
