@@ -3119,7 +3119,7 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
         if lid in groups:
             e["group"] = groups[lid]
         e["solution"] = None
-    return {
+    puzzle = {
         "id": pid,
         "number": number,
         "series": series,
@@ -3130,6 +3130,10 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
                    "gridOrigin": "published" if how == "image" else "reconstructed"},
         "entries": entries,
     }
+    # A barred grid (ios_barred: "r" a bar right of the cell, "b" below, "+" both) files its bars as the Listener's.
+    if any(set(r) & set("rb+") for r in grid):
+        puzzle["bars"] = [r.replace("#", ".") for r in grid]
+    return puzzle
 
 
 # ------------------------------------------------------------ an edition
@@ -6381,6 +6385,12 @@ def scaled_grid_read(path):
     grid, why = trove_grid.read_grid(path)
     if grid:
         return grid, why
+    # The Independent on Sunday's 12x12 barred Beelzebub (no blocks, SIZES has no 12): ios_barred reads its bars.
+    if why and why.startswith("the white cells span 12 rows and 12 columns"):
+        import ios_barred
+        barred_rows, _ = ios_barred.read_grid(path)
+        if barred_rows:
+            return barred_rows, None
     with Image.open(path) as im:
         gray = im.convert("L")
     for width in GRID_WIDTHS:
@@ -10299,6 +10309,18 @@ def _list_answers_only(d, found, hit, solutions):
     return verdict, puzzle
 
 
+#: The last year of the Independent on Sunday's Beelzebub pages Gale scanned with the barred 12x12 grid and the clue
+#: columns left of it (two after 1995-07-23, four before: the crop is a grid's width and 60px wide, the left two).
+INDY_SUNDAY_BARRED_END = "2000"
+
+
+def indy_sunday_beside(paper, d, gbox):
+    """Whether Gale Independent on Sunday page `d` (grid box `gbox`) is a 1990s Beelzebub with room left of the grid
+    for the clue columns (a crop a grid's width and 60px wide)."""
+    return paper.key == "galeindysunday" and d.name[:4] <= INDY_SUNDAY_BARRED_END \
+        and gbox[0] - (gbox[2] - gbox[0]) - 60 >= 0
+
+
 def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
     """_read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
@@ -10383,7 +10405,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     quickie = sunday and d.name[:10] < SUNDAY_QUICKIE_END
     x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox, quickie) if sunday else None
     sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) if top is not None or sunday else None
-    beside = side == "left"
+    beside = side == "left" or indy_sunday_beside(paper, d, gbox)
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
     column = left_column(lines, gbox) if side == "below" and top is None and not paper.four else None
@@ -13236,6 +13258,28 @@ def indy_next_due(row):
 #: 1728px grid on 4633px, 26 rows: "the ink under the title is 38x40, not a grid"). INDY_RIGHT_SPAN, loose_shaped.
 INDEPENDENT_RIGHT = "Independent page refused for its grid or clue lists, its clue columns right of the grid read since"
 REREAD_INDEPENDENT_RIGHT = "2026-11-13T19:00:00+00:00"
+
+
+#: The due reason of a Gale Independent on Sunday page (1990-2000) of the 12x12 barred Beelzebub, refused "no reading
+#: parses" with its grid unread ("the white cells span 12 rows and 12 columns": trove_grid's SIZES has no 12 and the
+#: puzzle has no blocks) and no ACROSS and DOWN lists (the crop sat under the grid, the clue columns stand left of it).
+#: 11-13 census: ~325 such pages, ios_barred reads the bars (180-degree symmetry the check), the crop left of the
+#: grid the clues (indy_sunday_beside). Read once, before REREAD_INDY_BARRED.
+INDY_BARRED = "Independent on Sunday Beelzebub page refused for its barred 12x12 grid, its bars and left clue columns read since"
+REREAD_INDY_BARRED = "2026-11-13T21:00:00+00:00"
+
+
+def indy_barred_due(row):
+    """Whether Gale Independent on Sunday ledger `row` of 1990-2000, read before REREAD_INDY_BARRED, holds a verdict
+    refused "no reading parses" whose grid was unread for its 12 rows and 12 columns, and not filed."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] > INDY_SUNDAY_BARRED_END \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_BARRED)):
+        return False
+    series = paper_of(rel).series
+    return any(v.get("refused") and not v.get("skip") and v.get("number") is not None
+               and str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
+               and filed_state(series, v.get("number")) is None for v in row.get("verdicts") or ())
 
 
 def indy_right_due(row):
@@ -18792,6 +18836,8 @@ def fix_reason(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
         return INDEPENDENT_RIGHT
+    if indy_barred_due(row):
+        return INDY_BARRED
     if ft_next_due(row):
         return FT_HEADINGS
     if ft_clues_due(row):
@@ -19420,6 +19466,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: a Gale Independent page refused for its grid or clue lists, its clue columns right of
                   # the grid and its grid on a wide page read since (indy_right_due).
                   INDEPENDENT_RIGHT,
+                  # 11-13: an Independent on Sunday Beelzebub page whose barred 12x12 grid and left clue columns are read since.
+                  INDY_BARRED,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
                   # pages are scanned again first.
                   FT_HEADINGS,
@@ -19685,7 +19733,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20316,7 +20364,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, FT_HEADINGS, FT_CLUES)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES)
 
 
 def keeps_vlm(why, row, unit=None):
