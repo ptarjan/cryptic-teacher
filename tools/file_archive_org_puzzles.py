@@ -1457,7 +1457,9 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
     if right:
         x1, split, *_ = right
         top = gy0 - rise_of(right)
-        return [(gx1 + 5, split, split, top), (split, x1, x1, top)]
+        out = [(gx1 + 5, split, split, top), (split, x1, x1, top)]
+        edge = third_of(right)
+        return out + [(x1, edge, edge, top)] if edge else out
     if left and getattr(left, "edges", None):
         # A pre-1995 Beelzebub's columns fitted to the ink (ios_columns.fit): each between two edges, from the title's foot.
         out = [(a, b, b, left.top) for a, b in zip(left.edges, left.edges[1:])]
@@ -2227,6 +2229,63 @@ FT_RISE_PAD, FT_RISE_MAX = 60, 300
 def rise_of(right):
     """How far over the grid's top the clue columns `right` (right_columns' tuple, in any of its forms) start."""
     return next((x for x in right if isinstance(x, Rise)), RIGHT_RISE)
+
+
+class Third(int):
+    """The far edge (x) of a third clue column right of the two `right` holds, carried last in the `right` tuple
+    (ft_third_column)."""
+
+
+def third_of(right):
+    """The far edge of the third clue column `right` (right_columns' tuple, in any of its forms) carries, or None."""
+    return next((x for x in right if isinstance(x, Third)), None)
+
+
+#: The Gale FT's down list runs on in a third column right of the two (2002-03-20: 19, 21, 23, 25 down, x 1794-2163
+#: of a page whose grid stands 193-963, over "Solution 10,863"): the crop ended at the second column's edge, and
+#: the four clues stood "no reading laid a clue on it" (11-13: ~100 of the 600 short-list FT rows 2000-02, the down
+#: list's last clues blank). The third column is read from the second's edge FT_THIRD_WIDTH grid widths on, and kept
+#: only when its first line opens on a clue's number.
+FT_THIRD_WIDTH = 0.55
+#: The Gale FT's clue columns run RIGHT_DROP of the grid's height under its foot, and the down list's last clue or
+#: two ran on under that cut (2010-12-13's 6 down, a line under the crop's foot: "no reading laid a clue on it",
+#: the single blank down clue of 67 FT rows): they run FT_DROP of it, to the page's foot at most.
+FT_DROP = 0.55
+
+
+def ft_foot(img, grid, right):
+    """`right` (right_columns' tuple) for a Gale FT page with its foot FT_DROP of the grid's height under it."""
+    x1, bottom, *rest = right
+    return (x1, min(img.height, max(bottom, int(grid[3] + FT_DROP * (grid[3] - grid[1])))), *rest)
+FT_THIRD_OPENING = re.compile(r"\W{0,2}\d{1,2}(?:\s|[A-Z\"'])")
+
+
+def ft_third_column(img, grid, right, rapid, key):
+    """(right, rapid) of a Gale FT page with its third clue column (FT_THIRD_WIDTH) read and laid in `rapid` as words
+    ({reader: [[word]]}), `right` (x1, gutter, bottom, *rest) carrying its far edge (Third); both as they were when
+    the strip right of the second column holds no column opening on a clue's number."""
+    x1, _, bottom, *_ = right
+    edge = min(img.width, int(x1 + FT_THIRD_WIDTH * (grid[2] - grid[0])))
+    top = max(0, grid[1] - rise_of(right))
+    box = (x1, top, edge, min(img.height, bottom))
+    if edge - x1 < 0.3 * (grid[2] - grid[0]) or box[3] <= box[1]:
+        return right, rapid
+    read = {}
+    for which in rapid:
+        cache = CROPS / "rapid" / f"{key}.{reader_key(which)}.third.json"
+        cached = read_cache(cache)
+        if isinstance(cached, dict) and tuple(cached.get("box") or ()) == box:
+            read[which] = [tuple(w) for w in cached["words"]]
+            continue
+        words = [(a + box[0], b + box[1], c + box[0], e + box[1], t) for a, b, c, e, t in read_words(img.crop(box), which)]
+        write_cache(cache, {"box": box, "words": words})
+        read[which] = words
+    def opens(words):
+        first = next((w for w in sorted(words, key=lambda w: (w[1], w[0])) if len(w[4]) >= 3 or re.search(r"\d", w[4])), None)
+        return first is not None and FT_THIRD_OPENING.match(first[4])
+    if not any(opens(words) for words in read.values()):
+        return right, rapid
+    return (*right, Third(edge)), {which: ws + [[w] for w in read[which]] for which, ws in rapid.items()}
 
 
 def ft_rise(paper, grid, title):
@@ -10629,6 +10688,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                                   paper.key == "galeindependent") if side == "below" and top is None \
         and not sides and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
         else (None, None)
+    if right and paper.key == "galeft":
+        right = ft_foot(img, gbox, right)
     if (right or over) and alts is not None:
         alts.append(("plain", None))
     # A 1939-12 to 1940 Gale Times page that ends soon under its grid: the clue lists run on in two columns right
@@ -10744,6 +10805,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         lead = lead_split(every, gbox, lead, m)
     if right:
         right = right_gutter(every, gbox, right)
+        if paper.key == "galeft":
+            right, rapid = ft_third_column(img, gbox, right, rapid, key)
     if not paper.four:
         split = over_gutters(every, gbox, over) if over else \
             (under_quarters(every, gbox) if paper.key == "gale" and QUARTER_DAYS[0] <= d.name[:10] <= QUARTER_DAYS[1]
@@ -13683,6 +13746,23 @@ def ft_glued_due(row):
             if m and clue_text.glued_number(m.group(2), 0):
                 return scan_queue.read_before(row, scan_queue.when(REREAD_FT_GLUED))
     return False
+
+
+#: The due reason of a Gale FT page (2000-10) read before REREAD_FT_THIRD with a down clue blank: the down list's
+#: last clues stand in a third column right of the two (ft_third_column), which the crop cut off ("no reading laid
+#: a clue on it", 2002-03-20's 19, 21, 23, 25 down), or run on under the crop's foot (ft_foot; 2010-12-13's 6 down).
+FT_THIRD = "FT page, its third clue column read since"
+REREAD_FT_THIRD = "2026-11-13T18:45:00+00:00"
+
+
+def ft_third_due(row):
+    """Whether Gale FT ledger `row` is due FT_THIRD: a puzzle of it read before REREAD_FT_THIRD with a down clue no
+    reading laid."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galeft" or "inputs" not in row or not re.match(r"GaleFT20(?:0\d|10)UK", edition):
+        return False
+    return any(str(k).endswith("-down") for v in row.get("verdicts") or () for k in v.get("blank") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_FT_THIRD))
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -19174,6 +19254,8 @@ def fix_reason(row):
         return SUNDAY_TIMES_FOOT
     if ft_glued_due(row):
         return FT_GLUED
+    if ft_third_due(row):
+        return FT_THIRD
     if ft_clues_due(row):
         return FT_CLUES
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
@@ -19810,7 +19892,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, SUNDAY_TIMES_FOOT)
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT)
 
 
 def refusal_passes(why):
@@ -20070,7 +20152,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20701,7 +20783,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED, SUNDAY_TIMES_FOOT)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT)
 
 
 def keeps_vlm(why, row, unit=None):
