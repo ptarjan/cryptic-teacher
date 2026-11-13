@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,29 @@
      }
     ]
    },
-   "solution": "LETUP"
+   "solution": "LETUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End of crisis",
+      "at": 0,
+      "meaning": "a lull or easing when pressure relaxes"
+     },
+     {
+      "text": "allowed out of bed?",
+      "at": 16,
+      "meaning": "permitted to get up, like a recovering patient"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A lull or easing is a let-up; someone permitted to rise from bed has been let up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +81,29 @@
      }
     ]
    },
-   "solution": "LOSEGROUND"
+   "solution": "LOSEGROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Have nowhere for home matches",
+      "at": 0,
+      "meaning": "taken literally, to be deprived of one's sports ground"
+     },
+     {
+      "text": "fall behind?",
+      "at": 35,
+      "meaning": "to slip back relative to others"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A club deprived of its pitch is literally without a ground; the idiom means slipping back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +117,46 @@
     "text": "Brew a drop? Not entirely",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brew",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not entirely",
+       "at": 13,
+       "note": "not entirely means the word is cut short by its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a drop",
+       "at": 5,
+       "gives": "TEAR",
+       "note": "a tear is a drop from the eye"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a drop of liquid enough to make a brew? Not quite.",
+     "walkthrough": "'Not entirely' trims TEAR to TEA.",
+     "definitionFit": "Tea is the classic British brew, made by steeping leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +170,62 @@
     "text": "Set about looking up man's address, being scrupulous",
     "enumeration": "6"
    },
-   "solution": "PURIST"
+   "solution": "PURIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being scrupulous",
+      "at": 36,
+      "note": "read as a scrupulous being, a person"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 4,
+       "note": "about means the word for set goes around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Set",
+       "at": 0,
+       "gives": "PUT",
+       "note": "to set something down is to put it"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "looking up",
+         "at": 10,
+         "note": "in a down clue looking up means the word is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man's address",
+         "at": 21,
+         "gives": "SIR",
+         "note": "sir is how a man is addressed"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets about examining a man's speech with great scrupulousness.",
+     "walkthrough": "'man's address' reads like a street address, but it is the form of address used to a man. 'being scrupulous' works as a noun: a scrupulous being.",
+     "definitionFit": "A purist insists on strict correctness, a scrupulous person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +239,41 @@
     "text": "Go on crime spree, operating with maximum efficiency",
     "enumeration": "9"
    },
-   "solution": "ERGONOMIC"
+   "solution": "ERGONOMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "operating with maximum efficiency",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spree",
+       "at": 12,
+       "note": "a spree is a wild bout of activity, so the letters run riot into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Go on crime",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook goes on a crime spree, working with ruthless efficiency.",
+     "walkthrough": "'spree' rearranges the nine letters of GO ON CRIME.",
+     "definitionFit": "Ergonomic design arranges work so people operate with the least effort and greatest efficiency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spree"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +287,58 @@
     "text": "Mere ship floundering without eastern navigational aid?",
     "enumeration": "9"
    },
-   "solution": "EPHEMERIS"
+   "solution": "EPHEMERIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "navigational aid?",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 22,
+       "note": "without here means outside, so the jumbled letters surround the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "floundering",
+         "at": 10,
+         "note": "floundering means struggling clumsily, so the letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mere ship",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "eastern",
+       "at": 30,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mere ship floundering with no eastern bearing needs navigational help.",
+     "walkthrough": "'floundering' rearranges MERE SHIP, and 'without' wraps that around E. 'without' looks like 'lacking', but here it means outside.",
+     "definitionFit": "An ephemeris tables the positions of heavenly bodies, used by navigators to fix position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +352,48 @@
     "text": "Old king detaining individual, a person about to depart",
     "enumeration": "5"
    },
-   "solution": "GONER"
+   "solution": "GONER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a person about to depart",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "detaining",
+       "at": 9,
+       "note": "detaining means the king's letters hold the other word inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old king",
+       "at": 0,
+       "gives": "GR",
+       "note": "GR, Georgius Rex, stands for King George"
+      },
+      {
+       "words": "individual",
+       "at": 19,
+       "gives": "ONE",
+       "note": "an individual is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old king detains someone who is about to depart.",
+     "definitionFit": "A goner is someone doomed or about to die, colloquially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detaining"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +413,60 @@
      }
     ]
    },
-   "solution": "NAMETAPE"
+   "solution": "NAMETAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Item of ID",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to be attached to",
+       "at": 27,
+       "note": "to be attached to means these pieces follow on after the new article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "new",
+       "at": 45,
+       "gives": "N"
+      },
+      {
+       "words": "article",
+       "at": 49,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "words": "paid for",
+       "at": 13,
+       "gives": "MET",
+       "note": "to meet a cost is to pay it, so paid for is met"
+      },
+      {
+       "words": "copy",
+       "at": 22,
+       "gives": "APE",
+       "note": "to ape is to copy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ID tag is paid for, and a copy is attached to a new item.",
+     "walkthrough": "'paid for' is the past tense of meeting a bill; the clue's order is reversed by the attaching phrase, so the new article leads the answer.",
+     "definitionFit": "A name tape is a label sewn into clothing to identify its owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +486,41 @@
      }
     ]
    },
-   "solution": "MEMENTOMORI"
+   "solution": "MEMENTOMORI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it hints at the passage of time",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "activating",
+       "at": 14,
+       "note": "activating sets the letters in motion, rearranging them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Metronome I'm",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician starts a metronome ticking, a reminder of time passing.",
+     "walkthrough": "'activating' rearranges the letters of METRONOME I'M.",
+     "definitionFit": "A memento mori, Latin for remember you must die, is an object that reminds us of mortality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "activating"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +534,41 @@
     "text": "Conservative remains ready",
     "enumeration": "4"
    },
-   "solution": "CASH"
+   "solution": "CASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ready",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "words": "remains",
+       "at": 13,
+       "gives": "ASH",
+       "note": "ash is what remains after burning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative remains ever prepared.",
+     "walkthrough": "'ready' looks like an adjective, but the ready is slang for money.",
+     "definitionFit": "The ready, or readies, is British slang for available money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +588,60 @@
      }
     ]
    },
-   "solution": "SEAURCHIN"
+   "solution": "SEAURCHIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "marine creature",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 24,
+       "note": "about signals the letters being turned around into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cruise",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 12,
+         "note": "most of the word hang is kept, its final letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hang",
+         "at": 19
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Take a cruise and mostly lounge about, and you may spot sea life.",
+     "walkthrough": "'mostly' trims hang to HAN; 'about' then rearranges CRUISE plus HAN. 'Cruise' looks like a synonym to find, but it is fodder as printed.",
+     "definitionFit": "A sea urchin is a spiny echinoderm living on the seabed, a marine creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cruise"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +655,61 @@
     "text": "Everything about head of Government reflected disease",
     "enumeration": "5"
    },
-   "solution": "MUMPS"
+   "solution": "MUMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disease",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "reflected",
+       "at": 36,
+       "note": "reflected, as in a mirror, means the whole construction is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 11,
+         "note": "about means the word for everything goes around the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Everything",
+         "at": 0,
+         "gives": "SUM",
+         "note": "the sum is the whole amount, everything"
+        },
+        {
+         "words": "head of Government",
+         "at": 17,
+         "gives": "PM",
+         "note": "the PM, Prime Minister, heads the British government"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A head of government reflects on a disease spreading everywhere.",
+     "walkthrough": "'head of Government' looks like a first-letter pick, but it is the Prime Minister's abbreviation; 'reflected' turns the whole container round.",
+     "definitionFit": "Mumps is a contagious viral illness causing swollen glands, a disease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +729,64 @@
      }
     ]
    },
-   "solution": "GOODSAMARITAN"
+   "solution": "GOODSAMARITAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a helpful type",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wares",
+       "at": 11,
+       "gives": "GOODS",
+       "note": "wares are goods for sale"
+      },
+      {
+       "words": "a",
+       "at": 30
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 6,
+         "note": "into means the woman's name goes inside the word for chap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chap",
+         "at": 32,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "words": "Woman",
+         "at": 0,
+         "gives": "RITA",
+         "note": "Rita is a woman's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman inspects goods on display from a man, who proves very obliging.",
+     "walkthrough": "'displayed by' is only a link joining the wares to the rest; the woman's name splits the chap after its second letter.",
+     "definitionFit": "From the parable, a Good Samaritan is anyone who helps a stranger in need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "displayed"
+    }
+   }
   },
   {
    "number": 12,
@@ -258,7 +810,29 @@
      }
     ]
    },
-   "solution": "OFFTHESHELF"
+   "solution": "OFFTHESHELF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Married, it seems",
+      "at": 0,
+      "meaning": "no longer left unwed, as when a spinster was said to be on the shelf"
+     },
+     {
+      "text": "taking it as it comes?",
+      "at": 23,
+      "meaning": "bought as stocked, standard rather than custom-made"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Goods taken straight from stock are ready-made; a woman no longer unwed is likewise taken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -272,7 +846,29 @@
     "text": "Computer item not of major interest",
     "enumeration": "10"
    },
-   "solution": "PERIPHERAL"
+   "solution": "PERIPHERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Computer item",
+      "at": 0,
+      "meaning": "a device such as a printer attached to a computer"
+     },
+     {
+      "text": "not of major interest",
+      "at": 14,
+      "meaning": "marginal, on the fringes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A printer or mouse is a computer add-on; anything marginal is minor, on the edges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "item"
+    }
+   }
   },
   {
    "number": 14,
@@ -286,7 +882,49 @@
     "text": "Composer's Ring runs very loud",
     "enumeration": "4"
    },
-   "solution": "ORFF"
+   "solution": "ORFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Composer's",
+      "at": 0,
+      "note": "read as 'Composer is', the 's standing for is"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ring",
+       "at": 11,
+       "gives": "O",
+       "note": "a ring is round like the letter O"
+      },
+      {
+       "words": "runs",
+       "at": 16,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      },
+      {
+       "words": "very loud",
+       "at": 21,
+       "gives": "FF",
+       "note": "FF, fortissimo, is the musical marking for very loud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer's Ring cycle is played at deafening volume.",
+     "walkthrough": "The italic Ring calls up Wagner's opera cycle, but the composer is a different German: Carl Orff.",
+     "definitionFit": "Carl Orff was the German composer of Carmina Burana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 15,
@@ -300,7 +938,72 @@
     "text": "Assume schoolwork's set to hold us back",
     "enumeration": "10"
    },
-   "solution": "PRESUPPOSE"
+   "solution": "PRESUPPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assume",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to hold",
+         "at": 24,
+         "note": "to hold means the schoolwork word wraps around the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "schoolwork's",
+         "at": 7,
+         "gives": "PREP",
+         "note": "prep is homework at a British boarding school; the 's is has"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 35,
+           "note": "back means the word us is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "us",
+           "at": 32,
+           "gives": "US",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "set",
+       "at": 20,
+       "gives": "POSE",
+       "note": "to set a question is to pose it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Assume homework has been set to keep us behind after school.",
+     "walkthrough": "Prep is British boarding-school homework; 'set' is pose as in setting a question.",
+     "definitionFit": "To presuppose something is to take it for granted beforehand, to assume it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 16,
@@ -320,7 +1023,71 @@
      }
     ]
    },
-   "solution": "SKINDIVER"
+   "solution": "SKINDIVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort I have found under surface of sea and river?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found under",
+       "at": 12,
+       "note": "found under means the following pieces sit below the letter from the sea, in this down answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "surface of",
+         "at": 24,
+         "note": "the surface of a word is its top, which in a down answer is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sea",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "words": "Sort",
+       "at": 0,
+       "gives": "KIND",
+       "note": "a sort is a kind"
+      },
+      {
+       "words": "I have",
+       "at": 5,
+       "gives": "IVE",
+       "note": "I have contracts to I've"
+      },
+      {
+       "words": "river",
+       "at": 43,
+       "gives": "R"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A kind of person found below the surface of seas and rivers.",
+     "walkthrough": "The whole clue defines too: such a swimmer is found below the surface of sea and river.",
+     "definitionFit": "A skin diver swims underwater without a diving suit, often with just a mask."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surface"
+    }
+   }
   },
   {
    "number": 17,
@@ -334,7 +1101,68 @@
     "text": "Total formality when bringing in a new partnership",
     "enumeration": "8"
    },
-   "solution": "ALLIANCE"
+   "solution": "ALLIANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "partnership",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Total",
+       "at": 0,
+       "gives": "ALL",
+       "note": "total means all"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bringing in",
+         "at": 21,
+         "note": "bringing in means the word for formality takes the other letters inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "formality",
+         "at": 6,
+         "gives": "ICE",
+         "note": "ice is cold formality or reserve, as in breaking the ice"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 33
+          },
+          {
+           "words": "new",
+           "at": 35,
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Total formality is observed when a new partnership is brought in.",
+     "walkthrough": "'bringing in' puts A and N inside ICE.",
+     "definitionFit": "An alliance is a union or partnership between parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "formality"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1176,33 @@
     "text": "One expects nothing to come of an idea like this",
     "enumeration": "10"
    },
-   "solution": "NIHILISTIC"
+   "solution": "NIHILISTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One expects nothing to come of an idea like this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One expects nothing to come of an idea like this",
+       "at": 0,
+       "note": "a cryptic description of a philosophy that rejects all values and expects nothing; the clue also plays on nothing coming of it"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Nihilism holds that nothing has meaning or value, so such a view expects nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -362,7 +1216,45 @@
     "text": "Conductor with no time for individual performances",
     "enumeration": "4"
    },
-   "solution": "SOLI"
+   "solution": "SOLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "individual performances",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no",
+       "at": 10,
+       "note": "with no means the time letter is removed from the conductor's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Conductor",
+       "at": 0,
+       "gives": "SOLTI",
+       "note": "Sir Georg Solti was a celebrated conductor"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor too busy to rehearse leaves players to perform on their own.",
+     "definitionFit": "Soli is the plural of solo, pieces or passages performed by one musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conductor"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1268,61 @@
     "text": "New French name upset the German brought in",
     "enumeration": "6"
    },
-   "solution": "MODERN"
+   "solution": "MODERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "New",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 33,
+       "note": "brought in means the German word goes inside the reversed name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 16,
+         "note": "in a down clue upset means turned upside down, so the word reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French name",
+         "at": 4,
+         "gives": "NOM",
+         "note": "nom is French for name"
+        }
+       ]
+      },
+      {
+       "words": "the German",
+       "at": 22,
+       "gives": "DER",
+       "note": "der is the German for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new French name upset the German who was introduced.",
+     "walkthrough": "'upset' in a down clue turns the French word upside down, so it reads upwards; the German article then sits inside it.",
+     "definitionFit": "Modern means new or up to date."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1346,33 @@
      }
     ]
    },
-   "solution": "SPITANDPOLISH"
+   "solution": "SPITANDPOLISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Good clean activity associated with old buffers?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Good clean activity associated with old buffers?",
+       "at": 0,
+       "note": "buffers are polishing pads, but old buffers are also fusty old men such as retired soldiers, fond of military-style shining of boots"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Spit and polish is thorough cleaning and smartness, especially of military kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -414,7 +1386,51 @@
     "text": "Recognise it supports a former European currency",
     "enumeration": "5"
    },
-   "solution": "ADMIT"
+   "solution": "ADMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recognise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 13,
+       "note": "in a down clue supports means sitting below, so this piece comes last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 22
+      },
+      {
+       "words": "former European currency",
+       "at": 24,
+       "gives": "DM",
+       "note": "DM, the Deutschmark, was Germany's currency before the euro"
+      },
+      {
+       "words": "it",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Admit that it underpins a currency of the past.",
+     "walkthrough": "'it' comes first in the clue but 'supports' puts it at the bottom, after A and DM.",
+     "definitionFit": "To admit or acknowledge something is to recognise it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1444,59 @@
     "text": "Leader of army out of step, causing commotion",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commotion",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 15,
+       "note": "out of means that letter is taken from the step word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "step",
+       "at": 22,
+       "gives": "STAIR",
+       "note": "a stair is a step"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader of",
+         "at": 0,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "army",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army leader marching out of step causes a commotion.",
+     "walkthrough": "'out of step' looks like a phrase, but 'out of' removes A from STAIR.",
+     "definitionFit": "A stir is a disturbance or fuss, a commotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 24,
@@ -448,7 +1516,49 @@
      }
     ]
    },
-   "solution": "TIEIN"
+   "solution": "TIEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Programme link",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in means the abbreviation goes inside the word for can"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can",
+       "at": 30,
+       "gives": "TIN",
+       "note": "a can is a tin"
+      },
+      {
+       "words": "that is",
+       "at": 15,
+       "gives": "IE",
+       "note": "IE (id est) means that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The programme link-up, that is, is in the can, already recorded.",
+     "walkthrough": "'In the can' suggests finished filming; here can is just TIN.",
+     "definitionFit": "A tie-in is a product or programme linked to another, such as a book of a series."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 25,
@@ -468,7 +1578,33 @@
      }
     ]
    },
-   "solution": "MOVIEGOER"
+   "solution": "MOVIEGOER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One may be kept in the dark before getting the picture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One may be kept in the dark before getting the picture",
+       "at": 0,
+       "note": "sounds like someone left uninformed until they understand, but describes a person sitting in a darkened cinema before the film starts"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A cinema patron sits in darkness waiting for the film, or picture, to begin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -482,7 +1618,41 @@
     "text": "Item of insignia in gold and black",
     "enumeration": "3"
    },
-   "solution": "ORB"
+   "solution": "ORB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Item of insignia",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gold",
+       "at": 20,
+       "gives": "OR",
+       "note": "or is the heraldic word for gold"
+      },
+      {
+       "words": "black",
+       "at": 29,
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of regalia is fashioned in gold and black.",
+     "definitionFit": "The orb is a jewelled sphere among the royal regalia carried by a monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 27,
@@ -496,7 +1666,29 @@
     "text": "One thinking of a telescope",
     "enumeration": "9"
    },
-   "solution": "REFLECTOR"
+   "solution": "REFLECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One thinking",
+      "at": 0,
+      "meaning": "a person who reflects or ponders"
+     },
+     {
+      "text": "a telescope",
+      "at": 16,
+      "meaning": "a type of telescope that uses a mirror"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Someone who ponders reflects; a mirror-based telescope is called by the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thinking"
+    }
+   }
   },
   {
    "number": 28,
@@ -510,7 +1702,57 @@
     "text": "Prize title? No. — a boxing award's cut",
     "enumeration": "5"
    },
-   "solution": "NOBEL"
+   "solution": "NOBEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prize title",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No.",
+       "at": 13,
+       "gives": "NO",
+       "note": "No. is the abbreviation for number, here taken as the letters N and O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 36,
+         "note": "cut means the final letter of the award is chopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boxing award's",
+         "at": 21,
+         "gives": "BELT",
+         "note": "a boxing champion is awarded a belt; the 's is is"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prize title is refused: a boxer's award has been withdrawn.",
+     "walkthrough": "'cut' trims BELT to BEL.",
+     "definitionFit": "The Nobel name heads a set of international prizes founded by Alfred Nobel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxing"
+    }
+   }
   }
  ]
 }
