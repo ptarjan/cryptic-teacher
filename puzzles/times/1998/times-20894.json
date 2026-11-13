@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,11 @@
     "text": "In a disgusting fashion, completely empty?",
     "enumeration": "6"
    },
-   "solution": "FOULLY"
+   "solution": "FOULLY",
+   "annotationWithheld": {
+    "why": "In a disgusting fashion, completely empty? (6): the only parse is FULLY (completely) with O (empty) inside, and no clue word signals the insertion unless 'empty' does two jobs",
+    "clue": "In a disgusting fashion, completely empty?"
+   }
   },
   {
    "number": 1,
@@ -44,7 +51,60 @@
     "text": "Wrap up without a rumpus",
     "enumeration": "6"
    },
-   "solution": "FRACAS"
+   "solution": "FRACAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rumpus",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 8,
+       "note": "used in its old sense of outside, so the wrap goes round the A"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 5,
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wrap",
+         "at": 0,
+         "gives": "SCARF",
+         "note": "a scarf is a wrap worn round the neck"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bundle up so as to avoid a commotion.",
+     "walkthrough": "'without' means outside here, not lacking; 'up' turns SCARF into FRACS, which goes round A.",
+     "definitionFit": "A fracas is a noisy disturbance or brawl, like a rumpus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +128,59 @@
      }
     ]
    },
-   "solution": "UPSADAISY"
+   "solution": "UPSADAISY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "encouragement for the fallen",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Standing",
+       "at": 0,
+       "gives": "UP",
+       "note": "someone standing is up"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 9,
+         "note": "the word for voice goes around the platform, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "voice",
+         "at": 28,
+         "gives": "SAY",
+         "note": "to voice something is to say it"
+        },
+        {
+         "words": "platform",
+         "at": 16,
+         "gives": "DAIS",
+         "note": "a dais is a raised platform"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man on his feet on a stage calls out to support defeated soldiers.",
+     "definitionFit": "It is the cheery exclamation said when lifting a child who has tumbled over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fallen"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +194,44 @@
     "text": "Inclined to speak fast",
     "enumeration": "5"
    },
-   "solution": "LEANT"
+   "solution": "LEANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inclined",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LEANT",
+     "indicators": [
+      {
+       "text": "to speak",
+       "at": 9,
+       "note": "said out loud, the word for a fast is matched by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fast",
+       "at": 18,
+       "gives": "LENT",
+       "note": "Lent is the Christian season of fasting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disposed to talk quickly.",
+     "walkthrough": "'fast' looks like speed but is a period of fasting, Lent.",
+     "definitionFit": "Leant is the past tense of lean, so it means tilted or tended towards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +245,41 @@
     "text": "Artful character leading astray lost boys",
     "enumeration": "8"
    },
-   "solution": "SLYBOOTS"
+   "solution": "SLYBOOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artful character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "leading astray",
+       "at": 17,
+       "note": "to lead astray is to send off course, so these letters are led out of their order into a new one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lost boys",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cunning figure lures Peter Pan's Lost Boys off the path.",
+     "walkthrough": "'leading astray' rearranges LOST BOYS. The Lost Boys suit the surface but are only the letters.",
+     "definitionFit": "A slyboots is an old jocular word for a cunning, crafty person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +293,30 @@
     "text": "Make uncertain moves —- difficult position to be left in",
     "enumeration": "5"
    },
-   "solution": "LURCH"
+   "solution": "LURCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make uncertain moves",
+      "at": 0,
+      "meaning": "to stagger or sway unsteadily"
+     },
+     {
+      "text": "difficult position to be left in",
+      "at": 24,
+      "meaning": "from the idiom 'left in the' plus this word, meaning abandoned in trouble"
+     }
+    ],
+    "explanation": {
+     "surface": "Stagger about, as one abandoned in a tight spot might.",
+     "walkthrough": "To leave someone in the lurch is to abandon them when they need help.",
+     "definitionFit": "The word means to stagger unsteadily and also names the plight in the idiom about being deserted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +336,43 @@
      }
     ]
    },
-   "solution": "BUCKTEETH"
+   "solution": "BUCKTEETH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Projection from speaker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dollar",
+       "at": 32,
+       "gives": "BUCK",
+       "note": "buck is slang for a dollar"
+      },
+      {
+       "words": "real power",
+       "at": 44,
+       "gives": "TEETH",
+       "note": "teeth means effective force, as a law with teeth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orator's projection rests on cash and genuine clout.",
+     "walkthrough": "'speaker' looks like an orator but is the mouth, from which prominent front teeth stick out.",
+     "definitionFit": "Protruding upper front teeth stick out from the mouth, a speaker's organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "speaker"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +386,48 @@
     "text": "Sound of brass band lacking a certain zing",
     "enumeration": "5"
    },
-   "solution": "OOMPH"
+   "solution": "OOMPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "certain zing",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking",
+       "at": 20,
+       "note": "lacking means going without, so the article is dropped from the brass sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sound of brass band",
+       "at": 0,
+       "gives": "OOMPAH",
+       "note": "oompah imitates the deep rhythmic sound of a brass band"
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brass band's music is missing some spark.",
+     "walkthrough": "'lacking' removes an A from OOMPAH.",
+     "definitionFit": "Oomph is energy or vigour, an indefinable lively quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +441,58 @@
     "text": "Sprinkle salt initially over dish",
     "enumeration": "8"
    },
-   "solution": "SPLATTER"
+   "solution": "SPLATTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sprinkle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 24,
+       "note": "in a down clue, over means placed above, so the letter comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 14,
+         "note": "only the initial letter of the seasoning word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salt",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "dish",
+       "at": 29,
+       "gives": "PLATTER",
+       "note": "a platter is a large serving dish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to scatter salt across a dish first.",
+     "definitionFit": "To splatter is to splash or scatter drops of liquid about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +506,49 @@
     "text": "In conclusion, tomb is inscribed",
     "enumeration": "8"
    },
-   "solution": "ENGRAVED"
+   "solution": "ENGRAVED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inscribed",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the burial place sits in the word for conclusion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conclusion",
+       "at": 3,
+       "gives": "END",
+       "note": "an end is a conclusion"
+      },
+      {
+       "words": "tomb",
+       "at": 15,
+       "gives": "GRAVE",
+       "note": "a grave is a tomb"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finally, a gravestone bears carved words.",
+     "walkthrough": "'In conclusion' reads as the phrase 'finally', but 'In' is the container signal.",
+     "definitionFit": "Engraved means carved or cut into a surface, as an inscription is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +562,41 @@
     "text": "Seat in bar would be unusual for him",
     "enumeration": "9"
    },
-   "solution": "ABSTAINER"
+   "solution": "ABSTAINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seat in bar would be unusual for him",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "would be unusual",
+       "at": 12,
+       "note": "something unusual is out of the ordinary, so these letters are put out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Seat in bar",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A teetotaller would rarely be found sitting in a pub.",
+     "walkthrough": "'would be unusual' rearranges SEAT IN BAR; the whole clue also describes the teetotaller, who seldom sits in a pub.",
+     "definitionFit": "A teetotaller refuses alcohol, so a pub seat is a strange place for such a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +610,32 @@
     "text": "Ruminant similar to fawn",
     "enumeration": "5"
    },
-   "solution": "CAMEL"
+   "solution": "CAMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ruminant",
+      "at": 0,
+      "meaning": "a cud-chewing animal such as the dromedary"
+     },
+     {
+      "text": "similar to fawn",
+      "at": 9,
+      "meaning": "a light yellowish-brown colour close to fawn, as in a coat of that shade"
+     }
+    ],
+    "explanation": {
+     "surface": "A cud-chewing beast is compared to a young deer.",
+     "walkthrough": "'fawn' reads as a young deer, but it is the colour.",
+     "definitionFit": "The dromedary is a cud-chewing animal, and its name is also a light tan shade near fawn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fawn"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +649,32 @@
     "text": "Accountant who uses sound sense?",
     "enumeration": "7"
    },
-   "solution": "AUDITOR"
+   "solution": "AUDITOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accountant",
+      "at": 0,
+      "meaning": "one who checks a firm's books"
+     },
+     {
+      "text": "who uses sound sense?",
+      "at": 11,
+      "meaning": "a listener, one who hears, from Latin audire, to hear"
+     }
+    ],
+    "explanation": {
+     "surface": "A bookkeeper is praised for good judgement.",
+     "walkthrough": "'sound sense' looks like good judgement but means the sense of hearing.",
+     "definitionFit": "The word means both an inspector of financial records and, literally, a hearer or listener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +688,32 @@
     "text": "Expert's tautology about higher degrees?",
     "enumeration": "7"
    },
-   "solution": "HOTSHOT"
+   "solution": "HOTSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expert's",
+      "at": 0,
+      "meaning": "read as 'Expert is', the 's being a link"
+     },
+     {
+      "text": "tautology about higher degrees?",
+      "at": 9,
+      "meaning": "saying that something hot is hot, a pointless statement about high temperatures"
+     }
+    ],
+    "explanation": {
+     "surface": "A specialist makes a pointless repetitive remark about advanced qualifications.",
+     "walkthrough": "'higher degrees' suggests academic qualifications, but they are degrees of temperature: 'hot's hot' says nothing new.",
+     "definitionFit": "A hotshot is an informal word for a highly skilled, successful person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "degrees"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +737,30 @@
      }
     ]
    },
-   "solution": "WITHAVENGEANCE"
+   "solution": "WITHAVENGEANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How Nemesis pursues one",
+      "at": 0,
+      "meaning": "Nemesis is the Greek goddess of retribution, who chases wrongdoers seeking revenge"
+     },
+     {
+      "text": "and how!",
+      "at": 26,
+      "meaning": "an exclamation meaning to an extreme degree, emphatically"
+     }
+    ],
+    "explanation": {
+     "surface": "The goddess of retribution chases someone, and how vigorously.",
+     "definitionFit": "The phrase literally describes pursuit by retribution and is also an idiom for 'to an extreme degree'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +780,29 @@
      }
     ]
    },
-   "solution": "HANDSDOWN"
+   "solution": "HANDSDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passes on",
+      "at": 0,
+      "meaning": "transmits to the next generation, as an heirloom"
+     },
+     {
+      "text": "with no difficulty",
+      "at": 10,
+      "meaning": "easily, as a race won without effort"
+     }
+    ],
+    "explanation": {
+     "surface": "Bequeaths something effortlessly.",
+     "definitionFit": "The phrase means bequeaths to successors and is also an idiom for winning easily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +816,49 @@
     "text": "Swimming race — volunteers needed to enter",
     "enumeration": "8"
    },
-   "solution": "NATATION"
+   "solution": "NATATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swimming",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "needed to enter",
+       "at": 27,
+       "note": "the volunteers must go into the word for race, so they sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "race",
+       "at": 9,
+       "gives": "NATION",
+       "note": "a nation is a people or race"
+      },
+      {
+       "words": "volunteers",
+       "at": 16,
+       "gives": "TA",
+       "note": "TA is the Territorial Army, Britain's volunteer reserve force"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimming contest is short of volunteer helpers.",
+     "walkthrough": "'race' suggests a contest, but it is a people, NATION. The TA is Britain's volunteer army reserve.",
+     "definitionFit": "Natation is a formal word for the act or art of swimming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +878,32 @@
      }
     ]
    },
-   "solution": "NOACCOUNT"
+   "solution": "NOACCOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lack of any relations?",
+      "at": 0,
+      "meaning": "having no narrative or report at all, a relation being a telling of events"
+     },
+     {
+      "text": "not important",
+      "at": 28,
+      "meaning": "worthless, of no value"
+     }
+    ],
+    "explanation": {
+     "surface": "Having no family? That doesn't matter.",
+     "walkthrough": "'relations' suggests family, but a relation is also a story or report, an account.",
+     "definitionFit": "A no-account person is worthless, while having no report means no account at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +923,31 @@
      }
     ]
    },
-   "solution": "OFCOURSE"
+   "solution": "OFCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Naturally",
+      "at": 0,
+      "meaning": "certainly, as might be expected"
+     },
+     {
+      "text": "greenkeeper is in charge thus",
+      "at": 11,
+      "meaning": "a greenkeeper is in charge of the golf links"
+     }
+    ],
+    "explanation": {
+     "surface": "Obviously, the groundsman is the boss here.",
+     "walkthrough": "A greenkeeper tends a golf course, so is in charge in that way.",
+     "definitionFit": "The phrase means certainly or as expected, and literally describes a groundsman's charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +967,32 @@
      }
     ]
    },
-   "solution": "FLYINGDUTCHMAN"
+   "solution": "FLYINGDUTCHMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ghost",
+      "at": 0,
+      "meaning": "a legendary phantom ship doomed to sail forever"
+     },
+     {
+      "text": "KLM pilot?",
+      "at": 9,
+      "meaning": "KLM is the Dutch national airline, so its pilot is a Dutchman who flies"
+     }
+    ],
+    "explanation": {
+     "surface": "Is there a spectre of a Dutch airline's captain?",
+     "walkthrough": "The legend is of a phantom sailing ship; read literally the name is a Dutchman who flies, as a KLM pilot does.",
+     "definitionFit": "The legendary phantom ship of that name is a ghost vessel, and the words literally describe a Dutch aviator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ghost"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1006,50 @@
     "text": "Patriarch's kid holding the old record",
     "enumeration": "6"
    },
-   "solution": "JOSEPH"
+   "solution": "JOSEPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Patriarch's",
+      "at": 0,
+      "note": "read as 'Patriarch is', the 's being a link"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 16,
+       "note": "the word for kid holds the record within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kid",
+       "at": 12,
+       "gives": "JOSH",
+       "note": "to josh is to kid or tease"
+      },
+      {
+       "words": "old record",
+       "at": 28,
+       "gives": "EP",
+       "note": "EP is an extended-play record, an old format"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biblical father's child clutches an ancient document.",
+     "walkthrough": "'kid' looks like a child, but it is a verb meaning tease.",
+     "definitionFit": "Joseph, son of Jacob, is counted among the patriarchs of the Old Testament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1063,47 @@
     "text": "Animal operation requiring very large amount of money",
     "enumeration": "7"
    },
-   "solution": "OPOSSUM"
+   "solution": "OPOSSUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "operation",
+       "at": 7,
+       "gives": "OP"
+      },
+      {
+       "words": "very large",
+       "at": 27,
+       "gives": "OS",
+       "note": "OS stands for outsize, a clothing size"
+      },
+      {
+       "words": "amount of money",
+       "at": 38,
+       "gives": "SUM",
+       "note": "a sum is an amount of money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Surgery on a pet will cost a fortune.",
+     "walkthrough": "OS, for outsize, is a British clothing-size label.",
+     "definitionFit": "The opossum is an American marsupial, a kind of animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1117,40 @@
     "text": "Old footballer yet to be paid",
     "enumeration": "5"
    },
-   "solution": "OWING"
+   "solution": "OWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yet to be paid",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "footballer",
+       "at": 4,
+       "gives": "WING",
+       "note": "a wing is a footballer who plays on the flank"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran footballer has not yet received his wages.",
+     "definitionFit": "Owing describes money that is due and still outstanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "footballer"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1164,49 @@
     "text": "Chap receiving little money for tree",
     "enumeration": "5"
    },
-   "solution": "MAPLE"
+   "solution": "MAPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 5,
+       "note": "the man takes in the money, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chap",
+       "at": 0,
+       "gives": "MALE",
+       "note": "a chap is a male"
+      },
+      {
+       "words": "little money",
+       "at": 15,
+       "gives": "P",
+       "note": "P is a penny, a small British coin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is given a few coins for a tree.",
+     "walkthrough": "P is a penny, a small coin of British money.",
+     "definitionFit": "The maple is a tree, known for its syrup and its leaf on Canada's flag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chap"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1220,61 @@
     "text": "Explorer backed by Colorado or Virginia",
     "enumeration": "7"
    },
-   "solution": "TOBACCO"
+   "solution": "TOBACCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Virginia",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 16,
+       "note": "placed by, next to, so the state's abbreviation follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 9,
+         "note": "the explorer's name is turned back to front, read in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Explorer",
+         "at": 0,
+         "gives": "CABOT",
+         "note": "John Cabot, the Venetian navigator who reached North America for England"
+        }
+       ]
+      },
+      {
+       "words": "Colorado",
+       "at": 19,
+       "gives": "CO",
+       "note": "CO is the postal abbreviation for the state of Colorado"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An explorer is supported by two American states.",
+     "walkthrough": "'backed' turns CABOT into TOBAC. Virginia looks like a second state, but it is a kind of tobacco.",
+     "definitionFit": "Virginia is a well-known type of leaf grown for smoking, named after the American state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Virginia"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1288,29 @@
     "text": "Opportunity to take a breather",
     "enumeration": "5"
    },
-   "solution": "BREAK"
+   "solution": "BREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opportunity",
+      "at": 0,
+      "meaning": "a chance, as a lucky opening"
+     },
+     {
+      "text": "take a breather",
+      "at": 15,
+      "meaning": "to pause or rest from work"
+     }
+    ],
+    "explanation": {
+     "surface": "A chance to rest for a moment.",
+     "definitionFit": "The word means a lucky chance and also a short rest from work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1324,46 @@
     "text": "Creature with, unusually, one horn",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusually",
+       "at": 15,
+       "note": "doing something unusually means not in the usual way, so these letters take an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 26,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "horn",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal is strange for having just one horn.",
+     "walkthrough": "'unusually' rearranges I and HORN. The surface is apt: some species of this beast do have a single horn.",
+     "definitionFit": "The rhinoceros is a large thick-skinned animal, a creature of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1377,42 @@
     "text": "Carry on with words that are straightforward and clever",
     "enumeration": "9"
    },
-   "solution": "PROSECUTE"
+   "solution": "PROSECUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carry on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "words that are straightforward",
+       "at": 14,
+       "gives": "PROSE",
+       "note": "prose is plain, ordinary writing as opposed to verse"
+      },
+      {
+       "words": "clever",
+       "at": 49,
+       "gives": "CUTE",
+       "note": "cute can mean shrewd or clever, especially in American usage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continue with plain, smart language.",
+     "walkthrough": "'Carry on' sounds like misbehaving, but here it means pursue or continue.",
+     "definitionFit": "To prosecute an inquiry or campaign is to pursue or continue it to the end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "words"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1426,47 @@
     "text": "English batting always to plan",
     "enumeration": "8"
    },
-   "solution": "ENGINEER"
+   "solution": "ENGINEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "ENG"
+      },
+      {
+       "words": "batting",
+       "at": 8,
+       "gives": "IN",
+       "note": "a batsman in cricket who is batting is said to be in"
+      },
+      {
+       "words": "always",
+       "at": 16,
+       "gives": "EER",
+       "note": "e'er is a poetic contraction of ever, meaning always"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The English team keep on batting according to plan.",
+     "walkthrough": "In cricket the side batting is 'in'.",
+     "definitionFit": "To engineer an outcome is to contrive or arrange it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "batting"
+    }
+   }
   },
   {
    "number": 29,
@@ -486,7 +1480,39 @@
     "text": "Drawing of second sailing vessel",
     "enumeration": "6"
    },
-   "solution": "SKETCH"
+   "solution": "SKETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drawing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "at": 11,
+       "gives": "S"
+      },
+      {
+       "words": "sailing vessel",
+       "at": 18,
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing boat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of a second sailing boat.",
+     "definitionFit": "A rough or quick drawing is called a sketch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
