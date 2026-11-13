@@ -4966,6 +4966,13 @@ check("a Mon-Fri Gale Telegraph puzzle with no solution read is due TELEGRAPH_HO
        f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"}),
        f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-12"}),
        f.telegraph_hosted_due({**_tgrow, "readAt": "2026-11-14T16:00:00+00:00"})])
+_tgwhole = {**_tgrow, "readAt": "2026-11-13T16:00:00+00:00",
+            "verdicts": [{"complete": True, "grid": "image", "number": 22794}]}
+check("a Mon-Fri Gale Telegraph puzzle whose clues read complete with no solution read is due TELEGRAPH_WHOLE, once",
+      [True, True, False, False],
+      [f.telegraph_whole_due(_tgwhole), f.TELEGRAPH_WHOLE in f.RANKS,
+       f.telegraph_whole_due({**_tgwhole, "readAt": "2026-11-14T16:00:00+00:00"}),
+       f.telegraph_whole_due({**_tgwhole, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"})])
 _sat = {**_tgrow, "edition": "GaleTelegraph1994UKEnglish/1994-12-10", "readAt": "2026-11-13T16:00:00+00:00"}
 _mon = {**_tgrow, "edition": "GaleTelegraph1994UKEnglish/1994-12-12"}
 check("a Gale Telegraph Saturday puzzle of 1987-2000 with no solution read is due TELEGRAPH_PRIZE_DAY (ranked), not a "
