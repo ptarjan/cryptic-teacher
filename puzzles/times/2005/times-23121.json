@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Not natural to be attacked",
     "enumeration": "8"
    },
-   "solution": "AFFECTED"
+   "solution": "AFFECTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not natural",
+      "at": 0,
+      "meaning": "put on for show, assumed rather than genuine"
+     },
+     {
+      "text": "to be attacked",
+      "at": 12,
+      "meaning": "struck by a disease, as a crop is said to be hit by blight"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two separate senses: a mannered, pretentious manner, and being hit or harmed by an illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attacked"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,49 @@
     "text": "Wave that surges through sea, found in branches",
     "enumeration": "8"
    },
-   "solution": "ARBOREAL"
+   "solution": "ARBOREAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "found in branches",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "at": 17,
+       "note": "one piece goes right through the middle of the other, so it sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sea",
+       "at": 25,
+       "gives": "ARAL",
+       "note": "the Aral Sea in Central Asia"
+      },
+      {
+       "words": "Wave that surges",
+       "at": 0,
+       "gives": "BORE",
+       "note": "a bore is a tidal wave surging up a river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A great wave rolls through the open sea.",
+     "walkthrough": "'through' signals the insertion. 'sea' looks generic but names a particular one, the Aral Sea between Kazakhstan and Uzbekistan.",
+     "definitionFit": "Tree-dwelling creatures live among the branches, which is the adjective's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +131,33 @@
      }
     ]
    },
-   "solution": "FOOTLOOSE"
+   "solution": "FOOTLOOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Without responsibilities or solid means of support?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Without responsibilities or solid means of support?",
+       "at": 0,
+       "note": "fancy-free and unattached, and read literally a foot that is loose gives no firm standing"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Being free to go anywhere with no ties is the idiomatic sense; the second half plays on a wobbly foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +171,43 @@
     "text": "Shrewd move of Nancy's",
     "enumeration": "5"
    },
-   "solution": "CANNY"
+   "solution": "CANNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shrewd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "move of",
+       "at": 7,
+       "note": "the letters of the name are moved around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nancy's",
+       "at": 15,
+       "gives": "NANCY",
+       "note": "the girl's name, its possessive giving no letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever tactic played by a woman called Nancy.",
+     "walkthrough": "'move of' rearranges NANCY.",
+     "definitionFit": "Canny is a synonym of shrewd, astute and careful, especially in Scottish use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +221,67 @@
     "text": "Well-turned short poem, essential Dante",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-turned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 12,
+         "note": "the word for the poem is cut short, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem",
+         "at": 18,
+         "gives": "ELEGY",
+         "note": "an elegy is a mournful poem"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essential",
+         "at": 24,
+         "note": "the essence or core of the poet's name, its middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dante",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neat little verse capturing the essence of the Italian poet.",
+     "walkthrough": "'short' trims ELEGY to ELEG; 'essential' takes ANT from the middle of DANTE.",
+     "definitionFit": "A well-turned phrase or ankle is graceful and stylish, the same sense as the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essential"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +295,11 @@
     "text": "Keep carrying box",
     "enumeration": "6"
    },
-   "solution": "CARTON"
+   "solution": "CARTON",
+   "annotationWithheld": {
+    "why": "'Keep carrying box' as held: CARTON is the box, but no reading of 'Keep carrying' gives the remaining letters; the clue looks cut short in OCR and the scan is unreadable.",
+    "clue": "Keep carrying box"
+   }
   },
   {
    "number": 6,
@@ -120,7 +313,34 @@
     "text": "Painstaking medical procedure?",
     "enumeration": "9"
    },
-   "solution": "ANALGESIA"
+   "solution": "ANALGESIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painstaking medical procedure?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Painstaking medical procedure?",
+       "at": 0,
+       "note": "read 'painstaking' as pain-taking: a treatment that takes the pain away"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Analgesia is relief from pain, the effect a painkilling treatment produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Painstaking"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +354,64 @@
     "text": "Army picking a conscript up in the Russian zone",
     "enumeration": "5"
    },
-   "solution": "TAIGA"
+   "solution": "TAIGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Russian zone",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Army",
+       "at": 0,
+       "gives": "TA",
+       "note": "TA is the Territorial Army"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 25,
+         "note": "in a down clue, the pair is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 13,
+           "gives": "A"
+          },
+          {
+           "words": "conscript",
+           "at": 15,
+           "gives": "GI",
+           "note": "a GI is an American soldier, often a draftee"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army picks up a recruit somewhere in Russia.",
+     "walkthrough": "'up' turns AGI into IGA, which follows TA. 'picking' and 'in the' are link words.",
+     "definitionFit": "The taiga is the coniferous forest belt across northern Russia, a vegetation zone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picking"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +425,34 @@
     "text": "Quantity the Romans had in excess?",
     "enumeration": "6"
    },
-   "solution": "NINETY"
+   "solution": "NINETY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quantity the Romans had in excess?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Quantity the Romans had in excess?",
+       "at": 0,
+       "note": "'excess' sounds like X-C, the Roman numeral for this number"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "In Roman numerals XC stands for this number, and 'ex-cess' plays on those letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "excess"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +466,29 @@
     "text": "Fail to get out saw",
     "enumeration": "6"
    },
-   "solution": "BEHELD"
+   "solution": "BEHELD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fail to get out",
+      "at": 0,
+      "meaning": "to be detained or kept in, read as two words"
+     },
+     {
+      "text": "saw",
+      "at": 16,
+      "meaning": "past tense of see, observed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Split in two the word means be detained; whole it is an old past tense of behold, meaning saw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +502,52 @@
     "text": "Colour part of eye with end of crayon",
     "enumeration": "5"
    },
-   "solution": "BROWN"
+   "solution": "BROWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of eye",
+       "at": 7,
+       "gives": "BROW",
+       "note": "the brow is the ridge above the eye"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 24,
+         "note": "the final letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crayon",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shading part of the eye with a crayon, as in make-up.",
+     "walkthrough": "'end of' takes N from 'crayon'.",
+     "definitionFit": "Brown is simply one of the colours, an earthy shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crayon"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +561,61 @@
     "text": "Always 50% off, in transport plan",
     "enumeration": "9"
    },
-   "solution": "ELEVATION"
+   "solution": "ELEVATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transport",
+       "at": 19,
+       "gives": "ELATION",
+       "note": "a transport of joy is elation"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "50% off",
+         "at": 7,
+         "note": "half of the word is removed, here its last two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Always",
+         "at": 0,
+         "gives": "EVER",
+         "note": "ever means always"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A permanent half-price deal on a transport scheme.",
+     "walkthrough": "'50% off' removes half of EVER, and 'in' signals the insertion. 'transport' means rapture, not vehicles, and 'plan' is the architect's drawing.",
+     "definitionFit": "In architecture an elevation is a drawn plan of one face of a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +635,45 @@
      }
     ]
    },
-   "solution": "RELAYRACE"
+   "solution": "RELAYRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having started, one couldn't finish it",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in ruins",
+       "at": 11,
+       "note": "the letters lie wrecked and are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Career",
+       "at": 0
+      },
+      {
+       "words": "lay",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A career was wrecked: someone who began could never complete it.",
+     "walkthrough": "'in ruins' rearranges CAREER LAY. The definition works because each runner starts or finishes only one leg of the team event.",
+     "definitionFit": "In a team event each runner covers one leg, so whoever starts it cannot also finish it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Career"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +687,41 @@
     "text": "Ulysses was Greek, a soldier",
     "enumeration": "5"
    },
-   "solution": "GRANT"
+   "solution": "GRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ulysses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek",
+       "at": 12,
+       "gives": "GR"
+      },
+      {
+       "words": "soldier",
+       "at": 21,
+       "gives": "ANT",
+       "note": "a soldier ant is a caste of ant that defends the colony"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ulysses, the hero, was a Greek warrior.",
+     "walkthrough": "Ulysses suggests Homer's Greek hero, but the definition is the American general and president Ulysses S. Grant.",
+     "definitionFit": "Ulysses S. Grant was the Union general and 18th US president, so his first name points to him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ulysses"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +735,71 @@
     "text": "A witticism cracked by teacher about Ovid, for one",
     "enumeration": "7"
    },
-   "solution": "AMORIST"
+   "solution": "AMORIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ovid, for one",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cracked by",
+         "at": 12,
+         "note": "the word is broken open and another piece put inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "witticism",
+         "at": 2,
+         "gives": "MOT",
+         "note": "a mot is a witty saying, as in bon mot"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 31,
+           "note": "turned around, read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "teacher",
+           "at": 23,
+           "gives": "SIR",
+           "note": "sir is a schoolchild's name for a male teacher"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke told by a teacher concerning the Roman poet.",
+     "walkthrough": "'about' signals the turn, 'cracked by' the insertion. Ovid wrote the Amores and the Ars Amatoria, love poetry.",
+     "definitionFit": "Ovid wrote the Ars Amatoria and Amores, making him a writer of love poetry, an example of a lover or love poet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +819,47 @@
      }
     ]
    },
-   "solution": "INKEEPING"
+   "solution": "INKEEPING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appropriate",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "some name-dropping",
+       "at": 31,
+       "note": "one N, the abbreviation for name, is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In Jim Hawkins' father's line",
+       "at": 0,
+       "gives": "INNKEEPING",
+       "note": "in Treasure Island, Jim's father keeps the Admiral Benbow inn, so his trade is running an inn"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mentioning famous names suits the literary setting of Treasure Island.",
+     "walkthrough": "'some name-dropping' removes one N (name) from INNKEEPING, leaving IN KEEPING. 'line' means line of business.",
+     "definitionFit": "Something in keeping is fitting or suitable for its setting, an idiom for appropriate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "name-dropping"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +873,49 @@
     "text": "Period in which ideology brings consternation",
     "enumeration": "6"
    },
-   "solution": "DISMAY"
+   "solution": "DISMAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "consternation",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 7,
+       "note": "the second piece goes inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Period",
+       "at": 0,
+       "gives": "DAY",
+       "note": "a day is a period of time"
+      },
+      {
+       "words": "ideology",
+       "at": 16,
+       "gives": "ISM",
+       "note": "an ism is any doctrine or ideology"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An era when a political creed causes alarm.",
+     "walkthrough": "'in which' signals the insertion; 'brings' is a link word.",
+     "definitionFit": "Dismay is a direct synonym of consternation: alarm and distress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Period"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +929,34 @@
     "text": "Country, in short, is wizard!",
     "enumeration": "9"
    },
-   "solution": "AUSTRALIA"
+   "solution": "AUSTRALIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country, in short, is wizard!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Country, in short, is wizard!",
+       "at": 0,
+       "note": "the country's short name is Oz, the land of the famous wizard"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "This country is nicknamed Oz, which shares its name with the Wizard of Oz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wizard"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +970,46 @@
     "text": "Arranges each is to leave prison",
     "enumeration": "8"
    },
-   "solution": "MARSHALS"
+   "solution": "MARSHALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arranges",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to leave",
+       "at": 17,
+       "note": "the abbreviation goes out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prison",
+       "at": 26,
+       "gives": "MARSHALSEA",
+       "note": "the Marshalsea was a debtors' prison in Southwark, London"
+      },
+      {
+       "gives": "EA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Organises everyone so that they can be let out of jail.",
+     "walkthrough": "'to leave' removes EA (each) from MARSHALSEA, the old London debtors' prison in Dickens's Little Dorrit. 'is' is a link word.",
+     "definitionFit": "To marshal troops or facts is to arrange them in order, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1023,49 @@
     "text": "Relent and think about honours",
     "enumeration": "6"
    },
-   "solution": "WEAKEN"
+   "solution": "WEAKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "surrounding the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "think",
+       "at": 11,
+       "gives": "WEEN",
+       "note": "ween is an old word for think or suppose"
+      },
+      {
+       "words": "honours",
+       "at": 23,
+       "gives": "AK",
+       "note": "in bridge the ace and king are honour cards, A and K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Give way and consider the awards you have been given.",
+     "walkthrough": "'about' signals the container. In bridge the honours are the top cards, so ace and king give A and K; 'ween' is an archaic verb.",
+     "definitionFit": "To weaken is to soften one's resolve or give in a little, which is to relent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "honours"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1079,41 @@
     "text": "Pinched new weapon",
     "enumeration": "6"
    },
-   "solution": "NARROW"
+   "solution": "NARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pinched",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "new",
+       "at": 8,
+       "gives": "N"
+      },
+      {
+       "words": "weapon",
+       "at": 12,
+       "gives": "ARROW",
+       "note": "an arrow is a weapon shot from a bow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new weapon has been stolen.",
+     "walkthrough": "'Pinched' suggests stolen, but it means squeezed thin.",
+     "definitionFit": "Pinched features or a pinched space are tight and thin, the sense of narrow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pinched"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1133,41 @@
      }
     ]
    },
-   "solution": "HEADSEA"
+   "solution": "HEADSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swell of opposition",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Is leading",
+       "at": 0,
+       "gives": "HEADS",
+       "note": "heads means is leading, as in heads the field"
+      },
+      {
+       "words": "each",
+       "at": 11,
+       "gives": "EA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the front of every wave of protest.",
+     "walkthrough": "'swell' is the sea's swell, not a surge of feeling: the definition is nautical.",
+     "definitionFit": "A head sea is a swell running directly against a ship's course, so it opposes the vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opposition"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1187,45 @@
      }
     ]
    },
-   "solution": "HEAVETO"
+   "solution": "HEAVETO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stop",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Broke",
+       "at": 0,
+       "note": "the letters are broken up and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toe",
+       "at": 6
+      },
+      {
+       "words": "have",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has fractured a toe and has to halt.",
+     "walkthrough": "'Broke' rearranges TOE and HAVE. 'to' is a link word.",
+     "definitionFit": "A ship heaves to by turning into the wind and coming to a halt, the nautical sense of stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Broke"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1239,52 @@
     "text": "At last, traffic light may appear on road",
     "enumeration": "6"
    },
-   "solution": "CAMBER"
+   "solution": "CAMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may appear on road",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "At last",
+         "at": 0,
+         "note": "only the final letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "traffic",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "light",
+       "at": 17,
+       "gives": "AMBER",
+       "note": "amber is one of the traffic lights"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eventually the traffic signal shows on the road.",
+     "walkthrough": "'At last' gives C, the end of 'traffic'. 'traffic light' reads as one thing, but it splits.",
+     "definitionFit": "Roads are built with a camber, a slight curve so rainwater runs off, so one may be seen on a road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1298,56 @@
     "text": "Match with a foreigner broken off",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Match",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "broken off",
+         "at": 23,
+         "note": "the final letter is snapped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foreigner",
+         "at": 13,
+         "gives": "GREEK",
+         "note": "a Greek is a foreigner from a British point of view"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A game against an overseas player is abandoned.",
+     "walkthrough": "'broken off' trims GREEK to GREE. 'with' is a link word. 'Match' looks like a fixture but is a verb.",
+     "definitionFit": "Two accounts that agree correspond or tally, so they match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1361,43 @@
     "text": "Game Boy instructions",
     "enumeration": "5"
    },
-   "solution": "RULES"
+   "solution": "RULES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instructions",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Game",
+       "at": 0,
+       "gives": "RU",
+       "note": "RU is rugby union"
+      },
+      {
+       "words": "Boy",
+       "at": 5,
+       "gives": "LES",
+       "note": "Les is a boy's name, short for Leslie"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The booklet of directions that comes with a handheld games console.",
+     "walkthrough": "'Game Boy' reads as the Nintendo console but splits into two pieces.",
+     "definitionFit": "Rules are the instructions or regulations that govern how something is done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boy"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1411,30 @@
     "text": "Back what Guardian does?",
     "enumeration": "9"
    },
-   "solution": "REARWARDS"
+   "solution": "REARWARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0,
+      "meaning": "towards the rear, backwards"
+     },
+     {
+      "text": "what Guardian does?",
+      "at": 5,
+      "meaning": "a guardian brings up the children in their charge, read as two words: raises those in care"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As one word it means backwards; split, it describes a guardian raising young people in care."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1448,50 @@
     "text": "Like the Web? Ladies have a change of heart",
     "enumeration": "5"
    },
-   "solution": "WOVEN"
+   "solution": "WOVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like the Web?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "have a change of heart",
+       "at": 21,
+       "note": "the middle letter of the word is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ladies",
+       "at": 14,
+       "gives": "WOMEN",
+       "note": "women means ladies"
+      },
+      {
+       "gives": "M"
+      },
+      {
+       "gives": "V"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women surfing the internet change their minds.",
+     "walkthrough": "'have a change of heart' replaces M, the centre of WOMEN, with V.",
+     "definitionFit": "A web is woven, like cloth or a spider's work, so the adjective describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Web"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1505,64 @@
     "text": "Not like lamb's lettuce stuffed into stomachs endlessly",
     "enumeration": "9"
    },
-   "solution": "BELLICOSE"
+   "solution": "BELLICOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not like lamb",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffed into",
+       "at": 24,
+       "note": "the lettuce is packed inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 46,
+         "note": "the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stomachs",
+         "at": 37,
+         "gives": "BELLIES",
+         "note": "bellies are stomachs"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "lettuce",
+       "at": 16,
+       "gives": "COS",
+       "note": "cos is a type of lettuce"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lamb's lettuce used as a stuffing for tripe.",
+     "walkthrough": "'endlessly' drops the final S and 'stuffed into' signals the insertion. 'Lamb's lettuce' is a real salad green, but here it splits.",
+     "definitionFit": "Lambs are proverbially meek, so being warlike and aggressive is unlike one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lamb's"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1576,29 @@
     "text": "House team",
     "enumeration": "5"
    },
-   "solution": "VILLA"
+   "solution": "VILLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0,
+      "meaning": "a large country or holiday residence"
+     },
+     {
+      "text": "team",
+      "at": 6,
+      "meaning": "Aston ..., the Birmingham football club, is often just called by its last word"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "It is a grand residence, and also the short name of an English football club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1612,49 @@
     "text": "Succeeded during term of office? This caller thinks not",
     "enumeration": "6"
    },
-   "solution": "RESIGN"
+   "solution": "RESIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This caller thinks not",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 10,
+       "note": "the letter comes in the middle of the term"
+      }
+     ],
+     "parts": [
+      {
+       "words": "term of office",
+       "at": 17,
+       "gives": "REIGN",
+       "note": "a monarch's reign is their term on the throne"
+      },
+      {
+       "words": "Succeeded",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for succeeded, as in family trees"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a leader succeeded in office, and the person phoning doubts it.",
+     "walkthrough": "'during' puts S inside REIGN. The definition replies to the question: someone who calls it a day does not think they will succeed.",
+     "definitionFit": "To quit is to call it a day, judging that carrying on will not bring success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caller"
+    }
+   }
   },
   {
    "number": 30,
@@ -500,7 +1674,64 @@
      }
     ]
    },
-   "solution": "CORNLAWS"
+   "solution": "CORNLAWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Measures of protection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sheathed",
+       "at": 63,
+       "note": "the claws enclose the other piece like a sheath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "talons",
+       "at": 28,
+       "gives": "CLAWS",
+       "note": "talons are claws"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "commonly",
+         "at": 54,
+         "note": "a dropped H marks casual speech"
+        }
+       ],
+       "parts": [
+        {
+         "words": "substance of nail",
+         "at": 36,
+         "gives": "HORN",
+         "note": "nails and claws are made of horn"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Protective measures against an animal's talons, the nail tissue being covered.",
+     "walkthrough": "'commonly' drops the H, as in casual London speech, and 'sheathed' signals the insertion; 'from' is a link word. The Corn Laws were 19th-century British tariffs on imported grain.",
+     "definitionFit": "The Corn Laws were protectionist measures keeping grain prices high for British farmers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "talons"
+    }
+   }
   }
  ]
 }
