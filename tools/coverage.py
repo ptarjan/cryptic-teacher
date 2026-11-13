@@ -115,6 +115,9 @@ def _causes():
     out[("gale", "by-hand-only")] = Cause(
         "tools/gale_fetch.py", "only on Gale: tools/gale_fetch.py downloads it "
         "and the full pass files it", False, False)
+    out[("gale", "downloaded")] = Cause(
+        "tools/ocr_full_pass.sh", "its Gale page is downloaded and not yet read: the standing full pass "
+        "(tools/ocr_full_pass.sh) lays it out and reads it", True, False)
     import genius_puzzles
     for key, words in genius_puzzles.LOST_CAUSES.items():
         out[("guardian", key)] = Cause("tools/genius_puzzles.py", words, False, False)
@@ -386,13 +389,89 @@ def andlit_rows():
         yield n, cause
 
 
-def gale_rows(by_number):
-    """(series, date, cause) of every Gale page the scan filer has read and not filed."""
+#: What a Gale page's claim cause says of it: "downloaded, awaiting reading"
+#: (no ledger row, or a row the filer scanned and has not read), else "read,
+#: incomplete" (the filer read it and no puzzle filed); a filed one is "filed".
+GALE_AWAITING = ("downloaded", "not-read")
+GALE_STATES = ("downloaded, awaiting reading", "read, incomplete", "filed")
+
+
+def gale_state(cause, filed):
+    """Which of GALE_STATES a Gale page is in: `cause` is its claim cause,
+    `filed` whether its issue is filed."""
+    return GALE_STATES[2] if filed else GALE_STATES[0] if cause in GALE_AWAITING else GALE_STATES[1]
+
+
+def gale_series(prod, date):
+    """The series a Gale document of product `prod` printed on `date` belongs
+    to, or None for a product with no series here (the Listener's LSNR). The
+    Sunday papers sit inside TGRH and INDA, told by the weekday."""
+    import gale_inbox
+    if prod == "TTDA":
+        return "times"
+    sunday = gale_inbox.SUNDAYS.get(prod)
+    if sunday and datetime.date.fromisoformat(date).weekday() == 6:
+        return sunday.series
+    other = gale_inbox.OTHERS.get(prod)
+    return other.series if other else None
+
+
+def printed_weekdays(series):
+    """The weekdays `series` prints on (its Gale archive's, gale_inbox), or None for every day."""
+    import gale_inbox
+    for other in (*gale_inbox.OTHERS.values(), *gale_inbox.SUNDAYS.values()):
+        if other.series == series and other.printed:
+            return other.printed[0]
+    return None
+
+
+def gale_anchors(by_number):
+    """[(ordinal date, number)] of the filed puzzles in `by_number` {number:
+    date}, date order: gale_number's anchors."""
+    return sorted((datetime.date.fromisoformat(day).toordinal(), n)
+                  for n, day in by_number.items() if day and isinstance(n, int))
+
+
+def gale_number(series, date, anchors):
+    """The estimated puzzle number of `series`' issue of `date`: the nearest
+    anchor's (gale_anchors) plus the print days between, signed. None with no
+    anchor."""
+    if not anchors:
+        return None
+    days = printed_weekdays(series) or range(7)
+    at = datetime.date.fromisoformat(date).toordinal()
+    i = bisect.bisect_left(anchors, (at, -1))
+    near = min(anchors[max(i - 1, 0):i + 1], key=lambda a: abs(a[0] - at))
+    lo, hi = sorted((near[0], at))
+    between = sum(1 for o in range(lo + 1, hi + 1) if datetime.date.fromordinal(o).weekday() in days)
+    return near[1] + (between if at >= near[0] else -between)
+
+
+def gale_pages(filer):
+    """(series, date, cause, number) of every Gale page downloaded and its
+    issue not known filed here: a ledger row of any Gale<Paper><year> item
+    (the filer's verdict as archive_coverage.verdict_class has it; number
+    the one its scan read, or None), and a document in gale_fetch's
+    fetched.json with no row ("downloaded"; number None)."""
+    import gale_fetch
+    papers = [p for p in (*filer.FILERS.values(), *(x for v in filer.ALSO.values() for x in v))
+              if p.key.startswith("gale")]
+    seen = set()
     for row in archive_coverage.ledger().values():
-        ed = row["edition"]
-        if not ed.startswith("GaleTimes"):
+        item, _, day = row["edition"].partition("/")
+        paper = next((p for p in papers if p.item.match(item)), None)
+        if paper is None:
             continue
-        yield "times", ed.split("/", 1)[1][:10], archive_coverage.verdict_class(row, by_number)
+        seen.add((paper.series, day[:10]))
+        puzzles = (row.get("scan") or {}).get("puzzles") or []
+        yield (paper.series, day[:10],
+               archive_coverage.verdict_class(row, archive_coverage.corpus(paper.series)[1]),
+               puzzles[0].get("number") if puzzles else None)
+    for doc in gale_fetch.load(gale_fetch.FETCHED).values():
+        series = gale_series(doc.get("prod", "TTDA"), doc["date"])
+        if series and (series, doc["date"]) not in seen:
+            seen.add((series, doc["date"]))
+            yield series, doc["date"], "downloaded", None
 
 
 #: The Gale archives of the Alberta Research Portal by series: (first, last)
@@ -507,15 +586,23 @@ def build(today=None):
     for paper in filer.PAPERS.values():
         if paper.series in archive_coverage.PRINTED and paper.series not in ledgers:
             ledgers[paper.series] = printed(paper.series, paper, today)
-    times_numbers = archive_coverage.corpus("times")[1] if "times" in ledgers else {}
-    for s, date, cls in gale_rows(times_numbers):
-        if s in ledgers and cls:
-            claim_dated(ledgers[s], "gale", [date], cls)
+    pages = list(gale_pages(filer))
     numbered = {}
     for s in series_meta.SERIES:
         first = series_meta.first_number(s)
         if first is not None and s not in ledgers:
             numbered[s] = (first, held_numbers(s), set())
+    gale_seen = collections.defaultdict(collections.Counter)
+    anchors = {}
+    for s, date, cls, n in pages:
+        if s in ledgers:
+            claim_dated(ledgers[s], "gale", [date], cls)
+            gale_seen[s][gale_state(cls, date in ledgers[s].filed)] += 1
+        elif s in numbered:
+            n = n if isinstance(n, int) else gale_number(s, date, anchors.get(s) or anchors.setdefault(
+                s, gale_anchors(archive_coverage.corpus(s)[1])))
+            if n is not None:
+                numbered[s][2].add((n, "gale", cls))
     for blog, s, n, dates, cause in blog_rows():
         if s in ledgers:
             claim_dated(ledgers[s], blog, dates, cause)
@@ -546,11 +633,16 @@ def build(today=None):
         for n, blog, cause in listed:
             if n in led.exists:
                 led.claim(n, blog, cause)
+                if blog == "gale":
+                    gale_seen[s][gale_state(cause, n in led.filed)] += 1
         ledgers[s] = led
     if "ftcryptic" in ledgers:
         for _n, date, cause in ft_pdf_rows():
             if date:
                 claim_dated(ledgers["ftcryptic"], "ft-pdf", [date[:10]], cause)
+    for s, tally in gale_seen.items():
+        ledgers[s].notes.append("Gale pages downloaded: " + ", ".join(
+            f"{tally[k]} {k}" for k in GALE_STATES if tally[k]))
     ledgers["canberra"] = trove()
     ledgers["book"] = books()
     return {"at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),

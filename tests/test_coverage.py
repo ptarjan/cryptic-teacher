@@ -267,6 +267,39 @@ assert cov.scanless("times", "2014-12-31") == ("gale", "by-hand-only")
 assert cov.scanless("times", "2015-06-01") == ("none", "no-source")
 assert not cov.CAUSES[("gale", "by-hand-only")].actionable
 
+# Gale pages already downloaded are never "no source": each is downloaded and
+# awaiting reading, read and incomplete, or filed, whichever paper it is of.
+assert cov.CAUSES[("gale", "downloaded")].actionable
+assert cov.gale_state("downloaded", False) == "downloaded, awaiting reading"
+assert cov.gale_state("not-read", False) == "downloaded, awaiting reading"
+assert cov.gale_state("no-grid", False) == "read, incomplete"
+assert cov.gale_state("no-grid", True) == "filed"
+# TGRH and INDA hold a daily and its Sunday paper: the weekday tells them apart.
+assert cov.gale_series("TGRH", "1995-03-07") == "telegraph"
+assert cov.gale_series("TGRH", "1995-03-05") == "sundaytel"
+assert cov.gale_series("INDA", "1995-02-18") == "independent"
+assert cov.gale_series("INDA", "1995-02-19") == "indysunday"
+assert cov.gale_series("STHA", "1990-01-07") == "sundaytimes"
+assert cov.gale_series("FTHA", "1990-01-08") == "ftcryptic"
+assert cov.gale_series("TLSH", "1995-01-06") == "tls"
+assert cov.gale_series("TTDA", "1950-01-02") == "times"
+assert cov.gale_series("LSNR", "1950-01-02") is None
+# A numbered paper's page with no number read is numbered off the nearest filed puzzle by print days.
+sunday_anchors = cov.gale_anchors({100: "2000-01-02", 110: "2000-03-12"})
+assert cov.gale_number("sundaytel", "2000-01-23", sunday_anchors) == 103
+assert cov.gale_number("sundaytel", "2000-03-05", sunday_anchors) == 109
+assert cov.gale_number("sundaytel", "1999-12-26", sunday_anchors) == 99
+assert cov.gale_number("sundaytel", "2000-01-23", []) is None
+daily_anchors = cov.gale_anchors({500: "1990-01-08"})  # a Monday; the Independent prints Monday to Saturday
+assert cov.gale_number("independent", "1990-01-15", daily_anchors) == 506
+# A downloaded page claims its issue instead of "no source".
+led = cov.Ledger("telegraph", "print dates")
+led.exists = {"1995-03-07", "1995-03-08"}
+cov.claim_dated(led, "gale", ["1995-03-07"], "downloaded")
+res = led.result()
+assert {(b["source"], b["cause"]): b["puzzles"] for b in res["buckets"]} == {
+    ("gale", "downloaded"): 1, ("none", "no-source"): 1}, res
+
 
 def ledger(filed, buckets):
     rows = [{"source": s, "cause": c, "puzzles": n, **cov.CAUSES[(s, c)]._asdict(), "sample": ["k"]}
