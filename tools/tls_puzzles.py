@@ -2,6 +2,7 @@
 """File the newest Times Literary Supplement crossword off the TLS's own page image.
 
     python3 tools/tls_puzzles.py --latest      # daily_update.sh: file the newest issue (exit 3: held)
+    python3 tools/tls_puzzles.py --backfill    # file every free back issue, a commit each (resumes)
 
 The TLS crossword is fortnightly. the-tls.com publishes each as a WordPress
 article (category 95, "Crossword 1620") whose body is one picture of the
@@ -31,7 +32,10 @@ import json
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
+from pathlib import Path
+
 import clue_text
 import downloads
 import file_blog_puzzles
@@ -41,7 +45,6 @@ import ocr_clues
 import reconstruct_grid as rg
 import series as series_meta
 from fetch_puzzle import puzzle_path, write_puzzle_file
-
 
 SERIES = "tls"
 CATEGORY = "TLS Crossword"
@@ -57,7 +60,7 @@ IMAGE = re.compile(r'<img[^>]+src="([^"?]+/wp-content/uploads/[^"?]+\.(?:jpe?g|p
 #: The clue reader: English PP-OCRv5 keeps the spaces RapidOCR's "ch" loses here.
 PAGE_WIDTH = 2166
 READER = "en5"
-BYLINE = re.compile(r"Crossword\s*(\d{3,5})\s*by\s*([A-Z][A-Za-z]+)")
+BYLINE = re.compile(r"Crossword\s*(\d{3,5})\s*by\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
 FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
                          r"\s+(\d{1,2}),?\s+(\d{4})")
 MONTHS = {m: i for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July",
@@ -80,7 +83,7 @@ def runs(mask):
     return out
 
 
-def lattice(centres):
+def lattice(centres, tol=0.06):
     """The longest run of evenly spaced lines among `centres` (sorted), as
     (first, last), or None: the grid's rulings, not a column rule or the
     title's underline that stands near them."""
@@ -94,7 +97,7 @@ def lattice(centres):
             for e in centres:
                 # A whole number of pitches on: a line lost in a black cell's run is skipped.
                 k = round((e - at) / pitch)
-                if e > at and 1 <= k <= 8 and abs(e - at - k * pitch) <= max(2, pitch * 0.06):
+                if e > at and 1 <= k <= 8 and abs(e - at - k * pitch) <= max(2, pitch * tol):
                     chain.append(e)
                     at = e
             if len(chain) >= 5 and (best is None or len(chain) > len(best)):
@@ -102,21 +105,22 @@ def lattice(centres):
     return best and (best[0], best[-1])
 
 
-def grid_box(a):
+def grid_box(a, across=0.6, band=None, need=0.9, tol=0.06):
     """(x0, y0, x1, y1) of the grid in the grey array `a` (0 ink, 1 paper):
-    the outermost of its evenly spaced ruled lines in the page's left part,
-    each vertical one ruling at least half the page's height."""
-    import numpy as np
+    the outermost of its evenly spaced ruled lines in the page's left part
+    (`across` of its width), each vertical one ruling at least half the
+    page's height, or of its top `band` rows (the early issues' grid spans the page's width)."""
     h, w = a.shape
     ink = a < 0.8
+    top = ink[:band] if band else ink
     # A rule is a thin run; wider ones are columns of black cells.
-    cols = [(s, e) for s, e in runs(ink[:, : int(w * 0.6)].sum(axis=0) > 0.5 * h) if e - s <= 8]
-    xs = lattice([(s + e - 1) / 2 for s, e in cols])
+    cols = [(s, e) for s, e in runs(top[:, : int(w * across)].sum(axis=0) > 0.5 * len(top)) if e - s <= 8]
+    xs = lattice([(s + e - 1) / 2 for s, e in cols], tol)
     if not xs:
         return None
     x0, x1 = int(xs[0]), int(round(xs[1]))
-    rows = runs(ink[:, x0:x1 + 1].sum(axis=1) > 0.9 * (x1 - x0))
-    ys = lattice([(s + e - 1) / 2 for s, e in rows])
+    rows = runs(ink[:, x0:x1 + 1].sum(axis=1) > need * (x1 - x0))
+    ys = lattice([(s + e - 1) / 2 for s, e in rows], tol)
     if not ys:
         return None
     y0, y1 = int(ys[0]), int(round(ys[1]))
@@ -129,6 +133,33 @@ def grid_box(a):
         if x1 >= w or (edge < 0.9).mean() < 0.7:
             return None
     return x0, y0, x1, y1
+
+
+def find_grid(a):
+    """(box, "side" | "top"): grid_box with the clues beside and below the grid (1620 on), or
+    the page-wide grid at the top and the clues in two columns under it (1396's); None when neither."""
+    box = grid_box(a)
+    if box:
+        return box, "side"
+    box = grid_box(a, 1.0, int(a.shape[1] * 1.25), 0.75, 0.1)
+    return (box, "top") if box else None
+
+
+def under_columns(a, box):
+    """The two clue columns under a page-wide grid, as boxes: split at the widest blank
+    run near the page's middle, the bottom cut above the previous solution's grid."""
+    import numpy as np
+    h, w = a.shape
+    x0, y0, x1, y1 = box
+    top, bottom = y1 + 6, h
+    # The clue text runs through the region's first three quarters; the gutter between
+    # the columns is where its ink is thinnest, near the middle.
+    ink = (a[top:top + int((bottom - top) * 0.75), x0:x1] < 0.9).sum(axis=0)
+    lo, hi = int(len(ink) * 0.4), int(len(ink) * 0.6)
+    cut = x0 + lo + int(np.argmin(ink[lo:hi]))
+    # The solution's grid is the first fully ruled row of the page's left half.
+    sol = solution_top(a, x0, top, cut, bottom)
+    return [[x0, top, cut, sol - 2], [cut, top, x1 + 6, sol - 2]]
 
 
 def rules(a, x0, y0, x1, y1, need=0.6):
@@ -160,6 +191,8 @@ def solution_top(a, x0, y0, x1, y1):
 #: Austen)") and an underscore for a printed blank (24 down's "“__ brillig").
 #: The generic ones (space lost after a number or before a bracket) live in clue_text.
 TIDY = [(re.compile("\u2212"), "\u2013"),
+        (re.compile(r"\bSee (\d{1,2}) ?D\b"), r"See \1 down"),
+        (re.compile(r"\bSee (\d{1,2}) ?A\b"), r"See \1 across"),
         (re.compile(r"_+\s*"), ocr_clues.BLANK + " ")]
 
 
@@ -203,9 +236,10 @@ def read_image(img, web_date):
         img = img.convert("RGB").resize((PAGE_WIDTH, round(img.height * PAGE_WIDTH / img.width)), Image.LANCZOS)
     a = np.asarray(img.convert("L"), dtype=np.float32) / 255
     h, w = a.shape
-    box = grid_box(a)
-    if not box:
+    found = find_grid(a)
+    if not found:
         raise ValueError("no ruled square grid found in the page image")
+    box, layout = found
     gx0, gy0, gx1, gy1 = box
     pad = 6
     # The columns below the grid (to its right edge) and right of it (to the
@@ -220,10 +254,10 @@ def read_image(img, web_date):
     bands = runs((a[gy1:, :] < 0.5).any(axis=1))
     if len(bands) > 1 and bands[-1][0] - bands[-2][1] > bands[-1][1] - bands[-1][0]:
         foot = gy1 + bands[-1][0]
-    columns = []
+    columns = under_columns(a, box) if layout == "top" else []
     # The right band holds the solution grid, whose own lines run a good part of its height
     # (0.6-0.7 once 1623's small image is scaled up) where the printed rules run all of it (0.95).
-    for (bx0, by0, bx1, by1), need in ((below, 0.6), (right, 0.85)):
+    for (bx0, by0, bx1, by1), need in (() if layout == "top" else ((below, 0.6), (right, 0.85))):
         cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot), need) + [bx1]
         for cx0, cx1 in zip(cuts, cuts[1:]):
             if cx1 - cx0 > 80:
@@ -232,16 +266,18 @@ def read_image(img, web_date):
         raise ValueError("could not find the clue columns")
     # The last column carries the previous puzzle's solution under its clues.
     last = columns[-1]
-    last[3] = solution_top(a, *last) - 2
+    if layout == "side":
+        last[3] = solution_top(a, *last) - 2
     text = "\n".join(text_of(img, tuple(c)) for c in columns)
     title = text_of(img, (0, 0, w, max(gy0 - 2, 10)))
-    footer = text_of(img, (0, foot - 4, w, h))
+    # The early issues' page has no footer line (its prize text names other dates).
+    footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     flat = genius_puzzles.flat(text)
     out = genius_puzzles.parse_text(flat)
     m = BYLINE.search(title)
     if not m:
         raise ValueError(f"no byline in the title {title!r}")
-    out["number"], out["setter"] = int(m.group(1)), m.group(2)
+    out["number"], out["setter"] = int(m.group(1)), m.group(2).capitalize()
     d = FOOTER_DATE.search(footer)
     if d:
         out["date"] = datetime.date(int(d.group(3)), MONTHS[d.group(1)], int(d.group(2))).isoformat()
@@ -343,10 +379,221 @@ def latest(log=print):
     return 0
 
 
+#: The free back issues: the listing's pages of 100, and the pause between requests.
+BACKFILL_LISTING = ("https://www.the-tls.com/wp-json/wp/v2/tls_articles?article_category=95&per_page=100"
+                    "&page={page}&_fields=id,date,link,title,content")
+BACKFILL_PAGES = 6
+PAUSE = 1.0
+#: The printed page gives the solution of the issue this many numbers back.
+SOLUTION_LAG = 4
+STATE = CACHE / "backfill_state.json"
+
+
+def full_image(content):
+    """The article's full-size picture: the srcset entry with no query, else IMAGE's."""
+    for m in re.finditer(r'srcset="([^"]+)"', content):
+        for item in m.group(1).split(","):
+            url = item.split()[0] if item.split() else ""
+            if url and "?" not in url and "/wp-content/uploads/" in url:
+                return url
+    m = IMAGE.search(content)
+    return m and m.group(1)
+
+
+def listed():
+    """{number: row} of the numbered articles on the free listing, its pages kept
+    under CACHE/listing so a resumed run asks again only for what is missing."""
+    out = {}
+    for page in range(1, BACKFILL_PAGES + 1):
+        path = CACHE / "listing" / f"p{page}.json"
+        if not path.exists():
+            time.sleep(PAUSE)
+            data = get(BACKFILL_LISTING.format(page=page))
+            json.loads(data)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+        for row in json.loads(path.read_bytes()):
+            m = TITLE.search(html.unescape(row["title"]["rendered"]))
+            if m:
+                out.setdefault(int(m.group(1)), row)
+    return out
+
+
+def solution_crop(img):
+    """The previous puzzle's filled grid cut from the page image (scaled to
+    PAGE_WIDTH like read_image), or None: the largest square patch of ink below the puzzle's grid."""
+    import numpy as np
+    import trove_grid
+    from PIL import Image
+    if img.width != PAGE_WIDTH:
+        img = img.convert("RGB").resize((PAGE_WIDTH, round(img.height * PAGE_WIDTH / img.width)), Image.LANCZOS)
+    a = np.asarray(img.convert("L"), dtype=np.float32) / 255
+    found = find_grid(a)
+    if not found:
+        return None
+    box = found[0]
+    step = 4
+    ink = trove_grid.pooled(a < 0.8, step)
+    best = None
+    for _, cy, cx, h, w, *_ in trove_grid.components(ink):
+        x0, y0 = int((cx - w / 2) * step), int((cy - h / 2) * step)
+        if (0.1 * PAGE_WIDTH <= w * step <= 0.6 * PAGE_WIDTH and 0.9 <= w / max(h, 1) <= 1.1
+                and y0 > box[3] and (best is None or w > best[0])):
+            best = (w, (x0, y0, int((cx + w / 2) * step), int((cy + h / 2) * step)))
+    return best and img.crop(best[1])
+
+
+def answers_from(path, number, sol):
+    """The held puzzle's answers read off `sol` (its solution image) as {"n-direction": word}
+    when every light is read and every crossing agrees, else (None, why)."""
+    import apply_solution
+    import trove_solution_ocr as tso
+    from fetch_puzzle import read_puzzle_file
+    puzzle = read_puzzle_file(path)
+    (CACHE / "solution").mkdir(parents=True, exist_ok=True)
+    sol.save(CACHE / "solution" / f"{number}.png")
+    read, _ = tso.read_answers(CACHE / "solution" / f"{number}.png", tso.puzzle_grid(puzzle), tight=True)
+    fill = {f"{n}-{d}": w for (n, d), w in read.items()}
+    left = [e for e in puzzle["entries"] if f"{e['number']}-{e['direction']}" not in fill]
+    if left:
+        return None, f"{len(left)} of {len(puzzle['entries'])} lights unread"
+    _, _, problems = apply_solution.check_fill(puzzle, {apply_solution.entry_id(e): fill[f"{e['number']}-{e['direction']}"]
+                                                        for e in puzzle["entries"]})
+    if problems:
+        return None, problems[0]
+    return fill, None
+
+
+def commit(path):
+    """git add + one commit for `path` through the shared committer (subject
+    "File <id>" or "Update <id>"), then publish it in push_puzzle_commit.sh's batches."""
+    import subprocess
+    here = Path(__file__).resolve().parent
+    root = str(here.parent)   # the committer's pathspecs are relative to the repo's top
+    subprocess.run(["git", "add", str(path)], check=True, cwd=root)
+    subprocess.run(["bash", "-c", f". {here}/commit_puzzles.sh; ct_commit_puzzles tls-backfill"], check=True, cwd=root)
+    subprocess.run([str(here / "push_puzzle_commit.sh")], check=False, cwd=root)
+
+
+def backfill(log=print, only=None, retry_failed=False):
+    """File every listed TLS issue not held, oldest first, each as its own commit; and fill the answers
+    the page prints for the issue SOLUTION_LAG back. Skips what STATE says 404ed or failed
+    (retry_failed: the failures again); `only` limits to those numbers. Prints the counts."""
+    from fetch_puzzle import read_puzzle_file
+    from PIL import Image
+    state = json.loads(STATE.read_text()) if STATE.exists() else {}
+    state = {"404": state.get("404", []), "failed": state.get("failed", {}), "answered": state.get("answered", []),
+             "answer_failed": state.get("answer_failed", {})}
+    if retry_failed:
+        state["failed"] = {}
+        state["answer_failed"] = {}
+    counts = {"filed": 0, "with_answers": 0, "404": 0, "failed": 0}
+
+    def save():
+        STATE.parent.mkdir(parents=True, exist_ok=True)
+        STATE.write_text(json.dumps(state))
+
+    rows = listed()
+    for n in sorted(rows):
+        if only and n not in only:
+            continue
+        row = rows[n]
+        todo_file = not puzzle_path(SERIES, n).exists() and str(n) not in state["failed"]
+        prior = puzzle_path(SERIES, n - SOLUTION_LAG)
+        todo_ans = (prior.exists() and not all(e.get("solution") for e in read_puzzle_file(prior)["entries"])
+                    and n not in state["answered"] and str(n) not in state["answer_failed"])
+        if n in state["404"] or not (todo_file or todo_ans):
+            continue
+        url = full_image(row["content"]["rendered"])
+        if not url:
+            state["failed"][str(n)] = "no crossword image in the article"
+            counts["failed"] += 1
+            save()
+            continue
+        path = CACHE / "image" / f"{n}{'.png' if url.lower().endswith('.png') else '.jpg'}"
+        if not path.exists():
+            time.sleep(PAUSE)
+            try:
+                data = get(url)
+            except urllib.error.HTTPError as e:
+                if e.code == 404:
+                    state["404"].append(n)
+                    counts["404"] += 1
+                else:
+                    state["failed"][str(n)] = f"HTTP {e.code} fetching the image"
+                    counts["failed"] += 1
+                save()
+                continue
+            except OSError as e:
+                state["failed"][str(n)] = f"fetching the image: {e}"
+                counts["failed"] += 1
+                save()
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_suffix(".part")
+            tmp.write_bytes(data)
+            tmp.replace(path)
+        try:
+            img = Image.open(path)
+            img.load()
+        except OSError as e:
+            state["failed"][str(n)] = f"the image does not open: {e}"
+            counts["failed"] += 1
+            save()
+            continue
+        if todo_ans:
+            # Only the page's own number may answer: a held issue is read off the page `n`.
+            sol = solution_crop(img)
+            fill, why = (None, "no solution grid found on the page") if sol is None else answers_from(prior, n, sol)
+            if fill:
+                from trove_solution_ocr import fill as put
+                p = read_puzzle_file(prior)
+                put(p, fill)
+                write_puzzle_file(prior, p, generator=GENERATOR)
+                commit(prior)
+                counts["with_answers"] += 1
+                log(f"answers for tls-{n - SOLUTION_LAG} from page {n}")
+                state["answered"].append(n)
+            else:
+                state["answer_failed"][str(n)] = why
+                log(f"no answers for tls-{n - SOLUTION_LAG} from page {n}: {why}")
+            save()
+        if not todo_file:
+            continue
+        try:
+            page = read_image(img, row["date"])
+            if page["number"] != n:
+                raise ValueError(f"the image is headed No {page['number']}")
+            why = fpp.grid_matches(page["grid"], page["clues"]) if page["clues"] else "no clues read"
+            if why:
+                raise ValueError(why)
+            puzzle, why = unsolved(n, page, row["link"])
+            if why:
+                raise ValueError(why)
+        except (ValueError, OSError, KeyError, IndexError, TypeError) as e:
+            state["failed"][str(n)] = f"{type(e).__name__}: {e}"[:300]
+            counts["failed"] += 1
+            log(f"TLS {n} not filed: {state['failed'][str(n)]}")
+            save()
+            continue
+        write_puzzle_file(puzzle_path(SERIES, n), puzzle, generator=GENERATOR)
+        commit(puzzle_path(SERIES, n))
+        counts["filed"] += 1
+        log(f"filed {puzzle['id']}")
+    counts["404_total"] = len(state["404"])
+    log("backfill " + json.dumps(counts))
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--latest", action="store_true", help="file the newest issue (exit 3 when held)")
+    ap.add_argument("--backfill", action="store_true", help="file the free back issues, a commit each (resumes)")
+    ap.add_argument("--only", type=int, nargs="*", help="with --backfill: just these numbers")
+    ap.add_argument("--retry-failed", action="store_true", help="with --backfill: try earlier failures again")
     args = ap.parse_args(argv)
+    if args.backfill:
+        return backfill(only=set(args.only or ()), retry_failed=args.retry_failed)
     if not args.latest:
         ap.print_help()
         return 2
