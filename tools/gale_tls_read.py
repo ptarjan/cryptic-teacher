@@ -36,14 +36,15 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 1
+VERSION = 2
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
-CITED_NUMBER = re.compile(r"t\W?l\W?s\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
+CITED_NUMBER = re.compile(r"t\W?l\W?s\s*cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
 TITLE_WORD = re.compile(r"^\W*t\W?l\W?s\W*$", re.IGNORECASE)
-#: The TLS numbers printed 1992-2014 (No 102 on 5 June 1992; 1,396 and up are the-tls.com's).
-NUMBERS = range(100, 1400)
+#: The TLS numbers printed 1992-2014 (No 98 on 7 Feb 1992; 1,396 and up are the-tls.com's).
+NUMBERS = range(90, 1400)
+CITES = "cites.json"
 SIZES = (15,)
 CRASH_LIMIT = jr.CRASH_LIMIT
 
@@ -90,6 +91,71 @@ def plan(saved=SAVED, store=STORE):
     return [{"rel": PREFIX + p.name, "rank": fa.RANKS[reason], "reason": reason, "needs": []} for p in todo]
 
 
+def cites(saved=SAVED, store=STORE):
+    """[(name, date, printed number or None)] of every saved page, in date order, read off the PDFs' own text
+    (pypdf alone) and kept in the store: the anchors number_from_anchors dates a numberless page from."""
+    path = Path(store) / CITES
+    files = page_files(saved)
+    if path.exists():
+        got = json.loads(path.read_text())
+        if len(got) == len(files):
+            return [(a, datetime.date.fromisoformat(b), c) for a, b, c in got]
+    import pypdf
+    rows = []
+    for p in files:
+        try:
+            text = "\n".join(pg.extract_text() or "" for pg in pypdf.PdfReader(str(p)).pages)
+        except Exception:  # an unreadable PDF has no anchor; its own read says why
+            continue
+        c = cite_of(text)
+        if c:
+            rows.append((p.name, c[1], c[0]))
+    rows.sort(key=lambda r: (r[1], r[0]))
+    Path(store).mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(f".{os.getpid()}.tmp")
+    tmp.write_text(json.dumps([(a, b.isoformat(), c) for a, b, c in rows]))
+    os.replace(tmp, path)
+    return rows
+
+
+def anchors_of(rows):
+    """The indexes of `rows` whose printed number runs on from the last anchor's (a repeat or misprint is none)."""
+    anchors, last = [], 0
+    for i, (_, _, n) in enumerate(rows):
+        if n and n > last and all(m is None or m > n for _, _, m in rows[i + 1:i + 2]):
+            anchors.append(i)
+            last = n
+    return anchors
+
+
+def number_from_anchors(name, rows):
+    """(number, None) a page `name` is given by the numbered pages either side of it in `rows` (date order),
+    else (None, why). An anchor is a page whose printed number runs on from the one before (a repeated or
+    misprinted number is none); the pages between two anchors that no anchor numbers must be exactly the
+    numbers missing between them, taken in date order, or no page of the gap is numbered (the Times Literary
+    Supplement ran monthly in 1992 and weekly later, so a step is never assumed)."""
+    anchors = anchors_of(rows)
+    at = next((i for i, r in enumerate(rows) if r[0] == name), None)
+    if at is None:
+        return None, "page not among the saved citations"
+    before = max((i for i in anchors if i < at), default=None)
+    after = min((i for i in anchors if i > at), default=None)
+    if before is None or after is None:
+        return None, "no numbered page on both sides"
+    between = [i for i in range(before + 1, after) if i not in anchors]
+    missing = rows[after][2] - rows[before][2] - 1
+    if len(between) != missing:
+        return None, f"{len(between)} unnumbered pages but {missing} numbers missing between Nos {rows[before][2]} and {rows[after][2]}"
+    return rows[before][2] + 1 + between.index(at), None
+
+
+def number_on_page(words):
+    """The TLS number the page's OCR text prints beside its title, or None."""
+    import ocr_clues
+    m = CITED_NUMBER.search(ocr_clues.lines_of(words))
+    return figure(m.group(1)) if m else None
+
+
 def pick_grid(boxes, reader, pads=(6, 0.08)):
     """(box, grid, None) of the first of `boxes` whose `reader(box, pad)` reads a 15x15 lattice, else
     (None, None, why of the first refusal)."""
@@ -118,12 +184,25 @@ def read_page(path, store=STORE, asker=None):
         verdict["refused"] = "no TLS citation on the page"
         return verdict, None
     day = cited[1]
-    if cited[0] is None:
-        verdict["refused"] = "no TLS number in the citation"
-        return verdict, None
-    n = cited[0]
     key = gl.image_key(img)
-    verdict.update(number=n, numberFrom="citation", date=day.isoformat())
+    n, how = cited[0], "citation"
+    if n is not None:
+        rows = cites()
+        # A printed number that does not run on from its neighbours' (a misprint, a repeat) is no anchor.
+        if not any(rows[i][0] == path.name for i in anchors_of(rows)):
+            n = None
+    if n is None:
+        rows = cites()
+        n, why = number_from_anchors(path.name, rows)
+        how = "anchors"
+        if n is None:
+            verdict["refused"] = f"no TLS number: {why}"
+            return verdict, None
+        seen = number_on_page(gl.page_words(img, key))
+        if seen is not None and seen != n:
+            verdict["refused"] = f"the page prints No {seen}, the anchors give No {n}"
+            return verdict, None
+    verdict.update(number=n, numberFrom=how, date=day.isoformat())
     boxes = jr.grid_boxes(img)
     if not boxes:
         verdict["refused"] = "no grid on the page"
