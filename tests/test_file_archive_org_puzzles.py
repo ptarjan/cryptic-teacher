@@ -1201,7 +1201,7 @@ check("TELEGRAPH_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix
        f.TELEGRAPH_CELLS in __import__("edition_queue").LOW_ASK, f.TELEGRAPH_CELLS in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.TELEGRAPH_CELLS),
        f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST,
-       f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST[-8:],
+       f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST[-14:],
        f.blanket_or_fix(_tc_row, "inputs changed"), f._SOLUTION_PINS["50b55099851b3f47"]))
 check("printed_stale: an unmarked short unclassified TIMES_1930 reading is read again; marked, classified, whole, "
       "refused or another paper's is not",
