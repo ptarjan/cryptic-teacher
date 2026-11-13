@@ -4639,7 +4639,7 @@ check("sides_columns: a Gale Telegraph title on its grid's top with a column's w
        f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.TELEGRAPH)])
 check("sides_due: a Gale Telegraph Saturday from 1998 refused no reading parses, read before the stamp, and a 2000 "
       "weekday whose grid went unfound",
-      [True, False, True, True, False],
+      [True, False, True, True, True, False],
       [f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
                      "verdicts": [{"refused": "no reading parses"}]}),
        f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-29", "readAt": "2026-11-09T04:55:18+00:00",
@@ -4649,7 +4649,9 @@ check("sides_due: a Gale Telegraph Saturday from 1998 refused no reading parses,
        f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-14", "readAt": "2026-11-09T04:55:18+00:00",
                      "verdicts": [{"refused": "no reading parses",
                                    "imageUnread": "the white cells span 11 rows and 13 columns"}]}),
-       f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-09-24", "readAt": "2026-11-09T04:55:18+00:00",
+       f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-12-24", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"imageUnread": "the white cells span 13 rows and 15 columns"}]}),
+       f.sides_due({"edition": "GaleTelegraph1998UKEnglish/1998-09-24", "readAt": "2026-11-09T04:55:18+00:00",
                      "verdicts": [{"refused": "no reading parses",
                                    "imageUnread": "the white cells span 11 rows and 13 columns"}]})])
 

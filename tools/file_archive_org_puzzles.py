@@ -1339,7 +1339,9 @@ SIDES_READ = "Gale Telegraph page refused no reading parses, its clue columns ei
 #: due again, once, SIDES_READ's rank and evidence unchanged; so are the 2000 weekdays whose grid went unfound
 #: (grid_under_clues: the clues-above span cut the grid's foot).
 REREAD_SIDES_READ = "2026-11-13T20:30:00+00:00"
-SIDES_WEEKDAY = (datetime.date(2000, 1, 1), datetime.date(2000, 12, 31))
+#: 11-13 later: the 1999 weekdays too (28 of 1999-10 to 12 unread "the white cells span 13 rows and 15 columns", the
+#: crop 668px tall under a 764px grid; all read whole by grid_under_clues now).
+SIDES_WEEKDAY = (datetime.date(1999, 1, 1), datetime.date(2000, 12, 31))
 SIDES_FROM = datetime.date(1998, 1, 1)
 
 
