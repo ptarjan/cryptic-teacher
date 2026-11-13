@@ -183,10 +183,15 @@ jobs:
     # A run that stops making progress otherwise sits on GitHub's 6h default,
     # holding a red check over every commit behind it. A shard is a few minutes
     # of checkout, build and scripts when the smoke test's results are cached,
-    # and longer after a code change re-runs it over the whole corpus; thirty
-    # leaves room for that, and a shard near it means ci_shards.js's COST or
-    # SLICES needs re-measuring.
-    timeout-minutes: 30
+    # and longer after a code change re-runs it over the whole corpus. That
+    # change also invalidates the row cache (a row is keyed on the code that made
+    # it), so every shard re-makes the index (4-8 min) and the pages (4 min)
+    # before its scripts, until a pages.yml run saves the caches again: in run
+    # 43359257648 that took shards 5 and 2 to 29-30 minutes, and the 30-minute
+    # cap cancelled four of them with their scripts passing. Forty-five leaves
+    # the margin; a shard near it means ci_shards.js's COST or SLICES needs
+    # re-measuring.
+    timeout-minutes: 45
     defaults:
       run:
         shell: bash .github/offline.sh {0}
