@@ -3548,6 +3548,31 @@ check("an Independent on Sunday 1990s page with its 12x12 grid unread is due IND
        f.indy_barred_due({**_ib, "edition": "GaleTimes1996UKEnglish/1996-03-10"}), f.INDY_BARRED in f.RANKS,
        __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 9 + ["." * 11 + "b"] + ["." * 12]),
        __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 11) < 0.8])
+_icol = __import__("ios_columns")
+_row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
+# 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
+_words4 = [_row(212, 358, 2883, "ACROSS"), _row(977, 1097, 2883, "DOWN")] + \
+    [_row(x, x + 340, 2920 + 33 * k, "%d Clue text here" % k) for x in (212, 594, 975, 1356) for k in range(20)] + \
+    [_row(30, 100, 3000, "advert"), _row(1006, 1672, 2820, "BEELZEBUB PRIZE CROSSWORD NO 237")]
+# 1992-04-19: the grid at 278-998, two columns right of it, the bridge column from 2217.
+_words2 = [_row(1230, 1385, 2335, "ACROSS"), _row(1819, 1948, 2335, "DOWN")] + \
+    [_row(x, x + 540, 2400 + 33 * k, "%d Clue text here down" % k) for x in (1036, 1610) for k in range(20)] + \
+    [_row(2217, 2798, 2336, "West"), *[_row(2217, 2798, 2400 + 33 * k, "bridge text") for k in range(20)]]
+check("a pre-1995 Beelzebub's clue columns are fitted to its words: four left of the grid up to ACROSS's, two right of it "
+      "up to DOWN's (a clue's last word 'down' is no heading, the bridge column after them is not one), a 1996 page is not one",
+      ["left", "right", None, [204, 573, 954, 1335, 1736], [1003, 1593, 2158], None],
+      [_icol.four_layout("galeindysunday", "1994-08-14", "below", (1741, 2886, 2461, 3666), 3296),
+       _icol.four_layout("galeindysunday", "1992-04-19", "left", (278, 2275, 998, 2990), 3296),
+       _icol.four_layout("galeindysunday", "1996-03-10", "below", (985, 2062, 1705, 2781), 3296),
+       _icol.fit(_words4, "left", (1741, 2886, 2461, 3666), 2850, 3936, 3296),
+       _icol.fit(_words2, "right", (278, 2275, 998, 2990), 2316, 3785, 3296),
+       _icol.fit([_row(1036, 1575, 2400, "1 text")], "right", (278, 2275, 998, 2990), 2316, 3785, 3296)])
+_lone = [[(210, 430, 230, 460, "1")], [(210, 640, 400, 670, "ACROSS")], [(210, 690, 590, 720, "1 Foo bar (4)")],
+         [(610, 440, 630, 470, "3")], [(610, 640, 700, 670, "DOWN")], [(610, 690, 990, 720, "2 Baz (3)")]]
+_lone_cols = f.columns(_lone, (1000, 500, 1400, 900), None, 40, None, (200, 600, 2000))
+check("a lone number over a column's ACROSS or DOWN heading is no clue and does not end the column there",
+      [["ACROSS", "1 Foo bar (4)"], ["DOWN", "2 Baz (3)"]],
+      [[line[4] for line in col] for col in _lone_cols])
 def _ios_found(thick, thin_sides=()):
     """A listener_grid-like 12x12 grid: `thick` sides 4 thin rules wide, the rest 1 (the thin rule 1)."""
     _s = {(r, c, "r"): 1.0 for r in range(12) for c in range(11)}
@@ -3634,7 +3659,8 @@ check("the special-title fix pins every paper but the Gale Sunday Telegraph over
       [True, True, True, True, True],
       [all(f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
            == _final(k) and f._WINNERS_BAND_FIX[k][0] == v[2]
-           for k, v in f._SPECIAL_TITLE_FIX.items()),
+           for k, v in f._SPECIAL_TITLE_FIX.items() if k != "galeindysunday")  # moved on purpose by the barred reader
+       and f.scan_key(f.GALE_INDY_SUNDAY) != _final("galeindysunday"),
        all(f.CORPUS_KEYS[o] == {k: _final(k)} for k, v in f._SPECIAL_TITLE_FIX.items() for o in v[:2]),
        sorted(set(f.FILERS) - set(f._SPECIAL_TITLE_FIX)) == ["galesundaytelegraph"],
        not f.scan_current({"edition": "GaleSundayTelegraph2000UKEnglish/2000-12-31", "scanKey": "298202f644768e5f",
