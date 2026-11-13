@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Whether the stores pages.yml's build restored still fit this checkout's code.
 
+    python3 tools/cache_warmth.py --fingerprint   -> this checkout's page fingerprint, or "none"
     python3 tools/cache_warmth.py PAGE_FINGERPRINT
     -> "warm"            the row store holds this code's rows for (nearly)
                          every puzzle file, and the page store was saved under
@@ -20,6 +21,8 @@ one step (~175s cold) and the render re-renders every page in one step. That
 is exactly what this checks, from the stores themselves, rather than guessing
 from file names that a tools/ edit might have moved them.
 """
+import sqlite3
+import subprocess
 import sys
 
 import row_cache
@@ -66,13 +69,25 @@ def check(page_fp):
     return "warm"
 
 
+#: What an unreadable store or checkout raises: all of it is a cold store.
+UNREADABLE = (OSError, ValueError, KeyError, ImportError, SyntaxError,
+              sqlite3.Error, subprocess.CalledProcessError)
+
+
 def main(argv):
+    if argv == ["--fingerprint"]:
+        import page_cache
+        try:
+            print(page_cache.fingerprint() or "none")
+        except UNREADABLE:
+            print("none")
+        return 0
     if len(argv) != 1:
         print(__doc__)
         return 2
     try:
         print(check(argv[0].strip()))
-    except Exception as err:  # noqa: BLE001 - anything unreadable is a cold store: the full path is never wrong
+    except UNREADABLE as err:  # the full path is never wrong
         print(f"cold {type(err).__name__}: {err}")
     return 0
 
