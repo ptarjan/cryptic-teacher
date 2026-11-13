@@ -341,6 +341,24 @@ try:
         assert {v[3] for v in json.loads(cache.read_text())["rows"].values()} == {"v2"}
     finally:
         R.code_digest = digest
+    # A committed file is keyed by repo-relative path and blob id: another
+    # checkout (other root, other mtimes) hits the same rows with no reads.
+    blob_cache = Path(os.environ["TMP"]) / "blob-rows.json"
+    one = [files[0]]
+    bl = {"a.json": "b1"}
+    R.cached_rows(one, blob_cache, blobs=bl, root=files[0].parent)
+    reads.clear()
+    os.utime(files[0], (1, 1))
+    R.cached_rows(one, blob_cache, blobs=bl, root=files[0].parent)
+    assert reads == [], reads
+    assert list(json.loads(blob_cache.read_text())["rows"]) == ["a.json"]
+    R.cached_rows(one, blob_cache, blobs={"a.json": "b2"}, root=files[0].parent)
+    assert reads == ["a.json"], reads
+    # New files share the budget: a cold cache stops partway and says so.
+    cold, ticks = Path(os.environ["TMP"]) / "cold.json", iter(range(0, 1000, 10))
+    reads.clear()
+    got = R.cached_rows(files[:1] + files[2:], cold, clock=lambda: next(ticks), budget=15, batch=1)
+    assert len(reads) == 1 and len(got) == 1, (reads, got)
 finally:
     R.puzzle_row = real
 
