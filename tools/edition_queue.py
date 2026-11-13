@@ -4752,10 +4752,12 @@ def last_plan(path, key, loose=False):
     """(the plan keep_plan saved at `path` for these arguments, when it was
     made, how long it took), if under PLAN_KEPT seconds old, else
     (None, None, 0.0): its units may be done by now, and each says so as it
-    starts (\"current\"). `loose` also takes a plan kept by other planner
-    code (key[4][0], the files' digests) when the arguments, scan keys,
-    solution key and the rest agree: a hot reload changes those digests on
-    nearly every push, and the new run starts units from it while it plans."""
+    starts (\"current\"). `loose` also takes a plan kept by other code or
+    keys (all of key[4]: the files' digests, scan keys, solution key, ...)
+    when the arguments (key[:4]) agree: a hot reload moves one of those on
+    nearly every push (the 16:23 and 16:30 reloads each planned ~6 minutes
+    with nothing started), and the new run starts units from it while it
+    plans; each unit re-checks it is current as it starts."""
     try:
         kept = json.loads(Path(path).read_text())
     except (FileNotFoundError, ValueError):
@@ -4766,7 +4768,7 @@ def last_plan(path, key, loose=False):
     then = kept.get("key")
     if then != key:
         try:
-            same = loose and then[:4] == key[:4] and then[4][1:] == key[4][1:]
+            same = loose and then[:4] == key[:4]
         except (TypeError, IndexError, KeyError):
             same = False
         if not same:

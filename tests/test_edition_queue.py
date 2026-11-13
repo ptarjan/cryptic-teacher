@@ -2577,9 +2577,11 @@ old_key = [["times"], "c", None, [], [["d1"], [["k1"]], "s", [], "r"]]
 new_key = [["times"], "c", None, [], [["d2"], [["k1"]], "s", [], "r"]]
 rekeyed = [["times"], "c", None, [], [["d2"], [["k2"]], "s", [], "r"]]
 eq.keep_plan(kl, old_key, ([{"u": 1}], [{"u": 2}], []), time.time())
-check("a plan kept by other planner code is taken only loosely, and only with the same scan keys",
-      (None, 1, None, None), (eq.last_plan(kl, new_key)[0], len(eq.last_plan(kl, new_key, loose=True)[0][1]),
-                              eq.last_plan(kl, rekeyed, loose=True)[0], eq.last_plan(kl, ["x"], loose=True)[0]))
+check("a plan kept by other planner code or scan keys is taken only loosely, and only with the same arguments",
+      (None, 1, 1, None), (eq.last_plan(kl, new_key)[0], len(eq.last_plan(kl, new_key, loose=True)[0][1]),
+                           len(eq.last_plan(kl, rekeyed, loose=True)[0][1]), eq.last_plan(kl, ["x"], loose=True)[0]))
+other_args = [["guardian"], "c", None, [], [["d2"], [["k1"]], "s", [], "r"]]
+check("a loose plan is refused when the arguments differ", None, eq.last_plan(kl, other_args, loose=True)[0])
 # Mirror: a plan that takes minutes (a cold cache on the media mount) holds
 # no re-exec back; the old code would run until the plan ended.
 log.unlink(missing_ok=True)
