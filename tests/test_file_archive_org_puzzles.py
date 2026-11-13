@@ -3628,6 +3628,14 @@ check("an Independent page whose clue numbers stand in three print columns right
        f.third_of(f.indy_columns(_ic, _icg, _icr)), f.indy_columns(_ic2, _icg, _icr),
        [f.indy_columns_due(_icd), f.indy_columns_due({**_icd, "edition": "GaleTimes2011UKEnglish/2011-12-09"}),
         f.indy_columns_due({**_icd, "readAt": "2026-11-14T04:00:00+00:00"}), f.INDY_COLUMNS in f.RANKS]])
+_sf = {"edition": "GaleSundayTelegraph1993UKEnglish/1993-01-31", "inputs": "x", "readAt": "2026-11-10T12:00:00+00:00",
+       "verdicts": [{"number": 1652, "leaf": 0, "imageUnread": "the white cells span 14 rows and 15 columns", "refused": "no reading parses"}]}
+check("a Gale Sunday Telegraph 1991-95 page whose grid was unread a row short is due SUNDAY_FOOT (ranked); a 1997 page, "
+      "a Telegraph page and one read since are not",
+      [True, False, False, False, True],
+      [f.sunday_foot_due(_sf), f.sunday_foot_due({**_sf, "edition": "GaleSundayTelegraph1997UKEnglish/1997-11-16"}),
+       f.sunday_foot_due({**_sf, "edition": "GaleTelegraph1993UKEnglish/1993-01-31"}),
+       f.sunday_foot_due({**_sf, "readAt": "2026-11-14T06:00:00+00:00"}), f.SUNDAY_FOOT in f.RANKS])
 _ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
 _ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
           "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
