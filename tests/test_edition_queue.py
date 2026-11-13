@@ -2648,6 +2648,7 @@ check("a slice's first image re-execs on a change to itself while its first plan
 # which counts them in its pools and does not start them again.
 log.unlink(missing_ok=True)
 released = T / "release-long"
+released.unlink(missing_ok=True)  # an earlier re-exec case left it touched
 fake(hold={"long": str(released)})  # "long" runs until released, so it is still running when the slice ends
 eq.plan = units([], [("long", []), ("r1", [])])
 ho = T / "handoff.json"
