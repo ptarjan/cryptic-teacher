@@ -726,6 +726,12 @@ def locate(node, clue, taken=()):
             if run:
                 at, text = run
                 span[key] = text
+        if at is None and nth == 1 and "#" not in text:
+            import definitions  # scan debris in the clue: the quote of the run as the clue prints it
+            run = definitions.damaged_run(text, clue)
+            if run:
+                at, text = clue.find(run), run
+                span[key] = text
         if at is not None and clue[at:at + len(text)] != text:
             span[key] = text = clue[at:at + len(text)]
         if at is None:

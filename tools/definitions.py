@@ -86,7 +86,73 @@ def respell(text, clue):
     found = {_with_edges(text, clue, words[k].start(), words[k + n - 1].end())
              for k in range(len(words) - n + 1)
              if [w.group().casefold() for w in words[k:k + n]] == want} if n else set()
-    return found.pop() if len(found) == 1 else text
+    if len(found) == 1:
+        return found.pop()
+    return damaged_run(text, clue) or text
+
+
+def _fold_accents(s):
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", s) if not unicodedata.combining(c))
+
+
+def damaged_run(text, clue):
+    """The clue's one run that `text` quotes when the clue is scan-damaged (the
+    refusals' commonest cause: the model quotes the clue as printed, the stored
+    clue has the scan's debris): a word broken by a hyphen or spaces ('dis,
+    patched'), a stray capital or 'Check tod' banner between or inside words, a
+    final word cut short ('a br' for 'a bribe'), an accent the quote dropped
+    ('Bronte' for 'Brontë'). The clue's own characters for the run, or None
+    when no run or more than one fits (that stays refused)."""
+    if not isinstance(text, str) or not isinstance(clue, str):
+        return None
+    want = [w.casefold() for w in WORD.findall(_fold_accents(text.translate(LOOKALIKES)))]
+    toks = [(m.group(), m.start(), m.end()) for m in WORD.finditer(clue)]
+    if not want or not toks:
+        return None
+    low = [_fold_accents(t[0]).casefold() for t in toks]
+    junk = [bool(re.fullmatch(r"[A-HJ-Z]", t[0])) for t in toks]
+    for k in range(len(toks) - 1):
+        if toks[k][0] == "Check" and low[k + 1] in ("tod", "toc"):
+            junk[k] = junk[k + 1] = True
+    runs = set()
+
+    def word(qi, ci, first):
+        """Ends (clue token index after, last used) matching want[qi] from token ci."""
+        q, got, out = want[qi], "", []
+        j = ci
+        while j < len(toks):
+            if junk[j]:
+                if got == "" and first:
+                    return out        # no debris at the run's edge
+                j += 1
+                continue
+            got += low[j]
+            if got == q:
+                out.append(j)
+            if not q.startswith(got):
+                # the last word of the quote may be longer than the clue's cut-short end
+                break
+            j += 1
+        if qi == len(want) - 1 and got and q.startswith(got) and got != q and len(got) >= 2 \
+                and j == len(toks):
+            out.append(j - 1)
+        return out
+
+    def walk(qi, ci, start):
+        for last in word(qi, ci, qi == 0):
+            if qi == len(want) - 1:
+                runs.add((start if start is not None else toks[ci][1], toks[last][2]))
+            else:
+                walk(qi + 1, last + 1, start if start is not None else toks[ci][1])
+
+    for ci in range(len(toks)):
+        if not junk[ci]:
+            walk(0, ci, None)
+    if len(runs) != 1:
+        return None
+    a, b = runs.pop()
+    return clue[a:b]
 
 
 def _with_edges(text, clue, start, end):
