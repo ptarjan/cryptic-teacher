@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,63 @@
     "text": "Exhibition mostly covering old part of London",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of London",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 18,
+       "note": "the trimmed word wraps round the next piece, covering it on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 11,
+         "note": "most of the word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Exhibition",
+         "at": 0,
+         "gives": "SHOW",
+         "note": "an exhibition is a show"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "at": 27,
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exhibition that mostly concerns the historic districts of the capital.",
+     "walkthrough": "'mostly' trims SHOW to SHO, and 'covering' puts O inside it: S-O-HO.",
+     "definitionFit": "Soho is a district of the West End of central London, famous for nightlife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +103,29 @@
     "text": "Dismantle footballers' outfit",
     "enumeration": "5"
    },
-   "solution": "STRIP"
+   "solution": "STRIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dismantle",
+      "at": 0,
+      "meaning": "to dismantle or take apart"
+     },
+     {
+      "text": "footballers' outfit",
+      "at": 10,
+      "meaning": "a football team's kit of shirt, shorts and socks"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Strip is both the verb for taking apart machinery and the British word for a team's playing kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dismantle"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +139,54 @@
     "text": "Woman turning up, with a man's statistical chart",
     "enumeration": "9"
    },
-   "solution": "HISTOGRAM"
+   "solution": "HISTOGRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "statistical chart",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a man's",
+       "at": 23,
+       "gives": "HIS",
+       "note": "his means belonging to a man"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 6,
+         "note": "in a down clue, turning up means the word is read from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Woman",
+         "at": 0,
+         "gives": "MARGOT",
+         "note": "Margot is a woman's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman upending a man's chart of figures.",
+     "walkthrough": "In a down entry 'turning up' reads the woman's name from bottom to top; 'with' is only a joining word, and the man's piece comes first in the grid.",
+     "definitionFit": "A histogram is a bar diagram showing the frequency distribution of data."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +200,60 @@
     "text": "Advert complete, Greek character rejected popular vote",
     "enumeration": "10"
    },
-   "solution": "REFERENDUM"
+   "solution": "REFERENDUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "popular vote",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Advert",
+       "at": 0,
+       "gives": "REFER",
+       "note": "to advert to something is to refer to it, an old verb sense"
+      },
+      {
+       "words": "complete",
+       "at": 7,
+       "gives": "END",
+       "note": "to complete is to end"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 33,
+         "note": "rejected suggests something thrown back, so the letter is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greek character",
+         "at": 17,
+         "gives": "MU",
+         "note": "mu is a letter of the Greek alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complete advertisement, with a Greek letter turned down, decides a public ballot.",
+     "walkthrough": "'Advert' is the verb (stress on the second syllable), meaning refer, not a noun for an advertisement. 'rejected' reverses MU to UM.",
+     "definitionFit": "A referendum is a direct vote by the whole electorate on a single question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advert"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +267,48 @@
     "text": "Seeing red after objective is put at risk",
     "enumeration": "10"
    },
-   "solution": "ENDANGERED"
+   "solution": "ENDANGERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put at risk",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 11,
+       "note": "the angry word comes after the aim in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "objective",
+       "at": 17,
+       "gives": "END",
+       "note": "an objective is an end, an aim"
+      },
+      {
+       "words": "Seeing red",
+       "at": 0,
+       "gives": "ANGERED",
+       "note": "seeing red means angered, furious"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees red after their goal is jeopardised.",
+     "definitionFit": "Endangered means exposed to danger or threatened, as an endangered species is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "objective"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +322,43 @@
     "text": "Bring in vessel, say",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bring in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EARN",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 17,
+       "note": "say signals that the word is spoken, so we want its sound not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vessel",
+       "at": 9,
+       "gives": "URN",
+       "note": "an urn is a vessel, a vase or container"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bring in a container, so to speak.",
+     "definitionFit": "To earn is to bring in money as income, as in what a job brings in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +372,64 @@
     "text": "English male crazy about hard cheese",
     "enumeration": "9"
    },
-   "solution": "EMMENTHAL"
+   "solution": "EMMENTHAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "male",
+       "at": 8,
+       "gives": "M"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 19,
+         "note": "about means the crazy word goes around the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crazy",
+         "at": 13,
+         "gives": "MENTAL",
+         "note": "mental is slang for crazy"
+        },
+        {
+         "words": "hard",
+         "at": 25,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English man goes wild over a firm cheese.",
+     "walkthrough": "'about' puts H inside MENTAL to give MENTHAL, after E and M. 'hard' looks like part of 'hard cheese', but it only gives H.",
+     "definitionFit": "Emmenthal is a Swiss cheese with large holes, named after the Emme valley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +443,59 @@
     "text": "Dreadful setting for beginning of Gray's Elegy",
     "enumeration": "5"
    },
-   "solution": "DIRGE"
+   "solution": "DIRGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elegy",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "setting for",
+       "at": 9,
+       "note": "a setting holds a jewel, so the dreadful word is placed round the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dreadful",
+       "at": 0,
+       "gives": "DIRE",
+       "note": "dire means dreadful"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning of",
+         "at": 21,
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gray's",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim backdrop for the opening of Thomas Gray's famous Elegy.",
+     "walkthrough": "The surface evokes Gray's 'Elegy Written in a Country Churchyard', but 'Elegy' is the definition. 'setting for' puts G inside DIRE.",
+     "definitionFit": "A dirge is a mournful song or lament for the dead, much like an elegy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gray's"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +509,31 @@
     "text": "Famous vessel Hawthorne mostly used?",
     "enumeration": "9"
    },
-   "solution": "MAYFLOWER"
+   "solution": "MAYFLOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Famous vessel",
+      "at": 0,
+      "meaning": "the ship that carried the Pilgrim Fathers to America in 1620"
+     },
+     {
+      "text": "Hawthorne mostly used?",
+      "at": 14,
+      "meaning": "drop the last letter of Hawthorne to get hawthorn, a tree whose blossom is called may"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a cryptic hint: Hawthorne less its final E is hawthorn, and its blossom is known as may. The surface plays on Nathaniel Hawthorne, the American author.",
+     "definitionFit": "The Pilgrim Fathers sailed on this ship; may is also the name for hawthorn blossom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hawthorne"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +547,51 @@
     "text": "Pudding originally steamed in the past",
     "enumeration": "4"
    },
-   "solution": "SAGO"
+   "solution": "SAGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pudding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 8,
+         "note": "originally points to the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "steamed",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "in the past",
+       "at": 27,
+       "gives": "AGO",
+       "note": "ago means in the past"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pudding that was steamed long ago.",
+     "definitionFit": "Sago is a starch from palm pith, used to make a milk pudding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steamed"
+    }
+   }
   },
   {
    "number": 10,
@@ -180,7 +615,49 @@
      }
     ]
    },
-   "solution": "ROSSANDCROMARTY"
+   "solution": "ROSSANDCROMARTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old county",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unexpectedly",
+       "at": 30,
+       "note": "unexpectedly suggests the letters land in a surprising new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "actors",
+       "at": 11
+      },
+      {
+       "words": "marry",
+       "at": 18
+      },
+      {
+       "words": "dons",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors marry university lecturers, to everyone's surprise.",
+     "walkthrough": "ROSS AND CROMARTY was a county in the Scottish Highlands until 1975. 'unexpectedly' rearranges ACTORS MARRY DONS.",
+     "definitionFit": "This former Scottish county was abolished in the local government reorganisation of 1975."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 11,
@@ -194,7 +671,42 @@
     "text": "Image promoter discovered to be unqualified",
     "enumeration": "8"
    },
-   "solution": "PROFOUND"
+   "solution": "PROFOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unqualified",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Image promoter",
+       "at": 0,
+       "gives": "PRO",
+       "note": "a PRO is a public relations officer, who promotes an image"
+      },
+      {
+       "words": "discovered",
+       "at": 15,
+       "gives": "FOUND",
+       "note": "found means discovered"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A publicist is found out to lack proper credentials.",
+     "walkthrough": "'unqualified' looks like lacking qualifications, but here it means total or complete.",
+     "definitionFit": "Unqualified as in absolute or complete, like profound silence or profound relief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unqualified"
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +720,41 @@
     "text": "Girl and boy put through toughening process",
     "enumeration": "6"
    },
-   "solution": "ANNEAL"
+   "solution": "ANNEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put through toughening process",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "ANNE",
+       "note": "Anne is a girl's name"
+      },
+      {
+       "words": "boy",
+       "at": 9,
+       "gives": "AL",
+       "note": "Al is a boy's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl and a boy go through a hardening ordeal.",
+     "definitionFit": "To anneal metal or glass is to heat and slowly cool it to toughen it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toughening"
+    }
+   }
   },
   {
    "number": 13,
@@ -222,7 +768,44 @@
     "text": "Male insect roughly counted in hundreds",
     "enumeration": "10"
    },
-   "solution": "CENTESIMAL"
+   "solution": "CENTESIMAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "counted in hundreds",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "roughly",
+       "at": 12,
+       "note": "roughly suggests a rough, inexact version, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Male",
+       "at": 0
+      },
+      {
+       "words": "insect",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A male bug, roughly handled.",
+     "definitionFit": "Centesimal means relating to or divided into hundredths, reckoning by hundreds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roughly"
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +819,47 @@
     "text": "Head withdraws from school production of Fletcher?",
     "enumeration": "5"
    },
-   "solution": "ARROW"
+   "solution": "ARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "production of Fletcher",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Head withdraws from",
+       "at": 0,
+       "note": "the head of the school leaving it means its opening letter goes, H being the abbreviation for head"
+      }
+     ],
+     "parts": [
+      {
+       "words": "school",
+       "at": 20,
+       "gives": "HARROW",
+       "note": "Harrow is a famous English public school"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headmaster pulls out of the school's staging of a play by John Fletcher.",
+     "walkthrough": "The surface suggests John Fletcher the Jacobean playwright, but a fletcher is a maker of arrows. HARROW is a well-known English public school.",
+     "definitionFit": "A fletcher is someone who makes arrows, so an arrow is what a fletcher produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fletcher"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +873,63 @@
     "text": "Old writer put energy into turning out such lays",
     "enumeration": "9"
    },
-   "solution": "AESCHYLUS"
+   "solution": "AESCHYLUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 22,
+       "note": "into says one piece is put within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turning out",
+         "at": 27,
+         "note": "turning out suggests the words are turned inside out, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "such",
+         "at": 39
+        },
+        {
+         "words": "lays",
+         "at": 44
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "at": 15,
+       "gives": "E",
+       "note": "E is the symbol for energy in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient poet putting vigour into the production of such songs.",
+     "walkthrough": "'such lays' reads like a description of the poet's work, but it is the anagram fodder; 'put' is a joining word and 'into' does the inserting.",
+     "definitionFit": "Aeschylus was an ancient Greek tragedian, author of the Oresteia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +943,34 @@
     "text": "Ungrammatical thriller",
     "enumeration": "9"
    },
-   "solution": "WHODUNNIT"
+   "solution": "WHODUNNIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ungrammatical thriller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ungrammatical thriller",
+       "at": 0,
+       "note": "a detective story whose name is a colloquial, grammatically wrong question about the culprit"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "This murder mystery genre's name comes from the slangy phrase 'who done it?'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ungrammatical"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +990,73 @@
      }
     ]
    },
-   "solution": "EYESHADOW"
+   "solution": "EYESHADOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cosmetic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "EYE",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 18,
+         "note": "reportedly signals the letter is heard, not spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "compiler",
+         "at": 9,
+         "gives": "I",
+         "note": "the crossword compiler refers to themself as I"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 38,
+         "note": "during puts one piece in the middle of the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broadcast",
+         "at": 45,
+         "gives": "SOW",
+         "note": "to broadcast seed is to sow it, scattering it widely"
+        },
+        {
+         "words": "received",
+         "at": 29,
+         "gives": "HAD",
+         "note": "had means received"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A make-up product the setter reportedly got during a TV programme.",
+     "walkthrough": "The setter calling themself 'I' is a crossword convention. 'broadcast' suggests television, but here means scattering seed.",
+     "definitionFit": "Eyeshadow is make-up applied to the eyelids, a kind of cosmetic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1070,44 @@
     "text": "Noisy person eating joint one employed in quarry?",
     "enumeration": "9"
    },
-   "solution": "DYNAMITER"
+   "solution": "DYNAMITER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one employed in quarry?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DYNAMITER",
+     "indicators": [
+      {
+       "text": "Noisy",
+       "at": 0,
+       "note": "noisy says the pieces are to be heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "person eating joint",
+       "at": 6,
+       "gives": "DINERMITRE",
+       "note": "a diner is a person eating; a mitre is a type of corner joint in woodwork"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud man munching a cannabis joint works at a quarry.",
+     "walkthrough": "Spoken in a non-rhotic British accent, DINER MITRE sounds like DYNAMITER. The question mark marks the definition as an example: a quarry blaster.",
+     "definitionFit": "Someone who uses explosives to blast rock might well be employed in a quarry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1121,71 @@
     "text": "Drowsy doctor returning north in channel",
     "enumeration": "9"
    },
-   "solution": "SOMNOLENT"
+   "solution": "SOMNOLENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drowsy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in places the doctor and north pieces inside the channel"
+      }
+     ],
+     "parts": [
+      {
+       "words": "channel",
+       "at": 33,
+       "gives": "SOLENT",
+       "note": "the Solent is the channel between the Isle of Wight and mainland England"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "returning",
+           "at": 14,
+           "note": "returning says the word goes back the way it came, reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doctor",
+           "at": 7,
+           "gives": "MO",
+           "note": "MO is a Medical Officer, a doctor"
+          }
+         ]
+        },
+        {
+         "words": "north",
+         "at": 24,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sleepy medic heads back north through the strait.",
+     "walkthrough": "'returning' turns MO into OM; OM + N goes 'in' SOLENT, the strait off England's south coast.",
+     "definitionFit": "Somnolent means sleepy or inclined to doze, just as drowsy does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1199,29 @@
     "text": "Material applied to inner surface of ship",
     "enumeration": "5"
    },
-   "solution": "LINER"
+   "solution": "LINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material applied to inner surface",
+      "at": 0,
+      "meaning": "a lining, such as a bin bag or a coat's inner layer"
+     },
+     {
+      "text": "ship",
+      "at": 37,
+      "meaning": "a large passenger vessel sailing a regular route"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A liner is both a lining material and an ocean-going passenger ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1235,41 @@
     "text": "Buzzing sound hidden mike produced? Nonsense",
     "enumeration": "6"
    },
-   "solution": "HUMBUG"
+   "solution": "HUMBUG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Buzzing sound",
+       "at": 0,
+       "gives": "HUM",
+       "note": "a hum is a buzzing sound"
+      },
+      {
+       "words": "hidden mike",
+       "at": 14,
+       "gives": "BUG",
+       "note": "a bug is a concealed microphone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A buzz is heard from a secret microphone, but it's all rubbish.",
+     "definitionFit": "Humbug means deceptive talk or nonsense, as in Scrooge's 'Bah, humbug!'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1283,47 @@
     "text": "Drink a bird once found outside church",
     "enumeration": "5"
    },
-   "solution": "MOCHA"
+   "solution": "MOCHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found outside",
+       "at": 18,
+       "note": "found outside means the bird word surrounds the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a bird once",
+       "at": 6,
+       "gives": "MOA",
+       "note": "the moa was a giant flightless bird of New Zealand, now extinct"
+      },
+      {
+       "words": "church",
+       "at": 32,
+       "gives": "CH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink once discovered by a bird outside the church.",
+     "definitionFit": "Mocha is a coffee drink, often blended with chocolate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1337,57 @@
     "text": "Respected European appeared? About time",
     "enumeration": "8"
    },
-   "solution": "ESTEEMED"
+   "solution": "ESTEEMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Respected",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 10,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "About",
+         "at": 29,
+         "note": "about says the appeared word goes around the time letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appeared",
+         "at": 19,
+         "gives": "SEEMED",
+         "note": "seemed means appeared"
+        },
+        {
+         "words": "time",
+         "at": 35,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European looked respected for a while.",
+     "definitionFit": "Esteemed means highly regarded, held in respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appeared"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1401,44 @@
     "text": "Bird heard at 6?",
     "enumeration": "4"
    },
-   "solution": "ERNE"
+   "solution": "ERNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ERNE",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 5,
+       "note": "heard signals a soundalike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at 6",
+       "at": 11,
+       "gives": "EARN",
+       "note": "the clue numbered 6 in the printed grid, 'Bring in vessel, say', supplies the word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is heard at six o'clock.",
+     "walkthrough": "'6' is a cross-reference to the clue numbered 6 in the printed grid ('Bring in vessel, say'); its answer sounds like this bird.",
+     "definitionFit": "The erne is the white-tailed sea eagle, a crossword stalwart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "6"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1452,29 @@
     "text": "Unscrupulous, producing a lot of fallout",
     "enumeration": "5"
    },
-   "solution": "DIRTY"
+   "solution": "DIRTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unscrupulous",
+      "at": 0,
+      "meaning": "dishonest or underhand"
+     },
+     {
+      "text": "producing a lot of fallout",
+      "at": 14,
+      "meaning": "describing a nuclear bomb that leaves heavy radioactive residue"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Dirty means dishonest, and a dirty bomb spreads much radioactive contamination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fallout"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1488,43 @@
     "text": "Celebrity reverses first items for emperor",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "emperor",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "reverses first items",
+       "at": 10,
+       "note": "only the opening pair of letters swap places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Celebrity",
+       "at": 0,
+       "gives": "STAR",
+       "note": "a star is a celebrity"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity puts the first things last for the ruler.",
+     "walkthrough": "'reverses first items' swaps just the first two letters of STAR.",
+     "definitionFit": "Tsar was the title of the Russian emperor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "items"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1548,34 @@
      }
     ]
    },
-   "solution": "LOCHNESSMONSTER"
+   "solution": "LOCHNESSMONSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's never been found in the Caledonian Canal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It's never been found in the Caledonian Canal",
+       "at": 0,
+       "note": "a legendary creature sought in a Highland lake that forms part of the Caledonian Canal, never proved to exist"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The fabled beast of the Highlands lives in a loch linked into the canal and never found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1589,58 @@
     "text": "Slipshod son concealing name of late",
     "enumeration": "10"
    },
-   "solution": "SLATTERNLY"
+   "solution": "SLATTERNLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slipshod",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "at": 9,
+       "gives": "S"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "concealing",
+         "at": 13,
+         "note": "concealing means the following word hides the name letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of late",
+         "at": 29,
+         "gives": "LATTERLY",
+         "note": "latterly means recently, of late"
+        },
+        {
+         "words": "name",
+         "at": 24,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careless son has been hiding the name of a dead person.",
+     "walkthrough": "'of late' looks like the deceased, but it means recently, LATTERLY, which hides N.",
+     "definitionFit": "Slatternly means untidy and slovenly, careless in appearance, like slipshod."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1654,29 @@
     "text": "Cry of animal in renegade vicar's place",
     "enumeration": "4"
    },
-   "solution": "BRAY"
+   "solution": "BRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cry of animal",
+      "at": 0,
+      "meaning": "the harsh cry of a donkey"
+     },
+     {
+      "text": "renegade vicar's place",
+      "at": 17,
+      "meaning": "the parish of the Vicar of ..., the song's turncoat clergyman"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A donkey's noise; the Vicar of Bray changed allegiance to keep his living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "renegade"
+    }
+   }
   }
  ]
 }
