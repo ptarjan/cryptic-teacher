@@ -817,6 +817,13 @@ check("the Quickie heading and its advert cut the text; the Quickie set is a sho
       [f.first_clue_set("ACROSS\n1 Made (9)\nDOWN\n2 Old (7)\nclues fora simpler\nQuickie'No.5\nACROSS\n1 Big (5)"),
        f.quick_set({"across": [{"text": "Old dance"}] * 20}),
        f.quick_set({"across": [{"text": "Made to look larger than a planet nearby"}] * 20})])
+check("a Gale Sunday Times page due SUNDAY_NUMBER is ranked 1, evidence, fix-landed, a title rescan, last in "
+      "unfiled-first, tier 0, blanket-passing, never held as a refusal reread",
+      [1, True, True, True, True, 0, True, False],
+      [f.RANKS[f.SUNDAY_NUMBER], eq.evidence_reason(f.SUNDAY_NUMBER), f.SUNDAY_NUMBER in eq.FIX_LANDED,
+       f.SUNDAY_NUMBER in eq.TITLE_RESCANS, eq.UNFILED_FIRST[-1] == f.SUNDAY_NUMBER,
+       eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.SUNDAY_NUMBER, "date": "1990-12-23"}),
+       f.SUNDAY_NUMBER in f.BLANKET_PASSES, eq.refusal_reread(f.SUNDAY_NUMBER)])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",

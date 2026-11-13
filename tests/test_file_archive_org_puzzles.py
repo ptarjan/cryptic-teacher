@@ -3515,6 +3515,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._SUNDAY_NUMBER_FIX:
+        return f._SUNDAY_NUMBER_FIX[paper][2]
     if paper in f._FT_HEADINGS_FIX:
         return f._FT_HEADINGS_FIX[paper][2]
     if paper in f._INDEPENDENT_DEDUP_FIX:
@@ -5059,6 +5061,42 @@ check("a Gale Sunday Times 1993-94 page read before the rescan is due WINNERS_TI
        f.winners_rescan({**_wt, "edition": "GaleTimes1993UKEnglish/1993-12-26"}),
        f.winners_rescan({k: v for k, v in _wt.items() if k != "inputs"}),
        f.scan_current({**_wt, "readAt": "2026-11-10T00:00:00+00:00"}, "h")])
+
+# A Gale Sunday Times page whose title words the reads lost heads its puzzle "No 3169" alone over "ACROSS"
+# (numbered_across); a winners box ("Crossword No. 3486: Jean ...") beside it is no title; a masthead the Chinese
+# reader ran together ("THESUNDAYTIMESCROSSWORD") over its number is one; "No 1790" (the Mephisto) over "ACROSS", a
+# number with no ACROSS under it and a page that has a title found are not numbered_across's.
+_stn = [line("No 3169", 513, 3276), line("ACROSS", 470, 3302), line("Crossword No. 3486: Jean Smith, Hull", 250, 4707)]
+check("a Sunday Times 'No 3169' over ACROSS is the page's title when no title words were read; a winners box, the "
+      "Mephisto's number, a number with no ACROSS under it are none; a glued masthead over its number is one",
+      [[3169], [], [], [3165], [3165]],
+      [[n for n, _, _ in f.sunday_times_headings(_stn)[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("No 1790", 513, 3276), line("ACROSS", 470, 3302)])[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("No 3169", 513, 3276), line("DOWN", 470, 3302)])[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("THESUNDAYTIMESCROSSWORD", 395, 3104), line("No 3165", 484, 3123),
+                                                  line("ACROSS", 352, 3150)])[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("THE SUNDAY TIMES CROSSWORD No 3165", 395, 3104),
+                                                  line("No 3167", 513, 3276), line("ACROSS", 470, 3302)])[0]]])
+# A read Gale Sunday Times 1987-94 page with no title found, or only a winners box refused "not a grid", read before
+# the rescan is due SUNDAY_NUMBER once (its scan key is pinned, so only its read time says); a titled one, a filed
+# one, another year's, a failed scan, a later read stand.
+_sn = {"edition": "GaleSundayTimes1990UKEnglish/1990-12-23", "scanKey": f.scan_key(f.paper_of("GaleSundayTimes1990UKEnglish/1990-12-23")),
+       "filesHash": "h", "inputs": "h", "readAt": "2026-11-08T15:14:13+00:00", "verdicts": [],
+       "scan": {"date": "1990-12-23", "item": "GaleSundayTimes1990UKEnglish", "puzzles": [], "solutions": [], "wholeUntitled": True}}
+_snw = {**_sn, "verdicts": [{"number": 3369, "leaf": 0, "refused": "the ink under the title is 478x34, not a grid",
+                             "cause": "not-a-grid"}],
+        "scan": {**_sn["scan"], "puzzles": [{"number": 3369, "leaf": 0}]}}
+check("a Gale Sunday Times 1987-94 page with no title, or only a winners box refused not a grid, read before the rescan "
+      "is due SUNDAY_NUMBER (scan stale, rank 1), once; a filed one, 1995, a failed scan, a later read stand",
+      [False, f.SUNDAY_NUMBER, False, f.SUNDAY_NUMBER, 1, True, True, True, False, False, False, False, False],
+      [f.scan_current(_sn, "h"), f.fix_reason(_sn), f.scan_current(_snw, "h"), f.fix_reason(_snw),
+       f.RANKS[f.SUNDAY_NUMBER], f.SUNDAY_NUMBER in f.BLANKET_PASSES, f.sunday_number_rescan(_snw),
+       f.scan_current({**_sn, "readAt": "2026-11-14T00:00:00+00:00"}, "h"),
+       f.sunday_number_rescan({**_sn, "readAt": "2026-11-14T00:00:00+00:00"}),
+       f.sunday_number_rescan({**_sn, "edition": "GaleSundayTimes1995UKEnglish/1995-01-01"}),
+       f.sunday_number_rescan({**_sn, "scan": {**_sn["scan"], "failed": "x"}}),
+       f.sunday_number_rescan({**_snw, "verdicts": [{"number": 3369, "leaf": 0}]}),
+       f.sunday_number_rescan({k: v for k, v in _sn.items() if k != "inputs"})])
 
 # The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
 # "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick
