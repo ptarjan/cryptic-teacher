@@ -3595,12 +3595,13 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
-        text = opening_one(cut_at_count(text, enum), own)
+        text = opening_one(cut_at_count(clue_text.own_number_mended(text or "", own) or text, enum), own)
         # A clue may open on another light's number ("19, we hear, in the
         # crew", "25 in voice"): that is no lost opening.
         ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
         opens_on_light = bool(ref and lengths and int(ref.group(1)) != own
                               and any(k.startswith(ref.group(1) + "-") for k in lengths))
+        opens_on_light = opens_on_light or bool(clue_text.FIGURE_WORD.match(text or ""))
         if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
             printed = opening_printed(text, own, streams)
             if printed is None:

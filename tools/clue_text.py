@@ -613,11 +613,49 @@ GLUED_NUMBER = re.compile(r"\s*(\d{1,2})(?=[A-Za-z]{3,})(?!(?:st|nd|rd|th)\b)")
 GLUED_CJK = re.compile(r"\s*(\d{1,2})[⺀-鿿豈-﫿＀-￯]{1,2}\s?(?=[A-Z\"'])")
 
 
+#: The next clue's number glued to its opening "I" (a pronoun, the clue "I hurried with one, an easterner"), which
+#: the readers give as a digit or a bar ("25I", "251", "256", "25|"): the number and an "I", only where a small
+#: word follows and the number is the very next one (glued_number's `prev`; Gale Telegraph 1997-11-08's 25 across,
+#: whose text took the clue before's tail, "f (7) 251 hurried", and was blank "starts mid-clue").
+GLUED_I = re.compile(r"\s*(\d{1,2})[Il1|6](?=\s+[a-z])")
+#: A figure opening a clue's text as a word of its own ("24 hours from today", read "24hours"): no clue opening lost.
+FIGURE_WORD = re.compile(r"\d{1,2}\s?(?:hours?|days?|minutes?|seconds?|weeks?|months?|years?|pence|carat|per|and|"
+                         r"across|down|ac|dn)\b", re.IGNORECASE)
+
+
+#: The clue before's torn tail ("f (7)", "h (7)": its last letter and count) a loose reading laid in front of the
+#: clue, whose own number follows glued and misread.
+TORN_TAIL = re.compile(r"[a-z]{1,2}\s?\(\d{1,2}(?:[,\-]\d{1,2})*\)\s*")
+
+
+def own_number_mended(text, own):
+    """`text`, a clue laid for light number `own`, without the clue before's torn tail and with its own number,
+    read as letters, taken off its first word: "f (7) 251 hurried with one" (25) is "I hurried with one", "h (7)
+    30pposed to" (3) is "Opposed to", "llArrangement" (11) is "Arrangement". Else `text` as it was."""
+    tail = TORN_TAIL.match(text)
+    rest = text[tail.end():] if tail else text
+    # Each digit of the number, as the readers give it: a 1 for an I, l or bar, a 0 for an O.
+    head = re.compile("".join("[Il1|]" if d == "1" else "[Oo0]" if d == "0" else d for d in str(own)))
+    m = head.match(rest)
+    if not m:
+        return text
+    after = rest[m.end():]
+    if (i := re.match(r"[Il1|6](?=\s+[a-z])", after)) and (tail or own > 9):
+        return "I" + after[i.end():]
+    if (o := re.match(r"0(?=[a-z]{3,})", after)) and tail:
+        return "O" + after[o.end():]
+    if re.match(r"(?=[A-Z][a-z]{2})", after) and (tail or re.fullmatch(r"[Il|]+", m.group(0))):
+        return after
+    return text
+
+
 def glued_number(text, prev):
     """(number, length of what to cut) when `text`, where a clue should open, opens on a clue number run into
     its first word, else None. `prev` is the clue before's number (0 at a list's start): the number must be
     the one after it, or at most 12 on, so a figure inside a clue's text is not taken for one. "1.5Carolyn"
     and "1,7Breach" read their two digits as one number; "1lluminate" is 1 and the word."""
+    if prev and (m := GLUED_I.match(text)) and int(m.group(1)) == prev + 1:
+        return prev + 1, m.end(1)  # the "I" stays: the clue's own first word
     for rx in (GLUED_PAIR, GLUED_NUMBER, GLUED_CJK):
         m = rx.match(text)
         if m:

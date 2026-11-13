@@ -3699,6 +3699,21 @@ check("an Independent on Sunday title run together or with a digit read as a let
        [bool(f.ios_title_due(_ios_r)), bool(f.ios_title_due({**_ios_r, "edition": "GaleIndependentSunday2016UKEnglish/2016-03-18"})),
         bool(f.ios_title_due({**_ios_r, "edition": "GaleTimes2004UKEnglish/2004-08-29"})),
         bool(f.ios_title_due({**_ios_r, "readAt": "2026-11-14T00:00:00+00:00"})), f.IOS_TITLES in f.RANKS]])
+_ct = __import__("clue_text")
+_tr = {"edition": "GaleTelegraph1997UKEnglish/1997-11-08", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+       "verdicts": [{"number": 22336, "blank": {"25-across": "starts mid-clue"}, "unfiled": 1}]}
+check("a clue laid with the clue before's torn tail and its own number glued or misread is mended (251 for 25 'I', 30 for "
+      "3 'O', 'll' for 11, '24hours' a figure word); a Telegraph row with a mid-clue blank read before the cutoff is due "
+      "TELEGRAPH_OWN, a Times row, a row read since and one with no such blank are not",
+      ["I hurried with one", "Opposed to contents", "Arrangement for", "f (7) 25 Come", "24hours from today", True,
+       [True, False, False, False, True]],
+      [_ct.own_number_mended("f (7) 251 hurried with one", 25), _ct.own_number_mended("h (7) 30pposed to contents", 3),
+       _ct.own_number_mended("llArrangement for", 11), _ct.own_number_mended("f (7) 25 Come", 25),
+       "24hours from today", bool(_ct.FIGURE_WORD.match("24hours from today")),
+       [bool(f.telegraph_own_due(_tr)), bool(f.telegraph_own_due({**_tr, "edition": "GaleTimes1997UKEnglish/1997-11-08"})),
+        bool(f.telegraph_own_due({**_tr, "readAt": "2026-11-14T13:00:00+00:00"})),
+        bool(f.telegraph_own_due({**_tr, "verdicts": [{"number": 1, "blank": {"1-down": "not a word"}}]})),
+        f.TELEGRAPH_OWN in f.RANKS]])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
