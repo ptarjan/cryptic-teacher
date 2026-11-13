@@ -4847,8 +4847,10 @@ TELEGRAPH_BANNER = re.compile(r"^\W*(?:prize\s*)?cr[o0]ssw[o0]rd\W{1,4}(?:n[o0]\
 #: neither TELEGRAPH_SOLUTION nor solution_headings (SOLUTION_LAGS 1 and 6 before a title) read it: ~700 Saturday
 #: puzzles of 1987-2000 had no solution linked.
 #: Set on two lines ("PRIZE SOLUTION of" over "DECEMBER 3-No.21,423"), or one: its first half, then the rest.
-TELEGRAPH_PRIZE = re.compile(r"s\w?[l1]ut[il1][o0]n\s+[o0][fl]\W*$", re.IGNORECASE)
-TELEGRAPH_PRIZE_REST = re.compile(r"^\W*[a-z]{3,9}\W{0,3}(?:\s*[\dTIl]{1,2}\W{0,2}){1,2}\s*n[o0]\W{0,3}\s*"
+#: 1986-87 sets the "of" at the head of the second line ("PRIZE SOLUTION" over "of SEPTEMBER 6-No. 18,859"):
+#: the first half may end on "Solution" and the rest open on "of".
+TELEGRAPH_PRIZE = re.compile(r"s\w?[l1]ut[il1][o0]n(?:\s+[o0][fl])?\W*$", re.IGNORECASE)
+TELEGRAPH_PRIZE_REST = re.compile(r"^\W*(?:[o0][fl]\W*\s+)?[a-z]{3,9}\W{0,3}(?:\s*[\dTIl]{1,2}\W{0,2}){1,2}\s*n[o0]\W{0,3}\s*"
                                   r"([\dTIl]\d?[,.\-\s]?\d{3})\W*$", re.IGNORECASE)
 #: How far under a heading's first line (px) its second line's top may lie.
 TELEGRAPH_PRIZE_DROP = 70
@@ -4872,8 +4874,12 @@ def telegraph_prize_headings(lines, titles):
                     continue
                 head = ws[k:j + 1]
                 bottom = max(w[3] for w in head)
-                rests = [ws[j + 1:]] + [other for other in lines if other is not ws and other
-                                        and bottom - 10 <= min(w[1] for w in other) <= bottom + TELEGRAPH_PRIZE_DROP]
+                # (1986 sets the second line's "of" first in the row, its top a hair under the first line's foot:
+                # printed_lines joined the two rows, the second left of the heading)
+                under = [w for w in ws if w not in head and bottom - 10 <= w[1] <= bottom + TELEGRAPH_PRIZE_DROP]
+                rests = [ws[j + 1:]] + ([under] if under else []) + \
+                    [other for other in lines if other is not ws and other
+                     and bottom - 10 <= min(w[1] for w in other) <= bottom + TELEGRAPH_PRIZE_DROP]
                 for rest in rests:
                     for s in range(len(rest)):
                         tail = ""
@@ -12835,6 +12841,18 @@ for _paper, _pins in _TELEGRAPH_SATURDAY_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before telegraph_prize_headings read a 1986-87 Monday's
+#: "PRIZE SOLUTION" over "of SEPTEMBER 6-No. 18,859" (the "of" opening the second line, the two rows joined by
+#: printed_lines with it left of the heading): only the Gale Telegraph's parser reaches it, so every scan stands, the
+#: Gale Telegraph's too but for the Mondays before TELEGRAPH_PRIZE_FROM telegraph_prize_host names.
+_TELEGRAPH_PRIZE_OF_FIX = {
+    "galetelegraph": ("edb16d66bc7b8148", "1332dacbf17279bc", "e3cf2f97c1111e48"),
+}
+for _paper, _pins in _TELEGRAPH_PRIZE_OF_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14230,6 +14248,9 @@ def telegraph_whole_due(row):
 TELEGRAPH_PRIZE_DAY = "Telegraph Saturday puzzle with no solution read, its Monday prize heading read since"
 REREAD_TELEGRAPH_PRIZE = "2026-11-13T20:30:00+00:00"
 TELEGRAPH_PRIZE_FROM = datetime.date(1987, 7, 1)
+#: Saturdays of 1985 to TELEGRAPH_PRIZE_FROM are due the same reason once more (1986-87 prints "PRIZE SOLUTION" over
+#: "of SEPTEMBER 6-No. 18,859"; 25 puzzles, 49 Mondays scanned again).
+REREAD_TELEGRAPH_PRIZE_OF = "2026-11-14T08:00:00+00:00"
 #: How many days after a Saturday puzzle its prize solution prints (the Monday week after).
 TELEGRAPH_PRIZE_DAYS = 9
 
@@ -14240,6 +14261,11 @@ def telegraph_prize_host(row):
     nine days on. Its scan is stale (scan_current) and rekey_scans leaves it, so it is scanned again by this code once."""
     day = telegraph_day(row)
     scan = (row or {}).get("scan") or {}
+    if day is not None and day.weekday() == 0 and datetime.date(1985, 1, 1) <= day < TELEGRAPH_PRIZE_FROM:
+        # (1985-87-06: the "of" opening the second line, _TELEGRAPH_PRIZE_OF_FIX)
+        old = {*_TELEGRAPH_PRIZE_OLD, *_TELEGRAPH_SATURDAY_FIX["galetelegraph"], *_TELEGRAPH_PRIZE_OF_FIX["galetelegraph"][:2]}
+        return row.get("scanKey") in old and bool(scan.get("puzzles")) and not scan.get("solutions") \
+            and not scan.get("failed")
     return day is not None and day.weekday() == 0 and TELEGRAPH_PRIZE_FROM <= day <= datetime.date(2000, 12, 31) \
         and row.get("scanKey") in _TELEGRAPH_PRIZE_OLD and bool(scan.get("puzzles")) and not scan.get("solutions")
 
@@ -14248,10 +14274,11 @@ def telegraph_prize_due(row):
     """Whether Gale Telegraph ledger `row` is due TELEGRAPH_PRIZE_DAY: a Saturday edition of July 1987 to 2000, read
     before REREAD_TELEGRAPH_PRIZE, with a verdict whose grid is an image and no solution read."""
     day = telegraph_day(row)
-    return day is not None and day.weekday() == 5 and TELEGRAPH_PRIZE_FROM <= day <= datetime.date(2000, 12, 31) \
+    early = day is not None and datetime.date(1985, 1, 1) <= day < TELEGRAPH_PRIZE_FROM
+    return day is not None and day.weekday() == 5 and (TELEGRAPH_PRIZE_FROM <= day <= datetime.date(2000, 12, 31) or early) \
         and "inputs" in row \
         and any(v.get("solution") is None and v.get("grid") == "image" for v in row.get("verdicts") or ()) \
-        and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_PRIZE))
+        and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_PRIZE_OF if early else REREAD_TELEGRAPH_PRIZE))
 
 
 #: The due reason of a Gale Telegraph Friday puzzle (1980-2000) with no solution read, read before
