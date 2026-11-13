@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 17
+VERSION = 18
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -159,7 +159,7 @@ def number_on_page(words):
 #: The count closing a clue ("(5)", "(3,4)", OCR-cut "(6"), and the lines and counts a column of the lists has.
 COUNT_WORD = re.compile(r"\(\d{1,2}(?:[,\-]\d{1,2})*[).]?\W{0,2}$")
 HEAD_WORD = re.compile(r"(?i)^\W*(across|down|acr|dow)")
-NUMBER_WORD = re.compile(r"^\W{0,2}\d{1,2}[.,]?$")
+NUMBER_WORD = re.compile(r"^[^\w£$€]{0,2}\d{1,2}[.,]?$")
 COLUMN_COUNTS = 3
 #: Counts further apart than this many line heights are not one list's.
 COUNT_GAP = 12
@@ -448,6 +448,15 @@ def layout_block(img, words, grid, ocr=None):
         draw.rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]), fill="white")
         ws = ocr(crop)
         crop, ws = cleared(crop, ws, ocr)
+        if i == 0:
+            # the first list opens on its clue 1: the prose over it (1993-01-22's competition rules, read into
+            # 1-across's clue) is not the list's
+            nums = line_numbers(ws, lh)
+            ones = [y0 for y0, _, n, _ in nums if n == 1]
+            if ones and nums[0][2] > 1 and ones[0] > lh:
+                dy = int(ones[0] - lh / 2)
+                crop = crop.crop((0, dy, crop.width, crop.height))
+                ws = [(w[0], w[1] - dy, w[2], w[3] - dy, *w[4:]) for w in ws if w[1] >= dy]
         ends = [w[3] for w in ws if COUNT_WORD.search(w[4])]
         if ends and max(ends) + lh < crop.height:
             # the column's matter under its last count (prose, a notice) is not the lists'
@@ -469,11 +478,13 @@ def layout_block(img, words, grid, ocr=None):
         for w in ws:
             if HEAD_WORD.match(w[4]) and len(re.sub(r"\W", "", w[4])) <= 8:
                 draw.rectangle((w[0] - 4, w[1] - 4, w[2] + 4, w[3] + 4), fill="white")
-    top, peak = None, 0
+    # the restart is the biggest fall of the numbers to 3 or under (a stray figure in prose over the lists,
+    # 1993-01-22's "5", is a small fall the lists' own run up to 27 beats)
+    top, peak, drop = None, 0, 3
     for k, crop, ws in pieces:
         for y0, y1, n, _ in line_numbers(ws, lh):
-            if top is None and peak and n <= 3 and n < peak - 3:
-                top = (k, y0)
+            if peak and 1 <= n <= 3 and peak - n > drop and (top is None or drop < 10):
+                top, drop = (k, y0), peak - n
             peak = max(peak, n)
     if top is None:
         return None
