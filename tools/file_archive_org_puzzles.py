@@ -180,6 +180,7 @@ from clue_text import (CAPS_HEADING, COUNT_END, HEADING_ALONE, NUMBERED_HEADING,
                        count_left, counts_mended, direction, heading_of, number_digits, numbered_heading,
                        uncounted_dropped)
 import enumeration
+import ios_columns
 import file_trove_puzzles as ftp
 import ocr_clues
 import provenance
@@ -1457,6 +1458,13 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         x1, split, *_ = right
         top = gy0 - rise_of(right)
         return [(gx1 + 5, split, split, top), (split, x1, x1, top)]
+    if left and getattr(left, "edges", None):
+        # A pre-1995 Beelzebub's columns fitted to the ink (ios_columns.fit): each between two edges, from the title's foot.
+        out = [(a, b, b, left.top) for a, b in zip(left.edges, left.edges[1:])]
+        if getattr(left, "under", None):
+            # The lists run on in a column under the grid (UnderLeft's).
+            out.append((grid[0] - 5, left.under, left.under, gy1 - 5))
+        return out
     if left:
         x0, split, _ = left
         if isinstance(split, tuple):
@@ -1597,6 +1605,10 @@ def split_across(ws, gutters, height=None):
     return out
 
 
+#: A line of nothing but a clue-sized number and marks.
+LONE_NUMBER = re.compile(r"\W*\d{1,2}\W*")
+
+
 def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None, strip=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; with `lead`, first one left of
@@ -1676,6 +1688,11 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 # A clue's number 1 read as I, l, J, ! or | (tidy() reads it
                 # back): "I Very late at night".
                 if not re.match(r"\W*(?:\d|[IlJ!|]\s?(?=[A-Z][a-z]))", line[4]) and not carried:
+                    continue
+                # A lone number ("1", "3", "4", "6": a grid cell's, a speck beside the column's top) opening the column
+                # over its ACROSS or DOWN heading is no clue: kept, the gap to the heading under it ended the column there
+                # and no clue was read.
+                if LONE_NUMBER.fullmatch(line[4]) and any(clue_text.heading_of(o[4]) for o in col if o[0] > line[0]):
                     continue
             kept.append(line)
             last = line[1]
@@ -2130,6 +2147,19 @@ def with_under(left, grid, foot):
     page's: the lists run past left_bottom's 0.3 of a grid's height, 1996-03-10 from the grid's top 2062 to 3460)."""
     out = UnderLeft((left[0], left[1], foot))
     out.under = ios_third_right(grid)
+    return out
+
+
+def ios_fit_left(every, grid, layout, title, img):
+    """The columns of a pre-1995 Beelzebub page fitted to the words of its wide read (ios_columns.fit) as an IosLeft
+    running to the page's foot, or None when the words show no clue block."""
+    edges = ios_columns.fit([w for ws in every for w in ws], layout, grid, title[3], img.height, img.width)
+    if not edges or len(edges) < 3:
+        return None
+    out = ios_columns.IosLeft((edges[0], edges[1], img.height))
+    out.edges, out.top = edges, title[3]
+    if layout == "left":
+        out.under = ios_third_right(grid)
     return out
 
 
@@ -10568,6 +10598,14 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, img.height, ios_third_right(gbox)) if beside and indy_sunday_beside(paper, d, gbox) \
         else (gbox[0] - (gbox[2] - gbox[0]) - 60, img.height if sunday_times_beside(paper, side) else left_bottom(gbox)) if beside \
         else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
+    # A page before 1995-07-23 sets its lists in four columns left of the grid, or two right of it (ios_columns): the
+    # read reaches wide, the columns are fitted to its words below.
+    four = ios_columns.four_layout(paper.key, d.name, side, gbox, img.width) if d.name[:4] <= INDY_SUNDAY_BARRED_END else None
+    if four:
+        beside = True
+        crop = ios_columns.crop_of(four, gbox, img.height, img.width)
+        if four == "left":
+            crop = (*crop[:2], ios_third_right(gbox))
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
     # the grid is not the 2014 Times' clues right of it).
@@ -10612,7 +10650,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         (indented_column(hit["box"], gbox, m) or (indented_column(title_left(img, hit["box"], gbox), gbox, m)
                                                    if paper.key == "gale" and d.name[:4] < "1968" else None)) \
         if side == "below" and top is None and not sides and not column and not right \
-        and not over and not paper.four else None
+        and not over and not paper.four and not four else None
     if wide_read:
         lead = None
     if lead:
@@ -10687,7 +10725,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         above = (top, gutter(every, gbox, top, *mid), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG), x0)
     if beside:
         left = left_columns(every, gbox)
-        if indy_sunday_beside(paper, d, gbox):
+        fitted_left = ios_fit_left(every, gbox, four, hit["box"], img) if four else None
+        if fitted_left:
+            left = fitted_left
+        elif indy_sunday_beside(paper, d, gbox):
             left = with_under(left, gbox, img.height)
     elif sides:
         left = sides
@@ -10767,10 +10808,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
     # A Beelzebub's bars read from the lists too: the bar set whose lights lie on the listed numbers and lengths.
-    if indy_sunday_beside(paper, d, gbox):
+    if four or indy_sunday_beside(paper, d, gbox):
         # "(12, 2 words)": the count of words, in a digit, is the print's (clue_text.WORDS_COUNT's "two words").
         texts = {k: IOS_WORDS_COUNT.sub(r"(\1)", t) for k, t in texts.items()}
-    if g and indy_sunday_beside(paper, d, gbox):
+    if g and (four or indy_sunday_beside(paper, d, gbox)):
         fitted = ios_fitted(gpath, g, texts)
         if fitted:
             g = image = fitted
