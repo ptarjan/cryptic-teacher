@@ -3515,6 +3515,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._INDEPENDENT_HEADINGS_FIX:
+        return f._INDEPENDENT_HEADINGS_FIX[paper][2]
     if paper in f._TELEGRAPH_SOLUTION_FIX:
         return f._TELEGRAPH_SOLUTION_FIX[paper][2]
     if paper in f._WINNERS_BAND_FIX:
@@ -4773,6 +4775,36 @@ check("the Gale Telegraph's old scans of a title and no heading are due again (a
        f.telegraph_host({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-13"}),
        f.telegraph_host({**_tgrow, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
        f.telegraph_host({**_tgrow, "scan": {"puzzles": [{"number": 22961}], "solutions": [{"number": 22960}]}})])
+
+# The Gale Independent's readers that run words together read its title glued, and its day-before solution is headed by
+# the weekday alone ("Wednesday's solution"), so the number is the title's less a lag.
+check("a glued Gale Independent title is read (setter, no setter, number first, 76O3), a Concise title and a "
+      "winners line are not; a weekday-only solution heading is the title before the page's, a Last <day>'s a week, "
+      "'solutions' none, and with no title none",
+      [[6134], [7868], True, [], [7300], [7297], [], []],
+      [[n for n, _, _ in f.independent_headings([line("TheWednesday Crossword byDac No 6134,14 June 2006", 196, 2047)])[0]],
+       [n for n, _, _ in f.independent_headings([line("CrypticCrossword#7868 ByRaich", 196, 2047)])[0]],
+       7603 in [n for n, _, _ in f.independent_headings([line("CRYPTIC Crossword 76O3 BY RADIAN", 196, 2047)])[0]],
+       [n for n, _, _ in f.independent_headings([line("Concise Crossword No 7301", 196, 2047)])[0]],
+       [n for n, _ in f.independent_headings([line("Wednesday'ssolution", 700, 2605)], [7301])[1]],
+       [n for n, _ in f.independent_headings([line("Last Saturday's solution", 700, 2605)], [7303])[1]],
+       [n for n, _ in f.independent_headings([line("Yesterday's solutions", 700, 2605)], [7301])[1]],
+       [n for n, _ in f.independent_headings([line("Wednesday's solution", 700, 2605)])[1]]])
+_irow = {"edition": "GaleIndependent2010UKEnglish/2010-03-11", "inputs": {}, "scanKey": next(iter(f._INDEPENDENT_OLD)),
+         "scan": {"puzzles": [{"number": 7301}], "solutions": []},
+         "verdicts": [{"number": 7300, "complete": True, "solution": None, "grid": "image", "wrote": True}]}
+check("the Gale Independent's old scans with no solution heading are due again, an untitled one with its read, a "
+      "puzzle with no solution read before REREAD_INDEPENDENT_HEADINGS; a Sunday page, a scan by the new code and "
+      "one with a solution stand, and the old keys are pinned to the new one",
+      [True, True, False, False, False, False, True],
+      [f.indy_host(_irow), f.indy_next_due({**_irow, "scan": {"puzzles": [], "solutions": []}, "verdicts": []})
+       and f.INDEPENDENT_HEADINGS in f.RANKS,
+       f.indy_host({**_irow, "edition": "GaleIndependentSunday2010UKEnglish/2010-03-14"}),
+       f.indy_host({**_irow, "scanKey": f.scan_key(f.GALE_INDEPENDENT)}),
+       f.indy_host({**_irow, "scan": {"puzzles": [{"number": 7301}], "solutions": [{"number": 7300}]}}),
+       f.indy_next_due({**_irow, "verdicts": [{**_irow["verdicts"][0], "solution": {}}]}),
+       all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)}
+           for o in f._INDEPENDENT_HEADINGS_FIX["galeindependent"][:2])])
 
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.

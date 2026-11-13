@@ -4544,14 +4544,90 @@ INDEPENDENT_BY_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+)?(?:(?:\w+d
                                   r"([\dTIl]?\d?[,.]?\d{1,3}[oO]?)(?!\d)", re.IGNORECASE)
 
 
+#: The Independent's 2004-12 title as the readers that run words together print it ("CrosswordbyVirgilius No 6134",
+#: "TheWednesday Crossword byDac No6134,14 June 2006", "CrypticCrossword#7868 ByRaich"): the spaces INDEPENDENT_BY_TITLE
+#: and INDEPENDENT_TITLE need are optional, the "by <setter>" too (2004-05: "THE MONDAY Crossword" over "No. 5682
+#: Monday 3 January"). Only one reader (en5) read those titles whole, and a title needs half of them.
+INDEPENDENT_GLUED_TITLE = re.compile(r"^\W*(?:the\s*)?(?:independent\s*)?(?:(?:\w+day|weekend|prize|cryptic)\s*){0,2}"
+                                     r"cr[o0]ss\s?w[o0]rd\s*(?:by\s*[^\d#]{1,40}?\s*)?(?:n[o0]\W{0,3}|#\s*)"
+                                     r"([\dTIl]?\d?[,.]?\d{1,3}[oO]?)(?!\d)", re.IGNORECASE)
+#: The 2011-12 title with its number straight after the word and the setter after it: "CRYPTIC Crossword 76O3 BY RADIAN".
+INDEPENDENT_NUMBER_FIRST = re.compile(r"^\W*(?:the\s*)?(?:independent\s*)?(?:(?:\w+day|weekend|prize|cryptic)\s*){0,2}"
+                                      r"cr[o0]ss\s?w[o0]rd\s*#?\s*([\dTIl][\dOo]{3})\s*by\b", re.IGNORECASE)
+#: The 2005-15 Independent prints the day before's cryptic solution under "Wednesday's solution" or "Yesterday's
+#: solution", never a number ("Last Saturday's solution" on a Saturday: the week before's): singular, the Concise's and
+#: the winners' being "solutions". A word run or glued ("Wednesday'ssolution").
+INDEPENDENT_DAY_SOLUTION = re.compile(r"^\W*(last\s*)?(?:yesterday|mon|tues|wednes|thurs|fri|satur)(?:day)?\W{0,2}s?\s*"
+                                      r"s[o0][l1]ut[il1][o0]n\W*$", re.IGNORECASE)
+
+
+#: The 2004-05 title: "THE MONDAY Crossword" alone on its line, its "No. 5682 Monday 3 January" on the line just under it,
+#: set up to three heights left of the title's span (so joined_titles, which wants it under, does not join them).
+INDEPENDENT_BARE_TITLE = re.compile(r"^\W*(?:the\s*)?(?:\w+day\s*)?cr[o0]ss\s?w[o0]rd\W*$", re.IGNORECASE)
+INDEPENDENT_DATED_NUMBER = re.compile(r"^\W*n[o0]\W{0,3}\s*([\dTIl]\d{3})(?!\d)", re.IGNORECASE)
+
+
+def independent_bare_titles(lines):
+    """[(number, box, None)] of each INDEPENDENT_BARE_TITLE line with an INDEPENDENT_DATED_NUMBER line starting just
+    under it and ending no more than three heights left of its start."""
+    found = []
+    for ws in lines:
+        if not INDEPENDENT_BARE_TITLE.match(" ".join(w[4] for w in ws)):
+            continue
+        box = box_of(ws)
+        h = max(box[3] - box[1], 1)
+        for v in lines:
+            m = INDEPENDENT_DATED_NUMBER.match(" ".join(w[4] for w in v))
+            vb = box_of(v) if m else None
+            if m and box[3] - h / 4 <= vb[1] <= box[3] + 3 * h and vb[0] <= box[2] and vb[2] >= box[0] - 3 * h:
+                found.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws + v), None))
+                break
+    return found
+
+
+def independent_fits(text):
+    """Whether `text` reads as an Independent title by any of its forms."""
+    return bool(INDEPENDENT_BY_TITLE.match(text) or INDEPENDENT_GLUED_TITLE.match(text)
+                or INDEPENDENT_NUMBER_FIRST.match(text))
+
+
+def independent_day_solutions(lines, titles):
+    """[(number, box)] of the INDEPENDENT_DAY_SOLUTION headings in `lines` of a page with one to three titles read:
+    the title before each one's (SOLUTION_LAGS: a week before for a "Last <day>'s")."""
+    found = []
+    for ws in lines:
+        k = 0
+        while k < len(ws):
+            for j in range(k, min(len(ws), k + 3)):
+                m = INDEPENDENT_DAY_SOLUTION.match(" ".join(v[4] for v in ws[k:j + 1]))
+                if m:
+                    lag = SOLUTION_LAGS[1] if m.group(1) else SOLUTION_LAGS[0]
+                    found += [(t - lag, box_of(ws[k:j + 1])) for t in titles]
+                    k = j
+                    break
+            k += 1
+    return found
+
+
 def independent_headings(lines, titles=()):
     """titled_headings() of an Independent page, and each INDEPENDENT_BY_TITLE title (a number's line
-    joined to its title's by joined_titles)."""
+    joined to its title's by joined_titles), as the readers glue it (INDEPENDENT_GLUED_TITLE,
+    INDEPENDENT_NUMBER_FIRST), and with one to three titles read the weekday-only solution headings
+    (independent_day_solutions) for the numbers the strict INDEPENDENT_SOLUTION did not return."""
     puzzles, solutions = titled_headings(lines, INDEPENDENT_TITLE, INDEPENDENT_SOLUTION)
-    for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
-        m = INDEPENDENT_BY_TITLE.match(" ".join(w[4] for w in ws))
+    for ws in lines + joined_titles(lines, independent_fits, under=True):
+        text = " ".join(w[4] for w in ws)
+        m = INDEPENDENT_BY_TITLE.match(text)
         if m:
             puzzles.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws), None))
+            continue
+        m = INDEPENDENT_GLUED_TITLE.match(text) or INDEPENDENT_NUMBER_FIRST.match(text)
+        if m:
+            puzzles.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws), None))
+    puzzles += independent_bare_titles(lines)
+    if titles and len(titles) <= 3:
+        have = {n for n, _ in solutions}
+        solutions += [(n, b) for n, b in independent_day_solutions(lines, titles) if n not in have]
     return puzzles, solutions
 
 
@@ -11681,6 +11757,24 @@ for _paper, _pins in _TELEGRAPH_SOLUTION_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before independent_headings read the title the readers
+#: that run words together print ("CrosswordbyVirgilius No 6134", "THE MONDAY Crossword" over "No. 5682 Monday 3
+#: January") and the weekday-only solution headings ("Wednesday's solution") of 2005-15: only the Gale Independent's
+#: pages read otherwise, so every other paper's scans stand, and the Gale Independent's old scans stand but for the
+#: pages with no solution heading, due INDEPENDENT_HEADINGS (indy_host).
+_INDEPENDENT_HEADINGS_FIX = {
+    "galeindependent": ("58e4d057a2117a4e", "f71d643ea54b7f26", "83802ddaf041fd1b"),
+}
+#: The scan keys a Gale Independent scan stood under before the fix above: the old key, its sized twin, and every
+#: corpus-wide key then standing for it (indy_host).
+_INDEPENDENT_OLD = frozenset({*_INDEPENDENT_HEADINGS_FIX["galeindependent"][:2],
+                              *(k for k, v in CORPUS_KEYS.items()
+                                if v.get("galeindependent") == _INDEPENDENT_HEADINGS_FIX["galeindependent"][0])})
+for _paper, _pins in _INDEPENDENT_HEADINGS_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -11756,7 +11850,8 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not telegraph_host(r):
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not telegraph_host(r) \
+                    and not indy_host(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -11852,7 +11947,11 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   "dcddf269a45bb142": "17927db190a32678",
                   # gale_telegraph_headings' generic solution headings (_TELEGRAPH_SOLUTION_FIX): a scan's headings
                   # only; due once as TELEGRAPH_NEXT_DAY.
-                  "2254ad7691205ac7": "17927db190a32678"}
+                  "2254ad7691205ac7": "17927db190a32678",
+                  # independent_headings' glued titles and weekday-only solution headings (_INDEPENDENT_HEADINGS_FIX):
+                  # a scan's headings only; due once as INDEPENDENT_HEADINGS.
+                  "9527e5bdf21d0b19": "17927db190a32678", "48387bd5dbb700cc": "17927db190a32678",
+                  "63d2303b9df9ee9f": "17927db190a32678"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -12947,6 +13046,38 @@ def telegraph_next_due(row):
         and any(v.get("complete") is False and v.get("solution") is None and v.get("grid") == "image"
                 for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_NEXT))
+
+
+#: The due reason of a Gale Independent page (daily, 2004-15) scanned before independent_headings read the title its
+#: readers print glued ("CrosswordbyVirgilius No 6134": 730 of 850 untitled pages, only en5 read them whole) and the
+#: weekday-only solution heading the next day's page prints ("Wednesday's solution": the Independent prints no number
+#: there, so none of ~1,300 filed puzzles had a solution read), under the old scan key. Such a page with no solution
+#: found is scanned again (indy_host), then a puzzle of it read with no solution (indy_next_due) or a page found no
+#: title (an untitled one) is read once more, before REREAD_INDEPENDENT_HEADINGS.
+INDEPENDENT_HEADINGS = "Independent page, its glued title and weekday-only solution heading read since"
+REREAD_INDEPENDENT_HEADINGS = "2026-11-13T17:00:00+00:00"
+
+
+def indy_host(row):
+    """Whether Gale Independent (daily) ledger `row` is a page scanned under a key from before
+    _INDEPENDENT_HEADINGS_FIX with no solution heading found: its scan is stale (scan_current) and rekey_scans
+    leaves it, so it is scanned again by this code once. Whether it printed a title or none."""
+    scan = (row or {}).get("scan") or {}
+    return row.get("scanKey") in _INDEPENDENT_OLD and not scan.get("solutions") and not scan.get("failed") \
+        and paper_of(row.get("edition") or "").key == "galeindependent"
+
+
+def indy_next_due(row):
+    """Whether Gale Independent ledger `row` is due INDEPENDENT_HEADINGS: a page whose scan found no title and
+    is due scanned again (indy_host), or one read before REREAD_INDEPENDENT_HEADINGS with a verdict whose grid
+    is read from an image and whose solution was never read."""
+    if paper_of((row or {}).get("edition") or "").key != "galeindependent":
+        return False
+    if indy_host(row) and not (row.get("scan") or {}).get("puzzles") and not row.get("verdicts"):
+        return True
+    return "inputs" in row and any(not v.get("refused") and v.get("grid") in ("image", "rebuilt") and v.get("solution") is None
+                                   for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_INDEPENDENT_HEADINGS))
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -18422,6 +18553,8 @@ def fix_reason(row):
         return WINNERS_TITLE
     if telegraph_next_due(row):
         return TELEGRAPH_NEXT_DAY
+    if indy_next_due(row):
+        return INDEPENDENT_HEADINGS
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -19036,7 +19169,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   JUMBO_SOLUTION,
                   # 11-13: a Gale Telegraph Mon-Fri puzzle with no solution read, its next day's garbled heading
                   # read since (telegraph_next_due); that page is scanned again first.
-                  TELEGRAPH_NEXT_DAY)
+                  TELEGRAPH_NEXT_DAY,
+                  # 11-13: a Gale Independent page (daily) with a glued title or a weekday-only solution heading
+                  # read since (indy_next_due); the pages are scanned again first.
+                  INDEPENDENT_HEADINGS)
 
 
 def refusal_passes(why):
@@ -19296,7 +19432,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -19334,7 +19470,8 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not telegraph_host(row)
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not telegraph_host(row) \
+        and not indy_host(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
@@ -19921,7 +20058,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS)
 
 
 def keeps_vlm(why, row, unit=None):
