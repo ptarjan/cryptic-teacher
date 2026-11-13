@@ -321,6 +321,26 @@ try:
         assert R.cached_rows(files, cache) == [want[0], want[0]] and len(reads) == 2, reads
     finally:
         R.code_digest = digest
+    # Stale rows (older digest, file unmoved) are re-derived annotated first,
+    # then oldest first, only while the budget lasts; the rest keep their rows.
+    R.code_digest = lambda: "v1"
+    try:
+        R.cached_rows(files, cache)
+        R.code_digest = lambda: "v2"
+        ticks = iter(range(0, 1000, 10))
+        reads.clear()
+        R.cached_rows(files, cache, clock=lambda: next(ticks), budget=15, batch=1)
+        # clock reads: start=0, 10 (<15: batch 1), 20 (>=15: stop)
+        assert len(reads) == 1, reads
+        assert reads == [files[0].name], reads  # the annotated one goes first
+        rows = json.loads(cache.read_text())["rows"]
+        assert sorted(v[3] for v in rows.values()) == ["v1", "v2"], rows
+        reads.clear()
+        R.cached_rows(files, cache)  # no budget pressure: converges
+        assert len(reads) == 1, reads
+        assert {v[3] for v in json.loads(cache.read_text())["rows"].values()} == {"v2"}
+    finally:
+        R.code_digest = digest
 finally:
     R.puzzle_row = real
 
