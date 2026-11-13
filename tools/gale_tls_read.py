@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 16
+VERSION = 17
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -249,6 +249,21 @@ def layout_columns(words, grid):
                 top = min(top, w[1])
                 if NUMBER_WORD.match(w[4]) and w[0] <= left + 4 * lh:
                     break
+        # A list whose opening clues the OCR reads thinly (1993-07-30's across 1-13 stand over a column found
+        # from 14): on up through the column's clue numbers that fall (4, 1) within COUNT_GAP line heights.
+        inside = [n for n in line_numbers([w for w in rest if left <= w[0] <= right and w[1] >= top], lh)
+                  if n[3] <= left + 4 * lh]
+        prev = min((n[2] for n in inside[:1]), default=1)
+        cur = top
+        if prev > 1:
+            for ytop, ybottom, n, x in sorted((n for n in line_numbers(
+                    [w for w in rest if left <= w[0] <= right and w[1] < top], lh) if n[3] <= left + 4 * lh),
+                    key=lambda n: -n[1]):
+                if n >= prev or cur - ybottom > COUNT_GAP * lh:
+                    break
+                top, cur, prev = min(top, ytop - lh), ytop, n
+                if n <= 1:
+                    break
         # The page OCR loses counts down a column: its lines run on to the first gap of three line heights,
         # layout_block trimming the crop to its last count read there.
         bottom = max(w[3] for w in mine)
@@ -376,6 +391,34 @@ def squeezed(crop, ws, y0, y1, lh):
     return out
 
 
+#: A crop whose quarter-darkest grey is under TINTED has a screened (grey) ground the OCR loses lines in
+#: (1993-07-30's across 5-12); ink is told from the ground at CLEAR_AT. The crop is thresholded, and kept so
+#: only where its OCR then reads CLEAR_GAIN times the words.
+TINTED, CLEAR_AT, CLEAR_GAIN, CLEAR_BAND = 200, 100, 1.2, 60
+
+
+def cleared(crop, ws, ocr):
+    """(crop, words) with `crop` thresholded to black on white where its ground is tinted and that makes the OCR
+    read CLEAR_GAIN times the words or more, else as given."""
+    import numpy as np
+    from PIL import Image
+    grey = np.asarray(crop.convert("L"))
+    out, tinted = np.array(crop.convert("RGB")), False
+    # band by band: the screen covers some rows of a column (1993-07-30's top), the rest is left as it is
+    for y in range(0, grey.shape[0], CLEAR_BAND):
+        band = grey[y:y + CLEAR_BAND]
+        if band.size and np.percentile(band, 25) < TINTED:
+            out[y:y + CLEAR_BAND] = ((band > CLEAR_AT) * 255).astype("uint8")[:, :, None]
+            tinted = True
+    if not tinted:
+        return crop, ws
+    clean = Image.fromarray(out)
+    more = ocr(clean)
+    if len(more) >= CLEAR_GAIN * max(1, len(ws)):
+        return clean, more
+    return crop, ws
+
+
 def layout_block(img, words, grid, ocr=None):
     """(image, key) of the lists `layout_columns` finds, set one under another in a single column with
     "ACROSS" and "DOWN" headings drawn clean over them: across is read from the first column to the line the
@@ -404,6 +447,7 @@ def layout_block(img, words, grid, ocr=None):
         draw = ImageDraw.Draw(crop)
         draw.rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]), fill="white")
         ws = ocr(crop)
+        crop, ws = cleared(crop, ws, ocr)
         ends = [w[3] for w in ws if COUNT_WORD.search(w[4])]
         if ends and max(ends) + lh < crop.height:
             # the column's matter under its last count (prose, a notice) is not the lists'
