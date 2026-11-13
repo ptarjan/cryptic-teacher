@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 15
+VERSION = 16
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -281,14 +281,20 @@ def pitch_columns(words, grid, cols):
     pitch = right - left + lh / 2
     wide = max(w[2] for w in words)
     out = []
-    k = 1
-    while left + k * pitch + pitch / 2 < wide:
-        x0 = left + k * pitch
+    x0 = left + pitch
+    while x0 + pitch / 2 < wide:
         box = (int(x0), int(below), int(x0 + pitch - lh / 2), int(max(below + 10 * lh, bottom + 8 * lh)))
-        # a column found already, or one lying beside the grid's height, is not a pitch column
-        if not any(c[0] < box[2] and box[0] < c[2] and c[1] < box[3] and box[1] < c[3] for c in cols):
+        # a column found already, or one lying beside the grid's height, is not a pitch column; one that only
+        # clips a found column's edge (the pitch drifts a few line heights over the columns: 1993-02-26's
+        # fourth column, clipping the third's right edge) is set from that column's edge instead
+        hit = [c for c in cols if c[0] < box[2] and box[0] < c[2] and c[1] < box[3] and box[1] < c[3]]
+        if hit and all(min(box[2], c[2]) - max(box[0], c[0]) < pitch / 4 and c[0] < box[0] for c in hit):
+            edge = max(c[2] for c in hit)
+            box = (int(edge), box[1], int(edge + pitch - lh / 2), box[3])
+            hit = []
+        if not hit:
             out.append(box)
-        k += 1
+        x0 = box[2] + lh / 2
     return out
 
 

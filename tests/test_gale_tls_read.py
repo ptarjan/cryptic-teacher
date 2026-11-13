@@ -43,4 +43,8 @@ assert t.side_by_side(side[:14], 700, 20) is None
 stray = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [
     (300, 100 + 30 * i, 330, 120 + 30 * i, "3") for i in range(3)]
 assert t.side_by_side(stray, 700, 20) is None
+# 1993-02-26: the pitch drifts, the next column clips the last found one's edge: set from that edge instead
+drift_words = [(10 + 30 * i, 10, 30 + 30 * i, 30, "w") for i in range(50)]
+drift = t.pitch_columns(drift_words, (1000, 0, 1400, 400), [(0, 0, 464, 900), (69, 420, 531, 900)])
+assert drift and drift[0][0] == 531
 print("ok")
