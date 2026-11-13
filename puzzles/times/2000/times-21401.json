@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -40,7 +43,31 @@
      }
     ]
    },
-   "solution": "TOTHELETTER"
+   "solution": "TOTHELETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exactly",
+      "at": 0,
+      "meaning": "precisely, following instructions word for word"
+     },
+     {
+      "text": "where does the rent go?",
+      "at": 8,
+      "meaning": "a tenant's rent is paid to the landlord, the one who lets the property"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is whimsical: someone who lets a flat is a 'letter', so the rent goes to that person.",
+     "definitionFit": "Doing something precisely as instructed is carrying it out with literal exactness; the second reading pays a landlord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 1,
@@ -54,7 +81,41 @@
     "text": "Twitch at regular intervals?",
     "enumeration": "3"
    },
-   "solution": "TIC"
+   "solution": "TIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Twitch at regular intervals?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "at regular intervals",
+       "at": 7,
+       "note": "taking every other letter of the word Twitch, starting from its first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Twitch",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A nervous jerk keeps recurring every so often.",
+     "walkthrough": "Taking the first, third and fifth letters of Twitch gives the answer, and the whole clue also describes a nervous spasm that recurs.",
+     "definitionFit": "A tic is an involuntary spasm of a muscle that tends to recur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +129,43 @@
     "text": "Constellation reportedly in 'the shape of a doughnut",
     "enumeration": "5"
    },
-   "solution": "TORUS"
+   "solution": "TORUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shape of a doughnut",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TORUS",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 14,
+       "note": "reportedly says the star group's name is to be heard spoken rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Constellation",
+       "at": 0,
+       "gives": "TAURUS",
+       "note": "Taurus, the Bull, is a constellation of the zodiac"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star pattern is said to look like a ring doughnut.",
+     "walkthrough": "In a non-rhotic British accent TAURUS and TORUS are pronounced alike.",
+     "definitionFit": "In geometry a torus is the ring surface made by spinning a circle, like a ring doughnut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +179,42 @@
     "text": "Being responsible for love I have found wearing",
     "enumeration": "7"
    },
-   "solution": "EROSIVE"
+   "solution": "EROSIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wearing",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Being responsible for love",
+       "at": 0,
+       "gives": "EROS",
+       "note": "Eros is the Greek god of love"
+      },
+      {
+       "words": "I have",
+       "at": 27,
+       "gives": "IVE",
+       "note": "I have contracts to I've"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses they have found love tiring.",
+     "walkthrough": "'Wearing' looks like clothing but is the definition, in the sense of wearing away.",
+     "definitionFit": "Something that wears away a surface gradually is abrasive or corrosive in action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +228,56 @@
     "text": "Loriner wife gets most of premier residence and personal funds",
     "enumeration": "9"
    },
-   "solution": "EXCHEQUER"
+   "solution": "EXCHEQUER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "personal funds",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Loriner wife",
+       "at": 0,
+       "gives": "EX",
+       "note": "a former wife is an ex"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 18,
+         "note": "most of says the final letter of the residence's name is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "premier residence",
+         "at": 26,
+         "gives": "CHEQUERS",
+         "note": "Chequers is the British Prime Minister's country residence"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divorcee claims nearly all of the Prime Minister's house as well as his money.",
+     "walkthrough": "CHEQUERS is the official country house of the UK Prime Minister (the premier).",
+     "definitionFit": "Exchequer is used humorously for a person's own finances or purse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +291,47 @@
     "text": "Bill dropped by player, a lock",
     "enumeration": "5"
    },
-   "solution": "TRESS"
+   "solution": "TRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lock",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropped by",
+       "at": 5,
+       "note": "the bill's letters are taken away from the player's word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "player",
+       "at": 16,
+       "gives": "ACTRESS",
+       "note": "an actress is a player on stage"
+      },
+      {
+       "words": "Bill",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor is handed an invoice and a curl of hair.",
+     "definitionFit": "A tress is a long lock of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +351,29 @@
      }
     ]
    },
-   "solution": "RUNDOWN"
+   "solution": "RUNDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weakened by ill-health",
+      "at": 0,
+      "meaning": "tired and in poor condition"
+     },
+     {
+      "text": "fell",
+      "at": 24,
+      "meaning": "to knock over or bring down, as a car does a pedestrian"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Feeling exhausted is being in a poor state; to knock down a person is to strike them so they drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fell"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +387,56 @@
     "text": "Little'. fairy endlessly flitted around",
     "enumeration": "3"
    },
-   "solution": "ELF"
+   "solution": "ELF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little'. fairy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 33,
+       "note": "around turns the shortened word back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 15,
+         "note": "endlessly drops the last letter of the word for flitted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flitted",
+         "at": 25,
+         "gives": "FLED",
+         "note": "to flit is to move off quickly, to flee"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small sprite darted to and fro without stopping.",
+     "definitionFit": "Elves are small mischievous creatures of folklore, a kind of tiny sprite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +450,58 @@
     "text": "Bound to catch corrupt cleric with no way out",
     "enumeration": "9"
    },
-   "solution": "ENCIRCLED"
+   "solution": "ENCIRCLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "at": 6,
+       "note": "to catch says the outer word holds the other piece within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "no way out",
+       "at": 35,
+       "gives": "END",
+       "note": "a dead end has no way out, so end"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupt",
+         "at": 15,
+         "note": "corrupt says the letters of cleric are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cleric",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sure to trap a crooked priest who is cornered.",
+     "walkthrough": "'corrupt' rearranges the cleric's letters; 'Bound' reads as a verb of obligation with 'to', but it means surrounded.",
+     "definitionFit": "To be bound in is to be surrounded on all sides, ringed about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +515,43 @@
     "text": "Waged war like Galahad' reported magazine",
     "enumeration": "11"
    },
-   "solution": "FORTNIGHTLY"
+   "solution": "FORTNIGHTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FORTNIGHTLY",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 24,
+       "note": "reported says the phrase before it is heard spoken aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Waged war like Galahad'",
+       "at": 0,
+       "gives": "FOUGHTKNIGHTLY",
+       "note": "fought, in the manner of a knight such as Sir Galahad of the Round Table"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A periodical tells of Galahad's chivalrous battles.",
+     "walkthrough": "In a British accent FOUGHT sounds like FORT, and KNIGHTLY like NIGHTLY.",
+     "definitionFit": "A periodical issued every two weeks is called by its frequency of publication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -186,7 +565,47 @@
     "text": "Concern about technique needed for ornamental drawing",
     "enumeration": "9"
    },
-   "solution": "CARTOUCHE"
+   "solution": "CARTOUCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ornamental drawing",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 8,
+       "note": "about says one word goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Concern",
+       "at": 0,
+       "gives": "CARE",
+       "note": "concern means care"
+      },
+      {
+       "words": "technique",
+       "at": 14,
+       "gives": "TOUCH",
+       "note": "a player's touch is their technique or skill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skill is required for making a decorative sketch.",
+     "definitionFit": "A cartouche is a decorative scroll-shaped frame or tablet, as on a map or Egyptian inscription."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +619,39 @@
     "text": "More pleasant French resort by river",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More pleasant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "French resort",
+       "at": 14,
+       "gives": "NICE",
+       "note": "Nice is a resort on the French Riviera"
+      },
+      {
+       "words": "river",
+       "at": 31,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town on the Riviera beside a river is more agreeable.",
+     "definitionFit": "Comparative of an adjective meaning agreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +665,47 @@
     "text": "Right across road you'll find petrol",
     "enumeration": "7"
    },
-   "solution": "JUSTICE"
+   "solution": "JUSTICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Right",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 6,
+       "note": "across says the fuel word spans either side of the road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "petrol",
+       "at": 30,
+       "gives": "JUICE",
+       "note": "juice is slang for petrol or fuel"
+      },
+      {
+       "words": "road",
+       "at": 13,
+       "gives": "ST",
+       "note": "ST is short for street, a road"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone directs you over the road to a filling station.",
+     "definitionFit": "Justice is what is right and fair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +725,29 @@
      }
     ]
    },
-   "solution": "JUMPINGJACK"
+   "solution": "JUMPINGJACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One must pull strings to operate this",
+      "at": 0,
+      "meaning": "a jointed toy figure whose limbs jerk when its string is pulled"
+     },
+     {
+      "text": "firework",
+      "at": 38,
+      "meaning": "a cracker that jumps about as it explodes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The name covers both a jerking puppet toy worked by string and a leaping cracker set off on bonfire night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strings"
+    }
+   }
   },
   {
    "number": 12,
@@ -248,7 +761,11 @@
     "text": "Holds up kangaroo mother — finally managed to find pouch",
     "enumeration": "7"
    },
-   "solution": "SPORRAN"
+   "solution": "SPORRAN",
+   "annotationWithheld": {
+    "why": "Clue held as 'Holds up kangaroo mother — finally managed to find pouch'; no parse of these words builds SPORRAN, so the clue looks garbled by OCR and no source gives it.",
+    "clue": "Holds up kangaroo mother — finally managed to find pouch"
+   }
   },
   {
    "number": 13,
@@ -262,7 +779,46 @@
     "text": "Crop I planted in the middle of lots of paths",
     "enumeration": "5"
    },
-   "solution": "MAIZE"
+   "solution": "MAIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "planted in the middle of",
+       "at": 7,
+       "note": "planted in the middle says the I goes inside the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lots of paths",
+       "at": 32,
+       "gives": "MAZE",
+       "note": "a maze is a network of many paths"
+      },
+      {
+       "words": "I",
+       "at": 5,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer sows a field at the centre of a labyrinth.",
+     "definitionFit": "Maize, or sweetcorn, is a cereal grown in fields."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +832,63 @@
     "text": "Secure against loss if my dinner not completely cooked",
     "enumeration": "9"
    },
-   "solution": "INDEMNIFY"
+   "solution": "INDEMNIFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secure against loss",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 48,
+       "note": "cooked says the letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if",
+       "at": 20
+      },
+      {
+       "words": "my",
+       "at": 23
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not completely",
+         "at": 33,
+         "note": "not completely drops the last letter of dinner"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dinner",
+         "at": 26
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants insurance in case their meal is underdone.",
+     "walkthrough": "'not completely' cuts DINNER to DINNE; 'cooked' rearranges IF MY DINNE.",
+     "definitionFit": "To indemnify someone is to protect them against loss or damage by promising compensation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +908,42 @@
      }
     ]
    },
-   "solution": "UNIONFLAG"
+   "solution": "UNIONFLAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "group of workers",
+       "at": 9,
+       "gives": "UNION",
+       "note": "a trade union is a body of workers"
+      },
+      {
+       "words": "plant",
+       "at": 38,
+       "gives": "FLAG",
+       "note": "a flag is an iris, a flowering plant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trade union is taken on by a factory as its usual practice.",
+     "walkthrough": "'plant' looks like a factory, but it is the iris. The UNION FLAG is the British national flag.",
+     "definitionFit": "A standard is a flag, and this is the national one of the UK."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +957,53 @@
     "text": "Johnny-come-lately, one given one award after another",
     "enumeration": "9"
    },
-   "solution": "IMMIGRANT"
+   "solution": "IMMIGRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Johnny-come-lately",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 20,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "award",
+       "at": 34,
+       "gives": "MM",
+       "note": "MM is the Military Medal, a British award"
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "I again, the Roman numeral one"
+      },
+      {
+       "words": "another",
+       "at": 46,
+       "gives": "GRANT",
+       "note": "another award, a grant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receives one prize after another.",
+     "walkthrough": "The pattern is one given an award, then one given another: I + MM, then I + GRANT.",
+     "definitionFit": "A newcomer who has just arrived from another country is a recent settler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1017,57 @@
     "text": "Contemporary code broken by strange misbehaviour",
     "enumeration": "9"
    },
-   "solution": "INDECORUM"
+   "solution": "INDECORUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "misbehaviour",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Contemporary",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means fashionable, contemporary"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 18,
+         "note": "broken says the letters of code are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "code",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "strange",
+       "at": 28,
+       "gives": "RUM",
+       "note": "rum is British slang for strange or odd"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modern rulebook is flouted by some peculiar behaviour.",
+     "walkthrough": "'broken' turns CODE into DECO.",
+     "definitionFit": "Indecorum is a lack of propriety, improper behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +1081,70 @@
     "text": "Take heed, around zero Celsius, climbing and turning on ice",
     "enumeration": "7"
    },
-   "solution": "CHOCTAW"
+   "solution": "CHOCTAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "turning on ice",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "climbing",
+       "at": 32,
+       "note": "climbing, in a down clue, says the letters are read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "around",
+           "at": 11,
+           "note": "around says the watch word goes round the zero"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Take heed",
+           "at": 0,
+           "gives": "WATCH",
+           "note": "watch means take heed"
+          },
+          {
+           "words": "zero",
+           "at": 18,
+           "gives": "O",
+           "note": "O looks like zero"
+          }
+         ]
+        },
+        {
+         "words": "Celsius",
+         "at": 23,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skater is warned about freezing temperatures while doing a turn.",
+     "walkthrough": "'around' gives WATCOH, C is added, and 'climbing' reverses WATCOHC.",
+     "definitionFit": "A choctaw is a figure-skating turn from one foot to the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1158,11 @@
     "text": "Inside part of French bathroom fitting",
     "enumeration": "5"
    },
-   "solution": "BIDET"
+   "solution": "BIDET",
+   "annotationWithheld": {
+    "why": "Clue held as 'Inside part of French bathroom fitting'; no parse of these words gives BIDET (it suggests BID + ET), so a word looks misread and no source gives the clue.",
+    "clue": "Inside part of French bathroom fitting"
+   }
   },
   {
    "number": 19,
@@ -366,7 +1176,61 @@
     "text": "Wear something to cover face up with insect around",
     "enumeration": "7"
    },
-   "solution": "BELIEVE"
+   "solution": "BELIEVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 44,
+       "note": "around says the insect goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "insect",
+       "at": 37,
+       "gives": "BEE",
+       "note": "a bee is an insect"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 29,
+         "note": "up, in a down clue, says the face covering is read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "something to cover face",
+         "at": 5,
+         "gives": "VEIL",
+         "note": "a veil covers the face"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puts on a beekeeper's veil to keep the bees off.",
+     "walkthrough": "'up' reads the veil backwards, as this is a down clue; 'Wear' means accept, as in 'I won't wear that excuse'.",
+     "definitionFit": "In informal British use, to wear a story is to accept or credit it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wear"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1244,44 @@
     "text": "Soup I left, making mouth sore",
     "enumeration": "7"
    },
-   "solution": "GUMBOIL"
+   "solution": "GUMBOIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mouth sore",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soup",
+       "at": 0,
+       "gives": "GUMBO",
+       "note": "gumbo is a thick stew-like soup of the American South"
+      },
+      {
+       "words": "I",
+       "at": 5,
+       "gives": "I"
+      },
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandoned their soup because their mouth hurt.",
+     "definitionFit": "A gumboil is an abscess on the gum, a painful swelling inside the mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1295,42 @@
     "text": "Some national assistance used for drink",
     "enumeration": "5"
    },
-   "solution": "LASSI"
+   "solution": "LASSI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "national assistance",
+       "at": 5,
+       "gives": "LASSI",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of state welfare money is spent on alcohol.",
+     "walkthrough": "The draft took 'used for drink' as the definition; 'used for' is a link and only 'drink' can stand for the answer.",
+     "definitionFit": "Lassi is an Indian yoghurt-based beverage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1344,41 @@
     "text": "Gods largely ill-disposed",
     "enumeration": "7"
    },
-   "solution": "GALLERY"
+   "solution": "GALLERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gods",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ill-disposed",
+       "at": 13,
+       "note": "ill-disposed says the letters of largely are badly arranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "largely",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most deities are unfriendly.",
+     "walkthrough": "'Gods' are the cheap seats high up in a theatre.",
+     "definitionFit": "The highest balcony in a theatre is nicknamed the gods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gods"
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1392,44 @@
     "text": "Be discriminatory. — cut off first son",
     "enumeration": "5"
    },
-   "solution": "EXIST"
+   "solution": "EXIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut off first",
+       "at": 21,
+       "note": "cut off first says the opening letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "discriminatory",
+       "at": 3,
+       "gives": "SEXIST",
+       "note": "a sexist is discriminatory on grounds of gender"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biased parent disinherits their eldest boy.",
+     "definitionFit": "To exist is to live or have being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1443,39 @@
     "text": "Inclined to join a fight",
     "enumeration": "5"
    },
-   "solution": "ATILT"
+   "solution": "ATILT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inclined",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "fight",
+       "at": 19,
+       "gives": "TILT",
+       "note": "a tilt is a joust, a fight on horseback"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is tempted to join a brawl.",
+     "definitionFit": "Atilt means tilted, leaning at an angle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -450,7 +1489,42 @@
     "text": "Showing extreme desire to join Labour association",
     "enumeration": "9"
    },
-   "solution": "SLAVERING"
+   "solution": "SLAVERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Showing extreme desire",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Labour",
+       "at": 31,
+       "gives": "SLAVE",
+       "note": "to slave is to labour"
+      },
+      {
+       "words": "association",
+       "at": 38,
+       "gives": "RING",
+       "note": "a ring is a group or association, as of dealers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is keen to join a Labour Party branch.",
+     "walkthrough": "'Labour' looks like the British political party but is the verb to toil.",
+     "definitionFit": "Slavering, dribbling saliva, describes someone drooling with greed or longing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 26,
@@ -464,7 +1538,46 @@
     "text": "Doctor taking a break",
     "enumeration": "3"
    },
-   "solution": "GAP"
+   "solution": "GAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "break",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 7,
+       "note": "taking says the doctor holds the A inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "GP",
+       "note": "GP is a general practitioner, a family doctor"
+      },
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor goes on holiday.",
+     "definitionFit": "A gap is an interval or pause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -478,7 +1591,28 @@
     "text": "Island of vital importance",
     "enumeration": "3"
    },
-   "solution": "KEY"
+   "solution": "KEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0,
+      "meaning": "a low island or reef"
+     },
+     {
+      "text": "of vital importance",
+      "at": 7,
+      "meaning": "crucial, essential"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A cay is a low island and the same word spelt this way means crucial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -498,7 +1632,45 @@
      }
     ]
    },
-   "solution": "WHISTLESTOP"
+   "solution": "WHISTLESTOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very fast with only brief. pauses",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Keep quiet",
+       "at": 0,
+       "gives": "WHIST",
+       "note": "whist is an old command for silence, hush"
+      },
+      {
+       "words": "in case",
+       "at": 11,
+       "gives": "LEST",
+       "note": "lest means in case"
+      },
+      {
+       "words": "operation",
+       "at": 19,
+       "gives": "OP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon tells staff to hush in case the surgery is rushed.",
+     "definitionFit": "A whistle-stop tour makes many quick stops of brief duration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
