@@ -896,6 +896,22 @@ check("damaged clue: a real word between is not debris", _D.damaged_run("Dime di
 check("damaged clue: an inflected word is not a cut one", _D.damaged_run("delusions", "a crazy delusion") is None)
 check("damaged clue: a pronoun I is not debris", _D.damaged_run("dog saw", "Dog I saw") is None)
 check("damaged clue: a cut-short word in mid-clue is not mended", _D.damaged_run("a bribe", "a br and more") is None)
+# the scan misread letters of the clue; the model quoted the word as it is, the run is the clue's
+for _name, _q, _clue, _want in [
+        ("a letter dropped", "Coil", "Oil in a river that's grown", "Oil"),
+        ("a letter read wrong", "snow", "Admits taking show in powdered form", "show"),
+        ("confusable letters over a hyphen", "except the second", "Set aside each comment except the set-end", "except the set-end"),
+        ("a split word with a letter misread", "Edward contracted", "Took on commercial work 'Ec ward contracted", "Ec ward contracted"),
+        ("a word cut short mid-clue", "unexpected expulsion", "Benediction following an unexpect expulsion", "unexpect expulsion"),
+        ("a short all-capital banner", "evil desires", "Most patient, suffering these evil INNE desires", "evil INNE desires"),
+        ("a digit for the pronoun", "I have", "1.have turned in unsuspecting moles", "1.have")]:
+    check("misread clue: " + _name, _D.damaged_run(_q, _clue) == _want, _D.damaged_run(_q, _clue))
+check("misread clue: a flipped prefix is not mended", _D.damaged_run("walk unsteadily", "Not all walk steadily after crew's dance") is None)
+check("misread clue: an inflection is not mended", _D.damaged_run("Keeps", "Keep a cash register to stop fiddling") is None)
+check("misread clue: a different word is not mended", _D.damaged_run("throng", "Scorer awards fifty in throw") is None)
+check("misread clue: two equal fits are not mended", _D.damaged_run("show", "snow and shot") is None)
+check("misread clue: wordplay quote is located", spans_of("[snow]X", "Admits taking show in powdered form")
+      == [("show", 14)], spans_of("[snow]X", "Admits taking show in powdered form"))
 check("damaged clue: wordplay quote is located", spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?")
       == [("a friend M abroad", 25)], spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?"))
 

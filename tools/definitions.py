@@ -115,7 +115,11 @@ def damaged_run(text, clue):
     if not want or not toks:
         return None
     low = [_fold_accents(t[0]).casefold() for t in toks]
-    junk = [bool(re.fullmatch(r"[A-HJ-Z]", t[0])) for t in toks]
+    # a lone capital, or a short all-capital string the quote does not use, is the scan's
+    # stray print ('stan- AI. hard', 'sum LOHEN'); a real word the quote skips is not.
+    junk = [bool(re.fullmatch(r"[A-HJ-Z]", t[0]))
+            or bool(re.fullmatch(r"[A-Z]{2,4}", t[0]) and not any(w.startswith(low[k]) or w.endswith(low[k]) for w in want))
+            for k, t in enumerate(toks)]
     for k in range(len(toks) - 1):
         if toks[k][0] == "Check" and low[k + 1] in ("tod", "toc"):
             junk[k] = junk[k + 1] = True
@@ -153,10 +157,85 @@ def damaged_run(text, clue):
     for ci in range(len(toks)):
         if not junk[ci]:
             walk(0, ci, None)
+    if not runs:
+        runs = _misread_runs(want, toks, low, junk)
     if len(runs) != 1:
         return None
     a, b = runs.pop()
     return clue[a:b]
+
+
+# Letters a scan reads for one another: a quote that differs from the clue by one letter
+# or by two of these pairs is the scan's misreading, not the model's.
+_CONFUSED = {frozenset(p) for p in ("ce", "co", "eo", "ct", "et", "il", "it", "lt", "1l", "1i",
+                                    "0o", "nu", "hb", "hl", "ao", "ft", "fl")}
+
+
+def _lev(a, b):
+    """Edit distance of a and b, a swap of two confusable letters costing half."""
+    prev = [float(i) for i in range(len(b) + 1)]
+    for i, ca in enumerate(a, 1):
+        cur = [float(i)]
+        for j, cb in enumerate(b, 1):
+            swap = 0 if ca == cb else 0.5 if frozenset((ca, cb)) in _CONFUSED else 1
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + swap))
+        prev = cur
+    return prev[-1]
+
+
+def _cut_short(q, parts):
+    """True when the clue's word pieces `parts` (a window's tokens) spell the quote `q`
+    but for one or two letters dropped from the inside or end of a word, as a scan
+    cuts them ('unexpect' for 'unexpected', 'matin' for 'matinee', 'Th' for 'That'):
+    never the start of a word, which would turn 'steadily' into 'unsteadily'."""
+    got = "".join(parts)
+    gap = len(q) - len(got)
+    if not 1 <= gap <= 2 or len(got) < 3:
+        return False
+    starts = {sum(map(len, parts[:k])) for k in range(len(parts))}
+    for k in range(1, len(got) + 1):
+        if k not in starts and q == got[:k] + q[k:k + gap] + got[k:]:
+            return True
+    return False
+
+
+def _misread_runs(want, toks, low, junk):
+    """{(start, end)} of the clue's run of words whose letters, run together, are the
+    quote's letters give or take the scan's misreading: a letter read wrong or
+    dropped ('Oil' for 'Coil', 'show' for 'snow'), confusable letters
+    ('set-end' for 'second'), a word cut short ('caf' for 'cafes') or split with a
+    letter misread ('Ec ward' for 'Edward'). Only the closest fit counts, and only
+    when it is the one: two equally close runs, or a quote under four letters,
+    mend nothing."""
+    q = "".join(want)
+    if len(q) < 4:
+        return set()
+    idx = [i for i in range(len(toks)) if not junk[i]]
+    best, found = None, set()
+    for a in range(len(idx)):
+        got = ""
+        for b in range(a, min(len(idx), a + len(want) + 3)):
+            got += low[idx[b]]
+            if abs(len(got) - len(q)) > 2:
+                if len(got) > len(q):
+                    break
+                continue
+            if q.startswith(got) and q[len(got):] in INFLECTIONS \
+                    or got.startswith(q) and got[len(q):] in INFLECTIONS:
+                continue          # the model's own inflection of the clue's word, not a misreading
+            cut = _cut_short(q, [low[k] for k in idx[a:b + 1]])
+            if b > a and not cut and any(
+                    _lev(q, trimmed) <= _lev(q, got)
+                    for trimmed in (got[:-len(low[idx[b]])], got[len(low[idx[a]]):])):
+                continue          # an edge word the fit does not need ('keep a' for 'keeps')
+            d = len(q) - len(got) if cut else _lev(q, got)
+            if d <= 1 or (d <= 2 and cut):
+                rank = (d, abs(b - a + 1 - len(want)))
+                if best is None or rank < best:
+                    best, found = rank, set()
+                if rank == best:
+                    found.add((toks[idx[a]][1], toks[idx[b]][2]))
+    return found
 
 
 def _one_edit(a, b):
