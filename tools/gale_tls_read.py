@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 9
+VERSION = 10
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -238,6 +238,17 @@ def layout_columns(words, grid):
         over = [w for w in rest if left <= w[0] <= right and first - HEAD_REACH * lh <= w[1] < first
                 and (HEAD_WORD.match(w[4]) and w[3] - w[1] < 3 * lh)]
         top = min([first - 2 * lh, *(w[1] for w in over)])
+        if not over:
+            # no heading: the first clue's lines stand over its count (its first line is several up when the
+            # clue wraps), on up to its number, the first gap of three line heights or eight line heights
+            start = top
+            for w in sorted((w for w in rest if left <= (w[0] + w[2]) / 2 <= right and w[1] < start),
+                            key=lambda w: -w[3]):
+                if top - w[3] > 3 * lh or start - w[1] > 8 * lh:
+                    break
+                top = min(top, w[1])
+                if NUMBER_WORD.match(w[4]) and w[0] <= left + 4 * lh:
+                    break
         # The page OCR loses counts down a column: its lines run on to the first gap of three line heights,
         # layout_block trimming the crop to its last count read there.
         bottom = max(w[3] for w in mine)
@@ -355,8 +366,8 @@ def layout_block(img, words, grid, ocr=None):
             # a pitch column is kept only where its clue numbers run on from the last column kept
             nums = [n for _, _, n, _ in line_numbers(ws, lh)]
             before = [n for _, _, n, _ in line_numbers(pieces[-1][2], lh)]
-            if not nums or not before or not before[-1] < nums[0] <= before[-1] + 5 or \
-                    len([w for w in ws if COUNT_WORD.search(w[4])]) < 2:
+            if not nums or not before or not max(before) < nums[0] <= max(before) + 5 or \
+                    len([w for w in ws if COUNT_WORD.search(w[4])]) < 1:
                 continue
         pieces.append((k, crop, ws))
     if not pieces:
@@ -486,15 +497,20 @@ def read_page(path, store=STORE, asker=None):
         return verdict, None
     lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
-    if (laid is None or read.get("agreed", 0) * 2 < len(lengths)) and verdict.get("cut") != "layout":
-        # The title's cut read little (its lists lie beside the grid, in a shape the page's headings do not
-        # frame): the lists found by their own shape (layout_block), kept where they read more.
+    if (laid is None or set(lengths) - set(laid)) and verdict.get("cut") != "layout":
+        # The title's cut left a light unread (its lists lie beside the grid or run on in columns under it, in a
+        # shape the page's headings do not frame): the lists found by their own shape (layout_block), kept
+        # where they read more.
         block = layout_block(img, gl.page_words(img, key), box)
         if block:
             again, laid2 = gl.times_read([block], lengths)
             if laid2 is not None and (laid is None or again.get("agreed", 0) > read.get("agreed", 0)):
-                read, laid = again, laid2
+                read, laid, laid2 = again, laid2, laid
                 verdict["cut"] = "layout"
+            if laid2 is not None and laid is not None:
+                # a light only the other reading laid is taken from it (1992-10-02's 24-down stands in a
+                # column the title's cut stops short of, 1993-06-25's 2-down in one the layout does)
+                laid = {**{k: v for k, v in laid2.items() if k in lengths}, **laid}
     verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused", "unparsed")})
     if laid is None:
         return verdict, None
