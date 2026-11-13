@@ -55,6 +55,8 @@ def synthetic():
 
 def same(want, got, label):
     want, got = dict(want), dict(got)
+    for k in ix.BUILD_ONLY:  # the idx leaves out build-only fields on purpose
+        want.pop(k, None)
     assert want.pop("v")[:5] == got.pop("v"), label + ": v"
     wd, gd = want.get("difficulty"), got.get("difficulty")
     if wd and gd:
