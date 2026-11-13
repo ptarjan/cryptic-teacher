@@ -11080,6 +11080,63 @@ def sunday_band_due(row):
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_BAND))
 
 
+#: The Gale Sunday Times pages of 1968-76 whose title ("SUNDAY TIMES CROSSWORD No. 2353", a line of small print)
+#: stands UNDER the grid, the two clue columns over it (ACROSS left, DOWN right, under the page's adverts): 11-13 census
+#: of the ledger, ~150 "not a grid" rows (the title right of the page's middle, "the ink under the title is 10x402":
+#: a rule). The grid is the shaped ink over the title, its foot within SUNDAY_OVER_GAP of the grid's width of the
+#: title's top and the title's middle within its width; the columns start at the ACROSS heading found within
+#: SUNDAY_OVER_RISE of the grid's width over its top.
+SUNDAY_OVER_YEARS = ("1968", "1976")
+SUNDAY_OVER_GAP, SUNDAY_OVER_RISE = 0.6, 1.7
+
+
+def sunday_times_over(img, title, key, paper):
+    """(grid box, top) of a Gale Sunday Times page whose grid stands over its title, the clue columns over the grid
+    from `top` (the ACROSS heading's line), or None: no shaped ink over the title in reach, or no ACROSS heading
+    at its left with a DOWN heading right of it over the grid."""
+    mid = (title[0] + title[2]) / 2
+    found = []
+    for g in grids_on(img, shaped=lambda b: shaped_on(img, b)):
+        gw = g[2] - g[0]
+        if 0 <= title[1] - g[3] <= SUNDAY_OVER_GAP * gw and g[0] - 0.1 * gw <= mid <= g[2] + 0.1 * gw:
+            found.append(g)
+    if not found:
+        return None
+    gbox = max(found, key=lambda g: g[3])
+    gx0, gy0, gx1, gy1 = gbox
+    gw = gx1 - gx0
+    start = max(0, int(gy0 - SUNDAY_OVER_RISE * gw))
+    probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.over.json", None, paper.margin, start, None, None,
+                        gx0 - paper.margin)
+    words = [w for ws in probe for w in ws]
+    across = [w for w in words if start <= w[1] < gy0 - 5 and re.search(r"\bACR[O0U]SS\b", w[4], re.I)
+              and gx0 - 60 <= w[0] < gx0 + 0.35 * gw]
+    if not across:
+        return None
+    top = min(w[1] for w in across) - SUNDAY_BAND_RISE
+    if not any(re.search(r"\bD[O0]WN\b", w[4], re.I) and gx0 + 0.3 * gw <= w[0] + 0.5 * (w[2] - w[0]) and top <= w[1] < gy0 - 5
+               for w in words):
+        return None
+    return gbox, top
+
+
+#: The reason of a Gale Sunday Times 1968-76 page refused "not a grid" (the ink under its title a rule): its grid over
+#: the title, the clue columns over the grid, read since (sunday_times_over).
+SUNDAY_OVER = "Gale Sunday Times 1968-76 page refused not a grid, its grid over its title with the clue columns over the grid read since"
+REREAD_SUNDAY_OVER = "2026-11-13T23:00:00+00:00"
+
+
+def sunday_over_due(row):
+    """Whether Gale Sunday Times ledger `row` is due SUNDAY_OVER: a puzzle of a 1968-76 edition refused "not a
+    grid" or "no reading parses", read before REREAD_SUNDAY_OVER."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
+            or not SUNDAY_OVER_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_OVER_YEARS[1]:
+        return False
+    return any(v.get("cause") in ("not-a-grid", "no-reading-parses") for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_OVER))
+
+
 def sunday_times_beside(paper, side):
     """Whether Gale Sunday Times page of `paper` has its grid right of its clue columns (side "left": the title
     right of the grid): the columns run on past left_bottom's cut, to the page's foot."""
@@ -11127,6 +11184,13 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if band is not None:
             gbox, side = band, "below"
             verdict["gridBox"] = "under its title, top in its line"
+    # A 1968-76 Gale Sunday Times page whose title stands under its grid, the clue columns over it (sunday_times_over).
+    over_top = None
+    if side is None and paper.key == "galesundaytimes" and SUNDAY_OVER_YEARS[0] <= d.name[:4] <= SUNDAY_OVER_YEARS[1]:
+        over_grid = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper)
+        if over_grid is not None:
+            (gbox, over_top), side = over_grid, "below"
+            verdict["gridBox"] = "over its title"
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
@@ -11168,10 +11232,11 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     m = paper.margin
     # Clues over the grid: from the title line down, split where the fewest
     # words of any reading cross.
-    top = hit["box"][1] - 10 if paper.clues_above else None
+    top = hit["box"][1] - 10 if paper.clues_above else over_top
     sunday = paper.key == "galesundaytelegraph" and d.name[:4] < SUNDAY_SIDES_END
     quickie = sunday and d.name[:10] < SUNDAY_QUICKIE_END
-    x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox, quickie) if sunday else None
+    x0 = gbox[0] - m if over_top is not None else clues_left(gbox, hit["box"], m) if top is not None \
+        else sunday_left(gbox, quickie) if sunday else None
     # (A 2000 weekday page sets both clue columns right of its grid, but the Quick crossword's list runs on
     # under it and read as the cryptic Down: no right_of cut for galetelegraph until it ends at the gap.)
     sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) \
@@ -20262,6 +20327,8 @@ def fix_reason(row):
         return IOS_TITLES
     if ft_next_due(row):
         return FT_HEADINGS
+    if sunday_over_due(row):
+        return SUNDAY_OVER
     if sunday_band_due(row):
         return SUNDAY_BAND
     if sunday_left_due(row):
@@ -20921,7 +20988,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND)
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER)
 
 
 def refusal_passes(why):
@@ -21183,7 +21250,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -21816,7 +21883,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER)
 
 
 def keeps_vlm(why, row, unit=None):
