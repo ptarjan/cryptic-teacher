@@ -606,6 +606,11 @@ def not_in_clue(text, clue, nth=1):
         return head + ("each word is in the clue but not side by side: give each run of "
                        "clue words its own [..] piece (the words between belong to other pieces "
                        "or are link words)")
+    import definitions
+    near = definitions.near_run(text, clue)
+    if near:
+        return head + (f"the clue as given reads {near!r} there, a letter off from your quote: "
+                       f"quote the clue's own words")
     if absent:
         return head + (f"{', '.join(repr(w) for w in absent)} {'is' if len(absent) == 1 else 'are'} "
                        f"not among its words: copy the clue words exactly")

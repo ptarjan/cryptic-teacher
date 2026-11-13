@@ -159,6 +159,39 @@ def damaged_run(text, clue):
     return clue[a:b]
 
 
+def _one_edit(a, b):
+    """True when `a` and `b` differ by one letter: swapped, dropped, added or changed."""
+    if a == b or abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        d = [i for i in range(len(a)) if a[i] != b[i]]
+        return len(d) == 1 or (len(d) == 2 and d[1] == d[0] + 1
+                               and a[d[0]] == b[d[1]] and a[d[1]] == b[d[0]])
+    s, l = sorted((a, b), key=len)
+    return any(l[:i] + l[i + 1:] == s for i in range(len(l)))
+
+
+def near_run(text, clue):
+    """The clue's one run of as many words as `text` that reads the same but for one
+    word a letter off (four letters or more), as the clue prints it; else None.
+    Only ever a hint for the refusal: whether the quote or the clue is the one that
+    slipped (a scan's cut word, or the model's own typo) is not decidable here."""
+    if not isinstance(text, str) or not isinstance(clue, str):
+        return None
+    want = [_fold_accents(w).casefold() for w in WORD.findall(text.translate(LOOKALIKES))]
+    toks = [(m.start(), m.end(), _fold_accents(m.group()).casefold()) for m in WORD.finditer(clue)]
+    n = len(want)
+    runs = set()
+    for k in range(len(toks) - n + 1 if n else 0):
+        diff = [(w, t[2]) for w, t in zip(want, toks[k:k + n]) if w != t[2]]
+        if len(diff) == 1 and min(map(len, diff[0])) >= 4 and _one_edit(*diff[0]):
+            runs.add((toks[k][0], toks[k + n - 1][1]))
+    if len(runs) != 1:
+        return None
+    a, b = runs.pop()
+    return clue[a:b]
+
+
 def _with_edges(text, clue, start, end):
     """clue[start:end], widened over the punctuation `text` has before its
     first word and after its last where the clue prints the same marks."""
@@ -225,7 +258,10 @@ def place(definitions, clue):
         for k, found in todo.items():
             text = defs[k].get("text")
             if not found:
-                why.append(f"definition {text!r} is not in the clue {clue!r}")
+                near = near_run(text, clue)
+                why.append(f"definition {text!r} is not in the clue {clue!r}"
+                           + (f": the clue as given reads {near!r} there, a letter off; quote the "
+                              f"clue's own words" if near else ""))
             else:
                 why.append(f"definition {text!r} occurs {len(found)} times in {clue!r} "
                            f"(at {', '.join(map(str, found))}) and the rules in "
