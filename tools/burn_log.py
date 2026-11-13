@@ -170,6 +170,7 @@ class Log:
         self.since = {}           # warning kind -> when its condition began
         self.raw = collections.deque(maxlen=3)        # the last raw lines: evidence
         self.pool = None          # (width, in flight, queued) of the latest pool line
+        self.pool_steady = False  # the latest pool line came at the same width as the one before
         self.stopping = False     # the burn said it is stopping (deadline, pause): an empty pool is meant
         self.need = None          # runs the week needs, from the latest width line
         self.meters = collections.deque(maxlen=400)   # (time, points spent, commits since the last, clues since the last)
@@ -337,7 +338,7 @@ class Log:
         if self.pool:
             w, n, q = self.pool
             out += self.condition(
-                now, "short", w > 0 and n < 0.75 * w and q > 0 and not self.stopping,
+                now, "short", w > 0 and n < 0.75 * w and q > 0 and not self.stopping and self.pool_steady,
                 f"only {n} runs in flight against a width of {w}, with {q} queued", [self.pool_raw] if self.pool_raw else [],
                 f"{n} of {w} runs in flight", SHORT_S)
         out += self.condition(
@@ -507,8 +508,13 @@ class Log:
         m = re.match(r"^--- pool of (\d+): (\d+) in flight \(\d+ running\), (\d+) queued", line)
         if m:
             pool = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-            if self.pool and pool[0] > self.pool[0] and "short" not in self.active:
-                self.since.pop("short", None)  # a raised width gets its own SHORT_S to fill, not the old shortfall's clock
+            # The in-flight count on a pool line is what was running when that width was chosen, and
+            # no newer pool line may come for 15 min while a raised width fills (11-12 22:23: "6 of
+            # 11" stood until 22:38, though the runs had started). Only a pool line at the width the
+            # last one had is a sample of the burn filling its pool; a changed width restarts the clock.
+            self.pool_steady = bool(self.pool) and pool[0] == self.pool[0]
+            if not self.pool_steady and "short" not in self.active:
+                self.since.pop("short", None)
             self.pool, self.pool_raw = pool, line.strip("- ")
             m = re.match(r"^--- pool of \d+: (\d+) in flight \(\d+ running\), (\d+) queued", line)
             self.queued = int(m.group(2))
