@@ -1327,11 +1327,10 @@ def sunday_right_due(row):
 #: weekday every Saturday since 1999-10 (52 of 54 pages, none ever filed). Once each (read before the stamp).
 SIDES_READ = "Gale Telegraph page refused no reading parses, its clue columns either side of its grid read since"
 #: Moved 11-13 (the 209 Telegraph "no reading parses" rows of 11-09 10:00:17 were read by a process still holding
-#: the old code; across_left and the weekday right_of cut came since): Saturdays from 1998 and 2000 weekdays are
+#: the old code; across_left came since): Saturdays from 1998 are
 #: due again, once, SIDES_READ's rank and evidence unchanged.
 REREAD_SIDES_READ = "2026-11-13T20:00:00+00:00"
 SIDES_FROM = datetime.date(1998, 1, 1)
-SIDES_WEEKDAY = (datetime.date(2000, 1, 1), datetime.date(2000, 12, 31))
 
 
 def sides_due(row):
@@ -1345,7 +1344,7 @@ def sides_due(row):
     except ValueError:
         return False
     # Only a Saturday of the print (the weekday pages of 2000 set their clues right of the grid, not either side).
-    if (day.weekday() != 5 or day < SIDES_FROM) and not (SIDES_WEEKDAY[0] <= day <= SIDES_WEEKDAY[1]):
+    if day.weekday() != 5 or day < SIDES_FROM:
         return False
     return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))
 
@@ -10703,9 +10702,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     sunday = paper.key == "galesundaytelegraph" and d.name[:4] < SUNDAY_SIDES_END
     quickie = sunday and d.name[:10] < SUNDAY_QUICKIE_END
     x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox, quickie) if sunday else None
-    # A Gale Telegraph 2000 weekday page prints its title over a grid at the page's left edge, both clue
-    # columns right of it (sides_columns' right_of: 2000-12-28, every reading "no clue words").
-    sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday or paper.key == "galetelegraph") \
+    # (A 2000 weekday page sets both clue columns right of its grid, but the Quick crossword's list runs on
+    # under it and read as the cryptic Down: no right_of cut for galetelegraph until it ends at the gap.)
+    sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) \
         if top is not None or sunday else None
     # A Saturday prize page whose title stands over its grid (not over the across column): that column's
     # ACROSS heading, read left of the grid, gives its left edge (across_left).
