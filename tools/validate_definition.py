@@ -60,6 +60,7 @@ def check_answer_matches_separators(tag, ann, entry, errors):
 
 
 DEFINITION_FIT_MAX = 30
+DEFINITION_FIT_MIN = 15
 DEFINITION_FIT_HOW = (
     "Name the relation rather than asserting it: a plain synonym, a definition by "
     "example, a crossword-only sense, a regional use, an idiom. Never read the "
@@ -87,7 +88,11 @@ def check_definition_fit(tag, ann, errors, warnings):
         warnings.append(msg)
         return
     fit = str(fit).strip()
-    if len(fit) < 25:
+    # 15, not 25: a true example or synonym ("Dora is a girl's name.", 22 characters)
+    # is a whole explanation, and 34 first checks in a day failed on exactly that.
+    # Length only catches a fragment; whether the sentence says anything new is
+    # the content-word test below.
+    if len(fit) < DEFINITION_FIT_MIN:
         errors.append(f"{tag}: definitionFit {fit!r} is too thin. {DEFINITION_FIT_HOW}")
         return
     if len(fit.split()) > DEFINITION_FIT_MAX:
