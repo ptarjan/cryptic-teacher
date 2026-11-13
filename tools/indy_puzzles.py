@@ -160,9 +160,9 @@ def parse(write=True):
     for every post with a number, the input the print dates are fitted to."""
     recs, odd, posted = [], [], []
     for post, cat in posts():
-        _, number, series = heading(post)
+        title, number, series = heading(post)
         if series:
-            posted.append({"series": series, "number": number,
+            posted.append({"series": series, "number": number, "title": title,
                            "date": post["date"][:10], "post_id": str(post["id"])})
         rec = parse_post(post, cat)
         if rec is None:
@@ -180,6 +180,57 @@ def parse(write=True):
 
 def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES):
     return tg.run(limit, None, max_nodes=max_nodes, where=CACHE)
+
+
+#: A title's own print date: "(Saturday Prize Puzzle, 05/02/16)", "Sat 23-May-2015", "(07-11-2015)".
+NUMERIC_DAY = re.compile(r"(?<!\d)(\d{1,2})[/.\-](\d{1,2})[/.\-](20\d\d|\d\d)(?!\d)")
+NAMED_DAY = re.compile(r"(?<!\d)(\d{1,2})(?:st|nd|rd|th)?[\s\-]+([A-Za-z]{3})[a-z]*[\s\-,]+(\d{4})")
+#: A title that says the puzzle was a Saturday prize: its post comes weeks after the print day.
+PRIZE_TITLE = re.compile(r"prize|\bsat\b|saturday", re.IGNORECASE)
+
+
+def title_day(title):
+    """The date a title prints for its puzzle, or None."""
+    title = title.replace("\u2013", "-")
+    for m in NUMERIC_DAY.finditer(title):
+        day, month, year = map(int, m.groups())
+        try:
+            return datetime.date(year + 2000 if year < 100 else year, month, day)
+        except ValueError:
+            continue
+    for m in NAMED_DAY.finditer(title):
+        month = MONTHS.get(m.group(2).lower())
+        if month:
+            try:
+                return datetime.date(int(m.group(3)), month, int(m.group(1)))
+            except ValueError:
+                continue
+    return None
+
+
+MONTHS = {name: i + 1 for i, name in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"])}
+
+
+def printed_days(rows):
+    """{number: day} the blog itself fixes for the Independent's dailies: the day
+    a title prints, else the post's day when it is a Monday to Friday post of a
+    puzzle not labelled a Saturday prize -- fifteensquared writes those up the
+    morning they are printed. Numbers whose posts disagree, and prizes with no
+    printed day (blogged a week or more after the Saturday), are left to the fit.
+
+    The fit alone put the Independent's 2015 dailies a day or two early
+    (8,971 on 2015-07-15, printed 07-16) wherever a neighbour was blogged late,
+    which is what refused the Gale scans of them."""
+    seen = collections.defaultdict(set)
+    for r in rows:
+        day = title_day(r.get("title", ""))
+        post = datetime.date.fromisoformat(r["date"])
+        if day is None and not PRIZE_TITLE.search(r.get("title", "")) and post.weekday() < 5:
+            day = post
+        seen[r["number"]].add(day)
+    return {n: next(iter(days)) for n, days in seen.items()
+            if len(days) == 1 and None not in days and next(iter(days)).weekday() != ftp.SUNDAY}
 
 
 def sunday_dates(rows):
@@ -232,6 +283,7 @@ def file(posted, write=True, limit=None):
                                     if fits[DAILY](p["date"], p["number"])]),
              SUNDAY: sunday_dates([p for p in by_series[SUNDAY]
                                    if fits[SUNDAY](p["date"], p["number"])])}
+    dates[DAILY].update(printed_days(by_series[DAILY]))
     claims = collections.Counter((p["series"], p["number"]) for p in posted)
     filed = []
     on_disk = {}
