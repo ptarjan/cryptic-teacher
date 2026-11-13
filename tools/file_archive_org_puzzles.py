@@ -13796,8 +13796,9 @@ def ft_clues_due(row):
 #: The due reason of a Gale FT page (2000-10) read before REREAD_FT_GLUED with a list stopped "cannot find a clue
 #: number" at a number run into its first word ("1.5Carolyn", "1,7Breach", "1lluminate"; the ch reader, 2000-09: 112
 #: "no reading parses" rows): file_trove_puzzles.clues now splits it (clue_text.glued_number) where it is the
-#: number after the clue before.
-FT_GLUED = "FT page, a clue number run into its first word split since"
+#: number after the clue before. Also a number followed by a CJK speck ("1折 Sign of passion?": 2002-02-27's 1 down,
+#: the ch reader's list stopped there; clue_text.GLUED_CJK).
+FT_GLUED ="FT page, a clue number run into its first word split since"
 REREAD_FT_GLUED = "2026-11-13T21:30:00+00:00"
 _GLUED_STOP = re.compile(r"cannot find a clue number at: (['\"])(.*)")
 
