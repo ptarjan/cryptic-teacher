@@ -899,4 +899,25 @@ check("damaged clue: a cut-short word in mid-clue is not mended", _D.damaged_run
 check("damaged clue: wordplay quote is located", spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?")
       == [("a friend M abroad", 25)], spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?"))
 
+def _def_refusal(text, clue):
+    try:
+        _D.place([{"text": text}], clue)
+    except ValueError as e:
+        return "reads 'Austra state capital' there" in str(e)
+    return False
+
+
+for _name, _q, _clue, _want in [
+        ("a word a letter short mid-clue", "Austral state capital", "Watering hole in sweltering Austra state capital", "Austra state capital"),
+        ("a model's typo in one word", "headed in the wrong directior", "Working meeting in College headed in the wrong direction", "headed in the wrong direction")]:
+    check("near run: " + _name, _D.near_run(_q, _clue) == _want, _D.near_run(_q, _clue))
+check("near run: a short word is not a near miss", _D.near_run("tar", "Even replacing car in rope") is None)
+check("near run: two clue runs fit, so no hint", _D.near_run("fine tune", "fire tune and fina tune") is None)
+check("near run: refusal for a wordplay quote names the clue's words",
+      "reads 'direction' there" in w.not_in_clue("directior", "Working meeting in College headed in the wrong direction"),
+      w.not_in_clue("directior", "Working meeting in College headed in the wrong direction"))
+
+check("near run: refusal for a definition names the clue's words", _def_refusal("Austral state capital", "Watering hole in sweltering Austra state capital"),
+      _def_refusal("Austral state capital", "Watering hole in sweltering Austra state capital"))
+
 raise SystemExit(fails > 0)
