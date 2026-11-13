@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Suit and tie",
     "enumeration": "5"
    },
-   "solution": "MATCH"
+   "solution": "MATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0,
+      "meaning": "to suit is to go well with, to correspond"
+     },
+     {
+      "text": "tie",
+      "at": 9,
+      "meaning": "a tie is a sporting fixture, as in a cup tie"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British usage a cup tie is a knockout game, so 'tie' is a game rather than neckwear.",
+     "definitionFit": "Both senses fit: to go with something is to suit it, and a sporting fixture is a game between two sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,39 @@
     "text": "With therapeutic properties claimed in error",
     "enumeration": "9"
    },
-   "solution": "MEDICINAL"
+   "solution": "MEDICINAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "With therapeutic properties",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "error",
+       "at": 39,
+       "note": "in error suggests the letters are wrongly placed and need sorting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "claimed in",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some product is said to have healing benefits, a claim that is false.",
+     "definitionFit": "Something healing or curative has properties used to treat illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +117,43 @@
     "text": "Watch brief uprising",
     "enumeration": "5"
    },
-   "solution": "TIMER"
+   "solution": "TIMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Watch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "uprising",
+       "at": 12,
+       "note": "in a down clue, uprising means the word is read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brief",
+       "at": 6,
+       "gives": "REMIT",
+       "note": "a remit is a brief or terms of reference"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short account of a rebellion is observed.",
+     "walkthrough": "'uprising' reverses REMIT in this down entry.",
+     "definitionFit": "A stopwatch or clock that counts down is a timing device, like a watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +167,58 @@
     "text": "The morning after George's beginning to move into his house …",
     "enumeration": "8"
    },
-   "solution": "HANGOVER"
+   "solution": "HANGOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The morning after",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to move into",
+       "at": 37,
+       "note": "says that letter is placed inside the royal house"
+      }
+     ],
+     "parts": [
+      {
+       "words": "his house",
+       "at": 50,
+       "gives": "HANOVER",
+       "note": "the House of Hanover was the royal family of the four King Georges"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 27,
+         "note": "beginning picks out the first letter of George"
+        }
+       ],
+       "parts": [
+        {
+         "words": "George's",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The day after a party, King George starts to take up residence at home.",
+     "walkthrough": "The Georges I to IV were of the House of Hanover, so 'his house' is HANOVER; G goes inside it.",
+     "definitionFit": "A hangover is the headache and nausea felt the morning after heavy drinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +232,61 @@
     "text": "High-flown missile — a collection of such is incomplete",
     "enumeration": "9"
    },
-   "solution": "BOMBASTIC"
+   "solution": "BOMBASTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High-flown",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "missile",
+       "at": 11,
+       "gives": "BOMB",
+       "note": "a bomb is a missile dropped or thrown"
+      },
+      {
+       "words": "a",
+       "at": 21,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is incomplete",
+         "at": 42,
+         "note": "incomplete says the word for the collection loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "collection of such",
+         "at": 23,
+         "gives": "STICK",
+         "note": "a stick is a set of bombs released in a row from an aircraft"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A missile is described as pompous, while a set of them is said to fall short.",
+     "walkthrough": "A 'stick' of bombs is the run dropped together; 'is incomplete' docks its last letter to leave STIC.",
+     "definitionFit": "Bombastic language is inflated and pompous, the same as high-flown rhetoric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +300,48 @@
     "text": "… King boards large vessel",
     "enumeration": "4"
    },
-   "solution": "BRIG"
+   "solution": "BRIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boards",
+       "at": 7,
+       "note": "to board is to get on, so the king goes inside the word for large"
+      }
+     ],
+     "parts": [
+      {
+       "words": "large",
+       "at": 14,
+       "gives": "BIG",
+       "note": "big means large"
+      },
+      {
+       "words": "King",
+       "at": 2,
+       "gives": "R",
+       "note": "R is short for Rex, Latin for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch climbs aboard a great ship.",
+     "definitionFit": "A brig is a two-masted sailing ship, so it is a vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boards"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +355,29 @@
     "text": "Field-Marshal's capital",
     "enumeration": "10"
    },
-   "solution": "MONTGOMERY"
+   "solution": "MONTGOMERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Field-Marshal",
+      "at": 0,
+      "meaning": "Bernard ..., the British field marshal of the Second World War"
+     },
+     {
+      "text": "capital",
+      "at": 16,
+      "meaning": "the capital city of the US state of Alabama"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Monty the British commander of El Alamein shares his surname with Alabama's state capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +391,28 @@
     "text": "Member of relay team secure in position",
     "enumeration": "6"
    },
-   "solution": "ANCHOR"
+   "solution": "ANCHOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Member of relay team",
+      "at": 0,
+      "meaning": "the final, usually fastest, runner or swimmer in a relay"
+     },
+     {
+      "text": "secure in position",
+      "at": 21,
+      "meaning": "to fix something firmly in place"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The last leg of a relay is run by a team's strongest member, and to fix firmly in place is to make fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +426,80 @@
     "text": "Medical practitioner cut up, being taken in by this trick at first",
     "enumeration": "9"
    },
-   "solution": "THERAPIST"
+   "solution": "THERAPIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Medical practitioner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "being taken in by",
+         "at": 29,
+         "note": "says the reversed cut goes inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "at": 47,
+         "gives": "THIS"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 25,
+           "note": "in a down clue, up means the word is read from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cut",
+           "at": 21,
+           "gives": "PARE",
+           "note": "to pare is to cut or trim"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 58,
+         "note": "picks out the opening letter of trick"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trick",
+         "at": 52
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is upset, having been fooled by a trick.",
+     "walkthrough": "'Medical practitioner cut up' reads as an upset doctor, but 'up' is a reversal signal, giving ERAP, and 'cut' is the synonym being reversed.",
+     "definitionFit": "A therapist treats patients for illness or disability, a type of medical worker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +513,39 @@
     "text": "Acted out junior role",
     "enumeration": "5"
    },
-   "solution": "CADET"
+   "solution": "CADET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "junior role",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 6,
+       "note": "out signals the letters are rearranged, as in out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Acted",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor played a minor part.",
+     "definitionFit": "A cadet is a trainee in the forces or police, a junior position below the officers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +559,70 @@
     "text": "Vague rumour going around about new measure",
     "enumeration": "9"
    },
-   "solution": "DIMENSION"
+   "solution": "DIMENSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "measure",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vague",
+       "at": 0,
+       "gives": "DIM",
+       "note": "dim means vague or hazy"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 26,
+         "note": "about means surrounding, so the abbreviation is placed inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "going around",
+           "at": 13,
+           "note": "going around turns the word for rumour back to front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rumour",
+           "at": 6,
+           "gives": "NOISE",
+           "note": "noise can mean talk or rumour going about"
+          }
+         ]
+        },
+        {
+         "words": "new",
+         "at": 32,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indistinct rumour circulates about some new policy measure.",
+     "walkthrough": "'going around' reverses NOISE to ESION, and 'about' puts N inside it to give ENSION.",
+     "definitionFit": "A dimension is a measurement such as length or breadth, so it is a measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +636,45 @@
     "text": "Long, boring speech initially put out statement of belief",
     "enumeration": "5"
    },
-   "solution": "CREED"
+   "solution": "CREED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "statement of belief",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "initially put out",
+       "at": 20,
+       "note": "says the opening letter of the speech word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Long, boring speech",
+       "at": 0,
+       "gives": "SCREED",
+       "note": "a screed is a long tedious piece of writing or speech"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious oration was first delivered as a manifesto.",
+     "walkthrough": "'initially put out' removes the first letter, the S of SCREED.",
+     "definitionFit": "A creed is a formal set of religious or other convictions, a statement of faith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +688,49 @@
     "text": "Large bottle lad's added to heap",
     "enumeration": "6"
    },
-   "solution": "CARBOY"
+   "solution": "CARBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Large bottle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "added to",
+       "at": 19,
+       "note": "the boy goes after the car, joined to the end of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heap",
+       "at": 28,
+       "gives": "CAR",
+       "note": "a heap is slang for a battered old car"
+      },
+      {
+       "words": "lad's",
+       "at": 13,
+       "gives": "BOY",
+       "note": "a lad is a boy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy's contribution is put on a pile of rubbish.",
+     "walkthrough": "'Heap' is slang for an old rattletrap car, not a pile.",
+     "definitionFit": "A carboy is a big glass or plastic container, often cased, for holding corrosive liquids."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heap"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +744,57 @@
     "text": "I have to admit having entered a number without a clue",
     "enumeration": "8"
    },
-   "solution": "IGNORANT"
+   "solution": "IGNORANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without a clue",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having entered",
+         "at": 16,
+         "note": "says the number is put inside the word for admit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "admit",
+         "at": 10,
+         "gives": "GRANT",
+         "note": "to grant is to admit or concede"
+        },
+        {
+         "words": "number",
+         "at": 33,
+         "gives": "NO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to having keyed in a figure without knowing what they were doing.",
+     "walkthrough": "'without a clue' is the colloquial sense of knowing nothing, not a reference to the crossword.",
+     "definitionFit": "Being clueless is being uninformed, lacking knowledge of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +814,66 @@
      }
     ]
    },
-   "solution": "CLOVEHITCH"
+   "solution": "CLOVEHITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Means to form attachment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 40,
+       "note": "involving means containing, so the shortened word goes round affection"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 27,
+         "note": "not says the following word is removed from the cross-referenced answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "18",
+         "at": 34,
+         "gives": "CHITCHAT",
+         "note": "the answer at 18 down"
+        },
+        {
+         "words": "at",
+         "at": 31,
+         "gives": "AT",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "affection",
+       "at": 50,
+       "gives": "LOVE",
+       "note": "love is affection"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knot used to tie up is said not to be gossip but affection.",
+     "walkthrough": "The cross-reference with 'not at' leaves CHITCH, which 'involving' wraps round affection; the question mark flags the odd reference inside the definition.",
+     "definitionFit": "A clove hitch is a knot used to fasten a rope to a post, so a means of attaching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +897,57 @@
      }
     ]
    },
-   "solution": "NOMDEPLUME"
+   "solution": "NOMDEPLUME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "False name",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "wanting a shift",
+       "at": 50,
+       "note": "wanting a shift says the letters need to be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unemployed",
+         "at": 33
+        },
+        {
+         "words": "male",
+         "at": 44,
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "unknown",
+       "at": 22,
+       "gives": "Y",
+       "note": "Y is a standard algebraic unknown"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jobless man looks for a work shift under an assumed identity.",
+     "walkthrough": "'it's not unknown in' says that the letters of UNEMPLOYED plus M contain a Y that is left out; the rest are shuffled.",
+     "definitionFit": "A pen name is an assumed name used by a writer, a pseudonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +961,30 @@
     "text": "Temporary seamstress might",
     "enumeration": "9"
    },
-   "solution": "MAKESHIFT"
+   "solution": "MAKESHIFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Temporary",
+      "at": 0,
+      "meaning": "stopgap, improvised for the moment"
+     },
+     {
+      "text": "seamstress might",
+      "at": 10,
+      "meaning": "a dressmaker might sew a shift, a simple loose dress"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An improvised stopgap is a short-term substitute, and a needlewoman could sew a loose dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "might"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +998,48 @@
     "text": "One wearing a decoration, a circular object",
     "enumeration": "4"
    },
-   "solution": "DISC"
+   "solution": "DISC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "circular object",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 4,
+       "note": "one wearing something has it on the outside, so the decoration goes round the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decoration",
+       "at": 14,
+       "gives": "DSC",
+       "note": "the DSC, Distinguished Service Cross, is a military decoration"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier with a medal is likened to a round thing.",
+     "walkthrough": "The DSC (Distinguished Service Cross) is a British military medal.",
+     "definitionFit": "A disc is any flat round shape, such as a record or a plate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1053,44 @@
     "text": "Protection against piracy — though not a piracy Goth exercised",
     "enumeration": "9"
    },
-   "solution": "COPYRIGHT"
+   "solution": "COPYRIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Protection against piracy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "exercised",
+       "at": 53,
+       "note": "exercised means worked over, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "piracy Goth",
+       "at": 41
+      },
+      {
+       "words": "a",
+       "at": 39
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Legal protection against plunder, though a Goth pirate was busy all the same.",
+     "walkthrough": "'though not a' says the letters of PIRACY GOTH lose an A before being rearranged.",
+     "definitionFit": "Copyright is the legal right protecting creative work against unauthorised copying, known as piracy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1104,57 @@
     "text": "Gossip from young girl, a spiteful female, about husband",
     "enumeration": "8"
    },
-   "solution": "CHITCHAT"
+   "solution": "CHITCHAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gossip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "young girl",
+       "at": 12,
+       "gives": "CHIT",
+       "note": "a chit is a cheeky young girl"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 43,
+         "note": "about means surrounding, so the woman goes round husband"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a spiteful female",
+         "at": 24,
+         "gives": "CAT",
+         "note": "a cat is a spiteful woman"
+        },
+        {
+         "words": "husband",
+         "at": 49,
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tittle-tattle from a girl and a catty woman concerning someone's husband.",
+     "definitionFit": "Chitchat is idle chatter or small talk, the same as gossip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1168,45 @@
     "text": "Physician nips head off liver parasite",
     "enumeration": "4"
    },
-   "solution": "LUKE"
+   "solution": "LUKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Physician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "nips head off",
+       "at": 10,
+       "note": "says the parasite's first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "liver parasite",
+       "at": 24,
+       "gives": "FLUKE",
+       "note": "the liver fluke is a flatworm parasite of sheep and cattle"
+      },
+      {
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor removes the head of a parasite from the liver.",
+     "walkthrough": "St Luke is called 'the beloved physician' in the New Testament.",
+     "definitionFit": "Saint Luke the evangelist was by tradition a doctor, named the beloved physician by Paul."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1230,43 @@
      }
     ]
    },
-   "solution": "OVERTHETOP"
+   "solution": "OVERTHETOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inordinately",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "After renaissance",
+       "at": 0,
+       "note": "a renaissance is a rebirth, so the letters are reborn in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poet",
+       "at": 19
+      },
+      {
+       "words": "throve",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Following a revival, a poet flourished beyond all measure.",
+     "definitionFit": "Doing something to excess, past all reasonable limits, is going too far, an idiom from trench warfare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1280,42 @@
     "text": "Stop Scandinavian talking",
     "enumeration": "6"
    },
-   "solution": "FINISH"
+   "solution": "FINISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FINISH",
+     "indicators": [
+      {
+       "text": "talking",
+       "at": 18,
+       "note": "talking says the word is spoken, so it sounds like another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scandinavian",
+       "at": 5,
+       "gives": "FINNISH",
+       "note": "Finnish refers to Finland, a Nordic country"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ask a Norwegian to stop chattering.",
+     "definitionFit": "To finish is to stop or end an activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1329,42 @@
     "text": "State with inadequate illumination",
     "enumeration": "8"
    },
-   "solution": "GASLIGHT"
+   "solution": "GASLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "illumination",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "State",
+       "at": 0,
+       "gives": "GA",
+       "note": "GA is the abbreviation for the US state of Georgia"
+      },
+      {
+       "words": "inadequate",
+       "at": 11,
+       "gives": "SLIGHT",
+       "note": "slight means small, insufficient"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A region is described as poorly lit.",
+     "walkthrough": "'with' just joins the pieces.",
+     "definitionFit": "Gaslight is lighting produced by burning gas, a form of lighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1378,56 @@
     "text": "Good pop music, number one in hit chart",
     "enumeration": "5"
    },
-   "solution": "GRAPH"
+   "solution": "GRAPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chart",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "words": "pop music",
+       "at": 5,
+       "gives": "RAP",
+       "note": "rap is a form of popular music"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "number one in",
+         "at": 16,
+         "note": "number one picks out the first letter of hit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hit",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A great pop song tops the charts.",
+     "definitionFit": "A graph is a diagram showing data, a type of chart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chart"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1441,29 @@
     "text": "Writer who added fuel to the flames?",
     "enumeration": "6"
    },
-   "solution": "STOKER"
+   "solution": "STOKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0,
+      "meaning": "Bram ..., the Irish novelist who wrote Dracula"
+     },
+     {
+      "text": "who added fuel to the flames?",
+      "at": 7,
+      "meaning": "a person who feeds a furnace or boiler with coal"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Bram Stoker was the author of Dracula, and a ship's or engine's fireman shovels coal into a fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1477,43 @@
     "text": "Element I discovered in Danish bread",
     "enumeration": "5"
    },
-   "solution": "KRONE"
+   "solution": "KRONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Danish bread",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Element",
+       "at": 0,
+       "gives": "KR",
+       "note": "Kr is the chemical symbol for the element krypton"
+      },
+      {
+       "words": "I",
+       "at": 8,
+       "gives": "ONE",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some chemical is found in Danish loaves.",
+     "walkthrough": "'bread' is slang for money; 'discovered in' only links.",
+     "definitionFit": "The krone is the currency of Denmark, and bread is slang for money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1527,28 @@
     "text": "System of weights introduced by French sergeant",
     "enumeration": "4"
    },
-   "solution": "TROY"
+   "solution": "TROY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "System of weights introduced by French",
+      "at": 0,
+      "meaning": "... weight, used for precious metals, named after the French town ..."
+     },
+     {
+      "text": "sergeant",
+      "at": 39,
+      "meaning": "Sergeant ..., the dashing soldier in Hardy's Far From the Madding Crowd"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The troy system measures gold and silver and takes its name from Troyes, and Hardy's seducing soldier is Sergeant Troy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1562,45 @@
     "text": "A politician, I can offer a valid defence against most charges",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a valid defence against most charges",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "politician",
+       "at": 2,
+       "gives": "LIB",
+       "note": "LIB is short for a Liberal, a politician"
+      },
+      {
+       "words": "I",
+       "at": 14,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician boasts of having a sound defence against nearly any accusation.",
+     "walkthrough": "'can offer' links the wordplay to the definition.",
+     "definitionFit": "An alibi is proof of being elsewhere when a crime occurred, which clears a suspect of most offences."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1620,63 @@
      }
     ]
    },
-   "solution": "TORCHSONG"
+   "solution": "TORCHSONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expression of unrequited love",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "necklace",
+       "at": 32,
+       "gives": "TORC",
+       "note": "a torc is a twisted metal neck ring worn by ancient Celts"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 55,
+         "note": "rejected means sent back, so the letters of good and food together are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "good",
+           "at": 45,
+           "gives": "G"
+          },
+          {
+           "words": "food",
+           "at": 50,
+           "gives": "NOSH",
+           "note": "nosh is slang for food"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jilted lover's present of jewellery and a nice meal are turned down.",
+     "walkthrough": "'rejected' reverses GNOSH to HSONG after TORC.",
+     "definitionFit": "A torch song is a sentimental ballad lamenting love that is not returned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -492,7 +1700,55 @@
      }
     ]
    },
-   "solution": "HITTHEHAY"
+   "solution": "HITTHEHAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "retired",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "written by",
+       "at": 17,
+       "note": "written by means placed next to, so the grass word follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lambaste",
+       "at": 0,
+       "gives": "HIT",
+       "note": "to lambaste is to hit or attack"
+      },
+      {
+       "words": "article",
+       "at": 9,
+       "gives": "THE",
+       "note": "THE is the definite article"
+      },
+      {
+       "words": "grass",
+       "at": 28,
+       "gives": "HAY",
+       "note": "hay is dried grass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attacks a piece written by an informer who has since retired.",
+     "walkthrough": "'grass' looks like British slang for an informer, but here it is dried grass.",
+     "definitionFit": "To go to bed is the idiomatic meaning, and retired is an old-fashioned way of saying went to bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 29,
@@ -506,7 +1762,29 @@
     "text": "Delightful surprise for doctor",
     "enumeration": "5"
    },
-   "solution": "TREAT"
+   "solution": "TREAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delightful surprise",
+      "at": 0,
+      "meaning": "an unexpected pleasure or special outing"
+     },
+     {
+      "text": "doctor",
+      "at": 24,
+      "meaning": "to doctor is to give medical care to a patient"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An unexpected pleasure is a delight, and to give medical care to a patient is to attend to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   }
  ]
 }
