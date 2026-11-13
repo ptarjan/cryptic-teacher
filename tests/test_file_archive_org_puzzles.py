@@ -3562,6 +3562,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TELEGRAPH_PRIZE_MEND_FIX:
+        return f._TELEGRAPH_PRIZE_MEND_FIX[paper][2]
     if paper in f._INDY_ENTRIES_FIX:
         return f._INDY_ENTRIES_FIX[paper][2]
     if paper in f._TELEGRAPH_TITLE_FIX:
@@ -5107,7 +5109,7 @@ check("a Gale Telegraph Saturday puzzle of 1987-2000 with no solution read is du
 _prize = [line("PRIZE SOLUTION of", 1026, 3635), line("DECEMBER 3 3-No.21,423", 993, 3656)]
 check("a Monday's two-line prize heading ('PRIZE SOLUTION of' over 'DECEMBER 3-No.21,423') is the Saturday prize's number, "
       "seven titles before its own, read clean only",
-      [[21429], [21423], [], []],  # FIXME: gale_telegraph_headings mends the prize 21423 to the title-1 21429 (one digit off); fixing moves the scan key, needs a pin
+      [[21423], [21423], [], []],
       [[n for n, _ in f.gale_telegraph_headings(_prize, [21430])[1]], [n for n, _ in f.telegraph_prize_headings(_prize, [21429])],
        [n for n, _ in f.telegraph_prize_headings(_prize, [21460])], [n for n, _ in f.gale_telegraph_headings(_prize)[1]]])
 _sols = [[(1320, 4366, 1494, 4409, "SolutionS")],
