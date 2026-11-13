@@ -88,7 +88,7 @@ def respell(text, clue):
              if [w.group().casefold() for w in words[k:k + n]] == want} if n else set()
     if len(found) == 1:
         return found.pop()
-    return damaged_run(text, clue) or text
+    return damaged_run(text, clue, misread=False) or text
 
 
 def _fold_accents(s):
@@ -100,14 +100,16 @@ def _fold_accents(s):
 INFLECTIONS = {"s", "es", "d", "ed", "ing", "ly", "er", "ers", "est", "y"}
 
 
-def damaged_run(text, clue):
+def damaged_run(text, clue, misread=True):
     """The clue's one run that `text` quotes when the clue is scan-damaged (the
     refusals' commonest cause: the model quotes the clue as printed, the stored
     clue has the scan's debris): a word broken by a hyphen or spaces ('dis,
     patched'), a stray capital or 'Check tod' banner between or inside words, a
     final word cut short ('a br' for 'a bribe'), an accent the quote dropped
     ('Bronte' for 'Brontë'). The clue's own characters for the run, or None
-    when no run or more than one fits (that stays refused)."""
+    when no run or more than one fits (that stays refused). `misread` also takes a
+    run a letter or two off the quote's (the scan read a letter wrong: apply's
+    mend; a committed fragment that far from its clue wants a printedClue)."""
     if not isinstance(text, str) or not isinstance(clue, str):
         return None
     want = [w.casefold() for w in WORD.findall(_fold_accents(text.translate(LOOKALIKES)))]
@@ -157,7 +159,7 @@ def damaged_run(text, clue):
     for ci in range(len(toks)):
         if not junk[ci]:
             walk(0, ci, None)
-    if not runs:
+    if not runs and misread:
         runs = _misread_runs(want, toks, low, junk)
     if len(runs) != 1:
         return None
@@ -199,6 +201,15 @@ def _cut_short(q, parts):
     return False
 
 
+def _word_bounds(want):
+    """(start, end) of each word of the quote's letters run together."""
+    out, at = [], 0
+    for w in want:
+        out.append((at, at + len(w)))
+        at += len(w)
+    return out
+
+
 def _misread_runs(want, toks, low, junk):
     """{(start, end)} of the clue's run of words whose letters, run together, are the
     quote's letters give or take the scan's misreading: a letter read wrong or
@@ -224,10 +235,14 @@ def _misread_runs(want, toks, low, junk):
                     or got.startswith(q) and got[len(q):] in INFLECTIONS:
                 continue          # the model's own inflection of the clue's word, not a misreading
             cut = _cut_short(q, [low[k] for k in idx[a:b + 1]])
+            if not cut and any(_lev(q[:x] + q[y:], got) <= _lev(q, got) for x, y in _word_bounds(want)):
+                continue          # the fit only drops a whole word of the quote ('a step' for 'step')
+            edges = {x for x, _ in _word_bounds(want)} | {len(q)}
             if b > a and not cut and any(
-                    _lev(q, trimmed) <= _lev(q, got)
-                    for trimmed in (got[:-len(low[idx[b]])], got[len(low[idx[a]]):])):
-                continue          # an edge word the fit does not need ('keep a' for 'keeps')
+                    (x in edges or x == 0 or y == len(got)) and _lev(q, got[:x] + got[y:]) <= _lev(q, got)
+                    for x, y in _word_bounds([low[k] for k in idx[a:b + 1]])):
+                continue          # a whole clue word the quote leaves out ('keep a' for 'keeps', 'Dog I saw');
+                                  # one inside a quote's word ('avail a able') is the scan's split
             d = len(q) - len(got) if cut else _lev(q, got)
             if d <= 1 or (d <= 2 and cut):
                 rank = (d, abs(b - a + 1 - len(want)))
@@ -303,6 +318,8 @@ def place(definitions, clue):
     for d in defs:
         if isinstance(d.get("text"), str):
             d["text"] = respell(d["text"], clue)
+            if d["text"] not in clue and "#" not in d["text"]:
+                d["text"] = damaged_run(d["text"], clue) or d["text"]
             m = re.fullmatch(r"(.+?)#(\d+)", d["text"]) if "#" in d["text"] else None
             if m and d["text"] not in clue and "at" not in d:
                 # 'talk#2' as in a wordplay quote: the nth copy of the words; the

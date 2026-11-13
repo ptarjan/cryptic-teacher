@@ -933,7 +933,8 @@ check("near run: refusal for a wordplay quote names the clue's words",
       "reads 'direction' there" in w.not_in_clue("directior", "Working meeting in College headed in the wrong direction"),
       w.not_in_clue("directior", "Working meeting in College headed in the wrong direction"))
 
-check("near run: refusal for a definition names the clue's words", _def_refusal("Austral state capital", "Watering hole in sweltering Austra state capital"),
-      _def_refusal("Austral state capital", "Watering hole in sweltering Austra state capital"))
+check("near run: a definition a letter off the clue is placed, not refused",
+      _D.place([{"text": "Austral state capital"}], "Watering hole in sweltering Austra state capital")[0]["text"]
+      == "Austra state capital")
 
 raise SystemExit(fails > 0)
