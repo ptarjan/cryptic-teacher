@@ -4969,6 +4969,30 @@ check("a clue number run into its word (1.5Carolyn, 1,7Breach, 1lluminate) is sp
        f.RANKS[f.FT_GLUED] == 2 and f.FT_GLUED in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.FT_GLUED) is not None
        and f.FT_GLUED in _eq_bp.FIX_LANDED and f.FT_GLUED in _eq_bp.UNFILED_FIRST])
 
+# The Gale FT's down list runs on in a third column right of the two (2002-03-20's 19, 21, 23, 25 down).
+_rt = (1776, 1370, 5485, f.Rise(110))
+_rt3 = (*_rt, f.Third(2200))
+check("a Gale FT page's third clue column is a window of its own right of the second, from the same top; no third "
+      "column without the marker; the FT's foot runs FT_DROP of the grid's height under it; FT_THIRD is due for a page "
+      "read with a down clue blank, once, ranked, and in "
+      "BLANKET_PASSES",
+      [[(968, 1370, 1370, 4414), (1370, 1776, 1776, 4414)], 2200, None,
+       [(968, 1370, 1370, 4414), (1370, 1776, 1776, 4414), (1776, 2200, 2200, 4414)], [True, False, False, False],
+       [(1776, 5564, 110), (1776, 5711, 110), (1776, 5711)], True],
+      [f.windows_of((193, 4524, 963, 5290), right=_rt)[:2], f.third_of(_rt3), f.third_of(_rt),
+       f.windows_of((193, 4524, 963, 5290), right=_rt3),
+       [f.ft_third_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]}),
+        f.ft_third_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"20-across": "x", "1-across": "x"}}]}),
+        f.ft_third_due({**_ftrow, "readAt": "2027-01-01T00:00:00+00:00",
+                        "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]}),
+        f.ft_third_due({**_ftrow, "edition": "GaleTimes2004UKEnglish/2004-12-05",
+                        "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]})],
+       [f.ft_foot(types.SimpleNamespace(height=5564), (193, 4524, 963, 5290), (1776, 5000, 110)),
+        f.ft_foot(types.SimpleNamespace(height=9000), (193, 4524, 963, 5290), (1776, 5000, 110)),
+        f.ft_foot(types.SimpleNamespace(height=9000), (193, 4524, 963, 5290), (1776, 5600))],
+       f.RANKS[f.FT_THIRD] == 2 and f.FT_THIRD in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.FT_THIRD) is not None
+       and f.FT_THIRD in _eq_bp.FIX_LANDED and f.FT_THIRD in _eq_bp.UNFILED_FIRST])
+
 # The Gale Sunday Times 1995-2006 page: the two clue columns left of the grid ran past left_bottom's 0.3 cut.
 _stp = f.paper_of("GaleSundayTimes2004UKEnglish/2004-12-05")
 _strow = {"edition": "GaleSundayTimes2004UKEnglish/2004-12-05", "inputs": "x", "readAt": "2026-11-07T11:00:00+00:00",
