@@ -73,16 +73,44 @@ REFRESH_SECONDS = 20 * 60
 REFRESH_BATCH = 200
 
 
+def tracked_blobs(root=None):
+    """{repo-relative path: git blob id} for the committed files whose working copy
+    is unmodified; {} when git cannot say. The id is the same in every checkout, and
+    one call costs no file reads. A modified or untracked file is left out."""
+    root = root or progress.ROOT
+    try:
+        run = lambda *a: subprocess.run(["git", *a], cwd=root, capture_output=True,
+                                        text=True, check=True).stdout
+        listing, moved = run("ls-files", "-s", "-z"), run("ls-files", "-m", "-z")
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    blobs = {}
+    for ent in listing.split("\0"):
+        meta, _, name = ent.partition("\t")
+        parts = meta.split()
+        if len(parts) == 3 and parts[2] == "0":
+            blobs[name] = parts[1]
+    for name in moved.split("\0"):
+        blobs.pop(name, None)
+    return blobs
+
+
 def cached_rows(paths, cache=None, clock=time.monotonic, budget=REFRESH_SECONDS,
-                batch=REFRESH_BATCH):
+                batch=REFRESH_BATCH, blobs=None, root=None):
     """puzzle_row() for each of paths that exists. Each cached row remembers the
     code_digest() and time it was derived under. A file that moved (size,
     mtime_ns) or is new is read at once; a row from an older digest is stale:
     stale rows are re-derived annotated first, then oldest first, until `budget`
     seconds of clock() pass, and the rest are kept as they are, so a night
-    always finishes and the cache converges over a few nights. Rewrites the
-    cache with exactly these paths."""
+    always finishes and the cache converges over a few nights. New and moved
+    files count against the same budget: past it they are left out of the
+    result (and the cache) and the next run carries on. A committed, unmodified
+    file is keyed by its repo-relative path and git blob id, so every checkout
+    shares the cache; any other file by its path, size and mtime. Rewrites the
+    cache with the paths it read."""
     cache = cache or ROWS_CACHE
+    root = root or progress.ROOT
+    blobs = tracked_blobs(root) if blobs is None else blobs
     code = code_digest()
     try:
         held = json.loads(cache.read_text())
@@ -91,15 +119,24 @@ def cached_rows(paths, cache=None, clock=time.monotonic, budget=REFRESH_SECONDS,
     except (OSError, ValueError, AttributeError, KeyError, TypeError):
         held, old = {}, None
     stamps, out, when, fresh, stale = {}, {}, {}, [], []
+    keys = {}
     for path in paths:
-        key = str(path)
         try:
-            st = os.stat(path)
-        except FileNotFoundError:
-            continue
-        stamps[key] = [st.st_size, st.st_mtime_ns]
+            rel = str(Path(path).relative_to(root))
+        except ValueError:
+            rel = None
+        if rel in blobs:
+            key, stamp = rel, ["blob", blobs[rel]]
+        else:
+            try:
+                st = os.stat(path)
+            except FileNotFoundError:
+                continue
+            key, stamp = str(path), [st.st_size, st.st_mtime_ns]
+        keys[str(path)] = key
+        stamps[key] = stamp
         hit = held.get(key)
-        if isinstance(hit, list) and len(hit) >= 3 and hit[:2] == stamps[key]:
+        if isinstance(hit, list) and len(hit) >= 3 and hit[:2] == stamp:
             out[key] = tuple(hit[2])
             digest = hit[3] if len(hit) > 3 else old
             when[key] = hit[4] if len(hit) > 4 else 0
@@ -108,18 +145,29 @@ def cached_rows(paths, cache=None, clock=time.monotonic, budget=REFRESH_SECONDS,
         else:
             fresh.append(path)
     now = int(time.time())
-    for path, row in zip(fresh, parallel.pmap(puzzle_row, fresh)):
-        out[str(path)], when[str(path)] = tuple(row), now
-    stale.sort(key=lambda p: (not out[str(p)][4], when[str(p)]))
     start, done = clock(), set()
-    for i in range(0, len(stale), batch):
-        if clock() - start >= budget:
-            break
-        chunk = stale[i:i + batch]
-        for path, row in zip(chunk, parallel.pmap(puzzle_row, chunk)):
-            out[str(path)], when[str(path)] = tuple(row), now
-            done.add(str(path))
-    left = {str(p) for p in stale} - done
+
+    def derive(todo):
+        for i in range(0, len(todo), batch):
+            if clock() - start >= budget:
+                return todo[i:]
+            chunk = todo[i:i + batch]
+            for path, row in zip(chunk, parallel.pmap(puzzle_row, chunk)):
+                k = keys[str(path)]
+                out[k], when[k] = tuple(row), now
+                done.add(k)
+        return []
+
+    unread = derive(fresh)
+    for path in unread:
+        stamps.pop(keys[str(path)], None)
+    if unread:
+        print(f"progress_record: {len(unread)} new or moved puzzle file(s) not read: "
+              f"the {budget}s budget ran out; the next run carries on", file=sys.stderr)
+    stale = [p for p in stale if keys[str(p)] in stamps]
+    stale.sort(key=lambda p: (not out[keys[str(p)]][4], when[keys[str(p)]]))
+    derive(stale)
+    left = {keys[str(p)] for p in stale} - done
     try:
         cache.parent.mkdir(parents=True, exist_ok=True)
         tmp = cache.with_name(f"{cache.name}.{os.getpid()}.tmp")
