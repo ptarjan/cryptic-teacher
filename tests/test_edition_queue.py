@@ -4193,6 +4193,11 @@ _pc[0] = 3601.0
 check("paper: lifted after the span", False, _by3.paper_demoted(_st[0][3]))
 eq.BANDS = _saved_bands
 
+_jt = [{"rel": f"jumbo:J{i}"} for i in range(3)] + [{"rel": f"tls:T{i}"} for i in range(2)] + [{"rel": "L0"}]
+check("eq.jumbo_tls_alternate: TLS and Jumbo one for one, the Listener's last",
+      ["tls:T0", "jumbo:J0", "tls:T1", "jumbo:J1", "jumbo:J2", "L0"],
+      [u["rel"] for u in eq.jumbo_tls_alternate(_jt, "jumbo:", "tls:")])
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")
