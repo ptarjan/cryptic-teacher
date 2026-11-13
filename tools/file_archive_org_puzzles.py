@@ -10380,6 +10380,29 @@ def indy_sunday_beside(paper, d, gbox):
         and gbox[0] - (gbox[2] - gbox[0]) - 60 >= 0
 
 
+#: The reason of a Gale Sunday Times page whose two clue columns left of its grid were cut LEFT_DROP of the grid's
+#: height under its foot (11-13: 451 of 486 incomplete 1995-2006 files had OCR text running to the crop's last line, the
+#: highest-numbered clues "no reading laid a clue on it"): read since to the page's foot.
+SUNDAY_TIMES_FOOT = "Gale Sunday Times page filed incomplete, its clue columns left of its grid read since to the page's foot"
+REREAD_SUNDAY_TIMES_FOOT = "2026-11-13T22:00:00+00:00"
+
+
+def sunday_times_foot_due(row):
+    """Whether Gale Sunday Times ledger `row` is due SUNDAY_TIMES_FOOT: a puzzle of it written incomplete with a
+    clue no reading laid, read before REREAD_SUNDAY_TIMES_FOOT."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galesundaytimes" or "inputs" not in row:
+        return False
+    return any(v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_TIMES_FOOT))
+
+
+def sunday_times_beside(paper, side):
+    """Whether Gale Sunday Times page of `paper` has its grid right of its clue columns (side "left": the title
+    right of the grid): the columns run on past left_bottom's cut, to the page's foot."""
+    return paper.key == "galesundaytimes" and side == "left"
+
+
 def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
     """_read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
@@ -10481,7 +10504,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # The lists run on in a third column under the grid (x 985-1330): the crop reaches its end, the grid blanked
     # (rapid_lines' three-number crop).
     crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, img.height, ios_third_right(gbox)) if beside and indy_sunday_beside(paper, d, gbox) \
-        else (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside \
+        else (gbox[0] - (gbox[2] - gbox[0]) - 60, img.height if sunday_times_beside(paper, side) else left_bottom(gbox)) if beside \
         else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
@@ -18957,6 +18980,8 @@ def fix_reason(row):
         return INDY_BARRED
     if ft_next_due(row):
         return FT_HEADINGS
+    if sunday_times_foot_due(row):
+        return SUNDAY_TIMES_FOOT
     if ft_glued_due(row):
         return FT_GLUED
     if ft_clues_due(row):
@@ -19592,7 +19617,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED)
+                  FT_CLUES, FT_GLUED, SUNDAY_TIMES_FOOT)
 
 
 def refusal_passes(why):
@@ -19852,7 +19877,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20483,7 +20508,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED, SUNDAY_TIMES_FOOT)
 
 
 def keeps_vlm(why, row, unit=None):
