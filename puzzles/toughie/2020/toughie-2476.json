@@ -54,7 +54,8 @@
      "indicators": [
       {
        "text": "back",
-       "note": "going back means the remaining letters are read from right to left"
+       "at": 41,
+       "note": "back tells us the letters left over are then read from right to left"
       }
      ],
      "parts": [
@@ -63,17 +64,19 @@
        "indicators": [
         {
          "text": "absent",
-         "note": "something absent is missing, so the named letters are taken out of the phrase that follows"
+         "at": 24,
+         "note": "absent tells us the words 'if an' go missing from the phrase 'wife rang'"
         }
        ],
        "parts": [
         {
          "words": "wife rang",
-         "note": "taken as written"
+         "at": 31
         },
         {
          "words": "if an",
-         "note": "these letters are the ones removed"
+         "at": 18,
+         "gives": "IFAN"
         }
        ]
       }
@@ -81,8 +84,8 @@
     },
     "explanation": {
      "surface": "A man leaps up, wondering whether his missing wife has phoned him back.",
-     "walkthrough": "Strike I, F, A and N from 'wife rang' to leave WERG, then read it backwards to get GREW.",
-     "definitionFit": "Something that sprang up, like a weed or a town, rose or developed, which is what grew means."
+     "walkthrough": "'absent' strikes I, F, A and N from 'wife rang', leaving WERG; 'back' turns that round. 'if an absent' reads as a conditional, but it lists the letters to remove.",
+     "definitionFit": "Something that sprang up rose or developed quickly, like a weed shooting upward or a town expanding."
     },
     "features": {
      "answerInScene": false,
@@ -107,8 +110,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "is it PC there?",
-      "at": 49
+      "text": "PC there",
+      "at": 55
      }
     ],
     "wordplay": {
@@ -116,27 +119,31 @@
      "parts": [
       {
        "words": "Low-down",
+       "at": 0,
        "gives": "GEN",
        "note": "gen is British slang for information, the low-down"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
          "text": "disturbing",
-         "note": "disturbing something throws it into disorder, so the following letters are rearranged"
+         "at": 15,
+         "note": "disturbing pictures the Romeo barging in between the lady's letters"
         }
        ],
        "parts": [
         {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "Romeo is R in the NATO phonetic alphabet"
-        },
-        {
          "words": "lady in Saint-Tropez",
+         "at": 26,
          "gives": "DAME",
          "note": "dame is French for lady"
+        },
+        {
+         "words": "Romeo",
+         "at": 9,
+         "gives": "R",
+         "note": "Romeo is R in the NATO phonetic alphabet"
         }
        ]
       }
@@ -144,7 +151,7 @@
     },
     "explanation": {
      "surface": "A seedy Romeo bothering a woman on the Riviera, and asking whether such behaviour is politically correct there.",
-     "walkthrough": "PC is not political correctness but Police Constable, a British police officer.",
+     "walkthrough": "PC is not political correctness but Police Constable, a British police officer; 'there' points back to Saint-Tropez.",
      "definitionFit": "A gendarme is a French police officer, the equivalent in Saint-Tropez of a British constable."
     },
     "features": {
@@ -183,12 +190,14 @@
        "indicators": [
         {
          "text": "covering",
+         "at": 18,
          "note": "a cover goes over and around something, so the exit word wraps the following pieces"
         }
        ],
        "parts": [
         {
          "words": "way out",
+         "at": 9,
          "gives": "EXIT",
          "note": "an exit is a way out"
         },
@@ -197,13 +206,14 @@
          "parts": [
           {
            "words": "physical exertions",
+           "at": 27,
            "gives": "PE",
            "note": "PE is physical education, school exercise"
           },
           {
            "words": "Democrat",
-           "gives": "D",
-           "note": "D is the abbreviation for Democrat"
+           "at": 49,
+           "gives": "D"
           }
          ]
         }
@@ -211,15 +221,16 @@
       },
       {
        "words": "follower",
+       "at": 62,
        "gives": "E",
        "note": "read as the follower of D: E comes after D in the alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper story that the press is out of the way, covering politicians' exertions.",
-     "walkthrough": "'Press' looks like the noun for newspapers but is a verb. 'Follower' is read as the letter after the Democrat's in the alphabet, which is the least certain step.",
-     "definitionFit": "To press a matter is to push it forward urgently, which is what expedite means as a verb."
+     "surface": "A news item that the press is out of the way, covering politicians' exertions.",
+     "walkthrough": "'Press' looks like the noun for newspapers but is a verb. 'Follower' is read as the letter after the Democrat's D in the alphabet.",
+     "definitionFit": "To press a matter is to push it forward urgently, hurrying it along."
     },
     "features": {
      "answerInScene": false,
@@ -246,16 +257,15 @@
      {
       "text": "Not willing",
       "at": 0,
-      "meaning": "first meaning: disinclined or reluctant to do something"
+      "meaning": "disinclined or reluctant to do something"
      },
      {
       "text": "ill",
       "at": 18,
-      "meaning": "second meaning: slightly unwell"
+      "meaning": "slightly unwell, under the weather"
      }
     ],
     "explanation": {
-     "walkthrough": "The surface reads like someone refusing to be sick; the word means both reluctant and mildly unwell.",
      "definitionFit": "The adjective covers both a reluctant attitude and a minor bout of sickness, two separate senses of one word."
     },
     "features": {
@@ -290,17 +300,20 @@
      "indicators": [
       {
        "text": "rejecting",
+       "at": 6,
        "note": "rejecting something throws it out, so the French article is removed from the word for spurs"
       }
      ],
      "parts": [
       {
        "words": "Spurs",
+       "at": 0,
        "gives": "NEEDLES",
        "note": "to needle someone is to goad or spur them"
       },
       {
        "words": "the Parisian's",
+       "at": 16,
        "gives": "LE",
        "note": "le is French for the; the apostrophe-s is read as 'is'"
       }
@@ -309,7 +322,7 @@
     "explanation": {
      "surface": "A football team refusing a Frenchman's requests.",
      "walkthrough": "'Spurs' looks like the London football club Tottenham Hotspur, but it is a verb meaning goads.",
-     "definitionFit": "Needs and demands are both plural nouns for things that are required or insisted upon."
+     "definitionFit": "Both are plural nouns for things that are required or insisted upon."
     },
     "features": {
      "answerInScene": false,
@@ -349,6 +362,7 @@
      "parts": [
       {
        "words": "Yours truly",
+       "at": 0,
        "gives": "I",
        "note": "the setter refers to themself as I"
       },
@@ -357,6 +371,7 @@
        "indicators": [
         {
          "text": "keeping",
+         "at": 27,
          "note": "keeping something means holding it inside, so the time word is placed within"
         }
        ],
@@ -366,18 +381,20 @@
          "indicators": [
           {
            "text": "dancing",
+           "at": 18,
            "note": "dancing letters move around, so the language word is rearranged"
           }
          ],
          "parts": [
           {
            "words": "Latin",
-           "note": "taken as written"
+           "at": 12
           }
          ]
         },
         {
          "words": "time",
+         "at": 35,
          "gives": "ERA",
          "note": "an era is a period of time"
         }
@@ -387,7 +404,8 @@
     },
     "explanation": {
      "surface": "The setter goes Latin dancing and keeps time along with everyone else.",
-     "definitionFit": "Inter alia is a Latin phrase used in English meaning among other things, so it adds others to a list."
+     "walkthrough": "'dancing' scrambles the language name to NTLIA; 'Latin' looks like a style of dance, but here it is just letters, and 'keeping' wraps them round the time word.",
+     "definitionFit": "This Latin phrase used in English means among other things, adding others to a list."
     },
     "features": {
      "answerInScene": false,
@@ -427,17 +445,20 @@
      "indicators": [
       {
        "text": "spilling over",
+       "at": 6,
        "note": "a spill sends the contents of the cup everywhere, so the letters are mixed up with the others"
       }
      ],
      "parts": [
       {
        "words": "Drink",
+       "at": 0,
        "gives": "CUP",
        "note": "a cup is a drink, as in a cup of tea"
       },
       {
        "words": "fights",
+       "at": 42,
        "gives": "BRAWLING",
        "note": "brawling is fighting noisily"
       }
@@ -446,8 +467,8 @@
     "andLit": true,
     "explanation": {
      "surface": "Drinks spilling over and fights breaking out, with a question about what caused them.",
-     "walkthrough": "The whole clue also describes the answer: a night drinking from bar to bar ends in spills and brawls. Reversing the drink alone would not place its C after the B, so the letters are treated as mixed.",
-     "definitionFit": "A pub crawl is a tour of several bars in one night, and heavy drinking of that kind often leads to fights."
+     "walkthrough": "'spilling over' mixes CUP in with BRAWLING. The whole clue also describes the answer: a night drinking from bar to bar ends in spills and brawls.",
+     "definitionFit": "A tour of several bars in one night is heavy drinking of the kind that often leads to fights."
     },
     "features": {
      "answerInScene": true,
@@ -480,26 +501,25 @@
      "indicators": [
       {
        "text": "boxing",
+       "at": 20,
        "note": "to box something is to enclose it, so the answer sits packed inside the run of words before"
       }
      ],
      "parts": [
       {
        "words": "Broadcast a Tuesday",
-       "gives": "STATUE",
-       "note": "the answer runs across the end of the first word and into the next two"
+       "at": 0
       }
      ]
     },
     "explanation": {
      "surface": "A TV schedule note about a boxing match being broadcast one Tuesday.",
      "walkthrough": "'Broadcast' and 'boxing' both suggest television and sport; one is fodder and the other tells you to look inside it.",
-     "definitionFit": "A statue is a sculpture put on display for people to look at, so it is an object made for viewing."
+     "definitionFit": "A sculpture is put on display for people to look at, so it is an object made for viewing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "boxing"
     }
    }
@@ -529,24 +549,27 @@
      "indicators": [
       {
        "text": "penned by",
+       "at": 11,
        "note": "something penned is shut in a pen, so the record goes inside the animals word"
       }
      ],
      "parts": [
       {
        "words": "Animals",
+       "at": 21,
        "gives": "DEER",
        "note": "deer are animals"
       },
       {
        "words": "Old record",
+       "at": 0,
        "gives": "EP",
        "note": "an EP, extended play, is an old record format"
       }
      ]
     },
     "explanation": {
-     "surface": "Recording an old record by the Animals pop group sends listeners to sleep.",
+     "surface": "An old record by the Animals pop group sends listeners to sleep.",
      "walkthrough": "'Animals' looks like the 1960s band, but it just means beasts. 'Yawning' means gaping, not sleepy.",
      "definitionFit": "A yawning chasm is a wide-open gap, so one that is more yawning goes further down."
     },
@@ -582,22 +605,24 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "turn",
-       "note": "turning something round makes it face the other way, so the word for the next clue word is read backwards"
+       "text": "circles",
+       "at": 11,
+       "note": "circles means goes round, so the word for turn is brought round to read backwards"
       }
      ],
      "parts": [
       {
-       "words": "circles",
+       "words": "turn",
+       "at": 6,
        "gives": "SPIN",
-       "note": "to circle is to spin round"
+       "note": "to turn round on the spot is to spin"
       }
      ]
     },
     "explanation": {
      "surface": "Insects turning circles in the air.",
-     "walkthrough": "'Flies' looks like the insects, but it is a verb meaning hurries.",
-     "definitionFit": "To nip somewhere is to dash or hurry there briefly, just as someone flies off on an errand."
+     "walkthrough": "'circles' turns SPIN round. 'Flies' looks like the insects, but it is a verb meaning hurries.",
+     "definitionFit": "To nip out somewhere is to dash or hurry there briefly, just as someone flies off on an errand."
     },
     "features": {
      "answerInScene": false,
@@ -634,7 +659,8 @@
        "indicators": [
         {
          "text": "will overturn",
-         "note": "overturning flips things over, so the words for the first two clue words are each read backwards"
+         "at": 19,
+         "note": "overturning flips something over, so the words for the first two clue words are read backwards together"
         }
        ],
        "parts": [
@@ -643,13 +669,15 @@
          "parts": [
           {
            "words": "Speculate",
+           "at": 0,
            "gives": "BET",
            "note": "to speculate is to gamble, or bet"
           },
           {
            "words": "minister",
+           "at": 10,
            "gives": "REV",
-           "note": "Rev, short for Reverend, is a church minister"
+           "note": "Rev, short for Reverend, is a title for a church minister"
           }
          ]
         }
@@ -657,14 +685,16 @@
       },
       {
        "words": "tariff",
+       "at": 33,
        "gives": "RATE",
        "note": "a tariff is a rate charged"
       }
      ]
     },
     "explanation": {
-     "surface": "A minister speculates about reversing the prices on a menu of fish and lamb dishes, excluding squid and snails.",
-     "definitionFit": "Fish and sheep have backbones while squid and snails do not, so the definition describes an animal with a spine."
+     "surface": "A minister muses about reversing the prices on a menu of fish and lamb dishes, excluding squid and snails.",
+     "walkthrough": "'will overturn' reverses BETREV to VERTEB. The definition is a description: fish and sheep have backbones, squid and snails have none.",
+     "definitionFit": "Fish and sheep have spines while molluscs do not, so the description picks out an animal with a backbone."
     },
     "features": {
      "answerInScene": false,
@@ -698,26 +728,29 @@
      "indicators": [
       {
        "text": "round",
-       "note": "going round something encloses it, so the sailor's word wraps the next piece"
+       "at": 16,
+       "note": "round means going around, so the sailor's word wraps the next piece"
       }
      ],
      "parts": [
       {
        "words": "sailor's",
+       "at": 7,
        "gives": "ABS",
        "note": "AB, able seaman, is a sailor, with the S of the possessive"
       },
       {
        "words": "vessel",
+       "at": 22,
        "gives": "DUCT",
        "note": "a duct is a vessel in the body carrying fluid"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor grabs a round ship or pot.",
+     "surface": "A sailor grabs a round pot.",
      "walkthrough": "'Vessel' suggests a ship or a pot, but here it is an anatomical tube.",
-     "definitionFit": "To abduct someone is to carry them off by force, a violent kind of seizing a person."
+     "definitionFit": "To abduct a person is to carry them off by force, a violent kind of grabbing."
     },
     "features": {
      "answerInScene": false,
@@ -754,12 +787,14 @@
        "indicators": [
         {
          "text": "Heartless",
+         "at": 0,
          "note": "with no heart, the middle letter of the word for weirdo is dropped"
         }
        ],
        "parts": [
         {
          "words": "weirdo",
+         "at": 10,
          "gives": "CREEP",
          "note": "a creep is an unpleasant oddball"
         },
@@ -773,12 +808,14 @@
        "indicators": [
         {
          "text": "topless",
+         "at": 26,
          "note": "in a down entry the top is the first letter, which is dropped from the word for brawny"
         }
        ],
        "parts": [
         {
          "words": "brawny",
+         "at": 18,
          "gives": "MUSCULAR",
          "note": "brawny means strongly built"
         },
@@ -791,13 +828,12 @@
     },
     "explanation": {
      "surface": "A sneering description of a strong but stupid oddball.",
-     "walkthrough": "'Dim' looks like it means stupid, finishing the insult, but it means shadowy and half-lit.",
-     "definitionFit": "Crepuscular describes the twilight, when light is fading, so a crepuscular scene is a gloomy, half-lit one."
+     "walkthrough": "'Heartless' drops the middle E of CREEP, leaving CREP; 'topless' drops M from MUSCULAR. 'Dim' looks like it means stupid, finishing the insult, but it means half-lit.",
+     "definitionFit": "The word describes twilight, when light is fading, so it means gloomy and half-lit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "dim"
     }
    }
@@ -846,7 +882,7 @@
          "words": "about",
          "at": 23,
          "gives": "RE",
-         "note": "re is the Latin-derived word for about, concerning, as in a letter heading"
+         "note": "re means about or concerning, as in a letter heading"
         }
        ]
       },
@@ -854,14 +890,14 @@
        "words": "KO'd",
        "at": 0,
        "gives": "OUT",
-       "note": "a boxer who is KO'd (knocked out) is out"
+       "note": "a boxer who is KO'd, knocked out, is out"
       }
      ]
     },
     "explanation": {
      "surface": "A boxer knocked out after a pair of punches decides to try a different approach.",
-     "walkthrough": "'about' gives RE, and 'twice' doubles it to RERE; 'punching through' puts OUT (KO'd) inside that, after RER, giving RER-OUT-E.",
-     "definitionFit": "To reroute is to send something by a different path, so the verb means directing it another way."
+     "walkthrough": "'twice' doubles the short word for about, and 'punching through' drives the knockout word into the middle of that pair; the boxing surface hides an instruction to change course.",
+     "definitionFit": "To reroute is to send something by a different path, directing it along another course."
     },
     "features": {
      "answerInScene": false,
@@ -905,6 +941,7 @@
      "parts": [
       {
        "words": "Fly-by-night",
+       "at": 0,
        "gives": "MOTH",
        "note": "a moth is an insect that flies by night"
       },
@@ -913,21 +950,26 @@
        "indicators": [
         {
          "text": "corrupt",
+         "at": 13,
          "note": "something corrupt is debased and altered from its true form, so the following letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "liar, new",
-         "note": "taken as written"
+         "words": "liar",
+         "at": 21
+        },
+        {
+         "words": "new",
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shady liar becomes a new woman by marrying into a partnership.",
-     "walkthrough": "'Fly-by-night' looks like an adjective for the liar, but it is a literal night-flying creature.",
+     "surface": "A shady liar becomes a new woman by being made a partner in a firm.",
+     "walkthrough": "'corrupt' rearranges LIARNEW into ERINLAW. 'Fly-by-night' looks like an adjective for the liar, but it is a literal night-flying creature.",
      "definitionFit": "Your spouse's mother literally produced your partner, so she is the woman who made them."
     },
     "features": {
@@ -963,6 +1005,7 @@
      "parts": [
       {
        "words": "among",
+       "at": 15,
        "gives": "IN",
        "note": "among means in"
       },
@@ -971,17 +1014,20 @@
        "indicators": [
         {
          "text": "collected",
+         "at": 49,
          "note": "something collected is gathered in, so the writer's letter is held inside the paper word"
         }
        ],
        "parts": [
         {
          "words": "piles of paper",
+         "at": 21,
          "gives": "QUIRES",
          "note": "a quire is a set of 24 or 25 sheets of paper"
         },
         {
          "words": "the writer's",
+         "at": 36,
          "gives": "I",
          "note": "the writer is the setter, I, and the apostrophe-s is read as 'is'"
         }
@@ -991,7 +1037,7 @@
     },
     "explanation": {
      "surface": "A writer's investigations are gathered among stacks of paper.",
-     "definitionFit": "Inquiries are formal investigations or questions put to find out facts, so the plural nouns match."
+     "definitionFit": "Formal questionings put to find out facts are investigations, so the plural nouns match."
     },
     "features": {
      "answerInScene": true,
@@ -1028,18 +1074,20 @@
        "indicators": [
         {
          "text": "pick-me-up",
+         "at": 16,
          "note": "in a down entry, picking a word up lifts it so it reads from the bottom upward"
         }
        ],
        "parts": [
         {
          "words": "If",
-         "note": "taken as written"
+         "at": 0
         }
        ]
       },
       {
        "words": "rest",
+       "at": 28,
        "gives": "RESIDE",
        "note": "to reside is to rest or dwell in a place"
       }
@@ -1048,7 +1096,7 @@
     "andLit": true,
     "explanation": {
      "surface": "Advice to the weary: if you need reviving, put your feet up here.",
-     "walkthrough": "'Pick-me-up' looks like a tonic, but it is an instruction to lift the little word upward. The whole clue then describes the cosy spot.",
+     "walkthrough": "'pick-me-up' looks like a tonic, but it lifts IF to read FI upward. The whole clue then describes the cosy spot.",
      "definitionFit": "The area beside a hearth is the traditional place to sit and recover, warmed through after being worn out."
     },
     "features": {
@@ -1084,12 +1132,14 @@
      "indicators": [
       {
        "text": "beginning to appear down under",
-       "note": "in a down entry 'under' is the bottom, so the first letter moves to the end"
+       "at": 21,
+       "note": "in a down entry 'under' is the bottom, so the first letter of the mutiny word moves to the end"
       }
      ],
      "parts": [
       {
        "words": "Mutiny",
+       "at": 13,
        "gives": "SEDITION",
        "note": "sedition is incitement to rebel against authority"
       }
@@ -1097,11 +1147,11 @@
     },
     "explanation": {
      "surface": "Australian reprints of the story of the mutiny on the Bounty.",
-     "walkthrough": "'Down under' looks like Australia, but in a down entry it means the bottom of the word.",
-     "definitionFit": "Editions are issues of a printed work, and reprints are new runs of a book."
+     "walkthrough": "The S at the start of SEDITION moves to the bottom. 'Down under' looks like Australia, but in a down entry it means the foot of the word.",
+     "definitionFit": "New printed runs of a book are issues of it, so reprints are fresh issues."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "under"
@@ -1126,22 +1176,20 @@
      {
       "text": "Complete",
       "at": 0,
-      "meaning": "first meaning: total, without reservation"
+      "meaning": "total, without reservation, as in an outright success"
      },
      {
       "text": "amateur",
       "at": 9,
-      "meaning": "second meaning: lacking professional credentials"
+      "meaning": "lacking professional credentials"
      }
     ],
     "explanation": {
-     "walkthrough": "The two words look like one insult; they are separate meanings of one adjective.",
-     "definitionFit": "An unqualified success is total, and an unqualified person has no professional credentials, two separate senses."
+     "definitionFit": "An unqualified success is total, and an unqualified person has no professional credentials: two separate senses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Complete"
     }
    }
@@ -1171,24 +1219,28 @@
      "parts": [
       {
        "words": "permitted",
+       "at": 8,
        "gives": "OK",
        "note": "OK means allowed"
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 18,
+       "gives": "A"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "when standing",
+         "at": 26,
          "note": "in a down entry, standing upright means the drink word reads from the bottom up"
         }
        ],
        "parts": [
         {
          "words": "drink",
+         "at": 20,
          "gives": "SIP",
          "note": "a sip is a small drink"
         }
@@ -1198,7 +1250,8 @@
     },
     "explanation": {
      "surface": "Animals allowed a drink while upright.",
-     "definitionFit": "Okapis are African forest mammals related to the giraffe, so they are animals."
+     "walkthrough": "'when standing' turns SIP up to read PIS.",
+     "definitionFit": "These African forest mammals related to the giraffe are beasts of the Congo."
     },
     "features": {
      "answerInScene": true,
@@ -1232,12 +1285,14 @@
      "indicators": [
       {
        "text": "has no roof",
+       "at": 17,
        "note": "in a down entry the roof is the top letter, which is taken away"
       }
      ],
      "parts": [
       {
        "words": "Shelter",
+       "at": 9,
        "gives": "HARBOUR",
        "note": "to harbour is to shelter"
       },
@@ -1248,8 +1303,8 @@
     },
     "explanation": {
      "surface": "A shelter that turns out to have no roof, which makes it a poor shelter.",
-     "walkthrough": "The question mark flags that an arbour is a rather leafy, open shelter.",
-     "definitionFit": "An arbour is a bower of trees or climbing plants giving shade in a garden, a light kind of shelter."
+     "walkthrough": "'has no roof' drops the H from the top of HARBOUR. The question mark flags that the answer is a leafy, open kind of shelter.",
+     "definitionFit": "A bower of trees or climbing plants giving shade in a garden is a light kind of shelter."
     },
     "features": {
      "answerInScene": true,
@@ -1287,17 +1342,20 @@
        "indicators": [
         {
          "text": "dropping",
+         "at": 41,
          "note": "dropping something lets it fall away, so the musical note is removed from the fighting word"
         }
        ],
        "parts": [
         {
          "words": "fighting",
+         "at": 31,
          "gives": "KARATE",
          "note": "karate is a form of unarmed fighting"
         },
         {
          "words": "note",
+         "at": 50,
          "gives": "TE",
          "note": "te is a note of the sol-fa scale"
         }
@@ -1305,17 +1363,19 @@
       },
       {
        "words": "letter from Greece",
+       "at": 59,
        "gives": "CHI",
        "note": "chi is a letter of the Greek alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A place in South Asia, war, and something about music and Greek letters.",
-     "definitionFit": "Karachi is the largest city of Pakistan, part of the Indian subcontinent, so it is a place there."
+     "surface": "A place in South Asia where martial arts lose their music and gain a Greek letter.",
+     "walkthrough": "'dropping' takes TE from KARATE, leaving KARA.",
+     "definitionFit": "This is the largest city of Pakistan, part of the Indian subcontinent, so it is a place there."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "note"
     }
@@ -1349,13 +1409,14 @@
        "indicators": [
         {
          "text": "odd bits of",
-         "note": "the odd bits are the letters in first, third and fifth place"
+         "at": 9,
+         "note": "the odd bits are the letters in first, third and fifth place of the word"
         }
        ],
        "parts": [
         {
          "words": "sledge",
-         "note": "first, third and fifth letters"
+         "at": 21
         }
        ]
       },
@@ -1365,12 +1426,14 @@
        "indicators": [
         {
          "text": "for delivery",
+         "at": 47,
          "note": "a delivery is a spoken speech, so the word is heard rather than read"
         }
        ],
        "parts": [
         {
          "words": "intended",
+         "at": 38,
          "gives": "MEANT",
          "note": "intended means meant"
         }
@@ -1379,9 +1442,9 @@
      ]
     },
     "explanation": {
-     "surface": "Sorting out which gifts go on the sledge and which go on Santa's sleigh for delivery.",
+     "surface": "Sorting out which presents go on the sledge and which on Santa's sleigh for delivery.",
      "walkthrough": "The odd letters of 'sleigh' are also S, E, G, so either vehicle gives the same start, which is why the clue says 'or'.",
-     "definitionFit": "To segment something is to divide it into parts, so as a verb it means to split or separate."
+     "definitionFit": "To segment something is to divide it into parts, so as a verb it means to split up."
     },
     "features": {
      "answerInScene": false,
@@ -1406,8 +1469,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "in flight",
-      "at": 18
+      "text": "flight",
+      "at": 21
      }
     ],
     "wordplay": {
@@ -1415,26 +1478,29 @@
      "indicators": [
       {
        "text": "across",
+       "at": 5,
        "note": "spread across something, the pelt word stretches around the country letter"
       }
      ],
      "parts": [
       {
        "words": "Pelt",
+       "at": 0,
        "gives": "SKIN",
        "note": "a pelt is an animal's skin"
       },
       {
        "words": "Spain",
+       "at": 12,
        "gives": "E",
        "note": "E is the international vehicle code for Spain"
       }
      ]
     },
     "explanation": {
-     "surface": "Running fast through Spain while escaping.",
+     "surface": "Running fast across Spain while escaping.",
      "walkthrough": "'Pelt' looks like the verb meaning run fast, and 'flight' like escape; both are animal terms.",
-     "definitionFit": "Skein is the collective noun for wild geese flying in formation, so the definition names a flock airborne."
+     "definitionFit": "The collective noun for wild geese flying in formation names a flock airborne, a flight of geese."
     },
     "features": {
      "answerInScene": false,
@@ -1472,12 +1538,14 @@
        "indicators": [
         {
          "text": "about",
+         "at": 18,
          "note": "about means around, so the classic word goes round the shuffled letters"
         }
        ],
        "parts": [
         {
          "words": "classic",
+         "at": 10,
          "gives": "PRIME",
          "note": "classic and prime both mean typical or first-rate"
         },
@@ -1486,13 +1554,14 @@
          "indicators": [
           {
            "text": "transport of",
+           "at": 24,
            "note": "transport moves things to new places, so these letters are moved around"
           }
          ],
          "parts": [
           {
            "words": "coal",
-           "note": "taken as written"
+           "at": 37
           }
          ]
         }
@@ -1500,14 +1569,16 @@
       },
       {
        "words": "Germany",
+       "at": 45,
        "gives": "D",
        "note": "D is the international vehicle code for Germany"
       }
      ]
     },
     "explanation": {
-     "surface": "A classic radio broadcast about shipping coal with Germany.",
-     "definitionFit": "To proclaim is to announce publicly, so something proclaimed has been broadcast to everyone."
+     "surface": "A classic radio item about shipping coal with Germany.",
+     "walkthrough": "'transport of' scrambles COAL to OCLA; 'Broadcast' looks like part of the radio surface, but it is the definition, a past participle meaning announced.",
+     "definitionFit": "To proclaim is to announce publicly, so something proclaimed has been made known to everyone."
     },
     "features": {
      "answerInScene": false,
@@ -1541,7 +1612,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another is placed inside it"
+       "at": 6,
+       "note": "One's in tells us the numeral sits inside the other letters"
       }
      ],
      "parts": [
@@ -1550,6 +1622,7 @@
        "parts": [
         {
          "words": "black",
+         "at": 9,
          "gives": "B",
          "note": "B is the abbreviation for black, as on pencils"
         },
@@ -1558,13 +1631,14 @@
          "indicators": [
           {
            "text": "conversely",
+           "at": 18,
            "note": "conversely means the other way round, so the little linking word is turned back"
           }
          ],
          "parts": [
           {
            "words": "or",
-           "note": "taken as written"
+           "at": 15
           }
          ]
         }
@@ -1572,6 +1646,7 @@
       },
       {
        "words": "One's",
+       "at": 0,
        "gives": "I",
        "note": "I is the Roman numeral one, and the apostrophe-s is read as 'is'"
       }
@@ -1579,13 +1654,13 @@
     },
     "explanation": {
      "surface": "Something in black or, the other way round, in blue, like ink.",
-     "walkthrough": "A biro is a British name for a ballpoint pen.",
-     "definitionFit": "Ballpoint pens are sold with black or blue ink, so a pen of this kind may come in blue."
+     "walkthrough": "'conversely' turns OR into RO. A BIRO is the everyday British name for a ballpoint pen.",
+     "definitionFit": "Ballpoint pens are sold with black or blue ink, so a pen of this kind may have blue ink."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "black"
+     "misdirectedWord": "conversely"
     }
    }
   },
@@ -1613,25 +1688,28 @@
      "parts": [
       {
        "words": "small",
-       "gives": "S",
-       "note": "S is the abbreviation for small"
+       "at": 11,
+       "gives": "S"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "infiltrating",
+         "at": 28,
          "note": "to infiltrate is to get inside, so the resistance letter goes into the revolution word"
         }
        ],
        "parts": [
         {
          "words": "revolution",
+         "at": 41,
          "gives": "UPRISING",
          "note": "an uprising is a revolt"
         },
         {
          "words": "resistance",
+         "at": 17,
          "gives": "R",
          "note": "R is the symbol for electrical resistance"
         }
@@ -1643,7 +1721,7 @@
     "explanation": {
      "surface": "A small resistance group infiltrating a revolution, which nobody expected.",
      "walkthrough": "'Resistance' suggests an underground movement; here it is the physics symbol.",
-     "definitionFit": "Surprising things are unexpected, and something unforeseen was not predicted in advance."
+     "definitionFit": "Something unexpected comes as a shock because it was not predicted in advance."
     },
     "features": {
      "answerInScene": false,
@@ -1677,20 +1755,22 @@
      "indicators": [
       {
        "text": "that can be read backwards",
-       "note": "a word that reads the same either way spells identically from the right"
+       "at": 8,
+       "note": "the clue says the word for watches reads the same from either end"
       }
      ],
      "parts": [
       {
        "words": "Watches",
+       "at": 0,
        "gives": "SEES",
-       "note": "to watch is to see"
+       "note": "these definition words give the whole answer, and the answer is itself the palindrome: it reads the same from either end"
       }
      ]
     },
     "explanation": {
      "surface": "A note that some watches have faces which can be read backwards, like mirror clocks.",
-     "definitionFit": "Someone who watches something observes it with the eyes, so the verb forms match in tense."
+     "definitionFit": "Someone who watches something observes it with the eyes; both verbs are third person singular."
     },
     "features": {
      "answerInScene": false,
