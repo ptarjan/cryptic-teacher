@@ -13176,6 +13176,26 @@ def telegraph_next_due(row):
         and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_NEXT))
 
 
+#: The due reason of a Gale Telegraph Mon-Fri puzzle (1980 on) TELEGRAPH_NEXT_DAY read with its next day's page still
+#: scanned by the old code. 11-13 live: of ~326 puzzles so read, 5 gained a solution: 298 of their 326 host pages (and
+#: 1,292 Tue-Sat pages in all, telegraph_host) were never scanned again. Cause: plan() dropped a host's scan through
+#: unit_skip as "already held (VLM-only reason)" (its own puzzle is filed), and a read waits only on the scans the plan
+#: holds, so once the read was due the page it needs was not. The scans are kept now (plan, telegraph_host), ranked
+#: as TELEGRAPH_NEXT_DAY's, and the puzzles are read again, waiting on them.
+TELEGRAPH_HOSTED = "Telegraph puzzle with no solution read, its next day's page scanned since"
+REREAD_TELEGRAPH_HOSTED = "2026-11-13T19:00:00+00:00"
+
+
+def telegraph_hosted_due(row):
+    """Whether Gale Telegraph ledger `row` is due TELEGRAPH_HOSTED: telegraph_next_due's puzzle (incomplete, grid
+    an image, no solution read, Mon-Fri of 1980 on), read before REREAD_TELEGRAPH_HOSTED."""
+    day = telegraph_day(row)
+    return day is not None and day.weekday() < 5 and "inputs" in row \
+        and any(v.get("complete") is False and v.get("solution") is None and v.get("grid") == "image"
+                for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_HOSTED))
+
+
 #: The due reason of a Gale Independent page (daily, 2004-15) scanned before independent_headings read the title its
 #: readers print glued ("CrosswordbyVirgilius No 6134": 730 of 850 untitled pages, only en5 read them whole) and the
 #: weekday-only solution heading the next day's page prints ("Wednesday's solution": the Independent prints no number
@@ -18766,6 +18786,8 @@ def fix_reason(row):
         return WINNERS_TITLE
     if telegraph_next_due(row):
         return TELEGRAPH_NEXT_DAY
+    if telegraph_hosted_due(row):
+        return TELEGRAPH_HOSTED
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -19389,6 +19411,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: a Gale Telegraph Mon-Fri puzzle with no solution read, its next day's garbled heading
                   # read since (telegraph_next_due); that page is scanned again first.
                   TELEGRAPH_NEXT_DAY,
+                  # 11-13 (later): the same puzzles read again once their next day's page is scanned
+                  # (telegraph_hosted_due; plan keeps those scans).
+                  TELEGRAPH_HOSTED,
                   # 11-13: a Gale Independent page (daily) with a glued title or a weekday-only solution heading
                   # read since (indy_next_due); the pages are scanned again first.
                   INDEPENDENT_HEADINGS,
@@ -19660,7 +19685,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20009,6 +20034,11 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
             rank_of[rel] = min(rank_of.get(rel, 9), u["rank"])
             gain_of[rel] = max(gain_of.get(rel, 0), likely_gain(u))
     hosts = solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs, known)
+    # A Gale Telegraph page whose solution headings the old scan code missed (telegraph_host) stands at its reads' rank
+    # though none is due now: a read waits only on the scans the plan holds, and unit_skip drops a host as "already held".
+    for d in stale:
+        if telegraph_host(known.get(rels[d]) or {}):
+            rank_of[rels[d]] = min(rank_of.get(rels[d], 9), RANKS[TELEGRAPH_NEXT_DAY])
     scan_units = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": rank_of.get(rels[d], RANKS["scan stale"]),
                    "date": day_of(d), "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned",
                    **({"gain": gain_of[rels[d]]} if gain_of.get(rels[d]) else {})}
@@ -20286,7 +20316,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, FT_HEADINGS, FT_CLUES)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, FT_HEADINGS, FT_CLUES)
 
 
 def keeps_vlm(why, row, unit=None):
