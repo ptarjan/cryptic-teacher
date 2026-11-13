@@ -12363,6 +12363,8 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # ios_solution (read_solution's branch for a Gale Independent on Sunday Beelzebub's headingless barred
                   # solution grid): no other paper's reading moves; the IoS rows are due once as INDY_BARRED.
                   "c48eaaea65f0af45": "432a5818529a9b11",
+                  # ios_solution's window over the notice and IOS_WINNERS' pre-1995 words: the IoS rows are due as INDY_BARRED.
+                  "428ea2d4aea65b01": "432a5818529a9b11",
                   # sunday_times_headings' numbered_across and SUNDAY_TIMES_TITLE's glued words (_SUNDAY_NUMBER_FIX): a scan's
                   # headings only; due once as SUNDAY_NUMBER.
                   "f61b6266a39c0171": "432a5818529a9b11"}
