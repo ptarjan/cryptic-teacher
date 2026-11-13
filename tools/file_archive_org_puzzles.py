@@ -13379,6 +13379,29 @@ def ft_clues_due(row):
         and scan_queue.read_before(row, scan_queue.when(REREAD_FT_CLUES))
 
 
+#: The due reason of a Gale FT page (2000-10) read before REREAD_FT_GLUED with a list stopped "cannot find a clue
+#: number" at a number run into its first word ("1.5Carolyn", "1,7Breach", "1lluminate"; the ch reader, 2000-09: 112
+#: "no reading parses" rows): file_trove_puzzles.clues now splits it (clue_text.glued_number) where it is the
+#: number after the clue before.
+FT_GLUED = "FT page, a clue number run into its first word split since"
+REREAD_FT_GLUED = "2026-11-13T21:30:00+00:00"
+_GLUED_STOP = re.compile(r"cannot find a clue number at: (['\"])(.*)")
+
+
+def ft_glued_due(row):
+    """Whether Gale FT ledger `row` is due FT_GLUED: a verdict of a read before REREAD_FT_GLUED with a reading
+    unparsed at a clue number run into its word (clue_text.glued_number takes it)."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galeft" or "inputs" not in row or not re.match(r"GaleFT20(?:0\d|10)UK", edition):
+        return False
+    for v in row.get("verdicts") or ():
+        for text in (v.get("unparsed") or {}).values():
+            m = _GLUED_STOP.search(str(text))
+            if m and clue_text.glued_number(m.group(2), 0):
+                return scan_queue.read_before(row, scan_queue.when(REREAD_FT_GLUED))
+    return False
+
+
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
 #: only the held puzzle's an older scan read, 10-25),
 #: while the one puzzle its series holds for the page's date was filed from this very page (an older
@@ -18862,6 +18885,8 @@ def fix_reason(row):
         return INDY_BARRED
     if ft_next_due(row):
         return FT_HEADINGS
+    if ft_glued_due(row):
+        return FT_GLUED
     if ft_clues_due(row):
         return FT_CLUES
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
@@ -19495,7 +19520,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES)
+                  FT_CLUES, FT_GLUED)
 
 
 def refusal_passes(why):
@@ -19755,7 +19780,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20386,7 +20411,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED)
 
 
 def keeps_vlm(why, row, unit=None):
