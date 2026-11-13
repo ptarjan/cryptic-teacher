@@ -34,4 +34,8 @@ assert t.mended_counts({"1-down": ("c", "5", None), "2-down": ("c", "5", None)},
 words = [(0, 0, 10, 10, w) for w in "We apologize for the errors in the numbering".split()]
 assert t.no_lists_why(words).startswith("no puzzle on the page: a correction notice")
 assert t.no_lists_why([(0, 0, 10, 10, "ACROSS")]) == "no TLS clue lists found on the page"
+# 1992-06-05: a second list set beside the first with no gutter is cut where its numbers start
+side = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [(300, 100 + 30 * i, 330, 120 + 30 * i, str(i + 6)) for i in range(14)]
+assert t.side_by_side(side, 700, 20) == 290
+assert t.side_by_side(side[:14], 700, 20) is None
 print("ok")
