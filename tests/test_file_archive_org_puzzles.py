@@ -1160,9 +1160,48 @@ check("printed_short: a row read before REREAD_PRINTED_CELLS whose solution grid
       "cell classified is due (answers-only or full read); a later read, another grid's paper, a classified, whole or "
       "refused reading, a held title, a wrong grid or a held file short of clues is not",
       ([True, True], [False] * 9), (_pc_due, _pc_not))
-check("PRINT_CLASSIFIED is CELLS_CLASSIFIED and the TIMES_1930 print, no other paper",
-      (True, ("times", "gale", "times1930")),
+check("PRINT_CLASSIFIED is CELLS_CLASSIFIED, the TIMES_1930 print and Gale's Telegraph, no other paper",
+      (True, ("times", "gale", "times1930", "galetelegraph")),
       (set(f.CELLS_CLASSIFIED) < set(f.PRINT_CLASSIFIED), f.PRINT_CLASSIFIED))
+# TELEGRAPH_CELLS (PRINT_CLASSIFIED's galetelegraph): a Telegraph solution grid's cells are classified.
+_tc_row = {"edition": "GaleTelegraph1993UKEnglish/1993-04-17", "readAt": "2000-01-01T00:00:00+00:00",
+           "verdicts": [{"id": "tel-1", "solutionFrom": "GaleTelegraph1993 leaf 3", "number": 1, "leaf": 0,
+                         "solution": {"accepted": 2, "lights": 30}}]}
+_tc_sol = lambda **kw: {**_tc_row, "verdicts": [{**_tc_row["verdicts"][0], **kw}]}
+check("telegraph_cells_due: a Telegraph row read before REREAD_TELEGRAPH_CELLS whose solution read short with no cell "
+      "classified is due; a later read, a Times row, a classified, whole or refused reading, a held title or wrong grid is not",
+      ([True], [False] * 8),
+      ([f.telegraph_cells_due(_tc_row)],
+       [f.telegraph_cells_due({**_tc_row, "readAt": "2099-01-01T00:00:00+00:00"}),
+        f.telegraph_cells_due({**_tc_row, "edition": "GaleTimes1993UKEnglish/1993-04-17"}),
+        f.telegraph_cells_due(_tc_sol(solution={"accepted": 2, "lights": 30, "classified": 4})),
+        f.telegraph_cells_due(_tc_sol(solution={"accepted": 30, "lights": 30})),
+        f.telegraph_cells_due(_tc_sol(solution={"refused": "x"})),
+        f.telegraph_cells_due(_tc_sol(heldTitle=True)), f.telegraph_cells_due(_tc_sol(wrongGrid="x")),
+        f.telegraph_cells_due(_tc_sol(solutionFrom=None))]))
+check("printed_stale: an unclassified short Telegraph reading is read again until marked telegraph (printed alone does not)",
+      [True, True, False, False],
+      [f.printed_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/GaleTelegraph1993UKEnglish/1993-04-17")),
+       f.printed_stale({"printed": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/GaleTelegraph1993UKEnglish/1993-04-17")),
+       f.printed_stale({"printed": True, "telegraph": True, "stats": {"accepted": 1, "lights": 30}},
+                       Path("/x/GaleTelegraph1993UKEnglish/1993-04-17")),
+       f.printed_stale({"printed": True, "stats": {"accepted": 30, "lights": 30}}, Path("/x/GaleTelegraph1993UKEnglish/1993-04-17"))])
+_tv = f.linked_solutions(f.GALE_TELEGRAPH, {"puzzles": [{"number": 22696, "leaf": 0}],
+                                            "solutions": [{"number": 22996, "leaf": 0}, {"number": 22695, "leaf": 0},
+                                                          {"number": 22696, "leaf": 1}, {"number": 22101, "leaf": 1},
+                                                          {"number": "no.x", "leaf": 2}]}, {})
+check("linked_solutions vets a Gale Telegraph heading: a number within a dozen issues of a title stands, a far misread "
+      "mends onto that window or drops (22996 mends to the 22695 another heading holds: dropped), a non-number stands",
+      [22695, 22696, "no.x"], [s["number"] for s in _tv])
+check("TELEGRAPH_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, due from a "
+      "blanket reason, the solution key pinned",
+      (2, True, True, True, True, True, True, f.TELEGRAPH_CELLS, "432a5818529a9b11"),
+      (f.RANKS[f.TELEGRAPH_CELLS], f.TELEGRAPH_CELLS in f.SOLUTION_FIXES,
+       f.TELEGRAPH_CELLS in __import__("edition_queue").LOW_ASK, f.TELEGRAPH_CELLS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.TELEGRAPH_CELLS),
+       f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST,
+       __import__("edition_queue").UNFILED_FIRST[-1] == f.TELEGRAPH_CELLS,
+       f.blanket_or_fix(_tc_row, "inputs changed"), f._SOLUTION_PINS["50b55099851b3f47"]))
 check("printed_stale: an unmarked short unclassified TIMES_1930 reading is read again; marked, classified, whole, "
       "refused or another paper's is not",
       [True, False, False, False, False, False],

@@ -883,6 +883,7 @@ def evidence_reason(reason):
                           fa.VLM_PLAIN,  # a 1930-33 page unfiled over a count-less clue the VLM's column reply holds
                           fa.WINNERS_TITLE, fa.SUNDAY_NUMBER,  # a Gale Sunday Times 1993-94 page scanned before its winners box was refused
                           fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED,  # a Gale Telegraph 1980+ puzzle with no solution read, its next day's heading garbled
+                          fa.TELEGRAPH_CELLS,  # a Gale Telegraph solution grid read short with no cell classified
                           fa.INDEPENDENT_HEADINGS,  # a Gale Independent page, its glued title / weekday-only solution heading read since
                           fa.INDEPENDENT_RIGHT, fa.INDY_BARRED,  # a Gale Independent page refused for its grid / clue lists, clues right of the grid read since
                           fa.FT_HEADINGS,  # a Gale FT page, its glued title / solution heading read since
@@ -2118,7 +2119,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT,
                  # 11-13: a Gale Sunday Times 1987-94 page with no title or only its winners box, its heading "No N" alone
                  # over ACROSS read since (fa.sunday_number_rescan), scanned again then read; the newest fix goes first.
-                 fa.SUNDAY_NUMBER)
+                 fa.SUNDAY_NUMBER,
+                 # 11-13: a Gale Telegraph puzzle whose linked solution grid read short with no cell classified
+                 # (fa.telegraph_cells_due, PRINT_CLASSIFIED), read again; the newest fix goes first.
+                 fa.TELEGRAPH_CELLS)
 
 
 def times_solution_work(unit):
@@ -2145,7 +2149,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER, fa.TELEGRAPH_CELLS)
 
 
 def unproven_first(unit):
@@ -2174,7 +2178,7 @@ def files_likely_tier(rank, unit):
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
     if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.LOST_WRITE,
-                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER):
+                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER, fa.TELEGRAPH_CELLS):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
@@ -2242,7 +2246,7 @@ LOW_ASK = ("solution short, its cells unclassified", "solution short, read by ot
            fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
            fa.HELD_STRIPS, fa.HELD_ASKED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
            fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.SUNDAY_LISTED)
+           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.SUNDAY_LISTED, fa.TELEGRAPH_CELLS)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

@@ -5873,6 +5873,8 @@ def linked_solutions(paper, found, held):
     those the edition hosts (hosted), and no title of the edition is (a
     puzzle's solution never prints with it); else it is dropped. A title
     read off a solution heading's own print (heading_titles) is no title."""
+    if paper is GALE_TELEGRAPH and found["solutions"]:
+        return telegraph_vetted(found)
     if paper not in (TIMES, GALE) or not found["solutions"]:
         return found["solutions"]
     expected = hosted(found, held)
@@ -5881,6 +5883,36 @@ def linked_solutions(paper, found, held):
     for s in found["solutions"]:
         n = solution_number(str(s["number"]), expected)
         if n is not None and n not in printed:
+            out.append({**s, "number": n})
+    return out
+
+
+#: How many issues either side of one of a Gale Telegraph edition's own titles a solution heading's number may be
+#: and stand (TELEGRAPH_CELLS): a Telegraph page prints the solution of the issue before its title, a Saturday's
+#: prize a week back, so a heading a few dozen from every title is a misread (1999-01-06 read 22996 for 22695, so
+#: puzzle 22996 took 2 of 30 answers off a stranger's grid), or another paper's.
+TELEGRAPH_HEADING_REACH = 12
+
+
+def telegraph_vetted(found):
+    """`found["solutions"]` (a Gale Telegraph edition's) less each heading whose number is not within
+    TELEGRAPH_HEADING_REACH issues of one of the edition's own titles, as linked_solutions vets the Times's: a far
+    one stands as the number solution_number reads it as of those the titles' window holds, else it is dropped. A
+    number that is no digits, or an edition with no title, stands as read."""
+    own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p and isinstance(p["number"], int)]
+    if not own:
+        return found["solutions"]
+    window = {t + k for t in own for k in range(-TELEGRAPH_HEADING_REACH, 3)}
+    out = []
+    for s in found["solutions"]:
+        read = clue_text.number_figures(str(s["number"]))
+        if not read.isdigit() or int(read) in window:
+            out.append(s)
+            continue
+        n = solution_number(str(s["number"]), window)
+        # One mended onto a number another heading holds read clean is that heading's misread twin: dropped.
+        if n is not None and not any(n == o["number"] or str(n) == clue_text.number_figures(str(o["number"]))
+                                     for o in (*found["solutions"], *out)):
             out.append({**s, "number": n})
     return out
 
@@ -11426,7 +11458,9 @@ CELLS_CLASSIFIED = ("times", "gale")
 #: archive.org's pub_times (TIMES_1930) since 11-06: the same Times type, read at blocks 0.95-1.0, its grids were
 #: never classified (PRINTED_CELLS). Only the reading's cells: a refusal and the matched_box fall-back stay
 #: CELLS_CLASSIFIED's.
-PRINT_CLASSIFIED = (*CELLS_CLASSIFIED, "times1930")
+#: And Gale's Telegraph (galetelegraph) since 11-13: its grids read at blocks ~1.0 with the cells never classified, so
+#: 515 editions' lights stood unaccepted (TELEGRAPH_CELLS).
+PRINT_CLASSIFIED = (*CELLS_CLASSIFIED, "times1930", "galetelegraph")
 #: The gap, in pixels, closed across a solution grid's ink before its box is
 #: taken: a frame the scan broke leaves a part of the grid the largest ink
 #: (Gale's 1987-01-15, 248px of its 340).
@@ -12430,7 +12464,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "428ea2d4aea65b01": "432a5818529a9b11",
                   # sunday_times_headings' numbered_across and SUNDAY_TIMES_TITLE's glued words (_SUNDAY_NUMBER_FIX): a scan's
                   # headings only; due once as SUNDAY_NUMBER.
-                  "f61b6266a39c0171": "432a5818529a9b11"}
+                  "f61b6266a39c0171": "432a5818529a9b11",
+                  # PRINT_CLASSIFIED's "galetelegraph": only a Telegraph grid read with no cell classified reads otherwise;
+                  # due once as TELEGRAPH_CELLS (solved() reads such a kept one again, printed_stale).
+                  "50b55099851b3f47": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -12479,7 +12516,7 @@ def solved(sol, grid, above=False, lean=False, enums=None):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.part")
     tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats, "ranked": True, "blurred": True,
-                               "lettered": True, "printed": True}))
+                               "lettered": True, "printed": True, "telegraph": True}))
     tmp.replace(path)
     return answers, stats
 
@@ -12522,8 +12559,10 @@ def printed_stale(kept, d):
     classified the cells of a TIMES_1930 grid (no "printed" mark): a grid of archive.org's pub_times read short
     with no cell classified, not refused, read again once, the kept code key the same (_SOLVED_PINS)."""
     st = kept.get("stats") or {}
-    return not (kept.get("printed") or paper_of(d).key != "times1930" or "classified" in st or st.get("refused")
-                or st.get("accepted", 0) >= st.get("lights", 0))
+    # A Gale Telegraph grid likewise (TELEGRAPH_CELLS), by its own mark: the kept ones since 11-06 carry "printed" too.
+    mark = "telegraph" if paper_of(d).key == "galetelegraph" else "printed"
+    return not (kept.get(mark) or paper_of(d).key not in ("times1930", "galetelegraph") or "classified" in st
+                or st.get("refused") or st.get("accepted", 0) >= st.get("lights", 0))
 
 
 _SOLVED_CODE = []
@@ -12554,7 +12593,10 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # GALE_SUNDAY_TELEGRAPH and GALE_INDY_SUNDAY (two new Papers): no existing paper's read moves.
                 "4237a057c8a24f5e": "050e93ff674ff62c",
                 # Paper.special (a numberless holiday title, ocr_headings): no solution's read moves.
-                "8fe83c999023241c": "050e93ff674ff62c"}
+                "8fe83c999023241c": "050e93ff674ff62c",
+                # PRINT_CLASSIFIED's "galetelegraph": likewise only an unclassified Telegraph reading reads otherwise
+                # (printed_stale reads such a kept one short again).
+                "61264474ddd236fb": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
@@ -13572,6 +13614,32 @@ def telegraph_hosted_due(row):
         and any(v.get("complete") is False and v.get("solution") is None and v.get("grid") == "image"
                 for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_HOSTED))
+
+
+#: The due reason of a Gale Telegraph edition read before REREAD_TELEGRAPH_CELLS whose linked solution grid read short with
+#: no cell classified, not refused. read_solution classified CELLS_CLASSIFIED's papers and the Times 1930 print only, so a
+#: Telegraph grid read at blocks ~1.0 never had its classifier decode accept lights: 515 editions held a solution linked
+#: with answers short of lights. PRINT_CLASSIFIED has "galetelegraph" now (solved() reads a kept unclassified one again,
+#: printed_stale). Held out on 92 kept crops: 2,567 -> 2,700 lights accepted, 1 -> 23 whole, the gains real words. Also
+#: due: an edition whose heading link was vetted away (telegraph_vetted) and whose puzzle then reads the right solution.
+#: answers_only, once.
+TELEGRAPH_CELLS = "solution short, its Telegraph print's cells classified since"
+REREAD_TELEGRAPH_CELLS = "2026-11-13T19:30:00+00:00"
+
+
+def telegraph_cells_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_TELEGRAPH_CELLS, has a verdict (not refused, not pending, no
+    held title's) with a linked solution grid read short, not refused, with no cell classified."""
+    if paper_of(row.get("edition", "")).key != GALE_TELEGRAPH.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_CELLS)):
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (v.get("id") and not v.get("refused") and not v.get("pending") and v.get("solutionFrom")
+                and not v.get("heldTitle") and not v.get("wrongGrid") and isinstance(s, dict)
+                and not s.get("refused") and "classified" not in s and s.get("accepted", 0) < s.get("lights", 0)):
+            return True
+    return False
 
 
 #: The due reason of a Gale Independent page (daily, 2004-15) scanned before independent_headings read the title its
@@ -19242,6 +19310,8 @@ def fix_reason(row):
         return TELEGRAPH_NEXT_DAY
     if telegraph_hosted_due(row):
         return TELEGRAPH_HOSTED
+    if telegraph_cells_due(row):
+        return TELEGRAPH_CELLS
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -19933,7 +20003,9 @@ def blanket_or_fix(row, blanket):
             return SUNDAY_RIGHT
         if quick_set_due(row):
             return QUICK_SET
-        return QUICK_HELD if quick_held_due(row) else blanket
+        if quick_held_due(row):
+            return QUICK_HELD
+        return TELEGRAPH_CELLS if telegraph_cells_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -20152,7 +20224,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20783,7 +20855,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT)
 
 
 def keeps_vlm(why, row, unit=None):
