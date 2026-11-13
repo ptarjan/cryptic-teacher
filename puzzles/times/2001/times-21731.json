@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "American cash used to provide accommodation for troops",
     "enumeration": "8"
    },
-   "solution": "QUARTERS"
+   "solution": "QUARTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American cash",
+      "at": 0,
+      "meaning": "US coins worth twenty-five cents each"
+     },
+     {
+      "text": "accommodation for troops",
+      "at": 30,
+      "meaning": "lodgings where soldiers are billeted"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two senses of one word: US 25-cent coins, and soldiers' billets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cash"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,29 @@
     "text": "British cash used for tobacco",
     "enumeration": "4"
    },
-   "solution": "QUID"
+   "solution": "QUID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "British cash",
+      "at": 0,
+      "meaning": "slang for a pound sterling"
+     },
+     {
+      "text": "tobacco",
+      "at": 22,
+      "meaning": "a lump of chewing tobacco, a variant of cud"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a wad of chewing tobacco, the same word as an animal's cud.",
+     "definitionFit": "Slang for a pound coin, and a plug of chewing baccy held in the cheek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +105,54 @@
     "text": "Top one in a thousand? On the contrary",
     "enumeration": "4"
    },
-   "solution": "ACME"
+   "solution": "ACME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "one piece goes within the other, as the clue's question first suggests"
+      },
+      {
+       "text": "On the contrary",
+       "at": 23,
+       "note": "reverses the roles the question proposed, so the thousand goes inside the one instead"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 4,
+       "gives": "ACE",
+       "note": "an ace is the one in cards or dice"
+      },
+      {
+       "words": "a thousand",
+       "at": 11,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether something counts as the best one in a thousand, then reversing the claim.",
+     "walkthrough": "'One in a thousand' would put ACE inside M; 'On the contrary' flips it, so M goes inside ACE.",
+     "definitionFit": "The peak or highest point is the summit of achievement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +166,59 @@
     "text": "Soldiers guard against infiltration by left, exhibiting knives, etc",
     "enumeration": "9"
    },
-   "solution": "TABLEWARE"
+   "solution": "TABLEWARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knives, etc",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldiers",
+       "at": 0,
+       "gives": "TA",
+       "note": "TA is the Territorial Army, Britain's volunteer reserve"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "infiltration by",
+         "at": 23,
+         "note": "something infiltrating gets inside the piece it penetrates"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guard against",
+         "at": 9,
+         "gives": "BEWARE",
+         "note": "to beware of something is to guard against it"
+        },
+        {
+         "words": "left",
+         "at": 39,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops guarding a position against a left-wing infiltration, with knives on display.",
+     "walkthrough": "'infiltration by' puts L inside BEWARE after its first letter, giving BLEWARE, which follows TA.",
+     "definitionFit": "Cutlery, plates and dishes used at meals are collectively table items."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +229,7 @@
    },
    "length": 12,
    "clue": {
-    "text": "Rejoin' road, ie, take another route to port",
+    "text": "Rejoin road, ie, take another route to port",
     "enumeration": "3,2,7",
     "separators": [
      {
@@ -96,7 +242,49 @@
      }
     ]
    },
-   "solution": "RIODEJANEIRO"
+   "solution": "RIODEJANEIRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "port",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "take another route",
+       "at": 17,
+       "note": "the letters are sent along a different path, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rejoin",
+       "at": 0
+      },
+      {
+       "words": "road",
+       "at": 7
+      },
+      {
+       "words": "ie",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to rejoin the road, that is, divert, on the way to a harbour.",
+     "walkthrough": "The page prints 'Rejoin road, ie,' with no apostrophe. 'take another route' shuffles REJOINROADIE into the Brazilian city.",
+     "definitionFit": "The Brazilian city is a major seaport on Guanabara Bay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "route"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +298,59 @@
     "text": "Paltry pay given to heads of Britain's largest enterprises",
     "enumeration": "6"
    },
-   "solution": "FEEBLE"
+   "solution": "FEEBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paltry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pay",
+       "at": 7,
+       "gives": "FEE",
+       "note": "a fee is a payment"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads of",
+         "at": 20,
+         "note": "the heads of words are their opening letters, one from each"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Britain's",
+         "at": 29
+        },
+        {
+         "words": "largest",
+         "at": 39
+        },
+        {
+         "words": "enterprises",
+         "at": 47
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bosses of big British firms being given miserly pay.",
+     "definitionFit": "Paltry and weak both describe something meagre and inadequate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +364,29 @@
     "text": "Spot on 19",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spot on",
+      "at": 0,
+      "meaning": "precisely correct"
+     },
+     {
+      "text": "19",
+      "at": 8,
+      "meaning": "the answer to 19 across, meaning to extort or obtain by force"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "19 across means obtain with difficulty; the verb sense here is extort or demand.",
+     "definitionFit": "Precise in one sense, and as a verb to extract by force, like 19 across."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +406,60 @@
      }
     ]
    },
-   "solution": "BROKENREED"
+   "solution": "BROKENREED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "You can no longer rely on this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to north",
+       "at": 52,
+       "note": "in a down entry, going towards the north means the letters run upwards, so read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "animal",
+         "at": 31,
+         "gives": "DEER",
+         "note": "a deer is an animal"
+        },
+        {
+         "words": "pass",
+         "at": 41,
+         "gives": "NEK",
+         "note": "a nek is a mountain pass, a South African word"
+        },
+        {
+         "words": "round",
+         "at": 46,
+         "gives": "ORB",
+         "note": "an orb is a round sphere"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal that can no longer be trusted to go round and head north.",
+     "walkthrough": "'to north' turns DEERNEKORB upwards. NEK is a South African word for a mountain saddle or col.",
+     "definitionFit": "A person or thing that proves weak and unreliable when leaned on is a feeble support, from Isaiah."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +479,65 @@
      }
     ]
    },
-   "solution": "ESTATEDUTY"
+   "solution": "ESTATEDUTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inheritance tax",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruinously",
+         "at": 26,
+         "note": "something wrecked ruinously is broken up, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "due",
+         "at": 16
+        },
+        {
+         "words": "state",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "emptied",
+         "at": 36,
+         "note": "an emptied word has lost its insides, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "treasury",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Death levies wrecking the state and draining the public coffers.",
+     "walkthrough": "'ruinously' shuffles DUESTATE into ESTATEDU; 'emptied' leaves T and Y from treasury.",
+     "definitionFit": "This was the former UK tax on property passing at death."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +561,29 @@
      }
     ]
    },
-   "solution": "INMYBOOK"
+   "solution": "INMYBOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "As I see it",
+      "at": 0,
+      "meaning": "in my opinion"
+     },
+     {
+      "text": "this is the place for autobiographical details",
+      "at": 13,
+      "meaning": "read literally, the volume a writer pens about their own life"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An idiom meaning in one's opinion, and literally inside one's own memoir."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +597,70 @@
     "text": "Skip NT book without its translation that's only just begun",
     "enumeration": "6"
    },
-   "solution": "CAVORT"
+   "solution": "CAVORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 13,
+         "note": "in the old sense of outside, so these letters surround another piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "NT book",
+         "at": 5,
+         "gives": "COR",
+         "note": "Cor is the abbreviation for Corinthians, a New Testament book"
+        },
+        {
+         "words": "its translation",
+         "at": 21,
+         "gives": "AV",
+         "note": "AV is the Authorised Version, the King James translation of the Bible"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "only just begun",
+         "at": 44,
+         "note": "a word only just begun shows nothing but its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that's",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to skip a New Testament book lacking its barely-started translation.",
+     "walkthrough": "'without' means outside: COR plus T (the start of 'that's') goes round AV. AV is the Authorised Version, the King James Bible.",
+     "definitionFit": "To caper or frolic is to skip about playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +680,60 @@
      }
     ]
    },
-   "solution": "STORMLANTERN"
+   "solution": "STORMLANTERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lighting",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The way",
+       "at": 0,
+       "gives": "ST",
+       "note": "ST is short for street, a way"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "organised",
+         "at": 19,
+         "note": "letters organised are put in a new order, so the city name is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Montreal's",
+         "at": 8,
+         "gives": "MONTREAL",
+         "note": "the city's name, the possessive adding no letter"
+        }
+       ]
+      },
+      {
+       "words": "radon",
+       "at": 29,
+       "gives": "RN",
+       "note": "Rn is the chemical symbol for radon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Montreal has arranged for radon gas to light its streets.",
+     "walkthrough": "'organised' shuffles MONTREAL into ORMLANTE, between ST and RN.",
+     "definitionFit": "A windproof paraffin lamp gives illumination in bad weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "radon"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +753,61 @@
      }
     ]
    },
-   "solution": "REGENTSTREET"
+   "solution": "REGENTSTREET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thoroughfare",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "these pieces are placed within the word for soaking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wet",
+       "at": 36,
+       "gives": "RET",
+       "note": "to ret is to soak flax or hemp in water"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Comfort stations for man",
+         "at": 0,
+         "gives": "GENTS",
+         "note": "the Gents is a men's public lavatory"
+        },
+        {
+         "words": "dog",
+         "at": 29,
+         "gives": "TREE",
+         "note": "a tree is jokingly a dog's relief station"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Public lavatories for a man and his dog on a rainy street.",
+     "walkthrough": "'Comfort stations' covers both: GENTS for man, a TREE for dog, all inside RET, to soak flax. Regent Street is a London shopping street.",
+     "definitionFit": "A famous main street in London's West End is a busy road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stations"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +827,54 @@
      }
     ]
    },
-   "solution": "ARABIANSEA"
+   "solution": "ARABIANSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stretch of water",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taken over",
+       "at": 12,
+       "note": "in a down entry, a piece taken over another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Horse",
+       "at": 0,
+       "gives": "ARAB",
+       "note": "an Arab is a breed of horse"
+      },
+      {
+       "words": "man's",
+       "at": 6,
+       "gives": "IANS",
+       "note": "Ian's, using a man's name with its possessive S"
+      },
+      {
+       "words": "each",
+       "at": 23,
+       "gives": "EA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man's horse has been carried across each stretch of water.",
+     "walkthrough": "'man's' gives IAN'S, the S included, then EA comes beneath.",
+     "definitionFit": "This part of the Indian Ocean between India and Arabia is a body of sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Horse"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +888,70 @@
     "text": "Philosopher with almost total power over one chamber",
     "enumeration": "10"
    },
-   "solution": "EMPIRICIST"
+   "solution": "EMPIRICIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 36,
+       "note": "in a down entry, a piece over another is placed above it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 17,
+         "note": "a word almost complete loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "total power",
+         "at": 24,
+         "gives": "EMPIRE",
+         "note": "an empire is total dominion"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 41,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "chamber",
+       "at": 45,
+       "gives": "CIST",
+       "note": "a cist is a prehistoric stone burial chamber"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker with near-absolute authority over a single room.",
+     "walkthrough": "'almost' cuts EMPIRE to EMPIR, with I and CIST placed below.",
+     "definitionFit": "A thinker who holds all knowledge comes from experience is a kind of philosopher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chamber"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +965,46 @@
     "text": "Game doctor going to a dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Game",
+       "at": 0,
+       "gives": "RU",
+       "note": "RU is short for rugby union, the game"
+      },
+      {
+       "words": "doctor",
+       "at": 5,
+       "gives": "MB",
+       "note": "MB is Bachelor of Medicine, a doctor's degree"
+      },
+      {
+       "words": "a",
+       "at": 21,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting doctor heads off to a ball.",
+     "definitionFit": "A Cuban ballroom dance with a rhythmic step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1024,11 @@
      }
     ]
    },
-   "solution": "AARONSROD"
+   "solution": "AARONSROD",
+   "annotationWithheld": {
+    "why": "Diana Batty with a round bloomer (6,3): matches the scan, but no parse found giving AARONSROD; 'Diana' as a name source (DORS?) leaves AARON unexplained by 'with a round'.",
+    "clue": "Diana Batty with a round bloomer"
+   }
   },
   {
    "number": 17,
@@ -330,7 +1048,48 @@
      }
     ]
    },
-   "solution": "NEWFOREST"
+   "solution": "NEWFOREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of Hampshire",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "settling in",
+       "at": 13,
+       "note": "a piece settling in another comes to rest inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "most trendy",
+       "at": 25,
+       "gives": "NEWEST",
+       "note": "newest means most fashionable"
+      },
+      {
+       "words": "In favour of",
+       "at": 0,
+       "gives": "FOR",
+       "note": "for means in favour of"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a move into the trendiest bit of a southern county.",
+     "walkthrough": "Hampshire is a county on England's south coast.",
+     "definitionFit": "This ancient royal woodland national park lies in south-west Hampshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1103,59 @@
     "text": "Can, perhaps, find fish that's swallowed tangled weed?",
     "enumeration": "9"
    },
-   "solution": "BRIDEWELL"
+   "solution": "BRIDEWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Can, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "that's swallowed",
+       "at": 24,
+       "note": "a piece swallowed ends up inside the swallower"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 19,
+       "gives": "BRILL",
+       "note": "brill is a flatfish"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tangled",
+         "at": 41,
+         "note": "tangled letters are mixed up, so this word is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weed",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finding a fish that has gulped down a knot of weed.",
+     "walkthrough": "'tangled' turns WEED into DEWE, which goes inside BRILL. 'Can' is slang for prison; a Bridewell was a London house of correction.",
+     "definitionFit": "The historic name for a lock-up is a byword for jail, slang can."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,10 +1166,45 @@
    },
    "length": 5,
    "clue": {
-    "text": "With 'some difficulty obtain women's support",
+    "text": "With some difficulty obtain women's support",
     "enumeration": "5"
    },
-   "solution": "WREST"
+   "solution": "WREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "With some difficulty obtain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "women's",
+       "at": 28,
+       "gives": "W",
+       "note": "W is the abbreviation for women"
+      },
+      {
+       "words": "support",
+       "at": 36,
+       "gives": "REST",
+       "note": "a rest is a support, like an armrest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting women's backing only with a struggle.",
+     "walkthrough": "The page has no quotation mark; it is OCR noise.",
+     "definitionFit": "To wring or extract by effort is to get with a struggle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 20,
@@ -382,7 +1228,31 @@
      }
     ]
    },
-   "solution": "AKINGSRANSOM"
+   "solution": "AKINGSRANSOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bomb",
+      "at": 0,
+      "meaning": "a fortune, as in costing a bomb"
+     },
+     {
+      "text": "that saved the Lion-heart",
+      "at": 5,
+      "meaning": "Richard I, the Lionheart, was freed by paying a huge sum to his captor"
+     }
+    ],
+    "spelling": "A KING'S RANSOM",
+    "explanation": {
+     "definitionFit": "A vast sum of money, and literally what freed King Richard I from captivity in 1194."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bomb"
+    }
+   }
   },
   {
    "number": 21,
@@ -396,7 +1266,48 @@
     "text": "Take a long look round University's fabric",
     "enumeration": "5"
    },
-   "solution": "GAUZE"
+   "solution": "GAUZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 17,
+       "note": "one piece goes round another, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Take a long look",
+       "at": 0,
+       "gives": "GAZE",
+       "note": "to gaze is to look long"
+      },
+      {
+       "words": "University's",
+       "at": 23,
+       "gives": "U",
+       "note": "U is the abbreviation for university"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Staring around a university's textiles.",
+     "definitionFit": "A thin translucent cloth is a type of material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1321,29 @@
     "text": "Put one's name to part of the zodiac",
     "enumeration": "4"
    },
-   "solution": "SIGN"
+   "solution": "SIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put one's name to",
+      "at": 0,
+      "meaning": "to write a signature on"
+     },
+     {
+      "text": "part of the zodiac",
+      "at": 18,
+      "meaning": "one of the twelve astrological divisions"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To autograph something, and one of the twelve astrological constellations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1357,41 @@
     "text": "Character concealed by shifty — people",
     "enumeration": "4"
    },
-   "solution": "TYPE"
+   "solution": "TYPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "concealed by",
+       "at": 10,
+       "note": "the letters lie concealed across the run of words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shifty — people",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady character lurking among dodgy people.",
+     "walkthrough": "The letters span 'shifty' and 'people'; the dash is not printed on the page.",
+     "definitionFit": "A kind or sort of person is a character, as in 'not my sort'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1411,42 @@
      }
     ]
    },
-   "solution": "SLIPUP"
+   "solution": "SLIPUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "get it wrong",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Backing",
+       "at": 0,
+       "note": "going backwards, so this word is read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "students",
+       "at": 8,
+       "gives": "PUPILS",
+       "note": "pupils are students"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting students so they make mistakes.",
+     "definitionFit": "To err or make a blunder is to make a mistake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Backing"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1460,48 @@
     "text": "Name bishop dropped showing a good turn of speed",
     "enumeration": "8"
    },
-   "solution": "CELERITY"
+   "solution": "CELERITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a good turn of speed",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropped",
+       "at": 12,
+       "note": "a piece dropped is taken out of the word it was in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Name",
+       "at": 0,
+       "gives": "CELEBRITY",
+       "note": "a big name is a famous person"
+      },
+      {
+       "words": "bishop",
+       "at": 5,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous bishop losing his place while showing real pace.",
+     "definitionFit": "Swiftness, a formal word for rapidity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Name"
+    }
+   }
   },
   {
    "number": 26,
@@ -472,7 +1515,41 @@
     "text": "Music the man composed",
     "enumeration": "6"
    },
-   "solution": "ANTHEM"
+   "solution": "ANTHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "composed",
+       "at": 14,
+       "note": "letters composed are put together in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the man",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tune that a fellow wrote.",
+     "walkthrough": "'composed' shuffles THEMAN.",
+     "definitionFit": "A hymn or national song is a piece of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 27,
@@ -486,7 +1563,40 @@
     "text": "Example of ancients being wrong",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Example",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "being wrong",
+       "at": 20,
+       "note": "wrongly set letters are out of order, so this word is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancients",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A case of the old ones getting things wrong.",
+     "definitionFit": "A case or illustration of something is a specimen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   }
  ]
 }
