@@ -484,8 +484,20 @@ def _blocks(node, got):
         import itertools
         want = got.get(id(node))
         per = [sorted(wordplay.values({**node, "parts": [p]}), key=lambda v: (len(v), v)) for p in parts]
-        picks = next((c for c in itertools.product(*per) if "".join(c) == want), None) \
-            or tuple(v[0] if v else None for v in per)
+        picks = next((c for c in itertools.product(*per) if "".join(c) == want), None)
+        if picks is None and want and op == "alternate":
+            # alternate letters run along the joined words as one string (wordplay.values):
+            # each word gives the letters of its own stretch of the picked positions
+            ws = [_letters(p["words"]) for p in parts]
+            for off in (0, 1):
+                start, cand = 0, []
+                for w in ws:
+                    cand.append("".join(c for i, c in enumerate(w, start) if i % 2 == off))
+                    start += len(w)
+                if "".join(cand) == want:
+                    picks = tuple(cand)
+                    break
+        picks = picks or tuple(v[0] if v else None for v in per)
         out = []
         for p, pick in zip(parts, picks):
             b = _blocks(p, got)[0]
