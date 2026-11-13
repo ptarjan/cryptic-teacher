@@ -3,7 +3,7 @@
 // Part of tools/smoke_test.js: required in order, on the harness' shared object.
 "use strict";
 const T = require("./harness");
-const { EVENTS, ROOT, assert, beacons, btnNames, docListeners, document, fs, lightCells, nuxLine,
+const { EVENTS, ROOT, openId, assert, beacons, btnNames, docListeners, document, fs, lightCells, nuxLine,
   openPuz, patBoxes, patHTML, path, registry, reported, storage, takeRung } = T;
 // --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
 const hintMark = beacons.length;
@@ -277,7 +277,9 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
 
 kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
 assert(registry["scorebar"].innerHTML.includes("Solved"), "scorebar renders: " + registry["scorebar"].innerHTML);
-assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least one clue solved after reveal+typing");
+assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/),
+  `at least one clue solved after reveal+typing: puzzle ${openId}, typed clue ${target && target.number}-${target && target.direction}`
+  + ` (${answer}, ${len} letters), scorebar: ${registry["scorebar"].innerHTML}`);
 
 // --- checking letters in the clue list ---
 // One dot per crossing square, filled once that square has a letter, so you can
