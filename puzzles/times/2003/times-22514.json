@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Discourage Secretary-General, perhaps",
     "enumeration": "5"
    },
-   "solution": "UNMAN"
+   "solution": "UNMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discourage",
+      "at": 0,
+      "meaning": "to sap their courage or nerve"
+     },
+     {
+      "text": "Secretary-General, perhaps",
+      "at": 11,
+      "meaning": "the Secretary-General of the United Nations is, read whimsically"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition splits the word into UN MAN: the head of the United Nations is one example of such a person, hence 'perhaps'.",
+     "definitionFit": "To unman is to deprive of courage, which is what discouraging someone does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Secretary-General"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,64 @@
     "text": "Cover is wonderful, though not at first including composer",
     "enumeration": "9"
    },
-   "solution": "UPHOLSTER"
+   "solution": "UPHOLSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 40,
+       "note": "including means the composer goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 27,
+         "note": "not at first means the opening letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wonderful",
+         "at": 9,
+         "gives": "SUPER",
+         "note": "super means wonderful"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "composer",
+       "at": 50,
+       "gives": "HOLST",
+       "note": "Gustav Holst was an English composer, of The Planets"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a cover is splendid, albeit not initially, with a composer involved.",
+     "walkthrough": "'not at first' removes the opening letter; 'including' wraps the remainder round the composer's name. 'Cover' is the verb, as with furniture fabric.",
+     "definitionFit": "To upholster is to cover furniture with padding and fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +142,29 @@
     "text": "Saw a gun",
     "enumeration": "5"
    },
-   "solution": "MAXIM"
+   "solution": "MAXIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0,
+      "meaning": "a saw is an old saying or proverb"
+     },
+     {
+      "text": "a gun",
+      "at": 4,
+      "meaning": "an early machine gun named after its inventor"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A maxim is a pithy saying, like a saw, and the Maxim was a famous machine gun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +178,42 @@
     "text": "Give a mention, in a way",
     "enumeration": "8"
    },
-   "solution": "NOMINATE"
+   "solution": "NOMINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give a mention, in a way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a way",
+       "at": 16,
+       "note": "in a way means the letters are arranged in another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a mention",
+       "at": 5
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Putting someone forward is one way of mentioning them.",
+     "walkthrough": "'in a way' rearranges A MENTION; the whole clue also describes what the answer does.",
+     "definitionFit": "To nominate someone is to put their name forward, a kind of mention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +227,45 @@
     "text": "\"It was enough to make any man sick,\" as Pepys said, wrongly",
     "enumeration": "9"
    },
-   "solution": "DYSPEPSIA"
+   "solution": "DYSPEPSIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It was enough to make any man sick",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrongly",
+       "at": 53,
+       "note": "said wrongly means the letters of these two words are set out in a wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pepys",
+       "at": 41
+      },
+      {
+       "words": "said",
+       "at": 47
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quotation from the famous diarist Samuel Pepys complaining that something turned his stomach.",
+     "walkthrough": "'wrongly' rearranges PEPYS and SAID together. Samuel Pepys was a seventeenth-century English diarist, which makes the quotation plausible; the definition describes what upsets the stomach.",
+     "definitionFit": "Indigestion is a stomach upset, the kind of ailment that would make anyone feel sick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pepys"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +282,30 @@
      "dendrochronology"
     ]
    },
-   "solution": "DATE"
+   "solution": "DATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To use dendrochronology",
+      "at": 0,
+      "meaning": "dendrochronology is dating wood by its tree rings"
+     },
+     {
+      "text": "a tree",
+      "at": 33,
+      "meaning": "the ... palm is a tree"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dendrochronology is the science of dating timber by counting annual growth rings.",
+     "definitionFit": "Tree-ring science establishes the age of timber, and the date palm is a tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tree"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +319,41 @@
     "text": "Tapestries woven for entertainment",
     "enumeration": "10"
    },
-   "solution": "STRIPTEASE"
+   "solution": "STRIPTEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entertainment",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "woven",
+       "at": 11,
+       "note": "woven means the letters are interlaced into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tapestries",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wall hangings produced to amuse visitors.",
+     "walkthrough": "'woven' suits tapestries but signals the anagram.",
+     "definitionFit": "A striptease is a form of entertainment in which a performer undresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "woven"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +367,48 @@
     "text": "Closing down racket in England",
     "enumeration": "6"
    },
-   "solution": "ENDING"
+   "solution": "ENDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Closing down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "the racket goes in the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "England",
+       "at": 23,
+       "gives": "ENG"
+      },
+      {
+       "words": "racket",
+       "at": 13,
+       "gives": "DIN",
+       "note": "din means racket or noise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy place in England being shut down.",
+     "walkthrough": "'racket' is noise, not a sports bat.",
+     "definitionFit": "An ending is a finish or closing, as when a business closes down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +422,49 @@
     "text": "Swinging tune: is rag time indicated by this?",
     "enumeration": "9"
    },
-   "solution": "SIGNATURE"
+   "solution": "SIGNATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "time indicated by this",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Swinging",
+       "at": 0,
+       "note": "a swinging tune moves about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tune",
+       "at": 9
+      },
+      {
+       "words": "is",
+       "at": 15
+      },
+      {
+       "words": "rag",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz musician asks how ragtime's rhythm is shown on the score.",
+     "walkthrough": "'Swinging' rearranges TUNE, IS and RAG. In music, a time signature at the start of the stave shows the beats per bar.",
+     "definitionFit": "A time signature is the musical notation that tells a player the metre of a piece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swinging"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +478,42 @@
     "text": "Allotment has two areas",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allotment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two areas",
+       "at": 14,
+       "gives": "A",
+       "note": "A is the abbreviation for area"
+      },
+      {
+       "words": "two areas",
+       "at": 14,
+       "gives": "WARD",
+       "note": "a ward is an area, as of a city or hospital"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden plot covering two areas.",
+     "walkthrough": "'two areas' gives two pieces: A, the abbreviation, and WARD, an electoral area.",
+     "definitionFit": "An award is something allotted or granted, as in a legal settlement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Allotment"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +527,64 @@
     "text": "Test going in mostly straight line",
     "enumeration": "9"
    },
-   "solution": "HEXAMETER"
+   "solution": "HEXAMETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "line",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going in",
+       "at": 5,
+       "note": "the test is placed going in, that is inside, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 14,
+         "note": "mostly means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "straight",
+         "at": 21,
+         "gives": "HETERO",
+         "note": "hetero is slang for straight, meaning heterosexual"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "Test",
+       "at": 0,
+       "gives": "EXAM",
+       "note": "an exam is a test"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction about an examination that sticks to a straight line.",
+     "walkthrough": "'mostly' drops the final letter; 'going in' places the test within the trimmed word. 'straight' tempts as the definition, but the line is the definition.",
+     "definitionFit": "A hexameter is a line of verse with six metrical feet, as in classical epic poetry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "straight"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +598,42 @@
     "text": "Follow the master's teaching",
     "enumeration": "5"
    },
-   "solution": "DOGMA"
+   "solution": "DOGMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "teaching",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Follow",
+       "at": 0,
+       "gives": "DOG",
+       "note": "to dog someone is to follow them closely"
+      },
+      {
+       "words": "master's",
+       "at": 11,
+       "gives": "MA",
+       "note": "MA is a Master of Arts degree, abbreviated"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disciple urged to follow what the master teaches.",
+     "walkthrough": "'the master's' points to the Master of Arts, MA, rather than a teacher.",
+     "definitionFit": "Dogma is a set of doctrines laid down and taught as authoritative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "master's"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +647,59 @@
     "text": "Keen officer provides accommodation for a number of soldiers",
     "enumeration": "6"
    },
-   "solution": "LAMENT"
+   "solution": "LAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "provides accommodation for",
+       "at": 13,
+       "note": "the officer houses the other letters, so they go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "officer",
+       "at": 5,
+       "gives": "LT",
+       "note": "LT is the abbreviation for lieutenant, an officer"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 40,
+         "gives": "A"
+        },
+        {
+         "words": "number of soldiers",
+         "at": 42,
+         "gives": "MEN",
+         "note": "men is the usual word for a body of soldiers in the ranks"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eager officer finds billets for a group of troops.",
+     "walkthrough": "'Keen' looks like an adjective meaning eager; here it is the verb to wail for the dead.",
+     "definitionFit": "To keen is to wail in mourning, so it is a synonym for lamenting aloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keen"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +713,54 @@
     "text": "European resort -about to empty",
     "enumeration": "8"
    },
-   "solution": "SPANIARD"
+   "solution": "SPANIARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "resort",
+       "at": 9,
+       "gives": "SPA",
+       "note": "a spa is a resort town"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 17,
+         "note": "about means the word that follows is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to empty",
+         "at": 23,
+         "gives": "DRAIN",
+         "note": "to drain is to empty"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker at a European resort is about to leave it deserted.",
+     "walkthrough": "'about' turns the verb round, giving NIARD; the clue's dash in some printings is just punctuation.",
+     "definitionFit": "A Spaniard is a native of Spain, a European country, so he is a European."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +784,49 @@
      }
     ]
    },
-   "solution": "FREEFORALL"
+   "solution": "FREEFORALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "widespread conflict",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carries",
+       "at": 15,
+       "note": "carries means the soldiers are inside the jump"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Parachute jump",
+       "at": 0,
+       "gives": "FREEFALL",
+       "note": "a free fall is the part of a parachute jump before the canopy opens"
+      },
+      {
+       "words": "soldiers",
+       "at": 23,
+       "gives": "OR",
+       "note": "OR stands for Other Ranks, ordinary soldiers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parachute drop takes troops into a large-scale war.",
+     "walkthrough": "'carries' places the soldiers inside the jump, splitting it after its fourth letter. OR, Other Ranks, is a standard abbreviation for soldiers not commissioned.",
+     "definitionFit": "A free-for-all is a disorganised fight in which everyone joins in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carries"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +846,31 @@
      }
     ]
    },
-   "solution": "TALKTURKEY"
+   "solution": "TALKTURKEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presumably Dr. Dolittle could",
+      "at": 0,
+      "meaning": "Doctor Dolittle, the fictional vet, could talk with animals, a turkey included"
+     },
+     {
+      "text": "have a frank discussion",
+      "at": 30,
+      "meaning": "an idiom meaning to speak plainly about business"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Doctor Dolittle is the children's-book doctor who talks to animals, so he could literally chat with a turkey.",
+     "definitionFit": "The idiom means to discuss something plainly and get down to business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dolittle"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +894,31 @@
      }
     ]
    },
-   "solution": "LIKEASHOT"
+   "solution": "LIKEASHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bally",
+      "at": 0,
+      "meaning": "read as ball-y, like a ball, and a shot is a cannonball"
+     },
+     {
+      "text": "enthusiastically",
+      "at": 6,
+      "meaning": "an idiom for immediately and eagerly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bally' is old British slang for 'bloody', but here it is split as BALL plus -Y, meaning like a ball, and a shot can be a ball.",
+     "definitionFit": "The idiom means very quickly and willingly, without hesitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bally"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +932,29 @@
     "text": "Somewhere to sleep? Nonsense!",
     "enumeration": "4"
    },
-   "solution": "BUNK"
+   "solution": "BUNK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Somewhere to sleep",
+      "at": 0,
+      "meaning": "a narrow shelf bed"
+     },
+     {
+      "text": "Nonsense",
+      "at": 20,
+      "meaning": "short for bunkum, meaning rubbish or claptrap"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both a narrow bed and nonsense, short for bunkum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nonsense"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +974,42 @@
      }
     ]
    },
-   "solution": "KITTYHAWK"
+   "solution": "KITTYHAWK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where you could have seen first-time flier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jack",
+       "at": 43,
+       "gives": "KITTY",
+       "note": "the jackpot or pool of money is the kitty"
+      },
+      {
+       "words": "cry",
+       "at": 48,
+       "gives": "HAWK",
+       "note": "to hawk is to cry wares for sale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A place where you might have spotted Jack shouting on his first flight.",
+     "walkthrough": "The Wright brothers made the first powered flight at Kitty Hawk, North Carolina, in 1903.",
+     "definitionFit": "Kitty Hawk, North Carolina, is where the Wright brothers made the first powered aeroplane flight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1023,47 @@
     "text": "I'll get confused with erratic standards",
     "enumeration": "8"
    },
-   "solution": "CRITERIA"
+   "solution": "CRITERIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "standards",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "get confused",
+       "at": 5,
+       "note": "get confused means the letters are jumbled together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'll",
+       "at": 0,
+       "gives": "I",
+       "note": "the first person I, whose 'll is will"
+      },
+      {
+       "words": "erratic",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muddles their principles with erratic ones.",
+     "walkthrough": "'get confused' rearranges I and ERRATIC.",
+     "definitionFit": "Criteria are standards by which things are judged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "erratic"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1077,29 @@
     "text": "Search a string of railway wagons",
     "enumeration": "4"
    },
-   "solution": "RAKE"
+   "solution": "RAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Search",
+      "at": 0,
+      "meaning": "to ... through something is to search it thoroughly"
+     },
+     {
+      "text": "a string of railway wagons",
+      "at": 7,
+      "meaning": "a railway term for a set of coaches or wagons coupled together"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Raking means searching thoroughly, and a rake is the railway term for a coupled set of carriages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "string"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1119,49 @@
      }
     ]
    },
-   "solution": "SEASERPENT"
+   "solution": "SEASERPENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Legendary creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallows",
+       "at": 31,
+       "note": "the exhausted piece swallows the other, so it goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exhausted",
+       "at": 20,
+       "gives": "SPENT",
+       "note": "spent means exhausted"
+      },
+      {
+       "words": "something to give relief",
+       "at": 40,
+       "gives": "EASER",
+       "note": "an easer is something that eases, giving relief"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mythical beast, worn out, gulps down a remedy.",
+     "walkthrough": "'swallows' places the reliever inside the word for exhausted, just after its first letter.",
+     "definitionFit": "The sea serpent is a monster of sailors' legend, a classic mythical creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallows"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1175,59 @@
     "text": "Make rough drawing of small vessel after beginning on seascape",
     "enumeration": "6"
    },
-   "solution": "SKETCH"
+   "solution": "SKETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make rough drawing of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 35,
+       "note": "after means the vessel comes after the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning on",
+         "at": 41,
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seascape",
+         "at": 54
+        }
+       ]
+      },
+      {
+       "words": "small vessel",
+       "at": 22,
+       "gives": "KETCH",
+       "note": "a ketch is a small two-masted sailing boat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist sketches a little boat while starting a seascape.",
+     "walkthrough": "S comes from the start of 'seascape'.",
+     "definitionFit": "A sketch is a quick preliminary drawing, so producing one is drafting a picture roughly as a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1241,41 @@
     "text": "Combination of drugs can make you crazy",
     "enumeration": "8"
    },
-   "solution": "CRACKPOT"
+   "solution": "CRACKPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crazy",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Combination of drugs",
+       "at": 0,
+       "gives": "CRACK",
+       "note": "crack is a form of cocaine"
+      },
+      {
+       "words": "Combination of drugs",
+       "at": 0,
+       "gives": "POT",
+       "note": "pot is slang for cannabis"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that mixing drugs can drive you mad.",
+     "walkthrough": "Two slang drug names, crack and pot, combine to make the word.",
+     "definitionFit": "A crackpot is an eccentric or crazy person; here used adjectivally for crazy schemes or ideas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1289,11 @@
     "text": "A spell in the French army",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotationWithheld": {
+    "why": "A spell in the French army (5): CHARM is 'a spell', but no parse found for 'in the French army' giving CHARM letters; scan reads the same",
+    "clue": "A spell in the French army"
+   }
   },
   {
    "number": 23,
@@ -421,7 +1307,59 @@
     "text": "Squat, or plump on top of sofa",
     "enumeration": "6"
    },
-   "solution": "STUBBY"
+   "solution": "STUBBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Squat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 16,
+       "note": "in an across clue, one piece placed on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 19,
+         "note": "the top of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sofa",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "plump",
+       "at": 10,
+       "gives": "TUBBY",
+       "note": "tubby means plump"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone short and stout, or flopping down on the top of a sofa.",
+     "walkthrough": "'Squat' and 'plump' look like verbs about sitting down, but both are adjectives here.",
+     "definitionFit": "Stubby means short and thick, the same as squat in shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plump"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1373,53 @@
     "text": "Light wood — pick up a plank",
     "enumeration": "5"
    },
-   "solution": "BALSA"
+   "solution": "BALSA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Light wood",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "pick up",
+       "at": 13,
+       "note": "in a down clue, pick up means read upwards, reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
+        },
+        {
+         "words": "plank",
+         "at": 23,
+         "gives": "SLAB",
+         "note": "a slab is a flat piece, a plank"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing a plank of light timber.",
+     "walkthrough": "'pick up' turns A SLAB round, upwards in the grid.",
+     "definitionFit": "Balsa is a very lightweight timber used in models."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pick"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1439,46 @@
      }
     ]
    },
-   "solution": "ISAY"
+   "solution": "ISAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look here!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 29,
+       "note": "left out means the letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Island's",
+       "at": 11,
+       "gives": "ISLAY",
+       "note": "Islay is a Scottish island"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation that an island has been forgotten.",
+     "walkthrough": "Islay is a Hebridean island off Scotland's west coast, known for whisky.",
+     "definitionFit": "I say is an exclamation to attract attention, like 'Look here!'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1492,42 @@
     "text": "Plate that's large when heated",
     "enumeration": "5"
    },
-   "solution": "ASHET"
+   "solution": "ASHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plate that's large",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "when",
+       "at": 19,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
+      },
+      {
+       "words": "heated",
+       "at": 24,
+       "gives": "HET",
+       "note": "het is a dialect past form of heat, as in het up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish that seems to grow when it gets hot.",
+     "walkthrough": "HET is the old dialect form surviving in 'het up'. An ashet is a Scottish and northern English word for a large serving dish.",
+     "definitionFit": "In Scotland and the north of England, an ashet is a large oval serving dish or platter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1541,69 @@
     "text": "Country investing a lot upfront in another",
     "enumeration": "9"
    },
-   "solution": "AUSTRALIA"
+   "solution": "AUSTRALIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "investing",
+       "at": 8,
+       "note": "investing means putting money in, so the letters are put into the other country"
+      }
+     ],
+     "parts": [
+      {
+       "words": "another",
+       "at": 35,
+       "gives": "AUSTRIA",
+       "note": "Austria is another country"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "upfront",
+           "at": 24,
+           "note": "upfront means only the first letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lot",
+           "at": 20
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One nation pours a lot of money into another as up-front investment.",
+     "walkthrough": "'upfront' takes just the first letter of 'lot'; 'investing' puts the A and that L into the other country before its last two letters.",
+     "definitionFit": "Australia is a country, indeed a whole continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +1623,42 @@
      }
     ]
    },
-   "solution": "MATCHPLAY"
+   "solution": "MATCHPLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "competition",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Harmonise",
+       "at": 0,
+       "gives": "MATCH",
+       "note": "to match is to go together or harmonise"
+      },
+      {
+       "words": "produce music",
+       "at": 14,
+       "gives": "PLAY",
+       "note": "to play is to produce music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Musicians harmonise and perform in a contest.",
+     "walkthrough": "The musical surface hides a golf term: match play is scored by holes won rather than total strokes.",
+     "definitionFit": "Match play is a form of golf competition scored by the number of holes won."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harmonise"
+    }
+   }
   },
   {
    "number": 29,
@@ -517,7 +1672,42 @@
     "text": "There's something wanting here, I'm sorry to say",
     "enumeration": "5"
    },
-   "solution": "ALACK"
+   "solution": "ALACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I'm sorry to say",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "something",
+       "at": 8,
+       "gives": "A",
+       "note": "a stands for one thing, something"
+      },
+      {
+       "words": "wanting",
+       "at": 18,
+       "gives": "LACK",
+       "note": "a lack is something wanting or missing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regretful admission that something is missing.",
+     "walkthrough": "Read 'something wanting' as A LACK.",
+     "definitionFit": "Alack is an archaic exclamation of regret or sorrow, like alas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   }
  ]
 }
