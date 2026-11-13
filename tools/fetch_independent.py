@@ -426,6 +426,11 @@ def parse(xml_bytes, ymd):
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
     day = datetime.strptime(ymd, "%y%m%d").replace(tzinfo=timezone.utc).date()
     series = series_for(ymd)
+    if series == "independent" and SHIFTED[0] <= ymd <= SHIFTED[1]:
+        # The key ran a day ahead of the paper (see SHIFTED): the daily it served
+        # was printed the day before. 8,972 is Fri 2015-07-17 on the blog and in
+        # the Gale scan, but the Saturday key served it.
+        day -= timedelta(days=1)
     paper = ("Independent on Sunday" if series == "indysunday" else "Independent")
     return {
         "id": pid,
