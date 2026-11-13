@@ -1586,7 +1586,9 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
 #: Where a clue starts inside a recogniser's line: its number ("12", "l4",
 #: "I6", "18:") and a capital.
 #: A stop may close the line before it with no space ("out-. .23' Fires", Gale 1956-02-16's 23 down).
-NEXT_CLUE = re.compile(r"(?<=[\s\-.])(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[A-Z\"'\u2018\u201c]")
+#: A clue's number may carry one stray mark in front of two digits ("l33 If the use": clue_text.LEAD_NUMBER_START).
+NEXT_CLUE = re.compile(rf"(?<=[\s\-.])(?:\d{{1,2}}|[IlJ|!]\d|\d[IlsSoO]|{clue_text.LEAD_NUMBER_START})"
+                       r"\W{0,2}\s*[A-Z\"'\u2018\u201c]")
 #: The solution box's heading ("SOLUTION OF PUZZLE No. 7,091", read "SoLUTioN'orPuzzLB"), which the
 #: 1950s Times sets in the row of the clue beside it: a cut like a clue's number (Gale 1952-12-13's 8 down).
 SOLUTION_HEAD = re.compile(r"(?<=[\s.\-])s[o0]l[ui]t[il1]?[o0]n\W*[o0]\w?\W*p[uv]zz", re.IGNORECASE)
@@ -1788,7 +1790,8 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                     and re.match(r"[a-z]", line[4]))
                 # A clue's number 1 read as I, l, J, ! or | (tidy() reads it
                 # back): "I Very late at night".
-                if not re.match(r"\W*(?:\d|[IlJ!|]\s?(?=[A-Z][a-z]))", line[4]) and not carried:
+                if not re.match(rf"\W*(?:\d|[IlJ!|]\s?(?=[A-Z][a-z])|{clue_text.LEAD_NUMBER_START})", line[4]) \
+                        and not carried:
                     continue
                 # A lone number ("1", "3", "4", "6": a grid cell's, a speck beside the column's top) opening the column
                 # over its ACROSS or DOWN heading is no clue: kept, the gap to the heading under it ended the column there
@@ -14667,6 +14670,24 @@ def telegraph_own_due(row):
     return any("starts mid-clue" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale Telegraph page of 1949-58 read before REREAD_TELEGRAPH_LEAD_NUMBER with a clue blank "no reading
+#: laid a clue on it": a clue's two-digit number read with one stray letter in front ("l33 If the use", "a16 It is quite", "i31 A
+#: timely") failed columns()' first-line test and NEXT_CLUE, so no reading laid it (1953-05-14 33 across, 1953-05-05, 1953-06-03).
+#: clue_text.LEAD_NUMBER takes the mark off. Scan keys unmoved. Read once.
+TELEGRAPH_LEAD_NUMBER = "Telegraph page with a clue no reading laid, a stray mark before its two-digit number read since"
+REREAD_TELEGRAPH_LEAD_NUMBER = "2026-11-14T18:00:00+00:00"
+
+
+def telegraph_lead_number_due(row):
+    """Whether Gale Telegraph ledger `row` of 1949-58, read before REREAD_TELEGRAPH_LEAD_NUMBER, holds a verdict with a
+    clue blank "no reading laid a clue on it"."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galetelegraph" or not "1949" <= edition.rpartition("/")[2][:4] <= "1958" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_LEAD_NUMBER)):
+        return False
+    return any("no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ())
+
+
 #: The due reason of a Gale Telegraph page read before REREAD_TELEGRAPH_FIGURE with a clue blank "a digit inside a word" over a
 #: token the print sets: a glued cross-reference ("24down", "23across": 1988, 14 clues) or a figure and a word a dash joins
 #: ("500—and", "51—a"). suspect() takes these now (clue_text.XREF_GLUED, figure_dashed) and the cross-reference is spaced.
@@ -20613,6 +20634,8 @@ def fix_reason(row):
         return TELEGRAPH_OWN
     if telegraph_figure_due(row):
         return TELEGRAPH_FIGURE
+    if telegraph_lead_number_due(row):
+        return TELEGRAPH_LEAD_NUMBER
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -21308,7 +21331,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
                   TELEGRAPH_OWN, TELEGRAPH_FIGURE,
                   # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
-                  INDY_REDATED)
+                  INDY_REDATED,
+                  # 11-13: a Gale Telegraph 1949-58 page with a clue no reading laid (telegraph_lead_number_due).
+                  TELEGRAPH_LEAD_NUMBER)
 
 
 def refusal_passes(why):
@@ -21352,7 +21377,8 @@ def blanket_or_fix(row, blanket):
         if quick_held_due(row):
             return QUICK_HELD
         return TELEGRAPH_CELLS if telegraph_cells_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) \
-            else TELEGRAPH_FIGURE if telegraph_figure_due(row) else blanket
+            else TELEGRAPH_FIGURE if telegraph_figure_due(row) \
+            else TELEGRAPH_LEAD_NUMBER if telegraph_lead_number_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -21571,7 +21597,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
