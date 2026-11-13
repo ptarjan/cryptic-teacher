@@ -1468,7 +1468,11 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE), (gx1 + 5, split[0], split[0], gy0 - LEFT_RISE)]
         if split is None:
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
-        return [(x0, split, split, gy0 - LEFT_RISE), (split, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
+        out = [(x0, split, split, gy0 - LEFT_RISE), (split, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
+        if getattr(left, "under", None):
+            # A Beelzebub's lists run on in a third column under the grid (UnderLeft).
+            out.append((gx0 - 5, left.under, left.under, gy1 - 5))
+        return out
     if above:
         top, split, right, x0 = (above + (gx0 - margin,))[:4]
         return [(x0, split, split, top), (split, right, right, top)]
@@ -1662,7 +1666,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 # word the grid's numbers left is not. A column under the
                 # grid after the first may open on a clue whose number was
                 # lost ("Peer inside the pearly gates").
-                carried = side and above is None and not left and (
+                carried = side and above is None and (not left or getattr(left, "under", None) and side == 2) and (
                     re.match(r"[A-Z][a-z]", line[4]) and len(re.findall(r"[A-Za-z]{2,}", line[4])) >= 3
                     # The rest of the clue the last column ended in, its
                     # count not yet printed ("6 Chewing nuts with tea may"
@@ -2103,6 +2107,30 @@ def left_columns(lines, grid):
     floor = left_bottom(grid)
     lo, hi = x0 + 0.3 * (gx0 - x0), x0 + 0.7 * (gx0 - x0)
     return x0, gutter(lines, (lo, floor, hi, floor), gy0 - LEFT_RISE, lo, hi), floor
+
+
+#: The share of a Beelzebub grid's width the third clue column under it runs right of the grid's left edge
+#: (1996-03-10: x 985-1330 of a grid 972-1696 wide; the entry notice and the winners' list stand beside it from 1350).
+IOS_THIRD = 0.5
+
+
+def ios_third_right(grid):
+    """The x where the third clue column under a Beelzebub grid ends."""
+    return int(grid[0] + IOS_THIRD * (grid[2] - grid[0]))
+
+
+class UnderLeft(tuple):
+    """A left_columns tuple whose clue lists run on in a third column under the grid, from the grid's foot to
+    `under` (the x it ends at): windows_of lays that window after the two beside the grid."""
+    under = None
+
+
+def with_under(left, grid, foot):
+    """`left` (left_columns) as an UnderLeft: the third column under `grid` too, all three running to `foot` (the
+    page's: the lists run past left_bottom's 0.3 of a grid's height, 1996-03-10 from the grid's top 2062 to 3460)."""
+    out = UnderLeft((left[0], left[1], foot))
+    out.under = ios_third_right(grid)
+    return out
 
 
 #: How far under the grid's foot, as a share of its height, the one clue
@@ -10321,6 +10349,30 @@ def _list_answers_only(d, found, hit, solutions):
 INDY_SUNDAY_BARRED_END = "2000"
 
 
+IOS_WORDS_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*[,.]\s*\d\s+w[a-z]{3,4}\s*\)")
+
+
+def ios_fitted(gpath, grid, texts):
+    """The Beelzebub grid at `gpath` with its unsure bars decided by the clue lists of `texts` (the reading that
+    lists the most clues, ios_barred.fit_rows), when that moves `grid`; else None."""
+    import ios_barred
+    best = []
+    for k, t in texts.items():
+        if k == "vlm" or not t.strip():
+            continue
+        parsed, _ = parse(t, ones=False)
+        got = ios_barred.wanted_of(parsed)
+        if len(got) > len(best):
+            best = got
+    if not best:
+        return None
+    try:
+        rows, _ = ios_barred.read_grid(gpath, best)
+    except OSError:
+        return None
+    return rows if rows and rows != grid else None
+
+
 def indy_sunday_beside(paper, d, gbox):
     """Whether Gale Independent on Sunday page `d` (grid box `gbox`) is a 1990s Beelzebub with room left of the grid
     for the clue columns (a crop a grid's width and 60px wide)."""
@@ -10426,7 +10478,11 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         column = left_column(probe, gbox, heading=PROBE_HEADING)
     # A Beelzebub's clue columns run from over the grid to the page's foot (1996-03-10: x 188-984, y 1928-3460,
     # the grid 2060-2784), 1.5 grids tall: left_bottom's 0.3 cut every clue past the 18th.
-    crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, img.height if indy_sunday_beside(paper, d, gbox) else left_bottom(gbox)) if beside else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
+    # The lists run on in a third column under the grid (x 985-1330): the crop reaches its end, the grid blanked
+    # (rapid_lines' three-number crop).
+    crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, img.height, ios_third_right(gbox)) if beside and indy_sunday_beside(paper, d, gbox) \
+        else (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside \
+        else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
     # the grid is not the 2014 Times' clues right of it).
@@ -10546,6 +10602,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         above = (top, gutter(every, gbox, top, *mid), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG), x0)
     if beside:
         left = left_columns(every, gbox)
+        if indy_sunday_beside(paper, d, gbox):
+            left = with_under(left, gbox, img.height)
     elif sides:
         left = sides
         if len(sides[1]) > 1:
@@ -10623,6 +10681,15 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         texts = {k: first_clue_set(t) for k, t in texts.items()}
     texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
+    # A Beelzebub's bars read from the lists too: the bar set whose lights lie on the listed numbers and lengths.
+    if indy_sunday_beside(paper, d, gbox):
+        # "(12, 2 words)": the count of words, in a digit, is the print's (clue_text.WORDS_COUNT's "two words").
+        texts = {k: IOS_WORDS_COUNT.sub(r"(\1)", t) for k, t in texts.items()}
+    if g and indy_sunday_beside(paper, d, gbox):
+        fitted = ios_fitted(gpath, g, texts)
+        if fitted:
+            g = image = fitted
+            verdict["barsFitted"] = True
     texts, dropped = screened(texts, None if backsolve else g)
     if dropped:
         verdict["dropped"] = dropped
@@ -13288,20 +13355,25 @@ REREAD_INDEPENDENT_RIGHT = "2026-11-13T19:00:00+00:00"
 #: 11-13 census: ~325 such pages, ios_barred reads the bars (180-degree symmetry the check), the crop left of the
 #: grid the clues (indy_sunday_beside). Read once, before REREAD_INDY_BARRED.
 INDY_BARRED = "Independent on Sunday Beelzebub page refused for its barred 12x12 grid, its bars and left clue columns read since"
-REREAD_INDY_BARRED = "2026-11-13T21:00:00+00:00"
+#: 11-13 18:15Z: the clue lists' third column under the grid (UnderLeft), the bars set as mirror pairs and decided by the
+#: lists (ios_barred.fit_rows), the lists' foot the page's: 1996-03-10 reads 34 of 34 clues whole (22 of 39 before). Due
+#: for every such page not filed, whatever it read before (a page read with the bars and two columns stays unfiled).
+REREAD_INDY_BARRED = "2026-11-13T18:15:00+00:00"
 
 
 def indy_barred_due(row):
     """Whether Gale Independent on Sunday ledger `row` of 1990-2000, read before REREAD_INDY_BARRED, holds a verdict
-    refused "no reading parses" whose grid was unread for its 12 rows and 12 columns, and not filed."""
+    refused with its grid unread for its 12 rows and 12 columns, or any verdict not filed (the page read with the bars
+    but not whole), and not filed."""
     rel = (row or {}).get("edition") or ""
     if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] > INDY_SUNDAY_BARRED_END \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_BARRED)):
         return False
     series = paper_of(rel).series
-    return any(v.get("refused") and not v.get("skip") and v.get("number") is not None
-               and str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
-               and filed_state(series, v.get("number")) is None for v in row.get("verdicts") or ())
+    return any(not v.get("skip") and v.get("number") is not None and filed_state(series, v.get("number")) is None
+               and (v.get("refused") is None or str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
+                    or v.get("cause") == "no-reading-parses")
+               for v in row.get("verdicts") or ())
 
 
 def indy_right_due(row):

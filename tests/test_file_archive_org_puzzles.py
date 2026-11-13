@@ -3546,6 +3546,26 @@ check("an Independent on Sunday 1990s page with its 12x12 grid unread is due IND
        f.indy_barred_due({**_ib, "edition": "GaleTimes1996UKEnglish/1996-03-10"}), f.INDY_BARRED in f.RANKS,
        __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 9 + ["." * 11 + "b"] + ["." * 12]),
        __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 11) < 0.8])
+def _ios_found(thick, thin_sides=()):
+    """A listener_grid-like 12x12 grid: `thick` sides 4 thin rules wide, the rest 1 (the thin rule 1)."""
+    _s = {(r, c, "r"): 1.0 for r in range(12) for c in range(11)}
+    _s.update({(r, c, "b"): 1.0 for r in range(11) for c in range(12)})
+    _s.update({k: 4.0 for k in thick})
+    return {"rows": ["." * 12] * 12, "sides": _s, "thin": 1.0}
+
+
+_io = __import__("ios_barred")
+_pair = (2, 3, "r")
+_stray = (7, 1, "b")
+_fit = _io.fit_rows(_ios_found({_pair, _io.mirror_of(_pair), _stray}))
+_ug = (985, 2062, 1705, 2781)
+_wins = f.windows(_ug, None, 40, None, f.with_under((205, 589, 100), _ug, 3743))
+check("a Beelzebub's bars are mirror pairs (a bar thick on one side only is none), the clue lists decide the unsure "
+      "pairs, its lists run on in a third window under the grid to the page's foot, and a digit's \"(12, 2 words)\" is \"(12)\"",
+      [True, True, [(980, 1345, 1345, 2776)], 3743, "(12) x (9)", [(1, "across", 6)]],
+      [_fit[2][3] == "r" and _fit[9][7] == "r", _fit[7][1] == ".", _wins[2:], f.with_under((205, 589, 100), _ug, 3743)[2],
+       f.IOS_WORDS_COUNT.sub(r"(\1)", "(12, 2 words) x (9, 2 words)").replace("(9)", "(9)"),
+       [(1, "across", 6)] if _io.wanted_of({"across": [{"tokens": [{1}], "enums": {"3,3"}}]}) == [(frozenset({1}), "across", 6)] else None])
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
 _mon ={"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
