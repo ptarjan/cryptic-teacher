@@ -7,7 +7,10 @@ built by one walk of history and stored under the git common dir, so every
 worktree shares it. The stored map names the tip it covers and is extended
 with `<tip>..HEAD` when HEAD descends from that tip. A HEAD that does not (an
 older or diverged worktree) is answered by dropping the deletions HEAD cannot
-reach and adding the ones on its own side of the merge base; a HEAD sharing no
+reach and adding the ones on its own side of the merge base. A HEAD beside the
+tip (neither an ancestor of the other) stores that adjusted map with tip=HEAD,
+so later calls extend from it instead of re-walking `<tip>..HEAD` every time;
+a HEAD behind the tip is not stored. A HEAD sharing no
 history with the tip (a rewrite) rebuilds the map. Writers hold a lock and
 replace the file atomically, so concurrent callers never see half a map.
 
@@ -79,10 +82,21 @@ def _save(store, data):
     os.replace(tmp, store)
 
 
+def _adjusted(root, prefix, data, head):
+    """data's map as seen from head, which is behind or beside data's tip:
+    drop what head cannot reach, add what only head has."""
+    tip = data["tip"]
+    unreachable = set(_git(root, "rev-list", f"{head}..{tip}").stdout.split())
+    own = _walk(root, [f"{tip}..{head}"], prefix)
+    return _merged(own, {p: kept for p, cs in data["deleted"].items()
+                         if (kept := [c for c in cs if c not in unreachable])})
+
+
 def _fresh(root, prefix, head):
     """The stored map: extended to `head` when head descends from its tip,
-    returned as is when head is behind or beside it, and rebuilt when there
-    is none or it shares no history with head."""
+    adjusted to head and stored when head is beside the tip (so later calls
+    extend from it), returned as is when head is behind the tip, and rebuilt
+    when there is none or it shares no history with head."""
     store = _store_path(root, prefix)
     data = _load(store, prefix)
     if data and data["tip"] == head:
@@ -97,7 +111,9 @@ def _fresh(root, prefix, head):
         if data and _is_ancestor(root, data["tip"], head):
             deleted = _merged(_walk(root, [f"{data['tip']}..{head}"], prefix), data["deleted"])
         elif data and _git(root, "merge-base", data["tip"], head, check=False).returncode == 0:
-            return data  # head is behind or beside the tip; deletions() adjusts
+            if _is_ancestor(root, head, data["tip"]):
+                return data  # head is behind the tip; deletions() adjusts
+            deleted = _adjusted(root, prefix, data, head)  # beside: store it
         else:
             deleted = _walk(root, [head], prefix)
         data = {"version": VERSION, "prefix": prefix, "tip": head, "deleted": deleted}
@@ -123,12 +139,9 @@ def deletions(root, prefix):
     data = _fresh(root, prefix, head)
     deleted = data["deleted"]
     if data["tip"] != head:
-        # head is behind or beside the stored tip: drop what head cannot reach,
+        # head is behind the stored tip: drop what head cannot reach,
         # add what only head has.
-        unreachable = set(_git(root, "rev-list", f"{head}..{data['tip']}").stdout.split())
-        own = _walk(root, [f"{data['tip']}..{head}"], prefix)
-        deleted = _merged(own, {p: kept for p, cs in deleted.items()
-                                if (kept := [c for c in cs if c not in unreachable])})
+        deleted = _adjusted(root, prefix, data, head)
     _memo.clear()
     _memo[key] = deleted
     return deleted

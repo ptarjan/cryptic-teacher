@@ -72,7 +72,19 @@ git("checkout", "-q", "HEAD~2")
 agree("an older HEAD drops the deletions it cannot reach")
 os.remove(f"{repo}/p/b.json"); commit("a side commit deleting b")
 agree("a diverged HEAD adds its own deletions")
-assert json.loads(store.read_text())["tip"] == newest, "a behind/diverged HEAD rewrote the map"
+assert json.loads(store.read_text())["tip"] == git("rev-parse", "HEAD"), "a beside HEAD was not stored"
+side = git("rev-parse", "HEAD")
+os.remove(f"{repo}/p/a.json"); sidetip = commit("side: delete a")
+walked = []
+_orig_walk = d._walk
+d._walk = lambda r, revs, pre: (walked.append(revs), _orig_walk(r, revs, pre))[1]
+agree("a descendant of a stored beside HEAD extends it")
+d._walk = _orig_walk
+assert walked == [[f"{side}..{git('rev-parse', 'HEAD')}"]], walked
+git("checkout", "-q", side)
+agree("a HEAD behind the stored tip is answered, not stored")
+assert json.loads(store.read_text())["tip"] == sidetip, "a behind HEAD rewrote the map"
+git("checkout", "-q", "-B", "rewrite-base", side)
 
 git("checkout", "-q", "--orphan", "rewritten"); git("rm", "-rqf", ".")
 put("p/c.json", "9"); commit("unrelated root")
