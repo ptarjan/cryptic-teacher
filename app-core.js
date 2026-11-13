@@ -173,9 +173,28 @@
                 (navigator.languages && navigator.languages.length === 0));
     } catch (e) { return false; }
   }
+  /* A stealth headless Chrome has a normal UA and webdriver false, so the check
+     above cannot see it (11-12 on: ~3700 then ~6100 "new visits" a day, each
+     with an open and almost never a letter). What it cannot fake cheaply is a
+     person: it never presses, types or scrolls. So nothing is reported until
+     the first real gesture; before it, beacons wait here. A visitor who leaves
+     without touching anything is not counted, which is the point. */
+  let humanSeen = false;
+  const awaitingHuman = [];
+  function onHuman(fn) { if (humanSeen) fn(); else awaitingHuman.push(fn); }
+  function humanArrived(e) {
+    if (humanSeen || !e || e.isTrusted === false) return;
+    humanSeen = true;
+    ["pointerdown", "keydown", "touchstart", "wheel"].forEach((t) =>
+      window.removeEventListener(t, humanArrived, true));
+    awaitingHuman.splice(0).forEach((fn) => { try { fn(); } catch (err) { /* best effort */ } });
+  }
+  ["pointerdown", "keydown", "touchstart", "wheel"].forEach((t) =>
+    window.addEventListener(t, humanArrived, true));
   function beacon(name) {
     if (eventsSent.has(name)) return;
     if (looksAutomated()) return;
+    if (!humanSeen) { onHuman(() => beacon(name)); return; }
     try { if (localStorage.getItem(INTERNAL_KEY)) return; } catch (e) { /* counted */ }
     eventsSent.add(name);
     if (AB_MIRROR[name]) abSend(AB_MIRROR[name]);
@@ -264,11 +283,17 @@
     const first = isFirstVisit(seen);
     abEnrollIfFirst(); // A/B 1 (a no-op when bindWelcome already did it at load)
     nuxSeed(first);
-    abSend("visit");
-    if (seen && seen.last === today) return;
-    const days = (seen ? seen.days : (hasAnySave() ? 1 : 0)) + 1;
-    store.set("ct:seen", { last: today, days });
-    beacon(days === 1 ? "visit-new" : days < 5 ? "visit-return" : "visit-regular");
+    // Only once a person has touched the page (see onHuman): the tally is
+    // written then too, so a bounce does not turn tomorrow's first visit into a
+    // "return".
+    onHuman(() => {
+      abSend("visit");
+      const seenNow = store.get("ct:seen", null);
+      if (seenNow && seenNow.last === today) return;
+      const days = (seenNow ? seenNow.days : (hasAnySave() ? 1 : 0)) + 1;
+      store.set("ct:seen", { last: today, days });
+      beacon(days === 1 ? "visit-new" : days < 5 ? "visit-return" : "visit-regular");
+    });
   }
 
   /* ---------- the first grid ----------
