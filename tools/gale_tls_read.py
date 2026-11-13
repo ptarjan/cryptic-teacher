@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 2
+VERSION = 3
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -156,6 +156,131 @@ def number_on_page(words):
     return figure(m.group(1)) if m else None
 
 
+#: The count closing a clue ("(5)", "(3,4)", OCR-cut "(6"), and the lines and counts a column of the lists has.
+COUNT_WORD = re.compile(r"\(\d{1,2}(?:[,\-]\d{1,2})*[).]?\W{0,2}$")
+HEAD_WORD = re.compile(r"(?i)^\W*(across|down|acr|dow)")
+NUMBER_WORD = re.compile(r"^\W{0,2}\d{1,2}[.,]?$")
+COLUMN_COUNTS = 3
+#: A column's heading or opening number is looked for this many line heights over its first count.
+HEAD_REACH = 40
+
+
+def layout_columns(words, grid):
+    """[(x0, y0, x1, y1)] the clue lists' columns found by their own shape, left to right, for a page times_cuts
+    reads no ACROSS and DOWN pair under a title on (the 1990s pages set the lists beside and under the grid,
+    among prose columns, with headings the page OCR often loses): the page's text columns (the gutters no
+    word crosses, the grid's words left out) holding COLUMN_COUNTS counts or more are the lists', each from
+    its heading, if one stands over it, or its first count's clue to its last count."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+
+    def in_grid(w):
+        return grid[0] <= (w[0] + w[2]) / 2 <= grid[2] and grid[1] <= (w[1] + w[3]) / 2 <= grid[3]
+    rest = [w for w in words if not in_grid(w)]
+    counts = [w for w in rest if COUNT_WORD.search(w[4])]
+    if len(counts) < 2 * COLUMN_COUNTS:
+        return []
+    y0, y1 = min(w[1] for w in counts) - 4 * lh, max(w[3] for w in counts) + lh
+    gs = gl.gutters(rest, y0, y1, lh)
+    bands = []
+    for (_, left), (right, _) in zip(gs, gs[1:]):
+        mine = [w for w in counts if left <= (w[0] + w[2]) / 2 <= right]
+        if len(mine) < COLUMN_COUNTS:
+            continue
+        # A band may hold a prose column beside the lists (a gutter a headline or a photo crosses): looked at
+        # again over the counts' own lines alone, with narrower gutters.
+        top, bottom = min(w[1] for w in mine) - lh, max(w[3] for w in mine) + lh
+        fine = gl.gutters([w for w in rest if left <= (w[0] + w[2]) / 2 <= right], top, bottom, lh / 2)
+        bands += [(a[1], b[0]) for a, b in zip(fine, fine[1:]) if a[1] >= left - 1 and b[0] <= right + 1] or [(left, right)]
+    cols = []
+    for left, right in bands:
+        mine = [w for w in counts if left <= (w[0] + w[2]) / 2 <= right]
+        if len(mine) < COLUMN_COUNTS:
+            continue
+        first = min(w[1] for w in mine)
+        # the heading over the first count, within reach, the highest
+        over = [w for w in rest if left <= w[0] <= right and first - HEAD_REACH * lh <= w[1] < first
+                and (HEAD_WORD.match(w[4]) and w[3] - w[1] < 3 * lh)]
+        top = min([first - 2 * lh, *(w[1] for w in over)])
+        cols.append((int(max(0, left - lh / 2)), int(max(0, top - lh / 2)), int(right + lh / 2),
+                     int(max(w[3] for w in mine) + lh / 2)))
+    return cols
+
+
+def line_numbers(words, lh):
+    """[(top, bottom, number)] of the lines of `words` opening on a clue's number and a word."""
+    ws = sorted(words, key=lambda w: ((w[1] + w[3]) / 2, w[0]))
+    lines = []
+    for w in ws:
+        if lines and abs((w[1] + w[3]) / 2 - lines[-1][0]) < lh / 2:
+            lines[-1][1].append(w)
+        else:
+            lines.append([(w[1] + w[3]) / 2, [w]])
+    out = []
+    for _, line in lines:
+        line.sort()
+        if NUMBER_WORD.match(line[0][4]) and len(line) > 1 and re.search(r"[A-Za-z]{2}", line[1][4]):
+            out.append((min(w[1] for w in line), max(w[3] for w in line), int(re.sub(r"\D", "", line[0][4]))))
+    return out
+
+
+def layout_block(img, words, grid, ocr=None):
+    """(image, key) of the lists `layout_columns` finds, set one under another in a single column with
+    "ACROSS" and "DOWN" headings drawn clean over them: across is read from the first column to the line the
+    clue numbers start again on (a number of 3 or under after higher ones), down from there on. The grid
+    and the headings the page already reads in the columns are blanked. None where no column or no restart
+    of the numbers is found (so the page's lists stay unread, not misread)."""
+    from PIL import Image, ImageDraw, ImageFont
+    import gale_listener as gl
+    ocr = ocr or (lambda im: gl.page_words(im, gl.image_key(im)))
+    lh = gl.line_height(words)
+    pieces = []  # (column index, crop, its words)
+    for k, box in enumerate(layout_columns(words, grid)):
+        crop = img.crop(box).copy()
+        draw = ImageDraw.Draw(crop)
+        draw.rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]), fill="white")
+        pieces.append((k, crop, ocr(crop)))
+    if not pieces:
+        return None
+    # the headings the OCR read in a column are blanked, so the ones drawn are the only ones
+    for _, crop, ws in pieces:
+        draw = ImageDraw.Draw(crop)
+        for w in ws:
+            if HEAD_WORD.match(w[4]) and len(re.sub(r"\W", "", w[4])) <= 8:
+                draw.rectangle((w[0] - 4, w[1] - 4, w[2] + 4, w[3] + 4), fill="white")
+    top, peak = None, 0
+    for k, crop, ws in pieces:
+        for y0, y1, n in line_numbers(ws, lh):
+            if top is None and peak and n <= 3 and n < peak - 3:
+                top = (k, y0)
+            peak = max(peak, n)
+    if top is None:
+        return None
+    across, down = [], []
+    for k, crop, ws in pieces:
+        if k < top[0]:
+            across.append(crop)
+        elif k > top[0]:
+            down.append(crop)
+        else:
+            cut = max(1, int(top[1] - lh / 3))
+            across.append(crop.crop((0, 0, crop.width, cut)))
+            down.append(crop.crop((0, cut, crop.width, crop.height)))
+    font = ImageFont.load_default(size=64)
+    width = max(c.width for c in across + down) + 40
+    parts = []
+    for title, group in (("ACROSS", across), ("DOWN", down)):
+        head = Image.new("RGB", (width, 110), "white")
+        ImageDraw.Draw(head).text((20, 20), title, fill="black", font=font)
+        parts += [head, *group]
+    out = Image.new("RGB", (width, sum(p.height + 30 for p in parts)), "white")
+    y = 0
+    for p in parts:
+        out.paste(p, (20, y))
+        y += p.height + 30
+    return out, gl.image_key(out)
+
+
 def pick_grid(boxes, reader, pads=(6, 0.08)):
     """(box, grid, None) of the first of `boxes` whose `reader(box, pad)` reads a 15x15 lattice, else
     (None, None, why of the first refusal)."""
@@ -230,6 +355,13 @@ def read_page(path, store=STORE, asker=None):
         blocks = gl.times_blocks(img, key)
     finally:
         gl.TITLE_WORD, gl.times_titles, gl.times_cuts = old, old_titles, old_cuts
+    if not blocks:
+        # No ACROSS and DOWN pair read under a title: the lists found by their own shape beside the grid.
+        words = gl.page_words(img, key)
+        block = layout_block(img, words, box)
+        blocks = [block] if block else []
+        if blocks:
+            verdict["cut"] = "layout"
     if not blocks:
         verdict["refused"] = "no TLS clue lists found on the page"
         return verdict, None
