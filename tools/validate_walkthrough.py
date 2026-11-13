@@ -243,7 +243,12 @@ def walkthrough_hedges(walk, clue):
 # every puzzle and asks a cruder question — is this even a walkthrough? 60 is
 # well clear of any real walkthrough, so nothing that hits it is a near miss on
 # the style budget.
-BACKTRACKS = ("no wait", "no, wait", "hold on", "scratch that", "still wrong",
+#
+# "hold on" alone is the idiom ("hold on to", "hold on" as a definition of WAIT): it was
+# 169 of the 205 flags on 11-12 and every sampled one was ordinary text, so only the
+# interjection forms count.
+BACKTRACKS = ("no wait", "no, wait", "hold on,", "hold on!", "hold on —", "hold on -",
+              "scratch that", "still wrong",
               "that's not it", "that is not it", "not it either", "re-examine",
               "let me try", "let me reconsider", "on second thought",
               "correct parse", "actually:", "ignore that", "wait—", "wait --")
