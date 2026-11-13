@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "One unloading clipper?",
     "enumeration": "6"
    },
-   "solution": "DOCKER"
+   "solution": "DOCKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One unloading",
+      "at": 0,
+      "meaning": "a dock worker who unloads ships' cargo"
+     },
+     {
+      "text": "clipper?",
+      "at": 14,
+      "meaning": "whimsically, one who docks, that is clips or cuts short, as with an animal's tail"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A dock labourer unloads ships, and to dock also means to cut short, so a clipper is jokily one who docks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clipper"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,56 @@
     "text": "Cut down emaciated rebels leaving area",
     "enumeration": "8"
    },
-   "solution": "DECIMATE"
+   "solution": "DECIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rebels",
+       "at": 19,
+       "note": "the letters of emaciated rebel against their order and are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 26,
+         "note": "area is leaving, so its abbreviation drops out of the mix"
+        }
+       ],
+       "parts": [
+        {
+         "words": "emaciated",
+         "at": 9
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Starving insurgents abandon a district after their numbers are cut.",
+     "walkthrough": "'leaving' removes one A (area) from EMACIATED, and 'rebels' rearranges the remaining EMCIATED.",
+     "definitionFit": "To decimate a force is to kill a large part of it, to cut it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebels"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +133,47 @@
     "text": "Burmese fighter using foreign language in court",
     "enumeration": "7"
    },
-   "solution": "CHINDIT"
+   "solution": "CHINDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Burmese fighter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "the language is placed in the abbreviation for court"
+      }
+     ],
+     "parts": [
+      {
+       "words": "court",
+       "at": 42,
+       "gives": "CT"
+      },
+      {
+       "words": "foreign language",
+       "at": 22,
+       "gives": "HINDI",
+       "note": "Hindi is a major language of India"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier in Burma speaks another tongue at a hearing.",
+     "definitionFit": "The Chindits were British-led special forces who fought behind Japanese lines in Burma in the Second World War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +187,54 @@
     "text": "Inspectors dismiss upstanding workers underground",
     "enumeration": "9"
    },
-   "solution": "EXAMINERS"
+   "solution": "EXAMINERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inspectors",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upstanding",
+         "at": 19,
+         "note": "in a down clue, upstanding means the word is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dismiss",
+         "at": 11,
+         "gives": "AXE",
+         "note": "to axe someone is to dismiss them"
+        }
+       ]
+      },
+      {
+       "words": "workers underground",
+       "at": 30,
+       "gives": "MINERS",
+       "note": "miners work below ground"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Officials sack honest colliers.",
+     "walkthrough": "'upstanding' turns AXE to EXA in this down entry.",
+     "definitionFit": "Examiners are people who inspect or test, so inspectors in a general sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upstanding"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +254,28 @@
      }
     ]
    },
-   "solution": "STEPDOWN"
+   "solution": "STEPDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resign",
+      "at": 0,
+      "meaning": "to quit a post"
+     },
+     {
+      "text": "decrease in output",
+      "at": 15,
+      "meaning": "an electrical transformer term for lowering voltage, or generally a reduction"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To step down is to resign, and a step-down is a reduction, as in a step-down transformer lowering voltage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +299,55 @@
      }
     ]
    },
-   "solution": "THEGREATESCAPE"
+   "solution": "THEGREATESCAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "War film",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "worried",
+       "at": 27,
+       "note": "worried in the sense of shaken about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gets",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 14
+      },
+      {
+       "words": "PE",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "words": "teacher",
+       "at": 19,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gym teacher frets over a war movie.",
+     "definitionFit": "A 1963 Second World War film about a mass breakout from a prisoner-of-war camp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +361,60 @@
     "text": "Student at university, one kept in place",
     "enumeration": "5"
    },
-   "solution": "PUPIL"
+   "solution": "PUPIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Student",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept in",
+       "at": 27,
+       "note": "the following letters are held inside the abbreviation for place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "place",
+       "at": 35,
+       "gives": "PL",
+       "note": "PL is the abbreviation for place, as in street names"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at university",
+         "at": 8,
+         "gives": "UP",
+         "note": "UP means in residence at university, as in going up to Oxford"
+        },
+        {
+         "words": "one",
+         "at": 23,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An undergraduate is kept where they belong.",
+     "walkthrough": "'at university' gives UP, a British idiom (being up at Oxford or Cambridge).",
+     "definitionFit": "A pupil is a person being taught, a student."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +428,45 @@
     "text": "Thracian poet —— he sent one to sleep, head dropping",
     "enumeration": "7"
    },
-   "solution": "ORPHEUS"
+   "solution": "ORPHEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thracian poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "head dropping",
+       "at": 39,
+       "note": "the first letter of the sleep god's name falls away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he sent one to sleep",
+       "at": 17,
+       "gives": "MORPHEUS",
+       "note": "Morpheus, the Greek god of dreams, who brings sleep"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet from Thrace lulls a listener until their head nods.",
+     "definitionFit": "In Greek myth Orpheus was the legendary musician and poet from Thrace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +480,41 @@
     "text": "Not one store had food",
     "enumeration": "6"
    },
-   "solution": "NOSHED"
+   "solution": "NOSHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "had food",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not one",
+       "at": 0,
+       "gives": "NO",
+       "note": "no means not one, none"
+      },
+      {
+       "words": "store",
+       "at": 8,
+       "gives": "SHED",
+       "note": "a shed is a storehouse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every store was out of stock.",
+     "definitionFit": "To nosh is slang for to eat, so having noshed is having had food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +534,51 @@
      }
     ]
    },
-   "solution": "MACARONICHEESE"
+   "solution": "MACARONICHEESE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "melted",
+       "at": 18,
+       "note": "melted ice cream loses its shape, so these letters are reformed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ice cream",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "words": "has",
+       "at": 14,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scoop of ice cream has melted in its bowl.",
+     "definitionFit": "A baked pasta dish of macaroni in a cheese sauce, known in America as mac and cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +592,62 @@
     "text": "Fragile articles revolutionary carries in a conflict",
     "enumeration": "9"
    },
-   "solution": "CHINAWARE"
+   "solution": "CHINAWARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fragile articles",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carries",
+       "at": 31,
+       "note": "the revolutionary holds the other letters inside him"
+      }
+     ],
+     "parts": [
+      {
+       "words": "revolutionary",
+       "at": 17,
+       "gives": "CHE",
+       "note": "Che Guevara, the Argentine revolutionary"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 39,
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "at": 42
+        },
+        {
+         "words": "conflict",
+         "at": 44,
+         "gives": "WAR",
+         "note": "a war is a conflict"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel brings delicate goods into a battle.",
+     "definitionFit": "Chinaware is porcelain crockery, delicate items that break easily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carries"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +661,45 @@
     "text": "Old writer appears briefly for reporters",
     "enumeration": "5"
    },
-   "solution": "PEPYS"
+   "solution": "PEPYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEPYS",
+     "indicators": [
+      {
+       "text": "for reporters",
+       "at": 27,
+       "note": "reporters here are those who hear and repeat words, so the word is as spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appears briefly",
+       "at": 11,
+       "gives": "PEEPS",
+       "note": "something that peeps shows itself for a moment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran author shows his face to the press for a moment.",
+     "walkthrough": "Samuel Pepys's name is pronounced 'peeps'.",
+     "definitionFit": "Samuel Pepys was the 17th-century English diarist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reporters"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +713,57 @@
     "text": "Frantic period in which I get a drink",
     "enumeration": "7"
    },
-   "solution": "MADEIRA"
+   "solution": "MADEIRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Frantic",
+       "at": 0,
+       "gives": "MAD",
+       "note": "mad means frantic"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in which",
+         "at": 15,
+         "note": "the letter I sits inside the word for period"
+        }
+       ],
+       "parts": [
+        {
+         "words": "period",
+         "at": 8,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        },
+        {
+         "words": "I",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a hectic spell I have a drink.",
+     "definitionFit": "Madeira is a fortified wine from the Portuguese island of that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +777,45 @@
     "text": "Free from obligation on holiday, one might say",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Free from obligation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RELIEVE",
+     "indicators": [
+      {
+       "text": "one might say",
+       "at": 33,
+       "note": "signals that the phrase is to be heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on holiday",
+       "at": 21,
+       "gives": "RELEAVE",
+       "note": "re means on or concerning, and leave is holiday"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being on vacation frees one from duties.",
+     "walkthrough": "RE (on, about) plus LEAVE (holiday) sounds like the answer.",
+     "definitionFit": "To relieve someone of a duty is to free them from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "holiday"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +829,62 @@
     "text": "Championship match involving the league leaders",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Championship",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 19,
+       "note": "the match word wraps round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "match",
+       "at": 13,
+       "gives": "TIE",
+       "note": "a tie is a match, as in a cup tie"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders",
+         "at": 40,
+         "note": "the first letters of the and league"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 29
+        },
+        {
+         "words": "league",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cup match decides which club tops the league.",
+     "definitionFit": "A title is a championship, as in winning the league title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +898,59 @@
     "text": "Roster's re-jigged to accommodate a public speaker",
     "enumeration": "8"
    },
-   "solution": "ORATRESS"
+   "solution": "ORATRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "public speaker",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "at": 19,
+       "note": "the anagram makes room for the letter A inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "re-jigged",
+         "at": 9,
+         "note": "rearranged, so the letters of the rota word are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Roster's",
+         "at": 0,
+         "gives": "ROSTERS",
+         "note": "the word read with its S as a letter"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 34,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rota is reshuffled to fit in an orator.",
+     "definitionFit": "An oratress is a woman orator, a public speaker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodate"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +964,47 @@
     "text": "Prompt to store a set of unsold books",
     "enumeration": "9"
    },
-   "solution": "REMAINDER"
+   "solution": "REMAINDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set of unsold books",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to store",
+       "at": 7,
+       "note": "the prompt word keeps the letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prompt",
+       "at": 0,
+       "gives": "REMINDER",
+       "note": "a reminder is a prompt"
+      },
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note to keep a batch of unsold volumes in the warehouse.",
+     "definitionFit": "Remainders are unsold copies of a book sold off cheaply; a remainder is that stock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prompt"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1018,29 @@
     "text": "It's a citrus, and that's official",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a citrus",
+      "at": 5,
+      "meaning": "a small orange-like fruit"
+     },
+     {
+      "text": "official",
+      "at": 26,
+      "meaning": "a senior Chinese civil servant, or any bureaucrat"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A mandarin is a kind of small orange, and also a high-ranking official, originally of imperial China."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "official"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1054,56 @@
     "text": "Child taking sparkling wine faces extremely severe discipline",
     "enumeration": "8"
    },
-   "solution": "CHASTISE"
+   "solution": "CHASTISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discipline",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Child",
+       "at": 0,
+       "gives": "CH"
+      },
+      {
+       "words": "sparkling wine",
+       "at": 13,
+       "gives": "ASTI",
+       "note": "Asti is a sparkling Italian wine"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 34,
+         "note": "the extremes, first and last letters, of severe"
+        }
+       ],
+       "parts": [
+        {
+         "words": "severe",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child caught with fizz faces severe punishment.",
+     "definitionFit": "To chastise is to punish or discipline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "faces"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1117,57 @@
     "text": "A couple of grand stashed away by strenuous writer",
     "enumeration": "7"
    },
-   "solution": "HAGGARD"
+   "solution": "HAGGARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stashed away by",
+       "at": 18,
+       "note": "the first letters are hidden away inside the word for strenuous"
+      }
+     ],
+     "parts": [
+      {
+       "words": "strenuous",
+       "at": 34,
+       "gives": "HARD",
+       "note": "hard means strenuous"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "couple of grand",
+         "at": 2,
+         "gives": "GG",
+         "note": "G stands for grand, a thousand, so two of them"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two thousand pounds hidden by a hard-working author.",
+     "definitionFit": "H. Rider Haggard was the Victorian author of King Solomon's Mines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1181,47 @@
     "text": "Millions love tea and coffee",
     "enumeration": "5"
    },
-   "solution": "MOCHA"
+   "solution": "MOCHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coffee",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Millions",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the abbreviation for million"
+      },
+      {
+       "words": "love",
+       "at": 9,
+       "gives": "O",
+       "note": "love is nil in tennis, the letter O"
+      },
+      {
+       "words": "tea",
+       "at": 14,
+       "gives": "CHA",
+       "note": "cha is slang for tea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Countless people love tea and coffee.",
+     "definitionFit": "Mocha is a type of coffee, named after the Yemeni port."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1235,48 @@
     "text": "Against installing hoist in place of bridge?",
     "enumeration": "7"
    },
-   "solution": "CLIFTON"
+   "solution": "CLIFTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place of bridge?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "installing",
+       "at": 8,
+       "note": "the word for against has the hoist put inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Against",
+       "at": 0,
+       "gives": "CON",
+       "note": "con means against, as in pros and cons"
+      },
+      {
+       "words": "hoist",
+       "at": 19,
+       "gives": "LIFT",
+       "note": "a lift hoists people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Opposition to putting in an elevator.",
+     "definitionFit": "Clifton in Bristol is famous for Brunel's Clifton Suspension Bridge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1290,48 @@
     "text": "Farmer welcomes hard rain",
     "enumeration": "6"
    },
-   "solution": "SHOWER"
+   "solution": "SHOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rain",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomes",
+       "at": 7,
+       "note": "the farmer word takes the letter in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Farmer",
+       "at": 0,
+       "gives": "SOWER",
+       "note": "a sower plants seed"
+      },
+      {
+       "words": "hard",
+       "at": 16,
+       "gives": "H",
+       "note": "H is the pencil abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer welcomes heavy rain.",
+     "definitionFit": "A shower is a brief fall of rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1345,47 @@
     "text": "He painted courtyard at rear of house",
     "enumeration": "7"
    },
-   "solution": "HOGARTH"
+   "solution": "HOGARTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He painted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at rear of",
+       "at": 21,
+       "note": "the courtyard word comes behind the house abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "house",
+       "at": 32,
+       "gives": "HO"
+      },
+      {
+       "words": "courtyard",
+       "at": 11,
+       "gives": "GARTH",
+       "note": "a garth is an enclosed courtyard, especially in a cloister"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter works in a yard behind a house.",
+     "definitionFit": "William Hogarth was the 18th-century English painter of satirical series."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1399,52 @@
     "text": "Cult member's overthrown a tyrant",
     "enumeration": "5"
    },
-   "solution": "RASTA"
+   "solution": "RASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cult member's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "overthrown",
+       "at": 14,
+       "note": "turned over, so in this down entry the letters are read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25
+        },
+        {
+         "words": "tyrant",
+         "at": 27,
+         "gives": "TSAR",
+         "note": "a tsar is an autocratic ruler"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A follower of a sect has deposed a despot.",
+     "walkthrough": "'overthrown' turns A TSAR to give the answer; ''s' in the definition stands for 'is'.",
+     "definitionFit": "A Rasta, short for Rastafarian, follows a religious movement, called a cult here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overthrown"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1458,45 @@
     "text": "Spicy food a daughter's taken for a very long time",
     "enumeration": "7"
    },
-   "solution": "CHILIAD"
+   "solution": "CHILIAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a very long time",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spicy food",
+       "at": 0,
+       "gives": "CHILI",
+       "note": "chili is a hot spicy dish"
+      },
+      {
+       "words": "a",
+       "at": 11
+      },
+      {
+       "words": "daughter's",
+       "at": 13,
+       "gives": "D",
+       "note": "D is the abbreviation for daughter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl takes ages to finish a hot meal.",
+     "definitionFit": "A chiliad is a thousand years, which is certainly a long time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1510,53 @@
     "text": "Making a comeback, fight with covers for protection",
     "enumeration": "5"
    },
-   "solution": "WRAPS"
+   "solution": "WRAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "covers for protection",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Making a comeback",
+       "at": 0,
+       "note": "the fight word and its companion come back, read in reverse together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fight",
+         "at": 19,
+         "gives": "SPAR",
+         "note": "to spar is to fight"
+        },
+        {
+         "words": "with",
+         "at": 25,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer returns to the ring wearing protective gear.",
+     "walkthrough": "'Making a comeback' turns SPAR plus W (with) to give the answer.",
+     "definitionFit": "Wraps are coverings, such as shawls or packaging, that protect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1570,58 @@
     "text": "One quickly dispatches old journalist after assuming power",
     "enumeration": "9"
    },
-   "solution": "EXPEDITOR"
+   "solution": "EXPEDITOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One quickly dispatches",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after assuming",
+       "at": 38,
+       "note": "the old journalist takes on the letter for power"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 23,
+         "gives": "EX",
+         "note": "ex means former"
+        },
+        {
+         "words": "journalist",
+         "at": 27,
+         "gives": "EDITOR",
+         "note": "an editor is a journalist"
+        }
+       ]
+      },
+      {
+       "words": "power",
+       "at": 53,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former newspaper editor given power sends things off fast.",
+     "definitionFit": "An expeditor speeds things on their way, sending them off promptly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dispatches"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1641,41 @@
      }
     ]
    },
-   "solution": "REDFACED"
+   "solution": "REDFACED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Looking embarrassed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "signal to stop",
+       "at": 35,
+       "gives": "RED",
+       "note": "a red light means stop"
+      },
+      {
+       "words": "confronted",
+       "at": 21,
+       "gives": "FACED",
+       "note": "faced means confronted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone caught at a red light looks sheepish.",
+     "definitionFit": "Red-faced describes a person blushing from embarrassment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "signal"
+    }
+   }
   },
   {
    "number": 29,
@@ -464,7 +1689,54 @@
     "text": "Old woman listened to popular author",
     "enumeration": "6"
    },
-   "solution": "CRONIN"
+   "solution": "CRONIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "author",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "CRON",
+       "indicators": [
+        {
+         "text": "listened to",
+         "at": 10,
+         "note": "the old woman is heard rather than read"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old woman",
+         "at": 0,
+         "gives": "CRONE",
+         "note": "a crone is an old woman"
+        }
+       ]
+      },
+      {
+       "words": "popular",
+       "at": 22,
+       "gives": "IN",
+       "note": "in means popular, fashionable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grandmother listened to a bestselling novelist.",
+     "definitionFit": "A. J. Cronin was a popular Scottish novelist, author of The Citadel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listened"
+    }
+   }
   }
  ]
 }
