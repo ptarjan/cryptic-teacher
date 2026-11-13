@@ -31,7 +31,7 @@ A.TOOLS = tmp            # the view and the _ann file, away from the real tools/
 shape_queue.PATH = tmp / "none.json"
 try:
     path = tmp / "cryptic-22754.json"
-    shutil.copy("puzzles/cryptic/2003/cryptic-22754.json", path)
+    shutil.copy("tests/fixtures/cryptic-22754-unannotated.json", path)  # pinned: the burn annotates the live file
     view = json.loads(AC.write_view(path).read_text())
     drafts = view.get("draftAnnotations") or {}
     check("the hidden clue has a draft", list(drafts) == ["22-down"])
