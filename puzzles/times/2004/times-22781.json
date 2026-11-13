@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Comedian may appear wild in play",
     "enumeration": "5"
    },
-   "solution": "JOKER"
+   "solution": "JOKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comedian",
+      "at": 0,
+      "meaning": "a funny person, a clown or wit"
+     },
+     {
+      "text": "may appear wild in play",
+      "at": 9,
+      "meaning": "in card games the extra card of the pack can count as a wild card"
+     }
+    ],
+    "explanation": {
+     "surface": "A stand-up turns up in a stage play and goes wild.",
+     "definitionFit": "A comic is often called by this name, and in card play the same card serves as a wild one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,56 @@
     "text": "Judge has wrongdoer beheaded: difficult part of sentence to pronounce",
     "enumeration": "10"
    },
-   "solution": "JAWBREAKER"
+   "solution": "JAWBREAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "difficult part of sentence to pronounce",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Judge",
+       "at": 0,
+       "gives": "J"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 20,
+         "note": "beheaded says the first letter of the word for wrongdoer is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wrongdoer",
+         "at": 10,
+         "gives": "LAWBREAKER",
+         "note": "a lawbreaker is a criminal or wrongdoer"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge sentences a criminal to beheading.",
+     "walkthrough": "'sentence' suggests the judge passing sentence; here it is a sentence of words.",
+     "definitionFit": "A long, tongue-twisting word that is hard to say is so called, as if it might break your jaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +133,45 @@
     "text": "Drink Church of Scotland finally banned",
     "enumeration": "3"
    },
-   "solution": "KIR"
+   "solution": "KIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "finally banned",
+       "at": 25,
+       "note": "finally banned says the last letter of the Scottish church word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Church of Scotland",
+       "at": 6,
+       "gives": "KIRK",
+       "note": "the Kirk is the Church of Scotland"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Scottish church finally outlaws alcohol.",
+     "definitionFit": "Kir is a French drink of white wine with blackcurrant liqueur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banned"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +185,40 @@
     "text": "Awfully severe officials",
     "enumeration": "6"
    },
-   "solution": "REEVES"
+   "solution": "REEVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "officials",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Awfully",
+       "at": 0,
+       "note": "awfully says the letters of severe are badly arranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "severe",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some officials are dreadfully strict.",
+     "definitionFit": "In medieval England these were local officials or magistrates, as the shire officers were."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Awfully"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +232,52 @@
     "text": "Pour wine to accompany an hors d'oeuvre selection",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTI"
+   "solution": "ANTIPASTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hors d'oeuvre selection",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to accompany",
+       "at": 10,
+       "note": "to accompany puts the following pieces alongside the little word an, after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an",
+       "at": 23
+      },
+      {
+       "words": "Pour",
+       "at": 0,
+       "gives": "TIP",
+       "note": "to tip a jug is to pour from it"
+      },
+      {
+       "words": "wine",
+       "at": 5,
+       "gives": "ASTI",
+       "note": "Asti is a sparkling Italian wine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Serve the wine alongside a plate of starters.",
+     "definitionFit": "This Italian word names a mixed plate of starters served before the main meal, the Italian equivalent of hors d'oeuvres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pour"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +297,42 @@
      }
     ]
    },
-   "solution": "ATTICSALT"
+   "solution": "ATTICSALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Room At The Top",
+       "at": 16,
+       "gives": "ATTIC",
+       "note": "an attic is the room at the top of a house; also a novel title"
+      },
+      {
+       "words": "The Ancient Mariner",
+       "at": 36,
+       "gives": "SALT",
+       "note": "an old salt is an ancient sailor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wit spotted in a famous novel and a famous poem.",
+     "walkthrough": "The italic titles are a novel and Coleridge's poem; read them literally.",
+     "definitionFit": "Attic salt is refined, elegant wit, from the dry humour of ancient Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mariner"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +346,48 @@
     "text": "Row of houses not making use of church land",
     "enumeration": "5"
    },
-   "solution": "TERRA"
+   "solution": "TERRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "land",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not making use of",
+       "at": 14,
+       "note": "not making use of says the church letters are left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Row of houses",
+       "at": 0,
+       "gives": "TERRACE",
+       "note": "a terrace is a row of joined houses"
+      },
+      {
+       "words": "church",
+       "at": 32,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A street of houses that doesn't use church land.",
+     "definitionFit": "Terra is Latin for earth or land, used in English phrases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +407,29 @@
      }
     ]
    },
-   "solution": "POPSTARS"
+   "solution": "POPSTARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Performers",
+      "at": 0,
+      "meaning": "entertainers, musicians who perform"
+     },
+     {
+      "text": "principally featured in pin-ups?",
+      "at": 11,
+      "meaning": "the people whose posters usually decorate teenage bedroom walls"
+     }
+    ],
+    "explanation": {
+     "surface": "Entertainers who mainly appear on pin-up posters.",
+     "definitionFit": "Famous chart singers are performers and also the usual subjects of pin-up posters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +449,67 @@
      }
     ]
    },
-   "solution": "SIERRALEONE"
+   "solution": "SIERRALEONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African republic",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "I",
+       "at": 8
+      },
+      {
+       "words": "go wrong",
+       "at": 10,
+       "gives": "ERR",
+       "note": "to err is to go wrong"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 36,
+         "note": "round puts the word for lacking escorts about the letter for east"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lacking escorts",
+         "at": 20,
+         "gives": "ALONE",
+         "note": "someone without escorts is alone"
+        },
+        {
+         "words": "east",
+         "at": 42,
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father admits he and his son went astray in Africa without guides.",
+     "definitionFit": "This West African country, capital Freetown, is a republic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "escorts"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +523,42 @@
     "text": "Extract from quite moving article",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "article",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Extract from",
+       "at": 0,
+       "note": "Extract from says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quite moving",
+       "at": 13,
+       "gives": "ITEM",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excerpt from a rather touching newspaper piece.",
+     "definitionFit": "An item is a single article, in a list or a newspaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extract"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +572,65 @@
     "text": "Rejected argument about secret manoeuvres in Chinatown",
     "enumeration": "9"
    },
-   "solution": "WORCESTER"
+   "solution": "WORCESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinatown",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rejected",
+         "at": 0,
+         "note": "something rejected is thrown back, so the word for argument is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "argument",
+         "at": 9,
+         "gives": "ROW",
+         "note": "a row is a quarrel or argument"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvres",
+         "at": 31,
+         "note": "manoeuvres says the letters of secret are moved around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secret",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A row about secret moves in an Asian district of some city.",
+     "walkthrough": "'Chinatown' reads as the district; split it as 'China town', a town famous for porcelain. 'about' is only a link here.",
+     "definitionFit": "The English city of Worcester is famous for its fine porcelain, so it is literally a china town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chinatown"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +644,31 @@
     "text": "Musical composition for king or queen?",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical composition",
+      "at": 0,
+      "meaning": "a work of music, such as a piano work"
+     },
+     {
+      "text": "for king or queen?",
+      "at": 20,
+      "meaning": "king and queen are each a chessman, the general word for which is the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a royal should have music written in their honour.",
+     "definitionFit": "The word means a musical work and also any chessman, such as the king or queen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +688,52 @@
      }
     ]
    },
-   "solution": "ROLLERCOASTER"
+   "solution": "ROLLERCOASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fairground attraction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developed",
+         "at": 35,
+         "note": "a resort that is developed is reshaped, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "local resort",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "hesitation",
+       "at": 50,
+       "gives": "ER",
+       "note": "er is the sound of a speaker hesitating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local seaside resort hesitantly builds a fairground ride.",
+     "walkthrough": "'developed' rearranges LOCALRESORT together with ER, which lands in the middle of the result.",
+     "definitionFit": "This is the classic fairground ride of climbs and plunges on a track."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +753,58 @@
      }
     ]
    },
-   "solution": "LEAVETAKING"
+   "solution": "LEAVETAKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "observing the courtesies?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In says the following pieces go inside the word for escaping"
+      }
+     ],
+     "parts": [
+      {
+       "words": "escaping",
+       "at": 3,
+       "gives": "LEAKING",
+       "note": "gas or water escaping is leaking"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13
+        },
+        {
+         "words": "soldier once",
+         "at": 15,
+         "gives": "VET",
+         "note": "a vet, short for veteran, is someone who was once a soldier"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old soldier, while fleeing, still remembers his manners.",
+     "walkthrough": "VET is the American short form for veteran, a former soldier.",
+     "definitionFit": "Saying a polite goodbye is one of the courtesies, so the farewell observes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "escaping"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +824,34 @@
      }
     ]
    },
-   "solution": "FIREWALKER"
+   "solution": "FIREWALKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who hotfoots it in the cause of religion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One who hotfoots it in the cause of religion",
+       "at": 0,
+       "note": "hotfoots usually means hurrying, but here read literally: someone whose feet get hot crossing embers as a religious rite"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Some religious devotees walk barefoot over hot stones or embers as an act of faith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hotfoots"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +865,43 @@
     "text": "A knave's spoken of as a war hero",
     "enumeration": "4"
    },
-   "solution": "AJAX"
+   "solution": "AJAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "war hero",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AJAX",
+     "indicators": [
+      {
+       "text": "spoken of",
+       "at": 10,
+       "note": "spoken of says the words are heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A knave's",
+       "at": 0,
+       "gives": "AJACKS",
+       "note": "a knave is a jack in a pack of cards, so A knave's is heard as a jacks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue is described as a military hero.",
+     "definitionFit": "He is one of the great Greek warriors at Troy in Homer's Iliad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knave's"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +915,72 @@
     "text": "Conductor's gibe, one repeated about drummer's performance?",
     "enumeration": "10"
    },
-   "solution": "BARBIROLLI"
+   "solution": "BARBIROLLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conductor's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gibe",
+       "at": 12,
+       "gives": "BARB",
+       "note": "a barb is a cutting remark"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about puts the pair of ones round the drumming word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "repeated",
+           "at": 22,
+           "note": "repeated says the numeral for one appears twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "one",
+           "at": 18,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          }
+         ]
+        },
+        {
+         "words": "drummer's performance",
+         "at": 37,
+         "gives": "ROLL",
+         "note": "a drum roll is a drummer's rapid beating"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at a conductor, aimed again at the drummer's playing.",
+     "walkthrough": "'Conductor's' means 'Conductor is'. Sir John Barbirolli was a British conductor, long at the Hallé Orchestra.",
+     "definitionFit": "Sir John was a celebrated English orchestral conductor of the twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gibe"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1000,65 @@
      }
     ]
    },
-   "solution": "BROWNBEAR"
+   "solution": "BROWNBEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beast",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Below",
+       "at": 0,
+       "note": "Below in a down clue puts the next part under the summit word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the summit",
+       "at": 6,
+       "gives": "BROW",
+       "note": "the brow of a hill is its top"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "captures",
+         "at": 25,
+         "note": "captures says the word for almost holds the British letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "almost",
+         "at": 18,
+         "gives": "NEAR",
+         "note": "near means almost"
+        },
+        {
+         "words": "British",
+         "at": 34,
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Just below the hilltop, a creature nearly catches a Briton.",
+     "definitionFit": "This large animal is a kind of bear found across the northern forests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captures"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1072,52 @@
     "text": "Before operation doctor allows small amounts of liquid",
     "enumeration": "8"
    },
-   "solution": "DROPLETS"
+   "solution": "DROPLETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "small amounts of liquid",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "Before says the doctor is placed ahead of the operation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 17,
+       "gives": "DR"
+      },
+      {
+       "words": "operation",
+       "at": 7,
+       "gives": "OP"
+      },
+      {
+       "words": "allows",
+       "at": 24,
+       "gives": "LETS",
+       "note": "lets means allows"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Before surgery the doctor permits a few sips of water.",
+     "definitionFit": "Tiny drops of liquid are called this, a diminutive of drops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +1131,48 @@
     "text": "Cursing allowance given to member of the board?",
     "enumeration": "10"
    },
-   "solution": "EXECRATION"
+   "solution": "EXECRATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cursing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "given to",
+       "at": 18,
+       "note": "given to says the allowance is joined on after the board member"
+      }
+     ],
+     "parts": [
+      {
+       "words": "member of the board",
+       "at": 27,
+       "gives": "EXEC",
+       "note": "an exec is an executive who may sit on a company board"
+      },
+      {
+       "words": "allowance",
+       "at": 8,
+       "gives": "RATION",
+       "note": "a ration is a fixed allowance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A board director is handed a fixed allowance.",
+     "definitionFit": "The noun means a curse or the act of uttering curses, a solemn damning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "allowance"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1186,32 @@
     "text": "Bird plunged in the Grand Canyon",
     "enumeration": "4"
    },
-   "solution": "DOVE"
+   "solution": "DOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0,
+      "meaning": "a pigeon-like bird, symbol of peace"
+     },
+     {
+      "text": "plunged in the Grand Canyon",
+      "at": 5,
+      "meaning": "Americans, as in Arizona, use this as the past tense of dive"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird plummeted into the Grand Canyon.",
+     "walkthrough": "Plunged means dived; the Grand Canyon points to the American form.",
+     "definitionFit": "It is both a peaceful bird and the American past tense of to dive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plunged"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1231,44 @@
      }
     ]
    },
-   "solution": "HOLDIT"
+   "solution": "HOLDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hang on a minute",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HOLDIT",
+     "indicators": [
+      {
+       "text": "so to speak",
+       "at": 21,
+       "note": "so to speak says the words are said aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sank golf ball thus",
+       "at": 0,
+       "gives": "HOLEDIT",
+       "note": "to sink a putt is to have holed it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer sank a ball and asks for a pause.",
+     "definitionFit": "Hold it is a spoken request to wait or stop for a moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sank"
+    }
+   }
   },
   {
    "number": 21,
@@ -396,7 +1292,30 @@
      }
     ]
    },
-   "solution": "ALPHAANDOMEGA"
+   "solution": "ALPHAANDOMEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In another language, vowels",
+      "at": 0,
+      "meaning": "in Greek the first and last letters of the alphabet are both vowels"
+     },
+     {
+      "text": "the most important element",
+      "at": 32,
+      "meaning": "the beginning and end of everything, the essential whole"
+     }
+    ],
+    "explanation": {
+     "surface": "In a foreign tongue the vowels matter most of all.",
+     "definitionFit": "The biblical phrase means the beginning and end, hence the essential, most vital part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "language"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1329,63 @@
     "text": "Female in shortened version of ET, a well-known film",
     "enumeration": "5"
    },
-   "solution": "ALFIE"
+   "solution": "ALFIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a well-known film",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in puts the female letter inside the shortened word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened version of",
+         "at": 10,
+         "note": "shortened version of says the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ET",
+         "at": 31,
+         "gives": "ALIEN",
+         "note": "ET, the film's extraterrestrial, is an alien"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "Female",
+       "at": 0,
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman features in a cut version of the film ET.",
+     "walkthrough": "'shortened version of' cuts ALIEN to ALIE; Alfie is the 1966 Michael Caine film.",
+     "definitionFit": "The 1966 film starring Michael Caine is famous, and was remade in 2004."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ET"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1399,40 @@
     "text": "Chief European space station",
     "enumeration": "4"
    },
-   "solution": "EMIR"
+   "solution": "EMIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 6,
+       "gives": "E"
+      },
+      {
+       "words": "space station",
+       "at": 15,
+       "gives": "MIR",
+       "note": "Mir was the Russian space station"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Europe's main space station.",
+     "definitionFit": "An emir is a Muslim ruler or chieftain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chief"
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1446,44 @@
     "text": "Crop of the month, might one say?",
     "enumeration": "5"
    },
-   "solution": "MAIZE"
+   "solution": "MAIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MAIZE",
+     "indicators": [
+      {
+       "text": "might one say",
+       "at": 19,
+       "note": "might one say says the word is heard spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of the month",
+       "at": 5,
+       "gives": "MAYS",
+       "note": "the month of May gives May's, belonging to that month"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer asks which crop is in season this month.",
+     "definitionFit": "This cereal crop is also called corn or sweetcorn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "month"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1497,40 @@
     "text": "Weird folk organised research activity",
     "enumeration": "9"
    },
-   "solution": "FIELDWORK"
+   "solution": "FIELDWORK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "research activity",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organised",
+       "at": 11,
+       "note": "organised says these letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Weird folk",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strange people set up some kind of study project.",
+     "definitionFit": "Research done out in the real world rather than in a lab or library goes by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weird"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1544,41 @@
     "text": "Stale portions of roulade regularly rejected",
     "enumeration": "3"
    },
-   "solution": "OLD"
+   "solution": "OLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stale",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly rejected",
+       "at": 26,
+       "note": "regularly rejected says every other letter of roulade is thrown out, keeping the even ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "roulade",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of the roulade went stale and were sent back.",
+     "walkthrough": "Drop R, U, A, E of roulade; the remaining letters spell the answer. 'portions of' is a link.",
+     "definitionFit": "Bread that is old is stale, no longer fresh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1592,60 @@
     "text": "Dance director seen about with soldiers by back-streets of Paris",
     "enumeration": "9"
    },
-   "solution": "REGISSEUR"
+   "solution": "REGISSEUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance director",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 20,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "soldiers",
+       "at": 31,
+       "gives": "GIS",
+       "note": "GIs are American soldiers"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 43,
+         "note": "back says the French word for streets is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "streets of Paris",
+         "at": 48,
+         "gives": "RUES",
+         "note": "rue is French for street, so rues are the streets of Paris"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ballet director is spotted with troops in the back-streets of Paris.",
+     "walkthrough": "'back-streets' looks like one word; 'back' turns RUES into SEUR.",
+     "definitionFit": "In ballet this French term is used for the person who stages and directs the production."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back-streets"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1659,86 @@
     "text": "Short path winding round rear of detached house",
     "enumeration": "5"
    },
-   "solution": "TUDOR"
+   "solution": "TUDOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "house",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 19,
+       "note": "round puts the turned path about the last letter of detached"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "winding",
+         "at": 11,
+         "note": "winding says the shortened path turns back on itself"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Short",
+           "at": 0,
+           "note": "short says the last letter of the word for path is cut"
+          }
+         ],
+         "parts": [
+          {
+           "words": "path",
+           "at": 6,
+           "gives": "ROUTE",
+           "note": "a route is a path or way"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear of",
+         "at": 25,
+         "note": "rear of picks the final letter of detached"
+        }
+       ],
+       "parts": [
+        {
+         "words": "detached",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shortened driveway curves round behind a detached house.",
+     "walkthrough": "'Short' cuts ROUTE to ROUT, 'winding' turns it to TUOR, and 'round' wraps it about D. 'house' means a royal dynasty, not a building.",
+     "definitionFit": "The Tudors were the English royal house of Henry VIII and Elizabeth I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   }
  ]
 }
