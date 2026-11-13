@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 5
+VERSION = 6
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -267,6 +267,36 @@ def line_numbers(words, lh):
     return out
 
 
+#: A blank run between a column's lines (an advert's or the grid's place, the lists' own break) is squeezed to
+#: this many line heights, once it is over SQUEEZE_OVER: the lists' reader ends a list at a gap.
+SQUEEZE_TO, SQUEEZE_OVER = 1.5, 3
+
+
+def squeezed(crop, ws, y0, y1, lh):
+    """The rows y0 to y1 of `crop` with each blank run between the lines of `ws` (its words) over SQUEEZE_OVER
+    line heights squeezed to SQUEEZE_TO of them, and the blank above the first line and under the last
+    trimmed to half a line height."""
+    from PIL import Image
+    spans = sorted((max(y0, int(w[1])), min(y1, int(w[3]))) for w in ws if w[3] > y0 and w[1] < y1)
+    keep = []  # [top, bottom] of each run of lines
+    for a, b in spans:
+        if keep and a - keep[-1][1] <= SQUEEZE_OVER * lh:
+            keep[-1][1] = max(keep[-1][1], b)
+        else:
+            keep.append([a, b])
+    if not keep:
+        return crop.crop((0, y0, crop.width, max(y1, y0 + 1)))
+    pad = int(lh / 2)
+    runs = [[max(y0, a - pad), min(y1, b + pad)] for a, b in keep]
+    gap = int(SQUEEZE_TO * lh)
+    out = Image.new("RGB", (crop.width, sum(b - a for a, b in runs) + gap * (len(runs) - 1)), "white")
+    y = 0
+    for i, (a, b) in enumerate(runs):
+        out.paste(crop.crop((0, a, crop.width, b)).convert("RGB"), (0, y))
+        y += b - a + gap
+    return out
+
+
 def layout_block(img, words, grid, ocr=None):
     """(image, key) of the lists `layout_columns` finds, set one under another in a single column with
     "ACROSS" and "DOWN" headings drawn clean over them: across is read from the first column to the line the
@@ -317,13 +347,13 @@ def layout_block(img, words, grid, ocr=None):
     across, down = [], []
     for k, crop, ws in pieces:
         if k < top[0]:
-            across.append(crop)
+            across.append(squeezed(crop, ws, 0, crop.height, lh))
         elif k > top[0]:
-            down.append(crop)
+            down.append(squeezed(crop, ws, 0, crop.height, lh))
         else:
             cut = max(1, int(top[1] - lh / 3))
-            across.append(crop.crop((0, 0, crop.width, cut)))
-            down.append(crop.crop((0, cut, crop.width, crop.height)))
+            across.append(squeezed(crop, ws, 0, cut, lh))
+            down.append(squeezed(crop, ws, cut, crop.height, lh))
     font = ImageFont.load_default(size=46)
     width = max(c.width for c in across + down) + 40
     parts = []
