@@ -1917,6 +1917,9 @@ def evaluate(tree, answer):
     """{id(node): letters} with every node of `tree` giving its share of
     `answer`'s letters; raises WordplayError naming the node that breaks."""
     want = letters(answer)
+    if not want:
+        raise WordplayError(f"this entry has no answer filed yet, so no wordplay can be checked against it: "
+                            f"set `answer` to the letters {render(tree)} builds if that is the solution")
     _check_arity(tree)
     try:
         got = match(tree, want)
