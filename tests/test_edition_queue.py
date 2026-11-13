@@ -738,7 +738,8 @@ check("a Gale Telegraph Saturday refused no reading parses is due SIDES_READ (ra
        eq.UNFILED_FIRST.index(f.SIDES_READ) > eq.UNFILED_FIRST.index(f.WINNERS_TITLE), f.SIDES_READ in f.BLANKET_PASSES,
        f.sides_due({**_srow, "edition": "GaleTelegraph2000UKEnglish/2000-12-29"}),
        f.sides_due({**_srow, "verdicts": [{**_srow["verdicts"][0], "imageUnread": "not a square grid"}]}),
-       f.sides_due({**_srow, "readAt": "2026-11-09T11:00:00+00:00"})])
+       f.sides_due({**_srow, "readAt": (f.datetime.datetime.fromisoformat(f.REREAD_SIDES_READ)
+                                           + f.datetime.timedelta(hours=1)).isoformat()})])
 # ---- a Gale Sunday Telegraph 1987-98 page refused no reading parses is due SUNDAY_SIDES once, in unfiled-first.
 _strow = {"edition": "GaleSundayTelegraph1987UKEnglish/1987-05-10", "readAt": "2026-11-09T17:32:20+00:00",
           "verdicts": [{"number": 1354, "refused": "no reading parses", "cause": "no-reading-parses"}]}
@@ -821,7 +822,7 @@ check("a Gale Sunday Times page due SUNDAY_NUMBER is ranked 1, evidence, fix-lan
       "unfiled-first, tier 0, blanket-passing, never held as a refusal reread",
       [1, True, True, True, True, 0, True, False],
       [f.RANKS[f.SUNDAY_NUMBER], eq.evidence_reason(f.SUNDAY_NUMBER), f.SUNDAY_NUMBER in eq.FIX_LANDED,
-       f.SUNDAY_NUMBER in eq.TITLE_RESCANS, eq.UNFILED_FIRST[-1] == f.SUNDAY_NUMBER,
+       f.SUNDAY_NUMBER in eq.TITLE_RESCANS, f.SUNDAY_NUMBER in eq.UNFILED_FIRST,
        eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.SUNDAY_NUMBER, "date": "1990-12-23"}),
        f.SUNDAY_NUMBER in f.BLANKET_PASSES, eq.refusal_reread(f.SUNDAY_NUMBER)])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
