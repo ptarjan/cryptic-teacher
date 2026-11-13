@@ -271,6 +271,7 @@ function bootApp(opts) {
       return registry[id];
     },
     addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); },
+    removeEventListener(type, fn) { docListeners[type] = (docListeners[type] || []).filter((f) => f !== fn); },
     // The guess words laid out on one line, one x per word. Hit-testing is the
     // browser's job and is the only part faked here; everything the app owns —
     // the pointerdown, the document's pointermove, the index it works back out,
@@ -294,6 +295,7 @@ function bootApp(opts) {
     // harness keeps the old behaviour unless a test says it is a desktop: fine.
     CT_PANEL_SCROLL: !options.fine,
     addEventListener(type, fn) { (winListeners[type] = winListeners[type] || []).push(fn); },
+    removeEventListener(type, fn) { winListeners[type] = (winListeners[type] || []).filter((f) => f !== fn); },
     // An iPad in portrait, roughly: tall enough that the grid and the hint panel
     // cannot both be on screen, which is the whole reason picking a clue scrolls.
     innerHeight: 1000,
