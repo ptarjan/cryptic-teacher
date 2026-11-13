@@ -33,9 +33,12 @@ for name, s in steps.items():
     save = steps.get(name.replace("Restore", "Save", 1))
     if not save or "actions/cache/save" not in save.get("uses", ""):
         sys.exit(f"test_ci_checkout: {name} has no {name.replace('Restore', 'Save', 1)} step")
-    for k in ("path", "key"):
-        if save["with"][k] != s["with"][k]:
-            sys.exit(f"test_ci_checkout: {name} and its save differ in {k}")
+    if save["with"]["path"] != s["with"]["path"]:
+        sys.exit(f"test_ci_checkout: {name} and its save differ in path")
+    # The same key, or (the puzzle pages' store, whose save key adds the page
+    # fingerprint) a save key in the family the restore falls back to.
+    if save["with"]["key"] != s["with"]["key"] and not save["with"]["key"].startswith(s["with"].get("restore-keys", "\0").strip()):
+        sys.exit(f"test_ci_checkout: {name} and its save differ in key")
     if "!cancelled()" not in str(save.get("if", "")):
         sys.exit(f"test_ci_checkout: {save['name']} would be skipped by an earlier failed step")
 EOF
