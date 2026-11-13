@@ -5038,6 +5038,8 @@ INDY_SUNDAY_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+on\s+sunday\s+)
 #: A line it matches is that title, whatever INDY_SUNDAY_TITLE made of it ("No 76" of "No760"; "4" of "4I0").
 IOS_BEELZEBUB_TITLE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:prize\s*)?cr[o0]ss\s?w[o0]rd\W{0,3}(?:n[o0]\W{0,3}|#)?\s*"
                                  r"([\dIlOT|]{1,4})(?![\dIlOT|,])", re.IGNORECASE)
+#: The Independent on Sunday's 2011-15 note over last issue's solution grid ("Solution for last issue").
+IOS_LAST_ISSUE = re.compile(r"solution\s*for\s*last\s*issue", re.IGNORECASE)
 #: Dated Independent on Sunday numbers: its first issue (28 January 1990) as No 1, "Beelzebub Prize Crossword
 #: No 954" (1 June 2008), and our first and latest indysunday files.
 INDY_SUNDAY_ANCHORS = ((datetime.date(1990, 1, 28), 1), (datetime.date(2008, 6, 1), 954),
@@ -5124,6 +5126,16 @@ def indy_sunday_headings(lines, titles=()):
             box = box_of(ws)
             puzzles[:] = [p for p in puzzles if p[1] != box]
             puzzles.append((number_digits(clue_text.digits_read(m.group(1))), box, None))
+    # 2011-15: the Concise's own numbered title is no Beelzebub's, and the Beelzebub title set under "Solution for last
+    # issue" heads last week's solution grid (No.1150 on 2012-03-18, the 2012-03-11 puzzle), not this week's puzzle.
+    boxes = {box_of(ws): " ".join(w[4] for w in ws) for ws in lines}
+    notes = [b for b, t in boxes.items() if IOS_LAST_ISSUE.search(t)]
+    for n, box, setter in list(puzzles):
+        if re.match(r"^\W*(?:the\s*)?(?:concise|quick)", boxes.get(box, ""), re.IGNORECASE):
+            puzzles.remove((n, box, setter))
+        elif any(0 <= box[1] - b[3] <= 400 and abs(box[0] - b[0]) < 700 for b in notes):
+            puzzles.remove((n, box, setter))
+            solutions.append((n, box))
     have = {n for n, _ in solutions}
     solutions += [(n, b) for n, b in ios_winners(lines, titles or [p[0] for p in puzzles]) if n not in have]
     for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
@@ -13911,7 +13923,7 @@ def indy_links_due(row):
                for v in row.get("verdicts") or ())
 
 
-#: The due reason of a Gale Independent on Sunday page (1993-2008) refused "No 76 is not near the 759 the date implies":
+#: The due reason of a Gale Independent on Sunday page (1993-2015) refused "No 76 is not near the 759 the date implies":
 #: the Beelzebub title the readers print glued ("BeelzebubPrizeCrossword No760": INDY_SUNDAY_TITLE needed a space before
 #: "Crossword", and only en5 read 760, too few votes) or with a digit read as a letter ("NO 4I0": its number stopped at
 #: the I), taken as the page's own number. 11-13 census of the ledger: 39 such pages; 2004-08-29 and 1997-12-14 find 760
@@ -13922,10 +13934,10 @@ REREAD_IOS_TITLES = "2026-11-13T20:15:00+00:00"
 
 
 def ios_title_mismatch(row):
-    """Whether Gale Independent on Sunday ledger `row` of 1993-2008 holds a verdict refused for a puzzle number not near
+    """Whether Gale Independent on Sunday ledger `row` of 1993-2015 holds a verdict refused for a puzzle number not near
     the date's (number-date-mismatch)."""
     rel = (row or {}).get("edition") or ""
-    return paper_of(rel).key == "galeindysunday" and "1993" <= Path(rel).name[:4] <= "2008" \
+    return paper_of(rel).key == "galeindysunday" and "1993" <= Path(rel).name[:4] <= "2015" \
         and any(v.get("cause") == "number-date-mismatch" for v in row.get("verdicts") or ())
 
 
