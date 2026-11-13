@@ -1096,8 +1096,15 @@ def values(node):
             # alternate/regular/nth letters of "gear on a site" run along the words as one
             # string (ERNST, Painter: alt<dropping odd bits of>([gear], [on], [a], [site])), not
             # word by word: the joined words are a reading too
-            joined = {"words": " ".join(p["words"] for p in parts)}
-            out |= values({**node, "parts": [joined]})
+            # (only the whole joined string, though: _select's drop-the-last-letter variants
+            # for a run that stops short would read fanned vitriol as ANDIR + ON, ahead of
+            # ANDIRO + N, for ANDIRON)
+            if op == "alternate":
+                t = "".join(w for p in parts for w in _words(p))
+                out |= {x for x in (t[0::2], t[1::2]) if x}
+            else:
+                joined = {"words": " ".join(p["words"] for p in parts)}
+                out |= values({**node, "parts": [joined]})
         return out
     if op in SELECT:
         leaf = parts[0]
