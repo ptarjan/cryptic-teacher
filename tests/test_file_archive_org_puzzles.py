@@ -5095,6 +5095,23 @@ check("a Gale Sunday Times page with its grid right of its clue columns reads th
        and _eq_bp.evidence_reason(f.SUNDAY_TIMES_FOOT) is not None
        and f.SUNDAY_TIMES_FOOT in _eq_bp.FIX_LANDED and f.SUNDAY_TIMES_FOOT in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1960-99 page whose solution-sized grid under its title (a 4118px scan, 574 at SCAN_WIDTH)
+# locate_grid passed over: SUNDAY_GRID is due for a refused "no reading parses" / "not a grid" row read before it, once.
+_sgrow = {"edition": "GaleSundayTimes1966UKEnglish/1966-05-15", "inputs": "x", "readAt": "2026-11-07T11:00:00+00:00",
+          "verdicts": [{"number": 2153, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("SUNDAY_GRID is due for a 1960-99 Sunday Times row refused no reading parses or not a grid, read before it, once; "
+      "no filed row, other paper or later year; ranked, evidence, fix-landed, unfiled-first",
+      [True, True, False, False, False, False, False, True],
+      [f.sunday_grid_due(_sgrow),
+       f.sunday_grid_due({**_sgrow, "verdicts": [{"number": 1, "cause": "not-a-grid"}]}),
+       f.sunday_grid_due({**_sgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_grid_due({**_sgrow, "verdicts": [{"number": 2153, "wrote": True}]}),
+       f.sunday_grid_due({**_sgrow, "edition": "GaleSundayTimes2004UKEnglish/2004-12-05"}),
+       f.sunday_grid_due({**_sgrow, "edition": "GaleTimes1966UKEnglish/1966-05-15"}),
+       f.sunday_grid_due({k: v for k, v in _sgrow.items() if k != "inputs"}),
+       f.RANKS[f.SUNDAY_GRID] == 2 and f.SUNDAY_GRID in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_GRID) is not None
+       and f.SUNDAY_GRID in _eq_bp.FIX_LANDED and f.SUNDAY_GRID in _eq_bp.UNFILED_FIRST])
+
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
 _ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]
