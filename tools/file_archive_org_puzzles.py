@@ -726,7 +726,7 @@ def wide_shaped(img, box):
 GROW, GROW_TIMES = 200, 6
 
 
-def ink_in(img, crop, fixed=()):
+def ink_in(img, crop, fixed=(), shape=None):
     """The largest ink in `crop` of `img`, in page coordinates, the crop
     grown on each side (but those named in `fixed`, of "left", "top",
     "right", "bottom") that the ink touches. Ink that grows out of a grid's
@@ -738,7 +738,7 @@ def ink_in(img, crop, fixed=()):
         if box is None:
             return shaped
         page_box = (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
-        shaped = page_box if shaped_on(img, page_box) else shaped
+        shaped = page_box if (shape or shaped_on)(img, page_box) else shaped
         cw, ch = crop[2] - crop[0], crop[3] - crop[1]
         grow = {"left": box[0] <= 2 and crop[0] > 0, "top": box[1] <= 2 and crop[1] > 0,
                 "right": box[2] >= cw - 2 and crop[2] < img.width,
@@ -749,7 +749,7 @@ def ink_in(img, crop, fixed=()):
         for side in grow:
             k = ("left", "top", "right", "bottom").index(side)
             crop[k] = max(0, crop[k] - GROW) if k < 2 else min((img.width, img.height)[k - 2], crop[k] + GROW)
-    return page_box if shaped_on(img, page_box) or shaped is None else shaped
+    return page_box if (shape or shaped_on)(img, page_box) or shaped is None else shaped
 
 
 #: How far over its title a grid printed over it may end (the 1980s Times'
@@ -789,13 +789,13 @@ def locate_grid(img, title, right=False, loose=False):
     for side, crop, fixed in tries:
         if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
             continue
-        box = footed(img, ink_in(img, crop, fixed))
+        box = footed(img, ink_in(img, crop, fixed, loose_shaped if loose else None))
         # The 1986 Saturday prize page sets the last puzzles' solution grids
         # under the title, its own grid further down: the crop starts under
         # them.
         if side == "below" and box is not None and not loose and solution_shaped(img)(box):
             crop = (crop[0], box[3], crop[2], min(img.height, box[3] + span))
-            box = footed(img, ink_in(img, crop, fixed))
+            box = footed(img, ink_in(img, crop, fixed, loose_shaped if loose else None))
         # A grid under its title clears the title's line, one over it ends
         # within ABOVE_GAP of it, one left of it ends short of the title's
         # middle, and one right of it starts past it: other ink is something
@@ -10638,6 +10638,18 @@ def located_loose(d, img, title, right=False):
         again = locate_grid(img, title, right, loose=True)
         if again[1] == "below" and again[0] != found[0] and not box_lattice(img, found[0]) and box_lattice(img, again[0]):
             return again
+    # A grid wider than shaped_on's 1100px at SCAN_WIDTH (an Independent page scanned 3870-4640px wide prints its
+    # 15x15 at 1129-1228) was cut at the last box strict ink_in found shaped, a row and a column or two columns
+    # short ("the white cells span 14 rows and 14 columns" / "15 rows and 13 columns", 63 pages 2007-15): the loose
+    # test's grid is the whole one when it holds the strict box, is bigger, and only the loose test calls it a grid
+    # (INDY_WIDE).
+    elif found[1] == "below" and found[0] is not None and not right and paper_of(d).key == "galeindependent":
+        again = locate_grid(img, title, right, loose=True)
+        if again[1] == "below" and again[0] is not None and again[0] != found[0] \
+                and again[0][0] <= found[0][0] + 4 and again[0][1] <= found[0][1] + 4 \
+                and again[0][2] >= found[0][2] and again[0][3] >= found[0][3] \
+                and not shaped_on(img, again[0]) and loose_shaped(img, again[0]):
+            return again
     return found
 
 
@@ -14418,6 +14430,29 @@ def indy_above_due(row):
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and str(v.get("imageUnread") or "").startswith(_INDY_UNREAD)
+               for v in row.get("verdicts") or ())
+
+
+#: The due reason of a Gale Independent page (2007-15) whose grid image was unread "the white cells span 15 rows and 13
+#: columns" / "14 rows and 14 columns": its 15x15 grid is wider than shaped_on's 1100px at SCAN_WIDTH (pages 3870-4640px
+#: wide print it 1129-1228), so ink_in kept the last smaller box it found shaped, a column or two (and a row) short.
+#: 11-13 census of the ledger's latest rows not due under any reason: 63 "the white cells span" rows, 2007-15; 64 of 70
+#: read 15x15 offline since (located_loose, INDY_WIDE: ink_in's loose shape). Read once, before REREAD_INDY_WIDE.
+INDY_WIDE = "Independent page whose grid was cut a row and columns short, the whole grid read since"
+REREAD_INDY_WIDE = "2026-11-14T08:00:00+00:00"
+_INDY_SPAN = re.compile(r"the white cells span 1[2-5] rows and 1[2-5] columns")
+
+
+def indy_wide_due(row):
+    """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDY_WIDE, holds a puzzle not filed whose
+    grid image was unread for a lattice spanning 12-15 rows and columns, not square (_INDY_SPAN)."""
+    if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_WIDE)):
+        return False
+    series = paper_of(row["edition"]).series
+    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
+               and filed_state(series, v.get("number")) is None
+               and _INDY_SPAN.match(str(v.get("imageUnread") or "")) is not None
                for v in row.get("verdicts") or ())
 
 
@@ -20036,6 +20071,8 @@ def fix_reason(row):
         return SUNDAY_FOOT
     if indy_above_due(row):
         return INDY_ABOVE
+    if indy_wide_due(row):
+        return INDY_WIDE
     if ios_title_due(row):
         return IOS_TITLES
     if ft_next_due(row):
@@ -20691,7 +20728,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: the same Beelzebub of 2001-15 (indy_barred_late_due).
                   INDY_BARRED_LATE,
                   # 11-13: an Independent page whose list stopped at a slashed linked head (indy_links_due).
-                  INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, SUNDAY_FOOT,
+                  INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, SUNDAY_FOOT,
                   # 11-13: an Independent on Sunday page refused for a glued or misread title number (ios_title_due).
                   IOS_TITLES,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
@@ -20961,7 +20998,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -21594,7 +21631,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND)
 
 
 def keeps_vlm(why, row, unit=None):
