@@ -3555,6 +3555,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._SUNDAY_DEDUP_FIX:
+        return f._SUNDAY_DEDUP_FIX[paper][2]
     if paper in f._SUNDAY_TITLE_FIX:
         return f._SUNDAY_TITLE_FIX[paper][2]
     if paper in f._SUNDAY_NUMBER_FIX:
@@ -5149,6 +5151,19 @@ check("SUNDAY_GRID is due for a 1960-99 Sunday Times row refused no reading pars
        f.sunday_grid_due({k: v for k, v in _sgrow.items() if k != "inputs"}),
        f.RANKS[f.SUNDAY_GRID] == 2 and f.SUNDAY_GRID in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_GRID) is not None
        and f.SUNDAY_GRID in _eq_bp.FIX_LANDED and f.SUNDAY_GRID in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1960-67 page's one clue column left of its grid (sunday_times_column): SUNDAY_LEFT is due for a
+# refused "no reading parses" row of those years read before it, once.
+check("SUNDAY_LEFT is due for a 1960-67 Sunday Times row refused no reading parses, read before it, once; no not-a-grid, "
+      "later year or other paper; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, False, False, True],
+      [f.sunday_left_due(_sgrow),
+       f.sunday_left_due({**_sgrow, "verdicts": [{"number": 1, "cause": "not-a-grid"}]}),
+       f.sunday_left_due({**_sgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_left_due({**_sgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-12-05"}),
+       f.sunday_left_due({**_sgrow, "edition": "GaleTimes1966UKEnglish/1966-05-15"}),
+       f.RANKS[f.SUNDAY_LEFT] == 2 and f.SUNDAY_LEFT in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_LEFT) is not None
+       and f.SUNDAY_LEFT in _eq_bp.FIX_LANDED and f.SUNDAY_LEFT in _eq_bp.UNFILED_FIRST])
 
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.

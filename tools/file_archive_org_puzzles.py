@@ -1700,8 +1700,13 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     downs = [line for col in cols for line in col if clue_text.heading_of(line[4]) == "DOWN"]
     for side, col in enumerate(cols):
         kept, last = [], None
+        closed = getattr(left, "closed", None)
         for line in col:
-            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP):
+            if closed and closed[0] <= line[0] <= closed[1]:
+                continue
+            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP) \
+                    and not (closed and not stops(line[4]) and line[4] != NOTICE and last < closed[0]
+                             and closed[1] < line[0] <= closed[1] + SOLUTION_GAP * GAP):
                 if not (line[0] - last <= DOWN_GAP and len(downs) == 1 and line is downs[0]
                         and clue_text.heading_of(kept[0][4]) == "ACROSS"):
                     break
@@ -4984,17 +4989,22 @@ def sunday_times_headings(lines, titles=()):
     """titled_headings() of a Sunday Times page, its title's number taken from the line under it
     ("THE SUNDAY TIMES Crossword" over "No 3217", 1987-92: joined_titles)."""
     lines = [[(*w[:4], SUNDAY_SEMICOLON.sub(",", w[4])) for w in ln] for ln in lines]
+    # "Solution TO, No, 1,890.": a comma read after the "TO" is none of the heading's.
+    lines = [[(*w[:4], SOLUTION_TO_COMMA.sub(r"\1", w[4])) for w in ln] for ln in lines]
     rows = [r[k:] for r in row_lines([w for ln in lines for w in ln]) if len(r) > 1
             for k in range(len(r)) if k == 0 or SUNDAY_HEADING_START.match(r[k][4])]
     puzzles, solutions = titled_headings(lines + rows + joined_titles(lines, SUNDAY_TIMES_TITLE.match, under=True),
                                          SUNDAY_TIMES_TITLE, SUNDAY_TIMES_SOLUTION)
     puzzles = list({n: (n, b, s) for n, b, s in reversed(puzzles)}.values())[::-1]
+    # A heading seen as a whole line and again as a row's tail (SUNDAY_HEADING_START) is one.
+    solutions = list(dict.fromkeys(solutions))
     return (sunday_number_mended(puzzles, solutions) or numbered_across(lines)
             or lost_number_title(lines + rows, solutions)), solutions
 
 
 #: A ";" between a number's digits ("Solution TO, No, 1;890."), a comma misread.
 SUNDAY_SEMICOLON = re.compile(r"(?<=\d);(?=\d)")
+SOLUTION_TO_COMMA = re.compile(r"^(t[o0]|of),$", re.IGNORECASE)
 #: A word a row's title could open on, split off the words before it (an advertisement's, left of it).
 SUNDAY_HEADING_START = re.compile(r"\W*(?:the|sunday|times|prize|\w*ss\s?w[o0]rd\w*|solution)\b", re.IGNORECASE)
 
@@ -10760,6 +10770,71 @@ def sunday_grid_due(row):
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_GRID))
 
 
+#: The Gale Sunday Times 1960-67 pages set both clue lists in ONE column left of the grid (about 0.8 of the grid's
+#: width, ACROSS over DOWN, from the grid's top to past its foot), the adverts of the page left of it
+#: (1962-12-09: the column's numbers at x 2487, ads ending 2473, the grid from 3055 on a 4092 wide scan).
+SUNDAY_LEFT_YEARS = ("1960", "1967")
+#: How far left of its grid the column's numbers are sought (shares of the grid's width), and the bin (px) its
+#: numbers' left edges are binned in, the fewest numbered lines that make the column, and the room left of the
+#: modal edge the crop starts at.
+SUNDAY_LEFT_SPAN, SUNDAY_LEFT_BIN, SUNDAY_LEFT_LINES, SUNDAY_LEFT_PAD = (0.95, 0.55), 10, 8, 20
+
+
+def sunday_times_column(img, gbox, key, paper):
+    """(x0, None, bottom) of the one clue column left of a Gale Sunday Times 1960-67 grid (left_column's shape: it
+    runs from the grid's top to the page's foot), from where the numbers of its clue lines stand (the modal left
+    edge of the words opening on a digit within SUNDAY_LEFT_SPAN of the grid's width left of it), or None when
+    fewer than SUNDAY_LEFT_LINES such lines stand at one edge."""
+    gx0, gy0, gx1, _ = gbox
+    gw = gx1 - gx0
+    probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, paper.margin, None,
+                        (max(0, gx0 - gw - 60), img.height), None, None, None)
+    lo, hi = gx0 - SUNDAY_LEFT_SPAN[0] * gw, gx0 - SUNDAY_LEFT_SPAN[1] * gw
+    edges = collections.Counter(int(w[0] // SUNDAY_LEFT_BIN) for ws in probe for w in ws
+                                if lo <= w[0] < hi and w[1] >= gy0 - LEFT_RISE and re.match(r"\W{0,2}\d", w[4]))
+    if not edges:
+        return None
+    bin_, _ = max(edges.items(), key=lambda kv: (edges[kv[0] - 1] + kv[1] + edges[kv[0] + 1], kv[1]))
+    if edges[bin_ - 1] + edges[bin_] + edges[bin_ + 1] < SUNDAY_LEFT_LINES:
+        return None
+    out = SolutionLeft((max(0, bin_ * SUNDAY_LEFT_BIN - SUNDAY_LEFT_PAD), None, img.height))
+    # The solution box set in the column's foot (1962-12-09: "SOLUTION TO No. 1,974" at y 4844, the DOWN list on under it).
+    heads = [w[1] for ws in probe for w in ws if w[0] >= out[0] and w[1] > gy0 and SOLUTION_HEAD.search(w[4])
+             or w[0] >= out[0] and w[1] > gy0 and re.match(r"\W*s[o0]lut", w[4], re.I)]
+    if heads:
+        out.closed = (min(heads) - SOLUTION_HEAD_BAND[0], min(heads) + SOLUTION_HEAD_BAND[1])
+    return out
+
+
+#: A solution box's heading in a clue column, the lines it takes: this far over and under the heading's top.
+SOLUTION_HEAD_BAND = (12, 35)
+#: How many GAPs under the solution box's heading the clue column may start again.
+SOLUTION_GAP = 2
+
+
+class SolutionLeft(tuple):
+    """A left_column tuple whose column has a solution box's heading set in it, `closed` = (top, foot) of the
+    heading's lines: columns() drops them and goes on over the gap under the box."""
+    closed = None
+
+
+#: The reason of a Gale Sunday Times 1960-67 page refused "no reading parses": its one clue column left of its grid
+#: (ACROSS over DOWN, sunday_times_column) read since.
+SUNDAY_LEFT = "Gale Sunday Times 1960-67 page refused no reading parses, its one clue column left of its grid read since"
+REREAD_SUNDAY_LEFT = "2026-11-13T20:40:00+00:00"
+
+
+def sunday_left_due(row):
+    """Whether Gale Sunday Times ledger `row` is due SUNDAY_LEFT: a puzzle of a 1960-67 edition refused "no reading
+    parses", read before REREAD_SUNDAY_LEFT."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
+            or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
+        return False
+    return any(v.get("cause") == "no-reading-parses" for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_LEFT))
+
+
 def sunday_times_beside(paper, side):
     """Whether Gale Sunday Times page of `paper` has its grid right of its clue columns (side "left": the title
     right of the grid): the columns run on past left_bottom's cut, to the page's foot."""
@@ -10873,6 +10948,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, m, None,
                             (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)), None, None, None)
         column = left_column(probe, gbox, heading=PROBE_HEADING)
+    # A 1960-67 Gale Sunday Times page's one column left of its grid, ACROSS over DOWN (sunday_times_column).
+    if column is None and paper.key == "galesundaytimes" and SUNDAY_LEFT_YEARS[0] <= d.name[:4] <= SUNDAY_LEFT_YEARS[1] \
+            and side == "below" and top is None:
+        column = sunday_times_column(img, gbox, key, paper)
     # A Beelzebub's clue columns run from over the grid to the page's foot (1996-03-10: x 188-984, y 1928-3460,
     # the grid 2060-2784), 1.5 grids tall: left_bottom's 0.3 cut every clue past the 18th.
     # The lists run on in a third column under the grid (x 985-1330): the crop reaches its end, the grid blanked
@@ -12489,6 +12568,18 @@ for _paper, _pins in _SUNDAY_TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in (*_pins[:2], *_SUNDAY_NUMBER_FIX[_paper][:2])})
+#: The same again for sunday_times_headings' one entry a solution heading (a heading seen as a line and as a row's tail
+#: was listed twice, the reading 531f2df8f0c opened) and "Solution TO, No, 1;890." read: the headings are the same
+#: otherwise, so every scan stands.
+_SUNDAY_DEDUP_FIX = {
+    "galesundaytimes": ("69bc0be98590981f", "d51dc11ad78ecee6", "be26570351715ba1"),
+}
+for _paper, _pins in _SUNDAY_DEDUP_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in (*_pins[:2], *_SUNDAY_TITLE_FIX[_paper], *_SUNDAY_NUMBER_FIX[_paper][:2])
+                        if old != _pins[2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -12682,6 +12773,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # sunday_times_headings' row-joined, split-word and lost-number titles (_SUNDAY_TITLE_FIX): a scan's
                   # headings only; due once more as SUNDAY_NUMBER.
                   "6c54fb811cba03cc": "432a5818529a9b11",
+                  # sunday_times_headings' one entry a solution heading and "TO," read (_SUNDAY_DEDUP_FIX): a scan's
+                  # headings only, no row due for it.
+                  "eedc8a85b1b7ccb3": "432a5818529a9b11",
                   # PRINT_CLASSIFIED's "galetelegraph": only a Telegraph grid read with no cell classified reads otherwise;
                   # due once as TELEGRAPH_CELLS (solved() reads such a kept one again, printed_stale).
                   "50b55099851b3f47": "432a5818529a9b11",
@@ -19684,6 +19778,8 @@ def fix_reason(row):
         return IOS_TITLES
     if ft_next_due(row):
         return FT_HEADINGS
+    if sunday_left_due(row):
+        return SUNDAY_LEFT
     if sunday_grid_due(row):
         return SUNDAY_GRID
     if sunday_times_foot_due(row):
@@ -20339,7 +20435,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID)
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT)
 
 
 def refusal_passes(why):
@@ -20601,7 +20697,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -21234,7 +21330,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT)
 
 
 def keeps_vlm(why, row, unit=None):
