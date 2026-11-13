@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Influence dance music",
     "enumeration": "5"
    },
-   "solution": "SWING"
+   "solution": "SWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Influence",
+      "at": 0,
+      "meaning": "to sway or affect someone, as a speech may shift voters"
+     },
+     {
+      "text": "dance music",
+      "at": 10,
+      "meaning": "jazz with a strong lilting rhythm, played for big-band dancing in the 1930s and 1940s"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone remarks on how much dance music shapes things.",
+     "definitionFit": "Two senses: to sway an outcome, and the big-band jazz style made for dancing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Influence"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,41 @@
     "text": "Convert upsetting a sacred book",
     "enumeration": "10"
    },
-   "solution": "SEPTUAGINT"
+   "solution": "SEPTUAGINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sacred book",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Convert",
+       "at": 0,
+       "note": "convert means change into another form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "upsetting a",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A convert is distressing a holy text.",
+     "walkthrough": "'Convert' looks like a noun (a new believer) but is the anagram signal.",
+     "definitionFit": "The Septuagint is the ancient Greek translation of the Old Testament, a sacred text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Convert"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +118,31 @@
     "text": "European river providing watering-hole",
     "enumeration": "3"
    },
-   "solution": "INN"
+   "solution": "INN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European river",
+      "at": 0,
+      "meaning": "a river flowing from Switzerland through Austria into the Danube"
+     },
+     {
+      "text": "watering-hole",
+      "at": 25,
+      "meaning": "a pub, a place to drink"
+     }
+    ],
+    "explanation": {
+     "surface": "A river in Europe supplies a place to drink.",
+     "definitionFit": "Two senses: the Alpine river through Innsbruck, and a pub where people drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "watering-hole"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +156,64 @@
     "text": "Transparently smooth guy heartlessly taking girl in",
     "enumeration": "6"
    },
-   "solution": "GLASSY"
+   "solution": "GLASSY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Transparently smooth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 37,
+       "note": "taking ... in means holding inside, so one piece goes into the other"
+      },
+      {
+       "text": "in",
+       "at": 49,
+       "note": "in completes taking in, putting the girl inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartlessly",
+         "at": 25,
+         "note": "heartlessly means the middle letter is removed, keeping the outside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guy",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "girl",
+       "at": 44,
+       "gives": "LASS",
+       "note": "lass is a girl"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slick fellow callously lures a girl.",
+     "walkthrough": "'heartlessly' strips the middle letter of the guy word; 'taking ... in' is split around 'girl', which goes inside.",
+     "definitionFit": "Glassy describes a surface smooth and clear like glass, so transparently smooth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smooth"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +227,32 @@
     "text": "So-called lady, in part liberal",
     "enumeration": "9"
    },
-   "solution": "BOUNTIFUL"
+   "solution": "BOUNTIFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "So-called lady, in part",
+      "at": 0,
+      "meaning": "Lady ... is a stage role, the generous lady in Farquhar's play The Beaux' Stratagem, so the lady is so called in a part"
+     },
+     {
+      "text": "liberal",
+      "at": 24,
+      "meaning": "generous, giving freely"
+     }
+    ],
+    "explanation": {
+     "surface": "A supposed lady who is only partly broad-minded.",
+     "walkthrough": "'in part' means in a theatrical role: Lady Bountiful is the charitable character in George Farquhar's comedy The Beaux' Stratagem, whose name became a byword.",
+     "definitionFit": "Liberal here means generous and giving freely, which is the plain sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +266,48 @@
     "text": "Erected defence as writer's protecting villain",
     "enumeration": "9"
    },
-   "solution": "BARRICADE"
+   "solution": "BARRICADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Erected defence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "at": 28,
+       "note": "protecting means surrounding, so the writer goes round the villain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer's",
+       "at": 19,
+       "gives": "BARRIE",
+       "note": "J M Barrie, author of Peter Pan"
+      },
+      {
+       "words": "villain",
+       "at": 39,
+       "gives": "CAD",
+       "note": "a cad is a dishonourable man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defence put up because an author shields a rogue.",
+     "definitionFit": "A barricade is a barrier hastily set up for defence, so a defence that has been erected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer's"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +321,41 @@
     "text": "Discourage fellow in international organization",
     "enumeration": "5"
    },
-   "solution": "UNMAN"
+   "solution": "UNMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discourage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "international organization",
+       "at": 21,
+       "gives": "UN",
+       "note": "UN is the United Nations"
+      },
+      {
+       "words": "fellow",
+       "at": 11,
+       "gives": "MAN",
+       "note": "a man is a fellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in a world body is disheartened.",
+     "definitionFit": "To unman someone is to drain their courage, a synonym of dishearten or discourage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +375,36 @@
      }
     ]
    },
-   "solution": "THUMBSUP"
+   "solution": "THUMBSUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Binary digital signal successfully received",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Binary digital signal successfully received",
+       "at": 0,
+       "note": "binary means two and digital refers to fingers, so a signal made with a pair of digits meaning all is well"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer's binary signal has arrived intact.",
+     "walkthrough": "Digital puns on digits as fingers: a gesture of two digits that says message received, all fine.",
+     "definitionFit": "The two-handed gesture with raised thumbs signals approval or that something went well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +424,36 @@
      }
     ]
    },
-   "solution": "FATHERBROWN"
+   "solution": "FATHERBROWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catholic expert on mysteries of death",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Catholic expert on mysteries of death",
+       "at": 0,
+       "note": "a priest whose expertise seems religious mystery turns out to be solving murders in G K Chesterton's stories"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic theologian who specialises in the mysteries of mortality.",
+     "walkthrough": "The mysteries sound theological but are detective stories: Chesterton's priest-detective solves murders.",
+     "definitionFit": "Chesterton's fictional Catholic priest is an amateur detective who solves killings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mysteries"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +467,32 @@
     "text": "King Edward, the humorist",
     "enumeration": "4"
    },
-   "solution": "LEAR"
+   "solution": "LEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "King",
+      "at": 0,
+      "meaning": "the Shakespearean monarch of ancient Britain"
+     },
+     {
+      "text": "Edward, the humorist",
+      "at": 5,
+      "meaning": "Edward of that surname wrote nonsense verse and limericks"
+     }
+    ],
+    "explanation": {
+     "surface": "King Edward is the comedian.",
+     "walkthrough": "'King Edward' reads as a monarch but splits: Shakespeare's king, and Edward Lear the nonsense poet.",
+     "definitionFit": "Two senses: Shakespeare's tragic king, and Edward the Victorian writer of limericks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Edward"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +506,48 @@
     "text": "Mystical symbol, quotation, and sign by author",
     "enumeration": "9"
    },
-   "solution": "PENTAGRAM"
+   "solution": "PENTAGRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mystical symbol",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "author",
+       "at": 40,
+       "gives": "PEN",
+       "note": "pen stands for a writer, as in a hired pen"
+      },
+      {
+       "words": "quotation",
+       "at": 17,
+       "gives": "TAG",
+       "note": "a tag is a well-known quotation, often Latin"
+      },
+      {
+       "words": "sign",
+       "at": 32,
+       "gives": "RAM",
+       "note": "the Ram is Aries, a sign of the zodiac"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of a mystic's emblem, a quote and an author's sign.",
+     "walkthrough": "'by' places the author piece next to the other two; it comes first in the answer.",
+     "definitionFit": "A five-pointed star used in magic and occultism is a classic mystical emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +561,42 @@
     "text": "Extremist contributing to hateful traditions",
     "enumeration": "5"
    },
-   "solution": "ULTRA"
+   "solution": "ULTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extremist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contributing to",
+       "at": 10,
+       "note": "contributing to says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hateful traditions",
+       "at": 26,
+       "gives": "ULTRA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fanatic helps keep nasty customs alive.",
+     "definitionFit": "An ultra is someone holding extreme views, a noun synonym for an extremist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contributing"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +610,58 @@
     "text": "Is half a bun one cooked out now?",
     "enumeration": "13"
    },
-   "solution": "UNFASHIONABLE"
+   "solution": "UNFASHIONABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out now",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 18,
+       "note": "cooked means falsified or messed about with, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is",
+       "at": 0
+      },
+      {
+       "words": "half",
+       "at": 3
+      },
+      {
+       "words": "a",
+       "at": 8
+      },
+      {
+       "words": "bun",
+       "at": 10
+      },
+      {
+       "words": "one",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a half-bun that has been baked has gone out of style.",
+     "walkthrough": "'cooked' is the anagram signal working on IS HALF A BUN ONE, all thirteen letters.",
+     "definitionFit": "Something no longer in fashion is out, and out now is a phrase for currently passe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +681,47 @@
      }
     ]
    },
-   "solution": "FORTWILLIAM"
+   "solution": "FORTWILLIAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scottish town",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In order to",
+       "at": 0,
+       "gives": "FOR",
+       "note": "for means in order to, as in done for money"
+      },
+      {
+       "words": "fabric",
+       "at": 16,
+       "gives": "TWILL",
+       "note": "twill is a woven fabric with diagonal ribs"
+      },
+      {
+       "words": "I am",
+       "at": 24,
+       "gives": "IAM",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "To get cloth, I am in a Highland town.",
+     "definitionFit": "Fort William is a town in the Scottish Highlands near Ben Nevis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fabric"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +735,32 @@
     "text": "One provides security for an advance from bank",
     "enumeration": "10"
    },
-   "solution": "BRIDGEHEAD"
+   "solution": "BRIDGEHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One provides security for an advance",
+      "at": 0,
+      "meaning": "a foothold won by troops that protects their further advance"
+     },
+     {
+      "text": "from bank",
+      "at": 37,
+      "meaning": "the end of a bridge on a river bank"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone guarantees a loan advanced from a bank.",
+     "walkthrough": "Security for an advance and bank look like money lending, but both senses are military and riverside.",
+     "definitionFit": "Two senses: a foothold that secures a military advance, and the end of a bridge at the bank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +774,41 @@
     "text": "Maid serving American sides",
     "enumeration": "4"
    },
-   "solution": "GIRL"
+   "solution": "GIRL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "serving American",
+       "at": 5,
+       "gives": "GI",
+       "note": "a GI is an American serviceman"
+      },
+      {
+       "words": "sides",
+       "at": 22,
+       "gives": "RL",
+       "note": "right and left, abbreviated R and L, are the two sides"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A housemaid waits on US visitors at either side of the table.",
+     "definitionFit": "Maid is an old word for a young unmarried woman, a synonym in the older sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +828,32 @@
      }
     ]
    },
-   "solution": "BACKNUMBER"
+   "solution": "BACKNUMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Net, for example?",
+      "at": 0,
+      "meaning": "net is the number ten written backwards, so it is a number read back"
+     },
+     {
+      "text": "Square type",
+      "at": 18,
+      "meaning": "an old-fashioned, out-of-date person"
+     }
+    ],
+    "explanation": {
+     "surface": "Is a net an example of a square pattern?",
+     "walkthrough": "The question mark flags the playful first sense: NET is TEN reversed.",
+     "definitionFit": "A back number is a person seen as old-fashioned, which is what a square is in slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Net"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +873,41 @@
      }
     ]
    },
-   "solution": "KINGCOBRA"
+   "solution": "KINGCOBRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "enormous snake",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Coiling about",
+       "at": 0,
+       "note": "coiling about means twisting round, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "big rock, an",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge snake winds itself round a large boulder.",
+     "walkthrough": "'Coiling about' is the anagram signal on BIG ROCK AN.",
+     "definitionFit": "The king cobra is the longest venomous snake, so an enormous snake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +921,62 @@
     "text": "Unusually stern father missing the player's move",
     "enumeration": "8"
    },
-   "solution": "TRANSFER"
+   "solution": "TRANSFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "player's move",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Unusually",
+       "at": 0,
+       "note": "unusually means in an odd way, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stern",
+       "at": 10
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 23,
+         "note": "missing means without, so those letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "father",
+         "at": 16
+        },
+        {
+         "words": "the",
+         "at": 31,
+         "gives": "THE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dad, oddly stern, misses the footballer's change of club.",
+     "walkthrough": "'missing the' takes THE out of FATHER to leave FAR; 'Unusually' rearranges STERN and FAR.",
+     "definitionFit": "A transfer is a player's move from one club to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "player's"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +996,60 @@
      }
     ]
    },
-   "solution": "NEWORLEANS"
+   "solution": "NEWORLEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "port",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about means going round, so the information word wraps the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Information",
+       "at": 0,
+       "gives": "NEWS",
+       "note": "news is information"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 18,
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        },
+        {
+         "words": "not plentiful",
+         "at": 23,
+         "gives": "LEAN",
+         "note": "lean means meagre, not plentiful"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reports say gold is in short supply at a harbour.",
+     "walkthrough": "OR is the heraldic word for gold.",
+     "definitionFit": "The Louisiana city is a major Mississippi river port, an example of the definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Information"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1063,44 @@
     "text": "Concert promoter would, for listeners",
     "enumeration": "4"
    },
-   "solution": "WOOD"
+   "solution": "WOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Concert promoter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WOOD",
+     "indicators": [
+      {
+       "text": "for listeners",
+       "at": 24,
+       "note": "for listeners means the word is taken as it is heard, not as it is spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "would",
+       "at": 17,
+       "gives": "WOULD",
+       "note": "the word would, taken as said"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concert organiser says he would, for the audience's sake.",
+     "walkthrough": "Sir Henry Wood founded the London Promenade Concerts, the Proms, in 1895.",
+     "definitionFit": "Henry Wood founded and conducted the Proms, so he is a famous promoter of concerts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "listeners"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1114,41 @@
     "text": "French language class in British school",
     "enumeration": "6"
    },
-   "solution": "BRETON"
+   "solution": "BRETON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French language",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 25,
+       "gives": "BR"
+      },
+      {
+       "words": "school",
+       "at": 33,
+       "gives": "ETON",
+       "note": "Eton is the famous English public school"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French lesson in a British school.",
+     "walkthrough": "'class in' links the pieces: Eton is a well-known English boarding school.",
+     "definitionFit": "Breton is the Celtic language spoken in Brittany in north-west France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1168,49 @@
      }
     ]
    },
-   "solution": "LUNATICFRINGE"
+   "solution": "LUNATICFRINGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extremists",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "crazy",
+       "at": 18,
+       "note": "crazy means wildly disordered, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fearing",
+       "at": 0
+      },
+      {
+       "words": "in",
+       "at": 9
+      },
+      {
+       "words": "cult",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extremists inside a cult are full of fear.",
+     "walkthrough": "'crazy' signals the anagram of FEARING IN CULT.",
+     "definitionFit": "The phrase names the wild, fanatical minority on the edge of a movement, a synonym for extremists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crazy"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1224,31 @@
     "text": "Mark in American literature that was a low number",
     "enumeration": "5"
    },
-   "solution": "TWAIN"
+   "solution": "TWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark in American literature",
+      "at": 0,
+      "meaning": "the pen name Mark of Samuel Clemens, the author of Huckleberry Finn"
+     },
+     {
+      "text": "that was a low number",
+      "at": 28,
+      "meaning": "an old word for two"
+     }
+    ],
+    "explanation": {
+     "surface": "A mark in American literature that once scored low.",
+     "definitionFit": "Two senses: the author of Tom Sawyer, and the archaic word meaning two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1262,42 @@
     "text": "Covers up swindle",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swindle",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 7,
+       "note": "up in a down clue means the word is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Covers",
+       "at": 0,
+       "gives": "MACS",
+       "note": "macs are raincoats, coverings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hides a fraud.",
+     "definitionFit": "A scam is a dishonest scheme to cheat people, a synonym for a swindle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Covers"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1311,32 @@
     "text": "Ordinary type in charge",
     "enumeration": "5"
    },
-   "solution": "CHIEF"
+   "solution": "CHIEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ordinary type",
+      "at": 0,
+      "meaning": "in heraldry an ordinary is a simple charge, and the band across the top of a shield is one of them"
+     },
+     {
+      "text": "in charge",
+      "at": 14,
+      "meaning": "leading, at the head"
+     }
+    ],
+    "explanation": {
+     "surface": "An average sort of person is put in command.",
+     "walkthrough": "In heraldry the 'ordinaries' are the basic charges on a shield; the top band is one.",
+     "definitionFit": "Two senses: a heraldic band across a shield's top, and the head person in command."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ordinary"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1350,44 @@
     "text": "Decide a right measure of computer's speed",
     "enumeration": "9"
    },
-   "solution": "ARBITRATE"
+   "solution": "ARBITRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 7
+      },
+      {
+       "words": "right",
+       "at": 9,
+       "gives": "R"
+      },
+      {
+       "words": "measure of computer's speed",
+       "at": 15,
+       "gives": "BITRATE",
+       "note": "bit rate measures how fast data is transferred, in bits per second"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settle on a correct measure for how fast a computer runs.",
+     "definitionFit": "To arbitrate is to judge a dispute and settle it, so to decide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decide"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1401,31 @@
     "text": "Division ready for war",
     "enumeration": "3"
    },
-   "solution": "ARM"
+   "solution": "ARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Division",
+      "at": 0,
+      "meaning": "a branch or section of an organisation"
+     },
+     {
+      "text": "ready for war",
+      "at": 9,
+      "meaning": "to equip with weapons"
+     }
+    ],
+    "explanation": {
+     "surface": "A part of the army prepared for battle.",
+     "definitionFit": "Two senses: a branch of an organisation, and to equip with weapons ready for fighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1439,48 @@
     "text": "Records in golf club set by me and doctor",
     "enumeration": "9"
    },
-   "solution": "MEMORANDA"
+   "solution": "MEMORANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Records",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "me",
+       "at": 28,
+       "gives": "ME",
+       "note": "taken as written"
+      },
+      {
+       "words": "doctor",
+       "at": 35,
+       "gives": "MO",
+       "note": "MO is a medical officer, a doctor"
+      },
+      {
+       "words": "golf club",
+       "at": 11,
+       "gives": "RANDA",
+       "note": "the R and A is the Royal and Ancient Golf Club of St Andrews"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Records at a golf club are set by me and a medic.",
+     "walkthrough": "The R and A at St Andrews is golf's historic governing club; 'set by' puts it after the other two pieces.",
+     "definitionFit": "Memoranda are written notes kept for reference, so records in the plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,10 +1491,61 @@
    },
    "length": 5,
    "clue": {
-    "text": "Entitled to state requirements, .. mostly rejected",
+    "text": "Entitled to state requirements, mostly rejected",
     "enumeration": "5"
    },
-   "solution": "NAMED"
+   "solution": "NAMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Entitled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejected",
+       "at": 39,
+       "note": "rejected means thrown back, so the word is read in the other direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 32,
+         "note": "mostly means all but the last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to state requirements",
+         "at": 9,
+         "gives": "DEMAND",
+         "note": "to demand is to state what one requires"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person feels entitled to list demands that are largely turned down.",
+     "walkthrough": "'mostly' drops the last letter of DEMAND to leave DEMAN, and 'rejected' turns that round.",
+     "definitionFit": "Named means given a name or title, so entitled in the sense of called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Entitled"
+    }
+   }
   }
  ]
 }
