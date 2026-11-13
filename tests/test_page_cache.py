@@ -57,6 +57,26 @@ same("a comment", fp({"build_seo_pages": src + "\n# a comment\n"}))
 same("the hub page's code", fp(edit("def hub_page(idx):", "def hub_page(idx, unused=None):")))
 same("a fetcher nothing reaches", fp({"fetch_telegraph": "def nothing():\n    return 1\n"}))
 moved("the puzzle page's code", fp(edit("def puzzle_page(puz, meta, prev_p, next_p):", "def puzzle_page(puz, meta, prev_p, next_p, unused=None):")))
+# The solver's code is not in the key: a page is keyed by what the solver made
+# of its puzzle (the index row's pageView), so a solver-only commit moves no key
+# and only a puzzle whose view changed re-renders.
+import re
+
+def body_edit(module, name):
+    """tools/<module>.py with the first `return` of `name` changed."""
+    text = open(f"tools/{module}.py", encoding="utf-8").read()
+    head, sep, rest = text.partition(f"def {name}(")
+    assert sep, f"test_page_cache: no {module}.{name}"
+    rest2 = re.sub(r"\n    return ", "\n    return 0 or ", rest, count=1)
+    assert rest2 != rest, f"test_page_cache: {module}.{name} has no top-level return"
+    return {module: head + sep + rest2}
+
+same("a solver function body (wordplay)", fp(body_edit("wordplay", "slipped_run")))
+same("annotation.view_puzzle's body", fp(body_edit("annotation", "view_puzzle")))
+same("fetch_puzzle.with_blog_facts' body", fp(body_edit("fetch_puzzle", "with_blog_facts")))
+same("indicator_keys.clue_pairs' body", fp(body_edit("indicator_keys", "clue_pairs")))
+same("the row cache's cached_map", fp(body_edit("row_cache", "cached_map")))
+moved("annotation.whole_answer, which a page calls itself", fp(body_edit("annotation", "whole_answer")))
 import tempfile
 import app_tables
 real_app = app_tables.APP
@@ -107,7 +127,7 @@ import showcase
 from pathlib import Path
 
 row = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
-       "file": "cryptic-30000.js", "v": "aaaa", "annotated": True, "tags": [],
+       "file": "cryptic-30000.js", "v": "aaaa", "pageView": "view0", "annotated": True, "tags": [],
        "difficulty": {"band": "Moderate", "index": -0.148, "percentile": 32, "basis": ["rarity"]}}
 puz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
        "setter": "Pan", "dimensions": {"cols": 15, "rows": 15}, "entries": []}
@@ -143,6 +163,11 @@ for label, r in (("the percentile", changed(percentile=33)), ("the band", change
         sys.exit(f"test_page_cache: {label} moved: reuses a stale page")
     if B.puzzle_page(puz, r, None, None) == page0:
         sys.exit(f"test_page_cache: {label} is keyed but the page does not print it")
+# A moved view of this puzzle re-renders its page alone; the stub is keyed too.
+if key(changed(pageView="view1")) == k0:
+    sys.exit("test_page_cache: this puzzle's view moved but its key did not")
+if key(changed(pageView="view0")) != k0:
+    sys.exit("test_page_cache: the same view gave another key")
 # setter_error.json is keyed "puzzle id/entry id": a page's key holds its own
 # puzzle's rows, so a row filed for another puzzle (a burn commit) moves no key.
 import json
