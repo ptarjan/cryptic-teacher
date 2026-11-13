@@ -13224,6 +13224,8 @@ _SOLUTION_KEY = []
 #: name_only (a surname cmudict alone lists decodes only where every cell is sure: TROEGER), which
 #: only takes fewer lights: a row read before it reads no more for it.
 _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved into clue_text: the same read
+                  # clue_text.own_number_mended / ocr_clues (TELEGRAPH_OWN): clue text only, no solution grid's reading moves.
+                  "edce9031f340db29": "432a5818529a9b11",
                   # SUNDAY_TIMES_TITLE refuses a winners entry ("No. 3530:"; back in after 2e0de5d8d00 backed it out):
                   # a scan's title, no solution's reading moves. The scan key lands on _JOINED_TITLE_FIX's own.
                   "e8b1229ab48f7223": "432a5818529a9b11",

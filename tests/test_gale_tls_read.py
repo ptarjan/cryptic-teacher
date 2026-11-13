@@ -55,9 +55,10 @@ import gale_listener as gl
 page = [(65, 1277, 82, 1297, "4"), (97, 1276, 189, 1297, "Flowers"), (195, 1275, 233, 1297, "for"),
         (66, 1312, 81, 1332, "5"), (96, 1310, 204, 1333, "Gibbons'")]
 rapid = [(92, 1273, 189, 1297, "Flowers"), (195, 1273, 233, 1297, "for"), (66, 1312, 81, 1332, "5"),
-         (91, 1307, 204, 1333, "Gibbons'")]
+         (91, 1307, 204, 1333, "Gibbons'"), (66, 1350, 81, 1370, "6"), (96, 1350, 200, 1370, "Next"),
+         (66, 1390, 81, 1410, "7"), (96, 1390, 200, 1410, "Then")]
 lent = gl.lend_numbers({"page": page, "ch": rapid})
-assert (65, 1277, 82, 1297, "4") in lent["ch"] and len(lent["ch"]) == 5  # the "5" it read is not doubled
+assert (65, 1277, 82, 1297, "4") in lent["ch"] and len(lent["ch"]) == 9 and sum(w[4] == "5" for w in lent["ch"]) == 1  # the "5" it read is not doubled
 assert lent["page"] == page
 assert t.VERSION >= 20
 print("ok")
