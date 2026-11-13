@@ -3562,6 +3562,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._INDY_ENTRIES_FIX:
+        return f._INDY_ENTRIES_FIX[paper][2]
     if paper in f._TELEGRAPH_TITLE_FIX:
         return f._TELEGRAPH_TITLE_FIX[paper][2]
     if paper in f._TELEGRAPH_PRIZE_OF_FIX:
@@ -3589,6 +3591,16 @@ def _final(paper):
     return f._SPECIAL_TITLE_FIX[paper][2] if paper in f._SPECIAL_TITLE_FIX else f._LONE_TITLE_FIX[paper][2]
 
 
+_ln = lambda *rows: [[[0, 10 * k, 600, 10 * k + 9, t]] for k, t in enumerate(rows)]
+check("an Independent line ending a clue's bracketed count is no title, and a short Beelzebub title takes its number "
+      "from the entry line; an old-key refused row is scanned again",
+      [[8590], [697], True, False],
+      [[p[0] for p in f.independent_headings(_ln("crossword puzzle (10)", "Prize cryptic crossword #8590"))[0]],
+       [p[0] for p in f.indy_sunday_headings(_ln("Beelzebub Prize Crossword No 6", "Mark entries Beelzebub 697 and send"))[0]],
+       f.ios_title_rescan({"edition": "GaleIndependentSunday2003UKEnglish/2003-06-15", "scanKey": "43cf7f1ff66014f2",
+                           "verdicts": [{"number": 6, "cause": "number-date-mismatch"}]}),
+       f.ios_title_rescan({"edition": "GaleIndependentSunday2003UKEnglish/2003-06-15", "scanKey": f.scan_key(f.GALE_INDY_SUNDAY),
+                           "verdicts": [{"number": 6, "cause": "number-date-mismatch"}]})])
 _ir = {"edition": "GaleIndependent2015UKEnglish/2015-08-22", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
        "verdicts": [{"number": 9003, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
                      "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
