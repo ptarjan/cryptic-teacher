@@ -3526,6 +3526,13 @@ def _final(paper):
     return f._SPECIAL_TITLE_FIX[paper][2] if paper in f._SPECIAL_TITLE_FIX else f._LONE_TITLE_FIX[paper][2]
 
 
+_ir = {"edition": "GaleIndependent2015UKEnglish/2015-08-22", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+       "verdicts": [{"number": 9003, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+                     "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
+check("a Gale Independent page refused for no clue lists is due INDEPENDENT_RIGHT; a Times page is not; the reason is ranked",
+      [True, False, True],
+      [f.indy_right_due(_ir), f.indy_right_due({**_ir, "edition": "GaleTimes2015UKEnglish/2015-08-22"}),
+       f.INDEPENDENT_RIGHT in f.RANKS])
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
 _mon ={"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}

@@ -761,7 +761,7 @@ ABOVE_GAP = 80
 LIVE_OVER_SOLUTION = 1.5
 
 
-def locate_grid(img, title, right=False):
+def locate_grid(img, title, right=False, loose=False):
     """(box, side) of the grid a title heads: the largest ink under it, else
     over it (the 1980s Times prints its title under the grid), else left of
     it (the FT's Monday Prize prints it right of the grid's top), else right
@@ -792,7 +792,7 @@ def locate_grid(img, title, right=False):
         # The 1986 Saturday prize page sets the last puzzles' solution grids
         # under the title, its own grid further down: the crop starts under
         # them.
-        if side == "below" and box is not None and solution_shaped(img)(box):
+        if side == "below" and box is not None and not loose and solution_shaped(img)(box):
             crop = (crop[0], box[3], crop[2], min(img.height, box[3] + span))
             box = footed(img, ink_in(img, crop, fixed))
         # A grid under its title clears the title's line, one over it ends
@@ -804,7 +804,7 @@ def locate_grid(img, title, right=False):
             and (side != "above" or box[3] >= y0 - ABOVE_GAP) \
             and (side != "below" or box[0] <= x1 + 120) \
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
-        if clear and (wide_shaped if right else shaped_on)(img, box):
+        if clear and (wide_shaped if right else loose_shaped if loose else shaped_on)(img, box):
             # A grid under the title that a grid left of it dwarfs is the
             # day's solution (the 2005 Times, "Solution to Crossword" under
             # the live grid's clue columns): the live one is beside the title.
@@ -2179,16 +2179,22 @@ def ft_rise(paper, grid, title):
     return min(FT_RISE_MAX, max(RIGHT_RISE, int(grid[1] - title[1] + FT_RISE_PAD)))
 
 
-def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE):
+def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE, roomy=False):
     """(x1, bottom) of the two clue columns right of `grid`, or None when the
     clues are not there: they are only when the page ends too soon under the
     grid for clues (1.8 grids' widths, the layout every other page has) and
     the strip right of the grid, as wide as `span`, is inked like text.
-    (x1, bottom, Rise(rise)) when the columns start `rise` over the grid, not RIGHT_RISE."""
+    (x1, bottom, Rise(rise)) when the columns start `rise` over the grid, not RIGHT_RISE.
+    `roomy` (INDY_RIGHT: the Independent's clues stand right of the grid on a page with room under it,
+    its span reaching the page's edge at most) drops the page-foot test."""
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
     x1 = int(gx1 + span * gw)
-    if x1 > img.width or img.height - gy1 >= 1.2 * gw:
+    if roomy:
+        x1 = min(x1, img.width)
+        if x1 - gx1 < gw * RIGHT_SPAN:
+            return None
+    elif x1 > img.width or img.height - gy1 >= 1.2 * gw:
         return None
     bottom = int(gy1 + RIGHT_DROP * (gy1 - gy0))
     strip = img.crop((gx1 + 5, gy0, x1, min(img.height, bottom))).convert("L")
@@ -2224,14 +2230,37 @@ def right_foreign(rapid, grid, right):
     return (cut, bottom, *rise), {k: [ws for ws in lines if ws and ws[0][0] < cut] for k, lines in rapid.items()}
 
 
-def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE):
+#: The Gale Independent's grid with its two clue columns right of it, on a page with room under the grid
+#: (2008-15: 2015's grid 212-902 of 2640px, ACROSS at 1217, DOWN at 1510; 2013's 251-1979 of 4633): the
+#: span from the grid's edge, in grid widths (right_foreign cuts it at the next column of print), and
+#: the readers' windows tried before the plain layout's (INDY_RIGHT_SPAN). 11-13: 126 of 333
+#: "no reading parses" pages 2005-15 were "no ACROSS and DOWN lists under the grid": right_columns()
+#: refused a page with 1.2 grids' widths under the grid, and the layout read the strip under it.
+INDY_RIGHT_SPAN = 1.6
+INDY_SHAPE = (330, 1400)
+
+
+def loose_shaped(img, box):
+    """Whether `box` on page `img` is a grid's shape (square) and between INDY_SHAPE wide at SCAN_WIDTH:
+    the Independent's page is scanned at 2640-4986px with the grid 26-37% of its width (shaped_on's
+    floor refused 2011's 722px grid on a 4986px page: 477 at SCAN_WIDTH)."""
+    if box is None:
+        return False
+    gw, gh = ((v1 - v0) * SCAN_WIDTH / img.width for v0, v1 in ((box[0], box[2]), (box[1], box[3])))
+    return INDY_SHAPE[0] <= gw <= INDY_SHAPE[1] and 0.85 <= gw / max(gh, 1) <= 1.18
+
+
+def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE, roomy=False):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
     that soon under the grid has no room for three columns, and the
     "Yesterday's solution" box under its grid is inked like a third column's
     text: overhang() alone read it as one (the Feb to May 2014 Times, whose
     clues were then cropped from under the grid and found no lists)."""
-    right = right_columns(img, grid, rise=rise) if right_ok else None
+    if roomy:
+        right = right_columns(img, grid, INDY_RIGHT_SPAN, rise, roomy=True) if right_ok else None
+    else:
+        right = right_columns(img, grid, rise=rise) if right_ok else None
     return right, (None if right else overhang(img, grid))
 
 
@@ -10107,13 +10136,24 @@ def located_grid(d, leaf, img, title, right=False):
     try:
         st = path.stat()
     except OSError:
-        return locate_grid(img, title, right)
+        return located_loose(d, img, title, right)
     key = (str(path), st.st_mtime_ns, st.st_size, tuple(title), right)
     if key not in _LOCATED:
         if len(_LOCATED) >= LOCATED_MAX:
             _LOCATED.pop(next(iter(_LOCATED)))
-        _LOCATED[key] = locate_grid(img, title, right)
+        _LOCATED[key] = located_loose(d, img, title, right)
     return _LOCATED[key]
+
+
+def located_loose(d, img, title, right=False):
+    """locate_grid(img, title, right), and for a Gale Independent page it took no grid from, once more with
+    loose_shaped's test (INDY_SHAPE: the grid's size against a page scanned 2640-4986px wide)."""
+    found = locate_grid(img, title, right)
+    if found[1] is None and not right and paper_of(d).key == "galeindependent":
+        again = locate_grid(img, title, right, loose=True)
+        if again[1] is not None:
+            return again
+    return found
 
 
 #: Papers whose page prints its puzzle's solution nowhere the scan reads: the Gale Sunday Telegraph's (1961-2000)
@@ -10304,7 +10344,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # crops; its blocks are backsolved from the clue list unless every clue lies on
     # it as read (backsolve: no scan grid stands, picks or screens).
     backsolve = False
-    if side is None or not (wide_shaped if paper.key in GRID_RIGHT else shaped_on)(img, gbox):
+    if side is None or not (wide_shaped if paper.key in GRID_RIGHT else loose_shaped if paper.key == "galeindependent"
+                            and not shaped_on(img, gbox) else shaped_on)(img, gbox):
         touched = touching_grid(img, hit["box"], gbox) \
             if not paper.clues_above and not paper.four and paper.key not in GRID_RIGHT else None
         # A 1950-67 Gale Times grid whose top lies within its title's line (band_grid's shape past
@@ -10370,7 +10411,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # A Gale page before 2014 never has its clues right of the grid: the strip
     # there is an advert column (1947-48: the grid at the page's foot made
     # right_columns() read the ads, and the clue column left of the grid went unread).
-    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), ft_rise(paper, gbox, hit["box"])) if side == "below" and top is None \
+    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), ft_rise(paper, gbox, hit["box"]),
+                                  paper.key == "galeindependent") if side == "below" and top is None \
         and not sides and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
         else (None, None)
     if (right or over) and alts is not None:
@@ -13164,6 +13206,35 @@ def indy_next_due(row):
     return "inputs" in row and any(not v.get("refused") and v.get("grid") in ("image", "rebuilt") and v.get("solution") is None
                                    for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_INDEPENDENT_HEADINGS))
+
+
+#: The due reason of a Gale Independent page (2005-15) refused for a grid it could not take or no clue lists, read
+#: before REREAD_INDEPENDENT_RIGHT. 11-13 census of the ledger's 333 "no reading parses" and 188 "not a grid" rows:
+#: the clues stand right of the grid on a page with room under it (right_columns() gave only a short page's those:
+#: "no ACROSS and DOWN lists under the grid", 126 rows), and the page is scanned 2640-4986px wide with its grid
+#: 26-37% of it (shaped_on's 500-1100 at 3296px refused 2011's 722px grid on a 4986px page, 85 rows, and 2012-13's
+#: 1728px grid on 4633px, 26 rows: "the ink under the title is 38x40, not a grid"). INDY_RIGHT_SPAN, loose_shaped.
+INDEPENDENT_RIGHT = "Independent page refused for its grid or clue lists, its clue columns right of the grid read since"
+REREAD_INDEPENDENT_RIGHT = "2026-11-13T19:00:00+00:00"
+
+
+def indy_right_due(row):
+    """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDEPENDENT_RIGHT, holds a puzzle refused
+    "not-a-grid" for the ink under its title, or "no-reading-parses" with a reading that found no ACROSS and DOWN
+    lists (or none read), and not held."""
+    if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDEPENDENT_RIGHT)):
+        return False
+    series = paper_of(row["edition"]).series
+    for v in row.get("verdicts") or ():
+        if v.get("skip") or v.get("number") is None or not v.get("refused") or filed_state(series, v.get("number")) is not None:
+            continue
+        if v.get("cause") == "not-a-grid" and str(v.get("refused")).startswith("the ink under the title is "):
+            return True
+        if v.get("cause") == "no-reading-parses" and any(
+                str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values()):
+            return True
+    return False
 
 
 #: The due reason of a Gale FT page scanned before gale_ft_headings read the title and the solution heading the Chinese
@@ -18697,6 +18768,8 @@ def fix_reason(row):
         return TELEGRAPH_NEXT_DAY
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
+    if indy_right_due(row):
+        return INDEPENDENT_RIGHT
     if ft_next_due(row):
         return FT_HEADINGS
     if ft_clues_due(row):
@@ -19319,6 +19392,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: a Gale Independent page (daily) with a glued title or a weekday-only solution heading
                   # read since (indy_next_due); the pages are scanned again first.
                   INDEPENDENT_HEADINGS,
+                  # 11-13: a Gale Independent page refused for its grid or clue lists, its clue columns right of
+                  # the grid and its grid on a wide page read since (indy_right_due).
+                  INDEPENDENT_RIGHT,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
                   # pages are scanned again first.
                   FT_HEADINGS,
@@ -19584,7 +19660,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20210,7 +20286,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS, FT_HEADINGS, FT_CLUES)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, FT_HEADINGS, FT_CLUES)
 
 
 def keeps_vlm(why, row, unit=None):
