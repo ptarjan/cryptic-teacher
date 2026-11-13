@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,28 @@
     "text": "After a job",
     "enumeration": "4"
    },
-   "solution": "POST"
+   "solution": "POST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "After",
+      "at": 0,
+      "meaning": "the prefix meaning after, as in postwar"
+     },
+     {
+      "text": "a job",
+      "at": 6,
+      "meaning": "a position of employment"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Post is both the Latin-derived word for later in time and a common word for a paid position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +68,43 @@
     "text": "What army can't support if camp is destroyed",
     "enumeration": "8"
    },
-   "solution": "PACIFISM"
+   "solution": "PACIFISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What army can't support",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "destroyed",
+       "at": 35,
+       "note": "something destroyed is broken up, so these letters are wrecked and rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if camp is",
+       "at": 24,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army's support collapses once its camp is wrecked.",
+     "walkthrough": "'destroyed' rearranges the three words before it; 'camp' looks like the army's base but is only letters.",
+     "definitionFit": "Pacifism is the belief that war is wrong, a creed no fighting force could ever endorse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "camp"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +118,36 @@
     "text": "The places to be seen around London?",
     "enumeration": "8"
    },
-   "solution": "SUBURBIA"
+   "solution": "SUBURBIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The places to be seen around London?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The places to be seen around London?",
+       "at": 0,
+       "note": "read not as fashionable haunts but as the districts that literally lie around the capital, its residential outskirts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the trendiest spots in the capital.",
+     "walkthrough": "'places to be seen' suggests fashionable venues, but 'around' is meant literally: the housing ring encircling a city.",
+     "definitionFit": "Suburbia is the collective name for the residential districts on a city's outskirts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +161,58 @@
     "text": "Cinderella's relative, perhaps tries clumsily to follow dances?",
     "enumeration": "10"
    },
-   "solution": "STEPSISTER"
+   "solution": "STEPSISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cinderella's relative, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "at": 46,
+       "note": "the rearranged word comes after the dances in the answer, following them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dances",
+       "at": 56,
+       "gives": "STEPS",
+       "note": "steps are the moves or figures of dances"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "clumsily",
+         "at": 37,
+         "note": "done clumsily, the word tries is mangled into a different letter order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tries",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries awkwardly to keep up with the dancing at the ball.",
+     "walkthrough": "'clumsily' rearranges the five letters of the fodder, and 'to follow' sets that result after the dances. In the pantomime, Cinderella's two ugly sisters fill this role.",
+     "definitionFit": "Cinderella's two ugly sisters are her stepmother's daughters, related by marriage not blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +226,71 @@
     "text": "One may be seen among heads of the awfully rich aristocracy",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One may be seen among heads of the awfully rich aristocracy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 16,
+       "note": "placed among other letters means set inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads of",
+         "at": 22,
+         "note": "the heads of words are their opening letters, taken from each of the following four"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 31
+        },
+        {
+         "words": "awfully",
+         "at": 35
+        },
+        {
+         "words": "rich",
+         "at": 43
+        },
+        {
+         "words": "aristocracy",
+         "at": 48
+        }
+       ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A jewelled headpiece glitters at a gathering of wealthy nobles.",
+     "walkthrough": "'heads of' gives T, A, R, A; 'among' puts I inside, after the T. The whole clue also describes where you would see the answer.",
+     "definitionFit": "A tiara is a jewelled coronet worn by titled ladies on grand occasions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +304,42 @@
     "text": "No real Shakespeare character's stage name",
     "enumeration": "9"
    },
-   "solution": "PSEUDONYM"
+   "solution": "PSEUDONYM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stage name",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No real",
+       "at": 0,
+       "gives": "PSEUDO",
+       "note": "pseudo means sham or not genuine"
+      },
+      {
+       "words": "Shakespeare character's",
+       "at": 8,
+       "gives": "NYM",
+       "note": "Nym is a corporal in Henry V and The Merry Wives of Windsor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that an actor's billing is not his real name, as in Shakespeare's plays.",
+     "walkthrough": "The apostrophe s is just 's; Corporal Nym is one of Falstaff's rogues.",
+     "definitionFit": "A pseudonym is an assumed name, such as an actor uses on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "real"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +353,36 @@
     "text": "Train on inclined lines?",
     "enumeration": "12"
    },
-   "solution": "INDOCTRINATE"
+   "solution": "INDOCTRINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Train on inclined lines?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Train on inclined lines?",
+       "at": 0,
+       "note": "not a railway on a slope but teaching someone to follow a particular bent of thought, lines of belief one is inclined to"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a locomotive running on sloping track.",
+     "walkthrough": "'Train' and 'lines' suggest railways and 'inclined' a gradient; the verb means to teach a doctrine.",
+     "definitionFit": "To instil a set of beliefs uncritically is to drill someone in a doctrine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +396,40 @@
     "text": "Bird held on tightly to morsel",
     "enumeration": "6"
    },
-   "solution": "TITBIT"
+   "solution": "TITBIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "morsel",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "TIT",
+       "note": "a tit is a small songbird"
+      },
+      {
+       "words": "held on tightly",
+       "at": 5,
+       "gives": "BIT",
+       "note": "bit, past tense of bite, means gripped hard with the teeth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird clamps its beak onto a scrap of food.",
+     "definitionFit": "A titbit is a small tasty piece of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +443,30 @@
     "text": "Type of carving in recess?",
     "enumeration": "6"
    },
-   "solution": "RELIEF"
+   "solution": "RELIEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Type of carving",
+      "at": 0,
+      "meaning": "sculpture standing out from a flat background"
+     },
+     {
+      "text": "recess",
+      "at": 19,
+      "meaning": "a break or respite from work"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'recess' could suggest the alcove where a carving sits, but it means a break from toil.",
+     "definitionFit": "Relief is a sculptural style raised from a flat surface, and also a welcome respite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recess"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +480,50 @@
     "text": "Play at snooker, potting black for eight, perhaps",
     "enumeration": "4"
    },
-   "solution": "CUBE"
+   "solution": "CUBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "eight, perhaps",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "potting",
+       "at": 17,
+       "note": "potting a ball sinks it into a pocket, so one letter is put inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Play at snooker",
+       "at": 0,
+       "gives": "CUE",
+       "note": "to cue is to strike the ball with a cue"
+      },
+      {
+       "words": "black",
+       "at": 25,
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player sinks the black for eight points.",
+     "walkthrough": "In snooker the black is worth seven, not eight, so the number is a clue to the definition: eight is two cubed.",
+     "definitionFit": "Eight is the cube of two, a number multiplied by itself twice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "eight"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +537,46 @@
     "text": "Take lead with co-star playing as Becket",
     "enumeration": "10"
    },
-   "solution": "SACERDOTAL"
+   "solution": "SACERDOTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as Becket",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "playing",
+       "at": 23,
+       "note": "these letters are playing about, set in a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lead",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "words": "co-star",
+       "at": 15,
+       "note": "taken as written, hyphen ignored"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor in a play about Becket takes the lead alongside a co-star.",
+     "walkthrough": "'playing' rearranges LEAD and COSTAR. Thomas Becket was Archbishop of Canterbury, murdered in 1170; 'Take' is a link.",
+     "definitionFit": "Sacerdotal means priestly, describing a churchman like the archbishop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +590,67 @@
     "text": "Philosopher of intelligence, thinking in extremes and strangely intense?",
     "enumeration": "12"
    },
-   "solution": "WITTGENSTEIN"
+   "solution": "WITTGENSTEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "intelligence",
+       "at": 15,
+       "gives": "WIT",
+       "note": "wit means mental sharpness"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "in extremes",
+         "at": 38,
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thinking",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strangely",
+         "at": 54,
+         "note": "strangely signals the letters of intense come out oddly ordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intense",
+         "at": 64
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker known for brains and intense, extreme thought.",
+     "walkthrough": "'in extremes' gives TG from thinking; 'strangely' turns INTENSE into ENSTEIN.",
+     "definitionFit": "Ludwig Wittgenstein was the Austrian-born Cambridge thinker behind the Tractatus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +664,57 @@
     "text": "Fine queen and daughter at home with king of Spain",
     "enumeration": "9"
    },
-   "solution": "FERDINAND"
+   "solution": "FERDINAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "king of Spain",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fine",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the abbreviation for fine, as on pencils"
+      },
+      {
+       "words": "queen",
+       "at": 5,
+       "gives": "ER",
+       "note": "ER stands for Elizabeth Regina"
+      },
+      {
+       "words": "daughter",
+       "at": 15,
+       "gives": "D"
+      },
+      {
+       "words": "at home",
+       "at": 24,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "with",
+       "at": 32,
+       "gives": "AND",
+       "note": "and means together with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal household: the queen, her daughter and the Spanish king.",
+     "definitionFit": "Ferdinand of Aragon was king of Spain, husband of Isabella."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +728,53 @@
     "text": "Shameful act upsets Middle America",
     "enumeration": "5"
    },
-   "solution": "CRIME"
+   "solution": "CRIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shameful act",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upsets",
+       "at": 13,
+       "note": "upsets means knocks over, so the letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Middle",
+         "at": 20,
+         "note": "the middle of a word is everything but its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "America",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scandal causes uproar in the heartland of the United States.",
+     "walkthrough": "'Middle America' looks like a single phrase for the heartland, but 'Middle' takes MERIC from America, and 'upsets' rearranges it.",
+     "definitionFit": "A crime is an offence, often a disgraceful deed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Middle"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +794,36 @@
      }
     ]
    },
-   "solution": "SAINTBERNARD"
+   "solution": "SAINTBERNARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rescuer of those who've come to a pretty pass?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Rescuer of those who've come to a pretty pass?",
+       "at": 0,
+       "note": "a pretty pass is an awkward fix, but here it is a literal mountain pass in the Alps, where travellers got lost in snow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about who saves people from a sorry predicament.",
+     "walkthrough": "The Great St Bernard Pass is an Alpine route between Switzerland and Italy, where the monks' big dogs found snowbound travellers.",
+     "definitionFit": "The St Bernard is a mountain rescue dog breed named for the Alpine hospice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +837,61 @@
     "text": "Let men get to stew with lamb that was in hamper",
     "enumeration": "9"
    },
-   "solution": "ENTRAMMEL"
+   "solution": "ENTRAMMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hamper",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "one piece goes in the other, inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "get to stew",
+         "at": 8,
+         "note": "stewed things are mixed up, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Let men",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "lamb that was",
+       "at": 25,
+       "gives": "RAM",
+       "note": "a ram is a male sheep, once a lamb"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook lets men stew lamb packed in a picnic basket.",
+     "walkthrough": "'get to stew' gives ENTMEL; 'in' lodges the sheep inside it. 'hamper' looks like the basket from the surface but is a verb.",
+     "definitionFit": "To entrammel is to entangle or impede, as in a net."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hamper"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +905,48 @@
     "text": "Adolescent toting weapon in holiday resort",
     "enumeration": "8"
    },
-   "solution": "YARMOUTH"
+   "solution": "YARMOUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "holiday resort",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "toting",
+       "at": 11,
+       "note": "toting means carrying, so one word holds another inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Adolescent",
+       "at": 0,
+       "gives": "YOUTH",
+       "note": "a youth is a teenager"
+      },
+      {
+       "words": "weapon",
+       "at": 18,
+       "gives": "ARM",
+       "note": "an arm is a weapon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager carries a gun in a seaside town.",
+     "walkthrough": "Great Yarmouth is a seaside town in Norfolk, England.",
+     "definitionFit": "Yarmouth is an English seaside town popular with holidaymakers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +960,72 @@
     "text": "Most of wild publicity on short advertisement is inducing sleep",
     "enumeration": "8"
    },
-   "solution": "HYPNOTIC"
+   "solution": "HYPNOTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inducing sleep",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word means all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wild publicity",
+         "at": 8,
+         "gives": "HYPE",
+         "note": "hype is extravagant promotion"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 26,
+         "note": "short means cut, so the final letter is lopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advertisement",
+         "at": 32,
+         "gives": "NOTICE",
+         "note": "a notice is a public announcement"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Overblown ads that are boring enough to send you to sleep.",
+     "walkthrough": "'Most of' drops the final E of HYPE, and 'short' drops the final E of NOTICE.",
+     "definitionFit": "Hypnotic means soporific, bringing on slumber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1039,67 @@
     "text": "Will's touchy when penning last word by sailor",
     "enumeration": "12"
    },
-   "solution": "TESTAMENTARY"
+   "solution": "TESTAMENTARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Will's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when penning",
+       "at": 14,
+       "note": "penning means enclosing, so the touchy word goes round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "touchy",
+       "at": 7,
+       "gives": "TESTY",
+       "note": "testy means irritable"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "at": 37,
+         "note": "by means beside, so the sailor comes next"
+        }
+       ],
+       "parts": [
+        {
+         "words": "last word",
+         "at": 27,
+         "gives": "AMEN",
+         "note": "amen is said at the end of a prayer"
+        },
+        {
+         "words": "sailor",
+         "at": 40,
+         "gives": "TAR",
+         "note": "a tar is a sailor"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A will is contested by a cranky sailor.",
+     "walkthrough": "'when penning' means the irritable word wraps round the rest, splitting before its final Y. 'Will's' looks like a man's name but means 'of a will'.",
+     "definitionFit": "Testamentary means relating to a will or last bequest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Will's"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1113,58 @@
     "text": "Old one in Rome pictures rising conqueror of Hannibal",
     "enumeration": "6"
    },
-   "solution": "SCIPIO"
+   "solution": "SCIPIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "conqueror of Hannibal",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rising",
+       "at": 25,
+       "note": "in a down clue, rising means the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old",
+         "at": 0,
+         "gives": "O"
+        },
+        {
+         "words": "one in Rome",
+         "at": 4,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "pictures",
+         "at": 16,
+         "gives": "PICS",
+         "note": "pics is short for pictures"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old Roman views pictures of the general who beat Hannibal.",
+     "walkthrough": "'rising' reverses OIPICS; Scipio Africanus defeated Hannibal at Zama in 202 BC.",
+     "definitionFit": "Scipio Africanus was the Roman general who beat Carthage's leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1178,48 @@
     "text": "Need assistance, losing energy in dangerous part of pool",
     "enumeration": "6"
    },
-   "solution": "DEPEND"
+   "solution": "DEPEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Need assistance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing",
+       "at": 17,
+       "note": "losing means a letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dangerous part of pool",
+       "at": 34,
+       "gives": "DEEPEND",
+       "note": "the deep end is where non-swimmers get into trouble"
+      },
+      {
+       "words": "energy",
+       "at": 24,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer tiring in the deep end needs help.",
+     "walkthrough": "'losing' takes one E out of DEEP END.",
+     "definitionFit": "To depend is to rely on others for support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1233,50 @@
     "text": "Game served with mashed potato, in due course?",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "the game goes in the word due to make the potato dish, so taking due away leaves it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mashed potato",
+       "at": 17,
+       "gives": "DUCHESSE",
+       "note": "duchesse potatoes are piped mashed potato"
+      },
+      {
+       "words": "due",
+       "at": 35,
+       "gives": "DUE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A game bird served with mash as the right course.",
+     "walkthrough": "Duchesse potatoes are piped and baked mash; 'in' says the game sits inside the word due to give that dish. 'served with' and 'course' are links. 'Game' suggests pheasant but is a board game.",
+     "definitionFit": "Chess is a board game for two players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1296,65 @@
      }
     ]
    },
-   "solution": "ABSITOMEN"
+   "solution": "ABSITOMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Let it not occur",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursue",
+       "at": 30,
+       "note": "pursue means chase after, so these words come later"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 37,
+       "gives": "A"
+      },
+      {
+       "words": "British Standard",
+       "at": 39,
+       "gives": "BS",
+       "note": "BS is the abbreviation for British Standard"
+      },
+      {
+       "words": "one",
+       "at": 56,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "to",
+       "at": 17,
+       "gives": "TO",
+       "note": "taken as written"
+      },
+      {
+       "words": "people",
+       "at": 20,
+       "gives": "MEN",
+       "note": "men means people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hope that people never strive after a dull national standard.",
+     "walkthrough": "ABSIT OMEN is Latin for 'may the omen be absent', said to avert bad luck.",
+     "definitionFit": "The Latin phrase is a wish that some ill-omened thing will not come true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1368,42 @@
     "text": "Error made by American connecting channel?",
     "enumeration": "5"
    },
-   "solution": "SINUS"
+   "solution": "SINUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "channel?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Error",
+       "at": 0,
+       "gives": "SIN",
+       "note": "a sin is a moral fault"
+      },
+      {
+       "words": "American",
+       "at": 14,
+       "gives": "US",
+       "note": "US means American"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American makes a mistake in linking a TV station.",
+     "walkthrough": "'channel' suggests TV, but a sinus is a body cavity or passage.",
+     "definitionFit": "A sinus is an anatomical cavity or duct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1417,59 @@
     "text": "Quiet excitement is about concerning promotion",
     "enumeration": "10"
    },
-   "solution": "PREFERMENT"
+   "solution": "PREFERMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "promotion",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is about",
+       "at": 17,
+       "note": "is about means goes round, so the pieces enclose the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Quiet",
+         "at": 0,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, quiet"
+        },
+        {
+         "words": "excitement",
+         "at": 6,
+         "gives": "FERMENT",
+         "note": "ferment is agitation"
+        }
+       ]
+      },
+      {
+       "words": "concerning",
+       "at": 26,
+       "gives": "RE",
+       "note": "re means concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calm excitement over news of a promotion.",
+     "walkthrough": "'is about' means quiet plus excitement surround the short word for concerning, which sits after the opening P.",
+     "definitionFit": "Preferment is advancement to a higher office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1483,46 @@
     "text": "Nearly all abandoned",
     "enumeration": "4"
    },
-   "solution": "QUIT"
+   "solution": "QUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "abandoned",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Nearly",
+       "at": 0,
+       "note": "nearly means not quite all of it, so the final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all",
+       "at": 7,
+       "gives": "QUITE",
+       "note": "quite means entirely or wholly"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A place almost completely deserted.",
+     "walkthrough": "'Nearly' drops the last E from QUITE.",
+     "definitionFit": "To quit is to leave or forsake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1542,36 @@
      }
     ]
    },
-   "solution": "OLDENGLISH"
+   "solution": "OLDENGLISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "King Alfred's speech recorded in The Anglo-Saxon Chronicle?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "King Alfred's speech recorded in The Anglo-Saxon Chronicle?",
+       "at": 0,
+       "note": "not an oration by the king but the language he spoke, in which that early record of English history was written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a famous address by King Alfred.",
+     "walkthrough": "'speech' suggests a single address, but it means a tongue; Alfred, king of Wessex, commissioned the Chronicle in the 9th century.",
+     "definitionFit": "Anglo-Saxon, the earliest form of the English language, is the tongue of Alfred."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1585,46 @@
     "text": "Stylish short young woman",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stylish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "at": 8,
+       "note": "short means cut off, so the final letter is lopped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "young woman",
+       "at": 14,
+       "gives": "CHICK",
+       "note": "chick is slang for a young woman"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable petite young lady.",
+     "walkthrough": "'short' looks like a description of the woman's height, but it trims the last letter of CHICK.",
+     "definitionFit": "Chic means elegantly fashionable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   }
  ]
 }
