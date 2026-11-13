@@ -3533,6 +3533,17 @@ check("a Gale Independent page refused for no clue lists is due INDEPENDENT_RIGH
       [True, False, True],
       [f.indy_right_due(_ir), f.indy_right_due({**_ir, "edition": "GaleTimes2015UKEnglish/2015-08-22"}),
        f.INDEPENDENT_RIGHT in f.RANKS])
+_ib = {"edition": "GaleIndependentSunday1996UKEnglish/1996-03-10", "inputs": "x", "readAt": "2026-11-12T15:10:15+00:00",
+       "verdicts": [{"number": 318, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+                     "imageUnread": "the white cells span 12 rows and 12 columns",
+                     "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
+check("an Independent on Sunday 1990s page with its 12x12 grid unread is due INDY_BARRED; a 2005 page and a Times page are not; "
+      "the reason is ranked; a bar and its mirror are symmetric, a lone bar is not",
+      [True, False, False, True, 1.0, True],
+      [f.indy_barred_due(_ib), f.indy_barred_due({**_ib, "edition": "GaleIndependentSunday2005UKEnglish/2005-07-10"}),
+       f.indy_barred_due({**_ib, "edition": "GaleTimes1996UKEnglish/1996-03-10"}), f.INDY_BARRED in f.RANKS,
+       __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 9 + ["." * 11 + "b"] + ["." * 12]),
+       __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 11) < 0.8])
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
 _mon ={"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
