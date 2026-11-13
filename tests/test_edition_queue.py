@@ -2505,9 +2505,33 @@ sys.exit(eq.dispatch(["times"], {str(cache)!r}, workers=1, replan=0.3, resume=re
                  plan_reuse=float(os.environ.get("TEST_PLAN_REUSE", 0))))
 """)
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
-fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
 import subprocess
-p = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=300)
+long_released = T / "release-long"
+long_released.unlink(missing_ok=True)
+
+
+def run_reexec(extra_env=None):
+    """Run the driver with "long" held until the re-exec'd image has printed its banner ("parent p2"): the
+    unit outlives the re-exec by an event, not a sleep a loaded runner's slow start can outlast."""
+    long_released.unlink(missing_ok=True)
+    errf = T / "driver.err"
+    with open(errf, "w") as ef:
+        pr = subprocess.Popen([sys.executable, str(driver)], stdout=subprocess.DEVNULL, stderr=ef, text=True,
+                              env={**os.environ, **(extra_env or {})})
+        until = time.monotonic() + 280
+        while pr.poll() is None and time.monotonic() < until:
+            if "parent p2" in errf.read_text():
+                long_released.touch()
+            time.sleep(0.05)
+        if pr.poll() is None:
+            pr.kill()
+        pr.wait()
+    long_released.touch()
+    return subprocess.CompletedProcess([], pr.returncode, "", errf.read_text())
+
+
+fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], hold={"long": str(long_released)})
+p = run_reexec()
 parents = [l.split()[1:] for l in p.stderr.splitlines() if l.startswith("parent ")]
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a code change re-execs the queue once, same pid, new code", (0, ["p1", "p2"], True, True),
@@ -2523,9 +2547,8 @@ check("mirror: with plan_reuse 0 the re-exec's image does not keep the plan", Fa
 log.unlink(missing_ok=True)
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 driver.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"'))
-fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
-reused = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=300,
-                        env={**os.environ, "TEST_PLAN_REUSE": "600"})
+fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], hold={"long": str(long_released)})
+reused = run_reexec({"TEST_PLAN_REUSE": "600"})
 check("a re-exec starts from a plan under plan_reuse old and keeps it as its own, units still all started once",
       (0, True, ["long", "r1", "r2"]),
       (reused.returncode, "kept, not made again now" in reused.stderr,
