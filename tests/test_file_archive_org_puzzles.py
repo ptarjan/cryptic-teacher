@@ -4835,6 +4835,27 @@ check("the Gale FT's old scans with no title or solution heading are due again, 
        f.ft_next_due({**_ftrow, "verdicts": [{**_ftrow["verdicts"][0], "solution": {}}]}),
        all(f.CORPUS_KEYS[o] == {"galeft": f.scan_key(f.GALE_FT)} for o in f._FT_HEADINGS_FIX["galeft"][:2])])
 
+# The Gale FT's clue columns right of its grid start at the title's line, over RIGHT_RISE.
+_ftgrid = (243, 4220, 973, 4907)
+_ftright = (1790, 5113, f.Rise(90))
+_ftwin = f.windows_of(_ftgrid, right=(1790, 1400, 5113, f.Rise(125)))
+check("a Gale FT's columns start over its title (the grid's top 65 under it, 60 more), every other paper's and a page "
+      "with no title RIGHT_RISE; the rise rides last in every form of `right` and moves the windows' top; a speck of "
+      "lower-case print before a clue's number is dropped from its row, a clue's own words stand; FT_CLUES is due "
+      "for a read page with a blank clue once",
+      [125, 50, 50, 90, 125, 4095, 4095, 50, ["1 Understood I'm parking"], ["ook 1x"], [True, False, False]],
+      [f.ft_rise(f.GALE_FT, _ftgrid, (151, 4155, 1111, 4210)), f.ft_rise(f.GALE, _ftgrid, (151, 4155, 1111, 4210)),
+       f.ft_rise(f.GALE_FT, _ftgrid, None), f.rise_of(_ftright), f.rise_of((1790, 1400, 5113, f.Rise(125))),
+       _ftwin[0][3], _ftwin[1][3], f.rise_of((1790, 5113)),
+       [l[4] for l in f.merge_rows([(4917, 4948, 1043, 1390, "1 Understood I'm parking"),
+                                    (4910, 4934, 978, 1016, "ook")])],
+       [l[4] for l in f.merge_rows([(4917, 4948, 1043, 1390, "1x"), (4910, 4934, 978, 1016, "ook")])],
+       [f.ft_clues_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"1-across": "x"}}]}),
+        f.ft_clues_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"1-across": "x"}}],
+                        "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.ft_clues_due({**_ftrow, "edition": "GaleTelegraph2005UKEnglish/2005-01-14",
+                        "verdicts": [{"number": 1, "blank": {"1-across": "x"}}]})]])
+
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
 _ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]

@@ -1454,8 +1454,9 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
     (under_gutter()), by default the grid's middle."""
     gx0, gy0, gx1, gy1 = grid
     if right:
-        x1, split, _ = right
-        return [(gx1 + 5, split, split, gy0 - RIGHT_RISE), (split, x1, x1, gy0 - RIGHT_RISE)]
+        x1, split, *_ = right
+        top = gy0 - rise_of(right)
+        return [(gx1 + 5, split, split, top), (split, x1, x1, top)]
     if left:
         x0, split, _ = left
         if isinstance(split, tuple):
@@ -2152,11 +2153,38 @@ RIGHT_INK = 0.03
 RIGHT_SPAN_LEFT = 1.45
 
 
-def right_columns(img, grid, span=RIGHT_SPAN):
+class Rise(int):
+    """How far over the grid's top the clue columns right of it start, carried last in the `right` tuple when it
+    is not RIGHT_RISE (right_columns' `rise`)."""
+
+
+#: The Gale FT's clue columns right of its grid start at the title's line, above the grid's top by the title's
+#: height and the gap under it, over RIGHT_RISE: the crop (and every window) began a line or two under the
+#: ACROSS heading and lost 1 across, 6 across, ... ("no reading laid a clue on it", 797 of 1,418 blank-clue
+#: 2000-09 rows; the page's ACROSS heading 53-76 px over the crop's top). The columns start FT_RISE_PAD over the
+#: title's top, FT_RISE_MAX over the grid at most.
+FT_RISE_PAD, FT_RISE_MAX = 60, 300
+
+
+def rise_of(right):
+    """How far over the grid's top the clue columns `right` (right_columns' tuple, in any of its forms) start."""
+    return next((x for x in right if isinstance(x, Rise)), RIGHT_RISE)
+
+
+def ft_rise(paper, grid, title):
+    """The `rise` of right_columns for a page of `paper` with its title box `title`: the Gale FT's reach to
+    FT_RISE_PAD over the title (FT_RISE_MAX at most, RIGHT_RISE at least), RIGHT_RISE for every other paper."""
+    if paper.key != "galeft" or not title:
+        return RIGHT_RISE
+    return min(FT_RISE_MAX, max(RIGHT_RISE, int(grid[1] - title[1] + FT_RISE_PAD)))
+
+
+def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE):
     """(x1, bottom) of the two clue columns right of `grid`, or None when the
     clues are not there: they are only when the page ends too soon under the
     grid for clues (1.8 grids' widths, the layout every other page has) and
-    the strip right of the grid, as wide as `span`, is inked like text."""
+    the strip right of the grid, as wide as `span`, is inked like text.
+    (x1, bottom, Rise(rise)) when the columns start `rise` over the grid, not RIGHT_RISE."""
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
     x1 = int(gx1 + span * gw)
@@ -2167,7 +2195,7 @@ def right_columns(img, grid, span=RIGHT_SPAN):
     hist = strip.histogram()
     if sum(hist[:128]) < RIGHT_INK * strip.width * strip.height:
         return None
-    return x1, bottom
+    return (x1, bottom) if rise == RIGHT_RISE else (x1, bottom, Rise(rise))
 
 
 #: How far in from the right clue columns' far edge (right_columns()), as a
@@ -2186,24 +2214,24 @@ def right_foreign(rapid, grid, right):
     share of the grid's width, so on the 2005 Times page it ended inside the
     advert or solution box beside DOWN, whose line ends read into the clues
     level with them (20 down's "Books Fi") and left the last clue on no light."""
-    x1, bottom = right
+    x1, bottom, *rise = right
     reach = RIGHT_FOREIGN * (grid[2] - grid[0])
     cuts = [c for c in (crop_window.foreign_edge([w for ws in lines for w in ws], x1, reach)
                         for lines in rapid.values()) if c is not None and c > grid[2]]
     if not cuts:
         return right, rapid
     cut = max(cuts)
-    return (cut, bottom), {k: [ws for ws in lines if ws and ws[0][0] < cut] for k, lines in rapid.items()}
+    return (cut, bottom, *rise), {k: [ws for ws in lines if ws and ws[0][0] < cut] for k, lines in rapid.items()}
 
 
-def right_or_over(img, grid, right_ok=True):
+def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
     that soon under the grid has no room for three columns, and the
     "Yesterday's solution" box under its grid is inked like a third column's
     text: overhang() alone read it as one (the Feb to May 2014 Times, whose
     clues were then cropped from under the grid and found no lists)."""
-    right = right_columns(img, grid) if right_ok else None
+    right = right_columns(img, grid, rise=rise) if right_ok else None
     return right, (None if right else overhang(img, grid))
 
 
@@ -2211,9 +2239,9 @@ def right_gutter(lines, grid, right):
     """`right` (right_columns()) with the x between its two columns: where
     the fewest words (`lines`, every reading's) cross."""
     gx0, gy0, gx1, _ = grid
-    x1, bottom = right
+    x1, bottom, *rise = right
     lo, hi = gx1 + RIGHT_GUTTER[0] * (x1 - gx1), gx1 + RIGHT_GUTTER[1] * (x1 - gx1)
-    return x1, gutter(lines, (lo, bottom, hi, bottom), gy0 - RIGHT_RISE, lo, hi), bottom
+    return x1, gutter(lines, (lo, bottom, hi, bottom), gy0 - rise_of(right), lo, hi), bottom, *rise
 
 
 #: The Times' three clue columns under a grid (Gale, ~2006-12 to 2013, where
@@ -2558,7 +2586,7 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
     if lead:
         box = (max(0, int(lead[0])), max(0, int(lead[1])), box[2], box[3])
     if right:
-        box = (gx1 + 5, max(0, gy0 - RIGHT_RISE), right[0], min(img.height, right[1]))
+        box = (gx1 + 5, max(0, gy0 - rise_of(right)), right[0], min(img.height, right[1]))
     cached = read_cache(cache_path)
     others = []
     if cached is not None:
@@ -2862,6 +2890,12 @@ def loose_lists(tried, texts):
     return lists, mended
 
 
+#: A word of up to four lower-case letters read at a row's start, left of a clue's number ("ook 1 Understood
+#: I'm parking": the edge of the print beside the 2005-06 FT's clue columns, read at the crop's left edge, joined
+#: to the row and the list stopped "cannot find a clue number"): dropped by merge_rows. Nothing precedes a clue's number.
+SPECK_HEAD, CLUE_OPENS = re.compile(r"[a-z]{1,4}"), re.compile(r"\d{1,2}\s+[A-Za-z\"']")
+
+
 def merge_rows(col):
     """One line per printed row: pieces whose middles fall inside each other's
     height (a clue number read apart from its words) joined left to right."""
@@ -2887,6 +2921,8 @@ def merge_rows(col):
     for r in rows:
         r.sort(key=lambda l: l[2])
         texts = [l[4] for l in r]
+        if len(r) > 1 and SPECK_HEAD.fullmatch(texts[0]) and CLUE_OPENS.match(texts[1]):
+            r, texts = r[1:], texts[1:]
         for k in range(len(r) - 1):
             # A box cut through a word reads its first letters again at its
             # end, where the next box reads the whole word (No 3's "45.
@@ -10334,7 +10370,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # A Gale page before 2014 never has its clues right of the grid: the strip
     # there is an advert column (1947-48: the grid at the page's foot made
     # right_columns() read the ads, and the clue column left of the grid went unread).
-    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d)) if side == "below" and top is None \
+    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), ft_rise(paper, gbox, hit["box"])) if side == "below" and top is None \
         and not sides and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
         else (None, None)
     if (right or over) and alts is not None:
@@ -10372,7 +10408,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         elif alts is not None:
             alts.extend(("lead", x) for x in edge_candidates(img, gbox, lead)[1:])
     if right and kind == "right":
-        right = (alt_x, right[1])
+        right = (alt_x, *right[1:])
     elif right and alts is not None:
         alts.extend(("right", x) for x in far_edges(img, (gbox[0], gbox[1] - RIGHT_RISE, right[0] + 300, right[1]), right[0]))
     if over and kind == "over":
@@ -10395,10 +10431,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         # (crop_window.cut_edge: the mid-2014 Times' down column, its line ends cut off).
         wider = None if right != was else max(
             (x for x in (crop_window.cut_edge(img, [w for ws in lines for w in ws],
-                                              (gbox[2] + 5, gbox[1] - RIGHT_RISE, right[0], right[1]))
+                                              (gbox[2] + 5, gbox[1] - rise_of(right), right[0], right[1]))
                          for lines in rapid.values()) if x is not None), default=None)
         if wider:
-            right = (wider, right[1])
+            right = (wider, *right[1:])
             rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
                                         None, m, top, crop, lead, x0, right) for which in READERS}
             right, rapid = right_foreign(rapid, gbox, right)
@@ -13162,6 +13198,28 @@ def ft_next_due(row):
                                    or not v.get("refused") and v.get("grid") in ("image", "rebuilt") and v.get("solution") is None
                                    for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_FT_HEADINGS))
+
+
+#: The due reason of a Gale FT page read with a blank clue or a clue list that did not parse, before
+#: REREAD_FT_CLUES. Cause (11-13, 2000-09: 1,418 rows with a blank clue, 384 "no reading parses"): the clue columns
+#: right of the grid start at the title's line, 53-76 px over the crop's top (the grid's top less RIGHT_RISE), so
+#: the crop cut the ACROSS heading and the first clue line of each column (1 across blank "no reading laid a clue
+#: on it" on 797 rows, the page's first lines "ably?(7)", "(9)" with no heading); the columns now start over the
+#: title (ft_rise). And a speck of print at the crop's left edge ("ook", "don") read level with a clue's number
+#: joined its row ("ook 1 Understood ...": the list "cannot find a clue number"; 2005-06): merge_rows drops it.
+FT_CLUES = "FT page, its clue columns read from the title's line since"
+REREAD_FT_CLUES = "2026-11-13T21:00:00+00:00"
+
+
+def ft_clues_due(row):
+    """Whether Gale FT ledger `row` is due FT_CLUES: a puzzle of it read before REREAD_FT_CLUES with a blank
+    clue, a list that did not parse, or a refusal for its clues."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galeft" or "inputs" not in row or not re.match(r"GaleFT20(?:0\d|10)UK", edition):
+        return False
+    return any(v.get("blank") or v.get("unparsed") or v.get("cause") == "clues-dont-parse"
+               for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_FT_CLUES))
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -18641,6 +18699,8 @@ def fix_reason(row):
         return INDEPENDENT_HEADINGS
     if ft_next_due(row):
         return FT_HEADINGS
+    if ft_clues_due(row):
+        return FT_CLUES
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -19261,7 +19321,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDEPENDENT_HEADINGS,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
                   # pages are scanned again first.
-                  FT_HEADINGS)
+                  FT_HEADINGS,
+                  # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
+                  # the title's line since (ft_clues_due).
+                  FT_CLUES)
 
 
 def refusal_passes(why):
@@ -19521,7 +19584,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, FT_HEADINGS: 2,SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, TELEGRAPH_NEXT_DAY: 2, INDEPENDENT_HEADINGS: 2, FT_HEADINGS: 2, FT_CLUES: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20147,7 +20210,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS, FT_HEADINGS)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, INDEPENDENT_HEADINGS, FT_HEADINGS, FT_CLUES)
 
 
 def keeps_vlm(why, row, unit=None):
