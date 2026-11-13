@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 8
+VERSION = 9
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -167,6 +167,25 @@ COUNT_GAP = 12
 HEAD_REACH = 40
 
 
+#: A sliver of a column this many line heights wide or less is a column of clue numbers split from its clues
+#: by the finer gutter (the number and its text are set a gap apart), not a column of its own.
+NUMBER_SLIVER = 3
+
+
+def joined_numbers(pieces, lh):
+    """`pieces` ([(left, right)], left to right) with each sliver of NUMBER_SLIVER line heights or less joined
+    to the piece after it, so a list's clue numbers stay in the crop of its clues."""
+    out, carry = [], None
+    for i, (left, right) in enumerate(pieces):
+        if carry is not None:
+            left, carry = carry, None
+        if right - left <= NUMBER_SLIVER * lh and i + 1 < len(pieces):
+            carry = left
+            continue
+        out.append((left, right))
+    return out
+
+
 def layout_columns(words, grid):
     """[(x0, y0, x1, y1)] the clue lists' columns found by their own shape, left to right, for a page times_cuts
     reads no ACROSS and DOWN pair under a title on (the 1990s pages set the lists beside and under the grid,
@@ -207,7 +226,8 @@ def layout_columns(words, grid):
         # again over the counts' own lines alone, with narrower gutters.
         top, bottom = min(w[1] for w in mine) - lh, max(w[3] for w in mine) + lh
         fine = gl.gutters([w for w in rest if left <= (w[0] + w[2]) / 2 <= right], top, bottom, lh / 2)
-        bands += [(a[1], b[0]) for a, b in zip(fine, fine[1:]) if a[1] >= left - 1 and b[0] <= right + 1] or [(left, right)]
+        pieces = [(a[1], b[0]) for a, b in zip(fine, fine[1:]) if a[1] >= left - 1 and b[0] <= right + 1]
+        bands += joined_numbers(pieces, lh) or [(left, right)]
     cols = []
     for left, right in bands:
         mine = [w for w in counts if left <= (w[0] + w[2]) / 2 <= right]
