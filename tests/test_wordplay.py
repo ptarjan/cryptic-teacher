@@ -878,4 +878,21 @@ check("a stored double definition is not a stub",
       .get("definitions"))
 check("a missing definitions field says to write `def`", "write the clue words that define" in va.MISSING_FIELD_FIX["definitions"])
 
+# a scan-damaged clue: the model's quote of the clue as printed is the clue's run, not a refusal
+import definitions as _D
+for _name, _q, _clue, _want in [
+        ("a word broken by a hyphen and spaces", "dispatched", "In violent confusion, dis, patched to slammer", "dis, patched"),
+        ("a banner between words", "associated with harmful gases", "Inexperienced firm associated with Check toc harmful gases", "associated with Check toc harmful gases"),
+        ("a stray capital between words", "a friend abroad", "Is it that one is making a friend M abroad?", "a friend M abroad"),
+        ("a banner inside a word", "mischief-maker", "Son revealed information about mis- Check tod chief-maker, the idiot", "mis- Check tod chief-maker"),
+        ("a last word cut short", "a bribe", "As prosecutor, be prepared for a br", "a br"),
+        ("a dropped accent", "Bronte", "Brontë meets officer — another writer", "Brontë")]:
+    check("damaged clue: " + _name, _D.damaged_run(_q, _clue) == _want, _D.damaged_run(_q, _clue))
+    check("damaged clue, definition respelt: " + _name, _D.respell(_q, _clue) == _want)
+check("damaged clue: a real word between is not debris", _D.damaged_run("Dime divided in two", "Dime reportedly divided in two") is None)
+check("damaged clue: a pronoun I is not debris", _D.damaged_run("dog saw", "Dog I saw") is None)
+check("damaged clue: a cut-short word in mid-clue is not mended", _D.damaged_run("a bribe", "a br and more") is None)
+check("damaged clue: wordplay quote is located", spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?")
+      == [("a friend M abroad", 25)], spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?"))
+
 raise SystemExit(fails > 0)
