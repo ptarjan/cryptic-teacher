@@ -1413,6 +1413,12 @@ tup = lambda u: (0, 0, 0, u)
 sc_x, rd_x = eq.hold_refusal_rereads([tup(scan_c)], [tup(unit_n), tup(unit_c), tup(unit_a), tup(unit_t)])
 check("held: cured-since and fix-landed reads go, annotation asked stays, and the scan only they needed",
       (["X/n", "X/a"], []), ([t[3]["rel"] for t in rd_x], sc_x))
+_fix_reason = sorted(r for r in eq.FIX_LANDED if r not in eq.TITLE_RESCANS and not r.endswith((" cured since", " before its fix")))[0]
+unit_f = {"paper": "times", "rel": "X/f", "reason": _fix_reason, "needs": ["X/f"]}
+scan_f = {"paper": "times", "rel": "X/f", "reason": "scan stale"}
+sc_f, rd_f = eq.hold_refusal_rereads([tup(scan_f)], [tup(unit_n), tup(unit_f), tup(unit_c)])
+check("a FIX_LANDED reread is kept (with its scan) while never-read units remain; a generic refused-before-its-fix one is held",
+      (["X/n", "X/f"], ["X/f"]), ([t[3]["rel"] for t in rd_f], [t[3]["rel"] for t in sc_f]))
 sc_y, rd_y = eq.hold_refusal_rereads([], [tup(unit_c), tup(unit_t)])
 check("with no new unit left the refusal rereads come back", 2, len(rd_y))
 unit_l = {"paper": "listener", "rel": "GALE_GM1.pdf", "reason": "refused clues-short before its fix", "needs": []}
