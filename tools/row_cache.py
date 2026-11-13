@@ -297,6 +297,15 @@ def code_for(name, fn_name, roots=(), salt="", as_bytes=None):
     return f"{name}.{fn_name}:{code_key}:{salt}:{_data_salt(name, {fn_name, *roots}, code_key, as_bytes)}"
 
 
+def _peak_mb():
+    """This process's peak resident size in MB (0 where `resource` is absent: Windows)."""
+    try:
+        import resource
+    except ImportError:
+        return 0
+    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024
+
+
 class TooManyMisses(Exception):
     """cached_map found more missing rows than its `max_miss` allows."""
 
@@ -406,6 +415,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
             conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)", point(keep))
 
     unstored = miss
+    packed = {}
     sigs = {p: _sig(p) for p in miss}
     recent = time.time_ns() - RECENT_S * 10**9
     if miss:
@@ -437,7 +447,14 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                 except sqlite3.Error as err:
                     print(f"row cache for {name}.{fn.__name__}: could not store {len(part)} rows: {err!r}",
                           file=sys.stderr)
+                if lazy:
+                    # Stored (or not), a made row waits to be reached packed like a stored one:
+                    # held whole, a cold cache's ~31k rows grew the run past 2GB (OOM kill, 11-12).
+                    for p in part:
+                        packed[p] = zlib.compress(pickle.dumps(out.pop(p), pickle.HIGHEST_PROTOCOL), 1)
                 done = i = i + len(part)
+                print(f"row cache for {ns}: made {done} of {len(miss)} missing rows, peak RSS "
+                      f"{_peak_mb()}MB", file=sys.stderr, flush=True)
                 if done < len(miss) and budget.spent() and not (stale_ok and done >= fresh_from):
                     conn.close()
                     budget.stop(f"row cache for {name}.{fn.__name__}: made {done} of {len(miss)} missing rows"
@@ -473,15 +490,19 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     finally:
         conn.close()
     if lazy:
-        return _reached(paths, out, stored, keys)
+        return _reached(paths, out, stored, keys, packed)
     return [out[p] for p in paths]
 
 
-def _reached(paths, out, stored, keys):
-    """cached_map's lazy rows: a row made here off `out`, a stored one
-    unpickled off `stored`, each let go as it is yielded."""
+def _reached(paths, out, stored, keys, packed=None):
+    """cached_map's lazy rows: a row made here off `out` (or `packed`, its
+    compressed pickle), a stored one unpickled off `stored`, each let go as it
+    is yielded."""
+    packed = packed if packed is not None else {}
     for p in paths:
-        if p in out:
+        if p in packed:
+            yield pickle.loads(zlib.decompress(packed.pop(p)))
+        elif p in out:
             yield out.pop(p)
         else:
             yield pickle.loads(zlib.decompress(stored.pop(keys[p])[0]))

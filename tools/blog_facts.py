@@ -2621,7 +2621,9 @@ def main():
     except BlockingIOError:
         print("another blog_facts.py is running; waiting for it to finish", file=sys.stderr)
         fcntl.flock(lock, fcntl.LOCK_EX)
+    print(f"{time.strftime('%H:%M:%S')} blog_facts: reading the puzzles' rows for the inputs digest", file=sys.stderr, flush=True)
     digest = inputs_digest()
+    print(f"{time.strftime('%H:%M:%S')} blog_facts: inputs digest done", file=sys.stderr, flush=True)
     if args.reparse is not None:
         args.reparse = args.reparse or sorted(BLOGS)
     if args.if_changed and args.reparse is None and STAMP.exists() and STAMP.read_text().strip() == digest:
