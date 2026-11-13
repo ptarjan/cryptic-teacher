@@ -9879,6 +9879,18 @@ def crop_cell_probs(crop, grid):
 _CELL_PROBS = {}
 
 
+def telegraph_enums(paper, puzzle):
+    """{(number, direction): enumeration} of a full read's `puzzle` for solved() when `paper` is Gale's Telegraph,
+    else None. answers_only never reads a Telegraph grid (its papers are the Times's and Gale's), so the full read
+    is the only reader of one: with the enumerations trove_solution_ocr.read_answers runs fitted_reads and
+    unlisted_reads, which accept a light whose classifier letters spell the one word its count fits (GAS BOMB,
+    COIN A WORD, SEA ISLAND COTTON). 11-13 offline, 28 short Telegraph crops: 765 -> 779 of 842 lights, whole
+    2 -> 13; 14 whole ones held out, 426 of 426 right either way."""
+    if paper.key != GALE_TELEGRAPH.key:
+        return None
+    return {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in puzzle["entries"]}
+
+
 def full_read_answers(paper, number, puzzle, sol, grid, answers, info):
     """(answers, info) of a full read's (_read_page) reading `answers` of `sol`'s solution grid for
     `puzzle` (the full read's, on `grid`), checked as answers_only checks its own (checked_answers:
@@ -11882,7 +11894,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         puzzle["setter"] = setter
     sol = solutions.get(n)
     if sol:
-        answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above)
+        answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, enums=telegraph_enums(paper, puzzle))
+        info.pop("strips", None)
         # The answers-only checks (misread_word, uncrossed, settle_held): before 10-25 a full read filed
         # every answer its grid gave, misreads an answers-only reread of the same grid drops.
         answers, info = full_read_answers(paper, n, puzzle, sol, grid, answers, info)
@@ -14705,6 +14718,32 @@ def telegraph_stop_due(row):
     return any(clue_text.STOP_SPACE_LOST.search(token) for v in row.get("verdicts") or ()
                for why in (v.get("blank") or {}).values() if str(why).endswith(": a stray mark inside a word")
                for token in [str(why).rpartition(": ")[0][1:-1]])
+
+
+#: The due reason of a Gale Telegraph edition read before REREAD_TELEGRAPH_FITTED whose linked solution grid read short, not
+#: refused: the full read's solved() gave a Telegraph grid no enumerations (answers_only reads none), so fitted_reads and
+#: unlisted_reads never took a light whose classifier letters spell the one word its count fits (telegraph_enums). 11-13
+#: census of the ledger: 452 Telegraph puzzles held short of lights, 1991 ones refused as copies of an unsolved book file
+#: (one answer short of yielding it). Offline on 28 short crops 765 -> 779 of 842 lights, 2 -> 13 whole, 0 wrong on 14 whole
+#: ones held out. Read once.
+TELEGRAPH_FITTED = "solution short, its Telegraph lights fitted to their counts since"
+REREAD_TELEGRAPH_FITTED = "2026-11-13T23:45:00+00:00"
+
+
+def telegraph_fitted_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_TELEGRAPH_FITTED, has a verdict (not refused, not pending, no
+    held title's, not answers-only) with a linked solution grid read short, not refused (an unclassified one is
+    TELEGRAPH_CELLS' first, whose reread fits the lights too)."""
+    if paper_of((row or {}).get("edition") or "").key != GALE_TELEGRAPH.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_FITTED)):
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (v.get("id") and not v.get("refused") and not v.get("pending") and v.get("solutionFrom")
+                and not v.get("heldTitle") and not v.get("wrongGrid") and not v.get("answersOnly") and isinstance(s, dict)
+                and not s.get("refused") and s.get("accepted", 0) < s.get("lights", 0)):
+            return True
+    return False
 
 
 #: The due reason of a Gale Telegraph page read before REREAD_TELEGRAPH_FIGURE with a clue blank "a digit inside a word" over a
@@ -20657,6 +20696,8 @@ def fix_reason(row):
         return TELEGRAPH_LEAD_NUMBER
     if telegraph_stop_due(row):
         return TELEGRAPH_STOP
+    if telegraph_fitted_due(row):
+        return TELEGRAPH_FITTED
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -21356,7 +21397,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: a Gale Telegraph 1949-58 page with a clue no reading laid (telegraph_lead_number_due).
                   TELEGRAPH_LEAD_NUMBER,
                   # 11-13: a Gale Telegraph page with a clue blank over a stop run into the next word (telegraph_stop_due).
-                  TELEGRAPH_STOP)
+                  TELEGRAPH_STOP,
+                  # 11-13: a Gale Telegraph puzzle whose solution grid read short, its lights fitted to their counts
+                  # since (telegraph_fitted_due, telegraph_enums); the newest fix goes first.
+                  TELEGRAPH_FITTED)
 
 
 def refusal_passes(why):
@@ -21402,7 +21446,8 @@ def blanket_or_fix(row, blanket):
         return TELEGRAPH_CELLS if telegraph_cells_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) \
             else TELEGRAPH_FIGURE if telegraph_figure_due(row) \
             else TELEGRAPH_LEAD_NUMBER if telegraph_lead_number_due(row) \
-            else TELEGRAPH_STOP if telegraph_stop_due(row) else blanket
+            else TELEGRAPH_STOP if telegraph_stop_due(row) \
+            else TELEGRAPH_FITTED if telegraph_fitted_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -21621,7 +21666,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -22254,7 +22299,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, TELEGRAPH_FITTED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID)
 
 
 def keeps_vlm(why, row, unit=None):
