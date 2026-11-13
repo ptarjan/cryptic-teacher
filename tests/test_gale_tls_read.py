@@ -50,5 +50,14 @@ assert drift and drift[0][0] == 531
 # 1993-01-22: a stray "5" in prose over clue 1 is trimmed; 1993-09-03's across 8-26 over down's 1 is not
 assert t.prose_over([(100, 120, 5, 10), (400, 420, 1, 10), (440, 460, 2, 10)], 20) == 390
 assert t.prose_over([(100 + 40 * i, 120 + 40 * i, 8 + i, 10) for i in range(5)] + [(400, 420, 1, 10)], 20) is None
-assert t.VERSION >= 19
+# 1996-03-22: a RapidOCR reading drops the lone "4" before "Flowers for Jane's cousins": the page reading's is lent
+import gale_listener as gl
+page = [(65, 1277, 82, 1297, "4"), (97, 1276, 189, 1297, "Flowers"), (195, 1275, 233, 1297, "for"),
+        (66, 1312, 81, 1332, "5"), (96, 1310, 204, 1333, "Gibbons'")]
+rapid = [(92, 1273, 189, 1297, "Flowers"), (195, 1273, 233, 1297, "for"), (66, 1312, 81, 1332, "5"),
+         (91, 1307, 204, 1333, "Gibbons'")]
+lent = gl.lend_numbers({"page": page, "ch": rapid})
+assert (65, 1277, 82, 1297, "4") in lent["ch"] and len(lent["ch"]) == 5  # the "5" it read is not doubled
+assert lent["page"] == page
+assert t.VERSION >= 20
 print("ok")

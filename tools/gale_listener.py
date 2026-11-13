@@ -1023,6 +1023,41 @@ def lend_heads(words):
     return out
 
 
+#: Set by a caller whose lists are one clue a line under numbers its readers lose now and then (gale_tls_read).
+LEND_NUMBERS = False
+
+
+def lend_numbers(words):
+    """{reader: words} with each clue number the Tesseract page reading reads at a line's start that another
+    reading lacks (a RapidOCR reading drops a lone "4" or "5" set a gap before its clue, so the line joins the
+    clue above: 1996-03-22's 4 and 5 down) lent it: put in where no word of that reading stands on the number
+    and a word follows it on the line within three line heights."""
+    page = words.get("page")
+    if not page:
+        return words
+    nums = [w for w in page if re.fullmatch(r"\d{1,2}", w[4])]
+    out = {}
+    for k, ws in words.items():
+        if k == "page" or k in ocr_clues.TESS_MODELS or not ws:
+            out[k] = ws
+            continue
+        add = []
+        own = [o for o in ws if re.match(r"\d{1,2}(?:\W|$)", o[4])]
+        for n in nums:
+            h, mid = n[3] - n[1], (n[1] + n[3]) / 2
+            # a clue number stands where the reading's own numbers do (a figure in a clue's words is no number)
+            if sum(abs(o[0] - n[0]) <= h for o in own) < 3:
+                continue
+            row = [o for o in ws if abs((o[1] + o[3]) / 2 - mid) < h / 2]
+            if not row or any(o[0] < n[2] and o[2] > n[0] for o in row):
+                continue
+            first = min(row, key=lambda o: o[0])
+            if n[2] - 5 <= first[0] <= n[2] + 3 * h and not re.fullmatch(r"\d{1,2}\W?", first[4]):
+                add.append(n)
+        out[k] = [*ws, *add]
+    return out
+
+
 def headed_columns(words):
     """[across lines, down lines] cut at the gutters, read left to right
     from the column the ACROSS heading is in (its clue numbers' edge, which
@@ -1864,6 +1899,8 @@ def read_page(img, key, lengths=None):
                                             [located] + [words[o] for o in rapid if o != which]))
     words = lend_heads(words)
     words = {k: hanging_numbers(w) for k, w in words.items()}
+    if LEND_NUMBERS:
+        words = lend_numbers(words)
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
