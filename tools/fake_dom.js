@@ -575,6 +575,12 @@ function bootApp(opts) {
     abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage,
                                global.confirm, navigator);
 
+  // app-core.js counts nothing until a person's first gesture (humanArrived: a
+  // pointerdown, keydown, touchstart or wheel on the window, 67863a74609), so a
+  // boot presses once, as a visitor would. opts.bot leaves the page untouched,
+  // for a check of the gate itself.
+  if (!options.bot) (winListeners.pointerdown || []).slice().forEach((fn) => fn({ isTrusted: true }));
+
   // appSrc goes back out because the smoke test greps app.js's own source (the
   // LABELS ladder) — an assertion about the code, not about the rendered DOM.
   // stop() cancels every timer this app still has pending. A caller that boots
