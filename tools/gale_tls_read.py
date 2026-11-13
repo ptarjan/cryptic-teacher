@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 18
+VERSION = 19
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -419,6 +419,20 @@ def cleared(crop, ws, ocr):
     return crop, ws
 
 
+#: Lines opening on a figure over a list's clue 1 that are prose's, not the list's (more are its earlier clues).
+STRAY_FIGURES = 2
+
+
+def prose_over(nums, lh):
+    """The y a list's crop is trimmed to (over its clue 1's line), or None: only where at most STRAY_FIGURES lines
+    open on a figure over the 1 (a run of numbers over it is across's tail, with down's 1 standing under it:
+    1993-09-03's across 8-26 over down 1)."""
+    ones = [y0 for y0, _, n, _ in nums if n == 1]
+    if ones and nums[0][2] > 1 and ones[0] > lh and sum(1 for n in nums if n[0] < ones[0]) <= STRAY_FIGURES:
+        return int(ones[0] - lh / 2)
+    return None
+
+
 def layout_block(img, words, grid, ocr=None):
     """(image, key) of the lists `layout_columns` finds, set one under another in a single column with
     "ACROSS" and "DOWN" headings drawn clean over them: across is read from the first column to the line the
@@ -451,10 +465,8 @@ def layout_block(img, words, grid, ocr=None):
         if i == 0:
             # the first list opens on its clue 1: the prose over it (1993-01-22's competition rules, read into
             # 1-across's clue) is not the list's
-            nums = line_numbers(ws, lh)
-            ones = [y0 for y0, _, n, _ in nums if n == 1]
-            if ones and nums[0][2] > 1 and ones[0] > lh:
-                dy = int(ones[0] - lh / 2)
+            dy = prose_over(line_numbers(ws, lh), lh)
+            if dy:
                 crop = crop.crop((0, dy, crop.width, crop.height))
                 ws = [(w[0], w[1] - dy, w[2], w[3] - dy, *w[4:]) for w in ws if w[1] >= dy]
         ends = [w[3] for w in ws if COUNT_WORD.search(w[4])]

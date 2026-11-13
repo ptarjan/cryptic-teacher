@@ -47,4 +47,8 @@ assert t.side_by_side(stray, 700, 20) is None
 drift_words = [(10 + 30 * i, 10, 30 + 30 * i, 30, "w") for i in range(50)]
 drift = t.pitch_columns(drift_words, (1000, 0, 1400, 400), [(0, 0, 464, 900), (69, 420, 531, 900)])
 assert drift and drift[0][0] == 531
+# 1993-01-22: a stray "5" in prose over clue 1 is trimmed; 1993-09-03's across 8-26 over down's 1 is not
+assert t.prose_over([(100, 120, 5, 10), (400, 420, 1, 10), (440, 460, 2, 10)], 20) == 390
+assert t.prose_over([(100 + 40 * i, 120 + 40 * i, 8 + i, 10) for i in range(5)] + [(400, 420, 1, 10)], 20) is None
+assert t.VERSION >= 19
 print("ok")
