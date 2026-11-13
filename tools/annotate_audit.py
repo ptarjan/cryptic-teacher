@@ -143,7 +143,10 @@ def load_templates(source):
                 continue    # shape_warnings' `{tag}: {k} {NAME}` is 5 literal chars: it matched every line
             name = fn.name
             if not name.startswith("check_"):
-                name = f"{fn.name}: {' '.join(first[2:].split()[:4])}"
+                # `f"{tag}: {field} contains ..."` opens with a bare ": ", so name it
+                # by the literal words that follow the first placeholder.
+                lead = first[2:].split() or words
+                name = f"{fn.name}: {' '.join(lead[:4])}"
             out.append((re.compile(prefix + "".join(parts), re.DOTALL), name, chars))
     return out
 
