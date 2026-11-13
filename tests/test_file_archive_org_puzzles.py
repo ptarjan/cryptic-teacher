@@ -3636,6 +3636,15 @@ check("a Gale Sunday Telegraph 1991-95 page whose grid was unread a row short is
       [f.sunday_foot_due(_sf), f.sunday_foot_due({**_sf, "edition": "GaleSundayTelegraph1997UKEnglish/1997-11-16"}),
        f.sunday_foot_due({**_sf, "edition": "GaleTelegraph1993UKEnglish/1993-01-31"}),
        f.sunday_foot_due({**_sf, "readAt": "2026-11-14T06:00:00+00:00"}), f.SUNDAY_FOOT in f.RANKS])
+_iad = {"edition": "GaleIndependent2010UKEnglish/2010-03-05", "inputs": "x", "readAt": "2026-11-09T09:19:02+00:00",
+        "verdicts": [{"number": 99327, "leaf": 0, "imageUnread": "too few neighbouring white cells to measure the lattice",
+                      "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("an Independent page whose grid image was unread for a lattice it could not measure is due INDY_ABOVE, a Times page, "
+      "a page whose grid read and one read since are not",
+      [True, False, False, False, True],
+      [f.indy_above_due(_iad), f.indy_above_due({**_iad, "edition": "GaleTimes2010UKEnglish/2010-03-05"}),
+       f.indy_above_due({**_iad, "verdicts": [{"number": 99327, "leaf": 0, "complete": True}]}),
+       f.indy_above_due({**_iad, "readAt": "2026-11-14T07:00:00+00:00"}), f.INDY_ABOVE in f.RANKS])
 _ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
 _ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
           "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
