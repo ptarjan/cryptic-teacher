@@ -211,7 +211,7 @@ NUM = rf"[{DIGITISH}]{{1,2}}"
 #: the comma (Gale 1945-02-03, 1946-08-12, 1947-12-11, 1951-05-12, refused "no reading parses").
 SEE_LINKED = r"(?:(?:\s*(?:,|;|&|and)\s*\d{1,2}(?:\s*(?:across|down|ac|dn)\b)?)+(?=\s*\(\d))?"
 #: A linked clue's lead numbers read as one word: "5,20", "4&22".
-LINKED_HEAD = re.compile(r"\d{1,2}(?:[,&]\d{1,2})+")
+LINKED_HEAD = re.compile(r"\d{1,2}[AD]?(?:[,&/]\d{1,2}[AD]?)+")
 JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
 BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
                      r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1([1-9])\)\s*\.?"
@@ -551,7 +551,10 @@ def clues(text, see=True, tails=False):
     number starts; one its words run on from is the clue's own text
     (see_runs_on), but with `see` False (the list as read: the vote's ranking). `tails` True reads a clue
     tail after a clue mid-list (lost_opening's `spaced`): a mend, as `see`, the archive.org reader's."""
-    start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
+    # The Independent prints a linked clue's numbers with slashes and a direction letter ("1/9", "17/5A/15":
+    # INDY_LINKS), a slash glued to the numbers either side.
+    start = re.compile(rf"\s*((?:{NUM}(?:(?-i:[AD])(?=/))?|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))"
+                       rf"(?:(?:\s*(?:,|&|and)\s*|/)\d{{1,2}}(?:(?-i:[AD])\b|\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
                        re.IGNORECASE)
     text = clue_text.mend_between_clues(text)
     # A count before a capitalised word, at most a speck between ("(5). He",
@@ -587,8 +590,10 @@ def clues(text, see=True, tails=False):
         body_from = m.end()
         # Only the lead number may be junk; the ones it links ("1,4",
         # "10,9dn") are numbers, and the commas and "dn" between are not.
-        lead = re.match(rf"{NUM}(?![\-~^*{DIGITISH}])|{JUNK_NUM}", m.group(1))
-        links = re.sub(r"(?:across|down|and|ac|dn)\b", " ", m.group(1)[lead.end():], flags=re.IGNORECASE)
+        head = re.sub(r"^(\d{1,2})[AD](?=/)", r"\1", m.group(1))
+        lead = re.match(rf"{NUM}(?![\-~^*{DIGITISH}])|{JUNK_NUM}", head)
+        links = re.sub(r"(?:across|down|and|ac|dn)\b", " ", head[lead.end():], flags=re.IGNORECASE)
+        links = re.sub(r"(?<=\d)[AD]\b", " ", links)  # a direction letter after a slashed number ("5A"), not a digit slip
         tokens = [readings(lead.group(0))] + [readings(t) for t in re.findall(NUM, links)]
         rest = text[body_from:]
         see_ref = SEE_RE.match(rest)

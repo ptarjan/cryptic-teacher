@@ -3598,6 +3598,17 @@ check("an Independent on Sunday 2001-15 page left pending with its 12x12 grid un
       [f.indy_barred_late_due(_il), f.indy_barred_late_due({**_il, "edition": "GaleIndependentSunday1996UKEnglish/1996-03-10"}),
        f.indy_barred_late_due({**_il, "edition": "GaleTimes2002UKEnglish/2002-06-30"}),
        f.indy_barred_late_due({**_il, "readAt": "2026-11-14T00:00:00+00:00"}), f.INDY_BARRED_LATE in f.RANKS])
+_iln = {"edition": "GaleIndependent2013UKEnglish/2013-06-20", "inputs": "x", "readAt": "2026-11-07T01:09:10+00:00",
+        "verdicts": [{"number": 99325, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+                      "unparsed": {"en5": "down clues do not parse: cannot find a clue number at: '1/9 Suspends car driver about 500 times '"}}]}
+check("an Independent page whose list stopped at a slashed linked head is due INDY_LINKS; a Times page and a plain stop are not; "
+      "a slashed head parses as one clue linking its lights",
+      [True, False, False, True, [[1, 9], [17, 5, 15]]],
+      [f.indy_links_due(_iln), f.indy_links_due({**_iln, "edition": "GaleTimes2013UKEnglish/2013-06-20"}),
+       f.indy_links_due({**_iln, "verdicts": [{**_iln["verdicts"][0], "unparsed": {"en5": "cannot find a clue number at: ' course (4,4) 27 Pa'"}}]}),
+       f.INDY_LINKS in f.RANKS,
+       [[min(t) for t in c["tokens"]] for c in __import__("file_trove_puzzles").clues(
+           "1/9 Suspends car driver (5,2,3) 17/5A/15 Barman quick (6)")[0]]])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
