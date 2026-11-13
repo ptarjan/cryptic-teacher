@@ -151,6 +151,8 @@ assert ct.clue_number_opening(") With") == "With" and ct.clue_number_opening("12
 # 11 read as ones-shaped letters (Gale Times 2000-14): opened as 11; the word "Ill" is left.
 assert [ct.clue_number_opening(s) for s in ("ll1 Red", "ll At", "1l After", "IIl Flier", "II Flier", "!! Examine")] \
     == ["11 Red", "11 At", "11 After", "11 Flier", "11 Flier", "11 Examine"]
+assert ct.glued_number("1折 Sign of passion?", 0) == (1, 3) and ct.glued_number("1折 Sign", 5) is None
+assert ct.glued_number("1lluminate tram", 0)[0] == 1 and ct.glued_number("12 Fish", 0) is None
 assert ct.clue_number_opening("Ill Will") == "Ill Will" and ct.clue_number_opening("ll after") == "ll after"
 assert ct.HEADING_ALONE.match("ACROSS") and ct.HEADING_ALONE.match(" - Down.") and not ct.HEADING_ALONE.match("Across 1")
 assert ct.PLAIN_HEADING.match("Across:").group(1) == "Across" and not ct.PLAIN_HEADING.match("Across 1")

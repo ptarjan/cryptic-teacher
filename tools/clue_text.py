@@ -607,6 +607,10 @@ def clue_number_opening(line):
 #: only where the list's own order allows it (glued_number's `prev`).
 GLUED_PAIR = re.compile(r"\s*(\d)[.,](\d)\s?(?=[A-Z][a-z])")
 GLUED_NUMBER = re.compile(r"\s*(\d{1,2})(?=[A-Za-z]{3,})(?!(?:st|nd|rd|th)\b)")
+#: A clue's number followed by a CJK glyph, a speck of ink the ch reader gives a Chinese character ("1折 Sign of
+#: passion?", the Gale FT 2002-02-27's 1 down: a \w to clue_number_opening's speck rules, so the list "cannot find a
+#: clue number").
+GLUED_CJK = re.compile(r"\s*(\d{1,2})[⺀-鿿豈-﫿＀-￯]{1,2}\s?(?=[A-Z\"'])")
 
 
 def glued_number(text, prev):
@@ -614,7 +618,7 @@ def glued_number(text, prev):
     its first word, else None. `prev` is the clue before's number (0 at a list's start): the number must be
     the one after it, or at most 12 on, so a figure inside a clue's text is not taken for one. "1.5Carolyn"
     and "1,7Breach" read their two digits as one number; "1lluminate" is 1 and the word."""
-    for rx in (GLUED_PAIR, GLUED_NUMBER):
+    for rx in (GLUED_PAIR, GLUED_NUMBER, GLUED_CJK):
         m = rx.match(text)
         if m:
             n = int("".join(m.groups()))
