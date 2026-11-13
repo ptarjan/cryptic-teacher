@@ -3554,6 +3554,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._SUNDAY_TITLE_FIX:
+        return f._SUNDAY_TITLE_FIX[paper][2]
     if paper in f._SUNDAY_NUMBER_FIX:
         return f._SUNDAY_NUMBER_FIX[paper][2]
     if paper in f._FT_HEADINGS_FIX:
@@ -5204,6 +5206,24 @@ check("a Sunday Times 'No 3169' over ACROSS is the page's title when no title wo
                                                   line("ACROSS", 352, 3150)])[0]],
        [n for n, _, _ in f.sunday_times_headings([line("THE SUNDAY TIMES CROSSWORD No 3165", 395, 3104),
                                                   line("No 3167", 513, 3276), line("ACROSS", 470, 3302)])[0]]])
+# The 1960-86 pages' titles the readers split: "THE SUNDAY TIMES. Crossword NO. 1,893" (a "." between), "TIMES.Crossword
+# No. 2,060" on its own line after "THE SUNDAY", "THE SUNDAY"/"Crossword"/"No. 2,033" cut into three lines of a row,
+# "CROS SSWORD No. 022" under "Solution TO No. 2,021" (the thousands lost), "Crosswor No. 2434", "CROSSIVORD No. 2702",
+# a title with no number ("Crossword No.") over ACROSS and one solution heading, whose number plus one it is; two
+# solution headings, or a page with neither, name none.
+_tw = lambda *ws: [n for n, _, _ in f.sunday_times_headings(list(ws))[0]]
+check("a Sunday Times title the reads split or cut is read; a lost number is the solution heading's plus one",
+      [[1893], [2060], [2033], [2022], [2434], [2702], [2051], [1891], [], []],
+      [_tw(line("THE SUNDAY TIMES. Crossword NO. 1,893", 2662, 4121)),
+       _tw(line("THE SUNDAY", 458, 3958), line("TIMES.Crossword No. 2,060", 765, 3961)),
+       _tw(line("THE SUNDAY TIMES", 2692, 4088), line("Crossword", 3131, 4088), line("No.2,033", 3420, 4091)),
+       _tw(line("THE SUNDAY TIMES CROS SSWORD No. 022", 2541, 4048), line("Solution TO NO. 2,021", 2570, 4907)),
+       _tw(line("Crosswor No. 2434", 414, 3191)),
+       _tw(line("CROSSIVORD No. 2702", 1480, 2378)),
+       _tw(line("THE SUNDAY TIMES Crossword No.", 2649, 3943), line("ACROSS", 2686, 3982), line("Solution TO No. 2,050", 2535, 4845)),
+       _tw(line("ACROSS", 2693, 4189), line("Solution TO, No, 1;890.", 2605, 4902)),
+       _tw(line("ACROSS", 2693, 4189), line("Solution TO No. 2,050", 2535, 4845), line("Solution TO No. 2,052", 2535, 4945)),
+       _tw(line("ACROSS", 2693, 4189))])
 # A read Gale Sunday Times 1987-94 page with no title found, or only a winners box refused "not a grid", read before
 # the rescan is due SUNDAY_NUMBER once (its scan key is pinned, so only its read time says); a titled one, a filed
 # one, another year's, a failed scan, a later read stand.
@@ -5214,8 +5234,8 @@ _snw = {**_sn, "verdicts": [{"number": 3369, "leaf": 0, "refused": "the ink unde
                              "cause": "not-a-grid"}],
         "scan": {**_sn["scan"], "puzzles": [{"number": 3369, "leaf": 0}]}}
 check("a Gale Sunday Times 1987-94 page with no title, or only a winners box refused not a grid, read before the rescan "
-      "is due SUNDAY_NUMBER (scan stale, rank 1), once; a filed one, 1995, a failed scan, a later read stand",
-      [False, f.SUNDAY_NUMBER, False, f.SUNDAY_NUMBER, 1, True, True, True, False, False, False, False, False],
+      "is due SUNDAY_NUMBER (scan stale, rank 1), once, any year's when untitled; a failed scan, a later read stand",
+      [False, f.SUNDAY_NUMBER, False, f.SUNDAY_NUMBER, 1, True, True, True, False, True, False, False, False],
       [f.scan_current(_sn, "h"), f.fix_reason(_sn), f.scan_current(_snw, "h"), f.fix_reason(_snw),
        f.RANKS[f.SUNDAY_NUMBER], f.SUNDAY_NUMBER in f.BLANKET_PASSES, f.sunday_number_rescan(_snw),
        f.scan_current({**_sn, "readAt": "2026-11-14T00:00:00+00:00"}, "h"),
