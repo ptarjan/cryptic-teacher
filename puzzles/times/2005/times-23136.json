@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,54 @@
     "text": "In hotel cat's bothersome, flipping hindrance",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hindrance",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "flipping",
+       "at": 27,
+       "note": "flipping turns the run found in those words so it reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "In",
+         "at": 0,
+         "note": "the answer sits inside the run of words hotel cat's bothersome, spanning their letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hotel cat's bothersome",
+         "at": 3,
+         "gives": "ELCATSBO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel's cat is being a nuisance, getting in the way of guests.",
+     "walkthrough": "'In' signals letters hidden in 'hotel cat's bothersome' (ELCATSBO); 'flipping' reverses them.",
+     "definitionFit": "An obstacle is a barrier or impediment, a straightforward synonym of hindrance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 1,
@@ -41,10 +91,43 @@
    },
    "length": 10,
    "clue": {
-    "text": "Suffering, those to pay for form of thétherapy",
+    "text": "Suffering, those to pay for form of therapy",
     "enumeration": "10"
    },
-   "solution": "OSTEOPATHY"
+   "solution": "OSTEOPATHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "form of therapy",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Suffering",
+       "at": 0,
+       "note": "suffering suggests being knocked about, so the letters of those to pay are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those to pay",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in pain has to pay for a course of treatment.",
+     "definitionFit": "Osteopathy treats the body by manipulating bones and muscles, a recognised kind of therapy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suffering"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +141,29 @@
     "text": "Notice that's around cathedral",
     "enumeration": "3"
    },
-   "solution": "SEE"
+   "solution": "SEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0,
+      "meaning": "to notice something is to spot or perceive it"
+     },
+     {
+      "text": "that's around cathedral",
+      "at": 7,
+      "meaning": "a bishop's diocese, centred on the cathedral, is his seat or territory"
+     }
+    ],
+    "explanation": {
+     "surface": "Spotting what surrounds a cathedral.",
+     "definitionFit": "To see is to notice; a see is the diocese surrounding a bishop's cathedral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +177,82 @@
     "text": "Fruit: after short period of showers it should have firm centre",
     "enumeration": "7"
    },
-   "solution": "APRICOT"
+   "solution": "APRICOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 7,
+       "note": "after places the abbreviated month before what follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 13,
+         "note": "short means the month's name is cut down to its abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "period of showers",
+         "at": 19,
+         "gives": "APRIL",
+         "note": "April is the month proverbially of showers"
+        },
+        {
+         "gives": "IL"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "should have",
+         "at": 40,
+         "note": "should have says IT holds another piece within it, as its centre"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 37,
+         "gives": "IT",
+         "note": "taken as written"
+        },
+        {
+         "words": "firm",
+         "at": 52,
+         "gives": "CO",
+         "note": "CO is the usual abbreviation for company, a firm"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a brief spell of rain, a piece of fruit ought to be firm in the middle.",
+     "walkthrough": "'short' cuts APRIL to APR; 'centre' confirms that CO goes into the middle of IT, giving ICOT.",
+     "definitionFit": "An apricot is a soft orange stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +272,31 @@
      }
     ]
    },
-   "solution": "LEADINGLIGHT"
+   "solution": "LEADINGLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very influential member",
+      "at": 0,
+      "meaning": "a prominent, guiding figure in a group"
+     },
+     {
+      "text": "went before certain sages",
+      "at": 24,
+      "meaning": "the star of Bethlehem shone ahead of the Magi, guiding the wise men"
+     }
+    ],
+    "explanation": {
+     "surface": "An important person walked ahead of some wise men.",
+     "walkthrough": "The second sense is cryptic: the star that led the three wise men was literally a guiding lamp in the sky.",
+     "definitionFit": "A prominent person who guides others is idiomatically called this; the star guiding the Magi literally was one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +310,52 @@
     "text": "Bet there will a problem for sheep going on street!",
     "enumeration": "6"
    },
-   "solution": "STAKED"
+   "solution": "STAKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going on",
+       "at": 35,
+       "note": "going on places the following pieces after street"
+      }
+     ],
+     "parts": [
+      {
+       "words": "street",
+       "at": 44,
+       "gives": "ST"
+      },
+      {
+       "words": "a",
+       "at": 15
+      },
+      {
+       "words": "problem for sheep",
+       "at": 17,
+       "gives": "KED",
+       "note": "a ked is the sheep tick, a parasite that troubles sheep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wager that trouble awaits sheep wandering onto the road.",
+     "walkthrough": "KED is the sheep tick, a less familiar word.",
+     "definitionFit": "Staked means wagered, the past tense of bet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheep"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +375,58 @@
      }
     ]
    },
-   "solution": "TESTBAN"
+   "solution": "TESTBAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "international agreement on arms",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 17,
+       "note": "in a down entry up means the words are read from the bottom, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Grab",
+         "at": 0,
+         "gives": "NAB",
+         "note": "to nab is to grab"
+        },
+        {
+         "words": "time",
+         "at": 5,
+         "gives": "T"
+        },
+        {
+         "words": "set",
+         "at": 13,
+         "gives": "SET",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seize the moment to establish a treaty limiting weapons.",
+     "walkthrough": "'up' turns the whole string NAB+T+SET, giving TESTBAN.",
+     "definitionFit": "A test ban is a treaty forbidding nuclear weapons testing, an international arms agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +446,59 @@
      }
     ]
    },
-   "solution": "KIDNEYBEANS"
+   "solution": "KIDNEYBEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetables",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be eaten by",
+       "at": 29,
+       "note": "eaten by means swallowed inside the word for children"
+      }
+     ],
+     "parts": [
+      {
+       "words": "children",
+       "at": 44,
+       "gives": "KIDS",
+       "note": "kids are children"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 22,
+         "note": "cooked means the letters of any been are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "any been",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Are any beans that have been cooked going to be eaten by the youngsters?",
+     "walkthrough": "The beans in the surface already echo the definition. 'cooked' turns ANY BEEN into NEYBEAN, and 'to be eaten by' places that inside the youngsters.",
+     "definitionFit": "Kidney beans are a kind of pulse eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +512,29 @@
     "text": "Mark's hasty journey",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0,
+      "meaning": "a punctuation stroke used in writing"
+     },
+     {
+      "text": "hasty journey",
+      "at": 7,
+      "meaning": "a quick rush somewhere"
+     }
+    ],
+    "explanation": {
+     "surface": "A mark's rushed trip.",
+     "definitionFit": "A dash is a punctuation mark, and also a quick sprint somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +554,44 @@
      }
     ]
    },
-   "solution": "TIEBREAK"
+   "solution": "TIEBREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one produces a winner",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TIEBREAK",
+     "indicators": [
+      {
+       "text": "Hearing of",
+       "at": 0,
+       "note": "hearing of means how the phrase sounds when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "short Bangkok holiday",
+       "at": 11,
+       "gives": "THAIBREAK",
+       "note": "a short holiday is a break, and Bangkok is in Thailand, so a Thai break"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hearing about a brief trip to Thailand, someone triumphs.",
+     "definitionFit": "In tennis a deciding game played at six-all settles the set, producing its winner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bangkok"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +605,42 @@
     "text": "When fish appear, not everyone hears them",
     "enumeration": "6"
    },
-   "solution": "ASIDES"
+   "solution": "ASIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not everyone hears them",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "When",
+       "at": 0,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as he left'"
+      },
+      {
+       "words": "fish",
+       "at": 5,
+       "gives": "IDES",
+       "note": "ides is a freshwater fish, also spelt ide"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "When fish turn up, few people notice.",
+     "walkthrough": "An IDE is a European freshwater fish.",
+     "definitionFit": "Stage remarks spoken to the audience are supposedly unheard by the other characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hears"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,10 +651,47 @@
    },
    "length": 12,
    "clue": {
-    "text": "Tedium man, libertine in need of reform",
+    "text": "Tedious man, libertine in need of reform",
     "enumeration": "12"
    },
-   "solution": "INTERMINABLE"
+   "solution": "INTERMINABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tedious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in need of reform",
+       "at": 23,
+       "note": "in need of reform says the letters of man and libertine are to be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man",
+       "at": 8
+      },
+      {
+       "words": "libertine",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull fellow, a rake who ought to mend his ways.",
+     "definitionFit": "Something interminable seems endless and so becomes tedious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +705,40 @@
     "text": "Noble Jacobite may become offensive",
     "enumeration": "13"
    },
-   "solution": "OBJECTIONABLE"
+   "solution": "OBJECTIONABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "offensive",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may become",
+       "at": 15,
+       "note": "may become signals the letters of Noble Jacobite turn into something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Noble Jacobite",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Jacobite aristocrat might turn obnoxious.",
+     "definitionFit": "Objectionable means unpleasant or giving offence, a synonym of offensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jacobite"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +758,11 @@
      }
     ]
    },
-   "solution": "JUMBLESALES"
+   "solution": "JUMBLESALES",
+   "annotationWithheld": {
+    "why": "Clue held as 'How to make a less charitable series of Check tod events?': 'Check tod' is OCR garble in the middle of the definition and neither scan nor search gives the printed words",
+    "clue": "How to make a less charitable series of Check tod events?"
+   }
   },
   {
    "number": 14,
@@ -256,7 +776,59 @@
     "text": "Daughter wanting happiness thus concealed misery",
     "enumeration": "10"
    },
-   "solution": "DESOLATION"
+   "solution": "DESOLATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "misery",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Daughter",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "concealed",
+         "at": 32,
+         "note": "concealed means the word for happiness hides the word for thus"
+        }
+       ],
+       "parts": [
+        {
+         "words": "happiness",
+         "at": 17,
+         "gives": "ELATION",
+         "note": "elation is great happiness"
+        },
+        {
+         "words": "thus",
+         "at": 27,
+         "gives": "SO",
+         "note": "so means thus"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter who longs for joy keeps her sadness hidden.",
+     "walkthrough": "'wanting' is only a link here, not a sign of something missing; 'concealed' tucks the word for thus inside the joy word, giving ESOLATION.",
+     "definitionFit": "Desolation is profound misery or wretchedness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +842,49 @@
     "text": "Allow a thousand into passage",
     "enumeration": "5"
    },
-   "solution": "ADMIT"
+   "solution": "ADMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 17,
+       "note": "into means the numeral goes inside the passage"
+      }
+     ],
+     "parts": [
+      {
+       "words": "passage",
+       "at": 22,
+       "gives": "ADIT",
+       "note": "an adit is a horizontal passage into a mine"
+      },
+      {
+       "words": "a thousand",
+       "at": 6,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Let a thousand people through the corridor.",
+     "walkthrough": "An ADIT is a mine entrance passage.",
+     "definitionFit": "To admit someone is to allow them in, or to concede something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +898,48 @@
     "text": "Film actor captivates director, as may be gathered",
     "enumeration": "9"
    },
-   "solution": "GLEANABLE"
+   "solution": "GLEANABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may be gathered",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivates",
+       "at": 11,
+       "note": "captivates means the actor holds the director captive inside him"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Film actor",
+       "at": 0,
+       "gives": "GABLE",
+       "note": "Clark Gable, the Hollywood star"
+      },
+      {
+       "words": "director",
+       "at": 22,
+       "gives": "LEAN",
+       "note": "David Lean, the British film director"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movie star charms a filmmaker, as you might infer.",
+     "definitionFit": "To glean is to gather leftover crops or information, so what is gleanable can be collected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +953,59 @@
     "text": "Having captured woman, the man's getting married — that's Greek culture",
     "enumeration": "9"
    },
-   "solution": "HELLENISM"
+   "solution": "HELLENISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek culture",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Having captured",
+         "at": 0,
+         "note": "having captured means the possessive word holds the woman inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the man's",
+         "at": 23,
+         "gives": "HIS",
+         "note": "his is the possessive meaning the man's"
+        },
+        {
+         "words": "woman",
+         "at": 16,
+         "gives": "ELLEN",
+         "note": "Ellen is a woman's name"
+        }
+       ]
+      },
+      {
+       "words": "married",
+       "at": 41,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who has won a woman gets wed in the Greek way.",
+     "walkthrough": "'getting' is just a link; 'Having captured' wraps the possessive around the woman's name, giving HELLENIS before the marriage abbreviation.",
+     "definitionFit": "Hellenism is the culture and ideals of ancient Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "captured"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1019,57 @@
     "text": "Country making fuss when English dog is brought across",
     "enumeration": "7"
    },
-   "solution": "ECUADOR"
+   "solution": "ECUADOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 25,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is brought across",
+         "at": 37,
+         "note": "brought across means the dog is stretched over and around the fuss"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog",
+         "at": 33,
+         "gives": "CUR",
+         "note": "a cur is a mongrel dog"
+        },
+        {
+         "words": "fuss",
+         "at": 15,
+         "gives": "ADO",
+         "note": "ado means fuss"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation kicks up a row when a British dog is imported.",
+     "definitionFit": "Ecuador is a country in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1083,29 @@
     "text": "Jolly good, next to alpha",
     "enumeration": "5"
    },
-   "solution": "BRAVO"
+   "solution": "BRAVO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jolly good",
+      "at": 0,
+      "meaning": "an exclamation of approval, like well done"
+     },
+     {
+      "text": "next to alpha",
+      "at": 12,
+      "meaning": "in the NATO phonetic alphabet the code word for B follows the one for A"
+     }
+    ],
+    "explanation": {
+     "surface": "Great, right beside the leader.",
+     "definitionFit": "Bravo is a cry of applause, and the NATO code word for B comes after Alpha."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1119,47 @@
     "text": "Make wider way into Scottish mountain",
     "enumeration": "7"
    },
-   "solution": "BROADEN"
+   "solution": "BROADEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make wider",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 15,
+       "note": "into means the way goes inside the mountain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish mountain",
+       "at": 20,
+       "gives": "BEN",
+       "note": "ben is a Scottish word for a mountain, as in Ben Nevis"
+      },
+      {
+       "words": "way",
+       "at": 11,
+       "gives": "ROAD",
+       "note": "a road is a way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Widen a route into a Highland peak.",
+     "definitionFit": "To broaden is to widen or make broader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1183,45 @@
      }
     ]
    },
-   "solution": "SOUTHENDONSEA"
+   "solution": "SOUTHENDONSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coastal town",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "will cavort",
+       "at": 20,
+       "note": "cavort means leap about, so the letters of hot season and nude are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hot season",
+       "at": 0
+      },
+      {
+       "words": "nude",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In summer, naked people frolic at the seaside resort.",
+     "walkthrough": "SOUTHEND-ON-SEA is a seaside resort in Essex, east of London.",
+     "definitionFit": "Southend-on-Sea is a resort on the Thames estuary in Essex, England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1235,42 @@
     "text": "Boy who'd be green if upset",
     "enumeration": "4"
    },
-   "solution": "EMIL"
+   "solution": "EMIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 22,
+       "note": "in a down entry upset means turned upside down, so read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "green",
+       "at": 13,
+       "gives": "LIME",
+       "note": "lime is a shade of green"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad who'd turn green if he were troubled.",
+     "definitionFit": "Emil is a boy's name, as in Emil and the Detectives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1284,44 @@
     "text": "Disease male's given a female",
     "enumeration": "6"
    },
-   "solution": "MALADY"
+   "solution": "MALADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disease",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "male's",
+       "at": 8,
+       "gives": "M",
+       "note": "M is the abbreviation for male"
+      },
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "female",
+       "at": 23,
+       "gives": "LADY",
+       "note": "a lady is a female"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man passes an illness on to a woman.",
+     "definitionFit": "A malady is an illness or ailment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1341,61 @@
      }
     ]
    },
-   "solution": "ABUDHABI"
+   "solution": "ABUDHABI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sheikhdom",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "sign of new life",
+       "at": 2,
+       "gives": "BUD",
+       "note": "a bud is the first sign of new growth on a plant"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 21,
+         "note": "short means the word for dress loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dress",
+         "at": 27,
+         "gives": "HABIT",
+         "note": "a habit is a dress, as worn by a monk or nun"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birth announcement and a skimpy dress in an Arab state.",
+     "walkthrough": "'short' cuts HABIT to HABI.",
+     "definitionFit": "Abu Dhabi is an emirate ruled by a sheikh, one of the United Arab Emirates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1409,29 @@
     "text": "Support technique that can produce pregnancy",
     "enumeration": "3"
    },
-   "solution": "AID"
+   "solution": "AID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0,
+      "meaning": "help or assistance"
+     },
+     {
+      "text": "technique that can produce pregnancy",
+      "at": 8,
+      "meaning": "artificial insemination by donor, a fertility method"
+     }
+    ],
+    "explanation": {
+     "surface": "Backing a fertility method.",
+     "definitionFit": "Aid is help or support; AID is artificial insemination by donor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1445,29 @@
     "text": "Shine for a number of years",
     "enumeration": "6"
    },
-   "solution": "LUSTRE"
+   "solution": "LUSTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shine",
+      "at": 0,
+      "meaning": "a gloss or sheen"
+     },
+     {
+      "text": "a number of years",
+      "at": 10,
+      "meaning": "a span of five years, also called a lustrum"
+     }
+    ],
+    "explanation": {
+     "surface": "Gleaming for ages.",
+     "definitionFit": "Lustre is gloss or sheen, and also an old word for a five-year period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -451,10 +1478,48 @@
    },
    "length": 8,
    "clue": {
-    "text": "Not good, what monarch did at home should be restricted (6,2) 23,136 Solutic",
+    "text": "Not good, what monarch did at home should be restricted 23,136 Solutic",
     "enumeration": "8"
    },
-   "solution": "REINEDIN"
+   "solution": "REINEDIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "restricted",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not",
+       "at": 0,
+       "note": "not means the letter for good is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what monarch did at home",
+       "at": 10,
+       "gives": "REIGNEDIN",
+       "note": "a monarch reigned, and at home is in"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad royal behaviour at home ought to be curbed.",
+     "definitionFit": "Reined in means held back or curbed, like a horse checked with its reins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "monarch"
+    }
+   }
   }
  ]
 }
