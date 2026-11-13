@@ -1128,6 +1128,24 @@ def grid_under_clues(img, title):
     return min(under, key=lambda g: (abs(g[0] - x0) > 0.3 * (g[2] - g[0]), g[1])) if under else box
 
 
+def sunday_foot(img, title, box, side):
+    """`box`, a Gale Sunday Telegraph grid over its title (side "above"), restored to the whole ink the scan's
+    footed() trimmed a row off: the grid's foot rule touches the title's box, footed() takes the line of the last
+    row of cells (1991-95: 23 pages "the white cells span 14 rows and 15 columns", the crop 711px under a 754px grid).
+    The ink as far as the title's top when that is nearer square than `box` and `box` is the shorter, else `box`."""
+    if side != "above" or box is None:
+        return box
+    x0, y0, x1, _ = title
+    span = int(1.3 * (x1 - x0)) + 80
+    raw = ink_in(img, (max(0, x0 - 120), max(0, y0 - span), min(img.width, x1 + 120), y0), ("bottom",))
+    if raw is None or raw[3] <= box[3] or raw[1] != box[1] or raw[0] != box[0] or raw[2] != box[2]:
+        return box
+    w = box[2] - box[0]
+    if (box[3] - box[1]) >= w or abs(1 - (raw[3] - raw[1]) / w) >= abs(1 - (box[3] - box[1]) / w):
+        return box
+    return raw if shaped_on(img, raw) else box
+
+
 #: How far right of and below the title of a clues-above puzzle its grid
 #: may reach (the two columns and the grid under them).
 CLUES_ABOVE_SPAN = (800, 1700)
@@ -10904,6 +10922,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else located_grid(d, leaf, img, hit["box"], paper.key in GRID_RIGHT)
+    if paper.key == "galesundaytelegraph":
+        gbox = sunday_foot(img, hit["box"], gbox, side)
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
     if side != "below" and not paper.clues_above and not paper.four \
             and ((paper.key == "gale" and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1])
@@ -14202,6 +14222,25 @@ def indy_columns_due(row):
                and filed_state(series, v.get("number")) is None
                and ("clue [] names no light" in str(v.get("imageDisagrees"))
                     or any("no reading laid a clue" in str(why) for why in (v.get("blank") or {}).values()))
+               for v in row.get("verdicts") or ())
+
+
+#: The due reason of a Gale Sunday Telegraph 1991-95 page whose grid went unread, "the white cells span 14 rows and 15
+#: columns" (11-13 tally of latest rows: 24 of 1991-95, 1991-02-17 to 1995-03-12): the grid stands over the title with
+#: its foot rule touching the title's box, and the scan's footed() cut the crop at the line of the last row of cells,
+#: 711px under a 754px grid (sunday_foot takes the whole ink now: 21 of the 24 read offline). Read once.
+SUNDAY_FOOT = "Gale Sunday Telegraph page with its grid unread (a row short), the grid read whole since"
+REREAD_SUNDAY_FOOT = "2026-11-14T05:00:00+00:00"
+
+
+def sunday_foot_due(row):
+    """Whether Gale Sunday Telegraph (1991-95) ledger `row`, read before REREAD_SUNDAY_FOOT, holds a verdict whose
+    grid was unread for "the white cells span 14 rows and 15 columns"."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(rel).key != "galesundaytelegraph" or not "1991" <= Path(rel).name[:4] <= "1995" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_FOOT)):
+        return False
+    return any(str(v.get("imageUnread") or "").startswith("the white cells span 14 rows and 15 columns")
                for v in row.get("verdicts") or ())
 
 
@@ -19840,6 +19879,8 @@ def fix_reason(row):
         return INDY_LINKS
     if indy_columns_due(row):
         return INDY_COLUMNS
+    if sunday_foot_due(row):
+        return SUNDAY_FOOT
     if ios_title_due(row):
         return IOS_TITLES
     if ft_next_due(row):
@@ -20494,6 +20535,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_BARRED_LATE,
                   # 11-13: an Independent page whose list stopped at a slashed linked head (indy_links_due).
                   INDY_LINKS, INDY_COLUMNS,
+                  # 11-13: a Gale Sunday Telegraph 1991-95 page whose grid was a row short (sunday_foot_due).
+                  SUNDAY_FOOT,
                   # 11-13: an Independent on Sunday page refused for a glued or misread title number (ios_title_due).
                   IOS_TITLES,
                   # 11-13: a Gale FT page with a glued title or solution heading read since (ft_next_due); the
@@ -20763,7 +20806,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -21396,7 +21439,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT)
 
 
 def keeps_vlm(why, row, unit=None):
