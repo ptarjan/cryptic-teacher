@@ -73,6 +73,10 @@ REFRESH_SECONDS = 20 * 60
 REFRESH_BATCH = 200
 
 
+#: Files the last cached_rows() left unread for want of budget (0: it saw every file).
+UNREAD = 0
+
+
 def tracked_blobs(root=None):
     """{repo-relative path: git blob id} for the committed files whose working copy
     is unmodified; {} when git cannot say. The id is the same in every checkout, and
@@ -159,6 +163,8 @@ def cached_rows(paths, cache=None, clock=time.monotonic, budget=REFRESH_SECONDS,
         return []
 
     unread = derive(fresh)
+    global UNREAD
+    UNREAD = len(unread)
     for path in unread:
         stamps.pop(keys[str(path)], None)
     if unread:
@@ -241,7 +247,13 @@ def record(today=None):
     cursor = gale_cursor(today)
     if cursor:
         progress.save_fetching(cursor)
-    files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in corpus())
+    rows = corpus()
+    if UNREAD:
+        # A partial count would chart as a fake drop: the cache is saved, the
+        # next run (warm) records the night's row.
+        print(f"progress row skipped: {UNREAD} files not read yet")
+        return None
+    files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in rows)
     days = progress.load()
     days[today] = progress.day_row(files, ledger_on(today), backlog())
     progress.save(days)
@@ -348,7 +360,9 @@ def backfill_queue():
 
 def main(argv):
     if argv[1:] == ["record"]:
-        print(json.dumps(progress.totals(record())))
+        row = record()
+        if row is not None:
+            print(json.dumps(progress.totals(row)))
     elif argv[1:] == ["backfill"]:
         print(f"{backfill()} day(s) backfilled into {progress.HISTORY.relative_to(progress.ROOT)}")
         print(f"downloaded/queued filled on {len(backfill_queue())} day(s)")

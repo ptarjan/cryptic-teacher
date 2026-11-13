@@ -359,6 +359,13 @@ try:
     reads.clear()
     got = R.cached_rows(files[:1] + files[2:], cold, clock=lambda: next(ticks), budget=15, batch=1)
     assert len(reads) == 1 and len(got) == 1, (reads, got)
+    assert R.UNREAD == 1, R.UNREAD
+    # ...and a night cut off so records no row (a partial count is a fake drop).
+    R.corpus, corpus_was, R.gale_cursor, cursor_was = (lambda: got), R.corpus, (lambda t: None), R.gale_cursor
+    try:
+        assert R.record("2099-01-01") is None
+    finally:
+        R.corpus, R.gale_cursor = corpus_was, cursor_was
 finally:
     R.puzzle_row = real
 
