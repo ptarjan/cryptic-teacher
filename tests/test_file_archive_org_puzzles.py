@@ -3387,6 +3387,10 @@ check("(mirror) neighbours implying a number two digits off mend nothing",
       None, f.mended_digit(5421, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
 check("with no neighbours, the hundreds digit that brings it near the date's number is mended",
       5101, f.mended_digit(5401, D("1983-02-18"), 5099, {}))
+check("an FT title with a digit lost is mended to the one insertion near the date's number",
+      [11738, 12115, None], [f.mended_digit(1738, D("2005-01-15"), 11744, {}, lost=True),
+                             f.mended_digit(2115, D("2006-04-04"), 12119, {}, lost=True),
+                             f.mended_digit(1738, D("2005-01-15"), 11744, {})])
 # issue_dated(): an FT item title's date is weighed against the editions
 # numbered either side of its issue. #26722, titled Jul 16 1975 between #26721
 # (Fri Jul 18) and #26723 (Mon Jul 21), is Saturday Jul 19 (ftcryptic-2833).
