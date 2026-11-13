@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Quartz found in Canadian National Park",
     "enumeration": "6"
    },
-   "solution": "JASPER"
+   "solution": "JASPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quartz",
+      "at": 0,
+      "meaning": "an opaque, often red or brown, variety of the mineral used as a semi-precious stone"
+     },
+     {
+      "text": "Canadian National Park",
+      "at": 16,
+      "meaning": "the large national park in the Rocky Mountains of Alberta, Canada"
+     }
+    ],
+    "explanation": {
+     "surface": "A geologist reports a crystal discovered while hiking in a Canadian wilderness reserve.",
+     "definitionFit": "The word names both an impure opaque silica mineral and the park in Alberta, so two separate senses meet in one word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,42 @@
     "text": "Seafood needs salt only added",
     "enumeration": "7"
    },
-   "solution": "ABALONE"
+   "solution": "ABALONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seafood",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "salt",
+       "at": 14,
+       "gives": "AB",
+       "note": "an old salt is a sailor, and AB (able seaman) is the usual crossword abbreviation for one"
+      },
+      {
+       "words": "only",
+       "at": 19,
+       "gives": "ALONE",
+       "note": "only, as in solely or by itself, means alone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook insists that a seafood dish should be seasoned with nothing but salt.",
+     "walkthrough": "'salt' looks like a seasoning but it is a sailor, AB; 'added' simply joins the two pieces.",
+     "definitionFit": "This edible sea snail, also called ormer, is a shellfish prized as a delicacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +118,43 @@
     "text": "Saintly missionary hit the hay",
     "enumeration": "7"
    },
-   "solution": "PATRICK"
+   "solution": "PATRICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saintly missionary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hit",
+       "at": 19,
+       "gives": "PAT",
+       "note": "to pat is to strike lightly, a gentle hit"
+      },
+      {
+       "words": "hay",
+       "at": 27,
+       "gives": "RICK",
+       "note": "a rick is a stack of hay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy evangelist, worn out by his travels, finally went to bed.",
+     "walkthrough": "'hit the hay' reads as one idiom for going to bed, but it breaks into two pieces, with 'the' only a link; a rick is a stack of hay.",
+     "definitionFit": "Ireland's patron saint was a fifth-century Christian missionary there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hay"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +168,41 @@
     "text": "Guards, _ perhaps, processed mineral",
     "enumeration": "7"
    },
-   "solution": "RAILMEN"
+   "solution": "RAILMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guards, _ perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "processed",
+       "at": 19,
+       "note": "something processed has been worked over and changed, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mineral",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Security staff are seen handling an ore that has been refined.",
+     "walkthrough": "'processed' rearranges the letters of MINERAL. A railway guard is one example of a railway worker, so 'perhaps' marks the definition as an example.",
+     "definitionFit": "Train guards are among the staff who work on a railway, so they are examples of this group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guards"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +216,76 @@
     "text": "Derivative of fish, one not seen excessively around",
     "enumeration": "8"
    },
-   "solution": "OFFSHOOT"
+   "solution": "OFFSHOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Derivative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of",
+       "at": 11,
+       "gives": "OF",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not seen",
+         "at": 24,
+         "note": "something not seen is missing, so the letter for one is dropped from the word fish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 14
+        },
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "I",
+         "note": "one is I, the Roman numeral"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 45,
+         "note": "around signals that the synonym for excessively is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excessively",
+         "at": 33,
+         "gives": "TOO",
+         "note": "excessively means too, as in too much"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler describes a by-product of his catch, with a single fish hidden from view.",
+     "walkthrough": "'Derivative of fish' reads as one phrase, but the definition is only 'Derivative'; 'of' is a piece, 'not seen' drops a letter and 'around' turns the last piece back to front.",
+     "definitionFit": "An offshoot is something that grows out of or derives from an original, like a branch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Derivative"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +299,42 @@
     "text": "Fine? Just terrible!",
     "enumeration": "9"
    },
-   "solution": "FRIGHTFUL"
+   "solution": "FRIGHTFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "terrible",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fine",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the abbreviation for fine, as on pencil leads"
+      },
+      {
+       "words": "Just",
+       "at": 6,
+       "gives": "RIGHTFUL",
+       "note": "just, as in fair or legitimate, means rightful"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that being penalised was unfair, and simply dreadful.",
+     "walkthrough": "'Fine' looks like a penalty or approval, but it gives F.",
+     "definitionFit": "Frightful means dreadful or very bad, as of weather or behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +348,51 @@
     "text": "Rearrange beats to give new top easy time, possibly",
     "enumeration": "9"
    },
-   "solution": "SYNCOPATE"
+   "solution": "SYNCOPATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rearrange beats",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 43,
+       "note": "possibly means this is one possible rearrangement of these letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "new",
+       "at": 24,
+       "gives": "N"
+      },
+      {
+       "words": "top easy",
+       "at": 28
+      },
+      {
+       "words": "time",
+       "at": 37,
+       "gives": "C",
+       "note": "C is the time signature symbol for common time in music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music teacher suggests a new, relaxed tempo for the top part.",
+     "walkthrough": "'possibly' rearranges N, TOP EASY and C. C on a stave stands for common time, four beats to the bar.",
+     "definitionFit": "To syncopate is to shift accents onto normally weak beats, displacing the rhythm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +406,44 @@
     "text": "Confused us with old rose — roses generally aren't like this",
     "enumeration": "9"
    },
-   "solution": "ODOURLESS"
+   "solution": "ODOURLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "roses generally aren't like this",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Confused",
+       "at": 0,
+       "note": "confused means mixed up, so the letters of us and old rose are jumbled together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "us",
+       "at": 9
+      },
+      {
+       "words": "old rose",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener muddles an old rose variety, though most roses have a scent.",
+     "walkthrough": "'Confused' rearranges US with OLD ROSE; the definition is a statement roses generally contradict.",
+     "definitionFit": "Most roses have a fragrance, so lacking any smell is what they generally are not."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +457,30 @@
     "text": "Traces of drugs in alcohol",
     "enumeration": "9"
    },
-   "solution": "TINCTURES"
+   "solution": "TINCTURES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Traces",
+      "at": 0,
+      "meaning": "slight touches or tinges of something"
+     },
+     {
+      "text": "drugs in alcohol",
+      "at": 10,
+      "meaning": "medicines dissolved in spirit, such as iodine solution"
+     }
+    ],
+    "explanation": {
+     "surface": "Small amounts of narcotics are found in a drink.",
+     "walkthrough": "The word means slight hints of something, and also medicinal extracts dissolved in spirit.",
+     "definitionFit": "The word means both faint tinges and medicinal solutions made with spirit, two separate senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +494,32 @@
     "text": "Shade of colour found in shed",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shade of colour",
+      "at": 0,
+      "meaning": "a tinge or tint, as in a greenish one"
+     },
+     {
+      "text": "shed",
+      "at": 25,
+      "meaning": "to throw off, as a snake does its skin"
+     }
+    ],
+    "explanation": {
+     "surface": "A painter spots a faint tint inside a garden outbuilding.",
+     "walkthrough": "'shed' looks like a hut where the colour was found, but it is a verb: to cast off.",
+     "definitionFit": "The word means both a slight tinge of hue and to throw off or discard, two unrelated senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 11,
@@ -167,7 +530,7 @@
    },
    "length": 10,
    "clue": {
-    "text": "Crop of sentimental films from Bolfywood?",
+    "text": "Crop of sentimental films from Bollywood?",
     "enumeration": "6,4",
     "separators": [
      {
@@ -176,7 +539,35 @@
      }
     ]
    },
-   "solution": "INDIANCORN"
+   "solution": "INDIANCORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crop of sentimental films from Bollywood?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Crop of sentimental films from Bollywood?",
+       "at": 0,
+       "note": "the name of a cereal crop read as a description of mawkish, over-sentimental cinema from the Indian film industry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic sneers at a harvest of soppy movies from the Mumbai studios.",
+     "walkthrough": "Bollywood is the Hindi film industry based in Mumbai; 'sentimental' suggests 'corny', so its films would be corny Indian ones.",
+     "definitionFit": "Maize is known as this crop, and sentimental films from India would be corny Indian ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -190,7 +581,59 @@
     "text": "General disapproval following introduction of party's platform",
     "enumeration": "6"
    },
-   "solution": "PODIUM"
+   "solution": "PODIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "platform",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 20,
+       "note": "following places the synonym for disapproval after the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "at": 30,
+         "note": "the introduction of a word is its opening letter, here the start of party's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party's",
+         "at": 46
+        }
+       ]
+      },
+      {
+       "words": "General disapproval",
+       "at": 0,
+       "gives": "ODIUM",
+       "note": "odium is widespread hatred or disapproval"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party's political programme is met with widespread contempt from the start.",
+     "walkthrough": "'platform' looks like a party manifesto, but it is the raised stand; 'following' puts ODIUM after P.",
+     "definitionFit": "A podium is a raised stand for a speaker or conductor, a small stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "platform"
+    }
+   }
   },
   {
    "number": 13,
@@ -204,7 +647,40 @@
     "text": "The actor oddly cast as the Mikado, for instance",
     "enumeration": "8"
    },
-   "solution": "THEOCRAT"
+   "solution": "THEOCRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Mikado, for instance",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "oddly cast",
+       "at": 10,
+       "note": "something oddly cast is set out in a strange arrangement, so these letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The actor",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer has been bizarrely chosen to play the Japanese emperor in an operetta.",
+     "walkthrough": "The Mikado is the Gilbert and Sullivan operetta's title emperor, and in Japan the emperor was held divine; 'oddly cast' rearranges THE ACTOR.",
+     "definitionFit": "A ruler governing as a god or in the name of one, as the Japanese emperor was regarded, is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -218,7 +694,64 @@
     "text": "Hypocrite giving kisses to females in turn",
     "enumeration": "9"
    },
-   "solution": "PECKSNIFF"
+   "solution": "PECKSNIFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hypocrite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "kisses",
+       "at": 17,
+       "gives": "PECKS",
+       "note": "pecks are quick light kisses"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 38,
+         "note": "turn means the letters for females and in are read backwards together"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "females",
+           "at": 27,
+           "gives": "FF",
+           "note": "F is the abbreviation for female, so FF stands for females"
+          },
+          {
+           "words": "in",
+           "at": 35,
+           "gives": "IN",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A two-faced man hands out kisses to one woman after another.",
+     "walkthrough": "'turn' reverses FF and IN together to give NIFF. Pecksniff is the sanctimonious hypocrite in Dickens's novel Martin Chuzzlewit.",
+     "definitionFit": "Seth Pecksniff in Dickens is a byword for unctuous sanctimony, so his name means a humbug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +771,42 @@
      }
     ]
    },
-   "solution": "PIPEMAJOR"
+   "solution": "PIPEMAJOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "NCO",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mark of rank",
+       "at": 0,
+       "gives": "PIP",
+       "note": "a pip is a star worn on the shoulder to show an officer's rank"
+      },
+      {
+       "words": "key",
+       "at": 22,
+       "gives": "EMAJOR",
+       "note": "E major is a musical key"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's insignia is awarded to an important non-commissioned officer.",
+     "walkthrough": "'key' looks like an adjective meaning important, but it is a musical key; a pipe major leads a military pipe band.",
+     "definitionFit": "The leader of a regimental pipe band holds a non-commissioned rank, typically a sergeant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +820,60 @@
     "text": "Tom needs to soften up an agricultural worker",
     "enumeration": "9"
    },
-   "solution": "CATTLEMAN"
+   "solution": "CATTLEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "agricultural worker",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tom",
+       "at": 0,
+       "gives": "CAT",
+       "note": "a tom is a male cat"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 20,
+         "note": "up in a down clue means the synonym for soften is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soften",
+         "at": 13,
+         "gives": "MELT",
+         "note": "to melt is to soften, as with butter"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "at": 23,
+       "gives": "AN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Tom must charm a farmhand into being friendlier.",
+     "walkthrough": "'Tom' looks like a man's name but it is a male cat; 'soften up' is the phrase for winning someone over, yet 'up' reverses MELT to TLEM.",
+     "definitionFit": "A man who rears or tends livestock on a farm or ranch is a farm labourer of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +887,42 @@
     "text": "Bird appears to be doubly amorous",
     "enumeration": "9"
    },
-   "solution": "SPOONBILL"
+   "solution": "SPOONBILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doubly amorous",
+       "at": 19,
+       "gives": "SPOON",
+       "note": "to spoon is to kiss and cuddle"
+      },
+      {
+       "words": "doubly amorous",
+       "at": 19,
+       "gives": "BILL",
+       "note": "to bill, as in bill and coo, is to kiss and fondle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird seems twice as affectionate as usual.",
+     "walkthrough": "'doubly' says two words for being amorous are joined: to spoon and to bill, as in 'bill and coo'.",
+     "definitionFit": "This wading bird is named for its long flat bill with a broad rounded tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +936,11 @@
     "text": "Wandering in interior, aren't I going astray?",
     "enumeration": "9"
    },
-   "solution": "ITINERANT"
+   "solution": "ITINERANT",
+   "annotationWithheld": {
+    "why": "Wandering in interior, aren't I going astray? (9): the letters of IN and AREN'T I give only eight of the nine letters, lacking a T; no parse uses 'interior' for it and a search found no corrected text",
+    "clue": "Wandering in interior, aren't I going astray?"
+   }
   },
   {
    "number": 18,
@@ -294,7 +954,52 @@
     "text": "A state in the East with queen as ruler",
     "enumeration": "5"
    },
-   "solution": "AMEER"
+   "solution": "AMEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ruler",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "state",
+       "at": 2,
+       "gives": "ME",
+       "note": "ME is the abbreviation for the US state of Maine"
+      },
+      {
+       "words": "the East",
+       "at": 11,
+       "gives": "E",
+       "note": "E is the abbreviation for east"
+      },
+      {
+       "words": "queen",
+       "at": 25,
+       "gives": "R",
+       "note": "R, for Regina, is the standard abbreviation for queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch from the Orient travels to an American state with his consort.",
+     "walkthrough": "'in' is only a link here, not a container sign.",
+     "definitionFit": "An ameer, or emir, is a Muslim prince or governor, a title of sovereignty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1013,11 @@
     "text": "Court woman love",
     "enumeration": "5"
    },
-   "solution": "PATIO"
+   "solution": "PATIO",
+   "annotationWithheld": {
+    "why": "Court woman love (5): PAT (woman) and O (love) give only four letters of PATIO; the I is missing, so a word such as 'I' seems lost from the clue as held",
+    "clue": "Court woman love"
+   }
   },
   {
    "number": 20,
@@ -322,7 +1031,43 @@
     "text": "49/50 points featured in complaints",
     "enumeration": "9"
    },
-   "solution": "ILLNESSES"
+   "solution": "ILLNESSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "complaints",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "49/50",
+       "at": 0,
+       "gives": "ILL",
+       "note": "IL is 49 and L is 50 in Roman numerals"
+      },
+      {
+       "words": "points",
+       "at": 6,
+       "gives": "NESSES",
+       "note": "N, E, S, S, E and S are compass points"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Almost all the issues raised appear among the grievances.",
+     "walkthrough": "'49/50' looks like a near-perfect score but reads as two Roman numerals, IL and L.",
+     "definitionFit": "Complaints in the medical sense are ailments or disorders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complaints"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1081,52 @@
     "text": "Token number — a thousand — in Alabama",
     "enumeration": "7"
    },
-   "solution": "NOMINAL"
+   "solution": "NOMINAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Token",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "number",
+       "at": 6,
+       "gives": "NO"
+      },
+      {
+       "words": "a thousand",
+       "at": 15,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      },
+      {
+       "words": "in",
+       "at": 28,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "Alabama",
+       "at": 31,
+       "gives": "AL",
+       "note": "AL is the postal abbreviation for the US state of Alabama"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A symbolic figure of one thousand is recorded in an American southern state.",
+     "definitionFit": "A nominal or token payment is a small symbolic one, far below the real value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Token"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1140,49 @@
     "text": "Just fire first trombone",
     "enumeration": "7"
    },
-   "solution": "SACKBUT"
+   "solution": "SACKBUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trombone",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 10,
+       "note": "first means the synonym for fire comes before the synonym for just"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fire",
+       "at": 5,
+       "gives": "SACK",
+       "note": "to fire someone from a job is to sack them"
+      },
+      {
+       "words": "Just",
+       "at": 0,
+       "gives": "BUT",
+       "note": "just, as in merely or only, means but"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bandleader dismisses the brass player before anyone else.",
+     "walkthrough": "'Just fire' reads as a blunt order to dismiss someone; 'first' tells you the word for fire goes ahead of the word for just.",
+     "definitionFit": "The sackbut is the early Renaissance form of the trombone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fire"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1196,59 @@
     "text": "Every summer blowing up one place in eastern part of Mediterranean",
     "enumeration": "7"
    },
-   "solution": "ETESIAN"
+   "solution": "ETESIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Every summer blowing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 21,
+         "note": "up in a down clue means the place name is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place",
+         "at": 28,
+         "gives": "SETE",
+         "note": "Sete is a port on France's Mediterranean coast"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 24,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
+      },
+      {
+       "words": "eastern part of Mediterranean",
+       "at": 37,
+       "gives": "AN",
+       "note": "the eastern end of the written word, its last two letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Each summer a gale sweeps a town in the eastern Mediterranean.",
+     "walkthrough": "'blowing up' looks like one phrase, but 'up' reverses SETE to give ETES. The word describes the north winds that blow over the Aegean each summer.",
+     "definitionFit": "Etesian means annual or periodic, used of the Mediterranean winds that recur each summer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1262,39 @@
     "text": "To feign sickness is not entirely abnormal in geriatrics",
     "enumeration": "8"
    },
-   "solution": "MALINGER"
+   "solution": "MALINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To feign sickness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is not entirely",
+       "at": 18,
+       "note": "not entirely means only part of the phrase is used, so the letters sit inside these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "abnormal in geriatrics",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Faking illness is not wholly out of the ordinary among elderly patients.",
+     "definitionFit": "To shirk duty by pretending to be ill is exactly what the verb means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1308,31 @@
     "text": "Mouse taken by pranksters",
     "enumeration": "6"
    },
-   "solution": "MICKEY"
+   "solution": "MICKEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mouse",
+      "at": 0,
+      "meaning": "the cartoon mouse created by Walt Disney"
+     },
+     {
+      "text": "taken by pranksters",
+      "at": 6,
+      "meaning": "to take the ... is to tease or make fun of someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A rodent is snatched by practical jokers.",
+     "walkthrough": "'take the mickey' is British slang for mocking someone.",
+     "definitionFit": "Disney's famous cartoon rodent bears this name, and jokers take it in the British idiom for teasing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1352,42 @@
      }
     ]
    },
-   "solution": "JAMAICAINN"
+   "solution": "JAMAICAINN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "country",
+       "at": 6,
+       "gives": "JAMAICA",
+       "note": "Jamaica is a Caribbean island country"
+      },
+      {
+       "words": "pub",
+       "at": 14,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new tavern in a far-off land.",
+     "walkthrough": "'Novel' looks like an adjective meaning new, but it is the book: Daphne du Maurier's Cornish smuggling story.",
+     "definitionFit": "Daphne du Maurier's 1936 book is titled after a coaching tavern on Bodmin Moor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1401,48 @@
     "text": "Nocturnal creature I caught — using this?",
     "enumeration": "4"
    },
-   "solution": "BAIT"
+   "solution": "BAIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nocturnal creature I caught — using this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught",
+       "at": 21,
+       "note": "caught means the letter I is held inside the word for the creature"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nocturnal creature",
+       "at": 0,
+       "gives": "BAT",
+       "note": "a bat is a creature that flies at night"
+      },
+      {
+       "words": "I",
+       "at": 19,
+       "gives": "I"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An angler or trapper boasts of catching a night animal and wonders what lure did it.",
+     "walkthrough": "'caught' puts I inside BAT, and the whole clue asks what was used to lure the creature.",
+     "definitionFit": "Food set out to lure an animal or fish into a trap or onto a hook is the lure meant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1456,42 @@
     "text": "Locks of sterling construction",
     "enumeration": "8"
    },
-   "solution": "RINGLETS"
+   "solution": "RINGLETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Locks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "construction",
+       "at": 18,
+       "note": "a construction is something put together, so the letters of sterling are built into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sterling",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doors with locks of real quality, solidly built.",
+     "walkthrough": "'Locks' looks like door fastenings and 'sterling' like praise for good work, but the locks are curls of hair.",
+     "definitionFit": "Curly tresses of hair are locks in the sense of hanks or curls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Locks"
+    }
+   }
   },
   {
    "number": 29,
@@ -454,7 +1505,40 @@
     "text": "Landed after flight — with some prayers",
     "enumeration": "6"
    },
-   "solution": "LITANY"
+   "solution": "LITANY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prayers",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Landed after flight",
+       "at": 0,
+       "gives": "LIT",
+       "note": "a bird that has landed after flying has alighted, or lit"
+      },
+      {
+       "words": "some",
+       "at": 27,
+       "gives": "ANY",
+       "note": "some, as in any at all, means any"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller lands safely and says a few prayers of thanks.",
+     "definitionFit": "A litany is a series of petitions recited in church, a form of prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
