@@ -35,7 +35,12 @@ words = [(0, 0, 10, 10, w) for w in "We apologize for the errors in the numberin
 assert t.no_lists_why(words).startswith("no puzzle on the page: a correction notice")
 assert t.no_lists_why([(0, 0, 10, 10, "ACROSS")]) == "no TLS clue lists found on the page"
 # 1992-06-05: a second list set beside the first with no gutter is cut where its numbers start
-side = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [(300, 100 + 30 * i, 330, 120 + 30 * i, str(i + 6)) for i in range(14)]
+side = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [(300, 100 + 30 * i, 330, 120 + 30 * i, str(i + 6)) for i in range(14)] + [
+    (340, 100 + 30 * i, 400, 120 + 30 * i, "clue") for i in range(14)]
 assert t.side_by_side(side, 700, 20) == 290
 assert t.side_by_side(side[:14], 700, 20) is None
+# 1992-02-07: three stray "3"s in prose under the lists are no second list
+stray = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [
+    (300, 100 + 30 * i, 330, 120 + 30 * i, "3") for i in range(3)]
+assert t.side_by_side(stray, 700, 20) is None
 print("ok")

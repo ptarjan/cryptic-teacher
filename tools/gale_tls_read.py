@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 12
+VERSION = 13
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -303,10 +303,17 @@ def side_by_side(ws, width, lh):
     down column, the second down column set right of them with no gap the OCR sees: their lines read as one,
     each across line followed by the other list's), or None: where SIDE_NUMBERS clue numbers stand at one x
     SIDE_REACH line heights or more in and no more than one word's box crosses the cut left of them."""
-    nums = [w for w in ws if NUMBER_WORD.match(w[4]) and w[0] > SIDE_REACH * lh and w[0] < width - 4 * lh]
+    def opens_clue(n):
+        # a clue's number has the clue's words after it on its line (a stray figure in prose has not)
+        return any(w[0] >= n[2] and abs((w[1] + w[3]) / 2 - (n[1] + n[3]) / 2) < lh / 2 and re.search(r"[A-Za-z]{2}", w[4])
+                   for w in ws)
+    nums = [w for w in ws if NUMBER_WORD.match(w[4]) and w[0] > SIDE_REACH * lh and w[0] < width - 4 * lh
+            and opens_clue(w)]
     for n in sorted(nums, key=lambda w: w[0]):
-        mine = [w for w in nums if abs(w[0] - n[0]) <= lh]
-        if len(mine) < SIDE_NUMBERS:
+        mine = sorted((w for w in nums if abs(w[0] - n[0]) <= lh), key=lambda w: w[1])
+        figures = [int(re.sub(r"\D", "", w[4])) for w in mine]
+        # a list's numbers run on down the column
+        if len(mine) < SIDE_NUMBERS or figures != sorted(set(figures)):
             continue
         x = int(min(w[0] for w in mine) - lh / 2)
         # looked at over the lines of those numbers alone (prose columns run on under the lists)
