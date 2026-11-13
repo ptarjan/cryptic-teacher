@@ -14675,7 +14675,7 @@ def telegraph_own_due(row):
 #: timely") failed columns()' first-line test and NEXT_CLUE, so no reading laid it (1953-05-14 33 across, 1953-05-05, 1953-06-03).
 #: clue_text.LEAD_NUMBER takes the mark off. Scan keys unmoved. Read once.
 TELEGRAPH_LEAD_NUMBER = "Telegraph page with a clue no reading laid, a stray mark before its two-digit number read since"
-REREAD_TELEGRAPH_LEAD_NUMBER = "2026-11-14T18:00:00+00:00"
+REREAD_TELEGRAPH_LEAD_NUMBER = "2026-11-13T22:50:00+00:00"
 
 
 def telegraph_lead_number_due(row):
