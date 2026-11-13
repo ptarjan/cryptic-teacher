@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 6
+VERSION = 7
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -369,6 +369,41 @@ def layout_block(img, words, grid, ocr=None):
     return out, gl.image_key(out)
 
 
+#: A cut's right edge is moved out to the next gutter over the cut's whole height by at most this share of its width.
+REACH_SHARE = 1.2
+
+
+def reaching_cuts(cuts, gl):
+    """gale_listener.times_cuts as a wrapper: each cut's box widened on the right to the first gutter no word
+    crosses over the box's whole height. times_cut measures its gutters in a band under the ACROSS heading,
+    where the lines are short, so the 1990s lists' long clues ("undisciplined, oremoting (4,5)") run past the
+    box's edge and are clipped, their counts lost: the light's count read short ("(5)" for a 9-letter light)
+    or no count read at all. The widening is at most REACH_SHARE of the box's width, and none where the edge
+    already stands in a gutter."""
+    def wrapped(words):
+        lh = gl.line_height(words)
+        out = []
+        for box, masks in cuts(words):
+            gs = gl.gutters(words, box[1], box[3], gl.TIMES_GUTTER * lh)
+            right = box[2]
+            if not any(a <= right <= b for a, b in gs):
+                nxt = next((a for a, _ in gs if a > right), None)
+                if nxt is not None and nxt - right <= REACH_SHARE * (right - box[0]):
+                    right = int(nxt + lh / 4)
+            # The columns on right of it that hold clue lines over the box's whole height (times_cut tests
+            # them over a band under the headings, where a column set beside the grid or the preamble has none).
+            after = [g for g in gs if g[0] >= right - lh]
+            for (_, left), (edge, _) in zip(after, after[1:]):
+                if gl.numbered_share(words, left, edge, box[1], box[3]) < gl.TIMES_NUMBERED:
+                    break
+                right = int(edge + lh / 4)
+            if right != box[2]:
+                box = (box[0], box[1], right, box[3])
+            out.append((box, masks))
+        return out
+    return wrapped
+
+
 def pick_grid(boxes, reader, pads=(6, 0.08)):
     """(box, grid, None) of the first of `boxes` whose `reader(box, pad)` reads a 15x15 lattice, else
     (None, None, why of the first refusal)."""
@@ -438,7 +473,7 @@ def read_page(path, store=STORE, asker=None):
     old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
     gl.TITLE_WORD = TITLE_WORD
     gl.times_titles = jr.with_fallback_title(old_titles, img.width)
-    gl.times_cuts = jr.widest_cuts(old_cuts, gl)
+    gl.times_cuts = reaching_cuts(jr.widest_cuts(old_cuts, gl), gl)
     try:
         blocks = gl.times_blocks(img, key)
     finally:
