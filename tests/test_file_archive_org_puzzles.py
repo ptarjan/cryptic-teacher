@@ -3609,6 +3609,17 @@ check("an Independent page whose list stopped at a slashed linked head is due IN
        f.INDY_LINKS in f.RANKS,
        [[min(t) for t in c["tokens"]] for c in __import__("file_trove_puzzles").clues(
            "1/9 Suspends car driver (5,2,3) 17/5A/15 Barman quick (6)")[0]]])
+_ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
+_ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
+check("an Independent on Sunday title run together or with a digit read as a letter is the Beelzebub's whole number; a "
+      "1993-2008 page refused for a mismatched number is due IOS_TITLES, a 2012 page, a Times page and one read since are not",
+      [[760], [410], [954], [True, False, False, False, True]],
+      [[p[0] for p in _ios_t("BeelzebubPrizeCrossword No760")], [p[0] for p in _ios_t("Beelzebub Prize Crossword NO 4I0")],
+       [p[0] for p in _ios_t("Beelzebub Prize Crossword No 954")],
+       [bool(f.ios_title_due(_ios_r)), bool(f.ios_title_due({**_ios_r, "edition": "GaleIndependentSunday2012UKEnglish/2012-03-18"})),
+        bool(f.ios_title_due({**_ios_r, "edition": "GaleTimes2004UKEnglish/2004-08-29"})),
+        bool(f.ios_title_due({**_ios_r, "readAt": "2026-11-14T00:00:00+00:00"})), f.IOS_TITLES in f.RANKS]])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
