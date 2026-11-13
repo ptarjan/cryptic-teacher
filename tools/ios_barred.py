@@ -178,6 +178,40 @@ def read_grid(path, wanted=None):
     return fit_rows(found, wanted), None
 
 
+#: The share of the sides of the puzzle's bars and the solution grid's (union) that must be one for the grid to be
+#: that puzzle's solution (1996-03-10's grid read against No 315: 0.94 unfitted, the nearest other 0.21).
+SOLUTION_MATCH = 0.8
+
+
+def solution_reads(img, grid):
+    """({(number, direction): word}, stats) of the filled solution grid on PIL image `img` (a window the notice
+    "Winners of N" opens: the Independent on Sunday prints it small, with no heading, beside the winners' names),
+    read for the puzzle whose barred rows are `grid`. The grid is the largest 12x12 lattice of rules in the window; it is
+    that puzzle's when its bars lie on the puzzle's (SOLUTION_MATCH of the two sets' union: stats["blocks"], the
+    name read_solution's checks go by), and a light's word stands when every cell reads surely, a recogniser read the
+    light itself as that word and it is a word (trove_solution_ocr.sure_word), as read_answers accepts one."""
+    import trove_solution_ocr as tso
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    found = [g for g in lg.find_grids(gray) if g.get("rows") and len(g["rows"]) == CELLS
+             and all(len(r) == CELLS for r in g["rows"]) and g.get("lattice")]
+    if not found:
+        return {}, {"refused": "no 12x12 lattice of rules by the winners' notice"}
+    best = max(found, key=lambda g: (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1]))
+    mine, theirs = sides_of(fit_rows(best)), sides_of(grid)
+    union = mine | theirs
+    share = len(mine & theirs) / len(union) if union else 0.0
+    lts = rg.light_cells(grid)
+    stats = {"lights": len(lts), "blocks": round(share, 3), "barred": True}
+    if share < SOLUTION_MATCH:
+        return {}, {**stats, "refused": "its bars are not the puzzle's"}
+    ys, xs = best["lattice"]
+    got = tso.read_grid_letters(gray, ys, xs, lts)
+    accepted = {k: w for k, w in got["lights"].items() if w and w in got["full"].get(k, ()) and tso.sure_word(w)}
+    stats.update({"accepted": len(accepted), "cellsRead": len(got["letters"]),
+                  "cells": len({rc for cells in lts.values() for rc in cells})})
+    return accepted, stats
+
+
 if __name__ == "__main__":
     for p in sys.argv[1:]:
         g, why = read_grid(p)

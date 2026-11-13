@@ -3566,6 +3566,16 @@ check("a Beelzebub's bars are mirror pairs (a bar thick on one side only is none
       [_fit[2][3] == "r" and _fit[9][7] == "r", _fit[7][1] == ".", _wins[2:], f.with_under((205, 589, 100), _ug, 3743)[2],
        f.IOS_WORDS_COUNT.sub(r"(\1)", "(12, 2 words) x (9, 2 words)").replace("(9)", "(9)"),
        [(1, "across", 6)] if _io.wanted_of({"across": [{"tokens": [{1}], "enums": {"3,3"}}]}) == [(frozenset({1}), "across", 6)] else None])
+_wl = [[(1350, 2937, 1698, 2967, "E14 5DL by 24 March. Winners of"), (1800, 2937, 2300, 2967, "Edwina breezed")],
+       [(1348, 2963, 1693, 2993, "315:J E Pert, Bromley;"), (1802, 2984, 2309, 3019, "breezed in and said")]]
+_wb = (1350, 2937, 1698, 2967)
+check("an Independent on Sunday page's \"Winners of N\" notice (its number on the line under) is the solution heading of N, "
+      "the page's own title 1 to IOS_WINNERS_LAG on; a title too far on drops it; a barred solution grid reads only against "
+      "the puzzle's bars",
+      [[(315, _wb)], [(315, _wb)], [], [(316, (0, 0, 9, 9))], {}],
+      [f.ios_winners(_wl), f.indy_sunday_headings(_wl, [318])[1], f.ios_winners(_wl, [330]),
+       f.ios_winners([[(0, 0, 9, 9, "Winners of 316: A B")]], [318]),
+       _io.solution_reads(__import__("PIL.Image", fromlist=["Image"]).new("L", (500, 500), 255), ["." * 12] * 12)[0]])
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
 _mon ={"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
