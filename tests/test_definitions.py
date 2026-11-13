@@ -68,6 +68,17 @@ check("validator: `at` on its text", [], errors([{"text": "Changes", "at": 0}]))
 check("validator: `at` off its text", True,
       any("is not at 3" in e for e in errors([{"text": "Changes", "at": 3}])))
 
+def thin_errors(answer, definition, fit):
+    errs = []
+    v.check_definition_fit("1A", {"answer": answer, "definitions": [{"text": definition}],
+                                  "explanation": {"definitionFit": fit}}, errs, [])
+    return [e for e in errs if "too thin" in e]
+check("definitionFit: a short example sentence is not thin", [],
+      thin_errors("DORA", "Girl", "Dora is a girl's name."))
+check("definitionFit: a short synonym with a new word is not thin", [],
+      thin_errors("IRE", "Anger", "Ire is anger or fury."))
+check("definitionFit: a fragment is still thin", 1, len(thin_errors("DORA", "Girl", "A name.")))
+
 def fit_errors(answer, definition, fit):
     errs = []
     v.check_definition_fit("1A", {"answer": answer, "definitions": [{"text": definition}],

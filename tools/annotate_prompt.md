@@ -219,7 +219,7 @@ go in `--withdraw`, never in prose. "Worth knowing now" is advice, not failure.
 
 Four first runs in ten fail, mostly on these:
 
-- `definitionFit` needs 25+ characters and a content word in neither the definition nor
+- `definitionFit` needs a content word in neither the definition nor
   the answer. Name the relation (synonym, example, crossword-only sense, idiom); don't
   read the definition back with the answer in it. Start with the relation itself: the page
   already prints "definition → ANSWER:" before your sentence, so never begin with
