@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,47 @@
     "text": "We hear male is not in suitable clothing",
     "enumeration": "4"
    },
-   "solution": "WEAR"
+   "solution": "WEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "suitable clothing",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "is not in",
+       "at": 13,
+       "note": "the male pronoun is not in the phrase any more, so those letters are taken out of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "We hear",
+       "at": 0
+      },
+      {
+       "words": "male",
+       "at": 8,
+       "gives": "HE",
+       "note": "he is the male pronoun"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone overhears that a man is not dressed properly for the occasion.",
+     "walkthrough": "Taking HE out of WEHEAR leaves the answer; 'We hear' looks like a homophone signal but is the fodder itself.",
+     "definitionFit": "Wear is used for clothing suited to an occasion, as in evening wear or sportswear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hear"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +93,79 @@
      }
     ]
    },
-   "solution": "WARSAWPACT"
+   "solution": "WARSAWPACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Treaty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 29,
+       "note": "after places the bag piece behind the battle piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "battle",
+       "at": 35,
+       "gives": "WAR",
+       "note": "war is fighting on a large scale"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 46,
+         "note": "over means turned over, so the word was is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "at": 42,
+         "gives": "WAS"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "PACT",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 7,
+         "note": "reportedly says the phrase is taken as heard, not as spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in the bag",
+         "at": 18,
+         "gives": "PACKED",
+         "note": "packed means put in the bag"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peace treaty is said to be settled once the fighting has stopped.",
+     "walkthrough": "'reportedly' turns PACKED into PACT by sound; 'over' reverses WAS to SAW.",
+     "definitionFit": "The Warsaw Pact was the 1955 mutual defence treaty of the Soviet bloc."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bag"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +179,45 @@
     "text": "Kind and friendly? A fine tale!",
     "enumeration": "7"
    },
-   "solution": "AFFABLE"
+   "solution": "AFFABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind and friendly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 19
+      },
+      {
+       "words": "fine",
+       "at": 21,
+       "gives": "F",
+       "note": "F is the pencil-grading abbreviation for fine"
+      },
+      {
+       "words": "tale",
+       "at": 26,
+       "gives": "FABLE",
+       "note": "a fable is a short moral tale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims sarcastically at a story that is supposedly pleasant.",
+     "definitionFit": "Affable describes someone genial and easy to talk to, kind and friendly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tale"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +231,58 @@
     "text": "Writer gambles on a page being sufficient for additional sections",
     "enumeration": "10"
    },
-   "solution": "APPENDICES"
+   "solution": "APPENDICES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "additional sections",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 15,
+       "note": "in an across clue one piece written on another follows it, so the writer and gambles come after the page"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 18
+      },
+      {
+       "words": "page",
+       "at": 20,
+       "gives": "P"
+      },
+      {
+       "words": "Writer",
+       "at": 0,
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      },
+      {
+       "words": "gambles",
+       "at": 7,
+       "gives": "DICES",
+       "note": "to dice is to gamble with dice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author bets that one page will be enough for the extra material in a book.",
+     "walkthrough": "'being sufficient for' is the link between wordplay and definition: the pieces suffice to make the answer.",
+     "definitionFit": "Appendices are supplementary sections added at the end of a book or report."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gambles"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +296,48 @@
     "text": "Chief steward bringing in tea for a customer",
     "enumeration": "9"
    },
-   "solution": "PURCHASER"
+   "solution": "PURCHASER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "customer",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "at": 14,
+       "note": "bringing in means the steward's word takes the drink inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chief steward",
+       "at": 0,
+       "gives": "PURSER",
+       "note": "a purser is the officer in charge of money and stewards on a ship"
+      },
+      {
+       "words": "tea",
+       "at": 26,
+       "gives": "CHA",
+       "note": "cha is slang for tea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A head steward serves tea to a passenger.",
+     "definitionFit": "A purchaser is a buyer, and a customer is someone who buys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steward"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +351,46 @@
     "text": "Consumer society unacceptable in holy festival",
     "enumeration": "5"
    },
-   "solution": "EATER"
+   "solution": "EATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Consumer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unacceptable",
+       "at": 17,
+       "note": "the society letter is unacceptable and so is thrown out of the festival"
+      }
+     ],
+     "parts": [
+      {
+       "words": "holy festival",
+       "at": 33,
+       "gives": "EASTER",
+       "note": "Easter is the Christian festival of the resurrection"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consumer culture is out of place during a sacred holiday.",
+     "walkthrough": "'Consumer society' reads as one phrase, but 'Consumer' is the definition and 'society' the letter S.",
+     "definitionFit": "An eater is one who consumes food, hence a consumer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +410,33 @@
      }
     ]
    },
-   "solution": "DOWNINGSTREET"
+   "solution": "DOWNINGSTREET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The way of the British government",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The way of the British government",
+       "at": 0,
+       "note": "reads as the government's manner of doing things, but way means a road: the street housing the Prime Minister"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Downing Street is the London road where the Prime Minister lives and works, so it stands for the government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +450,51 @@
     "text": "Initially content to stay behind, one's not easily shaken off",
     "enumeration": "7"
    },
-   "solution": "CLINGER"
+   "solution": "CLINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one's not easily shaken off",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "at": 0,
+         "note": "initially points to the first letter of the word content"
+        }
+       ],
+       "parts": [
+        {
+         "words": "content",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "stay behind",
+       "at": 21,
+       "gives": "LINGER",
+       "note": "to linger is to remain after others go"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happy to stay on is hard to get rid of.",
+     "definitionFit": "A clinger holds on tightly, a person or thing that is hard to shake loose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +508,69 @@
     "text": "Love to enter revue after dropping wife off — here?",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "here?",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enter",
+       "at": 5,
+       "note": "to enter means the love letter goes into the shortened show"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after dropping",
+         "at": 20,
+         "note": "after dropping means once a letter has been let go from the word"
+        },
+        {
+         "text": "off",
+         "at": 40,
+         "note": "off says the wife letter is taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revue",
+         "at": 14,
+         "gives": "SHOW",
+         "note": "a revue is a show of sketches and songs"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic goes to a revue once his wife has left.",
+     "walkthrough": "SOHO is a London district famous for theatres, revues and nightlife, hence 'here?'.",
+     "definitionFit": "Soho is the West End area known for shows and revues, the place the surface pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +584,42 @@
     "text": "One won't accept drug addict being exposed by judge",
     "enumeration": "7"
    },
-   "solution": "REFUSER"
+   "solution": "REFUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One won't accept",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "judge",
+       "at": 46,
+       "gives": "REF",
+       "note": "a ref, short for referee, judges a game"
+      },
+      {
+       "words": "drug addict",
+       "at": 17,
+       "gives": "USER",
+       "note": "a user is slang for someone who takes drugs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge unmasks an addict who turns down an offer.",
+     "walkthrough": "'being exposed by' only places the judge beside the addict; it adds no letters.",
+     "definitionFit": "Someone who refuses is one who declines or will not accept something offered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +643,40 @@
      }
     ]
    },
-   "solution": "STRETCHAPOINT"
+   "solution": "STRETCHAPOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make additional concession",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "failed",
+       "at": 15,
+       "note": "failed means the words broke down, so their letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Inspector that",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector who did not grant an extra allowance.",
+     "definitionFit": "To stretch a point is an idiom for allowing more than the rules strictly permit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Inspector"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +690,41 @@
     "text": "After redevelopment, this now is just like Blackpool",
     "enumeration": "7"
    },
-   "solution": "TOWNISH"
+   "solution": "TOWNISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "just like Blackpool",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "After redevelopment",
+       "at": 0,
+       "note": "redevelopment rebuilds something into a new form, so the letters of the phrase are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "this now",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Renovation has made a place resemble an English seaside resort.",
+     "walkthrough": "BLACKPOOL is a large seaside town in Lancashire, northern England.",
+     "definitionFit": "Townish means characteristic of a town, and Blackpool is a typical example of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "redevelopment"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +744,80 @@
      }
     ]
    },
-   "solution": "ALBERTHERRING"
+   "solution": "ALBERTHERRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opera character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 42,
+         "note": "the jumbled breather goes about, round, the single letter taken from long"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "perhaps",
+           "at": 33,
+           "note": "perhaps hints that the word breather is only one version of its letters, so they are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "breather",
+           "at": 23
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "at": 48,
+           "note": "the start of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "long",
+           "at": 57
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Wagner cycle",
+       "at": 62,
+       "gives": "RING",
+       "note": "Wagner's four-opera cycle is known as the Ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer playing an operatic role needs a rest before tackling Wagner's long cycle.",
+     "walkthrough": "'perhaps' rearranges BREATHER to ABERTHER, and 'about' puts L inside it after the A. ALBERT HERRING is the title character of Britten's comic opera.",
+     "definitionFit": "Albert Herring is the title role of Benjamin Britten's comic opera, a character in an opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breather"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +831,40 @@
     "text": "Approving merger of nine states",
     "enumeration": "10"
    },
-   "solution": "ASSENTIENT"
+   "solution": "ASSENTIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Approving",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "merger of",
+       "at": 10,
+       "note": "a merger blends parts together, so the letters of the phrase are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nine states",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several states agree to unite.",
+     "definitionFit": "Assentient is a formal adjective meaning assenting or agreeing, so approving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "merger"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +878,69 @@
     "text": "Sheep finally allowed round a: fold",
     "enumeration": "5"
    },
-   "solution": "PLEAT"
+   "solution": "PLEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fold",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 6,
+         "note": "finally points to the last letter of the word sheep"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sheep",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 22,
+         "note": "the word for allowed goes round the letter a, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "allowed",
+         "at": 14,
+         "gives": "LET",
+         "note": "to let is to allow"
+        },
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer permits sheep to go round a pen.",
+     "walkthrough": "'fold' looks like a sheep pen in this farming picture, but it is a crease in cloth.",
+     "definitionFit": "A pleat is a fold pressed or stitched into fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fold"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +954,55 @@
     "text": "Idlers shot by noisy soldiers",
     "enumeration": "9"
    },
-   "solution": "SLUGGARDS"
+   "solution": "SLUGGARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Idlers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shot",
+       "at": 7,
+       "gives": "SLUG",
+       "note": "a slug is a bullet, or a shot of spirits"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GARDS",
+       "indicators": [
+        {
+         "text": "noisy",
+         "at": 15,
+         "note": "noisy says the word is to be taken as heard, not as spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldiers",
+         "at": 21,
+         "gives": "GUARDS",
+         "note": "guards are soldiers, as in the Grenadier Guards"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lazy people are gunned down by loud troops.",
+     "walkthrough": "'noisy' signals that GUARDS is spelt by its sound, GARDS.",
+     "definitionFit": "Sluggards are lazy, slow-moving people, idlers by another name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1016,69 @@
     "text": "Showing little emotion, peace keepers left, having secured front of castle",
     "enumeration": "9"
    },
-   "solution": "UNEXCITED"
+   "solution": "UNEXCITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Showing little emotion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "peace keepers",
+       "at": 24,
+       "gives": "UN",
+       "note": "UN peacekeepers belong to the United Nations"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having secured",
+         "at": 44,
+         "note": "secured means held inside, so the word for left takes in the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "left",
+         "at": 38,
+         "gives": "EXITED",
+         "note": "exited means left or went out"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 59,
+           "note": "the front of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "castle",
+           "at": 68
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calmly, the peacekeepers withdrew after taking the castle gate.",
+     "definitionFit": "Unexcited means calm and unmoved, displaying little feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1092,52 @@
     "text": "Toy firm manufactured shocker",
     "enumeration": "9"
    },
-   "solution": "COCKHORSE"
+   "solution": "COCKHORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Toy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "firm",
+       "at": 4,
+       "gives": "CO",
+       "note": "Co is the abbreviation for company, a firm"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manufactured",
+         "at": 9,
+         "note": "something manufactured is made up anew, so the letters of shocker are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shocker",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toy company has produced something truly dreadful.",
+     "walkthrough": "COCKHORSE, a hobby horse, is familiar from the nursery rhyme 'Ride a cock-horse to Banbury Cross'.",
+     "definitionFit": "A cockhorse is a child's rocking horse or hobby horse, a plaything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shocker"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1151,30 @@
     "text": "Fine wine producer's task?",
     "enumeration": "7"
    },
-   "solution": "CORKING"
+   "solution": "CORKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0,
+      "meaning": "old British slang for excellent, splendid"
+     },
+     {
+      "text": "wine producer's task?",
+      "at": 5,
+      "meaning": "putting the corks into bottles is a job for a winemaker"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Corking is slang for excellent and also the act of stopping bottles with corks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1188,60 @@
     "text": "After meal, find ends of spare rib",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rib",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "after places the ends of spare behind the meal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal",
+       "at": 6,
+       "gives": "TEA",
+       "note": "tea is a light afternoon or evening meal"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "ends of",
+         "at": 17,
+         "note": "the ends of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spare",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once dinner is over, look for the remains of a spare rib.",
+     "walkthrough": "'rib' sits in a food picture with 'spare', but it is the verb meaning to make fun of.",
+     "definitionFit": "To rib someone is to tease them in a good-humoured way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rib"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1255,64 @@
     "text": "Typical building society customer loses capital over time",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Typical",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 48,
+       "note": "in a down clue over means the first piece sits above the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loses capital",
+         "at": 34,
+         "note": "losing its capital means the word drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "building society customer",
+         "at": 8,
+         "gives": "SAVER",
+         "note": "a saver keeps money in a building society, a British savings bank"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 53,
+       "gives": "AGE",
+       "note": "an age is a long period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary building society member's money loses value over time.",
+     "walkthrough": "A building society is a British mutual savings and mortgage lender.",
+     "definitionFit": "Average means normal or typical, of the usual standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1326,66 @@
     "text": "Delighted to involve pro-revolutionary soldiers in move towards peace?",
     "enumeration": "13"
    },
-   "solution": "RAPPROCHEMENT"
+   "solution": "RAPPROCHEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "move towards peace?",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to involve",
+       "at": 10,
+       "note": "to involve is to take in, so the word for delighted enfolds the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Delighted",
+       "at": 0,
+       "gives": "RAPT",
+       "note": "rapt means enraptured, delighted"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pro",
+         "at": 21,
+         "gives": "PRO",
+         "note": "taken as written"
+        },
+        {
+         "words": "revolutionary",
+         "at": 25,
+         "gives": "CHE",
+         "note": "Che Guevara is the archetypal revolutionary"
+        },
+        {
+         "words": "soldiers",
+         "at": 39,
+         "gives": "MEN",
+         "note": "men are soldiers, the ranks"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peace move pleases someone keen to draw in soldiers who back the revolution.",
+     "walkthrough": "'to involve' puts the three short pieces inside the word for delighted, between its third and fourth letters; 'pro-revolutionary' splits across its hyphen.",
+     "definitionFit": "Rapprochement is the re-establishment of friendly relations, a step towards peace between parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Delighted"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1399,57 @@
     "text": "Raise animals — notably cattle — here, primarily",
     "enumeration": "5"
    },
-   "solution": "RANCH"
+   "solution": "RANCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Raise animals — notably cattle — here, primarily",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 39,
+       "note": "primarily, in the first place, picks the first letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Raise",
+       "at": 0
+      },
+      {
+       "words": "animals",
+       "at": 6
+      },
+      {
+       "words": "notably",
+       "at": 16
+      },
+      {
+       "words": "cattle",
+       "at": 24
+      },
+      {
+       "words": "here",
+       "at": 33
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Animals, chiefly cattle, are bred at this place.",
+     "definitionFit": "A ranch is a large farm where cattle or other animals are raised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1463,48 @@
     "text": "Benefit brought by pioneer out east",
     "enumeration": "4"
    },
-   "solution": "BOON"
+   "solution": "BOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Benefit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 27,
+       "note": "out says the east letter is put out of the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pioneer",
+       "at": 19,
+       "gives": "BOONE",
+       "note": "Daniel Boone was a famous American frontier pioneer"
+      },
+      {
+       "words": "east",
+       "at": 31,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An early settler brings good things from the east.",
+     "definitionFit": "A boon is a blessing or benefit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pioneer"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1518,49 @@
     "text": "Head accepts religious belief",
     "enumeration": "7"
    },
-   "solution": "OPINION"
+   "solution": "OPINION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "belief",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "at": 5,
+       "note": "one word accepts, takes in, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Head",
+       "at": 0,
+       "gives": "ONION",
+       "note": "onion is old slang for the head, as in off one's onion"
+      },
+      {
+       "words": "religious",
+       "at": 13,
+       "gives": "PI",
+       "note": "pi, short for pious, means religious"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leader takes on a religious creed.",
+     "walkthrough": "'Head' looks like a leader, but it is the old slang for the head, which 'accepts' the short religious abbreviation.",
+     "definitionFit": "An opinion is a view or belief held about something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1574,41 @@
     "text": "Carry out scientific analysis to reveal speed of bird",
     "enumeration": "7"
    },
-   "solution": "TITRATE"
+   "solution": "TITRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carry out scientific analysis",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bird",
+       "at": 49,
+       "gives": "TIT",
+       "note": "a tit is a small songbird"
+      },
+      {
+       "words": "speed",
+       "at": 40,
+       "gives": "RATE",
+       "note": "rate means speed, as in a rate of knots"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist runs tests to measure how fast a bird flies.",
+     "definitionFit": "To titrate is to determine a concentration by chemical analysis, adding a reagent until a reaction completes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speed"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1622,33 @@
     "text": "Plant giving protection from the moon's brightness?",
     "enumeration": "10"
    },
-   "solution": "NIGHTSHADE"
+   "solution": "NIGHTSHADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant giving protection from the moon's brightness?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Plant giving protection from the moon's brightness?",
+       "at": 0,
+       "note": "read whimsically as a shade worn at night against moonlight, but it names a poisonous plant family"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Deadly nightshade and its relatives are plants, and the name splits into a night-time screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1662,29 @@
     "text": "Criminal tendency",
     "enumeration": "4"
    },
-   "solution": "BENT"
+   "solution": "BENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0,
+      "meaning": "slang for dishonest or corrupt"
+     },
+     {
+      "text": "tendency",
+      "at": 9,
+      "meaning": "a natural inclination or tendency"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Bent means corrupt in slang and also a natural inclination, two separate senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   }
  ]
 }
