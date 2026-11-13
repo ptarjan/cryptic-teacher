@@ -12854,7 +12854,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "50b55099851b3f47": "432a5818529a9b11",
                   # telegraph_prize_headings (a Monday's Saturday prize solution heading, _TELEGRAPH_PRIZE_FIX): a scan's
                   # headings only; due once as TELEGRAPH_PRIZE.
-                  "a92bf3d3e0ddf049": "432a5818529a9b11"}
+                  "a92bf3d3e0ddf049": "432a5818529a9b11",
+                  # sunday_times_headings' left-column heading dedupe (8e49316f380, SUNDAY_LEFT): a scan's headings only.
+                  "4b93daa5557df72c": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
