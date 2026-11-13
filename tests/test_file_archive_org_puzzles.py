@@ -5269,6 +5269,20 @@ check("SUNDAY_BAND is due for a 1980-84 Sunday Times row refused no reading pars
        f.RANKS[f.SUNDAY_BAND] == 2 and f.SUNDAY_BAND in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_BAND) is not None
        and f.SUNDAY_BAND in _eq_bp.FIX_LANDED and f.SUNDAY_BAND in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
+# SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
+check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
+      "or paper; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, False, True, True],
+      [f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1970UKEnglish/1970-03-29"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1970UKEnglish/1970-03-29", "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1980UKEnglish/1980-03-09"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleTimes1970UKEnglish/1970-03-29"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1972UKEnglish/1972-05-14",
+                          "verdicts": [{"number": 1, "refused": "x", "cause": "not-a-grid"}]}),
+       f.RANKS[f.SUNDAY_OVER] == 2 and f.SUNDAY_OVER in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_OVER) is not None
+       and f.SUNDAY_OVER in _eq_bp.FIX_LANDED and f.SUNDAY_OVER in _eq_bp.UNFILED_FIRST])
+
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
 _ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]
