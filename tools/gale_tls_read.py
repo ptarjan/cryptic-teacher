@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 3
+VERSION = 4
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -181,11 +181,16 @@ def layout_columns(words, grid):
     if len(counts) < 2 * COLUMN_COUNTS:
         return []
     y0, y1 = min(w[1] for w in counts) - 4 * lh, max(w[3] for w in counts) + lh
+
+    def listy(left, right, mine):
+        # COLUMN_COUNTS counts, or a count and three lines opening on a clue number (the OCR loses counts)
+        return len(mine) >= COLUMN_COUNTS or (bool(mine) and len(line_numbers(
+            [w for w in rest if left <= (w[0] + w[2]) / 2 <= right], lh)) >= 3)
     gs = gl.gutters(rest, y0, y1, lh)
     bands = []
     for (_, left), (right, _) in zip(gs, gs[1:]):
         mine = [w for w in counts if left <= (w[0] + w[2]) / 2 <= right]
-        if len(mine) < COLUMN_COUNTS:
+        if not listy(left, right, mine):
             continue
         # A band may hold a prose column beside the lists (a gutter a headline or a photo crosses): looked at
         # again over the counts' own lines alone, with narrower gutters.
@@ -195,20 +200,32 @@ def layout_columns(words, grid):
     cols = []
     for left, right in bands:
         mine = [w for w in counts if left <= (w[0] + w[2]) / 2 <= right]
-        if len(mine) < COLUMN_COUNTS:
+        if not listy(left, right, mine):
             continue
         first = min(w[1] for w in mine)
         # the heading over the first count, within reach, the highest
         over = [w for w in rest if left <= w[0] <= right and first - HEAD_REACH * lh <= w[1] < first
                 and (HEAD_WORD.match(w[4]) and w[3] - w[1] < 3 * lh)]
         top = min([first - 2 * lh, *(w[1] for w in over)])
+        # The page OCR loses counts down a column: its lines run on to the first gap of three line heights,
+        # layout_block trimming the crop to its last count read there.
+        bottom = max(w[3] for w in mine)
+        for w in sorted((w for w in rest if left <= (w[0] + w[2]) / 2 <= right and w[1] > bottom),
+                        key=lambda w: w[1]):
+            if w[1] - bottom > 3 * lh:
+                break
+            bottom = max(bottom, w[3])
+        # ...and on past a gap (an advert, a photo) to the column's next clue numbers within twelve.
+        for ytop, ybottom, _, x in line_numbers([w for w in rest if left <= w[0] <= right and w[1] > bottom], lh):
+            if left <= x <= left + 4 * lh and ytop - bottom < 12 * lh:
+                bottom = ybottom + 4 * lh
         cols.append((int(max(0, left - lh / 2)), int(max(0, top - lh / 2)), int(right + lh / 2),
-                     int(max(w[3] for w in mine) + lh / 2)))
+                     int(bottom + lh / 2)))
     return cols
 
 
 def line_numbers(words, lh):
-    """[(top, bottom, number)] of the lines of `words` opening on a clue's number and a word."""
+    """[(top, bottom, number, left)] of the lines of `words` opening on a clue's number and a word."""
     ws = sorted(words, key=lambda w: ((w[1] + w[3]) / 2, w[0]))
     lines = []
     for w in ws:
@@ -220,7 +237,7 @@ def line_numbers(words, lh):
     for _, line in lines:
         line.sort()
         if NUMBER_WORD.match(line[0][4]) and len(line) > 1 and re.search(r"[A-Za-z]{2}", line[1][4]):
-            out.append((min(w[1] for w in line), max(w[3] for w in line), int(re.sub(r"\D", "", line[0][4]))))
+            out.append((min(w[1] for w in line), max(w[3] for w in line), int(re.sub(r"\D", "", line[0][4])), line[0][0]))
     return out
 
 
@@ -239,7 +256,13 @@ def layout_block(img, words, grid, ocr=None):
         crop = img.crop(box).copy()
         draw = ImageDraw.Draw(crop)
         draw.rectangle((grid[0] - box[0], grid[1] - box[1], grid[2] - box[0], grid[3] - box[1]), fill="white")
-        pieces.append((k, crop, ocr(crop)))
+        ws = ocr(crop)
+        ends = [w[3] for w in ws if COUNT_WORD.search(w[4])]
+        if ends and max(ends) + lh < crop.height:
+            # the column's matter under its last count (prose, a notice) is not the lists'
+            crop = crop.crop((0, 0, crop.width, int(max(ends) + lh / 2)))
+            ws = [w for w in ws if w[3] <= crop.height]
+        pieces.append((k, crop, ws))
     if not pieces:
         return None
     # the headings the OCR read in a column are blanked, so the ones drawn are the only ones
@@ -250,7 +273,7 @@ def layout_block(img, words, grid, ocr=None):
                 draw.rectangle((w[0] - 4, w[1] - 4, w[2] + 4, w[3] + 4), fill="white")
     top, peak = None, 0
     for k, crop, ws in pieces:
-        for y0, y1, n in line_numbers(ws, lh):
+        for y0, y1, n, _ in line_numbers(ws, lh):
             if top is None and peak and n <= 3 and n < peak - 3:
                 top = (k, y0)
             peak = max(peak, n)
@@ -266,18 +289,18 @@ def layout_block(img, words, grid, ocr=None):
             cut = max(1, int(top[1] - lh / 3))
             across.append(crop.crop((0, 0, crop.width, cut)))
             down.append(crop.crop((0, cut, crop.width, crop.height)))
-    font = ImageFont.load_default(size=64)
+    font = ImageFont.load_default(size=46)
     width = max(c.width for c in across + down) + 40
     parts = []
     for title, group in (("ACROSS", across), ("DOWN", down)):
-        head = Image.new("RGB", (width, 110), "white")
-        ImageDraw.Draw(head).text((20, 20), title, fill="black", font=font)
+        head = Image.new("RGB", (width, 60), "white")
+        ImageDraw.Draw(head).text((20, 8), title, fill="black", font=font)
         parts += [head, *group]
-    out = Image.new("RGB", (width, sum(p.height + 30 for p in parts)), "white")
+    out = Image.new("RGB", (width, sum(p.height for p in parts)), "white")
     y = 0
     for p in parts:
         out.paste(p, (20, y))
-        y += p.height + 30
+        y += p.height
     return out, gl.image_key(out)
 
 
@@ -367,7 +390,7 @@ def read_page(path, store=STORE, asker=None):
         return verdict, None
     lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
-    verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused")})
+    verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused", "unparsed")})
     if laid is None:
         return verdict, None
     voted = dict(laid)
