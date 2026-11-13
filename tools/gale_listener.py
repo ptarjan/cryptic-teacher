@@ -441,7 +441,8 @@ def words_only(words):
     for w in words:
         # a bracketed count alone on its line (1992-06-05's "(11)", a clue that wrapped) is its clue's own
         h = w[3] - w[1]
-        under = re.search(r"[()]", w[4]) and any(
+        alone = not any(o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < h / 2 for o in words)
+        under = alone and re.search(r"[()]", w[4]) and any(
             o is not w and not re.fullmatch(r"\W*\d{1,3}\W*", o[4]) and -h / 2 <= w[1] - o[3] < 2 * h
             and abs(o[0] - w[0]) < 3 * h
             for o in words)
