@@ -455,7 +455,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._LONE_TITLE_FIX[gt.key][:2],
                                                                       *f._JOINED_TITLE_FIX[gt.key][:2],
                                                                       *f._SPECIAL_TITLE_FIX[gt.key][:2],
-                                                                      *f._WINNERS_BAND_FIX[gt.key][:2]},
+                                                                      *f._WINNERS_BAND_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_SATURDAY_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3555,6 +3556,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TELEGRAPH_SATURDAY_FIX:
+        return f._TELEGRAPH_SATURDAY_FIX[paper][2]
     if paper in f._SUNDAY_DEDUP_FIX:
         return f._SUNDAY_DEDUP_FIX[paper][2]
     if paper in f._SUNDAY_TITLE_FIX:
@@ -5034,6 +5037,33 @@ check("a Monday's two-line prize heading ('PRIZE SOLUTION of' over 'DECEMBER 3-N
       [[21423], [21423], [], []],
       [[n for n, _ in f.gale_telegraph_headings(_prize, [21430])[1]], [n for n, _ in f.telegraph_prize_headings(_prize, [21429])],
        [n for n, _ in f.telegraph_prize_headings(_prize, [21460])], [n for n, _ in f.gale_telegraph_headings(_prize)[1]]])
+_sols = [[(1320, 4366, 1494, 4409, "SolutionS")],
+         [(1430, 4441, 1546, 4475, "No.19,965"), (1716, 4435, 2013, 4478, "Yesterday's Quick Solution")]]
+_sols_found = f.gale_telegraph_headings(_sols, [19966])[1]
+check("a Gale Telegraph Saturday's 'SolutionS' over 'No.19,965' (the number's row shared with the Quick's heading) is the "
+      "Friday's solution heading, its box widened to the grid; with no title read, or another's number, none",
+      [[19965], 380, [], []],
+      [[n for n, _ in _sols_found], _sols_found[0][1][2] - _sols_found[0][1][0] if _sols_found else 0,
+       [n for n, _ in f.gale_telegraph_headings(_sols, [])[1]], [n for n, _ in f.gale_telegraph_headings(_sols, [19990])[1]]])
+check("a 'SolutionS' word starts a Gale Telegraph's solution band, the number's row under it inside; a plain 'solutions' "
+      "in the prize's text, or any word for another paper, none",
+      [1, 0, 0],
+      [len(f.solution_bands(__import__("PIL.Image").Image.new("RGB", (3296, 5060), "white"), [(1320, 4366, 1494, 4409, "SolutionS")], True)),
+       len(f.solution_bands(__import__("PIL.Image").Image.new("RGB", (3296, 5060), "white"), [(1320, 4366, 1494, 4409, "solutions must reach the Telegraph")], True)),
+       len(f.solution_bands(__import__("PIL.Image").Image.new("RGB", (3296, 5060), "white"), [(1320, 4366, 1494, 4409, "SolutionS")]))])
+check("a glued 'PRIZECROSSWORD' beside its number is a Gale Telegraph title",
+      [[19912]],
+      [[n for n, _, _ in f.gale_telegraph_headings([[(264, 2227, 654, 2260, "PRIZECROSSWORD"), (1153, 2223, 1281, 2263, "19,912")]])[0]]])
+_fri = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-30", "readAt": "2026-11-13T16:00:00+00:00"}
+_sat90 = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-31", "scanKey": "3a96114ccf041759"}
+check("a Gale Telegraph Friday puzzle of 1980-2000 with no solution read is due TELEGRAPH_SATURDAY (ranked, kept), not a "
+      "Thursday's or one read since; its Saturday page scanned under the previous key is scanned again, the new key's not",
+      [True, True, False, False, True, False, True],
+      [f.telegraph_saturday_due(_fri), f.TELEGRAPH_SATURDAY in f.RANKS,
+       f.telegraph_saturday_due({**_fri, "edition": "GaleTelegraph1990UKEnglish/1990-03-29"}),
+       f.telegraph_saturday_due({**_fri, "readAt": "2026-11-14T16:00:00+00:00"}),
+       f.telegraph_saturday_host(_sat90), f.telegraph_saturday_host({**_sat90, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
+       f.telegraph_saturday_host({**_sat90, "scan": {"puzzles": [], "solutions": [], "wholeUntitled": True}})])
 
 # The Gale Independent's readers that run words together read its title glued, and its day-before solution is headed by
 # the weekday alone ("Wednesday's solution"), so the number is the title's less a lag.
