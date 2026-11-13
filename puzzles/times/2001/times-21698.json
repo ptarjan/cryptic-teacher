@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Stomach support",
     "enumeration": "5"
    },
-   "solution": "STAND"
+   "solution": "STAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stomach",
+      "at": 0,
+      "meaning": "to stomach something is to put up with or tolerate it"
+     },
+     {
+      "text": "support",
+      "at": 8,
+      "meaning": "a frame or rest that holds something up"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: tolerate (verb) and a holder or rack (noun)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stomach"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,30 @@
     "text": "One on the telephone to an underwriter?",
     "enumeration": "10"
    },
-   "solution": "SUBSCRIBER"
+   "solution": "SUBSCRIBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One on the telephone",
+      "at": 0,
+      "meaning": "a person who pays to have a phone line"
+     },
+     {
+      "text": "an underwriter?",
+      "at": 24,
+      "meaning": "literally one who writes under, signing beneath a document to guarantee it"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A phone customer pays a subscription; someone signing below a document literally writes their name beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "underwriter"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +106,45 @@
     "text": "Island destroyed utterly",
     "enumeration": "3"
    },
-   "solution": "AIT"
+   "solution": "AIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AIT",
+     "indicators": [
+      {
+       "text": "utterly",
+       "at": 17,
+       "note": "uttered or spoken, so the word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "destroyed",
+       "at": 7,
+       "gives": "ATE",
+       "note": "ate as in consumed or destroyed completely"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island was laid waste completely.",
+     "walkthrough": "'utterly' looks like an intensifier but means 'when uttered'. An ait is a small river island, as on the Thames.",
+     "definitionFit": "A small islet in a river is called an ait or eyot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "utterly"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +158,58 @@
     "text": "One researching source of disease overwhelming the young eel",
     "enumeration": "6"
    },
-   "solution": "DELVER"
+   "solution": "DELVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One researching",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overwhelming",
+       "at": 34,
+       "note": "in a down clue one piece sits on top of another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 16,
+         "note": "the source of a word is where it starts, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disease",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "young eel",
+       "at": 51,
+       "gives": "ELVER",
+       "note": "an elver is a young eel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist studies how a disease overwhelms young eels.",
+     "definitionFit": "Someone who digs deep into a subject is a digger into facts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overwhelming"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +223,66 @@
     "text": "Mercifully, Lenin let off youth leader",
     "enumeration": "9"
    },
-   "solution": "LENIENTLY"
+   "solution": "LENIENTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mercifully",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 22,
+         "note": "off suggests something gone wrong or spoiled, so the letters of the two words are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lenin",
+         "at": 12
+        },
+        {
+         "words": "let",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 32,
+         "note": "the leader of a word is its opening letter, here taken from youth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "youth",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Soviet leader is said to have spared a young Bolshevik, letting him off with kindness.",
+     "walkthrough": "'off' rearranges LENINLET into LENIENTL; 'leader' of 'youth' adds Y at the end.",
+     "definitionFit": "Acting with mercy means treating someone gently, not harshly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +302,48 @@
      }
     ]
    },
-   "solution": "LIFECYCLE"
+   "solution": "LIFECYCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stages in development",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 33,
+       "note": "in a down clue, on means placed above the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "memoirs",
+       "at": 25,
+       "gives": "LIFE",
+       "note": "a life is a biography or memoir"
+      },
+      {
+       "words": "age",
+       "at": 36,
+       "gives": "CYCLE",
+       "note": "a cycle is a long era or age"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Memoirs dwell on the stages of ageing.",
+     "definitionFit": "The series of phases an organism passes through from birth to death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "age"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +357,61 @@
     "text": "Stocking-maker's. New Year wish not fulfilled",
     "enumeration": "5"
    },
-   "solution": "NYLON"
+   "solution": "NYLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stocking-maker's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "at": 18,
+       "gives": "N"
+      },
+      {
+       "words": "Year",
+       "at": 22,
+       "gives": "Y"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not fulfilled",
+         "at": 32,
+         "note": "not completed, so the word lacks its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wish",
+         "at": 27,
+         "gives": "LONG",
+         "note": "to long for something is to wish for it"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hosiery maker's New Year hopes come to nothing.",
+     "walkthrough": "The definition reads 'stocking-maker is'. 'not fulfilled' removes the last letter from LONG.",
+     "definitionFit": "Stockings are made from this synthetic fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fulfilled"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +425,29 @@
     "text": "Like a woman expecting an enclosure",
     "enumeration": "8"
    },
-   "solution": "ENCEINTE"
+   "solution": "ENCEINTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a woman expecting",
+      "at": 0,
+      "meaning": "pregnant, from the French"
+     },
+     {
+      "text": "an enclosure",
+      "at": 23,
+      "meaning": "the walled area or curtain wall of a fortification"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The French-derived word means pregnant, and in castle building means a surrounding fortified wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "expecting"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +461,33 @@
     "text": "One who must remain nameless",
     "enumeration": "11"
    },
-   "solution": "THINGUMAJIG"
+   "solution": "THINGUMAJIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who must remain nameless",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One who must remain nameless",
+       "at": 0,
+       "note": "reads like a secret informant, but describes the word used for a person or thing whose name escapes you"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A placeholder word, like whatsit, stands for something whose name is forgotten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +501,48 @@
     "text": "Agreement accepted by the old couple",
     "enumeration": "4"
    },
-   "solution": "YOKE"
+   "solution": "YOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "couple",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "at": 10,
+       "note": "one piece is taken inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the old",
+       "at": 22,
+       "gives": "YE",
+       "note": "ye is an old form of the"
+      },
+      {
+       "words": "Agreement",
+       "at": 0,
+       "gives": "OK",
+       "note": "OK expresses agreement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly pair give their consent.",
+     "definitionFit": "A pair of oxen is a yoke; to couple is to join two together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +556,33 @@
     "text": "How much drink it takes to get Dutch courage?",
     "enumeration": "9"
    },
-   "solution": "BOTTLEFUL"
+   "solution": "BOTTLEFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How much drink it takes to get Dutch courage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How much drink it takes to get Dutch courage",
+       "at": 0,
+       "note": "Dutch courage is boldness from alcohol; bottle is British slang for nerve, so the measure of drink that fills you with it is a whole container's worth"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The phrase describes a measured quantity of liquor, as much as one glass vessel holds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +596,29 @@
     "text": "Make a hit with a metallic sound",
     "enumeration": "5"
    },
-   "solution": "CLICK"
+   "solution": "CLICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make a hit",
+      "at": 0,
+      "meaning": "to be an instant success or get on well with someone"
+     },
+     {
+      "text": "a metallic sound",
+      "at": 16,
+      "meaning": "a short sharp noise such as a latch or switch makes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means to become popular or get on at once; the noun is a sharp snapping noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +632,43 @@
     "text": "Disdainful prisoner being sent down",
     "enumeration": "13"
    },
-   "solution": "CONDESCENDING"
+   "solution": "CONDESCENDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disdainful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "prisoner",
+       "at": 11,
+       "gives": "CON",
+       "note": "con is short for convict, a prisoner"
+      },
+      {
+       "words": "being sent down",
+       "at": 20,
+       "gives": "DESCENDING",
+       "note": "moving downwards, going lower"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scornful inmate has just been jailed, sent down by the judge.",
+     "walkthrough": "'Sent down' is British slang for being jailed, which fits the prisoner surface; here it simply means going down.",
+     "definitionFit": "Patronising behaviour looks down on others with scorn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +688,42 @@
      }
     ]
    },
-   "solution": "NEEDLEPOINT"
+   "solution": "NEEDLEPOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Embroidery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "irritate",
+       "at": 22,
+       "gives": "NEEDLE",
+       "note": "to needle someone is to annoy them"
+      },
+      {
+       "words": "Dot",
+       "at": 31,
+       "gives": "POINT",
+       "note": "a point is a dot, as a decimal point"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's sewing seems to annoy a woman called Dot.",
+     "walkthrough": "'Dot' looks like a woman's name but is a small mark.",
+     "definitionFit": "A kind of stitching on canvas, also called tapestry work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dot"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +737,45 @@
     "text": "Loves a party with army food",
     "enumeration": "10"
    },
-   "solution": "ADORATIONS"
+   "solution": "ADORATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Loves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 6
+      },
+      {
+       "words": "party",
+       "at": 8,
+       "gives": "DO",
+       "note": "a do is a party or celebration"
+      },
+      {
+       "words": "army food",
+       "at": 19,
+       "gives": "RATIONS",
+       "note": "rations are soldiers' fixed food allowances"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone adores a party with military catering.",
+     "definitionFit": "Worship and devotion are kinds of intense love."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loves"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +789,29 @@
     "text": "Orfes seen in Roman times",
     "enumeration": "4"
    },
-   "solution": "IDES"
+   "solution": "IDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Orfes",
+      "at": 0,
+      "meaning": "orfes are freshwater fish of the carp family, also called by a three-letter name"
+     },
+     {
+      "text": "Roman times",
+      "at": 14,
+      "meaning": "in the Roman calendar, certain fixed dates in each month, the 15th or 13th"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The orfe is another name for this European fish; and the Roman calendar marked mid-month days by this term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Orfes"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +825,48 @@
     "text": "Cat kept by defendant as familiar",
     "enumeration": "10"
    },
-   "solution": "ACCUSTOMED"
+   "solution": "ACCUSTOMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "familiar",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept by",
+       "at": 4,
+       "note": "one word is held inside another, the cat sitting within the defendant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "defendant",
+       "at": 12,
+       "gives": "ACCUSED",
+       "note": "the person charged in court is the accused"
+      },
+      {
+       "words": "Cat",
+       "at": 0,
+       "gives": "TOM",
+       "note": "a tom is a male cat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant's pet cat has grown used to life with its owner.",
+     "definitionFit": "Being used to something means it is well known and habitual to you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cat"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +880,46 @@
     "text": "They dig up old troupers in pantomime",
     "enumeration": "9"
    },
-   "solution": "UPROOTERS"
+   "solution": "UPROOTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They dig up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in pantomime",
+       "at": 25,
+       "note": "pantomime is chaotic farce, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "at": 12,
+       "gives": "O"
+      },
+      {
+       "words": "troupers",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Veteran actors in a Christmas pantomime are digging up the stage.",
+     "walkthrough": "'in pantomime' rearranges O plus TROUPERS. Pantomime is a British Christmas comic stage show.",
+     "definitionFit": "People who pull plants out by the roots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pantomime"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +933,61 @@
     "text": "Foolish wife omitted from response in English",
     "enumeration": "8"
    },
-   "solution": "ANSERINE"
+   "solution": "ANSERINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foolish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "omitted from",
+         "at": 13,
+         "note": "one letter is left out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "response",
+         "at": 26,
+         "gives": "ANSWER",
+         "note": "an answer is a response"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 35,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "English",
+       "at": 38,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silly wife is left out of an English reply.",
+     "definitionFit": "The word means goose-like, and geese are proverbially silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Foolish"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1007,69 @@
      }
     ]
    },
-   "solution": "ELLENTERRY"
+   "solution": "ELLENTERRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbed in",
+       "at": 38,
+       "note": "one set of letters is taken into the middle of another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 50,
+         "note": "playing suggests the letters of the instrument are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lyre",
+         "at": 58
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 29,
+         "note": "perhaps signals that the word is only one possible arrangement of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relent",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress softens her mood while strumming a lyre.",
+     "walkthrough": "Two anagram signals work here: 'playing' on the instrument and 'perhaps' on relent, one result sitting inside the other. Ellen Terry was a celebrated Victorian Shakespearean actress.",
+     "definitionFit": "Ellen Terry was a leading English stage performer of the late nineteenth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,10 +1080,43 @@
    },
    "length": 4,
    "clue": {
-    "text": "It's nearly 'open for a glass of beer",
+    "text": "It's nearly open for a glass of beer",
     "enumeration": "4"
    },
-   "solution": "AJAR"
+   "solution": "AJAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nearly open",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "glass of beer",
+       "at": 23,
+       "gives": "JAR",
+       "note": "in British slang, a jar is a pint or glass of beer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The pub is almost opening its doors, just in time for a drink.",
+     "walkthrough": "'Jar' for a drink is British pub slang.",
+     "definitionFit": "A door left slightly open is said to stand this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1130,45 @@
     "text": "Remain a convict as a warning to others",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a warning to others",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Remain",
+       "at": 0,
+       "gives": "BE",
+       "note": "to be is to exist or remain"
+      },
+      {
+       "words": "a",
+       "at": 7
+      },
+      {
+       "words": "convict",
+       "at": 9,
+       "gives": "CON",
+       "note": "con is short for convict"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A convict is kept on as an example to deter others.",
+     "definitionFit": "A signal fire warns of danger and guides others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "convict"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1192,49 @@
      }
     ]
    },
-   "solution": "PIECESOFEIGHT"
+   "solution": "PIECESOFEIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "money",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bits",
+       "at": 0,
+       "gives": "PIECES",
+       "note": "bits are pieces or fragments"
+      },
+      {
+       "words": "of",
+       "at": 5,
+       "gives": "OF",
+       "note": "taken as written"
+      },
+      {
+       "words": "shell",
+       "at": 8,
+       "gives": "EIGHT",
+       "note": "a shell is a light racing boat; an eight is a rowing boat crewed by eight oarsmen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fragments of seashell once served as currency.",
+     "walkthrough": "'Shell' suggests the seashell money of old; in rowing it is a racing boat, and an eight is one such boat.",
+     "definitionFit": "Spanish silver dollars, pirates' coins, were the historical currency named by this phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shell"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1248,43 @@
     "text": "Bravery award announced for compère",
     "enumeration": "5"
    },
-   "solution": "EMCEE"
+   "solution": "EMCEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "compère",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EMCEE",
+     "indicators": [
+      {
+       "text": "announced",
+       "at": 14,
+       "note": "spoken out, so the letters are said rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bravery award",
+       "at": 0,
+       "gives": "MC",
+       "note": "MC is the Military Cross, a British gallantry medal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gallantry medal is presented by the host.",
+     "definitionFit": "A host presenting a show is a master of ceremonies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bravery"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1298,29 @@
     "text": "Use abusive language in bar",
     "enumeration": "4"
    },
-   "solution": "RAIL"
+   "solution": "RAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Use abusive language",
+      "at": 0,
+      "meaning": "to complain bitterly or rant against"
+     },
+     {
+      "text": "bar",
+      "at": 24,
+      "meaning": "a rod or ..."
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To rant angrily against something; and a horizontal rod."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1334,41 @@
     "text": "Part of coastal Ibiza required defence",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "required defence",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "Part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coastal Ibiza",
+       "at": 8,
+       "gives": "ALIBI",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suspect needs a story placing them somewhere on the Ibiza coast.",
+     "definitionFit": "A claim of being elsewhere is the accused's standard plea in court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1382,56 @@
     "text": "Volume getting larger — chapter on creeds rewritten",
     "enumeration": "9"
    },
-   "solution": "CRESCENDO"
+   "solution": "CRESCENDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Volume getting larger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chapter",
+       "at": 24,
+       "gives": "C"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rewritten",
+         "at": 42,
+         "note": "something rewritten has its contents put down again in new form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 32
+        },
+        {
+         "words": "creeds",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book grows bigger as a chapter about religious beliefs is redrafted.",
+     "walkthrough": "'Volume' suggests a book, but it means loudness. 'rewritten' turns ONCREEDS into RESCENDO after C.",
+     "definitionFit": "In music the term marks a gradual increase in loudness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Volume"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1445,29 @@
     "text": "Watch out for water sprite",
     "enumeration": "3"
    },
-   "solution": "NIX"
+   "solution": "NIX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Watch out",
+      "at": 0,
+      "meaning": "a schoolboy warning cry, like cave"
+     },
+     {
+      "text": "water sprite",
+      "at": 14,
+      "meaning": "a Germanic water spirit or nymph"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A dated British warning shout; and a creature of Germanic folklore living in water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Watch"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1481,53 @@
     "text": "Left one point out of article, showing flexibility",
     "enumeration": "9"
    },
-   "solution": "LITHENESS"
+   "solution": "LITHENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing flexibility",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "one",
+       "at": 5,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "article",
+       "at": 22,
+       "gives": "THE",
+       "note": "the is the definite article"
+      },
+      {
+       "words": "point out of",
+       "at": 9,
+       "gives": "NESS",
+       "note": "a ness is a headland or point of land; out of just leads it on to follow the article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows suppleness by deleting a point from an article they wrote.",
+     "walkthrough": "'out of' looks like a deletion signal, but nothing is removed: the point simply follows the article.",
+     "definitionFit": "Suppleness and agility are what this noun describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1541,49 @@
     "text": "Paperback about former spouse in a series",
     "enumeration": "5"
    },
-   "solution": "NEXUS"
+   "solution": "NEXUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "series",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about means one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Paperback",
+       "at": 0,
+       "gives": "NUS",
+       "note": "paper as the Sun newspaper, back meaning turned round, giving its letters reversed"
+      },
+      {
+       "words": "former spouse",
+       "at": 16,
+       "gives": "EX",
+       "note": "an ex is a former husband or wife"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paperback book about an ex-wife is one in a series.",
+     "walkthrough": "'Paperback' is one word doing a split job: 'paper' is the Sun, a British tabloid, and 'back' turns it round before it goes about the former spouse.",
+     "definitionFit": "A connected group or chain of linked things is a nexus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Paperback"
+    }
+   }
   }
  ]
 }
