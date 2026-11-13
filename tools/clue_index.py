@@ -37,6 +37,7 @@ MIN_CLUES = 6
 #: is a mis-filed copy of the other.
 REPRINTS = {
     frozenset(pair): why for pair, why in (
+        (("book-11069", "times-23096"), "Times Cryptic Crossword Book 13 No 69, reprinting the Times of 2005-10-01 (the book's OCR garbles four clues)"),
         (("book-12002", "times-25365"), "Times Cryptic Crossword Book 21 No 2, reprinting the Times of 2013-01-07 (the book's OCR leaves a stray mark on four clues)"),
         (("book-19003", "book-23183"), "Telegraph Book 28 No 3, reprinted as Big Book of Brain Sharpener vol 1 No 183"),
         (("book-19005", "book-23185"), "Telegraph Book 28 No 5, reprinted as Big Book of Brain Sharpener vol 1 No 185"),
