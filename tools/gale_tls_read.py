@@ -36,7 +36,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 7
+VERSION = 8
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -161,6 +161,8 @@ COUNT_WORD = re.compile(r"\(\d{1,2}(?:[,\-]\d{1,2})*[).]?\W{0,2}$")
 HEAD_WORD = re.compile(r"(?i)^\W*(across|down|acr|dow)")
 NUMBER_WORD = re.compile(r"^\W{0,2}\d{1,2}[.,]?$")
 COLUMN_COUNTS = 3
+#: Counts further apart than this many line heights are not one list's.
+COUNT_GAP = 12
 #: A column's heading or opening number is looked for this many line heights over its first count.
 HEAD_REACH = 40
 
@@ -180,7 +182,16 @@ def layout_columns(words, grid):
     counts = [w for w in rest if COUNT_WORD.search(w[4])]
     if len(counts) < 2 * COLUMN_COUNTS:
         return []
-    y0, y1 = min(w[1] for w in counts) - 4 * lh, max(w[3] for w in counts) + lh
+    # The band is the longest run of counts with no gap over COUNT_GAP line heights: a count far from the lists
+    # (a stray "(5)" in a caption) would stretch it over prose that crosses every gutter.
+    ys = sorted(counts, key=lambda w: w[1])
+    runs = [[ys[0]]]
+    for w in ys[1:]:
+        if w[1] - runs[-1][-1][3] > COUNT_GAP * lh:
+            runs.append([])
+        runs[-1].append(w)
+    run = max(runs, key=len)
+    y0, y1 = min(w[1] for w in run) - 4 * lh, max(w[3] for w in run) + lh
 
     def listy(left, right, mine):
         # COLUMN_COUNTS counts, or a count and three lines opening on a clue number (the OCR loses counts)
@@ -369,41 +380,6 @@ def layout_block(img, words, grid, ocr=None):
     return out, gl.image_key(out)
 
 
-#: A cut's right edge is moved out to the next gutter over the cut's whole height by at most this share of its width.
-REACH_SHARE = 1.2
-
-
-def reaching_cuts(cuts, gl):
-    """gale_listener.times_cuts as a wrapper: each cut's box widened on the right to the first gutter no word
-    crosses over the box's whole height. times_cut measures its gutters in a band under the ACROSS heading,
-    where the lines are short, so the 1990s lists' long clues ("undisciplined, oremoting (4,5)") run past the
-    box's edge and are clipped, their counts lost: the light's count read short ("(5)" for a 9-letter light)
-    or no count read at all. The widening is at most REACH_SHARE of the box's width, and none where the edge
-    already stands in a gutter."""
-    def wrapped(words):
-        lh = gl.line_height(words)
-        out = []
-        for box, masks in cuts(words):
-            gs = gl.gutters(words, box[1], box[3], gl.TIMES_GUTTER * lh)
-            right = box[2]
-            if not any(a <= right <= b for a, b in gs):
-                nxt = next((a for a, _ in gs if a > right), None)
-                if nxt is not None and nxt - right <= REACH_SHARE * (right - box[0]):
-                    right = int(nxt + lh / 4)
-            # The columns on right of it that hold clue lines over the box's whole height (times_cut tests
-            # them over a band under the headings, where a column set beside the grid or the preamble has none).
-            after = [g for g in gs if g[0] >= right - lh]
-            for (_, left), (edge, _) in zip(after, after[1:]):
-                if gl.numbered_share(words, left, edge, box[1], box[3]) < gl.TIMES_NUMBERED:
-                    break
-                right = int(edge + lh / 4)
-            if right != box[2]:
-                box = (box[0], box[1], right, box[3])
-            out.append((box, masks))
-        return out
-    return wrapped
-
-
 def pick_grid(boxes, reader, pads=(6, 0.08)):
     """(box, grid, None) of the first of `boxes` whose `reader(box, pad)` reads a 15x15 lattice, else
     (None, None, why of the first refusal)."""
@@ -473,7 +449,7 @@ def read_page(path, store=STORE, asker=None):
     old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
     gl.TITLE_WORD = TITLE_WORD
     gl.times_titles = jr.with_fallback_title(old_titles, img.width)
-    gl.times_cuts = reaching_cuts(jr.widest_cuts(old_cuts, gl), gl)
+    gl.times_cuts = jr.reaching_cuts(jr.widest_cuts(old_cuts, gl), gl, box)
     try:
         blocks = gl.times_blocks(img, key)
     finally:
@@ -490,6 +466,15 @@ def read_page(path, store=STORE, asker=None):
         return verdict, None
     lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
+    if (laid is None or read.get("agreed", 0) * 2 < len(lengths)) and verdict.get("cut") != "layout":
+        # The title's cut read little (its lists lie beside the grid, in a shape the page's headings do not
+        # frame): the lists found by their own shape (layout_block), kept where they read more.
+        block = layout_block(img, gl.page_words(img, key), box)
+        if block:
+            again, laid2 = gl.times_read([block], lengths)
+            if laid2 is not None and (laid is None or again.get("agreed", 0) > read.get("agreed", 0)):
+                read, laid = again, laid2
+                verdict["cut"] = "layout"
     verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused", "unparsed")})
     if laid is None:
         return verdict, None
