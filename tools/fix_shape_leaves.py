@@ -979,6 +979,43 @@ def _move_inner_indicator(a, b, sa, sb, clue, items):
     return True
 
 
+def _cross_trim(tree, a, b, sa, sb, clue, answer):
+    """Two spans that cross (neither holds the other: indicator "by development" beside the leaf
+    "more by"): cut each back, in turn, to the whole words outside the shared run. Applied only when
+    exactly one cut leaves a tree that still gives the answer and has fewer overlaps, so a fodder
+    leaf (no `gives`) keeps its letters and the indicator gives the shared word up. True when cut."""
+    lo, hi = max(sa[0], sb[0]), min(sa[1], sb[1])
+    if sa[0] <= sb[0] and sb[1] <= sa[1] or sb[0] <= sa[0] and sa[1] <= sb[1]:
+        return False
+    word = lambda s, e: s < e and (s == 0 or not clue[s - 1].isalnum()) and (e >= len(clue) or not clue[e].isalnum())
+    tries = []
+    for item, box in ((a, sa), (b, sb)):
+        s, e = (box[0], lo) if box[0] < lo else (hi, box[1])
+        text = clue[s:e]
+        s += len(text) - len(text.lstrip(" ,;"))
+        e -= len(text) - len(text.rstrip(" ,;"))
+        if word(s, e):
+            tries.append((item, s, e))
+    before = V.span_overlaps(W.locate(copy.deepcopy(tree), clue))
+    viable = []
+    for item, s, e in tries:
+        key = "text" if item[0] == "indicator" else "words"
+        was = (item[1][key], item[1]["at"])
+        item[1][key], item[1]["at"] = clue[s:e], s
+        try:
+            if V.span_overlaps(W.locate(copy.deepcopy(tree), clue)) < before:
+                W.evaluate(copy.deepcopy(tree), answer)
+                viable.append((item, key, s, e))
+        except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, W._NeedTarget):
+            pass
+        item[1][key], item[1]["at"] = was
+    if len(viable) != 1:
+        return False
+    item, key, s, e = viable[0]
+    item[1][key], item[1]["at"] = clue[s:e], s
+    return True
+
+
 def r_span_overlap(node, parent, ctx):
     """spanOverlap: an indicator and a leaf claim the same clue words. Only the unambiguous cuts: a
     leaf lying at the edge of an indicator (the indicator "is captivated by" over the leaf "is" gives
@@ -1014,6 +1051,8 @@ def r_span_overlap(node, parent, ctx):
                 if not got:
                     if a[0] != b[0]:
                         step = _move_inner_indicator(a, b, sa, sb, clue, items)
+                    if not step:
+                        step = _cross_trim(new, a, b, sa, sb, clue, answer)
                     if step:
                         break
                     continue

@@ -830,5 +830,31 @@ check("a letter named by a clue word is a part of its own: del<ignoring>(meal LU
 new, used = F.repair_tree(cnt, cnc, "STOUTESX", CN)
 check("cutNoteLeaf: a tree that does not give the answer is left alone", used == [])
 
+# spanOverlap: an anagram's fodder leaf and its indicator cross on a shared word ("in tale" / "tale
+# wrecked"): only the indicator can give the word up and still spell the answer, so it does.
+import fix_shape_leaves as FL
+import fix_shape_notes as FN
+import wordplay as W
+sclue = "Involve in tale wrecked"
+st = W.parse("ana<tale wrecked>([in tale])")
+st["indicators"][0]["at"] = 11
+st["parts"][0]["at"] = 8
+got = FL.r_span_overlap(st, None, {"clue": sclue, "answer": "ENTAIL", "tree": st})
+check("spanOverlap: crossing indicator gives up the fodder word",
+      bool(got) and got["indicators"][0]["text"] == "wrecked" and got["indicators"][0]["at"] == 16
+      and got["parts"][0]["words"] == "in tale")
+st2 = W.parse("ana<tale wrecked>([in tale]X)")
+st2["indicators"][0]["at"] = 11
+st2["parts"][0]["at"] = 8
+check("spanOverlap: a leaf that could give the word up as well is ambiguous, left",
+      FL.r_span_overlap(st2, None, {"clue": sclue, "answer": "X", "tree": st2}) is None)
+lf, ind = {"words": "men on", "at": 22}, {"text": "spree", "at": 26}
+FN._replace_places(lf, ind, True, ["on", "spree"], "Try to chase car with men on spree")
+check("a leaf grown by the indicator's first word moves the indicator on",
+      ind["at"] == 29 and lf["at"] == 22)
+lf, ind = {"words": "go crazy", "at": 11}, {"text": "go", "at": 3}
+FN._replace_places(lf, ind, False, ["x", "go"], "In Bethel, they go crazy")
+check("a place that no longer spells its text is dropped", "at" not in ind)
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

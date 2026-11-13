@@ -497,8 +497,24 @@ def _anagram_fodder_edits(fresh, n, clue):
                     new, t = fresh()
                     t["parts"][j]["words"] = grown
                     t["indicators"][ind_i]["text"] = rest
+                    _replace_places(t["parts"][j], t["indicators"][ind_i], take == iw[0], iw, clue)
                     out.append(new)
     return out
+
+
+def _replace_places(leaf, ind, front, iw, clue):
+    """The leaf grew by an indicator word and the indicator lost it: their `at`s go with the words
+    (a stale `at` left the indicator's cut text standing inside the leaf's run: 'men on' and 'spree'
+    both claiming 'sp'). The indicator moves on when it lost its first word, the leaf moves back when
+    it took the indicator's last; a place that no longer spells its text is dropped for locate."""
+    if front and isinstance(ind.get("at"), int):
+        ind["at"] += len(clue[ind["at"]:].split()[0]) + 1
+    if not front and isinstance(leaf.get("at"), int):
+        leaf["at"] -= len(iw[-1]) + 1
+    for n, key in ((leaf, "words"), (ind, "text")):
+        at = n.get("at")
+        if isinstance(at, int) and clue[at:at + len(n[key])] != n[key]:
+            n.pop("at")
 
 
 def _printed_run(words, clue):
