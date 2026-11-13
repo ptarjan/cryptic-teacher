@@ -1366,6 +1366,15 @@ def parted(clue, others):
         unspeck = unspeck[0].upper() + unspeck[1:]  # a speck read before the clue's capital
     clue = GLUED_MARK.sub(glued, unspeck)
     clue = SPECK_JOIN.sub(stop, clue)
+
+    def lost_space(m):
+        # A sentence's stop run into the capitalised word after it (clue_text.STOP_SPACE_LOST).
+        a, b = m.group(1), m.group(2)
+        if ((len(a) < 3 and a.lower() not in clue_text.STOP_SMALL) or a.lower() in clue_text.STOP_PREFIXES
+                or not is_word(a.lower()) or not is_word(b.lower()) or is_word((a + b).lower())):
+            return m.group()
+        return f"{a}. {b}"
+    clue = clue_text.STOP_SPACE_LOST.sub(lost_space, clue)
     # An abbreviation's last letter run into the next word ("E.g.sights",
     # "i.e.fleshless"), which SPECK_JOIN's word may not follow a stop into.
     clue = re.sub(r"(?<=[A-Za-z]\.)([A-Za-z])\.([a-z]{2,})\b",
