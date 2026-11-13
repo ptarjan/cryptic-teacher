@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,43 @@
     "text": "Hands over exchanged item",
     "enumeration": "4"
    },
-   "solution": "SWAP"
+   "solution": "SWAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exchanged item",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 6,
+       "note": "over signals that the word for hands is turned the other way round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hands",
+       "at": 0,
+       "gives": "PAWS",
+       "note": "paws are hands, informally"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands over an item in an exchange.",
+     "walkthrough": "'over' reads as part of 'hands over' but signals the reversal of PAWS.",
+     "definitionFit": "A noun sense: a trade, or the thing traded in one, is a swap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +89,51 @@
      }
     ]
    },
-   "solution": "WOODANEMONE"
+   "solution": "WOODANEMONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant usually among trees?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Oddly",
+         "at": 0,
+         "note": "oddly means arranged in a strange way, so the letters that follow are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on meadow",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something found unusually on a meadow is normally a woodland plant.",
+     "walkthrough": "'Oddly' tempts you to take alternate letters, but here it means rearranged, acting on the meadow phrase; 'found' is only a link.",
+     "definitionFit": "This spring flower is a woodland plant, so it usually grows among trees, as the question mark hints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +147,64 @@
     "text": "Stop drinking endless beer it's common",
     "enumeration": "9"
    },
-   "solution": "PREVALENT"
+   "solution": "PREVALENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "common",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "at": 5,
+       "note": "drinking means taking something in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stop",
+       "at": 0,
+       "gives": "PREVENT",
+       "note": "to prevent is to stop"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 14,
+         "note": "endless means the final letter of the word for beer is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 22,
+         "gives": "ALE",
+         "note": "ale is a kind of beer"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stopping someone drinking beer is a common thing.",
+     "walkthrough": "'drinking' signals a container, and 'endless' cuts the last letter from the beer; 'it's' is a link.",
+     "definitionFit": "Something prevalent is widespread, which is to say common."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drinking"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +218,70 @@
     "text": "Maybe gossip about old students finally became slander",
     "enumeration": "10"
    },
-   "solution": "CALUMNIATE"
+   "solution": "CALUMNIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slander",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 13,
+         "note": "about means going round, so one piece surrounds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maybe gossip",
+         "at": 0,
+         "gives": "CAT",
+         "note": "a cat is a spiteful gossiping person, so maybe a gossip"
+        },
+        {
+         "words": "old students",
+         "at": 19,
+         "gives": "ALUMNI",
+         "note": "alumni are former students of a school or college"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 32,
+         "note": "finally picks the last letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "became",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about former students turned into slander.",
+     "walkthrough": "'Maybe gossip' is a cat in the old sense of a spiteful woman; 'about' makes it surround the old students, and 'finally' takes the end of 'became'.",
+     "definitionFit": "To calumniate is to make false and damaging statements, a formal synonym of the verb slander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +295,44 @@
     "text": "Scottish historian who's given a hearing in English city",
     "enumeration": "7"
    },
-   "solution": "CARLYLE"
+   "solution": "CARLYLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scottish historian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CARLYLE",
+     "indicators": [
+      {
+       "text": "given a hearing",
+       "at": 25,
+       "note": "given a hearing signals that a word is spoken and its sound is what counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English city",
+       "at": 44,
+       "gives": "CARLISLE",
+       "note": "Carlisle is a city in Cumbria, in the north-west of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish historian gets a public hearing in an English city.",
+     "walkthrough": "Carlisle is a cathedral city near the Scottish border; the historian's name sounds the same.",
+     "definitionFit": "Thomas Carlyle was a nineteenth-century Scottish historian and essayist, author of The French Revolution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +360,45 @@
      }
     ]
    },
-   "solution": "LAUGHLIKEADRAIN"
+   "solution": "LAUGHLIKEADRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chortle raucously",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "being different",
+       "at": 23,
+       "note": "being different means the letters are put into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "All harangue kid",
+       "at": 0
+      },
+      {
+       "words": "I",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone harangues a child and, being contrary, cackles loudly.",
+     "walkthrough": "'being different' rearranges ALL HARANGUE KID I, all fifteen letters.",
+     "definitionFit": "The idiom means to laugh loudly and harshly, like the gurgle of water down a plughole, which is a raucous chortle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +418,60 @@
      }
     ]
    },
-   "solution": "MUDBATH"
+   "solution": "MUDBATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Messy remedy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "going round",
+         "at": 31,
+         "note": "going round means one piece encloses another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 24,
+         "gives": "MD",
+         "note": "MD is a Doctor of Medicine"
+        },
+        {
+         "words": "upper-class",
+         "at": 43,
+         "gives": "U",
+         "note": "U is the old abbreviation for upper-class"
+        }
+       ]
+      },
+      {
+       "words": "spa",
+       "at": 55,
+       "gives": "BATH",
+       "note": "Bath is the English spa city"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor prescribes a messy treatment while touring a posh spa.",
+     "walkthrough": "'going round' makes the doctor enclose the upper-class letter; Bath is a Somerset city famous for its Roman spa.",
+     "definitionFit": "A bath in mineral-rich mud is a spa treatment, and a dirty one: a messy remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +485,30 @@
     "text": "A Greek star outshining the others",
     "enumeration": "5"
    },
-   "solution": "ALPHA"
+   "solution": "ALPHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A Greek",
+      "at": 0,
+      "meaning": "the first letter of the Greek alphabet, an A in Greek"
+     },
+     {
+      "text": "star outshining the others",
+      "at": 8,
+      "meaning": "in star naming, the brightest star of a constellation takes the first Greek letter"
+     }
+    ],
+    "explanation": {
+     "surface": "A Greek celebrity shines brighter than everyone else.",
+     "definitionFit": "Both senses come from the first Greek letter, which also labels a constellation's brightest star."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +522,46 @@
     "text": "Den's deficiency — no roof",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Den",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no roof",
+       "at": 19,
+       "note": "in a down answer the roof is the top letter, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deficiency",
+       "at": 6,
+       "gives": "DEARTH",
+       "note": "a dearth is a shortage or deficiency"
+      },
+      {
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A den's drawback is that it has no roof.",
+     "walkthrough": "In a down entry the 'roof' is the first letter, so D leaves DEARTH.",
+     "definitionFit": "A fox's burrow, its den, is called an earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roof"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +575,60 @@
     "text": "Soldiers restricted by mist enveloping nearby territory",
     "enumeration": "10"
    },
-   "solution": "FOREGROUND"
+   "solution": "FOREGROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nearby territory",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restricted by",
+         "at": 9,
+         "note": "restricted by means the soldiers are held inside the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mist",
+         "at": 23,
+         "gives": "FOG",
+         "note": "fog is a thick mist"
+        },
+        {
+         "words": "Soldiers",
+         "at": 0,
+         "gives": "RE",
+         "note": "RE is the Royal Engineers, a British army corps"
+        }
+       ]
+      },
+      {
+       "words": "enveloping",
+       "at": 28,
+       "gives": "ROUND",
+       "note": "round, as a preposition, means surrounding or enveloping"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops hemmed in by mist that surrounds the nearby area.",
+     "walkthrough": "'restricted by' puts the soldiers inside the mist; 'enveloping' gives the preposition meaning surrounding.",
+     "definitionFit": "The foreground is the part of a scene nearest the viewer, the closest ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enveloping"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +642,51 @@
     "text": "Incentive to knock time off sprint",
     "enumeration": "4"
    },
-   "solution": "SPUR"
+   "solution": "SPUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Incentive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "knock",
+       "at": 13,
+       "note": "to knock something off is to remove it, so a letter is taken away"
+      },
+      {
+       "text": "off",
+       "at": 24,
+       "note": "off completes the phrase knock off, meaning the letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sprint",
+       "at": 28,
+       "gives": "SPURT",
+       "note": "a spurt is a short sprint"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner is encouraged to cut time off a sprint.",
+     "walkthrough": "'knock ... off' removes T from SPURT.",
+     "definitionFit": "A spur is a goad, so figuratively an incentive or stimulus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knock"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +700,46 @@
     "text": "Bird by a railway — it's a sort of finch",
     "enumeration": "6"
    },
-   "solution": "CANARY"
+   "solution": "CANARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sort of finch",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "CAN",
+       "note": "bird is slang for prison, and so is can"
+      },
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      },
+      {
+       "words": "railway",
+       "at": 10,
+       "gives": "RY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird beside a railway line turns out to be a type of finch.",
+     "walkthrough": "'Bird' is prison slang here (doing bird), not the animal.",
+     "definitionFit": "The yellow cage bird is a member of the finch family, native to the Atlantic islands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +759,48 @@
      }
     ]
    },
-   "solution": "HEATRASH"
+   "solution": "HEATRASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "skin complaint",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The man",
+       "at": 0,
+       "gives": "HE",
+       "note": "he refers to a man"
+      },
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "bull",
+       "at": 19,
+       "gives": "TRASH",
+       "note": "bull means nonsense, as does trash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who touches a bull comes out in a skin condition.",
+     "walkthrough": "'bull' is the slang for nonsense, not the animal.",
+     "definitionFit": "Prickly heat, an itchy rash brought on by hot weather, is a skin complaint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bull"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +820,41 @@
      }
     ]
    },
-   "solution": "SAUSAGEMEAT"
+   "solution": "SAUSAGEMEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Food ingredient",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could make",
+       "at": 21,
+       "note": "could make means these letters can be formed into something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gateau a mess",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that might turn a gateau into a mess.",
+     "walkthrough": "'could make' rearranges GATEAU A MESS.",
+     "definitionFit": "Minced seasoned meat used to fill sausages or stuffing is a cooking ingredient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +868,45 @@
     "text": "Something planted in ground is said to bring this yield",
     "enumeration": "4"
    },
-   "solution": "CEDE"
+   "solution": "CEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yield",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CEDE",
+     "indicators": [
+      {
+       "text": "is said",
+       "at": 28,
+       "note": "is said signals that the word is spoken aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something planted in ground",
+       "at": 0,
+       "gives": "SEED",
+       "note": "a seed is something planted in soil"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something planted in soil is said to give a crop.",
+     "walkthrough": "'yield' seems to belong to the crop picture, but it is the verb meaning give way.",
+     "definitionFit": "To cede is to give up or surrender, which is a sense of yield."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "yield"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +920,58 @@
     "text": "Far end of the mine has gas in outer layer",
     "enumeration": "10"
    },
-   "solution": "EPITHELIUM"
+   "solution": "EPITHELIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outer layer",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Far end of",
+         "at": 0,
+         "note": "far end of picks the last letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "mine",
+       "at": 15,
+       "gives": "PIT",
+       "note": "a pit is a mine"
+      },
+      {
+       "words": "gas",
+       "at": 24,
+       "gives": "HELIUM",
+       "note": "helium is a gas"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deep in a mine there is gas.",
+     "walkthrough": "'Far end of the' gives E.",
+     "definitionFit": "Epithelium is the tissue forming the surface layer of the body and organs, an outer layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "layer"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +985,35 @@
     "text": "Craft displayed here may be brilliant",
     "enumeration": "9"
    },
-   "solution": "LIGHTSHIP"
+   "solution": "LIGHTSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Craft displayed here may be brilliant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Craft displayed here may be brilliant",
+       "at": 0,
+       "note": "read as a vessel moored as a beacon: the craft that is shining here shows bright lamps to warn others"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A showcase where craftwork may be excellent.",
+     "definitionFit": "A moored vessel carrying a beacon to guide ships is a brilliant craft, bright rather than clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brilliant"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1027,48 @@
     "text": "It's good, being in Europe? That's uncertain",
     "enumeration": "10"
    },
-   "solution": "CONTINGENT"
+   "solution": "CONTINGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "uncertain",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being in",
+       "at": 11,
+       "note": "being in means one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Europe",
+       "at": 20,
+       "gives": "CONTINENT",
+       "note": "the Continent is the British name for mainland Europe"
+      },
+      {
+       "words": "good",
+       "at": 5,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is it good to be in Europe? That is doubtful.",
+     "walkthrough": "'being in' puts G inside CONTINENT, which is what British speakers call mainland Europe.",
+     "definitionFit": "Contingent means dependent on chance or on something else, hence uncertain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Europe"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1082,78 @@
     "text": "Excellent black chap, set up to protect one African country",
     "enumeration": "7"
    },
-   "solution": "NAMIBIA"
+   "solution": "NAMIBIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African country",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to protect",
+       "at": 29,
+       "note": "to protect means these pieces surround the letter for one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 22,
+         "note": "in a down answer, set up means the letters are read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Excellent",
+           "at": 0,
+           "gives": "AI",
+           "note": "A1 means first-class, written AI"
+          },
+          {
+           "words": "black",
+           "at": 10,
+           "gives": "B",
+           "note": "B is the abbreviation for black, as on pencils"
+          },
+          {
+           "words": "chap",
+           "at": 16,
+           "gives": "MAN",
+           "note": "a man is a chap"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 40,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine black man stood up to defend an African country.",
+     "walkthrough": "'to protect' puts I between AIB and MAN; 'set up' then turns AIBIMAN upwards.",
+     "definitionFit": "Namibia is a country in south-western Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protect"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1167,49 @@
     "text": "One keeping any number in bird?",
     "enumeration": "7"
    },
-   "solution": "TURNKEY"
+   "solution": "TURNKEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One keeping",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in means the number letter goes inside the bird"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bird",
+       "at": 26,
+       "gives": "TURKEY",
+       "note": "a turkey is a bird"
+      },
+      {
+       "words": "any number",
+       "at": 12,
+       "gives": "N",
+       "note": "N stands for an indefinite number in maths"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a number of birds.",
+     "walkthrough": "'One keeping' means a jailer, who keeps prisoners.",
+     "definitionFit": "A turnkey is a jailer, one who keeps prisoners locked in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keeping"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1223,45 @@
     "text": "End journey by a lake",
     "enumeration": "4"
    },
-   "solution": "GOAL"
+   "solution": "GOAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "journey",
+       "at": 4,
+       "gives": "GO",
+       "note": "to go is to journey"
+      },
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      },
+      {
+       "words": "lake",
+       "at": 17,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journey finishes beside a lake.",
+     "definitionFit": "A goal is an aim or objective, an end to be reached."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1275,61 @@
     "text": "We left — theatre production not entirely appreciated",
     "enumeration": "8"
    },
-   "solution": "WELCOMED"
+   "solution": "WELCOMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appreciated",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "We",
+       "at": 0,
+       "gives": "WE"
+      },
+      {
+       "words": "left",
+       "at": 3,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "at": 29,
+         "note": "not entirely means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theatre production",
+         "at": 10,
+         "gives": "COMEDY",
+         "note": "a comedy is a theatre production"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We walked out of a show that was not entirely enjoyed.",
+     "walkthrough": "'not entirely' trims the Y from COMEDY.",
+     "definitionFit": "If something was welcomed it was received gladly, that is, appreciated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1343,42 @@
     "text": "Water may have drained from them? Plug is required",
     "enumeration": "5"
    },
-   "solution": "WADIS"
+   "solution": "WADIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Water may have drained from them?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plug",
+       "at": 34,
+       "gives": "WAD",
+       "note": "a wad is a plug of material"
+      },
+      {
+       "words": "is",
+       "at": 39,
+       "gives": "IS",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water may drain away, so a plug is needed.",
+     "walkthrough": "'drained' suggests a sink, but the definition means dry river beds.",
+     "definitionFit": "Wadis are desert watercourses that are dry except in the rainy season, so water has drained from them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Plug"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1398,54 @@
      }
     ]
    },
-   "solution": "LAPAZ"
+   "solution": "LAPAZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "S. American city",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upsetting",
+       "at": 19,
+       "note": "in a down answer, upsetting means the letters are turned upside down, read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Eliminate",
+         "at": 0,
+         "gives": "ZAP",
+         "note": "to zap is to destroy or eliminate"
+        },
+        {
+         "words": "gangster",
+         "at": 10,
+         "gives": "AL",
+         "note": "Al Capone was the archetypal gangster"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wiping out a gangster upsets a South American city.",
+     "walkthrough": "'upsetting' turns ZAPAL to give the answer.",
+     "definitionFit": "La Paz is the seat of government of Bolivia, in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1459,43 @@
     "text": "Right beast!",
     "enumeration": "6"
    },
-   "solution": "ROTTER"
+   "solution": "ROTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Right beast!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "words": "beast",
+       "at": 6,
+       "gives": "OTTER",
+       "note": "an otter is a beast"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An exclamation calling someone a real brute.",
+     "walkthrough": "The whole clue is the definition: 'right beast!' is a cry about a scoundrel.",
+     "definitionFit": "A cad or scoundrel is a rotter, the sort one might call a right beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beast"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1509,40 @@
     "text": "Drug detected in underground operation",
     "enumeration": "4"
    },
-   "solution": "DOPE"
+   "solution": "DOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "detected in",
+       "at": 5,
+       "note": "detected in means the answer is found inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "underground operation",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs were found in an undercover operation.",
+     "definitionFit": "Dope is slang for a drug, especially cannabis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detected"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1562,42 @@
      }
     ]
    },
-   "solution": "BLACKSHEEP"
+   "solution": "BLACKSHEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ostracised family member",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Has nothing to do with",
+       "at": 0,
+       "gives": "BLACKS",
+       "note": "to black something is to boycott it, to have nothing to do with it"
+      },
+      {
+       "words": "Uriah",
+       "at": 23,
+       "gives": "HEEP",
+       "note": "Uriah Heep is the fawning clerk in Dickens's David Copperfield"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family shuns Uriah, its outcast relation.",
+     "walkthrough": "'black' is the trade-union verb meaning to boycott.",
+     "definitionFit": "The idiom names the disgraced member of a family whom the rest disown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Uriah"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1611,45 @@
     "text": "Zany ruse — it is concocted to get power",
     "enumeration": "10"
    },
-   "solution": "SUZERAINTY"
+   "solution": "SUZERAINTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "power",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "is concocted",
+       "at": 15,
+       "note": "concocted means made up from ingredients, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Zany ruse",
+       "at": 0
+      },
+      {
+       "words": "it",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild trick is devised to seize power.",
+     "walkthrough": "'is concocted' rearranges ZANY RUSE IT.",
+     "definitionFit": "Suzerainty is sovereign control over a dependent state, a kind of power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Zany"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1663,32 @@
     "text": "Head chef's preparation",
     "enumeration": "4"
    },
-   "solution": "PATE"
+   "solution": "PATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0,
+      "meaning": "an old word for the head, especially the crown"
+     },
+     {
+      "text": "chef's preparation",
+      "at": 5,
+      "meaning": "pâté is a spread of minced meat or fish made by a cook"
+     }
+    ],
+    "spelling": "PÂTÉ",
+    "explanation": {
+     "surface": "A head chef's dish.",
+     "definitionFit": "Both senses: the crown of the head, and a paste of minced liver or meat prepared by a chef."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Head"
+    }
+   }
   }
  ]
 }
