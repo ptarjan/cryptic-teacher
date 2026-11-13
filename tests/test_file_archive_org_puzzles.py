@@ -3517,6 +3517,8 @@ def _final(paper):
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
     if paper in f._FT_HEADINGS_FIX:
         return f._FT_HEADINGS_FIX[paper][2]
+    if paper in f._INDEPENDENT_DEDUP_FIX:
+        return f._INDEPENDENT_DEDUP_FIX[paper][2]
     if paper in f._INDEPENDENT_HEADINGS_FIX:
         return f._INDEPENDENT_HEADINGS_FIX[paper][2]
     if paper in f._TELEGRAPH_SOLUTION_FIX:
@@ -3605,7 +3607,7 @@ check("the special-title fix pins every paper but the Gale Sunday Telegraph over
        sorted(set(f.FILERS) - set(f._SPECIAL_TITLE_FIX)) == ["galesundaytelegraph"],
        not f.scan_current({"edition": "GaleSundayTelegraph2000UKEnglish/2000-12-31", "scanKey": "298202f644768e5f",
                            "filesHash": "h", "scan": {}}, "h"),
-       f.solution_key() == "17927db190a32678"])
+       f.solution_key() == "432a5818529a9b11"])
 check("the Sunday Telegraph's title reads 'Prize Puzzle No 2,061' and 'Two-into-One Crossword No 1,234'; its holiday "
       "specials are numberless titles (SUNDAY_TEL_SPECIAL), 'Cryplic' misread included, never a news line",
       [2061, 1234, True, True, True, False, False],
@@ -3622,8 +3624,8 @@ check("the Sunday Times's winners-entry refusal (SUNDAY_TIMES_TITLE) chains the 
       [True, True, True, True, True, True],
       [all(f.CORPUS_KEYS[o] == {"galesundaytimes": f.scan_key(f.GALE_SUNDAY_TIMES)} for o in f._WINNERS_TITLE_FIX["galesundaytimes"][:2]),
        all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)} for o in f._ZEROS_OLD),
-       f._SOLUTION_PINS["8e4b770296908774"] == "17927db190a32678",
-       f._SOLUTION_PINS["e8b1229ab48f7223"] == "17927db190a32678" and f._SOLVED_PINS["5310567b45418049"] == "050e93ff674ff62c",
+       f._SOLUTION_PINS["8e4b770296908774"] == "432a5818529a9b11",
+       f._SOLUTION_PINS["e8b1229ab48f7223"] == "432a5818529a9b11" and f._SOLVED_PINS["5310567b45418049"] == "050e93ff674ff62c",
        f._SOLVED_PINS["113156e3aaee30b5"] == "050e93ff674ff62c",
        f.zeros_read("#701o") == "#7010" if hasattr(f, "zeros_read") else __import__("clue_text").zeros_read("#701O") == "#7010"])
 # An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
@@ -4934,7 +4936,7 @@ check("the Sunday series' provenance rows and their solution and solved pins cha
       (True, True, True, True),
       (("sundaytel", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
        ("indysunday", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
-       f._SOLUTION_PINS["dcddf269a45bb142"] == "17927db190a32678",
+       f._SOLUTION_PINS["dcddf269a45bb142"] == "432a5818529a9b11",
        f._SOLVED_PINS["4237a057c8a24f5e"] == "050e93ff674ff62c"))
 
 # The Gale Sunday Times's 1987-92 title: "THE SUNDAY TIMES Crossword" over "No 3217" (a line of its own).
@@ -5667,7 +5669,7 @@ check("sunday_tel_headings links a COMPETITION No. N WINNERS & SOLUTION heading 
        len(f.list_answers(_sl_es, [_sl_bad])[0])))
 check("SUNDAY_LISTED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, queued before SUNDAY_SIDES; its solution key "
       "stands pinned to the one before",
-      (2, True, True, True, True, True, "17927db190a32678"),
+      (2, True, True, True, True, True, "432a5818529a9b11"),
       (f.RANKS[f.SUNDAY_LISTED], f.SUNDAY_LISTED in f.SOLUTION_FIXES,
        f.SUNDAY_LISTED in __import__("edition_queue").LOW_ASK, f.SUNDAY_LISTED in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.SUNDAY_LISTED),

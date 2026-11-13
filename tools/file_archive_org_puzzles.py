@@ -4725,6 +4725,13 @@ def independent_headings(lines, titles=()):
         if m:
             puzzles.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws), None))
     puzzles += independent_bare_titles(lines)
+    seen = set()
+    once = []
+    for p in puzzles:
+        if p[0] not in seen:
+            seen.add(p[0])
+            once.append(p)
+    puzzles = once
     if titles and len(titles) <= 3:
         have = {n for n, _ in solutions}
         solutions += [(n, b) for n, b in independent_day_solutions(lines, titles) if n not in have]
@@ -11906,6 +11913,17 @@ for _paper, _pins in _INDEPENDENT_HEADINGS_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, scan_key, scan_key after)} before independent_headings returned each title once (it
+#: returned a title found with its setter twice): only the Gale Independent's headings read otherwise, so its scans
+#: stand under the old key (the first key twice: it has no sized twin pinned).
+_INDEPENDENT_DEDUP_FIX = {
+    "galeindependent": ("83802ddaf041fd1b", "83802ddaf041fd1b", "6bce5f7f3df95519"),
+}
+for _paper, _pins in _INDEPENDENT_DEDUP_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({_pins[0]: {_paper: _pins[2]}})
 #: {paper key: (scan_key, sized_scan_key, scan_key after)} before gale_ft_headings read the title and solution heading
 #: the Chinese reader prints glued ("CROSSWORDNo.11,738SetbyCINCINNUS", "Solution11,726") and added the generic
 #: solution_headings: only the Gale FT's pages read otherwise, so every other paper's scans stand, and the Gale FT's old
@@ -12035,15 +12053,15 @@ _SOLUTION_KEY = []
 #: only a grid every ink box was refused for: those rows are due once as REFUSED_GRID. So is
 #: name_only (a surname cmudict alone lists decodes only where every cell is sure: TROEGER), which
 #: only takes fewer lights: a row read before it reads no more for it.
-_SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved into clue_text: the same read
+_SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved into clue_text: the same read
                   # SUNDAY_TIMES_TITLE refuses a winners entry ("No. 3530:"; back in after 2e0de5d8d00 backed it out):
                   # a scan's title, no solution's reading moves. The scan key lands on _JOINED_TITLE_FIX's own.
-                  "e8b1229ab48f7223": "17927db190a32678",
+                  "e8b1229ab48f7223": "432a5818529a9b11",
                   # Paper.special (a numberless holiday title, ocr_headings and SUNDAY_TEL_TITLE): a scan's title only.
-                  "f34293ba4baec5bb": "17927db190a32678",
+                  "f34293ba4baec5bb": "432a5818529a9b11",
                   # _list_answers_only (a Gale Sunday Telegraph held puzzle answered from its text lists, SUNDAY_LISTED) and
                   # SUNDAY_TEL_WINNERS: no solution grid's reading moves.
-                  "802de5c6f9a5f5f9": "17927db190a32678",
+                  "802de5c6f9a5f5f9": "432a5818529a9b11",
                   "5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
@@ -12091,17 +12109,19 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   "ef1346a335efda02": "f6a3d293c491a4b0",
                   # GALE_SUNDAY_TELEGRAPH and GALE_INDY_SUNDAY (two new Papers, their title readers): the
                   # Papers are reached by read_solution, no existing paper's reading moves.
-                  "dcddf269a45bb142": "17927db190a32678",
+                  "dcddf269a45bb142": "432a5818529a9b11",
                   # gale_telegraph_headings' generic solution headings (_TELEGRAPH_SOLUTION_FIX): a scan's headings
                   # only; due once as TELEGRAPH_NEXT_DAY.
-                  "2254ad7691205ac7": "17927db190a32678",
+                  "2254ad7691205ac7": "432a5818529a9b11",
                   # independent_headings' glued titles and weekday-only solution headings (_INDEPENDENT_HEADINGS_FIX):
                   # a scan's headings only; due once as INDEPENDENT_HEADINGS.
-                  "9527e5bdf21d0b19": "17927db190a32678", "48387bd5dbb700cc": "17927db190a32678",
-                  "63d2303b9df9ee9f": "17927db190a32678",
+                  "9527e5bdf21d0b19": "432a5818529a9b11", "48387bd5dbb700cc": "432a5818529a9b11",
+                  "63d2303b9df9ee9f": "432a5818529a9b11",
                   # gale_ft_headings' glued titles and generic solution headings (_FT_HEADINGS_FIX): a scan's headings
                   # only; due once as FT_HEADINGS.
-                  "bb5517b5a90821a8": "17927db190a32678"}
+                  "bb5517b5a90821a8": "432a5818529a9b11",
+                  # independent_headings' one entry a number (_INDEPENDENT_DEDUP_FIX): a scan's headings only.
+                  "17927db190a32678": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
