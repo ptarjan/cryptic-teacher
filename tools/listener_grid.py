@@ -3,7 +3,6 @@
 squares, its bars, and the clue numbers they give.
 
     python3 tools/listener_grid.py PAGE.png [...]          # print each grid found
-    python3 tools/listener_grid.py --check PAGE.png WORDS.json   # numbers against the clue lists
     python3 tools/listener_grid.py --fit PAGE.png [...]    # bars fitted to the printed cell numbers
 
 The 1930s Listener prints a barred grid (thick bars between cells) or a
@@ -48,14 +47,11 @@ no number both readers read disagrees and they read at least EXACT_COVER of
 the lights.
 
 For the filer: numbers(rows) is {"across": [...], "down": [...]}, to match
-against gale_listener.page_columns' lists (clue_numbers(words)); match(rows,
-words) says whether they agree. The grid and its clues may be on different
-pages ("For Clues see page 340").
+against gale_listener.page_columns' lists. The grid and its clues may be on
+different pages ("For Clues see page 340").
 """
-import json
 import re
 import sys
-from pathlib import Path
 
 import numpy as np
 from PIL import Image
@@ -390,34 +386,6 @@ def numbers(rows):
     for n, d in rg.light_cells(rows):
         out[d].append(n)
     return {d: sorted(v) for d, v in out.items()}
-
-
-def clue_numbers(words):
-    """{"across": [...], "down": [...]} the clue numbers gale_listener's
-    clue reader finds in a page's words, or None without two lists."""
-    import archive_org_listener as al
-    import gale_listener as gl
-    cols = gl.page_columns([tuple(w) for w in words])
-    if not cols:
-        return None
-    out = {}
-    for d, lines in zip(("across", "down"), cols):
-        out[d] = sorted({int(m.group(1)) for line in lines if (m := al.LINE_CLUE.match(line[4]))})
-    return out
-
-
-def match(rows, words):
-    """(agrees, detail): do the grid's numbers equal the clue lists'? The
-    detail's "clues only" are numbers read in a list that the grid has no
-    such light for: a misread bar or a misread clue number. "grid only"
-    lights are often clues the list reader dropped."""
-    want = clue_numbers(words)
-    got = numbers(rows)
-    if want is None:
-        return False, "no clue lists read"
-    diff = {d: {"grid only": sorted(set(got[d]) - set(want[d])), "clues only": sorted(set(want[d]) - set(got[d]))}
-            for d in got}
-    return got == want, diff
 
 
 # ------------------------------------------------------------ printed numbers
@@ -764,22 +732,13 @@ def main(argv):
                 for row in f["rows"]:
                     print(" ", row)
         return
-    check = argv and argv[0] == "--check"
-    if check:
-        path, words = argv[1], json.loads(Path(argv[2]).read_text())
-        paths = [path]
-    else:
-        paths = argv
-    for p in paths:
+    for p in argv:
         for g in read_page(p):
             rows = g["rows"]
             size = f"{len(rows)}x{len(rows[0])}" if rows else "-"
             print(p, g["box"], size, f"filled {g['filled']:.2f}", g["why"] or "")
             for row in rows or ():
                 print(" ", row)
-            if rows and check:
-                ok, diff = match(rows, words)
-                print("  numbers", "AGREE" if ok else "DIFFER", re.sub(r"'", "", json.dumps(diff)))
 
 
 if __name__ == "__main__":
