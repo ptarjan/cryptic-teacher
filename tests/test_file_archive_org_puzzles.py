@@ -4784,6 +4784,13 @@ check("the Gale Telegraph's old scans of a title and no heading are due again (a
        f.telegraph_host({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-13"}),
        f.telegraph_host({**_tgrow, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
        f.telegraph_host({**_tgrow, "scan": {"puzzles": [{"number": 22961}], "solutions": [{"number": 22960}]}})])
+check("a Mon-Fri Gale Telegraph puzzle with no solution read is due TELEGRAPH_HOSTED (read before it, ranked), not a "
+      "Saturday's, a 1979 one or one read since",
+      [True, True, False, False, False],
+      [f.telegraph_hosted_due({**_tgrow, "readAt": "2026-11-13T16:00:00+00:00"}), f.TELEGRAPH_HOSTED in f.RANKS,
+       f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"}),
+       f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-12"}),
+       f.telegraph_hosted_due({**_tgrow, "readAt": "2026-11-14T16:00:00+00:00"})])
 
 # The Gale Independent's readers that run words together read its title glued, and its day-before solution is headed by
 # the weekday alone ("Wednesday's solution"), so the number is the title's less a lag.
