@@ -5198,6 +5198,21 @@ check("SUNDAY_LEFT is due for a 1960-67 Sunday Times row refused no reading pars
        f.RANKS[f.SUNDAY_LEFT] == 2 and f.SUNDAY_LEFT in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_LEFT) is not None
        and f.SUNDAY_LEFT in _eq_bp.FIX_LANDED and f.SUNDAY_LEFT in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1980-84 page's ACROSS band over its grid with the DOWN column right of it (sunday_times_band):
+# SUNDAY_BAND is due for a 1980-84 row refused "no reading parses" (or written incomplete with a blank clue), once.
+check("SUNDAY_BAND is due for a 1980-84 Sunday Times row refused no reading parses, read before it, once; no other year "
+      "or paper; ranked, evidence, fix-landed, unfiled-first; glued clue numbers unglued across a gutter",
+      [True, False, False, False, True, "12 Ted and the rest confused 25 Sanctimonious", True],
+      [f.sunday_band_due({**_sgrow, "edition": "GaleSundayTimes1980UKEnglish/1980-03-09"}),
+       f.sunday_band_due({**_sgrow, "edition": "GaleSundayTimes1980UKEnglish/1980-03-09", "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_band_due(_sgrow),
+       f.sunday_band_due({**_sgrow, "edition": "GaleTimes1982UKEnglish/1982-05-15"}),
+       f.sunday_band_due({**_sgrow, "edition": "GaleSundayTimes1983UKEnglish/1983-05-15",
+                          "verdicts": [{"number": 1, "wrote": True, "complete": False, "blank": {"3-across": "x"}}]}),
+       f.band_unglued([(690, 0, 1429, 10, "12 Ted and the rest confused25 Sanctimonious")], [1064])[0][4],
+       f.RANKS[f.SUNDAY_BAND] == 2 and f.SUNDAY_BAND in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_BAND) is not None
+       and f.SUNDAY_BAND in _eq_bp.FIX_LANDED and f.SUNDAY_BAND in _eq_bp.UNFILED_FIRST])
+
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
 _ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]
