@@ -3399,6 +3399,14 @@ class _Poller:
                 self.planned_took[0] = self.plan_done - self.planned
                 self.plan_at = time.time()
                 keep_plan(self.plan_file, self.plan_key, box["plan"], self.plan_at, self.planned_took[0])
+            else:
+                # The scans and reads first, fetches next: a fetch queue's whole plan can outlast the next reload
+                # (none was kept 14:55-16:20 on 11-13, so each reload started nothing until its first plan), so the
+                # partial one is kept too, with no fetches: a run starting from it never takes it as its whole plan.
+                try:
+                    keep_plan(self.plan_file, self.plan_key, box["plan"], time.time(), 0.0)
+                except OSError:
+                    pass
             for n in box["notes"]:
                 log(n)
             log(f"planned: {len(self.scans)} scans, {len(self.reads)} reads"
@@ -4434,7 +4442,7 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
                 self.planned = time.monotonic()
                 log(f"started from the last plan{' (made by other code: the whole plan follows)' if other_code else ''}: "
                     f"{len(self.scans)} scans, {len(self.reads)} reads, {len(self.fetches)} fetches")
-                if not other_code and time.time() - self.plan_at < plan_reuse:
+                if not other_code and (self.fetches or not self.fetch) and time.time() - self.plan_at < plan_reuse:
                     # Young enough to stand as made: the next whole plan comes when it
                     # would have without the re-exec (fresh() already looks for new
                     # editions every FRESH_POLL), and the image may re-exec again at once.
