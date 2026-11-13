@@ -1594,7 +1594,11 @@ def hold_refusal_rereads(scans, reads, out=None):
     # Nor are the Listener's: read on local OCR in their own pool (LISTENER_WORKERS), they ask no VLM, so
     # holding them saved the VLM nothing. Held, its 619 pages read before the paragraph-list fixes
     # (CLUES_FIX) waited behind 2,858 never-read ones (~110 h of its pool, 10-24), and no Listener filed.
+    # Nor are the named fixes' (reason in FIX_LANDED): Paul 11-13, "Things you're fixing should be at the front
+    # of the queue". 3,548 of them (SIDES_READ, INDY_LINKS, SUNDAY_GRID, ...) were held behind 23,941 never-read
+    # units, 0 in the plan. Only the generic "... cured since" / "refused X before its fix" rereads are held.
     held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
+            and not (t[3]["reason"] in FIX_LANDED and not t[3]["reason"].endswith((" before its fix", " cured since")))
             and t[3]["paper"] != "listener" and (t[3]["paper"] not in named or canary_failed(t[3]))]
     if not held:
         return scans, reads
