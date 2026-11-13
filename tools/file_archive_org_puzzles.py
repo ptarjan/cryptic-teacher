@@ -1111,13 +1111,16 @@ def grid_under_clues(img, title):
     if box is None:
         return None
     box = (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
-    if shaped_on(img, box):
+    # An ink the crop's foot cuts off (2000-12-14: the grid 4670-5270, the crop to 5177) is no whole grid.
+    if shaped_on(img, box) and box[3] < crop[3] - 3 and box[2] < crop[2] - 3:
         return box
     reach = CLUES_ABOVE_SPAN[0] * img.width / SCAN_WIDTH
     under = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b))
              if y1 <= g[1] <= y1 + CLUES_ABOVE_SPAN[1] * img.width / SCAN_WIDTH
              and g[0] >= x0 - reach and g[2] <= x1 + reach]
-    return min(under, key=lambda g: g[1]) if under else box
+    # The one standing under the title's left edge first (the Gale Telegraph 2000 weekday grid at the page's
+    # edge, 2000-10-14: another square ink 500px right of it, nearer the title), else the topmost.
+    return min(under, key=lambda g: (abs(g[0] - x0) > 0.3 * (g[2] - g[0]), g[1])) if under else box
 
 
 #: How far right of and below the title of a clues-above puzzle its grid
@@ -1328,8 +1331,10 @@ def sunday_right_due(row):
 SIDES_READ = "Gale Telegraph page refused no reading parses, its clue columns either side of its grid read since"
 #: Moved 11-13 (the 209 Telegraph "no reading parses" rows of 11-09 10:00:17 were read by a process still holding
 #: the old code; across_left came since): Saturdays from 1998 are
-#: due again, once, SIDES_READ's rank and evidence unchanged.
-REREAD_SIDES_READ = "2026-11-13T20:00:00+00:00"
+#: due again, once, SIDES_READ's rank and evidence unchanged; so are the 2000 weekdays whose grid went unfound
+#: (grid_under_clues: the clues-above span cut the grid's foot).
+REREAD_SIDES_READ = "2026-11-13T20:30:00+00:00"
+SIDES_WEEKDAY = (datetime.date(2000, 1, 1), datetime.date(2000, 12, 31))
 SIDES_FROM = datetime.date(1998, 1, 1)
 
 
@@ -1343,7 +1348,13 @@ def sides_due(row):
         day = datetime.date.fromisoformat(Path(rel).name[:10])
     except ValueError:
         return False
-    # Only a Saturday of the print (the weekday pages of 2000 set their clues right of the grid, not either side).
+    # A 2000 weekday page whose grid was not found (the span of grid_under_clues cut the grid's foot, or took a
+    # square ink off to the right: "the white cells span 13 rows", "the largest ink patch is 978x558").
+    if SIDES_WEEKDAY[0] <= day <= SIDES_WEEKDAY[1]:
+        if any(str(v.get("imageUnread") or "").startswith(("the white cells span", "the largest ink patch"))
+               for v in row.get("verdicts", ())):
+            return True
+    # Otherwise only a Saturday of the print (the weekday pages of 2000 set their clues right of the grid).
     if day.weekday() != 5 or day < SIDES_FROM:
         return False
     return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))

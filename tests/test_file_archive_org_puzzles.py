@@ -4585,14 +4585,38 @@ check("sides_columns: a Gale Telegraph title on its grid's top with a column's w
        f.sides_columns(_SidesImg, _sg, (219, 2500, 744, 2540), 204, f.GALE_TELEGRAPH),
        f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 500, f.GALE_TELEGRAPH),
        f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.TELEGRAPH)])
-check("sides_due: a Gale Telegraph Saturday from 1998 refused no reading parses, read before the stamp",
-      [True, False, True],
+check("sides_due: a Gale Telegraph Saturday from 1998 refused no reading parses, read before the stamp, and a 2000 "
+      "weekday whose grid went unfound",
+      [True, False, True, True, False],
       [f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
                      "verdicts": [{"refused": "no reading parses"}]}),
        f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-29", "readAt": "2026-11-09T04:55:18+00:00",
                      "verdicts": [{"refused": "no reading parses"}]}),
        f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-09-25", "readAt": "2026-11-09T04:55:18+00:00",
-                     "verdicts": [{"refused": "no reading parses"}]})])
+                     "verdicts": [{"refused": "no reading parses"}]}),
+       f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-14", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses",
+                                   "imageUnread": "the white cells span 11 rows and 13 columns"}]}),
+       f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-09-24", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses",
+                                   "imageUnread": "the white cells span 11 rows and 13 columns"}]})])
+
+
+# A Gale Telegraph 2000 weekday page: the grid at the page's left edge 1250px under the title, the crop of the
+# clues-above span ending in it (2000-12-14), and a square ink nearer the title but off to its right (2000-10-14).
+_wk = Image.new("L", (f.SCAN_WIDTH, 6200), 255)
+_lattice(_wk, 200, 4670, 576, 576)
+_wk_box = f.grid_under_clues(_wk, (211, 3417, 662, 3477))
+_lattice(_wk, 700, 3800, 576, 576)
+_wk_near = f.grid_under_clues(_wk, (211, 3417, 662, 3477))
+check("grid_under_clues: a grid the span's foot cuts is taken whole; of two grids the one under the title's left edge",
+      (True, True), (_wk_box is not None and _wk_box[3] - _wk_box[1] >= 570,
+                     _wk_near is not None and _wk_near[0] < 260 and _wk_near[3] - _wk_near[1] >= 570))
+_ac = Image.new("L", (3296, 5000), 255)
+check("across_left: nothing for a paper that is not the Gale Telegraph, or a title far over the grid",
+      (None, None),
+      (f.across_left(_ac, (800, 3000, 1500, 3700), (800, 2900, 1500, 2950), f.TIMES, Path("/nonexistent/a.json")),
+       f.across_left(_ac, (800, 3000, 1500, 3700), (800, 2000, 1500, 2050), f.GALE_TELEGRAPH, Path("/nonexistent/a.json"))))
 
 
 def checked_plan(paper, cache):
