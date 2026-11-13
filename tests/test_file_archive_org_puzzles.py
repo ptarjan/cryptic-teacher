@@ -443,6 +443,7 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._WORDS_CACHE_FIX[gt.key][:2],
                                                                       *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
                                                                       *f._PRIZE_HEADINGS_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_SOLUTION_FIX[gt.key][:2],
                                                                       *f._BAND_WIDTH_FIX[gt.key][:2],
                                                                       *f._GRID_CAP_FIX[gt.key][:2],
                                                                       *f._NEG_EXPECTED_FIX[gt.key][:2],
@@ -3514,6 +3515,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TELEGRAPH_SOLUTION_FIX:
+        return f._TELEGRAPH_SOLUTION_FIX[paper][2]
     if paper in f._WINNERS_BAND_FIX:
         return f._WINNERS_BAND_FIX[paper][2]
     return f._SPECIAL_TITLE_FIX[paper][2] if paper in f._SPECIAL_TITLE_FIX else f._LONE_TITLE_FIX[paper][2]
@@ -4750,6 +4753,26 @@ check("an old Telegraph \"No. 15,301 ACROSS\" title and a Saturday's PRIZE title
       [15301, 20508],
       sorted(n for n, _, _ in f.gale_telegraph_headings([line("No. 15,301 ACROSS", 237, 3247),
                                                           line("PRIZE CROSSWORD / 20,508", 483, 2605)])[0]))
+
+# A Gale Telegraph next-day solution heading its OCR garbled ("Sohudon No.22,9e0") is read as the number the title
+# says it follows; with no title read only the strict heading stands.
+check("a garbled Gale Telegraph solution heading is linked once a title is read, as its number a lag before it",
+      [[22960], [22960], [], [22960]],
+      [[n for n, _ in f.gale_telegraph_headings([line("Sohudon No.22,9e0", 700, 2605)], [22961])[1]],
+       [n for n, _ in f.gale_telegraph_headings([line("Solutlom No. 22,900", 700, 2605)], [22961])[1]],
+       [n for n, _ in f.gale_telegraph_headings([line("Solutlom No. 22,900", 700, 2605)])[1]],
+       [n for n, _ in f.gale_telegraph_headings([line("SOLUTION No. 22,960", 700, 2605)], [22961])[1]]])
+_tgrow = {"edition": "GaleTelegraph1999UKEnglish/1999-11-11", "inputs": {}, "scanKey": next(iter(f._TELEGRAPH_OLD)),
+          "scan": {"puzzles": [{"number": 22961}], "solutions": []},
+          "verdicts": [{"number": 22960, "complete": False, "solution": None, "grid": "image"}]}
+check("the Gale Telegraph's old scans of a title and no heading are due again (a Mon-Fri puzzle's read too), pinned "
+      "to the new key; a Saturday puzzle, a 1979 page and a scan by the new code stand",
+      [True, True, False, False, False, False],
+      [f.telegraph_host(_tgrow), f.telegraph_next_due({**_tgrow, "read": "2000"}) or f.TELEGRAPH_NEXT_DAY in f.RANKS,
+       f.telegraph_next_due({**_tgrow, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"}),
+       f.telegraph_host({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-13"}),
+       f.telegraph_host({**_tgrow, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
+       f.telegraph_host({**_tgrow, "scan": {"puzzles": [{"number": 22961}], "solutions": [{"number": 22960}]}})])
 
 # The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
 # column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
