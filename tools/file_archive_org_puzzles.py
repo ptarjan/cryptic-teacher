@@ -10424,7 +10424,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, m, None,
                             (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)), None, None, None)
         column = left_column(probe, gbox, heading=PROBE_HEADING)
-    crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
+    # A Beelzebub's clue columns run from over the grid to the page's foot (1996-03-10: x 188-984, y 1928-3460,
+    # the grid 2060-2784), 1.5 grids tall: left_bottom's 0.3 cut every clue past the 18th.
+    crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, img.height if indy_sunday_beside(paper, d, gbox) else left_bottom(gbox)) if beside else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
     # the grid is not the 2014 Times' clues right of it).
