@@ -143,11 +143,16 @@ const wrongLetter = (right) => "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").find((c) =
 
 // Tab to an entry long enough for the cursor tests below (they punch a gap at
 // index 4) and whose answer is published — prize puzzles arrive without one.
+// And not one leg of a linked answer ("See 7"): a linked group is one clue and
+// counts as solved only when every light of it is in, so typing a single leg
+// leaves the scorebar at 0 solved.
+const inGroup = new Set();
+openPuz.entries.forEach((x) => (x.group || []).length > 1 && x.group.forEach((id) => inGroup.add(id)));
 let target = null;
 for (let i = 0; i < openPuz.entries.length && !target; i++) {
   kd(ev("Tab"));
   const e = currentEntry();
-  if (e && e.solution && e.length >= 6) target = e;
+  if (e && e.solution && e.length >= 6 && !e.alsoLeads && !inGroup.has(e.number + "-" + e.direction)) target = e;
 }
 assert(target, "found an entry to type into");
 const answer = target.solution;
