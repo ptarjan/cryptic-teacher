@@ -6,6 +6,10 @@
     -> "full <reason>"                         anything else did (or cannot be told)
     python3 tools/ci_scope.py decide --site BASE  # the same, for pages.yml's build:
                                                SITE_INERT paths do not count either
+    python3 tools/ci_scope.py decide --site --code-ok BASE
+    -> "code <path>"                           as fast, but tools/*.py modules moved too:
+                                               pages.yml then asks tools/cache_warmth.py
+                                               whether its stores still fit that code
     python3 tools/ci_scope.py files BASE      # BASE = last commit whose tests-passed was green
     -> the puzzle files added or modified since BASE, one per line (exit 3 when
        there are more than MAX_FILES: the fast path is for small checks)
@@ -62,19 +66,33 @@ SITE_INERT_FILES = {
 }
 
 
+#: A module of tools/. pages.yml's build path asks with --code-ok: such a
+#: change cannot make the fast path wrong (it skips only warm-up, never a
+#: decision), only slow when it moved the code the row or page store is keyed
+#: on, which tools/cache_warmth.py answers from the stores themselves. Saying
+#: "full" for any of them sent nearly every build down the full path: the base
+#: is the live commit, ~20 minutes behind master, and a tools/ edit lands in
+#: most such windows (run 43385445065: full for tools/fix_shape_notes.py,
+#: which no build step runs).
+TOOLS_MODULE = re.compile(r"tools/[^/]+\.py")
+
+
 def site_inert(path):
     return path.startswith(SITE_INERT_DIRS) or path in SITE_INERT_FILES
 
 
-def decide(changes, base_text=None, head_text=None, site=False):
+def decide(changes, base_text=None, head_text=None, site=False, code_ok=False):
     """("fast", None) or ("full", reason) for `changes`, [(status, path)].
 
-    site: the question is pages.yml's build path, so SITE_INERT paths are skipped."""
+    site: the question is pages.yml's build path, so SITE_INERT paths are skipped.
+    code_ok: a tools/*.py module added, edited or deleted is ("code", path)
+    rather than full, when nothing else makes the answer full."""
     if site:
         changes = [(st, path) for st, path in changes if not site_inert(path)]
     stems = set()
     backlog = None
     rows = set()
+    code = []
     for st, path in changes:
         if path in validate_scope.ENTRY_TABLES and st == "M" and base_text:
             old = base_text(path)
@@ -93,6 +111,8 @@ def decide(changes, base_text=None, head_text=None, site=False):
                 return "full", f"{st} {path}"
         elif path == BACKLOG and st == "M" and base_text:
             backlog = (base_text(path), head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8"))
+        elif code_ok and st in ("A", "M", "D") and TOOLS_MODULE.fullmatch(path):
+            code.append(path)
         else:
             return "full", f"{st} {path}"
     if rows - stems:
@@ -106,6 +126,8 @@ def decide(changes, base_text=None, head_text=None, site=False):
         # A lowered allowance binds a puzzle nobody re-checked if it is not in the diff.
         if lowered - stems:
             return "full", f"{BACKLOG} lowered the allowance of an unchanged puzzle: " + ", ".join(sorted(lowered - stems)[:3])
+    if code:
+        return "code", ", ".join(sorted(code)[:3]) + (f" and {len(code) - 3} more" if len(code) > 3 else "")
     return "fast", None
 
 
@@ -115,9 +137,11 @@ def puzzle_files(changes):
 
 
 def main(argv):
-    site = argv[1:2] == ["--site"] and argv[0] == "decide"
-    if site:
-        argv = [argv[0]] + argv[2:]
+    flags = {a for a in argv[1:] if a in ("--site", "--code-ok")}
+    site = "--site" in flags and argv[:1] == ["decide"]
+    code_ok = site and "--code-ok" in flags
+    if flags:
+        argv = [a for a in argv if a not in flags]
     if len(argv) != 2 or argv[0] not in ("decide", "files"):
         print(__doc__)
         return 2
@@ -133,8 +157,9 @@ def main(argv):
         return 3 if len(files) > MAX_FILES else 0
     print(f"since {base}: {len(changes)} path(s) changed", file=sys.stderr)
     # HEAD from git, not the disk: CI's sparse checkouts leave tools/data out.
-    verdict, why = decide(changes, validate_scope.git_show(base), validate_scope.git_show("HEAD"), site=site)
-    print("fast" if verdict == "fast" else f"full {why}")
+    verdict, why = decide(changes, validate_scope.git_show(base), validate_scope.git_show("HEAD"),
+                          site=site, code_ok=code_ok)
+    print("fast" if verdict == "fast" else f"{verdict} {why}")
     return 0
 
 

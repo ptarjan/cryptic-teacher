@@ -3227,6 +3227,9 @@ def outputs(check=False, shard=None, shards=None, first=False):
         if os.environ.get("GITHUB_OUTPUT"):  # the deploy saves the store after a big render
             with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
                 out.write(f"rendered={len(solved) - reused}\n")
+                # In Save the puzzle pages' cache key, where the next build's
+                # tools/cache_warmth.py reads it back.
+                out.write(f"fingerprint={fp}\n")
         if not check:
             page_cache.save(keep)
     took("the puzzle pages", started)
