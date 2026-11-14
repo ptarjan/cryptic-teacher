@@ -361,6 +361,18 @@ def _does_not_give_edits(node, k, clue=None, late=False):
         new, t = fresh()
         t["gives"] = t["gives"] + "S"
         out.append(new)
+    if leaf(n) and re.search(r"[sS]['’]$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
+            and not n["gives"].upper().endswith("S"):
+        # the plural possessive's S ("Soldiers'" is RES, not RE): the S the join is missing
+        new, t = fresh()
+        t["gives"] = t["gives"] + "S"
+        out.append(new)
+    if leaf(n) and re.fullmatch(r"[A-Za-z]{3,}s", str(n.get("words") or "").strip()) and len(str(n.get("gives") or "")) == 1 \
+            and str(n["gives"]).isalpha():
+        # a plural noun's one-letter abbreviation doubles ([pounds]L is LL, [pages]P is PP)
+        new, t = fresh()
+        t["gives"] = t["gives"] * 2
+        out.append(new)
     if leaf(n) and str(n.get("gives") or "").isalpha() and len(n["gives"]) > 3 and n["gives"].upper().endswith("S") \
             and not re.search(r"['’]s$", str(n.get("words") or "")):
         # a plural S the answer does not have at a join (YARDS + SHIFT for GRAVEYARDSHIFT, OVERS + SEE for
