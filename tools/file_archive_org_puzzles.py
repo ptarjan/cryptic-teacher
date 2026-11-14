@@ -3478,7 +3478,8 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
             text = ""
         line = f"{text} ({enum})" if enum else text
         e["clue"] = enumeration.clue(line, separators=seps.get(lid), missing=not text.strip())
-        if kept := [t for t in (printed or {}).get(lid, ()) if t in text.split()]:
+        # (a word the clue uses twice is kept once: the schema refuses a repeated item)
+        if kept := list(dict.fromkeys(t for t in (printed or {}).get(lid, ()) if t in text.split())):
             e["clue"]["asPrinted"] = kept
         if enum and lid in from_grid and e["clue"].get("enumeration") == str(enum):
             e["clue"]["countFrom"] = "grid"
