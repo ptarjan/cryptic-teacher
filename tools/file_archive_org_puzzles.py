@@ -13184,7 +13184,15 @@ def prize_rescan(paper, key, rel):
 def current_keys(paper):
     """The scanKeys a scan of one of `paper`'s editions stands under."""
     key, sized = scan_key(paper), sized_scan_key(paper)
-    corpus = tuple(k for k, keys in CORPUS_KEYS.items() if keys.get(paper.key) == key)
+    # The pins that name `key` for the paper: worked out once per (paper, key) while CORPUS_KEYS' keys and its
+    # values (by identity: a test swaps one) stand; the scan of every edition asks (~27k a unit start, 3 s).
+    sig = (tuple(CORPUS_KEYS), tuple(map(id, CORPUS_KEYS.values())))
+    memo = _CORPUS_FOR.get((paper.key, key))
+    if memo is None or memo[0] != sig:
+        # (the values are held too: a freed one's id could be a new dict's)
+        memo = _CORPUS_FOR[paper.key, key] = (sig, tuple(k for k, keys in CORPUS_KEYS.items()
+                                                         if keys.get(paper.key) == key), tuple(CORPUS_KEYS.values()))
+    corpus = memo[1]
     hit = _CURRENT_KEYS.get((key, sized, corpus))
     if hit is None:
         hit = _CURRENT_KEYS[(key, sized, corpus)] = frozenset({key, sized, *corpus})
@@ -13194,6 +13202,8 @@ def current_keys(paper):
 #: current_keys by everything it is made of, so a pass's thousands of asks
 #: share one set (a test that moves CORPUS_KEYS gets another).
 _CURRENT_KEYS = {}
+#: {(paper key, scan key): (CORPUS_KEYS' signature then, its pins naming that key)} (current_keys).
+_CORPUS_FOR = {}
 
 
 def rekey_scans(ledger):
@@ -13757,7 +13767,23 @@ def _planned_known(ledger):
     only the lines appended since the last call are parsed (dir_cache.appended,
     whose dict is this thread's own: the planner thread and the queue's main
     thread, via sister_solutions, both read it)."""
-    return dir_cache.appended(ledger, dict, _fold_known)
+    keep = _fold_keep()
+    return dir_cache.appended(ledger, dict, _fold_known, keep=keep)
+
+
+#: Where plan()'s fold of a sister ledger is kept between processes (a unit's sister_solutions would else
+#: parse the ~80 MB Gale ledger, ~4 s of CPU, every start). None (HELD_SERIES_CACHE off) keeps none.
+LEDGER_FOLDS = os.path.expanduser("~/.cache/ledger_folds")
+
+
+def _fold_keep():
+    """(dir, source of the fold's code) for dir_cache.appended's `keep`, or None."""
+    if not HELD_SERIES_CACHE:
+        return None
+    import inspect
+    if not hasattr(_fold_keep, "code"):
+        _fold_keep.code = inspect.getsource(_fold_known) + inspect.getsource(_known_row)
+    return LEDGER_FOLDS, _fold_keep.code
 
 
 def _fold_standing(known, line):

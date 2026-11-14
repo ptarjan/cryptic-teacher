@@ -87,12 +87,54 @@ def listed(d):
         return []
 
 
-def appended(ledger, start, fold):
+#: {appended's key: the byte offset its kept fold (keep) was last loaded from or written at}.
+_KEPT = {}
+#: Bytes of a ledger a kept fold (appended's `keep`) may trail before it is written again.
+KEEP_EVERY = 4 << 20
+
+
+def _keep_path(keep, ledger):
+    """Where appended's kept fold of `ledger` is: `keep` is (dir, the fold's source text), one file per
+    ledger, its name carrying a hash of that text so changed fold code never reads an old one."""
+    import hashlib
+    return os.path.join(keep[0], f"{os.path.basename(ledger)}.{hashlib.sha256(keep[1].encode()).hexdigest()[:12]}.pickle")
+
+
+def _keep_load(path, fh):
+    """(inode, bytes read, tail, acc) of the fold kept at `path`, only while `fh`'s ledger still holds the
+    bytes it was folded from (same inode, at least as long, the same last 64 bytes); else None."""
+    try:
+        with open(path, "rb") as f:
+            ino, done, tail, acc = pickle.load(f)
+        st = os.fstat(fh.fileno())
+        if (ino == st.st_ino and done <= st.st_size and acc is not None
+                and os.pread(fh.fileno(), len(tail), done - len(tail)) == tail):
+            return ino, done, tail, acc
+    except (OSError, EOFError, ValueError, TypeError, AttributeError, pickle.UnpicklingError):
+        pass
+    return None
+
+
+def _keep_save(path, state):
+    tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(tmp, "wb") as f:
+            pickle.dump(state, f, protocol=pickle.HIGHEST_PROTOCOL)
+        os.replace(tmp, path)
+    except OSError:
+        pass
+
+
+def appended(ledger, start, fold, keep=None):
     """fold(acc, line) over each whole line of `ledger` (bytes, no newline)
     into acc = start(), carried from the last call with this `fold` so only
     the lines appended since are folded. A missing ledger is start().
     The acc is this thread's own (keyed by thread), so a caller may iterate
-    it while another thread's call folds into its own."""
+    it while another thread's call folds into its own. `keep`: a dir where
+    the folded acc is also kept between processes (a fresh process starts
+    from it and folds only what was appended since; written again once it
+    trails the ledger by KEEP_EVERY bytes): the acc must pickle."""
     k = (os.fspath(ledger), fold, _thread_key())
     try:
         sst = os.stat(ledger)
@@ -113,6 +155,10 @@ def appended(ledger, start, fold):
         if (acc is None or ino != st.st_ino or st.st_size < done
                 or os.pread(fh.fileno(), len(tail), done - len(tail)) != tail):
             done, tail, acc = 0, b"", start()
+            kept = keep and _keep_load(_keep_path(keep, ledger), fh)
+            if kept:
+                ino, done, tail, acc = kept
+            _KEPT[k] = done
         fh.seek(done)
         data = fh.read()
     end = data.rfind(b"\n") + 1
@@ -120,6 +166,9 @@ def appended(ledger, start, fold):
         if line.strip():
             fold(acc, line)
     done += end
+    if keep and done - _KEPT.get(k, 0) >= KEEP_EVERY:
+        _keep_save(_keep_path(keep, ledger), (st.st_ino, done, (tail + data[:end])[-64:], acc))
+        _KEPT[k] = done
     _READ[k] = (st.st_ino, done, (tail + data[:end])[-64:], acc,
                 (st.st_ino, st.st_size, st.st_mtime_ns) if done == st.st_size else None)
     return acc
