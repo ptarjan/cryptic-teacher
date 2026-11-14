@@ -13339,6 +13339,7 @@ def rekey_scans(ledger):
         except BlockingIOError:
             return 0
         rows = scan_queue.jsonl_rows(ledger)
+        scan_queue.forget_parsed(ledger)  # a one-off pass: the cache would hold every row for good
         moved = {}
         for k, r in enumerate(rows):
             paper = paper_of(r.get("edition", ""))

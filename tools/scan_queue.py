@@ -58,6 +58,7 @@ import json
 import multiprocessing
 import os
 import sys
+import threading
 import time
 import traceback
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
@@ -567,23 +568,72 @@ def sources():
     return _sources_state()
 
 
+def forget_parsed(path):
+    """Drop _parsed's rows of `path`: a one-off pass over a whole ledger (rekey_scans) would else keep
+    every row of it (~1 GB across the three ledgers) in the long-lived queue process."""
+    _PARSED.pop(path, None)
+
+
+#: {path: (stat key, bytes consumed, digest of their ends, lines consumed, {puzzle id: last row naming
+#: it} or {article: last row})}: _kept's compact state of a ledger (see there).
+_KEPT = {}
+_KEPT_LOCK = threading.Lock()
+
+
+def _kept(path, trove=False):
+    """({puzzle id: the last row of `path` with a verdict of that id}, or for `trove` {article: its last
+    row}), read like _parsed (appended bytes only while the file's edges stand, streamed a line at a time)
+    but holding only the rows sources() answers from: _parsed kept every row of the ledger, each re-read's
+    superseded rows too, ~850 MB resident (11-14 RAMcensus: the queue parent's biggest holder). The dict
+    is shared (do not mutate); a file that moved gets a new one."""
+    with _KEPT_LOCK:
+        try:
+            with open(path, "rb") as f:
+                st = os.fstat(f.fileno())
+                key = (st.st_ino, st.st_size, st.st_mtime_ns)
+                hit = _KEPT.get(path)
+                if hit and hit[0] == key:
+                    return hit[4]
+                done, lines, held = 0, 0, {}
+                if hit and hit[0][0] == key[0] and hit[1] <= st.st_size and _edges(f, hit[1]) == hit[2]:
+                    done, lines, held = hit[1], hit[3], dict(hit[4])
+                f.seek(done)
+                name = Path(path).name
+                for line in f:
+                    if not line.endswith(b"\n"):  # still being appended: not a row yet
+                        break
+                    done += len(line)
+                    lines += 1
+                    if line.strip():
+                        for row in parse_line(line, (name, lines)):
+                            if trove:
+                                held[row["article"]] = row
+                            else:
+                                for v in row.get("verdicts") or ():
+                                    if v.get("id"):
+                                        held[v["id"]] = row
+                size = f.tell()
+                digest = _edges(f, done)
+        except FileNotFoundError:
+            _KEPT.pop(path, None)
+            return {}
+        _KEPT[path] = (key if size == st.st_size else (key[0], -1, 0), done, digest, lines, held)
+        return held
+
+
 def _sources_state():
-    """sources(), kept while the ledgers' parsed rows are the same objects."""
+    """sources(), kept while the ledgers' kept rows are the same objects."""
     keys = [key for key in ("archive", "gale") if key in LEDGERS]
-    parts = [_parsed(LEDGERS[key]) for key in keys] + [_parsed(LEDGERS["trove"])]
+    parts = [_kept(LEDGERS[key]) for key in keys] + [_kept(LEDGERS["trove"], trove=True)]
     hit = _SOURCES_MEMO[0]
     if hit is not None and hit[0] == keys and len(hit[1]) == len(parts) \
             and all(x is y for x, y in zip(hit[1], parts)):
         return hit[2]
     out = {}
-    for row in [r for rows in parts[:-1] for r in rows]:
-        for v in row.get("verdicts") or ():
-            if v.get("id"):
-                out[v["id"]] = ("archive", row["edition"], row)
-    trove = {}
-    for row in parts[-1]:
-        trove[row["article"]] = row
-    for row in trove.values():
+    for held in parts[:-1]:
+        for pid, row in held.items():
+            out[pid] = ("archive", row["edition"], row)
+    for row in parts[-1].values():
         if row.get("id"):
             out[row["id"]] = ("trove", row["article"], row)
     _SOURCES_MEMO[0] = (keys, parts, out)

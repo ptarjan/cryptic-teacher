@@ -4618,6 +4618,7 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
     def run(self):
         """The passes, until nothing due is left to start (or a stop, a reload or the slice's end); the exit status."""
         while True:
+            log_parent_rss()
             self.poll_units()
             if self.media_waits():
                 continue
@@ -4835,6 +4836,27 @@ def cap_arenas():
         pass
 
 
+RSS_LOG_EVERY = 1800  # seconds between "parent rss" log lines
+_RSS_LOGGED = [float("-inf")]
+
+
+def log_parent_rss(now=None):
+    """Log this process's resident memory (VmRSS) at most every RSS_LOG_EVERY seconds: the parent held
+    ~2.8 GB (RAMcensus 11-14) and a cut to what it holds shows here."""
+    now = time.monotonic() if now is None else now
+    if now - _RSS_LOGGED[0] < RSS_LOG_EVERY:
+        return
+    _RSS_LOGGED[0] = now
+    try:
+        with open("/proc/self/status") as f:
+            for line in f:
+                if line.startswith("VmRSS:"):
+                    log(f"parent rss {int(line.split()[1]) // 1024} MB")
+                    return
+    except (OSError, ValueError):
+        pass
+
+
 def give_back_memory():
     """Return the heap's free pages to the OS (glibc malloc_trim): a plan and the saving of it leave
     tens of MB of freed but resident arena the parent would otherwise hold for good."""
@@ -4935,6 +4957,7 @@ def ledger_upkeep(papers, cache):
         # ledger the Mac also appends to leaves its SMB client writing at the old, longer EOF, which
         # tore filed-gale.jsonl (a partial row, hundreds of NULs, a full row; 10-21). Readers keep
         # the last row a key (scan_queue.ledger_rows), so duplicates only cost file size.
+    give_back_memory()  # the re-key's parse of every row is garbage now
 
 
 def main(argv=None):
