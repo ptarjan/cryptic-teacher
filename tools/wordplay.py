@@ -429,6 +429,9 @@ def _pieces(text, masked, sep):
     return [text[a + 1:b].strip() for a, b in zip(cuts, cuts[1:])]
 
 
+_TRAILING_PLUS = re.compile(r"\+\s*((?:<[^<>]*>\s*)+)(?=[,)]|$)")
+
+
 _PREFIX_PLUS = re.compile(r"\+\s*(<[^<>]*>(?:\s*<[^<>]*>)*)\s*\(")
 
 
@@ -436,7 +439,10 @@ def mend_charade_indicator(text):
     """`text` with a charade indicator written the way the parser does not take it, said
     in the one way it does; None when `text` has no such slip. Only the syntax moves: the
     pieces, their order and every word stay, and the answer still decides whether the
-    result is right (translate checks it). Two slips, both 'the order word of a charade':
+    result is right (translate checks it). Three slips, all 'the order word of a charade':
+      A + B +<after>         the indicator written after the last piece with nothing to join
+                             (the commonest refusal, 11-13): it signals the join before that
+                             piece, so it moves there: A +<after> B
       A + B + +<after>C      the doubled '+' (the indicator IS the join): A + B +<after> C
       +<after>(A, B)         the join written as a prefix op over its pieces, comma list or
       +<after>(A + B)        a sum: (A +<after> B), the pieces nested when they are sums."""
@@ -445,6 +451,28 @@ def mend_charade_indicator(text):
     # the doubled '+': the first one is the join's, the second only repeats it
     while (m := re.search(r"\+\s*(?=\+\s*<)", masked)):
         text, masked = text[:m.start()] + text[m.end():], masked[:m.start()] + masked[m.end():]
+        changed = True
+    # the trailing indicator: `A + B +<ind>` has no piece after it; it names the last join
+    for m in reversed(list(_TRAILING_PLUS.finditer(masked))):
+        depth, k, at = 0, m.start() - 1, None
+        while k >= 0:
+            c = masked[k]
+            if c == ")":
+                depth += 1
+            elif c == "(" or (c == "," and depth == 0):
+                if depth == 0:
+                    break
+                depth -= 1
+            elif c == "+" and depth == 0:
+                at = k
+                break
+            k -= 1
+        if at is None or masked[at + 1:].lstrip().startswith("<"):
+            continue
+        inds = text[m.start(1):m.end(1)].strip()
+        head = text[:m.start()].rstrip()
+        text = head[:at + 1] + inds + head[at + 1:] + text[m.end():]
+        masked = _masked(text)
         changed = True
     # the prefix op: the last one first, so a nested one is mended before its parent
     for m in reversed(list(_PREFIX_PLUS.finditer(masked))):

@@ -1096,6 +1096,39 @@ def drop_derived_keys(pending):
     return changed
 
 
+def mend_charade_indicators(pending):
+    """Rewrite, in each clue written in the model's shape, a charade order word the parser
+    refuses (`A + B +<after>` with no piece after it, `A + B + +<after>` C, a prefix
+    `+<after>(A, B)`) in the shape it takes (wordplay.mend_charade_indicator); the entry
+    ids changed. Only a `wp` that fails to parse and parses once mended is touched."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return []
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        wp = a.get("wp") if isinstance(a, dict) else None
+        if not (isinstance(wp, str) and "+" in wp and annotation.is_model(a)):
+            continue
+        try:
+            wordplay.parse(wp)
+            continue
+        except wordplay.WordplayError:
+            pass
+        mended = wordplay.mend_charade_indicator(wp)
+        if not mended:
+            continue
+        try:
+            wordplay.parse(mended)
+        except wordplay.WordplayError:
+            continue
+        a["wp"] = mended
+        changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def mend_cryptic_definitions(path, pending):
     """Drop `gives` from, and strip bare "= ANSWER" notes out of, the blocks of each
     pure cryptic definition written in the stored shape (mend_cryptic_definition);
@@ -1491,6 +1524,10 @@ def main(argv):
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "
                   f"{pending.name}: {', '.join(unnamed)}\n")
+        cim = mend_charade_indicators(pending)
+        if cim:
+            print(f"charade order words the parser refuses, moved to the join they name in "
+                  f"{pending.name}: {', '.join(cim)}\n")
         cdm = mend_cryptic_definitions(path, pending)
         if cdm:
             print(f"cryptic definition blocks that gave letters or named the answer, mended "
