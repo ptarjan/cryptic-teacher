@@ -165,6 +165,11 @@ check("doesNotGive: that partial turn is mended on its own too (SPELT to SLEPT)"
       mend("rev<changing sides>([Wheat]SPELT)", "Wheat changing sides", "SLEPT") == "sub<changing sides>([Wheat]SPELT, PEL, LEP)")
 check("doesNotGive: a whole-leaf reversal that gives the answer is left alone",
       mend("rev<flipped>([devil]DEVIL)", "devil flipped", "LIVED") == "rev<flipped>([devil]DEVIL)")
+# doesNotGive, 11-14 audit: a plural possessive's S and a plural noun's doubled abbreviation
+check("doesNotGive: a plural possessive's S is added (Soldiers' is RES)",
+      mend("[Soldiers']RE + [signal]CUE", "Soldiers' signal", "RESCUE") == "[Soldiers']RES + [signal]CUE")
+check("doesNotGive: a plural noun's one-letter abbreviation doubles ([pounds]L is LL)",
+      mend("ins<in>([game]ROUNDER, [pounds]L)", "game in pounds", "ROULLNDER") == "ins<in>([game]ROUNDER, [pounds]LL)")
 # indicators.note (10-27 audit, 6 sessions): the link word of `+<after>` / `ins<in>` filed with no note is given
 # the sentence for its operation; an operation with no sentence (a spoonerism) stays refused.
 def noted(wp_text, clue, ans, notes):
