@@ -4228,9 +4228,36 @@ for _ in range(3):
     _by3.noted(_st[0][3], 0, 0, 0)
 _pc[0] = 3601.0
 check("paper: lifted after the span", False, _by3.paper_demoted(_st[0][3]))
+# Fix rereads (a FIX_LANDED reason) are exempt from the paper's demotion; their reason is demoted instead.
+_fx = {"kind": "read", "paper": "telegraph", "rank": 2, "rel": "T/1999-05-01", "reason": eq.fa.SIDES_HEADED}
+_fx2 = dict(_fx, rel="T/1999-05-08", reason=eq.fa.FT_CLUES)
+_gen = {"kind": "read", "paper": "telegraph", "rank": 2, "rel": "T/1999-05-15", "reason": "never read"}
+_by4 = eq.BandYield(run=99, hours=2, clock=lambda: 0.0, paper_run=3, paper_hours=1)
+eq.BANDS = _by4
+for _ in range(3):
+    _by4.noted(_gen, 1, 1, 0)
+check("fix reread: generic reads demote the paper but not a fix reread", (True, False),
+      (_by4.paper_demoted(_gen), _by4.paper_demoted(_fx)))
+check("fix reread: it is not demoted by its reason yet", False, _by4.reason_demoted(_fx))
+for _ in range(2):
+    _by4.noted(_fx, 0, 0, 0)
+check("fix reread: two empty reads of three do not demote the reason", False, _by4.reason_demoted(_fx))
+_by4.noted(_fx, 0, 0, 0)
+check("fix reread: three reads gaining nothing demote that reason only", (True, False, False),
+      (_by4.reason_demoted(_fx), _by4.reason_demoted(_fx2), _by4.reason_demoted(_gen)))
+_by4.noted(_fx, 1, 1, 0)
+check("fix reread: a write (answers gained) lifts the reason", False, _by4.reason_demoted(_fx))
+_by5 = eq.BandYield(run=99, hours=2, clock=lambda: 0.0, paper_run=3, paper_hours=1)
+eq.BANDS = _by5
+for _ in range(3):
+    _by5.noted(_fx, 0, 0, 0)
+_fxu = (2, 0, 0, _fx)
+_gu = (2, 0, 1, _gen)
+check("fix reread: a demoted reason's units go behind the rest, none dropped", [_gen, _fx],
+      [u[3] for u in eq.demote_bands([_fxu, _gu])])
 eq.BANDS = _saved_bands
 
-_jt = [{"rel": f"jumbo:J{i}"} for i in range(3)] + [{"rel": f"tls:T{i}"} for i in range(2)] + [{"rel": "L0"}]
+_jt =[{"rel": f"jumbo:J{i}"} for i in range(3)] + [{"rel": f"tls:T{i}"} for i in range(2)] + [{"rel": "L0"}]
 check("eq.jumbo_tls_alternate: TLS and Jumbo one for one, the Listener's last",
       ["tls:T0", "jumbo:J0", "tls:T1", "jumbo:J1", "jumbo:J2", "L0"],
       [u["rel"] for u in eq.jumbo_tls_alternate(_jt, "jumbo:", "tls:")])

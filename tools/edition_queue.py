@@ -1843,6 +1843,7 @@ class BandYield:
         self.paper_run, self.paper_span = paper_run, paper_hours * 3600
         self.zero, self.since = {}, {}
         self.paper_zero, self.paper_since = {}, {}
+        self.reason_zero, self.reason_since = {}, {}
         self.lock = threading.Lock()
 
     def noted(self, unit, puzzles, filed, whole=None):
@@ -1853,6 +1854,12 @@ class BandYield:
             return
         with self.lock:
             self.paper_noted(unit, filed if whole is None else whole)
+            if is_fix_reread(unit):
+                # Paul 11-14: fixes go first. A fix reread is demoted per reason (reason_noted), never by
+                # its paper or band: 37 SIDES_HEADED reads sat ~10 h behind the Telegraph's demotion.
+                if unit.get("kind") == "read":
+                    self.reason_noted(unit, whole if whole is not None else filed, filed)
+                return
             if filed:
                 self.zero[band] = 0
                 if self.since.pop(band, None) is not None:
@@ -1870,7 +1877,7 @@ class BandYield:
         Sunday Telegraph 1993-97 took 61% of the GPU for ~0 filings: its reads found puzzles (so the band
         count above never ran) but left 3-16 answers blank, unfiled. A paper whose last PAPER_RUN reads
         filed nothing whole goes behind every other paper's work for PAPER_HOURS, or until a read files."""
-        if unit.get("kind") != "read":
+        if unit.get("kind") != "read" or is_fix_reread(unit):
             return
         paper = unit.get("paper")
         if whole:
@@ -1883,10 +1890,41 @@ class BandYield:
             self.paper_since[paper] = self.clock()
             log(f"{paper}: last {self.paper_run} reads filed no whole puzzle; moved behind other papers' work")
 
+    def reason_noted(self, unit, whole, wrote):
+        """A completed fix reread (is_fix_reread) filed `whole` complete puzzles and wrote `wrote` files (a
+        write, even unfiled, gains answers; the lock is held). A reason whose last PAPER_RUN reads in a row
+        filed none whole and wrote none goes behind the other work for PAPER_HOURS, or until a read gains."""
+        key = (unit.get("paper"), unit.get("reason"))
+        if whole or wrote:
+            self.reason_zero[key] = 0
+            if self.reason_since.pop(key, None) is not None:
+                log(f"{key[0]}: fix reason gained answers; back in the usual order")
+            return
+        self.reason_zero[key] = self.reason_zero.get(key, 0) + 1
+        if self.reason_zero[key] >= self.paper_run and key not in self.reason_since:
+            self.reason_since[key] = self.clock()
+            log(f"{key[0]}: last {self.paper_run} reads for '{str(key[1])[-60:]}' gained no answers; "
+                "moved behind other work")
+
+    def reason_demoted(self, unit):
+        """Whether a fix reread's reason is behind other work now; past the span it is lifted (logged)."""
+        if not is_fix_reread(unit):
+            return False
+        key = (unit.get("paper"), unit.get("reason"))
+        with self.lock:
+            if key not in self.reason_since:
+                return False
+            if self.clock() - self.reason_since[key] < self.paper_span:
+                return True
+            del self.reason_since[key]
+            self.reason_zero[key] = 0
+            log(f"{key[0]}: {self.paper_span / 3600:g} hours passed; fix reason back in the usual order")
+            return False
+
     def paper_demoted(self, unit):
         """Whether `unit`'s paper is behind all other papers' work now; past its span it is lifted (logged)."""
         paper = unit.get("paper")
-        if paper == "times" or paper in newest_first_papers():
+        if paper == "times" or paper in newest_first_papers() or is_fix_reread(unit):
             return False
         with self.lock:
             if paper not in self.paper_since:
@@ -1901,7 +1939,8 @@ class BandYield:
     def demoted(self, unit):
         """Whether `unit`'s band is behind other work now; a band past its span is lifted (and logged) here."""
         band = band_of(unit)
-        if band is None or unit.get("paper") == "times" or unit.get("paper") in newest_first_papers():
+        if band is None or unit.get("paper") == "times" or unit.get("paper") in newest_first_papers() \
+                or is_fix_reread(unit):
             return False
         with self.lock:
             if band not in self.since:
@@ -1930,7 +1969,15 @@ BANDS = BandYield()
 def demote_bands(units):
     """The (rank, ...) tuples `units` with each rank's units of demoted bands (BANDS) after the rest of it,
     every other order kept."""
-    return sorted(units, key=lambda t: (BANDS.paper_demoted(t[3]), t[0], BANDS.demoted(t[3])))
+    return sorted(units, key=lambda t: (BANDS.paper_demoted(t[3]) or BANDS.reason_demoted(t[3]), t[0],
+                                        BANDS.demoted(t[3])))
+
+
+def is_fix_reread(unit):
+    """Whether `unit` is a reread for a fix just shipped (FIX_LANDED or UNFILED_FIRST: a reason naming a fix
+    "... since"): exempt from the paper and band demotions, demoted per reason instead (BandYield.reason_noted)."""
+    reason = unit.get("reason") or ""
+    return bool(reason) and (fix_landed_reread(unit) or reason in UNFILED_FIRST)
 
 
 def by_paper_turns(units):
