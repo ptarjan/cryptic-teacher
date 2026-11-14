@@ -53,6 +53,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import annotate_audit as audit
+import gitlog_cache
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 CACHE = pathlib.Path(os.environ.get("ANNOTATE_CACHE", pathlib.Path.home() / ".cache"))
@@ -150,9 +151,12 @@ def window(rows):
 def code_commit(repo=REPO, skip=()):
     """(sha, ISO committer time, subject) of the last commit touching annotate code,
     less the paths in `skip` (shape_queue.REARM_SKIP)."""
-    out = subprocess.run(["git", "log", "-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS + LEDGER_FILES
-                         + [f":(exclude){x}" for x in skip],
-                         cwd=repo, capture_output=True, text=True, check=False).stdout.strip()
+    # cached per HEAD: this walk re-read the tools history on every burn loop
+    try:
+        out = gitlog_cache.log(["-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS + LEDGER_FILES
+                               + [f":(exclude){x}" for x in skip], cwd=repo).strip()
+    except (subprocess.CalledProcessError, OSError):
+        out = ""
     parts = out.split("\t")
     return tuple(parts) if len(parts) == 3 else (None, None, None)
 
