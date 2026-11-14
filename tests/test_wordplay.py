@@ -624,7 +624,8 @@ for ok in ["[Old]O + [baddy]RAT +<leading>[men]OR", "[a]A + [b]B", "ins<in>([a]A
 for bad, hint in [("ins(del<having no right>([Lord]PEER, R), <to accept>[jibe]DIG + [about]RE)", "right after the op"),
                   ("[party]CON + [appropriate]FIT +<after>", "needs the piece it joins"),
                   ("first(3)<Half of>([arbiters]JUDGES)", "take no count")]:
-    check(f"charade indicator mend declines {bad[:30]}", w.mend_charade_indicator(bad) is None)
+    if "needs the piece" not in hint:    # a trailing indicator is now mended (8c27de0); parse alone still refuses it
+        check(f"charade indicator mend declines {bad[:30]}", w.mend_charade_indicator(bad) is None)
     r = perr(bad, hint)
     check(f"parse refuses with a hint: {bad[:30]}", r is True, r)
 tree = w.translate({"wp": w.mend_charade_indicator("[Old]O + [baddy]RAT + +<leading>[men]OR")},
@@ -910,7 +911,7 @@ check("misread clue: a flipped prefix is not mended", _D.damaged_run("walk unste
 check("misread clue: an inflection is not mended", _D.damaged_run("Keeps", "Keep a cash register to stop fiddling") is None)
 check("misread clue: a three-letter word one letter off is mended", _D.damaged_run("hut", "Miserable but mostly for Hindu sage") == "but")
 check("misread clue: a three-letter word is not mended by a dropped word", _D.damaged_run("hit", "Carrier it escalating") is None)
-check("misread clue: two three-letter fits are not mended", _D.damaged_run("hut", "but and cut") is None)
+check("misread clue: two three-letter fits are not mended", _D.damaged_run("hut", "put and cut") is None)
 check("refusal names the nearest clue word", "'animation'" in w.not_in_clue("animation's", "Erotic film introduces animation technique"),
       w.not_in_clue("animation's", "Erotic film introduces animation technique"))
 check("misread clue: a different word is not mended", _D.damaged_run("throng", "Scorer awards fifty in throw") is None)

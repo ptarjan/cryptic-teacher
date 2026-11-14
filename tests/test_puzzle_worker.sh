@@ -583,13 +583,14 @@ check "a cut-off bag commits what validated so far, keeping the cut-off puzzle b
 echo "the burn bags in the Annotate pool and the shape-rule backfills, and a bag's ids stay held"
 check "pool_bag asks pool_bags first" \
   "$(awk '/^pool_bag\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '^  pool_bags || return 0$')" "1"
+BAG_FIELDS=$(sed -n 's/^BAG_FIELDS=\(.*\)$/\1/p' tools/prereset_backfill.sh | tr -d '"')  # bag_field reads it
 declare -A SHAPE_RULE_OF=()  # pool_what reads it; the script declares it at top level
-bagfns=$(awk '/^(pool_bags|pool_what|bag_rule|bag_prompt)\(\) \{/,/^\}/' tools/prereset_backfill.sh)
+bagfns=$(awk '/^(pool_bags|pool_what|bag_rule|bag_field|bag_prompt)\(\) \{/,/^\}/' tools/prereset_backfill.sh)
 # shellcheck disable=SC2034  # read by the eval'd functions
 bags_for() ( eval "$bagfns"; DRY_RUN="${2:-0}" WAVE_WHAT="$1"; pool_bags && echo yes || echo no )
-check "which pools bag: Annotate, a shape rule, the blog re-check; not a field, wordplay.unchecked or a dry run" \
+check "which pools bag: Annotate, a shape rule, a bag field, the blog re-check; not wordplay.unchecked or a dry run" \
   "$(bags_for Annotate) $(bags_for 'Backfill wordplay.anagramCharade for') $(bags_for 'Backfill explanation.surface for') $(bags_for 'Backfill wordplay.unchecked for') $(bags_for 'Re-check against its blog:') $(bags_for Annotate 1)" \
-  "yes yes no no yes no"
+  "yes yes yes no yes no"
 # shellcheck disable=SC2034  # read by the eval'd functions
 rule_for() ( eval "$bagfns"; WAVE_WHAT="$1"; bag_rule )
 check "a bag names its rule" "$(rule_for Annotate) $(rule_for 'Backfill wordplay.anaStandIn for')" "annotate wordplay.anaStandIn"
