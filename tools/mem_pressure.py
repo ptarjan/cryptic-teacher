@@ -25,6 +25,10 @@ QUIET_PSI = 0.3
 HOT_SWAPIN_MB_MIN = 1.0
 QUIET_SWAPIN_MB_MIN = 0.25
 QUIET_S = 600
+#: In the band (PSI between quiet and hot) with swap-in quiet, the pressure is
+#: usually other rooms' doing and a burn held at the floor cannot lower it; raise
+#: anyway after this long, so the cap never sticks at 1 for hours (11-14).
+BAND_S = 1800
 STEP_S = 120
 RAISE_STEP = 2
 PAGE = 4096
@@ -82,6 +86,16 @@ def step(state, psi, pswpin, alive, now):
                 cap = None
     else:
         st["quiet_since"] = None
+        if swap < QUIET_SWAPIN_MB_MIN:
+            if st.get("band_since") is None:
+                st["band_since"] = now
+            if cap is not None and now - st["band_since"] >= BAND_S and now - st.get("moved", 0) >= BAND_S:
+                cap += 1
+                st["moved"] = now
+        else:
+            st["band_since"] = None
+    if hot or quiet:
+        st["band_since"] = None
     st["cap"] = cap
     words = f"pressure some avg10 {psi:.2f}, swap-in {swap:.2f} MB/min" + (
         f", held to {cap}" if cap is not None else "")
@@ -140,6 +154,13 @@ def self_test():
     check("swap-in hot", c, 6)
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 100, 8, 60)
     check("swap-in small", c, None)
+    # band with swap-in quiet: holds, then creeps up after BAND_S
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 1, "moved": 0}, 0.5, 0, 1, 60)
+    check("band floor holds", c, 1)
+    s, c, _ = step(s, 0.5, 0, 1, 60 + BAND_S)
+    check("band creeps up", c, 2)
+    s, c, _ = step(s, 0.5, 0, 2, 120 + BAND_S)
+    check("band creep rate-limited", c, 2)
     return bad
 
 
