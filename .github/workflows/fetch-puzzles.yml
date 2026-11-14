@@ -2,10 +2,11 @@
 # (tools/daily_units.py CI_FETCHERS): each is `tools/<fetcher>.py --latest`, which
 # needs only the network and the tracked puzzles. Exit 3 is "nothing new".
 #
-# Not here, and still the local tick's: fetch_privateeye (its unit also runs
-# privateeye_wayback.py over the Wayback captures kept on the Media disk) and
-# tls_puzzles (reads the issue's image with the RapidOCR model in ~/.cache and
-# keeps images under the Media disk). A fetch never runs in both places.
+# Not here: fetch_privateeye (its unit also runs privateeye_wayback.py over the Wayback
+# captures kept on the Media disk) stays the local tick's. tls_puzzles --latest, one
+# issue a week read with the RapidOCR model in ~/.cache, is light and also stays local;
+# the heavy part, the back-issue backfill (tls_puzzles.py --backfill), runs in CI as
+# tls-backfill.yml. A fetch never runs in both places.
 #
 # Each new puzzle is its own "File <id>" commit (tools/commit_puzzles.sh), pushed
 # onto master with a rebase when the push loses a race. A push made with the

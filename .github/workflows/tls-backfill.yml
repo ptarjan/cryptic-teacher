@@ -1,0 +1,93 @@
+# The TLS back-issue backfill (tools/tls_puzzles.py --backfill) on a GitHub-hosted runner:
+# heavy OCR work does not run on the home server. It files every listed free issue not
+# yet tracked, oldest first, each as its own "File tls-NNNN" commit.
+#
+# Resume: the tracked puzzles are the progress (an issue with a file is skipped), so a
+# re-dispatch, or the next scheduled run, carries on where the last stopped. What the
+# script keeps outside the repo (the 404 and failed lists, CT_DOWNLOADS/tls/backfill_state.json)
+# rides an actions/cache entry, saved by every run, so a failure is not re-read each run;
+# dispatch with retry_failed to try them again. The schedule is only a safety net for a
+# run cut off at its time limit: once the range is done a run lists six pages and exits.
+#
+# Commits are pushed by tools/push_puzzle_commit.sh, as the local run did: replayed onto
+# origin/master, batched to one push every five minutes, using PUSH_TOKEN as fetch-puzzles.yml
+# does. The last step flushes the batch before the job ends.
+name: TLS backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      retry_failed:
+        description: Try the earlier failures again (--retry-failed)
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tls-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      CT_DOWNLOADS: /tmp/cryptic-downloads
+      PUSH_BATCH_SECS: "300"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.PUSH_TOKEN || github.token }}
+      - uses: ./.github/actions/setup
+        with:
+          pip: numpy pillow pypdf opencv-python-headless rapidocr-onnxruntime onnxruntime
+      - name: Cache the OCR models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/rapidocr
+          key: rapidocr-models-v1
+      - name: Fetch the English recogniser
+        shell: bash
+        run: |
+          mkdir -p ~/.cache/rapidocr
+          f=~/.cache/rapidocr/en_PP-OCRv3_rec_infer.onnx
+          [ -s "$f" ] || curl -fsSL --retry 3 -o "$f" \
+            https://huggingface.co/SWHL/RapidOCR/resolve/main/PP-OCRv3/en_PP-OCRv3_rec_infer.onnx
+      - name: Restore the backfill state
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/cryptic-downloads/tls/backfill_state.json
+          key: tls-backfill-state-${{ github.run_id }}
+          restore-keys: tls-backfill-state-
+      - name: Backfill
+        shell: bash
+        env:
+          RETRY: ${{ inputs.retry_failed && '--retry-failed' || '' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rc=0
+          # Ends before the job's limit so the state is saved and the batch flushed.
+          timeout 300m python3 tools/tls_puzzles.py --backfill $RETRY || rc=$?
+          echo "backfill exited $rc"
+          [ "$rc" = 124 ] || exit "$rc"
+      - name: Save the backfill state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: /tmp/cryptic-downloads/tls/backfill_state.json
+          key: tls-backfill-state-${{ github.run_id }}
+      - name: Flush the batched pushes
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          PUSH_BATCH_FLUSHER=0 tools/push_puzzle_commit.sh --flush
+          git fetch -q origin master
+          echo "left unpublished: $(git rev-list --count origin/master..HEAD) local commits (replayed copies are on master)"
