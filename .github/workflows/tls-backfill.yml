@@ -82,6 +82,16 @@ jobs:
         with:
           path: /tmp/cryptic-downloads/tls/backfill_state.json
           key: tls-backfill-state-${{ github.run_id }}
+      - name: Keep the page images for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tls-images
+          path: |
+            /tmp/cryptic-downloads/tls/image
+            /tmp/cryptic-downloads/tls/listing
+          retention-days: 3
+          if-no-files-found: ignore
       - name: Flush the batched pushes
         if: always()
         shell: bash
