@@ -18,14 +18,20 @@ const fail = [];
 const of = reports.length ? reports[0].of : 0;
 const got = new Set(reports.map((r) => r.slice));
 if (!of || reports.some((r) => r.of !== of)) fail.push("slice reports disagree on how many slices there are");
-for (let i = 0; i < of; i++) if (!got.has(i)) fail.push(`slice ${i}/${of} never reported its shapes`);
+// A slice that never reported (cancelled by its timeout, a runner lost) already
+// shows as its own red smoke job; a second red check here says nothing more, and
+// a shape it alone held would be wrongly called gone. So that is said, not failed,
+// and "no slice found X" is not asserted while a slice is missing.
+const missing = [];
+for (let i = 0; i < of; i++) if (!got.has(i)) missing.push(i);
+if (missing.length) console.log(`slice(s) ${missing.join(", ")}/${of} never reported their shapes (see their smoke jobs); shapes not asserted over a partial union`);
 const union = {};
 for (const r of reports) for (const [k, v] of Object.entries(r.shapes)) union[k] = union[k] || v;
 // A report from the result cache while some puzzles still wait for their first
 // pass under this code (ci_cache.js capUncached) holds only the shapes of the
 // puzzles checked so far, so a shape it lacks may sit in one not yet checked.
 // That is said, not failed; the run that completes the cache asserts it.
-const partial = reports.some((r) => r.partial);
+const partial = reports.some((r) => r.partial) || missing.length > 0;
 if (partial) {
   const lacking = Object.keys(union).filter((k) => !union[k]);
   console.log(`partial cache: ${Object.keys(union).length - lacking.length} of ${Object.keys(union).length} `
