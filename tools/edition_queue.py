@@ -3822,10 +3822,16 @@ class _SlotBalancer:
             if self.vlm_full:
                 log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
                     f"{len(self.queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
-        self.spool_cap_hit = len(self.queued) >= vlm_spool_max()
+        # CPU round 2 (11-14): 1,445 reads ended "deferred: VLM spool full" (~40 s of OCR each, redone later)
+        # because the spool, a few asks under its cap when they started, was filled by the reads already
+        # running (6,054 spooled-ask deferrals, a few asks each). A fresh read starts only with room for
+        # the asks of half the reads in flight (at most a third of the cap); those in flight are not held.
+        reading = sum(1 for _, (u, _) in self.units_running() if u["kind"] == "read" and needs_vlm(u))
+        reserve = min(reading // 2, vlm_spool_max() // 3)
+        self.spool_cap_hit = len(self.queued) + reserve >= vlm_spool_max()
         # Of the reads held for a full spool only as many as the spool has room for start this pass, oldest first:
         # all at once they would OCR their pages and defer again as it fills.
-        self.full_free = list(self.full_wait)[:max(0, vlm_spool_max() - len(self.queued))]
+        self.full_free = list(self.full_wait)[:max(0, vlm_spool_max() - len(self.queued) - reserve)]
 
     def gate_host(self):
         self.begun_now = self.charged = 0
