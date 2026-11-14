@@ -18,6 +18,7 @@ numbers are never written over.
 The standing pass plans each unread page as a unit (tools/edition_queue.py,
 paper "listener", rel "tls:NAME"), after the Jumbo's pages.
 """
+import contextlib
 import datetime
 import json
 import os
@@ -361,7 +362,10 @@ def line_numbers(words, lh):
     out = []
     for _, line in lines:
         line.sort()
-        if NUMBER_WORD.match(line[0][4]) and len(line) > 1 and re.search(r"[A-Za-z]{2}", line[1][4]):
+        # (a back issue's clue may open on the word "A" or "I": 1607's "2 A music producer")
+        if NUMBER_WORD.match(line[0][4]) and len(line) > 1 and (
+                re.search(r"[A-Za-z]{2}", line[1][4])
+                or (BACK_STRICT[0] and len(line) > 2 and line[1][4] in ("A", "I") and re.search(r"[a-z]{2}", line[2][4]))):
             out.append((min(w[1] for w in line), max(w[3] for w in line), int(re.sub(r"\D", "", line[0][4])), line[0][0]))
     return out
 
@@ -459,6 +463,18 @@ OPEN_CLUE_ROWS = 3
 SHOUT = 4
 
 
+#: Set while a back issue is read: a row under a clue's first line is its words only where it reads like clue
+#: text (a solution grid's letters set under the lists, 1607's "MOR EAU", do not).
+BACK_STRICT = [False]
+
+
+def clue_row(row):
+    """Whether a row of words reads as a clue's line: under two all-capital words, and a lowercase word of three
+    letters or more."""
+    caps = [w for w in row if re.fullmatch(r"[A-Z]{2,}\W*", w[4])]
+    return len(caps) < 2 and any(re.fullmatch(r"\W*[A-Za-z]*[a-z][A-Za-z]{2,}\W*", w[4]) for w in row)
+
+
 def open_clue_rows(ws, last, lh):
     """The rows (lists of words) of the clue open_clue_under finds: from the row under `last`, on while the next
     row stands within two line heights and holds no word of SHOUT capitals, to OPEN_CLUE_ROWS rows."""
@@ -472,7 +488,8 @@ def open_clue_rows(ws, last, lh):
     out = []
     for row in rows[:OPEN_CLUE_ROWS]:
         if out and (row[0][1] - out[-1][0][3] > 2 * lh
-                    or any(re.fullmatch(r"[A-Z]{%d,}\W*" % SHOUT, w[4]) for w in row)):
+                    or any(re.fullmatch(r"[A-Z]{%d,}\W*" % SHOUT, w[4]) for w in row)
+                    or (BACK_STRICT[0] and not clue_row(row))):
             break
         out.append(row)
     return out
@@ -946,7 +963,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 4
+BACK_VERSION = 5
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
@@ -1036,13 +1053,95 @@ def back_url(n):
     return f"https://www.the-tls.com/regular-features/crossword-quiz/crossword-{n}"
 
 
+#: Two-letter initialisms the modern clues print ("HD", "HB" pencils, "AG", "EB" White): words to the back
+#: issues' vote and suspect() while a back issue is read (ocr_clues itself, and so every paper's scan key, is
+#: left as it is). The vote still wants two readers to print the same letters.
+BACK_INITIALISMS = frozenset({"hd", "hb", "ag", "eb", "tt", "ttt"})
+
+
+#: A word the OCR reads for a name the lexicon lacks, to the print's: 1456's "Köchel" loses its K.
+BACK_SPELLINGS = {"Köchel": "Kochel", "öchel": "Kochel"}
+#: ...and the spelling put back on the clue the readers agreed on (the umlaut a reader sees and the others drop).
+BACK_PRINTED = {"Kochel": "Köchel"}
+#: Names the back issues print that the lexicon lacks (1607's Beauvoir characters), kept as printed.
+BACK_NAMES = frozenset({"Dubreuilhs"})
+
+
+def respelt(text):
+    """`text` with each BACK_SPELLINGS word set to the print's."""
+    for bad, good in BACK_SPELLINGS.items():
+        text = re.sub(rf"(?<![A-Za-z]){bad}(?![A-Za-z])", good, text)
+    return text
+
+
+def stray_number(words):
+    """`words` with the clue number a clue's own number is followed by dropped: "5 6 Yankee girls" (1581's
+    5-down) for "5 Yankee girls", the 6 being the next line's own number (a line of its own further down).
+    Words are (x0, y0, x1, y1, text), a reading's whole lines or its single tokens."""
+    starts = [(int(m.group(1)), w[1]) for w in words if (m := re.match(r"(\d{1,2})\b", w[4]))]
+
+    def later(n, y):
+        return any(k == n and y0 > y + 5 for k, y0 in starts)
+
+    out = []
+    for i, w in enumerate(words):
+        m = re.match(r"(\d{1,2}) (\d{1,2}) (?=\D)", w[4])
+        if m and int(m.group(2)) == int(m.group(1)) + 1 and later(int(m.group(2)), w[1]):
+            out.append((*w[:4], w[4][:m.start(2)] + w[4][m.end(2) + 1:], *w[5:]))
+            continue
+        prev = words[i - 1] if i else None
+        if (w[4].isdigit() and prev and prev[4].isdigit() and int(w[4]) == int(prev[4]) + 1
+                and abs(prev[1] - w[1]) < (w[3] - w[1]) / 2 and w[0] > prev[2] and later(int(w[4]), w[1])):
+            continue
+        out.append(w)
+    return out
+
+
+@contextlib.contextmanager
+def initialisms_known():
+    import ocr_clues
+    import gale_listener as gl
+    old = ocr_clues.is_word
+    old_vote = gl.al.vote
+
+    def is_word(word):
+        return word.lower() in BACK_INITIALISMS or word in BACK_NAMES or old(word)
+
+    def vote(words, *args, **kwargs):
+        spelt = {k: [(*t[:4], respelt(t[4]), *t[5:]) for t in stray_number(w)] for k, w in words.items()}
+        return old_vote(spelt, *args, **kwargs)
+
+    ocr_clues.is_word = is_word
+    gl.al.vote = vote
+    BACK_STRICT[0] = True
+    try:
+        yield
+    finally:
+        BACK_STRICT[0] = False
+        ocr_clues.is_word = old
+        gl.al.vote = old_vote
+
+
 def read_back(n, root=None, store=STORE, asker=None):
     """(verdict, puzzle or None) of back issue `n`'s image, read as a Gale page is, its number the issue's."""
     path = back_image(n, root)
     if path is None:
         return {"file": back_key(n), "failed": "no image saved", "attempts": CRASH_LIMIT}, None
-    verdict, puzzle = read_page(path, store, asker, known=(n, datetime.date.fromisoformat(BACK_DATES[n]), back_url(n)))
+    with initialisms_known():
+        verdict, puzzle = read_page(path, store, asker,
+                                    known=(n, datetime.date.fromisoformat(BACK_DATES[n]), back_url(n)))
     verdict["file"] = back_key(n)
+    if puzzle is not None:
+        for e in puzzle["entries"]:
+            text = (e.get("clue") or {}).get("text")
+            for bare, printed in BACK_PRINTED.items():
+                if text and re.search(rf"(?<![A-Za-z]){bare}(?![A-Za-z])", text):
+                    e["clue"]["text"] = text = re.sub(rf"(?<![A-Za-z]){bare}(?![A-Za-z])", printed, text)
+            names = [w for w in BACK_NAMES if text and re.search(rf"(?<![A-Za-z]){w}(?![A-Za-z])", text)]
+            if names:
+                e["clue"]["asPrinted"] = sorted({*(e["clue"].get("asPrinted") or ()), *names})
+        if verdict.get("whole") is not None:
+            verdict["whole"] = bool(fa.complete(puzzle))
     return verdict, puzzle
 
 
