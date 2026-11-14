@@ -49,6 +49,8 @@ NUMBERS = range(90, 1400)
 CITES = "cites.json"
 SIZES = (15,)
 CRASH_LIMIT = jr.CRASH_LIMIT
+#: Bumped when a crash is fixed: a failed row of an older fix is due again (once more) whatever its attempts.
+CRASH_FIX = 1
 
 
 def figure(text):
@@ -81,7 +83,7 @@ def append_row(row, store=STORE):
 def read_done(row):
     """Whether a ledger row is a verdict of this VERSION (a crashed attempt under CRASH_LIMIT is not)."""
     return bool(row) and row.get("version") == VERSION and not (
-        row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
+        row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX))
 
 
 def plan(saved=SAVED, store=STORE):
@@ -496,7 +498,44 @@ def open_clue_rows(ws, last, lh):
     return out
 
 
-def layout_block(img, words, grid, ocr=None):
+#: The height a layout_block image is scaled down to where it is taller.
+LAYOUT_MAX_HEIGHT = 4000
+#: A foot's column index is past every column's.
+FOOT = 1000
+#: A foot's clue numbers stand this many line heights in from the column's own.
+FOOT_INSET = 0.75
+
+
+def foot_cut(ws, lh):
+    """The y a column's foot is cut at, or None: the last lines of a column opening on a clue number set in from
+    the others' (FOOT_INSET line heights), at least two of them, running up, after at least four lines of the
+    column's own."""
+    lines = sorted(line_numbers(ws, lh))
+    if len(lines) < 6:
+        return None
+    base = sorted(n[3] for n in lines)[len(lines) // 2]
+    tail = []
+    for n in reversed(lines):
+        if n[3] <= base + FOOT_INSET * lh:
+            break
+        tail.insert(0, n)
+    if len(tail) < 2 or len(lines) - len(tail) < 4 or [n[2] for n in tail] != sorted({n[2] for n in tail}):
+        return None
+    return int(tail[0][0] - lh / 3)
+
+
+def layout_pick(img, words, grid, lengths, gl):
+    """layout_block's image, or its side-by-side set where it is over LAYOUT_MAX_HEIGHT and the readers lay
+    no clue on some light of the tall one (1592's; 1341's tall one reads whole and stays)."""
+    block = layout_block(img, words, grid)
+    if block and block[0].height > LAYOUT_MAX_HEIGHT:
+        _, laid = lending(gl.times_read, [block], lengths)
+        if laid is None or set(lengths) - set(laid):
+            return layout_block(img, words, grid, wide=True) or block
+    return block
+
+
+def layout_block(img, words, grid, ocr=None, wide=False):
     """(image, key) of the lists `layout_columns` finds, set one under another in a single column with
     "ACROSS" and "DOWN" headings drawn clean over them: across is read from the first column to the line the
     clue numbers start again on (a number of 3 or under after higher ones), down from there on. The grid
@@ -558,7 +597,7 @@ def layout_block(img, words, grid, ocr=None):
             before = [n for _, _, n, _ in line_numbers(left[-1][2], lh)]
             # (the last column of a landscape page holds across's tail and down's first clues: its biggest number
             # is across's 27, the numbers that run on are down's, from its last line: 1608's 17, 20, 22 down)
-            runs_on = bool(before) and any(b < nums[0] <= b + 5 for b in (max(before), before[-1]))
+            runs_on = bool(before) and bool(nums) and any(b < nums[0] <= b + 5 for b in (max(before), before[-1]))
             if not nums or not runs_on or len([w for w in ws if COUNT_WORD.search(w[4])]) < 1:
                 continue
         at = len(pieces)
@@ -568,6 +607,16 @@ def layout_block(img, words, grid, ocr=None):
         pieces.insert(at, (i, crop, ws))
     if not pieces:
         return None
+    # a foot set in from the column's left (1592's down 17, 19, 21 and 22, 23, 25 under the columns) is cut off
+    # each piece and read after the others, left to right: the list runs on there
+    feet = []
+    for n, (i, crop, ws) in enumerate(list(pieces)):
+        cut = foot_cut(ws, lh)
+        if cut is not None and cut < crop.height:
+            pieces[n] = (i, crop.crop((0, 0, crop.width, cut)), [w for w in ws if w[3] <= cut])
+            feet.append((order[i][1][0], crop.crop((0, cut, crop.width, crop.height)),
+                         [(w[0], w[1] - cut, w[2], w[3] - cut, *w[4:]) for w in ws if w[1] >= cut]))
+    pieces += [(FOOT + j, crop, ws) for j, (_, crop, ws) in enumerate(sorted(feet, key=lambda f: f[0]))]
     # the headings the OCR read in a column are blanked, so the ones drawn are the only ones
     for _, crop, ws in pieces:
         draw = ImageDraw.Draw(crop)
@@ -606,6 +655,29 @@ def layout_block(img, words, grid, ocr=None):
     for p in parts:
         out.paste(p, (20, y))
         y += p.height
+    if wide:
+        # a set of big columns (1592's, 37-pixel lines) stood one under another is over what the readers take
+        # in (none reads a word of it): they are set side by side as the page has them, each heading over
+        # the first column of its list
+        items = []
+        for title, group in (("ACROSS", across), ("DOWN", down)):
+            head = Image.new("RGB", (width, 60), "white")
+            ImageDraw.Draw(head).text((20, 8), title, fill="black", font=font)
+            for j, p in enumerate(group):
+                if j:
+                    items.append(p)
+                else:
+                    item = Image.new("RGB", (width, 60 + p.height), "white")
+                    item.paste(head, (0, 0))
+                    item.paste(p, (20, 60))
+                    items.append(item)
+        gap = 80
+        out = Image.new("RGB", (sum(p.width for p in items) + gap * len(items), max(p.height for p in items) + 40),
+                        "white")
+        x = gap // 2
+        for p in items:
+            out.paste(p, (x, 20))
+            x += p.width + gap
     return out, gl.image_key(out)
 
 
@@ -873,6 +945,7 @@ def read_page(path, store=STORE, asker=None, known=None):
     if not g:
         verdict["refused"] = f"grid unread: {why}"
         return verdict, None
+    lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
     old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
     gl.TITLE_WORD = TITLE_WORD
     gl.times_titles = jr.with_fallback_title(old_titles, img.width)
@@ -884,20 +957,19 @@ def read_page(path, store=STORE, asker=None, known=None):
     if not blocks:
         # No ACROSS and DOWN pair read under a title: the lists found by their own shape beside the grid.
         words = gl.page_words(img, key)
-        block = layout_block(img, words, box)
+        block = layout_pick(img, words, box, lengths, gl)
         blocks = [block] if block else []
         if blocks:
             verdict["cut"] = "layout"
     if not blocks:
         verdict["refused"] = no_lists_why(gl.page_words(img, key))
         return verdict, None
-    lengths = {f"{k[0]}-{k[1]}": len(cells) for k, cells in aj.rg.light_cells(g).items()}
     read, laid = lending(gl.times_read, blocks, lengths)
     if (laid is None or set(lengths) - set(laid)) and verdict.get("cut") != "layout":
         # The title's cut left a light unread (its lists lie beside the grid or run on in columns under it, in a
         # shape the page's headings do not frame): the lists found by their own shape (layout_block), kept
         # where they read more.
-        block = layout_block(img, gl.page_words(img, key), box)
+        block = layout_pick(img, gl.page_words(img, key), box, lengths, gl)
         if block:
             again, laid2 = lending(gl.times_read, [block], lengths)
             if laid2 is not None and (laid is None or again.get("agreed", 0) > read.get("agreed", 0)):
@@ -954,7 +1026,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
         attempts = (before or {}).get("attempts", 0) + 1
         verdict, puzzle = {"file": name, "failed": f"crashed: {type(e).__name__}: {e}", "attempts": attempts}, None
         print(verdict["failed"], file=sys.stderr)
-        append_row({**verdict, "version": VERSION if attempts >= CRASH_LIMIT else None}, store)
+        append_row({**verdict, "crashFix": CRASH_FIX, "version": VERSION if attempts >= CRASH_LIMIT else None}, store)
         return "failed"
     if puzzle is not None and verdict.get("whole"):
         target = puzzle_path(SERIES, verdict["number"])
@@ -973,7 +1045,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 6
+BACK_VERSION = 7
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
@@ -1044,7 +1116,7 @@ def scaled_up(img, width=BACK_WIDTH):
 def back_done(row):
     """Whether a ledger row is a verdict of this BACK_VERSION (a crash under CRASH_LIMIT is not)."""
     return bool(row) and row.get("version") == BACK_VERSION and not (
-        row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
+        row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX))
 
 
 def back_key(issue):
@@ -1170,10 +1242,11 @@ def read_back_unit(rel, root=None, store=STORE):
         attempts = (before or {}).get("attempts", 0) + 1
         verdict = {"file": back_key(n), "failed": f"crashed: {type(e).__name__}: {e}", "attempts": attempts}
         print(verdict["failed"], file=sys.stderr)
-        append_row({**verdict, "version": BACK_VERSION if attempts >= CRASH_LIMIT else None}, store)
+        append_row({**verdict, "crashFix": CRASH_FIX, "version": BACK_VERSION if attempts >= CRASH_LIMIT else None},
+                   store)
         return "failed"
     if verdict.get("failed"):
-        append_row({**verdict, "version": BACK_VERSION}, store)
+        append_row({**verdict, "crashFix": CRASH_FIX, "version": BACK_VERSION}, store)
         return "failed"
     if puzzle is not None and verdict.get("whole"):
         target = puzzle_path(SERIES, n)
