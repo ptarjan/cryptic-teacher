@@ -4262,6 +4262,15 @@ check("eq.jumbo_tls_alternate: TLS and Jumbo one for one, the Listener's last",
       ["tls:T0", "jumbo:J0", "tls:T1", "jumbo:J1", "jumbo:J2", "L0"],
       [u["rel"] for u in eq.jumbo_tls_alternate(_jt, "jumbo:", "tls:")])
 
+import types as _types
+_rd = [{"rank": 1, "paper": "telegraph", "rel": f"R{i}", "needs": [f"R{i}"]} for i in range(3)]
+_pk = _types.SimpleNamespace(vlm_full=False, ready=[_rd], heads={}, pools={"read": 3})
+_fed = lambda u: eq._RankPicker.fed(_pk, u)
+_plain = {"rank": 2, "paper": "telegraph", "rel": "S9", "kind": "scan", "reason": "scan stale"}
+check("fed: a full pool of ready reads holds a plain stale scan", True, _fed(_plain))
+_pk.heads = {}
+check("fed: a fix scan is never held for ready reads", False, _fed({**_plain, "fix": True}))
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")

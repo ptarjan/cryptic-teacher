@@ -4332,6 +4332,12 @@ class _RankPicker:
         rank: a pass asks it of every queued scan (~12k)."""
         if self.vlm_full:
             return False  # reads cannot start (vlm-bound), so no scan is held for their CPU
+        if u.get("fix"):
+            # Paul 11-14: "Things you're fixing should be at the front of the queue". A fix scan (a kept fix
+            # reread's "needs", only_evidence) is never held for the ready reads' CPU: rank 2, it was "fed" by
+            # the pool of ready reads while rank-1 never-scanned scans (no full pool of reads) started, so 4,019
+            # fix scans (37 SIDES_HEADED rereads) waited for hours.
+            return False
         if not self.ready:
             self.ready.append(self.ready_reads())
         if u["rank"] not in self.heads:
