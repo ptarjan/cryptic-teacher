@@ -38,7 +38,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 22
+VERSION = 23
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -767,6 +767,18 @@ def spaced_quotes(text):
     return "".join(out)
 
 
+#: A cross-reference number glued to the word before ("purveyed by10") or after it ("aka 23Anthony").
+XREF_AFTER = re.compile(r"(?<=[a-z]{2})(\d{1,2})(?=[\s,.;:?!)\"]|$)")
+XREF_BEFORE = re.compile(r"(?<![\w-])(\d{1,2})(?=[A-Z][a-z]{2,})")
+
+
+def spaced_xref(text):
+    """`text` with a space where a light's number is glued to the word beside it, kept only when that leaves
+    fewer words ocr_clues.suspect flags ("a digit inside a word"); no letter is added or cut."""
+    new = XREF_BEFORE.sub(r"\1 ", XREF_AFTER.sub(r" \1", text))
+    return new if new != text and len(fa.suspect(new)) < len(fa.suspect(text)) else text
+
+
 def mended_text(laid, printed):
     """(laid, printed) with each clue's text set to rights where the page's print is plain: the lone capitals of a
     neighbour's solution grid cut out of it, a bracket an ellipsis closes ("...)") given its opening, a quote
@@ -790,6 +802,7 @@ def mended_text(laid, printed):
         new = " ".join(keep)
         new = clue_text.open_ellipsis_bracket(new)
         new = spaced_quotes(new)
+        new = spaced_xref(new)
         if new != text:
             out[lid] = (new, enum, group)
         names = [w for w in new.split() if CAMEL_NAME.match(w)]
@@ -1007,7 +1020,31 @@ def read_page(path, store=STORE, asker=None, known=None):
     if known and verdict.get("setter"):
         puzzle["setter"] = verdict["setter"]
     verdict["whole"] = bool(fa.complete(puzzle))
+    if not verdict["whole"]:
+        verdict["unfit"] = unfit_why(puzzle)
     return verdict, puzzle
+
+
+def unfit_why(puzzle):
+    """Why fa.complete refuses a puzzle: {"blank": clues with no text, "suspect": {entry: text} OCR made
+    up, "faults": {entry: why} ocr_clues refuses}, each key only when it holds something."""
+    out = {}
+    entries = puzzle["entries"]
+    empty = [f"{e.get('number')}-{e.get('direction')}" for e in entries
+             if not ((e.get("clue") or {}).get("text") or "").strip()]
+    if empty:
+        out["blank"] = empty
+    bad = {}
+    for e in entries:
+        clue = e.get("clue") or {}
+        if fa.suspect(clue.get("text", ""), printed=clue.get("asPrinted") or ()):
+            bad[f"{e.get('number')}-{e.get('direction')}"] = str(clue.get("text"))[:80]
+    if bad:
+        out["suspect"] = bad
+    found = fa.faults(puzzle)
+    if found:
+        out["faults"] = {k: str(v)[:80] for k, v in found.items()}
+    return out
 
 
 def read_unit(rel, saved=SAVED, store=STORE):
