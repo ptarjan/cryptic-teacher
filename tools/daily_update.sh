@@ -1041,7 +1041,10 @@ unit_commit() {  # subject
     # checkout. Committed, they reach the Pages runner as dangling links, tar
     # refuses to archive the site, and the day is pushed but never published.
     # add -A cannot be narrowed (above), so the narrowing is here.
-    symlinks=$(git ls-files -s | sed -n 's/^120000 [0-9a-f]* 0	//p')
+    # Only what this add staged can be a new link: the staged diff, not the
+    # 57k-entry index (git ls-files -s read all of it on every unit).
+    symlinks=$(git --no-optional-locks diff --cached --raw --no-renames --diff-filter=AMT |
+      sed -n 's/^:[0-7]* 120000 [0-9a-f]* [0-9a-f]* [AMT]\t//p')
     if [ -n "$symlinks" ]; then
       printf '%s\n' "$symlinks" | while IFS= read -r link; do git rm -q --cached "$link"; done
       alert "the daily update tried to commit machine-local symlink(s): $(printf '%s ' $symlinks)- unstaged, because committed they break the Pages build for everyone. Add them to .gitignore, spelled without a trailing slash."
