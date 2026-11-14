@@ -99,8 +99,10 @@ A fetch unit loads only its source's module and that module's MODULES
 (FETCH_UNITS; under the same lock), what its fetch_unit reaches.
 """
 import argparse
+import ctypes
 import datetime
 import functools
+import gc
 import hashlib
 import itertools
 import importlib
@@ -785,6 +787,7 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
             fa.save_likely(LIKELY_CACHE)
             scan_queue.save_count_left(COUNT_LEFT_CACHE)
             _DIR_SAVED[0] = time.monotonic()
+        give_back_memory()
 
 
 #: Seconds between plan()'s writes of DIR_CACHE, and when the last was (monotonic).
@@ -4800,8 +4803,22 @@ def keep_plan(path, key, made, at, took=0.0):
     """Save plan `made` (scans, reads, fetches), made at `at` (time.time())
     in `took` seconds, for a run with `key`'s arguments."""
     tmp = Path(f"{path}.tmp")
-    tmp.write_text(json.dumps({"key": key, "at": at, "took": took, "plan": made}))
+    # Streamed to the file: json.dumps made the whole ~40 MB text (and its encoder's chunks) on the heap
+    # at each plan, the fragmentation the parent kept as resident memory.
+    with open(tmp, "w") as f:
+        json.dump({"key": key, "at": at, "took": took, "plan": made}, f)
     tmp.replace(path)
+    give_back_memory()
+
+
+def give_back_memory():
+    """Return the heap's free pages to the OS (glibc malloc_trim): a plan and the saving of it leave
+    tens of MB of freed but resident arena the parent would otherwise hold for good."""
+    try:
+        gc.collect()
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except (OSError, AttributeError):
+        pass
 
 
 def last_plan(path, key, loose=False):
