@@ -102,7 +102,6 @@ import argparse
 import ctypes
 import datetime
 import functools
-import gc
 import hashlib
 import itertools
 import importlib
@@ -4857,11 +4856,21 @@ def log_parent_rss(now=None):
         pass
 
 
+#: Seconds between give_back_memory's trims, and when the last started (monotonic).
+GIVE_BACK_EVERY = 60.0
+_GAVE_BACK = [None]
+
+
 def give_back_memory():
     """Return the heap's free pages to the OS (glibc malloc_trim): a plan and the saving of it leave
-    tens of MB of freed but resident arena the parent would otherwise hold for good."""
+    tens of MB of freed but resident arena the parent would otherwise hold for good. At most once per
+    GIVE_BACK_EVERY seconds, and no full gc.collect (it holds the GIL, stalling the dispatch loop that
+    calls keep_plan on a big heap): a trim is all that returns pages to the OS."""
+    now = time.monotonic()
+    if _GAVE_BACK[0] is not None and now - _GAVE_BACK[0] < GIVE_BACK_EVERY:
+        return
+    _GAVE_BACK[0] = now
     try:
-        gc.collect()
         ctypes.CDLL("libc.so.6").malloc_trim(0)
     except (OSError, AttributeError):
         pass
