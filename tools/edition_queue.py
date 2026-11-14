@@ -405,6 +405,8 @@ def run_unit(unit, cache, puzzles, reread):
         import gale_tls_read as tls
         if unit["rel"].startswith(jumbo.PREFIX):
             return jumbo.read_unit(unit["rel"])
+        if unit["rel"].startswith(tls.BACK_PREFIX):
+            return tls.read_back_unit(unit["rel"])
         if unit["rel"].startswith(tls.PREFIX):
             return tls.read_unit(unit["rel"])
         return m.read_unit(unit["rel"])
@@ -1377,7 +1379,7 @@ def plan_inputs(papers, cache, reread, asked):
         stamps[k] = None if stamp is None else (stamp, ledger_held(fa.ledger_of(cache, paper)))
     extra = {}
     if "listener" in papers:
-        extra["listener"] = gale_jumbo_read.plan() + gale_tls_read.plan() + gale_listener.plan()
+        extra["listener"] = gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()
     if "trove" in papers:
         led = media_manifest.trove_ledger(ftp.CACHE)
         trove_held = ledger_held(led)
@@ -1424,7 +1426,7 @@ def _plan(papers, cache, reread, out, asked=None):
         took[key] = time.monotonic()
         if key == "listener":
             reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
-                      for n, u in enumerate(gale_jumbo_read.plan() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
+                      for n, u in enumerate(gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
             continue
         if key == "trove":
             led = media_manifest.trove_ledger(ftp.CACHE)
@@ -1767,6 +1769,12 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
+def back_first(units, prefix):
+    """`units` with those whose rel opens with `prefix` first, each group in its order."""
+    mine = [u for u in units if str(u.get("rel", "")).startswith(prefix)]
+    return mine + [u for u in units if not str(u.get("rel", "")).startswith(prefix)]
+
+
 def jumbo_tls_alternate(units, jumbo_prefix, tls_prefix):
     """`units` with the Jumbo's and the TLS's taken one for one first, then the rest, each in its order."""
     jumbo = [u for u in units if str(u.get("rel", "")).startswith(jumbo_prefix)]
@@ -1988,6 +1996,9 @@ def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=fro
     # The TLS's (gale_tls_read, "tls:NAME") follow the Jumbo's, still ahead of the Listener's.
     # 11-13: with the Jumbo's all ahead, no TLS unit ever started (944 never read): they now alternate one for one.
     listener_order = jumbo_tls_alternate(listener_order, gale_jumbo_read.PREFIX, gale_tls_read.PREFIX)
+    # Paul 11-14: work being fixed goes at the front. The 60 modern TLS back issues (tlsback:N, the-tls.com
+    # images tools/tls_puzzles.py could not read) lead the Listener's pool, ahead of the Jumbo's and the TLS's.
+    listener_order = back_first(listener_order, gale_tls_read.BACK_PREFIX)
     others = [u for *_, u in units if u.get("paper") != "listener"]
     # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
     # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of
