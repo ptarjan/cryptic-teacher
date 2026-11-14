@@ -578,6 +578,51 @@ def forget_parsed(path):
 #: it} or {article: last row})}: _kept's compact state of a ledger (see there).
 _KEPT = {}
 _KEPT_LOCK = threading.Lock()
+_KEPT_FORMAT = 1
+
+
+def _kept_file(path, trove):
+    """Where _kept saves its state of `path` between processes, or None for a ledger under the temp
+    dir (a test's scratch copy: nothing to carry over, and it would only litter the cache)."""
+    import tempfile
+    p = os.path.abspath(path)
+    if p.startswith(os.path.abspath(tempfile.gettempdir()) + os.sep):
+        return None
+    base = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache") / "cryptic-teacher"
+    return base / f"scan-kept-{hashlib.sha1(f'{p}|{trove}'.encode()).hexdigest()[:16]}.pickle"
+
+
+def _kept_load(path, trove):
+    """The state _kept saved of `path` in an earlier process, or None. It is only a head start: _kept
+    checks its stat key, or the edges of the bytes it consumed, before trusting it."""
+    import pickle
+    saved = _kept_file(path, trove)
+    try:
+        with open(saved, "rb") as f:
+            got = pickle.load(f)
+        if got[0] == _KEPT_FORMAT and got[1] == os.path.abspath(path):
+            return got[2]
+    except (OSError, ValueError, LookupError, TypeError, AttributeError, ImportError, EOFError, pickle.UnpicklingError):
+        pass  # missing, torn or from other code: read the ledger
+    return None
+
+
+def _kept_save(path, trove, state):
+    """Save _kept's state of `path` whole (write beside, then replace), so a process that starts next
+    parses only the bytes appended since: a cold --backlog parsed ~180k ledger rows, 20+ CPU seconds, every re-plan."""
+    import pickle
+    saved = _kept_file(path, trove)
+    if saved is None:
+        return
+    tmp = saved.with_name(f"{saved.name}.{os.getpid()}.tmp")
+    try:
+        saved.parent.mkdir(parents=True, exist_ok=True)
+        with open(tmp, "wb") as f:
+            pickle.dump((_KEPT_FORMAT, os.path.abspath(path), state), f, protocol=pickle.HIGHEST_PROTOCOL)
+        os.replace(tmp, saved)
+    except (OSError, pickle.PicklingError, RecursionError):
+        with contextlib.suppress(OSError):
+            os.unlink(tmp)
 
 
 def _kept(path, trove=False):
@@ -592,6 +637,11 @@ def _kept(path, trove=False):
                 st = os.fstat(f.fileno())
                 key = (st.st_ino, st.st_size, st.st_mtime_ns)
                 hit = _KEPT.get(path)
+                loaded = None
+                if hit is None:
+                    hit = loaded = _kept_load(path, trove)
+                    if hit is not None:
+                        _KEPT[path] = hit
                 if hit and hit[0] == key:
                     return hit[4]
                 done, lines, held = 0, 0, {}
@@ -618,6 +668,8 @@ def _kept(path, trove=False):
             _KEPT.pop(path, None)
             return {}
         _KEPT[path] = (key if size == st.st_size else (key[0], -1, 0), done, digest, lines, held)
+        if (loaded is not None or hit is None) and lines != (hit[3] if hit else 0):  # a process's first read only
+            _kept_save(path, trove, _KEPT[path])
         return held
 
 

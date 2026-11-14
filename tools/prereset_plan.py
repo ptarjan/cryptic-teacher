@@ -71,6 +71,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --natural-only [UNTIL_EPOCH]  # plan no manual resets until then (default: the natural reset)
     tools/prereset_plan.py --self-test
 """
+import contextlib
 import datetime as dt
 import itertools
 import json
@@ -618,9 +619,11 @@ def _epoch(stamp):
 
 
 def _tail(path, start, chunk=1 << 18):
-    """The lines of a transcript from about start on: read back from the end a
-    chunk at a time until a line older than start, since a session file is
-    written in time order and the window is its last hour."""
+    """The lines of a transcript from about start on, one at a time: read back
+    from the end a chunk at a time until a line older than start, since a
+    session file is written in time order and the window is its last hour.
+    Streamed: a week's window of a long session was read whole, decoded whole
+    and split whole, ~1.7 GB resident for the daily bridge-mean refresh."""
     with open(path, "rb") as fh:
         size = fh.seek(0, 2)
         at = size
@@ -634,7 +637,11 @@ def _tail(path, start, chunk=1 << 18):
                 break
             chunk *= 2
         fh.seek(at)
-        return fh.read().decode(errors="replace").splitlines()
+        for raw in fh:
+            # str.splitlines, as this read the whole text before: it also cuts at U+2028, \x85 and
+            # the like, which breaks a record holding one (dropped as unparsable). Kept as is: the
+            # planner's output does not move with this change.
+            yield from raw.decode(errors="replace").splitlines()
 
 
 def same_tree(cwd, burn_cwd):
@@ -659,7 +666,11 @@ def transcript_spend(projects, burn_cwd, start, end):
     # Per-transcript records are kept between runs with the byte offset read so far, so a
     # run reads only what a session appended since (the hourly re-tail of every live
     # transcript's last chunk was ~25 MB/min). Best effort; a changed burn_cwd drops it.
-    cache_file = Path(os.environ.get("CT_MTIME_CACHE_DIR") or Path.home() / ".cache" / "ct-mtime") / "plan-transcripts.json"
+    # One file a window size: the hourly spend (a one-hour window) drops every record older than its
+    # start, so sharing one with the weekly bridge-mean refresh made that read the whole week from
+    # scratch each day (52 CPU-s and 1.7 GB), and then be pruned to an hour by the next hourly run.
+    name = "plan-transcripts-week.json" if end - start > 2 * 86400 else "plan-transcripts.json"
+    cache_file = Path(os.environ.get("CT_MTIME_CACHE_DIR") or Path.home() / ".cache" / "ct-mtime") / name
     try:
         cache = json.loads(cache_file.read_text(encoding="utf-8"))
         if cache.get("burn_cwd") != burn_cwd:
@@ -694,21 +705,24 @@ def transcript_spend(projects, burn_cwd, start, end):
             continue
         seen.add(key)
         new = []
-        for line in lines:
-            if '"usage"' not in line:
-                continue
-            try:
-                rec = json.loads(line)
-            except ValueError:
-                continue
-            msg = rec.get("message")
-            when = _epoch(rec.get("timestamp") or "")
-            if (not isinstance(msg, dict) or not isinstance(msg.get("usage"), dict)
-                    or when is None):
-                continue
-            new.append([when, same_tree(rec.get("cwd"), burn_cwd), msg.get("id") or rec.get("uuid"),
-                        token_weight(msg.get("model"), msg["usage"]), rec.get("sessionId"),
-                        bool(rec.get("isSidechain"))])
+        try:
+            for line in lines:
+                if '"usage"' not in line:
+                    continue
+                try:
+                    rec = json.loads(line)
+                except ValueError:
+                    continue
+                msg = rec.get("message")
+                when = _epoch(rec.get("timestamp") or "")
+                if (not isinstance(msg, dict) or not isinstance(msg.get("usage"), dict)
+                        or when is None):
+                    continue
+                new.append([when, same_tree(rec.get("cwd"), burn_cwd), msg.get("id") or rec.get("uuid"),
+                            token_weight(msg.get("model"), msg["usage"]), rec.get("sessionId"),
+                            bool(rec.get("isSidechain"))])
+        except OSError:  # the transcript went away mid-read
+            continue
         if new or not ent or off != (ent or {}).get("off"):
             dirty = True
         recs = [r for r in recs + new if r[0] >= start - 3600]
@@ -1010,6 +1024,29 @@ def mean_fresh(text, now):
     return (rate, age) if rate >= 0 and age >= 0 else None
 
 
+BRIDGE_MEAN_MAX_WAIT_S = 6 * 3600
+
+
+def refresh_wait(tries):
+    """Seconds to leave a refresh alone after its `tries`th start without a file."""
+    return min(BRIDGE_MEAN_RETRY_S * 2 ** max(0, tries - 1), BRIDGE_MEAN_MAX_WAIT_S)
+
+
+def refresh_running(lock):
+    """Whether a refresh holds `lock` (a flock on the .lock file, which dies with it):
+    a slow one was started again after BRIDGE_MEAN_RETRY_S, two at once at ~450 MB each."""
+    import fcntl
+    try:
+        with open(lock) as fh:
+            try:
+                fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                return True
+    except OSError:
+        pass
+    return False
+
+
 def bridge_mean(home, now, short, spawn=True):
     """The bridge's points an hour to project to the reset: its rate over
     BRIDGE_MEAN_WINDOW_S, from the file in home. A value older than the TTL
@@ -1019,13 +1056,21 @@ def bridge_mean(home, now, short, spawn=True):
     got = mean_fresh(_read(path), now)
     if spawn and (got is None or got[1] > BRIDGE_MEAN_TTL_S):
         lock = Path(str(path) + ".lock")
+        tries = 0
         try:
-            recent = now - lock.stat().st_mtime < BRIDGE_MEAN_RETRY_S
+            stamped = lock.stat().st_mtime
+            try:
+                tries = int(lock.read_text().split()[1])
+            except (OSError, ValueError, IndexError):
+                tries = 0
+            # Each start that left no file (it failed, or was killed) doubles the wait, so a
+            # refresh that cannot finish costs a few runs a day, not one every half hour.
+            recent = now - stamped < refresh_wait(tries)
         except OSError:
             recent = False
-        if not recent:
+        if not recent and not refresh_running(lock):
             try:
-                lock.write_text(f"{now:.0f}\n")
+                lock.write_text(f"{now:.0f} {tries + 1}\n")
                 subprocess.Popen([sys.executable, str(Path(__file__).resolve()),
                                   "--refresh-bridge-mean", str(home)],
                                  stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
@@ -1038,6 +1083,17 @@ def bridge_mean(home, now, short, spawn=True):
 def refresh_bridge_mean(home):
     """--refresh-bridge-mean HOME: measure the bridge over BRIDGE_MEAN_WINDOW_S
     and write it to HOME's BRIDGE_MEAN_FILE (whole, so no reader sees half)."""
+    import fcntl
+    path = Path(home) / BRIDGE_MEAN_FILE
+    hold = None
+    try:  # held to exit: bridge_mean starts no second refresh meanwhile
+        hold = open(str(path) + ".lock")
+        fcntl.flock(hold, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        print("bridge mean: another refresh is running", file=sys.stderr)
+        return 1
+    except OSError:
+        pass
     now = time.time()
     rate, _ = bridge_spend(now, BRIDGE_MEAN_WINDOW_S)
     if rate is None:
@@ -1047,6 +1103,8 @@ def refresh_bridge_mean(home):
     tmp = path.with_name(path.name + ".tmp")
     tmp.write_text(json.dumps({"at": now, "rate": rate}) + "\n")
     tmp.replace(path)
+    with contextlib.suppress(OSError):
+        os.unlink(str(path) + ".lock")  # a file stands: the next start waits for its TTL, not a back-off
     print(f"bridge mean {rate:.3f} pts/h over {BRIDGE_MEAN_WINDOW_S / 86400:g} days")
     return 0
 
