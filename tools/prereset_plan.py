@@ -399,6 +399,38 @@ def known_left(text, used, now, span=RESET_SPAN_S):
     return max(0, left - sum(1 for t in used if t > at))
 
 
+def newer_note(*texts):
+    """Of several {"left", "at"} notes, the text with the latest `at`; unreadable ones
+    are ignored. None when none parses."""
+    best, best_at = None, None
+    for text in texts:
+        try:
+            at = float(json.loads(text)["at"])
+        except (TypeError, ValueError, KeyError, AttributeError):
+            continue
+        if best_at is None or at > best_at:
+            best, best_at = text, at
+    return best
+
+
+def known_note(home):
+    """The owner's reset count: the planner's own file or the bridge's shared anchor
+    (RESET_ANCHOR, default /data/reset-anchor.json), whichever is newer."""
+    return newer_note(_read(home / RESETS_KNOWN),
+                      _read(os.environ.get("RESET_ANCHOR", "/data/reset-anchor.json")))
+
+
+def anchor_self_test():
+    a, b = '{"left": 3, "at": 100}', '{"left": 1, "at": 200}'
+    bad = 0
+    for got, want in ((newer_note(a, b), b), (newer_note(b, a), b), (newer_note(a, "junk"), a),
+                      (newer_note(None, b), b), (newer_note(None, "x"), None)):
+        if got != want:
+            print(f"FAIL newer_note gave {got!r}, want {want!r}", file=sys.stderr)
+            bad += 1
+    return bad
+
+
 def capped_slots(slots, anchor):
     """`slots` (reset_slots) limited to the owner-stated `anchor` (known_left), if any."""
     return slots if anchor is None else list(slots[:anchor])
@@ -1038,7 +1070,7 @@ def show_resets():
     used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     natural = natural_only(_read(home / NATURAL_ONLY), now)
-    anchor = known_left(_read(home / RESETS_KNOWN), used, now)
+    anchor = known_left(known_note(home), used, now)
     slots = [] if natural else spendable(capped_slots(reset_slots(used, now, until), anchor))
     bridge, rate = bridge_spend()
     rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.debug.log") or "").splitlines()))
@@ -1134,7 +1166,7 @@ def width(arg=None, floor=1):
         if hours_left is not None and hours_left > 0 and pct is not None:
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
             left = max(0, MANUAL_RESETS - len(used))
-            anchor = known_left(_read(home / RESETS_KNOWN), used, now)
+            anchor = known_left(known_note(home), used, now)
             left = left if anchor is None else min(left, anchor)
             choice = auto_rush(home, left, now + hours_left * 3600, now)
         stamp = _read(home / RUSH)
@@ -1150,7 +1182,7 @@ def width(arg=None, floor=1):
             until = now + hours_left * 3600
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
             natural = natural_only(_read(home / NATURAL_ONLY), now)
-            anchor = known_left(_read(home / RESETS_KNOWN), used, now)
+            anchor = known_left(known_note(home), used, now)
             slots = [] if natural else spendable(capped_slots(reset_slots(used, now, until), anchor))
             plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge), sleep)
             if plan[0]:
@@ -1242,7 +1274,8 @@ def self_test():
     TODAY = dt.date(1950, 1, 1)
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
-           + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
+           + reannotate_self_test() + interleave_self_test() + best_effort_self_test()
+           + anchor_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES) + len(MEM_DETAIL_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 4 + 3 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
