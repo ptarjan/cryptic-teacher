@@ -5698,8 +5698,13 @@ def load_held(path):
             snap = pickle.load(f)
     except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
         return
+    # Only this checkout's files: the pickle is shared by every worktree, and its keys are full paths, so
+    # each worktree's ~25k entries piled up under its own root (1.28M entries, ~1 GB per process, 3.5 GB in
+    # the queue's parent, for ~62k live ones). A foreign root's entry is never looked up here.
+    mine = os.fspath(ROOT / "puzzles") + os.sep
     for k, v in snap.items():
-        _HELD.setdefault(k, v)  # str keys: a Path hashes by re-normalising its string
+        if k.startswith(mine):
+            _HELD.setdefault(k, v)  # str keys: a Path hashes by re-normalising its string
 
 
 #: {(series, number): its file} as held_files last listed them.
