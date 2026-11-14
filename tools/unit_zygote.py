@@ -113,6 +113,11 @@ def serve(fd, modules):
     import code_reach
     sig = code_reach._signature_of()
     preload(modules)
+    # setproctitle finds its argv area on first use; a unit's first use comes after
+    # unit_process swaps os.environ, when it no longer can, so units kept this
+    # server's title in ps (run_full_pass_adopt.sh kills orphans by title).
+    import setproctitle
+    setproctitle.setproctitle(setproctitle.getproctitle())
     sock.sendall(b"ready\n")
     for line in sock.makefile("rb"):
         try:
