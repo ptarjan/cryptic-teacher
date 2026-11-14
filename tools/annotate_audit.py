@@ -479,7 +479,7 @@ def bag_reports(out):
 
 
 _SESSION_CACHE = {}
-_SESSION_CACHE_FILE = pathlib.Path(os.environ.get("CT_MTIME_CACHE_DIR", "/data/home/.cache/ct-mtime")) / "audit-sessions.pickle"
+_SESSION_CACHE_FILE = pathlib.Path(os.environ.get("CT_MTIME_CACHE_DIR") or pathlib.Path.home() / ".cache" / "ct-mtime") / "audit-sessions.pickle"
 
 
 def _cached_session(path, templates, retired, kind):

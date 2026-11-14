@@ -5,7 +5,7 @@ file's (mtime_ns, size) is unchanged, so a run over ~57k puzzle files reads
 the few that moved since the last run instead of every one (the whole-corpus
 scans of coverage.py and fetch_telegraph.py were 100-200 MB/min of disk reads
 each). fn must return something JSON-serialisable and depend on that file only.
-The cache lives in /data/home/.cache (or $CT_MTIME_CACHE_DIR), best effort.
+The cache lives in ~/.cache/ct-mtime (or $CT_MTIME_CACHE_DIR), best effort.
 """
 
 import json
@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 def _dir():
-    return Path(os.environ.get("CT_MTIME_CACHE_DIR", "/data/home/.cache/ct-mtime"))
+    return Path(os.environ.get("CT_MTIME_CACHE_DIR") or Path.home() / ".cache" / "ct-mtime")
 
 
 def scan(name, paths, fn):

@@ -20,7 +20,7 @@ check() {  # check <what> <expected> <got>
 
 R="$tmp/repo"
 mkdir -p "$R/tools/data" "$R/puzzles/a/2020"
-cp "$here/renamed_ids.py" "$R/tools/"
+cp "$here/renamed_ids.py" "$here/gitlog_cache.py" "$R/tools/"
 cd "$R"
 git init -q
 git config user.email t@example.com
