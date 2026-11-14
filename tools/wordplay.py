@@ -2097,16 +2097,15 @@ def _rekey(notes, tree):
         if not want:
             continue
         free = [(s, k) for s, k in _spans(tree, True) if "note" not in s and _fold(s[k])]
-        for hit in ([x for x in free if _fold(x[0][x[1]]) == want],
-                    [x for x in free if f" {want} " in f" {_fold(x[0][x[1]])} "
-                     or (len(_fold(x[0][x[1]]).split()) > 1 and f" {_fold(x[0][x[1]])} " in f" {want} ")]):
-            if len(hit) == 1:
-                hit[0][0]["note"] = notes.pop(key)
-                break
-            if hit:
-                break
-        else:
+        same = [x for x in free if _fold(x[0][x[1]]) == want]
+        near = [x for x in free if f" {want} " in f" {_fold(x[0][x[1]])} "
+                or (len(_fold(x[0][x[1]]).split()) > 1 and f" {_fold(x[0][x[1]])} " in f" {want} ")]
+        if len(same) == 1 or (not same and len(near) == 1):
+            (same or near)[0][0]["note"] = notes.pop(key)
+        elif not same:  # no one span names it: spans that together spell it may
             _rekey_parts(notes, key, want, free)
+            if key in notes:
+                _rekey_run_together(notes, key, want, free)
 
 
 _SMALL_WORDS = {"the", "and", "for", "but", "with", "from", "into", "over", "its", "are", "was", "has"}
@@ -2133,6 +2132,41 @@ def _rekey_parts(notes, key, want, free):
         if len(words) > len(text.split()) and (len(text.split()) > 1 or
                                                  (len(text) >= 3 and text not in _SMALL_WORDS)):
             inside[0][0]["note"] = notes.pop(key)
+
+
+def _rekey_run_together(notes, key, want, free):
+    """A note keyed by two or three free spans' words run into one word ('cheerleader' for
+    the free [leader] and [cheer]) lands on each of them, when those words, in one order,
+    spell the key exactly and no two free spans have the same words."""
+    flat = want.replace(" ", "")
+    near = [x for x in free if _fold(x[0][x[1]]).replace(" ", "") in flat]
+    texts = [_fold(x[0][x[1]]) for x in near]
+    if not 2 <= len(near) <= 3 or len(set(texts)) < len(texts):
+        return
+    if any("".join(t.replace(" ", "") for t in order) == flat for order in itertools.permutations(texts)):
+        note = notes.pop(key)
+        for span, _ in near:
+            span["note"] = note
+
+
+def _spans_owed_a_note(tree):
+    """(dict, key) of each span still without a note that the prompt says needs one. A leaf
+    that is its own letters (`[a]A`) and a leaf a pick (first/last/..., hidden) reads from
+    go without, so a leftover note beside only those is a stray extra (a note on a charade's
+    link word, or on 'a', beside `last<end of>([candle])`)."""
+    owed = [(s, k) for s, k in _spans(tree, True) if "note" not in s]
+    exempt = set()
+
+    def walk(node):
+        if node.get("op") in SELECT + ("hidden",):
+            exempt.update(id(p) for p in node.get("parts") or [] if "words" in p)
+        for p in node.get("parts") or []:
+            walk(p)
+    walk(tree)
+    return [(s, k) for s, k in owed
+            if id(s) not in exempt and not (
+                k == "words" and re.sub(r"\W", "", s["words"]).lower()
+                == re.sub(r"\W", "", str(s.get("gives") or "")).lower())]
 
 
 def _is_sub(small, big):
@@ -2185,14 +2219,16 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                 break
     if notes:
         _rekey(notes, tree)
-    if notes and not [1 for s, k in _spans(tree, True) if "note" not in s]:
-        # Every span has its note: a leftover is a stray extra (the commonest 'name no
-        # span' refusal in the annotate bag), and dropping it loses nothing.
+    if notes and not _spans_owed_a_note(tree):
+        # Every span that needs a note has one: a leftover is a stray extra (the commonest
+        # 'name no span' refusal in the annotate bag), and dropping it loses nothing.
         notes.clear()
     if notes:
         keys = [s[k] for s, k in _spans(tree, True) if "note" not in s]
         raise WordplayError(f"notes {sorted(notes)} name no span of the wordplay; key each "
-                            f"note by its words as written in the expression"
+                            f"note by its words as written in the expression (a note on a link word "
+                            f"or indicator the expression does not write needs it written as "
+                            f"`<indicator>`, else drop the note)"
                             + (f" (spans with no note yet: {keys})" if keys else
                                " (every span has a note already)"))
     _quote_bare_words(tree, clue, taken)

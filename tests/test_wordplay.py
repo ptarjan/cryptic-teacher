@@ -277,6 +277,25 @@ check("a joined key with extra words stays refused", left == ["in a guy x"], got
 got, left = rekeyed("[a]A + [x]X", "a to x", {"a gold bar": "n"})
 check("a link word alone is not a phrase's span", "a gold bar" in left, got)
 
+# Real 'name no span' refusals of 11-12..14 (session logs).
+got, left = rekeyed("[cheer]CHEER + [leader]LEADER", "cheer leader", {"cheerleader": "n"})
+check("a key running two free spans' words together lands on both", not left and [n for _, n in got] == ["n", "n"], got)
+got, left = rekeyed("[cheer]CHEER + [leader]LEADER + [cheer#2]X", "cheer leader cheer", {"cheerleader": "n"})
+check("a run-together key with a repeated span stays refused", left == ["cheerleader"], got)
+got, left = rekeyed("[to replace]X + [lost in]Y", "to replace lost in", {"to replace ... lost in": "n"})
+check("an ellipsis key naming two free spans lands on both", not left and [n for _, n in got] == ["n", "n"], got)
+tree = w.parse("[low]MOO + last<end of>([candle]) + [morning]AM", "low end of candle morning")
+check("a pick's leaf is owed no note", [s[k] for s, k in w._spans_owed_a_note(tree)] == ["low", "end of", "morning"],
+      w._spans_owed_a_note(tree))
+tree = w.parse("[a]A + [x]X", "a x")
+check("an own-letters leaf is owed no note", [s[k] for s, k in w._spans_owed_a_note(tree)] == [],
+      w._spans_owed_a_note(tree))
+out = w.translate({"wp": "[low]MOO + last<end of>([candle]) + [carefully mark]NB + [morning]AM",
+                   "notes": {"low": "to low is to moo", "end of": "the end of the word gives its last letter only",
+                             "carefully mark": "NB is note well", "morning": "AM is morning", "before": "stray"}},
+                  "Low end of candle carefully mark morning", "MOOENBAM")
+check("a stray note beside only a pick's leaf is dropped", out is not None, out)
+
 # Quote-not-in-clue mends, from real refusals (annotate audit 10-24/25).
 def spans_of(wp, clue):
     t = w.parse(wp, clue)
