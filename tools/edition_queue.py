@@ -2437,13 +2437,38 @@ def answers_linked(unit):
     return kinds == {"answers linked"}
 
 
+#: The most LOW_ASK (short-solution) rereads of one paper read in one unit process (CT_LOWASK_BATCH; 1 turns
+#: it off). 11-14: 1,331 answers-only units spent 18,816 CPU-s in 5 h, ~18 s of each in setup before the
+#: first stage (solution_sources and sister_solutions linking, load_known, edition_dirs, imports). Modest
+#: so a batch holds its slot a few minutes at most: each edition files as it ends, and one deferred for
+#: the VLM (asks spooled) does not end the others' reads (file_archive_org_puzzles._run, "tolerant").
+LOW_ASK_BATCH = max(1, int(os.environ.get("CT_LOWASK_BATCH") or 4))
+
+
+def low_ask_batchable(unit):
+    """Whether read `unit` is a LOW_ASK reread of an archive.org paper (batched with others of its paper)."""
+    return (unit["kind"] == "read" and unit["paper"] in fa.FILERS
+            and (unit.get("reason") or "").startswith(LOW_ASK))
+
+
+def batch_kind(unit):
+    """"answers" (answers_linked), "low_ask" (low_ask_batchable) or None: the reads batched together are of one kind."""
+    if answers_linked(unit):
+        return "answers"
+    return "low_ask" if low_ask_batchable(unit) else None
+
+
 def batch_mates(unit, cands, tried, busy, ready, size=None):
-    """The reads that go with answers-linked read `unit` in its process: up to `size` - 1 (ANSWERS_BATCH) of
-    `cands` ((unit, key) pairs in the queue's order) of the same paper and item (the part of the edition's
-    name before the "/"), the same rank, due for the same cheap reason, not tried nor busy and for which
-    `ready(unit)` holds (not waiting on a scan or the VLM). Empty for any other unit."""
-    size = ANSWERS_BATCH if size is None else size
-    if size <= 1 or not answers_linked(unit):
+    """The reads that go with read `unit` in its process: up to `size` - 1 of `cands` ((unit, key) pairs in
+    the queue's order) of the same paper, the same rank and the same batch_kind, not tried nor busy and for
+    which `ready(unit)` holds (not waiting on a scan or the VLM). Answers-linked reads (ANSWERS_BATCH)
+    must also share an item (the part of the edition's name before the "/"); LOW_ASK rereads
+    (LOW_ASK_BATCH) need only the paper, the setup they share being the paper's. Empty for any other unit."""
+    kind = batch_kind(unit)
+    if kind is None:
+        return []
+    size = (ANSWERS_BATCH if kind == "answers" else LOW_ASK_BATCH) if size is None else size
+    if size <= 1:
         return []
     item = unit["rel"].partition("/")[0]
     out = []
@@ -2451,7 +2476,8 @@ def batch_mates(unit, cands, tried, busy, ready, size=None):
         if len(out) >= size - 1:
             break
         if (v["paper"] != unit["paper"] or v["rel"] == unit["rel"] or v["rank"] != unit["rank"]
-                or v["rel"].partition("/")[0] != item or k in tried or k in busy or not answers_linked(v)):
+                or k in tried or k in busy or batch_kind(v) != kind
+                or kind == "answers" and v["rel"].partition("/")[0] != item):
             continue
         if ready(v):
             out.append(v)
@@ -3614,7 +3640,7 @@ class _Children:
         self.running[pid] = (unit, time.monotonic())
         self.tried.add(key_of(unit))
         log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})"
-            + (f" in a batch of {len(mates) + 1}" if mates else ""))
+            + (f" in a batch of {len(mates) + 1} ({batch_kind(unit)}: one setup, ~18 CPU-s saved a mate)" if mates else ""))
         for v in mates:
             self.tried.add(key_of(v))
             log(f"start {v['kind']} {v['rel']} ({v['reason']}) in the batch of {unit['rel']}")
@@ -3674,6 +3700,8 @@ class _Children:
                         keep_defers(self.defer_file, self.defer_runs, self.defer_until)
                 if spooled_by:
                     self.spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
+                    for k in batch_mate_keys(unit):  # a batch's editions share its pid's asks: none reread before they are answered
+                        self.spool_wait[k] = set(spooled_by)
                     self.full_wait.pop(key_of(unit), None)  # its asks are spooled: the answers, not the cap, release it
                 elif not full_end:
                     self.vlm_held.add(key_of(unit))

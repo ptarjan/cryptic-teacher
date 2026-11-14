@@ -22937,7 +22937,7 @@ def read_unit(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE,
         if dirs is not None:
             dirs = [*dirs, *(Path(cache) / r for r in mine if Path(cache) / r not in dirs)]
         _run(cache, True, ledger, out, puzzles, None, source, paper, None, 1, reread, editions=mine,
-             unit={"force": force, "dirs": dirs})
+             unit={"force": force, "dirs": dirs, "tolerant": len(mine) > 1})
         return "read"
 
 
@@ -23102,32 +23102,64 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             "vlmVersion": vlm.version(), "solOnly": known[rels[d]].get("solOnly"),
             "reprints": read_with}
     fresh, read_now = 0, set()
-    for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
-            [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
+    # A batch (read_unit's `also`): an edition that ends deferred for the VLM (asks spooled, VLM down) must
+    # not end the others' reads: its miss is noted and cleared (vlm.restore), the rest are read and filed,
+    # and the unit ends deferred once all are done (the deferred ones go back to the plan).
+    tolerant = bool((unit or {}).get("tolerant"))
+    deferred = []
+    clean = vlm.flags() if tolerant else None
+    reader = read_edition
+    if tolerant:
+        def reader(d, found):
+            try:
+                return read_edition(d, found)
+            except Exception as e:
+                if not scan_queue.vlm_down(e):
+                    raise
+                deferred.append((d, e))
+                vlm.restore(clean)
+                return None
+    for (d, found), got in scan_queue.parallel(
+            [(d, scans[rels[d]]) for d in queue], reader, workers, deadline,
             init=set_solutions, initargs=(solutions, puzzles), failed=edition_failed):
+        if got is None:
+            continue  # deferred (tolerant batch only)
+        results, vlm_ok, *decided = got
         rel = rels[d]
         h, sol_seen, fh, read_with = due[d]
-        fresh += 1
 
         commit = edition_commit.writer(source, paper.series, puzzles)
-        if decided and decided[0] is not None:
-            # Decided on the desktop: only its writes are made here.
-            verdicts = edition_commit.commit_decided(decided[0], commit if write else None)
-        else:
-            verdicts = []
-            for verdict, puzzle in results:
-                decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
-                verdicts.append(verdict)
-        # Keyed by the inputs after this read's writes: a stray clue it
-        # mended no longer makes the edition due.
-        h = inputs_of(fh, found, paper.series, read_with)
-        known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
-                                        solution_key(), known[rel].get("solOnly"))
-        changed.add(rel)
-        read_now.add(rel)
-        flush()
+        try:
+            if decided and decided[0] is not None:
+                # Decided on the desktop: only its writes are made here.
+                verdicts = edition_commit.commit_decided(decided[0], commit if write else None)
+            else:
+                verdicts = []
+                for verdict, puzzle in results:
+                    decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
+                    verdicts.append(verdict)
+            # Keyed by the inputs after this read's writes: a stray clue it
+            # mended no longer makes the edition due.
+            h = inputs_of(fh, found, paper.series, read_with)
+            known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
+                                            solution_key(), known[rel].get("solOnly"))
+            changed.add(rel)
+            read_now.add(rel)
+            flush()
+        except Exception as e:
+            # vlm.guard at a write: nothing of this edition was written (the guard comes before each write).
+            if not tolerant or not scan_queue.vlm_down(e):
+                raise
+            deferred.append((d, e))
+            vlm.restore(clean)
+            continue
+        fresh += 1
         progress(edition_commit.read_line(rel, verdicts))
     flush()
+    if deferred:
+        progress(f"{len(deferred)} of {len(deferred) + fresh} batched editions deferred for the VLM; the rest filed")
+        # A Down whatever the first error was (a Spooled counts as one only while the miss flag stands).
+        raise vlm.Down(f"{len(deferred)} batched editions deferred: {deferred[0][1]}")
     # Only this run's verdicts: the ledger's lifetime totals reprinted old
     # refusals (long since fixed) after every read, reading as fresh errors.
     tally = report(known[rels[d]] for d in dirs if rels[d] in read_now)
