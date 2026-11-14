@@ -371,7 +371,7 @@ ACQUISITION_BY_SOURCE = {
     ("azed", "static.guim.co.uk"): ("tools/andlit_azed.py",),
     ("azed", "uploads.guim.co.uk"): ("tools/andlit_azed.py",),
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
-    ("tls", "www.the-tls.com"): ("tools/tls_puzzles.py",),
+    ("tls", "www.the-tls.com"): ("tools/tls_puzzles.py", "tools/gale_tls_read.py"),
     ("nation", "www.thenation.com"): ("tools/fetch_nation.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),

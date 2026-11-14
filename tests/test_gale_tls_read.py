@@ -61,4 +61,18 @@ lent = gl.lend_numbers({"page": page, "ch": rapid})
 assert (65, 1277, 82, 1297, "4") in lent["ch"] and len(lent["ch"]) == 9 and sum(w[4] == "5" for w in lent["ch"]) == 1  # the "5" it read is not doubled
 assert lent["page"] == page
 assert t.VERSION >= 20
+# the 60 modern back issues: tlsback:N units, never globbing a folder, led by the oldest number
+import tempfile
+assert len(t.BACK_DATES) == 60 and min(t.BACK_DATES) == 1337 and max(t.BACK_DATES) == 1612
+assert all(__import__("datetime").date.fromisoformat(d).weekday() == 4 for d in t.BACK_DATES.values())
+with tempfile.TemporaryDirectory() as store:
+    due = t.plan_back(store)
+    assert len(due) == 60 and due[0]["rel"] == "tlsback:1337" and not t.BACK_PREFIX.startswith(t.PREFIX)
+    t.append_row({"file": "tlsback-1337", "version": t.BACK_VERSION}, store)
+    assert len(t.plan_back(store)) == 59
+# the footer's Friday and the byline of the-tls.com's own title line
+foot = [(0, 3990, 100, 4000, "Friday,"), (110, 3990, 300, 4000, "September 4, 2020")]
+words = [(0, 10, 300, 40, "TLS Crossword 1341 by Praxiteles")] + foot
+day, setter = t.footer_and_setter(words, 4000)
+assert str(day) == "2020-09-04" and setter == "Praxiteles", (day, setter)
 print("ok")

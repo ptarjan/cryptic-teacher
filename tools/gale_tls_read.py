@@ -628,21 +628,36 @@ def lending(read, *args):
         gl.LEND_NUMBERS = old
 
 
-def read_page(path, store=STORE, asker=None):
-    """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (jr.vlm_mended)."""
+def read_page(path, store=STORE, asker=None, known=None):
+    """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (jr.vlm_mended).
+    `known` is (number, date) for a page that prints no Gale citation (a tlsback: image, whose number
+    is its folder's and whose date is the footer's, else the csv's)."""
     import gale_listener as gl
     import archive_org_jumbo as aj
     import trove_grid
     img, cite = gi.images(path)[0]
     verdict = {"file": path.name}
-    cited = cite_of(cite)
+    if known:
+        img = scaled_up(img)
+    key = gl.image_key(img)
+    if known:
+        # the footer's date wins over the csv's; the byline gives the setter
+        words = gl.page_words(img, key)
+        day, setter = footer_and_setter(words, img.height)
+        verdict["setter"] = setter
+        if day:
+            verdict["footerDate"] = day.isoformat()
+        cited = (known[0], day or known[1])
+    else:
+        cited = cite_of(cite)
     if not cited:
         verdict["refused"] = "no TLS citation on the page"
         return verdict, None
     day = cited[1]
-    key = gl.image_key(img)
     n, how = cited[0], "citation"
-    if n is not None:
+    if known:
+        n, how = known[0], "issue"
+    elif n is not None:
         rows = cites()
         # A printed number that does not run on from its neighbours' (a misprint, a repeat) is no anchor.
         if not any(rows[i][0] == path.name for i in anchors_of(rows)):
@@ -736,8 +751,12 @@ def read_page(path, store=STORE, asker=None):
     verdict["why"] = {k: str(v)[:80] for k, v in sorted(blank.items())}
     doc = jr.DOC_ID.search(path.name.upper())
     url = f"https://link.gale.com/apps/doc/{doc.group(0)}/TLSH?sid=bookmark-TLSH" if doc else None
+    if known:
+        url = known[2]
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"TLS crossword No {n:,}",
                       url=url, printed=read.get("asPrinted"))
+    if known and verdict.get("setter"):
+        puzzle["setter"] = verdict["setter"]
     verdict["whole"] = bool(fa.complete(puzzle))
     return verdict, puzzle
 
@@ -772,10 +791,155 @@ def read_unit(rel, saved=SAVED, store=STORE):
     return "read"
 
 
+#: The 60 modern back issues (2020-26) tools/tls_puzzles.py's reader could not read (no ruled square
+#: grid, no clues, or unreadable cells), saved one image each, <BACKFILL>/<issue>/<issue>.png or .jpg.
+#: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
+BACK_PREFIX = "tlsback:"
+BACK_DIR = "Backfill"
+BACK_VERSION = 1
+BACK_REASON = "never read (Gale fetch)"
+BACK_DATES = dict(
+    (int(a), b) for a, b in (p.split(":") for p in (
+        "1337:2020-07-31 1341:2020-09-04 1366:2021-03-05 1367:2021-03-12 1386:2021-07-23 1387:2021-07-30 "
+        "1404:2021-12-03 1405:2021-12-10 1410:2022-01-21 1418:2022-03-18 1428:2022-05-27 1430:2022-06-10 "
+        "1432:2022-06-24 1434:2022-07-08 1446:2022-10-07 1456:2022-12-16 1460:2023-01-20 1466:2023-03-03 "
+        "1470:2023-03-31 1482:2023-06-23 1490:2023-08-18 1502:2023-11-17 1506:2023-12-15 1507:2023-12-22 "
+        "1514:2024-02-16 1525:2024-05-03 1526:2024-05-10 1530:2024-06-07 1531:2024-06-14 1537:2024-07-26 "
+        "1545:2024-09-27 1554:2024-11-29 1557:2024-12-20 1558:2025-01-03 1559:2025-01-10 1577:2025-05-16 "
+        "1581:2025-06-13 1583:2025-06-27 1586:2025-07-18 1591:2025-08-22 1592:2025-09-05 1593:2025-09-19 "
+        "1594:2025-10-03 1595:2025-10-17 1596:2025-10-31 1597:2025-11-14 1598:2025-11-28 1599:2025-12-12 "
+        "1600:2026-01-02 1601:2026-01-09 1602:2026-01-23 1603:2026-02-06 1604:2026-02-20 1605:2026-03-06 "
+        "1606:2026-03-20 1607:2026-04-03 1608:2026-04-17 1609:2026-05-01 1610:2026-05-15 1612:2026-06-12"
+    ).split()))
+MODERN_FOOTER = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                           r"\s+(\d{1,2}),?\s+(\d{4})")
+MODERN_BYLINE = re.compile(r"Crossword\s*\d{3,5}\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
+#: The footer is the page's last line: words in this fraction of its height at the bottom.
+FOOTER_BAND = 0.04
+#: The byline stands in the top of the page, this fraction of its height.
+BYLINE_BAND = 0.25
+
+
+def back_root():
+    return downloads.GALE_CROSSWORDS / "TLS" / BACK_DIR
+
+
+def back_image(issue, root=None):
+    """The saved image of back issue `issue`, or None: <root>/<issue>/<issue>.png or .jpg (two stats)."""
+    for ext in (".png", ".jpg"):
+        p = Path(root or back_root()) / str(issue) / f"{issue}{ext}"
+        if p.exists():
+            return p
+    return None
+
+
+def footer_and_setter(words, height):
+    """(date or None, setter or None) the page's own words give: a Friday dated in the last line, and the
+    byline of the title ("TLS Crossword 1620 by Agenor") in the top of the page."""
+    import ocr_clues
+    foot = [w for w in words if w[1] >= height * (1 - FOOTER_BAND)]
+    day = None
+    for m in MODERN_FOOTER.finditer(ocr_clues.lines_of(foot)):
+        try:
+            d = datetime.date(int(m.group(3)), gi.MONTHS[m.group(1)[:3].lower()], int(m.group(2)))
+        except (ValueError, KeyError):
+            continue
+        if d.weekday() == 4:
+            day = d
+    top = [w for w in words if w[3] <= height * BYLINE_BAND]
+    m = MODERN_BYLINE.search(ocr_clues.lines_of(top))
+    return day, (m.group(1).capitalize() if m else None)
+
+
+#: The saved back-issue images are small (640-1000 wide, 1900 high): set up to the width of the-tls.com's own
+#: page images (tls_puzzles.PAGE_WIDTH), the scale the lists' cuts and the grid reader are tuned for.
+BACK_WIDTH = 2166
+
+
+def scaled_up(img, width=BACK_WIDTH):
+    """`img` resized (Lanczos) to `width` when it is narrower, else as it is."""
+    from PIL import Image
+    if img.width >= width:
+        return img
+    return img.convert("RGB").resize((width, round(img.height * width / img.width)), Image.LANCZOS)
+
+
+def back_done(row):
+    """Whether a ledger row is a verdict of this BACK_VERSION (a crash under CRASH_LIMIT is not)."""
+    return bool(row) and row.get("version") == BACK_VERSION and not (
+        row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
+
+
+def back_key(issue):
+    return f"tlsback-{issue}"
+
+
+def plan_back(store=STORE):
+    """One unit per back issue not read at BACK_VERSION, oldest number first. No directory is globbed: the
+    issues are BACK_DATES' and the ledger is the one file."""
+    done = load_ledger(store)
+    return [{"rel": f"{BACK_PREFIX}{n}", "rank": fa.RANKS[BACK_REASON], "reason": BACK_REASON, "needs": []}
+            for n in sorted(BACK_DATES) if not back_done(done.get(back_key(n)))]
+
+
+def back_url(n):
+    return f"https://www.the-tls.com/regular-features/crossword-quiz/crossword-{n}"
+
+
+def read_back(n, root=None, store=STORE, asker=None):
+    """(verdict, puzzle or None) of back issue `n`'s image, read as a Gale page is, its number the issue's."""
+    path = back_image(n, root)
+    if path is None:
+        return {"file": back_key(n), "failed": "no image saved", "attempts": CRASH_LIMIT}, None
+    verdict, puzzle = read_page(path, store, asker, known=(n, datetime.date.fromisoformat(BACK_DATES[n]), back_url(n)))
+    verdict["file"] = back_key(n)
+    return verdict, puzzle
+
+
+def read_back_unit(rel, root=None, store=STORE):
+    """Read one back issue (a unit's rel, "tlsback:N"), file its puzzle when whole and no file holds the
+    number; the ledger row appended. Returns "read", "current" or "failed"."""
+    import scan_queue
+    from fetch_puzzle import puzzle_path, write_puzzle_file
+    n = int(rel[len(BACK_PREFIX):] if rel.startswith(BACK_PREFIX) else rel)
+    before = load_ledger(store).get(back_key(n))
+    if n not in BACK_DATES or back_done(before):
+        return "current"
+    try:
+        verdict, puzzle = read_back(n, root, store)
+    except Exception as e:  # any raise: the issue stays due (back_done) until CRASH_LIMIT attempts
+        attempts = (before or {}).get("attempts", 0) + 1
+        verdict = {"file": back_key(n), "failed": f"crashed: {type(e).__name__}: {e}", "attempts": attempts}
+        print(verdict["failed"], file=sys.stderr)
+        append_row({**verdict, "version": BACK_VERSION if attempts >= CRASH_LIMIT else None}, store)
+        return "failed"
+    if verdict.get("failed"):
+        append_row({**verdict, "version": BACK_VERSION}, store)
+        return "failed"
+    if puzzle is not None and verdict.get("whole"):
+        target = puzzle_path(SERIES, n)
+        if target.exists():
+            verdict["skip"] = "already held"
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
+    append_row({**verdict, "version": BACK_VERSION}, store)
+    print(json.dumps(verdict))
+    return "read"
+
+
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv[:1] == ["plan"]:
-        print(len(plan()))
+        print(len(plan()), len(plan_back()))
+        return 0
+    if argv[:1] == ["readback"] and len(argv) > 1:
+        print(read_back_unit(argv[1]))
+        return 0
+    if argv[:1] == ["dryback"] and len(argv) > 1:
+        # read one back issue and print the verdict: nothing written, no ledger row
+        verdict, puzzle = read_back(int(argv[1]))
+        print(json.dumps(verdict))
         return 0
     if argv[:1] == ["read"] and len(argv) > 1:
         print(read_unit(argv[1]))
