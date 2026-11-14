@@ -647,6 +647,16 @@ pool_launch() {
   [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ ! -s "/tmp/ct-prereset-$id.resume" ] &&
     [ "$DRY_RUN" != 1 ] && pool_nothing_due "$id" &&
     { echo "  [$id] skipped: already fully hinted and nothing is due on it"; return 1; }
+  # Memory pressure gate: while the machine is refaulting file cache (PSI some
+  # avg10 above 1) a new run only deepens it, so hold the launch. Bounded, so
+  # a stuck reading cannot stall the burn: worker count is untouched, launches
+  # are just spaced out while it hurts.
+  local psi_waited=0
+  while [ "$psi_waited" -lt "${POOL_PSI_MAX_SECS:-300}" ] &&
+    awk -v max="${POOL_PSI_HOLD:-1}" '/^some/ { split($2, a, "="); exit !(a[2] > max) }' /proc/pressure/memory 2>/dev/null; do
+    sleep 10
+    psi_waited=$((psi_waited + 10))
+  done
   wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"
   local again=""
