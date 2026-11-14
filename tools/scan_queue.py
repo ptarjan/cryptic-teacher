@@ -210,7 +210,7 @@ def parse_line(line, where=None):
         line = line.decode("utf-8", "replace")
     clean = line.replace("\x00", "")
     try:
-        row = json.loads(clean)
+        row = _ROW_DECODER.decode(clean)
         return [row] if isinstance(row, dict) else []
     except ValueError:
         pass
@@ -234,18 +234,40 @@ def ledger_rows(path, key):
     """{row[key]: row} of a jsonl ledger, the last row for a key standing;
     {} when it is missing. A final line still being appended (no newline
     yet) is not a row. A torn line is read by parse_line."""
+    # Streamed a line at a time (the ledger's text, 50+ MB for filed-gale, and its split lines were
+    # each held whole beside the rows); a last line without its newline is still no row.
     try:
-        text = path.read_text(encoding="utf-8", errors="replace")
+        f = open(path, encoding="utf-8", errors="replace")
     except FileNotFoundError:
         return {}
     out = {}
-    lines = text.split("\n")
-    for n, line in enumerate(lines[:-1] if not text.endswith("\n") else lines, 1):
-        if line.strip():
-            for row in parse_line(line, f"{path.name}:{n}"):
-                if key in row:
-                    out[row[key]] = row
+    with f:
+        for n, line in enumerate(f, 1):
+            if not line.endswith("\n"):
+                break
+            if line.strip():
+                for row in parse_line(line[:-1], f"{path.name}:{n}"):
+                    if key in row:
+                        out[row[key]] = row
     return out
+
+
+def _interned(row):
+    """A parsed row with its keys interned (and its dict values' own): a ledger's 70k rows each held
+    their own copy of every key (json's key memo lives one parse), ~130 MB of strings in a unit that
+    read filed-gale. Equal to `row`; the C decoder does the parsing, this only swaps key objects."""
+    intern = sys.intern
+    return {intern(k): ({intern(a): b for a, b in v.items()} if type(v) is dict else v) for k, v in row.items()}
+
+
+class _RowDecoder:
+    @staticmethod
+    def decode(text):
+        row = json.loads(text)
+        return _interned(row) if isinstance(row, dict) else row
+
+
+_ROW_DECODER = _RowDecoder
 
 
 def append(ledger, rows):
