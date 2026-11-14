@@ -45,6 +45,7 @@ import collections
 import datetime
 import functools
 import json
+import mtime_cache
 import os
 import re
 import subprocess
@@ -291,11 +292,15 @@ def _reprinted_ids(root):
     path = root / "tools" / "data" / "renamed_ids.json"
     renamed = renamed_ids.read(path) if path.exists() else {}
     out = set(renamed_ids.reprinted_in(renamed, {p.stem for p in files}))
-    for p in files:
+    def refs(p):
         text = p.read_text(encoding="utf-8")
-        if '"reprintedIn"' in text:
-            out |= {series_meta.puzzle_id(r["series"], r["number"])
-                    for r in (json.loads(text).get("source") or {}).get("reprintedIn") or ()}
+        if '"reprintedIn"' not in text:
+            return []
+        return [series_meta.puzzle_id(r["series"], r["number"])
+                for r in (json.loads(text).get("source") or {}).get("reprintedIn") or ()]
+
+    for ids in mtime_cache.scan("coverage-reprinted", files, refs).values():
+        out |= set(ids)
     return frozenset(out)
 
 

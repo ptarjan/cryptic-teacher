@@ -54,6 +54,7 @@ from pathlib import Path
 import downloads
 import enumeration
 import media_manifest as mm
+import mtime_cache
 import puzzle_paths
 import series as series_meta
 from fetch_puzzle import (read_puzzle_view,
@@ -619,9 +620,14 @@ def unsolved(puzzle):
 def holes(rows):
     """The calendar rows to file: those puzzles/ lacks, those it holds only
     as the blog filer rebuilt them, and those it holds unsolved."""
-    have = {p["id"] for p in (read_puzzle_view(f) for f in puzzle_files())
-            if p.get("series") in PAPER and not unsolved(p)
-            and (p.get("source") or {}).get("acquiredBy") == TOOL}
+    def mine(f):
+        p = read_puzzle_view(f)
+        ok = (p.get("series") in PAPER and not unsolved(p)
+              and (p.get("source") or {}).get("acquiredBy") == TOOL)
+        return p["id"] if ok else None
+
+    have = {i for i in mtime_cache.scan("telegraph-holes", list(puzzle_files()), mine).values()
+            if i}
     return [r for r in rows if series_meta.puzzle_id(r[0], r[1]) not in have]
 
 
