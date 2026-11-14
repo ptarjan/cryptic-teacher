@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,30 @@
      }
     ]
    },
-   "solution": "PICKUP"
+   "solution": "PICKUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go and collect",
+      "at": 0,
+      "meaning": "to go and collect someone or something is to fetch them in a vehicle"
+     },
+     {
+      "text": "truck",
+      "at": 17,
+      "meaning": "a small open-backed lorry with low sides"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to fetch a lorry from a depot.",
+     "definitionFit": "The phrasal verb means fetching, and the noun names a light open-backed lorry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "truck"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +77,46 @@
     "text": "As captain, I must enter mark on flight plan",
     "enumeration": "5"
    },
-   "solution": "PILOT"
+   "solution": "PILOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "captain",
+      "at": 3
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must enter",
+       "at": 14,
+       "note": "the letter I has to go into the other piece, so it is placed inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mark on flight plan",
+       "at": 25,
+       "gives": "PLOT",
+       "note": "to plot is to mark a course on a chart or plan"
+      },
+      {
+       "words": "I",
+       "at": 12,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline captain insists on adding his own mark to the flight plan.",
+     "definitionFit": "The captain of an aircraft is the person who flies it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +130,58 @@
     "text": "Highest-category class is in centre of boat",
     "enumeration": "7"
    },
-   "solution": "CORACLE"
+   "solution": "CORACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 23,
+       "note": "the two short pieces sit inside the word for centre"
+      }
+     ],
+     "parts": [
+      {
+       "words": "centre",
+       "at": 29,
+       "gives": "CORE",
+       "note": "the core is the centre of something"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Highest-category",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the top grade or category, as in A-list"
+        },
+        {
+         "words": "class",
+         "at": 17,
+         "gives": "CL",
+         "note": "CL is a standard abbreviation for class"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-class cabin is found in the middle of a vessel.",
+     "definitionFit": "A small round wicker boat covered with hide, used in Wales and Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +195,44 @@
     "text": "Regrettable as nurse died after accident",
     "enumeration": "9"
    },
-   "solution": "UNDESIRED"
+   "solution": "UNDESIRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regrettable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "after accident",
+       "at": 26,
+       "note": "after an accident things are jumbled and broken, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse",
+       "at": 15
+      },
+      {
+       "words": "died",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad hospital story: a nurse has died following an accident.",
+     "definitionFit": "Something unwanted is regrettable, not wished for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accident"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +246,40 @@
     "text": "Upset, not liking denouement",
     "enumeration": "6"
    },
-   "solution": "OFFEND"
+   "solution": "OFFEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not liking",
+       "at": 7,
+       "gives": "OFF",
+       "note": "to be off something is to have stopped liking it"
+      },
+      {
+       "words": "denouement",
+       "at": 18,
+       "gives": "END",
+       "note": "the denouement of a story is its end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is annoyed because they dislike how a story finishes.",
+     "definitionFit": "To upset someone is to give them offence; both verbs mean to hurt feelings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +293,11 @@
     "text": "Decorative strip through block",
     "enumeration": "5"
    },
-   "solution": "FRILL"
+   "solution": "FRILL",
+   "annotationWithheld": {
+    "why": "Clue held as 'Decorative strip through block (5)' for FRILL: 'Decorative strip' defines it, but no reading of 'through block' gives FRILL (no hidden run or charade), likely an OCR misread of the words after 'through', and no scan or search gives the printed text.",
+    "clue": "Decorative strip through block"
+   }
   },
   {
    "number": 6,
@@ -121,7 +311,40 @@
     "text": "What food should be, each waiter's responsibility?",
     "enumeration": "7"
    },
-   "solution": "EATABLE"
+   "solution": "EATABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What food should be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "each",
+       "at": 21,
+       "gives": "EA"
+      },
+      {
+       "words": "waiter's responsibility",
+       "at": 26,
+       "gives": "TABLE",
+       "note": "a waiter looks after a table in a restaurant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant manager wonders whether each waiter should take charge of the food.",
+     "definitionFit": "Food ought to be fit to consume, which is the meaning of this adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "responsibility"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +358,41 @@
     "text": "Notes tumult causing postponement",
     "enumeration": "9"
    },
-   "solution": "DEFERMENT"
+   "solution": "DEFERMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "postponement",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Notes",
+       "at": 0,
+       "gives": "DE",
+       "note": "D and E are two notes of the musical scale"
+      },
+      {
+       "words": "tumult",
+       "at": 6,
+       "gives": "FERMENT",
+       "note": "a ferment is a state of agitation or turmoil"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unrest over some memos leads to a delay.",
+     "definitionFit": "A deferral is a putting off until later, a postponement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Notes"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +406,49 @@
     "text": "State of plants I had put inside",
     "enumeration": "7"
    },
-   "solution": "FLORIDA"
+   "solution": "FLORIDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put inside",
+       "at": 22,
+       "note": "the contraction is placed within the word for plants"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plants",
+       "at": 9,
+       "gives": "FLORA",
+       "note": "flora is the plant life of a region"
+      },
+      {
+       "words": "I had",
+       "at": 16,
+       "gives": "ID",
+       "note": "I'd is the contraction of I had"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener describes the condition of their plants after putting them indoors.",
+     "walkthrough": "'State' looks like condition, but it is a US state.",
+     "definitionFit": "Florida is one of the fifty states of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +462,56 @@
     "text": "Women's task done initially by one group of workers",
     "enumeration": "7"
    },
-   "solution": "DISTAFF"
+   "solution": "DISTAFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Women's task",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 18,
+         "note": "only the opening letter of the word done is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "group of workers",
+       "at": 35,
+       "gives": "STAFF",
+       "note": "the staff are the workers of an organisation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A job was started by one team of employees.",
+     "definitionFit": "The distaff, the stick used in spinning, came to stand for women's work and the female side of a family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +525,48 @@
     "text": "Punishing terms I can give him?",
     "enumeration": "9"
    },
-   "solution": "MISCREANT"
+   "solution": "MISCREANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Punishing terms I can give him?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Punishing",
+       "at": 0,
+       "note": "punishing treatment knocks things about, so these letters are beaten into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terms",
+       "at": 10
+      },
+      {
+       "words": "I",
+       "at": 16
+      },
+      {
+       "words": "can",
+       "at": 18
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A judge muses on the harsh sentence they can hand a wrongdoer.",
+     "definitionFit": "A villain or wrongdoer is the kind of person one might sentence harshly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +586,41 @@
      }
     ]
    },
-   "solution": "STOCKSTILL"
+   "solution": "STOCKSTILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not moving",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "supplies",
+       "at": 11,
+       "gives": "STOCKS",
+       "note": "stocks are supplies held in reserve"
+      },
+      {
+       "words": "drawer",
+       "at": 23,
+       "gives": "TILL",
+       "note": "a till is a cash drawer in a shop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper moves supplies over to the cash drawer.",
+     "definitionFit": "Being completely motionless is the meaning of this compound adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drawer"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +634,34 @@
     "text": "Set stream on fire?",
     "enumeration": "4"
    },
-   "solution": "BURN"
+   "solution": "BURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Set stream on fire?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Set stream on fire?",
+       "at": 0,
+       "note": "read as one wish, setting a brook alight; one word means both set on fire and, in Scotland, a small stream"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An absurd attempt to ignite a stream.",
+     "definitionFit": "The verb means set alight, and the Scottish noun means a small stream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +675,43 @@
     "text": "Pure sound in clip",
     "enumeration": "5"
    },
-   "solution": "SHEAR"
+   "solution": "SHEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clip",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SHEAR",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 5,
+       "note": "sound tells us the word for pure is said aloud, giving a word spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pure",
+       "at": 0,
+       "gives": "SHEER",
+       "note": "sheer means pure or unmixed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recording clip contains a pure tone.",
+     "definitionFit": "To clip wool or hedges is to cut it with blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clip"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +725,58 @@
     "text": "A very soft centre to cord used for binding",
     "enumeration": "9"
    },
-   "solution": "STRAPPING"
+   "solution": "STRAPPING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "used for binding",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "centre to",
+       "at": 12,
+       "note": "the short pieces are put at the centre of the word for cord"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cord",
+       "at": 22,
+       "gives": "STRING",
+       "note": "string is thin cord"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "very soft",
+         "at": 2,
+         "gives": "PP",
+         "note": "pp, pianissimo, is the musical marking for very soft"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cord with a soft core is used to tie things up.",
+     "definitionFit": "Strips of material for tying or bandaging are collectively called by this noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +790,30 @@
     "text": "Drove round the bend and left with no escape",
     "enumeration": "8"
    },
-   "solution": "CORNERED"
+   "solution": "CORNERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drove round the bend",
+      "at": 0,
+      "meaning": "a driver who has taken a bend has turned a corner"
+     },
+     {
+      "text": "left with no escape",
+      "at": 25,
+      "meaning": "an animal or person trapped with no way out"
+     }
+    ],
+    "explanation": {
+     "surface": "A getaway driver took the bend and found himself trapped.",
+     "definitionFit": "The verb means turned a corner and also trapped in a place with no exit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +827,55 @@
     "text": "Actor's part undergoes a grim transformation into lengthy waffle",
     "enumeration": "9"
    },
-   "solution": "RIGMAROLE"
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lengthy waffle",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transformation",
+         "at": 30,
+         "note": "a transformation changes the form, so the letters of a grim are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grim",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 23
+      },
+      {
+       "words": "Actor's part",
+       "at": 0,
+       "gives": "ROLE",
+       "note": "an actor's part is a role"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's part takes a dark turn into long-winded speech.",
+     "walkthrough": "'transformation' rearranges A GRIM into RIGMA; the clue names the actor's part first, but it ends the answer.",
+     "definitionFit": "A long rambling story or procedure is a rigmarole, much like waffle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +889,44 @@
     "text": "Ignored a new fabric",
     "enumeration": "8"
    },
-   "solution": "ORGANDIE"
+   "solution": "ORGANDIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "new",
+       "at": 10,
+       "note": "new suggests a fresh version, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ignored",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone overlooked a new material.",
+     "definitionFit": "A thin stiff transparent muslin is a kind of fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ignored"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +940,46 @@
     "text": "A way to be on horse",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A way to be on horse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "way",
+       "at": 2,
+       "gives": "ST",
+       "note": "ST, street, is a way or road"
+      },
+      {
+       "words": "to be on horse",
+       "at": 6,
+       "gives": "RIDE",
+       "note": "to ride is to sit on a horse and be carried"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Instruction on how to sit when mounted.",
+     "definitionFit": "Sitting with a leg on each side of a horse is the usual riding position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +993,51 @@
     "text": "Using bribery, first to get at lifeboat",
     "enumeration": "5"
    },
-   "solution": "GRAFT"
+   "solution": "GRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bribery",
+      "at": 6
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "at": 15,
+         "note": "the first letter of the word get is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "lifeboat",
+       "at": 31,
+       "gives": "RAFT",
+       "note": "a raft can serve as a lifeboat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resorts to bribes to be first onto a lifeboat.",
+     "definitionFit": "Corrupt gain through bribes is called graft, especially in politics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lifeboat"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1051,57 @@
     "text": "Poison — expert kept working with it",
     "enumeration": "7"
    },
-   "solution": "ACONITE"
+   "solution": "ACONITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poison",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept",
+       "at": 16,
+       "note": "the word for expert keeps the other pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expert",
+       "at": 9,
+       "gives": "ACE",
+       "note": "an ace is an expert"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "working",
+         "at": 21,
+         "gives": "ON",
+         "note": "on means working or operating"
+        },
+        {
+         "words": "it",
+         "at": 34,
+         "gives": "IT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poisoner is careful to keep working with the toxin.",
+     "definitionFit": "Monkshood, a plant whose root yields a deadly poison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1115,42 @@
     "text": "Notice the spinners are back",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "are back",
+       "at": 20,
+       "note": "back tells us the word for spinners is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spinners",
+       "at": 11,
+       "gives": "TOPS",
+       "note": "tops are toys that spin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees that the spinning toys have returned.",
+     "definitionFit": "To spot something is to catch sight of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spinners"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1164,65 @@
     "text": "Look in brownish tin at first for fruit",
     "enumeration": "10"
    },
-   "solution": "CANTALOUPE"
+   "solution": "CANTALOUPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at first",
+       "at": 21,
+       "note": "the word for tin comes at the front of the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tin",
+       "at": 17,
+       "gives": "CAN",
+       "note": "a can is a tin"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "the short word for look goes inside the colour"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brownish",
+         "at": 8,
+         "gives": "TAUPE",
+         "note": "taupe is a brownish-grey colour"
+        },
+        {
+         "words": "Look",
+         "at": 0,
+         "gives": "LO",
+         "note": "lo is an old word for look"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inspect a brown can to find some fruit.",
+     "definitionFit": "A kind of melon with orange flesh and a ribbed rind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1236,47 @@
     "text": "Clerical profession's destiny settled in church",
     "enumeration": "5"
    },
-   "solution": "CLOTH"
+   "solution": "CLOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clerical profession's",
+      "at": 0,
+      "note": "the 's stands for is, so the definition says the clerical profession is the answer"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "settled in",
+       "at": 30,
+       "note": "the word for destiny settles inside the abbreviation for church"
+      }
+     ],
+     "parts": [
+      {
+       "words": "church",
+       "at": 41,
+       "gives": "CH"
+      },
+      {
+       "words": "destiny",
+       "at": 22,
+       "gives": "LOT",
+       "note": "one's lot is one's destiny"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest's fate is decided inside his church.",
+     "definitionFit": "The clergy as a body are known as the cloth, after clerical dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1290,29 @@
     "text": "Unhealthy-looking pie",
     "enumeration": "5"
    },
-   "solution": "PASTY"
+   "solution": "PASTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unhealthy-looking",
+      "at": 0,
+      "meaning": "pale and sickly in complexion"
+     },
+     {
+      "text": "pie",
+      "at": 18,
+      "meaning": "a pastry case folded round a filling, as in a Cornish one"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone looks pale, or else is a pie.",
+     "definitionFit": "The adjective means pallid, and the noun is a folded pastry with filling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1332,48 @@
      }
     ]
    },
-   "solution": "PIGIRON"
+   "solution": "PIGIRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "metal bars",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "at": 7,
+       "note": "the word for cheque is enclosed by the security code"
+      }
+     ],
+     "parts": [
+      {
+       "words": "security code",
+       "at": 20,
+       "gives": "PIN",
+       "note": "a PIN is a personal identification number"
+      },
+      {
+       "words": "Cheque",
+       "at": 0,
+       "gives": "GIRO",
+       "note": "a giro is a British payment cheque, especially a benefits one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheque guarded by a code, and some metal bars.",
+     "definitionFit": "Crude iron cast into oblong blocks, or pigs, from a blast furnace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheque"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1387,47 @@
     "text": "Most saintly and very keen to suppress false accounts",
     "enumeration": "7"
    },
-   "solution": "HOLIEST"
+   "solution": "HOLIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most saintly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to suppress",
+       "at": 27,
+       "note": "the word for keen holds down the other piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very keen",
+       "at": 17,
+       "gives": "HOT",
+       "note": "hot on something means very keen"
+      },
+      {
+       "words": "false accounts",
+       "at": 39,
+       "gives": "LIES",
+       "note": "lies are untrue accounts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most pious person is eager to hush up untruths.",
+     "definitionFit": "The superlative of an adjective meaning sacred or saintly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1441,44 @@
     "text": "Massage the ego of German writer",
     "enumeration": "6"
    },
-   "solution": "GOETHE"
+   "solution": "GOETHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German writer",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Massage",
+       "at": 0,
+       "note": "to massage is to knead and work over, so these letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the",
+       "at": 8
+      },
+      {
+       "words": "ego",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flattering a German author's self-esteem.",
+     "definitionFit": "The great German poet and dramatist who wrote Faust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Massage"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1492,52 @@
     "text": "False belief I've found Pliny's last letter",
     "enumeration": "6"
    },
-   "solution": "HERESY"
+   "solution": "HERESY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "False belief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I've found",
+       "at": 13,
+       "gives": "HERES",
+       "note": "here's is what one says on producing something found"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last letter",
+         "at": 32,
+         "note": "the final letter of the Roman name Pliny is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pliny's",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has discovered a final letter written by Pliny.",
+     "walkthrough": "'letter' tempts as a piece of correspondence; it is a single letter of 'Pliny'.",
+     "definitionFit": "A heretical opinion runs against accepted doctrine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   }
  ]
 }
