@@ -2700,6 +2700,24 @@ def unit_argv(unit):
     return [sys.executable, str(UNIT_SCRIPT), "unit", unit["kind"], unit["paper"], unit["rel"]]
 
 
+_ZYGOTE = []
+
+
+def spawn_unit(unit, argv, env):
+    """The pid of the new unit process: forked from the unit zygote (tools/unit_zygote.py: the imports a
+    unit loads made once, their pages shared copy-on-write; CT_UNIT_ZYGOTE=0 turns it off), else, when
+    that is off, not ready or not for this unit, posix_spawned afresh. Either way it is this process's
+    child in its own process group."""
+    if unit["kind"] in ("scan", "read") and Path(UNIT_SCRIPT) == Path(__file__).resolve():
+        import unit_zygote
+        if not _ZYGOTE:
+            _ZYGOTE.append(unit_zygote.Client(UNIT_MODULES.values()))
+        pid = _ZYGOTE[0].spawn(argv, env)
+        if pid:
+            return pid
+    return os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
+
+
 #: Set in the environment of an image a re-exec started (may_reexec).
 REEXEC_ENV = "EDITION_QUEUE_REEXECED"
 
@@ -3636,7 +3654,7 @@ class _Children:
         elif unit["kind"] != "fetch":
             # Its OCR is not moved onto this host while the desktop yields: it ends deferred, run again once idle.
             env[ocr_remote.DEFER] = "1"
-        pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
+        pid = spawn_unit(unit, argv, env)
         self.running[pid] = (unit, time.monotonic())
         self.tried.add(key_of(unit))
         log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})"
