@@ -203,7 +203,12 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         // as OMAN, and no clue put it there.
         let bare = registry["hint-body"].innerHTML
           .replace(/<span class="(?:step-label|formula-lead)">[^<]*<\/span>|<div class="legend">[\s\S]*?<\/div>/g, " ")
-          .replace(/<[^>]*>|&[#\w]+;/g, " ").replace(/[^A-Za-z]/g, "").toUpperCase();
+          // A block or chip boundary is a break, not a join: the muted note
+          // "...a hundred" then the chip "The last sheep..." read as HUNDREDTH
+          // though no learner sees them run together. Inline emphasis tags
+          // stay joined so a word split by <mark>/<strong> is still caught.
+          .replace(/<\/?(?:mark|strong|em|b|i|u)\b[^>]*>/g, "\u0001")
+          .replace(/<[^>]*>|&[#\w]+;/g, " ").replace(/\u0001/g, "").replace(/[^A-Za-z]/g, "").toUpperCase();
         for (const fixed of LADDER_PROSE) bare = bare.split(fixed).join("-");
         assert(tooShort || !bare.includes(ans),
           `${where}: a rung before the walkthrough spells the answer out — ` +
