@@ -4127,6 +4127,14 @@ check("batch: up to ANSWERS_BATCH - 1 same-item, same-rank answers-linked reads,
       [f"GaleTimes2001UKEnglish/2001-04-{d:02d}" for d in (5, 6, 7, 8, 9, 10, 11)], [v["rel"] for v in _mates])
 check("batch: a unit of another reason batches nothing", [], eq.batch_mates(_al[13], _al_c, set(), set(), lambda v: True))
 check("batch: a batch of one is no batch", [], eq.batch_mates(_al[0], _al_c, set(), set(), lambda v: True, size=1))
+# LOW_ASK rereads batch by paper (any item), never with answers-linked ones.
+_la = [_al_unit(f"GaleTimes200{y}UKEnglish/200{y}-04-0{d}", reason="solution short, its cells unclassified", detail="")
+       for y, d in ((1, 1), (2, 2), (1, 3), (1, 4), (1, 5), (1, 6))]
+_la_c = [(u, eq.key_of(u)) for u in _la + _al[:2]]
+check("low-ask batch: LOW_ASK_BATCH - 1 same-paper same-rank low-ask reads of any item, no answers-linked ones",
+      [u["rel"] for u in _la[1:eq.LOW_ASK_BATCH]], [v["rel"] for v in eq.batch_mates(_la[0], _la_c, set(), set(), lambda v: True)])
+check("low-ask batch: an answers-linked read takes no low-ask mate", [],
+      [v for v in eq.batch_mates(_al[0], [(u, eq.key_of(u)) for u in _la], set(), set(), lambda v: True)])
 check("batch: the read limit grows per edition, within 3600", (1200, 2040, 3600, 3600),
       (eq.unit_limit(_al[0], 1200), eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 1200),
        eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 3600), eq.unit_limit({**_al[0], "batch": ["a"] * 30}, 1200)))
