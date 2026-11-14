@@ -98,11 +98,14 @@ def unit_ceiling():
 #: The ceiling controller (Windows host RAM/CPU -> the CEILING_FILE number; was the desktop's
 #: ceiling_ctl.sh). Opt-in by env: CT_CEILING_HOST (ssh target; default the first of CT_YIELD_HOSTS;
 #: "0" turns it off), CT_CEILING_METRICS (default: the VLM host's /metrics, passed by the caller),
-#: CT_CEILING_LO/HI (8/24), CT_CEILING_CPU_HI/LO (90/80), CT_CEILING_EVERY (120 s); the page-cache
+#: CT_CEILING_LO/HI (8/32), CT_CEILING_CPU_HI/LO (90/80), CT_CEILING_EVERY (120 s); the page-cache
 #: drop is CT_GAME_DROP_CACHE. The VLM slows ~2x when Windows CPU is pegged (10-21 A/B: 6 scans
 #: paused -> CPU 97 -> 67%, asks 3.1 -> 5.8/min), so it steps down above CPU_HI, up only below CPU_LO.
 #: It writes the same file unit_ceiling() reads, so a manual pin holds until the next step moves it.
 CEILING_EVERY = 120
+#: The most the controller steps the ceiling up to (11-14: 24 bound while Windows CPU sat at 34-75%,
+#: free RAM 4-7 GB, the VLM at half its asks); the step-down on low free RAM / high CPU is unchanged.
+CEILING_HI = 32
 #: The VM's page cache refills 0.4-1 GB a minute (buffers/ledgers/page images), so dropping only under
 #: 3000 MB free kept Windows at 1.7-2.5 GB and the ceiling at 16-18 (11-14); a drop under DROP_BELOW_MB
 #: keeps it near 5 GB, where the ceiling steps up. CT_CEILING_DROP_BELOW / CT_CEILING_SETTLE override.
@@ -175,7 +178,7 @@ class CeilingController:
             return
         env = os.environ.get
         cur = unit_ceiling()
-        new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or 24),
+        new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
                            int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80))
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
