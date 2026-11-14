@@ -48,6 +48,7 @@ import html
 import html.parser
 import itertools
 import json
+import multiprocessing
 import os
 import random
 import re
@@ -2025,9 +2026,8 @@ def _bounded_map(ex, fn, items, window):
         yield r
 
 
-#: The fewest posts to parse that extract forks its pool for: a night's few
-#: are parsed in this process, as two forks of it (~700MB resident, shared
-#: until written) would each show its whole size to a tree's resident sum.
+#: The fewest posts to parse that extract starts its pool for: a night's few
+#: are parsed in this process, sparing the workers' start-up.
 POOL_MIN = 64
 
 
@@ -2075,7 +2075,11 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
     if jobs == 1 or len(misses) < POOL_MIN:
         ex, parsed = None, map(_work, misses)
     else:
-        ex = ProcessPoolExecutor(jobs)
+        # Spawned, not forked: a fork shows this process's whole heap (the joins
+        # read so far, the work list) again in each worker's resident size, and
+        # 11-14 the tree held ~1.95GB, two workers at ~510MB each. A spawned one
+        # holds only the imports (~40MB) and what _work reads, file by file.
+        ex = ProcessPoolExecutor(jobs, mp_context=multiprocessing.get_context("spawn"))
         parsed = _bounded_map(ex, _work, misses, (jobs or os.cpu_count() or 1) * 32)
     best, spool = {}, Spool()
     for _, hit_key, _, cached in work:

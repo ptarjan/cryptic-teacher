@@ -70,7 +70,7 @@ def _store():
         return Path(STORE)
     root = puzzle_paths.ROOT
     out = subprocess.run(["git", "-C", str(root), "rev-parse", "--path-format=absolute", "--git-common-dir"],
-                         capture_output=True, text=True)
+                         check=False, capture_output=True, text=True)
     if out.returncode:
         raise OSError(f"no git checkout at {root}: {out.stderr.strip()}")
     return Path(out.stdout.strip()) / "ct-rows.sqlite"
@@ -166,17 +166,20 @@ def _key(code, path, blob):
 LEGACY_PROBE = 200
 
 
-def _lookup(conn, code, keys, pack=bytes):
+def _lookup(conn, code, keys, vals=True):
     """({key: (val, deps, used)}, {key: legacy key}) for the wanted keys
     (the values of `keys`) stored under `code`: one range scan, then, for
     keys it lacks, their legacy keys if a probe of LEGACY_PROBE finds any.
     A row found only under its legacy key has used None, to be written anew.
-    Each value is held as `pack(blob)`: a lazy map holds ~70k of them (390MB
-    of pickles) squeezed, as they are read, not whole."""
+    Without `vals` every val is None: a lazy map reads each row's val as it
+    is reached (_reached), since even held squeezed the ~70k of them (390MB
+    of pickles) kept every blog_facts process in its tree at 400-500MB:
+    freed, the heap they took never went back."""
     lo = _prefix(code) + ":"
     want = set(keys.values())
-    stored = {k: (pack(v), d, u) for k, v, d, u in conn.execute(
-        "SELECT key, val, deps, used FROM rows WHERE key >= ? AND key < ?", (lo, lo[:-1] + ";")) if k in want}
+    col = "val" if vals else "NULL"
+    stored = {k: (v, d, u) for k, v, d, u in conn.execute(
+        f"SELECT key, {col}, deps, used FROM rows WHERE key >= ? AND key < ?", (lo, lo[:-1] + ";")) if k in want}
     legacy = {k: k[len(lo):] for k in want if k not in stored}
     names = list(legacy.values())
     found = {}
@@ -184,8 +187,8 @@ def _lookup(conn, code, keys, pack=bytes):
     for n, part in enumerate(p for p in parts if p):
         if n and not found:
             break
-        found.update((k, (pack(v), d)) for k, v, d in conn.execute(
-            f"SELECT key, val, deps FROM rows WHERE key IN ({','.join('?' * len(part))})", part))
+        found.update((k, (v, d)) for k, v, d in conn.execute(
+            f"SELECT key, {col}, deps FROM rows WHERE key IN ({','.join('?' * len(part))})", part))
     moved = {}
     for k, old in legacy.items():
         if old in found:
@@ -346,7 +349,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
         code = code_for(name, fn.__name__, roots, salt)
         blobs = _blobs(paths, listed)
         keys = {p: _key(code, p, b) for p, b in blobs.items()}
-        stored, moved = _lookup(conn, code, keys, **({"pack": lambda v: zlib.compress(v, 1)} if lazy else {}))
+        stored, moved = _lookup(conn, code, keys, vals=not lazy)
     except (OSError, sqlite3.Error) as err:
         print(f"row cache for {name}.{fn.__name__}: {err!r}; computing every row", file=sys.stderr)
         if prepare:
@@ -421,7 +424,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     if miss:
         if prepare:
             prepare()
-        if budget.deadline() is None:
+        if budget.deadline() is None and not lazy:
             out.update(zip(miss, parallel.pmap(fn, miss)))
         else:
             # Under a unit's deadline (tools/budget.py), a batch at a time,
@@ -459,15 +462,21 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                     conn.close()
                     budget.stop(f"row cache for {name}.{fn.__name__}: made {done} of {len(miss)} missing rows"
                                 f" ({len(paths) - len(miss)} were stored); the rest next run")
-                n = batch_size(budget.left(), spent_s / done)
+                # A lazy map with no deadline still goes a batch at a time, each
+                # packed as it is made, never every made row held whole.
+                n = BATCH if budget.deadline() is None else batch_size(budget.left(), spent_s / done)
     try:
         with conn:
             store(unstored)
             # A row found under its legacy key is written under its new one;
             # the legacy row ages out with the prune.
-            conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
-                             ((k, zlib.decompress(stored[k][0]) if lazy else stored[k][0], stored[k][1], today)
-                              for k in {keys[p] for p in paths if p not in missed and keys[p] in moved}))
+            again = {keys[p] for p in paths if p not in missed and keys[p] in moved}
+            if lazy:  # no val is held: copied over inside the store
+                conn.executemany("INSERT OR REPLACE INTO rows SELECT ?, val, deps, ? FROM rows WHERE key=?",
+                                 ((k, today, moved[k]) for k in again))
+            else:
+                conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
+                                 ((k, stored[k][0], stored[k][1], today) for k in again))
             if stale_ok:
                 conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
                                  point(p for p in paths if p not in missed))
@@ -490,19 +499,39 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     finally:
         conn.close()
     if lazy:
-        return _reached(paths, out, stored, keys, packed)
+        return _reached(paths, out, {keys[p]: moved.get(keys[p], keys[p]) for p in paths if p not in missed},
+                        keys, packed, fn)
     return [out[p] for p in paths]
 
 
-def _reached(paths, out, stored, keys, packed=None):
+#: The stored rows a lazy map reads from the store in one query as it is reached.
+REACH_BATCH = 256
+
+
+def _reached(paths, out, stored, keys, packed, fn):
     """cached_map's lazy rows: a row made here off `out` (or `packed`, its
-    compressed pickle), a stored one unpickled off `stored`, each let go as it
-    is yielded."""
-    packed = packed if packed is not None else {}
-    for p in paths:
-        if p in packed:
-            yield pickle.loads(zlib.decompress(packed.pop(p)))
-        elif p in out:
-            yield out.pop(p)
-        else:
-            yield pickle.loads(zlib.decompress(stored.pop(keys[p])[0]))
+    compressed pickle), a stored one read off the store REACH_BATCH at a time
+    (`stored`: {key: the key its row is stored under}), each let go as it is
+    yielded. A stored row gone by the time it is reached (a prune by another
+    run) is made again with `fn`."""
+    conn = None
+    try:
+        for i in range(0, len(paths), REACH_BATCH):
+            chunk = paths[i:i + REACH_BATCH]
+            want = [stored[keys[p]] for p in chunk if p not in packed and p not in out]
+            vals = {}
+            if want:
+                conn = conn or _open()
+                vals = dict(conn.execute(f"SELECT key, val FROM rows WHERE key IN ({','.join('?' * len(want))})",
+                                         want))
+            for p in chunk:
+                if p in packed:
+                    yield pickle.loads(zlib.decompress(packed.pop(p)))
+                elif p in out:
+                    yield out.pop(p)
+                else:
+                    v = vals.pop(stored.pop(keys[p]), None)
+                    yield fn(p) if v is None else pickle.loads(v)
+    finally:
+        if conn is not None:
+            conn.close()
