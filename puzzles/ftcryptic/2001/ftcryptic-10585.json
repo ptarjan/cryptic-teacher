@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,11 @@
      }
     ]
    },
-   "solution": "BOTTLEGREEN"
+   "solution": "BOTTLEGREEN",
+   "annotationWithheld": {
+    "why": "Dark colour better on leg perhaps? (6,5): 'Dark colour' defines BOTTLE GREEN, but no sound parse of 'better on leg perhaps' gives BOTTLE or GREEN; the OCR clue may be misread and no blog was found",
+    "clue": "Dark colour better on leg perhaps?"
+   }
   },
   {
    "number": 1,
@@ -51,7 +58,65 @@
     "text": "Bath left running when covering current sporting event",
     "enumeration": "8"
    },
-   "solution": "BIATHLON"
+   "solution": "BIATHLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sporting event",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 23,
+         "note": "the Bath-plus-left letters are wrapped around the current symbol, so they cover it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bath",
+         "at": 0,
+         "gives": "BATH",
+         "note": "taken as written"
+        },
+        {
+         "words": "current",
+         "at": 32,
+         "gives": "I",
+         "note": "I is the symbol for electric current in physics"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 5,
+       "gives": "L"
+      },
+      {
+       "words": "running",
+       "at": 10,
+       "gives": "ON",
+       "note": "a machine that is running is on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left the bath taps on while an electric current was nearby during a sports event.",
+     "walkthrough": "'running' looks like an anagram signal but gives ON; 'when' is only a link.",
+     "definitionFit": "The biathlon is a winter sport combining cross-country skiing and rifle shooting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +136,40 @@
      }
     ]
    },
-   "solution": "TIEBREAK"
+   "solution": "TIEBREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wimbledon cut-off points",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "restrict",
+       "at": 25,
+       "gives": "TIE",
+       "note": "to tie someone down is to restrict them"
+      },
+      {
+       "words": "the rest",
+       "at": 34,
+       "gives": "BREAK",
+       "note": "a break is a rest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis official limits the players' rest at Wimbledon.",
+     "definitionFit": "In tennis a set level at six games is settled by a short points-based shoot-out game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +183,45 @@
     "text": "Ridge takes front off toboggan",
     "enumeration": "5"
    },
-   "solution": "LEDGE"
+   "solution": "LEDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ridge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "takes front off",
+       "at": 6,
+       "note": "the word for the toboggan loses its opening letter, so its front comes off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toboggan",
+       "at": 22,
+       "gives": "SLEDGE",
+       "note": "a sledge is a toboggan"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sledger loses the front of the toboggan on a mountain ridge.",
+     "definitionFit": "A ledge is a narrow shelf or ridge projecting from rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +235,51 @@
     "text": "Ridiculous talk was ruined by laughter",
     "enumeration": "7"
    },
-   "solution": "GUFFAWS"
+   "solution": "GUFFAWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "laughter",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ridiculous talk",
+       "at": 0,
+       "gives": "GUFF",
+       "note": "guff is nonsense or ridiculous talk"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 20,
+         "note": "the little word was is wrecked, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speech of nonsense was spoiled by the audience laughing at it.",
+     "walkthrough": "'ruined' rearranges WAS to AWS.",
+     "definitionFit": "Guffaws are loud bursts of laughter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +293,47 @@
     "text": "Young fliers make scores under par — about time",
     "enumeration": "7"
    },
-   "solution": "EAGLETS"
+   "solution": "EAGLETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Young fliers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 37,
+       "note": "the golfing word sits around the time letter, so it is about it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scores under par",
+       "at": 18,
+       "gives": "EAGLES",
+       "note": "in golf an eagle is a hole played two under par"
+      },
+      {
+       "words": "time",
+       "at": 43,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer finally makes some scores under par.",
+     "definitionFit": "Eaglets are baby birds of prey, still learning to fly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fliers"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +347,54 @@
     "text": "Sprinted over, helping an orderly account of events",
     "enumeration": "9"
    },
-   "solution": "NARRATION"
+   "solution": "NARRATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an orderly account of events",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 9,
+         "note": "in a down clue over signals that the sprinting word is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sprinted",
+         "at": 0,
+         "gives": "RAN",
+         "note": "ran is the past tense of run, so sprinted"
+        }
+       ]
+      },
+      {
+       "words": "helping",
+       "at": 15,
+       "gives": "RATION",
+       "note": "a ration is a helping or portion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashed across to lend a hand with telling the story.",
+     "walkthrough": "'over' turns RAN into NAR.",
+     "definitionFit": "A narration is a spoken or written telling of a story in sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +408,29 @@
     "text": "Rower has to bend",
     "enumeration": "3"
    },
-   "solution": "BOW"
+   "solution": "BOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rower",
+      "at": 0,
+      "meaning": "the oarsman seated nearest the front of the boat"
+     },
+     {
+      "text": "bend",
+      "at": 13,
+      "meaning": "to bend at the waist"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: the front oarsman in a crew, and to bend forward in respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rower"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +444,40 @@
     "text": "One who accepts wagers, with strict rules that is",
     "enumeration": "6"
    },
-   "solution": "BOOKIE"
+   "solution": "BOOKIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who accepts wagers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "strict rules",
+       "at": 29,
+       "gives": "BOOK",
+       "note": "to go by the book is to follow strict rules"
+      },
+      {
+       "words": "that is",
+       "at": 42,
+       "gives": "IE",
+       "note": "i.e. abbreviates id est, Latin for that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A betting man insists he follows strict rules.",
+     "definitionFit": "A bookie, short for bookmaker, is a person who takes bets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +491,61 @@
     "text": "You and I dry leaders of each race, getting damper",
     "enumeration": "6"
    },
-   "solution": "WETTER"
+   "solution": "WETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "damper",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "You and I",
+       "at": 0,
+       "gives": "WE",
+       "note": "you and I together are we"
+      },
+      {
+       "words": "dry",
+       "at": 10,
+       "gives": "TT",
+       "note": "TT means teetotal, so not drinking: dry"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders of",
+         "at": 14,
+         "note": "the opening letters of the words each and race lead them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "each",
+         "at": 25
+        },
+        {
+         "words": "race",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two teetotallers lead a race that is getting rained on.",
+     "definitionFit": "Damper means more moist, the comparative of wet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +559,30 @@
     "text": "In front by this margin at Newmarket?",
     "enumeration": "5"
    },
-   "solution": "AHEAD"
+   "solution": "AHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In front",
+      "at": 0,
+      "meaning": "to be in front is to be leading"
+     },
+     {
+      "text": "by this margin at Newmarket?",
+      "at": 9,
+      "meaning": "horses at Newmarket racecourse win by a head's length, among other margins"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The first sense means leading; the second is a horse's winning distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "margin"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +602,42 @@
      }
     ]
    },
-   "solution": "FIGUREOUT"
+   "solution": "FIGUREOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calculate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the number",
+       "at": 10,
+       "gives": "FIGURE",
+       "note": "a figure is a number"
+      },
+      {
+       "words": "sent back to the pavilion",
+       "at": 21,
+       "gives": "OUT",
+       "note": "in cricket a batsman who is out returns to the pavilion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket scorer tallies how many batsmen have been dismissed.",
+     "walkthrough": "The pavilion is the clubhouse at a cricket ground, where dismissed batsmen walk back to.",
+     "definitionFit": "To work something out mentally is to calculate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +657,43 @@
      }
     ]
    },
-   "solution": "HORSERACE"
+   "solution": "HORSERACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "2000 Guineas, say",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Perhaps an Arab",
+       "at": 0,
+       "gives": "HORSE",
+       "note": "the Arab is a breed of horse, so an example of one"
+      },
+      {
+       "words": "family",
+       "at": 16,
+       "gives": "RACE",
+       "note": "a race is a family, stock or lineage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy Arab family will put up two thousand guineas for something.",
+     "walkthrough": "The 2000 Guineas is a classic flat race at Newmarket; the surface suggests money and a sheikh's family.",
+     "definitionFit": "The Two Thousand Guineas is one of Britain's five classic flat races for horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Arab"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +707,48 @@
     "text": "Foreign soldier in the drink is able to move quickly",
     "enumeration": "5"
    },
-   "solution": "AGILE"
+   "solution": "AGILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "able to move quickly",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "the soldier is placed inside the drink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the drink",
+       "at": 19,
+       "gives": "ALE",
+       "note": "ale is a drink"
+      },
+      {
+       "words": "Foreign soldier",
+       "at": 0,
+       "gives": "GI",
+       "note": "a GI is an American soldier, foreign to a British solver"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American serviceman who falls into the drink can still move fast.",
+     "definitionFit": "Agile means nimble, quick and light in movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +762,51 @@
     "text": "The fruits originally of shooting practice areas",
     "enumeration": "7"
    },
-   "solution": "ORANGES"
+   "solution": "ORANGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The fruits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 11,
+         "note": "only the original letter of the word of is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "shooting practice areas",
+       "at": 25,
+       "gives": "RANGES",
+       "note": "firing ranges are places for shooting practice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks where the fruits of target practice come from.",
+     "definitionFit": "Oranges are citrus fruits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fruits"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +826,52 @@
      }
     ]
    },
-   "solution": "GOLFCLUBS"
+   "solution": "GOLFCLUBS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "used at Gleneagles",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 5,
+         "note": "the word flog goes off, turned wrong, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Flog",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "suit",
+       "at": 9,
+       "gives": "CLUBS",
+       "note": "clubs is one of the four suits in a pack of cards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man sells off his suit after wearing it at a Scottish hotel.",
+     "walkthrough": "'off' rearranges FLOG to GOLF. Gleneagles is a famous golf resort in Scotland.",
+     "definitionFit": "Golf clubs are the implements players swing on a course like the one at Gleneagles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +885,29 @@
     "text": "Team leader's short jump",
     "enumeration": "4"
    },
-   "solution": "SKIP"
+   "solution": "SKIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Team leader's short",
+      "at": 0,
+      "meaning": "a short form of skipper, a team leader (also the captain in curling or bowls)"
+     },
+     {
+      "text": "jump",
+      "at": 20,
+      "meaning": "to hop or jump lightly"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A team captain is called a skip for short, and a skip is a small hop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +927,42 @@
      }
     ]
    },
-   "solution": "LEGBREAK"
+   "solution": "LEGBREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spinner might produce one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 26,
+       "gives": "LEG",
+       "note": "in cricket the on side is also called the leg side"
+      },
+      {
+       "words": "holiday",
+       "at": 29,
+       "gives": "BREAK",
+       "note": "a break is a short holiday"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow bowler takes a wicket while away on holiday.",
+     "walkthrough": "In cricket a spinner is a slow bowler; the on side is the leg side.",
+     "definitionFit": "A leg break is a ball from a slow bowler that turns from the leg side to the off side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +976,46 @@
     "text": "Insulating material once seen as finest by old school",
     "enumeration": "8"
    },
-   "solution": "ASBESTOS"
+   "solution": "ASBESTOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insulating material once",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "as",
+       "at": 30,
+       "gives": "AS"
+      },
+      {
+       "words": "finest",
+       "at": 33,
+       "gives": "BEST",
+       "note": "best means finest"
+      },
+      {
+       "words": "old school",
+       "at": 43,
+       "gives": "OS",
+       "note": "OS is short for old school, as in old school tie"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old school once judged a building material to be the finest.",
+     "definitionFit": "Asbestos was formerly widely used for fireproof insulation until its health risks were known."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1029,45 @@
     "text": "High points for a Luxembourg rider",
     "enumeration": "4"
    },
-   "solution": "ALPS"
+   "solution": "ALPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High points",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 16
+      },
+      {
+       "words": "Luxembourg",
+       "at": 18,
+       "gives": "L",
+       "note": "L is the international vehicle registration code for Luxembourg"
+      },
+      {
+       "words": "rider",
+       "at": 29,
+       "gives": "PS",
+       "note": "a rider is an addition to a document, like a postscript, PS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist from Luxembourg takes on the mountain summits.",
+     "definitionFit": "The Alps are Europe's great mountain range, full of peaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rider"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1081,42 @@
     "text": "The Home Counties apart from holiday venues on coast",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "holiday venues on coast",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The Home Counties",
+       "at": 0,
+       "gives": "SE",
+       "note": "the Home Counties surround London in the south-east of England, SE"
+      },
+      {
+       "words": "apart",
+       "at": 18,
+       "gives": "ASIDE",
+       "note": "aside means apart or to one side"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Apart from the counties around London, holiday resorts lie on the coast.",
+     "walkthrough": "The Home Counties are the English counties around London; 'from' is a link.",
+     "definitionFit": "The seaside is the coastal area where people go on beach holidays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "apart"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1130,29 @@
     "text": "Swordsmen run through stolen property dealers",
     "enumeration": "7"
    },
-   "solution": "FENCERS"
+   "solution": "FENCERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swordsmen",
+      "at": 0,
+      "meaning": "fencing is sport swordplay, so its practitioners are swordsmen"
+     },
+     {
+      "text": "stolen property dealers",
+      "at": 22,
+      "meaning": "a fence is someone who receives and sells stolen goods"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses: sport sword fighters, and receivers of stolen goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1166,41 @@
     "text": "Game of snooker ahead represents a devious plot",
     "enumeration": "7"
    },
-   "solution": "FRAMEUP"
+   "solution": "FRAMEUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a devious plot",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Game of snooker",
+       "at": 0,
+       "gives": "FRAME",
+       "note": "a frame is a single game in snooker"
+      },
+      {
+       "words": "ahead",
+       "at": 16,
+       "gives": "UP",
+       "note": "a player who is up is ahead"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player leads a frame by a crafty scheme.",
+     "definitionFit": "A frame-up is a scheme to make an innocent person look guilty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1214,51 @@
     "text": "Steep banks deceive safari leader",
     "enumeration": "6"
    },
-   "solution": "BLUFFS"
+   "solution": "BLUFFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Steep banks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deceive",
+       "at": 12,
+       "gives": "BLUFF",
+       "note": "to bluff is to deceive"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 27,
+         "note": "only the leading letter of safari is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "safari",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A safari guide tricks the tourists near the steep banks of the river.",
+     "definitionFit": "Bluffs are high steep cliffs or banks, often by a river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deceive"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1272,52 @@
     "text": "Middle of belt, on flat side",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "side",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Middle of",
+         "at": 0,
+         "note": "the central pair of letters of belt is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "belt",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "flat",
+       "at": 19,
+       "gives": "EVEN",
+       "note": "even means flat or level"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fastens a belt round their middle and lies flat on their side.",
+     "walkthrough": "'on' is a down-clue placement indicator: the first piece sits on top of the second. 'side' means a team, not a flank.",
+     "definitionFit": "A side such as a cricket or football team has this many players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1331,71 @@
     "text": "Ring back about first of internationals in colour",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "the turned ring word goes about, that is around, the picked letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 5,
+         "note": "the word for ring is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ring",
+         "at": 0,
+         "gives": "CALL",
+         "note": "to call someone is to ring them"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 16,
+         "note": "only the first letter of internationals is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "internationals",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone phones back about the opening international match's team colours.",
+     "walkthrough": "'back' turns CALL into LLAC, which goes round I.",
+     "definitionFit": "Lilac is a pale purple shade, named after the flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1409,41 @@
     "text": "Help, competent, is at hand",
     "enumeration": "9"
    },
-   "solution": "AVAILABLE"
+   "solution": "AVAILABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "at hand",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Help",
+       "at": 0,
+       "gives": "AVAIL",
+       "note": "to avail is to help or be of use"
+      },
+      {
+       "words": "competent",
+       "at": 6,
+       "gives": "ABLE",
+       "note": "able means competent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Competent help is right here when needed.",
+     "definitionFit": "Something at hand is ready to use, accessible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Help"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1463,29 @@
      }
     ]
    },
-   "solution": "LEGIT"
+   "solution": "LEGIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Valid",
+      "at": 0,
+      "meaning": "slang for legitimate or valid"
+     },
+     {
+      "text": "run",
+      "at": 6,
+      "meaning": "to run away"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Slang for genuine or lawful, and a phrase for running off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1499,59 @@
     "text": "Expected by many to win approval before rearranged tie",
     "enumeration": "9"
    },
-   "solution": "FAVOURITE"
+   "solution": "FAVOURITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expected by many to win",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 33,
+       "note": "the approval word comes before the scrambled tie letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "approval",
+       "at": 24,
+       "gives": "FAVOUR",
+       "note": "favour means approval"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rearranged",
+         "at": 40,
+         "note": "the letters of tie are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tie",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team's approval rating rises before a replayed cup tie.",
+     "walkthrough": "'rearranged' turns TIE into ITE.",
+     "definitionFit": "The favourite in a race is the runner most people back to come first."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1565,43 @@
     "text": "Visitor stumbled on the answer, so to speak",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Visitor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GUEST",
+     "indicators": [
+      {
+       "text": "so to speak",
+       "at": 32,
+       "note": "signals that the words are taken as they sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stumbled on the answer",
+       "at": 8,
+       "gives": "GUESSED",
+       "note": "to guess is to stumble on the answer by chance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A visiting solver hit on the solution by luck.",
+     "definitionFit": "A guest is someone who visits or stays at another's home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stumbled"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1615,41 @@
     "text": "Heat source is under discussion but only partially",
     "enumeration": "3"
    },
-   "solution": "SUN"
+   "solution": "SUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heat source",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "but only partially",
+       "at": 32,
+       "note": "says only part of the phrase before is used, a run of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is under discussion",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heater is being discussed but only partly approved.",
+     "walkthrough": "The letters run across 'iS UNder'.",
+     "definitionFit": "The sun is the star that warms the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heat"
+    }
+   }
   },
   {
    "number": 29,
@@ -507,7 +1663,42 @@
     "text": "Cleans up with monies received in Us from horse races",
     "enumeration": "11"
    },
-   "solution": "SWEEPSTAKES"
+   "solution": "SWEEPSTAKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "horse races",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cleans up",
+       "at": 0,
+       "gives": "SWEEPS",
+       "note": "to sweep is to clean up with a brush"
+      },
+      {
+       "words": "monies received in Us",
+       "at": 15,
+       "gives": "TAKES",
+       "note": "in American usage the take is the money received, the takings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler cleans up on American horse races with his winnings.",
+     "walkthrough": "'from' is only a link.",
+     "definitionFit": "A sweepstake was originally a race in which all the stakes go to the winner's owner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleans"
+    }
+   }
   }
  ]
 }
