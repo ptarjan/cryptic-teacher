@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,28 @@
     "text": "Lots of money spent on gambling",
     "enumeration": "4"
    },
-   "solution": "POTS"
+   "solution": "POTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lots of money",
+      "at": 0,
+      "meaning": "... of money means a great deal of it"
+     },
+     {
+      "text": "spent on gambling",
+      "at": 14,
+      "meaning": "the pot is the pool of stakes laid out in a card game"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Informally a fortune is called pots, and a pot is also the kitty wagered at poker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +68,43 @@
     "text": "Hide a second family",
     "enumeration": "4"
    },
-   "solution": "SKIN"
+   "solution": "SKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a second",
+       "at": 5,
+       "gives": "S",
+       "note": "S is the standard abbreviation for a second of time"
+      },
+      {
+       "words": "family",
+       "at": 14,
+       "gives": "KIN",
+       "note": "kin are one's relatives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is concealing a second household they keep.",
+     "walkthrough": "'Hide' looks like a verb about concealment, but it is the noun for an animal's pelt.",
+     "definitionFit": "An animal's hide is its pelt, the outer covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +118,46 @@
     "text": "Old Iranian from the Eastern Mediterranean initially",
     "enumeration": "4"
    },
-   "solution": "MEDE"
+   "solution": "MEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old Iranian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 43,
+       "note": "initially here says the Mediterranean piece is placed at the start, before the eastern one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mediterranean",
+       "at": 29,
+       "gives": "MED"
+      },
+      {
+       "words": "Eastern",
+       "at": 21,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Persian came originally from the eastern end of the Mediterranean.",
+     "walkthrough": "'initially' puts MED first, so the order is MED then E, the reverse of the clue's order.",
+     "definitionFit": "The Medes were an ancient people of what is now north-western Iran."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +171,42 @@
     "text": "Cock-fight dispute made him murder Cock Robin",
     "enumeration": "7"
    },
-   "solution": "SPARROW"
+   "solution": "SPARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "him murder Cock Robin",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cock-fight",
+       "at": 0,
+       "gives": "SPAR",
+       "note": "fighting cocks spar with each other, so a cock-fight is a spar"
+      },
+      {
+       "words": "dispute",
+       "at": 11,
+       "gives": "ROW",
+       "note": "a row is a quarrel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A row over a cockfight led someone to kill a bird called Cock Robin.",
+     "walkthrough": "In the nursery rhyme 'Who killed Cock Robin?', the bird who confesses is the one that answers 'I, said the Sparrow'.",
+     "definitionFit": "The nursery rhyme names this small brown bird as Cock Robin's killer, with his bow and arrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +220,69 @@
     "text": "Male with dementia made to take many a drug",
     "enumeration": "10"
    },
-   "solution": "MEDICAMENT"
+   "solution": "MEDICAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a drug",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to take",
+       "at": 24,
+       "note": "to take means the rearranged letters receive another piece inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Male",
+         "at": 0,
+         "gives": "M"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "made",
+           "at": 19,
+           "note": "made in the sense of reworked or fashioned anew tells us to rearrange the letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dementia",
+           "at": 10,
+           "note": "taken as written, as anagram fodder"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "many",
+       "at": 32,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, used for many"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man suffering from dementia is forced to swallow a large number of pills.",
+     "walkthrough": "'made' rearranges M and DEMENTIA into MEDIAMENT, and 'to take' puts C inside it after MEDI.",
+     "definitionFit": "A medicament is a medicine or remedy, which a drug is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +296,29 @@
     "text": "Accountant unpopular at the library?",
     "enumeration": "10"
    },
-   "solution": "BOOKKEEPER"
+   "solution": "BOOKKEEPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accountant",
+      "at": 0,
+      "meaning": "one who keeps a firm's financial records"
+     },
+     {
+      "text": "unpopular at the library?",
+      "at": 11,
+      "meaning": "a borrower who holds on to library books and never returns them"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An accountant who keeps ledgers is so called, and the word also fits someone who hangs on to borrowed volumes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +338,42 @@
      }
     ]
    },
-   "solution": "RINGFENCE"
+   "solution": "RINGFENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reserve funds",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Call",
+       "at": 0,
+       "gives": "RING",
+       "note": "to ring someone is to call them by telephone"
+      },
+      {
+       "words": "burglar's accomplice",
+       "at": 8,
+       "gives": "FENCE",
+       "note": "a fence is someone who receives and sells stolen goods"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telephoning a burglar's associate to get hold of some emergency money.",
+     "walkthrough": "A fence is the criminal who handles stolen goods for burglars.",
+     "definitionFit": "To ring-fence money is to guarantee it is kept for one particular purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 8,
@@ -134,7 +387,34 @@
     "text": "Word of assent from those who assent",
     "enumeration": "4"
    },
-   "solution": "AYES"
+   "solution": "AYES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Word of assent from those who assent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Word of assent from those who assent",
+       "at": 0,
+       "note": "in a parliamentary vote the members saying yes call out their assent, and are themselves named after that word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who agrees says the word that means agreeing.",
+     "walkthrough": "In the UK Parliament the votes for a motion are counted as the 'yes' lobby, named for the old word of assent.",
+     "definitionFit": "The plural noun names both the yes votes and the people casting them in a division."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +428,54 @@
     "text": "Not short of a first team close by",
     "enumeration": "9"
    },
-   "solution": "ALONGSIDE"
+   "solution": "ALONGSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close by",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 15,
+       "note": "first says the single letter goes at the front, ahead of the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 13,
+       "gives": "A"
+      },
+      {
+       "words": "Not short",
+       "at": 0,
+       "gives": "LONG",
+       "note": "the opposite of short is long"
+      },
+      {
+       "words": "team",
+       "at": 21,
+       "gives": "SIDE",
+       "note": "a side is a sports team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player is not lacking a place in the first eleven, and stands near it.",
+     "walkthrough": "'first' says the A leads; 'Not short of' reads like 'not lacking', but 'Not short' alone is the piece and 'of' just joins.",
+     "definitionFit": "Alongside means next to or beside, so near at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +489,52 @@
     "text": "Resolve hardens in the Jewish council",
     "enumeration": "9"
    },
-   "solution": "SANHEDRIN"
+   "solution": "SANHEDRIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Jewish council",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Resolve",
+         "at": 0,
+         "note": "to resolve is to break up and form again, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hardens",
+         "at": 8,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 16,
+       "note": "taken as written, as anagram fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Determination stiffens within a gathering of Jewish elders.",
+     "walkthrough": "'Resolve' looks like a noun meaning determination, but it is the anagram signal: HARDENS becomes SANHEDR, and IN stays as written at the end.",
+     "definitionFit": "The Sanhedrin was the supreme court and assembly of ancient Israel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Resolve"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +548,46 @@
     "text": "Henry is hard on a trainee",
     "enumeration": "3"
    },
-   "solution": "HAL"
+   "solution": "HAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Henry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hard",
+       "at": 9,
+       "gives": "H",
+       "note": "H is the pencil abbreviation for hard"
+      },
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "trainee",
+       "at": 19,
+       "gives": "L",
+       "note": "L stands for learner, as on a British L-plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry is being tough on a new recruit.",
+     "walkthrough": "L comes from the L-plate a learner driver must display in Britain.",
+     "definitionFit": "Hal is a traditional pet form of the name Henry, as with Shakespeare's Prince Hal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +601,53 @@
     "text": "Leave out returning medic with sex appeal",
     "enumeration": "4"
    },
-   "solution": "OMIT"
+   "solution": "OMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leave out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 10,
+         "note": "returning means the doctor's abbreviation is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "medic",
+         "at": 20,
+         "gives": "MO",
+         "note": "MO is a medical officer, an army doctor"
+        }
+       ]
+      },
+      {
+       "words": "sex appeal",
+       "at": 31,
+       "gives": "IT",
+       "note": "it is old slang for sex appeal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Forget the doctor coming back with all his charm.",
+     "walkthrough": "'returning' turns MO into OM.",
+     "definitionFit": "To omit something is to skip it or exclude it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +661,29 @@
     "text": "Cotton manufacturer shows spirit",
     "enumeration": "3"
    },
-   "solution": "GIN"
+   "solution": "GIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cotton manufacturer",
+      "at": 0,
+      "meaning": "a machine that separates cotton fibres from their seeds"
+     },
+     {
+      "text": "spirit",
+      "at": 26,
+      "meaning": "a clear alcoholic drink flavoured with juniper"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The cotton gin was the machine that cleaned raw cotton; the drink is a juniper-flavoured spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manufacturer"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +703,29 @@
      }
     ]
    },
-   "solution": "CALLEDOFF"
+   "solution": "CALLEDOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Broke engagement",
+      "at": 0,
+      "meaning": "cancelled a planned marriage or appointment"
+     },
+     {
+      "text": "summoned elsewhere",
+      "at": 22,
+      "meaning": "called away from where one is"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An event cancelled has been scrapped, and someone recalled from a place has been asked to leave it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +745,42 @@
      }
     ]
    },
-   "solution": "CLEANSLATE"
+   "solution": "CLEANSLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "freedom from debt",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chars",
+       "at": 0,
+       "gives": "CLEANS",
+       "note": "a char is a cleaner, so chars means cleans"
+      },
+      {
+       "words": "at night",
+       "at": 6,
+       "gives": "LATE",
+       "note": "late can mean at a late hour, at night"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cleaning ladies work night shifts to pay off what they owe.",
+     "walkthrough": "A char, or charwoman, is an old British word for a cleaning lady; here 'Chars' is the verb, does the cleaning.",
+     "definitionFit": "A fresh start with past obligations wiped away is the idea of a slate that has been wiped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chars"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +800,28 @@
      }
     ]
    },
-   "solution": "LOOKSHARP"
+   "solution": "LOOKSHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make haste",
+      "at": 0,
+      "meaning": "an order to hurry up"
+     },
+     {
+      "text": "to appear quick-witted",
+      "at": 11,
+      "meaning": "to seem smart and alert"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase is a command to hurry, and read literally means to seem clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +835,49 @@
     "text": "In the final act an auditor is winning",
     "enumeration": "9"
    },
-   "solution": "ENDEARING"
+   "solution": "ENDEARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "winning",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In at the head of the clue places the listener inside the conclusion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the final act",
+       "at": 3,
+       "gives": "ENDING",
+       "note": "the ending is the last part of a story or play"
+      },
+      {
+       "words": "an auditor",
+       "at": 17,
+       "gives": "EAR",
+       "note": "an auditor is a listener, and the ear is what hears"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the last scene an accountant checking the books turns out to be the victor.",
+     "walkthrough": "'auditor' suggests someone checking accounts, but here it means a listener; 'In' signals the container.",
+     "definitionFit": "A winning manner is charming, the same as an endearing one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "auditor"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +897,38 @@
      }
     ]
    },
-   "solution": "GMAN"
+   "solution": "GMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "FBI agent",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "General manager",
+       "at": 0,
+       "gives": "GM"
+      },
+      {
+       "words": "an",
+       "at": 26,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company boss faces a federal investigator.",
+     "definitionFit": "G-man, short for government man, is American slang for a federal agent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +942,30 @@
     "text": "Minute portions for dessert?",
     "enumeration": "7"
    },
-   "solution": "SECONDS"
+   "solution": "SECONDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minute portions",
+      "at": 0,
+      "meaning": "a minute is divided into sixty small units of time"
+     },
+     {
+      "text": "for dessert?",
+      "at": 16,
+      "meaning": "second helpings of a pudding"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Units of time that make up a minute, and also extra servings at a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +979,46 @@
     "text": "Asked home by Violet and Edward",
     "enumeration": "7"
    },
-   "solution": "INVITED"
+   "solution": "INVITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "home",
+       "at": 6,
+       "gives": "IN",
+       "note": "to be in is to be at home"
+      },
+      {
+       "words": "Violet",
+       "at": 14,
+       "gives": "VI",
+       "note": "Vi is a short form of the name Violet"
+      },
+      {
+       "words": "Edward",
+       "at": 25,
+       "gives": "TED",
+       "note": "Ted is a familiar form of the name Edward"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Violet and Edward invited someone round to their house.",
+     "definitionFit": "Being invited means being asked to come."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1032,42 @@
     "text": "Some Italian requires a suite",
     "enumeration": "7"
    },
-   "solution": "PARTITA"
+   "solution": "PARTITA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a suite",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some",
+       "at": 0,
+       "gives": "PART",
+       "note": "part means some of something"
+      },
+      {
+       "words": "Italian",
+       "at": 5,
+       "gives": "ITA",
+       "note": "Ita is an abbreviation for Italian"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of Italian is needed to book a hotel apartment.",
+     "walkthrough": "'suite' suggests rooms, but it is the musical sense.",
+     "definitionFit": "A partita is a Baroque instrumental suite, as in Bach's partitas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suite"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1081,39 @@
     "text": "A burden on America",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A burden",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "words": "America",
+       "at": 12,
+       "gives": "US",
+       "note": "US is the United States of America"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something weighs heavily on America.",
+     "definitionFit": "An onus is a duty or responsibility, something heavy to bear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1127,41 @@
     "text": "A name best used to denote degradation",
     "enumeration": "9"
    },
-   "solution": "ABASEMENT"
+   "solution": "ABASEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "degradation",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "used",
+       "at": 12,
+       "note": "used in the sense of worked over or exploited signals that these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A name best",
+       "at": 0,
+       "note": "taken as written, as anagram fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-chosen word is employed to describe humiliation.",
+     "walkthrough": "'used' rearranges A, NAME and BEST.",
+     "definitionFit": "Abasement is humiliation, being brought low in dignity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1175,43 @@
     "text": "Upsetting mother is senseless",
     "enumeration": "3"
    },
-   "solution": "MAD"
+   "solution": "MAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "senseless",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Upsetting",
+       "at": 0,
+       "note": "in a down clue upsetting means turning the word upside down, so it is read from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mother",
+       "at": 10,
+       "gives": "DAM",
+       "note": "dam is the mother of an animal, especially a horse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Distressing one's mother is foolish.",
+     "walkthrough": "'Upsetting' turns DAM upside down in this down clue, giving the letters backwards.",
+     "definitionFit": "Mad means crazy, having lost one's reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upsetting"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1225,54 @@
     "text": "Female hothead about to suffer a reversal",
     "enumeration": "3"
    },
-   "solution": "HER"
+   "solution": "HER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hothead",
+       "at": 7,
+       "gives": "H",
+       "note": "the head of the word hot is its first letter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to suffer a reversal",
+         "at": 21,
+         "note": "suffering a reversal means the word for about is turned backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "at": 15,
+         "gives": "RE",
+         "note": "re means about or concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short-tempered woman is about to have a setback.",
+     "walkthrough": "'hothead' means a hot-tempered person on the surface, but here it is the head of 'hot'; 'to suffer a reversal' turns RE into ER.",
+     "definitionFit": "The pronoun refers to a woman or girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hothead"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1286,42 @@
     "text": "Some powerful narcotics for a badly broken bone",
     "enumeration": "4"
    },
-   "solution": "ULNA"
+   "solution": "ULNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for a badly broken bone",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "powerful narcotics",
+       "at": 5,
+       "gives": "ULNA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strong painkillers are given for a nasty fracture.",
+     "walkthrough": "The run sits across powerFUL NArcotics.",
+     "definitionFit": "The ulna is a forearm bone, one that can be fractured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1345,30 @@
      }
     ]
    },
-   "solution": "INTHEDOCK"
+   "solution": "INTHEDOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stevedores work there",
+      "at": 0,
+      "meaning": "dock workers load ships within a harbour basin"
+     },
+     {
+      "text": "at the bar",
+      "at": 22,
+      "meaning": "standing in court as the accused"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase locates someone in a harbour basin, and also in the place where a defendant stands on trial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1382,42 @@
     "text": "German banker emerges from hotel bedroom",
     "enumeration": "4"
    },
-   "solution": "ELBE"
+   "solution": "ELBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German banker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "emerges from",
+       "at": 14,
+       "note": "emerges from says the river comes out of the letters of the words around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel bedroom",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A banker from Germany walks out of a hotel bedroom.",
+     "walkthrough": "A 'banker' in crosswords is a river, something with banks; the run spans hotEL BEdroom.",
+     "definitionFit": "The Elbe is a major river flowing through Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banker"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1431,39 @@
     "text": "Set it in a ring, old chum!",
     "enumeration": "4"
    },
-   "solution": "OPAL"
+   "solution": "OPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Set it in a ring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "at": 18,
+       "gives": "O"
+      },
+      {
+       "words": "chum",
+       "at": 22,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells an old friend to mount a gem in a ring.",
+     "definitionFit": "An opal is a gemstone often mounted in jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1477,42 @@
     "text": "Lean over to pull up a vegetable",
     "enumeration": "4"
    },
-   "solution": "KEEL"
+   "solution": "KEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lean over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to pull up",
+       "at": 10,
+       "note": "in a down clue pulling up means reading the word from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vegetable",
+       "at": 23,
+       "gives": "LEEK",
+       "note": "the leek is an onion-family vegetable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bending down to uproot something from the vegetable patch.",
+     "walkthrough": "'to pull up' turns LEEK backwards in this down clue.",
+     "definitionFit": "To keel over is to topple or collapse, a sense of lean over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -490,7 +1526,38 @@
     "text": "A cap on the summit",
     "enumeration": "4"
    },
-   "solution": "ATOP"
+   "solution": "ATOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on the summit",
+      "at": 6
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "cap",
+       "at": 2,
+       "gives": "TOP",
+       "note": "a top is a lid or cap"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone places a hat on the mountain peak.",
+     "definitionFit": "Atop means on top of, at the highest point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -514,7 +1581,29 @@
      }
     ]
    },
-   "solution": "GOTOBLAZES"
+   "solution": "GOTOBLAZES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work as a fireman?",
+      "at": 0,
+      "meaning": "a firefighter goes out to fires"
+     },
+     {
+      "text": "Get away!",
+      "at": 19,
+      "meaning": "an exclamation telling someone to go away"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Literally travelling to fires, and idiomatically a rude way of saying clear off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
