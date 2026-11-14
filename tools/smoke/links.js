@@ -196,11 +196,13 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         if (/walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
         // The rung's text, not its markup: tag names are letters too, and
+        // The formula's lead ("definition (4) =") is fixed prose too: after a
+        // clue ending "together" it read as HERD.
         // "a spade a spade" + "</span>" reads as SPADES. The ladder's fixed
         // prose is cut out, each piece leaving a break: "built from any" reads
         // as OMAN, and no clue put it there.
         let bare = registry["hint-body"].innerHTML
-          .replace(/<span class="step-label">[^<]*<\/span>|<div class="legend">[\s\S]*?<\/div>/g, " ")
+          .replace(/<span class="(?:step-label|formula-lead)">[^<]*<\/span>|<div class="legend">[\s\S]*?<\/div>/g, " ")
           .replace(/<[^>]*>|&[#\w]+;/g, " ").replace(/[^A-Za-z]/g, "").toUpperCase();
         for (const fixed of LADDER_PROSE) bare = bare.split(fixed).join("-");
         assert(tooShort || !bare.includes(ans),
