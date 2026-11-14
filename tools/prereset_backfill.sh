@@ -1489,7 +1489,11 @@ sync_wave() {
   # shared data under tools/, which publish_shared_data has just committed.
   # A tree-wide checkout holds index.lock for seconds, so a run staging then
   # failed on every retry (genius-177, 10-17): taken in turn with them.
-  under_index_lock git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)clues_only/' ':(exclude)tools/'
+  # Named from `diff --name-only` (fsmonitor-aware), not `checkout -- .`: that read the whole
+  # 110k-file index and stat'd the tree on every wave, ~180 MB/min of disk reads.
+  local _mod=()
+  mapfile -d '' -t _mod < <(git --no-optional-locks diff --name-only -z -- . ':(exclude)puzzles/*.json' ':(exclude)clues_only/' ':(exclude)tools/')
+  [ "${#_mod[@]}" -gt 0 ] && under_index_lock git checkout -q -- "${_mod[@]}"
   # The tables origin regenerates are not published from here (OWNED_BY_ORIGIN),
   # so a stale local rebuild is put back as HEAD has it. blog_compare.json stays:
   # the re-check phase reads its `due` list back and rewrites it when it starts.
