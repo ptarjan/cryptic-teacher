@@ -28,6 +28,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import gitlog_cache
+
 ROOT = Path(__file__).resolve().parent.parent
 MAP = ROOT / "tools" / "data" / "renamed_ids.json"
 PUZZLE_FILE = re.compile(r"^puzzles/(?:.*/)?([a-z][a-z0-9]*-\d+)\.(?:json|js)$")
@@ -79,8 +81,9 @@ def from_history(root=ROOT):
     if _git(root, "rev-parse", "--is-shallow-repository").strip() == "true":
         raise SystemExit(f"{root} is a shallow clone: renames need the whole history "
                          "(git fetch --unshallow)")
-    log = _git(root, "log", "--reverse", "--topo-order", "--no-renames", "--diff-filter=AD",
-               "--name-status", "--format=@%H %P", "HEAD", "--", "puzzles/")
+    log = gitlog_cache.log(["--reverse", "--topo-order", "--no-renames", "--diff-filter=AD",
+                            "--name-status", "--format=@%H %P", "HEAD", "--", "puzzles/"],
+                           cwd=root)
     pairs, commit, lines = [], None, []
 
     def flush():

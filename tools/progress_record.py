@@ -21,11 +21,11 @@ from pathlib import Path
 import annotation
 import coverage
 import fetch_puzzle
+import gitlog_cache
 import parallel
 import progress
 import puzzle_paths
 import series as series_meta
-
 
 #: puzzle_row() per file, kept between runs: {"code": code_digest(), "rows":
 #: {path: [size, mtime_ns, row]}}, so a night re-reads only the files that moved.
@@ -262,9 +262,8 @@ def record(today=None):
 
 def annotate_dates():
     """{id: the day of its first "Annotate <id>" commit}."""
-    out = subprocess.run(["git", "log", "--reverse", "--date=short",
-                          "--format=\x01%ad\t%s%n%b"],
-                         cwd=progress.ROOT, capture_output=True, text=True, check=True).stdout
+    out = gitlog_cache.log(["--reverse", "--date=short", "--format=\x01%ad\t%s%n%b"],
+                           cwd=progress.ROOT)
     first = {}
     for entry in out.split("\x01")[1:]:
         head, _, body = entry.partition("\n")
