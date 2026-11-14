@@ -33,6 +33,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -61,6 +62,8 @@ IMAGE = re.compile(r'<img[^>]+src="([^"?]+/wp-content/uploads/[^"?]+\.(?:jpe?g|p
 PAGE_WIDTH = 2166
 READER = "en5"
 #: "TLS Crossword 1603 by Praxiteles" (the reader may give a zero as a letter O), or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
+#: The first clue's bold "1" often goes unread: "ACROSS Antonia's.." gets its 1 back (grid_matches guards a wrong guess).
+LOST_ONE = re.compile(r"\b(ACROSS|DOWN)\s+(?:[^\w\s]\s+)?(?!(?:ACROSS|DOWN)\b)(?=[^\W\d_])")
 BYLINE = re.compile(r"Crossword\s*([\dOo]{3,5})\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
 FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
                          r"\s+(\d{1,2}),?\s+(\d{4})")
@@ -318,7 +321,7 @@ def read_image(img, web_date, headline=""):
         # The early issues' page has no footer line (its prize text names other dates).
         footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     text = "\n".join(text_of(img, tuple(c)) for c in columns)
-    flat = genius_puzzles.flat(text)
+    flat = LOST_ONE.sub(r"\1 1 ", genius_puzzles.flat(text))
     out = genius_puzzles.parse_text(flat)
     # The page's own heading, else (a page cropped below it) the article's headline.
     m = BYLINE.search(title) or BYLINE.search(headline)
@@ -453,6 +456,19 @@ def full_image(content):
     return m and m.group(1)
 
 
+def archived(url):
+    """The Wayback Machine's copy of an image the site no longer serves, or None."""
+    query = urllib.parse.urlencode({"url": url, "output": "json", "filter": "statuscode:200",
+                                    "fl": "timestamp", "limit": "-1"})
+    try:
+        rows = json.loads(get("https://web.archive.org/cdx/search/cdx?" + query))
+        if len(rows) < 2:
+            return None
+        return get(f"https://web.archive.org/web/{rows[-1][0]}id_/{url}", timeout=120)
+    except (OSError, ValueError):
+        return None
+
+
 def listed():
     """{number: row} of the numbered articles on the free listing, its pages kept
     under CACHE/listing so a resumed run asks again only for what is missing."""
@@ -540,6 +556,7 @@ def backfill(log=print, only=None, retry_failed=False):
     if retry_failed:
         state["failed"] = {}
         state["answer_failed"] = {}
+        state["404"] = []  # the Wayback fallback may now hold what the site lost
     counts = {"filed": 0, "with_answers": 0, "404": 0, "failed": 0}
 
     def save():
@@ -569,14 +586,19 @@ def backfill(log=print, only=None, retry_failed=False):
             try:
                 data = get(url)
             except urllib.error.HTTPError as e:
-                if e.code == 404:
+                data = archived(url) if e.code == 404 else None
+                if data:
+                    log(f"TLS {n}: image from the Wayback Machine")
+                elif e.code == 404:
                     state["404"].append(n)
                     counts["404"] += 1
+                    save()
+                    continue
                 else:
                     state["failed"][str(n)] = f"HTTP {e.code} fetching the image"
                     counts["failed"] += 1
-                save()
-                continue
+                    save()
+                    continue
             except OSError as e:
                 state["failed"][str(n)] = f"fetching the image: {e}"
                 counts["failed"] += 1
