@@ -551,6 +551,30 @@ def _draining():
                 mark.unlink(missing_ok=True)
 
 
+#: The slot lock files this process holds now. A fork (scan_queue's planner pool) copies their
+#: descriptors, and an flock lives while any copy is open: 11-14 a planner worker forked while
+#: the drainers held all three slots kept them for its whole life, so nothing was asked for
+#: ~10 min with 30 asks spooled. The child closes its copies (close, never LOCK_UN, which would
+#: free the parent's lock too).
+_HELD_SLOTS = set()
+_HELD_SLOTS_LOCK = threading.Lock()
+
+
+def _close_slots_in_child():
+    for f in list(_HELD_SLOTS):
+        try:  # /dev/null over the copy: the file object's own close later stays harmless
+            null = os.open(os.devnull, os.O_RDONLY)
+            os.dup2(null, f.fileno())
+            os.close(null)
+        except (OSError, ValueError):
+            pass
+    _HELD_SLOTS.clear()
+
+
+if hasattr(os, "register_at_fork"):
+    os.register_at_fork(after_in_child=_close_slots_in_child)
+
+
 @contextlib.contextmanager
 def slot(priority=False):
     """Hold one of slots() host-wide lock files for one request. Waiting here is
@@ -577,9 +601,13 @@ def slot(priority=False):
                 time.sleep(random.uniform(0.2, 1.0))
                 continue
             break
+    with _HELD_SLOTS_LOCK:
+        _HELD_SLOTS.add(f)
     try:  # the marker is gone: the slot is held until the request ends
         yield
     finally:
+        with _HELD_SLOTS_LOCK:
+            _HELD_SLOTS.discard(f)
         f.close()
 
 
