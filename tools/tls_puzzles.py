@@ -60,7 +60,8 @@ IMAGE = re.compile(r'<img[^>]+src="([^"?]+/wp-content/uploads/[^"?]+\.(?:jpe?g|p
 #: The clue reader: English PP-OCRv5 keeps the spaces RapidOCR's "ch" loses here.
 PAGE_WIDTH = 2166
 READER = "en5"
-BYLINE = re.compile(r"Crossword\s*(\d{3,5})\s*by\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
+#: "TLS Crossword 1603 by Praxiteles", or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
+BYLINE = re.compile(r"Crossword\s*(\d{3,5})\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
 FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
                          r"\s+(\d{1,2}),?\s+(\d{4})")
 MONTHS = {m: i for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July",
@@ -228,7 +229,7 @@ def text_of(img, box):
     return clue_text.tidy_ocr_clues(text, scope="column")
 
 
-def read_image(img, web_date):
+def read_image(img, web_date, headline=""):
     """{number, setter, date, clues, grid, preamble, origin} off the page image,
     or raises ValueError saying what could not be read."""
     import numpy as np
@@ -240,7 +241,7 @@ def read_image(img, web_date):
     h, w = a.shape
     found = find_grid(a)
     if not found:
-        raise ValueError("no ruled square grid found in the page image")
+        raise ValueError(f"no ruled square grid found in the page image ({img.width}x{img.height})")
     box, layout = found
     gx0, gy0, gx1, gy1 = box
     pad = 6
@@ -276,9 +277,10 @@ def read_image(img, web_date):
     footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     flat = genius_puzzles.flat(text)
     out = genius_puzzles.parse_text(flat)
-    m = BYLINE.search(title)
+    # The page's own heading, else (a page cropped below it) the article's headline.
+    m = BYLINE.search(title) or BYLINE.search(headline)
     if not m:
-        raise ValueError(f"no byline in the title {title!r}")
+        raise ValueError(f"no byline in the title {title!r} or headline {headline!r}")
     out["number"], out["setter"] = int(m.group(1)), m.group(2).capitalize()
     d = FOOTER_DATE.search(footer)
     if d:
@@ -563,7 +565,7 @@ def backfill(log=print, only=None, retry_failed=False):
         if not todo_file:
             continue
         try:
-            page = read_image(img, row["date"])
+            page = read_image(img, row["date"], html.unescape(row["title"]["rendered"]))
             if page["number"] != n:
                 raise ValueError(f"the image is headed No {page['number']}")
             why = fpp.grid_matches(page["grid"], page["clues"]) if page["clues"] else "no clues read"
