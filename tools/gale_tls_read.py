@@ -527,7 +527,7 @@ def layout_block(img, words, grid, ocr=None):
 
 #: Figures a scan's OCR reads for each other (a 9's loop open, an 8's closed up): a count read with one of them
 #: for the light's own length is the light's count misread, the clue's text and number being the voted ones.
-LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08")}
+LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08", "78")}
 #: A page whose lights fit their counts less often than this has a grid no count may be mended by.
 MEND_FIT = 0.7
 
@@ -617,6 +617,20 @@ def pick_grid(boxes, reader, pads=(6, 0.08)):
     return None, None, first
 
 
+#: The widths (pixels, inside the patch's edge) of the rule drawn on a grid patch's edge, thinnest first.
+FRAME_RULES = (4, 12, 20)
+
+
+def framed_crop(crop, box, width=FRAME_RULES[0]):
+    """`crop` with a black rule `width` thick drawn round `box` (x0, y0, x1, y1 in the crop's own pixels), the
+    grid's frame closed where a faint rule left it open."""
+    from PIL import ImageDraw
+    out = crop.convert("RGB")
+    x0, y0, x1, y1 = box
+    ImageDraw.Draw(out).rectangle((x0, y0, x1 - 1, y1 - 1), outline="black", width=width)
+    return out
+
+
 def lending(read, *args):
     """read(*args) with gale_listener's LEND_NUMBERS set: a clue number the Tesseract reading reads and a
     RapidOCR reading drops is lent to it (1996-03-22's 4 and 5 down, "no reading laid a clue on it")."""
@@ -686,11 +700,34 @@ def read_page(path, store=STORE, asker=None, known=None):
     gpath.parent.mkdir(parents=True, exist_ok=True)
 
     def reader(box, pad):
-        img.crop((max(0, box[0] - pad), max(0, box[1] - pad), min(img.width, box[2] + pad),
-                  min(img.height, box[3] + pad))).save(gpath)
-        return trove_grid.read_grid(gpath)
+        crop = img.crop((max(0, box[0] - pad), max(0, box[1] - pad), min(img.width, box[2] + pad),
+                         min(img.height, box[3] + pad)))
+        crop.save(gpath)
+        g, why = trove_grid.read_grid(gpath)
+        if not g and (why or "").startswith("the white cells span"):
+            # A frame rule the scan has faint on a side lets that edge row's cells run out into the margin
+            # (1366's bottom row: 14 rows read, the 15th lost): the patch's edge drawn in, the grid read again.
+            # (1405's bottom rule stands a few pixels under its last row's cells, so a thin rule drawn on the
+            # patch's edge leaves a corridor between them: thicker rules are tried after.)
+            for width in FRAME_RULES:
+                framed = framed_crop(crop, (min(pad, box[0]), min(pad, box[1]), min(pad, box[0]) + box[2] - box[0],
+                                            min(pad, box[1]) + box[3] - box[1]), width)
+                framed.save(gpath)
+                again, _ = trove_grid.read_grid(gpath)
+                if again:
+                    return again, None
+        return g, why
 
     box, g, why = pick_grid(boxes, reader)
+    if g:
+        # The patch found may be the last puzzle's little solution grid (1428's) with the puzzle's own grid, the
+        # larger, among the patches only the wider search finds: that one is read if it is twice the area.
+        area = (box[2] - box[0]) * (box[3] - box[1])
+        larger = [b for b in jr.extra_boxes(img, boxes) if (b[2] - b[0]) * (b[3] - b[1]) >= 2 * area]
+        if larger:
+            box2, g2, _ = pick_grid(larger, reader)
+            if g2:
+                box, g = box2, g2
     if not g:
         box, g, again = pick_grid(jr.extra_boxes(img, boxes), reader)
         why = again or why
@@ -796,7 +833,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 1
+BACK_VERSION = 2
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
