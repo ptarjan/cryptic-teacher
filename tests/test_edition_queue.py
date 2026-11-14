@@ -74,6 +74,16 @@ def check(what, want, got):
         fails += 1
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
+# The plan runs in a forked child (plan_forked); the cases below stub eq.plan and watch it in this process, so
+# they plan in-process, and the fork has its cases here.
+import plan_fork
+check("plan_fork: an answer comes back from the child", ("ok", [1, {"a": Path("x")}]), plan_fork.run(lambda: [1, {"a": Path("x")}]))
+status, got = plan_fork.run(lambda: 1 / 0)
+check("plan_fork: the child's exception comes back to raise", ("err", ZeroDivisionError), (status, type(got)))
+check("plan_fork: a child that dies is 'failed'", "failed", plan_fork.run(lambda: os._exit(3))[0])
+check("plan_fork: an answer that will not pickle is 'failed'", "failed", plan_fork.run(lambda: lambda: 1)[0])
+os.environ["CT_PLAN_FORK"] = "0"
+
 for _val, _want in ((None, 1200), ("", 1200), ("3600", 3600.0), ("abc", 1200), ("0", 1200), ("-5", 1200)):
     os.environ.pop("CT_READ_SECONDS_T", None)
     if _val is not None:

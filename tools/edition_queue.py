@@ -512,6 +512,7 @@ import hot_reload
 import media_manifest
 import mem_gate
 import ocr_remote
+import plan_fork
 import scan_queue
 import vlm_reader
 
@@ -789,6 +790,36 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
             scan_queue.save_count_left(COUNT_LEFT_CACHE)
             _DIR_SAVED[0] = time.monotonic()
         give_back_memory()
+
+
+def plan_forked(papers, cache=fa.CACHE, reread=None, out=None):
+    """plan()'s answer, made in a forked child that exits (CT_PLAN_FORK=0: in this process): a plan's heap
+    (~2 GB of transient objects pinned by the caches, none of it returned by malloc_trim) went with the child
+    and not the parent's RSS. What the parent reads from the caches the plan fills comes back with the answer:
+    fa._PLANNED_DIRS (brief, read_unit and fresh() start from it) and _DIR_SAVED (when the caches were last
+    saved, so the child's save is not made again at the next plan). Every other cache (the parse caches,
+    fa's per-paper plan memos, _QUEUE's whole-plan reuse) is the child's and is rebuilt by the next plan from
+    the pickles it saved; the parent loads the same pickles on demand (load_caches, as a re-exec's briefs do)."""
+    if not plan_fork.enabled():
+        return plan(papers, cache, reread, out)
+    notes = [] if out is not None else None
+
+    def work():
+        made = plan(papers, cache, reread, notes)
+        return made, notes, dict(fa._PLANNED_DIRS), _DIR_SAVED[0]
+    status, got = plan_fork.run(work, [(dir_cache, "_THREADS_LOCK"), (scan_queue, "_KEPT_LOCK"), (vlm_reader, "_DRAINING_LOCK"),
+                                       (vlm_reader, "_MINE_LOCK"), (fa, "_HELD_LOCKS"), (sys.modules[__name__], "_LOAD_LOCK")])
+    if status == "err":
+        raise got
+    if status == "failed":
+        log(f"plan fork failed ({got}); planned in this process")
+        return plan(papers, cache, reread, out)
+    made, notes, dirs, saved = got
+    fa._PLANNED_DIRS.update(dirs)
+    _DIR_SAVED[0] = max(_DIR_SAVED[0], saved)
+    if out is not None:
+        out.extend(notes)
+    return made
 
 
 #: Seconds between plan()'s writes of DIR_CACHE, and when the last was (monotonic).
@@ -3281,7 +3312,7 @@ class _Poller:
 
     def replan_all(self, notes=None):
         self.notice_refetches(notes)
-        sc, rd = plan(self.papers, self.cache, self.reread, notes)
+        sc, rd = plan_forked(self.papers, self.cache, self.reread, notes)
         return sc, rd, self.plan_fetch_units(notes)
 
     def may_start(self):
@@ -3441,7 +3472,7 @@ class _Poller:
                     while self.upkept:
                         self.upkept.pop()()
                     self.notice_refetches(box["notes"])
-                    box["plan"], box["partial"] = (*plan(self.papers, self.cache, self.reread, box["notes"]), []), True
+                    box["plan"], box["partial"] = (*plan_forked(self.papers, self.cache, self.reread, box["notes"]), []), True
                 except BaseException as e:  # raised again below, as make()'s
                     box["error"] = e
             elif self.planned is None:
