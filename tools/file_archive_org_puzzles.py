@@ -21025,6 +21025,12 @@ def short_cause(series, row, v, solutions):
     if paper_of(row.get("edition", "")).key not in CELLS_CLASSIFIED or gap <= 0:
         return None
     if not solution_current(row):
+        # A verdict answers_only already wrote (the fitted reads and the VLM's strips ran) is not read again
+        # for a solution key that moved since: every named solution fix has its own reread reason, and the
+        # blanket one reread such a row each deploy for "already held" (11-14: ~3,000 Gale Times units, 141k
+        # unit-seconds in 12 h, 1 in 6 a write; 2012-08-16 read 25 times under 25 keys).
+        if v.get("answersOnly"):
+            return None
         return LIKELY[4] if gap <= SHORT_GAP and s.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS else None
     if (gap <= trove_solution_ocr.STRIP_MAX and not v.get("answersOnly")
             and scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED))):
