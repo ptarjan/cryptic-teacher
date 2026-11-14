@@ -1370,7 +1370,9 @@ def only_evidence(paper, scans, reads, out=None):
     scans = [u for u in scans if u["reason"] in ("never scanned", *fa.HOST_REASONS) or u["rel"] in needed]
     # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
     # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
-    fixed = {rel for u in reads if year_evidence(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.IOS_TITLES, fa.FT_HEADINGS)
+    # Paul 11-14: so do the scans a kept FIX_LANDED reread waits on (fix_landed_reread): 933 of the first 2,000
+    # reads needed a scan at 1,000+ of 24,000 (SIDES_HEADED: none started in 6 h); fix_rereads_forward orders them.
+    fixed = {rel for u in reads if year_evidence(u) or fix_landed_reread(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.IOS_TITLES, fa.FT_HEADINGS)
              for rel in u.get("needs") or ()}
     scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
     if gated and out is not None:
@@ -1965,7 +1967,9 @@ def fix_rereads_forward(out):
 
     def other(u):
         return u.get("paper") not in named and u.get("paper") != "listener"
-    fix = [u for u in out if other(u) and u.get("rank", 9) > 1 and fix_landed_reread(u)]
+    # The scans such a reread waits on (a "scan stale" unit marked "fix" by only_evidence) go with them.
+    fix = [u for u in out if other(u) and u.get("rank", 9) > 1
+           and (fix_landed_reread(u) or (u.get("kind") == "scan" and u.get("fix")))]
     if not fix:
         return out
     ids = {id(u) for u in fix}
