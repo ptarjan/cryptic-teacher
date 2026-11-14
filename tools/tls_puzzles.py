@@ -229,6 +229,30 @@ def text_of(img, box):
     return clue_text.tidy_ocr_clues(text, scope="column")
 
 
+def stacked(a, img, gy1):
+    """(title, [clue box]) for the page whose clues run in one full-width column under the grid
+    and the previous solution (1500's, 1590's), with a centred "TLS CROSSWORD n BY setter" line
+    between them; None when the last two ink bands under the grid are not that title and the clues."""
+    h, w = a.shape
+    rows = (a[gy1 + 6:, :] < 0.5).sum(axis=1) > 2
+    bands = []
+    for s0, e0 in runs(rows):
+        # Lines of one block are close; the gaps between blocks are wide (45 px at this scale).
+        if bands and s0 - bands[-1][1] < 45:
+            bands[-1][1] = e0
+        else:
+            bands.append([s0, e0])
+    if len(bands) < 2:
+        return None
+    (t0, t1), (c0, c1) = bands[-2], bands[-1]
+    if t1 - t0 > 0.05 * w or c1 - c0 < 0.1 * w:
+        return None
+    title = text_of(img, (0, gy1 + 6 + t0 - 4, w, gy1 + 6 + t1 + 4))
+    if not BYLINE.search(title):
+        return None
+    return title, [[0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]]
+
+
 def read_image(img, web_date, headline=""):
     """{number, setter, date, clues, grid, preamble, origin} off the page image,
     or raises ValueError saying what could not be read."""
@@ -245,36 +269,41 @@ def read_image(img, web_date, headline=""):
     box, layout = found
     gx0, gy0, gx1, gy1 = box
     pad = 6
-    # The columns below the grid (to its right edge) and right of it (to the
-    # page's ruled title line), each split at the printed rules between them.
-    below = (gx0 - pad, gy1 + pad, gx1 + pad, h)
-    # A right-hand column may start above the grid's top (1623's), just under the title's rule.
-    title_rule = runs((a[:gy0, gx1:] < 0.9).mean(axis=1) > 0.8)
-    right = (gx1 + pad, title_rule[-1][1] + 4 if title_rule else gy0 - pad, w, h)
-    # The footer line (date, title, page) is below every column: stop above it.
-    # A page cropped with no footer (1622) ends in a clue row, set close under the one above.
-    foot = h
-    bands = runs((a[gy1:, :] < 0.5).any(axis=1))
-    if len(bands) > 1 and bands[-1][0] - bands[-2][1] > bands[-1][1] - bands[-1][0]:
-        foot = gy1 + bands[-1][0]
-    columns = under_columns(a, box) if layout == "top" else []
-    # The right band holds the solution grid, whose own lines run a good part of its height
-    # (0.6-0.7 once 1623's small image is scaled up) where the printed rules run all of it (0.95).
-    for (bx0, by0, bx1, by1), need in (() if layout == "top" else ((below, 0.6), (right, 0.85))):
-        cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot), need) + [bx1]
-        for cx0, cx1 in zip(cuts, cuts[1:]):
-            if cx1 - cx0 > 80:
-                columns.append([cx0 + 2, by0, cx1 - 2, min(by1, foot) - 2])
-    if len(columns) < 2:
-        raise ValueError("could not find the clue columns")
-    # The last column carries the previous puzzle's solution under its clues.
-    last = columns[-1]
-    if layout == "side":
-        last[3] = solution_top(a, *last) - 2
+    stack = stacked(a, img, gy1)
+    if stack:
+        title, columns = stack
+        footer = ""
+    else:
+        # The columns below the grid (to its right edge) and right of it (to the
+        # page's ruled title line), each split at the printed rules between them.
+        below = (gx0 - pad, gy1 + pad, gx1 + pad, h)
+        # A right-hand column may start above the grid's top (1623's), just under the title's rule.
+        title_rule = runs((a[:gy0, gx1:] < 0.9).mean(axis=1) > 0.8)
+        right = (gx1 + pad, title_rule[-1][1] + 4 if title_rule else gy0 - pad, w, h)
+        # The footer line (date, title, page) is below every column: stop above it.
+        # A page cropped with no footer (1622) ends in a clue row, set close under the one above.
+        foot = h
+        bands = runs((a[gy1:, :] < 0.5).any(axis=1))
+        if len(bands) > 1 and bands[-1][0] - bands[-2][1] > bands[-1][1] - bands[-1][0]:
+            foot = gy1 + bands[-1][0]
+        columns = under_columns(a, box) if layout == "top" else []
+        # The right band holds the solution grid, whose own lines run a good part of its height
+        # (0.6-0.7 once 1623's small image is scaled up) where the printed rules run all of it (0.95).
+        for (bx0, by0, bx1, by1), need in (() if layout == "top" else ((below, 0.6), (right, 0.85))):
+            cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot), need) + [bx1]
+            for cx0, cx1 in zip(cuts, cuts[1:]):
+                if cx1 - cx0 > 80:
+                    columns.append([cx0 + 2, by0, cx1 - 2, min(by1, foot) - 2])
+        if len(columns) < 2:
+            raise ValueError("could not find the clue columns")
+        # The last column carries the previous puzzle's solution under its clues.
+        last = columns[-1]
+        if layout == "side":
+            last[3] = solution_top(a, *last) - 2
+        title = text_of(img, (0, 0, w, max(gy0 - 2, 10)))
+        # The early issues' page has no footer line (its prize text names other dates).
+        footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     text = "\n".join(text_of(img, tuple(c)) for c in columns)
-    title = text_of(img, (0, 0, w, max(gy0 - 2, 10)))
-    # The early issues' page has no footer line (its prize text names other dates).
-    footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     flat = genius_puzzles.flat(text)
     out = genius_puzzles.parse_text(flat)
     # The page's own heading, else (a page cropped below it) the article's headline.
