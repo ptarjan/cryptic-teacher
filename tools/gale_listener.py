@@ -2170,6 +2170,8 @@ def greek_box(img, key, box):
     if path.exists():
         return [tuple(w) for w in json.loads(path.read_text())]
     crop = img.crop(box).convert("RGB")
+    if not crop.width or not crop.height:
+        return []  # a box with no area (1607's, a word's box clipped off the page): nothing to read
     crop = crop.resize((crop.width * GREEK_UPSCALE, crop.height * GREEK_UPSCALE))
     got = [(x0 // GREEK_UPSCALE + box[0], y0 // GREEK_UPSCALE + box[1], x1 // GREEK_UPSCALE + box[0],
             y1 // GREEK_UPSCALE + box[1], t) for x0, y0, x1, y1, t in ocr_clues.tesseract_words(crop, greek_model(), psm=7)]

@@ -433,6 +433,46 @@ def prose_over(nums, lh):
     return None
 
 
+def open_clue_under(ws, last, lh):
+    """Whether the words of a list column `ws` under its last count's line (`last`, the line's bottom) open on
+    a clue number at the column's left, within OPEN_CLUE_REACH line heights: a clue whose count stands in the
+    next column. Prose under the lists opens on no number."""
+    under = [w for w in ws if w[1] >= last - 2]
+    if not under:
+        return False
+    left = min(w[0] for w in ws)
+    first = min(under, key=lambda w: (w[1], w[0]))
+    row = [w for w in under if abs(w[1] - first[1]) < lh / 2]
+    return (any(NUMBER_WORD.match(w[4]) and w[0] <= left + 4 * lh for w in row)
+            and first[1] - last <= OPEN_CLUE_REACH * lh)
+
+
+#: The first line of a clue run on into the next column stands within this many line heights of the last count.
+OPEN_CLUE_REACH = 2
+#: Such a clue runs to this many rows; a word of this many capitals or more (a solution grid's letters) ends it.
+OPEN_CLUE_ROWS = 3
+SHOUT = 4
+
+
+def open_clue_rows(ws, last, lh):
+    """The rows (lists of words) of the clue open_clue_under finds: from the row under `last`, on while the next
+    row stands within two line heights and holds no word of SHOUT capitals, to OPEN_CLUE_ROWS rows."""
+    under = sorted((w for w in ws if w[1] >= last - 2), key=lambda w: w[1])
+    rows = []
+    for w in under:
+        if rows and abs(w[1] - rows[-1][0][1]) < lh / 2:
+            rows[-1].append(w)
+        else:
+            rows.append([w])
+    out = []
+    for row in rows[:OPEN_CLUE_ROWS]:
+        if out and (row[0][1] - out[-1][0][3] > 2 * lh
+                    or any(re.fullmatch(r"[A-Z]{%d,}\W*" % SHOUT, w[4]) for w in row)):
+            break
+        out.append(row)
+    return out
+
+
 def layout_block(img, words, grid, ocr=None):
     """(image, key) of the lists `layout_columns` finds, set one under another in a single column with
     "ACROSS" and "DOWN" headings drawn clean over them: across is read from the first column to the line the
@@ -470,7 +510,16 @@ def layout_block(img, words, grid, ocr=None):
                 crop = crop.crop((0, dy, crop.width, crop.height))
                 ws = [(w[0], w[1] - dy, w[2], w[3] - dy, *w[4:]) for w in ws if w[1] >= dy]
         ends = [w[3] for w in ws if COUNT_WORD.search(w[4])]
-        if ends and max(ends) + lh < crop.height:
+        if ends and i + 1 < len(order) and open_clue_under(ws, max(ends), lh):
+            # a clue that opens under the column's last count and runs on in the next column (1600's 13-across,
+            # its count in the second column) is the list's: the crop keeps its lines, not the matter under them
+            # (the last puzzle's solution grid, its prize notice): rows of words with no capitals run, a few
+            keep = max(ends)
+            for row in open_clue_rows(ws, max(ends), lh):
+                keep = max(keep, max(w[3] for w in row))
+            crop = crop.crop((0, 0, crop.width, int(keep + lh / 2)))
+            ws = [w for w in ws if w[3] <= crop.height]
+        elif ends and max(ends) + lh < crop.height:
             # the column's matter under its last count (prose, a notice) is not the lists'
             crop = crop.crop((0, 0, crop.width, int(max(ends) + lh / 2)))
             ws = [w for w in ws if w[3] <= crop.height]
@@ -833,7 +882,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 2
+BACK_VERSION = 3
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
