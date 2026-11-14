@@ -908,6 +908,11 @@ for _name, _q, _clue, _want in [
     check("misread clue: " + _name, _D.damaged_run(_q, _clue) == _want, _D.damaged_run(_q, _clue))
 check("misread clue: a flipped prefix is not mended", _D.damaged_run("walk unsteadily", "Not all walk steadily after crew's dance") is None)
 check("misread clue: an inflection is not mended", _D.damaged_run("Keeps", "Keep a cash register to stop fiddling") is None)
+check("misread clue: a three-letter word one letter off is mended", _D.damaged_run("hut", "Miserable but mostly for Hindu sage") == "but")
+check("misread clue: a three-letter word is not mended by a dropped word", _D.damaged_run("hit", "Carrier it escalating") is None)
+check("misread clue: two three-letter fits are not mended", _D.damaged_run("hut", "but and cut") is None)
+check("refusal names the nearest clue word", "'animation'" in w.not_in_clue("animation's", "Erotic film introduces animation technique"),
+      w.not_in_clue("animation's", "Erotic film introduces animation technique"))
 check("misread clue: a different word is not mended", _D.damaged_run("throng", "Scorer awards fifty in throw") is None)
 check("misread clue: two equal fits are not mended", _D.damaged_run("show", "snow and shot") is None)
 check("misread clue: wordplay quote is located", spans_of("[snow]X", "Admits taking show in powdered form")

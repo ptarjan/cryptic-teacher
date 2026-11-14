@@ -640,8 +640,18 @@ def not_in_clue(text, clue, nth=1):
         return head + (f"the clue as given reads {near!r} there, a letter off from your quote: "
                        f"quote the clue's own words")
     if absent:
+        import difflib
+        clue_words = list(dict.fromkeys(re.findall(r"[\w'’]+", clue)))
+        close = {w: difflib.get_close_matches(w, [c.lower() for c in clue_words], n=2, cutoff=0.6)
+                 for w in absent}
+        hint = "; ".join(f"for {w!r} the clue has {' or '.join(repr(c) for c in cs)}"
+                         for w, cs in close.items() if cs)
+        tail = (f"nearest clue words: {hint}. Quote the clue's own word (a possessive 's, a "
+                f"corrected spelling or another word is not in the clue), and give any "
+                f"scan-garbled reading as printedClue" if hint else
+                f"the clue's words are {', '.join(map(repr, clue_words))}: quote only those")
         return head + (f"{', '.join(repr(w) for w in absent)} {'is' if len(absent) == 1 else 'are'} "
-                       f"not among its words: copy the clue words exactly")
+                       f"not among its words: {tail}")
     return head + "copy the clue words exactly"
 
 

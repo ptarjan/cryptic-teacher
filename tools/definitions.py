@@ -216,10 +216,11 @@ def _misread_runs(want, toks, low, junk):
     dropped ('Oil' for 'Coil', 'show' for 'snow'), confusable letters
     ('set-end' for 'second'), a word cut short ('caf' for 'cafes') or split with a
     letter misread ('Ec ward' for 'Edward'). Only the closest fit counts, and only
-    when it is the one: two equally close runs, or a quote under four letters,
-    mend nothing."""
+    when it is the one: two equally close runs, or a quote under four letters (but for
+    a three-letter word with one letter swapped), mend nothing."""
     q = "".join(want)
-    if len(q) < 4:
+    short = len(q) == 3 and len(want) == 1   # 'hut' for the scan's 'but': one letter swapped, a word of the same length
+    if len(q) < 4 and not short:
         return set()
     idx = [i for i in range(len(toks)) if not junk[i]]
     best, found = None, set()
@@ -227,6 +228,8 @@ def _misread_runs(want, toks, low, junk):
         got = ""
         for b in range(a, min(len(idx), a + len(want) + 3)):
             got += low[idx[b]]
+            if short and (len(got) != 3 or b > a):
+                continue
             if abs(len(got) - len(q)) > 2:
                 if len(got) > len(q):
                     break
