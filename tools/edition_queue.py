@@ -1948,11 +1948,37 @@ def by_paper_turns(units):
     return demote_bands(out)
 
 
+def fix_landed_reread(unit):
+    """Whether `unit` is a reread a named fix landed for (reason in FIX_LANDED, not the held 'before its fix' /
+    'cured since' kinds hold_refusal_rereads keeps)."""
+    reason = unit.get("reason") or ""
+    return reason in FIX_LANDED and not reason.endswith((" before its fix", " cured since"))
+
+
+def fix_rereads_forward(out):
+    """`out` (units in dispatch order) with the other papers' fix rereads (fix_landed_reread, rank 2, not the
+    CT_NEWEST_FIRST papers' nor the Listener's: those have their own fixes-first rule) moved, in their order,
+    ahead of the first never-read/never-scanned unit of such a paper. Paul 11-13/14: "Things you're fixing
+    should be at the front of the queue" - 1-2k Telegraph/FT/Independent fix rereads stood behind 13,700
+    Telegraph never-read units (rank 1) and would not have run for days."""
+    named = newest_first_papers()
+
+    def other(u):
+        return u.get("paper") not in named and u.get("paper") != "listener"
+    fix = [u for u in out if other(u) and u.get("rank", 9) > 1 and fix_landed_reread(u)]
+    if not fix:
+        return out
+    ids = {id(u) for u in fix}
+    rest = [u for u in out if id(u) not in ids]
+    at = next((i for i, u in enumerate(rest) if other(u) and u.get("rank", 9) <= 1), len(rest))
+    return rest[:at] + fix + rest[at:]
+
+
 def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
     """`ordered_by_urgency`'s order with the Jumbo solution units first of all (11-11): answers only, local
     CPU, a handful of units; they stood last of the plan behind the Times work and ~300 Jumbo page reads,
     so no jumbo:solution unit had run in 8 hours."""
-    out = ordered_by_urgency(units, serves, fixing, newest)
+    out = fix_rereads_forward(ordered_by_urgency(units, serves, fixing, newest))
     sol = gale_jumbo_read.SOLUTION_PREFIX
     first = [u for u in out if str(u.get("rel", "")).startswith(sol)]
     return first + [u for u in out if not str(u.get("rel", "")).startswith(sol)] if first else out

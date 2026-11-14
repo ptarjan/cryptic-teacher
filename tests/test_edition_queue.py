@@ -1562,6 +1562,13 @@ check("eq.by_urgency: other papers' units of one rank take turns, not newest edi
                                         (1, 6, 2, {"rel": "ind-2013", "date": "2013", "paper": "galeindependent", "rank": 1}),
                                         (1, 3, 0, {"rel": "tg-1992", "date": "1992", "paper": "telegraph", "rank": 1}),
                                         (1, 3, 1, {"rel": "tg-1991", "date": "1991", "paper": "telegraph", "rank": 1})])])
+def tgu(rel, rank, reason, place):
+    return (rank, 3, place, {"rel": rel, "date": "1992", "paper": "telegraph", "rank": rank, "reason": reason})
+check("eq.by_urgency: another paper's FIX_LANDED rereads go ahead of its never-read units, the 'before its fix' kind stays behind (Paul 11-14)",
+      ["tg-sides", "tg-cells", "tg-new1", "tg-new2", "tg-held"],
+      [u["rel"] for u in eq.by_urgency([tgu("tg-new1", 1, "never read (Gale fetch)", 0), tgu("tg-new2", 1, "never read (Gale fetch)", 1),
+                                        tgu("tg-sides", 2, f.SIDES_HEADED, 2), tgu("tg-cells", 2, f.TELEGRAPH_CELLS, 3),
+                                        tgu("tg-held", 2, "refused x before its fix", 4)])])
 check("eq.by_urgency: the Listener's pages go after the newest-first papers' never-read, ahead of the rest (Paul 10-23, 10-24)",
       ["gale-hand", "listener-page", "gale-old-gain", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units + [(0, 1, 0, {"rel": "listener-page", "paper": "listener", "rank": 0,
