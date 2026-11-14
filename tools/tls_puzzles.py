@@ -129,8 +129,10 @@ def grid_box(a, across=0.6, band=None, need=0.9, tol=0.06):
         # columns' test: the grid is square, so take it where the rows' span puts it, if a
         # ruling stands there.
         x1 = x0 + (y1 - y0)
+        if x1 >= w:  # past the page's edge (1386's): no ruling can stand there
+            return None
         edge = a[y0:y1 + 1, max(x1 - 3, 0):x1 + 4].min(axis=1)
-        if x1 >= w or (edge < 0.9).mean() < 0.7:
+        if (edge < 0.9).mean() < 0.7:
             return None
     return x0, y0, x1, y1
 
