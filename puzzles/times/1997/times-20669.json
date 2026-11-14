@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Playing a fanfare, and doing so well",
     "enumeration": "11"
    },
-   "solution": "FLOURISHING"
+   "solution": "FLOURISHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Playing a fanfare",
+      "at": 0,
+      "meaning": "a flourish is a showy burst of trumpets, so sounding one is this"
+     },
+     {
+      "text": "doing so well",
+      "at": 23,
+      "meaning": "thriving or prospering"
+     }
+    ],
+    "explanation": {
+     "surface": "A trumpeter plays a fanfare and performs it splendidly.",
+     "definitionFit": "Both senses fit: sounding a trumpet call, and prospering or thriving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,28 @@
     "text": "Well qualified",
     "enumeration": "3"
    },
-   "solution": "FIT"
+   "solution": "FIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well",
+      "at": 0,
+      "meaning": "in good health"
+     },
+     {
+      "text": "qualified",
+      "at": 5,
+      "meaning": "suitable or competent for a role"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both healthy and suitable, so it covers each sense separately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +105,61 @@
     "text": "Plant found right in the centre of florist's",
     "enumeration": "5"
    },
-   "solution": "ORRIS"
+   "solution": "ORRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "one piece is placed inside the other here"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "the centre of",
+         "at": 21,
+         "note": "the centre of a word is what remains once its outer letters are stripped away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "florist's",
+         "at": 35,
+         "gives": "FLORISTS"
+        },
+        {
+         "gives": "FLTS"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 12,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant spotted right in the middle of a flower shop.",
+     "walkthrough": "'the centre of' strips FL and TS from FLORISTS, leaving ORIS; 'in' puts R inside it.",
+     "definitionFit": "Orris is the iris whose root is used in perfumery, so it is a kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +173,43 @@
     "text": "In the pink, got up and took nourishment",
     "enumeration": "7"
    },
-   "solution": "ROSEATE"
+   "solution": "ROSEATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In the pink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "got up",
+       "at": 13,
+       "gives": "ROSE",
+       "note": "rose means got up"
+      },
+      {
+       "words": "took nourishment",
+       "at": 24,
+       "gives": "ATE",
+       "note": "ate means took nourishment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling healthy, someone got out of bed and had breakfast.",
+     "walkthrough": "'In the pink' suggests good health, but here it is the colour.",
+     "definitionFit": "Roseate means rosy-coloured, a shade of pink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pink"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +223,36 @@
     "text": "Tender company for Napoleon, perhaps",
     "enumeration": "9"
    },
-   "solution": "SWINEHERD"
+   "solution": "SWINEHERD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tender company for Napoleon, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tender company for Napoleon, perhaps",
+       "at": 0,
+       "note": "Napoleon is the pig leader of Orwell's Animal Farm; someone who tends such animals would keep him company"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentle companion for the French emperor.",
+     "walkthrough": "Napoleon suggests the emperor, and 'Tender' looks like an adjective; it is one who tends, and Napoleon is Orwell's pig.",
+     "definitionFit": "A keeper of pigs tends animals such as Orwell's porcine dictator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Napoleon"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +266,40 @@
     "text": "Plans wrongly cast aside",
     "enumeration": "5"
    },
-   "solution": "IDEAS"
+   "solution": "IDEAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plans",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrongly cast",
+       "at": 6,
+       "note": "letters cast in the wrong places are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aside",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Schemes have been mistakenly thrown away.",
+     "definitionFit": "Plans and schemes are synonyms for notions of what to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +313,40 @@
     "text": "Such effusive types can make good guides",
     "enumeration": "7"
    },
-   "solution": "GUSHERS"
+   "solution": "GUSHERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Such effusive types",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "at": 29,
+       "gives": "G"
+      },
+      {
+       "words": "guides",
+       "at": 34,
+       "gives": "USHERS",
+       "note": "ushers guide people to their seats"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gushing people can make fine tour guides.",
+     "definitionFit": "Effusive people pour out their feelings, like oil wells that spout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +360,42 @@
     "text": "Friend knocking back drink",
     "enumeration": "3"
    },
-   "solution": "PAL"
+   "solution": "PAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Friend",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "knocking back",
+       "at": 7,
+       "note": "knocking back reads the word backwards here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 21,
+       "gives": "LAP",
+       "note": "to lap is to drink like a cat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mate downing a drink.",
+     "definitionFit": "A pal is a mate or chum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocking"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +409,48 @@
     "text": "Don't allow to copy, in plain language",
     "enumeration": "9"
    },
-   "solution": "PROSCRIBE"
+   "solution": "PROSCRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't allow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plain language",
+       "at": 24,
+       "gives": "PROSE",
+       "note": "prose is ordinary written language, not verse"
+      },
+      {
+       "words": "copy",
+       "at": 15,
+       "gives": "CRIB",
+       "note": "to crib is to copy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Forbid copying, say it plainly.",
+     "definitionFit": "To proscribe is to forbid or ban."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +464,34 @@
     "text": "He used to provide illumination, in many ways",
     "enumeration": "11"
    },
-   "solution": "LAMPLIGHTER"
+   "solution": "LAMPLIGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He used to provide illumination, in many ways",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He used to provide illumination, in many ways",
+       "at": 0,
+       "note": "the old street worker who lit the gas lamps; both a lamp and a lighter give light"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who once brought enlightenment in various ways.",
+     "definitionFit": "Before electric street lighting, a worker went round lighting the gas lamps each evening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "illumination"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +505,36 @@
     "text": "Revolver that's used to secure an admission",
     "enumeration": "9"
    },
-   "solution": "TURNSTILE"
+   "solution": "TURNSTILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Revolver that's used to secure an admission",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Revolver that's used to secure an admission",
+       "at": 0,
+       "note": "not a pistol extracting a confession, but a rotating gate that lets one person enter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gun used to force a confession.",
+     "walkthrough": "'Revolver' and 'admission' suggest a gun and a confession; the device turns and admits visitors.",
+     "definitionFit": "A rotating barrier lets people through one at a time on paying entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Revolver"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +548,31 @@
     "text": "Rant and swear like a trooper (sort of)",
     "enumeration": "5"
    },
-   "solution": "STORM"
+   "solution": "STORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rant",
+      "at": 0,
+      "meaning": "to rage noisily"
+     },
+     {
+      "text": "swear like a trooper (sort of)",
+      "at": 9,
+      "meaning": "the word goes before trooper to make the Nazi soldier, so it is a kind of trooper"
+     }
+    ],
+    "explanation": {
+     "surface": "Shout and curse like a soldier, more or less.",
+     "walkthrough": "'sort of' says the word is only one type of trooper: the storm trooper.",
+     "definitionFit": "To rage angrily is a sense of the word, and a Nazi assault soldier was a trooper of this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trooper"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +586,50 @@
     "text": "Spectacular downfall of villain in court action",
     "enumeration": "7"
    },
-   "solution": "CASCADE"
+   "solution": "CASCADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spectacular downfall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "court action",
+       "at": 35,
+       "gives": "CASE",
+       "note": "a case is a lawsuit"
+      },
+      {
+       "words": "villain",
+       "at": 24,
+       "gives": "CAD",
+       "note": "a cad is a rogue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue's dramatic fall during a lawsuit.",
+     "walkthrough": "'downfall' looks like ruin, but it is falling water.",
+     "definitionFit": "A waterfall tumbling down in stages is a spectacular fall of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "downfall"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +643,73 @@
     "text": "Cutting short illness with initial remedy mostly on time",
     "enumeration": "11"
    },
-   "solution": "CURTAILMENT"
+   "solution": "CURTAILMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cutting short",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 49,
+       "note": "in a down clue, on means placed above the next piece"
+      },
+      {
+       "text": "with initial",
+       "at": 22,
+       "note": "the remedy part is placed at the start of the illness"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 42,
+         "note": "mostly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remedy",
+         "at": 35,
+         "gives": "CURE",
+         "note": "a cure is a remedy"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 52,
+       "gives": "T"
+      },
+      {
+       "words": "illness",
+       "at": 14,
+       "gives": "AILMENT",
+       "note": "an ailment is an illness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shortening an illness by an early cure, almost on schedule.",
+     "walkthrough": "In a down clue 'on' means above, so the shortened remedy ('mostly') sits over the time letter, and 'with initial' fixes that pair at the front of the illness.",
+     "definitionFit": "Curtailing something is cutting it short, so the noun is a shortening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +723,34 @@
     "text": "Openings must be created for this pattern maker",
     "enumeration": "7"
    },
-   "solution": "STENCIL"
+   "solution": "STENCIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Openings must be created for this pattern maker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Openings must be created for this pattern maker",
+       "at": 0,
+       "note": "a cut-out sheet with holes through which paint or ink makes a design"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A designer must create opportunities.",
+     "definitionFit": "A sheet with cut-out shapes lets paint through to reproduce a design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Openings"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +764,46 @@
     "text": "Highland feature it's good to see during trip",
     "enumeration": "5"
    },
-   "solution": "RIDGE"
+   "solution": "RIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highland feature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 34,
+       "note": "during puts one piece in the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trip",
+       "at": 41,
+       "gives": "RIDE",
+       "note": "a ride is a trip"
+      },
+      {
+       "words": "good",
+       "at": 22,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant sight on a Highland journey.",
+     "definitionFit": "A long raised crest of land is a feature of hill country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +817,67 @@
     "text": "Study English outside class time I fix",
     "enumeration": "9"
    },
-   "solution": "DETERMINE"
+   "solution": "DETERMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fix",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 14,
+         "note": "outside puts the first pieces around the next ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Study",
+         "at": 0,
+         "gives": "DEN",
+         "note": "a den is a study"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "class time",
+           "at": 22,
+           "gives": "TERM",
+           "note": "a term is a school period"
+          },
+          {
+           "words": "I",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 6,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student repairs something outside lesson time.",
+     "definitionFit": "To fix a date is to settle or decide it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +891,57 @@
     "text": "Recruitment of leaderless men inclined to join up",
     "enumeration": "9"
    },
-   "solution": "ENLISTING"
+   "solution": "ENLISTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recruitment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaderless",
+         "at": 15,
+         "note": "leaderless means the first letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "at": 26,
+         "gives": "MEN",
+         "note": "taken as written before losing its first letter"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "inclined",
+       "at": 30,
+       "gives": "LISTING",
+       "note": "listing means leaning, like a ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Signing up men without a leader who are keen to join.",
+     "walkthrough": "'inclined' suggests willing, but means leaning over.",
+     "definitionFit": "Enlisting is signing up for the forces, the act of recruitment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inclined"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +961,58 @@
      }
     ]
    },
-   "solution": "LOSTCAUSE"
+   "solution": "LOSTCAUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "abandoned pursuit",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in midst of",
+       "at": 13,
+       "note": "one piece placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vermin",
+       "at": 25,
+       "gives": "LOUSE",
+       "note": "a louse is a pest"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Excited",
+         "at": 0,
+         "note": "excited letters are stirred up into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cats",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agitated cats among rats give up the chase.",
+     "walkthrough": "'abandoned pursuit' reads like a verb phrase but is the definition; 'Excited' scrambles the cats into STCA, which 'in midst of' sets inside the vermin.",
+     "definitionFit": "A hopeless cause is an endeavour already given up on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1026,66 @@
     "text": "Nothing on summit in mountain range down under",
     "enumeration": "9"
    },
-   "solution": "ANTIPODES"
+   "solution": "ANTIPODES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "down under",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mountain range",
+       "at": 21,
+       "gives": "ANDES",
+       "note": "the Andes are a South American range"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 8,
+         "note": "in an across clue, on means placed after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "summit",
+         "at": 11,
+         "gives": "TIP",
+         "note": "a tip is a summit"
+        },
+        {
+         "words": "Nothing",
+         "at": 0,
+         "gives": "O",
+         "note": "O is zero"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing at the top of a mountain range in Australia.",
+     "definitionFit": "Places on the opposite side of the globe, used by Britons for Australia and New Zealand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1099,28 @@
     "text": "Guide dog",
     "enumeration": "7"
    },
-   "solution": "POINTER"
+   "solution": "POINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0,
+      "meaning": "an indicator or needle that shows the way"
+     },
+     {
+      "text": "dog",
+      "at": 6,
+      "meaning": "a gun dog breed that points at game"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both a needle that indicates and a hunting breed that indicates game share the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1134,49 @@
     "text": "Meadow, in part, used for fold",
     "enumeration": "5"
    },
-   "solution": "PLEAT"
+   "solution": "PLEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fold",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "one piece is inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part",
+       "at": 11,
+       "gives": "PT"
+      },
+      {
+       "words": "Meadow",
+       "at": 0,
+       "gives": "LEA",
+       "note": "lea is a poetic word for meadow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a meadow used as a sheep fold.",
+     "walkthrough": "'fold' suggests a sheep pen, but means a crease.",
+     "definitionFit": "A pleat is a doubled crease in fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fold"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1190,64 @@
     "text": "Ceremonial display, one that's uplifting in European city hit by disaster",
     "enumeration": "7"
    },
-   "solution": "POMPEII"
+   "solution": "POMPEII",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European city hit by disaster",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ceremonial display",
+       "at": 0,
+       "gives": "POMP",
+       "note": "pomp is ceremonial display"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uplifting",
+         "at": 31,
+         "note": "in a down clue, uplifting reads the pieces from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 20,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "that's",
+           "at": 24,
+           "gives": "IE",
+           "note": "i.e. is short for that is"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ceremony with an inspiring figure in a disaster-struck city.",
+     "walkthrough": "'uplifting' reverses I and IE together to give EII.",
+     "definitionFit": "The Roman city near Naples was buried by Vesuvius in AD 79."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1261,47 @@
     "text": "Offering bait to entrap king in ambush",
     "enumeration": "7"
    },
-   "solution": "LURKING"
+   "solution": "LURKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in ambush",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to entrap",
+       "at": 14,
+       "note": "to entrap means to surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Offering bait",
+       "at": 0,
+       "gives": "LURING",
+       "note": "luring means tempting with bait"
+      },
+      {
+       "words": "king",
+       "at": 24,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Baiting a trap to catch a monarch in an ambush.",
+     "definitionFit": "Lying hidden waiting to pounce is lying in wait."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1315,47 @@
     "text": "Crop runs into profit",
     "enumeration": "5"
    },
-   "solution": "GRAIN"
+   "solution": "GRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 10,
+       "note": "into puts one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "profit",
+       "at": 15,
+       "gives": "GAIN",
+       "note": "gain is profit"
+      },
+      {
+       "words": "runs",
+       "at": 5,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harvest brings in money.",
+     "definitionFit": "Cereal such as wheat is a harvested crop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1369,66 @@
     "text": "Fellow member in firm always succeeding",
     "enumeration": "7"
    },
-   "solution": "COMPEER"
+   "solution": "COMPEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fellow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "succeeding",
+         "at": 29,
+         "note": "succeeding means coming after the firm"
+        }
+       ],
+       "parts": [
+        {
+         "words": "firm",
+         "at": 17,
+         "gives": "CO",
+         "note": "CO is the abbreviation for company"
+        },
+        {
+         "words": "always",
+         "at": 22,
+         "gives": "EER",
+         "note": "e'er is a poetic contraction of ever"
+        }
+       ]
+      },
+      {
+       "words": "member",
+       "at": 7,
+       "gives": "MP",
+       "note": "MP is Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow MP in a company always does well.",
+     "definitionFit": "A compeer is a peer or companion of equal standing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "succeeding"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1442,47 @@
     "text": "Correct conclusion about the writer",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about means wrapped around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conclusion",
+       "at": 8,
+       "gives": "END",
+       "note": "end means conclusion"
+      },
+      {
+       "words": "the writer",
+       "at": 25,
+       "gives": "ME",
+       "note": "the writer refers to the setter, so me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fix the ending about the author.",
+     "definitionFit": "To emend a text is to correct its errors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1496,38 @@
     "text": "It's defined as.\"order\" in English dictionary",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "order",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 27,
+       "gives": "E"
+      },
+      {
+       "words": "dictionary",
+       "at": 35,
+       "gives": "DICT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dictionary entry defines a word as command.",
+     "definitionFit": "An edict is an official decree or command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1541,68 @@
     "text": "Diversion providing an essential cover for English soldiers",
     "enumeration": "9"
    },
-   "solution": "AMUSEMENT"
+   "solution": "AMUSEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diversion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "an",
+       "at": 20,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cover for",
+         "at": 33,
+         "note": "a cover goes outside, so one piece wraps the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "essential",
+         "at": 23,
+         "gives": "MUST",
+         "note": "must means an essential"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "English",
+           "at": 43,
+           "gives": "E"
+          },
+          {
+           "words": "soldiers",
+           "at": 51,
+           "gives": "MEN",
+           "note": "men are soldiers"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Entertainment as a vital shelter for English troops.",
+     "definitionFit": "Amusement is entertainment that diverts the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1616,45 @@
     "text": "Sailor's topping navigational aid",
     "enumeration": "3"
    },
-   "solution": "TAR"
+   "solution": "TAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sailor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topping",
+       "at": 9,
+       "note": "topping means removing the top letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "navigational aid",
+       "at": 17,
+       "gives": "STAR",
+       "note": "a star guides navigators"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman's best navigational aid.",
+     "definitionFit": "Tar is an old slang word for a seaman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1668,46 @@
     "text": "Couple in endless row",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "at": 10,
+       "note": "endless means the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "at": 18,
+       "gives": "TIER",
+       "note": "a tier is a row"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair caught in a never-ending quarrel.",
+     "walkthrough": "'row' suggests a quarrel, but means a line of seats.",
+     "definitionFit": "To couple is to join together, to fasten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1721,48 @@
     "text": "New danger — fire wayward? This should improve its accuracy.",
     "enumeration": "11"
    },
-   "solution": "RANGEFINDER"
+   "solution": "RANGEFINDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This should improve its accuracy",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wayward",
+       "at": 18,
+       "note": "wayward letters stray into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "words": "danger",
+       "at": 4
+      },
+      {
+       "words": "fire",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A risk of wild firing that a device should help correct.",
+     "definitionFit": "A device measuring distance to a target makes the gunner's aim truer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
