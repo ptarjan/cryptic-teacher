@@ -261,7 +261,7 @@ def stacked(a, img, gy1):
             return None
         box = [0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]
         text = text_of(img, tuple(box))
-        if not (text.lstrip().upper().startswith("ACROSS") and re.search(r"^DOWN\b", text, re.M | re.I)):
+        if not (text.lstrip().upper().startswith("ACROSS") and re.search(r"^DOWN\b", text, re.MULTILINE | re.IGNORECASE)):
             return None
         return "", [box]
     return title, [[0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]]
