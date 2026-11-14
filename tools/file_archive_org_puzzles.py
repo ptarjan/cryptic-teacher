@@ -14900,7 +14900,7 @@ def telegraph_fitted_due(row):
 #: ("500—and", "51—a"). suspect() takes these now (clue_text.XREF_GLUED, figure_dashed) and the cross-reference is spaced.
 #: 1996-07-25 files whole offline. Read once.
 TELEGRAPH_FIGURE = "Telegraph page with a clue blank over a figure inside a word, its cross-references and dashes read since"
-REREAD_TELEGRAPH_FIGURE = "2026-11-14T12:00:00+00:00"
+REREAD_TELEGRAPH_FIGURE = "2026-11-13T22:18:33+00:00"  # the push time of 4f326e79be0: a row read after it is not due again
 
 
 def telegraph_figure_due(row):
