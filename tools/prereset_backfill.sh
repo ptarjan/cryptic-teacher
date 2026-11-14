@@ -158,10 +158,33 @@ rm -f "$RUNS/.width_said"  # a new process says its width once
 TEE_P=""
 tee -p </dev/null >/dev/null 2>&1 && TEE_P="-p"
 TEE_PID=""
+# The filter loop below respawns burn_log.py whenever it dies, so a re-exec that
+# only starts a new loop leaves the old one alive beside it: two filters, each
+# reading git. The loop records its pid in "$RUN_LOG.filter.pid"; the next
+# tee_split (a re-exec, or a reopened pipe) stops that loop first, then its
+# child. The old tee is not touched, so nothing the burn writes meets a SIGPIPE
+# (tee -p carries on writing the files with its filter gone).
+stop_old_filter() {
+  local f="$RUN_LOG.filter.pid" old kid
+  [ -s "$f" ] || return 0
+  old=$(cat "$f" 2>/dev/null)
+  rm -f "$f"
+  case $old in ''|*[!0-9]*) return 0 ;; esac
+  [ "$old" != "$$" ] && [ "$old" != "${BASHPID:-}" ] || return 0
+  kill -0 "$old" 2>/dev/null || return 0
+  kid=$(ps -o pid= --ppid "$old" 2>/dev/null)
+  kill "$old" 2>/dev/null
+  # shellcheck disable=SC2086  # pids, one word each
+  [ -z "$kid" ] || kill $kid 2>/dev/null
+  return 0
+}
 tee_split() {
   if [ -n "$DEBUG_LOG" ]; then
     export BURN_SPLIT=1
+    stop_old_filter
+    export FILTER_PIDFILE="$RUN_LOG.filter.pid"
     exec > >(tee $TEE_P -a "$RUN_LOG" "$DEBUG_LOG" >(
+      echo "$BASHPID" >"$FILTER_PIDFILE"
       while :; do
         python3 "$REPO/tools/burn_log.py" "$HUMAN_LOG" "$REPO" && break
         rc=$?
