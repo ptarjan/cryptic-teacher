@@ -421,8 +421,8 @@ check("a quote inside a non-word is no break (mirror)",
       'by the counte"foil', oc.parted('by the counte"foil', [mark("2 by the counte foil (5). 3")]))
 check("a stop before a capital is a speck where a reading prints the words side by side",
       "Superficial judge of Shakespeare", oc.agree("Superficial judge of.Shakespeare", [mark("2 Superficial judge of Shakespeare (5). 3")])[0])
-check("a stop before a capital after a word a sentence may end on stays (mirror)",
-      "He left.Then", oc.parted("He left.Then", [mark("2 He left Then (5). 3")]))
+check("a stop before a capital after a word a sentence may end on stays, its lost space put back (mirror)",
+      "He left. Then", oc.parted("He left.Then", [mark("2 He left Then (5). 3")]))
 check("a comma a reading prints gets its space",
       "Utter, a rival's name", oc.agree("Utter,a rival's name", [mark("2 Utter , a rival's name (5). 3")])[0])
 check("a glued colon one reading prints is still a speck (mirror)",
@@ -1183,7 +1183,7 @@ been = ["#", "No", "doubt", "his", "deeds", "have", "been", "witnessed", "#"]
 check("mirror: an ellipsis is the print's", "No doubt his deeds have been...witnessed",
       oc.agree("No doubt his deeds have been...witnessed", [been, been])[0])
 bull = ["#", "John", "Bull", "The", "greatest", "#"]
-check("mirror: a stop before a capital may end a sentence", "John Bull.The greatest",
+check("mirror: a stop before a capital may end a sentence", "John Bull. The greatest",
       oc.agree("John Bull.The greatest", [bull, bull])[0])
 check("mirror: a lone letter's stop (e.g.) is no speck", "Fruit e.g. apple",
       oc.agree("Fruit e.g. apple", [mark("4 Fruit e.g. apple 5")] * 2)[0])
