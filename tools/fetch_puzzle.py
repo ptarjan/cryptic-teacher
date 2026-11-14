@@ -3562,11 +3562,58 @@ def _shim_hash(path):
     return hashlib.md5(text.encode("utf-8")).hexdigest()[:8]
 
 
-def _shim_current(path, v):
+#: A shim whose ctime is this recent when it is checked is not vouched for by
+#: its stat next time: a rewrite in the same clock tick could leave it alike.
+SIG_RACY_NS = 2 * 10**9
+
+
+def _shim_sig_file():
+    """This tree's record of shims already checked: in its own git dir
+    (.git/worktrees/<name> for a worktree), outside the working tree."""
+    return Path(_git("rev-parse", "--path-format=absolute", "--git-dir").strip()) / "shim-sigs.json"
+
+
+def _read_shim_sigs():
+    """{shim name: [v, mtime ns, ctime ns, size, inode]} of the shims this tree
+    last found to hash to v, {} when there is no record."""
     try:
-        return hashlib.md5(shim_path(path).read_bytes()).hexdigest()[:8] == v
-    except FileNotFoundError:
+        sigs = json.loads(_shim_sig_file().read_text(encoding="utf-8"))
+    except (OSError, ValueError, subprocess.CalledProcessError):
+        return {}
+    return sigs if isinstance(sigs, dict) else {}
+
+
+def _write_shim_sigs(sigs):
+    try:
+        write_whole(_shim_sig_file(), json.dumps(sigs, separators=COMPACT))
+    except (OSError, subprocess.CalledProcessError):
+        pass
+
+
+def _shim_current(path, v, sigs=None, seen=None):
+    """Does the puzzle's shim hash (md5[:8]) to v? Hashing every shim read all
+    ~78k (1.6 GB) on every run whatever had changed (11-14, the IO monitor):
+    with `sigs` (_read_shim_sigs), a shim whose stat is the one recorded when it
+    last hashed to v is current unread; any write changes its stat, and only
+    then is it read. `seen` collects the record for _write_shim_sigs."""
+    shim = shim_path(path)
+    try:
+        st = shim.stat()
+    except OSError:
         return False
+    sig = [st.st_mtime_ns, st.st_ctime_ns, st.st_size, st.st_ino]
+    known = (sigs or {}).get(shim.name)
+    if known == [v, *sig]:
+        if seen is not None:
+            seen[shim.name] = known
+        return True
+    try:
+        ok = hashlib.md5(shim.read_bytes()).hexdigest()[:8] == v
+    except OSError:
+        return False
+    if ok and seen is not None and time.time_ns() - st.st_ctime_ns > SIG_RACY_NS:
+        seen[shim.name] = [v, *sig]
+    return ok
 
 
 def _sibling_shim_dirs():
@@ -3628,8 +3675,10 @@ def reindex_from_deploy():
     index.update(kept)
     ids = {r["id"] for key in kept for r in kept[key]}
     index["reprints"] = [r for r in index["reprints"] if r.get("reprintOf") in ids]
+    sigs, seen = _read_shim_sigs(), {}
     stale = [(files[r["id"]], r["v"]) for key in kept for r in kept[key]
-             if r["id"] not in changed and not _shim_current(files[r["id"]], r.get("v"))]
+             if r["id"] not in changed and not _shim_current(files[r["id"]], r.get("v"), sigs, seen)]
+    _write_shim_sigs(seen)
     import parallel
     # A stale shim is often current in another tree (the unit trees go days
     # between rebuilds): copy that one, and only make the shims no tree has.
@@ -3643,6 +3692,61 @@ def reindex_from_deploy():
     _merge_rows(index, [files[i] for i in sorted(changed)])
     return (f"deployed index from {commit[:11]}: re-made {len(changed)} row(s), "
             f"copied {copied} shim(s), wrote {len(todo)} shim(s), dropped {dropped} row(s) with no file here")
+
+
+def _fresh_stamp():
+    """What makes this tree's index current, for a run waiting on another:
+    HEAD, index.json's and the repair queue's mtimes, and how many puzzle
+    files there are. None when any cannot be read."""
+    try:
+        return {"head": _git("rev-parse", "HEAD").strip(),
+                "index": (puzzle_paths.PUZZLE_DIR / "index.json").stat().st_mtime_ns,
+                "queue": QUEUE_FILE.stat().st_mtime_ns,
+                "files": len(puzzle_files())}
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def _fresh_stamp_file():
+    return Path(_git("rev-parse", "--path-format=absolute", "--git-dir").strip()) / "reindex-fresh.json"
+
+
+def _index_fresh():
+    """Is this tree's index the one the last run here left, with HEAD, the
+    queue and the puzzle files as they were then (no file written since)?"""
+    try:
+        was = json.loads(_fresh_stamp_file().read_text(encoding="utf-8"))
+    except (OSError, ValueError, subprocess.CalledProcessError):
+        return False
+    now = _fresh_stamp()
+    return bool(now) and now == was and not _files_newer(now["index"])
+
+
+def reindex_from_deploy_once():
+    """reindex_from_deploy(), one at a time on this box: two at once (11-14)
+    each read the corpus in parallel on a swapping host. A second run waits
+    for the first; if that left this tree's index current (_index_fresh) it
+    returns without doing it again. The lock is ~/.cache's, shared by every
+    tree; its file stays open for the run."""
+    import fcntl
+    d = Path.home() / ".cache"
+    d.mkdir(parents=True, exist_ok=True)
+    with open(d / "reindex_from_deploy.lock", "w") as fh:
+        try:
+            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError:
+            print("reindex-from-deploy already running; waiting for it", file=sys.stderr)
+            fcntl.flock(fh, fcntl.LOCK_EX)
+            if _index_fresh():
+                return "index already current here (a concurrent run made it)"
+        line = reindex_from_deploy()
+        stamp = _fresh_stamp()
+        if stamp:
+            try:
+                write_whole(_fresh_stamp_file(), json.dumps(stamp))
+            except (OSError, subprocess.CalledProcessError):
+                pass
+        return line
 
 
 def log_rebuild(mode, outcome):
@@ -4201,7 +4305,7 @@ def main(argv):
         log_rebuild(argv[0], line)
         return 0
     if argv[0] == "--reindex-from-deploy":
-        line = reindex_from_deploy()
+        line = reindex_from_deploy_once()
         print(line)
         log_rebuild(argv[0], line)
         return 0
