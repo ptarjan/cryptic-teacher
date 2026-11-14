@@ -326,7 +326,7 @@ def read_image(img, web_date, headline=""):
     # The page's own heading, else (a page cropped below it) the article's headline.
     m = BYLINE.search(title) or BYLINE.search(headline)
     if m:
-        out["number"], out["setter"] = int(m.group(1).translate(str.maketrans("Oo", "00"))), m.group(2).capitalize()
+        out["number"], out["setter"] = int(m.group(1).replace("O", "0").replace("o", "0")), m.group(2).capitalize()
     else:
         # A page cropped below its heading (1443's) names no setter; the article's headline gives
         # the number, as the Times Cryptic is filed with no setter. No headline number: unreadable.
