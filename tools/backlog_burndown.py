@@ -14,9 +14,10 @@ commit that touches it, and both of those are facts in the log.
 """
 import argparse
 import json
-import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
+
+import gitlog_cache
 
 BAR = "█"
 
@@ -36,10 +37,8 @@ def events(live, flagged):
     rename each of those counts as one puzzle that arrived and one that
     vanished, which invents a backlog that was never there.
     """
-    out = subprocess.run(
-        ["git", "log", "--reverse", "--date-order", "--name-status", "-M",
-         "--pretty=format:\x01%at\x02%s", "--", "puzzles/"],
-        capture_output=True, text=True, check=True).stdout
+    out = gitlog_cache.log(["--reverse", "--date-order", "--name-status", "-M",
+                            "--pretty=format:\x01%at\x02%s", "--", "puzzles/"])
     arrived, done, touched = {}, {}, {}
     when = subject = None
 

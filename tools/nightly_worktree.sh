@@ -348,7 +348,12 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     fi
     # Tracked files back to the branch, untracked state left alone. A leftover
     # from a crashed run is discarded here rather than committed tonight.
-    if ! git -C "$_ct_tree" reset -q --hard origin/master; then
+    # Already there and clean (the common case on a relaunch) is left alone:
+    # the reset rewrites the index of a 57k-file tree, ~55 MB/min of reads.
+    if [ "$(git --no-optional-locks -C "$_ct_tree" rev-parse HEAD)" = "$(git --no-optional-locks -C "$_ct_tree" rev-parse origin/master)" ] &&
+      git --no-optional-locks -C "$_ct_tree" diff-index --quiet HEAD -- 2>/dev/null; then
+      :
+    elif ! git -C "$_ct_tree" reset -q --hard origin/master; then
       # git holds an index.lock for the length of one command, so one still
       # there minutes later belongs to a process that is gone. Nothing will
       # ever clear it on its own, and while it sits there every run of this job
