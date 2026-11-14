@@ -4811,6 +4811,19 @@ def keep_plan(path, key, made, at, took=0.0):
     give_back_memory()
 
 
+ARENA_MAX = 2  # glibc malloc arenas the run process keeps (M_ARENA_MAX)
+
+
+def cap_arenas():
+    """Hold the run process to ARENA_MAX glibc malloc arenas before its threads start: by default each
+    of its ~33 threads may take an arena of its own (up to 8 per CPU), and on 11-14 the live parent kept
+    ~1.9 GB of private memory that none of its planner state accounted for (RAMparent census)."""
+    try:
+        ctypes.CDLL("libc.so.6").mallopt(-8, ARENA_MAX)  # M_ARENA_MAX
+    except (OSError, AttributeError):
+        pass
+
+
 def give_back_memory():
     """Return the heap's free pages to the OS (glibc malloc_trim): a plan and the saving of it leave
     tens of MB of freed but resident arena the parent would otherwise hold for good."""
@@ -4945,6 +4958,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == "unit":
         return unit_main(json.loads(os.environ["CT_EDITION_UNIT"]))
+    if args.cmd == "run":
+        cap_arenas()
     papers = args.paper or PAPERS
     reread = scan_queue.when(args.reread)
     if args.cmd == "plan":
