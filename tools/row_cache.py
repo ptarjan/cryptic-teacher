@@ -456,8 +456,9 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                     for p in part:
                         packed[p] = zlib.compress(pickle.dumps(out.pop(p), pickle.HIGHEST_PROTOCOL), 1)
                 done = i = i + len(part)
-                print(f"row cache for {ns}: made {done} of {len(miss)} missing rows, peak RSS "
-                      f"{_peak_mb()}MB", file=sys.stderr, flush=True)
+                if len(miss) > FIRST_BATCH:  # a few rows made in one batch need no progress line
+                    print(f"row cache for {ns}: made {done} of {len(miss)} missing rows, peak RSS "
+                          f"{_peak_mb()}MB", file=sys.stderr, flush=True)
                 if done < len(miss) and budget.spent() and not (stale_ok and done >= fresh_from):
                     conn.close()
                     budget.stop(f"row cache for {name}.{fn.__name__}: made {done} of {len(miss)} missing rows"

@@ -187,6 +187,10 @@ def _one_trim_candidate(node, answer):
     return len({k for k, _ in cands}) == 1
 
 
+#: plural nouns whose one-letter abbreviation doubles ([pounds]L is LL); any other plural ([runs]R) is left refused
+_DOUBLED_PLURALS = {"pounds", "pages", "lines", "verses", "volumes"}
+
+
 def _does_not_give_edits(node, k, clue=None, late=False):
     """Every single-edit copy of `node` the doesNotGive mend tries at its k-th node: a container's
     arguments swapped, or a container written as the charade of its two arguments (either order: ADRIFT
@@ -367,7 +371,7 @@ def _does_not_give_edits(node, k, clue=None, late=False):
         new, t = fresh()
         t["gives"] = t["gives"] + "S"
         out.append(new)
-    if leaf(n) and re.fullmatch(r"[A-Za-z]{3,}s", str(n.get("words") or "").strip()) and len(str(n.get("gives") or "")) == 1 \
+    if leaf(n) and str(n.get("words") or "").strip().lower() in _DOUBLED_PLURALS and len(str(n.get("gives") or "")) == 1 \
             and str(n["gives"]).isalpha():
         # a plural noun's one-letter abbreviation doubles ([pounds]L is LL, [pages]P is PP)
         new, t = fresh()
