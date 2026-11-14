@@ -533,7 +533,10 @@ def layout_block(img, words, grid, ocr=None):
                 crop = crop.crop((0, dy, crop.width, crop.height))
                 ws = [(w[0], w[1] - dy, w[2], w[3] - dy, *w[4:]) for w in ws if w[1] >= dy]
         ends = [w[3] for w in ws if COUNT_WORD.search(w[4])]
-        if ends and i + 1 < len(order) and open_clue_under(ws, max(ends), lh):
+        # (a pitch column is last in the order but stands left of the short column set under the grid: 1606's
+        # 20-down opens under its last count and runs on there)
+        runs_right = i + 1 < len(order) or any(o[1][0] > box[0] for o in order)
+        if ends and runs_right and open_clue_under(ws, max(ends), lh):
             # a clue that opens under the column's last count and runs on in the next column (1600's 13-across,
             # its count in the second column) is the list's: the crop keeps its lines, not the matter under them
             # (the last puzzle's solution grid, its prize notice): rows of words with no capitals run, a few
@@ -549,13 +552,20 @@ def layout_block(img, words, grid, ocr=None):
         if k >= len(found):
             # a pitch column is kept only where its clue numbers run on from the last column kept
             nums = [n for _, _, n, _ in line_numbers(ws, lh)]
-            before = [n for _, _, n, _ in line_numbers(pieces[-1][2], lh)]
+            # (the column it runs on from is the last kept to its left: 1606's pitch column of 16-21 down stands
+            # between the column ending on 15 and a short one of 22, 23 set under the grid)
+            left = [p for p in pieces if order[p[0]][1][0] < box[0]] or pieces
+            before = [n for _, _, n, _ in line_numbers(left[-1][2], lh)]
             # (the last column of a landscape page holds across's tail and down's first clues: its biggest number
             # is across's 27, the numbers that run on are down's, from its last line: 1608's 17, 20, 22 down)
             runs_on = bool(before) and any(b < nums[0] <= b + 5 for b in (max(before), before[-1]))
             if not nums or not runs_on or len([w for w in ws if COUNT_WORD.search(w[4])]) < 1:
                 continue
-        pieces.append((i, crop, ws))
+        at = len(pieces)
+        if k >= len(found):
+            # a pitch column stands in x between the columns it runs on from and into
+            at = next((j for j, p in enumerate(pieces) if order[p[0]][1][0] > box[0]), len(pieces))
+        pieces.insert(at, (i, crop, ws))
     if not pieces:
         return None
     # the headings the OCR read in a column are blanked, so the ones drawn are the only ones
@@ -601,7 +611,7 @@ def layout_block(img, words, grid, ocr=None):
 
 #: Figures a scan's OCR reads for each other (a 9's loop open, an 8's closed up): a count read with one of them
 #: for the light's own length is the light's count misread, the clue's text and number being the voted ones.
-LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08", "78", "25")}
+LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08", "78", "25", "57", "67", "45")}
 #: A page whose lights fit their counts less often than this has a grid no count may be mended by.
 MEND_FIT = 0.7
 
@@ -963,7 +973,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 5
+BACK_VERSION = 6
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
