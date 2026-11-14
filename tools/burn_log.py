@@ -652,6 +652,25 @@ class TokenIndex:
         self.root = pathlib.Path(root or os.environ.get("CLAUDE_CONFIG_DIR") or pathlib.Path.home() / ".claude")
         self.by_pid = {}
         self.seen = {}
+        self.state = {}  # path -> inode, byte offset read so far, and the running sums
+
+    def take(self, state, raw):
+        try:
+            rec = json.loads(raw)
+        except ValueError:
+            return
+        msg = rec.get("message") or {}
+        if rec.get("type") == "user" and state["first"] is None:
+            content = msg.get("content")
+            state["first"] = content if isinstance(content, str) else json.dumps(content)
+            if not state["first"].startswith(self.PREFIXES):
+                state["skip"] = True
+        elif rec.get("type") == "assistant" and msg.get("id") not in state["ids"]:
+            state["ids"].add(msg.get("id"))
+            u = msg.get("usage") or {}
+            state["tokens"] += (u.get("input_tokens", 0) + u.get("output_tokens", 0)
+                                + u.get("cache_creation_input_tokens", 0)
+                                + 0.1 * u.get("cache_read_input_tokens", 0))
 
     def scan(self, window_s=3 * 3600):
         floor = time.time() - window_s
@@ -663,28 +682,26 @@ class TokenIndex:
             if mtime < floor or self.seen.get(path) == mtime:
                 continue
             self.seen[path] = mtime
-            first, tokens, ids = None, 0.0, set()
             try:
-                with path.open(errors="replace") as fh:
-                    for line in fh:
-                        try:
-                            rec = json.loads(line)
-                        except ValueError:
-                            continue
-                        msg = rec.get("message") or {}
-                        if rec.get("type") == "user" and first is None:
-                            content = msg.get("content")
-                            first = content if isinstance(content, str) else json.dumps(content)
-                            if not first.startswith(self.PREFIXES):
-                                break
-                        elif rec.get("type") == "assistant" and msg.get("id") not in ids:
-                            ids.add(msg.get("id"))
-                            u = msg.get("usage") or {}
-                            tokens += (u.get("input_tokens", 0) + u.get("output_tokens", 0)
-                                       + u.get("cache_creation_input_tokens", 0)
-                                       + 0.1 * u.get("cache_read_input_tokens", 0))
+                st = path.stat()
+                st_ino, size = st.st_ino, st.st_size
+                state = self.state.get(path)
+                if state is None or state["ino"] != st_ino or size < state["off"]:
+                    state = self.state[path] = {"ino": st_ino, "off": 0, "first": None, "tokens": 0.0,
+                                                "ids": set(), "skip": False}
+                if not state["skip"] and size > state["off"]:
+                    with path.open("rb") as fh:
+                        fh.seek(state["off"])
+                        chunk = fh.read()
+                    end = chunk.rfind(b"\n") + 1  # a partial last line waits for the next scan
+                    state["off"] += end
+                    for raw in chunk[:end].decode(errors="replace").split("\n"):
+                        self.take(state, raw)
+                        if state["skip"]:
+                            break
             except OSError:
                 continue
+            first, tokens = state["first"], state["tokens"]
             if first and first.startswith(self.PREFIXES):
                 tokens = int(tokens)
                 bag = self.BAG_IDS.search(first) if first.startswith(self.PREFIXES[2:]) else None
