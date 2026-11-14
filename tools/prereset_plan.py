@@ -82,6 +82,7 @@ from pathlib import Path
 
 import awake
 import mem_gate
+import mem_pressure
 import series
 import weekly_usage
 
@@ -130,6 +131,7 @@ RUN_RSS_FLOOR_KB = RUN_RSS_KB  # 11-11 19:11: 200 MB still let 3 young runs read
 CPU_SPAN_S = (10, 900)
 CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
+PRESSURE_STATE = ".prereset.pressure"  # mem_pressure.py: the cap held while memory thrashes
 # `--rush` (owner 10-26 "burn your whole quota quickly and I can reset
 # you", then "fit another seven day reset in before the Wednesday reset"): RUSH
 # holds the weekly meter's reset epoch at arming. While it is armed and the
@@ -1084,6 +1086,9 @@ def width(arg=None, floor=1):
     busy = load_cap(read_load1(), os.cpu_count(), w)
     if busy is not None and w > busy:
         w = busy
+    held, pressure = mem_pressure.cap(home / PRESSURE_STATE, len(rss))
+    if held is not None and w > held:
+        w = held
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
     if proj is not None and proj != bridge:
@@ -1112,8 +1117,9 @@ def width(arg=None, floor=1):
     plan_words = f", reset plan {choice}" if choice else ""
     detail = mem_detail(meminfo, rss)
     print(f"width {w} (cap: memory {dash(mem)}, cpu {dash(cpu)}, load {dash(busy)}, "
+          f"{f'pressure {held}, ' if held is not None and held <= w else ''}"
           f"quota pace {pace}{plan_words}) · weekly {at}{aim}; bridge {shown}; {cores}; "
-          f"{detail + '; ' if detail else ''}was {current}", file=sys.stderr)
+          f"{detail + '; ' if detail else ''}{pressure + '; ' if pressure else ''}was {current}", file=sys.stderr)
     return w
 
 
@@ -1327,6 +1333,7 @@ def width_self_test():
         if fn(*args) != want:
             print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
             bad += 1
+    bad += mem_pressure.self_test()
     if capped_rate(None, 0.9) != 0.9 or capped_rate(0.5, 0.9) != 0.5 or capped_rate(2.9, 0.9) != 0.9:
         print("FAIL capped_rate", file=sys.stderr)
         bad += 1
