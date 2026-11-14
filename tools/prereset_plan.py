@@ -115,8 +115,11 @@ DEFAULT_CEILING = 28
 # Memory kept free for the bridge and Docker, which share this box, and the size
 # of one run when none of the burn's runs is in flight to measure. Measured
 # 11-04 over 19 runs sampled every 3 s: the session plus its annotate_check
-# averaged 251 MB (session 207, peak of a run 387 on average).
-MEM_HEADROOM_KB = 4 * 1024 * 1024
+# averaged 251 MB (session 207, peak of a run 387 on average). Headroom 4 -> 2 GB on
+# 11-14 at #household's word: the VM runs swappiness 0 with a 256 MB kernel reserve,
+# and at ~11.4 GB used it swapped 0.11 MB/min in, 0 out. Width never drops below the
+# runs alive (they are counted, never killed), which is the hysteresis.
+MEM_HEADROOM_KB = 2 * 1024 * 1024
 RUN_RSS_KB = 250 * 1024
 # The least a run is taken to hold: runs a few seconds old read ~7 MB each, and
 # averaging those 11-12 put the memory cap at 348 against a real ~16 (runs settle at 210-250 MB).
@@ -1295,20 +1298,20 @@ METER_CASES = [
 GB = 1024 * 1024
 # (meminfo, RSS of runs in flight) -> memory cap
 MEM_CASES = [
-    (f"MemTotal: 1 kB\nMemAvailable: {6 * GB} kB\n", [], 2 * GB // RUN_RSS_KB),
-    (f"MemAvailable: {6 * GB} kB\n", [512000, 512000], 2 + 2 * GB // 512000),
-    (f"MemAvailable: {3 * GB} kB\n", [], 0),
-    # 2026-11-11: 2.9 GB free under the 4 GB reserve, 3 seconds-old runs at 7 MB: no room, width = runs alive
-    (f"MemAvailable: {int(2.9 * GB)} kB\n", [7000, 7000, 7000], 3),
-    (f"MemAvailable: {6 * GB} kB\n", [7000, 7000, 7000], 3 + 2 * GB // RUN_RSS_FLOOR_KB),
+    (f"MemTotal: 1 kB\nMemAvailable: {6 * GB} kB\n", [], (6 * GB - MEM_HEADROOM_KB) // RUN_RSS_KB),
+    (f"MemAvailable: {6 * GB} kB\n", [512000, 512000], 2 + (6 * GB - MEM_HEADROOM_KB) // 512000),
+    (f"MemAvailable: {int(1.9 * GB)} kB\n", [], 0),
+    # 2026-11-11: available under the reserve, 3 seconds-old runs at 7 MB: no room, width = runs alive
+    (f"MemAvailable: {int(1.9 * GB)} kB\n", [7000, 7000, 7000], 3),
+    (f"MemAvailable: {6 * GB} kB\n", [7000, 7000, 7000], 3 + (6 * GB - MEM_HEADROOM_KB) // RUN_RSS_FLOOR_KB),
     ("garbage", [], None),
     (None, [], None),
 ]
 # (meminfo, RSS of runs in flight) -> the memory cap's inputs in words (mem_detail)
 MEM_DETAIL_CASES = [
     (f"MemAvailable: {6 * GB} kB\nSwapTotal: {4 * GB} kB\nSwapFree: 0 kB\n", [],
-     "memory 6.0 GB available less 4 GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
-    (f"MemAvailable: {6 * GB} kB\n", [512000], "memory 6.0 GB available less 4 GB kept free, 500 MB a run"),
+     "memory 6.0 GB available less 2 GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
+    (f"MemAvailable: {6 * GB} kB\n", [512000], "memory 6.0 GB available less 2 GB kept free, 500 MB a run"),
     ("garbage", [], None),
 ]
 # (cores other processes use, cores the burn uses, cores, runs) -> cpu cap
