@@ -67,6 +67,20 @@ fi
 rm -f "$_ct_lease.said"
 if [ "${CT_IN_WORKTREE:-0}" = 1 ]; then export -n CT_JOB CT_LEASE_BUSY_RC; fi
 
+# Memory pressure gate (as tools/prereset_backfill.sh pool_launch): while the
+# machine is refaulting file cache (PSI some avg10 above 1) a new tree reset and
+# its job only deepen it, so hold the start, bounded (CT_PSI_MAX_SECS, 120). Not
+# for the daily_update tick itself, which must return in seconds, and once only
+# (the re-exec into the worktree has CT_IN_WORKTREE=1 and skips it).
+if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "$_ct_job" != daily_update ]; then
+  _ct_psi_waited=0
+  while [ "$_ct_psi_waited" -lt "${CT_PSI_MAX_SECS:-120}" ] &&
+    awk -v max="${CT_PSI_HOLD:-1}" '/^some/ { split($2, a, "="); exit !(a[2] > max) }' /proc/pressure/memory 2>/dev/null; do
+    sleep 10
+    _ct_psi_waited=$((_ct_psi_waited + 10))
+  done
+fi
+
 # The merge driver and clean filter .gitattributes names for the keyed JSON
 # data files. Repo config is shared by every worktree of the checkout, so
 # registering them on each run covers the jobs, the people and the agents
