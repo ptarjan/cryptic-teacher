@@ -1000,17 +1000,25 @@ $bad_hints"
 # that disagree are a lead in cross-validate/all-leads.jsonl. Cached sources
 # only, nothing is fetched. A puzzle given its official key here is noted for
 # the tick's annotation queue (daily_units.py keyed --record).
+# `git status --porcelain` with git's untracked cache: the folders whose mtime
+# is unchanged since the last status are not listed again for untracked files.
+# Output identical; the cache lives in this tree's own index.
+ut_status() {
+  git -c core.untrackedCache=true status --porcelain "$@"
+}
 unit_commit() {  # subject
   python3 tools/daily_units.py keyed --record
   # One whole-tree status serves both this test and the commit test below: on the
   # 3 GB tree each status walks the disk (one blocked over a minute). Untracked
   # files must be seen (a filed puzzle is new), so it is not narrowed; it is
-  # run again only when cross_validate may have changed the tree.
+  # run again only when cross_validate may have changed the tree. With the
+  # untracked cache (ut_status) each later status re-reads only the folders
+  # whose mtime moved, not every folder of the ~110k-file tree; same output.
   local st
-  st=$(git status --porcelain)
+  st=$(ut_status)
   if printf '%s\n' "$st" | grep -E '^.. "?puzzles/|-> "?puzzles/' >/dev/null; then
     blog_chain Corroboration "cross_validate.py all --new --apply"
-    st=$(git status --porcelain)
+    st=$(ut_status)
   fi
   # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
   # so this is housekeeping rather than safety — but nothing else clears them.
@@ -1052,7 +1060,7 @@ unit_commit() {  # subject
     # a commit is a bug, and it is work that will never reach the site. Read with
     # cut, not awk $2 — a rename prints two paths and a filename may contain a
     # space, and awk would read either as the wrong filename.
-    left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
+    left=$(ut_status | cut -c4- | tr '\n' ' ')
     [ -n "$left" ] && alert "the daily update committed, and left these behind in its own worktree: $left"
     # A rebase that stops here is rarely a disagreement. Every file this job writes
     # that an interactive session writes too is GENERATED — README.md and what is
