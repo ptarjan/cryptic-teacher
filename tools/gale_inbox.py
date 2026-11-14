@@ -507,8 +507,11 @@ def editions():
     """{"<item>/<date>": its last EDITIONS row}. The ~19 MB manifest is parsed
     once per process: a sync asks for it from the checklist and again from
     kick. No stat to tell if it changed (a tick never looks at the disk,
-    tests/test_no_media_scans.py); this process's own writes drop the memo."""
+    tests/test_no_media_scans.py); this process's own writes (media_manifest.record) drop the memo."""
+    if _EDITIONS_MEMO.get("recorded") != media_manifest._RECORDED[0]:
+        _EDITIONS_MEMO.clear()
     if "rows" not in _EDITIONS_MEMO:
+        _EDITIONS_MEMO["recorded"] = media_manifest._RECORDED[0]
         _EDITIONS_MEMO["rows"] = media_manifest.latest(EDITIONS, "edition")
     return dict(_EDITIONS_MEMO["rows"])
 
