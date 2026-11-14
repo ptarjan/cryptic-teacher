@@ -120,6 +120,8 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
       if (defs.length !== 1) continue;
       const w = defs[0].split(/\s+/);
       if (w.length < 3 || clueText(e).indexOf(defs[0]) < 0) continue;
+      // verdict([0]) below must be a WRONG pick, so word 0 has to sit outside the definition.
+      if (clueText(e).indexOf(defs[0]) === 0) continue;
       if (EDGE.indexOf(bare(w[w.length - 1])) < 0) continue;
       if (EDGE.indexOf(bare(w[0])) >= 0) continue;   // the near-miss must be a real one
       found = { id, e };
