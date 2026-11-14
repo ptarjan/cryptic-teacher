@@ -307,6 +307,11 @@ def pitch_columns(words, grid, cols):
             edge = max(c[2] for c in hit)
             box = (int(edge), box[1], int(edge + pitch - lh / 2), box[3])
             hit = []
+        elif hit and all(c[0] >= box[0] and box[2] - c[0] < pitch / 4 for c in hit):
+            # the pitch drifts the other way: the box clips the left edge of the next found column (1608's
+            # third down column, its fourth found from its counts): set to end where that column starts
+            box = (box[0], box[1], int(min(c[0] for c in hit) - lh / 2), box[3])
+            hit = []
         if not hit:
             out.append(box)
         x0 = box[2] + lh / 2
@@ -527,8 +532,10 @@ def layout_block(img, words, grid, ocr=None):
             # a pitch column is kept only where its clue numbers run on from the last column kept
             nums = [n for _, _, n, _ in line_numbers(ws, lh)]
             before = [n for _, _, n, _ in line_numbers(pieces[-1][2], lh)]
-            if not nums or not before or not max(before) < nums[0] <= max(before) + 5 or \
-                    len([w for w in ws if COUNT_WORD.search(w[4])]) < 1:
+            # (the last column of a landscape page holds across's tail and down's first clues: its biggest number
+            # is across's 27, the numbers that run on are down's, from its last line: 1608's 17, 20, 22 down)
+            runs_on = bool(before) and any(b < nums[0] <= b + 5 for b in (max(before), before[-1]))
+            if not nums or not runs_on or len([w for w in ws if COUNT_WORD.search(w[4])]) < 1:
                 continue
         pieces.append((i, crop, ws))
     if not pieces:
@@ -576,7 +583,7 @@ def layout_block(img, words, grid, ocr=None):
 
 #: Figures a scan's OCR reads for each other (a 9's loop open, an 8's closed up): a count read with one of them
 #: for the light's own length is the light's count misread, the clue's text and number being the voted ones.
-LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08", "78")}
+LOOKALIKES = {frozenset(p) for p in ("17", "38", "56", "59", "68", "89", "79", "06", "08", "78", "25")}
 #: A page whose lights fit their counts less often than this has a grid no count may be mended by.
 MEND_FIT = 0.7
 
@@ -634,6 +641,62 @@ def mended_tokens(laid, lengths):
         if new != text and len(ocr_clues.suspect(new)) < len(flagged):
             out[lid] = (new, enum, group)
     return out
+
+
+#: A run of this many lines' worth of lone capitals (a neighbouring solution grid's letters, read into a clue's
+#: lines: 1597's 13-across) is no clue's words.
+LETTER_RUN = 8
+#: A surname set with its particle's capital small ("DeLillo", "DiCaprio", "LeCarre") is no OCR slip.
+CAMEL_NAME = re.compile(r"^\W*(?:De|Di|Da|La|Le|Du|Van|Von|Ap|Fitz)[A-Z][a-z]{2,}(?:'s)?\W*$")
+
+
+def spaced_quotes(text):
+    """`text` with a space where a straight double quote is glued to the word outside it: an opening one after a
+    word ('Colonel"Chalky"') and a closing one before a bracket ('seminary"(W S Gilbert)')."""
+    out, k = [], 0
+    for i, ch in enumerate(text):
+        if ch == '"':
+            k += 1
+            if k % 2 and i and text[i - 1].isalnum():
+                out.append(" ")
+            out.append(ch)
+            if not k % 2 and i + 1 < len(text) and (text[i + 1].isalnum() or text[i + 1] == "("):
+                out.append(" ")
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+def mended_text(laid, printed):
+    """(laid, printed) with each clue's text set to rights where the page's print is plain: the lone capitals of a
+    neighbour's solution grid cut out of it, a bracket an ellipsis closes ("...)") given its opening, a quote
+    spaced from the words glued to it; a camel-cased surname kept as printed. A word is only cut or spaced,
+    never added, so no word stands that the readers did not agree on."""
+    out, printed = dict(laid), dict(printed or {})
+    for lid, (text, enum, group) in laid.items():
+        if not text:
+            continue
+        words = text.split()
+        run, keep = [], []
+        for w in words + [None]:
+            if w is not None and re.fullmatch(r"[A-Za-z]{1,2}", w) and (w.isupper() or len(w) == 1):
+                run.append(w)
+                continue
+            if len(run) < LETTER_RUN or sum(1 for r in run if r.isupper()) < LETTER_RUN - 2:
+                keep += run
+            run = []
+            if w is not None:
+                keep.append(w)
+        new = " ".join(keep)
+        if new.count(")") > new.count("("):
+            new = re.sub(r"(?<![(\w])((?:\.\.\.|…)\))", r"(\1", new, count=1)
+        new = spaced_quotes(new)
+        if new != text:
+            out[lid] = (new, enum, group)
+        names = [w for w in new.split() if CAMEL_NAME.match(w)]
+        if names:
+            printed[lid] = [*printed.get(lid, ()), *names]
+    return out, printed
 
 
 def no_lists_why(words):
@@ -822,6 +885,7 @@ def read_page(path, store=STORE, asker=None, known=None):
         return verdict, None
     voted = dict(laid)
     laid = mended_tokens(mended_counts(laid, lengths), lengths)
+    laid, printed = mended_text(laid, read.get("asPrinted"))
     laid, blank = aj.lay_on(dict(laid), g)
     verdict["lights"] = len(laid)
     blank = {**(read.get("blank") or {}), **blank}
@@ -840,7 +904,7 @@ def read_page(path, store=STORE, asker=None, known=None):
     if known:
         url = known[2]
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"TLS crossword No {n:,}",
-                      url=url, printed=read.get("asPrinted"))
+                      url=url, printed=printed)
     if known and verdict.get("setter"):
         puzzle["setter"] = verdict["setter"]
     verdict["whole"] = bool(fa.complete(puzzle))
@@ -882,7 +946,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 3
+BACK_VERSION = 4
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
