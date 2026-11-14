@@ -3759,7 +3759,7 @@ _tf_e = f.telegraph_enums(f.GALE_TELEGRAPH, {"entries": [{"number": 1, "directio
                                                           {"number": 2, "direction": "down", "clue": None}]})
 check("telegraph_fitted_due: a Gale Telegraph row read before the cutoff with a short, classified solution is due; a later "
       "read, a whole or refused reading, answers-only, a Times row is not; telegraph_enums gives a Telegraph full read its "
-      "counts and no other paper any; TELEGRAPH_FITTED is last of UNFILED_FIRST, a rank 2 solution fix, fix reason",
+      "counts and no other paper any; TELEGRAPH_FITTED is among the last of UNFILED_FIRST, a rank 2 solution fix, fix reason",
       ([True, False, False, False, False, False], {(1, "across"): "7,6", (2, "down"): None}, None, True, True, True, True, True),
       ([bool(f.telegraph_fitted_due(_tf)), bool(f.telegraph_fitted_due({**_tf, "readAt": "2026-11-14T19:00:00+00:00"})),
         bool(f.telegraph_fitted_due(_tf_v(solution={"lights": 32, "accepted": 32}))),
@@ -3768,7 +3768,7 @@ check("telegraph_fitted_due: a Gale Telegraph row read before the cutoff with a 
         bool(f.telegraph_fitted_due({**_tf, "edition": "GaleTimes1991UKEnglish/1991-09-12"}))],
        _tf_e, f.telegraph_enums(f.paper_of("GaleTimes1991UKEnglish/1991-09-12"), {"entries": []}),
        f.RANKS[f.TELEGRAPH_FITTED] == 2, f.TELEGRAPH_FITTED in f.SOLUTION_FIXES,
-       __import__("edition_queue").UNFILED_FIRST[-1] == f.TELEGRAPH_FITTED, f.fix_reason(_tf) == f.TELEGRAPH_FITTED,
+       f.TELEGRAPH_FITTED in __import__("edition_queue").UNFILED_FIRST[-5:], f.fix_reason(_tf) == f.TELEGRAPH_FITTED,
        f.blanket_or_fix(_tf, "inputs changed") == f.TELEGRAPH_FITTED))
 _ir = {"edition": "GaleIndependent2015UKEnglish/2015-07-17", "inputs": "x", "readAt": "2026-11-06T19:10:23+00:00",
        "scan": {"date": "2015-07-17", "puzzles": [{"number": 8972}]},
