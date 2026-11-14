@@ -67,6 +67,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --weekly           # pace the weekly meter, a window per manual reset (the default)
     tools/prereset_plan.py --refresh-bridge-mean [HOME]  # measure the bridge over 7 days into HOME/.prereset.bridge_mean
     tools/prereset_plan.py --resets           # the manual resets free before the natural one, the plan, and his nights
+    tools/prereset_plan.py --resets-left N    # the owner's own count of manual resets left (his word beats the log)
     tools/prereset_plan.py --natural-only [UNTIL_EPOCH]  # plan no manual resets until then (default: the natural reset)
     tools/prereset_plan.py --self-test
 """
@@ -150,6 +151,7 @@ PRESSURE_STATE = ".prereset.pressure"  # mem_pressure.py: the cap held while mem
 # reset free arms RUSH, none free writes NATURAL_ONLY to the natural reset.
 RUSH = ".prereset.rush"
 NATURAL_ONLY = ".prereset.natural_until"  # epoch: until then plan no manual resets
+RESETS_KNOWN = ".prereset.resets_known"  # JSON {"left": N, "at": epoch}: the owner's own count
 RUSH_TARGET = 100.0
 RUSH_SPENT = 99.0
 RUSH_SPENT_STAMP = ".prereset.rush-spent-{}"
@@ -381,6 +383,25 @@ def reset_slots(resets, now, until, allowed=MANUAL_RESETS, span=RESET_SPAN_S):
     free = [now] * max(0, allowed - len(recent))
     later = [t + span for t in recent[max(0, len(recent) - allowed):] if t + span < until]
     return free + later
+
+
+def known_left(text, used, now, span=RESET_SPAN_S):
+    """The owner-stated cap on manual resets left (the usage API shows no count and
+    the log misses resets, so his word wins): his N less the resets detected after
+    his word, while it is younger than `span`. None with no usable anchor."""
+    try:
+        note = json.loads(text)
+        left, at = int(note["left"]), float(note["at"])
+    except (TypeError, ValueError, KeyError, AttributeError):
+        return None
+    if not now - span < at <= now + 60:
+        return None
+    return max(0, left - sum(1 for t in used if t > at))
+
+
+def capped_slots(slots, anchor):
+    """`slots` (reset_slots) limited to the owner-stated `anchor` (known_left), if any."""
+    return slots if anchor is None else list(slots[:anchor])
 
 
 def spendable(slots, reserve=None):
@@ -1017,7 +1038,8 @@ def show_resets():
     used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     natural = natural_only(_read(home / NATURAL_ONLY), now)
-    slots = [] if natural else spendable(reset_slots(used, now, until))
+    anchor = known_left(_read(home / RESETS_KNOWN), used, now)
+    slots = [] if natural else spendable(capped_slots(reset_slots(used, now, until), anchor))
     bridge, rate = bridge_spend()
     rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.debug.log") or "").splitlines()))
     cap = capacity_rate(mem_cap(_read("/proc/meminfo"), burn_rss_kb()), rate, bridge)
@@ -1027,8 +1049,9 @@ def show_resets():
                         natural and k == 0)
     def at(t):
         return f"{dt.datetime.fromtimestamp(t, PACIFIC):%a %m-%d %H:%M} Pacific"
-    print(f"weekly {pct:g}%, natural reset {at(until)}; {len(used)} of {MANUAL_RESETS} "
-          f"manual resets used in 30 days; free before it: {', '.join(map(at, slots)) or 'none'}")
+    tally = (f"{anchor} of {MANUAL_RESETS} manual resets left (owner's count)" if anchor is not None
+             else f"{len(used)} of {MANUAL_RESETS} manual resets used in 30 days")
+    print(f"weekly {pct:g}%, natural reset {at(until)}; {tally}; free before it: {', '.join(map(at, slots)) or 'none'}")
     if natural:
         print(f"natural-only until {at(float(_read(home / NATURAL_ONLY)))}: no manual resets "
               f"planned, the meter fills to {EXHAUSTED:g}% at the natural reset, no night guard")
@@ -1045,6 +1068,19 @@ def show_resets():
           f"overnight: at most {night[0]} runs until {at(night[1])}, so the bridge alone at "
           f"{NIGHT_BRIDGE_FACTOR:g}x stays under {EXHAUSTED - NIGHT_GUARD:g}%")
     print("\n".join(awake.describe(sleep, now)))
+    return 0
+
+
+def set_resets_left(arg):
+    """--resets-left N: record the owner's own count of manual resets left, now."""
+    home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    try:
+        left = int(arg)
+    except (TypeError, ValueError):
+        print("resets-left: need a whole number, e.g. --resets-left 1", file=sys.stderr)
+        return 2
+    (home / RESETS_KNOWN).write_text(json.dumps({"left": max(0, left), "at": int(time.time())}) + "\n")
+    print(f"resets-left: {max(0, left)} of {MANUAL_RESETS} manual resets left, written to {home / RESETS_KNOWN}")
     return 0
 
 
@@ -1098,6 +1134,8 @@ def width(arg=None, floor=1):
         if hours_left is not None and hours_left > 0 and pct is not None:
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
             left = max(0, MANUAL_RESETS - len(used))
+            anchor = known_left(_read(home / RESETS_KNOWN), used, now)
+            left = left if anchor is None else min(left, anchor)
             choice = auto_rush(home, left, now + hours_left * 3600, now)
         stamp = _read(home / RUSH)
         armed = stamp is not None
@@ -1112,7 +1150,8 @@ def width(arg=None, floor=1):
             until = now + hours_left * 3600
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
             natural = natural_only(_read(home / NATURAL_ONLY), now)
-            slots = [] if natural else spendable(reset_slots(used, now, until))
+            anchor = known_left(_read(home / RESETS_KNOWN), used, now)
+            slots = [] if natural else spendable(capped_slots(reset_slots(used, now, until), anchor))
             plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge), sleep)
             if plan[0]:
                 aim_h = max(AIM_MIN_H, (plan[1] - now) / 3600)
@@ -1609,6 +1648,17 @@ def reset_self_test():
                        (([], NOW, NATURAL, 2), [NOW, NOW])]:
         if reset_slots(*args) != want:
             fail(f"reset_slots of {len(args[0])} = {reset_slots(*args)} (want {want})")
+    for text, used, want in [('{"left": 1, "at": 1000}', [], 1),
+                             ('{"left": 1, "at": 1000}', [1500.0], 0),   # one spent since his word
+                             ('{"left": 3, "at": 1000}', [900.0, 1500.0], 2),
+                             ('{"left": 1, "at": 1000}', [900.0], 1),    # before his word: counted in it
+                             ('{"left": 1, "at": 1}', [], None),         # older than the span
+                             ("nope", [], None), (None, [], None)]:
+        if known_left(text, used, 2000.0, span=1500.0) != want:
+            fail(f"known_left({text!r}, {used}) = {known_left(text, used, 2000.0, span=1500.0)} (want {want})")
+    if spendable(capped_slots(SLOTS, 1)) != [] or capped_slots(SLOTS, 2) != SLOTS[:2] \
+            or capped_slots(SLOTS, None) != SLOTS or spendable(capped_slots(SLOTS, 0)) != []:
+        fail("capped_slots does not hold the owner's count (1 left: nothing spendable)")
     for args, (k, hours, rate) in PLAN_CASES:
         got = reset_plan(*args)
         if (got[0] != k or abs((got[1] - args[1]) / 3600 - hours) > 1 / 60
@@ -3137,6 +3187,9 @@ def main():
         return set_rush(rest[0] if rest and not rest[0].startswith("-") else None)
     if "--resets" in sys.argv:
         return show_resets()
+    if "--resets-left" in sys.argv:
+        rest = sys.argv[sys.argv.index("--resets-left") + 1:]
+        return set_resets_left(rest[0] if rest else None)
     if "--refresh-bridge-mean" in sys.argv:
         rest = sys.argv[sys.argv.index("--refresh-bridge-mean") + 1:]
         return refresh_bridge_mean(rest[0] if rest else Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO))
