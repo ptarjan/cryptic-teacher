@@ -60,8 +60,8 @@ IMAGE = re.compile(r'<img[^>]+src="([^"?]+/wp-content/uploads/[^"?]+\.(?:jpe?g|p
 #: The clue reader: English PP-OCRv5 keeps the spaces RapidOCR's "ch" loses here.
 PAGE_WIDTH = 2166
 READER = "en5"
-#: "TLS Crossword 1603 by Praxiteles", or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
-BYLINE = re.compile(r"Crossword\s*(\d{3,5})\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
+#: "TLS Crossword 1603 by Praxiteles" (the reader may give a zero as a letter O), or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
+BYLINE = re.compile(r"Crossword\s*([\dOo]{3,5})\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
 FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
                          r"\s+(\d{1,2}),?\s+(\d{4})")
 MONTHS = {m: i for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July",
@@ -244,12 +244,26 @@ def stacked(a, img, gy1):
             bands.append([s0, e0])
     if len(bands) < 2:
         return None
-    (t0, t1), (c0, c1) = bands[-2], bands[-1]
-    if t1 - t0 > 0.05 * w or c1 - c0 < 0.1 * w:
-        return None
-    title = text_of(img, (0, gy1 + 6 + t0 - 4, w, gy1 + 6 + t1 + 4))
-    if not BYLINE.search(title):
-        return None
+    # The title is the last short band with the byline in it; everything under it is clues (1408's
+    # Across and Down are two bands, 1500's one).
+    for i in range(len(bands) - 2, -1, -1):
+        (t0, t1), (c0, c1) = bands[i], (bands[i + 1][0], bands[-1][1])
+        if t1 - t0 > 0.05 * w or c1 - c0 < 0.1 * w:
+            continue
+        title = text_of(img, (0, gy1 + 6 + t0 - 4, w, gy1 + 6 + t1 + 4))
+        if BYLINE.search(title):
+            break
+    else:
+        # No heading at all (1443's page is cropped below it): the clues are the last band, which
+        # opens on "ACROSS" and has a "DOWN" in it, and the title is empty.
+        c0, c1 = bands[-1]
+        if c1 - c0 < 0.1 * w:
+            return None
+        box = [0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]
+        text = text_of(img, tuple(box))
+        if not (text.lstrip().upper().startswith("ACROSS") and re.search(r"^DOWN\b", text, re.M | re.I)):
+            return None
+        return "", [box]
     return title, [[0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]]
 
 
@@ -308,9 +322,15 @@ def read_image(img, web_date, headline=""):
     out = genius_puzzles.parse_text(flat)
     # The page's own heading, else (a page cropped below it) the article's headline.
     m = BYLINE.search(title) or BYLINE.search(headline)
-    if not m:
-        raise ValueError(f"no byline in the title {title!r} or headline {headline!r}")
-    out["number"], out["setter"] = int(m.group(1)), m.group(2).capitalize()
+    if m:
+        out["number"], out["setter"] = int(m.group(1).translate(str.maketrans("Oo", "00"))), m.group(2).capitalize()
+    else:
+        # A page cropped below its heading (1443's) names no setter; the article's headline gives
+        # the number, as the Times Cryptic is filed with no setter. No headline number: unreadable.
+        hm = TITLE.search(headline)
+        if not hm:
+            raise ValueError(f"no byline in the title {title!r} or headline {headline!r}")
+        out["number"], out["setter"] = int(hm.group(1)), None
     d = FOOTER_DATE.search(footer)
     if d:
         out["date"] = datetime.date(int(d.group(3)), MONTHS[d.group(1)], int(d.group(2))).isoformat()
