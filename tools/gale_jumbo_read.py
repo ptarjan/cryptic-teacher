@@ -490,11 +490,34 @@ def number_of(img, key, cited, words):
     return (n, "prize text") if n else (None, None)
 
 
+CRYPTIC_WORD = re.compile(r"^\W*cryptic\W*$", re.IGNORECASE)
+CLUES_WORD = re.compile(r"^\W*clues\W*$", re.IGNORECASE)
+
+
+def cryptic_titles(words):
+    """The boxes of each "Cryptic clues" line on a page's words (a "Cryptic Jumbo" in the prize text has no
+    "clues" after it). Some Jumbo pages (2009's) print the Times2 Concise's lists beside the cryptic's, each
+    headed "Cryptic clues" or "Concise clues" over its ACROSS heading, at the same height."""
+    out = []
+    for w in words:
+        if not CRYPTIC_WORD.match(w[4]):
+            continue
+        h = w[3] - w[1]
+        mid = (w[1] + w[3]) / 2
+        nxt = [o for o in words if CLUES_WORD.match(o[4]) and abs((o[1] + o[3]) / 2 - mid) < h / 2
+               and 0 <= o[0] - w[2] < 2 * h]
+        if nxt:
+            out.append((w[0], w[1], max(o[2] for o in nxt), w[3]))
+    return out
+
+
 def with_fallback_title(titles, width):
     """gale_listener.times_titles' boxes, then a title-less one across the page's top: a page whose title
-    is set in a graphic (read "Christmas . Jumbo" or not at all) still has its headings."""
+    is set in a graphic (read "Christmas . Jumbo" or not at all) still has its headings. A page with a
+    "Cryptic clues" line has those boxes alone: the title-less cut takes the heading pair nearest the top,
+    which may be the Concise's beside it."""
     def wrapped(words):
-        return titles(words) + [(0, 0, width, 0)]
+        return cryptic_titles(words) or titles(words) + [(0, 0, width, 0)]
     return wrapped
 
 
@@ -559,6 +582,19 @@ def reaching_cuts(cuts, gl, grid=None):
             out.append((box, masks))
         return out
     return wrapped
+
+
+#: A Jumbo's clue set averaging fewer words than this is the Concise's beside it ("Water-living (7)"): the
+#: filed cryptic Jumbos average 6.3 to 9+, the four Concise sets read 3.0 to 3.5.
+CONCISE_WORDS = 4.5
+CONCISE_REFUSAL = "the clues read are a concise crossword's (short one-phrase definitions), not the Jumbo's"
+
+
+def concise_set(puzzle, least=fa.QUICK_CLUES):
+    """Whether `puzzle`'s clues are a Quick/Concise set: file_archive_org_puzzles.quick_set's test (clues short
+    plain definitions) with CONCISE_WORDS, the Jumbo's own bar."""
+    texts = [t for e in puzzle.get("entries", ()) if (t := (e.get("clue") or {}).get("text") or "").strip()]
+    return len(texts) >= least and sum(len(t.split()) for t in texts) < CONCISE_WORDS * len(texts)
 
 
 def area(box):
@@ -832,6 +868,9 @@ def read_page(path, store=STORE, asker=None):
     url = f"https://link.gale.com/apps/doc/{doc.group(0)}/TTDA?sid=bookmark-TTDA" if doc else None
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Times jumbo cryptic crossword No {n:,}",
                       url=url, printed=read.get("asPrinted"))
+    if concise_set(puzzle):
+        verdict["refused"] = CONCISE_REFUSAL
+        return verdict, None
     verdict["whole"] = bool(fa.complete(puzzle))
     return verdict, puzzle
 
