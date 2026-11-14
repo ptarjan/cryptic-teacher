@@ -496,6 +496,7 @@ def note_edition(d, sources=None):
     rel = f"{d.parent.name}/{d.name}"
     if sources is None:
         sources = editions().get(rel, {}).get("sources")
+    _EDITIONS_MEMO.clear()
     media_manifest.record(EDITIONS, d, edition=rel, files=media_manifest.edition_files(d), sources=sources)
 
 
@@ -504,19 +505,11 @@ _EDITIONS_MEMO = {}
 
 def editions():
     """{"<item>/<date>": its last EDITIONS row}. The ~19 MB manifest is parsed
-    once per process and file state (inode, size, mtime): a sync asks for it
-    from the checklist and again from kick, and read it twice before."""
-    try:
-        st = media_manifest.path(EDITIONS).stat()
-        key = (media_manifest.path(EDITIONS), st.st_ino, st.st_size, st.st_mtime_ns)
-    except OSError:
-        key = None
-    if key is None or _EDITIONS_MEMO.get("key") != key:
-        _EDITIONS_MEMO.clear()
-        got = media_manifest.latest(EDITIONS, "edition")
-        if key is not None:
-            _EDITIONS_MEMO.update(key=key, rows=got)
-        return dict(got)
+    once per process: a sync asks for it from the checklist and again from
+    kick. No stat to tell if it changed (a tick never looks at the disk,
+    tests/test_no_media_scans.py); this process's own writes drop the memo."""
+    if "rows" not in _EDITIONS_MEMO:
+        _EDITIONS_MEMO["rows"] = media_manifest.latest(EDITIONS, "edition")
     return dict(_EDITIONS_MEMO["rows"])
 
 
@@ -537,6 +530,7 @@ def build_manifest(cache=CACHE, out=sys.stdout):
                 found.append({"edition": f"{item}/{day}", "files": media_manifest.edition_files(d),
                               "sources": json.loads((d / srcs[-1]).read_text()), "at": d.stat().st_mtime})
     media_manifest.write(EDITIONS, found)
+    _EDITIONS_MEMO.clear()
     print(f"{len(found)} Gale edition(s) written to {media_manifest.path(EDITIONS)}", file=out)
     return found
 
@@ -798,13 +792,6 @@ def fresh_unread(rows=None, now=None, laid=None):
     the EDITIONS manifest; the ledger is read only when one is that fresh."""
     now = time.time() if now is None else now
     if laid is None:
-        # A row's "at" is never after the manifest's last write, so a manifest
-        # untouched for FRESH holds nothing fresh: skip parsing its ~19 MB.
-        try:
-            if now - media_manifest.path(EDITIONS).stat().st_mtime > FRESH:
-                return []
-        except OSError:
-            pass
         laid = editions()
     fresh = {e: r for e, r in laid.items()
              if now - r["at"] <= FRESH and re.fullmatch(ITEM.format(r"\d+"), e.split("/")[0])}

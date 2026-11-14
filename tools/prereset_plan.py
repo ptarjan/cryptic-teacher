@@ -2622,7 +2622,7 @@ def single_instance_lock():
     import fcntl
     d = Path.home() / ".cache"
     d.mkdir(parents=True, exist_ok=True)
-    fh = open(d / "prereset_plan_backlog.lock", "w")  # noqa: SIM115 - kept open: the lock
+    fh = (d / "prereset_plan_backlog.lock").open("w")  # kept open: the lock
     try:
         fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except OSError:
