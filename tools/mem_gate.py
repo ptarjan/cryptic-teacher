@@ -103,6 +103,11 @@ def unit_ceiling():
 #: paused -> CPU 97 -> 67%, asks 3.1 -> 5.8/min), so it steps down above CPU_HI, up only below CPU_LO.
 #: It writes the same file unit_ceiling() reads, so a manual pin holds until the next step moves it.
 CEILING_EVERY = 120
+#: The VM's page cache refills 0.4-1 GB a minute (buffers/ledgers/page images), so dropping only under
+#: 3000 MB free kept Windows at 1.7-2.5 GB and the ceiling at 16-18 (11-14); a drop under DROP_BELOW_MB
+#: keeps it near 5 GB, where the ceiling steps up. CT_CEILING_DROP_BELOW / CT_CEILING_SETTLE override.
+DROP_BELOW_MB = int(os.environ.get("CT_CEILING_DROP_BELOW") or 4800)
+DROP_SETTLE = int(os.environ.get("CT_CEILING_SETTLE") or 40)
 
 
 def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80):
@@ -155,11 +160,14 @@ class CeilingController:
     def _run(self):
         free = _win_free(self.host)
         cpu = _win_cpu(self.metrics) if self.metrics else None
-        if free is not None and free < 3000 and self.drop_cmd:
+        if free is not None and free < DROP_BELOW_MB and self.drop_cmd:
             try:
                 subprocess.run(["sh", "-c", self.drop_cmd], stdin=subprocess.DEVNULL, capture_output=True, timeout=40)
             except (OSError, subprocess.SubprocessError):
                 pass
+            # Windows gets the VM's freed pages back over the next ~30-60 s (11-14 07:17: a drop read
+            # 770 -> 1900 MB at once, 5-6 GB a minute on), so the step reads the settled figure.
+            time.sleep(DROP_SETTLE)
             again = _win_free(self.host)
             self.lines.append(f"ceiling: win free {free} MB -> dropped cache -> {again} MB")
             free = again if again is not None else free
