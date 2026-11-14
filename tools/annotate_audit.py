@@ -478,6 +478,52 @@ def bag_reports(out):
     return found
 
 
+_SESSION_CACHE = {}
+_SESSION_CACHE_FILE = pathlib.Path(os.environ.get("CT_MTIME_CACHE_DIR", "/data/home/.cache/ct-mtime")) / "audit-sessions.pickle"
+
+
+def _cached_session(path, templates, retired, kind):
+    """read_session, reused while the transcript's (mtime, size) and the check templates are
+    unchanged: a finished session is never written again, and each ledger record re-read every
+    one in its window twice (annotate, then hint), ~60 MB/min of disk reads."""
+    import hashlib
+    import pickle
+    if not _SESSION_CACHE:
+        try:
+            _SESSION_CACHE.update(pickle.loads(_SESSION_CACHE_FILE.read_bytes()))
+        except (OSError, ValueError, pickle.PickleError, EOFError):
+            pass
+        _SESSION_CACHE["_dirty"] = False
+    try:
+        st = path.stat()
+    except OSError:
+        return None
+    ver = hashlib.sha1(repr((sorted(map(str, templates)) if not isinstance(templates, dict) else sorted(templates.items(), key=str), sorted(map(str, retired)) if not isinstance(retired, dict) else sorted(retired.items(), key=str))).encode()).hexdigest()[:12]
+    key = (str(path), st.st_mtime_ns, st.st_size, kind, ver)
+    if key in _SESSION_CACHE:
+        return _SESSION_CACHE[key]
+    out = read_session(path, templates, retired, kind)
+    _SESSION_CACHE[key] = out
+    _SESSION_CACHE["_dirty"] = True
+    return out
+
+
+def save_session_cache():
+    """Write the cache back (only entries seen this run's key set are kept by age: capped)."""
+    import pickle
+    if not _SESSION_CACHE.get("_dirty"):
+        return
+    items = {k: v for k, v in _SESSION_CACHE.items() if k != "_dirty"}
+    keep = dict(sorted(items.items(), key=lambda kv: kv[0][1])[-3000:])
+    try:
+        _SESSION_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = _SESSION_CACHE_FILE.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_bytes(pickle.dumps(keep))
+        tmp.replace(_SESSION_CACHE_FILE)
+    except OSError:
+        pass
+
+
 def sessions(since, templates, retired=(), kind="annotate"):
     floor = since.timestamp() - 86400    # mtime is the LAST write; a run can start earlier
     for path in CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"):
@@ -486,7 +532,7 @@ def sessions(since, templates, retired=(), kind="annotate"):
                 continue
         except OSError:
             continue
-        s = read_session(path, templates, retired, kind)
+        s = _cached_session(path, templates, retired, kind)
         if s and s["start"] >= since:
             yield s
 
@@ -764,6 +810,7 @@ def window_audit(since, until, kind="annotate"):
     templates = load_templates(validator_source())
     retired = retired_templates(since, templates)
     rows = [r for r in sessions(since, templates, retired, kind) if not until or r["start"] < until]
+    save_session_cache()
     s = summarise(rows)
     return {"since": since.isoformat(), "until": until.isoformat() if until else None,
             "sessions": s["n"], "puzzles": s["puzzles"], "clues": s["clues"],

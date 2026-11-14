@@ -1503,7 +1503,17 @@ sync_wave() {
   # checkout only restores files git is tracking HERE. A generated page for a
   # puzzle this worktree's HEAD predates is untracked, and the moment origin
   # commits that same path, sync_tree refuses to write over it.
-  git clean -qfd -e 'puzzles/**/*.json' -e 'clues_only/' -e 'tools/'
+  # Only a path origin ADDS can collide, so the untracked walk (the whole-tree `git clean`
+  # read the entire checkout per wave, ~20 MB/min) is limited to those, as sync_tree_around_dirty does.
+  local _added _stray
+  _added="$(mktemp)"
+  git --no-optional-locks diff --name-only --diff-filter=A HEAD "${SYNC_ONTO:-origin/master}" |
+    grep -vE '^(puzzles/.*[.]json$|clues_only/|tools/)' >"$_added"
+  if [ -s "$_added" ]; then
+    git --no-optional-locks --literal-pathspecs ls-files --others --exclude-standard --pathspec-from-file="$_added" |
+      while IFS= read -r _stray; do rm -f -- "$_stray"; done
+  fi
+  rm -f "$_added"
   local out ref stale_s=$(( (${EPOCHREALTIME/[.,]/} - SYNC_OK_US) / 1000000 ))
   if ! push_race_retry sync_attempt; then
     if [ "$stale_s" -lt "$SYNC_STALL_SECS" ]; then
