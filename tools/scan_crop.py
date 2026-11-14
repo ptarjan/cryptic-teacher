@@ -9,7 +9,9 @@ lac") is still whole on the page. This cuts the box the filer's readers read
 the clues in out of the page: the filer's ledger (<cache>/filed.jsonl, or the Gale pages' filed-gale.jsonl) names
 the edition, leaf and number that filed the id, and the RapidOCR cache under
 <crops>/rapid/ holds the box it read. The crop is cached as
-<crops>/clues/<id>.png and cut again when the reading's cache is newer.
+<crops>/clues/<id>.png and cut again when the reading's cache is newer; the verdict
+it found sits beside it as <id>.json, so a later run does not read the ledgers
+(~140 MB, once per annotation run) again. Delete the .json after a refile.
 
 Prints why there is no crop (not filed off a scan, the edition or its reading
 no longer cached) and exits 1.
@@ -71,9 +73,25 @@ def crop(pid, cache=None, crops=None):
     puzzle = read_puzzle_file(resolve_puzzle(pid))
     if (puzzle.get("source") or {}).get("acquiredBy") != filer.TOOL:
         raise NoCrop(f"{pid} was not filed off an archive.org scan")
-    d, v = verdict(pid, cache)
-    box, reading = clue_box(d, v["number"], crops)
     out = crops / "clues" / f"{pid}.png"
+    memo = out.with_suffix(".json")
+    d = v = None
+    try:  # the verdict found last time: no pass over the ~140 MB of ledgers
+        held = json.loads(memo.read_text())
+        d, v = cache / held["edition"], {"number": held["number"], "leaf": held["leaf"]}
+        box, reading = clue_box(d, v["number"], crops)
+        if not d.is_dir():
+            raise NoCrop("edition gone")
+    except (OSError, ValueError, KeyError, NoCrop):
+        d = v = None
+    if v is None:
+        d, v = verdict(pid, cache)
+        box, reading = clue_box(d, v["number"], crops)
+        memo.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            memo.write_text(json.dumps({"edition": d.name, "number": v["number"], "leaf": v["leaf"]}))
+        except OSError:
+            pass
     if out.exists() and out.stat().st_mtime >= reading.stat().st_mtime:
         return out
     leaf = d / f"leaf_{v['leaf']:04d}.jpg"
