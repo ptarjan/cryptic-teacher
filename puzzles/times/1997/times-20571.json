@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,30 @@
      }
     ]
    },
-   "solution": "CUTTHROAT"
+   "solution": "CUTTHROAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One can have a close shave with this",
+      "at": 0,
+      "meaning": "an open razor with a long blade, the old barber's kind"
+     },
+     {
+      "text": "murderer",
+      "at": 37,
+      "meaning": "a killer who slits victims' necks, or any violent ruffian"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The open razor and the ruthless killer share one name, from slitting a neck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +76,39 @@
     "text": "Conservative too old to get press attention",
     "enumeration": "8"
    },
-   "solution": "COVERAGE"
+   "solution": "COVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "press attention",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "words": "too old",
+       "at": 13,
+       "gives": "OVERAGE",
+       "note": "overage means beyond the permitted age"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory considered past it attracts the newspapers.",
+     "definitionFit": "Coverage is the reporting a story receives in newspapers and broadcasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +122,42 @@
     "text": "Military coat necessary to fight unicorn",
     "enumeration": "5"
    },
-   "solution": "TUNIC"
+   "solution": "TUNIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Military coat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "necessary to",
+       "at": 14,
+       "note": "necessary to says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fight unicorn",
+       "at": 27,
+       "gives": "TUNIC",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Armour needed for battling a mythical beast.",
+     "definitionFit": "A tunic is a close-fitting jacket worn as part of a uniform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unicorn"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +171,76 @@
     "text": "Nourishing treat most of the rich finish off",
     "enumeration": "9"
    },
-   "solution": "HEALTHFUL"
+   "solution": "HEALTHFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nourishing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "treat",
+       "at": 11,
+       "gives": "HEAL",
+       "note": "to treat an illness is to heal it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 17,
+         "note": "most of means the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 25
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finish off",
+         "at": 34,
+         "note": "finish off means the end letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rich",
+         "at": 29,
+         "gives": "FULL",
+         "note": "rich means full, as in a full flavour"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tasty snack: eating up most of a rich dessert.",
+     "walkthrough": "'most of' trims THE to TH, and 'finish off' cuts FULL to FUL.",
+     "definitionFit": "Healthful means wholesome, good for the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treat"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +254,46 @@
     "text": "Caruso left confused about kissing",
     "enumeration": "7"
    },
-   "solution": "OSCULAR"
+   "solution": "OSCULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "about kissing",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confused",
+       "at": 12,
+       "note": "confused means mixed up, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caruso",
+       "at": 0
+      },
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The tenor Caruso was bewildered on the subject of kissing.",
+     "walkthrough": "'confused' rearranges CARUSO plus L. Enrico Caruso was a famous Italian tenor.",
+     "definitionFit": "Oscular is an adjective meaning relating to the mouth or to kissing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caruso"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +307,29 @@
     "text": "Destroyer at sea using electric ray",
     "enumeration": "7"
    },
-   "solution": "TORPEDO"
+   "solution": "TORPEDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Destroyer at sea",
+      "at": 0,
+      "meaning": "a self-propelled underwater missile that sinks ships"
+     },
+     {
+      "text": "electric ray",
+      "at": 23,
+      "meaning": "a fish that stuns prey with an electric shock"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The underwater missile was named after the numbing fish, so both senses share one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Destroyer"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +343,29 @@
     "text": "Money for some of the players",
     "enumeration": "5"
    },
-   "solution": "BRASS"
+   "solution": "BRASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0,
+      "meaning": "an informal word for cash, chiefly in northern England"
+     },
+     {
+      "text": "some of the players",
+      "at": 10,
+      "meaning": "the trumpets, trombones and horns of an orchestra"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Slang for cash and also the metal-wind section of a band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +379,49 @@
     "text": "Tea in raffish place, having left motorway",
     "enumeration": "5"
    },
-   "solution": "BOHEA"
+   "solution": "BOHEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tea",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having left",
+       "at": 22,
+       "note": "having left means these letters depart from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "raffish place",
+       "at": 7,
+       "gives": "BOHEMIA",
+       "note": "Bohemia is the land of unconventional, raffish artists"
+      },
+      {
+       "words": "motorway",
+       "at": 34,
+       "gives": "MI",
+       "note": "M1 is a British motorway, written MI in crosswords"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having a cuppa in a seedy spot after turning off the highway.",
+     "walkthrough": "BOHEMIA, the home of bohemians, loses MI (the M1, Britain's main north-south motorway).",
+     "definitionFit": "Bohea is a black China tea, once the finest kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +435,49 @@
     "text": "Take pride in changing gear on car",
     "enumeration": "9"
    },
-   "solution": "ARROGANCE"
+   "solution": "ARROGANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pride",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changing",
+       "at": 14,
+       "note": "changing means altering, so these letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gear",
+       "at": 23
+      },
+      {
+       "words": "on",
+       "at": 28
+      },
+      {
+       "words": "car",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling smug about shifting gear in one's motor.",
+     "walkthrough": "'changing' rearranges GEAR ON CAR.",
+     "definitionFit": "Arrogance is overbearing self-importance, an excess of self-regard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +491,35 @@
     "text": "Miss Australia?",
     "enumeration": "6"
    },
-   "solution": "SHEILA"
+   "solution": "SHEILA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss Australia?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Miss Australia?",
+       "at": 0,
+       "note": "not a beauty queen but any young woman Down Under, in local slang"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It looks like the beauty title; it is the Australian slang word for a girl.",
+     "definitionFit": "In Australian slang this is a word for a girl or young woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +533,35 @@
     "text": "Chekhov's pawnbroker?",
     "enumeration": "5"
    },
-   "solution": "VANYA"
+   "solution": "VANYA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chekhov's pawnbroker?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Chekhov's pawnbroker?",
+       "at": 0,
+       "note": "a pawnbroker is slangily called 'uncle', so Chekhov's play about an uncle names one"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Uncle' is old British slang for a pawnbroker, so the title character of Chekhov's play Uncle Vanya becomes one through the pun.",
+     "definitionFit": "The title figure of a Chekhov play is an uncle, the slang term for one who lends against pledges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pawnbroker"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +581,35 @@
      }
     ]
    },
-   "solution": "CARTHORSE"
+   "solution": "CARTHORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boxer, say, pulling punch?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Boxer, say, pulling punch?",
+       "at": 0,
+       "note": "Boxer is the loyal draught animal in Orwell's Animal Farm; a Suffolk Punch is a breed of heavy draught animal"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Boxer looks like a fighter pulling a punch; he is the heavy workhorse in Orwell's Animal Farm, and a Punch (Suffolk Punch) is a breed of such horses.",
+     "definitionFit": "Boxer in Animal Farm is a heavy draught animal, the kind that hauls wagons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boxer"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +623,59 @@
     "text": "Account given in novel clear about it",
     "enumeration": "7"
    },
-   "solution": "RECITAL"
+   "solution": "RECITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Account",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about means the rearranged letters go round the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 17,
+         "note": "novel means new, so the following word is made anew in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clear",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "it",
+       "at": 35,
+       "gives": "IT",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report delivered in a book that is clear about something.",
+     "walkthrough": "'Account' sounds like money but means a narration; 'novel' is the anagram signal, not a book.",
+     "definitionFit": "A recital is a detailed telling or narration of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +689,45 @@
     "text": "Len gave order for one of the leading new hooks",
     "enumeration": "7"
    },
-   "solution": "EVANGEL"
+   "solution": "EVANGEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one of the leading new hooks",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "order",
+       "at": 9,
+       "note": "to order is to arrange, so the letters of the two words are put into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Len",
+       "at": 0
+      },
+      {
+       "words": "gave",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Len issues instructions about some new hooks.",
+     "walkthrough": "'order' rearranges LEN GAVE. 'hooks' as printed must be read as 'books': the Gospels lead the New Testament.",
+     "definitionFit": "An evangel is a gospel, and the Gospels lead off the New Testament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +751,30 @@
      }
     ]
    },
-   "solution": "GOODFORNOTHING"
+   "solution": "GOODFORNOTHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Idle fellow",
+      "at": 0,
+      "meaning": "a worthless layabout"
+     },
+     {
+      "text": "for whom virtue is its own reward?",
+      "at": 12,
+      "meaning": "someone who behaves well and expects no payment at all"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A wastrel is called worthless; read literally, the phrase is someone virtuous with no payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "virtue"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +794,48 @@
      }
     ]
    },
-   "solution": "ORANGETIP"
+   "solution": "ORANGETIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one for a flutter",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "sweep",
+       "at": 4,
+       "gives": "RANGE",
+       "note": "a sweep or extent is a range"
+      },
+      {
+       "words": "inside information",
+       "at": 16,
+       "gives": "TIP",
+       "note": "a tip is a piece of inside knowledge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly chimney sweep with a racing tip is ready to bet.",
+     "walkthrough": "'flutter' suggests a small bet, but here it is wings: the orange-tip is a butterfly.",
+     "definitionFit": "The orange-tip is a European butterfly, an insect that flutters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flutter"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +849,41 @@
     "text": "Doubt could be confusing in the case",
     "enumeration": "9"
    },
-   "solution": "HESITANCE"
+   "solution": "HESITANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doubt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be confusing",
+       "at": 6,
+       "note": "could be confusing means the letters may be muddled into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in the case",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uncertainty might cloud the matter in a legal case.",
+     "walkthrough": "'could be confusing' rearranges IN THE CASE.",
+     "definitionFit": "Hesitance is indecision, a reluctance from uncertainty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +897,35 @@
     "text": "Some relief work may be included in these figures",
     "enumeration": "8"
    },
-   "solution": "STATUARY"
+   "solution": "STATUARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some relief work may be included in these figures",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Some relief work may be included in these figures",
+       "at": 0,
+       "note": "relief here is sculpture raised from a flat background, and figures are carved forms, not charity work or numbers"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'relief work' and 'figures' suggest aid statistics; they are sculpture.",
+     "definitionFit": "Statuary is sculpture collectively, which can include carvings in relief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +953,35 @@
      }
     ]
    },
-   "solution": "FALLONONESFEET"
+   "solution": "FALLONONESFEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make surprisingly good landing after trip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Make surprisingly good landing after trip",
+       "at": 0,
+       "note": "literally, stumbling and still coming down upright, like a cat; figuratively, emerging lucky from a setback"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The idiom means to come out of difficulty well, but read literally it is a stumble ending upright.",
+     "definitionFit": "The idiom describes escaping a mishap luckily, pictured as stumbling yet coming down upright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +995,50 @@
     "text": "Sisters at entrance to nave remove head-dress",
     "enumeration": "7"
    },
-   "solution": "NUNHOOD"
+   "solution": "NUNHOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sisters",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "entrance to",
+         "at": 11,
+         "note": "entrance to means the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nave",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "remove head-dress",
+       "at": 28,
+       "gives": "UNHOOD",
+       "note": "to unhood is to take off a hood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nuns at the church door take off their veils.",
+     "definitionFit": "Nunhood is the state of nuns, or nuns as a body, a sisterhood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1058,59 @@
      }
     ]
    },
-   "solution": "NONSKID"
+   "solution": "NONSKID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meant to avoid accident",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "the contrary",
+         "at": 28,
+         "note": "on the contrary turns the small word before it the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "On",
+         "at": 25,
+         "gives": "ON"
+        }
+       ]
+      },
+      {
+       "words": "partners",
+       "at": 42,
+       "gives": "NS",
+       "note": "N and S, North and South, are partners at bridge"
+      },
+      {
+       "words": "a child",
+       "at": 56,
+       "gives": "KID",
+       "note": "a kid is a child"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lovers produce a baby by accident, despite trying to avoid one.",
+     "walkthrough": "'the contrary' turns ON into NO. North and South are partners at the bridge table.",
+     "definitionFit": "A non-skid surface or tyre is designed to stop slipping and crashes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1124,49 @@
     "text": "Soldiers holding strike in Macbeth's land",
     "enumeration": "6"
    },
-   "solution": "GLAMIS"
+   "solution": "GLAMIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Macbeth's land",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 9,
+       "note": "holding means the first word goes round the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Soldiers",
+       "at": 0,
+       "gives": "GIS",
+       "note": "GIs are American soldiers"
+      },
+      {
+       "words": "strike",
+       "at": 17,
+       "gives": "LAM",
+       "note": "to lam is to beat or strike"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops on industrial action in Shakespeare's Scotland.",
+     "walkthrough": "Macbeth was Thane of Glamis, a place in Scotland.",
+     "definitionFit": "Macbeth held the title Thane of Glamis, his Scottish territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1180,11 @@
     "text": "Fowl — a hooter on the lake, say",
     "enumeration": "7"
    },
-   "solution": "LEGHORN"
+   "solution": "LEGHORN",
+   "annotationWithheld": {
+    "why": "Fowl - a hooter on the lake, say (7): LEG (on) + HORN (hooter) is plausible but 'the lake, say' has no role in any parse found; scan matches the text",
+    "clue": "Fowl — a hooter on the lake, say"
+   }
   },
   {
    "number": 22,
@@ -400,7 +1198,49 @@
     "text": "The gilt-edged alternative",
     "enumeration": "5"
    },
-   "solution": "OTHER"
+   "solution": "OTHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "alternative",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "edged",
+       "at": 9,
+       "note": "edged means bordered, so the letters go on either side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gilt",
+       "at": 4,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "The",
+       "at": 0,
+       "gives": "THE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Safe government bonds as another investment choice.",
+     "walkthrough": "'gilt-edged' looks like safe government bonds; 'gilt' is gold in heraldry, and 'edged' places it on both sides.",
+     "definitionFit": "Other means different or alternative, the remaining option."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gilt-edged"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1254,40 @@
     "text": "Observation permitted in informal letter",
     "enumeration": "7"
    },
-   "solution": "NOTELET"
+   "solution": "NOTELET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "informal letter",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Observation",
+       "at": 0,
+       "gives": "NOTE",
+       "note": "an observation is a remark or note"
+      },
+      {
+       "words": "permitted",
+       "at": 12,
+       "gives": "LET",
+       "note": "permitted means allowed, let"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark allowed into a casual letter.",
+     "definitionFit": "A notelet is a small folded card for a short, casual message."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1301,42 @@
     "text": "Where airways go, one can get exotic apparel",
     "enumeration": "5"
    },
-   "solution": "LUNGI"
+   "solution": "LUNGI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exotic apparel",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Where airways go",
+       "at": 0,
+       "gives": "LUNG",
+       "note": "the bronchial airways lead into the lung"
+      },
+      {
+       "words": "one",
+       "at": 18,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Air routes lead to a place selling foreign clothes.",
+     "walkthrough": "'airways' suggests airlines; they are breathing passages.",
+     "definitionFit": "A lungi is a cloth wrapped round the waist, worn in South Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "airways"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1350,43 @@
     "text": "Shotgun wedding embrace",
     "enumeration": "9"
    },
-   "solution": "MATCHLOCK"
+   "solution": "MATCHLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shotgun",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wedding",
+       "at": 8,
+       "gives": "MATCH",
+       "note": "a wedding is a marriage, a match"
+      },
+      {
+       "words": "embrace",
+       "at": 16,
+       "gives": "LOCK",
+       "note": "an embrace is a hold, a lock (as in a lock of arms)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forced marriage, the bride and groom hugging.",
+     "walkthrough": "'Shotgun wedding' reads as a forced marriage, but 'Shotgun' alone is the definition, loosely used for an old firearm.",
+     "definitionFit": "A matchlock is an early firearm fired by a slow-burning cord, here loosely called a gun for shooting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wedding"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1400,46 @@
     "text": "Grandma putting new heart into children's nurse",
     "enumeration": "5"
    },
-   "solution": "NANNA"
+   "solution": "NANNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grandma",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "heart into",
+       "at": 20,
+       "note": "heart into means the letter goes into the middle of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "children's nurse",
+       "at": 31,
+       "gives": "NANA",
+       "note": "a nana (nanny) is a children's nurse"
+      },
+      {
+       "words": "new",
+       "at": 16,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Granny gives the nanny some fresh courage.",
+     "definitionFit": "Nanna is a familiar name for a grandmother."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -470,7 +1453,40 @@
     "text": "Exceptionally good purse distributed",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exceptionally good",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "distributed",
+       "at": 25,
+       "note": "distributed means spread around, so the letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "purse",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine handbag's contents shared out among people.",
+     "definitionFit": "Super is an informal word for excellent or first-rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "purse"
+    }
+   }
   },
   {
    "number": 28,
@@ -490,7 +1506,61 @@
      }
     ]
    },
-   "solution": "DODGECITY"
+   "solution": "DODGECITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "frontier town",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in means one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dangerous",
+       "at": 30,
+       "gives": "DODGY",
+       "note": "dodgy is informal for risky or dangerous"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "held back",
+         "at": 17,
+         "note": "held back means the word is put backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Special delivery",
+         "at": 0,
+         "gives": "TICE",
+         "note": "a tice is an old cricket term for a yorker, a special kind of ball bowled"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Express post delayed in a risky Wild West settlement.",
+     "walkthrough": "'held back' turns TICE (an old cricket word for a yorker) into ECIT, placed 'in' DODGY. Dodge City, Kansas, was a notorious Wild West town.",
+     "definitionFit": "Dodge City in Kansas was a famous lawless settlement of the American West."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   }
  ]
 }
