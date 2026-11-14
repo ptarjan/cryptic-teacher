@@ -385,4 +385,7 @@ assert ct.count_in_text("Surround streets in Dover and Calais? Sounds good (5,4)
 for text, enum in [("Event of 1917 (4)", "5"), ("Man's surrounded by it (5,3) madly protected?", "5,3"),
                    ("Bomb (5). code.", None)]:
     assert ct.count_in_text(text, enum) == text, text
+# open_ellipsis_bracket: "...)" regains its opener only when closers outnumber openers
+assert ct.open_ellipsis_bracket("Fool ...) in") == "Fool (...) in"
+assert ct.open_ellipsis_bracket("Fool (a ...) in") == "Fool (a ...) in"
 print("clue_text ok")

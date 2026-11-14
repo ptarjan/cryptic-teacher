@@ -25,6 +25,7 @@ import os
 import re
 import sys
 from pathlib import Path
+import clue_text
 import downloads
 import gale_inbox as gi
 import file_archive_org_puzzles as fa
@@ -705,8 +706,7 @@ def mended_text(laid, printed):
             if w is not None:
                 keep.append(w)
         new = " ".join(keep)
-        if new.count(")") > new.count("("):
-            new = re.sub(r"(?<![(\w])((?:\.\.\.|…)\))", r"(\1", new, count=1)
+        new = clue_text.open_ellipsis_bracket(new)
         new = spaced_quotes(new)
         if new != text:
             out[lid] = (new, enum, group)

@@ -538,6 +538,14 @@ def head_off(text):
     return HEAD_NUMBER.sub("", (text or "").strip())
 
 
+def open_ellipsis_bracket(text):
+    """`text` with the opening bracket an ellipsis-and-bracket ("...)") lost, put back
+    when there are more closers than openers: "...)" is "(...)"."""
+    if text.count(")") > text.count("("):
+        text = re.sub(r"(?<![(\w])((?:\.\.\.|…)\))", r"(\1", text, count=1)
+    return text
+
+
 def mend_opening(text):
     """`text`, a clue's opening, with a number run into "rev." ("20rev.,24.Charade:"
     is "20 rev., 24. Charade:"), a number run into its first word parted, and
