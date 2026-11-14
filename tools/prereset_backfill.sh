@@ -1378,7 +1378,11 @@ sync_tree_around_dirty() {
   changed=$tmp/changed dirty=$tmp/dirty hold=$tmp/hold gone=$tmp/gone keep=$tmp/keep
   local onto=${SYNC_ONTO:-origin/master}
   git diff --name-only HEAD "$onto" | sort >"$changed"
-  { git diff --name-only HEAD; git ls-files --others --exclude-standard; } | sort -u >"$dirty"
+  # Only paths origin changed can collide, so the untracked walk is limited to
+  # them (the whole-tree `ls-files --others` read the entire checkout per sync).
+  { git --no-optional-locks diff --name-only HEAD
+    [ -s "$changed" ] && git --no-optional-locks --literal-pathspecs ls-files --others --exclude-standard --pathspec-from-file="$changed"
+  } | sort -u >"$dirty"
   comm -12 "$changed" "$dirty" >"$hold"
   git diff --name-only --diff-filter=D HEAD "$onto" | sort | comm -23 - "$hold" >"$gone"
   comm -23 "$changed" "$hold" | comm -23 - "$gone" >"$keep"
