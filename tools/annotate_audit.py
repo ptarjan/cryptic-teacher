@@ -46,6 +46,8 @@ import re
 import statistics
 import subprocess
 import sys
+import time
+import zlib
 
 from turn_cost import (
     is_annotate_session,
@@ -353,67 +355,93 @@ def _cost(model, usage):
             + cc.get("ephemeral_1h_input_tokens", 0) * p[4]) / 1e6
 
 
-def read_session(path, templates, retired=(), kind="annotate"):
-    """One transcript's numbers, or None if it is not a run of `kind` (annotate or hint)."""
-    first_user, t0, t1, model = None, None, None, None
-    turns = collections.OrderedDict()       # message id -> (usage, after first check)
-    calls, check_ids, check_outs, writes = {}, set(), [], {}
-    s = {"tool_errors": collections.Counter(), "memory": False, "validator_reads": 0, "max_tokens": 0}
+def _new_state():
+    return {"first_user": None, "t0": None, "t1": None, "model": None, "rejected": False,
+            "turns": collections.OrderedDict(),      # message id -> (usage, after first check)
+            "calls": {}, "check_ids": set(), "check_outs": [], "writes": {},
+            "tool_errors": collections.Counter(), "memory": False, "validator_reads": 0,
+            "max_tokens": 0}
+
+
+def _advance(st, path, offset, kind):
+    """Parse the complete records of `path` from byte `offset` into the resumable state `st`;
+    returns the new offset (a half-written last line is left for the next run)."""
+    if st["rejected"]:
+        return offset
     try:
-        fh = open(path, encoding="utf-8", errors="replace")  # closed by `with fh` below
+        fh = open(path, "rb")  # closed by `with fh` below
     except OSError:
-        return None
+        return offset
+    pos = offset
     with fh:
-        for line in fh:
+        fh.seek(offset)
+        for raw in fh:
+            line = raw.decode("utf-8", errors="replace")
             try:
                 rec = json.loads(line)
             except ValueError:
-                continue
+                if raw.endswith(b"\n"):
+                    pos += len(raw)
+                    continue
+                break           # a partial last line: wait for the rest
+            pos += len(raw)
             if rec.get("timestamp"):
-                t1 = rec["timestamp"]
-                t0 = t0 or t1
+                st["t1"] = rec["timestamp"]
+                st["t0"] = st["t0"] or st["t1"]
             msg = rec.get("message") or {}
             if rec.get("type") == "user":
                 content = msg.get("content")
-                if first_user is None:
-                    first_user = _text(content) if isinstance(content, (str, list)) else ""
-                    if session_kind(first_user) != kind:
-                        return None
+                if st["first_user"] is None:
+                    st["first_user"] = _text(content) if isinstance(content, (str, list)) else ""
+                    if session_kind(st["first_user"]) != kind:
+                        st["rejected"] = True
+                        break
                 for b in content if isinstance(content, list) else []:
                     if not isinstance(b, dict) or b.get("type") != "tool_result":
                         continue
                     text = _text(b.get("content"))
-                    if b.get("tool_use_id") in check_ids:
-                        check_outs.append((calls[b["tool_use_id"]][1], text))
+                    if b.get("tool_use_id") in st["check_ids"]:
+                        st["check_outs"].append((st["calls"][b["tool_use_id"]][1], text))
                     if b.get("is_error"):
-                        tool, cmd = calls.get(b.get("tool_use_id"), ("?", ""))
-                        kind = tool_error_kind(tool, cmd, text)
-                        if kind:
-                            s["tool_errors"][kind] += 1
+                        tool, cmd = st["calls"].get(b.get("tool_use_id"), ("?", ""))
+                        ek = tool_error_kind(tool, cmd, text)
+                        if ek:
+                            st["tool_errors"][ek] += 1
             elif rec.get("type") == "assistant":
-                model = msg.get("model") or model
+                st["model"] = msg.get("model") or st["model"]
                 mid = msg.get("id") or rec.get("uuid")
-                if mid not in turns:
-                    turns[mid] = (msg.get("usage") or {}, bool(check_ids))
-                    s["max_tokens"] += msg.get("stop_reason") == "max_tokens"
+                if mid not in st["turns"]:
+                    st["turns"][mid] = (msg.get("usage") or {}, bool(st["check_ids"]))
+                    st["max_tokens"] += msg.get("stop_reason") == "max_tokens"
                 for b in msg.get("content") or []:
                     if not isinstance(b, dict) or b.get("type") != "tool_use":
                         continue
                     inp = b.get("input") or {}
                     cmd = inp.get("command") or inp.get("file_path") or ""
-                    calls[b.get("id")] = (b.get("name"), cmd)
+                    st["calls"][b.get("id")] = (b.get("name"), cmd)
                     if b.get("name") == "Write" and re.search(r"/_ann_[^/]*\.json$", cmd):
-                        writes[cmd] = str(inp.get("content") or "")
+                        st["writes"][cmd] = str(inp.get("content") or "")
                     blob = json.dumps(inp)
                     if "/memory/" in blob or "MEMORY.md" in blob:
-                        s["memory"] = True
+                        st["memory"] = True
                     if "validate_annotations.py" in cmd and "--explain" not in cmd and (
                             b.get("name") == "Read" or re.search(r"\b(grep|sed|cat|head|tail|awk)\b", cmd)):
-                        s["validator_reads"] += 1
+                        st["validator_reads"] += 1
                     if b.get("name") == "Bash" and ("annotate_check" in cmd or "annotate_bag.py check" in cmd):
-                        check_ids.add(b.get("id"))
+                        st["check_ids"].add(b.get("id"))
+    return pos
+
+
+def _finish(st, templates, retired=()):
+    """The session's numbers from a parsed state (the state is not modified), or None."""
+    if st["rejected"]:
+        return None
+    first_user, t0, t1, model, turns = st["first_user"], st["t0"], st["t1"], st["model"], st["turns"]
     if not first_user or not turns or not t0:
         return None
+    s = {"tool_errors": collections.Counter(st["tool_errors"]), "memory": st["memory"],
+         "validator_reads": st["validator_reads"], "max_tokens": st["max_tokens"]}
+    check_outs, writes = st["check_outs"], st["writes"]
     costs = [(_cost(model, u), after) for u, after in turns.values()]
     first_usage = next(iter(turns.values()))[0]
     s.update(
@@ -452,6 +480,13 @@ def read_session(path, templates, retired=(), kind="annotate"):
     return s
 
 
+def read_session(path, templates, retired=(), kind="annotate"):
+    """One transcript's numbers, or None if it is not a run of `kind` (annotate or hint)."""
+    st = _new_state()
+    _advance(st, path, 0, kind)
+    return _finish(st, templates, retired)
+
+
 def single_check_id(cmd):
     """The puzzle a `tools/annotate_check.py ID ...` command checks (the command itself if unclear)."""
     m = re.search(r"annotate_check(?:\.py)?\b.*?\b([a-z][a-z0-9]*-\d+)\b", cmd)
@@ -478,50 +513,108 @@ def bag_reports(out):
     return found
 
 
-_SESSION_CACHE = {}
-_SESSION_CACHE_FILE = pathlib.Path(os.environ.get("CT_MTIME_CACHE_DIR") or pathlib.Path.home() / ".cache" / "ct-mtime") / "audit-sessions.pickle"
+_CACHE_DIR = pathlib.Path(os.environ.get("CT_MTIME_CACHE_DIR") or pathlib.Path.home() / ".cache" / "ct-mtime")
+_SESSION_CACHE_FILE = _CACHE_DIR / "audit-sessions.pickle"
+_LOCK_FILE = _CACHE_DIR / "annotate_audit.lock"
+_CACHE_VERSION = 3
+KEEP_CACHE_DAYS = 10
+_SESSION_CACHE = {}     # (path, kind) -> {"ino", "size", "offset", "mtime", "state"}
+_cache_loaded = False
+_cache_dirty = False
+_lock_depth = 0
+
+
+def _load_cache():
+    """Load the per-transcript resumable states (once per lock hold)."""
+    import pickle
+    global _cache_loaded, _cache_dirty
+    _SESSION_CACHE.clear()
+    _cache_dirty = False
+    _cache_loaded = True
+    try:
+        data = pickle.loads(zlib.decompress(_SESSION_CACHE_FILE.read_bytes()))
+        if isinstance(data, dict) and data.get("v") == _CACHE_VERSION:
+            _SESSION_CACHE.update(data["files"])
+    except (OSError, ValueError, pickle.PickleError, EOFError, AttributeError, ImportError, zlib.error):
+        pass
+
+
+def save_session_cache():
+    """Write the states back (compressed), keeping every transcript touched in the last
+    KEEP_CACHE_DAYS: a count cap smaller than the audit window made every run re-read the rest."""
+    import pickle
+    global _cache_dirty
+    if not _cache_dirty:
+        return
+    floor = (time.time() - KEEP_CACHE_DAYS * 86400) * 1e9
+    keep = {k: v for k, v in _SESSION_CACHE.items() if v["mtime"] >= floor}
+    try:
+        _SESSION_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = _SESSION_CACHE_FILE.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_bytes(zlib.compress(
+            pickle.dumps({"v": _CACHE_VERSION, "files": keep}, protocol=pickle.HIGHEST_PROTOCOL), 1))
+        tmp.replace(_SESSION_CACHE_FILE)
+        _cache_dirty = False
+    except OSError:
+        pass
+
+
+class _exclusive:
+    """One audit at a time on this machine. A second caller blocks on the flock, then loads the
+    cache the first one just saved and finds nothing new to read. Re-entrant within a process
+    (the ledger calls window_audit twice)."""
+
+    def __enter__(self):
+        global _lock_depth
+        if _lock_depth == 0:
+            import fcntl
+            try:
+                _LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
+                self.fh = open(_LOCK_FILE, "a")  # closed in __exit__
+                fcntl.flock(self.fh, fcntl.LOCK_EX)
+            except OSError:
+                self.fh = None
+            _load_cache()
+        _lock_depth += 1
+        return self
+
+    def __exit__(self, *exc):
+        global _lock_depth, _cache_loaded
+        _lock_depth -= 1
+        if _lock_depth == 0:
+            save_session_cache()
+            _cache_loaded = False
+            if self.fh:
+                self.fh.close()      # releases the flock
+        return False
 
 
 def _cached_session(path, templates, retired, kind):
-    """read_session, reused while the transcript's (mtime, size) and the check templates are
-    unchanged: a finished session is never written again, and each ledger record re-read every
-    one in its window twice (annotate, then hint), ~60 MB/min of disk reads."""
-    import hashlib
-    import pickle
-    if not _SESSION_CACHE:
-        try:
-            _SESSION_CACHE.update(pickle.loads(_SESSION_CACHE_FILE.read_bytes()))
-        except (OSError, ValueError, pickle.PickleError, EOFError):
-            pass
-        _SESSION_CACHE["_dirty"] = False
+    """The transcript's numbers. Per (transcript, kind) the parse state and byte offset are kept:
+    an unchanged file reads nothing, a grown one only its appended bytes, a shrunk or replaced
+    one (inode changed) is read again in full."""
+    global _cache_dirty
+    if not _cache_loaded:
+        _load_cache()
     try:
         st = path.stat()
     except OSError:
         return None
-    ver = hashlib.sha1(repr((sorted(map(str, templates)) if not isinstance(templates, dict) else sorted(templates.items(), key=str), sorted(map(str, retired)) if not isinstance(retired, dict) else sorted(retired.items(), key=str))).encode()).hexdigest()[:12]
-    key = (str(path), st.st_mtime_ns, st.st_size, kind, ver)
-    if key in _SESSION_CACHE:
-        return _SESSION_CACHE[key]
-    out = read_session(path, templates, retired, kind)
-    _SESSION_CACHE[key] = out
-    _SESSION_CACHE["_dirty"] = True
-    return out
-
-
-def save_session_cache():
-    """Write the cache back (only entries seen this run's key set are kept by age: capped)."""
-    import pickle
-    if not _SESSION_CACHE.get("_dirty"):
-        return
-    items = {k: v for k, v in _SESSION_CACHE.items() if k != "_dirty"}
-    keep = dict(sorted(items.items(), key=lambda kv: kv[0][1])[-3000:])
-    try:
-        _SESSION_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
-        tmp = _SESSION_CACHE_FILE.with_suffix(f".{os.getpid()}.tmp")
-        tmp.write_bytes(pickle.dumps(keep))
-        tmp.replace(_SESSION_CACHE_FILE)
-    except OSError:
-        pass
+    key = (str(path), kind)
+    ent = _SESSION_CACHE.get(key)
+    if ent and (ent["ino"] != st.st_ino or st.st_size < ent["size"]):
+        ent = None
+    if ent is None:
+        ent = {"ino": st.st_ino, "size": 0, "offset": 0, "mtime": st.st_mtime_ns, "state": _new_state()}
+        _SESSION_CACHE[key] = ent
+    if st.st_size > ent["size"]:
+        ent["offset"] = _advance(ent["state"], path, ent["offset"], kind)
+        ent["size"] = st.st_size
+        ent["mtime"] = st.st_mtime_ns
+        _cache_dirty = True
+    elif ent["mtime"] != st.st_mtime_ns:
+        ent["mtime"] = st.st_mtime_ns
+    return _finish(ent["state"], templates, retired)
 
 
 def sessions(since, templates, retired=(), kind="annotate"):
@@ -807,6 +900,11 @@ def _touches(r, key):
 
 def window_audit(since, until, kind="annotate"):
     """The exact window [since, until) as one dict: what the ledger row and --json print."""
+    with _exclusive():
+        return _window_audit(since, until, kind)
+
+
+def _window_audit(since, until, kind):
     templates = load_templates(validator_source())
     retired = retired_templates(since, templates)
     rows = [r for r in sessions(since, templates, retired, kind) if not until or r["start"] < until]
@@ -825,6 +923,11 @@ def parse_time(text):
 
 
 def main(argv=None):
+    with _exclusive():
+        return _main(argv)
+
+
+def _main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--hours", type=int, default=48)
     ap.add_argument("--json", action="store_true")
@@ -902,5 +1005,61 @@ def main(argv=None):
     return 0
 
 
+# ---------------------------------------------------------------- incremental jsonl
+
+def read_jsonl_incremental(path):
+    """The parsed rows of a jsonl file that only grows (the cost ledger), reading just the bytes
+    appended since the last call. A shrunk file or a new inode is read in full again. Rows are
+    copies, so a caller may edit them."""
+    import copy
+    import pickle
+    cache_file = _CACHE_DIR / "audit-ledgers.pickle"
+    try:
+        books = pickle.loads(cache_file.read_bytes())
+    except (OSError, ValueError, pickle.PickleError, EOFError, AttributeError, ImportError):
+        books = {}
+    key = str(path)
+    try:
+        st = os.stat(path)
+    except OSError:
+        return []
+    ent = books.get(key)
+    try:
+        with open(path, "rb") as fh:
+            head = fh.read(256)
+    except OSError:
+        return []
+    if (not ent or ent["ino"] != st.st_ino or st.st_size < ent["offset"]
+            or not head.startswith(ent["head"][:min(256, ent["offset"])])):
+        ent = {"ino": st.st_ino, "offset": 0, "rows": [], "head": b""}
+    extra = []                      # an unterminated last line: shown, but not remembered
+    if st.st_size > ent["offset"]:
+        with open(path, "rb") as fh:
+            fh.seek(ent["offset"])
+            for raw in fh:
+                try:
+                    row = json.loads(raw.decode("utf-8", errors="replace"))
+                except ValueError:
+                    row = None
+                if not raw.endswith(b"\n"):
+                    if row is not None:
+                        extra.append(row)
+                    break
+                ent["offset"] += len(raw)
+                if row is not None:
+                    ent["rows"].append(row)
+        ent["head"] = head
+        books[key] = ent
+        try:
+            _CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            tmp = cache_file.with_suffix(f".{os.getpid()}.tmp")
+            tmp.write_bytes(pickle.dumps(books, protocol=pickle.HIGHEST_PROTOCOL))
+            tmp.replace(cache_file)
+        except OSError:
+            pass
+    return copy.deepcopy(ent["rows"]) + extra
+
+
 if __name__ == "__main__":
     sys.exit(main())
+

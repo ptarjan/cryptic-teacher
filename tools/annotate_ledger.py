@@ -118,9 +118,11 @@ def read_ledger(path=None, kind="annotate"):
 
 
 def read_all(path=None):
+    if path is None:
+        return audit.read_jsonl_incremental(LEDGER)
     rows = []
     try:
-        for line in (path or LEDGER).read_text().splitlines():
+        for line in path.read_text().splitlines():
             try:
                 rows.append(json.loads(line))
             except ValueError:
