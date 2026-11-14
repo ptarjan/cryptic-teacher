@@ -287,9 +287,6 @@ check("an ellipsis key naming two free spans lands on both", not left and [n for
 tree = w.parse("[low]MOO + last<end of>([candle]) + [morning]AM", "low end of candle morning")
 check("a pick's leaf is owed no note", [s[k] for s, k in w._spans_owed_a_note(tree)] == ["low", "end of", "morning"],
       w._spans_owed_a_note(tree))
-tree = w.parse("[a]A + [x]X", "a x")
-check("an own-letters leaf is owed no note", [s[k] for s, k in w._spans_owed_a_note(tree)] == [],
-      w._spans_owed_a_note(tree))
 out = w.translate({"wp": "[low]MOO + last<end of>([candle]) + [carefully mark]NB + [morning]AM",
                    "notes": {"low": "to low is to moo", "end of": "the end of the word gives its last letter only",
                              "carefully mark": "NB is note well", "morning": "AM is morning", "before": "stray"}},

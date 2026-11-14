@@ -2151,9 +2151,9 @@ def _rekey_run_together(notes, key, want, free):
 
 def _spans_owed_a_note(tree):
     """(dict, key) of each span still without a note that the prompt says needs one. A leaf
-    that is its own letters (`[a]A`) and a leaf a pick (first/last/..., hidden) reads from
-    go without, so a leftover note beside only those is a stray extra (a note on a charade's
-    link word, or on 'a', beside `last<end of>([candle])`)."""
+    a pick (first/last/..., hidden) reads from goes without, so a leftover note beside only
+    those is a stray extra (a note on a charade's link word beside `last<end of>([candle])`).
+    An own-letters leaf (`[a]A`) is not exempt: a stray note beside one may be its mistyped key."""
     owed = [(s, k) for s, k in _spans(tree, True) if "note" not in s]
     exempt = set()
 
@@ -2163,10 +2163,7 @@ def _spans_owed_a_note(tree):
         for p in node.get("parts") or []:
             walk(p)
     walk(tree)
-    return [(s, k) for s, k in owed
-            if id(s) not in exempt and not (
-                k == "words" and re.sub(r"\W", "", s["words"]).lower()
-                == re.sub(r"\W", "", str(s.get("gives") or "")).lower())]
+    return [(s, k) for s, k in owed if id(s) not in exempt]
 
 
 def _is_sub(small, big):
