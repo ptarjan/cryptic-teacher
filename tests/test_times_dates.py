@@ -10,7 +10,10 @@
 # derives the print date instead; this holds the corpus to what that date must
 # satisfy, whoever wrote it:
 #
-#   - the Sunday Times on a Sunday, one number a week at most;
+#   - the Sunday Times on a Sunday, one number a week at most, bar one jump of a
+#     number between two filed ones (the paper itself skipped a number in
+#     1973: Nos 2511-2528 and 2540-2581 each run a number a week, 2528 to 2540
+#     eleven weeks); a number two or more weeks ahead of its date is a wrong date;
 #   - the Times and the Jumbo never on a Sunday;
 #   - dates rising with numbers, so Saturday's Times, between Friday's and
 #     Monday's, can only be dated the Saturday;
@@ -53,7 +56,7 @@ for series, rows in held.items():
     for (a, da, _), (b, db, _) in zip(rows, rows[1:]):
         if db <= da:
             bad.append(f"{series}-{b}: dated {db}, not after {series}-{a}'s {da}")
-        elif series == "sundaytimes" and (db - da).days < 7 * (b - a):
+        elif series == "sundaytimes" and (db - da).days < 7 * (b - a - 1):
             bad.append(f"{series}-{b}: {db}, too soon after {series}-{a}'s {da} for one a week")
 
 for line in bad[:40]:
