@@ -91,6 +91,7 @@ import definitions
 import groups
 import mend_cryptic_definition
 import mend_literal_edge
+import mend_lone_edge
 import provenance
 import puzzle_schema
 import shape_queue
@@ -1151,6 +1152,27 @@ def mend_literal_edges(path, pending):
     return changed
 
 
+def mend_lone_edges(path, pending):
+    """Pull, in each clue written in the model's shape, the lone letter an anagram holds at the edge of its
+    fodder (anaLoneEdge) out beside the anagram (mend_lone_edge); the entry ids changed. Only a pull that is
+    the one tree still giving the answer and opens no poolGap is made."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = read_puzzle_file(path)["entries"]
+    except (ValueError, OSError, KeyError):
+        return []
+    by_id = {entry_id(e): e for e in entries}
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        e = by_id.get(eid) or {}
+        if isinstance(a, dict) and annotation.is_model(a) and mend_lone_edge.mend(
+                a, (e.get("clue") or {}).get("text"), e.get("solution")):
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def mend_cryptic_definitions(path, pending):
     """Drop `gives` from, and strip bare "= ANSWER" notes out of, the blocks of each
     pure cryptic definition written in the stored shape (mend_cryptic_definition);
@@ -1554,6 +1576,10 @@ def main(argv):
         if led:
             print(f"anagrams holding a clue word as written at their edge, the word set beside the "
                   f"anagram in a charade in {pending.name}: {', '.join(led)}\n")
+        lone = mend_lone_edges(path, pending)
+        if lone:
+            print(f"anagrams holding a lone letter the answer shows at its edge, the letter set beside the "
+                  f"anagram in a charade in {pending.name}: {', '.join(lone)}\n")
         cdm = mend_cryptic_definitions(path, pending)
         if cdm:
             print(f"cryptic definition blocks that gave letters or named the answer, mended "
