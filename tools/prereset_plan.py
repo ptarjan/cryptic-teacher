@@ -601,13 +601,44 @@ def transcript_spend(projects, burn_cwd, start, end):
     record in the span, subagents' records counting as tokens only."""
     spend, spans = {}, {}
     burn_cwd = str(burn_cwd)
+    # Per-transcript records are kept between runs with the byte offset read so far, so a
+    # run reads only what a session appended since (the hourly re-tail of every live
+    # transcript's last chunk was ~25 MB/min). Best effort; a changed burn_cwd drops it.
+    cache_file = Path(os.environ.get("CT_MTIME_CACHE_DIR") or Path.home() / ".cache" / "ct-mtime") / "plan-transcripts.json"
+    try:
+        cache = json.loads(cache_file.read_text(encoding="utf-8"))
+        if cache.get("burn_cwd") != burn_cwd:
+            cache = {}
+    except (OSError, ValueError, AttributeError):
+        cache = {}
+    cache["burn_cwd"] = burn_cwd
+    files = cache.setdefault("files", {})
+    seen, dirty = set(), False
     for path in Path(projects).glob("**/*.jsonl"):
         try:
-            if path.stat().st_mtime < start:
+            st = path.stat()
+            if st.st_mtime < start:
                 continue
-            lines = _tail(path, start)
+            key = str(path)
+            ent = files.get(key)
+            if ent and ent["off"] <= st.st_size:
+                if ent["off"] == st.st_size:
+                    lines, off = [], ent["off"]
+                else:
+                    with open(path, "rb") as fh:
+                        fh.seek(ent["off"])
+                        data = fh.read(st.st_size - ent["off"])
+                    cut = data.rfind(b"\n") + 1
+                    lines, off = data[:cut].decode(errors="replace").splitlines(), ent["off"] + cut
+                recs = ent["recs"]
+            else:
+                lines = _tail(path, start)
+                off = st.st_size
+                recs = []
         except OSError:
             continue
+        seen.add(key)
+        new = []
         for line in lines:
             if '"usage"' not in line:
                 continue
@@ -618,14 +649,33 @@ def transcript_spend(projects, burn_cwd, start, end):
             msg = rec.get("message")
             when = _epoch(rec.get("timestamp") or "")
             if (not isinstance(msg, dict) or not isinstance(msg.get("usage"), dict)
-                    or when is None or not start <= when <= end):
+                    or when is None):
                 continue
-            burn = same_tree(rec.get("cwd"), burn_cwd)
-            spend[msg.get("id") or rec.get("uuid")] = (
-                burn, token_weight(msg.get("model"), msg["usage"]))
-            if burn and not rec.get("isSidechain"):
-                lo, hi = spans.get(rec.get("sessionId"), (when, when))
-                spans[rec.get("sessionId")] = (min(lo, when), max(hi, when))
+            new.append([when, same_tree(rec.get("cwd"), burn_cwd), msg.get("id") or rec.get("uuid"),
+                        token_weight(msg.get("model"), msg["usage"]), rec.get("sessionId"),
+                        bool(rec.get("isSidechain"))])
+        if new or not ent or off != (ent or {}).get("off"):
+            dirty = True
+        recs = [r for r in recs + new if r[0] >= start - 3600]
+        files[key] = {"off": off, "recs": recs}
+        for when, burn, mid, weight, sid, side in recs:
+            if not start <= when <= end:
+                continue
+            spend[mid] = (burn, weight)
+            if burn and not side:
+                lo, hi = spans.get(sid, (when, when))
+                spans[sid] = (min(lo, when), max(hi, when))
+    for key in [k for k in files if k not in seen]:
+        del files[key]
+        dirty = True
+    if dirty:
+        try:
+            cache_file.parent.mkdir(parents=True, exist_ok=True)
+            tmp = cache_file.with_suffix(f".{os.getpid()}.tmp")
+            tmp.write_text(json.dumps(cache), encoding="utf-8")
+            tmp.replace(cache_file)
+        except OSError:
+            pass
     other = sum(w for b, w in spend.values() if not b)
     burn = sum(w for b, w in spend.values() if b)
     return other, burn, sum(hi - lo for lo, hi in spans.values()) / 3600
