@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Beat using stick",
     "enumeration": "5"
    },
-   "solution": "PASTE"
+   "solution": "PASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0,
+      "meaning": "to beat someone is to thrash them, an old sense of the verb used in 'give him a pasting'"
+     },
+     {
+      "text": "stick",
+      "at": 11,
+      "meaning": "a glue used for sticking paper, as in wallpaper adhesive"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hits out with a cane.",
+     "definitionFit": "Both senses are standard: thrash soundly, and the adhesive used to fix paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,64 @@
     "text": "Start out to look quickly inside ancient manuscript",
     "enumeration": "10"
    },
-   "solution": "PALIMPSEST"
+   "solution": "PALIMPSEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "manuscript",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 26,
+       "note": "inside says the trimmed glance word sits within the word for ancient"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancient",
+       "at": 33,
+       "gives": "PAST",
+       "note": "ancient means past, of bygone times"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Start out",
+         "at": 0,
+         "note": "the start of the word goes out, so its opening letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "look quickly",
+         "at": 13,
+         "gives": "GLIMPSE",
+         "note": "to look quickly is to glimpse"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to begin by glancing into an old manuscript.",
+     "walkthrough": "'Start out' drops the opening letter, leaving LIMPSE; 'look quickly' reads as an instruction to the solver but is the glance word itself.",
+     "definitionFit": "A palimpsest is a parchment manuscript scraped and written over again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +141,48 @@
     "text": "Settled a way round",
     "enumeration": "3"
    },
-   "solution": "SAT"
+   "solution": "SAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Settled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 14,
+       "note": "round says the street abbreviation goes around the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "way",
+       "at": 10,
+       "gives": "ST",
+       "note": "ST is the abbreviation for street, a way"
+      },
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something came to rest after going round a road.",
+     "definitionFit": "Sat is a past tense meaning came to rest or was placed, as a bird settles on a branch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +196,49 @@
     "text": "Cut out drill without hesitation",
     "enumeration": "6"
    },
-   "solution": "EXCISE"
+   "solution": "EXCISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 14,
+       "note": "without means the hesitation sound is taken out of the drill word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drill",
+       "at": 8,
+       "gives": "EXERCISE",
+       "note": "a drill is a practice routine, an exercise"
+      },
+      {
+       "words": "hesitation",
+       "at": 22,
+       "gives": "ER",
+       "note": "ER is the sound of a hesitation in speech"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to stop a training drill with no dithering.",
+     "walkthrough": "'without' removes ER from EXERCISE, leaving EXCISE.",
+     "definitionFit": "To excise is to remove surgically or delete, to cut away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,10 +249,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "Low accommodation, in a fash, with little room",
+    "text": "Low accommodation, in a fashion, with little room",
     "enumeration": "9"
    },
-   "solution": "CELLARAGE"
+   "solution": "CELLARAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Low accommodation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "little room",
+       "at": 38,
+       "gives": "CELL",
+       "note": "a cell is a small room, as in a prison or monastery"
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "gives": "A"
+      },
+      {
+       "words": "fashion",
+       "at": 24,
+       "gives": "RAGE",
+       "note": "a rage is a craze, the fashion of the moment, as in 'all the rage'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A basement flat, done up stylishly though cramped.",
+     "walkthrough": "The pieces go in answer order: CELL, then A, then RAGE. 'Low' points to storage below ground level.",
+     "definitionFit": "Cellarage is cellar space, room for storage underground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +306,58 @@
     "text": "Revolutionary organisation has business manager initially put in prison",
     "enumeration": "9"
    },
-   "solution": "COMINTERN"
+   "solution": "COMINTERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Revolutionary organisation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "business",
+       "at": 31,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a business"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 48,
+         "note": "initially asks for only the opening letter of the word manager"
+        }
+       ],
+       "parts": [
+        {
+         "words": "manager",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "words": "put in prison",
+       "at": 58,
+       "gives": "INTERN",
+       "note": "to intern is to confine or imprison, especially in wartime"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radical group whose boss was jailed at first.",
+     "walkthrough": "The Comintern was the Communist International, founded in Moscow in 1919.",
+     "definitionFit": "The Communist International was a body set up to spread world revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manager"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +371,30 @@
     "text": "Stagger from place where one may be left in trouble",
     "enumeration": "5"
    },
-   "solution": "LURCH"
+   "solution": "LURCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stagger",
+      "at": 0,
+      "meaning": "to sway or stumble unsteadily"
+     },
+     {
+      "text": "place where one may be left in trouble",
+      "at": 13,
+      "meaning": "from the idiom about being abandoned in a difficulty: left in the ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reels away from a spot where they were abandoned.",
+     "definitionFit": "A sudden unsteady movement, and the idiomatic plight of a deserted person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +408,41 @@
     "text": "Broadcasts are a must for those wanting play purely for enjoyment",
     "enumeration": "8"
    },
-   "solution": "AMATEURS"
+   "solution": "AMATEURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "those wanting play purely for enjoyment",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Broadcasts",
+       "at": 0,
+       "note": "to broadcast is to scatter seed widely, so these letters are spread into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "are a must",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Radio programmes are essential for people who play only for fun.",
+     "walkthrough": "'Broadcasts' looks like radio, but it is the anagram signal for ARE A MUST.",
+     "definitionFit": "Amateurs play sport for love rather than money, unlike professionals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcasts"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +456,34 @@
     "text": "Insensitivity shown when one is put out",
     "enumeration": "11"
    },
-   "solution": "ANAESTHESIA"
+   "solution": "ANAESTHESIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insensitivity shown when one is put out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Insensitivity shown when one is put out",
+       "at": 0,
+       "note": "being put out sounds like being annoyed, but here means knocked unconscious for an operation, when feeling is lost"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Anaesthesia is loss of sensation, induced when a patient is put under for surgery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +497,42 @@
     "text": "In Baltimore we root for the pitcher",
     "enumeration": "4"
    },
-   "solution": "EWER"
+   "solution": "EWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pitcher",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In says the letters lie inside the run of words Baltimore we root"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Baltimore we root",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Baltimore fan cheers on the baseball pitcher.",
+     "walkthrough": "'pitcher' suggests baseball, but it is a jug.",
+     "definitionFit": "A ewer is a large jug, a vessel for pouring water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pitcher"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +546,41 @@
     "text": "This Johnny could show more eclat",
     "enumeration": "9"
    },
-   "solution": "LATECOMER"
+   "solution": "LATECOMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This Johnny",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could show",
+       "at": 12,
+       "note": "could show means the letters of more eclat could be made to display another word when rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more eclat",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some fellow could put on more of a show.",
+     "walkthrough": "'Johnny' points to the phrase Johnny-come-lately, someone who arrives late.",
+     "definitionFit": "A Johnny-come-lately is a newcomer, a person who arrives behind time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Johnny"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +594,40 @@
     "text": "Quartz found in a mountain pass",
     "enumeration": "5"
    },
-   "solution": "AGATE"
+   "solution": "AGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quartz",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      },
+      {
+       "words": "mountain pass",
+       "at": 18,
+       "gives": "GATE",
+       "note": "a gate is an old word for a narrow pass or gap in hills"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crystal discovered in a mountain gap.",
+     "definitionFit": "Agate is a banded variety of chalcedony, a form of quartz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +651,34 @@
      }
     ]
    },
-   "solution": "MEALSONWHEELS"
+   "solution": "MEALSONWHEELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Movable feasts for elderly waiters",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Movable feasts for elderly waiters",
+       "at": 0,
+       "note": "movable feasts sounds like church festivals; here they are dinners delivered by van to old people who wait at home for them"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A British service delivering hot meals to the elderly and housebound at home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feasts"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +692,30 @@
     "text": "Fitting pocket",
     "enumeration": "11"
    },
-   "solution": "APPROPRIATE"
+   "solution": "APPROPRIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fitting",
+      "at": 0,
+      "meaning": "suitable, proper for the occasion"
+     },
+     {
+      "text": "pocket",
+      "at": 8,
+      "meaning": "to pocket is to take for oneself, to steal"
+     }
+    ],
+    "explanation": {
+     "surface": "Something suitable for a pocket.",
+     "definitionFit": "Both senses are standard: suitable as an adjective, and to seize as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pocket"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +735,34 @@
      }
     ]
    },
-   "solution": "SPIRITLAMP"
+   "solution": "SPIRITLAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presumably it can throw light on the other side",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Presumably it can throw light on the other side",
+       "at": 0,
+       "note": "a burner fuelled by alcohol is read as one that lights up the afterlife, home of ghosts"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A lamp burning methylated spirit or alcohol; a spirit is also a ghost from beyond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +776,31 @@
     "text": "August follower of Irish clan",
     "enumeration": "4"
    },
-   "solution": "SEPT"
+   "solution": "SEPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "August follower",
+      "at": 0,
+      "meaning": "the month after August, abbreviated"
+     },
+     {
+      "text": "Irish clan",
+      "at": 19,
+      "meaning": "a clan or family division, especially in Ireland"
+     }
+    ],
+    "explanation": {
+     "surface": "A devotee of something grand from an Irish family.",
+     "definitionFit": "The abbreviation for the ninth month, and a word for a Celtic family group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +814,53 @@
     "text": "Belonging to second joint on leg, for example",
     "enumeration": "10"
    },
-   "solution": "MEMBERSHIP"
+   "solution": "MEMBERSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Belonging",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 26,
+       "note": "on means the second and joint pieces are placed after the leg piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leg, for example",
+       "at": 29,
+       "gives": "MEMBER",
+       "note": "a leg is a limb, a member of the body"
+      },
+      {
+       "words": "second",
+       "at": 13,
+       "gives": "S"
+      },
+      {
+       "words": "joint",
+       "at": 20,
+       "gives": "HIP",
+       "note": "the hip is a joint"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second joint attached to a leg is part of the body.",
+     "definitionFit": "Membership is the state of belonging to a group or society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +874,43 @@
     "text": "Push particular goods — they help to raise sales, we hear",
     "enumeration": "9"
    },
-   "solution": "BUNTLINES"
+   "solution": "BUNTLINES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they help to raise sales, we hear",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Push",
+       "at": 0,
+       "gives": "BUNT",
+       "note": "to bunt is to push or butt"
+      },
+      {
+       "words": "particular goods",
+       "at": 5,
+       "gives": "LINES",
+       "note": "a line is a particular range of goods, as in a new line in shoes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Promoting certain products helps boost sales.",
+     "walkthrough": "'we hear' turns sales into sails: buntlines are ropes for hauling up a square sail.",
+     "definitionFit": "Buntlines are ropes on a square-rigged ship used to haul up the foot of a sail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sales"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +924,59 @@
     "text": "Male worker concealing name still",
     "enumeration": "8"
    },
-   "solution": "STAGNANT"
+   "solution": "STAGNANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "still",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "at": 12,
+       "note": "concealing says the male and worker pieces hold the name abbreviation inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Male",
+         "at": 0,
+         "gives": "STAG",
+         "note": "a stag is a male deer"
+        },
+        {
+         "words": "worker",
+         "at": 5,
+         "gives": "ANT",
+         "note": "an ant is the crossword's usual worker"
+        }
+       ]
+      },
+      {
+       "words": "name",
+       "at": 23,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man at work keeps his name quiet.",
+     "walkthrough": "'still' reads as an adverb meaning yet or even so; it is the adjective meaning motionless.",
+     "definitionFit": "Stagnant water is still, not flowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +990,31 @@
     "text": "Cook's fat, and getting more dumpy",
     "enumeration": "10"
    },
-   "solution": "SHORTENING"
+   "solution": "SHORTENING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cook's fat",
+      "at": 0,
+      "meaning": "fat such as lard used by a cook in pastry"
+     },
+     {
+      "text": "getting more dumpy",
+      "at": 16,
+      "meaning": "becoming shorter and so stouter-looking"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook is plump and getting plumper.",
+     "definitionFit": "Both senses fit: fat used in baking, and growing shorter in stature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cook's"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1028,30 @@
     "text": "Drug addict's employer",
     "enumeration": "4"
    },
-   "solution": "USER"
+   "solution": "USER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug addict",
+      "at": 0,
+      "meaning": "someone who takes drugs habitually"
+     },
+     {
+      "text": "employer",
+      "at": 14,
+      "meaning": "someone who employs, that is makes use of, a thing"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who hires a junkie.",
+     "definitionFit": "Both senses: a person who takes drugs, and one who employs or utilises something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "employer"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1065,48 @@
     "text": "Thwarted, being in a place without parking",
     "enumeration": "6"
    },
-   "solution": "SPITED"
+   "solution": "SPITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thwarted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 27,
+       "note": "without in its old sense of outside, so the placed word goes around the parking letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being in a place",
+       "at": 10,
+       "gives": "SITED",
+       "note": "sited means located, being in a place"
+      },
+      {
+       "words": "parking",
+       "at": 35,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frustrated at being somewhere with nowhere to park.",
+     "walkthrough": "'without' looks like lacking, but means outside here.",
+     "definitionFit": "To spite someone is to thwart or frustrate them out of malice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1126,33 @@
      }
     ]
    },
-   "solution": "ROGUEELEPHANT"
+   "solution": "ROGUEELEPHANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jumbo set aside — it's viciously difficult!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Jumbo set aside — it's viciously difficult!",
+       "at": 0,
+       "note": "jumbo means a large beast set apart from its herd, which becomes savage and hard to handle"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A wild animal living apart from the herd and dangerously aggressive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jumbo"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1166,46 @@
     "text": "To succeed. English knight has to go to law",
     "enumeration": "5"
    },
-   "solution": "ENSUE"
+   "solution": "ENSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To succeed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 12,
+       "gives": "E"
+      },
+      {
+       "words": "knight",
+       "at": 20,
+       "gives": "N",
+       "note": "N is the chess notation for knight"
+      },
+      {
+       "words": "go to law",
+       "at": 34,
+       "gives": "SUE",
+       "note": "to sue is to take legal action"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English knight must go to court in order to win.",
+     "definitionFit": "To ensue is to follow on, to come next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1219,45 @@
     "text": "In the sound, notices a cutter",
     "enumeration": "4"
    },
-   "solution": "ADZE"
+   "solution": "ADZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cutter",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ADZE",
+     "indicators": [
+      {
+       "text": "In the sound",
+       "at": 0,
+       "note": "in the sound says the word for notices is heard, not seen, giving a word that sounds alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "notices",
+       "at": 14,
+       "gives": "ADS",
+       "note": "ads are advertisements, notices"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a boat in a stretch of water.",
+     "walkthrough": "'sound' and 'cutter' suggest a sea channel and a boat; a cutter here is a tool.",
+     "definitionFit": "An adze is a cutting tool with an arched blade set at right angles to the handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cutter"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1271,40 @@
     "text": "Drop a theatrical piece",
     "enumeration": "5"
    },
-   "solution": "DRAMA"
+   "solution": "DRAMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "theatrical piece",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drop",
+       "at": 0,
+       "gives": "DRAM",
+       "note": "a dram is a small drop of spirits"
+      },
+      {
+       "words": "a",
+       "at": 5,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to abandon a stage play.",
+     "definitionFit": "A drama is a play for the stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1318,34 @@
     "text": "School places for those needing remedial treatment",
     "enumeration": "9"
    },
-   "solution": "SANATORIA"
+   "solution": "SANATORIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School places for those needing remedial treatment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "School places for those needing remedial treatment",
+       "at": 0,
+       "note": "remedial suggests slow learners, but these rooms are where sick pupils are nursed"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Sickrooms in a boarding school, or institutions where invalids recover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "remedial"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1359,46 @@
     "text": "Scene of carnival and endless wild revelry",
     "enumeration": "3"
    },
-   "solution": "RIO"
+   "solution": "RIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scene of carnival",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "at": 22,
+       "note": "endless means the final letter of the revelry word is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wild revelry",
+       "at": 30,
+       "gives": "RIOT",
+       "note": "a riot is a bout of wild revelry"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carnival city famed for wild partying.",
+     "walkthrough": "'endless' drops the T from RIOT. Rio de Janeiro's carnival is world-famous.",
+     "definitionFit": "Rio de Janeiro hosts the most famous carnival in the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,10 +1409,34 @@
    },
    "length": 9,
    "clue": {
-    "text": "Tide for Sophia — one making her cross?",
+    "text": "Title for Sophia — one making her cross?",
     "enumeration": "9"
    },
-   "solution": "ELECTRESS"
+   "solution": "ELECTRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Title for Sophia",
+      "at": 0,
+      "meaning": "Sophia of Hanover held the rank given to the wife of a German prince entitled to elect the Holy Roman Emperor"
+     },
+     {
+      "text": "one making her cross?",
+      "at": 19,
+      "meaning": "a woman voting, who marks a cross on her ballot paper"
+     }
+    ],
+    "explanation": {
+     "surface": "A royal woman and a female voter.",
+     "definitionFit": "A princely rank held by Sophia of Hanover, and fancifully a woman who elects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1450,45 @@
     "text": "Become dejected listening to Olive, say",
     "enumeration": "5"
    },
-   "solution": "DROOP"
+   "solution": "DROOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Become dejected",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DROOP",
+     "indicators": [
+      {
+       "text": "listening to",
+       "at": 16,
+       "note": "listening to means we hear the word for olive, say, rather than read it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Olive, say",
+       "at": 29,
+       "gives": "DRUPE",
+       "note": "an olive is an example of a drupe, a stone fruit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grows glum hearing from a woman named Olive.",
+     "walkthrough": "'Olive' looks like a woman's name; it is the fruit.",
+     "definitionFit": "To droop is to sag or flag in spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Olive"
+    }
+   }
   }
  ]
 }
