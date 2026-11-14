@@ -38,7 +38,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TLS" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_tls"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 23
+VERSION = 24
 PREFIX = "tls:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\s+Literary\s+Supplement\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})",
                    re.IGNORECASE)
@@ -860,10 +860,12 @@ def lending(read, *args):
     RapidOCR reading drops is lent to it (1996-03-22's 4 and 5 down, "no reading laid a clue on it")."""
     import gale_listener as gl
     old, gl.LEND_NUMBERS = gl.LEND_NUMBERS, True
+    names, gl.al.NAMES_ALIKE = gl.al.NAMES_ALIKE, True
     try:
         return read(*args)
     finally:
         gl.LEND_NUMBERS = old
+        gl.al.NAMES_ALIKE = names
 
 
 def read_page(path, store=STORE, asker=None, known=None):

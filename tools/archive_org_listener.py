@@ -39,6 +39,10 @@ import file_trove_puzzles as ftp
 import ocr_clues
 import clue_text
 
+#: Whether the vote's asPrinted also keeps an unlisted name every OCR reading spells alike
+#: (ocr_clues.printed_alike names=); set by the Gale TLS reader around its reads.
+NAMES_ALIKE = False
+
 
 NUMBER = r"(\d[,.]?\d{3})"
 HEAD = re.compile(r"^\W*listener\s+crossword\s+no\.?\s*" + NUMBER, re.IGNORECASE)
@@ -903,7 +907,8 @@ def vote(words, verdict, cols=None, lengths=None, figures=False):
     # A word no lexicon knows, or a bracket never shut, that the readings
     # print alike is the print's own (a misprint): kept as printed.
     alike = {lid: got for lid, (t, _, _) in laid.items()
-             if t and (got := ocr_clues.printed_alike(t, [(ly.get(lid) or ("",))[0] for ly in lays]))}
+             if t and (got := ocr_clues.printed_alike(t, [(ly.get(lid) or ("",))[0] for ly in lays],
+                                                   names=NAMES_ALIKE))}
     if alike:
         verdict["asPrinted"] = alike
     # A light two heads link ("29, 39." and "32, 39") refers to both.

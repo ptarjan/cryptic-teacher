@@ -4706,7 +4706,11 @@ def one_letter_off(word):
     return any(c != w[k] and known(w[:k] + c + w[k + 1:]) for k in range(len(w)) for c in "abcdefghijklmnopqrstuvwxyz")
 
 
-def printed_alike(text, readings, unanimous=False, every=False):
+#: The reasons suspect() gives for a name the lexicon lacks, which printed_alike(names=True) may take.
+NAME_WHYS = ("a word misread as a name", "a letter lost from a name")
+
+
+def printed_alike(text, readings, unanimous=False, every=False, names=False):
     """The tokens of a voted clue `text` that suspect() would refuse, which
     the print itself spells so: each word suspect() flags as no word that at
     least two of `readings` (each reading's own text for the light, None
@@ -4736,6 +4740,12 @@ def printed_alike(text, readings, unanimous=False, every=False):
         holds = sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r)) for r in low)
         # A mark the print sets inside a word ("(under)world", "kissin'-cousin": marked_word) stands as a
         # word no lexicon has does: the readings must hold it so.
+        if names and why in NAME_WHYS:
+            # An unlisted name every OCR reading (UNANIMOUS_READINGS at least) spells alike, no one letter's
+            # change making a known word (not "Tonstant" for "Constant"): the print's own.
+            if holds == len(low) >= UNANIMOUS_READINGS and len(word) >= EVERY_SHORTEST and not one_letter_off(word):
+                out.append(raw)
+            continue
         if why != "not a word" and not (why == "a stray mark inside a word" and marked_word(raw)):
             continue
         if every:
