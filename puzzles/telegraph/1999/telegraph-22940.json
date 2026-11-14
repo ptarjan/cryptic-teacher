@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Marriage or adoption",
     "enumeration": "8"
    },
-   "solution": "ESPOUSAL"
+   "solution": "ESPOUSAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marriage",
+      "at": 0,
+      "meaning": "a wedding or betrothal, the old formal word for being wed"
+     },
+     {
+      "text": "adoption",
+      "at": 12,
+      "meaning": "taking up a cause or idea as one's own, as in embracing a policy"
+     }
+    ],
+    "explanation": {
+     "surface": "A dictionary entry offering two meanings of one formal word.",
+     "definitionFit": "Espousing someone is wedding them, and espousing a cause is embracing it, so the noun covers both senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "adoption"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +71,32 @@
     "text": "Nuts are found in them, and bolts",
     "enumeration": "8"
    },
-   "solution": "SCUTTLES"
+   "solution": "SCUTTLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nuts are found in them",
+      "at": 0,
+      "meaning": "coal ... hold nuts, the small lumps of household coal"
+     },
+     {
+      "text": "bolts",
+      "at": 28,
+      "meaning": "bolts as a verb, runs off in a hurry"
+     }
+    ],
+    "explanation": {
+     "surface": "A hardware drawer where nuts and bolts are kept together.",
+     "walkthrough": "The nuts and bolts look like hardware; here nuts are lumps of coal, and bolts is a verb meaning dashes away.",
+     "definitionFit": "Coal scuttles are buckets for coal nuts, and to scuttle is to scurry away, as one bolts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bolts"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +110,11 @@
     "text": "State of a student gaining two degrees",
     "enumeration": "7"
    },
-   "solution": "ALABAMA"
+   "solution": "ALABAMA",
+   "annotationWithheld": {
+    "why": "Clue as held 'State of a student gaining two degrees' gives A + L + BA + MA = ALBAMA; a second A is missing and no clue word supplies it without reusing 'a' (possible OCR loss)",
+    "clue": "State of a student gaining two degrees"
+   }
   },
   {
    "number": 4,
@@ -72,7 +128,51 @@
     "text": "Warm start aids pups",
     "enumeration": "6"
    },
-   "solution": "WHELPS"
+   "solution": "WHELPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pups",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start",
+         "at": 5,
+         "note": "the start of the word warm is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Warm",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "aids",
+       "at": 11,
+       "gives": "HELPS",
+       "note": "aids as a verb means helps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that keeping young dogs warm helps them get going.",
+     "definitionFit": "Whelps are young dogs, a synonym for puppies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +186,43 @@
     "text": "One of three boatman turns up old address",
     "enumeration": "6"
    },
-   "solution": "SIRRAH"
+   "solution": "SIRRAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old address",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns up",
+       "at": 21,
+       "note": "in a down clue, turning up reads the word from the bottom upward"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One of three boatman",
+       "at": 0,
+       "gives": "HARRIS",
+       "note": "Harris is one of Jerome K. Jerome's Three Men in a Boat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowing man appears, apparently at some old street address.",
+     "walkthrough": "Three Men in a Boat is an English comic novel whose three are J, George and Harris.",
+     "definitionFit": "Sirrah was an archaic form of address to a man of lower rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +242,33 @@
      }
     ]
    },
-   "solution": "MUSICALCHAIRS"
+   "solution": "MUSICALCHAIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seating is never enough for this party activity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Seating is never enough for this party activity",
+       "at": 0,
+       "note": "a children's party game where music stops and there is always one seat fewer than players"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grumbling about too few seats at a party.",
+     "definitionFit": "In the party game each round removes a seat, so one player is always left standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +288,36 @@
      }
     ]
    },
-   "solution": "MORTALITYRATE"
+   "solution": "MORTALITYRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The speed at which we go?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The speed at which we go?",
+       "at": 0,
+       "note": "go read as die rather than travel, so the pace of human deaths"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how fast we travel.",
+     "walkthrough": "'go' suggests travel; it means pass away, and speed means the frequency of deaths.",
+     "definitionFit": "A statistic measuring deaths per head of population, so the rate at which people die."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +337,36 @@
      }
     ]
    },
-   "solution": "STOPPINGSHORT"
+   "solution": "STOPPINGSHORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coming to a sudden conclusion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Coming to a sudden conclusion",
+       "at": 0,
+       "note": "halting abruptly, read as an end that arrives suddenly rather than a hasty judgement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone jumping to a hasty verdict.",
+     "walkthrough": "A sudden conclusion sounds like a rash judgement; it is a physical halt.",
+     "definitionFit": "To halt abruptly is to come to an end without warning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "conclusion"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +386,35 @@
      }
     ]
    },
-   "solution": "TRYOUT"
+   "solution": "TRYOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An open-air practice?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "An open-air practice?",
+       "at": 0,
+       "note": "a trial or rehearsal, playfully read as attempting something outdoors"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether rehearsal takes place outdoors.",
+     "definitionFit": "A test session or audition, and literally an attempt made outside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "open-air"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +428,50 @@
     "text": "Where everybody goes in to sweep around the floor?",
     "enumeration": "8"
    },
-   "solution": "BALLROOM"
+   "solution": "BALLROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where everybody goes in to sweep around the floor?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "goes in",
+       "at": 16,
+       "note": "one word going in another places it inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sweep",
+       "at": 27,
+       "gives": "BROOM",
+       "note": "a broom is used to sweep"
+      },
+      {
+       "words": "everybody",
+       "at": 6,
+       "gives": "ALL",
+       "note": "everybody means all"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Picturing dancers gliding across the dance floor.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: dancers sweep round a dance floor, and 'goes in' is the container signal hidden in that picture.",
+     "definitionFit": "A large hall for dancing, where couples glide round the floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweep"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +485,36 @@
     "text": "Potted plant leaves",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Potted plant leaves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Potted plant leaves",
+       "at": 0,
+       "note": "the dried leaves of a bush, put in a pot to brew rather than grown in one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foliage of a houseplant in a pot.",
+     "walkthrough": "'Potted' suggests a pot plant; the leaves go in a teapot.",
+     "definitionFit": "The drink is brewed from dried leaves of the Camellia shrub in a pot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Potted"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +528,54 @@
     "text": "This young woman's rejection makes a man angry",
     "enumeration": "6"
    },
-   "solution": "DAMSEL"
+   "solution": "DAMSEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This young woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejection",
+       "at": 19,
+       "note": "throwing back the words, so the pieces are read in reverse order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a man",
+         "at": 35,
+         "gives": "LES",
+         "note": "Les is a man's name"
+        },
+        {
+         "words": "angry",
+         "at": 41,
+         "gives": "MAD",
+         "note": "angry means mad"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman's refusal infuriates a man.",
+     "walkthrough": "'rejection' turns LESMAD round to give the answer.",
+     "definitionFit": "A damsel is an old-fashioned word for a young unmarried girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejection"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +589,42 @@
     "text": "Give the wrong form to emphasis",
     "enumeration": "8"
    },
-   "solution": "MISSHAPE"
+   "solution": "MISSHAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give the wrong form to emphasis",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Give the wrong form to",
+       "at": 0,
+       "note": "reshaping the word wrongly signals its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "emphasis",
+       "at": 23
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A complaint about stressing the wrong thing.",
+     "walkthrough": "The whole clue defines and builds: the letters of 'emphasis' given a wrong form.",
+     "definitionFit": "To deform or shape badly is to distort an object's proper outline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "emphasis"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +638,36 @@
     "text": "Medical bag",
     "enumeration": "3"
    },
-   "solution": "SAC"
+   "solution": "SAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Medical bag",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Medical bag",
+       "at": 0,
+       "note": "a pouch in an animal or plant body, not a doctor's case"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's carrying case.",
+     "walkthrough": "'Medical bag' suggests a doctor's case; it is a bodily pouch.",
+     "definitionFit": "In anatomy a pouch-like cavity in the body, such as a cyst."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bag"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +681,36 @@
     "text": "Having no end in sight",
     "enumeration": "7"
    },
-   "solution": "AIMLESS"
+   "solution": "AIMLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having no end in sight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Having no end in sight",
+       "at": 0,
+       "note": "having no goal or purpose, read as a task that seems endless"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A task that seems to go on forever.",
+     "walkthrough": "'end' means goal or purpose, not finish.",
+     "definitionFit": "Without purpose or direction, lacking any objective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +724,42 @@
     "text": "I say nothing",
     "enumeration": "3"
    },
-   "solution": "EGO"
+   "solution": "EGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "say",
+       "at": 2,
+       "gives": "EG",
+       "note": "say means for example, abbreviated EG"
+      },
+      {
+       "words": "nothing",
+       "at": 6,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeping quiet.",
+     "walkthrough": "'I' looks like the speaker; it is the definition, the self.",
+     "definitionFit": "The self, one's sense of identity in psychology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +773,32 @@
     "text": "Not shrewd? That's strange",
     "enumeration": "7"
    },
-   "solution": "UNCANNY"
+   "solution": "UNCANNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not shrewd",
+      "at": 0,
+      "meaning": "the prefix un- with canny, Scots for shrewd"
+     },
+     {
+      "text": "strange",
+      "at": 19,
+      "meaning": "weird, eerie, beyond the ordinary"
+     }
+    ],
+    "explanation": {
+     "surface": "Puzzling at a dim action that seems odd.",
+     "walkthrough": "Canny means shrewd or careful, so un-canny can be read as not shrewd.",
+     "definitionFit": "Eerily weird or mysterious; also playfully read as lacking caution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +812,43 @@
     "text": "Antigone's form of denial",
     "enumeration": "8"
    },
-   "solution": "NEGATION"
+   "solution": "NEGATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "denial",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "form of",
+       "at": 11,
+       "note": "a different form of a word suggests its letters reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Antigone's",
+       "at": 0,
+       "gives": "ANTIGONE",
+       "note": "the 's only shows possession or stands for 'is', so it adds no letters: the word before it gives these letters as it is written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Antigone, heroine of Greek tragedy, refusing an order.",
+     "walkthrough": "Antigone defied her king to bury her brother, so denial fits the story.",
+     "definitionFit": "A refusal or contradiction, the act of saying no."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Antigone's"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +862,35 @@
     "text": "An appetising drink",
     "enumeration": "8"
    },
-   "solution": "APERITIF"
+   "solution": "APERITIF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An appetising drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "An appetising drink",
+       "at": 0,
+       "note": "a drink taken to whet the appetite before a meal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tasty beverage.",
+     "walkthrough": "'appetising' means stimulating appetite, not just tasty.",
+     "definitionFit": "A drink taken before dinner to stimulate hunger, like a dry sherry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appetising"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +904,53 @@
     "text": "Maintains a rising pressure",
     "enumeration": "7"
    },
-   "solution": "ASSERTS"
+   "solution": "ASSERTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maintains",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 12,
+         "note": "in a down clue, rising means the word is read upward"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pressure",
+         "at": 19,
+         "gives": "STRESS",
+         "note": "pressure means stress"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeping up a steadily increasing pressure.",
+     "walkthrough": "'rising' turns STRESS upward to SSERTS.",
+     "definitionFit": "To insist that something is true, to state firmly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +964,47 @@
     "text": "Rides round on whirlwinds",
     "enumeration": "8"
    },
-   "solution": "CYCLONES"
+   "solution": "CYCLONES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "whirlwinds",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 6,
+       "note": "one piece placed round another encloses it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rides",
+       "at": 0,
+       "gives": "CYCLES",
+       "note": "rides as a verb, goes by bike, cycles"
+      },
+      {
+       "words": "on",
+       "at": 12,
+       "gives": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist pedalling into strong winds.",
+     "definitionFit": "Violent rotating storms, a meteorological term for a spinning windstorm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rides"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1018,48 @@
     "text": "See two articles to dislike",
     "enumeration": "6"
    },
-   "solution": "LOATHE"
+   "solution": "LOATHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dislike",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "See",
+       "at": 0,
+       "gives": "LO",
+       "note": "lo is an old word meaning look or see"
+      },
+      {
+       "words": "two articles",
+       "at": 4,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "words": "two articles",
+       "at": 4,
+       "gives": "THE",
+       "note": "the is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Viewing a pair of newspaper pieces one hates.",
+     "walkthrough": "'articles' sounds journalistic; it is grammar.",
+     "definitionFit": "To hate intensely, a stronger word for detest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1073,41 @@
     "text": "Awful barney not far away",
     "enumeration": "6"
    },
-   "solution": "NEARBY"
+   "solution": "NEARBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not far away",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Awful",
+       "at": 0,
+       "note": "something awful is a mess, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "barney",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A terrible row (a barney is British slang for a noisy quarrel) happening close by.",
+     "walkthrough": "A barney is British slang for a quarrel.",
+     "definitionFit": "Close at hand, in the neighbourhood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barney"
+    }
+   }
   },
   {
    "number": 23,
@@ -376,7 +1121,36 @@
     "text": "A fat lot of good as a lubricant",
     "enumeration": "6"
    },
-   "solution": "GREASE"
+   "solution": "GREASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A fat lot of good as a lubricant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A fat lot of good as a lubricant",
+       "at": 0,
+       "note": "the sarcastic phrase taken literally: animal fat useful for oiling machinery"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at something useless as an oil.",
+     "walkthrough": "'A fat lot of good' is usually sarcasm; here fat is literal.",
+     "definitionFit": "Animal fat or thick oil used to lubricate moving parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 24,
@@ -390,7 +1164,36 @@
     "text": "A well-endowed resort",
     "enumeration": "3"
    },
-   "solution": "SPA"
+   "solution": "SPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A well-endowed resort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A well-endowed resort",
+       "at": 0,
+       "note": "a resort endowed with a mineral spring, rather than one rich in money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy holiday destination.",
+     "walkthrough": "'well-endowed' suggests riches; it means blessed with a well.",
+     "definitionFit": "A town with mineral springs, visited for health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well-endowed"
+    }
+   }
   },
   {
    "number": 25,
@@ -404,7 +1207,43 @@
     "text": "Vehicle quickly takes a step to becoming a hardtop",
     "enumeration": "8"
    },
-   "solution": "CARAPACE"
+   "solution": "CARAPACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a hardtop",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "words": "quickly",
+       "at": 8,
+       "gives": "APACE",
+       "note": "apace means quickly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fast car changing into a hard-roofed model.",
+     "walkthrough": "'hardtop' suggests a car roof; it is a shell on a tortoise or crab.",
+     "definitionFit": "The hard upper shell of a turtle or crustacean, a natural rigid covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hardtop"
+    }
+   }
   },
   {
    "number": 26,
@@ -418,7 +1257,36 @@
     "text": "He works his hours to suit his customers",
     "enumeration": "6"
    },
-   "solution": "TAILOR"
+   "solution": "TAILOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He works his hours to suit his customers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He works his hours to suit his customers",
+       "at": 0,
+       "note": "suit read as a garment: he makes suits for clients, not convenient hours"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tradesman fitting his working day around his clients.",
+     "walkthrough": "'to suit' suggests convenience; it means making suits.",
+     "definitionFit": "A maker of fitted clothes such as suits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 27,
@@ -432,7 +1300,42 @@
     "text": "Scholarship first for the extrovert",
     "enumeration": "13"
    },
-   "solution": "EXHIBITIONIST"
+   "solution": "EXHIBITIONIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extrovert",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scholarship",
+       "at": 0,
+       "gives": "EXHIBITION",
+       "note": "an exhibition is a type of scholarship at British universities"
+      },
+      {
+       "words": "first",
+       "at": 12,
+       "gives": "IST",
+       "note": "first is written 1st, read as IST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Winning a scholarship first-class makes someone outgoing.",
+     "walkthrough": "At some British universities an exhibition is a minor scholarship.",
+     "definitionFit": "A show-off who seeks attention, an extreme outgoing personality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scholarship"
+    }
+   }
   }
  ]
 }
