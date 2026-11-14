@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Avoid major surgery",
     "enumeration": "6"
    },
-   "solution": "BYPASS"
+   "solution": "BYPASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoid",
+      "at": 0,
+      "meaning": "to go round something rather than through it, as a ring road does a town"
+     },
+     {
+      "text": "major surgery",
+      "at": 6,
+      "meaning": "a heart operation that reroutes blood around a blocked artery"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hoping to dodge a serious operation.",
+     "definitionFit": "The verb means to circumvent, and the noun names a coronary graft operation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Avoid"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,44 @@
     "text": "Rock is more daring, audibly",
     "enumeration": "7"
    },
-   "solution": "BOULDER"
+   "solution": "BOULDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BOULDER",
+     "indicators": [
+      {
+       "text": "audibly",
+       "at": 21,
+       "note": "audibly says the word for more daring is heard, not written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more daring",
+       "at": 8,
+       "gives": "BOLDER",
+       "note": "bolder means more daring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that rock music is braver when played loud.",
+     "walkthrough": "'audibly' signals that BOLDER sounds like the answer; 'is' links.",
+     "definitionFit": "A large stone is a great lump of rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +122,62 @@
     "text": "Head of parks getting too fussy about hedge",
     "enumeration": "9"
    },
-   "solution": "PUSSYFOOT"
+   "solution": "PUSSYFOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hedge",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 0,
+         "note": "Head of points to the opening letter of parks"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parks",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 32,
+         "note": "about suggests the letters of too fussy are moved around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too fussy",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parks chief being too fussy about trimming a hedge.",
+     "walkthrough": "P from 'Head of parks', then 'about' rearranges TOO FUSSY into USSYFOOT.",
+     "definitionFit": "To hedge is to avoid committing oneself, or tread warily around a matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hedge"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +191,32 @@
     "text": "Obscurity of the opposition?",
     "enumeration": "6"
    },
-   "solution": "SHADOW"
+   "solution": "SHADOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obscurity",
+      "at": 0,
+      "meaning": "obscurity means darkness or shade"
+     },
+     {
+      "text": "of the opposition?",
+      "at": 10,
+      "meaning": "the UK Opposition's frontbench mirrors the cabinet, as its spokespeople"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether the opposition party languishes unseen.",
+     "walkthrough": "In UK politics the Opposition forms a Shadow Cabinet of ministers-in-waiting.",
+     "definitionFit": "Shade or partial darkness, and the term for the Opposition's would-be ministers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "opposition"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +230,49 @@
     "text": "Break into property via spring in lock",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Break into property",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in tells us the spring is placed inside the lock"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lock",
+       "at": 34,
+       "gives": "TRESS",
+       "note": "a lock of hair is a tress"
+      },
+      {
+       "words": "spring",
+       "at": 24,
+       "gives": "SPA",
+       "note": "a spa is a mineral spring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar getting into a house by springing the lock.",
+     "walkthrough": "'Spring' and 'lock' look like burglary tools; they are a spa and a tress of hair. 'via' is only a link.",
+     "definitionFit": "To enter land or buildings without permission is the unlawful act this word names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +286,30 @@
     "text": "Dance film",
     "enumeration": "4"
    },
-   "solution": "REEL"
+   "solution": "REEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0,
+      "meaning": "a lively Scottish country dance"
+     },
+     {
+      "text": "film",
+      "at": 6,
+      "meaning": "a spool of cinema film"
+     }
+    ],
+    "explanation": {
+     "surface": "A dance movie.",
+     "definitionFit": "A Scottish dance and a spool of film or footage share the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +323,32 @@
     "text": "Blend to be entered here?",
     "enumeration": "8"
    },
-   "solution": "SOLUTION"
+   "solution": "SOLUTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blend",
+      "at": 0,
+      "meaning": "a blend of substances dissolved in liquid"
+     },
+     {
+      "text": "to be entered here?",
+      "at": 6,
+      "meaning": "what a solver writes into these squares is the answer to the clue"
+     }
+    ],
+    "explanation": {
+     "surface": "A blend that ought to be poured in here.",
+     "walkthrough": "The second sense is self-referential: the clue's answer is what goes in the grid.",
+     "definitionFit": "A liquid mixture and the correct answer to a puzzle share this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entered"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +362,47 @@
     "text": "Topless slang is a gas!",
     "enumeration": "5"
    },
-   "solution": "ARGON"
+   "solution": "ARGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a gas",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Topless",
+       "at": 0,
+       "note": "Topless means the first letter of the synonym is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slang",
+       "at": 8,
+       "gives": "JARGON",
+       "note": "jargon is specialist slang"
+      },
+      {
+       "gives": "J"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds topless slang hilarious.",
+     "walkthrough": "JARGON loses its top, J. 'a gas' also means great fun, the surface sense.",
+     "definitionFit": "This noble element is an inert gas found in air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gas"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +416,58 @@
     "text": "Aid to a drawer, top drawer by the way",
     "enumeration": "7"
    },
-   "solution": "STENCIL"
+   "solution": "STENCIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aid to a drawer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the way",
+       "at": 31,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 17,
+         "note": "top means the first letter of drawer's synonym is lopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drawer",
+         "at": 21,
+         "gives": "PENCIL",
+         "note": "a pencil is something that draws"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something to help an artist, top-notch, mentioned in passing.",
+     "walkthrough": "'top drawer' poses as the phrase for excellent, but 'top' beheads the second 'drawer'; 'by' is a link.",
+     "definitionFit": "A cut-out template guides an artist to trace letters or shapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drawer"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +481,53 @@
     "text": "Throw us a net that's fishy!",
     "enumeration": "6"
    },
-   "solution": "UNSEAT"
+   "solution": "UNSEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Throw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fishy",
+       "at": 22,
+       "note": "fishy means suspect or not right, so the letters of the preceding words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "us",
+       "at": 6,
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "words": "net",
+       "at": 11,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tossed a net at sea and finds something suspicious.",
+     "walkthrough": "'fishy' rearranges US, A and NET; 'that's' is a link.",
+     "definitionFit": "A horse that throws its rider dislodges them from the saddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Throw"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +541,54 @@
     "text": "Flimsy garment with false leg in-cor!",
     "enumeration": "8"
    },
-   "solution": "NEGLIGEE"
+   "solution": "NEGLIGEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flimsy garment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "false",
+         "at": 20,
+         "note": "false means not genuine, so the letters of the words next to it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg in",
+         "at": 26,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "cor",
+       "at": 33,
+       "gives": "GEE",
+       "note": "cor and gee are both exclamations of surprise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flimsy nightdress worn with a false leg, prompting a cry of surprise.",
+     "walkthrough": "'false' rearranges LEG IN into NEGLI; 'cor!' is the British exclamation, swapped for its equivalent GEE.",
+     "definitionFit": "This light, sheer nightwear is the classic flimsy women's robe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +602,32 @@
     "text": "Assault — alcohol-fuelled assault, you might say?",
     "enumeration": "7"
    },
-   "solution": "BARRAGE"
+   "solution": "BARRAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assault",
+      "at": 0,
+      "meaning": "a heavy bombardment of artillery fire"
+     },
+     {
+      "text": "alcohol-fuelled assault, you might say?",
+      "at": 10,
+      "meaning": "read as two words, fury born in a pub"
+     }
+    ],
+    "explanation": {
+     "surface": "An attack, perhaps a drunken one.",
+     "walkthrough": "Split as BAR RAGE, anger in a pub, by analogy with road rage.",
+     "definitionFit": "A concentrated volley of gunfire is a military assault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alcohol-fuelled"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +651,80 @@
      }
     ]
    },
-   "solution": "DAYTODAY"
+   "solution": "DAYTODAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "routine",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 13,
+         "note": "in places the shuffled toy inside the art movement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nihilistic style",
+         "at": 16,
+         "gives": "DADA",
+         "note": "Dada was the anti-art movement known for its nihilism"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "casually",
+           "at": 4,
+           "note": "casually means carelessly, so the letters of toy are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Toy",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the start of",
+         "at": 38,
+         "note": "the start of points to the opening letter of your"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone toying idly with a nihilistic attitude at the start of their routine.",
+     "walkthrough": "Dada was the early-20th-century anti-art movement; 'casually' scrambles the toy, which 'in' places inside it, and 'the start of' picks the first letter of 'your'.",
+     "definitionFit": "Ordinary, everyday business is the humdrum routine of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Toy"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +738,43 @@
     "text": "A feature of Lambeth, nice and cultural",
     "enumeration": "6"
    },
-   "solution": "ETHNIC"
+   "solution": "ETHNIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cultural",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A feature of",
+       "at": 0,
+       "note": "A feature of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lambeth, nice",
+       "at": 13,
+       "gives": "ETHNIC",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praising a pleasant, culturally rich corner of Lambeth in London.",
+     "walkthrough": "The draft's definition took in 'and', but that is only a link joining the wordplay to 'cultural'. Lambeth is a London borough.",
+     "definitionFit": "Both words describe things belonging to a people's traditions and heritage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feature"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +788,49 @@
     "text": "Able to restrain boy when truculent",
     "enumeration": "7"
    },
-   "solution": "DEFIANT"
+   "solution": "DEFIANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "truculent",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to restrain",
+       "at": 5,
+       "note": "to restrain says the first word holds the boy inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Able",
+       "at": 0,
+       "gives": "DEFT",
+       "note": "deft means skilful, able"
+      },
+      {
+       "words": "boy",
+       "at": 17,
+       "gives": "IAN",
+       "note": "Ian is a boy's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capable person restraining an aggressive boy.",
+     "walkthrough": "DEFT holds IAN; 'when' links.",
+     "definitionFit": "Both describe a combative, resisting attitude that refuses to obey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Able"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +844,49 @@
     "text": "Chess piece producing stalemate between the two kings",
     "enumeration": "4"
    },
-   "solution": "ROOK"
+   "solution": "ROOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chess piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 32,
+       "note": "between says the stalemate sits inside the two kings"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the two kings",
+       "at": 40,
+       "gives": "RK",
+       "note": "R (rex) and K are both abbreviations for king"
+      },
+      {
+       "words": "stalemate",
+       "at": 22,
+       "gives": "OO",
+       "note": "a stalemate is a draw, nil-nil, written as two zeros"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess piece forcing a draw in an endgame with both kings left.",
+     "walkthrough": "'stalemate' is a no-score draw, 0-0, read as two Os; the kings are R (Latin rex) and K.",
+     "definitionFit": "The castle-shaped piece on a chessboard's corner squares has this other name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stalemate"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +910,32 @@
      }
     ]
    },
-   "solution": "FREEFORALL"
+   "solution": "FREEFORALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A melee",
+      "at": 0,
+      "meaning": "a melee is a chaotic brawl with everyone joining in"
+     },
+     {
+      "text": "like the NHS",
+      "at": 9,
+      "meaning": "Britain's National Health Service is paid from taxes, costing patients nothing at the point of use"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that the health service has become a chaotic scrum.",
+     "walkthrough": "The NHS is Britain's tax-funded National Health Service, open to everyone without charge.",
+     "definitionFit": "An unruly brawl and a service open to all at no cost share this hyphenated phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "melee"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +949,59 @@
     "text": "Contrary accompaniment to vice entertained by a teetotal rival",
     "enumeration": "9"
    },
-   "solution": "ADVERSARY"
+   "solution": "ADVERSARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rival",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 46,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertained by",
+         "at": 31,
+         "note": "entertained by means held inside the teetotal word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teetotal",
+         "at": 48,
+         "gives": "DRY",
+         "note": "dry means alcohol-free, teetotal"
+        },
+        {
+         "words": "Contrary accompaniment to vice",
+         "at": 0,
+         "gives": "VERSA",
+         "note": "vice versa means the contrary, so its partner word is versa"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotal rival hosts an opponent of vice.",
+     "walkthrough": "The phrase 'vice versa' supplies its partner word, and 'entertained by' puts it inside the teetotal word, after A.",
+     "definitionFit": "An opponent or enemy is one's rival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vice"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1015,30 @@
     "text": "Swimmer having to thrash about",
     "enumeration": "8"
    },
-   "solution": "FLOUNDER"
+   "solution": "FLOUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0,
+      "meaning": "a flatfish"
+     },
+     {
+      "text": "to thrash about",
+      "at": 15,
+      "meaning": "to struggle clumsily"
+     }
+    ],
+    "explanation": {
+     "surface": "A swimmer forced to struggle in the water.",
+     "definitionFit": "A flatfish, and a verb for struggling helplessly, share this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swimmer"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1058,72 @@
      }
     ]
    },
-   "solution": "CATTLEGRID"
+   "solution": "CATTLEGRID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "restraint on farm",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Animal",
+       "at": 0,
+       "gives": "CAT",
+       "note": "a cat is an animal"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stuck in",
+         "at": 17,
+         "note": "stuck in places the limb inside the reversed mud"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 30,
+           "note": "about means the word for mud is turned round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mud",
+           "at": 26,
+           "gives": "DIRT",
+           "note": "mud is dirt"
+          }
+         ]
+        },
+        {
+         "words": "limb",
+         "at": 12,
+         "gives": "LEG",
+         "note": "a leg is a limb"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature with a leg trapped in the mud on a farm.",
+     "walkthrough": "'about' reverses the word for mud to TRID, and 'stuck in' places the limb inside it; a cattle grid is a common British farm-gate feature.",
+     "definitionFit": "Metal bars over a pit stop livestock straying while letting vehicles pass on farmland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restraint"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1137,73 @@
     "text": "One horse rearing into two hundred is potty?",
     "enumeration": "7"
    },
-   "solution": "CERAMIC"
+   "solution": "CERAMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "potty?",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 18,
+       "note": "into places the reversed pieces inside the hundreds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two hundred",
+       "at": 23,
+       "gives": "CC",
+       "note": "C is the Roman numeral for hundred, so two Cs"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rearing",
+         "at": 10,
+         "note": "rearing, in a down clue, sends the words above upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "One",
+           "at": 0,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          },
+          {
+           "words": "horse",
+           "at": 4,
+           "gives": "MARE",
+           "note": "a mare is a female horse"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering if a horse rearing among two hundred others is crazy.",
+     "walkthrough": "'rearing' turns I MARE into ERAMI, put 'into' CC. 'potty' means mad, but here it is pot-like; 'is' links.",
+     "definitionFit": "Pots and pottery are made of fired clay, the material this word describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "potty"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1217,47 @@
     "text": "Justify expulsion of extreme characters from pub",
     "enumeration": "4"
    },
-   "solution": "AVER"
+   "solution": "AVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Justify",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "expulsion of extreme characters from",
+       "at": 8,
+       "note": "the outermost letters of the synonym for pub are thrown out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "at": 45,
+       "gives": "TAVERN",
+       "note": "a tavern is a pub"
+      },
+      {
+       "gives": "TN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Defending a pub's decision to throw out some extreme customers.",
+     "walkthrough": "TAVERN loses its first and last letters, T and N.",
+     "definitionFit": "To affirm or maintain something as true; in law, to allege as fact, a sense close to justify."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1271,42 @@
     "text": "Bread needed to soak up pickled fish",
     "enumeration": "7"
    },
-   "solution": "ROLLMOP"
+   "solution": "ROLLMOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pickled fish",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bread",
+       "at": 0,
+       "gives": "ROLL",
+       "note": "a roll is a piece of bread"
+      },
+      {
+       "words": "soak up",
+       "at": 16,
+       "gives": "MOP",
+       "note": "to mop is to soak up liquid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bread used to soak up the juice from pickled fish.",
+     "walkthrough": "'needed to' is a link.",
+     "definitionFit": "A rolled herring fillet in vinegar is a type of pickled fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bread"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1320,31 @@
     "text": "Glass -schooner, perhaps",
     "enumeration": "6"
    },
-   "solution": "VESSEL"
+   "solution": "VESSEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Glass",
+      "at": 0,
+      "meaning": "a drinking glass is a container"
+     },
+     {
+      "text": "schooner, perhaps",
+      "at": 7,
+      "meaning": "a schooner is one example of a ship"
+     }
+    ],
+    "explanation": {
+     "surface": "A schooner glass, as in a large sherry glass.",
+     "walkthrough": "A schooner is both a large drinking glass and a sailing ship.",
+     "definitionFit": "Both a drinking container and a ship are called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "schooner"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1358,42 @@
     "text": "Scrap of material on old hat found for stew",
     "enumeration": "6"
    },
-   "solution": "RAGOUT"
+   "solution": "RAGOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stew",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scrap of material",
+       "at": 0,
+       "gives": "RAG",
+       "note": "a rag is a scrap of cloth"
+      },
+      {
+       "words": "old hat",
+       "at": 21,
+       "gives": "OUT",
+       "note": "old hat means out of fashion, or out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tatty piece of cloth on an old hat being used to make a stew.",
+     "walkthrough": "'old hat' means unfashionable, which is OUT; 'on' and 'found for' are links.",
+     "definitionFit": "A highly seasoned French dish of meat and vegetables is a kind of stew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1407,41 @@
     "text": "Measurement is right? Wrong",
     "enumeration": "5"
    },
-   "solution": "GIRTH"
+   "solution": "GIRTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Measurement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Wrong",
+       "at": 22,
+       "note": "Wrong means not correct, so the letters of right are put into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Questioning whether a measurement is correct, and concluding it is not.",
+     "walkthrough": "'Wrong' rearranges RIGHT; 'is' links.",
+     "definitionFit": "The measurement round the middle of something is its circumference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1455,42 @@
     "text": "The whole triangle is round?",
     "enumeration": "8"
    },
-   "solution": "INTEGRAL"
+   "solution": "INTEGRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The whole",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 22,
+       "note": "round suggests the letters of triangle are turned about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "triangle",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether a whole triangle could be round.",
+     "walkthrough": "'round' rearranges TRIANGLE; 'is' links.",
+     "definitionFit": "Integral describes something entire, forming a complete whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1504,46 @@
     "text": "Graceful bird having to preen endlessly",
     "enumeration": "4"
    },
-   "solution": "SWAN"
+   "solution": "SWAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Graceful bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 30,
+       "note": "endlessly means the last letter of the synonym for preen is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "preen",
+       "at": 24,
+       "gives": "SWANK",
+       "note": "to swank is to show off, preen"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graceful bird that must constantly groom itself.",
+     "walkthrough": "SWANK, to show off, loses its end; 'having to' links.",
+     "definitionFit": "This long-necked white waterbird is known for its elegance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "preen"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1557,42 @@
     "text": "Price reduction makes an impression on Irish county",
     "enumeration": "8"
    },
-   "solution": "MARKDOWN"
+   "solution": "MARKDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Price reduction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "impression",
+       "at": 25,
+       "gives": "MARK",
+       "note": "a mark is an impression left on something"
+      },
+      {
+       "words": "Irish county",
+       "at": 39,
+       "gives": "DOWN",
+       "note": "Down is a county of Northern Ireland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sale price that wins fans in an Irish county.",
+     "walkthrough": "County Down is in Northern Ireland; 'makes an' and 'on' are links.",
+     "definitionFit": "A cut in the selling price of goods is what shops call this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1606,32 @@
     "text": "Buzzing, to the same degree?",
     "enumeration": "6"
    },
-   "solution": "ASWARM"
+   "solution": "ASWARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Buzzing",
+      "at": 0,
+      "meaning": "buzzing here means teeming, crowded like bees"
+     },
+     {
+      "text": "to the same degree?",
+      "at": 9,
+      "meaning": "read as two words, equal in warmth, so the same degree of temperature"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether something buzzing is equally intense.",
+     "walkthrough": "The second definition splits the answer into AS WARM, a pun on temperature degrees.",
+     "definitionFit": "Teeming with moving creatures is how a buzzing, crowded place is described."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "degree"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1645,48 @@
     "text": "Continued to keep conscious and intelligible",
     "enumeration": "8"
    },
-   "solution": "COHERENT"
+   "solution": "COHERENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "intelligible",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 10,
+       "note": "to keep tells us the abbreviation holds the next word inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Continued",
+       "at": 0,
+       "gives": "CONT"
+      },
+      {
+       "words": "conscious",
+       "at": 18,
+       "gives": "HERE",
+       "note": "someone conscious is here, present and alert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who stayed awake and stayed lucid.",
+     "walkthrough": "Being 'here' means present and aware, which is the sense of conscious used; 'to keep' places it inside the abbreviation, and 'and' links.",
+     "definitionFit": "Clear, logical speech or thought is easy to understand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Continued"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +1706,50 @@
      }
     ]
    },
-   "solution": "PLAYUP"
+   "solution": "PLAYUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "misbehave",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspires",
+       "at": 6,
+       "note": "inspires is read literally as breathes in, so the whelp holds the amateur"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Whelp",
+       "at": 0,
+       "gives": "PUP",
+       "note": "a whelp is a young dog, a pup"
+      },
+      {
+       "words": "amateur",
+       "at": 15,
+       "gives": "LAY",
+       "note": "lay means non-professional, amateur"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young dog encourages a novice to cause trouble.",
+     "walkthrough": "'inspires' means breathes in, so PUP takes in LAY.",
+     "definitionFit": "Children who act up and cause trouble are said to do this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "inspires"
+    }
+   }
   }
  ]
 }
