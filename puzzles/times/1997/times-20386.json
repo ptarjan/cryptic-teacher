@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Sudden onset of wind can make one yell",
     "enumeration": "6"
    },
-   "solution": "SQUALL"
+   "solution": "SQUALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sudden onset of wind",
+      "at": 0,
+      "meaning": "a brief violent gust or storm arriving abruptly"
+     },
+     {
+      "text": "yell",
+      "at": 34,
+      "meaning": "as a verb, to cry out loudly and harshly like a baby"
+     }
+    ],
+    "explanation": {
+     "surface": "A sudden gust of wind can make someone shout out.",
+     "walkthrough": "'can make one' is only a link between the two senses: the noun for a sudden storm and the verb for a loud cry.",
+     "definitionFit": "The word names both an abrupt gale and the act of screaming noisily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,56 @@
     "text": "Cut stated price on a share",
     "enumeration": "5"
    },
-   "solution": "QUOTA"
+   "solution": "QUOTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "share",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cut",
+         "at": 0,
+         "note": "cut means the word for a stated price loses its final letter here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stated price",
+         "at": 4,
+         "gives": "QUOTE",
+         "note": "a quote is a price stated in advance"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 20,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cuts the price they gave for a share in a company.",
+     "walkthrough": "'Cut' trims QUOTE to QUOT; 'on' just links it to A.",
+     "definitionFit": "An allotted portion or allocation is a fixed share."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "share"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +133,61 @@
     "text": "White flower covered by rising lake",
     "enumeration": "9"
    },
-   "solution": "ALABASTER"
+   "solution": "ALABASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "covered by",
+       "at": 13,
+       "note": "in a down entry the flower sits beneath, so it is covered by the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 24,
+         "note": "in a down clue rising means the lake's name is read upwards, from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lake",
+         "at": 31,
+         "gives": "BALA",
+         "note": "Bala is the largest natural lake in Wales"
+        }
+       ]
+      },
+      {
+       "words": "flower",
+       "at": 6,
+       "gives": "ASTER",
+       "note": "an aster is a daisy-like garden flower"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A white flower floats under the surface of a lake.",
+     "walkthrough": "In a down entry 'covered by' means the flower sits below the lake. Bala is a lake in north Wales.",
+     "definitionFit": "Alabaster is the classic image of pure smooth whiteness, as in 'alabaster skin'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +201,32 @@
     "text": "Hollywood bitch Scottish singer loved",
     "enumeration": "6"
    },
-   "solution": "LASSIE"
+   "solution": "LASSIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hollywood bitch",
+      "at": 0,
+      "meaning": "the famous collie of the film series, a female dog"
+     },
+     {
+      "text": "Scottish singer loved",
+      "at": 16,
+      "meaning": "the girl a Scots singer pines for in songs, his bonnie lass"
+     }
+    ],
+    "explanation": {
+     "surface": "A Hollywood starlet with a sharp tongue was adored by a Scottish crooner.",
+     "walkthrough": "'bitch' is meant literally: a female dog, the collie star of the 1943 film and its sequels.",
+     "definitionFit": "The film collie bears this name, and the Scots word for a young girl or sweetheart is the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bitch"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +240,61 @@
     "text": "The messenger's staff wrongly accused you, we hear",
     "enumeration": "8"
    },
-   "solution": "CADUCEUS"
+   "solution": "CADUCEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The messenger's staff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrongly",
+       "at": 22,
+       "note": "wrongly means the letters are put in an incorrect order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "accused",
+       "at": 30
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "we hear",
+         "at": 43,
+         "note": "we hear signals that a word is taken by its sound alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 38,
+         "gives": "YOU",
+         "note": "the word you sounds like the letter U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests to another that the staff were falsely blamed.",
+     "walkthrough": "'we hear' turns 'you' into U; 'wrongly' rearranges ACCUSED plus U.",
+     "definitionFit": "Hermes, messenger of the gods, carried a wand twined with two snakes, known by this Latin name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +322,36 @@
      }
     ]
    },
-   "solution": "CRADLEOFTHEDEEP"
+   "solution": "CRADLEOFTHEDEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ocean bed?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ocean bed?",
+       "at": 0,
+       "note": "not the sea floor but a bed for a baby, a poetic phrase for the sea as a rocking cot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the floor of the sea.",
+     "walkthrough": "'bed' reads as the seabed, but the phrase is a poetic name for the sea itself, a cot that rocks.",
+     "definitionFit": "The poetic phrase calls the sea a rocking cot, which fits a bed made of ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +365,48 @@
     "text": "Removed passage in legal document",
     "enumeration": "8"
    },
-   "solution": "DEDUCTED"
+   "solution": "DEDUCTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Removed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in means the word for a passage sits inside the legal document"
+      }
+     ],
+     "parts": [
+      {
+       "words": "legal document",
+       "at": 19,
+       "gives": "DEED",
+       "note": "a deed is a signed legal document"
+      },
+      {
+       "words": "passage",
+       "at": 8,
+       "gives": "DUCT",
+       "note": "a duct is a tube or passage, as in a tear duct"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clause was taken out of a contract.",
+     "definitionFit": "Subtracted or taken away from a total."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +420,52 @@
     "text": "Head of choir, soon to become a priest",
     "enumeration": "5"
    },
-   "solution": "CANON"
+   "solution": "CANON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "priest",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 0,
+         "note": "head of picks out the opening letter of the word choir"
+        }
+       ],
+       "parts": [
+        {
+         "words": "choir",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "soon",
+       "at": 15,
+       "gives": "ANON",
+       "note": "anon is an old word for soon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The choirmaster will shortly be ordained.",
+     "walkthrough": "'to become a' only links the wordplay to the definition.",
+     "definitionFit": "A cathedral clergyman on the chapter is so titled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +479,70 @@
     "text": "Suffered from growth in lower end of throat",
     "enumeration": "9"
    },
-   "solution": "UNDERWENT"
+   "solution": "UNDERWENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suffered",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places the growth inside the other pieces joined together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lower",
+         "at": 24,
+         "gives": "UNDER",
+         "note": "under means lower, beneath"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 30,
+           "note": "end of takes the final letter of the word throat"
+          }
+         ],
+         "parts": [
+          {
+           "words": "throat",
+           "at": 37
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "growth",
+       "at": 14,
+       "gives": "WEN",
+       "note": "a wen is a benign skin growth or cyst"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffered from a lump at the bottom of their throat.",
+     "walkthrough": "'from' is only a link; 'end of' takes the T of 'throat'.",
+     "definitionFit": "To go through an ordeal is to experience or endure it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +566,33 @@
      }
     ]
    },
-   "solution": "NOMANSLAND"
+   "solution": "NOMANSLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disputed area",
+      "at": 0,
+      "meaning": "ground between warring front lines that neither side holds"
+     },
+     {
+      "text": "Amazon region?",
+      "at": 17,
+      "meaning": "the Amazons were a mythical race of women warriors, so their land has no males"
+     }
+    ],
+    "spelling": "NO MAN'S LAND",
+    "explanation": {
+     "surface": "A contested territory lies in the Amazon basin.",
+     "walkthrough": "'Amazon' suggests the South American river, but means the legendary all-female warriors.",
+     "definitionFit": "Strip of unclaimed ground between front lines; read literally, a country without males."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Amazon"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +606,54 @@
     "text": "Exposed Red union's part in recession",
     "enumeration": "4"
    },
-   "solution": "NUDE"
+   "solution": "NUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exposed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "in recession",
+       "at": 25,
+       "note": "in recession means going backwards, so the run is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "part",
+         "at": 20,
+         "note": "part shows that the answer is a piece of the words red union"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Red union's",
+         "at": 8,
+         "gives": "EDUN"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing trade union's role during an economic downturn was exposed.",
+     "walkthrough": "'part' takes EDUN from 'Red union's' and 'in recession' turns it round.",
+     "definitionFit": "Bare or naked, uncovered for all to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recession"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +667,48 @@
     "text": "Feverish air in shopping centre",
     "enumeration": "8"
    },
-   "solution": "MALARIAL"
+   "solution": "MALARIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feverish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in means the tune sits inside the word for a shopping centre"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shopping centre",
+       "at": 16,
+       "gives": "MALL",
+       "note": "a mall is a shopping precinct"
+      },
+      {
+       "words": "air",
+       "at": 9,
+       "gives": "ARIA",
+       "note": "an aria is an air, a song in opera"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stuffy shopping centre makes one feel hot and ill.",
+     "definitionFit": "Relating to the mosquito-borne disease marked by recurring fevers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +722,49 @@
     "text": "Unfounded rumour article in heavy paper contained",
     "enumeration": "6"
    },
-   "solution": "CANARD"
+   "solution": "CANARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unfounded rumour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contained",
+       "at": 40,
+       "note": "contained means the heavy paper holds the article within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heavy paper",
+       "at": 28,
+       "gives": "CARD",
+       "note": "card is thick stiff paper"
+      },
+      {
+       "words": "article",
+       "at": 17,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baseless story was printed in a weighty broadsheet.",
+     "walkthrough": "The first 'in' is only a link; 'contained' is the container signal.",
+     "definitionFit": "A false story or hoax spread as news, from the French for duck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +778,41 @@
     "text": "Meet in a bar",
     "enumeration": "4"
    },
-   "solution": "ABUT"
+   "solution": "ABUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      },
+      {
+       "words": "bar",
+       "at": 10,
+       "gives": "BUT",
+       "note": "but can mean except, as in 'all bar one'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arrange to meet someone in a pub.",
+     "walkthrough": "'bar' looks like a pub but means 'except', which is BUT.",
+     "definitionFit": "Two things that adjoin or touch at a border meet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +826,43 @@
     "text": "Underwear sent to laundry? Change one's mind",
     "enumeration": "9"
    },
-   "solution": "BRAINWASH"
+   "solution": "BRAINWASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change one's mind",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Underwear",
+       "at": 0,
+       "gives": "BRA",
+       "note": "a bra is an item of women's underwear"
+      },
+      {
+       "words": "sent to laundry",
+       "at": 10,
+       "gives": "INWASH",
+       "note": "clothes put in the laundry are in the wash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Underwear has gone to the laundry, prompting a rethink.",
+     "walkthrough": "'one's' means someone's: the definition is to change a person's mind for them.",
+     "definitionFit": "To indoctrinate someone, altering their beliefs by pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Underwear"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +876,49 @@
     "text": "Shrub to tend in river setting",
     "enumeration": "8"
    },
-   "solution": "OLEANDER"
+   "solution": "OLEANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "setting",
+       "at": 23,
+       "note": "setting means the river forms a setting round the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 17,
+       "gives": "ODER",
+       "note": "the Oder is a river between Germany and Poland"
+      },
+      {
+       "words": "tend",
+       "at": 9,
+       "gives": "LEAN",
+       "note": "to lean towards something is to tend to it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener tends a bush by a riverbank.",
+     "walkthrough": "'to' and 'in' are only links; 'setting' is the container signal.",
+     "definitionFit": "An evergreen Mediterranean bush with pink or white flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tend"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +932,31 @@
     "text": "Mother of brainchild is in need",
     "enumeration": "9"
    },
-   "solution": "NECESSITY"
+   "solution": "NECESSITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mother of brainchild",
+      "at": 0,
+      "meaning": "the proverb says the mother of invention, a brainchild being an invention"
+     },
+     {
+      "text": "need",
+      "at": 27,
+      "meaning": "a requirement, something indispensable"
+     }
+    ],
+    "explanation": {
+     "surface": "A mother's bright idea is badly needed.",
+     "walkthrough": "The proverb is 'necessity is the mother of invention'; brainchild stands in for invention. 'is in' is a link.",
+     "definitionFit": "The proverb's mother of invention is pressing want or requirement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mother"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +980,32 @@
      }
     ]
    },
-   "solution": "ACTOFGOD"
+   "solution": "ACTOFGOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divine performance",
+      "at": 0,
+      "meaning": "a deed done by the deity"
+     },
+     {
+      "text": "The Tempest, for example",
+      "at": 22,
+      "meaning": "a great storm, the kind of natural disaster insurers exclude"
+     }
+    ],
+    "explanation": {
+     "surface": "A heavenly staging of Shakespeare's play.",
+     "walkthrough": "'The Tempest' suggests Shakespeare, but means simply a storm, the kind insurers call beyond human control.",
+     "definitionFit": "A natural catastrophe beyond human control; literally a deed of the deity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tempest"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1025,36 @@
      }
     ]
    },
-   "solution": "CARRYCOT"
+   "solution": "CARRYCOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A boon to women of childbearing age",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A boon to women of childbearing age",
+       "at": 0,
+       "note": "something helpful to young mothers: here a portable bed for transporting a baby"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something a great help to younger women.",
+     "walkthrough": "'childbearing' hints at pregnancy, but read it as bearing (carrying) a child about.",
+     "definitionFit": "A portable baby bed with handles, a help to mothers carrying infants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "childbearing"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1068,44 @@
     "text": "Evidence it makes sense to place in hearing",
     "enumeration": "4"
    },
-   "solution": "CITE"
+   "solution": "CITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evidence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CITE",
+     "indicators": [
+      {
+       "text": "in hearing",
+       "at": 33,
+       "note": "in hearing signals that the word for place is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "place",
+       "at": 27,
+       "gives": "SITE",
+       "note": "a site is a place or location"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witness says it makes sense to put proof before a court hearing.",
+     "walkthrough": "'it makes sense' adds a second clue: SIGHT, a sense, also sounds like the answer.",
+     "definitionFit": "To evidence a point is to adduce or quote something in support of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1119,31 @@
     "text": "Silly old man gets a shiner",
     "enumeration": "6"
    },
-   "solution": "DUFFER"
+   "solution": "DUFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Silly old man",
+      "at": 0,
+      "meaning": "an incompetent or foolish old fellow"
+     },
+     {
+      "text": "a shiner",
+      "at": 19,
+      "meaning": "old slang for a coin was shiner; this word also meant a counterfeit coin"
+     }
+    ],
+    "explanation": {
+     "surface": "A foolish old chap ends up with a black eye.",
+     "walkthrough": "'shiner' suggests a black eye, but it is old slang for a coin; the answer once meant a fake coin.",
+     "definitionFit": "Slang for a muddler or old fool; also historic slang for a bogus coin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shiner"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1157,48 @@
     "text": "Mr Jones embracing daughter getting a blue",
     "enumeration": "6"
    },
-   "solution": "INDIGO"
+   "solution": "INDIGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a blue",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 9,
+       "note": "embracing means the architect's first name wraps round the letter for daughter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mr Jones",
+       "at": 0,
+       "gives": "INIGO",
+       "note": "Inigo Jones was the English Renaissance architect"
+      },
+      {
+       "words": "daughter",
+       "at": 19,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mr Jones hugs his daughter and goes away feeling sad.",
+     "walkthrough": "'getting' is a link.",
+     "definitionFit": "A deep violet-tinged shade between violet and azure in the spectrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1212,48 @@
     "text": "Foolish creditors removed from Macbeth's high ground",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foolish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removed from",
+       "at": 18,
+       "note": "removed from means the creditors are taken out of the place name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Macbeth's high ground",
+       "at": 31,
+       "gives": "DUNSINANE",
+       "note": "Dunsinane Hill is where Macbeth has his castle in Shakespeare's play"
+      },
+      {
+       "words": "creditors",
+       "at": 8,
+       "gives": "DUNS",
+       "note": "duns are creditors who press for payment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It was silly to send the creditors away from Macbeth's hill.",
+     "definitionFit": "Senseless or silly, lacking any sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "creditors"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1267,62 @@
     "text": "Make a liquid mixture using special muesli extremely fruity",
     "enumeration": "8"
    },
-   "solution": "EMULSIFY"
+   "solution": "EMULSIFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make a liquid mixture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "special",
+         "at": 28,
+         "note": "special implies the letters of muesli are treated unusually and remade"
+        }
+       ],
+       "parts": [
+        {
+         "words": "muesli",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 43,
+         "note": "extremely picks the first and last letters of fruity"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruity",
+         "at": 53
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A special muesli is mixed up with something very fruity.",
+     "walkthrough": "'using' is a link.",
+     "definitionFit": "To blend oil and water into a smooth stable cream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1336,41 @@
     "text": "People organised to work on behalf of church",
     "enumeration": "5"
    },
-   "solution": "FORCE"
+   "solution": "FORCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People organised to work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on behalf of",
+       "at": 25,
+       "gives": "FOR",
+       "note": "for means on behalf of"
+      },
+      {
+       "words": "church",
+       "at": 38,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Volunteers are organised to work for the church.",
+     "definitionFit": "A body of workers or troops, such as a workforce or police service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "People"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1384,41 @@
     "text": "Miss a festive occasion",
     "enumeration": "4"
    },
-   "solution": "GALA"
+   "solution": "GALA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "festive occasion",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Miss",
+       "at": 0,
+       "gives": "GAL",
+       "note": "a miss is a girl, informally a gal"
+      },
+      {
+       "words": "a",
+       "at": 5,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misses a party.",
+     "walkthrough": "'Miss' looks like a verb but is a young woman.",
+     "definitionFit": "A celebratory event or festivity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1432,36 @@
     "text": "Monks more moderate than Dominicans and Carmelites?",
     "enumeration": "10"
    },
-   "solution": "GREYFRIARS"
+   "solution": "GREYFRIARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monks more moderate than Dominicans and Carmelites?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Monks more moderate than Dominicans and Carmelites?",
+       "at": 0,
+       "note": "Dominicans are Black and Carmelites White friars; a shade between black and white is the middle colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether some monks are less extreme than two other orders.",
+     "walkthrough": "Franciscans wore grey habits, a colour midway between the Dominicans' black and the Carmelites' white.",
+     "definitionFit": "The Franciscan order, named for their grey habits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "moderate"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1481,45 @@
      }
     ]
    },
-   "solution": "SHEEPDIP"
+   "solution": "SHEEPDIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big trough",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "going out",
+       "at": 15,
+       "note": "going out suggests the letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shed",
+       "at": 0
+      },
+      {
+       "words": "pipe",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is taking a pipe out of the shed to a large trough.",
+     "walkthrough": "'with' joins the two words that are rearranged together.",
+     "definitionFit": "A deep bath of insecticide through which flocks are driven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shed"
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1533,45 @@
     "text": "Poet said to be Frost, R.",
     "enumeration": "6"
    },
-   "solution": "RHYMER"
+   "solution": "RHYMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RHYMER",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 5,
+       "note": "said signals a sound-alike of the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Frost, R",
+       "at": 16,
+       "gives": "RIMER",
+       "note": "rime is frost, and R is the letter as given"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet is supposedly the American Robert Frost.",
+     "walkthrough": "'Frost, R.' looks like the poet's name but gives RIME plus R; 'to be' is a link.",
+     "definitionFit": "A writer of verse, a versifier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frost"
+    }
+   }
   }
  ]
 }
