@@ -590,6 +590,48 @@ def _sources_state():
     return out
 
 
+def source_of(pid):
+    """sources().get(pid), read off the ledgers a line at a time, parsing only
+    the lines that name `pid` (and every Trove line, whose last row per
+    article decides). For a caller asking about one puzzle: sources() holds
+    every row of ~130MB of ledgers, ~850MB resident (11-14: annotate_check
+    --reread at 780MB for a single puzzle)."""
+    want = json.dumps(pid).encode()
+    found = None
+    for key in ("archive", "gale"):
+        if key not in LEDGERS:
+            continue
+        name = Path(LEDGERS[key]).name
+        for n, line in _complete_lines(LEDGERS[key]):
+            if want not in line and not (b"\x00" in line and want in line.replace(b"\x00", b"")):
+                continue
+            for row in parse_line(line, (name, n)):
+                if any(v.get("id") == pid for v in row.get("verdicts") or ()):
+                    found = ("archive", row["edition"], row)
+    trove = {}  # article: its last row if that row is pid's, else None
+    name = Path(LEDGERS["trove"]).name
+    for n, line in _complete_lines(LEDGERS["trove"]):
+        for row in parse_line(line, (name, n)):
+            trove[row["article"]] = row if row.get("id") == pid else None
+    for row in trove.values():
+        if row is not None:
+            found = ("trove", row["article"], row)
+    return found
+
+
+def _complete_lines(path):
+    """(line number, bytes) of each non-blank line of `path` that ends in a
+    newline, as _parsed reads it: a final line still being appended is not a
+    row. None when the file is missing."""
+    try:
+        with open(path, "rb") as f:
+            for n, line in enumerate(f, 1):
+                if line.endswith(b"\n") and line.strip():
+                    yield n, line
+    except FileNotFoundError:
+        return
+
+
 def _sorted_sources(known):
     """(sorted items of `known`, _by_source of it): sources()'s answer, which
     is the same dict until a ledger moves, derived once (tests that swap
@@ -866,20 +908,22 @@ def all_open_requests():
     return open_requests() + flagged_requests() + vote_mended_requests() + count_left_requests()
 
 
-def request_reread(puzzle, clues, why):
+def request_reread(puzzle, clues, why, one=False):
     """Ask for `puzzle`'s source to be read again; `clues` is [(entry id,
     printed clue)] as the source gave them, `why` the checks that met a
     misread. Returns the request filed, or None: not an OCR channel
     (provenance.OCR_CHANNELS, read off source.retrievedFrom), no filer
     ledger names its source (a book has no re-read), or these clues were
-    asked about already, or the puzzle is in reread_unfixable.json."""
+    asked about already, or the puzzle is in reread_unfixable.json. `one`:
+    the caller asks about this puzzle alone, so its source is read off the
+    ledgers (source_of), not out of every row held (sources())."""
     import provenance
     if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
         return None
     import clue_cutoff
     if puzzle["id"] in clue_cutoff.unfixable():  # tools/data/reread_unfixable.json: a reread cannot mend it
         return None
-    found = sources().get(puzzle["id"])
+    found = source_of(puzzle["id"]) if one else sources().get(puzzle["id"])
     if found is None:
         return None
     key = clue_key(clues)

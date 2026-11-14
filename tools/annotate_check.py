@@ -1372,7 +1372,7 @@ def reread(pid):
     import scan_queue
     path = resolve_puzzle(pid)
     clues, why = misread(path)
-    req = why and scan_queue.request_reread(read_puzzle_file(path), clues, why)
+    req = why and scan_queue.request_reread(read_puzzle_file(path), clues, why, one=True)
     if not req:
         return 1
     print(f"{pid}: queued an OCR re-read of {req['filer']} {req['source']} ({', '.join(req['why'])})")
