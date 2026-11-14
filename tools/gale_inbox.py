@@ -499,9 +499,25 @@ def note_edition(d, sources=None):
     media_manifest.record(EDITIONS, d, edition=rel, files=media_manifest.edition_files(d), sources=sources)
 
 
+_EDITIONS_MEMO = {}
+
+
 def editions():
-    """{"<item>/<date>": its last EDITIONS row}."""
-    return media_manifest.latest(EDITIONS, "edition")
+    """{"<item>/<date>": its last EDITIONS row}. The ~19 MB manifest is parsed
+    once per process and file state (inode, size, mtime): a sync asks for it
+    from the checklist and again from kick, and read it twice before."""
+    try:
+        st = media_manifest.path(EDITIONS).stat()
+        key = (media_manifest.path(EDITIONS), st.st_ino, st.st_size, st.st_mtime_ns)
+    except OSError:
+        key = None
+    if key is None or _EDITIONS_MEMO.get("key") != key:
+        _EDITIONS_MEMO.clear()
+        got = media_manifest.latest(EDITIONS, "edition")
+        if key is not None:
+            _EDITIONS_MEMO.update(key=key, rows=got)
+        return dict(got)
+    return dict(_EDITIONS_MEMO["rows"])
 
 
 def build_manifest(cache=CACHE, out=sys.stdout):
@@ -781,7 +797,15 @@ def fresh_unread(rows=None, now=None, laid=None):
     last FRESH seconds whose files the ledger holds no reading of. Read off
     the EDITIONS manifest; the ledger is read only when one is that fresh."""
     now = time.time() if now is None else now
-    laid = editions() if laid is None else laid
+    if laid is None:
+        # A row's "at" is never after the manifest's last write, so a manifest
+        # untouched for FRESH holds nothing fresh: skip parsing its ~19 MB.
+        try:
+            if now - media_manifest.path(EDITIONS).stat().st_mtime > FRESH:
+                return []
+        except OSError:
+            pass
+        laid = editions()
     fresh = {e: r for e, r in laid.items()
              if now - r["at"] <= FRESH and re.fullmatch(ITEM.format(r"\d+"), e.split("/")[0])}
     if not fresh:
