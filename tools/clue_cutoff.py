@@ -218,7 +218,10 @@ def gate(pids, read=None, log=None):
             import row_cache
             paths = {pid: puzzle_paths.find_listed(pid) for pid in pids if pid not in held}
             have = sorted({p for p in paths.values() if p is not None})
-            rows = dict(zip(have, row_cache.cached_map("clue_cutoff", puzzle_row, have, deps=_blog_stamp)))
+            rows = {}
+            for i in range(0, len(have), 2000):  # chunked: bounds cached_map's memory
+                part = have[i:i + 2000]
+                rows.update(zip(part, row_cache.cached_map("clue_cutoff", puzzle_row, part, deps=_blog_stamp)))
         for pid in pids:
             if pid in held:
                 flagged[pid] = {"*": held[pid]}

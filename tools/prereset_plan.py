@@ -2423,6 +2423,9 @@ def changed_since(tree, old_head):
     return [Path(tree) / n for n in names if (Path(tree) / n).exists()]
 
 
+CHUNK = 2000  # puzzles per cached_map call, to bound its memory
+
+
 def fresh_rows(rows, index_path=None, files=None, row_of=None, state_path=None):
     """The index's rows, each puzzle file written since the index was rebuilt
     read again (fetch_puzzle.index_row), and a file the index lacks added.
@@ -2481,8 +2484,14 @@ def fresh_rows(rows, index_path=None, files=None, row_of=None, state_path=None):
     elif row_of is None:
         import fetch_puzzle
         import row_cache
-        fresh = row_cache.cached_map("fetch_puzzle", fetch_puzzle.index_row, stale,
-                                     roots={"index_row_deps"}, deps=fetch_puzzle.index_row_deps)
+        # In chunks: a stale index (every file newer than it) is the whole
+        # corpus, and one cached_map over it held every blob and row at once.
+        fresh = []
+        for i in range(0, len(stale), CHUNK):
+            fresh += [r for r in row_cache.cached_map(
+                "fetch_puzzle", fetch_puzzle.index_row, stale[i:i + CHUNK],
+                roots={"index_row_deps"}, deps=fetch_puzzle.index_row_deps)
+                if not series.unlisted(r["series"])]
     else:
         fresh = [row_of(f) for f in stale]
     by_id = dict(saved_rows)
@@ -2604,6 +2613,24 @@ def prune_redo_list():
 CUT_SHORT_LOG = Path(os.environ.get("CT_CUT_SHORT_LOG") or Path.home() / ".cache" / "cut_short_clues.jsonl")
 
 
+def single_instance_lock():
+    """One --backlog at a time on this box: it peaks over a gigabyte, and two at
+    once (the burn's and a hand run) swapped it on 11-14. A second one waits
+    here for the first to finish, then plans from the state that left (the
+    burn's caller bounds the wait with timeout, and reads an empty answer as
+    an empty queue). Returns the open file; the lock lasts as long as it does."""
+    import fcntl
+    d = Path.home() / ".cache"
+    d.mkdir(parents=True, exist_ok=True)
+    fh = open(d / "prereset_plan_backlog.lock", "w")  # noqa: SIM115 - kept open: the lock
+    try:
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        print("  --backlog already running; waiting for it", file=sys.stderr)
+        fcntl.flock(fh, fcntl.LOCK_EX)
+    return fh
+
+
 def print_backlog(annotate_blocked, solve_blocked):
     """The queue's ids on stdout, from the index (fresh_rows: each file written
     since it was built read again); its head and how many of it
@@ -2621,6 +2648,7 @@ def print_backlog(annotate_blocked, solve_blocked):
         print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
               file=sys.stderr)
     rows = fresh_rows(index["puzzles"])
+    del index  # ~130 MB of objects, not needed again
     held = clues_only_rows({r["id"] for r in rows})
     todo = backlog(rows + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
                    os.environ.get("CT_SERIES", "").split())
@@ -3062,6 +3090,7 @@ def main():
     if "--backlog" in sys.argv:
         at = sys.argv.index("--backlog")
         args = sys.argv[at + 1:] + ["", ""]
+        _lock = single_instance_lock()  # held until the process exits
         return print_backlog(args[0], args[1])
     if "--unsolved" in sys.argv:
         return 0 if unsolved(sys.argv[sys.argv.index("--unsolved") + 1]) else 1
