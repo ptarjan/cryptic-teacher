@@ -946,7 +946,7 @@ pool_replan() {
       for id in "${queue[@]:$at}" "${POOL_RUNS[@]}" $(cat "$RUNS"/*.bag 2>/dev/null); do held[$id]=1; done
       mapfile -t blocked < <(python3 tools/failed_inputs.py skipped annotate solve)
       for id in $(timeout -k 5 "$(plan_left)" python3 tools/prereset_plan.py --backlog \
-          "${blocked[0]}" "${blocked[1]}" 2>/dev/null); do
+          "${blocked[0]:-}" "${blocked[1]:-}" 2>/dev/null); do
         [ -n "${held[$id]:-}" ] || { held[$id]=1; echo "$id"; }
       done >"$f.new"
       cat "$f.new" >>"$f.in"
