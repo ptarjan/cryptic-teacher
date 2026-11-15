@@ -27,7 +27,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # draft releases are visible to a writing token only (the seed asset)
   actions: write
 
 concurrency:
