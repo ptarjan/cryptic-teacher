@@ -319,7 +319,9 @@ check("a sync while another holds the lock skips at once, not waits", "another s
       buf.getvalue())
 # A tick publishes the progress page only after a download (or RENDER_EVERY).
 import time as _time
-real = (g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED)
+real = (g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED,
+        g.publish_mephisto)
+g.publish_mephisto = lambda **k: False
 g.next_up, g.wanted = (lambda *a: []), (lambda: {})
 g.last_render, g.kick = (lambda: _time.time() + 10**9), (lambda *a: None)
 g.LOCK = Path(sys.argv[1]) / "sync2.lock"
@@ -332,7 +334,8 @@ g.last_render = lambda: 0
 g.FETCHED.write_text("{}")
 g.sync(out=io.StringIO())
 check("a tick after a download (or RENDER_EVERY) publishes the progress page", ([1], [1]), (pages_made, pushed))
-(g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED) = real
+(g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED,
+ g.publish_mephisto) = real
 # A tick reads the editions off the SSD manifest, never the media disk: no
 # listing, glob or stat of the cache.
 import os, time, datetime, archive_coverage
