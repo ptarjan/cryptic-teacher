@@ -150,12 +150,61 @@ durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts wit
 # nothing re-reads, is alerted.
 durable_refused() {  # durable_refused <commit>: a commit origin's pre-push refuses
   local c="$1"
+  # 11-14: a batch of TLS fills and stale-code Times rereads was refused whole,
+  # and the fills waited for a hand refile. The guard names the paths it
+  # rolled back: the rest is pushed as its own commit, only those are kept.
+  durable_split_refused "$c" && return 0
   git update-ref "refs/durable/refused/$c" "$c"
   echo "$c" >>"$(git rev-parse --git-path durable-refused)"
   echo "durable: origin's pre-push refuses $(git log -1 --format=%s "$c") (made with older code); kept as refs/durable/refused/$c, and its source is read again once the tree is on origin's code"
   # A job that never moves its tree (no DURABLE_RESYNC) asks now: whatever
   # reads it again runs from another tree.
   [ -n "${DURABLE_RESYNC:-}" ] || durable_reread_refused
+}
+
+durable_split_tree() {  # durable_split_tree <from> <to> <path>...: <from>'s tree with <to>'s version of each path
+  local from="$1" to="$2" idx p entry mode sha
+  shift 2
+  idx="$(mktemp -d)/index"
+  GIT_INDEX_FILE=$idx git read-tree "$from" || return 1
+  for p in "$@"; do
+    entry=$(git ls-tree "$to" -- "$p")
+    if [ -n "$entry" ]; then
+      read -r mode _ sha _ <<<"$entry"
+      GIT_INDEX_FILE=$idx git update-index --add --cacheinfo "$mode,$sha,$p" || return 1
+    else
+      GIT_INDEX_FILE=$idx git update-index --force-remove -- "$p" || return 1
+    fi
+  done
+  GIT_INDEX_FILE=$idx git write-tree
+}
+
+durable_split_commit() {  # durable_split_commit <tree> <parent> <commit>: <commit>'s message on <tree>, "Update N puzzles" recounted
+  local n
+  n=$(git diff --no-renames --name-only "$2" "$1" -- 'puzzles/*.json' | wc -l)
+  git log -1 --format=%B "$3" | sed "1s/^Update [0-9]* puzzles/Update $n puzzles/" |
+    GIT_AUTHOR_NAME=$(git log -1 --format=%an "$3") GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$3") \
+    GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$3") git commit-tree "$1" -p "$2"
+}
+
+durable_split_refused() {  # durable_split_refused <commit>: push what the guard accepts, keep the rest; status 1 when it cannot split
+  local c="$1" parent hit=() okt badt ok bad rc
+  parent=$(git rev-parse -q --verify "$c^") || return 1
+  mapfile -t hit < <(python3 "$_durable_dir/clobber_guard.py" --paths "$c" 2>/dev/null | grep .)
+  [ "${#hit[@]}" -gt 0 ] || return 1
+  [ "$(git diff --no-renames --name-only "$parent" "$c" | wc -l)" -gt "${#hit[@]}" ] || return 1
+  okt=$(durable_split_tree "$c^{tree}" "$parent" "${hit[@]}") || return 1
+  badt=$(durable_split_tree "$parent^{tree}" "$c" "${hit[@]}") || return 1
+  ok=$(durable_split_commit "$okt" "$parent" "$c") || return 1
+  bad=$(durable_split_commit "$badt" "$parent" "$c") || return 1
+  bash "$_durable_dir/push_puzzle_commit.sh" "$ok"
+  rc=$?
+  if [ "$rc" = 3 ]; then durable_set_aside "$ok"; elif [ "$rc" != 0 ]; then return 1; fi
+  git update-ref "refs/durable/refused/$bad" "$bad"
+  echo "$bad" >>"$(git rev-parse --git-path durable-refused)"
+  echo "durable: origin's pre-push refuses ${#hit[@]} of the files in $(git log -1 --format=%s "$c") (made with older code): $(git log -1 --format=%s "$ok") pushed; $(git log -1 --format=%s "$bad") kept as refs/durable/refused/$bad, and its source is read again once the tree is on origin's code"
+  [ -n "${DURABLE_RESYNC:-}" ] || durable_reread_refused
+  return 0
 }
 
 durable_reread_refused() {  # after a move: ask the re-reads of the refused commits

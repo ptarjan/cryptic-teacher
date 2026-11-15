@@ -83,6 +83,13 @@ def check(commit):
 
 
 def main(argv):
+    # --paths <commit>: the paths the guard rolled back, one per line, so
+    # tools/durable.sh can publish the rest of a refused batch (exit 0 either way).
+    if len(argv) > 2 and argv[1] == "--paths":
+        commit = git("rev-parse", "--verify", argv[2] + "^{commit}").strip()
+        found = rolled_back(commit) if check(commit) else None
+        print("\n".join(found[1]) if found else "")
+        return 0
     commit = git("rev-parse", "--verify", (argv[1] if len(argv) > 1 else "HEAD") + "^{commit}").strip()
     why = check(commit)
     if why:

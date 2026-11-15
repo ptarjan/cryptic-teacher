@@ -269,6 +269,39 @@ on_origin puzzles/pf/1.json >/dev/null || fail "the commits a failed streak left
 [ ! -e "$(git -C "$tmp/pf" rev-parse --path-format=absolute --git-path durable-push-failures)" ] || fail "a pushing checkpoint did not end the streak"
 rm -f "$HOME/alerts"
 
+# 4c2. A batch the pre-push refuses in part (11-14: TLS fills mixed with stale-code
+#      rereads) pushes the files it accepts as their own commit; only the files
+#      it refused are kept under refs/durable/refused/ and asked for a re-read.
+d="$tmp/sp"; o="$tmp/sp-other"
+git clone -q "$tmp/origin.git" "$d" 2>/dev/null && git clone -q "$tmp/origin.git" "$o" 2>/dev/null
+printf 'import os, sys\nopen(os.environ["HOME"] + "/rereads", "a").write(sys.argv[2] + "\\n")\nsys.exit(0)\n' >"$d/tools/scan_queue.py"
+mkdir -p "$o/puzzles/sp"
+for v in 1 2; do
+  for i in 1 2 3; do echo "{\"v\": $v}" >"$o/puzzles/sp/r$i.json"; done
+  git -C "$o" add puzzles && git -C "$o" commit -qm "v$v" && git -C "$o" push -q origin HEAD:master 2>/dev/null
+done
+git -C "$d" pull -q origin master 2>/dev/null
+mkdir -p "$d/puzzles/sp"
+for i in 1 2 3; do echo '{"v": 1}' >"$d/puzzles/sp/r$i.json"; done
+echo '{"good": 1}' >"$d/puzzles/sp/good.json"
+git -C "$d" add puzzles && git -C "$d" commit -qm "Update 4 puzzles"
+cat >"$tmp/sp.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+durable_checkpoint "split pass" || { echo "checkpoint failed"; exit 1; }
+EOF
+rm -f "$HOME/rereads" "$HOME/alerts"
+out=$(bash "$tmp/sp.sh" "$d" 2>&1) || fail "a partly refused batch failed the checkpoint: $out"
+[ "$(on_origin puzzles/sp/good.json)" = '{"good": 1}' ] || fail "the accepted file of a partly refused batch was not pushed: $out"
+[ "$(on_origin puzzles/sp/r1.json)" = '{"v": 2}' ] || fail "a refused file reached origin: $out"
+[ "$(git --git-dir="$tmp/origin.git" log -1 --format=%s master)" = "Update 1 puzzles" ] || fail "the accepted subset was not its own Update 1 puzzles: $out"
+refs=$(git -C "$d" for-each-ref --format='%(refname)' refs/durable/refused/)
+[ "$(echo "$refs" | wc -l)" = 1 ] && [ -n "$refs" ] || fail "expected one refused ref, got: $refs"
+[ "$(git -C "$d" diff --name-only "${refs##*/}^" "${refs##*/}" | wc -l)" = 3 ] || fail "the refused ref holds more or fewer than the 3 refused files"
+[ "$(git -C "$d" show "${refs##*/}:puzzles/sp/good.json" 2>/dev/null | wc -l)" = 0 ] || fail "the refused ref kept the accepted file"
+[ "$(cat "$HOME/rereads" 2>/dev/null)" = "${refs##*/}" ] || fail "the refused files asked no re-read: $out"
+
 # 4d. A fetch whose transport stalls (10-23 12:46: the ssh to github.com hung a relaunch 4.5 min
 #     after a network blip) is cut off after CT_NET_TIMEOUT, and the move goes on with the
 #     origin/master last fetched. The remote here is a command that never answers.
