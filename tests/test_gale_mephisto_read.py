@@ -81,5 +81,20 @@ check("a crashed page stays due", ["mephisto:GALE_FP2.pdf"], [u["rel"] for u in 
 gm.append_row({"file": "GALE_FP1.pdf", "version": gm.VERSION - 1}, store)
 check("an older version is read again", 2, len(gm.plan(saved, store)))
 
+# --- the Down list's head at the left column's foot (1 and 2 Down, under a "Down" heading)
+import gale_listener as gl
+W = [(100, 1500 + 40 * i, 140, 1530 + 40 * i, str(i)) for i in range(1, 3)]
+right = [(600, 100 + 40 * i, 640, 130 + 40 * i, str(3 + i)) for i in range(6)]
+check("the right column's left edge", 600, gm.right_edge(right, 1000, 100))
+check("too few numbers: no edge", None, gm.right_edge(right[:3], 1000, 100))
+foot = [(100, 3000, 180, 3030, "Down"), (600, 3000, 700, 3030, "solution"),
+        (100, 3040, 140, 3070, "1"), (150, 3040, 400, 3070, "Marshal"),
+        (100, 3080, 300, 3110, "stick"), (100, 3120, 140, 3150, "2"), (150, 3120, 400, 3150, "Could"),
+        (100, 3160, 300, 3190, "arrangement"), (100, 3280, 400, 3310, "The editor's decision")]
+got = gm.tail_strip(foot, ((90, 1400, 1040, 2950), []), 500, gl)
+check("the strip runs from the Down heading to the gap", True, bool(got) and got[1] < 3000 and 3190 < got[3] < 3280)
+check("it stops left of the right column", True, bool(got) and got[2] <= 590)
+check("no Down heading at the foot: no strip", None, gm.tail_strip(foot[1:], ((90, 1400, 1040, 2950), []), 500, gl))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

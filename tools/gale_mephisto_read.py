@@ -39,7 +39,7 @@ SOLUTIONS = downloads.GALE_CROSSWORDS / "Mephisto" / "Solutions"
 STORE = Path(os.path.expanduser("~/.cache/gale_mephisto"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 3
+VERSION = 4
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -538,9 +538,103 @@ def lists_cut(words, box):
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
 
 
+#: A clue number as the OCR reads it opening a line.
+NUMBER_WORD = re.compile(r"^\d{1,2}[.,]?$")
+
+
+def down_headed(block, gl):
+    """`block` (image, key) of the clue lists with its page words given a "Down" heading word when the Across
+    heading is read and no Down one is (the right-hand column is printed under no heading: the lists then read as
+    one, "no reading parses"): the heading is put over the right column's first line, at its left edge. The cached
+    words of the block are rewritten (the other readers take the heading from them, gale_listener.lend_heads)."""
+    import statistics
+    img, key = block
+    words = gl.page_words(img, key)
+    heads = gl.headings(words)
+    across = next((w for w in sorted(heads, key=lambda w: w[1]) if gl.heading(w[4]) == "ACROSS"), None)
+    if across is None or any(gl.heading(w[4]) == "DOWN" for w in heads):
+        return block
+    nums = [w for w in words if NUMBER_WORD.match(w[4]) and w[0] > across[0] + 0.3 * img.width]
+    if len(nums) < 5:
+        return block
+    edge = statistics.median(w[0] for w in nums)
+    col = [w for w in words if edge - 15 <= w[0] and w[1] >= 0 and re.search(r"\w", w[4])
+           and abs(w[0] - edge) < 0.3 * img.width]
+    top = min(w[1] for w in col)
+    h = max(10, int(statistics.median(w[3] - w[1] for w in nums)))
+    head = (int(edge), max(0, int(top) - h - 4), int(edge) + 4 * h, max(1, int(top) - 4), "Down")
+    path = gl.OCR_CACHE / f"{key}.page.{gl.ocr_clues.reader_key('times')}.json"
+    gl.write_whole(path, json.dumps([list(w) for w in words] + [list(head)]))
+    return block
+
+
+def right_edge(words, width, across_x):
+    """The left edge of the clue lists' right-hand column on `words` (the median left end of the clue numbers
+    right of the Across column), or None."""
+    import statistics
+    nums = [w for w in words if NUMBER_WORD.match(w[4]) and w[0] > across_x + 0.3 * width]
+    return statistics.median(w[0] for w in nums) if len(nums) >= 5 else None
+
+
+def tail_strip(words, cut, edge, gl):
+    """(x0, y0, x1, y1) in page coordinates of the Down list's head, or None: the Mephisto prints the "Down" heading
+    and the first Down clues (1, 2) at the foot of the left column, under the Across list (the list goes on at the
+    top of the right column), beside last week's solution; the lists' cut stops at that solution's heading. The
+    strip runs from the "Down" heading at the left edge down its clue lines to the gap before the note."""
+    left, _, right, bottom = cut[0]
+    x_cut = left + edge - 10
+    heads = [w for w in words if gl.heading(w[4]) == "DOWN" and left <= w[0] <= left + 0.2 * (right - left)
+             and bottom - 100 <= w[1] <= bottom + 400]
+    if not heads:
+        return None
+    head = min(heads, key=lambda w: w[1])
+    lines = {}
+    for w in words:
+        if left <= w[0] < x_cut and w[1] >= head[1] - 4 and re.search(r"\w", w[4]):
+            lines.setdefault(round((w[1] + w[3]) / 2 / 8), []).append(w)
+    mids = sorted(sum((w[1] + w[3]) / 2 for w in ws) / len(ws) for ws in lines.values())
+    steps = sorted(b - a for a, b in zip(mids, mids[1:]) if b - a > 12)
+    step = steps[len(steps) // 2] if steps else 40
+    last = mids[0]
+    for m in mids[1:]:
+        if m - last > 1.7 * step:
+            break
+        last = m
+    if last <= mids[0]:
+        return None
+    ws = [w for ws in lines.values() for w in ws if (w[1] + w[3]) / 2 <= last + 4]
+    return (int(min(w[0] for w in ws)) - 6, int(head[1]) - 6, int(x_cut), int(max(w[3] for w in ws)) + 6)
+
+
+def lists_block(img, key, words, cut, gl):
+    """The clue lists' block (image, key) for `cut`, the lists' foot read as the Mephisto prints it: when the Down
+    heading and the first Down clues stand at the left column's foot (tail_strip), they are stitched over the right
+    column (the block shifted down for them), so the list reads in order; else a block with no Down heading is
+    given one (down_headed). None when no block is found."""
+    from PIL import Image
+    block = gl.times_block(img, key, cut, words)
+    if not block:
+        return None
+    bimg, bkey = block
+    bwords = gl.page_words(bimg, bkey)
+    across = next((w for w in gl.headings(bwords) if gl.heading(w[4]) == "ACROSS"), None)
+    if across is None:
+        return block
+    edge = right_edge(bwords, bimg.width, across[0])
+    strip = edge and tail_strip(words, cut, edge, gl)
+    if not strip:
+        return down_headed(block, gl)
+    piece = img.crop(strip)
+    shift = piece.height + 12
+    canvas = Image.new(bimg.mode, (max(bimg.width, int(edge) + piece.width + 4), bimg.height + shift), "white")
+    canvas.paste(bimg, (0, shift))
+    canvas.paste(piece, (int(edge), 4))
+    return canvas, gl.image_key(canvas)
+
+
 def listed(img, key, words, found, gl):
     """wanted_of the clue lists under the grid at `found`, read without the grid's lengths ([] when none read)."""
-    block = gl.times_block(img, key, lists_cut(words, found["box"]), words)
+    block = lists_block(img, key, words, lists_cut(words, found["box"]), gl)
     if not block:
         return []
     _, laid = gl.times_read([block], None)
@@ -586,7 +680,7 @@ def read_page(path, store=STORE, asker=None):
     gpath.parent.mkdir(parents=True, exist_ok=True)
     img.crop(found["box"]).save(gpath)
     cut = lists_cut(words, found["box"])
-    block = gl.times_block(img, key, cut, words)
+    block = lists_block(img, key, words, cut, gl)
     if not block:
         verdict["refused"] = "no Mephisto clue lists found on the page"
         return verdict, None
