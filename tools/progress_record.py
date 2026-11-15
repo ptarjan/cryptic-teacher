@@ -244,7 +244,7 @@ def gale_cursor(today):
 
 def record(today=None):
     today = today or datetime.date.today().isoformat()
-    cursor = gale_cursor(today)
+    cursor = None if os.environ.get("GITHUB_ACTIONS") else gale_cursor(today)  # no Gale state or media disk in CI
     if cursor:
         progress.save_fetching(cursor)
     rows = corpus()
