@@ -111,7 +111,7 @@ jobs:
           [ -d "$CT_DOWNLOADS/$BLOG/posts" ] || { echo "::error::no post cache for $BLOG"; exit 1; }
           ls "$CT_DOWNLOADS/$BLOG/posts" | wc -l
           python3 tools/media_manifest.py build "posts-$BLOG"
-          if [ "$PAPER" = times ]; then python3 tools/media_manifest.py build times-listing || echo "::warning::no times-listing manifest build"; fi
+          if [ "$PAPER" = times ]; then python3 tools/fetch_times_listing.py --build-manifest; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Run the chain
