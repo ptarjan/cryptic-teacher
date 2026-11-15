@@ -200,7 +200,7 @@ def read_found(found, wanted=None):
 SOLUTION_MATCH = 0.8
 
 
-def solution_reads(img, grid):
+def solution_reads(img, grid, find=None):
     """({(number, direction): word}, stats) of the filled solution grid on PIL image `img` (a window the notice
     "Winners of N" opens: the Independent on Sunday prints it small, with no heading, beside the winners' names),
     read for the puzzle whose barred rows are `grid`. The grid is the largest 12x12 lattice of rules in the window; it is
@@ -209,7 +209,7 @@ def solution_reads(img, grid):
     light itself as that word and it is a word (trove_solution_ocr.sure_word), as read_answers accepts one."""
     import trove_solution_ocr as tso
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
-    found = [g for g in lg.find_grids(gray) if g.get("rows") and len(g["rows"]) == CELLS
+    found = [g for g in (find or lg.find_grids)(gray) if g.get("rows") and len(g["rows"]) == CELLS
              and all(len(r) == CELLS for r in g["rows"]) and g.get("lattice")]
     if not found:
         return {}, {"refused": "no 12x12 lattice of rules by the winners' notice"}

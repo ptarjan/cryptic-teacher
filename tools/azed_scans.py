@@ -179,14 +179,56 @@ def puzzle_year(number, held):
 
 # ---------------------------------------------------------------- the grids
 
+#: A grid box this far from square (long side over short) is no Azed grid; one smaller (pixels a side) is a thumbnail.
+SQUARE = 1.15
+SMALLEST = 240
+
+
+def evened(gray, g):
+    """listener_grid grid `g` re-read on an even 12x12 lattice over its outer frame (Azed is always 12x12): the
+    rules found are counted wrong (13 columns, 11 rows) when a bar or a printed number reads as a rule, but the
+    frame is right. None when the frame is no square of a grid's size."""
+    import listener_grid as lg
+    import trove_grid
+    if g.get("lattice"):
+        ys, xs = g["lattice"]
+        y0, y1, x0, x1 = ys[0], ys[-1], xs[0], xs[-1]
+    else:
+        x0, y0, x1, y1 = g["box"]
+    h, w = y1 - y0, x1 - x0
+    if min(h, w) < SMALLEST or max(h, w) > SQUARE * min(h, w):
+        return None
+    ink = gray < trove_grid.otsu(gray)
+    sub = ink[y0:y1, x0:x1]
+    dark = lg.darkness(gray[y0:y1, x0:x1])
+    ry = [round(i * h / 12) for i in range(13)]
+    rx = [round(i * w / 12) for i in range(13)]
+    rows, sides, thin = lg.read_box(sub, dark, ry, rx)
+    return {"box": (x0, y0, x1, y1), "rows": rows, "why": None, "filled": 0.0, "sides": sides, "thin": thin,
+            "lattice": ([y + y0 for y in ry], [x + x0 for x in rx])}
+
+
+def find_twelve(gray):
+    """Every 12x12 grid of the page `gray`: those listener_grid found so, the others (a lattice of 13x11 rules, or
+    none) re-read evenly over their frames (evened)."""
+    import listener_grid as lg
+    out = []
+    for g in lg.find_grids(gray):
+        if g.get("rows") and len(g["rows"]) == 12 and all(len(r) == 12 for r in g["rows"]) and g.get("lattice"):
+            out.append(g)
+            continue
+        e = evened(gray, g)
+        if e is not None:
+            out.append(e)
+    return out
+
+
 def grids_of(img, lines):
     """(puzzle grid, solution grid): the page's two 12x12 lattices of rules (listener_grid dicts), the solution
     the one nearest the notes heading; None for either not found."""
     import numpy as np
-    import listener_grid as lg
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
-    found = [g for g in lg.find_grids(gray) if g.get("rows") and len(g["rows"]) == 12
-             and all(len(r) == 12 for r in g["rows"]) and g.get("lattice")]
+    found = find_twelve(gray)
     head = [(ws[0][0], ws[0][1]) for ws in lines if NOTES_HEAD.search(" ".join(w[4] for w in ws))]
     if not found:
         return None, None
@@ -286,7 +328,7 @@ def answers(img, lines, rows):
         return {}, {"refused": "no solution grid by the notes heading"}
     x0, y0, x1, y1 = solution["box"]
     window = img.crop((max(0, x0 - MARGIN), max(0, y0 - MARGIN), x1 + MARGIN, y1 + MARGIN))
-    return ios_barred.solution_reads(window, rows)
+    return ios_barred.solution_reads(window, rows, find=find_twelve)
 
 
 # ---------------------------------------------------------------- reading a page

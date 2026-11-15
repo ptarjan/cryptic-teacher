@@ -38,4 +38,17 @@ check("candidates", {75}, az.candidates(item, {"titled": [75], "notes": [73], "c
 check("date from weeks", datetime.date(2006, 1, 8), az.puzzle_year(1755, {1740: datetime.date(2005, 9, 25)}))
 check("wanted", [(frozenset([4]), "down", 7)],
       az.wanted_of_laid({"4-down": ("Bit of cloth", "7", None), "5-down": ("See 4", None, None)}))
+import numpy as np
+
+# A drawn 12x12 grid whose lattice listener_grid miscounted is re-read evenly over its frame.
+img = np.full((700, 700), 255, np.uint8)
+for i in range(13):
+    img[60 + i * 40:62 + i * 40, 50:532] = 0
+    img[60:542, 50 + i * 40:52 + i * 40] = 0
+img[138:142, 130:170] = 0
+even = az.evened(img, {"box": (50, 60, 530, 540), "rows": ["."] * 11, "lattice": None})
+check("evened 12x12", (12, 12), (len(even["rows"]), len(even["rows"][0])) if even else None)
+check("evened bar", "b", even["rows"][1][2] if even else None)
+check("evened refuses a thin strip", None, az.evened(img, {"box": (50, 60, 530, 200), "rows": None}))
+
 sys.exit(1 if fails else 0)
