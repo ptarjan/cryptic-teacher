@@ -1136,6 +1136,33 @@ def grid_under_clues(img, title):
     return min(under, key=lambda g: (abs(g[0] - x0) > 0.3 * (g[2] - g[0]), g[1])) if under else box
 
 
+#: A 1999-2000 Gale Telegraph weekday page's cryptic grid at the left edge under its title, its top rows too faint to
+#: read as ink (2000-12-14: title foot 3477, grid ink from 3715 to 4261 and 740 wide, the Quick crossword's grid
+#: 4670-5270 taken as the puzzle's): LEFT_EDGE_GAP, the least the taken grid's top lies under the title's foot, and
+#: LEFT_EDGE_WIDTH, the span of the grid's width as a share of the page's.
+LEFT_EDGE_GAP, LEFT_EDGE_WIDTH = 0.15, (0.19, 0.24)
+
+
+def left_edge_grid(img, title, box):
+    """`box`, the grid grid_under_clues took for a weekday Gale Telegraph page, or the square at the page's left edge
+    under `title` (its foot cut off by the ink, its top set a width above it) when `box` stands far under the title
+    (LEFT_EDGE_GAP) and that square is grid-shaped."""
+    x0, _, _, y1 = title
+    if box is None or box[1] - y1 <= LEFT_EDGE_GAP * img.width:
+        return box
+    crop = (max(0, x0 - 60), y1 + 4, max(0, x0 - 60) + int(LEFT_EDGE_WIDTH[1] * img.width),
+            min(box[1], y1 + 4 + int(0.24 * img.width)))
+    ink = ink_box(img.crop(crop))
+    if ink is None:
+        return box
+    left, right, foot = crop[0] + ink[0], crop[0] + ink[2], crop[1] + ink[3]
+    width = right - left
+    if not LEFT_EDGE_WIDTH[0] * img.width <= width <= LEFT_EDGE_WIDTH[1] * img.width or foot - width < y1:
+        return box
+    square = (left, foot - width, right, foot)
+    return square if shaped_on(img, square) else box
+
+
 def sunday_foot(img, title, box, side):
     """`box`, a Gale Sunday Telegraph grid over its title (side "above"), restored to the whole ink the scan's
     footed() trimmed a row off: the grid's foot rule touches the title's box, footed() takes the line of the last
@@ -1520,6 +1547,28 @@ def weekday_right_due(row):
     WEEKDAY_RIGHT_DAYS refused "no reading parses"."""
     rel = row.get("edition") or ""
     if paper_of(Path(rel)).key != "galetelegraph" or not scan_queue.read_before(row, scan_queue.when(REREAD_WEEKDAY_RIGHT)):
+        return False
+    try:
+        day = datetime.date.fromisoformat(Path(rel).name[:10])
+    except ValueError:
+        return False
+    if day.weekday() == 5 or not WEEKDAY_RIGHT_DAYS[0] <= day <= WEEKDAY_RIGHT_DAYS[1]:
+        return False
+    return any(v.get("refused") == "no reading parses" for v in row.get("verdicts", ()))
+
+
+#: The reason of a Gale Telegraph weekday page of 1999-2000 refused "no reading parses" whose cryptic grid, at the page's
+#: left edge under its title, the scan took for the Quick crossword's grid far under it (left_edge_grid: 2000-12-14),
+#: read since from the grid under the title. 11-14: ~30 of the ~85 weekday refusals stood so. Once each.
+LEFT_EDGE_GRID = "Gale Telegraph weekday 1999-2000 page refused no reading parses, its grid at the left edge under its title read since"
+REREAD_LEFT_EDGE_GRID = "2026-11-15T04:47:00+00:00"
+
+
+def left_edge_grid_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_LEFT_EDGE_GRID, holds a weekday of WEEKDAY_RIGHT_DAYS
+    refused "no reading parses"."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galetelegraph" or not scan_queue.read_before(row, scan_queue.when(REREAD_LEFT_EDGE_GRID)):
         return False
     try:
         day = datetime.date.fromisoformat(Path(rel).name[:10])
@@ -11462,6 +11511,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else located_grid(d, leaf, img, hit["box"], paper.key in GRID_RIGHT)
     if paper.key == "galesundaytelegraph":
         gbox = sunday_foot(img, hit["box"], gbox, side)
+    if paper.key == "galetelegraph" and paper.clues_above and gbox is not None \
+            and datetime.date.fromisoformat(d.name[:10]).weekday() != 5 \
+            and WEEKDAY_RIGHT_DAYS[0] <= datetime.date.fromisoformat(d.name[:10]) <= WEEKDAY_RIGHT_DAYS[1]:
+        gbox = left_edge_grid(img, hit["box"], gbox)
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
     if side != "below" and not paper.clues_above and not paper.four \
             and ((paper.key == "gale" and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1])
@@ -20810,6 +20863,8 @@ def fix_reason(row):
         return SEE_RUNS_ON
     if weekday_right_due(row):
         return WEEKDAY_RIGHT
+    if left_edge_grid_due(row):
+        return LEFT_EDGE_GRID
     if sides_headed_due(row):
         return SIDES_HEADED
     if sides_due(row):
@@ -21606,7 +21661,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   TELEGRAPH_FITTED,
                   # 11-14: a Gale Telegraph 1999-2000 weekday page refused no reading parses, its columns right
                   # of its grid read since (weekday_right_due).
-                  WEEKDAY_RIGHT)
+                  WEEKDAY_RIGHT,
+                  # 11-14: the same page whose grid the scan took far under its title, read since (left_edge_grid_due).
+                  LEFT_EDGE_GRID)
 
 
 def refusal_passes(why):
@@ -21641,6 +21698,8 @@ def blanket_or_fix(row, blanket):
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if weekday_right_due(row):
             return WEEKDAY_RIGHT
+        if left_edge_grid_due(row):
+            return LEFT_EDGE_GRID
         if sides_headed_due(row):
             return SIDES_HEADED
         if sides_due(row):
@@ -21876,7 +21935,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
