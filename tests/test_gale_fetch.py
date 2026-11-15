@@ -452,6 +452,8 @@ gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
 import gale_jumbo
 gale_jumbo.wanted = lambda: []  # tested below
+import gale_mephisto
+gale_mephisto.wanted = lambda: []  # the Mephisto rows are not under test here
 _solution_days = gale_jumbo.solution_days
 _sd = _solution_days()
 assert _sd[:2] == [D(1998, 1, 31), D(1998, 2, 7)] and D(1999, 6, 5) in _sd[:18] and D(1999, 11, 27) in _sd[:18], _sd[:18]
