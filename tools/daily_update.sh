@@ -511,8 +511,13 @@ unit_ratings() {
   # edition backlog, none of which the steps below write. As the last step it
   # was lost on 2026-10-14 and 10-15, when the unit hit its time limit first.
   if step progress_record; then
-    python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
-    took progress_record
+    python3 tools/progress_record.py record >/dev/null; rc=$?
+    # rc 3: no row yet (cache cold); leave the step not done so the next run retries.
+    if [ "$rc" = 3 ]; then echo "progress record skipped (files not read yet); the next run retries"
+    else
+      [ "$rc" = 0 ] || echo "progress record failed (rc=$rc); /progress/ misses tonight's row"
+      took progress_record
+    fi
   fi
   if step fetch_snitch; then
     python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"

@@ -260,6 +260,14 @@ def spawn(queue, unit, logfile):
                          cwd=str(main_checkout()), start_new_session=True, close_fds=True)
 
 
+#: Headroom (bytes) kept free after starting a unit that is not claude-class.
+#: The 3 GB mem_gate.FLOOR suits claude sessions, which grow; the overnight
+#: burn keeps ~2.5 GB available on this 14 GB box, so under that floor every
+#: fetcher, ratings, checks and blog unit waited from 2026-11-14. Their
+#: measured peak RSS in .update.log is 399 MB (ratings) to 630 MB (the worst
+#: blog-facts row-cache build), so 1 GB of headroom beyond the UNIT charge
+#: covers the biggest light unit with room to spare and starts at ~1.6 GB.
+LIGHT_FLOOR = 1 << 30
 #: What the memory gate reads (tests swap it); None is mem_gate.available.
 MEM_READER = None
 #: What the CPU gate reads (tests swap it); None is unit_load.
@@ -310,11 +318,12 @@ def tick(queue, dry=False):
                 burn_bound = True
                 print(f"{queue}: {mem_gate.burn_line(starved)}; due units wait for the next tick")
             continue
-        if not mem_gate.room(len(started) * mem_gate.UNIT, MEM_READER):
+        floor = mem_gate.FLOOR if unit.cls == "claude" else LIGHT_FLOOR
+        if not mem_gate.room(len(started) * mem_gate.UNIT, MEM_READER, floor=floor):
             waiting.append(unit.key)
             if not memory_bound:
                 memory_bound = True
-                print(f"{queue}: memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; "
+                print(f"{queue}: memory-bound: under {(floor + mem_gate.UNIT) >> 20} MB available; "
                       "due units wait for the next tick")
             continue
         if cpu_now is None:

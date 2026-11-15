@@ -364,6 +364,7 @@ try:
     R.corpus, corpus_was, R.gale_cursor, cursor_was = (lambda: got), R.corpus, (lambda t: None), R.gale_cursor
     try:
         assert R.record("2099-01-01") is None
+        assert R.main(["progress_record.py", "record"]) == R.SKIPPED == 3, "a skipped row exits 3: step not done"
     finally:
         R.corpus, R.gale_cursor = corpus_was, cursor_was
 finally:

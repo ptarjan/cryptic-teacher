@@ -357,11 +357,17 @@ def backfill_queue():
     return filled
 
 
+#: Exit status of `record` when it wrote no row (files not read yet): not a
+#: failure, but the step is not done, so a later run retries with a warm cache.
+SKIPPED = 3
+
+
 def main(argv):
     if argv[1:] == ["record"]:
         row = record()
-        if row is not None:
-            print(json.dumps(progress.totals(row)))
+        if row is None:
+            return SKIPPED  # cache still cold: the step runner retries next run
+        print(json.dumps(progress.totals(row)))
     elif argv[1:] == ["backfill"]:
         print(f"{backfill()} day(s) backfilled into {progress.HISTORY.relative_to(progress.ROOT)}")
         print(f"downloaded/queued filled on {len(backfill_queue())} day(s)")
