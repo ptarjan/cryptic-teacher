@@ -730,7 +730,32 @@ def clue_list(lines, wanted):
                 current = None
         if len(expect) == 1 and len(orphans) == 1 and (expect[0], way) not in out:
             out[(expect[0], way)] = orphans[0]
+        if any(k[1] == way for k in wanted if k not in out):
+            for key, text in clue_sequence(lines.get(way, []), way, sorted(n for n, d in wanted if d == way)).items():
+                out.setdefault(key, text)
     return {k: re.sub(r"\s+", " ", v).replace(" ,", ",").strip() for k, v in out.items()}
+
+
+def clue_sequence(lines, way, wanted):
+    """{(number, way): clue text} when the page's clues, read in order, are as
+    many as the grid's lights and at most two carry a number other than
+    their light's; else {}. The Guardian's copies
+    misprint a clue's number now and then ("23" for 33, "26 25" for 25 26): the
+    order of the clues is the order of the lights, and the enumeration check
+    that follows holds any wrong pairing, each count against its light's length."""
+    clues = []
+    for line in lines:
+        m = CLUE_START.match(line) or NUMBERED_CLUE.match(line)
+        if m and (not clues or ENUM_END.search(clues[-1][1])):
+            clues.append([int(m.group(1)), m.group(2)])
+        elif clues and not ENUM_END.search(clues[-1][1]):
+            gap = "" if clues[-1][1].endswith("-") and not clues[-1][1].endswith(" -") else " "
+            clues[-1][1] = f"{clues[-1][1]}{gap}{line}"
+    if len(clues) != len(wanted) or not all(ENUM_END.search(t) for _n, t in clues):
+        return {}
+    if sum(n != wanted[i] for i, (n, _t) in enumerate(clues)) > 2:
+        return {}
+    return {(wanted[i], way): t for i, (_n, t) in enumerate(clues)}
 
 
 #: "(5, 2 words or 1)": the count, and its words. Azed's own print notation, not an OCR slip.
