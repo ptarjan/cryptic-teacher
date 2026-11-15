@@ -719,6 +719,22 @@ def block_out9():
             e["clue"] = {"text": "Another clue"}
     across["clue"] = {"text": "Big hitting"}
     print("LISTS", dups(lists))
+    # A long clue under ACROSS and DOWN with two answers (times-1911's "This
+    # palace has had two sites in London") is refused as a new write, however
+    # the OCR garbled one copy; a short one, or one the held file had, is not.
+    def cross(p, old=None):
+        flags = []
+        pi.check_new_cross_duplicates(old, p, flags)
+        return len(flags)
+    longer = copy.deepcopy(lists)
+    across2 = next(e for e in longer["entries"] if e["direction"] == "across")
+    for e in longer["entries"]:
+        if (e["number"], e["direction"]) == (17, "down") or e is across2:
+            e["clue"] = {"text": "This palace has had t'wo. sites in London" if e is across2
+                         else "This palace has had two sites in London"}
+    print("CROSS_LONG", cross(longer), cross(longer, longer), cross(lists))
+    longer["source"]["retrievedFrom"] = "api"
+    print("CROSS_FEED", cross(longer))
     blanked = copy.deepcopy(ocr)
     for e in blanked["entries"]:
         if (e["number"], e["direction"]) in ((16, "down"), (1, "down")):
@@ -1016,6 +1032,8 @@ try:
     same("an OCR reading's clue on two lights is refused", field("OCR", out9), "1")
     same("unless SOURCE_CLUE_WRONG prints one of them", field("FIXED", out9), "0")
     same("one clue in the ACROSS and DOWN lists is printed in each", field("LISTS", out9), "0")
+    same("a long clue on both lists with two answers is refused as new, not as held or short or fed",
+         " ".join(out9.split("CROSS_LONG")[1].split("\n")[0].split()) + " " + field("CROSS_FEED", out9), "1 0 0 0")
     same("blanking an OCR reading's clue on two lights loses nothing, any other clue is kept", field("REWRITE_OCR", out9), "1-down")
     same("a feed's clue on two lights is a clue a rewrite keeps", field("REWRITE_FEED", out9), "1-down,16-down")
 

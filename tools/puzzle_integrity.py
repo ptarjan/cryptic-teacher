@@ -1456,6 +1456,38 @@ def check_duplicated_clues(puzzle, flags):
                       f"clue in tools/data/source_clue_wrong.json"))
 
 
+#: Words a clue needs before one copy under ACROSS and another under DOWN is
+#: called a misread (a short one, "An exclamation.", "Square", is the setter's).
+CROSS_DUP_WORDS = 6
+
+
+def check_new_cross_duplicates(old, new, flags):
+    """A write of an OCR-read puzzle (provenance.OCR_CHANNELS) lays no long
+    clue (CROSS_DUP_WORDS words) on a light of each list that the held file did
+    not already hold so: duplicated_clues(one_list=True) lets the same words
+    stand under ACROSS and DOWN, but a clue that long printed twice with two
+    different answers is one clue read onto a second light (times-1911: "This
+    palace has had two sites in London" on 2-down HOTFOOT and 29-across
+    CRYSTAL, the garble "t'wo." changing nothing, as clue_words ignores
+    punctuation). Which light owns it is the vote's: this refuses the write so
+    the other is blanked, not kept (SOURCE_CLUE_WRONG prints a real pair)."""
+    if (new.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    entries = new.get("entries") or []
+    by = {entry_id(e): e for e in entries}
+    held = {tuple(ids) for ids in duplicated_clues((old or {}).get("entries") or [])}
+    for ids in duplicated_clues(entries):
+        if tuple(ids) in held or len({i.split("-")[-1] for i in ids}) < 2 \
+                or len({by[i].get("solution") for i in ids}) < 2 \
+                or any(corrected_clue(new.get("id"), i) is not None for i in ids):
+            continue
+        if len(((by[ids[0]].get("clue") or {}).get("text") or "").split()) < CROSS_DUP_WORDS:
+            continue
+        flags.append(("SHAPE", new.get("id"), f"{', '.join(ids)}: one long clue on lights of both "
+                      f"lists with different answers, so it was read onto the wrong one: keep it "
+                      f"on the light whose count and answer fit and leave the other missing"))
+
+
 def check_rewrite(old, new, flags):
     """What writing `new` over the file's `old` may not lose: a clue's words,
     and the puzzle itself (most of its answers gone is another puzzle).
@@ -1561,6 +1593,7 @@ def refuse_bad_write(puzzle, old=None):
         check_rewrite(old, puzzle, flags)
         check_key_grades_model(old, puzzle, flags)
     check_new_bleed(old, puzzle, flags)
+    check_new_cross_duplicates(old, puzzle, flags)
     check_new_spaces(old, puzzle, flags)
     check_new_punctuation(old, puzzle, flags)
     if flags:
