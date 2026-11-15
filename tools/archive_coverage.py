@@ -80,6 +80,8 @@ CLASSES = [
       "is read before the two under it (lead_column)"), True, "tools/file_archive_org_puzzles.py"),
     ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
     ("crashed", "read; the reader raised on this title", "the traceback in the ledger's refused", True, "tools/file_archive_org_puzzles.py"),
+    ("quick-set", "read; the clue list is the Quickie set of a Two-in-One page, not the cryptic",
+     "none: the page's cryptic is not on it", False, "tools/file_archive_org_puzzles.py"),
     ("refused-no-cause", "read before refusals filed a cause; the next read stamps one",
      "the standing full pass re-reads it (bump REREAD_BEFORE in tools/ocr_full_pass.sh)", True, "tools/ocr_full_pass.sh"),
     ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True, "tools/file_archive_org_puzzles.py"),

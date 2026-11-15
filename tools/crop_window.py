@@ -33,6 +33,9 @@ def gutters(img, box, side="left"):
     run's middle."""
     import numpy as np
     x0, top, x1, bottom = (int(v) for v in box)
+    # A window with no area (a lead column starting under the grid's foot: GaleFT 2007-03-23) has no gutter.
+    if x1 <= x0 or bottom <= top:
+        return []
     share = (np.asarray(img.crop((x0, top, x1, bottom)).convert("L")) < 128).mean(axis=0)
     blank = share < INK
     runs, i = [], 0

@@ -6940,7 +6940,7 @@ def filed_number(d, found, hit):
 
 #: Why a title was refused: the verdict's `cause`, which tools/coverage.py
 #: buckets by. `refused` keeps the detail for a person.
-REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed")
+REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed", "quick-set")
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
@@ -6948,8 +6948,12 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:29:00+00:00", "no-reading-parses"
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00",
                   # The crashes since fixed: the 6144 MB RLIMIT_AS bad_alloc (launcher's CT_UNIT_MEMORY_MB),
                   # an unreadable band_words cache, trove_solution_ocr's unloaded word list, and (11-15)
-                  # int("③"): file_trove_puzzles.readings/enum_readings took a circled digit for a digit.
-                  "crashed": "2026-11-15T07:30:00+00:00"}
+                  # int("③"): file_trove_puzzles.readings/enum_readings took a circled digit for a digit;
+                  # (r10) crop_window.gutters on a window with no area (a lead column starting under the grid's
+                  # foot: Coordinate 'lower' is less than 'upper'), solved()'s empty kept solution read
+                  # (JSONDecodeError), the Quickie-set refusal "quick-set" missing from REFUSALS; the NoneType
+                  # and tesseract-timeout crashes no longer reproduce.
+                  "crashed": "2026-11-15T21:50:00+00:00"}
 
 #: {writeFailed message: ISO time}: an edition a puzzle of which failed to
 #: write with that message and was read before that time is read again
@@ -14102,7 +14106,10 @@ def solved(sol, grid, above=False, lean=False, enums=None):
                                     ).encode()).hexdigest()[:20]
     path = CROPS / "solution_reads" / f"{d.name}_{sol['number']}.json"
     if path.exists():
-        kept = json.loads(path.read_text())
+        try:
+            kept = json.loads(path.read_text())
+        except ValueError:
+            kept = {}  # an empty/torn kept read (a write cut short): read again, the write below replaces it
         if (kept.get("key") == key and not ranked_stale(kept, d, sol["number"], grid)
                 and not blurred_stale(kept, d, sol["number"]) and not lettered_stale(kept, d, sol["number"])
                 and not printed_stale(kept, d)):
