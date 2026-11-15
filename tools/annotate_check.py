@@ -1271,6 +1271,32 @@ def mend_cryptic_definition_notes(path, pending):
     return sorted(set(changed), key=changed.index)
 
 
+def mend_thin_definition_notes(path, pending):
+    """Drop, in each clue written in the model's shape with one `def`, the `notes` entry for the
+    definition's words when it is under 25 characters (validate_annotations: "definition note ... is
+    too thin"); the entry ids changed. Such a note ("noun", "plural ok") says nothing the
+    part-of-speech check can use, and the message itself says "explain it or drop it": dropping adds
+    no content, and if the definition did disagree with the answer that check now says so."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return []
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        if not (isinstance(a, dict) and annotation.is_model(a) and isinstance(a.get("notes"), dict)
+                and isinstance(a.get("def"), str)):
+            continue
+        note = a["notes"].get(a["def"])
+        wp = a.get("wp")
+        if (isinstance(note, str) and len(note.strip()) < 25
+                and not (isinstance(wp, str) and a["def"] in wp)):
+            del a["notes"][a["def"]]
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
     can do it without judgement, or else blank the answer's words in the note
@@ -1640,6 +1666,10 @@ def main(argv):
         if cdn:
             print(f"cryptic definition notes holding the answer's letters inside a longer "
                   f"word, blanked to ... in {pending.name}: {', '.join(cdn)}\n")
+        thin = mend_thin_definition_notes(path, pending)
+        if thin:
+            print(f"definition notes too thin to say anything, dropped in {pending.name}: "
+                  f"{', '.join(thin)}\n")
         flipped = fix_directions(path, pending)
         if flipped:
             print(f"keys naming a clue in the wrong direction, renamed in {pending.name}: "
