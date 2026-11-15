@@ -1165,9 +1165,41 @@ def held_paths(series):
     return out
 
 
-def model_solved(path):
-    """Does the file hold a model's answers? A substring test on the text."""
-    return '"origin": "model"' in path.read_text(encoding="utf-8")
+_MODEL_CACHE = Path.home() / ".cache" / "cross_validate" / "model_solved.json"
+
+
+def model_solved(path, cache=None):
+    """Does the file hold a model's answers? A substring test on the text.
+    With `cache` ({path: [mtime_ns, size, bool]}), a file whose stat is
+    unchanged is not read again: the daily run read all ~55k files each time."""
+    if cache is None:
+        return '"origin": "model"' in path.read_text(encoding="utf-8")
+    st = path.stat()
+    hit = cache.get(str(path))
+    if hit and hit[0] == st.st_mtime_ns and hit[1] == st.st_size:
+        return hit[2]
+    found = '"origin": "model"' in path.read_text(encoding="utf-8")
+    cache[str(path)] = [st.st_mtime_ns, st.st_size, found]
+    return found
+
+
+def model_solved_ids(disk):
+    """Sorted ids in {id: path} whose file is model-solved, reading only files
+    changed since the last run (stat-keyed cache under ~/.cache)."""
+    try:
+        cache = json.loads(_MODEL_CACHE.read_text())
+    except (OSError, ValueError):
+        cache = {}
+    before = dict(cache)
+    out = sorted(pid for pid, path in disk.items() if model_solved(path, cache))
+    live = {str(p) for p in disk.values()}
+    cache = {k: v for k, v in cache.items() if k in live}
+    if cache != before:
+        _MODEL_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = _MODEL_CACHE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(cache))
+        tmp.replace(_MODEL_CACHE)
+    return out
 
 
 def load(adapter, where):
@@ -1930,7 +1962,7 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
     elif new:
         todo = sorted(changed_files() & disk.keys())
     elif model:
-        todo = sorted(pid for pid, path in disk.items() if model_solved(path))
+        todo = model_solved_ids(disk)
     else:
         order = sorted(disk)
         if start is None:
