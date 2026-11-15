@@ -981,7 +981,9 @@ def write_whole(dest, text):
         f.write(text)
         f.flush()
         os.fsync(f.fileno())
+        ino = os.fstat(f.fileno()).st_ino
     os.replace(part, dest)
+    return ino
 
 
 def shim_text(path, puzzle):
@@ -3556,10 +3558,10 @@ def _changed_ids(commit):
 
 
 def _shim_hash(path):
-    """Write the puzzle's shim; the `v` an index row gives it."""
+    """Write the puzzle's shim: (its md5[:8], the inode written)."""
     text = shim_text(path, read_puzzle_view(path))
-    write_whole(shim_path(path), text)
-    return hashlib.md5(text.encode("utf-8")).hexdigest()[:8]
+    ino = write_whole(shim_path(path), text)
+    return hashlib.md5(text.encode("utf-8")).hexdigest()[:8], ino
 
 
 #: A shim whose ctime is this recent when it is checked is not vouched for by
@@ -3567,17 +3569,36 @@ def _shim_hash(path):
 SIG_RACY_NS = 2 * 10**9
 
 
-def _shim_sig_file():
-    """This tree's record of shims already checked: in its own git dir
-    (.git/worktrees/<name> for a worktree), outside the working tree."""
+def _git_dir_of(tree):
+    """The git dir of the checkout at `tree` (its .git, or what a worktree's
+    .git file points to), read off disk with no git process."""
+    dot = Path(tree) / ".git"
+    if dot.is_dir():
+        return dot
+    try:
+        line = dot.read_text(encoding="utf-8").strip()
+    except OSError:
+        return None
+    return (Path(tree) / line[len("gitdir:"):].strip()) if line.startswith("gitdir:") else None
+
+
+def _shim_sig_file(tree=None):
+    """A tree's record of the shims it has hashed: in its own git dir
+    (.git/worktrees/<name> for a worktree), outside the working tree. This
+    tree's without `tree`."""
+    if tree is not None:
+        d = _git_dir_of(tree)
+        return d / "shim-sigs.json" if d else None
     return Path(_git("rev-parse", "--path-format=absolute", "--git-dir").strip()) / "shim-sigs.json"
 
 
-def _read_shim_sigs():
-    """{shim name: [v, mtime ns, ctime ns, size, inode]} of the shims this tree
-    last found to hash to v, {} when there is no record."""
+def _read_shim_sigs(sig_file=None):
+    """{shim name: [md5[:8], mtime ns, ctime ns, size, inode]}: what each shim
+    hashed to when its stat was that, {} when there is no record. This tree's
+    record, or the one at `sig_file`."""
     try:
-        sigs = json.loads(_shim_sig_file().read_text(encoding="utf-8"))
+        f = sig_file or _shim_sig_file()
+        sigs = json.loads(f.read_text(encoding="utf-8")) if f else {}
     except (OSError, ValueError, subprocess.CalledProcessError):
         return {}
     return sigs if isinstance(sigs, dict) else {}
@@ -3590,65 +3611,119 @@ def _write_shim_sigs(sigs):
         pass
 
 
+def _stat_sig(path):
+    st = path.stat()
+    return [st.st_mtime_ns, st.st_ctime_ns, st.st_size, st.st_ino]
+
+
 def _shim_current(path, v, sigs=None, seen=None):
     """Does the puzzle's shim hash (md5[:8]) to v? Hashing every shim read all
-    ~78k (1.6 GB) on every run whatever had changed (11-14, the IO monitor):
-    with `sigs` (_read_shim_sigs), a shim whose stat is the one recorded when it
-    last hashed to v is current unread; any write changes its stat, and only
-    then is it read. `seen` collects the record for _write_shim_sigs."""
+    ~78k (1.6 GB) on every run whatever had changed (11-14, the IO monitor).
+    `sigs` (_read_shim_sigs) holds what each shim hashed to at a stat: a shim
+    whose stat is the recorded one is answered unread, current or not, so a
+    deploy that moves every row's `v` costs no reads here either (11-15, 1.8 GB
+    a run: the record then held only `v`, and a new `v` re-read every shim).
+    Any write changes the stat, and only then is the shim read. `seen`
+    collects the record for _write_shim_sigs."""
     shim = shim_path(path)
     try:
-        st = shim.stat()
+        sig = _stat_sig(shim)
     except OSError:
         return False
-    sig = [st.st_mtime_ns, st.st_ctime_ns, st.st_size, st.st_ino]
     known = (sigs or {}).get(shim.name)
-    if known == [v, *sig]:
+    if known and known[1:] == sig:
         if seen is not None:
             seen[shim.name] = known
-        return True
+        return known[0] == v
     try:
-        ok = hashlib.md5(shim.read_bytes()).hexdigest()[:8] == v
+        got = hashlib.md5(shim.read_bytes()).hexdigest()[:8]
     except OSError:
         return False
-    if ok and seen is not None and time.time_ns() - st.st_ctime_ns > SIG_RACY_NS:
-        seen[shim.name] = [v, *sig]
-    return ok
+    if seen is not None and time.time_ns() - sig[1] > SIG_RACY_NS:
+        seen[shim.name] = [got, *sig]
+    return got == v
 
 
 def _sibling_shim_dirs():
-    """The puzzles/ dirs of the other trees of this repo, the main checkout
-    first (git worktree list order); trees without one are skipped."""
+    """(puzzles/ dir, record file) of each other tree of this repo, the main
+    checkout first (git worktree list order); trees without a puzzles/ are
+    skipped, and the record file is None where the git dir cannot be found."""
     try:
         out = _git("worktree", "list", "--porcelain")
     except (OSError, subprocess.CalledProcessError):
         return []
     here = puzzle_paths.PUZZLE_DIR.resolve()
-    dirs = [Path(line[9:]) / puzzle_paths.PUZZLE_DIR.name
-            for line in out.splitlines() if line.startswith("worktree ")]
-    return [d for d in dirs if d.is_dir() and d.resolve() != here]
+    trees = [Path(line[9:]) for line in out.splitlines() if line.startswith("worktree ")]
+    return [(t / puzzle_paths.PUZZLE_DIR.name, _shim_sig_file(t)) for t in trees
+            if (t / puzzle_paths.PUZZLE_DIR.name).is_dir()
+            and (t / puzzle_paths.PUZZLE_DIR.name).resolve() != here]
 
 
-def _copy_current_shim(path, v, dirs):
-    """Make the puzzle's shim by copying the same-named one from the first of
-    `dirs` whose md5[:8] is `v`, written whole or not at all. Never copies a
-    file that is not `v`. True if copied."""
+def _copy_current_shim(path, v, d, record):
+    """Make the puzzle's shim by copying the same-named one in sibling
+    puzzles/ dir `d`, when that tree's `record` (_read_shim_sigs) vouches it
+    hashes to `v` at its current stat; written whole or not at all, and never
+    a file that is not `v`. A shim no record vouches for is not read: probing
+    every sibling read up to ~20 trees' shims per stale one (11-15). The
+    inode written, or None if not copied."""
     dest = shim_path(path)
-    for d in dirs:
+    src = d / dest.name
+    known = record.get(dest.name)
+    if not known or known[0] != v:
+        return None
+    try:
+        if _stat_sig(src) != known[1:]:
+            return None
+        data = src.read_bytes()
+    except OSError:
+        return None
+    if hashlib.md5(data).hexdigest()[:8] != v:
+        return None
+    part = dest.with_name(f".{dest.name}.part")
+    with open(part, "wb") as f:
+        f.write(data)
+        f.flush()
+        os.fsync(f.fileno())
+        ino = os.fstat(f.fileno()).st_ino
+    os.replace(part, dest)
+    return ino
+
+
+def _copy_from_siblings(stale, dirs):
+    """Copy what it can of `stale` [(puzzle path, v)] from the sibling trees
+    `dirs` (_sibling_shim_dirs), one tree's record in memory at a time (each
+    is ~7 MB of JSON). ([(shim, v, inode)] copied, [(path, v)] left)."""
+    made, todo = [], list(stale)
+    for d, sig_file in dirs:
+        if not todo:
+            break
+        record = _read_shim_sigs(sig_file) if sig_file else {}
+        if not record:
+            continue
+        left = []
+        for p, v in todo:
+            ino = _copy_current_shim(p, v, d, record)
+            if ino is None:
+                left.append((p, v))
+            else:
+                made.append((shim_path(p), v, ino))
+        todo = left
+    return made, todo
+
+
+def _record_made(seen, made):
+    """Add to `seen` the shims this run wrote [(shim, md5[:8], inode)], each
+    still the file written (same inode: every writer replaces, never edits in
+    place) and past SIG_RACY_NS, so the next run, here or in a sibling copying
+    from here, need not read them."""
+    now = time.time_ns()
+    for shim, h, ino in made:
         try:
-            data = (d / dest.name).read_bytes()
+            sig = _stat_sig(shim)
         except OSError:
             continue
-        if hashlib.md5(data).hexdigest()[:8] != v:
-            continue
-        part = dest.with_name(f".{dest.name}.part")
-        with open(part, "wb") as f:
-            f.write(data)
-            f.flush()
-            os.fsync(f.fileno())
-        os.replace(part, dest)
-        return True
-    return False
+        if sig[3] == ino and now - sig[1] > SIG_RACY_NS:
+            seen[shim.name] = [h, *sig]
 
 
 def reindex_from_deploy():
@@ -3660,7 +3735,7 @@ def reindex_from_deploy():
     the same row code and index shape (_deployed_usable); then only the
     puzzles changed since that commit get their rows made here, a puzzle no
     longer on disk loses its row, and a shim missing or not the row's `v` is
-    copied from another tree that has it current, else written (~5 ms
+    copied from another tree whose record vouches for it, else written (~5 ms
     each, ~340 CPU-s for a tree with none). Otherwise
     reindex_changed(). Returns a line saying which."""
     index = _deployed_index()
@@ -3675,21 +3750,26 @@ def reindex_from_deploy():
     index.update(kept)
     ids = {r["id"] for key in kept for r in kept[key]}
     index["reprints"] = [r for r in index["reprints"] if r.get("reprintOf") in ids]
-    sigs, seen = _read_shim_sigs(), {}
+    sigs = _read_shim_sigs()
+    # A record is only ever used on a stat match, so the entries of shims not
+    # checked this run (the changed rows') stay: dropping them re-read those.
+    names = {shim_path(f).name for f in files.values()}
+    seen = {k: s for k, s in sigs.items() if k in names}
     stale = [(files[r["id"]], r["v"]) for key in kept for r in kept[key]
              if r["id"] not in changed and not _shim_current(files[r["id"]], r.get("v"), sigs, seen)]
-    _write_shim_sigs(seen)
     import parallel
     # A stale shim is often current in another tree (the unit trees go days
     # between rebuilds): copy that one, and only make the shims no tree has.
-    dirs = _sibling_shim_dirs()
-    todo = [(p, v) for p, v in stale if not _copy_current_shim(p, v, dirs)]
-    copied = len(stale) - len(todo)
+    made, todo = _copy_from_siblings(stale, _sibling_shim_dirs())
+    copied = len(made)
     written = parallel.pmap(_shim_hash, [p for p, _ in todo])
+    made += [(shim_path(p), got, ino) for (p, _), (got, ino) in zip(todo, written)]
     # A shim that comes out other than the row says is a row that would too.
-    changed |= {p.stem for (p, v), got in zip(todo, written) if got != v}
+    changed |= {p.stem for (p, v), (got, _) in zip(todo, written) if got != v}
     changed |= files.keys() - ids
     _merge_rows(index, [files[i] for i in sorted(changed)])
+    _record_made(seen, made)  # after the merge: by then most are past SIG_RACY_NS
+    _write_shim_sigs(seen)
     return (f"deployed index from {commit[:11]}: re-made {len(changed)} row(s), "
             f"copied {copied} shim(s), wrote {len(todo)} shim(s), dropped {dropped} row(s) with no file here")
 

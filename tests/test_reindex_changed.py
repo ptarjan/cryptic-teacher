@@ -104,6 +104,52 @@ try:
 finally:
     shutil.rmtree(scratch, ignore_errors=True)
 
+# The shim record: a shim whose stat is the recorded one is answered from the
+# record, current or not, so a deploy that moves every row's `v` reads no shim;
+# a copy reads only a sibling shim that sibling's record vouches for.
+import hashlib
+
+scratch = Path(tempfile.mkdtemp())
+try:
+    pz = scratch / "t-1.json"
+    pz.write_text("{}")
+    shim = puzzle_paths.shim_path(pz)
+    shim.write_text("var a = 1;")
+    h = hashlib.md5(shim.read_bytes()).hexdigest()[:8]
+    check("no record: hashed, current", True, F._shim_current(pz, h, {}, {}))
+    check("no record: hashed, stale", False, F._shim_current(pz, "zzzzzzzz", {}, {}))
+    rec = {shim.name: ["aaaaaaaa", *F._stat_sig(shim)]}
+    seen = {}
+    check("recorded stat, another v: stale, unread", False, F._shim_current(pz, h, rec, seen))
+    check("recorded stat: its entry kept", rec, seen)
+    check("recorded stat, its v: current, unread", True, F._shim_current(pz, "aaaaaaaa", rec, {}))
+    shim.write_text("var a = 22;")  # a rewrite moves the stat: read again
+    check("stat moved: hashed", False, F._shim_current(pz, "aaaaaaaa", rec, {}))
+    sib = scratch / "sib"
+    sib.mkdir()
+    (sib / shim.name).write_text("var b = 2;")
+    h2 = hashlib.md5((sib / shim.name).read_bytes()).hexdigest()[:8]
+    shim.unlink()
+    check("sibling with no record: not read", None, F._copy_current_shim(pz, h2, sib, {}))
+    check("sibling vouching another v: not read", None,
+          F._copy_current_shim(pz, h2, sib, {shim.name: ["aaaaaaaa", *F._stat_sig(sib / shim.name)]}))
+    vouch = {shim.name: [h2, *F._stat_sig(sib / shim.name)]}
+    ino = F._copy_current_shim(pz, h2, sib, vouch)
+    check("vouched sibling: copied", ("var b = 2;", shim.stat().st_ino), (shim.read_text(), ino))
+    shim.unlink()
+    made, left = F._copy_from_siblings([(pz, h2), (pz.with_name("t-2.json"), h2)], [(sib, None), (sib, scratch / "r")])
+    check("no record file: nothing copied", ([], 2), (made, len(left)))
+    (scratch / "r").write_text(json.dumps(vouch))
+    made, left = F._copy_from_siblings([(pz, h2)], [(sib, scratch / "r")])
+    check("record file vouches: copied", ([shim], []), ([m[0] for m in made], left))
+    seen = {}
+    F._record_made(seen, [(shim, h2, made[0][2])])
+    check("just made: not recorded (racy)", {}, seen)
+    F._record_made(seen, [(shim, h2, made[0][2] + 1)])
+    check("another inode: not recorded", {}, seen)
+finally:
+    shutil.rmtree(scratch, ignore_errors=True)
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
