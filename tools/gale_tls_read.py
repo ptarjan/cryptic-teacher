@@ -986,7 +986,7 @@ CAMEL_NAME = re.compile(r"^\W*(?:De|Di|Da|La|Le|Du|Van|Von|Ap|Fitz)[A-Z][a-z]{2,
 
 
 #: A bracketed count of figures, commas and hyphens that ends a clue's words.
-STRAY_COUNT = re.compile(r"\s*\(\s*\d+(?:\s*[,\-]\s*\d*)*\s*\)\s*$")
+STRAY_COUNT = re.compile(r"\s*\(\s*\d+\s*(?:[,\-]\s*(?:\d+\s*)?)*\)\s*$")
 
 
 def spaced_quotes(text):
