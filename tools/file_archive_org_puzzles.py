@@ -4184,6 +4184,7 @@ def _scan(d):
         else:
             titles, sols = paper.headings(text[leaf])
             titles = [(n, box, setter, None) for n, box, setter in titles] or \
+                (guardian_dated_titles(text[leaf], datetime.date.fromisoformat(pages["date"])) if paper is GUARDIAN else []) or \
                 ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
             if paper is TIMES and titles and not {n for n, _ in sols} & \
                     {t[0] - lag for t in titles for lag in SOLUTION_LAGS}:
@@ -4998,33 +4999,98 @@ GUARDIAN_SOLUTION = re.compile(r"^\W*(?:guardian\s+)?(?:prize\s+)?crossword\s+\w
 GUARDIAN_THIRD = 360
 
 
+#: A Guardian title as the OCR garbles it: the words, then what follows them ("No 21 y 167", "21 ,1 68", "20f515",
+#: "No2Jj ,209", "TVio 21,133"). GUARDIAN_LOOSE_NUMBER takes its number's digits through the junk the OCR put between them.
+GUARDIAN_LOOSE = re.compile(r"^\W*(?:the\s+)?(?:guardian\s+)?(?:prize\s+)?crossword\b(.*)$", re.IGNORECASE)
+GUARDIAN_LOOSE_NUMBER = re.compile(r"^\W*(?:[A-Za-z]{1,4}\W{0,3})?(\d(?:\d|\W|(?<=[\d\W])[A-Za-z]{1,2}(?=\W*\d))*)")
+#: How many words of a line a Guardian heading may follow: the line's text runs on from the column beside it
+#: ("the ,d of the field or =3 .he GUARDIAN CROSSWORD 12,993": 1971-07-23).
+GUARDIAN_LEAD = 40
+
+
+def _guardian_read(lines):
+    """([(number, box, setter)], [(number, box)], [(digits, box, setter)]): guardian_headings' two lists, and each
+    title whose number the OCR left fewer than five digits of (the digits it kept), none read of it before."""
+    puzzles, solutions, partial = [], [], []
+    for ws in lines:
+        for k in range(min(len(ws), GUARDIAN_LEAD + 1)):
+            if k and ws[k - 1][4].strip(" .,:;").lower().endswith("quick"):
+                continue
+            sub = ws[k:]
+            text = " ".join(w[4] for w in sub)
+            m = GUARDIAN_SOLUTION.match(text)
+            if m:
+                num = re.fullmatch(G_NUMBER + r"\W*", m.group(1))
+                solutions.append((number_of(num.group(1)) if num else None, box_of(sub)))
+                break
+            box = box_of(sub)
+            m = GUARDIAN_TITLE.match(text)
+            digits = None
+            if m:
+                number, rest = number_of(m.group(1)), m.group(2)
+            else:
+                loose = GUARDIAN_LOOSE.match(text)
+                num = GUARDIAN_LOOSE_NUMBER.match(loose.group(1)) if loose else None
+                if not num:
+                    continue
+                digits, rest = re.sub(r"\D", "", num.group(1)), loose.group(1)[num.end():]
+                number = int(digits) if len(digits) == 5 and digits[0] in "12" else None
+            setter = FT_SETTER.search(rest)
+            if not setter:
+                for v in lines:
+                    b = box_of(v)
+                    if v is not ws and box[3] - 5 <= b[1] <= box[3] + 80 and abs(b[0] - box[0]) <= 150:
+                        setter = FT_SETTER.search(" ".join(w[4] for w in v)) or setter
+            setter = setter.group(1).title() if setter else None
+            if number is not None:
+                puzzles.append((number, box, setter))
+            elif digits and len(digits) >= 2:
+                partial.append((digits, box, setter))
+            break
+    return puzzles, solutions, partial
+
+
 def guardian_headings(lines, titles=()):
     """([(number, box, setter)], [(number, box)]): each Guardian crossword
     title with the setter on it or the line under it, and each solution
     label (the solution grid is above it). A label whose number is misread
     ("20^39") is the previous puzzle's, beside the page's one title."""
-    puzzles, solutions = [], []
-    for ws in lines:
-        text = " ".join(w[4] for w in ws)
-        m = GUARDIAN_SOLUTION.match(text)
-        if m:
-            num = re.fullmatch(G_NUMBER + r"\W*", m.group(1))
-            solutions.append((number_of(num.group(1)) if num else None, box_of(ws)))
-            continue
-        m = GUARDIAN_TITLE.match(text)
-        if not m:
-            continue
-        box = box_of(ws)
-        setter = FT_SETTER.search(m.group(2))
-        if not setter:
-            for v in lines:
-                b = box_of(v)
-                if v is not ws and box[3] - 5 <= b[1] <= box[3] + 80 and abs(b[0] - box[0]) <= 150:
-                    setter = FT_SETTER.search(" ".join(w[4] for w in v)) or setter
-        puzzles.append((number_of(m.group(1)), box, setter.group(1).title() if setter else None))
+    puzzles, solutions, _ = _guardian_read(lines)
     solutions = [(n if n is not None else puzzles[0][0] - 1, box) for n, box in solutions
                  if n is not None or len(puzzles) == 1]
     return puzzles, solutions
+
+
+def guardian_agrees(digits, number):
+    """Whether the `digits` the OCR kept of a title's number can be `number`'s: they run through its digits in
+    order ("1085" in 13085), are one digit off it (37293 for 17293), or are it with a digit too many ("219369":
+    the comma read as a 9 in 21369)."""
+    text, it = str(number), iter(str(number))
+    return all(c in it for c in digits) or len(digits) == len(text) and sum(a != b for a, b in zip(digits, text)) <= 1 \
+        or len(digits) == len(text) + 1 and any(digits[:k] + digits[k + 1:] == text for k in range(len(digits)))
+
+
+def guardian_dated_titles(lines, day):
+    """[(number, box, setter, readers)] of the Guardian heading of `lines` whose number the OCR read fewer than five
+    digits of, numbered by its date: one number an issue (Monday to Saturday), so each filed neighbour either side
+    counts to one. The title stands when exactly one of those numbers agrees with the digits kept (guardian_agrees),
+    is not filed for another day, and every such heading of the page names it; else none."""
+    if day.weekday() == 6:
+        return []
+    partial = _guardian_read(lines)[2]
+    if not partial:
+        return []
+    held = held_dates(GUARDIAN.series)
+    before, after = neighbours(day, held)
+    counts = {m + issues_between(b, day) for b, m in [before] * bool(before)} | \
+        {m - issues_between(day, a) for a, m in [after] * bool(after)}
+    out = {}
+    for digits, box, setter in partial:
+        fits = [n for n in counts if guardian_agrees(digits, n) and held.get(n, day) == day]
+        if len(fits) != 1:
+            return []
+        out.setdefault(fits[0], (fits[0], box, setter, ["dated"]))
+    return list(out.values()) if len(out) == 1 else []
 
 
 #: Dated Telegraph cryptics: 18,340 read off the 4 January 1985 scan, and
@@ -13474,6 +13540,33 @@ _TELEGRAPH_PRIZE_MEND_FIX = {
     "galetelegraph": ("31dcebfe742d7cd9", "6411cc4cccdae040", "b8f19a2aaa21e001"),
 }
 for _paper, _pins in _TELEGRAPH_PRIZE_MEND_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before _scan numbered a Guardian title the OCR read fewer than
+#: five digits of by its date (guardian_dated_titles) and guardian_headings read a title through the words of the column
+#: beside it and the junk inside its number ("GljARDIAN CROSSWORD 13,020", "No 21 y 167"): only the Guardian's scans read
+#: otherwise, so every scan stands, and a Guardian edition scanned with no title found and no verdict is scanned
+#: again (joined_rescan, HEADINGS_JOINED): ~80 editions of 1971, 1984-85 and 1995-98 held no puzzle for want of it.
+_GUARDIAN_DATED_FIX = {
+    "ft": ("d649983b7d489441", "c1d1a2876e396efa", "59dd1373ead61432"),
+    "gale": ("b1c08cfd7f28e552", "76883f13c196a305", "9379485e659b335e"),
+    "galeft": ("cfe5a4173c1fb3a0", "ecc1832c66ab6550", "a4b510676c9eaae6"),
+    "galeindependent": ("15b4f7c04b9c395d", "b515efb13f22f526", "58b88369b54eab1c"),
+    "galeindysunday": ("8c6f801319787437", "7529d1c6a059f180", "89f0e348d55fb691"),
+    "galesundaytelegraph": ("7d6df129ce63c3dc", "b10236993ad3fd9b", "80bf7776db6afd3a"),
+    "galesundaytimes": ("1f1cef748525df04", "1f413cf4dc6927ae", "7cb261675a55d659"),
+    "galetelegraph": ("b8f19a2aaa21e001", "b38761dd0aaefa29", "485a6d87bbf3d3df"),
+    "galetls": ("17199c882f4e2c29", "593a8904c4eadd7b", "06da8d66d426acd0"),
+    "guardian": ("bcc5381e6977eb84", "9b25a74970d1457d", "9a1183b516c1be9b"),
+    "telegraph": ("95442160c921f8af", "6187c8350d614d3c", "08ee83f921248744"),
+    "times": ("46b0fcaa1a2ad822", "ea93339f0ded82a7", "a3c118b96b77f665"),
+    "times1930": ("11ca176c501aa5b0", "ab92c69c2f9d19b3", "cb3bfb639c928c38"),
+}
+_JOINED_OLD["guardian"] = frozenset({*_GUARDIAN_DATED_FIX["guardian"][:2],
+                                     *(k for k, v in CORPUS_KEYS.items() if v.get("guardian") == _GUARDIAN_DATED_FIX["guardian"][0])})
+for _paper, _pins in _GUARDIAN_DATED_FIX.items():
     for _keys in CORPUS_KEYS.values():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
