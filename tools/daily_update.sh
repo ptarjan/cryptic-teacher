@@ -34,8 +34,7 @@
 #                      drained.
 #   genius             the Guardian's monthly Genius, PDFs plus
 #                      fifteensquared's answers.
-#   blog-facts         the blog caches re-read into the site's blog hints,
-#                      tools/data/blog_facts/, after any blog fetch.
+#   (blog-facts, the blog caches re-read into the site's blog hints, runs in CI: blog-facts.yml)
 #   ratings, checks    the SNITCH and comment ratings and the measures built
 #                      over the day's answers; a series gone quiet, a corpus
 #                      defect.
@@ -438,43 +437,8 @@ unit_backlog_left() {
   return 0
 }
 
-# Blog hints, re-read off the caches the blog units just topped up.
-# tools/blog_facts.py joins every cached write-up to the puzzle it explains and
-# writes tools/data/blog_facts/, which the site's hints and the validator's
-# definition check read. A full parse is ~5 minutes, so --if-changed skips it
-# when no cached post, clue or the parser itself has moved since the files were
-# written. Its letter_facts pass builds the corpus-wide lexicons and reads the
-# clues on the desktop (here, in at most letter_facts.FALLBACK_JOBS processes,
-# when it is busy or unreachable).
-# Due after any blog unit ended well (tools/daily_units.py), so a new puzzle
-# is validated against its blog. unit_commit's `git add -A` picks the files up.
-unit_blog_facts() {
-  local facts_out step_start step_rc
-  facts_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-facts.XXXXXX")"
-  step_start=$SECONDS
-  # Its lexicon chunks and clue results are kept (letter_facts.py's store),
-  # so a run builds what moved; a cold store stops at the deadline with its
-  # slices kept (rc 75, nothing committed) and the retry goes on from them.
-  with_deadline
-  # Through tee, so each step's timing line reaches the log as it is printed,
-  # and a run killed at its limit still shows where it was.
-  python3 tools/blog_facts.py --if-changed 2>&1 | tee "$facts_out"
-  step_rc=${PIPESTATUS[0]}
-  echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
-  # 75: put off while the desktop is busy, or out of time with its slices
-  # stored (blog_facts.DEFERRED_RC); retried.
-  [ $step_rc -eq 0 ] || [ $step_rc -eq 75 ] ||
-    alert "tools/blog_facts.py failed (rc=$step_rc), so new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
-  # Our annotations against the facts just written: the rates, and the puzzles
-  # the burn re-checks (tools/data/blog_compare.json). A report, so a failure
-  # is logged, not alerted: the burn re-plans the list itself.
-  [ $step_rc -eq 0 ] && { python3 tools/blog_compare.py || echo "blog_compare: failed"; }
-  # The rebuilt indicator lexicon can push a word over validate_annotations.MISPLACED_MIN_USES
-  # and flag puzzles already committed. The deploy's full check queues those clues and raises
-  # their allowance once the lexicon commit lands (pages.yml, tools/requeue_drift.py --publish).
-  rm -f "$facts_out"
-  return $step_rc
-}
+# Blog hints (tools/blog_facts.py, then blog_compare.py) are rebuilt in CI now, by
+# .github/workflows/blog-facts.yml after each blog fetch; no unit here runs them.
 
 # The SNITCH's ratings of the Times, which the difficulty index is
 # checked against and the Times badges quote a range from. One page, so a
@@ -1178,7 +1142,6 @@ if [ "${1:-}" = unit ]; then
     ft) unit_ft ;;
     azed) unit_azed ;;
     genius) unit_genius ;;
-    blog-facts) unit_blog_facts ;;
     ratings) unit_ratings ;;
     checks) unit_checks ;;
     solutions) unit_solutions ;;

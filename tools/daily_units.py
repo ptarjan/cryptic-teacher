@@ -17,8 +17,8 @@ and pushes what it changed itself.
 The dependencies, all here:
   * every filing unit (fetch:*, blog:*, ft, azed) cross-checks and
     commits its own filings, so nothing waits for a sibling to file;
-  * blog-facts re-reads the blog caches after any blog fetch ended well
-    (trigger), and not while one runs (after);
+  * blog-facts (the blog caches re-read after a blog fetch) runs in CI now,
+    .github/workflows/blog-facts.yml;
   * a graded miss is diagnosed before any cold solve starts (annotate of an
     unsolved puzzle is `after` every miss:*), so its fix governs the solve;
   * the solutions unit notes the puzzles it gave a key (keyed --record), and
@@ -129,7 +129,7 @@ PHASES = [
     ("xval:globe", DAY, 60 * 60, ()),
     # Lands the raw fetch caches CI writes (tools/cache_sync.py): add-only.
     ("cache-sync", 3 * HOUR, 30 * 60, ()),
-    ("blog-facts", DAY, 120 * 60, ("blog:times", "blog:telegraph", "ft")),
+    # blog-facts runs in CI (.github/workflows/blog-facts.yml), not here.
     ("ratings", DAY, 60 * 60, ()),
     ("checks", DAY, 45 * 60, ()),
     ("minute", 6 * HOUR, 30 * 60, ()),
