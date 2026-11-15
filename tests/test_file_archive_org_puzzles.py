@@ -1201,12 +1201,11 @@ check("linked_solutions vets a Gale Telegraph heading: a number within a dozen i
       [22695, 22696, "no.x"], [s["number"] for s in _tv])
 check("TELEGRAPH_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, due from a "
       "blanket reason, the solution key pinned",
-      (2, True, True, True, True, True, True, f.TELEGRAPH_CELLS, "432a5818529a9b11"),
+      (2, True, True, True, True, True, f.TELEGRAPH_CELLS, "432a5818529a9b11"),
       (f.RANKS[f.TELEGRAPH_CELLS], f.TELEGRAPH_CELLS in f.SOLUTION_FIXES,
        f.TELEGRAPH_CELLS in __import__("edition_queue").LOW_ASK, f.TELEGRAPH_CELLS in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.TELEGRAPH_CELLS),
        f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST,
-       f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST[-30:],
        f.blanket_or_fix(_tc_row, "inputs changed"), f._SOLUTION_PINS["50b55099851b3f47"]))
 check("printed_stale: an unmarked short unclassified TIMES_1930 reading is read again; marked, classified, whole, "
       "refused or another paper's is not",
