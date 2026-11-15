@@ -6905,7 +6905,7 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:29:00+00:00", "no-reading-parses"
                   # The crashes since fixed: the 6144 MB RLIMIT_AS bad_alloc (launcher's CT_UNIT_MEMORY_MB),
                   # an unreadable band_words cache, trove_solution_ocr's unloaded word list, and (11-15)
                   # int("③"): file_trove_puzzles.readings/enum_readings took a circled digit for a digit.
-                  "crashed": "2026-11-15T07:10:00+00:00"}
+                  "crashed": "2026-11-15T07:30:00+00:00"}
 
 #: {writeFailed message: ISO time}: an edition a puzzle of which failed to
 #: write with that message and was read before that time is read again

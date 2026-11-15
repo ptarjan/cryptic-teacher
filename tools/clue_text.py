@@ -280,8 +280,11 @@ SEE_RE = re.compile(rf"^{SEE_WORD}\s+({SEE_NUMBER})", re.IGNORECASE)
 
 
 def see_number(text):
-    """The int a SEE_NUMBER capture names ("l5" is 15; a lone l or I is 1)."""
-    return int(text.translate(str.maketrans("lI", "11")))
+    """The int a SEE_NUMBER capture names ("l5" is 15; a lone l or I is 1).
+    SEE_RE matches ignoring case, so "1i" (11) and "2i" (21) come here too; a
+    capture that still is no number is None, never a raise."""
+    digits = text.translate(str.maketrans("lIi", "111"))
+    return int(digits) if digits.isascii() and digits.isdecimal() else None
 
 #: The letters a digit standing alone may be a reader's misread of.
 DIGIT_LETTERS = {"0": "o", "1": "ilt", "3": "a", "5": "s"}

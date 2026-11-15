@@ -277,6 +277,8 @@ for t in ("See l5", "sce 15", "see I5", "See 1l down"):
     assert ct.SEE_RE.match(t), t
     assert re.compile(ct.SEE_DIRECTED, re.I).search(t), t
 assert ct.see_number("l5") == 15 and ct.see_number("1l") == 11 and ct.see_number("I") == 1
+# SEE_RE ignores case, so "1i" reaches see_number: 11, never a ValueError
+assert ct.see_number("1i") == 11 and ct.see_number("2i") == 21 and ct.see_number("①") is None
 assert re.compile(ct.SEE_DIRECTED, re.I).search("sce l5 Down").groups() == ("l5", "Down")
 for t in ("see I", "See lamp", "see l", "see 1 lamp"):
     assert not ct.SEE_RE.match(t) or ct.SEE_RE.match(t).group(1) == "1", t
