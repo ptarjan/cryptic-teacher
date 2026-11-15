@@ -750,6 +750,10 @@ LETTER_RUN = 8
 CAMEL_NAME = re.compile(r"^\W*(?:De|Di|Da|La|Le|Du|Van|Von|Ap|Fitz)[A-Z][a-z]{2,}(?:'s)?\W*$")
 
 
+#: A bracketed count of figures, commas and hyphens that ends a clue's words.
+STRAY_COUNT = re.compile(r"\s*\(\s*\d+(?:\s*[,\-]\s*\d*)*\s*\)\s*$")
+
+
 def spaced_quotes(text):
     """`text` with a space where a straight double quote is glued to the word outside it: an opening one after a
     word ('Colonel"Chalky"') and a closing one before a bracket ('seminary"(W S Gilbert)')."""
@@ -801,6 +805,9 @@ def mended_text(laid, printed):
                 keep.append(w)
         new = " ".join(keep)
         new = clue_text.open_ellipsis_bracket(new)
+        if enum:
+            # A count the clue's own enumeration already holds is not left in its words (1387's 12-across "(5, )").
+            new = STRAY_COUNT.sub("", new)
         new = spaced_quotes(new)
         new = spaced_xref(new)
         if new != text:
