@@ -388,3 +388,10 @@ check("doesNotGive: a piece that fits inside nothing (no container or anagram be
       mend("[Copper]CU + [runs]R + [workers]ANTS", "Copper runs workers", "CURRANTS").startswith("REFUSED"))
 
 sys.exit(1 if fails else 0)
+# doesNotGive, 11-15 audit: a container's inner leaf longer than the run the answer shows inside the outer
+check("doesNotGive: an inner leaf cut to the run the answer shows inside (volume is V, NOVEL)",
+      mend("ins<written during>([Christmas]NOEL, [volume]VOL)", "Christmas written during volume", "NOVEL")
+      == "ins<written during>([Christmas]NOEL, [volume]V)")
+check("doesNotGive: that cut is any stretch of the leaf (editor's is ED, not EDIS, SWEDISH)",
+      mend("ins<surroundings>([fashionable]SWISH, [editor's]EDIS)", "fashionable surroundings editor's", "SWEDISH")
+      == "ins<surroundings>([fashionable]SWISH, [editor's]ED)")

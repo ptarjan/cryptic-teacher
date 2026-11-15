@@ -145,7 +145,7 @@ def r_does_not_give(node, parent, ctx):
     except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
         return None
     found, seen = [], set()
-    for late in (False, True, "inside", "cut"):
+    for late in (False, True, "inside", "cut", "shrink"):
         # the end cut of a leaf is the last resort: beside the plural-S / surplus-leaf edits it only adds a
         # second way (HIFT for SHIFT) to a tree that has one right edit already; a piece pulled inside the
         # container or anagram beside it (and a reversed argument) is tried only when no other edit works
@@ -212,6 +212,20 @@ def _does_not_give_edits(node, k, clue=None, late=False):
                 new, t = fresh()
                 t["gives"] = n["gives"][:i] + n["gives"][i + 1:]
                 out.append(new)
+        return [_flat_charades(new) for new in out]
+    if late == "shrink":
+        # the very last: a container's inner leaf longer than the run the answer shows inside the outer ([volume]VOL
+        # for the V of NOVEL, [editor's]EDIS for the ED of SWEDISH): cut to one stretch of itself; evaluate() keeps
+        # it only when exactly one stretch gives the answer, and no other edit anywhere did
+        if n.get("op") == "container" and len(parts) == 2 and leaf(parts[1]) and parts[1].get("words") \
+                and str(parts[1].get("gives") or "").isalpha() and len(parts[1]["gives"]) >= 2:
+            word = parts[1]["gives"]
+            for a in range(len(word)):
+                for b in range(a + 1, len(word) + 1):
+                    if (a, b) != (0, len(word)):
+                        new, t = fresh()
+                        t["parts"][1]["gives"] = word[a:b]
+                        out.append(new)
         return [_flat_charades(new) for new in out]
     if late == "inside":
         return _inside_tier(fresh, n, parts, node, clue)
