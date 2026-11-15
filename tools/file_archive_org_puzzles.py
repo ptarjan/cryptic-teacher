@@ -12629,11 +12629,35 @@ def third_top(img, grid, width):
     bw, bh = box[2] - box[0], box[3] - box[1]
     if not (0.4 * width <= bw <= width and 0.85 <= bw / max(bh, 1) <= 1.18):
         return gy0 - 5
-    return crop[1] + box[3] + LABEL_DROP
+    return crop[1] + label_foot(img.crop(crop), box, bw)
+
+
+def label_foot(strip, box, bw):
+    """Where the solution grid's label ends under the grid's ink box in `strip` (the crop third_top
+    measures): the first LABEL_GAP blank rows after its ink within the box's columns, or the grid's
+    foot plus LABEL_DROP when no such gap is there (GUARDIAN_CUT: the fixed drop cut the first clue's
+    head line when the label stood tight under the grid, 1996-05-10_152's "17 ...")."""
+    import numpy as np
+    gray = np.asarray(strip.convert("L"), dtype=np.uint8)
+    ink = (gray < trove_grid.otsu(gray))[:, box[0]:box[2]].any(axis=1)
+    foot = box[3]
+    seen, blank = False, 0
+    for y in range(foot, min(len(ink), foot + LABEL_DROP)):
+        if ink[y]:
+            seen, blank = True, 0
+        elif seen:
+            blank += 1
+            if blank >= LABEL_GAP:
+                return y - blank + 1 + LABEL_FOOT_PAD
+    return foot + LABEL_DROP
 
 
 #: How far under the solution grid its label's top may lie.
 LABEL_DROP = 25
+#: The blank rows that end the label's text under the solution grid.
+LABEL_GAP = 3
+#: The pixels the crop reaches up into the label's last blank-ish rows (over NEAR_WINDOW, or the cached window of the old top stands).
+LABEL_FOOT_PAD = -3
 
 
 def byline(img, hit, series=FT.series):
@@ -15325,6 +15349,32 @@ def guardian_laid_due(row):
         if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
                 or not isinstance(v.get("blank"), dict) \
                 or not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The due reason of a Guardian page read before REREAD_GUARDIAN_CUT with a down light blank ("no reading laid a clue on
+#: it" or "the clue's end is lost"), its puzzle not held whole: the third clue column's crop began at the
+#: solution grid's foot plus LABEL_DROP (third_top) and cut the column's first head line ("17 Exotic dance ...": 1996-05-10
+#: 17 down), so that column opened on a clue's tail. It starts at the label's last ink row now (label_foot).
+GUARDIAN_CUT = "Guardian page with the third clue column's head cut, read since"
+REREAD_GUARDIAN_CUT = "2026-11-15T08:30:00+00:00"
+
+
+def guardian_cut_due(row):
+    """Whether Guardian ledger `row`, read before REREAD_GUARDIAN_CUT, has a verdict (not refused, not skipped) with a
+    down light blank for a lost clue, its puzzle not held whole."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GUARDIAN.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_GUARDIAN_CUT)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
+                or not isinstance(v.get("blank"), dict) \
+                or not any(k.endswith("-down") and ("no reading laid a clue" in str(why) or "end is lost" in str(why))
+                           for k, why in v["blank"].items()):
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -21339,6 +21389,8 @@ def fix_reason(row):
         return TELEGRAPH_FITTED
     if guardian_laid_due(row):
         return GUARDIAN_LAID
+    if guardian_cut_due(row):
+        return GUARDIAN_CUT
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -22066,7 +22118,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # (ft_faint_due).
                   FT_FAINT,
                   # 11-15: a Guardian page with a clue no reading laid, read since (guardian_laid_due).
-                  GUARDIAN_LAID)
+                  GUARDIAN_LAID, GUARDIAN_CUT)
 
 
 def refusal_passes(why):
@@ -22128,7 +22180,8 @@ def blanket_or_fix(row, blanket):
             else TELEGRAPH_LEAD_NUMBER if telegraph_lead_number_due(row) \
             else TELEGRAPH_STOP if telegraph_stop_due(row) \
             else TELEGRAPH_FITTED if telegraph_fitted_due(row) \
-            else GUARDIAN_LAID if guardian_laid_due(row) else blanket
+            else GUARDIAN_LAID if guardian_laid_due(row) \
+            else GUARDIAN_CUT if guardian_cut_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -22347,7 +22400,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
