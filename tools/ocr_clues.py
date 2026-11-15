@@ -3304,6 +3304,33 @@ def merged(text):
 
 
 
+def bracket_reclosed(text, readings):
+    """`text` with the ")" the vote lost put back, or None: when `text` holds a "(" it never closes and ends on a
+    word with a stray mark glued on or after it (";", ":", "i", "l", "I": a ")" misread), and some reading (each a
+    raw text in `readings`) prints that word then ")" (or one prints the \";\" the text ends on, or two print a stray mark there) ("(or tins possibly;" where a reading has "possibly)", Azed
+    109 29-down). Only at the text's end, as bracket_reopened works only on a stray ")"."""
+    k = unpaired(text)
+    tail = text.rstrip()
+    if k is None or text[k] != "(":
+        return None
+    m = re.search(r"([A-Za-z][A-Za-z'\u2019\-]{2,})[;:,.|!]?$", tail)
+    if not m or m.start() < k:
+        return None
+    for end in {m.end(1), m.end(1) - 1}:
+        word = tail[m.start():end]
+        if len(word) < 3 or not re.fullmatch(r"[A-Za-z'\u2019\-]+", word):
+            continue
+        if end < m.end(1) and tail[end] not in "iIlj":
+            continue
+        pat = re.compile(r"(?<![A-Za-z])" + re.escape(word) + r"\s*\)", re.IGNORECASE)
+        # Or two readings both print the word with a stray mark where the ")" stands, before the count.
+        torn = re.compile(r"(?<![A-Za-z])" + re.escape(word) + r"[;iIl|]\s*(?:\(\d|$)", re.IGNORECASE)
+        if any(pat.search(r or "") for r in readings) or sum(bool(torn.search(r or "")) for r in readings) >= (1 if tail.endswith(";") else 2):
+            out = tail[:end] + ")"
+            return out if unpaired(out) is None else None
+    return None
+
+
 def bracket_reopened(text, readings):
     """`text` with the "(" the vote lost put back, or None: when `text`
     holds a ")" it never opened and some reading (each a raw text in
@@ -3637,7 +3664,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
         got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and unpaired(got) is not None:
             raw = [s for s in streams if isinstance(s, str)] + [s.get(lid) or "" for s in streams if isinstance(s, dict)]
-            got = bracket_reopened(got, raw) or got
+            got = bracket_reopened(got, raw) or bracket_reclosed(got, raw) or got
         if got is not None and merged(got):
             got, how = None, merged(got)
         if got is None:
