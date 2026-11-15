@@ -235,13 +235,14 @@ def ordered_cols(cols, rows):
     whose reading has as many clues as the grid has lights there is numbered in sequence (the numbers it has set
     right too), a side that does not match is left as read."""
     import privateeye_scans as pes
+    import quotes
     import reconstruct_grid as rg
     lights = rg.light_cells(rows)
     want = [sorted(n for (n, d) in lights if d == side) for side in ("across", "down")]
 
     def numbered(lines, starts, nums):
         for i, n in zip(starts, nums):
-            text = re.sub(r"^\W{0,2}\d{1,2}\W{0,2}\s+(?=[A-Za-z(\"'‘“])", "", lines[i][4])
+            text = re.sub(r"^\W{0,2}\d{1,2}\W{0,2}\s+(?=\D)", "", quotes.straight(lines[i][4]))
             lines[i] = lines[i][:4] + (f"{n} {text}",)
 
     def starts_of(lines):

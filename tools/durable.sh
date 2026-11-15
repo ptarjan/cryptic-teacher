@@ -362,6 +362,12 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
   move="git rebase -q $onto 2>/dev/null || { git rebase --abort 2>/dev/null; exit 1; }"
   pending="$(git rev-list "${_durable_pushed:-origin/master}..HEAD")" && [ -z "$pending" ] &&
     move="git reset -q --keep $onto 2>/dev/null"
+  # Already on the target with nothing unpushed: the move is a no-op, but `reset --keep` / a rebase
+  # re-stats the whole index and rereads every racy-stat file of puzzles/ (11-15: the live queue read
+  # ~2 GB/min of disk, swap). Skip it; the rest (batch bookkeeping, refused rereads) still runs.
+  if [ -z "$pending" ] && [ "$(git rev-parse -q --verify HEAD)" = "$(git rev-parse -q --verify "$onto")" ]; then
+    move=true
+  fi
   if ! flock -w 60 "$lock" sh -c "$move"; then
     # A clean filter can make an unchanged file look modified: re-stat without it and try once more.
     if durable_refresh_index && echo "durable: the index was re-stated with the clean filters off; moving again" &&
