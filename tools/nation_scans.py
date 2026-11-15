@@ -44,6 +44,8 @@ HEADING = re.compile(r"cross\W?word\s+puzzle\W{0,3}\s*n[o0]\W{0,3}\s*(\d{1,4})\b
 #: The heading with its number lost to the OCR (1948-06-26): the contents page's heading then names it.
 LOOSE_HEADING = re.compile(r"cross\W?word\s+puzzle", re.IGNORECASE)
 SOLVED = re.compile(r"solution\s+to\s+(?:cross\W?word\s+)?puzzle\W{0,3}\s*n[o0]\W{0,3}\s*(\d{1,4})\b", re.IGNORECASE)
+#: A solution heading whose number was read as a separate line.
+SOLVED_BARE = re.compile(r"solution\s+to\s+(?:cross\W?word\s+)?puzzle\W{0,3}\s*n\w{0,2}\W{0,3}\s*$", re.IGNORECASE)
 #: Days apart the issue printing a solution lies from the puzzle's.
 NEXT_WITHIN = 10
 SQUARES = (13, 15, 17, 19, 21, 11, 9)
@@ -301,16 +303,28 @@ ANSWER = re.compile(r"(\d{1,2}(?:\s*(?:and|,|&)\s*\d{1,2})*)\s*[.:—\-]*\s*([A-
 
 def solution_text(lines):
     """The words of a solution list from its heading's line: the lines below it in its column, down to a gap."""
-    head = next((k for k, ws in enumerate(lines) if SOLVED.search(text_of(ws))), None)
+    head, number, said = next(((k, int(m.group(1)), None) for k, ws in enumerate(lines)
+                               for m in [SOLVED.search(text_of(ws))] if m), (None, None, None))
+    if head is None:
+        # the number split off the heading's words onto a line of its own ("SOLUTION TO PUZZLE No." / "270")
+        for k, ws in enumerate(lines):
+            if SOLVED_BARE.search(text_of(ws)):
+                y = min(w[1] for w in ws)
+                near = [(j, text_of(o)) for j, o in enumerate(lines[k + 1:k + 6], k + 1)
+                        if abs(min(w[1] for w in o) - y) < 40 and re.fullmatch(r"\d{1,4}", text_of(o).strip())]
+                if near:
+                    head, number, said = k, int(near[0][1]), near[0][0]
+                    break
     if head is None:
         return None, None
-    number = int(SOLVED.search(text_of(lines[head])).group(1))
     hx, prev = min(w[0] for w in lines[head]), max(w[3] for w in lines[head])
     out = []
-    for ws in lines[head + 1:head + 60]:
+    for j, ws in enumerate(lines[head + 1:head + 90], head + 1):
         x0, y0 = min(w[0] for w in ws), min(w[1] for w in ws)
-        if y0 - prev > 130 or abs(x0 - hx) > 300 or y0 < prev - 200:
+        if y0 - prev > 130 or y0 < prev - 200:
             break
+        if j == said or x0 < hx - 200 or x0 > hx + 1000:
+            continue    # the other column's clues are interleaved with a wide list's fragments
         out.append(text_of(ws))
         prev = max(w[3] for w in ws)
     return number, " ".join(out)
@@ -320,6 +334,8 @@ def parse_solution(text):
     """([(numbers, word)] across, [...] down) of a printed solution list, the words as printed (letters, spaces)."""
     text = re.sub(r"-\s+(?=[A-Z])", "", text)
     parts = re.split(r"\bD\s?[O0]\s?W\s?N\b", text, maxsplit=1)
+    if len(parts) != 2:     # the heading misread ("powx-:")
+        parts = re.split(r"\b[DP][O0]W[NX]\b", text, maxsplit=1, flags=re.IGNORECASE)
     if len(parts) != 2:
         return [], []
     across = re.split(r"\bACROSS\b", parts[0], maxsplit=1)[-1]
@@ -395,14 +411,22 @@ def read_answers(day, number, rows, laid):
     if nxt is None:
         return {}, "no next issue scanned"
     meta = nxt[1]
+    near = None
     for leaf in range(len(objects(meta["item"]))):
         lines = lines_of(meta["item"], leaf)
         said, text = solution_text(lines)
         if said == number and text:
-            across, down = parse_solution(text)
-            if not across or not down:
-                return {}, "the solution list does not parse"
-            return answers_for(rows, laid, across, down)
+            near = text
+            break
+        # one digit misread ("836" for 336) when no heading reads exactly: the issue prints just one list
+        if said and text and len(str(said)) == len(str(number)) and near is None \
+                and sum(a != b for a, b in zip(str(said), str(number))) == 1:
+            near = text
+    if near:
+        across, down = parse_solution(near)
+        if not across or not down:
+            return {}, "the solution list does not parse"
+        return answers_for(rows, laid, across, down)
     return {}, f"no 'Solution to Puzzle No. {number}' in the next issue"
 
 
