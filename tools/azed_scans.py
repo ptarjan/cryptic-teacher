@@ -368,6 +368,35 @@ def answers(img, lines, rows):
 
 # ---------------------------------------------------------------- reading a page
 
+def reclosed(text, readings):
+    """`text` with the ")" the vote lost put back, or None: `text` holds a "(" it never closes and ends on a word
+    with a stray mark glued on (";" or a letter "i"/"l"/"I"/"j": a ")" misread), and a reading (each a raw text in
+    `readings`) prints that word then ")", or one prints the ";" the text ends on, or two print a stray mark there
+    before the count (Azed 109 29-down "(or tins possibly;"). Kept here, not in ocr_clues, which every paper's scan
+    key hangs on."""
+    import ocr_clues
+    k = ocr_clues.unpaired(text)
+    tail = (text or "").rstrip()
+    if k is None or text[k] != "(":
+        return None
+    m = re.search(r"([A-Za-z][A-Za-z'\u2019\-]{2,})[;:,.|!]?$", tail)
+    if not m or m.start() < k:
+        return None
+    for end in {m.end(1), m.end(1) - 1}:
+        word = tail[m.start():end]
+        if len(word) < 3 or not re.fullmatch(r"[A-Za-z'\u2019\-]+", word):
+            continue
+        if end < m.end(1) and tail[end] not in "iIlj":
+            continue
+        shut = re.compile(r"(?<![A-Za-z])" + re.escape(word) + r"\s*\)", re.IGNORECASE)
+        torn = re.compile(r"(?<![A-Za-z])" + re.escape(word) + r"[;iIl|]\s*(?:\(\d|$)", re.IGNORECASE)
+        if any(shut.search(r or "") for r in readings) or \
+                sum(bool(torn.search(r or "")) for r in readings) >= (1 if tail.endswith(";") else 2):
+            out = tail[:end] + ")"
+            return out if ocr_clues.unpaired(out) is None else None
+    return None
+
+
 def read_page(item, leaf, number):
     """(number, laid, grid rows, why not) of one page: the clues voted, the grid fitted."""
     import ocr_clues
@@ -402,6 +431,8 @@ def read_page(item, leaf, number):
         return number, None, None, f"{len(blank)} clues the readings do not agree on{deferred}: " + \
             "; ".join(f"{k}: {v}" for k, v in sorted(blank.items())[:4])
     laid = pes.linked_across(pes.directed_links(pes.named_links(laid, cols.named)))
+    raw = [" ".join(w[4] for w in ws) for ws in words.values()]
+    laid = {lid: ((reclosed(t, raw) or t), e, g) for lid, (t, e, g) in laid.items()}
     empty = sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
     if empty:
         return number, None, None, f"clues with no words: {', '.join(empty)}"
