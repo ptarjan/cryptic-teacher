@@ -13717,7 +13717,7 @@ def prize_rescan(paper, key, rel):
     return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2],
                         _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2], _INSET_GRID_FIX["gale"][2],
                         _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2],
-                        _TELEGRAPH_SATURDAY_FIX["gale"][2])
+                        _TELEGRAPH_SATURDAY_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -13908,7 +13908,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "c85fd409ea8aa6cf": "432a5818529a9b11",
                   # faint_stretch (a Gale FT crop's faint letters): only a refused FT grid reads otherwise, due once
                   # as FT_FAINT (solved() reads such a kept one again, printed_stale).
-                  "0fe8d5135be64dfb": "432a5818529a9b11"}
+                  "0fe8d5135be64dfb": "432a5818529a9b11",
+                  # Guardian title reads (guardian_dated_titles, _GUARDIAN_DATED_FIX), see_number's "1i"/"2i" crash fix,
+                  # SUNDAY_1970S and GUARDIAN_CUT: a scan's titles and clue columns only, no solution grid's reading moves.
+                  "ee605728d17c7d78": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -14044,7 +14047,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # TELEGRAPH_CELLS, SIDES_HEADED and WEEKDAY_RIGHT (Telegraph layout reads): no solution's read moves.
                 "7b24786d7044bf06": "9b3500cb5488df7c",
                 # faint_stretch (FT_FAINT): only a refused Gale FT grid reads otherwise.
-                "2089385a76b43ec5": "9b3500cb5488df7c"}
+                "2089385a76b43ec5": "9b3500cb5488df7c",
+                # Guardian title reads, see_number, SUNDAY_1970S and GUARDIAN_CUT: titles and clue columns only.
+                "cf744b71e55bcfcc": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
