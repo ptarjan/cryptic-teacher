@@ -38,7 +38,7 @@ class Ledger:
 # Every unit plan() can emit has a kind GENERATED names.
 os.environ.update(DAILY_FRESH="p1", DAILY_PENDING="p2", DAILY_UNSOLVED="p1", DAILY_MISSES="p1 3a")
 keys = [u.key for u in du.plan(Ledger(), 0)]
-check("plan() emits annotate, miss and every phase", {k.split(":")[0] for k in keys} >= {"annotate", "miss", "fetch", "checks", "reports"}, True)
+check("plan() emits annotate, miss and every phase", {k.split(":")[0] for k in keys} >= {"annotate", "miss", "wayback", "checks", "reports"}, True)
 for k in keys:
     check(f"{k} has a kind in GENERATED", k.split(":", 1)[0] in du.GENERATED, True)
 
@@ -48,7 +48,21 @@ for f in du.SLOW_FETCHERS:
     check(f"fetch:{f} is planned", f"fetch:{f}" in keys, True)
     check(f"tools/{f}.py exists", os.path.exists(f"tools/{f}.py"), True)
     check(f"tools/{f}.py takes --latest", os.path.exists(f"tools/{f}.py") and "--latest" in open(f"tools/{f}.py").read(), True)
-check("fetch:tls_puzzles looks every 6h", [p[1] for p in du.PHASES if p[0] == "fetch:tls_puzzles"], [6 * du.HOUR])
+# The TLS's newest issue is looked for in CI, beside its backfill, and not here.
+check("fetch:tls_puzzles is not planned locally", "fetch:tls_puzzles" in keys, False)
+check("tls-backfill.yml runs tls_puzzles --latest",
+      "tools/tls_puzzles.py --latest" in (REPO / ".github" / "workflows" / "tls-backfill.yml").read_text(), True)
+# The steps .github/workflows/daily-units.yml took over (2026-11-15) run there and
+# nowhere in daily_update.sh, so none runs twice.
+units_yml = (REPO / ".github" / "workflows" / "daily-units.yml").read_text()
+daily_sh = (REPO / "tools" / "daily_update.sh").read_text()
+for step in ["fetch_puzzle.py --refresh-unsolved", "fetch_observer.py --refresh-unsolved",
+             "fetch_privateeye.py --refresh-unsolved", "fetch_privateeye.py --backfill-dates",
+             "fetch_snitch.py", "series_health.py --stale-only"]:
+    check(f"{step} runs in daily-units.yml", step.split()[0] in units_yml and step.split()[-1] in units_yml, True)
+    check(f"{step} is not run by daily_update.sh",
+          [ln for ln in daily_sh.splitlines() if step.split()[0] in ln and not ln.lstrip().startswith("#")
+           and (step.split()[-1] in ln or step.endswith(".py"))], [])
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
 # The CI fetchers run in .github/workflows/fetch-puzzles.yml and nowhere else.
 workflow = (REPO / ".github" / "workflows" / "fetch-puzzles.yml").read_text()
@@ -79,7 +93,7 @@ check("ratings runs once today's ledger is saved", plans_ratings(at(3)), True)
 check("yesterday's ledger is not today's", plans_ratings(time.mktime((2026, 10, 16, 3, 0, 0, 0, 0, -1))), False)
 
 # The choice, read off what each unit runs before its own build step.
-for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
+for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
           "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports", "checks"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
 for k in ["annotate:p1", "miss:p1:3a"]:

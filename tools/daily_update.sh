@@ -275,18 +275,22 @@ unit_fetch() {  # fetcher: the newest puzzle of its series (exit 3 = nothing new
   local rc
   python3 "tools/$1.py" --latest
   rc=$?
-  # Cyclops numbers whose clues the Wayback/archive.org captures print and no
-  # filing run has tried (privateeye_wayback.lost "not-read"): tried once each
-  # (refused.json remembers the refusals), to the unit's soft deadline.
-  if [ "$1" = fetch_privateeye ] && [ -d "$(python3 -c 'import sys; sys.path.insert(0, "tools"); import downloads; print(downloads.PRIVATE_EYE_WAYBACK)')" ]; then
-    with_deadline
-    python3 tools/privateeye_wayback.py file --daily || echo "privateeye_wayback file --daily failed (not fatal)"
-  fi
   [ $rc -eq 3 ] && return 0
   [ $rc -eq 0 ] || echo "$1 fetch failed (rc=$rc)"
   return $rc
 }
 
+
+# Cyclops numbers whose clues the Wayback/archive.org captures on the Media disk
+# print and no filing run has tried (privateeye_wayback.lost "not-read"): tried
+# once each (refused.json remembers the refusals), to the unit's soft deadline.
+# fetch_privateeye --latest itself runs in .github/workflows/fetch-puzzles.yml.
+unit_wayback_privateeye() {
+  [ -d "$(python3 -c 'import sys; sys.path.insert(0, "tools"); import downloads; print(downloads.PRIVATE_EYE_WAYBACK)')" ] || {
+    echo "no Wayback captures folder; nothing to file"; return 0; }
+  with_deadline
+  python3 tools/privateeye_wayback.py file --daily
+}
 
 # --- The Times and the Telegraph, rebuilt from the blogs that solve them ---
 # Neither paper publishes its grids, so each puzzle is a chain rather than a
@@ -1177,6 +1181,7 @@ if [ "${1:-}" = unit ]; then
   echo "=== cryptic-teacher $key $(date '+%Y-%m-%d %H:%M') ==="
   case "$key" in
     fetch:*) unit_fetch "${key#fetch:}" ;;
+    wayback:privateeye) unit_wayback_privateeye ;;
     blog:times) unit_blog_times ;;
     blog:telegraph) unit_blog_telegraph ;;
     bucket:telegraph) unit_bucket_telegraph ;;

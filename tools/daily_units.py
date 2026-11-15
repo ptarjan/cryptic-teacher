@@ -55,23 +55,25 @@ BACKFILLS = ("bucket:telegraph", "ft", "azed")
 SCRIPT = "tools/daily_update.sh"
 HOUR = 3600
 DAY = 24 * HOUR
-#: The hourly fetchers the local tick still runs: state off git. fetch_privateeye's
-#: unit also runs privateeye_wayback.py over the Wayback captures kept on the
-#: Media disk (downloads.PRIVATE_EYE_WAYBACK).
-FETCHERS = ["fetch_privateeye"]
+#: The hourly fetchers the local tick still runs: none since 2026-11-15, when
+#: fetch_privateeye --latest joined CI_FETCHERS. Its Wayback pass
+#: (privateeye_wayback.py over the captures on the Media disk,
+#: downloads.PRIVATE_EYE_WAYBACK) stays here as the wayback:privateeye unit.
+FETCHERS = []
 #: The hourly fetchers GitHub Actions runs (.github/workflows/fetch-puzzles.yml,
 #: 2026-10-29): `--latest` needs only the network and the tracked puzzles. Never
 #: planned here, so a fetch is never run in both places.
-CI_FETCHERS = ["fetch_puzzle", "fetch_independent", "fetch_observer", "fetch_globeandmail", "fetch_metro"]
-#: Fortnightly series, on their own slower cadence in PHASES, local because the
-#: TLS is read with the RapidOCR model in ~/.cache and its images are kept on the
-#: Media disk (downloads.ROOT / "tls"). The Genius has
-#: its own unit (genius: its fifteensquared posts, then genius_puzzles.py).
+CI_FETCHERS = ["fetch_puzzle", "fetch_independent", "fetch_observer", "fetch_globeandmail", "fetch_metro",
+               "fetch_privateeye"]
+#: Fortnightly series, on their own slower cadence in PHASES: none local since
+#: 2026-11-15, when the TLS's --latest moved to .github/workflows/tls-backfill.yml
+#: (the RapidOCR model is cached there; its images are kept as a run artifact).
+#: The Genius has its own unit (genius: its fifteensquared posts, then genius_puzzles.py).
 #: Not fetched at all, and why (2026-10-12): the Listener's clues are printed only by
 #: the Times, behind its Puzzle Club subscription (listenercrossword.com posts
 #: notes and the solution weeks later), so feeding it is a paid source and
 #: Paul's call; the Nation's weekly cryptic ended with No 3529 (2020-04-13).
-SLOW_FETCHERS = ["tls_puzzles"]
+SLOW_FETCHERS = []
 
 
 def knob(name):
@@ -115,6 +117,9 @@ PHASES = [
     # 3 when its newest is held), but outside FETCHERS: a fortnightly tool's
     # "nothing new" is no evidence about the dailies' fetchers in after_tick.
     *[(f"fetch:{f}", 6 * HOUR, 30 * 60, ()) for f in SLOW_FETCHERS],
+    # Cyclops numbers the Wayback captures on the Media disk print and no filing
+    # has tried (privateeye_wayback.py file --daily); the fetch itself is CI's.
+    ("wayback:privateeye", 6 * HOUR, 45 * 60, ()),
     ("solutions", 3 * HOUR, 60 * 60, ()),
     ("blog:times", 3 * HOUR, 120 * 60, ()),
     ("blog:telegraph", 3 * HOUR, 120 * 60, ()),
@@ -140,6 +145,7 @@ PHASES = [
 #: kind daily_update.sh runs is named, so a new one has to choose.
 GENERATED = {
     "fetch": False,
+    "wayback": False,
     "solutions": False,
     "blog": False,
     "bucket": False,

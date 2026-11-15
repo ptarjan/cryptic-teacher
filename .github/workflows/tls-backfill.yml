@@ -1,4 +1,5 @@
-# The TLS back-issue backfill (tools/tls_puzzles.py --backfill) on a GitHub-hosted runner:
+# The TLS: the newest issue (tools/tls_puzzles.py --latest) and the back-issue backfill
+# (--backfill), on a GitHub-hosted runner:
 # heavy OCR work does not run on the home server. It files every listed free issue not
 # yet tracked, oldest first, each as its own "File tls-NNNN" commit.
 #
@@ -64,6 +65,24 @@ jobs:
           path: /tmp/cryptic-downloads/tls/backfill_state.json
           key: tls-backfill-state-${{ github.run_id }}
           restore-keys: tls-backfill-state-
+      # The newest issue (tools/tls_puzzles.py --latest; exit 3 when held), the local tick's
+      # fetch:tls_puzzles until 2026-11-15 (tools/daily_units.py SLOW_FETCHERS). Its commits
+      # join the backfill's batch; the last step flushes them.
+      - name: Newest issue
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rc=0
+          python3 tools/tls_puzzles.py --latest || rc=$?
+          git add -A
+          python3 tools/renamed_ids.py --stage
+          tools/commit_puzzles.sh "daily fetch:tls_puzzles"
+          git diff --cached --quiet ||
+            git commit -q -m "$(printf 'Daily fetch:tls_puzzles\n\n%s' "$(python3 tools/provenance.py trailer)")"
+          for c in $(git rev-list --reverse origin/master..HEAD); do PUSH_BATCH_FLUSHER=0 tools/push_puzzle_commit.sh "$c"; done
+          if [ "$rc" = 3 ]; then echo "tls_puzzles: the newest issue is held or already filed"
+          elif [ "$rc" != 0 ]; then echo "::error::tls_puzzles --latest failed (rc=$rc)"; echo "latest_failed=1" >> "$GITHUB_ENV"; fi
       - name: Backfill
         shell: bash
         env:
@@ -101,3 +120,4 @@ jobs:
           PUSH_BATCH_FLUSHER=0 tools/push_puzzle_commit.sh --flush
           git fetch -q origin master
           echo "left unpublished: $(git rev-list --count origin/master..HEAD) local commits (replayed copies are on master)"
+          [ -z "${latest_failed:-}" ] || { echo "::error::tls_puzzles --latest failed (see Newest issue)"; exit 1; }
