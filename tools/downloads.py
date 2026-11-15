@@ -125,6 +125,11 @@ LIVEJOURNAL = ROOT / "livejournal"
 # The Nation's puzzle pages, html/<slug>.html, and the sitemap's list of them
 # (tools/fetch_nation.py).
 NATION = ROOT / "nation"
+# archive.org scans of The Nation 1943-2011 (collection pub_nation) and of the Azed
+# reprints in SUNDAY (Digital Library of India): <item>/leaf_NNNN.jpg + djvu.txt, for
+# image reading (tools/scan_fetch.py).
+NATION_SCANS = ROOT / "nation-scans"
+AZED_SCANS = ROOT / "azed-scans"
 # Wayback snapshots of private-eye.co.uk's crossword page, <timestamp>.html,
 # and the CDX listing of them (tools/privateeye_wayback.py).
 PRIVATE_EYE_WAYBACK = ROOT / "privateeye-wayback"
