@@ -64,6 +64,9 @@ READER = "en5"
 #: "TLS Crossword 1603 by Praxiteles" (the reader may give a zero as a letter O), or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
 #: The first clue's bold "1" often goes unread: "ACROSS Antonia's.." gets its 1 back (grid_matches guards a wrong guess).
 LOST_ONE = re.compile(r"\b(ACROSS|DOWN)\s+(?:[^\w\s]\s+)?(?!(?:ACROSS|DOWN)\b)(?=[^\W\d_])")
+#: The bold 9 at a clue's head, unread, comes through the flattened text as a question mark: "(6, 6)
+#: ? Hero of ..." (1399's 9 across). A wrong guess is refused by grid_matches, as the "?" would be.
+LOST_NINE = re.compile(r"(?<=\)) \?(?= [A-Z‘“\"'])")
 BYLINE = re.compile(r"Crossword\s*([\dOo]{3,5})\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
 FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
                          r"\s+(\d{1,2}),?\s+(\d{4})")
@@ -198,6 +201,14 @@ def solution_top(a, x0, y0, x1, y1):
 #: The generic ones (space lost after a number or before a bracket) live in clue_text.
 TIDY = [(re.compile("\u2212"), "\u2013"),
         (re.compile(r"\bSee (\d{1,2}) ?D\b"), r"See \1 down"),
+        # "19 See 1 Down 21 Unwise ..." (1454's): in lower case, so the parser does not take it
+        # for the Down heading and read 21 across on as 21 down.
+        (re.compile(r"\bSee (\d{1,2}) Down\b"), r"See \1 down"),
+        # A linked clue's head: "3 & 21: Behan's ..." (1401's), "8 & 9A: He served ..." (1419's),
+        # "7 & 8D Epic ..." (1413's) is "3 & 21 ...", "8 & 9 across ...", "7 & 8 down ...".
+        (re.compile(r"(?<![\w(,.&/])\d{1,2}[AD]?(?: ?& ?\d{1,2}[AD]?)+(?::|(?<=[AD]))(?=\s)"),
+         lambda m: re.sub(r"(\d)([AD])", lambda d: d.group(1) + (" across" if d.group(2) == "A" else " down"),
+                          m.group(0).rstrip(":"))),
         (re.compile(r"\bSee (\d{1,2}) ?A\b"), r"See \1 across"),
         (re.compile(r"_+\s*"), ocr_clues.BLANK + " ")]
 
@@ -295,8 +306,13 @@ def read_image(img, web_date, headline=""):
         # page's ruled title line), each split at the printed rules between them.
         below = (gx0 - pad, gy1 + pad, gx1 + pad, h)
         # A right-hand column may start above the grid's top (1623's), just under the title's rule.
-        title_rule = runs((a[:gy0, gx1:] < 0.9).mean(axis=1) > 0.8)
-        right = (gx1 + pad, title_rule[-1][1] + 4 if title_rule else gy0 - pad, w, h)
+        # The rule may be level with the grid's top line (1617's), so it is looked for to just below it.
+        title_rule = runs((a[:gy0 + pad, gx1:] < 0.9).mean(axis=1) > 0.8)
+        # A rule that runs over the grid only (1618's) has the right-hand columns' first line
+        # level with it: they start at its top.
+        grid_rule = runs((a[:max(gy0 - pad, 0), gx0:gx1] < 0.9).mean(axis=1) > 0.8)
+        top = title_rule[-1][1] + 4 if title_rule else grid_rule[-1][0] - 4 if grid_rule else gy0 - pad
+        right = (gx1 + pad, top, w, h)
         # The footer line (date, title, page) is below every column: stop above it.
         # A page cropped with no footer (1622) ends in a clue row, set close under the one above.
         foot = h
@@ -321,7 +337,7 @@ def read_image(img, web_date, headline=""):
         # The early issues' page has no footer line (its prize text names other dates).
         footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     text = "\n".join(text_of(img, tuple(c)) for c in columns)
-    flat = LOST_ONE.sub(r"\1 1 ", genius_puzzles.flat(text))
+    flat = LOST_NINE.sub(" 9", LOST_ONE.sub(r"\1 1 ", genius_puzzles.flat(text)))
     out = genius_puzzles.parse_text(flat)
     # The page's own heading, else (a page cropped below it) the article's headline.
     m = BYLINE.search(title) or BYLINE.search(headline)
@@ -348,9 +364,31 @@ def read_image(img, web_date, headline=""):
         raise ValueError("could not read the grid's cells")
     genius_puzzles.turn_links(out["clues"], set(rg.light_cells(grid)))
     out["grid"] = grid
+    linked_counts(out["clues"], flat, rg.light_cells(grid))
     out["origin"] = "the TLS's page image"
     out["text"] = flat
     return out
+
+
+def linked_counts(clues, text, lights):
+    """A linked clue counts its first light alone, each later part's count printed on that part's
+    "See" entry ("3 & 21 Behan's ... (8)", then "21 See 3 (6)": 1401's): the parts' counts are
+    put on the clue, "(8, 6)", when that makes its total its lights'. Changes `clues` in place."""
+    for c in clues:
+        if len(c["lights"]) < 2 or not c["enumeration"] or any(l not in lights for l in c["lights"]):
+            continue
+        n, parts = c["lights"][0][0], [c["enumeration"]]
+        for k, _ in c["lights"][1:]:
+            m = re.search(rf"(?<![\d(,]){k} See {n}\b(?: (?:across|down))?\s*\((\d[^()]*)\)", text, re.IGNORECASE)
+            if not m:
+                break
+            parts.append(m.group(1).strip())
+        want = sum(len(lights[l]) for l in c["lights"])
+        if len(parts) == len(c["lights"]) and clue_text.count_total(c["enumeration"]) != want \
+                and sum(clue_text.count_total(p) for p in parts) == want:
+            joined = ", ".join(parts)
+            c["clue"] = c["clue"][:c["clue"].rindex("(") + 1] + joined + ")" if c["clue"].endswith(")") else c["clue"]
+            c["enumeration"] = joined
 
 
 def unsolved(number, page, url):
@@ -525,7 +563,7 @@ def archived(url):
 def listed():
     """{number: row} of the numbered articles on the free listing, its pages kept
     under CACHE/listing so a resumed run asks again only for what is missing."""
-    out = {}
+    named = {}
     for page in range(1, BACKFILL_PAGES + 1):
         path = CACHE / "listing" / f"p{page}.json"
         if not path.exists():
@@ -537,8 +575,40 @@ def listed():
         for row in json.loads(path.read_bytes()):
             m = TITLE.search(html.unescape(row["title"]["rendered"]))
             if m:
-                out.setdefault(int(m.group(1)), row)
+                named.setdefault(int(m.group(1)), []).append(row)
+    out = {n: rows[0] for n, rows in named.items() if len(rows) == 1}
+    # Two articles titled with one number (1552's posted as "Crossword 1522", seven months on):
+    # the number's own is the one whose date fits the issues around it. The other is filed
+    # under the number its image file is named for ("1552x.jpg"), when that is unlisted and
+    # fits its date too; the page's own heading is checked against it before filing.
+    for n, rows in sorted(named.items()):
+        if len(rows) == 1:
+            continue
+        rows = sorted(rows, key=lambda r: abs(weeks_off(out, n, r["date"])))
+        out[n] = rows[0]
+        for row in rows[1:]:
+            fm = re.match(r"(\d{3,5})(?!\d)", (full_image(row["content"]["rendered"]) or "").rsplit("/", 1)[-1])
+            k = fm and int(fm.group(1))
+            if k and k not in named and abs(weeks_off(out, k, row["date"])) <= 3:
+                out[k] = row
     return out
+
+
+def weeks_off(held, n, date):
+    """How many weeks `date` is from where issue `n` falls among the dated issues `held`
+    ({number: row}): the date between its nearest neighbours', else a week an issue from the one."""
+    day = datetime.date.fromisoformat(date[:10])
+    when = lambda k: datetime.date.fromisoformat(held[k]["date"][:10])
+    lo = max((k for k in held if k < n), default=None)
+    hi = min((k for k in held if k > n), default=None)
+    if lo is None and hi is None:
+        return 0
+    if lo is None or hi is None:
+        k = lo if hi is None else hi
+        expect = when(k) + datetime.timedelta(weeks=n - k)
+    else:
+        expect = when(lo) + (when(hi) - when(lo)) * (n - lo) / (hi - lo)
+    return (day - expect).days / 7
 
 
 def solution_crop(img):
