@@ -5660,8 +5660,14 @@ TLS_TITLE = re.compile(r"^\W*(?:t\W?l\W?s\W{0,3})?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}(
 TLS_SOLUTION = re.compile(r"^\W*s[o0][l1]ut[il1][o0]n\W{0,3}(?:(?:t[o0]|of)\s+)?(?:(?:tls\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3})?"
                           r"(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"\W{0,3}\w?\W*$", re.IGNORECASE)
 #: Dated TLS crosswords, read off Gale's contents (2026-10-12) and our own
-#: tls files: weekly, less the double issues, and sparse before 1995.
-TLS_ANCHORS = ((datetime.date(1992, 6, 5), 102), (datetime.date(1995, 1, 6), 128),
+#: tls files: weekly, less the double issues, and sparse before 1995. 1982-91 (the 11-15 census: 70 Gale
+#: pages refused "not near the -379 the date implies", No 1 on 1982-10-22 to No 97 on 1991-12-06) it ran one
+#: every 4-6 weeks, not one a week: the anchors are the clean titles of those pages.
+TLS_ANCHORS = ((datetime.date(1982, 10, 22), 1), (datetime.date(1983, 12, 23), 16), (datetime.date(1984, 6, 15), 22),
+               (datetime.date(1985, 3, 1), 30), (datetime.date(1986, 5, 16), 41), (datetime.date(1988, 3, 25), 55),
+               (datetime.date(1989, 1, 27), 65), (datetime.date(1989, 12, 29), 75), (datetime.date(1990, 12, 28), 87),
+               (datetime.date(1991, 12, 6), 97),
+               (datetime.date(1992, 6, 5), 102), (datetime.date(1995, 1, 6), 128),
                (datetime.date(1996, 6, 7), 168), (datetime.date(2000, 6, 2), 363),
                (datetime.date(2010, 6, 4), 835), (datetime.date(2014, 12, 26), 1055),
                (datetime.date(2017, 5, 19), 1176))
@@ -13730,6 +13736,17 @@ for _paper, _pins in _GUARDIAN_DATED_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before TLS_ANCHORS ran monthly 1982-91 (TLS_MONTHLY): only the
+#: Gale TLS's number its date implies moved, for a date before 1992-06; every scan stands, the pages 1982-91 refused
+#: "not near the -379 the date implies" are read again by TLS_MONTHLY.
+_TLS_MONTHLY_FIX = {
+    "galetls": ("06da8d66d426acd0", "cf2206bd2cb9aa10", "67c08b8e91a0d3e7"),
+}
+for _paper, _pins in _TLS_MONTHLY_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -13962,7 +13979,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "0fe8d5135be64dfb": "432a5818529a9b11",
                   # Guardian title reads (guardian_dated_titles, _GUARDIAN_DATED_FIX), see_number's "1i"/"2i" crash fix,
                   # SUNDAY_1970S and GUARDIAN_CUT: a scan's titles and clue columns only, no solution grid's reading moves.
-                  "ee605728d17c7d78": "432a5818529a9b11"}
+                  "ee605728d17c7d78": "432a5818529a9b11",
+                  # TLS_ANCHORS 1982-91 (TLS_MONTHLY): a Gale TLS page's number-date check only, no grid's reading moves.
+                  "ca09e46488965549": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -14100,7 +14119,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # faint_stretch (FT_FAINT): only a refused Gale FT grid reads otherwise.
                 "2089385a76b43ec5": "9b3500cb5488df7c",
                 # Guardian title reads, see_number, SUNDAY_1970S and GUARDIAN_CUT: titles and clue columns only.
-                "cf744b71e55bcfcc": "9b3500cb5488df7c"}
+                "cf744b71e55bcfcc": "9b3500cb5488df7c",
+                # TLS_ANCHORS 1982-91 (TLS_MONTHLY): the number its date implies only.
+                "d864e0b2d6127325": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
@@ -15934,6 +15955,24 @@ def ft_number_due(row):
                and ("is not near the" in str(v.get("refused")) or "out of date order" in str(v.get("refused")))
                for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_FT_NUMBER))
+
+
+#: The due reason of a Gale TLS page of 1982-91 refused "number-date-mismatch" ("No 6 is not near the -379 the date
+#: 1983-03-18 implies"): the TLS crossword ran monthly then (No 1 on 1982-10-22, No 97 on 1991-12-06), the weekly count
+#: from 1992-06-05's No 102 went negative. 11-15 census: 70 pages 1982-91, none filed. TLS_ANCHORS now runs through them.
+TLS_MONTHLY = "TLS page of 1982-91 refused number-date-mismatch, its number counted monthly since"
+REREAD_TLS_MONTHLY = "2026-11-15T21:10:00+00:00"
+
+
+def tls_monthly_due(row):
+    """Whether Gale TLS ledger `row` is due TLS_MONTHLY: a puzzle of an edition before 1992 refused
+    "number-date-mismatch", read before REREAD_TLS_MONTHLY."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galetls" or "inputs" not in row or (day := _date_in(edition)) is None \
+            or day >= datetime.date(1992, 1, 1):
+        return False
+    return any(v.get("cause") == "number-date-mismatch" for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_TLS_MONTHLY))
 
 
 #: The due reason of a Gale FT page (2000-10) read before REREAD_FT_GLUED with a list stopped "cannot find a clue
@@ -21613,6 +21652,8 @@ def fix_reason(row):
         return SUNDAY_TIMES_FOOT
     if ft_number_due(row):
         return FT_NUMBER_MENDED
+    if tls_monthly_due(row):
+        return TLS_MONTHLY
     if ft_glued_due(row):
         return FT_GLUED
     if ft_third_due(row):
@@ -22270,7 +22311,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, SIDES_HEADED,
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, SIDES_HEADED,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
                   TELEGRAPH_OWN, TELEGRAPH_FIGURE,
                   # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
@@ -22583,7 +22624,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, INDY_OVER_PLAIN: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, INDY_OVER_PLAIN: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -23216,7 +23257,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, SIDES_HEADED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, SIDES_HEADED)
 
 
 def keeps_vlm(why, row, unit=None):

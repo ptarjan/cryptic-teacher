@@ -529,6 +529,16 @@ check("a TLS title and its solution heading; never its entry address or winner l
 import datetime as _d
 check("the TLS numbers its dates imply run on into our tls files", (835, 1118, 1183),
       tuple(f.tls_expected_number(_d.date.fromisoformat(d)) for d in ("2010-06-04", "2016-03-25", "2017-07-07")))
+_tm = {"edition": "GaleTLS1983UKEnglish/1983-03-18", "inputs": "h", "readAt": "2026-11-02T08:17:26+00:00",
+       "verdicts": [{"number": 6, "leaf": 0, "cause": "number-date-mismatch",
+                     "refused": "No 6 is not near the -379 the date 1983-03-18 implies: the item's date is wrong"}]}
+check("the TLS ran monthly 1982-91 (No 6 on 1983-03-18, 82 on 1990-07-27), so a page of it refused number-date-mismatch "
+      "is due TLS_MONTHLY once; a 1992 page, a later read and another paper's stand",
+      ((6, 82), True, False, False, False),
+      ((f.tls_expected_number(_d.date(1983, 3, 18)), f.tls_expected_number(_d.date(1990, 7, 27))), f.tls_monthly_due(_tm),
+       f.tls_monthly_due({**_tm, "edition": "GaleTLS1993UKEnglish/1993-03-19"}),
+       f.tls_monthly_due({**_tm, "readAt": "2026-11-16T00:00:00+00:00"}),
+       f.tls_monthly_due({**_tm, "edition": "GaleFT1983UKEnglish/1983-03-18"})))
 check("the Independent and Sunday Times numbers their dates imply run on into our independent and sundaytimes files",
       (1, 7566, 1, 4589, 5000),
       (f.independent_expected_number(_d.date(1986, 10, 7)), f.independent_expected_number(_d.date(2011, 1, 15)),
@@ -3563,6 +3573,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TLS_MONTHLY_FIX:
+        return f._TLS_MONTHLY_FIX[paper][2]
     if paper in f._GUARDIAN_DATED_FIX:
         return f._GUARDIAN_DATED_FIX[paper][2]
     if paper in f._TELEGRAPH_PRIZE_MEND_FIX:
