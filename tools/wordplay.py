@@ -698,6 +698,17 @@ def _strip_inner_marks(text):
     return re.sub(r"#\d+(?=\s|$)", "", text), int(marks.pop())
 
 
+def _without_possessive(text, clue):
+    """(offset, clue text) of the one whole-word run the clue prints for a quote that put a
+    possessive 's on a word the clue prints bare ("professional's" for 'professional'), when
+    the quote is not in the clue as written and the bare run is there exactly once; else None."""
+    bare = re.sub(r"(?<=\w)['\u2019]s\b", "", text)
+    if bare == text or not bare.strip():
+        return None
+    hits = [m.start() for m in re.finditer(rf"(?<!\w){re.escape(bare)}(?!\w)", clue, re.I)]
+    return (hits[0], clue[hits[0]:hits[0] + len(bare)]) if len(hits) == 1 else None
+
+
 def _reordered_run(text, clue):
     """The clue's run of words that are `text`'s words in another order
     ('flambé, perhaps' for the clue's 'perhaps flambé'), when exactly one run of
@@ -768,6 +779,11 @@ def locate(node, clue, taken=()):
             run = _reordered_run(text, clue)  # the words are there, in the clue's order
             if run:
                 at, text = run
+                span[key] = text
+        if at is None and nth == 1 and "#" not in text:
+            bare = _without_possessive(text, clue)  # "professional's" for the clue's 'professional'
+            if bare:
+                at, text = bare
                 span[key] = text
         if at is None and nth == 1 and "#" not in text:
             import definitions  # scan debris in the clue: the quote of the run as the clue prints it
