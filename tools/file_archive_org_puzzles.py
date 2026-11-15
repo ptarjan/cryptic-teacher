@@ -13523,7 +13523,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "4b93daa5557df72c": "432a5818529a9b11",
                   # solution_bands' "SOLUTIONS" band, solutions_over's number words and TELEGRAPH_BANNER's glued prize title
                   # (_TELEGRAPH_SATURDAY_FIX): a scan's headings only; due once as TELEGRAPH_SATURDAY.
-                  "ae071ffbd1f5451b": "432a5818529a9b11"}
+                  "ae071ffbd1f5451b": "432a5818529a9b11",
+                  # TELEGRAPH_CELLS, SIDES_HEADED and WEEKDAY_RIGHT (Telegraph layout reads: a scan's cells, sides and
+                  # weekday headings only): no solution grid's reading moves for a paper that already has rows.
+                  "c85fd409ea8aa6cf": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -13652,7 +13655,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 "8fe83c999023241c": "050e93ff674ff62c",
                 # PRINT_CLASSIFIED's "galetelegraph": likewise only an unclassified Telegraph reading reads otherwise
                 # (printed_stale reads such a kept one short again).
-                "61264474ddd236fb": "9b3500cb5488df7c"}
+                "61264474ddd236fb": "9b3500cb5488df7c",
+                # TELEGRAPH_CELLS, SIDES_HEADED and WEEKDAY_RIGHT (Telegraph layout reads): no solution's read moves.
+                "7b24786d7044bf06": "9b3500cb5488df7c"}
 
 
 def input_hash(d):

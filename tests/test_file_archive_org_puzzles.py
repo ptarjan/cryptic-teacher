@@ -3927,7 +3927,8 @@ check("the Sunday Times's winners-entry refusal (SUNDAY_TIMES_TITLE) chains the 
        all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)} for o in f._ZEROS_OLD),
        f._SOLUTION_PINS["8e4b770296908774"] == "432a5818529a9b11",
        f._SOLUTION_PINS["e8b1229ab48f7223"] == "432a5818529a9b11" and f._SOLVED_PINS["5310567b45418049"] == "050e93ff674ff62c",
-       f._SOLVED_PINS["113156e3aaee30b5"] == "050e93ff674ff62c",
+       f._SOLVED_PINS["113156e3aaee30b5"] == "050e93ff674ff62c"
+       and f._SOLUTION_PINS["c85fd409ea8aa6cf"] == "432a5818529a9b11" and f._SOLVED_PINS["7b24786d7044bf06"] == "9b3500cb5488df7c",
        f.zeros_read("#701o") == "#7010" if hasattr(f, "zeros_read") else __import__("clue_text").zeros_read("#701O") == "#7010"])
 # An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
 # one with a title, a verdict, or scanned by the new code stands; a 1975 one is not INSET_GRID's (LONE_TITLE's).
