@@ -32,6 +32,7 @@ import argparse
 import collections
 import datetime
 import html
+import http.client
 import io
 import json
 import re
@@ -91,18 +92,42 @@ PDF_IN_PAGE = re.compile(r'(?:https?://media\.ft\.com)?/cms/[0-9a-f\-]{36}\.pdf'
 
 # ------------------------------------------------------------------ http
 
+def _read_all(url, timeout):
+    """The whole body at url. Wayback often cuts a long reply short mid-stream
+    (http.client.IncompleteRead); the bytes already received are kept and the
+    rest asked for with a Range request, so a cut costs only the tail."""
+    body, headers = b"", dict(UA)
+    for _ in range(12):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers),
+                                        timeout=timeout) as r:
+                if body and r.status != 206:
+                    body = b""  # the server ignored Range and sent it all again
+                return body + r.read()
+        except http.client.IncompleteRead as e:
+            if body and not e.partial:
+                raise
+            body += e.partial
+            if not body:
+                raise
+            headers = {**UA, "Range": f"bytes={len(body)}-"}
+        except urllib.error.HTTPError as e:
+            if e.code == 416 and body:  # nothing left to send: it was complete
+                return body
+            raise
+    raise http.client.IncompleteRead(body)
+
+
 def get(url, timeout=60, tries=3):
     """The bytes at url; raises the last error. Wayback rate-limits with 429
     and drops connections, so both are retried after a pause."""
     for i in range(tries):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA),
-                                        timeout=timeout) as r:
-                return r.read()
+            return _read_all(url, timeout)
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503, 504) or i == tries - 1:
                 raise
-        except (urllib.error.URLError, TimeoutError, ConnectionError):
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException):
             if i == tries - 1:
                 raise
         # Wayback refuses connections outright for a while once pressed.
@@ -173,22 +198,30 @@ CDX_ROUNDS = 4
 CDX_RETRY_PAUSE = 120
 
 
+def _split_span(host, lo, hi):
+    """A CDX span that timed out, as its months (a month itself is retried
+    whole): a host-year is a huge query that Wayback answers with 503/504."""
+    if len(lo) == 8:
+        return [(host, f"{lo[:4]}{m:02d}", f"{lo[:4]}{m:02d}") for m in range(1, 13)]
+    return [(host, lo, hi)]
+
+
 def media_pdfs():
     """[(timestamp, url)] of every PDF Wayback holds at a crossword's size on
     either FT host, one per UUID, captured 2006-2013. The CDX reply can be cut
     short, so it is read line by line, one host and year at a time."""
     out = {}
-    todo = [(host, year) for host in PDF_HOSTS for year in ORPHAN_YEARS]
+    todo = [(host, f"{year}0101", f"{year}1231") for host in PDF_HOSTS for year in ORPHAN_YEARS]
     for rnd in range(CDX_ROUNDS):
         failed = []
-        for host, year in todo:
+        for host, lo, hi in todo:
             try:
                 text = get(f"{CDX}?url={host}&output=json&filter=mimetype:application/pdf"
-                           f"&filter=statuscode:200&collapse=urlkey&from={year}&to={year}&limit=20000",
+                           f"&filter=statuscode:200&collapse=urlkey&from={lo}&to={hi}&limit=20000",
                            timeout=300).decode("utf-8", "replace")
             except Exception as e:
-                print(f"  CDX {host} {year}: {type(e).__name__}: {e}")
-                failed.append((host, year))
+                print(f"  CDX {host} {lo}-{hi}: {type(e).__name__}: {e}")
+                failed += _split_span(host, lo, hi)
                 continue
             for ln in text.splitlines():
                 try:
