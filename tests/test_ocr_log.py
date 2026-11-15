@@ -81,7 +81,9 @@ check(bare(run(["09:41:02 end scan GaleTimes1985UKEnglish/1985-05-16: failed (rc
 check(bare(run(["09:41:02 scanned GaleTimes1945UKEnglish/1945-02-06: 1 puzzle(s)"])),
       ["✓ Times 1945-02-06 checked, 1 puzzle found on it"], "a scanned page")
 check(bare(run(["09:41:02 answers-only cpu 1982-01-21 No 15735: 127.3s taken; {}; unit 141.4s"])),
-      ["✓ Times 1982-01-21 No 15735 re-checked"], "the answers-only run is a re-check")
+      ["✓ Times 1982-01-21 No 15735 had its answers filled from its solution grid"], "a taken answers-only run")
+check(bare(run(["09:41:02 answers-only cpu 2004-11-14 No 771: 0.0s none, full read; {}; unit 6.8s"])),
+      [], "an answers-only run that found nothing says nothing")
 check(bare(run(["GALE_GM2500075819.pdf: No 366 (PDF citation title), 27/35 clues read"] , flush=True)), [],
       "a line with no clock before any stamp says nothing")
 check(bare(run(["09:41:02 vlm stage: 3 asks spooled, 5 reads waiting",

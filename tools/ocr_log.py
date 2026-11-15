@@ -79,7 +79,7 @@ AGG = {
              "{n} pages: image reader unreachable, they wait until it is back (nothing lost)"),
     "game": ("✗", "{who}: stopped for a game, page waits (nothing lost)",
              "{n} pages stopped for a game, they wait (nothing lost)"),
-    "recheck": ("✓", "{who} re-checked", "{n} filed puzzles re-checked"),
+    "recheck": ("✓", "{who} had its answers filled from its solution grid", "{n} filed puzzles had answers filled from their solution grid"),
     "fetched": ("✓", "{who} downloaded", "{n} editions downloaded"),
     "stopped": ("✗", "{who}: stopped unexpectedly, will be tried again (nothing lost)",
                 "{n} pages stopped unexpectedly, they will be tried again (nothing lost)"),
@@ -369,7 +369,9 @@ class Log:
                 self.add("scan", m.group(1), k=int(m.group(2)))
             return []
         if head == "answers-only":
-            m = re.match(r"^answers-only cpu (\d{4}-\d\d-\d\d) No (\d+):", body)
+            # Only a "taken" line filled answers from the solution grid; "none, full read" found
+            # nothing and the page went on to a full read (which has its own lines).
+            m = re.match(r"^answers-only cpu (\d{4}-\d\d-\d\d) No (\d+): \S+ (?:held title )?taken;", body)
             if m:
                 self.add("recheck", f"Times {m.group(1)} No {m.group(2)}")
             return []
