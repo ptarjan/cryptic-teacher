@@ -47,7 +47,7 @@ jobs:
           token: ${{ secrets.PUSH_TOKEN || github.token }}
       - uses: ./.github/actions/setup
         with:
-          pip: numpy pillow
+          pip: numpy pillow pypdf opencv-python-headless
       - name: Restore the Times blog cache
         id: times
         uses: actions/cache/restore@v5
