@@ -843,6 +843,15 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      # The build job's clue index (see Restore the clue index there): without
+      # it the authored puzzle's copy check parses every puzzle file, 52-61s
+      # on a shard against a 60s budget (run 43712809679).
+      - name: Restore the clue index
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
+          key: clue-index-${{ github.sha }}
+          restore-keys: clue-index-
       # The authored puzzle is built from its clues, not committed, and the
       # check covers it like any other puzzle. Its inputs are under tools/, and
       # a change to them is one of the things validate_scope.py makes a full
