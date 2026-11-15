@@ -2752,6 +2752,29 @@ os.utime(tc / "103" / "meta.json", (1.5e9, 1.5e9))
 check("an article whose files are older than its read is re-keyed, not read again; one edited since is not",
       (1, {"103": "h", "104": "edited"}),
       (ftp.rekey_unchanged(rk, tc), {a: r["inputs"] for a, r in q.ledger_rows(rk, "article").items()}))
+# A zones-not-fetched row whose zones arrived since is not re-keyed: due once, while one still without zones is re-keyed.
+zc = ftp.zones_of(tc)
+for a in ("105", "106"):
+    (tc / a).mkdir()
+    (tc / a / "meta.json").write_text("{}")
+    os.utime(tc / a / "meta.json", (1.5e9, 1.5e9))
+(zc / "105").mkdir(parents=True)
+(zc / "105" / "zone0.png").write_text("x")
+rz = T / "trove-zones.jsonl"
+zrow = {"inputs": "old", "readAt": "2026-01-01T00:00:00+00:00", "pending": True, "cause": "zones-not-fetched"}
+q.append(rz, [{"article": "105", **zrow}, {"article": "106", **zrow}])
+check("a zones-not-fetched row with its zones cached since is not re-keyed; one without is",
+      (1, {"105": "old", "106": "h"}),
+      (ftp.rekey_unchanged(rz, tc), {a: r["inputs"] for a, r in q.ledger_rows(rz, "article").items()}))
+check("and it is due once (zones arrived); read after the fix, it is not", (ftp.ZONES_ARRIVED, None, None),
+      (ftp.due_reason({"article": "105", **zrow, "inputs": "h"}, "h", None, None, zc),
+       ftp.due_reason({"article": "105", **zrow, "inputs": "h", "readAt": "2026-12-01T00:00:00+00:00"}, "h", None, None, zc),
+       ftp.due_reason({"article": "106", **zrow, "inputs": "h"}, "h", None, None, zc)))
+for a in ("105", "106"):
+    (tc / a / "meta.json").unlink()
+    (tc / a).rmdir()
+(zc / "105" / "zone0.png").unlink()
+(zc / "105").rmdir()
 for a in ("103", "104"):
     for p_ in (tc / a).iterdir():
         p_.unlink()

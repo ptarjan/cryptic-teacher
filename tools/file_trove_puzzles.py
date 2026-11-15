@@ -1229,6 +1229,7 @@ def clue_zones(d):
 def zones_of(cache):
     """Where tools/fetch_trove.py caches the clue columns of the articles
     in `cache`: trove-clues beside trove, as downloads.TROVE_CLUES beside downloads.TROVE."""
+    cache = Path(cache)
     return cache.parent / f"{cache.name}-clues"
 
 
@@ -1292,7 +1293,9 @@ def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
     files' times from the trove-inputs manifest, no article stat; the zone
     images are held by name there, so a rewrite in place is not seen): a
     copy that dropped their mtimes' nanoseconds, or a change of
-    input_hash's form, is no reason to read it again. Unless a run holds
+    input_hash's form, is no reason to read it again. A zones-not-fetched
+    row whose clue columns are cached now is left alone, so it is due
+    ("inputs changed") and read with them. Unless a run holds
     the ledger; how many."""
     import fcntl
     if not ledger.exists():
@@ -1304,6 +1307,8 @@ def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
         d = cache / a
         if "inputs" not in row or not row.get("readAt"):
             continue
+        if row.get("cause") == "zones-not-fetched" and zones_held(a, zones_of(cache)):
+            continue  # its clue columns arrived since: it is read again ("inputs changed")
         held = trove_inputs().get(a, {}) if media_manifest.on_media(d) else {}
         if "files" not in held:
             held = _inputs_off_disk(d, held)
@@ -1368,15 +1373,28 @@ REREAD_CAUSES = {"clues-dont-parse": "2026-10-06T13:33:44+00:00",
                     for cause in ("no-grid", "rebuilt-grid-disagrees", "lights-without-clue")}}
 
 
-def due_reason(row, inputs, vlm_up, reread=None):
+#: When rekey_unchanged stopped re-keying zones-not-fetched rows whose clue
+#: columns had arrived: such a row read before then, its zones cached now, is
+#: due (ZONES_ARRIVED), once.
+ZONES_FETCHED_FIX = "2026-11-15T12:00:00+00:00"
+ZONES_ARRIVED = "zones-not-fetched cured since"
+
+
+def due_reason(row, inputs, vlm_up, reread=None, zones=None):
     """Why an article's ledger `row` is read again, or None: never read, its
-    `inputs` (input_hash) moved, read without the VLM that now answers (unless its verdict came before the VLM, decided_before_vlm), its
+    `inputs` (input_hash) moved, read refused zones-not-fetched before
+    ZONES_FETCHED_FIX with the clue columns (`zones`, zones_of(cache)) cached
+    since, read without the VLM that now answers (unless its verdict came before the VLM, decided_before_vlm), its
     cause cured since it was read (REREAD_CAUSES), or last read before
     `reread` (a datetime: the explicit --reread)."""
     if not row or "inputs" not in row:
         return "never read"
     if row["inputs"] != inputs:
         return "inputs changed"
+    if (zones is not None and row.get("cause") == "zones-not-fetched"
+            and scan_queue.read_before(row, scan_queue.when(ZONES_FETCHED_FIX))
+            and zones_held(row.get("article"), zones)):
+        return ZONES_ARRIVED
     if vlm_up and not row.get("vlm") and not decided_before_vlm(row):
         return "read without the VLM"
     if row.get("cause") in REREAD_CAUSES and scan_queue.read_before(
@@ -1508,7 +1526,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
     for d in dirs:
         row = known.get(d.name)
         h = inputs_of(d, files.get(d.name))
-        if (d.name in articles) if articles else due_reason(row, h, seen_by, reread):
+        if (d.name in articles) if articles else due_reason(row, h, seen_by, reread, zones_of(cache)):
             due[d] = h
     queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
                              lambda row: row is None or "inputs" not in row)
@@ -1592,7 +1610,7 @@ def settle(d, got, taken, files, write, puzzles, seen_by):
 #: then a re-read that can change what it filed, then --reread's whole-corpus
 #: one. Every reason due_reason gives is named here.
 RANKS = {"never read": 1, "annotation asked": 1, "inputs changed": 2, "read without the VLM": 2,
-         **{f"{c} cured since": 2 for c in REREAD_CAUSES}, "--reread": 3}
+         **{f"{c} cured since": 2 for c in REREAD_CAUSES}, ZONES_ARRIVED: 2, "--reread": 3}
 _DATES = {}
 #: {article id: its meta.json title} from the SSD manifest, loaded once a process.
 _TITLES = {}
@@ -1646,7 +1664,7 @@ def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
     due = {}
     for d in article_dirs(cache):
         why = "annotation asked" if d.name in asked else due_reason(known.get(d.name), inputs_of(d, files.get(d.name)),
-                                                                     seen_by, reread)
+                                                                     seen_by, reread, zones_of(cache))
         if why:
             due[d] = why
     queue = sorted(sorted(due, key=article_date, reverse=True), key=lambda d: RANKS[due[d]])
@@ -1670,7 +1688,7 @@ def read_unit(aid, cache=CACHE, puzzles=None, reread=None, force=False, ledger=N
         known = scan_queue.ledger_rows(ledger, "article")
         files = held_files(puzzles)
         seen_by = vlm.version() if vlm.reachable() else None
-        if not force and not due_reason(known.get(aid), inputs_of(d, files.get(aid)), seen_by, reread):
+        if not force and not due_reason(known.get(aid), inputs_of(d, files.get(aid)), seen_by, reread, zones_of(Path(cache))):
             print(f"{time.strftime('%H:%M:%S')} {aid}: not due any more", file=sys.stderr, flush=True)
             return "current"
         taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
