@@ -121,13 +121,12 @@ PHASES = [
     # has tried (privateeye_wayback.py file --daily); the fetch itself is CI's.
     ("wayback:privateeye", 6 * HOUR, 45 * 60, ()),
     ("solutions", 3 * HOUR, 60 * 60, ()),
-    ("blog:times", 3 * HOUR, 120 * 60, ()),
-    ("blog:telegraph", 3 * HOUR, 120 * 60, ()),
     ("ft", 6 * HOUR, 75 * 60, ()),
     # Lands the raw fetch caches CI writes (tools/cache_sync.py): add-only.
     ("cache-sync", 3 * HOUR, 30 * 60, ()),
     # azed, genius and xval:globe run in CI (.github/workflows/daily-units.yml); the minute
     # capture stays here (its corpus is uncommitted by policy).
+    # blog:times and blog:telegraph (parse, grid rebuild, filing) run in CI (.github/workflows/blog-chain.yml).
     # blog-facts runs in CI (.github/workflows/blog-facts.yml), not here.
     # ratings (progress_record, blog_comment_difficulty) runs in CI (.github/workflows/ratings.yml);
     # this unit hands it the counts only the home server holds.
@@ -149,7 +148,6 @@ GENERATED = {
     "fetch": False,
     "wayback": False,
     "solutions": False,
-    "blog": False,
     "cache-sync": False,
     "xval": False,
     "ft": False,

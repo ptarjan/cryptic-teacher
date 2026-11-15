@@ -16,8 +16,8 @@ limit, ledger row and worktree, then exits. The units are:
    why: the Listener's clues are printed only behind the Times' paywall, and
    the Nation's weekly cryptic ended in April 2020. `tools/series_health.py`
    `STALE_AFTER_DAYS` alarms on a series silent past its cadence;
-2. `blog:times`, `blog:telegraph`, `bucket:telegraph`, `xval:globe`, `ft`,
-   `azed`: the puzzles rebuilt from blogs and other copies, each on its own
+2. `bucket:telegraph`, `xval:globe`, `ft`,
+   `azed`: the puzzles rebuilt from other copies, each on its own
    cadence; each filer cross-checks and commits its own filings. The
    backfills (`bucket:telegraph`, `ft`, `azed`) have no per-run cap: each
    works to a wall-clock budget at its source's own request pace, and one

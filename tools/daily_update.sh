@@ -22,10 +22,8 @@
 #                      every six hours, the fortnightly TLS
 #                      (fetch:tls_puzzles). daily_units.py SLOW_FETCHERS says
 #                      why the Listener and the Nation are not fetched.
-#   blog:times, blog:telegraph, xval:globe
-#                      the Times and the Telegraph, rebuilt from the blogs
-#                      that solve them, and the Globe's copies of the Times
-#                      Quick Cryptic. (The Telegraph's own bucket is fetched in CI,
+#   xval:globe         the Globe's copies of the Times Quick Cryptic. (The Times and
+#                      the Telegraph, rebuilt from the blogs, run in CI: blog-chain.yml. (The Telegraph's own bucket is fetched in CI,
 #                      telegraph-bucket.yml; cache-sync lands its raw cache here.)
 #   ft, azed           (posts fetched in CI, fifteensquared-fetch.yml) the FT from fifteensquared, Azed from fifteensquared
 #                      and the Guardian's printable copies. These
@@ -293,35 +291,11 @@ unit_wayback_privateeye() {
 }
 
 # --- The Times and the Telegraph, rebuilt from the blogs that solve them ---
-# Neither paper publishes its grids, so each puzzle is a chain rather than a
-# fetch: cache the new blog posts, parse them, rebuild each grid from its
-# light list, file what passes into puzzles/. Each step reads the one before
-# it off <tools/downloads.py ROOT>/<blog>/, so a step that fails ends its chain --
-# anything after it would read a half-written file -- except the fetches,
-# whose failure only means the cache is as it was last night. The Times's
-# second fetch is its own puzzle listing, as the Wayback Machine keeps it,
-# which is what dates the prize puzzles the blog writes up a week late.
-# The filers do not reindex; the next tick does, before it chooses.
-# Both rebuilds are bounded by wall clock, newest due first: times_grids
-# starts no post once its budget is spent, and the rest stay due for the next
-# run. A parser change that makes hundreds of old posts due again (a changed
-# light list re-dues its failure) drains as fast as the budget allows, and
-# can never stretch a unit past its limit; a post already started runs to its node cap.
-TIMES_GRID_SECONDS="${TIMES_GRID_SECONDS:-600}"
-TELEGRAPH_GRID_SECONDS="${TELEGRAPH_GRID_SECONDS:-600}"
-# The blogs' own fetches (fetch_wp_blog.py, posts and comments) run in GitHub Actions
-# (.github/workflows/blog-fetch.yml, Paul 2026-11-15: "Jobs should be on ci where
-# possible"); the cache-sync unit lands them on the media disk. The chains start at the parse.
-unit_blog_times() {
-  blog_chain Times fetch_times_listing.py \
-    parse_timesforthetimes.py "times_grids.py --budget-seconds $TIMES_GRID_SECONDS" \
-    file_times_puzzles.py
-}
-unit_blog_telegraph() {
-  blog_chain Telegraph parse_bigdave44.py \
-    "times_grids.py --blog bigdave44 --budget-seconds $TELEGRAPH_GRID_SECONDS" \
-    file_telegraph_puzzles.py
-}
+# Run in GitHub Actions now (Paul 2026-11-15: "Check every single thing we run regularly and
+# move them to ci if possible"): the fetches in .github/workflows/blog-fetch.yml, then the
+# parse, the grid rebuild and the filing in .github/workflows/blog-chain.yml, which keeps the
+# chains' own derivatives (parsed.jsonl, grids.jsonl, ...) in an actions/cache. The cache-sync
+# unit still lands the raw post caches on the media disk.
 # From 2015 the Telegraph's own bucket is the primary source: its holes are fetched in
 # CI (.github/workflows/telegraph-bucket.yml, fetch_telegraph.py --holes all), which
 # is the only writer of the telegraph-source cache now. The cache-sync unit lands
@@ -1083,8 +1057,6 @@ if [ "${1:-}" = unit ]; then
   case "$key" in
     fetch:*) unit_fetch "${key#fetch:}" ;;
     wayback:privateeye) unit_wayback_privateeye ;;
-    blog:times) unit_blog_times ;;
-    blog:telegraph) unit_blog_telegraph ;;
     cache-sync) unit_cache_sync ;;
     xval:globe) unit_xval_globe ;;
     ft) unit_ft ;;

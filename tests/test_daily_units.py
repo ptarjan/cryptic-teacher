@@ -85,11 +85,16 @@ check("fifteensquared-fetch.yml uploads the artifact cache-sync lands", "cache-f
 check("cache_sync mirrors the fifteensquared folder", cache_sync.CACHES["fifteensquared"], cache_sync.downloads.FIFTEENSQUARED)
 check("cache_sync finds the fifteensquared workflow", cache_sync.WORKFLOWS["fifteensquared"], "fifteensquared-fetch.yml")
 check("the ft, azed and genius units still file", all(f"unit_{u}()" in daily_sh for u in ("ft", "azed", "genius")), True)
-# The blog fetches of blog:times and blog:telegraph (posts, and the Times comments) run in
-# blog-fetch.yml; the parsers and filers stay in the units.
+# The blog fetches (posts, and the Times comments) run in blog-fetch.yml; the parse, grid
+# rebuild and filing of blog:times and blog:telegraph run in blog-chain.yml.
 blog_yml = (REPO / ".github" / "workflows" / "blog-fetch.yml").read_text()
 check("blog-fetch.yml fetches both blogs", "blog: [timesforthetimes, bigdave44]" in blog_yml, True)
 check("blog-fetch.yml uploads the artifact cache-sync lands", "cache-${{ matrix.blog }}-${{ github.run_id }}" in blog_yml, True)
+check("blog:times and blog:telegraph are not units any more",
+      [k for k in ("blog:times", "blog:telegraph") if k in [p[0] for p in du.PHASES]], [])
+check("daily_update.sh has no unit_blog_* function", "unit_blog_" in daily_sh, False)
+chain_yml = (REPO / ".github" / "workflows" / "blog-chain.yml").read_text()
+check("blog-chain.yml runs both chains", all(s in chain_yml for s in ("file_times_puzzles.py", "file_telegraph_puzzles.py", "times_grids.py")), True)
 check("fetch_wp_blog.py is not run by daily_update.sh",
       [ln for ln in daily_sh.splitlines() if "fetch_wp_blog.py" in ln and not ln.lstrip().startswith("#")], [])
 for blog in ("timesforthetimes", "bigdave44"):
@@ -133,7 +138,7 @@ check("progress-counts runs once today's ledger is saved", plans_counts(at(3)), 
 check("yesterday's ledger is not today's", plans_counts(time.mktime((2026, 10, 16, 3, 0, 0, 0, 0, -1))), False)
 
 # The choice, read off what each unit runs before its own build step.
-for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "blog:times", "blog:telegraph", "cache-sync",
+for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "cache-sync",
           "xval:globe", "ft", "azed", "progress-counts", "minute", "reports", "checks"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
 for k in ["annotate:p1", "miss:p1:3a"]:
