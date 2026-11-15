@@ -390,7 +390,7 @@ ACQUISITION_BY_SOURCE = {
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
     ("tls", "www.the-tls.com"): ("tools/tls_puzzles.py", "tools/gale_tls_read.py"),
     ("nation", "www.thenation.com"): ("tools/fetch_nation.py",),
-    ("nation", "archive.org"): ("tools/nation_scans.py",),
+    ("nationmag", "archive.org"): ("tools/nation_scans.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("listener", "go.gale.com"): ("tools/file_gale_listener.py",),

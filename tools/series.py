@@ -165,6 +165,14 @@ SERIES = {
         "badge": "nation",
         "lastIssue": 3529,  # 13 April 2020
     },
+    # The same weekly in the magazine's own count (the printed "Crossword Puzzle No. N" of 1926-49, read off
+    # archive.org's scans by tools/nation_scans.py); "nation" numbers are thenation.com's.
+    "nationmag": {
+        "kind": "Cryptic",
+        "publisher": "The Nation",
+        "bylined": True,
+        "badge": "nation",
+    },
     "globeandmail": {
         # The Globe and Mail prints it, but the byline arrives stamped
         # "©News Licensing/Times Media Limited" — it is a Times of London
@@ -984,6 +992,7 @@ NAME_LEADS = {
     "cryptic": "Cryptic crossword", "quiptic": "Quiptic crossword", "everyman": "Everyman crossword",
     "independent": "Independent cryptic crossword", "metro": "Metro cryptic crossword",
     "cyclops": "Private Eye Cyclops crossword", "nation": "The Nation cryptic crossword No {n}",
+    "nationmag": "The Nation crossword No {n}",
     "authored": "Cryptic Teacher No {n}",
     "canberra": "Canberra Times cryptic crossword",
     "indysunday": "Independent on Sunday cryptic crossword", "times": "Times cryptic crossword",

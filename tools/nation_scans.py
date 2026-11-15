@@ -34,14 +34,18 @@ from pathlib import Path
 import downloads
 
 TOOL = "tools/nation_scans.py"
-SERIES = "nation"
+SERIES = "nationmag"
+#: thenation.com's series, whose dates we skip.
+HELD_SERIES = "nation"
 #: The printed number the weekly count is anchored on, and how far a heading may lie from the count.
 ANCHOR = (datetime.date(1948, 1, 3), 244)
 REACH = 12
 HEADING = re.compile(r"cross\W?word\s+puzzle\W{0,3}\s*n[o0]\W{0,3}\s*(\d{1,4})\b", re.IGNORECASE)
+#: The heading with its number lost to the OCR (1948-06-26): the contents page's heading then names it.
+LOOSE_HEADING = re.compile(r"cross\W?word\s+puzzle", re.IGNORECASE)
 SOLVED = re.compile(r"solution\s+to\s+(?:cross\W?word\s+)?puzzle\W{0,3}\s*n[o0]\W{0,3}\s*(\d{1,4})\b", re.IGNORECASE)
 #: Days apart the issue printing a solution lies from the puzzle's.
-NEXT_WITHIN = 21
+NEXT_WITHIN = 10
 SQUARES = (13, 15, 17, 19, 21, 11, 9)
 
 
@@ -81,6 +85,19 @@ def expected_number(day):
     return ANCHOR[1] + round((day - ANCHOR[0]).days / 7)
 
 
+def no_leaf_why(item, leaves):
+    """Why no listed leaf is a puzzle page: the issue says it left the puzzle out, the heading is there but the
+    clues print no counts (the 1944-47 puzzles of Jack Barrett), or no heading is."""
+    import privateeye_scans as pes
+    texts = [text_of(ws) for leaf in leaves for ws in lines_of(item, leaf)]
+    if any(re.search(r"puzzle\s+has\s+been\s+omitted", t, re.I) for t in texts):
+        return "the issue omitted its puzzle"
+    if any(HEADING.search(t) for t in texts) and not any(
+            len(pes.COUNTED.findall(t)) for t in texts[:0]) and sum(1 for t in texts if pes.COUNTED.search(t)) < 8:
+        return "no-count puzzle: the clues print no counts (Barrett era)"
+    return "no listed leaf prints a puzzle heading"
+
+
 def number_of(lines, day):
     """The puzzle number the page's heading prints, or None. From 1944 on it must lie within REACH of the
     weekly count; the readings that do are voted (the commonest)."""
@@ -97,7 +114,7 @@ def puzzle_leaf(item, leaves):
     best = None
     for leaf in leaves:
         lines = lines_of(item, leaf)
-        if not any(HEADING.search(text_of(ws)) for ws in lines):
+        if not any(LOOSE_HEADING.search(text_of(ws)) for ws in lines):
             continue
         size = sum(1 for ws in lines if pes.COUNTED.search(text_of(ws)))
         if size >= 8 and (best is None or size > best[0]):
@@ -170,18 +187,34 @@ def ordered_cols(cols, rows):
     lights = rg.light_cells(rows)
     want = [sorted(n for (n, d) in lights if d == side) for side in ("across", "down")]
 
+    def numbered(lines, starts, nums):
+        for i, n in zip(starts, nums):
+            text = re.sub(r"^\W{0,2}\d{1,2}\W{0,2}\s+(?=[A-Za-z(\"'‘“])", "", lines[i][4])
+            lines[i] = lines[i][:4] + (f"{n} {text}",)
+
+    def starts_of(lines):
+        out, fresh = [], True
+        for i, ln in enumerate(lines):
+            if fresh:
+                out.append(i)
+            fresh = bool(pes.COUNTED.search(ln[4]))
+        return out
+
     def wrapped(words):
+        both = [list(s) for s in cols(words)]
+        # The clues in reading order, whichever side the headings put them on (a DOWN heading lost or misplaced):
+        # as many clues as the grid has lights are the across lights' then the down lights'.
+        flat = both[0] + both[1]
+        starts = starts_of(flat)
+        if len(starts) == len(want[0]) + len(want[1]):
+            numbered(flat, starts, want[0] + want[1])
+            cut = starts[len(want[0])] if len(want[0]) < len(starts) else len(flat)
+            return [flat[:cut], flat[cut:]]
         fixed = []
-        for side, lines in enumerate(cols(words)):
-            lines, starts, fresh = list(lines), [], True
-            for i, ln in enumerate(lines):
-                if fresh:
-                    starts.append(i)
-                fresh = bool(pes.COUNTED.search(ln[4]))
+        for side, lines in enumerate(both):
+            starts = starts_of(lines)
             if len(starts) == len(want[side]):
-                for i, n in zip(starts, want[side]):
-                    text = re.sub(r"^\W{0,2}\d{1,2}\W{0,2}\s+(?=[A-Za-z(\"'‘“])", "", lines[i][4])
-                    lines[i] = lines[i][:4] + (f"{n} {text}",)
+                numbered(lines, starts, want[side])
             fixed.append(lines)
         return fixed
     wrapped.named = cols.named
@@ -194,6 +227,10 @@ def laid_fits(rows, laid):
     lights = rg.light_cells(rows)
     for lid, (text, enum, group) in laid.items():
         n, d = lid.split("-")
+        for member in group or ():
+            mn, md = member.split("-")
+            if (int(mn), md) not in lights:
+                return f"clue {lid} links {member}, which has no light on the grid"
         if (int(n), d) not in lights:
             shown = {s: sorted(k[0] for k in lights if k[1] == s) for s in ("across", "down")}
             return f"clue {lid} has no light on the grid (lights {shown}; clues {sorted(laid)})"
@@ -330,10 +367,11 @@ def read_page(day, meta):
     out = {"number": None, "laid": None, "rows": None, "leaf": None, "why": None}
     leaf, lines = puzzle_leaf(item, meta["pages"])
     if leaf is None:
-        out["why"] = "no listed leaf prints a puzzle heading"
+        out["why"] = no_leaf_why(item, meta["pages"])
         return out
     out["leaf"] = leaf
-    out["number"] = number_of(lines, datetime.date.fromisoformat(day))
+    every = [ws for other in meta["pages"] for ws in lines_of(item, other)]
+    out["number"] = number_of(every, datetime.date.fromisoformat(day))
     if out["number"] is None:
         out["why"] = "no puzzle number heading near the weekly count"
         return out
@@ -399,7 +437,7 @@ def column_words(img, box, which, key):
 
 def held_dates():
     """{date: id} of the Nation puzzles up to 1949 the corpus holds (thenation.com's reprints)."""
-    root = Path(__file__).resolve().parent.parent / "puzzles" / SERIES
+    root = Path(__file__).resolve().parent.parent / "puzzles" / HELD_SERIES
     out = {}
     for path in sorted(root.glob("19[0-4]*/*.json")):
         p = json.loads(path.read_text())
