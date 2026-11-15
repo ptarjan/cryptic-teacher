@@ -28,6 +28,7 @@ tls-<number>, dated by the print issue (a Friday).
 import argparse
 import datetime
 import html
+import itertools
 import json
 import re
 import sys
@@ -63,7 +64,7 @@ PAGE_WIDTH = 2166
 READER = "en5"
 #: "TLS Crossword 1603 by Praxiteles" (the reader may give a zero as a letter O), or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
 #: The first clue's bold "1" often goes unread: "ACROSS Antonia's.." gets its 1 back (grid_matches guards a wrong guess).
-LOST_ONE = re.compile(r"\b(ACROSS|DOWN)\s+(?:[^\w\s]\s+)?(?!(?:ACROSS|DOWN)\b)(?=[^\W\d_])")
+LOST_ONE = re.compile(r"\b(ACROSS|DOWN)\s+(?:[^\w\s]+\s*)?(?!(?:ACROSS|DOWN)\b)(?=[^\W\d_])")
 #: The bold 9 at a clue's head, unread, comes through the flattened text as a question mark: "(6, 6)
 #: ? Hero of ..." (1399's 9 across). A wrong guess is refused by grid_matches, as the "?" would be.
 LOST_NINE = re.compile(r"(?<=\)) \?(?= [A-Z‘“\"'])")
@@ -148,10 +149,33 @@ def find_grid(a):
     """(box, "side" | "top"): grid_box with the clues beside and below the grid (1620 on), or
     the page-wide grid at the top and the clues in two columns under it (1396's); None when neither."""
     box = grid_box(a)
-    if box:
+    # A side grid ends within the left 60% of the page it was looked for in; one that runs past
+    # is a page-wide grid whose bottom rows or right column the rulings test lost (1315's 14 of 15).
+    if box and box[2] <= 0.62 * a.shape[1]:
         return box, "side"
     box = grid_box(a, 1.0, int(a.shape[1] * 1.25), 0.75, 0.1)
-    return (box, "top") if box else None
+    return (open_edges(a, box), "top") if box else None
+
+
+def open_edges(a, box):
+    """`box` with the last column and row put back when the page prints no ruling on the grid's
+    right and bottom edges (1306's: 14 of its 15 cells' width found), seen as one more cell's
+    strip of black squares or numbers beyond the last ruling, on both sides."""
+    h, w = a.shape
+    x0, y0, x1, y1 = box
+    top = a[:int(w * 1.25)] < 0.8
+    cols = [(s + e - 1) / 2 for s, e in runs(top.sum(axis=0) > 0.5 * len(top)) if e - s <= 8 and x0 - 3 <= s <= x1 + 3]
+    gaps = sorted(d - c for c, d in itertools.pairwise(cols) if d - c > 15)
+    if not gaps:
+        return box
+    pitch = round(gaps[len(gaps) // 2])
+    if x1 + pitch >= w or y1 + pitch >= h or abs((x1 - x0) / pitch - round((x1 - x0) / pitch)) > 0.2:
+        return box
+    right = (a[y0:y1 + 1, x1 + 4:x1 + pitch - 2] < 0.5).mean()
+    below = (a[y1 + 4:y1 + pitch - 2, x0:x1 + 1] < 0.5).mean()
+    if right > 0.03 and below > 0.03:
+        return x0, y0, x1 + pitch, y1 + pitch
+    return box
 
 
 def under_columns(a, box):
@@ -337,7 +361,16 @@ def read_image(img, web_date, headline=""):
         # The early issues' page has no footer line (its prize text names other dates).
         footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
     text = "\n".join(text_of(img, tuple(c)) for c in columns)
-    flat = LOST_NINE.sub(" 9", LOST_ONE.sub(r"\1 1 ", genius_puzzles.flat(text)))
+    flat = lost_tens(LOST_NINE.sub(" 9", LOST_ONE.sub(r"\1 1 ", genius_puzzles.flat(text))))
+    # A clue opening on "Down"/"Across" ("29 Down at heart ...", 1353's) is not a "29 down" light:
+    # a word-joiner keeps the parser from reading the number's direction off it.
+    # A linked head's direction letter run into its first word ("7/4DHe wrote", 1370's).
+    flat = re.sub(r"(\d{1,2}\s?[/&,]\s?\d{1,2})([AD])(?=[A-Z])", lambda m: m.group(1) + (" down " if m.group(2) == "D" else " across "), flat)
+    flat = re.sub(r"(?<=\s)(\d{1,2}) (Down|Across) (?=[a-z])", "\\1 \u2060\\2 ", flat)
+    # A bold count's digit read as "?" ("(7)" of 1307's 24 across): held as "(1)" until the grid
+    # gives the light's length.
+    unread = [m.group(1) for m in re.finditer(r"(\S+ \S+) \(\?\)", flat)]
+    flat = flat.replace("(?)", "(1)")
     out = genius_puzzles.parse_text(flat)
     # The page's own heading, else (a page cropped below it) the article's headline.
     m = BYLINE.search(title) or BYLINE.search(headline)
@@ -362,12 +395,77 @@ def read_image(img, web_date, headline=""):
     grid = genius_puzzles.grid_of_images([img.crop((gx0, gy0, gx1 + 1, gy1 + 1))], out["clues"])
     if not grid:
         raise ValueError("could not read the grid's cells")
+    lights = rg.light_cells(grid)
+    if {l for c in out["clues"] for l in c["lights"]} != set(lights):
+        fixed = renumbered(flat, lights)
+        again = genius_puzzles.parse_text(fixed) if fixed != flat else None
+        if again:
+            genius_puzzles.see_links(again["clues"])
+            if {l for c in again["clues"] for l in c["lights"]} == set(lights):
+                out["clues"], flat = again["clues"], fixed
+    for c in out["clues"]:
+        if len(c["lights"]) == 1 and c["enumeration"] == "1" and len(lights.get(c["lights"][0], "")) > 1 \
+                and any(c["clue"].endswith(u + " (1)") for u in unread):
+            c["enumeration"] = str(len(lights[c["lights"][0]]))
+            c["clue"] = c["clue"][:-3] + f"({c['enumeration']})"
     genius_puzzles.turn_links(out["clues"], set(rg.light_cells(grid)))
     out["grid"] = grid
     linked_counts(out["clues"], flat, rg.light_cells(grid))
+    for c in out["clues"]:
+        c["clue"] = c["clue"].replace("\u2060", "")
+    flat = flat.replace("\u2060", "")
     out["origin"] = "the TLS's page image"
     out["text"] = flat
     return out
+
+
+def renumbered(text, lights):
+    """The flattened text with each section's clue heads numbered as the grid's lights, when the
+    section holds as many heads as the grid has lights that way (a misread digit: 1339's "7"
+    read as a second "9"); the text unchanged when it does not."""
+    head = re.compile(r"(?:(?<=\))|(?<=ACROSS)|(?<=DOWN)) (\d{1,2}) (?=[\u2060A-Z\u2018\u201c\"'])")
+    parts = re.split(r"(?<=\)) (?=DOWN\b)", text)
+    if len(parts) != 2:
+        return text
+    out = []
+    for sect, way in zip(parts, ("across", "down")):
+        want = sorted(n for n, d in lights if d == way)
+        marks = list(head.finditer(sect))
+        if len(marks) != len(want):
+            return text
+        pieces, last = [], 0
+        for m, n in zip(marks, want):
+            pieces.append(sect[last:m.start(1)] + str(n))
+            last = m.end(1)
+        out.append("".join(pieces) + sect[last:])
+    return " ".join(out)
+
+
+def lost_tens(text):
+    """The flattened text with a clue head whose tens digit went unread put back: clue numbers run
+    upward through a section, so a head ("2 Divine Greek lady ..." after 11, 1307's, "4 Spanish
+    sailor" after it) that does not rise is read as 10 or 20 more when that rises, and falls
+    short of the head that follows. grid_matches refuses a wrong guess."""
+    head = re.compile(r"(?:(?<=\))|(?<=ACROSS)|(?<=DOWN)) (\d{1,2}) (?=[\u2060A-Z\u2018\u201c\"'])")
+    out = []
+    for sect in re.split(r"(?<=\)) (?=DOWN\b)", text):
+        marks = list(head.finditer(sect))
+        nums, prev = [int(m.group(1)) for m in marks], 0
+        for i, m in enumerate(marks):
+            n = nums[i]
+            if n <= prev:
+                nxt = next((x for x in nums[i + 1:] if x > prev), 999)
+                fit = [k for k in (n + 10, n + 20) if prev < k < nxt]
+                if fit:
+                    n = nums[i] = fit[0]
+            prev = n
+        # Rebuild with the repaired numbers (the original spans are kept in order).
+        pieces, last = [], 0
+        for m, n in zip(marks, nums):
+            pieces.append(sect[last:m.start(1)] + str(n))
+            last = m.end(1)
+        out.append("".join(pieces) + sect[last:])
+    return " ".join(out)
 
 
 def linked_counts(clues, text, lights):
