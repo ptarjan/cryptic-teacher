@@ -152,7 +152,10 @@ def r_does_not_give(node, parent, ctx):
         # (TSHIRT: a reordered charade, though the last piece would also fit into the anagram)
         if late and found:
             break
-        if late in (True, "cut") and not _one_trim_candidate(node, answer):
+        if late in (True, "cut") and len(_trim_leaves(node, answer)) != 1:
+            continue
+        if late == "shrink" and len(_trim_leaves(node, answer)) > 1:
+            # two leaves a letter long ([cube]DIE or [pet]AT for INDICATE): the clue's meanings decide, not a cut
             continue
         for k in range(len(list(walk(node)))):
             for new in _does_not_give_edits(node, k, ctx.get("clue"), late):
@@ -167,10 +170,10 @@ def r_does_not_give(node, parent, ctx):
     return found[0] if len(found) == 1 else None
 
 
-def _one_trim_candidate(node, answer):
-    """True when exactly one (leaf, shorter letters) pair, the letter dropped at an end OR inside ([cube]DICE ->
-    DIE, [pet]CAT -> AT), makes the tree give the answer: with two, only the clue words' meanings say which
-    leaf is wrong, so the end cut is a guess ([pet]AT for INDICATE) and stays refused."""
+def _trim_leaves(node, answer):
+    """The leaves whose one dropped letter, at an end OR inside ([cube]DICE -> DIE, [pet]CAT -> AT), makes the
+    tree give the answer. With two, only the clue words' meanings say which leaf is wrong, so a cut is a guess
+    ([pet]AT for INDICATE) and stays refused."""
     cands = set()
     for k, (n, _) in enumerate(walk(node)):
         g = str(n.get("gives") or "")
@@ -184,7 +187,7 @@ def _one_trim_candidate(node, answer):
             except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
                 continue
             cands.add((k, g[:i] + g[i + 1:]))
-    return len({k for k, _ in cands}) == 1
+    return {k for k, _ in cands}
 
 
 #: plural nouns whose one-letter abbreviation doubles ([pounds]L is LL); any other plural ([runs]R) is left refused
@@ -206,7 +209,7 @@ def _does_not_give_edits(node, k, clue=None, late=False):
     if late == "cut":
         # the last resort of all: one letter dropped from inside a leaf ([girl]GAIL -> GAL for GA(BRIE)L,
         # [Watching]EYEING -> EYING), tried only when no end cut gave the answer; r_does_not_give keeps it
-        # only when it is the one edit in the tree that works (_one_trim_candidate names one leaf)
+        # only when it is the one edit in the tree that works (_trim_leaves names one leaf)
         if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
             for i in range(1, len(n["gives"]) - 1):
                 new, t = fresh()
