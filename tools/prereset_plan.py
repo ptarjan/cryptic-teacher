@@ -73,6 +73,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
 """
 import contextlib
 import datetime as dt
+import hashlib
 import itertools
 import json
 import os
@@ -2121,6 +2122,7 @@ def reannotate_self_test():
     """The shape re-annotation tier stays LAST in backlog(), behind un-hinted
     puzzles; head_of_queue pins its redo tails (a few clues due) at the head."""
     import tempfile
+
     import shape_queue
     bad = 0
     real = shape_queue.PATH
@@ -2536,24 +2538,64 @@ def held_dir():
     return INDEX.parent.parent / "clues_only"
 
 
-def clues_only_rows(filed=()):
+def _held_row(record):
+    """The queue row for a held record a builder can promote, else None."""
+    import clues_only
+    if not clues_only.builder(record):
+        return None
+    row = {"id": record["id"], "series": record["series"],
+           "annotated": False, "hasSolutions": False}
+    row.update({k: record[k] for k in ("year", "date") if k in record})
+    return row
+
+
+def held_rows_cached(root, cache_path=None):
+    """[row] for every promotable clues-only file under root (as _held_row),
+    each file read only when its stat (mtime_ns, size) differs from the last
+    call's, kept in ~/.cache: the queue re-read every held file (json parse
+    of each, a few thousand) at every re-plan."""
+    import clues_only
+    key = hashlib.sha256(str(root).encode()).hexdigest()[:12]
+    cache_path = Path(cache_path or Path.home() / ".cache" / f"ct-held-rows-{key}.json")
+    # What builder() judges by: a change to clues_only.py (or its tree) re-reads all.
+    code = [os.stat(clues_only.__file__).st_mtime_ns, os.stat(clues_only.__file__).st_size]
+    try:
+        saved = json.loads(cache_path.read_text(encoding="utf-8"))
+        saved = saved["files"] if saved["code"] == code else {}
+    except (OSError, ValueError, KeyError, TypeError):
+        saved = {}
+    kept, rows = {}, []
+    for path in clues_only.files(root):
+        st = path.stat()
+        hit = saved.get(str(path))
+        if hit and hit[0] == st.st_mtime_ns and hit[1] == st.st_size:
+            row = hit[2]
+        else:
+            row = _held_row(json.loads(path.read_text(encoding="utf-8")))
+        kept[str(path)] = [st.st_mtime_ns, st.st_size, row]
+        if row:
+            rows.append(row)
+    if kept != saved:
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = cache_path.with_suffix(".tmp")
+            tmp.write_text(json.dumps({"code": code, "files": kept}), encoding="utf-8")
+            tmp.replace(cache_path)
+        except OSError:
+            pass
+    return rows
+
+
+def clues_only_rows(filed=(), cache_path=None):
     """An index-shaped row for each puzzle held as its clues alone that a
     builder can promote (clues_only.solvable): unannotated, no answers, every
     clue readable, dated by its `year` or `date`. The index lists puzzles/
     alone, so without these the queue never sees them. An id in `filed` (the
     rows already read from puzzles/) is skipped: its puzzle file is the row,
-    and a second row would queue it twice."""
-    import clues_only
+    and a second row would queue it twice. Files are read through
+    held_rows_cached(), so only those changed since the last call are parsed."""
     filed = set(filed)
-    rows = []
-    for record in clues_only.solvable(held_dir()):
-        if record["id"] in filed:
-            continue
-        row = {"id": record["id"], "series": record["series"],
-               "annotated": False, "hasSolutions": False}
-        row.update({k: record[k] for k in ("year", "date") if k in record})
-        rows.append(row)
-    return rows
+    return [r for r in held_rows_cached(held_dir(), cache_path) if r["id"] not in filed]
 
 
 PUZZLE_NAME = re.compile(r"-[0-9].*\.json\Z")

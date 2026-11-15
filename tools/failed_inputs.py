@@ -381,9 +381,72 @@ def cmd_clear(args):
         print(f"cleared {len(gone)} {args.kind} failures; they are tried again next run")
 
 
+# How long a cached answer to `skipped` stands: a record's code-cooldown ends
+# with the clock, which no file shows.
+SKIPPED_TTL_S = 120
+
+
+def skipped_cache_path():
+    """Where `skipped`'s last answer is kept: one file per ledger, so a scratch
+    ledger never reads the real one's."""
+    key = hashlib.sha256(str(LEDGER.resolve()).encode()).hexdigest()[:12]
+    return Path(os.environ.get("FAILED_INPUTS_CACHE")
+                or Path.home() / ".cache" / f"ct-failed-skipped-{key}.json")
+
+
+def _stat(path):
+    try:
+        st = os.stat(path)
+    except OSError:
+        return None
+    return [st.st_mtime_ns, st.st_size]
+
+
+def skipped_fingerprint(data):
+    """What every answer of `skipped` is a function of, bar the clock: the
+    ledger, each recorded puzzle's file (tree and clues-only copy), the tools
+    code that versions a refusal, and git HEAD (committed() reads from it).
+    Statting these is cheap; due() per record forks git three times."""
+    ids = sorted({i for kind in KINDS for i in data[kind]})
+    with os.scandir(TOOLS) as it:
+        code = sorted((e.name, _stat(e.path)) for e in it if e.name.endswith(".py"))
+    return [_stat(LEDGER), code, (_git(ROOT, "rev-parse", "HEAD") or "").strip(),
+            [(i, _stat(puzzle_paths.find(i) or "-"), _stat(clues_only.find(i) or "-")) for i in ids]]
+
+
+def skipped_all(data, now=None, cache=None):
+    """{kind: skipped(data, kind)} for every kind, off a cache under ~/.cache
+    while its fingerprint holds and it is under SKIPPED_TTL_S old."""
+    import time
+    now = time.time() if now is None else now
+    cache = skipped_cache_path() if cache is None else Path(cache)
+    print_ = skipped_fingerprint(data)
+    print_ = json.loads(json.dumps(print_))   # as it reads back
+    try:
+        saved = json.loads(cache.read_text())
+        if saved["print"] == print_ and 0 <= now - saved["at"] < SKIPPED_TTL_S:
+            return saved["skipped"]
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    out = {kind: skipped(data, kind) for kind in KINDS}
+    try:
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        tmp = cache.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"at": now, "print": print_, "skipped": out}))
+        tmp.replace(cache)
+    except OSError:
+        pass
+    return out
+
+
 def cmd_skipped(args):
-    for i in skipped(load(), args.kind):
-        print(i)
+    got = skipped_all(load())
+    if len(args.kind) == 1:
+        for i in got[args.kind[0]]:
+            print(i)
+    else:   # one line per kind, in the order asked: ids space-joined
+        for kind in args.kind:
+            print(" ".join(got[kind]))
 
 
 def cmd_triage(args):
@@ -446,8 +509,9 @@ def main():
     p.add_argument("--reason", help="only failures whose reason contains this (any case)")
     p.add_argument("--all", action="store_true", help="every failure of this kind")
     p.set_defaults(func=cmd_clear)
-    p = sub.add_parser("skipped", help="ids to leave out tonight, one per line")
-    p.add_argument("kind", choices=KINDS)
+    p = sub.add_parser("skipped", help="ids to leave out tonight, one per line; given several kinds, "
+                       "one line of space-joined ids per kind")
+    p.add_argument("kind", choices=KINDS, nargs="+")
     p.set_defaults(func=cmd_skipped)
     p = sub.add_parser("triage", help="withdrawn records, oldest first, to read and clear or fix")
     p.add_argument("kind", choices=("annotate",))
