@@ -202,6 +202,8 @@ del os.environ["CT_BLANKET_REREADS"]
 sc_ev, rd_ev = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
 check("no blanket rereads: inputs changed, scan stale and --reread are not planned; refusals whose fix landed are",
       {"1992-01-01_1", "1990-06-01_1", "1990-05-01_1", "1970-01-01_1"}, {u["rel"].split("/")[1] for u in rd_ev})
+# A fix reason evidence_reason doesn't keep is dropped at plan time with no log line (LEFT_EDGE_GRID 11-15 planned 0 of 26).
+check("every UNFILED_FIRST fix reason is kept at plan time", [], [r for r in eq.UNFILED_FIRST if not eq.evidence_reason(r)])
 check("every planned read's reason is a kept one", True, all(eq.evidence_reason(u["reason"]) or f.likely_gain(u) > 0 for u in rd_ev))
 check("the refusal's read says which puzzle and what the refusal said", True,
       all("puzzle 1" in u.get("detail", "") for u in rd_ev if u["reason"].startswith("refused ")) and
