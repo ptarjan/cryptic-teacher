@@ -2295,7 +2295,8 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  # scanned again (fa.telegraph_whole_due); the newest fix goes first.
                  fa.TELEGRAPH_WHOLE,
                  # 11-13: a Gale FT page refused number-date-mismatch ("not near", "out of date order": a title's
-                 # digit lost, a misfiled neighbour) read since (fa.ft_number_due).
+                 # digit lost, a misfiled neighbour) read since (fa.ft_number_due); 11-15: the archive.org FT too
+                 # (1977, 1984: neighbours filed 200 off weighed by their offsets, Held.steady).
                  fa.FT_NUMBER_MENDED,
                  # 11-13: a Gale Sunday Times 1976-78 page refused "not a grid" (its scanned title the winners caption):
                  # the live heading right of it, grid and three clue columns read since (fa.sunday_mid_due).

@@ -6188,6 +6188,13 @@ def _held_folders(series):
         return {}
 
 
+#: How far (numbers) a filed puzzle may sit from the median offset of its neighbours' (Held.steady), and how many
+#: of them either side count. The FT's own offsets from its count run within 60 of each other over a year
+#: (1980s: -55..+5), a misfiled 200 off.
+STEADY_TOLERANCE = 60
+STEADY_REACH = 150
+
+
 class Held(dict):
     """{number: date} of a series' filed puzzles, read-only, with its
     (date, number) pairs sorted once: neighbours bisects them and hosted
@@ -6212,6 +6219,23 @@ class Held(dict):
         if getattr(self, "_iso", None) is None:
             self._iso = {str(n): day.isoformat() for n, day in self.items()}
         return self._iso
+
+    def steady(self, expected, tolerance=STEADY_TOLERANCE, reach=STEADY_REACH):
+        """The Held of this one's puzzles whose number sits within `tolerance` of the number `expected`
+        gives its date, as far as the `reach` puzzles either side of it in date order do (the median
+        of their offsets): a filed number a run of puzzles off its date (3302 on 1977-10-26 for 3502; 5314..5374
+        of Sep-Nov 1984 for 5514..5574, 200 low, in order among themselves) is within the paper's slack of the
+        count yet strands every title between its neighbours. Worked out once per `expected`."""
+        memo = self.__dict__.setdefault("_steady", {})
+        if expected not in memo:
+            off = [m - expected(d) for d, m in self.pairs]
+            keep = {}
+            for i, (d, m) in enumerate(self.pairs):
+                near = sorted(off[max(0, i - reach):i + reach + 1])
+                if abs(off[i] - near[len(near) // 2]) <= tolerance:
+                    keep[m] = d
+            memo[expected] = Held(keep) if len(keep) < len(self) else self
+        return memo[expected]
 
     def _read_only(self, *a, **k):
         raise TypeError("Held is read-only: make a new one")
@@ -6895,6 +6919,14 @@ def filed_number(d, found, hit):
         sound = Held({m: dd for m, dd in held.items() if abs(m - paper.expected(dd)) <= paper.slack})
         if len(sound) < len(held):
             number, why = placed(n, day, sound, vouched) if abs(n - paper.expected(day)) <= paper.slack else (None, why)
+    # A filed number off its date's by less than the slack (3302 on 1977-10-26 for 3502) still strands the titles
+    # between its neighbours, or holds the number of a title on its right date: the puzzles filed in date order
+    # that keep step with their neighbours' offsets (Held.steady) stand for the neighbours instead.
+    if number is None and paper is FT and ("out of date order" in (why or "") or "already filed for" in (why or "")) \
+            and abs(n - paper.expected(day)) <= paper.slack:
+        steady = Held.of(held).steady(paper.expected)
+        if len(steady) < len(held):
+            number, why = placed(n, day, steady, vouched)
     if number is not None:
         why = same_scan(number, page_url(d, found, hit["leaf"]), day, paper.series)
     return number, day, why
@@ -15846,14 +15878,25 @@ def ft_clues_due(row):
 #: places a title among the filed numbers near their dates alone when the neighbours strand it.
 FT_NUMBER_MENDED = "FT page refused number-date-mismatch, its lost digit put back and its date-order neighbours weighed since"
 REREAD_FT_NUMBER = "2026-11-14T03:00:00+00:00"
+#: The archive.org FT's cutoff for the same reason (ft_number_due): Held.steady weighs the neighbours by their offset.
+REREAD_FT_STEADY = "2026-11-15T20:15:00+00:00"
 
 
 def ft_number_due(row):
     """Whether Gale FT ledger `row` is due FT_NUMBER_MENDED: a puzzle of it refused "number-date-mismatch" for a number
     not near its date's or out of date order, read before REREAD_FT_NUMBER."""
     edition = (row or {}).get("edition") or ""
-    if paper_of(edition).key != "galeft" or "inputs" not in row:
+    key = paper_of(edition).key
+    if key not in ("galeft", "ft") or "inputs" not in row:
         return False
+    if key == "ft":
+        # The archive.org FT, 11-15 census (Held.steady): 1977-02..10 (198 rows, "out of date order" with 3302 on
+        # 1977-10-26, the page's 3502) and 1984-01..09 (138, with 5314..5374 filed on 1984-09-11..11-20, 200 low);
+        # a filed number within the slack of its date's yet 200 off its neighbours' no longer strands them.
+        return any(v.get("cause") == "number-date-mismatch"
+                   and ("out of date order" in str(v.get("refused")) or " is already filed for " in str(v.get("refused")))
+                   for v in row.get("verdicts") or ()) \
+            and scan_queue.read_before(row, scan_queue.when(REREAD_FT_STEADY))
     return any(v.get("cause") == "number-date-mismatch"
                and ("is not near the" in str(v.get("refused")) or "out of date order" in str(v.get("refused")))
                for v in row.get("verdicts") or ()) \
