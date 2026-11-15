@@ -12675,6 +12675,33 @@ def ios_solution(img, sol, grid):
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
 
 
+#: How far above the grid's blocks, as a share of the way up to its paper, a Gale FT solution crop's ink is cut off
+#: and its darker pixels sent to black (faint_stretch), and the least paper-over-block gap (grey levels) for a crop to
+#: be stretched at all. 12-08 (2010, ftcryptic-13563): the letters print light grey (darkest 110-140 of 255) beside
+#: blocks of 55 on paper of 215, so the crop's own Otsu level sat under the letters: the blocks agreed 0.66 and
+#: 4 cells read; stretched, 1.0 and 107 cells, 26 of 32 lights.
+FAINT_CUT, FAINT_GAP = 0.5, 40
+
+
+def faint_stretch(cut):
+    """`cut` (a solution grid's crop) with its grey levels stretched so the letters printed faintly beside the
+    blocks read dark: the level FAINT_CUT of the way from the blocks (the median of the pixels under Otsu's level)
+    to the paper (the 90th percentile) becomes black, the paper white. `cut` itself when the blocks are no darker
+    than the paper by FAINT_GAP."""
+    import numpy as np
+    from PIL import Image
+    gray = np.asarray(cut.convert("L"), dtype=np.float32)
+    level = trove_grid.otsu(gray.astype(np.uint8))
+    dark = gray[gray < level]
+    paper = float(np.percentile(gray, 90))
+    if not dark.size or paper - float(np.median(dark)) < FAINT_GAP:
+        return cut
+    block = float(np.median(dark))
+    lo = block + FAINT_CUT * (paper - block)
+    out = np.clip((gray - lo) / max(paper - lo, 1.0), 0, 1) * 255
+    return Image.fromarray(out.astype(np.uint8)).convert("RGB")
+
+
 def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     """({light: answer}, stats) read off the solution grid under a "Solution
     to Puzzle No N" heading on page `img`, or with `above`, over it (the
@@ -12733,6 +12760,8 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     def read(b, framing=None):
         # Cut afresh on every read, so the crop is always this code's cut.
         cut = window.crop(b)
+        if paper_of(d).key == "galeft":
+            cut = faint_stretch(cut)
         # The recogniser reads the ~23px cells far surer at three times the size.
         cut.resize((cut.width * 3, cut.height * 3), Image.BICUBIC).save(path)
         # The crop is the grid, frame to frame: read on its own rules; a Times
@@ -13675,7 +13704,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "ae071ffbd1f5451b": "432a5818529a9b11",
                   # TELEGRAPH_CELLS, SIDES_HEADED and WEEKDAY_RIGHT (Telegraph layout reads: a scan's cells, sides and
                   # weekday headings only): no solution grid's reading moves for a paper that already has rows.
-                  "c85fd409ea8aa6cf": "432a5818529a9b11"}
+                  "c85fd409ea8aa6cf": "432a5818529a9b11",
+                  # faint_stretch (a Gale FT crop's faint letters): only a refused FT grid reads otherwise, due once
+                  # as FT_FAINT (solved() reads such a kept one again, printed_stale).
+                  "0fe8d5135be64dfb": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -13724,7 +13756,7 @@ def solved(sol, grid, above=False, lean=False, enums=None):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.part")
     tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats, "ranked": True, "blurred": True,
-                               "lettered": True, "printed": True, "telegraph": True}))
+                               "lettered": True, "printed": True, "telegraph": True, "faint": True}))
     tmp.replace(path)
     return answers, stats
 
@@ -13768,6 +13800,9 @@ def printed_stale(kept, d):
     with no cell classified, not refused, read again once, the kept code key the same (_SOLVED_PINS)."""
     st = kept.get("stats") or {}
     # A Gale Telegraph grid likewise (TELEGRAPH_CELLS), by its own mark: the kept ones since 11-06 carry "printed" too.
+    if paper_of(d).key == "galeft":
+        # A Gale FT grid refused for its blocks before faint_stretch (FT_FAINT) is read again once.
+        return not kept.get("faint") and st.get("refused") == "its blocks are not the puzzle's"
     mark = "telegraph" if paper_of(d).key == "galetelegraph" else "printed"
     return not (kept.get(mark) or paper_of(d).key not in ("times1930", "galetelegraph") or "classified" in st
                 or st.get("refused") or st.get("accepted", 0) >= st.get("lights", 0))
@@ -13806,7 +13841,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # (printed_stale reads such a kept one short again).
                 "61264474ddd236fb": "9b3500cb5488df7c",
                 # TELEGRAPH_CELLS, SIDES_HEADED and WEEKDAY_RIGHT (Telegraph layout reads): no solution's read moves.
-                "7b24786d7044bf06": "9b3500cb5488df7c"}
+                "7b24786d7044bf06": "9b3500cb5488df7c",
+                # faint_stretch (FT_FAINT): only a refused Gale FT grid reads otherwise.
+                "2089385a76b43ec5": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
@@ -15107,6 +15144,29 @@ def telegraph_figure_due(row):
             m = re.fullmatch(r"(['\"])(.*)\1: a digit inside a word", str(why))
             if m and (clue_text.XREF_GLUED.fullmatch(m.group(2)) or clue_text.figure_dashed(m.group(2))):
                 return True
+    return False
+
+
+#: The due reason of a Gale FT edition (mostly 2007-10: ~285 refused at blocks 0.58-0.80) read before REREAD_FT_FAINT whose
+#: linked solution grid was refused "its blocks are not the puzzle's" or read short. Those grids print the answers in light
+#: grey beside black blocks, under the crop's own Otsu level (faint_stretch): the blocks agreed 0.66-0.8 and 0-4 cells
+#: read. Stretched, 2010-12-08 (13563) reads 24 of 32 lights (was 0), 2007-10-20 29 of 30 (was 1), 2007-10-23 32 of 32 (was 0).
+#: answers_only, once.
+FT_FAINT = "solution refused or short, its Gale FT print's faint letters stretched since"
+REREAD_FT_FAINT = "2026-11-15T07:35:00+00:00"
+
+
+def ft_faint_due(row):
+    """Whether Gale FT ledger `row`, read before REREAD_FT_FAINT, has a verdict (not refused, not pending, no held title's) with a
+    linked solution grid refused for its blocks."""
+    if paper_of(row.get("edition", "")).key != GALE_FT.key or not scan_queue.read_before(row, scan_queue.when(REREAD_FT_FAINT)):
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (v.get("id") and not v.get("refused") and not v.get("pending") and v.get("solutionFrom")
+                and not v.get("heldTitle") and not v.get("wrongGrid") and isinstance(s, dict)
+                and s.get("refused") == "its blocks are not the puzzle's"):
+            return True
     return False
 
 
@@ -21059,6 +21119,8 @@ def fix_reason(row):
         return TELEGRAPH_WHOLE
     if telegraph_cells_due(row):
         return TELEGRAPH_CELLS
+    if ft_faint_due(row):
+        return FT_FAINT
     if telegraph_own_due(row):
         return TELEGRAPH_OWN
     if telegraph_figure_due(row):
@@ -21789,7 +21851,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   LEFT_EDGE_GRID,
                   # 11-15: an Independent on Sunday Beelzebub page whose barred grid was refused for bars just under
                   # symmetric, laid on their mirror pairs since (indy_paired_due).
-                  INDY_PAIRED)
+                  INDY_PAIRED,
+                  # 11-15: a Gale FT page whose solution grid was refused for its blocks, its faint letters stretched since
+                  # (ft_faint_due).
+                  FT_FAINT)
 
 
 def refusal_passes(why):
@@ -21844,7 +21909,7 @@ def blanket_or_fix(row, blanket):
             return QUICK_SET
         if quick_held_due(row):
             return QUICK_HELD
-        return TELEGRAPH_CELLS if telegraph_cells_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) \
+        return TELEGRAPH_CELLS if telegraph_cells_due(row) else FT_FAINT if ft_faint_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) \
             else TELEGRAPH_FIGURE if telegraph_figure_due(row) \
             else TELEGRAPH_LEAD_NUMBER if telegraph_lead_number_due(row) \
             else TELEGRAPH_STOP if telegraph_stop_due(row) \
@@ -22067,7 +22132,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -22700,7 +22765,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SIDES_HEADED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SIDES_HEADED)
 
 
 def keeps_vlm(why, row, unit=None):
