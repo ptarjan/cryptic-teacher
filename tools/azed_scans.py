@@ -270,6 +270,8 @@ def area(g):
 
 #: Rows starting this far (pixels) right of a clue column's left edge are not its own lines.
 OWN_LINES = 120
+#: A split piece of a clue line starts within this many pixels of the piece before it.
+JOIN = 60
 
 
 def clipped(boxes, lines):
@@ -281,7 +283,16 @@ def clipped(boxes, lines):
     out = []
     for x0, y0, x1, y1 in boxes:
         mine = [r for r in rows if x0 <= r[0] + 8 <= x0 + OWN_LINES and y0 <= r[1] and r[3] <= y1]
-        out.append((x0, y0, min(x1, max(r[2] for r in mine) + 8) if mine else x1, y1))
+        # A clue's line djvu split ("29 What" then "---- is lifeless? ... possibly) (4)") runs on from a line that starts at
+        # the edge: the pieces butted against its end (within JOIN pixels, on its band) are its own too.
+        grown = list(mine)
+        for _ in range(4):
+            more = [r for r in rows if r not in grown and y0 <= r[1] and r[3] <= y1 and any(
+                0 <= r[0] - g[2] <= JOIN and r[1] < g[3] and g[1] < r[3] for g in grown)]
+            if not more:
+                break
+            grown += more
+        out.append((x0, y0, min(x1, max(r[2] for r in grown) + 8) if grown else x1, y1))
     return out
 
 
