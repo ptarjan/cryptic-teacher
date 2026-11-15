@@ -124,11 +124,10 @@ PHASES = [
     ("blog:times", 3 * HOUR, 120 * 60, ()),
     ("blog:telegraph", 3 * HOUR, 120 * 60, ()),
     ("ft", 6 * HOUR, 75 * 60, ()),
-    ("azed", DAY, 75 * 60, ()),
-    ("genius", DAY, 60 * 60, ()),
-    ("xval:globe", DAY, 60 * 60, ()),
     # Lands the raw fetch caches CI writes (tools/cache_sync.py): add-only.
     ("cache-sync", 3 * HOUR, 30 * 60, ()),
+    # azed, genius and xval:globe run in CI (.github/workflows/daily-units.yml); the minute
+    # capture stays here (its corpus is uncommitted by policy).
     # blog-facts runs in CI (.github/workflows/blog-facts.yml), not here.
     ("ratings", DAY, 60 * 60, ()),
     ("checks", DAY, 45 * 60, ()),

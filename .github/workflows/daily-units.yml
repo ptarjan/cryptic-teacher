@@ -28,7 +28,7 @@ on:
     inputs:
       units:
         description: Units to run (space-separated)
-        default: solutions snitch series-health
+        default: solutions snitch series-health xval-globe genius azed
 
 permissions:
   contents: write
@@ -40,7 +40,7 @@ concurrency:
 jobs:
   units:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 150
     env:
       CT_DOWNLOADS: /tmp/cryptic-downloads
     steps:
@@ -50,7 +50,7 @@ jobs:
           token: ${{ secrets.PUSH_TOKEN || github.token }}
       - uses: ./.github/actions/setup
         with:
-          pip: numpy pillow pypdf opencv-python-headless
+          pip: numpy pillow pypdf opencv-python-headless rapidocr-onnxruntime onnxruntime
       # solutions on every tick; the daily ones on the 12:41 UTC tick (05:41 ABT).
       - name: Choose the units due
         id: due
@@ -59,7 +59,7 @@ jobs:
           units="${{ inputs.units }}"
           if [ -z "$units" ]; then
             units=solutions
-            [ "$(date -u +%H)" = 12 ] && units="$units snitch series-health"
+            [ "$(date -u +%H)" = 12 ] && units="$units snitch series-health xval-globe genius azed"
           fi
           echo "units: $units"
           echo "units= $units " >> "$GITHUB_OUTPUT"
@@ -111,6 +111,100 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -q -m "$(printf 'Daily ratings: snitch\n\n%s' "$(python3 tools/provenance.py trailer)")"
           fi
+      # xval-globe, genius, azed (were local units: daily_update.sh unit_xval_globe, unit_genius,
+      # unit_azed). Their fetch caches ride one actions/cache entry; the blogs' post caches are
+      # restored read only from the blog workflows' own saves. The Minute Cryptic capture stays
+      # local: its corpus is copyrighted teaching material kept uncommitted (.gitignore), so a
+      # runner would have nowhere to put it.
+      - name: Restore the fetchers' caches
+        if: contains(steps.due.outputs.units, ' xval-globe ') || contains(steps.due.outputs.units, ' genius ') || contains(steps.due.outputs.units, ' azed ')
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/genius
+            /tmp/cryptic-downloads/andlit-azed
+            /tmp/cryptic-downloads/azed-scans
+            /tmp/cryptic-downloads/cross-validate
+            /tmp/cryptic-downloads/globe-source
+            ~/.cache/rapidocr
+          key: fetchers-state-${{ github.run_id }}
+          restore-keys: fetchers-state-
+      - name: Restore the fifteensquared and Times posts
+        if: contains(steps.due.outputs.units, ' xval-globe ') || contains(steps.due.outputs.units, ' genius ') || contains(steps.due.outputs.units, ' azed ')
+        uses: actions/cache/restore@v5
+        with:
+          path: /tmp/cryptic-downloads/fifteensquared
+          key: fifteensquared-${{ github.run_id }}
+          restore-keys: fifteensquared-
+      - uses: actions/cache/restore@v5
+        if: contains(steps.due.outputs.units, ' xval-globe ')
+        with:
+          path: /tmp/cryptic-downloads/timesforthetimes
+          key: blog-timesforthetimes-${{ github.run_id }}
+          restore-keys: blog-timesforthetimes-
+      - name: Fetch the English recogniser
+        if: contains(steps.due.outputs.units, ' azed ')
+        shell: bash
+        run: |
+          mkdir -p ~/.cache/rapidocr
+          f=~/.cache/rapidocr/en_PP-OCRv3_rec_infer.onnx
+          [ -s "$f" ] || curl -fsSL --retry 3 -o "$f" \
+            https://huggingface.co/SWHL/RapidOCR/resolve/main/PP-OCRv3/en_PP-OCRv3_rec_infer.onnx
+      - name: xval-globe
+        if: contains(steps.due.outputs.units, ' xval-globe ')
+        shell: bash
+        run: |
+          for step in "cross_validate.py globe --fetch" "cross_validate.py globe"; do
+            rc=0
+            PYTHONUNBUFFERED=1 python3 tools/$step 2>&1 | tee /tmp/xval.out || rc=$?
+            [ "$rc" = 0 ] || { echo "::error::$step failed (rc=$rc)"; echo "failed=$failed $step" >> "$GITHUB_ENV"; break; }
+          done
+          git add -A
+          python3 tools/renamed_ids.py --stage
+          tools/commit_puzzles.sh "daily xval:globe"
+          if ! git diff --cached --quiet; then
+            git commit -q -m "$(printf 'Daily xval:globe\n\n%s' "$(python3 tools/provenance.py trailer)")"
+          fi
+      - name: genius
+        if: contains(steps.due.outputs.units, ' genius ')
+        shell: bash
+        run: |
+          rc=0
+          PYTHONUNBUFFERED=1 python3 tools/genius_puzzles.py all 2>&1 | tee /tmp/genius.out || rc=$?
+          [ "$rc" = 0 ] || { echo "::error::genius_puzzles.py failed (rc=$rc)"; echo "failed=$failed genius" >> "$GITHUB_ENV"; }
+          git add -A
+          python3 tools/renamed_ids.py --stage
+          tools/commit_puzzles.sh "daily genius"
+          if ! git diff --cached --quiet; then
+            git commit -q -m "$(printf 'Daily genius\n\n%s' "$(python3 tools/provenance.py trailer)")"
+          fi
+      # azed: the fifteensquared leg once, then andlit_azed.py nightly (15 min of fetching, 20 of
+      # scanning) again for as long as it says backlog is left (UNIT_MORE, as the local queue did),
+      # to a 75 minute wall budget; each pass is committed.
+      - name: azed
+        if: contains(steps.due.outputs.units, ' azed ')
+        shell: bash
+        env:
+          OCR_REMOTE: ""
+        run: |
+          start=$SECONDS
+          rc=0
+          PYTHONUNBUFFERED=1 python3 tools/azed_puzzles.py 2>&1 | tee /tmp/azed.out || rc=$?
+          [ "$rc" = 0 ] || { echo "::error::azed_puzzles.py failed (rc=$rc)"; echo "failed=$failed azed" >> "$GITHUB_ENV"; }
+          while :; do
+            rm -f /tmp/azed-more
+            rc=0
+            UNIT_MORE=/tmp/azed-more PYTHONUNBUFFERED=1 python3 tools/andlit_azed.py nightly \
+              --budget-seconds 900 --scan-seconds 1200 2>&1 | grep -v '^  No ' || rc=${PIPESTATUS[0]}
+            [ "$rc" = 0 ] || { echo "::error::andlit_azed.py failed (rc=$rc)"; echo "failed=$failed andlit_azed" >> "$GITHUB_ENV"; }
+            git add -A
+            python3 tools/renamed_ids.py --stage
+            tools/commit_puzzles.sh "daily azed"
+            if ! git diff --cached --quiet; then
+              git commit -q -m "$(printf 'Daily azed\n\n%s' "$(python3 tools/provenance.py trailer)")"
+            fi
+            [ -e /tmp/azed-more ] && [ "$rc" = 0 ] && [ $((SECONDS - start)) -lt 2700 ] || break
+          done
       - name: Push, rebasing when master moved
         if: always()
         shell: bash
@@ -137,6 +231,18 @@ jobs:
           done
           echo "::error::could not push"
           exit 1
+      - name: Save the fetchers' caches
+        if: "!cancelled() && (contains(steps.due.outputs.units, ' xval-globe ') || contains(steps.due.outputs.units, ' genius ') || contains(steps.due.outputs.units, ' azed '))"
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/genius
+            /tmp/cryptic-downloads/andlit-azed
+            /tmp/cryptic-downloads/azed-scans
+            /tmp/cryptic-downloads/cross-validate
+            /tmp/cryptic-downloads/globe-source
+            ~/.cache/rapidocr
+          key: fetchers-state-${{ github.run_id }}
       # Last, so a stale series never holds back the solutions' push. Red is the alert.
       - name: series-health
         if: always() && contains(steps.due.outputs.units, ' series-health ')
