@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 8
+VERSION = 9
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -792,6 +792,39 @@ def vlm_laid(texts, laid, blank, lengths, voted):
     return laid, left
 
 
+def number_by_date(day):
+    """(number, "date") of the Jumbo printed on `day` by the weekly count (gale_jumbo.number_on) where the
+    count between the anchors either side of it is sure (no holiday out), else (None, None)."""
+    import gale_jumbo as gj
+    n = gj.number_on(day)
+    return (n, "date") if n and gj.date_of(n)[1] else (None, None)
+
+
+#: A heading cut that agrees on fewer than this share of the lights is tried again with the lists found by shape.
+LAYOUT_SHARE = 0.85
+
+
+def layout_retry(img, key, gl, grid, lengths, blocks, read, laid):
+    """(read, laid, [block] or None: the block kept): the heading cut's reading, or the one of the lists found by their own
+    shape (gale_tls_read.layout_block: the 1997-2002 pages' headings are lost to the OCR, the title-less cut
+    takes the pair under the grid, last week's solutions, and the clue columns beside it go unread) where it
+    agrees on more clues. A light only the other reading laid is taken from it. The reading it keeps stays
+    the cut's when the layout's agrees on no more."""
+    if laid is not None and not set(lengths) - set(laid) and read.get("agreed", 0) >= LAYOUT_SHARE * len(lengths):
+        return read, laid, None
+    import gale_tls_read as tr
+    block = tr.layout_pick(img, gl.page_words(img, key), grid, lengths, gl)
+    if not block:
+        return read, laid, None
+    again, laid2 = tr.lending(gl.times_read, [block], lengths)
+    if laid2 is None:
+        return read, laid, None
+    if laid is None or again.get("agreed", 0) > read.get("agreed", 0):
+        merged = {**{k: v for k, v in (laid or {}).items() if k in lengths}, **laid2}
+        return again, merged, [block]
+    return read, {**{k: v for k, v in laid2.items() if k in lengths}, **laid}, None
+
+
 def read_page(path, store=STORE, asker=None):
     """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (vlm_mended)."""
     import gale_listener as gl
@@ -807,6 +840,8 @@ def read_page(path, store=STORE, asker=None):
     key = gl.image_key(img)
     words = gl.page_words(img, key)
     n, how = number_of(img, key, cited, words)
+    if n is None:
+        n, how = number_by_date(day)
     if n is None:
         verdict["refused"] = "no Jumbo number in the citation or the prize text"
         return verdict, None
@@ -847,6 +882,10 @@ def read_page(path, store=STORE, asker=None):
     # The grid's light lengths give the vote a count for a clue whose own the OCR lost.
     lengths = {f"{n}-{d}": len(cells) for (n, d), cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
+    read, laid, kept = layout_retry(img, key, gl, box, lengths, blocks, read, laid)
+    if kept:
+        blocks = kept
+        verdict["cut"] = "layout"
     verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused")})
     if laid is None:
         return verdict, None
