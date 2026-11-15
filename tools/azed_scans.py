@@ -435,7 +435,8 @@ def build(number, laid, rows, item, leaf, solved, year):
 
 
 def main(argv):
-    mode, wanted = (argv[1] if len(argv) > 1 else "numbers"), {int(a) for a in argv[2:]}
+    mode, wanted = (argv[1] if len(argv) > 1 else "numbers"), {int(a) for a in argv[2:] if a.isdigit()}
+    since = max([int(a[:-1]) for a in argv[2:] if a.endswith("+")], default=None)  # "165+": every page from 165
     by, why, seen = numbered()
     if mode == "numbers":
         for (item, leaf), g in seen.items():
@@ -448,7 +449,7 @@ def main(argv):
     filed = partial = 0
     refused = {}
     for number in sorted(by):
-        if wanted and number not in wanted:
+        if (wanted or since is not None) and number not in wanted and not (since is not None and number >= since):
             continue
         # A number two scans hold (23415 and 13117 overlap) is read from each in turn, the first that reads whole.
         for item, leaf in by[number]:
