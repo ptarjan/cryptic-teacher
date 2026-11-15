@@ -109,7 +109,9 @@ def solution_pages(n, rows):
     """[page file name] of the ledger `rows` ({file: row}) that may print puzzle n's solution."""
     by_number = {}
     for name, r in rows.items():
-        if r.get("number") and r.get("whole") is not None:
+        # Back-issue rows (tlsback-N, page images in TLS/Backfill) are no Fetched PDF to solve from;
+        # their keys come from the-tls.com (tls_pdf_keys / tls_image_keys).
+        if r.get("number") and r.get("whole") is not None and not name.startswith("tlsback-"):
             by_number.setdefault(r["number"], []).append(name)
     return [name for lag in SOLUTION_LAGS for name in sorted(by_number.get(n + lag, ()))]
 
