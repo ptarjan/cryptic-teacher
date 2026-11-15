@@ -115,9 +115,9 @@ DROP_SETTLE = int(os.environ.get("CT_CEILING_SETTLE") or 40)
 
 #: The VM's own swap traffic (pswpin+pswpout, MB a minute) over which the ceiling steps down, and
 #: over which it never steps up (11-14 #household: 405 MB/min in and out of swap stalled the bridge
-#: while Windows free RAM read roomy enough to step up). CT_SWAP_DOWN / CT_SWAP_HOLD override.
-SWAP_DOWN_MB = int(os.environ.get("CT_SWAP_DOWN") or 30)
-SWAP_HOLD_MB = int(os.environ.get("CT_SWAP_HOLD") or 5)
+#: while Windows free RAM read roomy enough to step up). CT_SWAP_DOWN / CT_SWAP_HOLD override. 11-15: 30/5 let swap sit at 25 MB/min; Paul wants it at zero.
+SWAP_DOWN_MB = int(os.environ.get("CT_SWAP_DOWN") or 10)
+SWAP_HOLD_MB = int(os.environ.get("CT_SWAP_HOLD") or 2)
 #: Windows hard page faults a second (Memory\Pages Input/sec) over which the ceiling steps down,
 #: and over which it never steps up (11-14 23:30: 32 units, Windows 218-356 MB free and ~3,500
 #: pages/s read back from disk between cache drops, while every post-drop reading looked roomy).
