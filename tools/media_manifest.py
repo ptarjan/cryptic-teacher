@@ -345,14 +345,15 @@ def record(name, written, **row):
 
 def rows(name):
     """Every row of manifest `name`, oldest first. Raises SystemExit when it
-    was never built (build). A line of NULs is skipped: a machine that powers
-    off mid-append leaves the line's blocks allocated but never written."""
+    was never built (build). A line of NULs is skipped and NULs around a line
+    are stripped: a machine that powers off mid-append leaves the line's blocks
+    allocated but never written (or a run of NULs before valid JSON)."""
     try:
         text = path(name).read_text()
     except FileNotFoundError:
         raise SystemExit(f"{path(name)} is missing: build it once (`python3 tools/media_manifest.py build {name}`, "
                          "or `python3 tools/gale_inbox.py build-manifest`; it walks the media disk, nothing scheduled may)") from None
-    return [json.loads(ln) for ln in text.splitlines() if ln.strip("\x00 \t\r")]
+    return [json.loads(ln.strip("\x00 \t\r")) for ln in text.splitlines() if ln.strip("\x00 \t\r")]
 
 
 def latest(name, key):
