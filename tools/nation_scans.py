@@ -85,6 +85,56 @@ def expected_number(day):
     return ANCHOR[1] + round((day - ANCHOR[0]).days / 7)
 
 
+#: Before the weekly count began (1943) a puzzle has no printed number: its id is its date, nationmag-YYYYMMDD.
+COUNT_BEGINS = 1943
+_PRINTED = {}
+
+
+def printed_numbers():
+    """{date: number} of every scanned issue whose heading reads within REACH of the weekly count (parsed once)."""
+    if not _PRINTED:
+        for d, meta in items().items():
+            day = datetime.date.fromisoformat(d)
+            if day.year < COUNT_BEGINS:
+                continue
+            every = [ws for leaf in meta["pages"] for ws in lines_of(meta["item"], leaf)]
+            n = number_of(every, day)
+            if n is not None:
+                _PRINTED[d] = n
+    return _PRINTED
+
+
+def omitted_dates():
+    """The issues whose puzzle the magazine left out (they take no number)."""
+    return {d for d, meta in items().items()
+            if no_leaf_why(meta["item"], meta["pages"]) == "the issue omitted its puzzle"}
+
+
+def implied_number(day):
+    """The number the numbered issues either side imply for `day`, one per week less the omitted weeks, only
+    when both neighbours agree with each other; else None (the date is held and reported)."""
+    known = printed_numbers()
+    before = [d for d in known if d < day.isoformat()]
+    after = [d for d in known if d > day.isoformat()]
+    if not before or not after:
+        return None
+    skipped = omitted_dates()
+
+    def steps(a, b):
+        weeks = round((b - a).days / 7)
+        return weeks - sum(1 for s in skipped if a < datetime.date.fromisoformat(s) < b)
+    a, b = datetime.date.fromisoformat(max(before)), datetime.date.fromisoformat(min(after))
+    na, nb = known[a.isoformat()], known[b.isoformat()]
+    if nb - na != steps(a, b):
+        return None
+    return na + steps(a, day)
+
+
+def date_number(day):
+    """The id number of a puzzle before the count: its date as YYYYMMDD."""
+    return int(day.strftime("%Y%m%d"))
+
+
 def no_leaf_why(item, leaves):
     """Why no listed leaf is a puzzle page: the issue says it left the puzzle out, the heading is there but the
     clues print no counts (the 1944-47 puzzles of Jack Barrett), or no heading is."""
@@ -371,9 +421,14 @@ def read_page(day, meta):
         return out
     out["leaf"] = leaf
     every = [ws for other in meta["pages"] for ws in lines_of(item, other)]
-    out["number"] = number_of(every, datetime.date.fromisoformat(day))
+    when = datetime.date.fromisoformat(day)
+    out["number"] = number_of(every, when)
+    if out["number"] is None and when.year < COUNT_BEGINS:
+        out["number"] = date_number(when)
     if out["number"] is None:
-        out["why"] = "no puzzle number heading near the weekly count"
+        out["number"] = implied_number(when)
+    if out["number"] is None:
+        out["why"] = "no puzzle number heading near the weekly count, and the neighbours do not imply one"
         return out
     img = Image.open(item_dir(item) / f"leaf_{leaf:04d}.jpg")
     grids = grids_of(img)
