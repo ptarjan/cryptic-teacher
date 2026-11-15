@@ -104,7 +104,12 @@ jobs:
           echo "posts caches: times=${{ steps.posts.outputs.cache-matched-key }} bigdave=${{ steps.bigdave.outputs.cache-matched-key }} fifteensquared=${{ steps.fifteen.outputs.cache-matched-key }}"
           echo "state: ${{ steps.state.outputs.cache-matched-key }}"
           for b in timesforthetimes bigdave44 fifteensquared; do
-            [ -d "$CT_DOWNLOADS/$b/posts" ] || { echo "::error::no post cache for $b (its fetch workflow has not saved one)"; exit 1; }
+            if [ ! -d "$CT_DOWNLOADS/$b/posts" ]; then
+              wf=blog-fetch.yml; [ "$b" = fifteensquared ] && wf=fifteensquared-fetch.yml
+              echo "::warning::no post cache for $b (its fetch workflow has not saved one); skipping it, dispatching $wf to reseed"
+              gh workflow run "$wf" || echo "::warning::could not dispatch $wf"
+              continue
+            fi
             echo "$b: $(ls "$CT_DOWNLOADS/$b/posts" | wc -l) posts"
             python3 tools/media_manifest.py build "posts-$b"
           done
