@@ -461,7 +461,52 @@ def pdf_link(content):
     puzzle and the solution grid of an earlier puzzle as live text, so no OCR), or None. The
     uploads are served without the site's bot challenge, the pages and wp-json are not."""
     m = re.search(r'https?://[^"\'\s<>?]+/wp-content/uploads/[^"\'\s<>?]+\.pdf', content or "", re.IGNORECASE)
-    return m and m.group(0)
+    # The article names "/uploads/sites/7/2025/01/x.pdf", which 404s; the file is served at "/uploads/2025/01/x.pdf"
+    # (the same prefix full_image's srcset entries lack).
+    return m and m.group(0).replace("/uploads/sites/7/", "/uploads/")
+
+
+def fetch_pages(numbers, log=print):
+    """Save the page of each listed issue in `numbers` for reading the solution it prints (of the issue
+    SOLUTION_LAG back): the picture to CACHE/image/<n>.<ext> and, where the article hosts one, the vector
+    PDF to CACHE/pdf/<n>.pdf. What is held is kept. Returns {n: [what was saved or why not]}."""
+    rows = listed()
+    out = {}
+    for n in sorted(numbers):
+        out[n] = got = []
+        row = rows.get(n)
+        if row is None:
+            got.append("not on the free listing")
+            continue
+        content = row["content"]["rendered"]
+        url, pdf = full_image(content), pdf_link(content)
+        have = list((CACHE / "image").glob(f"{n}.*"))
+        for kind, link, path in (("image", url, have[0] if have else None), ("pdf", pdf, CACHE / "pdf" / f"{n}.pdf")):
+            if not link:
+                got.append(f"no {kind} in the article")
+                continue
+            if path is None:
+                path = CACHE / "image" / f"{n}{'.png' if link.lower().endswith('.png') else '.jpg'}"
+            if path.exists():
+                continue
+            time.sleep(PAUSE)
+            try:
+                data = get(link)
+            except OSError as e:
+                data = archived(link) if kind == "image" else None
+                if not data:
+                    got.append(f"{kind}: {e}")
+                    continue
+            if kind == "pdf" and not data.startswith(b"%PDF"):
+                got.append("pdf: not a PDF (a bot page?)")
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_suffix(".part")
+            tmp.write_bytes(data)
+            tmp.replace(path)
+            got.append(f"saved {kind}")
+        log(f"{n}: {'; '.join(got) or 'held'}")
+    return out
 
 
 def archived(url):
@@ -673,8 +718,12 @@ def main(argv=None):
     ap.add_argument("--latest", action="store_true", help="file the newest issue (exit 3 when held)")
     ap.add_argument("--backfill", action="store_true", help="file the free back issues, a commit each (resumes)")
     ap.add_argument("--only", type=int, nargs="*", help="with --backfill: just these numbers")
+    ap.add_argument("--pages", type=int, nargs="*", help="save the page picture and PDF of these issue numbers (solution reading)")
     ap.add_argument("--retry-failed", action="store_true", help="with --backfill: try earlier failures again")
     args = ap.parse_args(argv)
+    if args.pages:
+        fetch_pages(args.pages)
+        return 0
     if args.backfill:
         return backfill(only=set(args.only or ()), retry_failed=args.retry_failed)
     if not args.latest:
