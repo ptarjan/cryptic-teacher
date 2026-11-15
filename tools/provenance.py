@@ -247,6 +247,11 @@ ACQUIRED_BY = {
                 "Times Digital Archive (tools/gale_inbox.py): "
                 "clues where archive.org's OCR and RapidOCR agree, the grid read off the scan or "
                 "rebuilt from the clues, answers off a later edition's solution grid"},
+    "tools/azed_scans.py": {
+        "channel": "newspaper",
+        "what": "a 1970s SUNDAY magazine (Kolkata) page in the Digital Library of India's archive.org "
+                "scans (tools/azed_scans.py): clues voted across the OCR readers, the barred grid "
+                "read off the scan by tools/ios_barred.py, answers off the next page's solution grid"},
     "tools/file_gale_listener.py": {
         "channel": "newspaper",
         "what": "a 1930s Listener page Paul saved from Gale's Listener Historical Archive "
@@ -365,6 +370,7 @@ ACQUISITION_BY_SOURCE = {
                                     "tools/ft_pdf_puzzles.py --wayback"),
     # A second series off fifteensquared, which BLOG_FILER names the FT's filer for.
     ("azed", "fifteensquared.net"): ("tools/azed_puzzles.py",),
+    ("azed", "archive.org"): ("tools/azed_scans.py",),
     # The Guardian's printable copies, found through andlit.org.uk's index.
     ("azed", "www.theguardian.com"): ("tools/andlit_azed.py",),
     ("azed", "image.guardian.co.uk"): ("tools/andlit_azed.py",),

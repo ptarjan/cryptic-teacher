@@ -171,6 +171,11 @@ def read_grid(path, wanted=None):
     found, why = found_grid(path)
     if found is None:
         return None, why
+    return read_found(found, wanted)
+
+
+def read_found(found, wanted=None):
+    """(rows, None) or (None, why) for listener_grid grid `found` (read_grid's checks, a grid found elsewhere)."""
     rows = found["rows"]
     if any("#" in r for r in rows):
         return None, "the barred reading has blocks"

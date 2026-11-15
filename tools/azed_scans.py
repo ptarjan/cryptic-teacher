@@ -1,0 +1,364 @@
+#!/usr/bin/env python3
+"""File the Azeds the SUNDAY magazine (Kolkata, Hindusthan Standard) printed in 1974-76, from the Digital Library
+of India's page scans on archive.org (downloads.AZED_SCANS: <item>/leaf_NNNN.jpg, djvu.xml.gz, pages.json).
+
+    python3 tools/azed_scans.py numbers            # each page's puzzle number, with the readings behind it
+    python3 tools/azed_scans.py read [N ...]       # read and print each puzzle's verdict, file nothing
+    python3 tools/azed_scans.py file [N ...]       # file what reads whole
+
+Each page carries the week's puzzle (heading, clues, a blank barred 12x12 grid) and the PREVIOUS week's solution
+grid and notes in a box: the solution to No N is on the page of No N+1.
+
+  - The page's number is read off its lines: "AZED CROSSWORD No. N", the title line "No.N: ...", and the notes
+    heading "AZED No N Solution and notes" (N+1). Readings that disagree, or out of the item's range, refuse the page.
+  - The clue columns are found from the djvu layout and read by every ocr_clues.READERS reader and voted, as
+    tools/privateeye_scans.py does for the Eye: a clue the readings do not agree on is blank and the puzzle is not
+    filed (no puzzle is filed with a blank clue).
+  - The puzzle's grid is the 12x12 lattice on the page that is not the solution grid (the one by the notes heading);
+    tools/ios_barred.py fits its bars as mirror pairs, the clue lists settling the unsure ones. It stands only when
+    every listed clue lies on a light of its length and every light has a clue.
+  - The answers are read off the next page's solution grid (ios_barred.solution_reads): a light with a sure word
+    is answered, the rest left. A puzzle filed with some answers is partly answered.
+  - The file has a "year" only: the weeks are counted from the Observer dates we hold (puzzle_year), the magazine
+    ran them about ten months late.
+"""
+import datetime
+import gzip
+import json
+import re
+import sys
+import xml.etree.ElementTree as ET
+
+import downloads
+
+TOOL = "tools/azed_scans.py"
+SERIES = "azed"
+#: The printed numbers an item holds (the notes' brief), a little wide: a reading outside is a misread.
+RANGES = {"dli.bengal.10689.22028": (42, 50), "dli.bengal.10689.23415": (72, 111),
+          "dli.bengal.10689.13117": (87, 102), "dli.bengal.10689.15514": (109, 155),
+          "dli.bengal.10689.20788": (156, 173)}
+#: Rows (in word heights) the solution grid may lie from the notes heading, and the margin cut round a grid.
+NOTES_HEAD = re.compile(r"solu\w*\s+and\s+notes", re.IGNORECASE)
+SOLVED = re.compile(r"\bAZED\s+(?!CROSS)N\w?\W{0,3}\s*(\d{1,3}(?:\s\d{1,2})?)\W", re.IGNORECASE)
+TITLED = re.compile(r"^\W{0,2}N[o0]\W{0,3}(\d{2,3})\W")
+CROSSED = re.compile(r"\bAZED\W*\s*CROSSWORD\W{0,3}\s*N\w?\W{0,3}\s*(\d{1,3}(?:\s\d{1,2})?)\b", re.IGNORECASE)
+MARGIN = 40
+#: Numbers of weeks apart that the Observer's puzzle and a number's anchor lie: Azed is weekly.
+WEEK = datetime.timedelta(days=7)
+
+
+def item_dir(item):
+    return downloads.AZED_SCANS / item
+
+
+def items():
+    return json.loads((downloads.AZED_SCANS / "index.json").read_text())
+
+
+_OBJECTS = {}
+
+
+def objects(item):
+    """The item's OBJECT elements, one per leaf, in order (parsed once)."""
+    if item not in _OBJECTS:
+        with gzip.open(item_dir(item) / "djvu.xml.gz") as f:
+            root = ET.fromstring(f.read())
+        _OBJECTS[item] = list(root.iter("OBJECT"))
+    return _OBJECTS[item]
+
+
+def lines_of(item, leaf):
+    """privateeye_scans.page_lines of one leaf."""
+    import privateeye_scans as pes
+    return pes.page_lines(ET.tostring(objects(item)[leaf]))
+
+
+def to_number(text):
+    return int(text.replace(" ", ""))
+
+
+def readings(lines):
+    """{"notes": [M], "titled": [N], "crossed": [N]}: the numbers the page's lines name; M is the number of the
+    puzzle whose solution and notes the page prints (N less the item's lag, 2 but for item 22028's 1)."""
+    out = {"notes": [], "titled": [], "crossed": []}
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        for m in SOLVED.finditer(text):
+            out["notes"].append(to_number(m.group(1)))
+        for m in CROSSED.finditer(text):
+            out["crossed"].append(to_number(m.group(1)))
+        m = TITLED.match(text)
+        if m:
+            out["titled"].append(int(m.group(1)))
+    return out
+
+
+def pages():
+    """[(item, leaf)] of every page index.json lists, item by item."""
+    return [(item, leaf) for item, meta in items().items() for leaf in meta["pages"]]
+
+
+def item_lag(item, got):
+    """How many puzzles the solution on a page lies behind the page's own: the commonest titled - notes of the
+    item's pages that print both (2, item 22028's 1)."""
+    gaps = [t - m for g in got.values() for t in g["titled"] for m in g["notes"] if 0 < t - m < 4]
+    return max(set(gaps), key=gaps.count) if gaps else 2
+
+
+def candidates(item, g, lag):
+    """The numbers a page's readings name (in the item's range), the notes' made the page's by the lag."""
+    lo, hi = RANGES[item]
+    seen = set(g["titled"]) | set(g["crossed"]) | {m + lag for m in g["notes"]}
+    return {n for n in seen if lo <= n <= hi}
+
+
+def numbering(item):
+    """({leaf: number}, {leaf: why not}, {leaf: readings}, lag) of an item's pages. A page whose readings agree
+    has its number; one whose readings differ takes the one candidate that lies between its neighbours' numbers
+    (the pages run one way, up or down); one that names none takes the number between neighbours two apart."""
+    leaves = items()[item]["pages"]
+    got = {leaf: readings(lines_of(item, leaf)) for leaf in leaves}
+    lag = item_lag(item, got)
+    cands = {leaf: candidates(item, got[leaf], lag) for leaf in leaves}
+    got_number = {leaf: next(iter(c)) for leaf, c in cands.items() if len(c) == 1}
+    sure = [(leaf, got_number[leaf]) for leaf in leaves if leaf in got_number]
+    up = len(sure) > 1 and (sure[-1][1] - sure[0][1]) * (sure[-1][0] - sure[0][0]) > 0
+    out, why = {}, {}
+    for k, leaf in enumerate(leaves):
+        before = [n for l, n in sure if l < leaf]
+        after = [n for l, n in sure if l > leaf]
+        lo, hi = (before[-1] if before else None), (after[0] if after else None)
+        if not up:
+            lo, hi = hi, lo
+        if leaf in got_number:
+            out[leaf] = got_number[leaf]
+            continue
+        inside = [n for n in cands[leaf] if (lo is None or lo < n) and (hi is None or n < hi)]
+        if len(inside) == 1:
+            out[leaf] = inside[0]
+        elif not cands[leaf] and lo is not None and hi is not None and hi - lo == 2:
+            out[leaf] = lo + 1
+        else:
+            why[leaf] = (f"the headings disagree: {sorted(cands[leaf])}" if cands[leaf]
+                         else "no heading names a number in the item's range")
+    return out, why, got, lag
+
+
+def numbered():
+    """({number: [(item, leaf)]}, {(item, leaf): why not}, {(item, leaf): readings}) of every page."""
+    by, why, seen = {}, {}, {}
+    for item in items():
+        out, bad, got, lag = numbering(item)
+        for leaf, n in out.items():
+            by.setdefault(n, []).append((item, leaf))
+        for leaf in bad:
+            why[(item, leaf)] = bad[leaf]
+        for leaf, g in got.items():
+            seen[(item, leaf)] = dict(g, lag=lag, number=out.get(leaf))
+    return by, why, seen
+
+
+# ---------------------------------------------------------------- the year
+
+def held_dates():
+    """{number: date} of the Azeds the corpus holds (puzzles/azed/<year>/azed-N.json)."""
+    from pathlib import Path
+    out = {}
+    for path in sorted((Path(__file__).resolve().parent.parent / "puzzles" / SERIES).glob("*/azed-*.json"))[:40]:
+        p = json.loads(path.read_text())
+        if p.get("date"):
+            out[p["number"]] = datetime.date.fromisoformat(p["date"])
+    return out
+
+
+def puzzle_year(number, held):
+    """The year the Observer printed Azed `number`, counting weeks from the nearest held one."""
+    near = min(held, key=lambda n: abs(n - number))
+    return (held[near] + WEEK * (number - near)).year
+
+
+# ---------------------------------------------------------------- the grids
+
+def grids_of(img, lines):
+    """(puzzle grid, solution grid): the page's two 12x12 lattices of rules (listener_grid dicts), the solution
+    the one nearest the notes heading; None for either not found."""
+    import numpy as np
+    import listener_grid as lg
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    found = [g for g in lg.find_grids(gray) if g.get("rows") and len(g["rows"]) == 12
+             and all(len(r) == 12 for r in g["rows"]) and g.get("lattice")]
+    head = [(ws[0][0], ws[0][1]) for ws in lines if NOTES_HEAD.search(" ".join(w[4] for w in ws))]
+    if not found:
+        return None, None
+    if not head or len(found) < 2:
+        return max(found, key=area), None
+    hx, hy = head[0]
+    near = min(found, key=lambda g: abs(g["box"][0] - hx) + abs(g["box"][1] - hy))
+    rest = [g for g in found if g is not near]
+    return max(rest, key=area), near
+
+
+def area(g):
+    return (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1])
+
+
+def wanted_of_laid(laid):
+    """ios_barred's `wanted` of the voted clues: [(numbers, direction, length)] of each single-light clue."""
+    out = []
+    for lid, (text, enum, group) in laid.items():
+        n, d = lid.split("-")
+        if group or re.match(r"See \d", text or ""):
+            continue
+        digits = [int(x) for x in re.findall(r"\d+", str(enum or ""))]
+        out.append((frozenset([int(n)]), d, sum(digits) if digits else None))
+    return out
+
+
+def fitted(grid, laid):
+    """(rows, None) or (None, why): the bars of the puzzle's lattice, set by the clue lists, kept when the lights
+    are the listed clues' (each of its length) and no more."""
+    import ios_barred
+    import reconstruct_grid as rg
+    rows, why = ios_barred.read_found(grid, wanted_of_laid(laid))
+    if rows is None:
+        return None, why
+    lights = rg.light_cells(rows)
+    for lid, (text, enum, group) in laid.items():
+        n, d = lid.split("-")
+        if (int(n), d) not in lights:
+            return None, f"clue {lid} has no light on the grid"
+        digits = [int(x) for x in re.findall(r"\d+", str(enum or ""))]
+        if not group and digits and sum(digits) != len(lights[(int(n), d)]) and not re.match(r"See \d", text or ""):
+            return None, f"clue {lid} counts {sum(digits)} but its light is {len(lights[(int(n), d)])}"
+    bare = sorted(f"{n}-{d}" for (n, d) in lights if f"{n}-{d}" not in laid)
+    if bare:
+        return None, f"lights with no clue: {', '.join(bare)}"
+    return rows, None
+
+
+def answers(img, lines, rows):
+    """({(number, direction): word}, stats) off the solution grid of the page `img` (the next puzzle's)."""
+    import ios_barred
+    puzzle, solution = grids_of(img, lines)
+    if solution is None:
+        return {}, {"refused": "no solution grid by the notes heading"}
+    x0, y0, x1, y1 = solution["box"]
+    window = img.crop((max(0, x0 - MARGIN), max(0, y0 - MARGIN), x1 + MARGIN, y1 + MARGIN))
+    return ios_barred.solution_reads(window, rows)
+
+
+# ---------------------------------------------------------------- reading a page
+
+def read_page(item, leaf, number):
+    """(number, laid, grid rows, why not) of one page: the clues voted, the grid fitted."""
+    import ocr_clues
+    import privateeye_scans as pes
+    from PIL import Image
+    lines = lines_of(item, leaf)
+    boxes = pes.columns(lines)
+    if not boxes:
+        return number, None, None, "no clue columns found in the page's layout"
+    path = item_dir(item) / f"leaf_{leaf:04d}.jpg"
+    img = Image.open(path)
+    words = {"djvu": [w for ws in lines for w in ws]}
+    for which in ocr_clues.READERS:
+        words[which] = []
+        for b in boxes:
+            words[which] += pes.column_words(img, b, which, f"azed_{item[-5:]}_{leaf}_{'-'.join(map(str, b))}")
+    cols = pes.column_cols(boxes)
+    verdict, laid = pes.voted(words, cols)
+    if laid is None:
+        return number, None, None, f"the readings do not parse: {verdict.get('refused')}"
+    blank = verdict.get("blank") or {}
+    deferred = ""
+    if blank:
+        laid, blank, deferred = pes.vlm_filled(img, boxes, words, cols, laid, blank)
+    if blank:
+        return number, None, None, f"{len(blank)} clues the readings do not agree on{deferred}: " + \
+            "; ".join(f"{k}: {v}" for k, v in sorted(blank.items())[:4])
+    laid = pes.linked_across(pes.directed_links(pes.named_links(laid, cols.named)))
+    empty = sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
+    if empty:
+        return number, None, None, f"clues with no words: {', '.join(empty)}"
+    grid, _ = grids_of(img, lines)
+    if grid is None:
+        return number, laid, None, "no 12x12 lattice of rules on the page"
+    rows, why = fitted(grid, laid)
+    return number, laid, rows, why
+
+
+def read_answers(by, seen, number, rows):
+    """({(n, d): word}, note) off the page that prints puzzle `number`'s solution: the one whose notes heading
+    names it, else the page of number + the item's lag."""
+    from PIL import Image
+    nxt = [k for k, g in seen.items() if number in g["notes"]] or by.get(number + 2, [])
+    nxt = [k for k in nxt if seen[k]["number"] is not None]
+    if len(nxt) != 1:
+        return {}, "no one page prints the solution"
+    item, leaf = nxt[0]
+    img = Image.open(item_dir(item) / f"leaf_{leaf:04d}.jpg")
+    got, stats = answers(img, lines_of(item, leaf), rows)
+    return got, stats.get("refused") or f"{len(got)} of {stats.get('lights')} lights read"
+
+
+# ---------------------------------------------------------------- building
+
+def build(number, laid, rows, item, leaf, solved, year):
+    """The puzzle of one read page (file_archive_org_puzzles.build), a year for its date, `solved` its answers."""
+    import file_archive_org_puzzles as fa
+    puzzle = fa.build(number, datetime.date(year, 1, 1), rows, "image", dict(laid), item, leaf, series=SERIES,
+                      name=f"Azed No {number}", url=f"https://archive.org/details/{item}/page/n{leaf}/mode/1up")
+    puzzle.pop("date", None)
+    puzzle["year"] = year
+    for e in puzzle["entries"]:
+        word = solved.get((e["number"], e["direction"]))
+        if word and not e.get("group") and len(word) == e["length"]:
+            e["solution"] = word
+        else:
+            e.pop("solution", None)
+    puzzle["source"] = {"publisher": "Observer", "url": puzzle["source"]["url"], "retrievedFrom": "archive.org",
+                        "acquiredBy": TOOL, "acquiredOn": datetime.date.today().isoformat(),
+                        "gridOrigin": "published"}
+    return puzzle
+
+
+def main(argv):
+    mode, wanted = (argv[1] if len(argv) > 1 else "numbers"), {int(a) for a in argv[2:]}
+    by, why, seen = numbered()
+    if mode == "numbers":
+        for (item, leaf), g in seen.items():
+            print(item[-5:], leaf, g["number"], g, why.get((item, leaf), ""))
+        dup = {n: v for n, v in by.items() if len(v) > 1}
+        print("numbers", len(by), "duplicates", dup, "unnumbered", len(why))
+        return 0
+    from fetch_puzzle import puzzle_path, write_puzzle_file
+    held = held_dates()
+    filed = partial = 0
+    refused = {}
+    for number in sorted(by):
+        if wanted and number not in wanted:
+            continue
+        # A number two scans hold (23415 and 13117 overlap) is read from each in turn, the first that reads whole.
+        for item, leaf in by[number]:
+            n, laid, rows, bad = read_page(item, leaf, number)
+            if not bad and rows is not None:
+                break
+        if bad or rows is None:
+            refused[number] = bad
+            print(number, "refused:", bad)
+            continue
+        solved, note = read_answers(by, seen, number, rows)
+        print(number, "whole;", note)
+        if mode == "file":
+            puzzle = build(number, laid, rows, item, leaf, solved, puzzle_year(number, held))
+            write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=TOOL)
+        filed += 1
+        partial += bool(solved)
+    print(f"whole {filed}, with some answers {partial}, refused {len(refused)}")
+    for n, w in sorted(refused.items()):
+        print(" ", n, w)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
