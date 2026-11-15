@@ -218,7 +218,7 @@ def media_pdfs():
             try:
                 text = get(f"{CDX}?url={host}&output=json&filter=mimetype:application/pdf"
                            f"&filter=statuscode:200&collapse=urlkey&from={lo}&to={hi}&limit=20000",
-                           timeout=300).decode("utf-8", "replace")
+                           timeout=300, tries=1 if len(lo) == 8 else 2).decode("utf-8", "replace")
             except Exception as e:
                 print(f"  CDX {host} {lo}-{hi}: {type(e).__name__}: {e}")
                 failed += _split_span(host, lo, hi)
