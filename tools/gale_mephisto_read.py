@@ -39,7 +39,7 @@ SOLUTIONS = downloads.GALE_CROSSWORDS / "Mephisto" / "Solutions"
 STORE = Path(os.path.expanduser("~/.cache/gale_mephisto"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 2
+VERSION = 3
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -346,6 +346,103 @@ def x_lines(ink, ys, rules):
     return [best[1] + best[2] * i for i in range(CELLS + 1)]
 
 
+#: Clues with a count the lists must give for the clue-fitted bars to stand, the lights the lists may leave
+#: unlisted (a clue the OCR lost), and the pairs thick enough on one side to be tried as a bar.
+FIT_CLUES = 20
+FIT_UNLISTED = 3
+FIT_TRY = 0.8
+FIT_ROUNDS = 60
+
+
+#: [clues missed, lights unlisted, clues counted] of the last mirror_fit's best bars (for a reader's report).
+LAST_FIT = []
+
+
+def wanted_of(laid):
+    """[(numbers, direction, length)] of the clues `laid` ({"12-across": (text, enum, group)}) reads whose count
+    gives the light's length: the clue list's own account of the grid, which fit_rows scores a bar set against."""
+    out = []
+    for lid, (_, enum, group) in laid.items():
+        number, _, direction = lid.partition("-")
+        counts = [int(x) for x in re.findall(r"\d+", enum or "")]
+        if group or not number.isdigit() or not counts:
+            continue
+        out.append((frozenset({int(number)}), direction, sum(counts)))
+    return out
+
+
+def fits(rows, wanted):
+    """(clues whose light is not on the grid at their count, lights no clue is listed for) of `rows`."""
+    import reconstruct_grid as rg
+    lights = rg.light_cells(rows)
+    missed = sum(1 for numbers, d, length in wanted
+                 if not any(dd == d and n in numbers and len(c) == length for (n, dd), c in lights.items()))
+    unlisted = sum(1 for (n, d) in lights if not any(dd == d and n in nn for nn, dd, _ in wanted))
+    return missed, unlisted
+
+
+def mirror_fit(found, wanted):
+    """The rows of listener_grid grid `found` whose bars are mirror pairs (180-degree symmetric, as a Mephisto's
+    are, ios_barred's way) set so every light lies on a listed clue's number, direction and count, or None: the
+    pairs read thick on one side at least are flipped one at a time from the pairs thick on both (and from those
+    thick on average) while the lights agree better with the lists; the lists are the reader of the bars, so the
+    bars' own symmetry threshold is not asked. Not taken for under FIT_CLUES counted clues, a clue off the grid, or
+    more than FIT_UNLISTED lights no clue is listed for."""
+    import ios_barred as ib
+    import listener_grid as lg
+    import reconstruct_grid as rg
+    if len(wanted) < FIT_CLUES:
+        return None
+    pairs = ib.pair_ratios(found)
+    n = len(found["rows"])
+    free = [p for p, (_, high) in pairs.items() if high >= FIT_TRY]
+
+    def lay(chosen):
+        return ib.rows_of({s for p in chosen for s in (p, ib.mirror_of(p, n))}, n)
+
+    best = None
+    for start in ({p for p, (low, _) in pairs.items() if low >= lg.BAR_RATIO},
+                  {p for p, (low, high) in pairs.items() if (low + high) / 2 >= lg.BAR_RATIO}):
+        bars = set(start)
+        score = ib.agreement(lay(bars), wanted)
+        for _ in range(FIT_ROUNDS):
+            tries = [(ib.agreement(lay(bars ^ {p}), wanted), -abs(sum(pairs[p]) / 2 - lg.BAR_RATIO), p) for p in free]
+            top = max(tries, default=None)
+            if top is None or top[0] <= score + 1e-9:
+                break
+            score = top[0]
+            bars ^= {top[2]}
+        if best is None or score > best[0]:
+            best = (score, bars)
+    rows = lay(best[1])
+    missed, unlisted = fits(rows, wanted)
+    LAST_FIT[:] = [missed, unlisted, len(wanted)]
+    lights = len(rg.light_cells(rows))
+    if missed or unlisted > FIT_UNLISTED or not LIGHTS[0] <= lights <= LIGHTS[1]:
+        return None
+    return rows
+
+
+
+def window_shifts(ink, ys, xs, reach=14, top=6):
+    """[dx] (cells, nearest zero first among equals) of the shifts of the lattice (ys, xs) along the page whose 13
+    rule rows hold the most ink: a lattice found from a rule broken in the middle takes its left end from the
+    break, half a grid off; the grid itself is the window the rules fill."""
+    import numpy as np
+    px = (xs[-1] - xs[0]) / CELLS
+    rule = np.zeros(ink.shape[1], dtype=float)
+    for y in ys:
+        y = int(y)
+        rule += ink[max(0, y - 2):y + 3].any(0)
+    cum = np.r_[0.0, np.cumsum(rule)]
+    scored = []
+    for dx in range(-reach, reach + 1):
+        a, b = int(xs[0] + dx * px), int(xs[-1] + dx * px)
+        if dx and 0 <= a and b < ink.shape[1]:
+            scored.append(((cum[b] - cum[a]) / (13 * (b - a)), dx))
+    return [dx for _, dx in sorted(scored, key=lambda s: (-s[0], abs(s[1])))[:top]]
+
+
 def read_barred(gray, lattice=None, wanted=None):
     """(rows, found, None) or (None, None, why) of the barred grid on `gray` (a page, uint8): the lattice found, its
     cell sides measured by listener_grid.read_box, the bars set as ios_barred.read_found sets them."""
@@ -369,7 +466,9 @@ def read_barred(gray, lattice=None, wanted=None):
                         key=lambda s: (abs(s[0]) + abs(s[1]), abs(s[1])))
         for ys, xs in cands[:2]:
             px, py = (xs[-1] - xs[0]) / CELLS, (ys[-1] - ys[0]) / CELLS
-            for dx, dy in shifts:
+            # first the shifts that put the grid where the rules' ink is (a lattice taken from a broken rule's far end)
+            near = [(dx, 0) for dx in window_shifts(ink, ys, xs)]
+            for dx, dy in near + [s for s in shifts if s not in near]:
                 y2, x2 = [y + dy * py for y in ys], [x + dx * px for x in xs]
                 if y2[0] < 0 or x2[0] < 0 or y2[-1] >= ink.shape[0] or x2[-1] >= ink.shape[1]:
                     continue
@@ -400,6 +499,9 @@ def read_lattice(gray, ink, ys, xs, wanted=None):
     found = {"rows": rows, "sides": sides, "thin": thin, "lattice": (list(ys), list(xs)),
              "box": (int(xs[0]), int(ys[0]), int(xs[-1]), int(ys[-1]))}
     fitted, why = ib.read_found(found, wanted)
+    if fitted is None and wanted:
+        fitted = mirror_fit(found, wanted)
+        why = why if fitted is None else None
     if fitted is None:
         return None, found, why
     lights = len(rg.light_cells(fitted))
@@ -436,6 +538,15 @@ def lists_cut(words, box):
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
 
 
+def listed(img, key, words, found, gl):
+    """wanted_of the clue lists under the grid at `found`, read without the grid's lengths ([] when none read)."""
+    block = gl.times_block(img, key, lists_cut(words, found["box"]), words)
+    if not block:
+        return []
+    _, laid = gl.times_read([block], None)
+    return wanted_of(laid or {})
+
+
 def read_page(path, store=STORE, asker=None):
     """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (gale_jumbo_read.vlm_mended)."""
     import numpy as np
@@ -459,6 +570,14 @@ def read_page(path, store=STORE, asker=None):
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
     rows, found, why = read_barred(gray)
+    fitted = False
+    if rows is None and found:
+        # The bars alone do not read: the clue lists' counts, read without the grid, set them (mirror_fit).
+        rows, found2, why2 = read_barred(gray, wanted=listed(img, key, words, found, gl))
+        if rows is not None:
+            found, fitted = found2, True
+        else:
+            why = why2 or why
     if rows is None:
         verdict["refused"] = f"grid unread: {why}"
         return verdict, None
@@ -474,6 +593,15 @@ def read_page(path, store=STORE, asker=None):
     blocks = [block]
     lengths = {f"{k}-{d}": len(cells) for (k, d), cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
+    if laid is None and not fitted:
+        # The bars read symmetric but the lights do not fit the lists: the lists' counts set the bars again.
+        again, found2, _ = read_barred(gray, wanted=listed(img, key, words, found, gl))
+        if again is not None and again != g:
+            g, found, fitted = again, found2, True
+            lengths = {f"{k}-{d}": len(cells) for (k, d), cells in aj.rg.light_cells(g).items()}
+            read, laid = gl.times_read(blocks, lengths)
+    if fitted:
+        verdict["barsFitted"] = True
     verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused")})
     if laid is None:
         return verdict, None
@@ -495,6 +623,12 @@ def read_page(path, store=STORE, asker=None):
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Sunday Times Mephisto No {n}",
                       url=url, printed=read.get("asPrinted"))
     verdict["whole"] = bool(fa.complete(puzzle))
+    if not verdict["whole"] and not blank:
+        # Every clue has text, so what keeps the page from whole is a clue complete() refuses (a bracket it never
+        # pairs, a word the OCR made up): named, so a "not whole, no blanks" row says which clues.
+        verdict["unfit"] = sorted({f"{k}": str(v)[:60] for k, v in (fa.faults(puzzle) or {}).items()}.items()) + [
+            f"{e['number']}-{e['direction']}: suspect" for e in puzzle["entries"]
+            if fa.suspect((e.get("clue") or {}).get("text", ""), printed=(e.get("clue") or {}).get("asPrinted") or ())]
     return verdict, puzzle
 
 
