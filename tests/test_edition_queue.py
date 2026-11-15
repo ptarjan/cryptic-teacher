@@ -2851,6 +2851,10 @@ check("ceiling_step: low RAM or hot CPU steps down, roomy and cool up, else hold
       (mg.ceiling_step(20, 1500, 50), mg.ceiling_step(20, 3000, 95), mg.ceiling_step(18, 5000, 50),
        mg.ceiling_step(20, 3000, 85), mg.ceiling_step(20, None, 99), mg.ceiling_step(8, 1000, 99),
        mg.ceiling_step(24, 9000, 10), mg.ceiling_step(12, 5000, None)))
+check("ceiling_step: VM swap traffic steps down and holds any step up",
+      (18, 20, 22),
+      (mg.ceiling_step(20, 9000, 10, swap_mb=mg.SWAP_DOWN_MB + 1), mg.ceiling_step(20, 9000, 10, swap_mb=mg.SWAP_HOLD_MB + 1),
+       mg.ceiling_step(20, 9000, 10, swap_mb=0)))
 M = 1 << 20
 _ps = [(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
 check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},

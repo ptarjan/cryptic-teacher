@@ -113,15 +113,33 @@ DROP_BELOW_MB = int(os.environ.get("CT_CEILING_DROP_BELOW") or 4800)
 DROP_SETTLE = int(os.environ.get("CT_CEILING_SETTLE") or 40)
 
 
-def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80):
-    """The new ceiling: -2 when Windows has under 2000 MB free or CPU is over cpu_hi, +2 when over
-    4500 MB free and CPU (unknown counts as busy) under cpu_lo; clamped to lo..hi. No RAM figure: unchanged."""
+#: The VM's own swap traffic (pswpin+pswpout, MB a minute) over which the ceiling steps down, and
+#: over which it never steps up (11-14 #household: 405 MB/min in and out of swap stalled the bridge
+#: while Windows free RAM read roomy enough to step up). CT_SWAP_DOWN / CT_SWAP_HOLD override.
+SWAP_DOWN_MB = int(os.environ.get("CT_SWAP_DOWN") or 30)
+SWAP_HOLD_MB = int(os.environ.get("CT_SWAP_HOLD") or 5)
+
+
+def swap_pages(path="/proc/vmstat"):
+    """pswpin + pswpout so far (pages), or None."""
+    try:
+        with open(path) as f:
+            return sum(int(line.split()[1]) for line in f if line.startswith(("pswpin ", "pswpout ")))
+    except (OSError, ValueError, IndexError):
+        return None
+
+
+def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80, swap_mb=None):
+    """The new ceiling: -2 when Windows has under 2000 MB free, CPU is over cpu_hi or the VM swaps over
+    SWAP_DOWN_MB a minute; +2 when over 4500 MB free, CPU (unknown counts as busy) under cpu_lo and
+    swap still (under SWAP_HOLD_MB a minute); clamped to lo..hi. No RAM figure: unchanged."""
     if free_mb is None:
         return ceiling
     new = ceiling
-    if free_mb < 2000 or (cpu or 0) > cpu_hi:
+    swap = swap_mb or 0
+    if free_mb < 2000 or (cpu or 0) > cpu_hi or swap > SWAP_DOWN_MB:
         new = ceiling - 2
-    elif free_mb > 4500 and (100 if cpu is None else cpu) < cpu_lo:
+    elif free_mb > 4500 and (100 if cpu is None else cpu) < cpu_lo and swap <= SWAP_HOLD_MB:
         new = ceiling + 2
     return max(lo, min(hi, new))
 
@@ -159,8 +177,18 @@ class CeilingController:
         self.last = None
         self.thread = None
         self.lines = []
+        self.swapped = None
+
+    def _swap_rate(self):
+        """MB a minute swapped in+out since the last probe (None on the first)."""
+        pages, now, last = swap_pages(), time.monotonic(), self.swapped
+        self.swapped = (pages, now) if pages is not None else None
+        if last is None or pages is None or now <= last[1]:
+            return None
+        return int((pages - last[0]) * 4 / 1024 * 60 / (now - last[1]))
 
     def _run(self):
+        swap = self._swap_rate()
         free = _win_free(self.host)
         cpu = _win_cpu(self.metrics) if self.metrics else None
         if free is not None and free < DROP_BELOW_MB and self.drop_cmd:
@@ -179,7 +207,7 @@ class CeilingController:
         env = os.environ.get
         cur = unit_ceiling()
         new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
-                           int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80))
+                           int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap)
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
             try:
@@ -189,7 +217,7 @@ class CeilingController:
             except OSError as e:
                 self.lines.append(f"ceiling: cannot write {path}: {e}")
                 return
-            self.lines.append(f"ceiling: win free {free} MB cpu {cpu}%: {cur} -> {new}")
+            self.lines.append(f"ceiling: win free {free} MB cpu {cpu}% swap {swap} MB/min: {cur} -> {new}")
 
     def poll(self, now=None):
         now = time.monotonic() if now is None else now
