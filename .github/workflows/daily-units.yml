@@ -1,0 +1,158 @@
+# Local daily units moved off the home server (Paul 2026-11-15: "Jobs should be on ci
+# where possible"), the steps of them that need only the network and the tracked files.
+# The home server keeps the steps that read the media disk, the desktop or the Claude
+# quota (tools/daily_units.py PHASES, tools/daily_update.sh unit_*). A step never runs
+# in both places.
+#
+#   solutions      every 3h: fetch_privateeye --backfill-dates, then fetch_puzzle,
+#                  fetch_observer and fetch_privateeye --refresh-unsolved (a prize
+#                  puzzle's key a week on; our own solves graded against it, misses into
+#                  tracked tools/data/blind_misses.json). The tick notes the keys it lands
+#                  (daily_units.py keyed --scan). The blog grade (cross_validate all
+#                  --model) stays local: it reads every cached copy on the media disk.
+#   snitch         daily: tools/fetch_snitch.py into tools/data/snitch.json (was the
+#                  ratings unit's second step; progress_record and the blog comments stay).
+#   series-health  daily: series_health.py --stale-only, red when a series stopped
+#                  arriving (was the checks unit's alert; hintless_overdue and turn_cost
+#                  read local state and stay).
+#
+# Commits and the push work as in fetch-puzzles.yml: each puzzle its own "File <id>"
+# commit (tools/commit_puzzles.sh), pushed with PUSH_TOKEN when set, rebased when master
+# moved; a GITHUB_TOKEN push reaches the site on pages.yml's 15-minute tick.
+name: Daily units
+
+on:
+  schedule:
+    - cron: "41 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      units:
+        description: Units to run (space-separated)
+        default: solutions snitch series-health
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-units
+  cancel-in-progress: false
+
+jobs:
+  units:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      CT_DOWNLOADS: /tmp/cryptic-downloads
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.PUSH_TOKEN || github.token }}
+      - uses: ./.github/actions/setup
+        with:
+          pip: numpy pillow pypdf opencv-python-headless
+      # solutions on every tick; the daily ones on the 12:41 UTC tick (05:41 ABT).
+      - name: Choose the units due
+        id: due
+        shell: bash
+        run: |
+          units="${{ inputs.units }}"
+          if [ -z "$units" ]; then
+            units=solutions
+            [ "$(date -u +%H)" = 12 ] && units="$units snitch series-health"
+          fi
+          echo "units: $units"
+          echo "units= $units " >> "$GITHUB_OUTPUT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - uses: actions/cache/restore@v5
+        if: contains(steps.due.outputs.units, ' series-health ')
+        with:
+          path: .git/ct-rows.sqlite*
+          key: row-cache-daily-units-${{ github.run_id }}
+          restore-keys: row-cache-
+      - name: solutions
+        if: contains(steps.due.outputs.units, ' solutions ')
+        shell: bash
+        run: |
+          out=$(mktemp)
+          failed=""
+          for step in "fetch_privateeye.py --backfill-dates" "fetch_puzzle.py --refresh-unsolved" \
+                      "fetch_observer.py --refresh-unsolved" "fetch_privateeye.py --refresh-unsolved"; do
+            echo "=== $step $(date -u +%H:%M) ==="
+            rc=0
+            # shellcheck disable=SC2086  # a step is a script and its arguments
+            # (Actions' bash runs with pipefail, so rc is python's.)
+            PYTHONUNBUFFERED=1 python3 tools/$step 2>&1 | tee -a "$out" || rc=$?
+            [ "$rc" = 0 ] || { echo "::error::$step failed (rc=$rc)"; failed="$failed ${step%% *}"; }
+          done
+          graded=$(grep -E "^BLIND SOLVE GRADED|^  miss " "$out" || true)
+          if [ -n "$graded" ]; then
+            { echo '### Graded against published answers'; echo '```'; echo "$graded"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+            grep -q "^  miss " <<<"$graded" && echo "::warning::a puzzle we solved ourselves had misses; its annotations were dropped (see the summary)"
+          fi
+          git add -A
+          python3 tools/renamed_ids.py --stage
+          tools/commit_puzzles.sh "daily solutions"
+          if ! git diff --cached --quiet; then
+            git commit -q -m "$(printf 'Daily solutions\n\n%s' "$(python3 tools/provenance.py trailer)")"
+          fi
+          left=$(git status --porcelain)
+          [ -z "$left" ] || echo "::warning::left behind after solutions: $left"
+          echo "failed=$failed" >> "$GITHUB_ENV"
+      - name: snitch
+        if: contains(steps.due.outputs.units, ' snitch ')
+        shell: bash
+        run: |
+          rc=0
+          python3 tools/fetch_snitch.py || rc=$?
+          [ "$rc" = 0 ] || { echo "::error::fetch_snitch failed (rc=$rc); the ratings already held stand"; echo "failed=$failed fetch_snitch" >> "$GITHUB_ENV"; }
+          git add tools/data/snitch.json
+          if ! git diff --cached --quiet; then
+            git commit -q -m "$(printf 'Daily ratings: snitch\n\n%s' "$(python3 tools/provenance.py trailer)")"
+          fi
+      - name: Push, rebasing when master moved
+        if: always()
+        shell: bash
+        run: |
+          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
+          if [ "$ahead" = 0 ]; then
+            echo "daily-units: nothing to push"
+            exit 0
+          fi
+          git log --format='%h %s' origin/master..HEAD
+          for n in $(seq 1 8); do
+            if git push -q origin HEAD:refs/heads/master; then
+              echo "daily-units: pushed $(git rev-parse --short HEAD)"
+              exit 0
+            fi
+            echo "daily-units: push $n lost the race; rebasing on the new tip"
+            git fetch -q --depth=100 origin master || { sleep 5; continue; }
+            if ! git rebase -q origin/master; then
+              git rebase --abort
+              echo "::error::rebase conflicted"
+              break
+            fi
+            sleep $((RANDOM % 5 + 1))
+          done
+          echo "::error::could not push"
+          exit 1
+      # Last, so a stale series never holds back the solutions' push. Red is the alert.
+      - name: series-health
+        if: always() && contains(steps.due.outputs.units, ' series-health ')
+        shell: bash
+        run: |
+          rc=0
+          out=$(python3 tools/series_health.py --stale-only 2>&1) || rc=$?
+          echo "$out"
+          if [ "$rc" != 0 ]; then
+            { echo '### A series has stopped arriving'; echo '```'; echo "$out"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::a series has stopped arriving (series_health.py --stale-only)"
+            exit 1
+          fi
+      - name: Fail on a failed step
+        if: always() && env.failed != ''
+        shell: bash
+        run: |
+          echo "::error::failed:$failed"
+          exit 1

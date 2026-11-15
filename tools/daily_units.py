@@ -2,6 +2,7 @@
 """The nightly's queue (tools/unit_queue.py): what tools/daily_update.sh does, as units.
 
     python3 tools/daily_units.py keyed --record   # note the puzzles whose official key this tree just gained
+    python3 tools/daily_units.py keyed --scan     # note those keyed by commits that reached origin/master (CI)
     python3 tools/daily_units.py keyed --recent   # those noted within FRESH_DAYS, for the annotation queue
     python3 tools/daily_units.py job <key>        # the unit's name in its commit subject
     python3 tools/daily_units.py generated <key>  # "all" or "none": does it need the generated files at start
@@ -21,7 +22,8 @@ The dependencies, all here:
   * a graded miss is diagnosed before any cold solve starts (annotate of an
     unsolved puzzle is `after` every miss:*), so its fix governs the solve;
   * the solutions unit notes the puzzles it gave a key (keyed --record), and
-    the tick's annotation queue reads them as new arrivals (keyed --recent).
+    the tick's annotation queue reads them as new arrivals (keyed --recent);
+    the keys CI's solutions job lands are noted by the tick (keyed --scan).
 """
 import json
 import os
@@ -30,6 +32,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+
 from unit_queue import STATE, Unit, main_checkout
 
 TOOLS = Path(__file__).resolve().parent
@@ -92,6 +95,8 @@ ANNOTATE_PAUSE = 3 * HOUR
 #: rc of an annotate unit whose failure says nothing about the puzzle.
 STOP_RC = 1
 KEYED = STATE / "daily-keyed.jsonl"
+#: The origin/master commit keyed --scan last read up to.
+KEYED_HEAD = STATE / "daily-keyed.head"
 FRESH_DAYS = 2
 
 #: (key, every, timeout seconds, trigger) of the phases that run on a cadence.
@@ -313,6 +318,58 @@ def record_keyed():
         print("keyed: " + " ".join(r["id"] for r in rows))
 
 
+def blobs(specs):
+    """The text of each `<rev>:<path>` in specs, None where it does not exist:
+    one `git cat-file --batch` for the lot, not a process per file."""
+    run = subprocess.run(["git", "cat-file", "--batch"], input="".join(s + "\n" for s in specs).encode(),
+                         capture_output=True, check=False)
+    out, i, texts = run.stdout, 0, []
+    for _ in specs:
+        end = out.index(b"\n", i)
+        head = out[i:end].split()
+        if len(head) != 3:  # "<spec> missing"
+            texts.append(None)
+            i = end + 1
+            continue
+        size = int(head[2])
+        texts.append(out[end + 1:end + 1 + size].decode("utf-8", "replace"))
+        i = end + 1 + size + 1
+    return texts
+
+
+def scan_keyed(ref="origin/master"):
+    """Note each puzzle that commits reaching `ref` since the last scan gave a
+    complete key. The solutions refresh runs in GitHub Actions
+    (.github/workflows/daily-units.yml), so its keys never pass through a local
+    unit's keyed --record; the tick reads them off git instead. Only files
+    that existed before (a new file is a new arrival, queued as one)."""
+    head = git("rev-parse", "--verify", "-q", ref + "^{commit}").strip()
+    if not head:
+        return
+    try:
+        last = KEYED_HEAD.read_text().strip()
+    except FileNotFoundError:
+        last = ""
+    rows = []
+    if last and last != head and subprocess.run(["git", "merge-base", "--is-ancestor", last, head],
+                                                capture_output=True, check=False).returncode == 0:
+        paths = git("diff", "--name-only", "--diff-filter=M", last, head, "--", "puzzles/*.json").split()
+        texts = blobs([f"{rev}:{p}" for p in paths for rev in (last, head)])
+        for k, path in enumerate(paths):
+            old, new = texts[2 * k], texts[2 * k + 1]
+            try:
+                if new and not keyed(old or "{}") and keyed(new):
+                    rows.append({"id": path.rsplit("/", 1)[-1].removesuffix(".json"), "at": time.time()})
+            except ValueError:
+                continue
+    KEYED.parent.mkdir(parents=True, exist_ok=True)
+    if rows:
+        with open(KEYED, "a") as f:
+            f.write("".join(json.dumps(r) + "\n" for r in rows))
+        print("keyed: " + " ".join(r["id"] for r in rows))
+    KEYED_HEAD.write_text(head + "\n")
+
+
 def recent_keyed():
     cut = time.time() - FRESH_DAYS * DAY
     try:
@@ -347,6 +404,9 @@ def main(argv):
         return 0
     if argv[:2] == ["keyed", "--record"]:
         record_keyed()
+        return 0
+    if argv[:2] == ["keyed", "--scan"]:
+        scan_keyed()
         return 0
     if argv[:2] == ["keyed", "--recent"]:
         print(" ".join(recent_keyed()))

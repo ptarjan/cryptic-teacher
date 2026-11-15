@@ -519,10 +519,8 @@ unit_ratings() {
       took progress_record
     fi
   fi
-  if step fetch_snitch; then
-    python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
-    took fetch_snitch
-  fi
+  # fetch_snitch (one page, into tracked tools/data/snitch.json) runs in GitHub Actions:
+  # .github/workflows/daily-units.yml `snitch`.
 
   # Times for the Times comments: the newest month on disk and any after it are
   # refetched, and the comment table rebuilt from the whole cache.
@@ -558,13 +556,10 @@ unit_checks() {
     if past_deadline; then echo "step $1 put off: past the unit's deadline; the next tick runs it"; unit_backlog_left; return 1; fi
     echo "step $1 from $(date +%H:%M:%S)"
   }
-  if step series_health; then
-    # A series that has stopped arriving. A feed that stops answering leaves its
-    # series frozen at the day it broke, and the run cannot tell that from a quiet
-    # night — it fetched, nothing failed. Only a series gone QUIET alerts; the full
-    # table is `python3 tools/series_health.py`.
-    coverage_stale=$(python3 tools/series_health.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
-    printf '%s\n' "$coverage_stale" | grep "^out of time" || true
+  # series_health.py --stale-only (a series that has stopped arriving) reads only the
+  # tracked puzzles, so it runs in GitHub Actions: .github/workflows/daily-units.yml
+  # `series-health`, whose red run is the alert.
+  if step hintless_overdue; then
     # A newly filed puzzle still hintless 36h on, with no failure recorded: the
     # silent miss (tools/hintless_overdue.py). A gate-held one lands here too, and
     # the text says so.
@@ -618,14 +613,15 @@ solutions_step() {
   return $step_rc
 }
 
+# The re-fetches (fetch_privateeye --backfill-dates, then fetch_puzzle, fetch_observer and
+# fetch_privateeye --refresh-unsolved) need only the network and the tracked puzzles, so they
+# run in GitHub Actions (.github/workflows/daily-units.yml `solutions`), whose job summary
+# carries their grades; the tick notes the keys they land (daily_units.py keyed --scan).
+# The blog grade stays here: it reads every cached copy on the media disk.
 unit_solutions() {
   local refreshed graded
   with_deadline
-  solutions_step fetch_privateeye.py --backfill-dates
-  refreshed=$( { solutions_step fetch_puzzle.py --refresh-unsolved
-                 solutions_step fetch_observer.py --refresh-unsolved
-                 solutions_step fetch_privateeye.py --refresh-unsolved
-                 solutions_step cross_validate.py all --model --apply; } 2>&1 | tee /dev/stderr)
+  refreshed=$( { solutions_step cross_validate.py all --model --apply; } 2>&1 | tee /dev/stderr)
   graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
   # A clean sweep and a bad night are not the same message. Both are worth
   # sending — the grade is the only measurement of derived answers and it
@@ -1315,6 +1311,8 @@ if ! index_ready; then
   exec python3 tools/unit_queue.py tick daily ${UNIT_QUEUE_DRY:+--dry-run}
 fi
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
+# The keys CI's solutions job landed since the last tick (daily_units.py keyed --scan).
+python3 tools/daily_units.py keyed --scan || echo "keyed --scan failed; CI-landed keys wait for the next tick"
 { read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" "$(python3 tools/daily_units.py keyed --recent)" <<'EOF'
 import json, sys
 sys.path.insert(0, "tools")
