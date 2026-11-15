@@ -97,9 +97,12 @@ for blog in ("timesforthetimes", "bigdave44"):
     check(f"cache_sync finds the {blog} workflow", cache_sync.WORKFLOWS[blog], "blog-fetch.yml")
     check(f"cache_sync records the {blog} posts in the manifest", cache_sync.MANIFESTED[blog], "posts")
 check("cache_sync mirrors the timesforthetimes folder", cache_sync.CACHES["timesforthetimes"], cache_sync.downloads.TIMESFORTHETIMES)
-check("a refetched comments month with all the old ids supersedes", cache_sync.supersedes("comments/2026-11.json", b'[{"id": 1}]', b'[{"id": 1}, {"id": 2}]'), True)
-check("a comments month that lost an id never supersedes", cache_sync.supersedes("comments/2026-11.json", b'[{"id": 1}, {"id": 2}]', b'[{"id": 1}]'), False)
-check("a post never supersedes", cache_sync.supersedes("posts/1.json", b'{"a": 1}', b'{"a": 1, "b": 2}'), False)
+check("a refetched comments month is merged, keeping a row only the old copy has",
+      cache_sync.merged("comments/2026-11.json", b'[{"id": 1, "date": "a"}, {"id": 3, "date": "c"}]',
+                        b'[{"id": 1, "date": "a"}, {"id": 2, "date": "b"}]'),
+      b'[{"id": 1, "date": "a"}, {"id": 2, "date": "b"}, {"id": 3, "date": "c"}]')
+check("a merge is idempotent", cache_sync.merged("comments/2026-11.json", b'[{"id": 1, "date": "a"}]', b'[{"id": 1, "date": "a"}]'), b'[{"id": 1, "date": "a"}]')
+check("a post is never merged", cache_sync.merged("posts/1.json", b'{"a": 1}', b'{"a": 1, "b": 2}'), None)
 check("cache_sync mirrors the telegraph-source folder", cache_sync.CACHES["telegraph-source"], cache_sync.downloads.TELEGRAPH)
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
 # The CI fetchers run in .github/workflows/fetch-puzzles.yml and nowhere else.

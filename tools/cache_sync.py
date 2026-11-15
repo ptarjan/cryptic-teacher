@@ -24,7 +24,7 @@ keep reading unchanged.
 
 A cache joins by a row in CACHES and a workflow that uploads cache-<name>-<run id>
 (timesforthetimes and bigdave44: blog-fetch.yml). SUPERSEDABLE files, the one exception to
-'only adds', are replaced by a later copy that holds all the old one's rows.
+'only adds', are merged with the later copy, keeping every old row.
 """
 import argparse
 import json
@@ -52,8 +52,7 @@ MANIFESTED = {"fifteensquared": "posts", "timesforthetimes": "posts", "bigdave44
 #: see SUPERSEDABLE.
 COMMENTED = {"timesforthetimes": "comments", "bigdave44": "comments"}
 #: The few files a fetch rewrites in place: a comments month still filling, and the blog's
-#: category list. A differing copy replaces the disk's one only when it holds everything the
-#: disk's has (every comment id; every category id), so nothing is ever lost.
+#: category list. A differing copy is merged into the disk's one (merged()), so no row is lost.
 SUPERSEDABLE = {"comments", "categories.json"}
 
 
@@ -68,21 +67,25 @@ def record_landed(name, dest, rel, data):
         media_manifest.record_comments(dest / p.parts[0], p.stem)
 
 
-def supersedes(rel, old, new):
-    """True when `new` (bytes) is a later copy of the rewritable file `rel` that holds
-    everything `old` (bytes) has."""
+def merged(rel, old, new):
+    """The bytes a rewritable file `rel` becomes when the later copy `new` meets the disk's
+    `old`: the later copy's rows, plus any row only the old one has (a comment since deleted
+    upstream is kept; an edited one takes the later text). None for a file that is not
+    rewritable or does not parse."""
     p = Path(rel)
     if not (p.name in SUPERSEDABLE or (p.parts and p.parts[0] in SUPERSEDABLE)):
-        return False
+        return None
     try:
         a, b = json.loads(old), json.loads(new)
     except ValueError:
-        return False
+        return None
     if isinstance(a, list) and isinstance(b, list):
-        return {r["id"] for r in a} <= {r["id"] for r in b}
+        have = {r["id"] for r in b}
+        rows = sorted(b + [r for r in a if r["id"] not in have], key=lambda r: (r.get("date", ""), r["id"]))
+        return json.dumps(rows).encode()
     if isinstance(a, dict) and isinstance(b, dict):
-        return set(a) <= set(b)
-    return False
+        return json.dumps({**a, **b}, ensure_ascii=False).encode()
+    return None
 
 
 def gh(*args, out=None):
@@ -130,15 +133,19 @@ def land(zf, dest, dry=False, name=None):
             old = target.read_bytes()
             if old == data:
                 same += 1
-            elif supersedes(info.filename, old, data):
-                if not dry:
-                    tmp = target.with_name(f".{target.name}.sync{os.getpid()}")
-                    tmp.write_bytes(data)
-                    os.replace(tmp, target)
-                    record_landed(name, dest, info.filename, data)
-                added += 1
             else:
-                differ.append(info.filename)
+                new = merged(info.filename, old, data)
+                if new is None:
+                    differ.append(info.filename)
+                elif new == old:
+                    same += 1
+                else:
+                    if not dry:
+                        tmp = target.with_name(f".{target.name}.sync{os.getpid()}")
+                        tmp.write_bytes(new)
+                        os.replace(tmp, target)
+                        record_landed(name, dest, info.filename, new)
+                    added += 1
             continue
         if not dry:
             target.parent.mkdir(parents=True, exist_ok=True)
