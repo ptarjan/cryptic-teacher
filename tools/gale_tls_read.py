@@ -1328,7 +1328,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
 #: Their dates are the print Fridays (the page's own footer, when it reads one, wins).
 BACK_PREFIX = "tlsback:"
 BACK_DIR = "Backfill"
-BACK_VERSION = 7
+BACK_VERSION = 8
 BACK_REASON = "never read (Gale fetch)"
 BACK_DATES = dict(
     (int(a), b) for a, b in (p.split(":") for p in (
@@ -1462,6 +1462,99 @@ def stray_number(words):
     return out
 
 
+#: A clue's count closing a token or line ("5)", "... clues (4, 5)").
+COUNT_END = re.compile(r"\d\s*\)[.,]?$")
+#: How far under a clue's last line (in line heights) and across its column the page's strays are looked for.
+STRAY_LINES = 8
+STRAY_COLUMN = 500
+
+
+def strays_after_count(words):
+    """`words` without the specks under a clue's count in its own column and before the next clue's number:
+    a column's list that ends above the page's little solution grid (1604's left column: clue 14, then the
+    last puzzle's solution letters, "TTT", "MIAN") reads as the clue's own words, and no other reading has
+    them. Words are (x0, y0, x1, y1, text), a reading's lines or tokens."""
+    nums = [w for w in words if re.match(r"\d{1,2}\b", w[4]) and not COUNT_END.search(w[4])]
+    gone = set()
+    for c in words:
+        if not COUNT_END.search(c[4].strip()):
+            continue
+        above = [n for n in nums if n is not c and n[1] <= c[1] + 5 and 0 <= c[0] - n[0] < STRAY_COLUMN + 20
+                 and n[0] <= c[0] + 5]
+        if not above:
+            continue
+        n = max(above, key=lambda w: (w[1], w[0]))
+        lh = max(c[3] - c[1], 1)
+        lo, hi = c[3] + 3, c[3] + STRAY_LINES * lh
+        for m in nums:
+            if m is not n and abs(m[0] - n[0]) < 25 and m[1] > c[3]:
+                hi = min(hi, m[1] - 1)
+        # only specks: no lowercase letter in them, or one or two characters (a clue's words have lowercase)
+        gone.update(i for i, t in enumerate(words)
+                    if lo <= t[1] < hi and n[0] - 20 <= t[0] <= n[0] + STRAY_COLUMN
+                    and not re.search(r"[a-z]", t[4]) and not t[4].strip()[:1].isdigit()
+                    and not re.fullmatch(r"(?i)across|down", t[4].strip()))
+    return [t for i, t in enumerate(words) if i not in gone]
+
+
+#: Letters short enough to be a solution grid's specks (not a clue's words) in a chain.
+SPECK_LEN = 3
+#: The most a clue number may stand from the word it numbers.
+NUMBER_GAP = 80
+
+
+def specks_before_number(words):
+    """`words` without the chain of two or more short letter-only specks that run up to a clue's number on its
+    own row (1604's 5-down: "C HW D All T In S I O Hn O 5 Four novels", the last puzzle's solution grid beside
+    the list), which hides the number from a reading that cuts the page by rows. A chain stops at any
+    token with a digit, a mark or a word over SPECK_LEN letters (the line before's own ending count)."""
+    gone = set()
+    for i, n in enumerate(words):
+        if not re.fullmatch(r"\d{1,2}", n[4].strip()):
+            continue
+        after = [w for w in words if w[0] > n[2] and w[0] - n[2] < NUMBER_GAP and abs(w[1] - n[1]) < (n[3] - n[1])
+                 and re.match(r"[A-Za-z]{2}", w[4])]
+        if not after:
+            continue
+        row = sorted((j for j, w in enumerate(words) if w[2] <= n[0] + 2 and abs(w[3] - n[3]) < (n[3] - n[1])),
+                     key=lambda j: -words[j][0])
+        chain = []
+        for j in row:
+            if not re.fullmatch(rf"[A-Za-z]{{1,{SPECK_LEN}}}", words[j][4].strip()):
+                break
+            chain.append(j)
+        if len(chain) >= 2:
+            gone.update(chain)
+    return [t for i, t in enumerate(words) if i not in gone]
+
+
+#: How far left of its column's numbers a clue number may stand and still be that column's (pixels).
+NUMBER_DRIFT = 40
+#: Clue numbers at one x it takes to make a column.
+NUMBER_COLUMN = 3
+
+
+def aligned_numbers(words):
+    """`words` with a lone clue number that stands left of its column (1604's 5-down: "5" at x492 where the
+    column's other numbers stand at 516, a solution grid's specks beside it) set to the column's x, so a
+    reading that cuts by the numbers' column takes it. Only a number whose next word starts as the column's
+    words do is moved. Words are (x0, y0, x1, y1, text, ...) tokens."""
+    lone = [w for w in words if re.fullmatch(r"\d{1,2}", w[4].strip())]
+    starts = [w[0] for w in words if re.match(r"\d{1,2}\s*$|\d{1,2}\s+[A-Za-z]", w[4].strip())]
+    out = []
+    for w in words:
+        if w in lone:
+            cols = sorted({round(x) for x in starts if 0 < x - w[0] <= NUMBER_DRIFT
+                           and sum(abs(y - x) <= 3 for y in starts) >= NUMBER_COLUMN})
+            nxt = [v for v in words if v[0] > w[2] and v[0] - w[2] < NUMBER_GAP and abs(v[1] - w[1]) < (w[3] - w[1])
+                   and re.match(r"[A-Za-z]", v[4])]
+            if cols and nxt and nxt[0][0] > cols[0] + 5 and nxt[0][0] - cols[0] < NUMBER_DRIFT + 30:
+                shift = cols[0] - w[0]
+                w = (w[0] + shift, w[1], w[2] + shift, w[3], *w[4:])
+        out.append(w)
+    return out
+
+
 @contextlib.contextmanager
 def initialisms_known():
     import ocr_clues
@@ -1473,7 +1566,7 @@ def initialisms_known():
         return word.lower() in BACK_INITIALISMS or word in BACK_NAMES or old(word)
 
     def vote(words, *args, **kwargs):
-        spelt = {k: [(*t[:4], respelt(t[4]), *t[5:]) for t in stray_number(w)] for k, w in words.items()}
+        spelt = {k: [(*t[:4], respelt(t[4]), *t[5:]) for t in stray_number(aligned_numbers(specks_before_number(strays_after_count(w))))] for k, w in words.items()}
         return old_vote(spelt, *args, **kwargs)
 
     ocr_clues.is_word = is_word

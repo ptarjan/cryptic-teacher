@@ -75,4 +75,18 @@ foot = [(0, 3990, 100, 4000, "Friday,"), (110, 3990, 300, 4000, "September 4, 20
 words = [(0, 10, 300, 40, "TLS Crossword 1341 by Praxiteles")] + foot
 day, setter = t.footer_and_setter(words, 4000)
 assert str(day) == "2020-09-04" and setter == "Praxiteles", (day, setter)
+# 1604: specks of the last solution grid under clue 14's count, and ahead of the column's lone "5"
+col = [(12, 414, 30, 440, "14"), (42, 414, 150, 440, "Detective"), (186, 445, 240, 467, "clues (4, 5)"),
+       (41, 486, 100, 510, "TTT"), (82, 494, 95, 512, "IL."), (12, 540, 30, 560, "15"),
+       (42, 540, 150, 560, "Something")]
+kept = [w[4] for w in t.strays_after_count(col)]
+assert "TTT" not in kept and "IL." not in kept and "Detective" in kept and "15" in kept and "Something" in kept, kept
+assert [w[4] for w in t.strays_after_count([(0, 0, 90, 30, "ACROSS"), (6, 40, 60, 60, "1"), (70, 40, 90, 60, "Go (4)"),
+                                              (0, 80, 90, 110, "DOWN")])][-1] == "DOWN"
+row = [(330, 835, 345, 860, "S"), (354, 835, 380, 860, "Il"), (393, 835, 410, 860, "O"), (456, 835, 470, 860, "O"),
+       (492, 835, 514, 872, "5"), (537, 844, 588, 863, "Four"),
+       (516, 784, 531, 802, "4"), (538, 783, 643, 808, "Language"), (517, 905, 531, 925, "6"),
+       (537, 905, 590, 925, "Twist"), (516, 940, 531, 960, "7"), (537, 940, 590, 960, "Then")]
+assert [w[4] for w in t.specks_before_number(row)] == ["5", "Four", "4", "Language", "6", "Twist", "7", "Then"]
+assert [w[0] for w in t.aligned_numbers(t.specks_before_number(row)) if w[4] == "5"] == [516]
 print("ok")
