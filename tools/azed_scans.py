@@ -174,7 +174,7 @@ def held_dates():
 def puzzle_year(number, held):
     """The year the Observer printed Azed `number`, counting weeks from the nearest held one."""
     near = min(held, key=lambda n: abs(n - number))
-    return (held[near] + WEEK * (number - near)).year
+    return held[near] + WEEK * (number - near)
 
 
 # ---------------------------------------------------------------- the grids
@@ -202,6 +202,47 @@ def area(g):
     return (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1])
 
 
+#: Rows starting this far (pixels) right of a clue column's left edge are not its own lines.
+OWN_LINES = 120
+
+
+def clipped(boxes, lines):
+    """`boxes` (privateeye_scans.columns) with each cut at the right edge of its own lines: Azed prints one clue
+    column, so the box ran to the page's edge (the notes box with its own ACROSS and DOWN headings beside it) and
+    its rows merged with those words. Its own lines are those that start at its left edge."""
+    import privateeye_scans as pes
+    rows = [pes.boxed(ws) for ws in lines]
+    out = []
+    for x0, y0, x1, y1 in boxes:
+        mine = [r for r in rows if x0 <= r[0] + 8 <= x0 + OWN_LINES and y0 <= r[1] and r[3] <= y1]
+        out.append((x0, y0, min(x1, max(r[2] for r in mine) + 8) if mine else x1, y1))
+    return out
+
+
+def by_grid(cols, rows):
+    """`cols` (privateeye_scans.column_cols) with each reading's clue numbers put right by the grid's light order:
+    a side whose reading prints as many numbered clues as the grid has lights there is renumbered in sequence, a
+    number misread ("25" for 20) then no longer splits the readings. A side that does not match is left."""
+    import privateeye_scans as pes
+    import reconstruct_grid as rg
+    lights = rg.light_cells(rows)
+    want = [sorted(n for (n, d) in lights if d == side) for side in ("across", "down")]
+
+    def wrapped(words):
+        fixed = []
+        for side, lines in enumerate(cols(words)):
+            lines = list(lines)
+            idx = [i for i, ln in enumerate(lines) if pes.CLUE_NUMBER.match(ln[4])]
+            if len(idx) == len(want[side]):
+                for i, n in zip(idx, want[side]):
+                    m = pes.CLUE_NUMBER.match(lines[i][4])
+                    lines[i] = lines[i][:4] + (lines[i][4][:m.start(1)] + str(n) + lines[i][4][m.end(1):],)
+            fixed.append(lines)
+        return fixed
+    wrapped.named = cols.named
+    return wrapped
+
+
 def wanted_of_laid(laid):
     """ios_barred's `wanted` of the voted clues: [(numbers, direction, length)] of each single-light clue."""
     out = []
@@ -226,7 +267,8 @@ def fitted(grid, laid):
     for lid, (text, enum, group) in laid.items():
         n, d = lid.split("-")
         if (int(n), d) not in lights:
-            return None, f"clue {lid} has no light on the grid"
+            shown = {s: sorted(k[0] for k in lights if k[1] == s) for s in ("across", "down")}
+            return None, f"clue {lid} has no light on the grid (lights {shown}; clues {sorted(laid)})"
         digits = [int(x) for x in re.findall(r"\d+", str(enum or ""))]
         if not group and digits and sum(digits) != len(lights[(int(n), d)]) and not re.match(r"See \d", text or ""):
             return None, f"clue {lid} counts {sum(digits)} but its light is {len(lights[(int(n), d)])}"
@@ -255,7 +297,7 @@ def read_page(item, leaf, number):
     import privateeye_scans as pes
     from PIL import Image
     lines = lines_of(item, leaf)
-    boxes = pes.columns(lines)
+    boxes = clipped(pes.columns(lines), lines)
     if not boxes:
         return number, None, None, "no clue columns found in the page's layout"
     path = item_dir(item) / f"leaf_{leaf:04d}.jpg"
@@ -266,6 +308,12 @@ def read_page(item, leaf, number):
         for b in boxes:
             words[which] += pes.column_words(img, b, which, f"azed_{item[-5:]}_{leaf}_{'-'.join(map(str, b))}")
     cols = pes.column_cols(boxes)
+    grid, _ = grids_of(img, lines)
+    if grid is not None:
+        import ios_barred
+        prelim, _ = ios_barred.read_found(grid, None)
+        if prelim is not None:
+            cols = by_grid(cols, prelim)
     verdict, laid = pes.voted(words, cols)
     if laid is None:
         return number, None, None, f"the readings do not parse: {verdict.get('refused')}"
@@ -280,7 +328,6 @@ def read_page(item, leaf, number):
     empty = sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
     if empty:
         return number, None, None, f"clues with no words: {', '.join(empty)}"
-    grid, _ = grids_of(img, lines)
     if grid is None:
         return number, laid, None, "no 12x12 lattice of rules on the page"
     rows, why = fitted(grid, laid)
@@ -306,10 +353,9 @@ def read_answers(by, seen, number, rows):
 def build(number, laid, rows, item, leaf, solved, year):
     """The puzzle of one read page (file_archive_org_puzzles.build), a year for its date, `solved` its answers."""
     import file_archive_org_puzzles as fa
-    puzzle = fa.build(number, datetime.date(year, 1, 1), rows, "image", dict(laid), item, leaf, series=SERIES,
+    puzzle = fa.build(number, year, rows, "image", dict(laid), item, leaf, series=SERIES,
                       name=f"Azed No {number}", url=f"https://archive.org/details/{item}/page/n{leaf}/mode/1up")
-    puzzle.pop("date", None)
-    puzzle["year"] = year
+    puzzle["date"] = year.isoformat()
     for e in puzzle["entries"]:
         word = solved.get((e["number"], e["direction"]))
         if word and not e.get("group") and len(word) == e["length"]:
@@ -351,7 +397,12 @@ def main(argv):
         print(number, "whole;", note)
         if mode == "file":
             puzzle = build(number, laid, rows, item, leaf, solved, puzzle_year(number, held))
-            write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=TOOL)
+            try:
+                write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=TOOL)
+            except Exception as e:  # a refused write is that puzzle's reason, not the run's end
+                refused[number] = f"the write was refused: {e}"
+                print(number, refused[number])
+                continue
         filed += 1
         partial += bool(solved)
     print(f"whole {filed}, with some answers {partial}, refused {len(refused)}")
