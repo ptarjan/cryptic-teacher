@@ -22,13 +22,14 @@
 #                      every six hours, the fortnightly TLS
 #                      (fetch:tls_puzzles). daily_units.py SLOW_FETCHERS says
 #                      why the Listener and the Nation are not fetched.
-#   blog:times, blog:telegraph, bucket:telegraph, xval:globe
+#   blog:times, blog:telegraph, xval:globe
 #                      the Times and the Telegraph, rebuilt from the blogs
-#                      that solve them, the Telegraph's own bucket, and the
-#                      Globe's copies of the Times Quick Cryptic.
+#                      that solve them, and the Globe's copies of the Times
+#                      Quick Cryptic. (The Telegraph's own bucket is fetched in CI,
+#                      telegraph-bucket.yml; cache-sync lands its raw cache here.)
 #   ft, azed           the FT from fifteensquared, Azed from fifteensquared
-#                      and the Guardian's printable copies. These and
-#                      bucket:telegraph are backfills: one that stops with
+#                      and the Guardian's printable copies. These
+#                      are backfills: one that stops with
 #                      backlog left runs again at the next tick until it is
 #                      drained.
 #   genius             the Guardian's monthly Genius, PDFs plus
@@ -319,14 +320,12 @@ unit_blog_telegraph() {
     "times_grids.py --blog bigdave44 --budget-seconds $TELEGRAPH_GRID_SECONDS" \
     file_telegraph_puzzles.py
 }
-# From 2015 the Telegraph's own bucket is the primary source: today's
-# puzzles, and blog-rebuilt files of the numbers it serves, refiled as printed.
-# Every hole, oldest first, 2s apart (fetch_telegraph.py DELAY); a run starts
-# no fetch past its budget, so it commits inside its limit, and one that
-# stopped with holes left runs again at the next tick (backlog_left).
-TELEGRAPH_BUCKET_SECONDS="${TELEGRAPH_BUCKET_SECONDS:-2400}"
-unit_bucket_telegraph() {
-  blog_chain Telegraph "fetch_telegraph.py --holes all --budget-seconds $TELEGRAPH_BUCKET_SECONDS"
+# From 2015 the Telegraph's own bucket is the primary source: its holes are fetched in
+# CI (.github/workflows/telegraph-bucket.yml, fetch_telegraph.py --holes all), which
+# is the only writer of the telegraph-source cache now. The cache-sync unit lands
+# what that run fetched on the media disk (tools/cache_sync.py).
+unit_cache_sync() {
+  python3 tools/cache_sync.py
 }
 # The Globe and Mail reprints the Times Quick Cryptic from No 3106: its copy
 # witnesses the blog-rebuilt Quick the Times filer files for the same number,
@@ -1184,7 +1183,7 @@ if [ "${1:-}" = unit ]; then
     wayback:privateeye) unit_wayback_privateeye ;;
     blog:times) unit_blog_times ;;
     blog:telegraph) unit_blog_telegraph ;;
-    bucket:telegraph) unit_bucket_telegraph ;;
+    cache-sync) unit_cache_sync ;;
     xval:globe) unit_xval_globe ;;
     ft) unit_ft ;;
     azed) unit_azed ;;

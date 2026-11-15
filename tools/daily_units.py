@@ -15,7 +15,7 @@ fetch-and-file phases, each on its own cadence. Each unit runs
 and pushes what it changed itself.
 
 The dependencies, all here:
-  * every filing unit (fetch:*, blog:*, bucket:*, ft, azed) cross-checks and
+  * every filing unit (fetch:*, blog:*, ft, azed) cross-checks and
     commits its own filings, so nothing waits for a sibling to file;
   * blog-facts re-reads the blog caches after any blog fetch ended well
     (trigger), and not while one runs (after);
@@ -48,7 +48,7 @@ TREE = "daily_unit"
 #: rest, so a backfill that reruns until its backlog is done never makes a
 #: new puzzle wait.
 LIMITS = {"claude": 2, "backfill": 2}
-BACKFILLS = ("bucket:telegraph", "ft", "azed")
+BACKFILLS = ("ft", "azed")
 #: Started from the main checkout, as the scheduler starts the tick:
 #: tools/nightly_worktree.sh takes the checkout a script runs from as the one
 #: whose state (CT_MAIN_CHECKOUT, the shared files) every tree links to.
@@ -102,7 +102,7 @@ KEYED_HEAD = STATE / "daily-keyed.head"
 FRESH_DAYS = 2
 
 #: (key, every, timeout seconds, trigger) of the phases that run on a cadence.
-#: A backfill (bucket:telegraph, ft, azed) has no per-run cap: it works to a
+#: A backfill (ft, azed) has no per-run cap: it works to a
 #: wall-clock budget (daily_update.sh) at its source's own request pace, and
 #: one that stopped with backlog left runs again at the next tick
 #: (unit_queue.backlog_left), so `every` is only how often it looks for new
@@ -123,12 +123,13 @@ PHASES = [
     ("solutions", 3 * HOUR, 60 * 60, ()),
     ("blog:times", 3 * HOUR, 120 * 60, ()),
     ("blog:telegraph", 3 * HOUR, 120 * 60, ()),
-    ("bucket:telegraph", DAY, 60 * 60, ()),
     ("ft", 6 * HOUR, 75 * 60, ()),
     ("azed", DAY, 75 * 60, ()),
     ("genius", DAY, 60 * 60, ()),
     ("xval:globe", DAY, 60 * 60, ()),
-    ("blog-facts", DAY, 120 * 60, ("blog:times", "blog:telegraph", "bucket:telegraph", "ft")),
+    # Lands the raw fetch caches CI writes (tools/cache_sync.py): add-only.
+    ("cache-sync", 3 * HOUR, 30 * 60, ()),
+    ("blog-facts", DAY, 120 * 60, ("blog:times", "blog:telegraph", "ft")),
     ("ratings", DAY, 60 * 60, ()),
     ("checks", DAY, 45 * 60, ()),
     ("minute", 6 * HOUR, 30 * 60, ()),
@@ -148,7 +149,7 @@ GENERATED = {
     "wayback": False,
     "solutions": False,
     "blog": False,
-    "bucket": False,
+    "cache-sync": False,
     "xval": False,
     "ft": False,
     "azed": False,

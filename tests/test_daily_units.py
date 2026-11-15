@@ -63,6 +63,19 @@ for step in ["fetch_puzzle.py --refresh-unsolved", "fetch_observer.py --refresh-
     check(f"{step} is not run by daily_update.sh",
           [ln for ln in daily_sh.splitlines() if step.split()[0] in ln and not ln.lstrip().startswith("#")
            and (step.split()[-1] in ln or step.endswith(".py"))], [])
+# bucket:telegraph (2026-11-15) runs in telegraph-bucket.yml and nowhere else; its raw cache
+# comes back to the media disk by the add-only cache-sync unit.
+bucket_yml = (REPO / ".github" / "workflows" / "telegraph-bucket.yml").read_text()
+check("fetch_telegraph.py --holes all runs in telegraph-bucket.yml", "tools/fetch_telegraph.py --holes all" in bucket_yml, True)
+check("fetch_telegraph.py --holes is not run by daily_update.sh",
+      [ln for ln in daily_sh.splitlines() if "fetch_telegraph.py" in ln and "--holes" in ln and not ln.lstrip().startswith("#")], [])
+check("bucket:telegraph is not planned locally", "bucket:telegraph" in keys, False)
+check("bucket:telegraph is no unit of daily_update.sh", "unit_bucket_telegraph" in daily_sh, False)
+check("cache-sync is planned", "cache-sync" in keys, True)
+check("cache-sync runs tools/cache_sync.py", "python3 tools/cache_sync.py" in daily_sh, True)
+check("telegraph-bucket.yml uploads the artifact cache-sync lands", "cache-telegraph-source-${{ github.run_id }}" in bucket_yml, True)
+import cache_sync
+check("cache_sync mirrors the telegraph-source folder", cache_sync.CACHES["telegraph-source"], cache_sync.downloads.TELEGRAPH)
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
 # The CI fetchers run in .github/workflows/fetch-puzzles.yml and nowhere else.
 workflow = (REPO / ".github" / "workflows" / "fetch-puzzles.yml").read_text()
@@ -93,7 +106,7 @@ check("ratings runs once today's ledger is saved", plans_ratings(at(3)), True)
 check("yesterday's ledger is not today's", plans_ratings(time.mktime((2026, 10, 16, 3, 0, 0, 0, 0, -1))), False)
 
 # The choice, read off what each unit runs before its own build step.
-for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
+for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "blog:times", "blog:telegraph", "cache-sync",
           "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports", "checks"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
 for k in ["annotate:p1", "miss:p1:3a"]:
