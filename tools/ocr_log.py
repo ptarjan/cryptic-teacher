@@ -35,9 +35,16 @@ import time
 HEARTBEAT_S = 5 * 60       # the status line is written at least this often
 IDLE_AFTER_S = 5 * 60      # nothing started this long, nothing running: idle
 ASK_WINDOW_S = 10 * 60
-PAPER_NAMES = {"times": "Times", "ftcryptic": "FT", "telegraph": "Telegraph", "listener": "Listener",
-               "sundaytel": "Sunday Telegraph", "indysunday": "Independent on Sunday"}
-RUN_MAX_S = 70 * 60        # a unit with no end line this long is forgotten
+PAPER_NAMES = {"times": "Times", "cryptic": "Guardian", "ftcryptic": "FT", "telegraph": "Telegraph",
+               "listener": "Listener", "sundaytel": "Sunday Telegraph", "indysunday": "Independent on Sunday",
+               "sundaytimes": "Sunday Times", "timesjumbo": "Times Jumbo", "timesclub": "Times Club",
+               "timesquick": "Times Quick", "tls": "TLS", "azed": "Azed", "mephisto": "Mephisto",
+               "nationmag": "Nation", "nation": "Nation", "independent": "Independent",
+               "sundaytough": "Sunday Toughie", "toughie": "Toughie", "everyman": "Everyman",
+               "quiptic": "Quiptic", "genius": "Genius", "cyclops": "Cyclops", "metro": "Metro",
+               "canberra": "Canberra Times", "book": "Book"}
+LOG_COMMITS = 1500         # newest commits read for the filed count
+RUN_MAX_S =70 * 60        # a unit with no end line this long is forgotten
 ASK_LOG_TAIL = 512 * 1024  # bytes of the reader's call log read for the ask count
 ASK_LINE = re.compile(r"^(\d\d):(\d\d):(\d\d) vlm ask ")
 DEDUPE_S = 180            # the same result line twice inside this is one
@@ -221,16 +228,26 @@ class Log:
         try:
             # Filter by commit time here, not with --since: git stops walking at the first commit older
             # than --since, so a back-dated or rebased tip hides every commit behind it.
-            res = subprocess.run(["git", "-C", self.repo, "log", "-n", "5000", "--format=%ct %s"],
+            # A filing is a puzzle .json ADDED under puzzles/, whatever the commit subject says. The
+            # newest LOG_COMMITS commits bound the cost (an hour is far fewer); the hour is cut from %ct.
+            res = subprocess.run(["git", "-C", self.repo, "log", "-n", str(LOG_COMMITS),
+                                  "--diff-filter=A", "--name-only", "--format=%x01%ct", "--", "puzzles/"],
                                  capture_output=True, text=True, timeout=30, check=True)
             filed, updated = {}, 0
+            inside = False
+            for row in res.stdout.splitlines():
+                if row.startswith("\x01"):
+                    inside = t - 3600 <= int(row[1:]) <= t
+                    continue
+                m = re.match(r"^puzzles/([^/]+)/(?:.+/)?[^/]+\.json$", row)
+                if inside and m:
+                    filed[m.group(1)] = filed.get(m.group(1), 0) + 1
+            res = subprocess.run(["git", "-C", self.repo, "log", "-n", "5000", "--format=%ct %s"],
+                                 capture_output=True, text=True, timeout=30, check=True)
             for row in res.stdout.splitlines():
                 when, _, subject = row.partition(" ")
                 if not t - 3600 <= int(when) <= t:
                     continue
-                m = re.match(r"^File ([a-z]+)-\d", subject)
-                if m:
-                    filed[m.group(1)] = filed.get(m.group(1), 0) + 1
                 m = re.match(r"^Update (\d+) puzzles", subject)
                 if m:
                     updated += int(m.group(1))
@@ -285,7 +302,7 @@ class Log:
         counts = self.git_counts(self.t)
         filed, updated = counts if counts else ({"times": len(self.filed)}, "–")
         n = len(self.running)
-        papers = [f"{c} {PAPER_NAMES.get(p, p.capitalize())}" for p, c in sorted(filed.items(), key=lambda kv: kv[0] != "times") if c]
+        papers = [f"{c} {PAPER_NAMES.get(p, p.capitalize())}" for p, c in sorted(filed.items(), key=lambda kv: (kv[0] != "times", -kv[1], kv[0])) if c]
         parts = [f"{n} unit{'' if n == 1 else 's'} at once", (" + ".join(papers) or "0 Times") + " filed/h",
                  f"{updated} puzzles updated/h", f"{self.ask_count()} image-reader asks/10 min",
                  f"{self.queued} reads queued"]

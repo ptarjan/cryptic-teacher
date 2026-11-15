@@ -158,19 +158,32 @@ def local_iso(h, m):   # the log's clock is local time, so give git the same mom
     return datetime.datetime(2026, 10, 30, h, m).astimezone().isoformat()
 git("init", "-q")
 git("config", "commit.gpgsign", "false")
-for i, subject in enumerate(["File times-5355", "File times-5356", "File telegraph-21551", "Update 3 puzzles", "Update 4 puzzles", "Something else"]):
-    git("commit", "-q", "--allow-empty", "-m", subject, when=local_iso(8, 20 + i))
-git("commit", "-q", "--allow-empty", "-m", "File times-1", when=local_iso(6, 0))   # outside the hour
+def add_files(subject, names, when):
+    for name in names:
+        path = os.path.join(repo, "puzzles", *name.split("/"))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as fh:
+            fh.write("{}")
+    git("add", "-A")
+    git("commit", "-q", "--allow-empty", "-m", subject, when=when)
+# filings are .json files added under puzzles/, whatever the commit subject says
+add_files("File times-5355", ["times/5355.json"], local_iso(8, 20))
+add_files("OCR", ["times/5356.json", "cryptic/1.json"], local_iso(8, 21))
+add_files("Hand file", ["telegraph/2001/21551.json"], local_iso(8, 22))
+add_files("Update 3 puzzles", [], local_iso(8, 23))
+add_files("Update 4 puzzles", ["tls/9.json", "times/notes.txt"], local_iso(8, 24))
+add_files("Something else", ["other/readme.md"], local_iso(8, 25))
+add_files("File times-1", ["times/1.json"], local_iso(6, 0))   # outside the hour
 log = O.Log(repo, day=DAY)
 log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
-check(log.git_counts(log.t), ({"times": 2, "telegraph": 1}, 7), "filed commits per paper and 3+4 puzzles updated in the last hour")
+check(log.git_counts(log.t), ({"times": 2, "cryptic": 1, "telegraph": 1, "tls": 1}, 7), "added puzzle files per paper dir and 3+4 puzzles updated in the last hour")
 check(log.feed("09:05:01 vlm stage: 0 asks spooled, 2 reads waiting")[0].split(" · ")[1:3],
-      ["2 Times + 1 Telegraph filed/h", "7 puzzles updated/h"], "the status line reads them, Times first")
+      ["2 Times + 1 Guardian + 1 Telegraph + 1 TLS filed/h", "7 puzzles updated/h"], "the status line reads them, Times first")
 check(O.Log(os.path.join(HOME, "nowhere"), day=DAY).git_counts(1_800_000_000), None, "a missing repo is unknown, not zero")
 git("commit", "-q", "--allow-empty", "-m", "Update times-727", when=local_iso(8, 30))
 log = O.Log(repo, day=DAY)
 log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
-check(log.git_counts(log.t), ({"times": 2, "telegraph": 1}, 8), "a single 'Update times-N' commit in the hour adds 1 puzzle updated")
+check(log.git_counts(log.t), ({"times": 2, "cryptic": 1, "telegraph": 1, "tls": 1}, 8), "a single 'Update times-N' commit in the hour adds 1 puzzle updated")
 
 # live, the ask count is the image reader's own call log (UTC clock), not the queue's "N asks spooled"
 asks_path = os.path.join(HOME, "vlm_asks.log")
