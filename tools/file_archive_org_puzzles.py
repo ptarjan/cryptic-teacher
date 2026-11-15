@@ -21726,6 +21726,10 @@ def blanket_or_fix(row, blanket):
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if weekday_right_due(row):
             return WEEKDAY_RIGHT
+        # 11-15: 155 of 217 Independent on Sunday rows due INDY_PAIRED were planned "scan stale, answers missing"
+        # (a blanket reason only_evidence drops): its page's puzzle is held by no file, as good as never read.
+        if indy_paired_due(row):
+            return INDY_PAIRED
         if left_edge_grid_due(row):
             return LEFT_EDGE_GRID
         if sides_headed_due(row):

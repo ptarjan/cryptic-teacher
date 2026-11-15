@@ -3793,6 +3793,11 @@ check("an Independent on Sunday page left with its 12x12 barred grid unread is d
       [bool(f.indy_paired_due(_ip)), bool(f.indy_paired_due({**_ip, "readAt": "2026-11-16T00:00:00+00:00"})),
        bool(f.indy_paired_due({**_ip, "verdicts": [{**_ip["verdicts"][0], "wrote": True}]})),
        bool(f.indy_paired_due({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"})) or f.INDY_PAIRED not in f.RANKS])
+check("a row due INDY_PAIRED keeps it past the blanket scan-stale reason (blanket_or_fix), one not due keeps the blanket",
+      [True, True, True],
+      [bool(f.indy_paired_due(_ip)) == (f.blanket_or_fix(_ip, "scan stale, answers missing") == f.INDY_PAIRED),
+       f.blanket_or_fix({**_ip, "readAt": "2026-11-16T00:00:00+00:00"}, "scan stale, answers missing") != f.INDY_PAIRED,
+       f.blanket_or_fix({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"}, "x") != f.INDY_PAIRED])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
