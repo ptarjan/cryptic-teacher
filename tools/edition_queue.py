@@ -2004,6 +2004,11 @@ def fix_landed_reread(unit):
     return reason in FIX_LANDED and not reason.endswith((" before its fix", " cured since"))
 
 
+#: Fix rereads of the fixes being worked on now: first of all the fix rereads (fix_rereads_forward).
+#: Add the newest fix's reason; drop one once its rereads are read.
+NEWEST_LANDED = (fa.SIDES_HEADED, fa.TELEGRAPH_CELLS, fa.TELEGRAPH_FITTED)
+
+
 def fix_rereads_forward(out):
     """`out` (units in dispatch order) with the other papers' fix rereads (fix_landed_reread, rank 2, not the
     CT_NEWEST_FIRST papers' nor the Listener's: those have their own fixes-first rule) moved, in their order,
@@ -2019,6 +2024,11 @@ def fix_rereads_forward(out):
            and (fix_landed_reread(u) or (u.get("kind") == "scan" and u.get("fix")))]
     if not fix:
         return out
+    # 11-14: the newest fixes' rereads lead the block (stable, the order otherwise kept). The block is ~3,350
+    # fix rereads of 5+ papers taking turns, and fresh reads start only as the VLM spool has room (spool_cap_hit),
+    # so the walk's frontier sat at ~50: 37 SIDES_HEADED and 446 TELEGRAPH_CELLS rereads (index 289-500)
+    # had not one "start read" in hours while older fixes' kept re-entering ahead of them.
+    fix.sort(key=lambda u: u.get("kind") != "read" or u.get("reason") not in NEWEST_LANDED)
     ids = {id(u) for u in fix}
     rest = [u for u in out if id(u) not in ids]
     at = next((i for i, u in enumerate(rest) if other(u) and u.get("rank", 9) <= 1), len(rest))
