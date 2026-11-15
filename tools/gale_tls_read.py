@@ -87,12 +87,125 @@ def read_done(row):
 
 
 def plan(saved=SAVED, store=STORE):
-    """One unit per saved page not read at VERSION (or whose last attempt crashed), newest first."""
+    """One unit per saved page not read at VERSION (or whose last attempt crashed), newest first; then
+    the solution units (plan_solutions)."""
     done = load_ledger(store)
     reason = "never read (Gale fetch)"
     todo = [p for p in page_files(saved) if not read_done(done.get(p.name))]
     todo.sort(key=lambda p: p.stat().st_mtime, reverse=True)
-    return [{"rel": PREFIX + p.name, "rank": fa.RANKS[reason], "reason": reason, "needs": []} for p in todo]
+    out = [{"rel": PREFIX + p.name, "rank": fa.RANKS[reason], "reason": reason, "needs": []} for p in todo]
+    return plan_solutions(store, saved) + out
+
+
+#: A puzzle's solution is printed as a small grid captioned "SOLUTION TO CROSSWORD n" in the issue
+#: of puzzle n + SOLUTION_LAG (the page then held one of the numbers around it, tried nearest first).
+SOLUTION_PREFIX = PREFIX + "solution:"
+SOLUTION_LAGS = (4, 3, 5)
+SOLVED_VERSION = 1
+FIT = 0.97
+
+
+def solution_pages(n, rows):
+    """[page file name] of the ledger `rows` ({file: row}) that may print puzzle n's solution."""
+    by_number = {}
+    for name, r in rows.items():
+        if r.get("number") and r.get("whole") is not None:
+            by_number.setdefault(r["number"], []).append(name)
+    return [name for lag in SOLUTION_LAGS for name in sorted(by_number.get(n + lag, ()))]
+
+
+def unsolved(puzzle):
+    """Whether a held puzzle has a light with no answer."""
+    return any(not e.get("solution") for e in puzzle["entries"])
+
+
+def plan_solutions(store=STORE, saved=SAVED):
+    """One unit per held puzzle with a blank light and a page of its solution's issue read, not tried at
+    SOLVED_VERSION (or with another page to try now)."""
+    from fetch_puzzle import puzzle_path, read_puzzle_file
+    rows = load_ledger(store)
+    done = load_solved(store)
+    out = []
+    for n in sorted({r["number"] for r in rows.values() if r.get("number")}, reverse=True):
+        names = solution_pages(n, rows)
+        target = puzzle_path(SERIES, n)
+        if not names or not target.exists():
+            continue
+        last = done.get(n) or {}
+        if last.get("version") == SOLVED_VERSION and not set(names) - set(last.get("tried") or ()):
+            continue
+        held = read_puzzle_file(target)
+        if held and unsolved(held):
+            out.append({"rel": SOLUTION_PREFIX + str(n), "rank": fa.RANKS[fa.JUMBO_SOLUTION],
+                        "reason": fa.JUMBO_SOLUTION, "needs": []})
+    return out
+
+
+#: The small solution grid's width on a page, in pixels (556 on a 3,384-px page, ~720 on a 5,509-px one).
+SOLUTION_PX = (400, 1500)
+
+
+def solution_box(path, grid, store=STORE):
+    """jr.solution_box with the small grid's sizes."""
+    return jr.solution_box(path, grid, store, px=SOLUTION_PX)
+
+
+def load_solved(store=STORE):
+    return jr.load_solved(store)
+
+
+def solve_unit(rel, store=STORE, saved=SAVED):
+    """Take the solution grid printed in a later issue into the held puzzle `rel` ("tls:solution:N") names
+    (a blank light only, as jr.solve_puzzle: refused when the grid's blocks are not the puzzle's or the
+    reading does not fit its lights). The solved ledger row appended. Returns "read" or "current"."""
+    from fetch_puzzle import puzzle_path, read_puzzle_file, write_puzzle_file
+    import copy
+    import provenance
+    n = int(rel[len(SOLUTION_PREFIX):])
+    names = solution_pages(n, load_ledger(store))
+    last = load_solved(store).get(n) or {}
+    todo = [x for x in names if x not in (last.get("tried") or ())] if last.get("version") == SOLVED_VERSION else names
+    if not todo:
+        return "current"
+    verdict = {"number": n, "version": SOLVED_VERSION}
+    target = puzzle_path(SERIES, n)
+    old = read_puzzle_file(target) if target.exists() else None
+    if old is None:
+        verdict.update(tried=names, refused="no puzzle held")
+    elif not unsolved(old):
+        verdict.update(tried=names, refused="every light already answered")
+    else:
+        try:
+            found, new = jr.solve_puzzle(old, todo, saved, store, finder=solution_box, tool=TOOL)
+        except Exception as e:  # any raise: a bad page is a verdict
+            found, new = {"tried": todo, "refused": f"crashed: {type(e).__name__}: {e}"}, None
+            print(found["refused"], file=sys.stderr)
+        found["tool"] = TOOL
+        verdict.update(found)
+        verdict["tried"] = sorted(set(found.get("tried") or ()) | set(last.get("tried") or ()))
+        if new is not None:
+            before = provenance.check(old)
+            try:
+                stamped = provenance.stamp(copy.deepcopy(new), (old.get("source") or {}).get("acquiredBy") or TOOL)
+            except ValueError as e:
+                stamped = None
+                verdict["refused"] = f"provenance: {e}"
+            if stamped is not None:
+                faults = [f for f in provenance.check(stamped) if f not in before]
+                if faults:
+                    verdict["refused"] = f"provenance: {faults[0]}"
+                else:
+                    try:
+                        write_puzzle_file(target, new, generator=TOOL)
+                        verdict["wrote"] = True
+                        verdict["whole"] = not unsolved(new)
+                    except Exception as e:  # the write gate's refusal: the file stands as held
+                        verdict["refused"] = f"write refused: {type(e).__name__}: {e}"
+    if str(verdict.get("refused", "")).startswith("crashed"):
+        verdict.pop("version")  # a crash is no verdict: the puzzle stays due
+    jr.append_solved(verdict, store)
+    print(json.dumps(verdict))
+    return "read"
 
 
 def cites(saved=SAVED, store=STORE):
@@ -1061,6 +1174,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
     the number; the ledger row appended. Returns "read", "current" or "failed"."""
     import scan_queue
     from fetch_puzzle import puzzle_path, write_puzzle_file
+    if rel.startswith(SOLUTION_PREFIX):
+        return solve_unit(rel, store, saved)
     name = rel[len(PREFIX):] if rel.startswith(PREFIX) else rel
     path = Path(saved) / name
     before = load_ledger(store).get(name)

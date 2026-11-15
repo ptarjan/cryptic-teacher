@@ -269,7 +269,7 @@ def plan_solutions(store=STORE, solutions=SOLUTIONS, docs=DOCS):
     return out
 
 
-def grid_candidates(img):
+def grid_candidates(img, px=GRID_PX):
     """[box] of the grid-sized ink on a solution page: page_grids' boxes and every square patch of ink
     (a Times page prints its grid ~38% of the page wide; page_grids keeps the widest *lattice-like* box,
     which can be a photo or a text block, and then never offers the real grid). The block fit judges them."""
@@ -278,10 +278,10 @@ def grid_candidates(img):
         b = list(b)
         if not any(max(abs(x - y) for x, y in zip(b, o)) < 0.05 * (b[2] - b[0]) for o in out):
             out.append(b)
-    return [b for b in out if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]]
+    return [b for b in out if px[0] <= b[2] - b[0] <= px[1]]
 
 
-def solution_box(path, grid, store=STORE):
+def solution_box(path, grid, store=STORE, px=GRID_PX):
     """(block agreement, page index, box) of the grid-sized ink on a solution page whose blocks are the
     puzzle's `grid`'s, or None. The page's grid-shaped boxes are kept in the store."""
     import numpy as np
@@ -292,7 +292,7 @@ def solution_box(path, grid, store=STORE):
     if cache.exists():
         boxes = json.loads(cache.read_text())
     else:
-        boxes = [[i, b] for i, (img, _) in enumerate(pages) for b in grid_candidates(img)]
+        boxes = [[i, b] for i, (img, _) in enumerate(pages) for b in grid_candidates(img, px)]
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_text(json.dumps(boxes))
     best = None
@@ -327,7 +327,7 @@ def read_crop(path, index, box, crop, grid):
     return {f"{n}-{d}": w for (n, d), w in answers.items()}
 
 
-def solve_puzzle(old, names, solutions=SOLUTIONS, store=STORE, finder=None, reader=None):
+def solve_puzzle(old, names, solutions=SOLUTIONS, store=STORE, finder=None, reader=None, tool=TOOL):
     """(verdict, new puzzle or None): `old`, the held puzzle this tool filed, with the answers of the
     solution page among `names` whose grid has its blocks. Only a blank light takes an answer that
     fits (merge_answers keep: blog and hand answers stand); refused when the reading does not fit the
@@ -359,7 +359,7 @@ def solve_puzzle(old, names, solutions=SOLUTIONS, store=STORE, finder=None, read
     for e in reading["entries"]:
         e["solution"] = answers.get(fa.entry_id(e))
     new = copy.deepcopy(old)
-    changed = fa.merge_answers(new, reading, tool=TOOL, keep=True)
+    changed = fa.merge_answers(new, reading, tool=tool, keep=True)
     verdict["read"] = len(answers)
     verdict["filled"] = len(changed)
     return verdict, (new if changed else None)

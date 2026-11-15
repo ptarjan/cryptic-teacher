@@ -2040,7 +2040,7 @@ def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()
     CPU, a handful of units; they stood last of the plan behind the Times work and ~300 Jumbo page reads,
     so no jumbo:solution unit had run in 8 hours."""
     out = fix_rereads_forward(ordered_by_urgency(units, serves, fixing, newest))
-    sol = gale_jumbo_read.SOLUTION_PREFIX
+    sol = (gale_jumbo_read.SOLUTION_PREFIX, gale_tls_read.SOLUTION_PREFIX)
     first = [u for u in out if str(u.get("rel", "")).startswith(sol)]
     return first + [u for u in out if not str(u.get("rel", "")).startswith(sol)] if first else out
 
