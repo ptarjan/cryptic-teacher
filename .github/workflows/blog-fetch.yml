@@ -75,7 +75,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p "$CACHE_DIR/posts" "$CACHE_DIR/comments"
-          (cd "$CACHE_DIR" && find . -type f -exec md5sum {} + | sort -k2) > /tmp/cache-before.txt
+          (cd "$CACHE_DIR" && find . -type f -exec md5sum {} + | LC_ALL=C sort) > /tmp/cache-before.txt
           wc -l < /tmp/cache-before.txt
           python3 tools/media_manifest.py build "posts-$BLOG"
           python3 tools/media_manifest.py build "comments-$BLOG"
@@ -96,7 +96,7 @@ jobs:
         id: new
         shell: bash
         run: |
-          (cd "$CACHE_DIR" && find . -type f -exec md5sum {} + | sort -k2) > /tmp/cache-after.txt
+          (cd "$CACHE_DIR" && find . -type f -exec md5sum {} + | LC_ALL=C sort) > /tmp/cache-after.txt
           mkdir -p /tmp/cache-new
           comm -13 /tmp/cache-before.txt /tmp/cache-after.txt | sed 's/^[0-9a-f]*  //' | while read -r f; do
             mkdir -p "/tmp/cache-new/$(dirname "$f")"
