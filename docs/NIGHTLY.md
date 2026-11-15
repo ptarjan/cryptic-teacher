@@ -16,16 +16,14 @@ limit, ledger row and worktree, then exits. The units are:
    why: the Listener's clues are printed only behind the Times' paywall, and
    the Nation's weekly cryptic ended in April 2020. `tools/series_health.py`
    `STALE_AFTER_DAYS` alarms on a series silent past its cadence;
-2. `bucket:telegraph`, `xval:globe`, `ft`,
-   `azed`: the puzzles rebuilt from other copies, each on its own
-   cadence; each filer cross-checks and commits its own filings. The
-   backfills (`bucket:telegraph`, `ft`, `azed`) have no per-run cap: each
-   works to a wall-clock budget at its source's own request pace, and one
-   that stops with backlog left runs again at the next tick
-   (`unit_queue.backlog_left`) until it is drained, two at most at once so
-   the fetchers and annotations keep their trees. Their commits name what
-   they filed, e.g. "File azed-1738, azed-1739, azed-1740 and 14 more (azed
-   backfill)";
+2. `ft`: the FT rebuilt from fifteensquared's write-ups, a backfill with no
+   per-run cap: it works to a wall-clock budget, and one that stops with
+   backlog left runs again at the next tick (`unit_queue.backlog_left`) until
+   it is drained. It stays local because the grid search runs on Paul's
+   desktop. `bucket:telegraph`, `xval:globe`, `azed` and `genius` run in CI
+   (`telegraph-bucket.yml`, `daily-units.yml`), as do the Times and Telegraph
+   blog chains (`blog-chain.yml`); each commits its own filings, e.g. "File
+   azed-1738, azed-1739, azed-1740 and 14 more (azed backfill)";
 3. `solutions`, every three hours: re-fetches any puzzle still waiting for
    published solutions (`--refresh-unsolved`) and grades our own fills;
 4. `annotate:<id>`: Claude annotates one puzzle. Every new arrival (dated
@@ -36,6 +34,12 @@ limit, ledger row and worktree, then exits. The units are:
    the bad hints solvers reported from the site;
 6. `blog-facts`, `ratings`, `checks`, `minute`: the derived tables and the
    alerts about a series gone quiet or a corpus defect.
+
+Every unit ends with a `unit-time <key> <seconds>s rc=<n>` line in `.update.log`.
+Staying local, and why: `solutions` (the blog grade reads every cached copy on
+the media disk; its re-fetches are CI's), `checks` (`hintless_overdue` reads the
+local failure ledger and usage gate, `turn_cost` the Claude transcripts) and
+`cache-sync` (its whole job is writing the media disk).
 
 A slow or failing unit holds up only itself: a failure is retried after ten
 minutes, doubling each time, and a unit past its limit is killed and alerted.

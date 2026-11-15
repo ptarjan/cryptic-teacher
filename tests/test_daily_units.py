@@ -84,7 +84,8 @@ check("fetch_fifteensquared.py is not run by daily_update.sh",
 check("fifteensquared-fetch.yml uploads the artifact cache-sync lands", "cache-fifteensquared-${{ github.run_id }}" in fsq_yml, True)
 check("cache_sync mirrors the fifteensquared folder", cache_sync.CACHES["fifteensquared"], cache_sync.downloads.FIFTEENSQUARED)
 check("cache_sync finds the fifteensquared workflow", cache_sync.WORKFLOWS["fifteensquared"], "fifteensquared-fetch.yml")
-check("the ft, azed and genius units still file", all(f"unit_{u}()" in daily_sh for u in ("ft", "azed", "genius")), True)
+check("the ft unit still files; azed, genius and xval:globe left for CI", [f"unit_{u}()" in daily_sh for u in ("ft", "azed", "genius", "xval_globe")], [True, False, False, False])
+check("every unit logs its wall time", "unit-time $key" in daily_sh, True)
 # The blog fetches (posts, and the Times comments) run in blog-fetch.yml; the parse, grid
 # rebuild and filing of blog:times and blog:telegraph run in blog-chain.yml.
 blog_yml = (REPO / ".github" / "workflows" / "blog-fetch.yml").read_text()
@@ -139,7 +140,7 @@ check("yesterday's ledger is not today's", plans_counts(time.mktime((2026, 10, 1
 
 # The choice, read off what each unit runs before its own build step.
 for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "cache-sync",
-          "xval:globe", "ft", "azed", "progress-counts", "minute", "reports", "checks"]:
+          "ft", "progress-counts", "minute", "reports", "checks"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
 for k in ["annotate:p1", "miss:p1:3a"]:
     check(f"{k} keeps the start rebuild", du.reads_generated(k), True)

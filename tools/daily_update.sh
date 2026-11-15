@@ -22,16 +22,12 @@
 #                      every six hours, the fortnightly TLS
 #                      (fetch:tls_puzzles). daily_units.py SLOW_FETCHERS says
 #                      why the Listener and the Nation are not fetched.
-#   xval:globe         the Globe's copies of the Times Quick Cryptic. (The Times and
+#   (xval:globe, azed and genius run in CI: daily-units.yml. The Times and
 #                      the Telegraph, rebuilt from the blogs, run in CI: blog-chain.yml. (The Telegraph's own bucket is fetched in CI,
 #                      telegraph-bucket.yml; cache-sync lands its raw cache here.)
-#   ft, azed           (posts fetched in CI, fifteensquared-fetch.yml) the FT from fifteensquared, Azed from fifteensquared
-#                      and the Guardian's printable copies. These
-#                      are backfills: one that stops with
-#                      backlog left runs again at the next tick until it is
-#                      drained.
-#   genius             the Guardian's monthly Genius, PDFs plus
-#                      fifteensquared's answers.
+#   ft                 (posts fetched in CI, fifteensquared-fetch.yml) the FT from fifteensquared;
+#                      a backfill: one that stops with backlog left runs again
+#                      at the next tick until it is drained.
 #   (blog-facts, the blog caches re-read into the site's blog hints, runs in CI: blog-facts.yml)
 #   progress-counts    the coverage ledger's and media disk's counts, committed for
 #                      the /progress/ row ratings.yml records in CI.
@@ -212,31 +208,6 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"
 # and it is recorded against the puzzle like any other failure.
 ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 
-# blog_chain <paper> <step>...: each step is a tools/ script and its arguments.
-blog_chain() {
-  local paper=$1 step out step_rc=0
-  shift
-  out="$(mktemp "${TMPDIR:-/tmp}/cryptic-blog.XXXXXX")"
-  for step in "$@"; do
-    step_start=$SECONDS
-    # shellcheck disable=SC2086  # a step is a script and its arguments
-    python3 tools/$step >"$out" 2>&1
-    step_rc=$?
-    cat "$out"
-    echo "$step: rc=$step_rc in $((SECONDS - step_start))s"
-    [ $step_rc -eq 0 ] && continue
-    case "$step" in
-      fetch_*)
-        alert "the $paper fetch \`$step\` failed (rc=$step_rc), so the $paper puzzles are filed and dated from what is already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$out" | cut -c1-200)"$'\n'"\`\`\`" ;;
-      *)
-        alert "the $paper chain stopped at \`$step\` (rc=$step_rc); the steps after it were skipped, so no new $paper puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$out" | cut -c1-200)"$'\n'"\`\`\`"
-        break ;;
-    esac
-  done
-  rm -f "$out"
-  return $step_rc
-}
-
 # Record a lost night against the puzzle's current inputs. failed_inputs.py
 # refuses transient reasons (a usage lockout, an expired login, a network
 # error), since those runs learned nothing about the grid. Extra arguments go
@@ -303,14 +274,6 @@ unit_wayback_privateeye() {
 unit_cache_sync() {
   python3 tools/cache_sync.py
 }
-# The Globe and Mail reprints the Times Quick Cryptic from No 3106: its copy
-# witnesses the blog-rebuilt Quick the Times filer files for the same number,
-# which is how a defect of that converter shows. Nothing is refiled from it.
-# Daily; the fetch asks only for the copies not cached.
-unit_xval_globe() {
-  blog_chain Globe "cross_validate.py globe --fetch" "cross_validate.py globe"
-}
-
 # The Financial Times, rebuilt from fifteensquared's write-ups (the posts are fetched in CI,
 # .github/workflows/fifteensquared-fetch.yml; cache-sync lands them here). The same chain
 # in one tool: tools/ft_puzzles.py parses the cached posts, rebuilds the newest
@@ -334,61 +297,6 @@ unit_ft() {
     alert "tools/ft_puzzles.py failed (rc=$step_rc), so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
   rm -f "$ft_out"
-  return $rc
-}
-
-# The Observer's Azed, from two sources. New issues come only from
-# fifteensquared's write-ups (fetched in CI like the FT's; tools/azed_puzzles.py rebuilds the barred grid
-# from the answers each post prints), posted about a week after the puzzle;
-# Azed is monthly from 2026, on the first Sunday. andlit.org.uk's index stops
-# at No 2,757, so the andlit leg below files old issues only: with this unit
-# reading andlit alone, no Azed after 2026-09-06 arrived (No 2,784 sat unfiled).
-# Then the Guardian's printable copies: tools/andlit_azed.py
-# fetches the next copies andlit.org.uk's index links (2s apart, oldest unfiled
-# first), starting none past AZED_FETCH_SECONDS, then files every cached copy
-# whose grid and clue list agree. One that stopped with copies left to fetch
-# runs again at the next tick (backlog_left) until andlit's index is drained.
-# Scanned copies are read by the shared OCR on the desktop (OCR_REMOTE= keeps
-# them here), starting none past AZED_SCAN_SECONDS.
-AZED_FETCH_SECONDS="${AZED_FETCH_SECONDS:-900}"
-AZED_SCAN_SECONDS="${AZED_SCAN_SECONDS:-1200}"
-unit_azed() {
-  local azed_out rc=0 step_rc
-  azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
-  PYTHONUNBUFFERED=1 python3 tools/azed_puzzles.py 2>&1 | tee "$azed_out"
-  step_rc=${PIPESTATUS[0]}
-  if [ $step_rc -ne 0 ]; then
-    rc=1
-    alert "tools/azed_puzzles.py failed (rc=$step_rc), so no new Azed is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  if OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}" \
-      python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" \
-      --scan-seconds "$AZED_SCAN_SECONDS" >"$azed_out" 2>&1; then
-    grep -v '^  No ' "$azed_out"
-  else
-    rc=1
-    cat "$azed_out"
-    alert "tools/andlit_azed.py failed, so no Azed is filed from the Guardian's copies until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$azed_out"
-  return $rc
-}
-
-# The Guardian's monthly Genius (its fifteensquared posts are fetched in CI like the FT's):
-# tools/genius_puzzles.py indexes the series
-# page, downloads the printable PDFs it lacks and files each one whose answers
-# fifteensquared has posted (the prize answers follow about a month on). Only
-# ever run by hand before, so No 280 (2026-10-05) had no route in.
-unit_genius() {
-  local genius_out rc=0 step_rc
-  genius_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-genius.XXXXXX")"
-  PYTHONUNBUFFERED=1 python3 tools/genius_puzzles.py all 2>&1 | tee "$genius_out"
-  step_rc=${PIPESTATUS[0]}
-  if [ $step_rc -ne 0 ]; then
-    rc=1
-    alert "tools/genius_puzzles.py failed (rc=$step_rc), so no new Genius is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$genius_out" | cut -c1-200)"$'\n'"\`\`\`"
-  fi
-  rm -f "$genius_out"
   return $rc
 }
 
@@ -1058,10 +966,7 @@ if [ "${1:-}" = unit ]; then
     fetch:*) unit_fetch "${key#fetch:}" ;;
     wayback:privateeye) unit_wayback_privateeye ;;
     cache-sync) unit_cache_sync ;;
-    xval:globe) unit_xval_globe ;;
     ft) unit_ft ;;
-    azed) unit_azed ;;
-    genius) unit_genius ;;
     progress-counts) unit_progress_counts ;;
     checks) unit_checks ;;
     solutions) unit_solutions ;;
@@ -1072,6 +977,8 @@ if [ "${1:-}" = unit ]; then
     *) echo "daily_update.sh: no unit $key" >&2; exit 2 ;;
   esac
   unit_rc=$?
+  # One line per unit in .update.log: name, wall-clock seconds, exit code.
+  echo "unit-time $key ${SECONDS}s rc=$unit_rc"
   # A unit that never began (75) has nothing to commit.
   [ "$unit_rc" = 75 ] && exit 75
   unit_commit "$key" || unit_rc=1
