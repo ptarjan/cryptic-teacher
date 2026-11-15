@@ -3785,6 +3785,14 @@ try:
            bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8973, "read_as": 8973}]})) and f.INDY_REDATED in f.RANKS])
 finally:
     f.held_dates = _held_dates
+_ip = {"edition": "GaleIndependentSunday2005UKEnglish/2005-01-30", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 782, "imageUnread": "the white cells span 12 rows and 12 columns", "pending": "no grid"}]}
+check("an Independent on Sunday page left with its 12x12 barred grid unread is due INDY_PAIRED; one read since, a filed-whole "
+      "verdict and another paper's are not",
+      [True, False, False, False],
+      [bool(f.indy_paired_due(_ip)), bool(f.indy_paired_due({**_ip, "readAt": "2026-11-16T00:00:00+00:00"})),
+       bool(f.indy_paired_due({**_ip, "verdicts": [{**_ip["verdicts"][0], "wrote": True}]})),
+       bool(f.indy_paired_due({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"})) or f.INDY_PAIRED not in f.RANKS])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.

@@ -30,6 +30,10 @@ import reconstruct_grid as rg
 CELLS = 12
 #: The share of the bars (and their mirrors) that lie 180-degree symmetric for the grid to stand.
 BAR_SYMMETRY = 0.8
+#: Under BAR_SYMMETRY the grid still stands from this share of raw symmetry, its mirror-paired bars (fit_rows) symmetric
+#: and lighting PAIRED_LIGHTS lights (11-14 census: 29 pages read 0.63-0.80 raw, 30-38 lights paired, 27-36 clues listed).
+PAIRED_SYMMETRY = 0.6
+PAIRED_LIGHTS = (28, 40)
 #: A cell side is a bar at this many times the grid's thin rule (listener_grid.BAR_RATIO), and unsure between
 #: UNSURE_LOW (no side of its pair that thick) and UNSURE_HIGH (both sides at least that thick: a bar sure).
 UNSURE_LOW, UNSURE_HIGH = 1.25, 2.5
@@ -173,9 +177,17 @@ def read_grid(path, wanted=None):
     if not any(set(r) - {"."} for r in rows):
         return None, "the barred reading has no bars"
     share = symmetry(rows)
-    if share < BAR_SYMMETRY:
+    if share < PAIRED_SYMMETRY:
         return None, f"the bars are {share:.2f} symmetric"
-    return fit_rows(found, wanted), None
+    fitted = fit_rows(found, wanted)
+    if share < BAR_SYMMETRY:
+        # A raw reading a little under symmetric (a rule read thick one side of a pair, thin the other): the pairs
+        # drop it, and the grid stands when what is left lies as a Beelzebub does (a 180-degree symmetric set of
+        # PAIRED_LIGHTS lights), the clue lists the second reader after it.
+        lights = len(rg.light_cells(fitted))
+        if symmetry(fitted) < 1.0 or not PAIRED_LIGHTS[0] <= lights <= PAIRED_LIGHTS[1]:
+            return None, f"the bars are {share:.2f} symmetric"
+    return fitted, None
 
 
 #: The share of the sides of the puzzle's bars and the solution grid's (union) that must be one for the grid to be
