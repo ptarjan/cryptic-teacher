@@ -80,7 +80,7 @@ with tempfile.TemporaryDirectory() as tmp:
         failed_inputs.skipped_all(failed_inputs.load(), now=1000 + failed_inputs.SKIPPED_TTL_S + 1, cache=sc)
         check("an old answer is recomputed", len(calls) > n, True)
         n = len(calls)
-        pf.write_text(json.dumps({"id": "ct-1", "entries": [{"number": 1, "direction": "across", "clue": "Pet (3)", "solution": "CAT"}]}))
+        pf.write_text(json.dumps({"id": "ct-1", "entries": [{"number": 1, "direction": "across", "clue": {"text": "Pet", "enumeration": "3"}, "solution": "CAT"}]}))
         got = failed_inputs.skipped_all(failed_inputs.load(), now=1002, cache=sc)
         check("a changed puzzle is released at once", got, {"annotate": [], "solve": []})
         check("by recomputing", len(calls) > n, True)
