@@ -184,28 +184,52 @@ SQUARE = 1.15
 SMALLEST = 240
 
 
+def spans(rules):
+    """[(first, last)] of every 12-cell stretch of the rules found `rules` (pixels, ascending) could be, at their
+    median pitch: more than 12 cells found, each window of 13 rules; fewer (the outer rules lost to a clue column
+    or a margin), the rules put out by the missing cells' pitch on either side."""
+    import numpy as np
+    n = len(rules) - 1
+    if n < 4:
+        return []
+    pitch = float(np.median(np.diff(rules)))
+    if n >= 12:
+        return [(rules[i], rules[i + 12]) for i in range(n - 11)]
+    return [(rules[0] - k * pitch, rules[-1] + (12 - n - k) * pitch) for k in range(12 - n + 1)]
+
+
 def evened(gray, g):
-    """listener_grid grid `g` re-read on an even 12x12 lattice over its outer frame (Azed is always 12x12): the
-    rules found are counted wrong (13 columns, 11 rows) when a bar or a printed number reads as a rule, but the
-    frame is right. None when the frame is no square of a grid's size."""
+    """listener_grid grid `g` re-read on an even 12x12 lattice (Azed is always 12x12): the rules found are counted
+    wrong (13 columns, 11 rows) when a bar or a printed number reads as a rule or an outer rule is lost. Each
+    12-cell stretch the rules could make (spans), and the grid's box, is read; the one with no blocks whose bars
+    lie most symmetric stands. None when no frame is a square of a grid's size."""
+    import ios_barred
     import listener_grid as lg
     import trove_grid
+    ink = gray < trove_grid.otsu(gray)
+    H, W = gray.shape
+    bx0, by0, bx1, by1 = g["box"]
+    frames = [(by0, by1, bx0, bx1)]
     if g.get("lattice"):
         ys, xs = g["lattice"]
-        y0, y1, x0, x1 = ys[0], ys[-1], xs[0], xs[-1]
-    else:
-        x0, y0, x1, y1 = g["box"]
-    h, w = y1 - y0, x1 - x0
-    if min(h, w) < SMALLEST or max(h, w) > SQUARE * min(h, w):
-        return None
-    ink = gray < trove_grid.otsu(gray)
-    sub = ink[y0:y1, x0:x1]
-    dark = lg.darkness(gray[y0:y1, x0:x1])
-    ry = [round(i * h / 12) for i in range(13)]
-    rx = [round(i * w / 12) for i in range(13)]
-    rows, sides, thin = lg.read_box(sub, dark, ry, rx)
-    return {"box": (x0, y0, x1, y1), "rows": rows, "why": None, "filled": 0.0, "sides": sides, "thin": thin,
-            "lattice": ([y + y0 for y in ry], [x + x0 for x in rx])}
+        frames += [(a, b, c, d) for a, b in spans(list(ys)) for c, d in spans(list(xs))]
+    best = None
+    for y0, y1, x0, x1 in frames:
+        y0, y1, x0, x1 = int(round(y0)), int(round(y1)), int(round(x0)), int(round(x1))
+        h, w = y1 - y0, x1 - x0
+        if y0 < 0 or x0 < 0 or y1 > H or x1 > W or min(h, w) < SMALLEST or max(h, w) > SQUARE * min(h, w):
+            continue
+        dark = lg.darkness(gray[y0:y1, x0:x1])
+        ry = [round(i * h / 12) for i in range(13)]
+        rx = [round(i * w / 12) for i in range(13)]
+        rows, sides, thin = lg.read_box(ink[y0:y1, x0:x1], dark, ry, rx)
+        if any("#" in r for r in rows) or not any(set(r) - {"."} for r in rows):
+            continue  # text or a picture, no barred grid (Azed prints no blocks)
+        share = ios_barred.symmetry(rows)
+        if best is None or share > best[0]:
+            best = (share, {"box": (x0, y0, x1, y1), "rows": rows, "why": None, "filled": 0.0, "sides": sides,
+                            "thin": thin, "lattice": ([y + y0 for y in ry], [x + x0 for x in rx])})
+    return best[1] if best else None
 
 
 def find_twelve(gray):

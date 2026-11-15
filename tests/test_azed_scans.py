@@ -50,5 +50,7 @@ even = az.evened(img, {"box": (50, 60, 530, 540), "rows": ["."] * 11, "lattice":
 check("evened 12x12", (12, 12), (len(even["rows"]), len(even["rows"][0])) if even else None)
 check("evened bar", "b", even["rows"][1][2] if even else None)
 check("evened refuses a thin strip", None, az.evened(img, {"box": (50, 60, 530, 200), "rows": None}))
+check("spans: extra rules", 3, len(az.spans([10 * i for i in range(15)])))
+check("spans: short by two", [(10.0, 130.0), (0.0, 120.0), (-10.0, 110.0)], az.spans([10.0 * i for i in range(1, 12)]))
 
 sys.exit(1 if fails else 0)
