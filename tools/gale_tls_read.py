@@ -101,7 +101,7 @@ def plan(saved=SAVED, store=STORE):
 #: of puzzle n + SOLUTION_LAG (the page then held one of the numbers around it, tried nearest first).
 SOLUTION_PREFIX = PREFIX + "solution:"
 SOLUTION_LAGS = (4, 3, 5)
-SOLVED_VERSION = 1
+SOLVED_VERSION = 4
 FIT = 0.97
 
 
@@ -143,11 +143,64 @@ def plan_solutions(store=STORE, saved=SAVED):
 
 #: The small solution grid's width on a page, in pixels (556 on a 3,384-px page, ~720 on a 5,509-px one).
 SOLUTION_PX = (400, 1500)
+#: The grid is fitted and read at twice its size: a 37-px cell's thin rules put the lattice at the wrong
+#: pitch (tls-724: 0.73 as it is, 1.0 at 2x).
+SOLUTION_SCALE = 2
 
 
 def solution_box(path, grid, store=STORE):
     """jr.solution_box with the small grid's sizes."""
-    return jr.solution_box(path, grid, store, px=SOLUTION_PX)
+    return jr.solution_box(path, grid, store, px=SOLUTION_PX, scale=SOLUTION_SCALE)
+
+
+CAPTION = re.compile(r"SOLUTION\s+TO\s+CROSS\s?WORD\s+(?:No\.?\s*)?(\d[\d,. ]{0,4})", re.IGNORECASE)
+
+
+def caption_number(path, index, box, store=STORE):
+    """[n] the "SOLUTION TO CROSSWORD n" printed under the grid at `box` of page `index` of `path` reads as
+    at 2x, 3x and 1x (kept in the store; [] when no caption is read)."""
+    import gale_listener as gl
+    import ocr_clues
+    cache = Path(store) / "captions" / f"{Path(path).stem}_{index}_{round(box[0])}_{round(box[1])}.json"
+    if cache.exists():
+        return json.loads(cache.read_text())
+    img = gi.images(Path(path))[index][0]
+    w, h = box[2] - box[0], box[3] - box[1]
+    band = img.crop((max(0, round(box[0] - w / 4)), round(box[3]), min(img.width, round(box[2] + w / 4)),
+                     min(img.height, round(box[3] + h / 3)))).convert("RGB")
+    found = []
+    for scale in (2, 3, 1):  # one scale may garble a digit (1023 read 1231 at 2x)
+        scaled = band.resize((band.width * scale, band.height * scale))
+        text = " ".join(x[4] for x in ocr_clues.tesseract_words(scaled, ocr_clues.TESS_MODELS["times"]))
+        m = CAPTION.search(text)
+        if m:
+            found.append(gl.num(m.group(1)))
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    cache.write_text(json.dumps(found))
+    return found
+
+
+def captioned(n):
+    """A solution_box finder for puzzle n: the page's grid box, unless the caption under it names another puzzle."""
+    def find(path, grid, store=STORE):
+        found = solution_box(path, grid, store)
+        if found is not None and found[0] >= jr.FIT:
+            said = caption_number(path, found[1], found[2], store)
+            if said and n not in said:  # the caption is read, at no scale as this puzzle's number
+                return None
+        return found
+    return find
+
+
+def read_crop(path, index, box, crop, grid):
+    """jr.read_crop with the names rule (trove_solution_ocr.named_reads): a light every cell of which is read
+    and the whole light read as the same word, a name or a phrase too."""
+    import trove_solution_ocr
+    crop.parent.mkdir(parents=True, exist_ok=True)
+    small = gi.images(Path(path))[index][0].crop(tuple(box))
+    small.resize((small.width * SOLUTION_SCALE, small.height * SOLUTION_SCALE)).save(crop)
+    answers, _ = trove_solution_ocr.read_answers(crop, grid, tight=True, named=True)
+    return {f"{k[0]}-{k[1]}": w for k, w in answers.items()}
 
 
 def load_solved(store=STORE):
@@ -176,7 +229,8 @@ def solve_unit(rel, store=STORE, saved=SAVED):
         verdict.update(tried=names, refused="every light already answered")
     else:
         try:
-            found, new = jr.solve_puzzle(old, todo, saved, store, finder=solution_box, tool=TOOL)
+            found, new = jr.solve_puzzle(old, todo, saved, store, finder=captioned(n), reader=read_crop,
+                                     tool=TOOL)
         except Exception as e:  # any raise: a bad page is a verdict
             found, new = {"tried": todo, "refused": f"crashed: {type(e).__name__}: {e}"}, None
             print(found["refused"], file=sys.stderr)

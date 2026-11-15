@@ -977,7 +977,41 @@ def aligned_framings(gray, grid, framed):
     return keep, only
 
 
-def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=None, framing=None):
+def named_reads(lts, accepted, every, printeds):
+    """{key: word} for lights not `accepted` that are no listed() word (a name, a run-together phrase:
+    BANVILLE, SIRNATHANIEL) but whose every cell is read: the letter of an accepted crossing, else
+    a sure letter (`every`), the two agreeing where both are read, and some recogniser read the light
+    itself, whole, as exactly that word (`printeds`: each lattice's {key: whole reads}). The cell
+    letters are each read once and the lights built from them, so the crossings agree by
+    construction; a word of under three letters is left. Each light taken counts for its crossings."""
+    have, out = dict(accepted), {}
+    settled = True
+    while settled:
+        settled = False
+        crossing = {rc: ch for key, w in have.items() for rc, ch in zip(lts[key], w)}
+        for key, cells in lts.items():
+            if key in have or len(cells) < 3:
+                continue
+            word, open_at = "", []
+            for i, rc in enumerate(cells):
+                sure = next((e[rc] for e in every if rc in e), None)
+                ch = crossing.get(rc, sure)
+                if ch is None or (sure and sure != ch):
+                    break
+                if sure is None:
+                    open_at.append(i)  # a cell no read is sure of: the accepted crossing's letter stands
+                word += ch
+            else:
+                # the whole read spells it, but at a cell the crossing alone settles (BRAVI for BRAVO)
+                if any(len(w) == len(word) and all(w[i] == word[i] for i in range(len(word)) if i not in open_at)
+                       for p in printeds for w in p.get(key, ())):
+                    have[key] = out[key] = word
+                    settled = True
+                    break
+    return out
+
+
+def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=None, framing=None, named=False):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
     read alike on a lattice half a cell off; letters do not): its accepted
@@ -1068,7 +1102,12 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         mended = mended_reads(lts, accepted, printeds)
         accepted.update(mended)
         if len(accepted) == before and not mended:
-            break
+            if not named:
+                break
+            names = named_reads(lts, accepted, [r[2] for r in reads], printeds)
+            if not names:
+                break
+            accepted.update(names)
     # A grid no framing's blocks judge (neither sure nor blurred): the framing whose classifier letters are the
     # reading's own (lettered_framing). Here only, as blurred_framing: framed_version stays.
     lettered = None
@@ -1986,7 +2025,8 @@ def vetoed(lts, accepted, probs):
     return out
 
 
-def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False, enums=None, framing=None):
+def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False, enums=None, framing=None,
+                 named=False):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
@@ -1996,12 +2036,12 @@ def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=F
     recogniser read the light itself as exactly that word, and the word is
     known(). The recogniser's outputs on `image` (a file) are kept by grid_ocr_cache."""
     with grid_ocr_cache.crop_scope(image):
-        return _read_answers(image, grid, tight, bounded, classify, lean, enums, framing)
+        return _read_answers(image, grid, tight, bounded, classify, lean, enums, framing, named)
 
 
-def _read_answers(image, grid, tight, bounded, classify, lean, enums, framing):
+def _read_answers(image, grid, tight, bounded, classify, lean, enums, framing, named=False):
     if tight:
-        return read_framed(image, grid, bounded, classify, lean, enums, framing)
+        return read_framed(image, grid, bounded, classify, lean, enums, framing, named)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)

@@ -281,13 +281,14 @@ def grid_candidates(img, px=GRID_PX):
     return [b for b in out if px[0] <= b[2] - b[0] <= px[1]]
 
 
-def solution_box(path, grid, store=STORE, px=GRID_PX):
+def solution_box(path, grid, store=STORE, px=GRID_PX, scale=1):
     """(block agreement, page index, box) of the grid-sized ink on a solution page whose blocks are the
     puzzle's `grid`'s, or None. The page's grid-shaped boxes are kept in the store."""
     import numpy as np
+    from PIL import Image
     import archive_org_jumbo as aj
     import trove_solution_ocr
-    cache = Path(store) / "solboxes2" / f"{Path(path).stem}.json"
+    cache =Path(store) / "solboxes2" / f"{Path(path).stem}.json"
     pages = gi.images(Path(path))
     if cache.exists():
         boxes = json.loads(cache.read_text())
@@ -297,7 +298,8 @@ def solution_box(path, grid, store=STORE, px=GRID_PX):
         cache.write_text(json.dumps(boxes))
     best = None
     for i, box in boxes:
-        gray = np.asarray(pages[i][0].crop(tuple(box)).convert("L"))
+        crop = pages[i][0].crop(tuple(box)).convert("L")
+        gray = np.asarray(crop.resize((crop.width * scale, crop.height * scale), Image.LANCZOS) if scale > 1 else crop)
         fits = []
         try:
             fits.append(aj.block_fit(gray, grid, trove_solution_ocr.lattice(gray, len(grid), tight=True)))
