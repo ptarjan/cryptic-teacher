@@ -39,7 +39,7 @@ SOLUTIONS = downloads.GALE_CROSSWORDS / "Mephisto" / "Solutions"
 STORE = Path(os.path.expanduser("~/.cache/gale_mephisto"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 1
+VERSION = 2
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -52,13 +52,18 @@ DOC_ID = re.compile(r"[A-Z]{2,6}\d{9,10}")
 #: The first Mephisto the Sunday Times numbered No 2250 (2003-10-05); one a week, a number a page's text gives is
 #: taken when within this many of the count (a Christmas week with no puzzle moves it by one).
 FIRST = (2250, datetime.date(2003, 10, 5))
-NEAR = 4
+NEAR = 1
+#: Dates whose weekly count is confirmed by the numbers pages gave (offsets 0, with a stray two-off misread).
+COUNTED = (datetime.date(2001, 1, 1), datetime.date(2004, 12, 31))
 #: The Mephisto is a 12x12 barred grid.
 CELLS = 12
 #: The grid's rules run this share of the page's width at least.
 RULE_SHARE = 0.12
 #: The grid's width over 12 cells' pitch agrees within this.
 SQUARE = 0.08
+#: A cell's width across may differ from its height by this much (a scan stretched one way), in this many steps.
+SQUARE_SKEW = 0.12
+SKEW_STEPS = 24
 
 
 def estimate(day):
@@ -95,6 +100,10 @@ def number_of(cited, text):
         for step in (2, 1):
             if checked(int(m.group(1)) + step, day) and abs(int(m.group(1)) + step - estimate(day)) <= 1:
                 return int(m.group(1)) + step, "solution printed"
+    # No number printed: the weekly count itself, over the years the ledger's own numbers agree with it to the
+    # week (every read page of 2001-2004 that gave a number, but a few misreads two off, has the count's).
+    if COUNTED[0] <= day <= COUNTED[1]:
+        return estimate(day), "weekly count"
     return None, None
 
 
@@ -179,6 +188,9 @@ BAR_WIDTH = 0.1
 LIGHTS = (24, 46)
 #: Lines of a lattice that must be found of its 13 (the thin rules are printed broken).
 MATCHED = 11
+#: Lines wanted when too few rules are unbroken for MATCHED, and the share of the width then taken for a rule.
+FEW_MATCHED = 8
+SHORT_RULE_SHARE = 0.07
 #: A cell's pitch is within these many pixels (a page scans at ~97 px a cell; the later pages are smaller).
 PITCH = (24, 400)
 
@@ -246,6 +258,16 @@ def bar_fit(band, pitch, rules):
             prev = x
     if len(centres) < 4 or not rules:
         return None
+    # A page scanned a little wider than tall has a cell wider than it is tall (78 px by 75): the pitch across is
+    # the one (within SQUARE_SKEW of the pitch down) the bars' centres lie most evenly on.
+    best = None
+    for k in range(-SKEW_STEPS, SKEW_STEPS + 1):
+        p = pitch * (1 + SQUARE_SKEW * k / SKEW_STEPS)
+        ang = [2 * math.pi * c / p for c in centres]
+        r = math.hypot(sum(math.sin(a) for a in ang), sum(math.cos(a) for a in ang)) - 0.02 * abs(k)
+        if best is None or r > best[0]:
+            best = (r, p)
+    pitch = best[1]
     ang = [2 * math.pi * c / pitch for c in centres]
     phase = math.atan2(sum(math.sin(a) for a in ang), sum(math.cos(a) for a in ang)) * pitch / (2 * math.pi)
     # The grid's left edge: the left end three or more rules share (a rule's right end is often lost to a break).
@@ -266,12 +288,17 @@ def find_lattice(ink, share=RULE_SHARE):
 def find_lattices(ink, share=RULE_SHARE, limit=6):
     """[(ys, xs)] of the candidate 12x12 lattices on `ink`, the best set of evenly spaced rules first (a page's text
     lines and a diagram's rules make some too: the grid read tells them apart)."""
-    rules = long_rules(ink, share)
     out = []
-    for ys in lattices_1d([r[0] for r in rules], limit=limit):
-        xs = x_lines(ink, ys, rules)
-        if xs:
-            out.append((ys, xs))
+    # A page whose thin rules are mostly broken shows too few of the 13 (11 wanted): fewer are taken (the bars'
+    # symmetry and a Mephisto's lights still decide), and shorter rules counted, before the page is given up.
+    for use, need in ((share, MATCHED), (share, FEW_MATCHED), (SHORT_RULE_SHARE, FEW_MATCHED)):
+        rules = long_rules(ink, use)
+        for ys in lattices_1d([r[0] for r in rules], limit=limit, need=need):
+            xs = x_lines(ink, ys, rules)
+            if xs:
+                out.append((ys, xs))
+        if out:
+            break
     return out
 
 
@@ -335,6 +362,20 @@ def read_barred(gray, lattice=None, wanted=None):
         if rows is not None:
             return rows, found, None
         first = first or (found, why)
+    if not lattice:
+        # The lattice's phase is a guess (the rules' broken left ends, a text line's rules): the same lattice a
+        # cell or two along either way is tried, the symmetric bars and a Mephisto's lights saying which is the grid.
+        shifts = sorted(((dx, dy) for dx in range(-5, 6) for dy in range(-2, 3) if dx or dy),
+                        key=lambda s: (abs(s[0]) + abs(s[1]), abs(s[1])))
+        for ys, xs in cands[:2]:
+            px, py = (xs[-1] - xs[0]) / CELLS, (ys[-1] - ys[0]) / CELLS
+            for dx, dy in shifts:
+                y2, x2 = [y + dy * py for y in ys], [x + dx * px for x in xs]
+                if y2[0] < 0 or x2[0] < 0 or y2[-1] >= ink.shape[0] or x2[-1] >= ink.shape[1]:
+                    continue
+                rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
+                if rows is not None:
+                    return rows, found, None
     return None, first[0], first[1]
 
 
