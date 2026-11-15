@@ -35,6 +35,8 @@ import downloads
 REPO = "ptarjan/cryptic-teacher"
 #: cache name -> the folder of the media disk it mirrors.
 CACHES = {"telegraph-source": downloads.TELEGRAPH}
+#: cache name -> the workflow file that writes it and uploads cache-<name>-<run id>.
+WORKFLOWS = {"telegraph-source": "telegraph-bucket.yml"}
 
 
 def gh(*args, out=None):
@@ -47,16 +49,17 @@ def gh(*args, out=None):
 
 
 def artifacts(name):
-    """The unexpired artifacts called cache-<name>-*, oldest first."""
+    """The unexpired artifacts called cache-<name>-*, oldest first. Found through the
+    workflow's own runs: the repo holds tens of thousands of artifacts (the site's), too
+    many to page through."""
     found = []
-    page = 1
-    while True:
-        doc = json.loads(gh(f"repos/{REPO}/actions/artifacts?per_page=100&page={page}"))
-        rows = doc.get("artifacts") or []
-        found += [a for a in rows if a["name"].startswith(f"cache-{name}-") and not a["expired"]]
-        if len(rows) < 100:
-            break
-        page += 1
+    runs = json.loads(gh(f"repos/{REPO}/actions/workflows/{WORKFLOWS[name]}/runs?per_page=100"))
+    for run in runs.get("workflow_runs") or []:
+        if run["status"] != "completed":
+            continue
+        doc = json.loads(gh(f"repos/{REPO}/actions/runs/{run['id']}/artifacts"))
+        found += [a for a in doc.get("artifacts") or []
+                  if a["name"].startswith(f"cache-{name}-") and not a["expired"]]
     return sorted(found, key=lambda a: a["created_at"])
 
 
