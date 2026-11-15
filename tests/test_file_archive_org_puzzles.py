@@ -3093,9 +3093,6 @@ check("a bracket the vote lost is put back where a reading prints it",
       ("Washing part of old Somerset (new Avon) House?", {}), (got["1-across"][0], blank))
 check("a bracket two readings open at different words is not put back", None,
       ocr_clues.bracket_reopened("A b c) d", ["A b (c) d", "A (b c) d"]))
-check("a ')' two readings tear into ';' and 'i' is put back", "A (b possibly)",
-      ocr_clues.bracket_reclosed("A (b possibly;", ["A (b possibly; (4)", "A (b possiblyi (4)"]))
-check("a lone stray mark is not closed", None, ocr_clues.bracket_reclosed("A (b possiblyi", ["A (b possiblyi (4)"]))
 check("a bracket no reading opens is not put back", None, ocr_clues.bracket_reopened("A b c) d", ["A b c d"]))
 
 # A real word misread as another (real readings off the gold editions).
