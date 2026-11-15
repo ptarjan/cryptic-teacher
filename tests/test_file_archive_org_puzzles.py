@@ -3812,6 +3812,16 @@ check("a row due INDY_PAIRED keeps it past the blanket scan-stale reason (blanke
       [bool(f.indy_paired_due(_ip)) == (f.blanket_or_fix(_ip, "scan stale, answers missing") == f.INDY_PAIRED),
        f.blanket_or_fix({**_ip, "readAt": "2026-11-16T00:00:00+00:00"}, "scan stale, answers missing") != f.INDY_PAIRED,
        f.blanket_or_fix({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"}, "x") != f.INDY_PAIRED])
+_ie = {"edition": "GaleIndependentSunday1997UKEnglish/1997-03-23", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 372, "imageUnread": "the white cells span 11 rows and 12 columns", "pending": "no grid"}]}
+check("an Independent on Sunday page whose barred grid's lattice was counted 11x12 is due IOS_EVEN, not one read since, filed, "
+      "counted without a 12, or another paper's; it keeps the reason past the blanket (blanket_or_fix)",
+      [True, False, False, False, False, True],
+      [bool(f.ios_even_due(_ie)), bool(f.ios_even_due({**_ie, "readAt": "2026-11-16T00:00:00+00:00"})),
+       bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "wrote": True}]})),
+       bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "imageUnread": "the white cells span 10 rows and 11 columns"}]})),
+       bool(f.ios_even_due({**_ie, "edition": "GaleIndependent2005UKEnglish/2005-01-30"})) or f.IOS_EVEN not in f.RANKS,
+       f.blanket_or_fix(_ie, "scan stale, answers missing") == f.IOS_EVEN])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.

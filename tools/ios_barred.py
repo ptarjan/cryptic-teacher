@@ -141,6 +141,33 @@ def fit_rows(found, wanted=None):
     return rows_of({s for p in bars for s in (p, mirror_of(p, n))}, n)
 
 
+#: A frame this far from square (long side over short) is no grid of Beelzebub's; one under EVEN_SMALLEST px a side is a thumbnail.
+EVEN_SQUARE = 1.15
+EVEN_SMALLEST = 240
+
+
+def evened(gray, g):
+    """listener_grid grid `g` re-read on an even 12x12 lattice over its outer frame (the lattice's, else its box), or
+    None when the frame is no square of a grid's size. 11-15 census: 38 of 40 Independent on Sunday crops of 1990-2004
+    whose rules listener_grid counted 11x12, 12x11, 8x12 or not at all read so, their bars 0.8+ symmetric."""
+    if g.get("lattice"):
+        ys, xs = g["lattice"]
+        y0, y1, x0, x1 = ys[0], ys[-1], xs[0], xs[-1]
+    else:
+        x0, y0, x1, y1 = g["box"]
+    h, w = y1 - y0, x1 - x0
+    if min(h, w) < EVEN_SMALLEST or max(h, w) > EVEN_SQUARE * min(h, w):
+        return None
+    ink = gray < max(lg.trove_grid.otsu(gray), 1)
+    sub = ink[y0:y1, x0:x1]
+    dark = lg.darkness(gray[y0:y1, x0:x1])
+    ry = [round(i * h / CELLS) for i in range(CELLS + 1)]
+    rx = [round(i * w / CELLS) for i in range(CELLS + 1)]
+    rows, sides, thin = lg.read_box(sub, dark, ry, rx)
+    return {"box": (x0, y0, x1, y1), "rows": rows, "why": None, "filled": 0.0, "sides": sides, "thin": thin,
+            "lattice": ([y + y0 for y in ry], [x + x0 for x in rx])}
+
+
 #: {(path, size, mtime_ns): the 12x12 grid listener_grid finds in the crop (or its why)}: the clue fit reads the
 #: crop again for the lattice's sides after scaled_grid did.
 _FOUND = {}
@@ -158,6 +185,11 @@ def found_grid(path):
         found = [g for g in lg.find_grids(gray) if g.get("rows") and len(g["rows"]) == CELLS
                  and all(len(r) == CELLS for r in g["rows"])]
         found.sort(key=lambda g: (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1]), reverse=True)
+        if not found:
+            # The rules counted wrong (11x12, 12x11, none at all: a bar or a printed number read as a rule, a
+            # broken rule missed) but the crop is the grid's frame: read the 12 x 12 cells evenly over it.
+            found = [e for e in (evened(gray, g) for g in lg.find_grids(gray)) if e is not None]
+            found.sort(key=lambda g: (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1]), reverse=True)
         if len(_FOUND) >= FOUND_MAX:
             _FOUND.pop(next(iter(_FOUND)))
         _FOUND[key] = found[0] if found else None
