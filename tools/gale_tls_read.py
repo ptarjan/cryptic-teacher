@@ -80,10 +80,33 @@ def append_row(row, store=STORE):
     jr.append_row(row, store)
 
 
+#: Bumped to read once more the pages a VLM answer may still fill (vlm_due). r13: 335 pages stood unfiled with
+#: 1-3 lights blank, 3 in 5 of them "its count (4) is short of the light's 10" (a count's tail lost to the
+#: line end) or "no reading laid a clue on it"; read again with the VLM up, 7 of 10 sampled pages left no
+#: light blank (the live read had the VLM down or its reply unread: no vlmColumns on 41 of 115).
+VLM_FIX = 1
+#: Reads a page may take to have a VLM reply (a read whose VLM was not asked is tried again) before it stands.
+VLM_TRIES = 3
+#: Blank reasons the VLM's column reply can lay a clue for (jr.vlm_laid).
+VLM_FILLS = ("its count", "no reading laid a clue", "no clue read for it")
+
+
+def vlm_due(row):
+    """Whether `row` (a verdict of this VERSION) left 1-3 lights blank for a reason the VLM's reading can lay
+    (VLM_FILLS) and was not read since VLM_FIX with the VLM asked (vlmFix) or VLM_TRIES times."""
+    if row.get("whole") or row.get("vlmFix") == VLM_FIX or row.get("vlmTries", 0) >= VLM_TRIES:
+        return False
+    blank = row.get("blank") or []
+    why = row.get("why") or {}
+    return 1 <= len(blank) <= 3 and any(str(why.get(lid, "")).startswith(VLM_FILLS) for lid in blank)
+
+
 def read_done(row):
-    """Whether a ledger row is a verdict of this VERSION (a crashed attempt under CRASH_LIMIT is not)."""
+    """Whether a ledger row is a verdict of this VERSION (a crashed attempt under CRASH_LIMIT is not; nor one
+    whose blank lights the VLM may still fill, vlm_due)."""
     return bool(row) and row.get("version") == VERSION and not (
-        row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX))
+        row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX)) \
+        and not vlm_due(row)
 
 
 def plan(saved=SAVED, store=STORE):
@@ -1318,7 +1341,10 @@ def read_unit(rel, saved=SAVED, store=STORE):
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
-    append_row({**verdict, "version": VERSION}, store)
+    tries = (before or {}).get("vlmTries", 0) + 1
+    # a read that asked the VLM (or left nothing for it to lay) is the page's retry; else it is due again
+    asked = bool(verdict.get("vlmColumns")) or not verdict.get("blank")
+    append_row({**verdict, "version": VERSION, "vlmTries": tries, **({"vlmFix": VLM_FIX} if asked else {})}, store)
     print(json.dumps(verdict))
     return "read"
 
