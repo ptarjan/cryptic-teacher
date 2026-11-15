@@ -2830,6 +2830,56 @@ def single_instance_lock():
     return fh
 
 
+GATE_MEMO_SECS = 3600  # a full gate pass at least this often: catches what no commit shows
+
+
+def _gate_stamp():
+    """What the gate's verdicts depend on besides the puzzle files: its code
+    and data files, by size and mtime."""
+    out = []
+    for n in ("clue_cutoff.py", "fetch_puzzle.py", "validate_annotations.py", "provenance.py",
+              "data/lexicon.tsv", "data/reread_unfixable.json"):
+        try:
+            st = (Path(__file__).resolve().parent / n).stat()
+            out.append([n, st.st_size, st.st_mtime_ns])
+        except OSError:
+            out.append([n, None, None])
+    return out
+
+
+def memo_gate(clue_cutoff, ids):
+    """clue_cutoff.gate(ids), skipping the ids that passed clean at the last
+    pass whose files git says are unchanged since: each re-plan of a days-long
+    burn reran the gate over ~31k puzzles (git ls-files, row-cache scan) for
+    a handful of commits. State in ~/.cache, keyed on git HEAD and the gate's
+    code/data stamp; a full pass every GATE_MEMO_SECS. Flagged ids are always
+    gated again (the gate's own side effects, once per reading, stay its)."""
+    state = Path.home() / ".cache" / "ct-gate-clean.json"
+    tree = Path(INDEX).parent
+    head = (_git(tree, "rev-parse", "HEAD") or b"").decode().strip()
+    stamp, now = _gate_stamp(), time.time()
+    clean, began = set(), now
+    try:
+        saved = json.loads(state.read_text(encoding="utf-8"))
+        if head and saved["stamp"] == stamp and now - saved["at"] < GATE_MEMO_SECS:
+            out = _git(tree, "diff", "--name-only", "-z", "--relative", f"{saved['head']}..HEAD", "--", ".")
+            if out is not None:  # None: git cannot say, so a full pass
+                changed = {Path(n).stem for n in out.decode("utf-8", "replace").split("\0") if n}
+                clean, began = set(saved["clean"]) - changed, saved["at"]
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    todo = [i for i in ids if i not in clean]
+    flagged = clue_cutoff.gate(todo, log=CUT_SHORT_LOG) if todo else {}
+    keep = [i for i in ids if i not in flagged]
+    try:
+        state.parent.mkdir(parents=True, exist_ok=True)
+        state.write_text(json.dumps({"head": head, "stamp": stamp, "at": began,
+                                     "clean": keep}), encoding="utf-8")
+    except OSError:
+        pass
+    return flagged
+
+
 def print_backlog(annotate_blocked, solve_blocked):
     """The queue's ids on stdout, from the index (fresh_rows: each file written
     since it was built read again); its head and how many of it
@@ -2864,7 +2914,7 @@ def print_backlog(annotate_blocked, solve_blocked):
     # reads: best_effort stores the rows made and goes on with only the
     # reread_unfixable holds, the next re-plan finishing the rest.
     ids = sorted(queued)
-    cut = best_effort("clue cut-short gate", lambda: clue_cutoff.gate(ids, log=CUT_SHORT_LOG),
+    cut = best_effort("clue cut-short gate", lambda: memo_gate(clue_cutoff, ids),
                       clue_cutoff.held_only(ids), 0.5)
     if cut:
         todo = [p for p in todo if p["id"] not in cut]
