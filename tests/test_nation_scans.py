@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 
-import nation_scans as ns  # noqa: E402
+import nation_scans as ns
 
 
 def line(text, x0=0, y0=0, h=40):
@@ -75,3 +75,12 @@ def test_solution_text_reads_the_lines_below_the_heading():
 
 def test_blocked_drops_bars():
     assert ns.blocked(["#.r", "b+."]) == ["#..", "..."]
+
+
+if __name__ == "__main__":
+    # CI runs `python3 tests/test_nation_scans.py`: without this the file ran nothing and could never fail.
+    for _name, _test in sorted(globals().items()):
+        if _name.startswith("test_"):
+            _test()
+            print("ok  ", _name)
+    print("all ok")
