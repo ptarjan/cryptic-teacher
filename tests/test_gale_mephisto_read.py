@@ -6,7 +6,7 @@
 #     python3 tests/test_gale_mephisto_read.py
 #
 # A fake HOME and temp folders: no OCR, no ~/.cache, no tools/data, nothing waited on.
-import _path  # noqa: F401  puzzles tools/ on sys.path
+import _path  # puts tools/ on sys.path
 import atexit
 import os
 import shutil
@@ -45,7 +45,7 @@ check("a typo'd number is refused", None, gm.checked(2239, D(2005, 4, 10)))
 check("citation number taken", (2250, "citation"), gm.number_of((2250, D(2003, 10, 5)), ""))
 check("a typo'd citation falls to the solution printed (two back)", (2329, "solution printed"),
       gm.number_of((2239, D(2005, 4, 10)), "Solution to Mephisto 2327: Across"))
-check("a page with none has none", (None, None), gm.number_of((None, D(2003, 10, 12)), "nothing here"))
+check("a page with none falls to the weekly count", (2251, "weekly count"), gm.number_of((None, D(2003, 10, 12)), "nothing here"))
 
 # --- the grid: 13 broken horizontal rules and thick bars on a 12x12 lattice of pitch 40
 pitch, x0, y0 = 40, 30, 20
