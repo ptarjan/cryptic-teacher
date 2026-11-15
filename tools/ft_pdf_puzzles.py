@@ -168,19 +168,27 @@ def index(log=print):
 
 # ------------------------------------------------------------------ orphans
 
+# A host-year whose CDX query 503s/504s is asked again, up to this many rounds.
+CDX_ROUNDS = 4
+CDX_RETRY_PAUSE = 120
+
+
 def media_pdfs():
     """[(timestamp, url)] of every PDF Wayback holds at a crossword's size on
     either FT host, one per UUID, captured 2006-2013. The CDX reply can be cut
     short, so it is read line by line, one host and year at a time."""
     out = {}
-    for host in PDF_HOSTS:
-        for year in ORPHAN_YEARS:
+    todo = [(host, year) for host in PDF_HOSTS for year in ORPHAN_YEARS]
+    for rnd in range(CDX_ROUNDS):
+        failed = []
+        for host, year in todo:
             try:
                 text = get(f"{CDX}?url={host}&output=json&filter=mimetype:application/pdf"
                            f"&filter=statuscode:200&collapse=urlkey&from={year}&to={year}&limit=20000",
                            timeout=300).decode("utf-8", "replace")
             except Exception as e:
                 print(f"  CDX {host} {year}: {type(e).__name__}: {e}")
+                failed.append((host, year))
                 continue
             for ln in text.splitlines():
                 try:
@@ -193,6 +201,14 @@ def media_pdfs():
                     m = UUID.search(u)
                     out.setdefault(m.group(0) if m else u, (r[1], u))
             time.sleep(WAYBACK_PAUSE)
+        todo = failed
+        if not todo:
+            break
+        if rnd < CDX_ROUNDS - 1:
+            print(f"  CDX: retrying {len(todo)} host-year(s) after a pause (round {rnd + 2})")
+            time.sleep(CDX_RETRY_PAUSE * (rnd + 1))
+    if todo:
+        print(f"  CDX: {len(todo)} host-year(s) still failing, skipped: {todo}")
     return sorted(out.values())
 
 
