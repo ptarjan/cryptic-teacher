@@ -68,7 +68,7 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-te
 CDX = "https://web.archive.org/cdx/search/cdx"
 PAGES = ("ft.com/arts/crossword", "www.ft.com/arts/crossword*")
 #: Seconds between Wayback requests; faster than this it starts refusing.
-WAYBACK_PAUSE = 2
+WAYBACK_PAUSE = 10
 
 #: "June 15 2010: Puzzle 13,412". Until 2009 the link is to an article page
 #: (/cms/s/2/<id>.html) that carries the PDF's link; from 2010, to the PDF.
@@ -77,6 +77,15 @@ WAYBACK_PAUSE = 2
 LINK = re.compile(r'href="(?:https?://web\.archive\.org/web/\d+/)?((?:https?://[a-z.]*ft\.com(?::80)?)?'
                   r'/cms/[^"]+?\.(?:pdf|html))"[^>]*>\s*([A-Z][a-z]+ \d{1,2},? \d{4})\s*:\s*'
                   r'Puzzle\s+(?:No\.?\s*)?(\d{1,2},?\d{3})\s*<')
+#: The same PDF files sit on both hosts under one UUID; Wayback captured the
+#: second (im.ft-static.com) in later years too.
+PDF_HOSTS = ("media.ft.com/cms/*", "im.ft-static.com/content/images/*")
+UUID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
+#: Captures from 2014 on are left to a later cross-check.
+ORPHAN_YEARS = range(2006, 2014)
+#: A crossword's size; the Polymath, specials and scans are far off it.
+ORPHAN_BYTES = (20_000, 150_000)
+CROSSWORD_NO = re.compile(r"CROSSWORD\s*No\.?\s*(\d{1,2},?\d{3})", re.IGNORECASE)
 PDF_IN_PAGE = re.compile(r'(?:https?://media\.ft\.com)?/cms/[0-9a-f\-]{36}\.pdf')
 
 
@@ -160,28 +169,31 @@ def index(log=print):
 # ------------------------------------------------------------------ orphans
 
 def media_pdfs():
-    """[(timestamp, url)] of every pre-2013 media.ft.com PDF Wayback holds at a
-    crossword's size (20 to 300 kB). The CDX reply can be cut short, so it is
-    read line by line, one year at a time."""
+    """[(timestamp, url)] of every PDF Wayback holds at a crossword's size on
+    either FT host, one per UUID, captured 2006-2013. The CDX reply can be cut
+    short, so it is read line by line, one host and year at a time."""
     out = {}
-    for year in range(2006, 2013):
-        try:
-            text = get(f"{CDX}?url=media.ft.com/cms/*&output=json&filter=mimetype:application/pdf"
-                       f"&filter=statuscode:200&collapse=urlkey&from={year}&to={year}&limit=20000",
-                       timeout=300).decode("utf-8", "replace")
-        except Exception as e:
-            print(f"  CDX {year}: {type(e).__name__}: {e}")
-            continue
-        for ln in text.splitlines():
+    for host in PDF_HOSTS:
+        for year in ORPHAN_YEARS:
             try:
-                r = json.loads(ln.strip().rstrip(","))
-            except ValueError:
+                text = get(f"{CDX}?url={host}&output=json&filter=mimetype:application/pdf"
+                           f"&filter=statuscode:200&collapse=urlkey&from={year}&to={year}&limit=20000",
+                           timeout=300).decode("utf-8", "replace")
+            except Exception as e:
+                print(f"  CDX {host} {year}: {type(e).__name__}: {e}")
                 continue
-            if isinstance(r, list) and len(r) > 6 and r[0] != "urlkey" and r[6].isdigit() \
-                    and 20_000 < int(r[6]) < 300_000:
-                out.setdefault(r[2].replace(":80/", "/"), r[1])
-        time.sleep(WAYBACK_PAUSE)
-    return sorted((ts, u) for u, ts in out.items())
+            for ln in text.splitlines():
+                try:
+                    r = json.loads(ln.strip().rstrip(","))
+                except ValueError:
+                    continue
+                if isinstance(r, list) and len(r) > 6 and r[0] != "urlkey" and r[6].isdigit() \
+                        and ORPHAN_BYTES[0] < int(r[6]) < ORPHAN_BYTES[1]:
+                    u = r[2].replace(":80/", "/")
+                    m = UUID.search(u)
+                    out.setdefault(m.group(0) if m else u, (r[1], u))
+            time.sleep(WAYBACK_PAUSE)
+    return sorted(out.values())
 
 
 def orphans(log=print):
@@ -192,8 +204,10 @@ def orphans(log=print):
     known = {v["url"] for v in idx["puzzles"].values()}
     seen_file = CACHE / "orphans_seen.json"
     seen = set(json.loads(seen_file.read_text())) if seen_file.exists() else set()
-    rows = [r for r in media_pdfs() if r[1] not in known and r[1] not in seen]
-    log(f"orphans: {len(rows)} unindexed media.ft.com PDF(s) to open")
+    held_ids = {m.group(0) for u in known | seen if (m := UUID.search(u))}
+    rows = [r for r in media_pdfs() if r[1] not in known and r[1] not in seen
+            and not ((m := UUID.search(r[1])) and m.group(0) in held_ids)]
+    log(f"orphans: {len(rows)} unindexed FT PDF(s) to open")
     PDFS.mkdir(parents=True, exist_ok=True)
     got = 0
     for ts, url in rows:
@@ -610,7 +624,10 @@ def parse_clues(text):
     """
     lines = [ln.strip() for ln in text.splitlines()]
     m = next((HEADER.search(ln) for ln in lines if HEADER.search(ln)), None)
-    number = int(m.group(1).replace(",", "")) if m else None
+    if m is None and (c := CROSSWORD_NO.search(text)):
+        number = int(c.group(1).replace(",", ""))
+    else:
+        number = int(m.group(1).replace(",", "")) if m else None
     setter = m and m.group(2).strip()
     setter = setter.title() if setter and setter.isupper() else setter
     clues, direction, last, current, note = [], None, 0, None, None
