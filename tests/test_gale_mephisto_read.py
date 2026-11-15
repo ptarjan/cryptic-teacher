@@ -96,5 +96,8 @@ check("the strip runs from the Down heading to the gap", True, bool(got) and got
 check("it stops left of the right column", True, bool(got) and got[2] <= 590)
 check("no Down heading at the foot: no strip", None, gm.tail_strip(foot[1:], ((90, 1400, 1040, 2950), []), 500, gl))
 
+check("a count's own words are dropped", "bit (11)", gm.WORDS_COUNT.sub(r"(\1)", "bit (11, three words)"))
+check("a plain count is left", "bit (5,4)", gm.WORDS_COUNT.sub(r"(\1)", "bit (5,4)"))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

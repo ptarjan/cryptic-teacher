@@ -39,7 +39,7 @@ SOLUTIONS = downloads.GALE_CROSSWORDS / "Mephisto" / "Solutions"
 STORE = Path(os.path.expanduser("~/.cache/gale_mephisto"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 4
+VERSION = 5
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -626,10 +626,110 @@ def lists_block(img, key, words, cut, gl):
         return down_headed(block, gl)
     piece = img.crop(strip)
     shift = piece.height + 12
-    canvas = Image.new(bimg.mode, (max(bimg.width, int(edge) + piece.width + 4), bimg.height + shift), "white")
+    # The Across list's last clues may stand under the solution's heading too, above the Down heading: they go
+    # on under the left column's foot, where the list runs on.
+    lead = lead_strip(words, cut, strip, gl)
+    lead_img = img.crop(lead) if lead else None
+    foot = lead_img.height + 8 if lead_img else 0
+    canvas = Image.new(bimg.mode, (max(bimg.width, int(edge) + piece.width + 4), bimg.height + shift + foot), "white")
     canvas.paste(bimg, (0, shift))
     canvas.paste(piece, (int(edge), 4))
+    if lead_img:
+        canvas.paste(lead_img, (max(0, lead[0] - cut[0][0]), shift + bimg.height + 4))
     return canvas, gl.image_key(canvas)
+
+
+def lead_strip(words, cut, strip, gl):
+    """(x0, y0, x1, y1) of the clue lines between the lists' cut (stopped at the solution's heading) and the Down
+    heading's strip, in the left column, opening on a clue number (the Across list's last clue, 34-across of No
+    2113), or None."""
+    left, _, _, bottom = cut[0]
+    lines = {}
+    for w in words:
+        if left <= w[0] < strip[2] and bottom <= w[1] and w[3] <= strip[1] + 2 and re.search(r"\w", w[4]):
+            lines.setdefault(round((w[1] + w[3]) / 2 / 8), []).append(w)
+    firsts = [min(ws, key=lambda w: w[0]) for _, ws in sorted(lines.items())]
+    opening = next((w for w in firsts if NUMBER_WORD.match(w[4]) and w[0] <= left + 0.1 * (strip[2] - left)), None)
+    if opening is None:
+        return None
+    ws = [w for ws in lines.values() for w in ws if w[1] >= opening[1] - 3]
+    return (int(min(w[0] for w in ws)) - 6, int(opening[1]) - 3, strip[2], strip[1] - 2)
+
+
+#: Pixels above a clue's number and below its last line kept in the tight crop.
+TIGHT_PAD = 6
+#: A clue's number stands within this of its column's left edge.
+TIGHT_LEFT = 30
+WORDS_COUNT = re.compile(r"\(\s*(\d{1,2})\s*,\s*(?:two|three|four|five|six)\s+words?\s*\)", re.IGNORECASE)
+
+
+def tight_crops(block, number, gl, gj):
+    """[image] of each clue standing under `number` in the clue block ((image, key)): the column's strip from the
+    number's line to the next clue's number (one clue, so the reader has nothing else to mistake it for)."""
+    bimg, bkey = block
+    located = gl.figures(gl.page_words(bimg, bkey))
+    lefts = gj.number_lefts(located)
+    if not lefts:
+        return []
+    edges = lefts + [bimg.width]
+    nums = gj.numbers_of(located)
+    out = []
+    for i, x0 in enumerate(lefts):
+        # Only a figure opening its line (a count "(11," standing inside the clue is no number).
+        col = sorted((w for w in nums if x0 - 8 <= w[0] < x0 + TIGHT_LEFT), key=lambda w: w[1])
+        for k, w in enumerate(col):
+            m = gj.NUMBER_LINE.match(w[4])
+            if not m or int(m.group(1)) != number:
+                continue
+            top = max(0, int(w[1]) - TIGHT_PAD)
+            bottom = int(col[k + 1][1]) - 2 if k + 1 < len(col) else bimg.height
+            if bottom - top < 10:
+                continue
+            out.append(bimg.crop((max(0, int(x0) - 4), top, min(bimg.width, int(edges[i + 1])), min(bimg.height, bottom + 2))))
+    return out
+
+
+def tight_mended(block, laid, blank, lengths, gl, asker=None):
+    """(laid, blank, asked) with each blank light a tight per-clue crop lays: the crop read by the page OCR and by
+    the VLM, the clue laid only when both spell it (gale_jumbo_read.vlm_laid: the VLM's words mostly in the OCR's
+    bag, its count the light's). A number two lights share by length is left blank (the crop has no neighbours to
+    tell the lists apart)."""
+    import gale_jumbo_read as gj
+    todo = {}
+    for lid, why in blank.items():
+        number = int(lid.split("-")[0])
+        if lid not in lengths:
+            continue
+        if any(o != lid and o.split("-")[0] == lid.split("-")[0] and lengths.get(o) == lengths.get(lid) for o in lengths):
+            continue
+        todo[lid] = (number, why)
+    if not todo:
+        return laid, blank, 0
+    reader = asker
+    if reader is None:
+        if not fa.vlm.wanted():
+            return laid, blank, 0
+        def reader(im, box):
+            return fa.vlm.read(fa.vlm.crop(im, box))
+    asked = 0
+    laid, left = dict(laid), dict(blank)
+    for lid, (number, why) in sorted(todo.items()):
+        for crop in tight_crops(block, number, gl, gj):
+            try:
+                reply = reader(crop, (0, 0, crop.width, crop.height))
+            except RuntimeError:
+                return laid, left, asked
+            asked += 1
+            # "(11, three words)": the count's own words, which fa's count reads as a stray number; the light's cells
+            # give the count, so it is put as "(11)".
+            reply = WORDS_COUNT.sub(r"(\1)", reply or "")
+            ocr = " ".join(w[4] for w in gl.figures(gl.page_words(crop, gl.image_key(crop))))
+            page = " ".join(w[4] for w in gl.figures(gl.page_words(*block)))
+            got, still = gj.vlm_laid({"vlm": reply or "", "tight": ocr, "page": page}, laid, {lid: why}, lengths, {})
+            if lid not in still:
+                laid, left = got, {k: v for k, v in left.items() if k != lid}
+                break
+    return laid, left, asked
 
 
 def listed(img, key, words, found, gl):
@@ -709,6 +809,10 @@ def read_page(path, store=STORE, asker=None):
     laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted)
     if asked:
         verdict["vlmColumns"] = asked
+    if blank:
+        laid, blank, tight = tight_mended(block, laid, blank, lengths, gl, asker)
+        if tight:
+            verdict["tightClues"] = tight
     verdict["lights"] = len(laid)
     verdict["blank"] = sorted(blank)
     verdict["why"] = {k: str(v)[:80] for k, v in sorted(blank.items())}
