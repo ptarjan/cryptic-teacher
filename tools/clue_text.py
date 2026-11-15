@@ -1417,7 +1417,7 @@ def count_specked(figures, total):
     """Whether `figures` (2-3 digits after a clue's words) are the light's
     count `total` with a 1 glued on one or both ends, a bar the scan joined to
     it: "14", "81" and "151" for 4, 8 and 5."""
-    if not (figures.isdigit() and len(figures) in (2, 3)):
+    if not (figures.isdecimal() and figures.isascii() and len(figures) in (2, 3)):
         return False
     cut = []
     if figures[0] == "1":

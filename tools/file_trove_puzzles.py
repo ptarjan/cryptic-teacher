@@ -432,7 +432,7 @@ def readings(token):
     """Every number an OCR'd clue-number token can be: "I5" -> {15}."""
     opts = [""]
     for ch in token:
-        if ch.isdigit():
+        if ch.isdecimal() and ch.isascii():  # not isdigit(): "③" is one, and int("③") raises
             opts = [o + ch for o in opts]
         elif ch in SLIPS:
             opts = [o + d for o in opts for d in SLIPS[ch]]
@@ -449,7 +449,7 @@ def enum_readings(raw):
     raw = re.sub(r"\s+", ",", raw)
     opts = [""]
     for ch in raw:
-        if ch.isdigit() or ch in ",-'":
+        if (ch.isdecimal() and ch.isascii()) or ch in ",-'":
             opts = [o + ch for o in opts]
         elif ch in SLIPS:
             opts = [o + d for o in opts for d in SLIPS[ch]]
@@ -735,7 +735,7 @@ MOST_DIGIT_SLIPS = 2
 
 def digit_slips(enum):
     """The readings with one digit read as another (DIGIT_SLIPS, PART_SLIPS)."""
-    slips = DIGIT_SLIPS if enum.isdigit() else PART_SLIPS
+    slips = DIGIT_SLIPS if enum.isdecimal() and enum.isascii() else PART_SLIPS
     return {enum[:k] + to + enum[k + 1:]
             for k, ch in enumerate(enum) for to in slips.get(ch, "")}
 
