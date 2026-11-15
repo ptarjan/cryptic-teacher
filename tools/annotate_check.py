@@ -93,6 +93,7 @@ import mend_cryptic_definition
 import mend_halved_deletion
 import mend_literal_edge
 import mend_lone_edge
+import mend_misplaced_indicator
 import provenance
 import puzzle_schema
 import shape_queue
@@ -1195,6 +1196,27 @@ def mend_halved_deletions(path, pending):
     return changed
 
 
+def mend_misplaced_indicators(path, pending):
+    """Move, in each clue written in the model's shape, an indicator filed on a charade that signals another
+    op onto that op (misplacedIndicator, mend_misplaced_indicator); the entry ids changed. Only a move that
+    is the one placement still giving the answer is made."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = read_puzzle_file(path)["entries"]
+    except (ValueError, OSError, KeyError):
+        return []
+    by_id = {entry_id(e): e for e in entries}
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        e = by_id.get(eid) or {}
+        if isinstance(a, dict) and annotation.is_model(a) and mend_misplaced_indicator.mend(
+                a, (e.get("clue") or {}).get("text"), e.get("solution")):
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def mend_cryptic_definitions(path, pending):
     """Drop `gives` from, and strip bare "= ANSWER" notes out of, the blocks of each
     pure cryptic definition written in the stored shape (mend_cryptic_definition);
@@ -1606,6 +1628,10 @@ def main(argv):
         if half:
             print(f"deletions whose indicator says half, rewritten as the first/last selection they are "
                   f"in {pending.name}: {', '.join(half)}\n")
+        mis = mend_misplaced_indicators(path, pending)
+        if mis:
+            print(f"indicators filed on a charade that signal another op, moved onto that op "
+                  f"in {pending.name}: {', '.join(mis)}\n")
         cdm = mend_cryptic_definitions(path, pending)
         if cdm:
             print(f"cryptic definition blocks that gave letters or named the answer, mended "
