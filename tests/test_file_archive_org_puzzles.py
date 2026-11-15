@@ -5350,6 +5350,22 @@ check("a Gale Sunday Times page with its grid right of its clue columns reads th
        and _eq_bp.evidence_reason(f.SUNDAY_TIMES_FOOT) is not None
        and f.SUNDAY_TIMES_FOOT in _eq_bp.FIX_LANDED and f.SUNDAY_TIMES_FOOT in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1960-67 page whose DOWN list runs on in columns under the grid: SUNDAY_UNDER.
+_sur = {**_strow, "edition": "GaleSundayTimes1964UKEnglish/1964-10-04", "readAt": "2026-11-14T23:30:00+00:00"}
+check("SUNDAY_UNDER is due for a 1960-67 Gale Sunday Times page written incomplete with a blank clue read before it, "
+      "no other year, complete or later read; wired and ranked; windows_of lays the columns under the grid",
+      [[True, False, False, False, False], True,
+       [(263, 688, 718, 3867), (688, 1100, 1100, 4678), (1100, 1500, 1500, 4678)]],
+      [[f.sunday_under_due(_sur), f.sunday_under_due({**_sur, "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.sunday_under_due({**_sur, "edition": "GaleSundayTimes1970UKEnglish/1970-10-04"}),
+        f.sunday_under_due({**_sur, "verdicts": [{"number": 1, "wrote": True, "complete": True}]}),
+        f.sunday_under_due({**_sur, "edition": "GaleFT1964UKEnglish/1964-10-04"})],
+       f.RANKS[f.SUNDAY_UNDER] == 2 and f.SUNDAY_UNDER in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_UNDER) is not None
+       and f.SUNDAY_UNDER in _eq_bp.FIX_LANDED and f.SUNDAY_UNDER in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_UNDER in _eq_bp.NEWEST_LANDED,
+       f.windows_of((835, 3947, 1555, 4683), left=(lambda s: (setattr(s, "under", [688, 1100, 1500]), s)[1])(
+           f.SolutionLeft((263, None, 5645))))])
+
 # The Gale Sunday Times 1960-99 page whose solution-sized grid under its title (a 4118px scan, 574 at SCAN_WIDTH)
 # locate_grid passed over: SUNDAY_GRID is due for a refused "no reading parses" / "not a grid" row read before it, once.
 _sgrow = {"edition": "GaleSundayTimes1966UKEnglish/1966-05-15", "inputs": "x", "readAt": "2026-11-07T11:00:00+00:00",

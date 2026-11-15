@@ -1741,6 +1741,11 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
                 return [(gx1 + 5, split[1], split[1], top), (split[1], split[0], split[0], top)]
             # SIDES_BAND's page: the across column left of the grid, the down column right of it, ending at split[0].
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE), (gx1 + 5, split[0], split[0], gy0 - LEFT_RISE)]
+        if split is None and getattr(left, "under", None):
+            # SUNDAY_UNDER's page: the first column left of the grid, the DOWN list on in columns under its foot.
+            edges = left.under
+            return [(x0, edges[0], edges[0] + SUNDAY_UNDER_SLACK, gy0 - LEFT_RISE),
+                    *[(a, b, b, gy1 - 5) for a, b in zip(edges, edges[1:])]]
         if split is None:
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
         out = [(x0, split, split, gy0 - LEFT_RISE), (split, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
@@ -1813,6 +1818,33 @@ SPLIT_SLACK = 80
 #: The most a row may lie over a gutter, as a share of its width left of it, to be a
 #: column's row spilled over it and not a notice across both columns (split_across).
 SPLIT_SPILL = 0.35
+
+
+#: A clue number set right after the rule's bar between two columns, no space between them ("theyare|23Perhaps").
+BAR_NEXT = re.compile(r"[|¦!lI](?=\d{1,2}\s?[A-Z\"'‘“])")
+
+
+def under_unglued(ws, gutters):
+    """`ws` with each word read across a gutter whose text holds the next column's number glued to a bar
+    (RapidOCR reads the rows of SUNDAY_UNDER's columns under the grid as one word, "theyare|23Perhapsthe...",
+    4068 px wide pages, no space between them: split_across needs one) cut at the bar nearest the gutter by
+    the share of the characters, the bar dropped."""
+    out = []
+    for w in ws:
+        for x in gutters:
+            if not (w[0] < x and w[2] > x + ACROSS_GUTTER):
+                continue
+            text, width = w[4], w[2] - w[0]
+            at = [(abs(w[0] + width * m.start() / len(text) - x), m.start()) for m in BAR_NEXT.finditer(text)]
+            near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
+            if near is None or not text[:near[1]].strip() or not text[near[1] + 1:].strip():
+                continue
+            s = near[1]
+            cut = w[0] + width * s / len(text)
+            out.append((w[0], w[1], min(w[2], cut), w[3], text[:s].rstrip()))
+            w = (max(w[0], x + 1 if cut < x else cut), w[1], w[2], w[3], text[s + 1:].lstrip())
+        out.append(w)
+    return out
 
 
 def split_across(ws, gutters, height=None):
@@ -1910,6 +1942,8 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     for ws in lines:
         if getattr(left, "band", None):
             ws = band_unglued(ws, [w[1] for w in main[:-1]])
+        if left and isinstance(getattr(left, "under", None), list):
+            ws = under_unglued(ws, [w[1] for w in main[:-1]])
         ws = split_across(ws, [w[1] for w in main[:-1]], height)
         if len(main) < len(wins):
             # The strip's rows: read across its gutters, cut like the others.
@@ -11197,6 +11231,11 @@ def sunday_times_column(img, gbox, key, paper):
     if edges[bin_ - 1] + edges[bin_] + edges[bin_ + 1] < SUNDAY_LEFT_LINES:
         return None
     out = SolutionLeft((max(0, bin_ * SUNDAY_LEFT_BIN - SUNDAY_LEFT_PAD), None, img.height))
+    under = sunday_times_under(img, gbox, out[0], bin_ * SUNDAY_LEFT_BIN, key, paper)
+    if under:
+        # The DOWN list runs on in columns under the grid's foot (SUNDAY_UNDER): no solution box heading closes them.
+        out.under, out.crop = under, (out[0], img.height, under[-1])
+        return out
     # The solution box set in the column's foot (1962-12-09: "SOLUTION TO No. 1,974" at y 4844, the DOWN list on under it).
     heads = [w[1] for ws in probe for w in ws if w[0] >= out[0] and w[1] > gy0 and SOLUTION_HEAD.search(w[4])
              or w[0] >= out[0] and w[1] > gy0 and re.match(r"\W*s[o0]lut", w[4], re.I)]
@@ -11215,6 +11254,62 @@ class SolutionLeft(tuple):
     """A left_column tuple whose column has a solution box's heading set in it, `closed` = (top, foot) of the
     heading's lines: columns() drops them and goes on over the gap under the box."""
     closed = None
+    #: SUNDAY_UNDER's edges (x) of the columns under the grid, ending at the last one's far edge, and the crop.
+    under = crop = None
+
+
+#: The Gale Sunday Times 1960-67 pages whose DOWN list runs on past the first column's foot in columns of the first's
+#: width under the grid (1964-10-04: the column at x 263, the grid x 835-1555 from y 3947 to 4683, 11 down on at x 696,
+#: y 4858, 25 down at x 1129): the one column's window ended at the grid's left edge and cut the second column at its
+#: first 140 px. The columns' numbers are sought under the grid's foot, at least SUNDAY_UNDER_LINES of them at one edge,
+#: SUNDAY_UNDER_SPAN of the first column's way to the grid's right edge on.
+SUNDAY_UNDER_SPAN, SUNDAY_UNDER_LINES, SUNDAY_UNDER_BIN = (0.25, 0.95), 4, 10
+#: How far past the second column's left edge the first column's lines may run (px).
+SUNDAY_UNDER_SLACK = 30
+
+
+def sunday_times_under(img, gbox, x0, c1, key, paper):
+    """The edges (x) of the DOWN columns under the grid of a Gale Sunday Times 1960-67 page whose first clue column
+    numbers stand at `c1`: [second column's left, third's, last's far edge] (the third only when its numbers stand a
+    column's width on), or None when no column's numbers stand under the grid's foot."""
+    gx0, gy0, gx1, gy1 = gbox
+    probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.under.json", None, paper.margin, None,
+                        (x0, img.height, min(img.width, gx1)), None, None, None)
+    words = [w for ws in probe for w in ws if w[1] > gy1 and re.match(r"\W{0,2}\d", w[4])]
+    lo, hi = c1 + SUNDAY_UNDER_SPAN[0] * (gx1 - c1), c1 + SUNDAY_UNDER_SPAN[1] * (gx1 - c1)
+    edges = collections.Counter(int(w[0] // SUNDAY_UNDER_BIN) for w in words if lo <= w[0] < hi)
+    if not edges:
+        return None
+    bin_, _ = max(edges.items(), key=lambda kv: (edges[kv[0] - 1] + kv[1] + edges[kv[0] + 1], kv[1]))
+    if edges[bin_ - 1] + edges[bin_] + edges[bin_ + 1] < SUNDAY_UNDER_LINES:
+        return None
+    c2 = bin_ * SUNDAY_UNDER_BIN
+    pitch = c2 - c1
+    if pitch < 0.3 * (gx0 - c1):
+        return None
+    third = sum(1 for w in words if abs(w[0] - (c2 + pitch)) <= 0.12 * pitch)
+    out = [c2 - 8]
+    if third >= 1 and c2 + 2 * pitch < img.width:
+        out.append(c2 + pitch - 8)
+    out.append(int(out[-1] + pitch))
+    return out
+
+
+#: The reason of a Gale Sunday Times 1960-67 page written incomplete with a clue no reading laid, its DOWN list's
+#: columns under the grid (sunday_times_under) read since.
+SUNDAY_UNDER = "Gale Sunday Times 1960-67 page filed incomplete, the DOWN columns under its grid read since"
+REREAD_SUNDAY_UNDER = "2026-11-15T07:05:00+00:00"
+
+
+def sunday_under_due(row):
+    """Whether Gale Sunday Times ledger `row` is due SUNDAY_UNDER: a puzzle of a 1960-67 edition written incomplete
+    with a clue no reading laid, read before REREAD_SUNDAY_UNDER."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
+            or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
+        return False
+    return any(v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_UNDER))
 
 
 #: The reason of a Gale Sunday Times 1960-67 page refused "no reading parses": its one clue column left of its grid
@@ -21001,6 +21096,8 @@ def fix_reason(row):
         return IOS_TITLES
     if ft_next_due(row):
         return FT_HEADINGS
+    if sunday_under_due(row):
+        return SUNDAY_UNDER
     if sunday_mid_due(row):
         return SUNDAY_MID
     if sunday_over_due(row):
@@ -21672,7 +21769,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SIDES_HEADED,
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SIDES_HEADED,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
                   TELEGRAPH_OWN, TELEGRAPH_FIGURE,
                   # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
@@ -21732,6 +21829,8 @@ def blanket_or_fix(row, blanket):
             return INDY_PAIRED
         if left_edge_grid_due(row):
             return LEFT_EDGE_GRID
+        if sunday_under_due(row):
+            return SUNDAY_UNDER
         if sides_headed_due(row):
             return SIDES_HEADED
         if sides_due(row):
@@ -21967,7 +22066,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -22600,7 +22699,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SIDES_HEADED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SIDES_HEADED)
 
 
 def keeps_vlm(why, row, unit=None):
