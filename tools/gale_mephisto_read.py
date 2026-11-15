@@ -1,0 +1,409 @@
+#!/usr/bin/env python3
+"""The Sunday Times Mephisto (2003-) read from the Sunday Times pages tools/gale_fetch.py downloads from
+Gale's Sunday Times Historical Archive, one GALE_<docId>.pdf each in <Gale crosswords>/Mephisto/Fetched
+(the solution pages in Mephisto/Solutions; both folders keep growing while the fetch walks back, so the
+plan lists them afresh each time).
+
+A page is a whole newspaper page: the Mephisto's 12x12 barred grid (bars drawn thick, the cell rules thin and
+often broken, so tools/listener_grid's lattice finder, which wants unbroken rules, does not find it) stands
+over the two clue columns (Across, Down) under a "Mephisto" title. The grid is found here by its long horizontal
+rules (find_lattice), its bars read as tools/ios_barred reads a Beelzebub's (mirror pairs, 180-degree symmetric),
+the clue columns cut under the grid and read as the Times' lists are (gale_listener.times_read). The page's
+citation ('"Mephisto 2250." Sunday Times, 5 Oct. 2003, p. 382') gives the date and mostly the number; a bare
+"Mephisto." has it from the page's text, or from the "Solution to Mephisto 2248" the page prints (two
+puzzles back), always checked against the weekly count from No 2250 (2003-10-05). Only a puzzle with every
+clue filed is written (fa.complete), unsolved; puzzles/mephisto's held numbers are never written over.
+
+    python3 tools/gale_mephisto_read.py read NAME     # read one saved page
+    python3 tools/gale_mephisto_read.py plan          # the pages not yet read
+
+The standing pass plans each unread page as a unit (tools/edition_queue.py, paper "listener", rel
+"mephisto:NAME"), ahead of the Listener's own pages.
+"""
+import datetime
+import json
+import os
+import re
+import sys
+from pathlib import Path
+import downloads
+import gale_inbox as gi
+import file_archive_org_puzzles as fa
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parent
+SERIES = "mephisto"
+TOOL = "tools/gale_mephisto_read.py"
+SAVED = downloads.GALE_CROSSWORDS / "Mephisto" / "Fetched"
+SOLUTIONS = downloads.GALE_CROSSWORDS / "Mephisto" / "Solutions"
+STORE = Path(os.path.expanduser("~/.cache/gale_mephisto"))
+LEDGER = "ledger.jsonl"
+#: Bumped when the reading changes, so every page is read again.
+VERSION = 1
+PREFIX = "mephisto:"
+CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
+TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
+SOLUTION_TO = re.compile(r"solution\s+to\s+mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
+TITLE_WORD = re.compile(r"^\W*mephisto\W*$", re.IGNORECASE)
+STOP_WORD = re.compile(r"^\W*(?:solutions?|winners|prizes?|answers)\W*$", re.IGNORECASE)
+DOC_ID = re.compile(r"[A-Z]{2,6}\d{9,10}")
+#: The first Mephisto the Sunday Times numbered No 2250 (2003-10-05); one a week, a number a page's text gives is
+#: taken when within this many of the count (a Christmas week with no puzzle moves it by one).
+FIRST = (2250, datetime.date(2003, 10, 5))
+NEAR = 4
+#: The Mephisto is a 12x12 barred grid.
+CELLS = 12
+#: The grid's rules run this share of the page's width at least.
+RULE_SHARE = 0.12
+#: The grid's width over 12 cells' pitch agrees within this.
+SQUARE = 0.08
+
+
+def estimate(day):
+    """The number the weekly count gives a Mephisto of `day`."""
+    return FIRST[0] + round((day - FIRST[1]).days / 7)
+
+
+def cite_of(cite):
+    """(number or None, date) the page's citation gives, or None."""
+    m = CITED.search(re.sub(r"\s+", " ", cite or ""))
+    if not m:
+        return None
+    n = TITLE_NUMBER.search(m.group(1))
+    day = datetime.date(int(m.group(4)), gi.MONTHS[m.group(3)[:3].lower()], int(m.group(2)))
+    return (int(n.group(1)) if n else None), day
+
+
+def checked(n, day):
+    """`n` when it is a Mephisto number near the weekly count for `day`, else None."""
+    return n if n and abs(n - estimate(day)) <= NEAR else None
+
+
+def number_of(cited, text):
+    """(number, where from) of a page: the citation's, else the page's text ("Mephisto 2250"), else two more
+    than the "Solution to Mephisto N" it prints; each checked against the weekly count."""
+    day = cited[1]
+    if checked(cited[0], day):
+        return cited[0], "citation"
+    for m in TITLE_NUMBER.finditer(text or ""):
+        if not SOLUTION_TO.match(text[max(0, m.start() - 12):m.end()].strip()[-40:]) and checked(int(m.group(1)), day) \
+                and "solution to" not in text[max(0, m.start() - 14):m.start()].lower():
+            return int(m.group(1)), "page text"
+    for m in SOLUTION_TO.finditer(text or ""):
+        for step in (2, 1):
+            if checked(int(m.group(1)) + step, day) and abs(int(m.group(1)) + step - estimate(day)) <= 1:
+                return int(m.group(1)) + step, "solution printed"
+    return None, None
+
+
+def page_files(saved=SAVED):
+    d = Path(saved)
+    return sorted(p for p in d.iterdir() if p.suffix.lower() == ".pdf" and p.is_file()
+                  and not p.name.startswith(".")) if d.is_dir() else []
+
+
+def load_ledger(store=STORE):
+    out = {}
+    path = Path(store) / LEDGER
+    if path.exists():
+        for line in path.read_text().splitlines():
+            try:
+                row = json.loads(line)
+            except ValueError:
+                continue
+            out[row["file"]] = row
+    return out
+
+
+def append_row(row, store=STORE):
+    Path(store).mkdir(parents=True, exist_ok=True)
+    with open(Path(store) / LEDGER, "a") as f:
+        f.write(json.dumps(row) + "\n")
+
+
+#: A page whose read crashed this many times is left as refused (a page that always raises).
+CRASH_LIMIT = 3
+
+
+def read_done(row):
+    """Whether a ledger row is a verdict of this VERSION: a crashed attempt is not, so the page stays due."""
+    return bool(row) and row.get("version") == VERSION and not (
+        row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
+
+
+def plan(saved=SAVED, store=STORE):
+    """One unit per saved page not read at VERSION (or whose last attempt crashed), newest first. The folder is
+    listed each call: the fetch is still adding pages."""
+    done = load_ledger(store)
+    reason = "never read (Gale fetch)"
+    todo = [p for p in page_files(saved) if not read_done(done.get(p.name))]
+    todo.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return [{"rel": PREFIX + p.name, "rank": fa.RANKS[reason], "reason": reason, "needs": []} for p in todo]
+
+
+# ------------------------------------------------------------ the grid
+
+def long_rules(ink, share=RULE_SHARE):
+    """[(y, x0, x1)] of the long horizontal rules of `ink` (a boolean page): each run of rows (a rule's, a
+    bar's thickness) holding a horizontal run of `share` of the width at least, its centre row and the run's ends."""
+    import numpy as np
+    import listener_grid as lg
+    h, w = ink.shape
+    long = lg.runs_at_least(ink, max(45, int(share * w)), 1)
+    rows = np.flatnonzero(long.any(1))
+    out, group = [], []
+    for y in list(rows) + [None]:
+        if group and (y is None or y - group[-1] > 3):
+            ends = []
+            for r in group:
+                at = np.flatnonzero(long[r])
+                # the longest unbroken stretch of the row
+                cut = np.flatnonzero(np.diff(at) > 1)
+                starts = np.r_[at[0], at[cut + 1]]
+                stops = np.r_[at[cut], at[-1]]
+                k = int(np.argmax(stops - starts))
+                ends.append((int(starts[k]), int(stops[k])))
+            out.append(((group[0] + group[-1]) / 2, int(np.median([e[0] for e in ends])),
+                        int(np.median([e[1] for e in ends]))))
+            group = []
+        if y is not None:
+            group.append(int(y))
+    return out
+
+
+#: Lines of a lattice that must be found of its 13 (the thin rules are printed broken).
+MATCHED = 11
+#: A cell's pitch is within these many pixels (a page scans at ~97 px a cell; the later pages are smaller).
+PITCH = (24, 400)
+
+
+def lattice_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED):
+    """(positions, count) of 13 evenly spaced lines among `pos` (centres of rules found along one axis): the
+    pair of them 12 pitches apart (a pitch in lo..hi) that the most others lie within 15% of a pitch of the
+    lattice between; the lattice refitted to the ones matched. None when fewer than `need` are matched."""
+    import numpy as np
+    pos = sorted(pos)
+    best = None
+    for i, a in enumerate(pos):
+        for b in pos[i + 1:]:
+            p = (b - a) / CELLS
+            if p < lo:
+                continue
+            if p > hi:
+                break
+            hits = []
+            for k in range(CELLS + 1):
+                at = a + k * p
+                near = min(pos, key=lambda v: abs(v - at))
+                if abs(near - at) <= 0.15 * p:
+                    hits.append((k, near))
+            if len(hits) >= need and (best is None or len(hits) > len(best)):
+                best = hits
+    if not best:
+        return None
+    slope, icept = np.polyfit([k for k, _ in best], [v for _, v in best], 1)
+    return [icept + slope * k for k in range(CELLS + 1)], len(best)
+
+
+def find_lattice(ink, share=RULE_SHARE):
+    """(ys, xs) of the 13 rules each way of the 12x12 grid on `ink`, or None: the horizontal rules lie on 13
+    evenly spaced lines (lattice_1d); the vertical ones, long runs of ink between the first and the last, on
+    13 more at the same pitch, else (the thin verticals too broken to find) the horizontal rules' own ends."""
+    import numpy as np
+    import listener_grid as lg
+    rules = long_rules(ink, share)
+    got = lattice_1d([r[0] for r in rules])
+    if got is None:
+        return None
+    ys, _ = got
+    pitch = (ys[-1] - ys[0]) / CELLS
+    band = ink[max(0, int(ys[0] - pitch / 4)):int(ys[-1] + pitch / 4)]
+    # The thin verticals are broken, so the lattice is fitted to the columns' ink: the x0 and pitch (2% either way)
+    # whose 13 lines lie on the most ink (each column's ink spread 3 px either way, the grid's height over it).
+    down = lg.runs_at_least(band, max(45, int(0.6 * pitch)), 0)
+    cols = np.flatnonzero(down.sum(0) >= 0.4 * band.shape[0])
+    centres, start = [], None
+    for x in list(cols) + [None]:
+        if start is not None and (x is None or x - prev > 3):
+            centres.append((start + prev) / 2)
+            start = None
+        if x is not None:
+            if start is None:
+                start = x
+            prev = x
+    across = lattice_1d(centres, 0.92 * pitch, 1.08 * pitch, need=9)
+    if across:
+        return ys, across[0]
+    prof = np.minimum(band.sum(0).astype(float), 0.4 * band.shape[0])
+    spread = np.maximum.reduce([np.roll(prof, s) for s in range(-12, 13)])
+    best = None
+    for scale in (0.98, 0.99, 1.0, 1.01, 1.02):
+        p = pitch * scale
+        offs = np.round(np.arange(CELLS + 1) * p).astype(int)
+        width = len(prof) - int(offs[-1])
+        if width <= 0:
+            continue
+        starts = np.arange(width)
+        score = spread[starts[:, None] + offs[None, :]].sum(1)
+        i = int(np.argmax(score))
+        if best is None or score[i] > best[0]:
+            best = (float(score[i]), i, p)
+    if best is None or best[0] < 0.12 * (CELLS + 1) * band.shape[0]:
+        return None
+    return ys, [best[1] + best[2] * i for i in range(CELLS + 1)]
+
+
+def read_barred(gray, lattice=None, wanted=None):
+    """(rows, found, None) or (None, None, why) of the barred grid on `gray` (a page, uint8): the lattice found, its
+    cell sides measured by listener_grid.read_box, the bars set as ios_barred.read_found sets them."""
+    import numpy as np
+    import listener_grid as lg
+    import ios_barred as ib
+    binary = len(np.unique(gray[::7, ::7])) <= 2
+    ink = gray < (128 if binary else max(lg.trove_grid.otsu(gray), 1))
+    got = lattice or find_lattice(ink)
+    if not got:
+        return None, None, "no 12x12 lattice of rules on the page"
+    ys, xs = got
+    pad = 6
+    y0, x0 = max(0, int(ys[0]) - pad), max(0, int(xs[0]) - pad)
+    sub = ink[y0:int(ys[-1]) + pad, x0:int(xs[-1]) + pad]
+    dark = lg.darkness(gray[y0:int(ys[-1]) + pad, x0:int(xs[-1]) + pad])
+    sys_, sxs = [y - y0 for y in ys], [x - x0 for x in xs]
+    rows, sides, thin = lg.read_box(sub, dark, sys_, sxs)
+    found = {"rows": rows, "sides": sides, "thin": thin, "lattice": (list(ys), list(xs)),
+             "box": (int(xs[0]), int(ys[0]), int(xs[-1]), int(ys[-1]))}
+    fitted, why = ib.read_found(found, wanted)
+    if fitted is None:
+        return None, found, why
+    return fitted, found, None
+
+
+# ------------------------------------------------------------ the clue lists
+
+def lists_cut(words, box):
+    """(box, masks) of the clue lists under the grid at `box` (x0, y0, x1, y1) on a page's `words`: from the
+    Mephisto title under the grid (else a little under the grid) down to the first stop word ("Solution to
+    Mephisto N", "Winners", "Prizes") or gap of three lines in the grid's columns."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    left, right = box[0] - lh, box[2] + lh
+    inside = [w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[1] > box[3]]
+    titles = [w for w in inside if TITLE_WORD.match(w[4]) and w[1] - box[3] < 40 * lh]
+    top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
+    bottom = top
+    for w in sorted((w for w in inside if w[3] > top), key=lambda w: w[1]):
+        if STOP_WORD.match(w[4]) and w[1] > top + 6 * lh:
+            break
+        if w[1] - bottom > 3 * lh and bottom > top + 6 * lh:
+            break
+        bottom = max(bottom, w[3])
+    return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+def read_page(path, store=STORE, asker=None):
+    """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (gale_jumbo_read.vlm_mended)."""
+    import numpy as np
+    import gale_listener as gl
+    import gale_jumbo_read as gj
+    import archive_org_jumbo as aj
+    import ocr_clues
+    img, cite = gi.images(path)[0]
+    verdict = {"file": path.name}
+    cited = cite_of(cite)
+    if not cited:
+        verdict["refused"] = "no Sunday Times citation on the page"
+        return verdict, None
+    day = cited[1]
+    key = gl.image_key(img)
+    words = gl.page_words(img, key)
+    n, how = number_of(cited, ocr_clues.lines_of(words))
+    if n is None:
+        verdict["refused"] = "no Mephisto number in the citation or the page text"
+        return verdict, None
+    verdict.update(number=n, numberFrom=how, date=day.isoformat())
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    rows, found, why = read_barred(gray)
+    if rows is None:
+        verdict["refused"] = f"grid unread: {why}"
+        return verdict, None
+    g = rows
+    gpath = Path(store) / "grids" / f"{path.stem}.png"
+    gpath.parent.mkdir(parents=True, exist_ok=True)
+    img.crop(found["box"]).save(gpath)
+    cut = lists_cut(words, found["box"])
+    block = gl.times_block(img, key, cut, words)
+    if not block:
+        verdict["refused"] = "no Mephisto clue lists found on the page"
+        return verdict, None
+    blocks = [block]
+    lengths = {f"{k}-{d}": len(cells) for (k, d), cells in aj.rg.light_cells(g).items()}
+    read, laid = gl.times_read(blocks, lengths)
+    verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused")})
+    if laid is None:
+        return verdict, None
+    voted = dict(laid)
+    laid, blank = aj.lay_on(dict(laid), g)
+    blank = {**(read.get("blank") or {}), **blank}
+    tails = {t for _, _, group in laid.values() for t in (group or [])[1:]}
+    for lid, (text, _, _) in laid.items():
+        if lid not in tails and not (text or "").strip():
+            blank.setdefault(lid, gj.UNLAID)
+    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted)
+    if asked:
+        verdict["vlmColumns"] = asked
+    verdict["lights"] = len(laid)
+    verdict["blank"] = sorted(blank)
+    verdict["why"] = {k: str(v)[:80] for k, v in sorted(blank.items())}
+    doc = DOC_ID.search(path.name.upper())
+    url = f"https://link.gale.com/apps/doc/{doc.group(0)}/STHA?sid=bookmark-STHA" if doc else None
+    puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Sunday Times Mephisto No {n}",
+                      url=url, printed=read.get("asPrinted"))
+    verdict["whole"] = bool(fa.complete(puzzle))
+    return verdict, puzzle
+
+
+def read_unit(rel, saved=SAVED, store=STORE):
+    """Read one saved page (a unit's rel, "mephisto:NAME" or NAME), file its puzzle when whole and no file holds
+    the number; the ledger row appended. Returns "read", "current" or "failed"."""
+    import scan_queue
+    from fetch_puzzle import puzzle_path, write_puzzle_file
+    name = rel[len(PREFIX):] if rel.startswith(PREFIX) else rel
+    path = Path(saved) / name
+    before = load_ledger(store).get(name)
+    if not path.exists() or read_done(before):
+        return "current"
+    try:
+        verdict, puzzle = read_page(path, store)
+    except Exception as e:  # any raise: the page stays due (read_done) until CRASH_LIMIT attempts
+        attempts = (before or {}).get("attempts", 0) + 1
+        verdict = {"file": name, "failed": f"crashed: {type(e).__name__}: {e}", "attempts": attempts}
+        print(verdict["failed"], file=sys.stderr)
+        append_row({**verdict, "version": VERSION if attempts >= CRASH_LIMIT else None}, store)
+        return "failed"
+    if puzzle is not None and verdict.get("whole"):
+        target = puzzle_path(SERIES, verdict["number"])
+        if target.exists():
+            verdict["skip"] = "already held"
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
+    append_row({**verdict, "version": VERSION}, store)
+    print(json.dumps(verdict))
+    return "read"
+
+
+def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv[:1] == ["plan"]:
+        print(len(plan()))
+        return 0
+    if argv[:1] == ["read"] and len(argv) > 1:
+        print(read_unit(argv[1]))
+        return 0
+    print(__doc__)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main())
