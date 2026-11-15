@@ -3462,7 +3462,7 @@ LOOSE_SHARE = 0.8
 RUN_ON = re.compile(r"\(\s*\d|[?!.,;)]\s+\d{1,2}\s+[A-Z]")
 
 
-def lay_loose(parsed, grid, taken=None):
+def lay_loose(parsed, grid, taken=None, plain=False):
     """({light: (text, enumeration, group)}, [clues not laid]): each clue laid
     alone on the light its number names in its list's direction, when its
     number reads one way that names a light not yet taken and one of its
@@ -3511,6 +3511,12 @@ def lay_loose(parsed, grid, taken=None):
                 continue
             lid = f"{names[0]}-{direction}"
             fits = [e for e in clue["enums"] if ftp.count(e) == len(lights[(names[0], direction)])]
+            if plain and len(fits) != 1 and not RUN_ON.search(clue["text"]):
+                # A print with no counts (PLAIN_LAID): the number the grid's light carries is the clue's,
+                # whatever digit the OCR read after it ("17 7 In depressions"), laid with no count.
+                out[lid] = (clue["text"], None, None)
+                at[k] = names[0]
+                continue
             if len(fits) != 1:
                 bad.append(lid)
                 continue
@@ -12172,6 +12178,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     grid, how = (g, "image") if ok else (None, None)
     if g and not ok:
         verdict["imageDisagrees"] = why
+        plain = plain_print(paper, d)
         # The scan's grid stands when nearly every clue lies on it: the few
         # that do not are misreads, filed blank, never forced to fit.
         # Each light takes the first reading whose clue lies on it, and is
@@ -12180,14 +12187,14 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         lists, loose, src = loose_lists(tried, texts), {}, {}
         for group in lists:
             for o, p in group:
-                for lid, v in lay_loose(p, g)[0].items():
+                for lid, v in lay_loose(p, g, plain=plain)[0].items():
                     if lid not in loose:
                         loose[lid], src[lid] = v, o
             # Then the clues whose number was lost, into the lights no reading
             # laid by number.
             by_number = set(loose)
             for o, p in group:
-                for lid, v in lay_loose(p, g, by_number)[0].items():
+                for lid, v in lay_loose(p, g, by_number, plain=plain)[0].items():
                     if lid not in loose:
                         loose[lid], src[lid] = v, o
         verdict["looseLaid"] = len(loose)
@@ -16674,6 +16681,42 @@ VLM_PLAIN = "unfiled before its fix, a count-less clue only the VLM's column rea
 REREAD_VLM_PLAIN = "2026-11-04T01:55:00+00:00"
 #: The years of the Gale Times print that sets no counts on its clues.
 VLM_PLAIN_YEARS = ("1930", "1933")
+
+
+def plain_print(paper, d):
+    """Whether edition dir `d` of `paper` is a Gale Times page of VLM_PLAIN_YEARS, whose lists print no counts."""
+    return paper.key == "gale" and VLM_PLAIN_YEARS[0] <= d.name[:4] <= VLM_PLAIN_YEARS[1]
+
+
+#: The reason, and its fix's time, of a 1930-33 Gale Times page whose clue list disagreed with the scanned grid
+#: (imageDisagrees: "16-across: the enumeration reads as ['7'], the grid holds 4 letters", or a clue naming no light)
+#: and was written unfiled. Those lists print no counts (clues in puzzles/times/1930 hold none), so the digit the
+#: OCR reads beside a number ("17 7 In depressions") is a stray, not a count, and lay_loose, which laid a clue only
+#: where a count fitted its light, laid 0-2 of a page's clues (looseLaid; 11-15 census of 2,100 unfiled Times
+#: 1930s verdicts: 884 imageDisagrees, 377 of them 1930-32's stray count, 229 of the 1-blank ones "no reading
+#: laid a clue"). With plain=True it lays a clue on the light its number names in its list (the grid's own
+#: numbering), with no count, the 0.8 share of lights and every later vote unchanged. Once each.
+PLAIN_LAID = "unfiled before its fix, a count-less 1930-33 clue laid on the light its number names"
+REREAD_PLAIN_LAID = "2026-11-15T14:12:00+00:00"
+
+
+def plain_laid_due(row):
+    """Whether Gale Times ledger `row` of VLM_PLAIN_YEARS, read before REREAD_PLAIN_LAID, wrote a puzzle unfiled
+    (an "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) whose verdict holds
+    an imageDisagrees."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "gale" or not VLM_PLAIN_YEARS[0] <= Path(rel).name[:4] <= VLM_PLAIN_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_PLAIN_LAID)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not v.get("imageDisagrees") \
+                or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
 
 
 def vlm_plain_due(row):
@@ -21424,6 +21467,8 @@ def fix_reason(row):
         return IOS_TITLES
     if ft_next_due(row):
         return FT_HEADINGS
+    if plain_laid_due(row):
+        return PLAIN_LAID
     if sunday_1970s_due(row):
         return SUNDAY_1970S
     if sunday_under_due(row):
@@ -22099,7 +22144,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, SIDES_HEADED,
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, PLAIN_LAID, SIDES_HEADED,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
                   TELEGRAPH_OWN, TELEGRAPH_FIGURE,
                   # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
@@ -22164,6 +22209,8 @@ def blanket_or_fix(row, blanket):
             return INDY_PAIRED
         if left_edge_grid_due(row):
             return LEFT_EDGE_GRID
+        if plain_laid_due(row):
+            return PLAIN_LAID
         if sunday_1970s_due(row):
             return SUNDAY_1970S
         if sunday_under_due(row):
@@ -22405,7 +22452,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -23038,7 +23085,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, SIDES_HEADED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_OVER, FT_NUMBER_MENDED, SUNDAY_MID, SUNDAY_UNDER, SUNDAY_1970S, PLAIN_LAID, SIDES_HEADED)
 
 
 def keeps_vlm(why, row, unit=None):
