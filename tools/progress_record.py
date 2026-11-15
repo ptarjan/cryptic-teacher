@@ -256,14 +256,17 @@ def record(today=None):
     files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in rows)
     days = progress.load()
     ledger = ledger_on(today)
-    if ledger is None and os.environ.get("GITHUB_ACTIONS"):
+    queue = None
+    if os.environ.get("GITHUB_ACTIONS"):
         # CI has no coverage ledger (tools/coverage.py saves it on the home server): carry
         # the latest earlier row's known/acquired forward, as the page does without one.
         prev = [d for d in days if d < today]
         if prev:
             last = days[max(prev)]
-            ledger = {"series": {s: {"exist": c[0], "filed": c[1]} for s, c in last.items() if c[0] is not None}}
-    days[today] = progress.day_row(files, ledger, backlog())
+            # No media disk either: the editions' downloaded/queued carry forward too.
+            queue = {s: c[5:7] for s, c in last.items() if len(c) > 6 and c[5] is not None}
+            ledger = ledger or {"series": {s: {"exist": c[0], "filed": c[1]} for s, c in last.items() if c[0] is not None}}
+    days[today] = progress.day_row(files, ledger, queue if os.environ.get("GITHUB_ACTIONS") else backlog())
     progress.save(days)
     return days[today]
 
