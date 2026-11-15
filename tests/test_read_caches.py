@@ -7,12 +7,12 @@ import os
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import json  # noqa: I001
+import json
 import sys
 import tempfile
 from pathlib import Path
 
-import _path  # noqa: F401  puts tools/ on sys.path
+import _path  # puts tools/ on sys.path
 import failed_inputs
 import prereset_plan
 
@@ -80,7 +80,7 @@ with tempfile.TemporaryDirectory() as tmp:
         failed_inputs.skipped_all(failed_inputs.load(), now=1000 + failed_inputs.SKIPPED_TTL_S + 1, cache=sc)
         check("an old answer is recomputed", len(calls) > n, True)
         n = len(calls)
-        pf.write_text(json.dumps({"id": "ct-1", "entries": [], "note": "edited"}))
+        pf.write_text(json.dumps({"id": "ct-1", "entries": [{"solution": "CAT"}]}))
         got = failed_inputs.skipped_all(failed_inputs.load(), now=1002, cache=sc)
         check("a changed puzzle is released at once", got, {"annotate": [], "solve": []})
         check("by recomputing", len(calls) > n, True)
