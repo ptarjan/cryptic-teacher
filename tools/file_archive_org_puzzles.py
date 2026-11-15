@@ -1772,7 +1772,11 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         first = [(x0, inner[0], inner[0], top), (inner[0], edge, max(edge, gx0 - 5), top)] if inner \
             else [(x0, edge, max(edge, gx0 - 5), top)]
         out = first + [(edge,) + out[0][1:]] + out[1:]
-    if third:
+    if third and len(third) > 2:
+        # GUARDIAN_FOURTH's page: the column right of the grid, then the fourth set beside it (split, width, top).
+        out.append((gx1 + 15, third[2], third[2], third[1]))
+        out.append((third[2], third[2] + third[3], third[2] + third[3], third[4]))
+    elif third:
         out.append((gx1 + 15, gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
     return out
 
@@ -3082,7 +3086,7 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
     gw = gx1 - gx0
     box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + RIGHT_REACH), min(img.height, int(gy1 + 1.8 * gw)))
     if third:
-        box = (box[0], min(gy1, third[1]), min(img.width, gx1 + 15 + third[0]), box[3])
+        box = (box[0], min(gy1, third[1]), min(img.width, third[2] + third[3] if len(third) > 2 else gx1 + 15 + third[0]), box[3])
     if above is not None:
         box = (max(0, int(gx0 - margin if x0 is None else x0)), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
     if left:
@@ -12104,6 +12108,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
+    if third:
+        third = guardian_fourth(lines, gbox, third)
     m = paper.margin
     # Clues over the grid: from the title line down, split where the fewest
     # words of any reading cross.
@@ -12903,6 +12909,34 @@ def vlm_pick(img, wins, readings, texts, laid, blank, lengths=None):
     (`wins`, boxed by every reading's lines); `lengths`: each light's letters."""
     return ocr_clues.vlm_pick(texts, laid, blank, parse,
                               lambda lid, cands: vlm.pick(img, wins, readings, lid, cands), lengths)
+
+
+#: How far left of the column right of the grid's far edge a fourth column's clue numbers may stand (they stood 26 px
+#: left of it: 1998-01-19's 15, 18, 19, 21, 22 down at x 2664 against the edge 2692), the lines of them it takes.
+FOURTH_LEAD, FOURTH_LINES = 60, 3
+#: The Guardian page whose down list runs on in a fourth clue column beside the one right of the grid.
+GUARDIAN_FOURTH = "Guardian page with a fourth clue column beside the one right of its grid, read since"
+REREAD_GUARDIAN_FOURTH = "2026-11-15T22:46:00+00:00"  # the push time: a row read after it is not due again
+
+
+def guardian_fourth(lines, grid, third):
+    """`third` (width, top) of a Guardian page, or (width, top, split, width, top) when the djvu words hold a fourth
+    clue column beside the one it reads (GUARDIAN_FOURTH: its window ended 26 px into the fourth column's numbers
+    and the clues stood unread, 39 Guardian 1990s rows "no reading laid a clue on it", 15-22 down): at least
+    FOURTH_LINES lines open on a clue's number set at the window's edge, a word of clue text right of each."""
+    width, top = third
+    edge = grid[2] + 15 + width
+    found = []
+    for ws in lines:
+        ws = sorted(ws)
+        for a, b in zip(ws, ws[1:]):
+            if re.fullmatch(r"\d{1,2}", a[4]) and edge - FOURTH_LEAD <= a[0] < edge and b[0] >= edge - 10 \
+                    and top <= a[1] <= grid[3] + 1.8 * (grid[2] - grid[0]) and re.search(r"[A-Za-z]{2}", b[4]):
+                found.append(a)
+    if len({a[1] // 20 for a in found}) < FOURTH_LINES:
+        return third
+    split = min(a[0] for a in found) - 12
+    return (width, top, split, width, min(a[1] for a in found) - 12)
 
 
 def third_top(img, grid, width):
@@ -15687,6 +15721,24 @@ def guardian_cut_due(row):
                 or not isinstance(v.get("blank"), dict) \
                 or not any(k.endswith("-down") and ("no reading laid a clue" in str(why) or "end is lost" in str(why))
                            for k, why in v["blank"].items()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+def guardian_fourth_due(row):
+    """Whether Guardian ledger `row`, read before REREAD_GUARDIAN_FOURTH, has a verdict (not refused, not skipped) with a
+    down light blank no reading laid a clue on, its puzzle not held whole: the down list's last clues may stand in a
+    fourth column (guardian_fourth)."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GUARDIAN.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_GUARDIAN_FOURTH)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
+                or not isinstance(v.get("blank"), dict) \
+                or not any(k.endswith("-down") and "no reading laid a clue" in str(why) for k, why in v["blank"].items()):
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -21861,6 +21913,8 @@ def fix_reason(row):
         return TELEGRAPH_FITTED
     if guardian_laid_due(row):
         return GUARDIAN_LAID
+    if guardian_fourth_due(row):
+        return GUARDIAN_FOURTH
     if guardian_cut_due(row):
         return GUARDIAN_CUT
     if indy_over_plain_due(row):
@@ -22606,7 +22660,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # (ft_faint_due).
                   FT_FAINT,
                   # 11-15: a Guardian page with a clue no reading laid, read since (guardian_laid_due).
-                  GUARDIAN_LAID, GUARDIAN_CUT,
+                  GUARDIAN_LAID, GUARDIAN_CUT, GUARDIAN_FOURTH,
                   # 11-15: an Independent page whose third clue column under the grid was cut (indy_over_plain_due).
                   INDY_OVER_PLAIN,
                   # 11-15: an Independent on Sunday page whose enumerations carry a count of words (ios_words_due).
@@ -22677,6 +22731,7 @@ def blanket_or_fix(row, blanket):
             else TELEGRAPH_STOP if telegraph_stop_due(row) \
             else TELEGRAPH_FITTED if telegraph_fitted_due(row) \
             else GUARDIAN_LAID if guardian_laid_due(row) \
+            else GUARDIAN_FOURTH if guardian_fourth_due(row) \
             else GUARDIAN_CUT if guardian_cut_due(row) \
             else INDY_OVER_PLAIN if indy_over_plain_due(row) \
             else IOS_WORDS if ios_words_due(row) else blanket
@@ -22898,7 +22953,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, INDY_OVER_PLAIN: 2, IOS_WORDS: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, IOS_WORDS: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
