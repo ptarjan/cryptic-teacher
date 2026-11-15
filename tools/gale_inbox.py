@@ -695,7 +695,7 @@ OTHERS = {
                   "GaleIndependent{}UKEnglish"),
     "STHA": Other("sundaytimes", range(1924, 2007), ((6,), "1924-12-28"), "Sunday Times",
                   "GaleSundayTimes{}UKEnglish"),
-    "TLSH": Other("tls", range(1992, 2015), ((4,), "1992-01-03"), "TLS", "GaleTLS{}UKEnglish"),
+    "TLSH": Other("tls", range(1990, 2015), ((4,), "1990-01-05"), "TLS", "GaleTLS{}UKEnglish"),
 }
 
 

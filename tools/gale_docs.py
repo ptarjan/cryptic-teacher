@@ -294,6 +294,49 @@ def jumbo_article(titles, number=None):
     return cands[0] if cands else None
 
 
+#: The Sunday Times' Mephisto (barred-grid cryptic) in STHA, 1959-2006, as Gale
+#: titles it: "Mephisto Crossword No. 107" (1961), "Mephisto Crossword" (1965-75),
+#: "Mephisto" (1985-2003), "Mephisto 2324" (2005). A row of kind MEPHISTO_KIND in
+#: STHA, apart from the daily Sunday Times cryptic: crossword() still rejects
+#: "mephisto" there (its "Mephisto Crossword" titles would otherwise be picked
+#: as the Sunday Times' cryptic), and no other product's finder looks for it.
+#: Its answers come as "Solution to Mephisto Crossword No N" (kind
+#: MEPHISTO_SOLUTION_KIND), saved apart from the puzzles (gale_fetch).
+MEPHISTO_KIND = "mephisto"
+MEPHISTO_SOLUTION_KIND = "mephisto-solution"
+MATCHER[MEPHISTO_KIND] = 1
+MATCHER[MEPHISTO_SOLUTION_KIND] = 1
+MEPHISTO_ARTICLE = re.compile(r"\bmephisto\b", re.IGNORECASE)
+MEPHISTO_NOT = re.compile(r"solutions?\b|winners|report on|competition|\bwin\b|results?\b|answers|\bclues?\b|champion|how to"
+                          r"|concise|today's weather", re.IGNORECASE)
+
+
+def mephisto_article(titles, number=None):
+    """The index into `titles` of the Sunday Times' Mephisto puzzle, or None:
+    the one naming `number` first, then a numbered or "crossword" title
+    before a bare "Mephisto" (a feature or advertisement)."""
+    cands = [i for i, t in enumerate(titles) if MEPHISTO_ARTICLE.search(t) and not MEPHISTO_NOT.search(t)]
+    cands.sort(key=lambda i: not re.search(r"\d|cross", titles[i], re.IGNORECASE))
+    if number is not None:
+        cands.sort(key=lambda i: not named(number).search(titles[i]))
+    return cands[0] if cands else None
+
+
+MEPHISTO_SOLUTION_ARTICLE = re.compile(r"\bsolutions?\b.*\bmephisto\b|\bmephisto\b.*\bsolutions?\b", re.IGNORECASE)
+MEPHISTO_SOLUTION_NOT = re.compile(r"winners|report on|competition|\bwin\b|concise|today's weather", re.IGNORECASE)
+
+
+def mephisto_solution_article(titles, number=None):
+    """The index into `titles` of "Solution to Mephisto Crossword No N" (the
+    previous puzzle's answers, printed in the issue), or None: the one naming
+    `number` first."""
+    cands = [i for i, t in enumerate(titles)
+             if MEPHISTO_SOLUTION_ARTICLE.search(t) and not MEPHISTO_SOLUTION_NOT.search(t)]
+    if number is not None:
+        cands.sort(key=lambda i: not named(number).search(titles[i]))
+    return cands[0] if cands else None
+
+
 #: The Jumbo's solution, printed one or two Saturdays after the puzzle (same
 #: Saturday/Bank Holiday issues, on the puzzles page): "Solution to Jumbo 477",
 #: "Solution to Bank Holiday Jumbo 168", "Solution to Jumbo Corssword 169"
@@ -346,7 +389,8 @@ def jumbo_answers_entry(prod, dvis, gale):
 
 
 #: The finder of each kind of row in TTDA beside the daily cryptic.
-KINDS = {LISTENER_KIND: listener_article, JUMBO_KIND: jumbo_article, JUMBO_SOLUTION_KIND: jumbo_solution_article}
+KINDS = {LISTENER_KIND: listener_article, JUMBO_KIND: jumbo_article, JUMBO_SOLUTION_KIND: jumbo_solution_article,
+         MEPHISTO_KIND: mephisto_article, MEPHISTO_SOLUTION_KIND: mephisto_solution_article}
 
 
 #: Documents known not to be the day's cryptic (one line each, last word the

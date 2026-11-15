@@ -152,6 +152,10 @@ TIMES_LISTENER_DIR = f"{GALE_ROOT}/{LISTENER}/Times/Fetched"
 TIMES_JUMBO_DIR = f"{GALE_ROOT}/TimesJumbo/Fetched"
 #: The Jumbo solutions (gale_docs.JUMBO_SOLUTION_KIND): their own folder, beside Fetched.
 TIMES_JUMBO_SOLUTIONS_DIR = f"{GALE_ROOT}/TimesJumbo/Solutions"
+#: The Sunday Times' Mephisto pages (gale_mephisto, STHA 1957-2006) and their
+#: solution pages (gale_docs.MEPHISTO_SOLUTION_KIND), laid out as the Jumbo's.
+MEPHISTO_DIR = f"{GALE_ROOT}/Mephisto/Fetched"
+MEPHISTO_SOLUTIONS_DIR = f"{GALE_ROOT}/Mephisto/Solutions"
 CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "web.cryptic-crosswords")
 DOC = re.compile(r"[A-Z]{2}\d{8,12}", re.IGNORECASE)
 
@@ -347,6 +351,10 @@ def fetched_dir(prod, kind=None, day=None):
         return TIMES_JUMBO_DIR
     if kind == gale_docs.JUMBO_SOLUTION_KIND:
         return TIMES_JUMBO_SOLUTIONS_DIR
+    if kind == gale_docs.MEPHISTO_KIND:
+        return MEPHISTO_DIR
+    if kind == gale_docs.MEPHISTO_SOLUTION_KIND:
+        return MEPHISTO_SOLUTIONS_DIR
     if prod == "TTDA":
         return FETCHED_DIR
     folder = LISTENER if prod == "LSNR" else (gale_inbox.other_of(prod, day) if day else gale_inbox.OTHERS[prod]).folder
@@ -464,6 +472,11 @@ def plan(got, skip=SKIP):
     import gale_jumbo
     for day in gale_jumbo.solution_days():
         out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_SOLUTION_KIND)
+    # The Sunday Times' Mephisto puzzles and their solutions (gale_mephisto): a room's reader waits on them.
+    import gale_mephisto
+    for day in gale_mephisto.wanted():
+        out += want("STHA", day, docs, got, kind=gale_docs.MEPHISTO_KIND)
+        out += want("STHA", day, docs, got, kind=gale_docs.MEPHISTO_SOLUTION_KIND)
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
     # The Sunday Telegraph's Sundays: ahead of the Telegraph redo rows and the gated rows below,
