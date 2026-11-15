@@ -8,7 +8,6 @@
 #
 #     python3 tests/test_daily_units.py
 import os
-import re
 import subprocess
 import sys
 import tempfile
@@ -113,7 +112,7 @@ for f in du.CI_FETCHERS:
 for f in du.FETCHERS + du.SLOW_FETCHERS:
     check(f"{f} is not in fetch-puzzles.yml", f"tools/{f}.py" in workflow or f" {f}" in workflow.split("FETCHERS:")[1].split("\n")[0], False)
 
-# ratings records /progress/'s row off today's coverage ledger, so it waits for
+# progress-counts publishes /progress/'s counts off today's coverage ledger, so it waits for
 # that ledger until LEDGER_WAIT_UNTIL, then records without it.
 du.COVERAGE_STATE = Path(tempfile.mkdtemp())
 
@@ -122,20 +121,20 @@ def at(hour):
     return time.mktime((2026, 10, 15, hour, 0, 0, 0, 0, -1))
 
 
-def plans_ratings(t):
-    return "ratings" in [u.key for u in du.plan(Ledger(), t)]
+def plans_counts(t):
+    return "progress-counts" in [u.key for u in du.plan(Ledger(), t)]
 
 
-check("ratings waits for today's coverage ledger in the morning", plans_ratings(at(3)), False)
+check("progress-counts waits for today's coverage ledger in the morning", plans_counts(at(3)), False)
 check("the other phases do not wait for it", "checks" in [u.key for u in du.plan(Ledger(), at(3))], True)
-check("ratings records without the ledger past LEDGER_WAIT_UNTIL", plans_ratings(at(du.LEDGER_WAIT_UNTIL)), True)
+check("progress-counts records without the ledger past LEDGER_WAIT_UNTIL", plans_counts(at(du.LEDGER_WAIT_UNTIL)), True)
 (du.COVERAGE_STATE / "2026-10-15.json").write_text("{}")
-check("ratings runs once today's ledger is saved", plans_ratings(at(3)), True)
-check("yesterday's ledger is not today's", plans_ratings(time.mktime((2026, 10, 16, 3, 0, 0, 0, 0, -1))), False)
+check("progress-counts runs once today's ledger is saved", plans_counts(at(3)), True)
+check("yesterday's ledger is not today's", plans_counts(time.mktime((2026, 10, 16, 3, 0, 0, 0, 0, -1))), False)
 
 # The choice, read off what each unit runs before its own build step.
 for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["wayback:privateeye", "solutions", "blog:times", "blog:telegraph", "cache-sync",
-          "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports", "checks"]:
+          "xval:globe", "ft", "azed", "progress-counts", "minute", "reports", "checks"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
 for k in ["annotate:p1", "miss:p1:3a"]:
     check(f"{k} keeps the start rebuild", du.reads_generated(k), True)
@@ -151,12 +150,6 @@ def generated(kind):
 check("generated fetch:fetch_independent", generated("fetch:fetch_independent"), "none")
 check("generated annotate:x", generated("annotate:x"), "all")
 check("generated of an unknown kind prints nothing", generated("nosuch"), "")
-# /progress/'s row is ratings' first step, so the unit's time limit cannot take
-# it (it was the last, and lost, on 2026-10-14 and 10-15).
-text = (REPO / "tools" / "daily_update.sh").read_text()
-block = re.search(r"^unit_ratings\(\) \{.*?^\}", text, re.S | re.M)
-first = re.search(r"^  if step [a-z_]+", block.group(0), re.M) if block else None
-check("unit_ratings records /progress/'s row first", first.group(0) if first else "", "  if step progress_record")
 # A fetch:* unit failing FETCH_FAIL_ALERT ticks in a row alerts once, with its own last error line.
 import unit_queue
 sent = []

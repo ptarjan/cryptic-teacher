@@ -255,20 +255,59 @@ def record(today=None):
         return None
     files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in rows)
     days = progress.load()
-    ledger = ledger_on(today)
-    queue = None
     if os.environ.get("GITHUB_ACTIONS"):
-        # CI has no coverage ledger (tools/coverage.py saves it on the home server): carry
-        # the latest earlier row's known/acquired forward, as the page does without one.
-        prev = [d for d in days if d < today]
-        if prev:
-            last = days[max(prev)]
-            # No media disk either: the editions' downloaded/queued carry forward too.
-            queue = {s: c[5:7] for s, c in last.items() if len(c) > 6 and c[5] is not None}
-            ledger = ledger or {"series": {s: {"exist": c[0], "filed": c[1]} for s, c in last.items() if c[0] is not None}}
-    days[today] = progress.day_row(files, ledger, queue if os.environ.get("GITHUB_ACTIONS") else backlog())
+        # CI holds neither the coverage ledger nor the media disk: the home server's
+        # progress-counts unit commits their numbers (COUNTS).
+        ledger, queue = held_counts(today, days)
+    else:
+        ledger, queue = ledger_on(today), backlog()
+    days[today] = progress.day_row(files, ledger, queue)
     progress.save(days)
     return days[today]
+
+
+#: Numbers only: {"at": day, "series": {s: [known, acquired, downloaded, queued]}}.
+COUNTS = progress.ROOT / "tools" / "data" / "progress_counts.json"
+
+
+def write_counts(today):
+    """Save today's coverage ledger and media-disk counts to COUNTS. 75 (never
+    began, retried at the next tick) with no ledger yet."""
+    ledger = ledger_on(today)
+    if ledger is None:
+        print(f"no coverage ledger for {today} yet")
+        return 75
+    queue = backlog() or {}
+    led = ledger.get("series", {})
+    series = {s: [led[s]["exist"] if s in led else None, led[s]["filed"] if s in led else None,
+                  *queue.get(s, [None, None])] for s in sorted(led.keys() | queue.keys())}
+    COUNTS.write_text(json.dumps({"at": today, "series": series}, sort_keys=True, separators=(",", ":")) + "\n")
+    print(f"{len(series)} series' counts for {today} saved")
+    return 0
+
+
+def held_counts(today, days):
+    """(ledger, backlog) for day_row from COUNTS when it is at most a day old,
+    else the latest earlier row's own columns, logged."""
+    day = datetime.date.fromisoformat(today)
+    try:
+        held = json.loads(COUNTS.read_text())
+        age = (day - datetime.date.fromisoformat(held["at"])).days
+    except (OSError, ValueError, KeyError):
+        held, age = None, None
+    if held and age <= 1:
+        print(f"counts from {COUNTS.name}, {held['at']}")
+        sv = held["series"]
+        return ({"series": {s: {"exist": c[0], "filed": c[1]} for s, c in sv.items() if c[0] is not None}},
+                {s: c[2:4] for s, c in sv.items() if c[2] is not None})
+    prev = [d for d in days if d < today]
+    print(f"::warning::{COUNTS.name} is {'missing' if age is None else f'{age} days old'}: "
+          "known/acquired/downloaded/queued carried forward from the last row")
+    if not prev:
+        return None, None
+    last = days[max(prev)]
+    return ({"series": {s: {"exist": c[0], "filed": c[1]} for s, c in last.items() if c[0] is not None}},
+            {s: c[5:7] for s, c in last.items() if len(c) > 6 and c[5] is not None})
 
 
 def annotate_dates():
@@ -379,6 +418,8 @@ def main(argv):
         if row is None:
             return SKIPPED  # cache still cold: the step runner retries next run
         print(json.dumps(progress.totals(row)))
+    elif argv[1:] == ["counts"]:
+        return write_counts(datetime.date.today().isoformat())
     elif argv[1:] == ["backfill"]:
         print(f"{backfill()} day(s) backfilled into {progress.HISTORY.relative_to(progress.ROOT)}")
         print(f"downloaded/queued filled on {len(backfill_queue())} day(s)")

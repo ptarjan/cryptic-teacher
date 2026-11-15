@@ -129,7 +129,9 @@ PHASES = [
     # azed, genius and xval:globe run in CI (.github/workflows/daily-units.yml); the minute
     # capture stays here (its corpus is uncommitted by policy).
     # blog-facts runs in CI (.github/workflows/blog-facts.yml), not here.
-    # ratings (progress_record, blog_comment_difficulty) runs in CI (.github/workflows/ratings.yml).
+    # ratings (progress_record, blog_comment_difficulty) runs in CI (.github/workflows/ratings.yml);
+    # this unit hands it the counts only the home server holds.
+    ("progress-counts", DAY, 10 * 60, ()),
     ("checks", DAY, 45 * 60, ()),
     ("minute", 6 * HOUR, 30 * 60, ()),
     ("reports", 2 * HOUR, 90 * 60, ()),
@@ -154,7 +156,7 @@ GENERATED = {
     "azed": False,
     "genius": False,
     "blog-facts": False,
-    "ratings": False,
+    "progress-counts": False,
     "minute": False,
     # Only its Claude fix pass does, which builds them first (daily_update.sh).
     "reports": False,
@@ -185,15 +187,15 @@ def annotate_paused(ledger, now):
 
 #: The coverage ledger tools/coverage.py saves each morning (05:50, its
 #: plugin), one <local date>.json a day: the known/acquired columns of the
-#: /progress/ row the ratings unit records (tools/progress_record.py).
+#: /progress/ row ratings.yml records (tools/progress_record.py); the progress-counts unit reads it.
 COVERAGE_STATE = Path(os.environ.get("COVERAGE_STATE", Path.home() / ".cache" / "coverage_ledger"))
-#: Local hour past which ratings records without today's ledger: a coverage
+#: Local hour past which progress-counts records without today's ledger: a coverage
 #: run that died must not cost the rest of the night's work.
 LEDGER_WAIT_UNTIL = 12
 
 
 def awaits_ledger(now):
-    """Whether ratings waits for today's coverage ledger. Recorded without it,
+    """Whether progress-counts waits for today's coverage ledger. Recorded without it,
     the day's /progress/ row has no known/acquired and the page carries the
     last ledger's forward for a whole day (2026-10-15: Metro's 10,074 days,
     fixed in coverage.py at 01:03, stood until the next ratings run)."""
@@ -225,7 +227,7 @@ def plan(ledger, now):
                 room -= 1
             out.append(u)
     for key, every, timeout, trigger in PHASES:
-        if key == "ratings" and awaits_ledger(now):
+        if key == "progress-counts" and awaits_ledger(now):
             continue
         out.append(unit(key, timeout=timeout, every=every, trigger=trigger, after=trigger,
                         cls="claude" if key == "reports" else "backfill" if key in BACKFILLS else ""))

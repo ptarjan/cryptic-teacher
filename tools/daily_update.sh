@@ -35,9 +35,9 @@
 #   genius             the Guardian's monthly Genius, PDFs plus
 #                      fifteensquared's answers.
 #   (blog-facts, the blog caches re-read into the site's blog hints, runs in CI: blog-facts.yml)
-#   ratings, checks    the SNITCH and comment ratings and the measures built
-#                      over the day's answers; a series gone quiet, a corpus
-#                      defect.
+#   progress-counts    the coverage ledger's and media disk's counts, committed for
+#                      the /progress/ row ratings.yml records in CI.
+#   checks             a series gone quiet, a corpus defect.
 #   solutions          puzzles whose solutions weren't published yet (Saturday
 #                      prize crosswords publish theirs about a week late), and
 #                      the grade of our own fills against a key that lands.
@@ -440,64 +440,12 @@ unit_backlog_left() {
 # Blog hints (tools/blog_facts.py, then blog_compare.py) are rebuilt in CI now, by
 # .github/workflows/blog-facts.yml after each blog fetch; no unit here runs them.
 
-# The SNITCH's ratings of the Times, which the difficulty index is
-# checked against and the Times badges quote a range from. One page, so a
-# failure only means yesterday's ratings stand; unit_commit's `git add -A`
-# picks up tools/data/snitch.json. Daily.
-unit_ratings() {
-  # Each step's name as it starts and its seconds as it ends. The steps after
-  # blog_comment_difficulty send their stdout to /dev/null, so the run killed at
-  # its limit on 2026-10-15 logged nothing to say which step had the hour.
-  # A step done today is not run again: a run that stopped at its deadline
-  # (with_deadline) is due again at the next tick and goes on from the step it
-  # stopped in, whose row cache keeps what it made. Past the deadline the
-  # steps left wait for that run.
-  with_deadline
-  local done_file
-  done_file="$(worker_runs daily_update)/ratings-steps-$(date +%F)"
-  step() {
-    if grep -qx "$1" "$done_file" 2>/dev/null; then echo "step $1 done today"; return 1; fi
-    if past_deadline; then echo "step $1 put off: past the unit's deadline; the next tick runs it"; unit_backlog_left; return 1; fi
-    echo "step $1 from $(date +%H:%M:%S)"; step_t0=$SECONDS
-  }
-  took() {
-    echo "step $1 took $(( SECONDS - step_t0 ))s"
-    # Stopped at the deadline (tools/budget.py marks backlog left): not done.
-    [ -n "${UNIT_MORE:-}" ] && [ -e "$UNIT_MORE" ] || echo "$1" >>"$done_file"
-  }
-  # Tonight's row of the phase history /progress/ draws: the site is built from
-  # a one-commit checkout, so the history it charts has to be committed. It runs
-  # first: it reads only the puzzle files, today's coverage ledger and the
-  # edition backlog, none of which the steps below write. As the last step it
-  # was lost on 2026-10-14 and 10-15, when the unit hit its time limit first.
-  if step progress_record; then
-    python3 tools/progress_record.py record >/dev/null; rc=$?
-    # rc 3: no row yet (cache cold); leave the step not done so the next run retries.
-    if [ "$rc" = 3 ]; then echo "progress record skipped (files not read yet); the next run retries"
-    else
-      [ "$rc" = 0 ] || echo "progress record failed (rc=$rc); /progress/ misses tonight's row"
-      took progress_record
-    fi
-  fi
-  # fetch_snitch (one page, into tracked tools/data/snitch.json) runs in GitHub Actions:
-  # .github/workflows/daily-units.yml `snitch`.
-
-  # Times for the Times comments: fetched in GitHub Actions (blog-fetch.yml; cache-sync
-  # lands the months on the media disk); the comment table is rebuilt here from the whole
-  # cache.
-  # The table feeds the Times badges, which blend in the solve times commenters
-  # state (tools/difficulty.py blend()), so a puzzle re-rates as its post gains
-  # comments at the next reindex. It leaves the committed table alone when the
-  # cache is absent. The report is written to tools/data/snitch_report.txt, whose
-  # history is the record of how the numbers move.
-  if step blog_comment_difficulty; then
-    python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
-    took blog_comment_difficulty
-  fi
-  # snitch_report, difficulty_check, build_clue_joints and build_fill_floors moved
-  # to the `ratings` job of .github/workflows/nightly-smoke.yml: they read only
-  # tracked files and push their four outputs as one commit.
-  return 0
+# The counts /progress/ cannot see from CI: today's coverage ledger (known, acquired) and the
+# media disk's editions (downloaded, queued), as numbers only in tools/data/progress_counts.json.
+# .github/workflows/ratings.yml reads it for the day's row; unit_commit's `git add -A` commits
+# it. Seconds of CPU. Waits (75, never began) for today's ledger until LEDGER_WAIT_UNTIL.
+unit_progress_counts() {
+  python3 tools/progress_record.py counts
 }
 
 # A series that has stopped arriving, and the puzzles themselves. Daily.
@@ -1142,7 +1090,7 @@ if [ "${1:-}" = unit ]; then
     ft) unit_ft ;;
     azed) unit_azed ;;
     genius) unit_genius ;;
-    ratings) unit_ratings ;;
+    progress-counts) unit_progress_counts ;;
     checks) unit_checks ;;
     solutions) unit_solutions ;;
     minute) unit_minute ;;
