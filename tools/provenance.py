@@ -270,6 +270,11 @@ ACQUIRED_BY = {
                 "(tools/gale_fetch.py): clues voted across the OCR readers and the VLM's column "
                 "reads, the grid read off the scan by tools/trove_grid.py, answers off the later "
                 "issue's printed solution grid"},
+    "tools/gale_mephisto_read.py": {
+        "channel": "newspaper",
+        "what": "a Sunday Times Mephisto page saved from Gale's Sunday Times Historical Archive "
+                "(tools/gale_fetch.py): clues voted across the OCR readers and the VLM's column "
+                "reads, the 12x12 barred grid read off the scan (bars as tools/ios_barred.py sets them)"},
     "tools/gale_tls_read.py": {
         "channel": "newspaper",
         "what": "a TLS crossword page saved from Gale's TLS Historical Archive "
@@ -425,6 +430,7 @@ ACQUISITION_BY_SOURCE = {
     ("sundaytimes", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("tls", "link.gale.com"): ("tools/file_archive_org_puzzles.py", "tools/gale_tls_read.py"),
     ("timesjumbo", "link.gale.com"): ("tools/gale_jumbo_read.py",),
+    ("mephisto", "link.gale.com"): ("tools/gale_mephisto_read.py",),
     ("sundaytel", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("indysunday", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),

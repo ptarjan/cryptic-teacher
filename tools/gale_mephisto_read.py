@@ -171,6 +171,8 @@ def long_rules(ink, share=RULE_SHARE):
     return out
 
 
+#: A cell side is a bar when its ink is this share of the pitch wide.
+BAR_WIDTH = 0.1
 #: Lines of a lattice that must be found of its 13 (the thin rules are printed broken).
 MATCHED = 11
 #: A cell's pitch is within these many pixels (a page scans at ~97 px a cell; the later pages are smaller).
@@ -183,7 +185,7 @@ def lattice_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED):
     lattice between; the lattice refitted to the ones matched. None when fewer than `need` are matched."""
     import numpy as np
     pos = sorted(pos)
-    best = None
+    best, best_score = None, 0.0
     for i, a in enumerate(pos):
         for b in pos[i + 1:]:
             p = (b - a) / CELLS
@@ -197,12 +199,43 @@ def lattice_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED):
                 near = min(pos, key=lambda v: abs(v - at))
                 if abs(near - at) <= 0.15 * p:
                     hits.append((k, near))
-            if len(hits) >= need and (best is None or len(hits) > len(best)):
-                best = hits
+            # The widest pitch wins a near tie: a page's text lines are evenly spaced too, but closer than a cell.
+            score = len(hits) + min(p, 150) / 40
+            if len(hits) >= need and (best is None or score > best_score):
+                best, best_score = hits, score
     if not best:
         return None
     slope, icept = np.polyfit([k for k, _ in best], [v for _, v in best], 1)
     return [icept + slope * k for k in range(CELLS + 1)], len(best)
+
+
+def bar_fit(band, pitch, rules):
+    """The 13 x lines of the grid in `band` (the ink between its first and last rule), or None: the thick vertical
+    bars (columns with ink over a fifth of the band's height, 8-40 px wide: not the frame's 5 px or a thin rule)
+    give the lattice's phase at `pitch` (circular mean of their centres), and the horizontal rules' right end
+    which of its pitch-steps is the grid's own (the thick frame stands a little outside the lattice)."""
+    import math
+    import numpy as np
+    prof = band.sum(0)
+    on = np.flatnonzero(prof >= 0.2 * band.shape[0])
+    centres, start, prev = [], None, 0
+    for x in list(on) + [None]:
+        if start is not None and (x is None or x - prev > 2):
+            if 8 <= prev - start + 1 <= 40:
+                centres.append((start + prev) / 2)
+            start = None
+        if x is not None:
+            if start is None:
+                start = x
+            prev = x
+    if len(centres) < 4 or not rules:
+        return None
+    ang = [2 * math.pi * c / pitch for c in centres]
+    phase = math.atan2(sum(math.sin(a) for a in ang), sum(math.cos(a) for a in ang)) * pitch / (2 * math.pi)
+    right = max(r[2] for r in rules)
+    m = round((right - CELLS * pitch - phase) / pitch)
+    x0 = phase + m * pitch
+    return [x0 + pitch * i for i in range(CELLS + 1)]
 
 
 def find_lattice(ink, share=RULE_SHARE):
@@ -218,11 +251,14 @@ def find_lattice(ink, share=RULE_SHARE):
     ys, _ = got
     pitch = (ys[-1] - ys[0]) / CELLS
     band = ink[max(0, int(ys[0] - pitch / 4)):int(ys[-1] + pitch / 4)]
+    fitted = bar_fit(band, pitch, [r for r in rules if ys[0] - pitch / 2 <= r[0] <= ys[-1] + pitch / 2])
+    if fitted:
+        return ys, fitted
     # The thin verticals are broken, so the lattice is fitted to the columns' ink: the x0 and pitch (2% either way)
     # whose 13 lines lie on the most ink (each column's ink spread 3 px either way, the grid's height over it).
     down = lg.runs_at_least(band, max(45, int(0.6 * pitch)), 0)
     cols = np.flatnonzero(down.sum(0) >= 0.4 * band.shape[0])
-    centres, start = [], None
+    centres, start, prev = [], None, 0
     for x in list(cols) + [None]:
         if start is not None and (x is None or x - prev > 3):
             centres.append((start + prev) / 2)
@@ -271,6 +307,12 @@ def read_barred(gray, lattice=None, wanted=None):
     dark = lg.darkness(gray[y0:int(ys[-1]) + pad, x0:int(xs[-1]) + pad])
     sys_, sxs = [y - y0 for y in ys], [x - x0 for x in xs]
     rows, sides, thin = lg.read_box(sub, dark, sys_, sxs)
+    # The thin rules here are broken (their width reads ~nothing, so any ink beside one passes for a bar): a side
+    # is a bar when it is BAR_WIDTH of a pitch wide (the bars are ~20 px at ~97), and the thin width stands at
+    # the bar line's own ratio.
+    pitch = (xs[-1] - xs[0]) / CELLS
+    rows = ib.rows_of({k for k, v in sides.items() if v >= BAR_WIDTH * pitch})
+    thin = BAR_WIDTH * pitch / lg.BAR_RATIO
     found = {"rows": rows, "sides": sides, "thin": thin, "lattice": (list(ys), list(xs)),
              "box": (int(xs[0]), int(ys[0]), int(xs[-1]), int(ys[-1]))}
     fitted, why = ib.read_found(found, wanted)

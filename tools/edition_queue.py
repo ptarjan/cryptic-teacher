@@ -402,6 +402,9 @@ def run_unit(unit, cache, puzzles, reread):
     if unit["paper"] == "listener":
         import gale_jumbo_read as jumbo  # a unit process exits before the queue's own imports
         import gale_tls_read as tls
+        import gale_mephisto_read as mephisto
+        if unit["rel"].startswith(mephisto.PREFIX):
+            return mephisto.read_unit(unit["rel"])
         if unit["rel"].startswith(jumbo.PREFIX):
             return jumbo.read_unit(unit["rel"])
         if unit["rel"].startswith(tls.BACK_PREFIX):
@@ -506,6 +509,7 @@ import fetch_trove
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_jumbo_read
+import gale_mephisto_read
 import gale_tls_read
 import gale_listener
 import hot_reload
@@ -1411,7 +1415,7 @@ def plan_inputs(papers, cache, reread, asked):
         stamps[k] = None if stamp is None else (stamp, ledger_held(fa.ledger_of(cache, paper)))
     extra = {}
     if "listener" in papers:
-        extra["listener"] = gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()
+        extra["listener"] = gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()
     if "trove" in papers:
         led = media_manifest.trove_ledger(ftp.CACHE)
         trove_held = ledger_held(led)
@@ -1458,7 +1462,7 @@ def _plan(papers, cache, reread, out, asked=None):
         took[key] = time.monotonic()
         if key == "listener":
             reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
-                      for n, u in enumerate(gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
+                      for n, u in enumerate(gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
             continue
         if key == "trove":
             led = media_manifest.trove_ledger(ftp.CACHE)
@@ -2116,6 +2120,8 @@ def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=fro
     # Paul 11-14: work being fixed goes at the front. The 60 modern TLS back issues (tlsback:N, the-tls.com
     # images tools/tls_puzzles.py could not read) lead the Listener's pool, ahead of the Jumbo's and the TLS's.
     listener_order = back_first(listener_order, gale_tls_read.BACK_PREFIX)
+    # The Sunday Times Mephisto pages (gale_mephisto_read, "mephisto:NAME", ~185 so far, the fetch still adding) lead.
+    listener_order = back_first(listener_order, gale_mephisto_read.PREFIX)
     others = [u for *_, u in units if u.get("paper") != "listener"]
     # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
     # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of
