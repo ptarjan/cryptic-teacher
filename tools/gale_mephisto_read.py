@@ -46,6 +46,8 @@ TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
 SOLUTION_TO = re.compile(r"solution\s+to\s+mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
 TITLE_WORD = re.compile(r"^\W*mephisto\W*$", re.IGNORECASE)
 STOP_WORD = re.compile(r"^\W*(?:solutions?|winners|prizes?|answers)\W*$", re.IGNORECASE)
+#: The line heading last week's answers, as the OCR misreads it ("Soklstion to Mephisto 2283:").
+STOP_LINE = re.compile(r"^\W*(?:so\w{3,8}n|answers)\s+to\s+m[a-z]{4,}o\b", re.IGNORECASE)
 DOC_ID = re.compile(r"[A-Z]{2,6}\d{9,10}")
 #: The first Mephisto the Sunday Times numbered No 2250 (2003-10-05); one a week, a number a page's text gives is
 #: taken when within this many of the count (a Christmas week with no puzzle moves it by one).
@@ -173,6 +175,8 @@ def long_rules(ink, share=RULE_SHARE):
 
 #: A cell side is a bar when its ink is this share of the pitch wide.
 BAR_WIDTH = 0.1
+#: The lights a Mephisto's grid has (the clue counts read run 32-36).
+LIGHTS = (24, 46)
 #: Lines of a lattice that must be found of its 13 (the thin rules are printed broken).
 MATCHED = 11
 #: A cell's pitch is within these many pixels (a page scans at ~97 px a cell; the later pages are smaller).
@@ -183,9 +187,16 @@ def lattice_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED):
     """(positions, count) of 13 evenly spaced lines among `pos` (centres of rules found along one axis): the
     pair of them 12 pitches apart (a pitch in lo..hi) that the most others lie within 15% of a pitch of the
     lattice between; the lattice refitted to the ones matched. None when fewer than `need` are matched."""
+    got = lattices_1d(pos, lo, hi, need, limit=1)
+    return (got[0], len(pos)) if got else None
+
+
+def lattices_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED, limit=6):
+    """[positions] of up to `limit` different lattices of 13 evenly spaced lines among `pos`, best first (see
+    lattice_1d for one): the same lattice (its first line within a pitch and its pitch within 10%) is kept once."""
     import numpy as np
     pos = sorted(pos)
-    best, best_score = None, 0.0
+    found = []
     for i, a in enumerate(pos):
         for b in pos[i + 1:]:
             p = (b - a) / CELLS
@@ -201,12 +212,17 @@ def lattice_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED):
                     hits.append((k, near))
             # The widest pitch wins a near tie: a page's text lines are evenly spaced too, but closer than a cell.
             score = len(hits) + min(p, 150) / 40
-            if len(hits) >= need and (best is None or score > best_score):
-                best, best_score = hits, score
-    if not best:
-        return None
-    slope, icept = np.polyfit([k for k, _ in best], [v for _, v in best], 1)
-    return [icept + slope * k for k in range(CELLS + 1)], len(best)
+            if len(hits) >= need:
+                found.append((score, hits))
+    out = []
+    for score, hits in sorted(found, key=lambda f: -f[0]):
+        slope, icept = np.polyfit([k for k, _ in hits], [v for _, v in hits], 1)
+        if any(abs(icept - o[0]) < abs(o[1]) and abs(slope / o[1] - 1) < 0.1 for o in out):
+            continue
+        out.append((icept, slope))
+        if len(out) >= limit:
+            break
+    return [[icept + slope * k for k in range(CELLS + 1)] for icept, slope in out]
 
 
 def bar_fit(band, pitch, rules):
@@ -232,8 +248,10 @@ def bar_fit(band, pitch, rules):
         return None
     ang = [2 * math.pi * c / pitch for c in centres]
     phase = math.atan2(sum(math.sin(a) for a in ang), sum(math.cos(a) for a in ang)) * pitch / (2 * math.pi)
-    right = max(r[2] for r in rules)
-    m = round((right - CELLS * pitch - phase) / pitch)
+    # The grid's left edge: the left end three or more rules share (a rule's right end is often lost to a break).
+    starts = sorted(r[1] for r in rules)
+    left = next((s for s in starts if sum(1 for t in starts if abs(t - s) <= 8) >= 3), starts[0])
+    m = round((left - phase) / pitch)
     x0 = phase + m * pitch
     return [x0 + pitch * i for i in range(CELLS + 1)]
 
@@ -242,18 +260,30 @@ def find_lattice(ink, share=RULE_SHARE):
     """(ys, xs) of the 13 rules each way of the 12x12 grid on `ink`, or None: the horizontal rules lie on 13
     evenly spaced lines (lattice_1d); the vertical ones, long runs of ink between the first and the last, on
     13 more at the same pitch, else (the thin verticals too broken to find) the horizontal rules' own ends."""
+    return next(iter(find_lattices(ink, share, limit=1)), None)
+
+
+def find_lattices(ink, share=RULE_SHARE, limit=6):
+    """[(ys, xs)] of the candidate 12x12 lattices on `ink`, the best set of evenly spaced rules first (a page's text
+    lines and a diagram's rules make some too: the grid read tells them apart)."""
+    rules = long_rules(ink, share)
+    out = []
+    for ys in lattices_1d([r[0] for r in rules], limit=limit):
+        xs = x_lines(ink, ys, rules)
+        if xs:
+            out.append((ys, xs))
+    return out
+
+
+def x_lines(ink, ys, rules):
+    """The 13 x lines of the grid whose y lines are `ys`, or None (bar_fit, else the verticals' own, else the ink's)."""
     import numpy as np
     import listener_grid as lg
-    rules = long_rules(ink, share)
-    got = lattice_1d([r[0] for r in rules])
-    if got is None:
-        return None
-    ys, _ = got
     pitch = (ys[-1] - ys[0]) / CELLS
     band = ink[max(0, int(ys[0] - pitch / 4)):int(ys[-1] + pitch / 4)]
     fitted = bar_fit(band, pitch, [r for r in rules if ys[0] - pitch / 2 <= r[0] <= ys[-1] + pitch / 2])
     if fitted:
-        return ys, fitted
+        return fitted
     # The thin verticals are broken, so the lattice is fitted to the columns' ink: the x0 and pitch (2% either way)
     # whose 13 lines lie on the most ink (each column's ink spread 3 px either way, the grid's height over it).
     down = lg.runs_at_least(band, max(45, int(0.6 * pitch)), 0)
@@ -269,7 +299,7 @@ def find_lattice(ink, share=RULE_SHARE):
             prev = x
     across = lattice_1d(centres, 0.92 * pitch, 1.08 * pitch, need=9)
     if across:
-        return ys, across[0]
+        return across[0]
     prof = np.minimum(band.sum(0).astype(float), 0.4 * band.shape[0])
     spread = np.maximum.reduce([np.roll(prof, s) for s in range(-12, 13)])
     best = None
@@ -286,7 +316,7 @@ def find_lattice(ink, share=RULE_SHARE):
             best = (float(score[i]), i, p)
     if best is None or best[0] < 0.12 * (CELLS + 1) * band.shape[0]:
         return None
-    return ys, [best[1] + best[2] * i for i in range(CELLS + 1)]
+    return [best[1] + best[2] * i for i in range(CELLS + 1)]
 
 
 def read_barred(gray, lattice=None, wanted=None):
@@ -294,13 +324,26 @@ def read_barred(gray, lattice=None, wanted=None):
     cell sides measured by listener_grid.read_box, the bars set as ios_barred.read_found sets them."""
     import numpy as np
     import listener_grid as lg
-    import ios_barred as ib
     binary = len(np.unique(gray[::7, ::7])) <= 2
     ink = gray < (128 if binary else max(lg.trove_grid.otsu(gray), 1))
-    got = lattice or find_lattice(ink)
-    if not got:
+    cands = [lattice] if lattice else find_lattices(ink)
+    if not cands:
         return None, None, "no 12x12 lattice of rules on the page"
-    ys, xs = got
+    first = None
+    for ys, xs in cands:
+        rows, found, why = read_lattice(gray, ink, ys, xs, wanted)
+        if rows is not None:
+            return rows, found, None
+        first = first or (found, why)
+    return None, first[0], first[1]
+
+
+def read_lattice(gray, ink, ys, xs, wanted=None):
+    """(rows, found, None) or (None, found, why) of the grid on the lattice (ys, xs): bars by their widths, the
+    reading standing when ios_barred's checks hold (symmetric bars) and its lights number a Mephisto's (24-46)."""
+    import listener_grid as lg
+    import ios_barred as ib
+    import reconstruct_grid as rg
     pad = 6
     y0, x0 = max(0, int(ys[0]) - pad), max(0, int(xs[0]) - pad)
     sub = ink[y0:int(ys[-1]) + pad, x0:int(xs[-1]) + pad]
@@ -318,6 +361,9 @@ def read_barred(gray, lattice=None, wanted=None):
     fitted, why = ib.read_found(found, wanted)
     if fitted is None:
         return None, found, why
+    lights = len(rg.light_cells(fitted))
+    if not LIGHTS[0] <= lights <= LIGHTS[1]:
+        return None, found, f"the grid has {lights} lights, not a Mephisto's"
     return fitted, found, None
 
 
@@ -335,7 +381,13 @@ def lists_cut(words, box):
     top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
     bottom = top
     for w in sorted((w for w in inside if w[3] > top), key=lambda w: w[1]):
-        if STOP_WORD.match(w[4]) and w[1] > top + 6 * lh:
+        # The stop is the heading of last week's answers ("Solution to Mephisto 2283:"), not the word "solutions"
+        # in a note beside the lists ("the reference for all solutions except proper nouns").
+        rest = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
+                        if o[0] >= w[0] - 1 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2)
+        if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (STOP_WORD.match(w[4]) and not re.match(
+                r"(?i)(solutions?|answers)\s+(except|for|of|to the)\b", rest) and not rest.lower().startswith(
+                    ("solutions", "solution ", "answers")))):
             break
         if w[1] - bottom > 3 * lh and bottom > top + 6 * lh:
             break
