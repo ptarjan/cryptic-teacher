@@ -20,6 +20,7 @@ citation page naming its document.
 """
 import datetime
 import json
+import os
 import re
 import sys
 import time
@@ -710,6 +711,51 @@ def keep(key, e, cache=CACHE):
         fcntl.flock(lock, fcntl.LOCK_EX)
         with open(cache, "a") as f:
             f.write(line)
+    if cache == CACHE and e.get("kind") in (MEPHISTO_KIND, MEPHISTO_SOLUTION_KIND):
+        export_mephisto({key: e})
+
+
+#: The Mephisto index entries, for a reader on another machine to check its
+#: numbering against: {"entries": [{"key", "date", "kind", "doc", "title",
+#: "page", "why"}]}, kind "mephisto" (the puzzle) or "mephisto-solution" (its
+#: answers). Kept here on the SSD, current with every `keep`; gale_inbox's sync
+#: copies it to the Mac's Media disk (publish_mephisto) when it changed.
+MEPHISTO_EXPORT = CACHE.with_name("mephisto_docs.json")
+
+
+def mephisto_row(key, e):
+    """One export row for the index entry `e` stored under `key`."""
+    return {"key": key, "date": key.rsplit("/", 1)[-1], "kind": e.get("kind"), "doc": e.get("doc"),
+            "title": e.get("title"), "page": e.get("page"), "why": e.get("why")}
+
+
+def export_mephisto(changed=None, cache=CACHE, out=None):
+    """Write every Mephisto entry of the index to MEPHISTO_EXPORT (tmp +
+    replace) when it differs from what is there; True when it did. `changed`
+    ({key: entry}) merges just those entries into the existing export, so one
+    `keep` costs a small file read, not a 19 MB index load; None rebuilds it
+    from the whole index."""
+    out = Path(out or MEPHISTO_EXPORT)
+    try:
+        rows = {r["key"]: r for r in json.loads(out.read_text())["entries"]}
+    except (OSError, ValueError, KeyError, TypeError):
+        rows = {}
+    if changed is None:
+        rows, changed = {}, load(cache)
+    for k, e in changed.items():
+        if e.get("kind") in (MEPHISTO_KIND, MEPHISTO_SOLUTION_KIND):
+            rows[k] = mephisto_row(k, e)
+    text = json.dumps({"entries": [rows[k] for k in sorted(rows)]}, indent=1, sort_keys=True) + "\n"
+    try:
+        if out.read_text() == text:
+            return False
+    except OSError:
+        pass
+    out.parent.mkdir(parents=True, exist_ok=True)
+    tmp = out.with_name(out.name + f".{os.getpid()}.tmp")
+    tmp.write_text(text)
+    os.replace(tmp, out)
+    return True
 
 
 def compact(cache=CACHE, min_lines=1000):

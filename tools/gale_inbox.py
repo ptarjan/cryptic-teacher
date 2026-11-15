@@ -615,6 +615,42 @@ def publish(path=CHECKLIST, host_inbox=GALE_ROOT, out=sys.stdout, now=None):
     return True
 
 
+#: The Mephisto index export (gale_docs.MEPHISTO_EXPORT) as copied to the Mac:
+#: Media/Gale crosswords/Mephisto/docs.json, replaced whole (written aside, then
+#: renamed) when it changed, at most every MEPHISTO_PUBLISH_EVERY (spinning disk).
+MEPHISTO_DOCS = f"{GALE_ROOT}/Mephisto/docs.json"
+MEPHISTO_PUBLISHED = HOME / "mephisto_docs.published.json"
+MEPHISTO_PUBLISH_EVERY = 900
+
+
+def publish_mephisto(out=sys.stdout, now=None, force=False):
+    """Copy the Mephisto index export to the Mac when it changed since the
+    last copy. Rebuilds the export from the index first when the index is
+    newer than it (a missed write). Returns whether it copied."""
+    now = time.time() if now is None else now
+    src = gale_docs.MEPHISTO_EXPORT
+    if not src.exists() or gale_docs.CACHE.stat().st_mtime > src.stat().st_mtime + 3600:
+        gale_docs.export_mephisto()
+    data = src.read_bytes()
+    sha = hashlib.sha1(data).hexdigest()
+    try:
+        last = json.loads(MEPHISTO_PUBLISHED.read_text())
+    except (FileNotFoundError, ValueError):
+        last = {}
+    if last.get("sha") == sha or (not force and now - last.get("at", 0) < MEPHISTO_PUBLISH_EVERY):
+        return False
+    q = shlex.quote
+    tmp = MEPHISTO_DOCS + ".tmp"
+    try:
+        ssh(f"mkdir -p {q(os.path.dirname(MEPHISTO_DOCS))} && cat > {q(tmp)} && mv -f {q(tmp)} {q(MEPHISTO_DOCS)}",
+            input=data)
+    except (subprocess.TimeoutExpired, subprocess.CalledProcessError) as err:
+        print(f"Mephisto docs not copied to {MEPHISTO_DOCS} ({type(err).__name__}); the next tick retries", file=out)
+        return False
+    MEPHISTO_PUBLISHED.write_text(json.dumps({"sha": sha, "at": now}))
+    return True
+
+
 # ------------------------------------------------------------ picking Gale files up
 
 def pdf_text(data, pages=3):
@@ -1030,6 +1066,7 @@ def sync(out=sys.stdout, force=False):
 
 def _sync_locked(out, force):
     """sync's work under the lock."""
+    publish_mephisto(out=out)
     if (force or time.time() - last_render() > RENDER_EVERY
             or (FETCHED.exists() and FETCHED.stat().st_mtime > last_render())):
         CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
