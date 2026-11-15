@@ -46,16 +46,19 @@ CITED_NUMBER = re.compile(r"t\W?l\W?s\s*cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,
 TITLE_WORD = re.compile(r"^\W*t\W?l\W?s\W*$", re.IGNORECASE)
 #: The TLS numbers printed 1992-2014 (No 98 on 7 Feb 1992; 1,396 and up are the-tls.com's).
 NUMBERS = range(90, 1400)
-CITES = "cites.json"
+CITES = "cites2.json"  # r22: the cache holds the citation numbers (Nos 1-89 now kept); cites.json held none of them
 SIZES = (15,)
 CRASH_LIMIT = jr.CRASH_LIMIT
 #: Bumped when a crash is fixed: a failed row of an older fix is due again (once more) whatever its attempts.
 CRASH_FIX = 1
 
 
-def figure(text):
+CITE_NUMBERS = range(1, 1400)
+
+
+def figure(text, numbers=NUMBERS):
     n = int(re.sub(r"\D", "", text or "") or 0)
-    return n if n in NUMBERS else None
+    return n if n in numbers else None
 
 
 def cite_of(cite):
@@ -65,7 +68,9 @@ def cite_of(cite):
         return None
     n = CITED_NUMBER.search(m.group(1))
     day = datetime.date(int(m.group(4)), gi.MONTHS[m.group(3)[:3].lower()], int(m.group(2)))
-    return (figure(n.group(1)) if n else None), day
+    # The citation's own number is typed text (no OCR): Nos 1-89 (1982-91) are real, where a number read off the
+    # page is held to NUMBERS.
+    return (figure(n.group(1), CITE_NUMBERS) if n else None), day
 
 
 def page_files(saved=SAVED):
@@ -106,7 +111,18 @@ def read_done(row):
     whose blank lights the VLM may still fill, vlm_due)."""
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX)) \
-        and not vlm_due(row)
+        and not vlm_due(row) and not cite_due(row)
+
+
+#: r22: the 81 pages of Nos 1-89 (1982-10-22..1991-03-01) were refused "no TLS number: no numbered page on both
+#: sides": their citation prints the number ("TLS Crossword 88.") but cite_of held numbers to 90 and over, so
+#: no anchor stood before No 90. Those refusals are read again once (VERSION is left, not to read every page).
+CITE_FIX = 1
+
+
+def cite_due(row):
+    """Whether `row` is a "no TLS number" refusal not read since CITE_FIX."""
+    return str(row.get("refused", "")).startswith("no TLS number") and row.get("citeFix") != CITE_FIX
 
 
 def plan(saved=SAVED, store=STORE):
@@ -1344,7 +1360,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
     tries = (before or {}).get("vlmTries", 0) + 1
     # a read that asked the VLM (or left nothing for it to lay) is the page's retry; else it is due again
     asked = bool(verdict.get("vlmColumns")) or not verdict.get("blank")
-    append_row({**verdict, "version": VERSION, "vlmTries": tries, **({"vlmFix": VLM_FIX} if asked else {})}, store)
+    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
     print(json.dumps(verdict))
     return "read"
 
