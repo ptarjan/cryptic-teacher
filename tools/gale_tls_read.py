@@ -101,7 +101,7 @@ def plan(saved=SAVED, store=STORE):
 #: of puzzle n + SOLUTION_LAG (the page then held one of the numbers around it, tried nearest first).
 SOLUTION_PREFIX = PREFIX + "solution:"
 SOLUTION_LAGS = (4, 3, 5)
-SOLVED_VERSION = 4
+SOLVED_VERSION = 5
 FIT = 0.97
 
 
@@ -148,9 +148,61 @@ SOLUTION_PX = (400, 1500)
 SOLUTION_SCALE = 2
 
 
+def square_lattice(gray, grid):
+    """(block agreement, (x0, y0, pitch, pitch)) of the best lattice of square cells on a grid image: the
+    pitch the frame's rules give or the image's width or height over the cells, offsets a little round
+    the frame's. 11-14: a solution grid's top and bottom rules print thin, so lattice(tight) took a row
+    rule for the frame (y0 one row low, pitch 84 for 98) and most refused TLS grids fitted at
+    0.6-0.9 with the blocks of the puzzle shifted a row."""
+    import trove_solution_ocr as t
+    n, m = len(grid), len(grid[0])
+    height, width = gray.shape
+    try:
+        lat = t.lattice(gray, n, tight=True)
+    except ValueError:
+        lat = (0.0, 0.0, width / m, height / n)
+    pitches = {round(p, 1) for p in (lat[2], width / m, height / n)}
+    best = (0.0, None)
+
+    def tried(x0, y0, p):
+        nonlocal best
+        if y0 < -p / 2 or y0 + n * p > height + p / 2 or x0 < -p / 2 or x0 + m * p > width + p / 2:
+            return
+        fit = t.block_agreement(gray, grid, (float(x0), float(y0), p, p))
+        if fit > best[0]:
+            best = (fit, (float(x0), float(y0), p, p))
+    # coarse (a cell is ~50 px at 2x, so 6 px steps are well inside one), then fine round the best
+    for p in pitches:
+        for x0 in {round(base + d) for base in (lat[0], 0) for d in (-6, 0, 6)}:
+            for y0 in {round(base + d) for base in (lat[1] - p, lat[1] - 2 * p, lat[1], 0) for d in (-6, 0, 6)}:
+                tried(x0, y0, p)
+    if best[1] is not None:
+        x0, y0, p, _ = best[1]
+        for dx in (-4, -2, 0, 2, 4):
+            for dy in (-4, -2, 0, 2, 4):
+                tried(x0 + dx, y0 + dy, p)
+    return best
+
+
 def solution_box(path, grid, store=STORE):
-    """jr.solution_box with the small grid's sizes."""
-    return jr.solution_box(path, grid, store, px=SOLUTION_PX, scale=SOLUTION_SCALE)
+    """jr.solution_box with the small grid's sizes, and the boxes it kept refitted on a square lattice
+    (square_lattice) when that fits better."""
+    import numpy as np
+    from PIL import Image
+    found = jr.solution_box(path, grid, store, px=SOLUTION_PX, scale=SOLUTION_SCALE)
+    if found is not None and found[0] >= jr.FIT:
+        return found
+    cache = Path(store) / "solboxes2" / f"{Path(path).stem}.json"
+    if not cache.exists():
+        return found
+    pages = gi.images(Path(path))
+    for i, box in json.loads(cache.read_text()):
+        crop = pages[i][0].crop(tuple(box)).convert("L")
+        gray = np.asarray(crop.resize((crop.width * SOLUTION_SCALE, crop.height * SOLUTION_SCALE), Image.LANCZOS))
+        fit = square_lattice(gray, grid)[0]
+        if found is None or fit > found[0]:
+            found = (fit, i, tuple(box))
+    return found
 
 
 CAPTION = re.compile(r"SOLUTION\s+TO\s+CROSS\s?WORD\s+(?:No\.?\s*)?(\d[\d,. ]{0,4})", re.IGNORECASE)
@@ -180,13 +232,22 @@ def caption_number(path, index, box, store=STORE):
     return found
 
 
+def says(n, said):
+    """Whether a caption read [numbers] may name puzzle n. 11-14: the number's last digit is glued to a
+    stray mark in the print (960 read 9601, 990 read 9901, 999 read 9991) or cut (960 read 96), so a
+    reading one digit longer with n as its start, or n with a digit cut, names n too."""
+    s = str(n)
+    return any(x == n or (str(x).startswith(s) and len(str(x)) == len(s) + 1)
+               or (len(str(x)) == len(s) - 1 and len(str(x)) >= 2 and s.startswith(str(x))) for x in said)
+
+
 def captioned(n):
     """A solution_box finder for puzzle n: the page's grid box, unless the caption under it names another puzzle."""
     def find(path, grid, store=STORE):
         found = solution_box(path, grid, store)
         if found is not None and found[0] >= jr.FIT:
             said = caption_number(path, found[1], found[2], store)
-            if said and n not in said:  # the caption is read, at no scale as this puzzle's number
+            if said and not says(n, said):  # the caption is read, at no scale as this puzzle's number
                 return None
         return found
     return find
@@ -195,11 +256,16 @@ def captioned(n):
 def read_crop(path, index, box, crop, grid):
     """jr.read_crop with the names rule (trove_solution_ocr.named_reads): a light every cell of which is read
     and the whole light read as the same word, a name or a phrase too."""
+    import numpy as np
     import trove_solution_ocr
     crop.parent.mkdir(parents=True, exist_ok=True)
     small = gi.images(Path(path))[index][0].crop(tuple(box))
-    small.resize((small.width * SOLUTION_SCALE, small.height * SOLUTION_SCALE)).save(crop)
-    answers, _ = trove_solution_ocr.read_answers(crop, grid, tight=True, named=True)
+    big = small.resize((small.width * SOLUTION_SCALE, small.height * SOLUTION_SCALE))
+    big.save(crop)
+    fit, lat = square_lattice(np.asarray(big.convert("L")), grid)
+    # the square lattice is one more framing, only where it is the one that fits the puzzle's blocks
+    framing = lat if fit >= jr.FIT else None
+    answers, _ = trove_solution_ocr.read_answers(crop, grid, tight=True, named=True, framing=framing)
     return {f"{k[0]}-{k[1]}": w for k, w in answers.items()}
 
 
