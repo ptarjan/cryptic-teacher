@@ -129,7 +129,7 @@ PHASES = [
     # azed, genius and xval:globe run in CI (.github/workflows/daily-units.yml); the minute
     # capture stays here (its corpus is uncommitted by policy).
     # blog-facts runs in CI (.github/workflows/blog-facts.yml), not here.
-    ("ratings", DAY, 60 * 60, ()),
+    # ratings (progress_record, blog_comment_difficulty) runs in CI (.github/workflows/ratings.yml).
     ("checks", DAY, 45 * 60, ()),
     ("minute", 6 * HOUR, 30 * 60, ()),
     ("reports", 2 * HOUR, 90 * 60, ()),

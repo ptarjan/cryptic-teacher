@@ -255,7 +255,15 @@ def record(today=None):
         return None
     files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in rows)
     days = progress.load()
-    days[today] = progress.day_row(files, ledger_on(today), backlog())
+    ledger = ledger_on(today)
+    if ledger is None and os.environ.get("GITHUB_ACTIONS"):
+        # CI has no coverage ledger (tools/coverage.py saves it on the home server): carry
+        # the latest earlier row's known/acquired forward, as the page does without one.
+        prev = [d for d in days if d < today]
+        if prev:
+            last = days[max(prev)]
+            ledger = {"series": {s: {"exist": c[0], "filed": c[1]} for s, c in last.items() if c[0] is not None}}
+    days[today] = progress.day_row(files, ledger, backlog())
     progress.save(days)
     return days[today]
 
