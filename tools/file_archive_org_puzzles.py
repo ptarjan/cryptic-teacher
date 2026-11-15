@@ -15302,6 +15302,35 @@ def telegraph_fitted_due(row):
     return False
 
 
+#: The due reason of a Guardian (archive.org TheGuardian19xx) page read before REREAD_GUARDIAN_LAID whose puzzle is held
+#: by no whole file and has a light blank as "no reading laid a clue on it". 11-15 census of the ledger (last row per
+#: id): 1,002 Guardian verdicts held incomplete, 398 of them with blank lights, 1,115 of those lights "no reading
+#: laid a clue on it" (99 pages with only such lights, most the last down clues or one linked head) against 7 other
+#: reasons each under 150. VLM_LAID (11-02) and the linked-clue and tail fixes since read such a column from the
+#: VLM's reply or the mended parse, but their due functions ask only Gale and News UK Times rows, and 309 of the
+#: 398 blank Guardian verdicts were read 10-07 to 10-11: 1998-01-14's 7 down (the linked "7,14 Boxer's always
+#: around") read blank-free at once. Read once.
+GUARDIAN_LAID = "Guardian page with a clue no reading laid, read since"
+REREAD_GUARDIAN_LAID = "2026-11-15T08:20:00+00:00"
+
+
+def guardian_laid_due(row):
+    """Whether Guardian ledger `row`, read before REREAD_GUARDIAN_LAID, has a verdict (not refused, not skipped) with
+    a light blank as "no reading laid a clue on it", its puzzle not held whole."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GUARDIAN.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_GUARDIAN_LAID)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
+                or not isinstance(v.get("blank"), dict) \
+                or not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The due reason of a Gale Telegraph page read before REREAD_TELEGRAPH_FIGURE with a clue blank "a digit inside a word" over a
 #: token the print sets: a glued cross-reference ("24down", "23across": 1988, 14 clues) or a figure and a word a dash joins
 #: ("500—and", "51—a"). suspect() takes these now (clue_text.XREF_GLUED, figure_dashed) and the cross-reference is spaced.
@@ -21308,6 +21337,8 @@ def fix_reason(row):
         return TELEGRAPH_STOP
     if telegraph_fitted_due(row):
         return TELEGRAPH_FITTED
+    if guardian_laid_due(row):
+        return GUARDIAN_LAID
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -22033,7 +22064,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_PAIRED,
                   # 11-15: a Gale FT page whose solution grid was refused for its blocks, its faint letters stretched since
                   # (ft_faint_due).
-                  FT_FAINT)
+                  FT_FAINT,
+                  # 11-15: a Guardian page with a clue no reading laid, read since (guardian_laid_due).
+                  GUARDIAN_LAID)
 
 
 def refusal_passes(why):
@@ -22094,7 +22127,8 @@ def blanket_or_fix(row, blanket):
             else TELEGRAPH_FIGURE if telegraph_figure_due(row) \
             else TELEGRAPH_LEAD_NUMBER if telegraph_lead_number_due(row) \
             else TELEGRAPH_STOP if telegraph_stop_due(row) \
-            else TELEGRAPH_FITTED if telegraph_fitted_due(row) else blanket
+            else TELEGRAPH_FITTED if telegraph_fitted_due(row) \
+            else GUARDIAN_LAID if guardian_laid_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -22313,7 +22347,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, INDY_REDATED: 2, INDY_PAIRED: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, SUNDAY_MID: 2, SUNDAY_UNDER: 2, SUNDAY_1970S: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
