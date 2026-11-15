@@ -156,7 +156,7 @@ jobs:
         if: contains(steps.due.outputs.units, ' xval-globe ') || contains(steps.due.outputs.units, ' genius ') || contains(steps.due.outputs.units, ' azed ')
         shell: bash
         run: |
-          mkdir -p /tmp/cryptic-downloads/{genius,andlit-azed,globe-source,fifteensquared,timesforthetimes}
+          mkdir -p /tmp/cryptic-downloads/{genius,andlit-azed/copies,globe-source,fifteensquared,timesforthetimes}
           for m in globe-source genius-files posts-fifteensquared posts-timesforthetimes andlit-copies; do
             python3 tools/media_manifest.py build "$m" || echo "::warning::manifest $m not built"
           done
