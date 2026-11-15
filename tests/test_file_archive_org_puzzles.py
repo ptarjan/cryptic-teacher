@@ -5364,6 +5364,19 @@ check("a Gale Sunday Times page with its grid right of its clue columns reads th
        and _eq_bp.evidence_reason(f.SUNDAY_TIMES_FOOT) is not None
        and f.SUNDAY_TIMES_FOOT in _eq_bp.FIX_LANDED and f.SUNDAY_TIMES_FOOT in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1987-2013 page whose columns left of the grid ran past columns()' floor: SUNDAY_FEET.
+_sfr = {**_strow, "edition": "GaleSundayTimes2005UKEnglish/2005-09-04", "readAt": "2026-11-14T01:02:44+00:00",
+        "verdicts": [{"number": 1, "wrote": True, "complete": False, "blank": {"22-down": "no reading laid a clue on it"}}]}
+check("SUNDAY_FEET is due for a 1987-2013 Gale Sunday Times page written incomplete with a clue no reading laid, read before it, "
+      "no other year, complete or later read; wired and ranked",
+      [[True, False, False, False], True],
+      [[f.sunday_feet_due(_sfr), f.sunday_feet_due({**_sfr, "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.sunday_feet_due({**_sfr, "edition": "GaleSundayTimes1970UKEnglish/1970-10-04"}),
+        f.sunday_feet_due({**_sfr, "verdicts": [{"number": 1, "wrote": True, "complete": True}]})],
+       f.RANKS[f.SUNDAY_FEET] == 2 and f.SUNDAY_FEET in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_FEET) is not None
+       and f.SUNDAY_FEET in _eq_bp.FIX_LANDED and f.SUNDAY_FEET in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_FEET in _eq_bp.NEWEST_LANDED])
+
 # The Gale Sunday Times 1960-67 page whose DOWN list runs on in columns under the grid: SUNDAY_UNDER.
 _sur = {**_strow, "edition": "GaleSundayTimes1964UKEnglish/1964-10-04", "readAt": "2026-11-14T23:30:00+00:00"}
 check("SUNDAY_UNDER is due for a 1960-67 Gale Sunday Times page written incomplete with a blank clue read before it, "
