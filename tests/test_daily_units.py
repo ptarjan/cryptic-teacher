@@ -75,6 +75,17 @@ check("cache-sync is planned", "cache-sync" in keys, True)
 check("cache-sync runs tools/cache_sync.py", "python3 tools/cache_sync.py" in daily_sh, True)
 check("telegraph-bucket.yml uploads the artifact cache-sync lands", "cache-telegraph-source-${{ github.run_id }}" in bucket_yml, True)
 import cache_sync
+# The fifteensquared fetches of the ft, azed and genius units (2026-11-15) run in
+# fifteensquared-fetch.yml; the filers stay in the units (desktop search/OCR, media-disk copies).
+fsq_yml = (REPO / ".github" / "workflows" / "fifteensquared-fetch.yml").read_text()
+for cat in ('--category FT', '--category Azed', '--category "Guardian Genius"'):
+    check(f"fifteensquared-fetch.yml fetches {cat}", cat in fsq_yml, True)
+check("fetch_fifteensquared.py is not run by daily_update.sh",
+      [ln for ln in daily_sh.splitlines() if "fetch_fifteensquared.py" in ln and not ln.lstrip().startswith("#")], [])
+check("fifteensquared-fetch.yml uploads the artifact cache-sync lands", "cache-fifteensquared-${{ github.run_id }}" in fsq_yml, True)
+check("cache_sync mirrors the fifteensquared folder", cache_sync.CACHES["fifteensquared"], cache_sync.downloads.FIFTEENSQUARED)
+check("cache_sync finds the fifteensquared workflow", cache_sync.WORKFLOWS["fifteensquared"], "fifteensquared-fetch.yml")
+check("the ft, azed and genius units still file", all(f"unit_{u}()" in daily_sh for u in ("ft", "azed", "genius")), True)
 check("cache_sync mirrors the telegraph-source folder", cache_sync.CACHES["telegraph-source"], cache_sync.downloads.TELEGRAPH)
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
 # The CI fetchers run in .github/workflows/fetch-puzzles.yml and nowhere else.

@@ -1,0 +1,125 @@
+# The fifteensquared post fetches of the ft, azed and genius units moved off the home
+# server (Paul 2026-11-15: "Jobs should be on ci where possible"): fetch_fifteensquared.py
+# --posts-only for the FT, Azed and Guardian Genius categories. Only the fetch moved. The
+# filers (ft_puzzles.py, azed_puzzles.py, genius_puzzles.py, andlit_azed.py) stay in the
+# local units: the FT grid search and the Azed scan OCR run on the desktop, and the
+# Genius/andlit copies live on the media disk.
+#
+# The posts cache (tools/downloads.py FIFTEENSQUARED, posts/ and categories.json) is the
+# cache of this job and its only writer now (fetch_fifteensquared.py without --posts-only,
+# for comments, stays manual; the derived azed/ ft/ independent/ folders are the local
+# filers' and never come here):
+#   * restored from actions/cache; when that is empty (first run, or evicted) it is seeded
+#     from the draft release asset cache-seed-fifteensquared (made once from the media
+#     copy; a draft is not public, and raw cache contents never go in the repo);
+#   * saved again when the run fetched anything (older saves are deleted);
+#   * each run's NEW files go up as the artifact cache-fifteensquared-<run id>, kept 90
+#     days, which the home server's cache-sync unit (tools/cache_sync.py) lands on the media
+#     disk, recording each post in the SSD manifest the local readers use, and then deletes.
+# The runner has no manifest (tools/media_manifest.py), so it builds one from the restored
+# posts before it fetches; the build reads local files only.
+# The job fails (red) when the fetch fails, after the posts it did get are uploaded.
+name: Fifteensquared fetch
+
+on:
+  schedule:
+    - cron: "37 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: fifteensquared-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CT_DOWNLOADS: /tmp/cryptic-downloads
+      CACHE_DIR: /tmp/cryptic-downloads/fifteensquared
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: tools
+      - name: Restore the cache
+        id: cache
+        uses: actions/cache/restore@v5
+        with:
+          path: /tmp/cryptic-downloads/fifteensquared
+          key: fifteensquared-${{ github.run_id }}
+          restore-keys: fifteensquared-
+      - name: Seed an empty cache from the draft release asset
+        id: seed
+        if: steps.cache.outputs.cache-hit == '' && steps.cache.outputs.cache-matched-key == ''
+        shell: bash
+        run: |
+          id=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq \
+            '[.[] | select(.tag_name=="cache-seed-fifteensquared")][0].assets[] | select(.name=="fifteensquared-seed.tgz") | .id')
+          [ -n "$id" ] || { echo "::warning::no seed asset; starting from an empty cache"; exit 0; }
+          mkdir -p "$CACHE_DIR"
+          gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$id" > /tmp/seed.tgz
+          tar -xzf /tmp/seed.tgz -C "$CACHE_DIR"
+          rm /tmp/seed.tgz
+          echo "seeded $(find "$CACHE_DIR" -type f | wc -l) files"
+          echo "seeded=1" >> "$GITHUB_OUTPUT"
+      - name: List the cache before, and build the runner's manifest
+        shell: bash
+        run: |
+          mkdir -p "$CACHE_DIR/posts"
+          (cd "$CACHE_DIR" && find . -type f | sort) > /tmp/cache-before.txt
+          wc -l < /tmp/cache-before.txt
+          python3 tools/media_manifest.py build posts-fifteensquared
+      - name: Fetch the FT, Azed and Genius posts
+        shell: bash
+        run: |
+          rc=0
+          PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --posts-only \
+            --category FT --category Azed --category "Guardian Genius" || rc=$?
+          echo "fetch_rc=$rc" >> "$GITHUB_ENV"
+      - name: Stage the new cache files
+        id: new
+        shell: bash
+        run: |
+          (cd "$CACHE_DIR" && find . -type f | sort) > /tmp/cache-after.txt
+          mkdir -p /tmp/cache-new
+          comm -13 /tmp/cache-before.txt /tmp/cache-after.txt | while read -r f; do
+            mkdir -p "/tmp/cache-new/$(dirname "$f")"
+            cp "$CACHE_DIR/$f" "/tmp/cache-new/$f"
+          done
+          n=$(find /tmp/cache-new -type f | wc -l)
+          echo "new cache files: $n"
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+      - name: Upload the new cache files
+        if: steps.new.outputs.count != '0'
+        uses: actions/upload-artifact@v5
+        with:
+          name: cache-fifteensquared-${{ github.run_id }}
+          path: /tmp/cache-new
+          retention-days: 90
+          if-no-files-found: error
+      - name: Save the cache
+        if: steps.new.outputs.count != '0' || steps.seed.outputs.seeded == '1'
+        uses: actions/cache/save@v5
+        with:
+          path: /tmp/cryptic-downloads/fifteensquared
+          key: fifteensquared-${{ github.run_id }}
+      - name: Delete the older saves of the cache
+        if: steps.new.outputs.count != '0' || steps.seed.outputs.seeded == '1'
+        shell: bash
+        run: |
+          gh cache list -R "$GITHUB_REPOSITORY" --key fifteensquared- --sort created_at --order desc \
+            --limit 100 --json id,key -q '.[1:][] | .id' | while read -r id; do
+            gh cache delete "$id" -R "$GITHUB_REPOSITORY" || true
+          done
+      - name: Fail when the fetch failed
+        shell: bash
+        run: |
+          if [ "${fetch_rc:-0}" != 0 ]; then
+            echo "::error::fetch_fifteensquared.py exited $fetch_rc"
+            exit 1
+          fi

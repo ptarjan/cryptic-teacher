@@ -18,8 +18,12 @@ keep reading unchanged.
     same bytes. One that cannot be fully landed is kept and tried again.
   * Idempotent: a rerun finds nothing to add.
 
-A later cache (the fifteensquared trio, timesforthetimes, bigdave44) joins by a
-row in CACHES and a workflow that uploads cache-<name>-<run id>.
+  * A cache whose readers look posts up in the SSD manifest (media_manifest.py) gets
+    a row there for each post it lands (MANIFESTED): the manifest is how a scheduled
+    reader sees a file without listing the spinning disk.
+
+A later cache (timesforthetimes, bigdave44) joins by a row in CACHES and a workflow
+that uploads cache-<name>-<run id>.
 """
 import argparse
 import json
@@ -31,12 +35,23 @@ import zipfile
 from pathlib import Path
 
 import downloads
+import media_manifest
 
 REPO = "ptarjan/cryptic-teacher"
 #: cache name -> the folder of the media disk it mirrors.
-CACHES = {"telegraph-source": downloads.TELEGRAPH}
+CACHES = {"telegraph-source": downloads.TELEGRAPH, "fifteensquared": downloads.FIFTEENSQUARED}
 #: cache name -> the workflow file that writes it and uploads cache-<name>-<run id>.
-WORKFLOWS = {"telegraph-source": "telegraph-bucket.yml"}
+WORKFLOWS = {"telegraph-source": "telegraph-bucket.yml", "fifteensquared": "fifteensquared-fetch.yml"}
+#: cache name -> the blog whose posts/<id>.json files it carries (manifest posts-<blog>).
+MANIFESTED = {"fifteensquared": "posts"}
+
+
+def record_landed(name, dest, rel, data):
+    """Append the manifest row of a post just landed as dest/<rel> (a no-op for any file
+    that is no post of a MANIFESTED cache)."""
+    p = Path(rel)
+    if name in MANIFESTED and len(p.parts) == 2 and p.parts[0] == MANIFESTED[name] and p.stem.isdigit():
+        media_manifest.record_post(dest / p.parts[0], json.loads(data))
 
 
 def gh(*args, out=None):
@@ -68,7 +83,7 @@ def safe(rel):
     return not p.is_absolute() and ".." not in p.parts
 
 
-def land(zf, dest, dry=False):
+def land(zf, dest, dry=False, name=None):
     """Add each file of the open zip under `dest`. -> (added, same, differing)."""
     added = same = 0
     differ = []
@@ -100,6 +115,7 @@ def land(zf, dest, dry=False):
             if target.read_bytes() != data:
                 differ.append(f"{info.filename} (did not land intact)")
                 continue
+            record_landed(name, dest, info.filename, data)
         added += 1
     return added, same, differ
 
@@ -115,7 +131,7 @@ def sync(name, dry=False):
             gh(f"repos/{REPO}/actions/artifacts/{art['id']}/zip", out=tmp)
             tmp.flush()
             with zipfile.ZipFile(tmp.name) as zf:
-                added, same, differ = land(zf, dest, dry)
+                added, same, differ = land(zf, dest, dry, name)
         print(f"{name}: {art['name']}: {added} added, {same} already there, {len(differ)} differ")
         for d in differ:
             print(f"  kept the disk's copy of {d}")

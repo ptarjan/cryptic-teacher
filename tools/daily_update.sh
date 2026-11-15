@@ -27,7 +27,7 @@
 #                      that solve them, and the Globe's copies of the Times
 #                      Quick Cryptic. (The Telegraph's own bucket is fetched in CI,
 #                      telegraph-bucket.yml; cache-sync lands its raw cache here.)
-#   ft, azed           the FT from fifteensquared, Azed from fifteensquared
+#   ft, azed           (posts fetched in CI, fifteensquared-fetch.yml) the FT from fifteensquared, Azed from fifteensquared
 #                      and the Guardian's printable copies. These
 #                      are backfills: one that stops with
 #                      backlog left runs again at the next tick until it is
@@ -335,7 +335,8 @@ unit_xval_globe() {
   blog_chain Globe "cross_validate.py globe --fetch" "cross_validate.py globe"
 }
 
-# The Financial Times, rebuilt from fifteensquared's write-ups. The same chain
+# The Financial Times, rebuilt from fifteensquared's write-ups (the posts are fetched in CI,
+# .github/workflows/fifteensquared-fetch.yml; cache-sync lands them here). The same chain
 # in one tool: tools/ft_puzzles.py parses the cached posts, rebuilds the newest
 # untried grids, newest first, and files what passes. The search is CPU, so a
 # run starts no rebuild past FT_GRID_SECONDS and one that stopped with posts
@@ -349,10 +350,6 @@ unit_ft() {
   ft_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-ft.XXXXXX")"
   # Through tee and unbuffered, so each step's lines reach the log as they are
   # printed, and a run killed at its limit still shows where it was.
-  PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --category FT --posts-only 2>&1 | tee "$ft_out"
-  step_rc=${PIPESTATUS[0]}
-  [ $step_rc -eq 0 ] ||
-    alert "the fifteensquared FT fetch failed (rc=$step_rc), so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
   OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}" PYTHONUNBUFFERED=1 \
     python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" 2>&1 | tee "$ft_out"
   step_rc=${PIPESTATUS[0]}
@@ -365,7 +362,7 @@ unit_ft() {
 }
 
 # The Observer's Azed, from two sources. New issues come only from
-# fifteensquared's write-ups (tools/azed_puzzles.py rebuilds the barred grid
+# fifteensquared's write-ups (fetched in CI like the FT's; tools/azed_puzzles.py rebuilds the barred grid
 # from the answers each post prints), posted about a week after the puzzle;
 # Azed is monthly from 2026, on the first Sunday. andlit.org.uk's index stops
 # at No 2,757, so the andlit leg below files old issues only: with this unit
@@ -382,10 +379,6 @@ AZED_SCAN_SECONDS="${AZED_SCAN_SECONDS:-1200}"
 unit_azed() {
   local azed_out rc=0 step_rc
   azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
-  PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --category Azed --posts-only 2>&1 | tee "$azed_out"
-  step_rc=${PIPESTATUS[0]}
-  [ $step_rc -eq 0 ] ||
-    alert "the fifteensquared Azed fetch failed (rc=$step_rc), so Azed is filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
   PYTHONUNBUFFERED=1 python3 tools/azed_puzzles.py 2>&1 | tee "$azed_out"
   step_rc=${PIPESTATUS[0]}
   if [ $step_rc -ne 0 ]; then
@@ -405,17 +398,14 @@ unit_azed() {
   return $rc
 }
 
-# The Guardian's monthly Genius: tools/genius_puzzles.py indexes the series
+# The Guardian's monthly Genius (its fifteensquared posts are fetched in CI like the FT's):
+# tools/genius_puzzles.py indexes the series
 # page, downloads the printable PDFs it lacks and files each one whose answers
 # fifteensquared has posted (the prize answers follow about a month on). Only
 # ever run by hand before, so No 280 (2026-10-05) had no route in.
 unit_genius() {
   local genius_out rc=0 step_rc
   genius_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-genius.XXXXXX")"
-  PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --category "Guardian Genius" --posts-only 2>&1 | tee "$genius_out"
-  step_rc=${PIPESTATUS[0]}
-  [ $step_rc -eq 0 ] ||
-    alert "the fifteensquared Genius fetch failed (rc=$step_rc), so Genius is filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$genius_out" | cut -c1-200)"$'\n'"\`\`\`"
   PYTHONUNBUFFERED=1 python3 tools/genius_puzzles.py all 2>&1 | tee "$genius_out"
   step_rc=${PIPESTATUS[0]}
   if [ $step_rc -ne 0 ]; then
