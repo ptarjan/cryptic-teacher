@@ -456,6 +456,14 @@ def full_image(content):
     return m and m.group(1)
 
 
+def pdf_link(content):
+    """The article's PDF of the page (a vector "..._cropped.pdf" the site hosts, 2025-26 seen: the
+    puzzle and the solution grid of an earlier puzzle as live text, so no OCR), or None. The
+    uploads are served without the site's bot challenge, the pages and wp-json are not."""
+    m = re.search(r'https?://[^"\'\s<>?]+/wp-content/uploads/[^"\'\s<>?]+\.pdf', content or "", re.IGNORECASE)
+    return m and m.group(0)
+
+
 def archived(url):
     """The Wayback Machine's copy of an image the site no longer serves, or None."""
     query = urllib.parse.urlencode({"url": url, "output": "json", "filter": "statuscode:200",
