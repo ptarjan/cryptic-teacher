@@ -252,6 +252,12 @@ ACQUIRED_BY = {
         "what": "a 1970s SUNDAY magazine (Kolkata) page in the Digital Library of India's archive.org "
                 "scans (tools/azed_scans.py): clues voted across the OCR readers, the barred grid "
                 "read off the scan by tools/ios_barred.py, answers off the next page's solution grid"},
+    "tools/nation_scans.py": {
+        "channel": "newspaper",
+        "what": "a 1926-49 page of The Nation in archive.org's scans of the magazine "
+                "(tools/nation_scans.py): clues voted across the OCR readers, the blocked grid "
+                "read off the scan by tools/listener_grid.py, answers off the next issue's "
+                "printed solution list"},
     "tools/file_gale_listener.py": {
         "channel": "newspaper",
         "what": "a 1930s Listener page Paul saved from Gale's Listener Historical Archive "
@@ -379,6 +385,7 @@ ACQUISITION_BY_SOURCE = {
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
     ("tls", "www.the-tls.com"): ("tools/tls_puzzles.py", "tools/gale_tls_read.py"),
     ("nation", "www.thenation.com"): ("tools/fetch_nation.py",),
+    ("nation", "archive.org"): ("tools/nation_scans.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("listener", "go.gale.com"): ("tools/file_gale_listener.py",),
