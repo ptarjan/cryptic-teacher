@@ -657,7 +657,7 @@ def main(argv=None):
         by[r[0]] = by.get(r[0], 0) + 1
     print(f"bucket holds {len(todo)} puzzles not on disk or held as the blog rebuilt them: "
           + ", ".join(f"{s} {n}" for s, n in sorted(by.items())))
-    done = failed = 0
+    done = failed = broken = 0
     setters = blog_setters()
     walk = todo[:args.holes]
     print(f"setup took {time.monotonic() - start:.0f}s")
@@ -672,14 +672,18 @@ def main(argv=None):
             done += bool(written)
         except Exception as err:  # one bad puzzle is reported, not the walk's end
             failed += 1
+            # A ValueError (RefusedWrite included) is a defect in the source
+            # puzzle itself and fails the same way every run; only the rest
+            # (network, server) say the run went wrong.
+            broken += isinstance(err, ValueError)
             print(f"failed: {series}-{number} {slug}: {type(err).__name__}: {err}")
         if asked:
             time.sleep(DELAY)
-    print(f"done: {done} fetched, {failed} failed")
+    print(f"done: {done} fetched, {failed} failed ({broken} of them defective source puzzles)")
     if args.reindex and done:
         from fetch_puzzle import reindex
         reindex()
-    return 1 if failed and not done else 0
+    return 1 if failed > broken and not done else 0
 
 
 if __name__ == "__main__":
