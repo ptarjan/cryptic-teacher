@@ -118,6 +118,12 @@ DROP_SETTLE = int(os.environ.get("CT_CEILING_SETTLE") or 40)
 #: while Windows free RAM read roomy enough to step up). CT_SWAP_DOWN / CT_SWAP_HOLD override.
 SWAP_DOWN_MB = int(os.environ.get("CT_SWAP_DOWN") or 30)
 SWAP_HOLD_MB = int(os.environ.get("CT_SWAP_HOLD") or 5)
+#: Windows hard page faults a second (Memory\Pages Input/sec) over which the ceiling steps down,
+#: and over which it never steps up (11-14 23:30: 32 units, Windows 218-356 MB free and ~3,500
+#: pages/s read back from disk between cache drops, while every post-drop reading looked roomy).
+#: CT_FAULTS_DOWN / CT_FAULTS_HOLD override.
+FAULTS_DOWN = int(os.environ.get("CT_FAULTS_DOWN") or 1500)
+FAULTS_HOLD = int(os.environ.get("CT_FAULTS_HOLD") or 400)
 
 
 def swap_pages(path="/proc/vmstat"):
@@ -129,17 +135,22 @@ def swap_pages(path="/proc/vmstat"):
         return None
 
 
-def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80, swap_mb=None):
-    """The new ceiling: -2 when Windows has under 2000 MB free, CPU is over cpu_hi or the VM swaps over
-    SWAP_DOWN_MB a minute; +2 when over 4500 MB free, CPU (unknown counts as busy) under cpu_lo and
-    swap still (under SWAP_HOLD_MB a minute); clamped to lo..hi. No RAM figure: unchanged."""
+def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80, swap_mb=None, faults=None,
+                 low_mb=None):
+    """The new ceiling: -2 when Windows has under 2000 MB free (free_mb, or low_mb, the reading before a
+    cache drop), CPU is over cpu_hi, the VM swaps over SWAP_DOWN_MB a minute or Windows hard-faults over
+    FAULTS_DOWN pages a second; +2 when over 4500 MB free, CPU (unknown counts as busy) under cpu_lo,
+    swap still (under SWAP_HOLD_MB a minute) and faults under FAULTS_HOLD (unknown counts as still);
+    clamped to lo..hi. No RAM figure: unchanged."""
     if free_mb is None:
         return ceiling
     new = ceiling
     swap = swap_mb or 0
-    if free_mb < 2000 or (cpu or 0) > cpu_hi or swap > SWAP_DOWN_MB:
+    low = free_mb if low_mb is None else min(free_mb, low_mb)
+    if low < 2000 or (cpu or 0) > cpu_hi or swap > SWAP_DOWN_MB or (faults or 0) > FAULTS_DOWN:
         new = ceiling - 2
-    elif free_mb > 4500 and (100 if cpu is None else cpu) < cpu_lo and swap <= SWAP_HOLD_MB:
+    elif free_mb > 4500 and (100 if cpu is None else cpu) < cpu_lo and swap <= SWAP_HOLD_MB \
+            and (faults or 0) <= FAULTS_HOLD:
         new = ceiling + 2
     return max(lo, min(hi, new))
 
@@ -150,6 +161,19 @@ def _win_free(host):
         out = subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=8", host,
                               'powershell -NoProfile -c "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB)"'],
                              capture_output=True, text=True, timeout=20).stdout
+        return int(re.sub(r"\D", "", out))
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return None
+
+
+def _win_faults(host):
+    """Windows hard page faults a second (Pages Input/sec, one 2 s sample), or None."""
+    import re
+    try:
+        out = subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=8", host,
+                              "powershell -NoProfile -c \"[int](Get-Counter '\\Memory\\Pages Input/sec' "
+                              "-SampleInterval 2).CounterSamples[0].CookedValue\""],
+                             capture_output=True, text=True, timeout=30).stdout
         return int(re.sub(r"\D", "", out))
     except (OSError, ValueError, subprocess.SubprocessError):
         return None
@@ -190,6 +214,8 @@ class CeilingController:
     def _run(self):
         swap = self._swap_rate()
         free = _win_free(self.host)
+        low = free
+        faults = _win_faults(self.host)
         cpu = _win_cpu(self.metrics) if self.metrics else None
         if free is not None and free < DROP_BELOW_MB and self.drop_cmd:
             try:
@@ -207,7 +233,8 @@ class CeilingController:
         env = os.environ.get
         cur = unit_ceiling()
         new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
-                           int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap)
+                           int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap,
+                           faults, low)
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
             try:
@@ -217,7 +244,8 @@ class CeilingController:
             except OSError as e:
                 self.lines.append(f"ceiling: cannot write {path}: {e}")
                 return
-            self.lines.append(f"ceiling: win free {free} MB cpu {cpu}% swap {swap} MB/min: {cur} -> {new}")
+            self.lines.append(f"ceiling: win free {free} MB (low {low}) cpu {cpu}% swap {swap} MB/min "
+                              f"faults {faults}/s: {cur} -> {new}")
 
     def poll(self, now=None):
         now = time.monotonic() if now is None else now

@@ -2855,6 +2855,10 @@ check("ceiling_step: VM swap traffic steps down and holds any step up",
       (18, 20, 22),
       (mg.ceiling_step(20, 9000, 10, swap_mb=mg.SWAP_DOWN_MB + 1), mg.ceiling_step(20, 9000, 10, swap_mb=mg.SWAP_HOLD_MB + 1),
        mg.ceiling_step(20, 9000, 10, swap_mb=0)))
+check("ceiling_step: Windows hard faults or a low pre-drop reading step down; faults hold any step up",
+      (18, 20, 22, 18),
+      (mg.ceiling_step(20, 9000, 10, faults=mg.FAULTS_DOWN + 1), mg.ceiling_step(20, 9000, 10, faults=mg.FAULTS_HOLD + 1),
+       mg.ceiling_step(20, 9000, 10, faults=0), mg.ceiling_step(20, 9000, 10, low_mb=1500)))
 M = 1 << 20
 _ps = [(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
 check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},
