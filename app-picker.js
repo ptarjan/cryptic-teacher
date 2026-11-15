@@ -107,6 +107,10 @@
       magazine's sense of humour, by Frank W. Lewis and later Joshua Kosman and
       Henri Picciotto. The clues come from the magazine's own pages; the grid
       is rebuilt from them.`],
+    nationmag: ["nation", `The Nation's weekly cryptic in the magazine's own
+      numbering, from the 1926-49 printed issues: British-style clues with
+      American spelling and a political magazine's sense of humour. The clues
+      are read from scans of the pages; the grid is rebuilt from them.`],
     metro: ["metro", `Metro's daily cryptic — the free London paper's commuter
       puzzle, on a small 13x13 grid and much easier than the big papers: short
       clues, everyday words, and a solve that fits a train ride. A good place to
