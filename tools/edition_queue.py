@@ -2010,7 +2010,7 @@ def fix_landed_reread(unit):
 
 #: Fix rereads of the fixes being worked on now: first of all the fix rereads (fix_rereads_forward).
 #: Add the newest fix's reason; drop one once its rereads are read.
-NEWEST_LANDED = (fa.QUARTER_PLAIN, fa.PLAIN_LAID, fa.SUNDAY_1970S, fa.FT_FAINT, fa.SUNDAY_UNDER, fa.LEFT_EDGE_GRID,fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID, fa.SIDES_HEADED, fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.INDY_OVER_PLAIN)
+NEWEST_LANDED = (fa.QUARTER_PLAIN, fa.PLAIN_LAID, fa.SUNDAY_1970S, fa.FT_FAINT, fa.SUNDAY_UNDER, fa.LEFT_EDGE_GRID,fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID, fa.SIDES_HEADED, fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.INDY_OVER_PLAIN, fa.FT_NUMBER_MENDED)
 
 
 def fix_rereads_forward(out):
