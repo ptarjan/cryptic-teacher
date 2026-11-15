@@ -6998,10 +6998,13 @@ check("a VLM reply no list holds, one open letter off the classifier's word wher
       "among several (BONALD: DONALD, not RONALD)", ("ASCHAM", "DONALD"),
       (f.vlm_word("ASCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6"),
        f.vlm_word("BONALD", "?O?A?D", [6], [cell_p(c) for c in "DONALD"], "6")))
+am_corpus = f.trove_solution_ocr.corpus_words
 f.trove_solution_ocr.filed_words = lambda: frozenset({"DONALD"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset({"DONALD"})  # hermetic: the real corpus may come to hold ASCHAM
 check("...not where neither the corpus nor another puzzle's filed answers hold the classifier's word (WEBTERHAM "
       "over WETTERHAM for WESTERHAM)", None, f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6"))
 f.trove_solution_ocr.filed_words = am_filed
+f.trove_solution_ocr.corpus_words = am_corpus
 check("...not for a listed reply (CAMEL over CAMES), the VLM's letter at 0.01+ (HERTFORD), the classifier's under "
       "ARGMAX_TOP, a misread (TIRIA for TIBIA), nor a reply two letters off", (None, None, None, None, None),
       (f.argmax_word("CAMEL", "C?M??", [5], [cell_p(c) for c in "CAMES"], "5"),
