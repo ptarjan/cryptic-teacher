@@ -687,7 +687,7 @@ class Other(collections.namedtuple("Other", "series years printed folder item"))
 #: issuesForMonth's (read 2026-10-11): TGRH ends with 2000, FTHA (its
 #: crossword from 1966) with 2010, INDA with 2016, STHA with 2006; TLSH
 #: (read 2026-10-12) runs 1902 to 26 December 2014, a Friday weekly whose
-#: contents first name "TLS Crossword 102" on 5 June 1992 (few before 1995).
+#: contents name "TLS Crossword 1" on 22 Oct 1982, one every 4-5 weeks to 1992 ("TLS Crossword 102" on 5 June 1992).
 OTHERS = {
     "TGRH": Other("telegraph", range(1925, 2001), None, "Telegraph", "GaleTelegraph{}UKEnglish"),
     "FTHA": Other("ftcryptic", range(1966, 2011), None, "FT", "GaleFT{}UKEnglish"),
@@ -695,7 +695,7 @@ OTHERS = {
                   "GaleIndependent{}UKEnglish"),
     "STHA": Other("sundaytimes", range(1924, 2007), ((6,), "1924-12-28"), "Sunday Times",
                   "GaleSundayTimes{}UKEnglish"),
-    "TLSH": Other("tls", range(1990, 2015), ((4,), "1990-01-05"), "TLS", "GaleTLS{}UKEnglish"),
+    "TLSH": Other("tls", range(1982, 2015), ((4,), "1982-01-01"), "TLS", "GaleTLS{}UKEnglish"),
 }
 
 
