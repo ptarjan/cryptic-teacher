@@ -86,6 +86,20 @@ check("fifteensquared-fetch.yml uploads the artifact cache-sync lands", "cache-f
 check("cache_sync mirrors the fifteensquared folder", cache_sync.CACHES["fifteensquared"], cache_sync.downloads.FIFTEENSQUARED)
 check("cache_sync finds the fifteensquared workflow", cache_sync.WORKFLOWS["fifteensquared"], "fifteensquared-fetch.yml")
 check("the ft, azed and genius units still file", all(f"unit_{u}()" in daily_sh for u in ("ft", "azed", "genius")), True)
+# The blog fetches of blog:times and blog:telegraph (posts, and the Times comments) run in
+# blog-fetch.yml; the parsers and filers stay in the units.
+blog_yml = (REPO / ".github" / "workflows" / "blog-fetch.yml").read_text()
+check("blog-fetch.yml fetches both blogs", "blog: [timesforthetimes, bigdave44]" in blog_yml, True)
+check("blog-fetch.yml uploads the artifact cache-sync lands", "cache-${{ matrix.blog }}-${{ github.run_id }}" in blog_yml, True)
+check("fetch_wp_blog.py is not run by daily_update.sh",
+      [ln for ln in daily_sh.splitlines() if "fetch_wp_blog.py" in ln and not ln.lstrip().startswith("#")], [])
+for blog in ("timesforthetimes", "bigdave44"):
+    check(f"cache_sync finds the {blog} workflow", cache_sync.WORKFLOWS[blog], "blog-fetch.yml")
+    check(f"cache_sync records the {blog} posts in the manifest", cache_sync.MANIFESTED[blog], "posts")
+check("cache_sync mirrors the timesforthetimes folder", cache_sync.CACHES["timesforthetimes"], cache_sync.downloads.TIMESFORTHETIMES)
+check("a refetched comments month with all the old ids supersedes", cache_sync.supersedes("comments/2026-11.json", b'[{"id": 1}]', b'[{"id": 1}, {"id": 2}]'), True)
+check("a comments month that lost an id never supersedes", cache_sync.supersedes("comments/2026-11.json", b'[{"id": 1}, {"id": 2}]', b'[{"id": 1}]'), False)
+check("a post never supersedes", cache_sync.supersedes("posts/1.json", b'{"a": 1}', b'{"a": 1, "b": 2}'), False)
 check("cache_sync mirrors the telegraph-source folder", cache_sync.CACHES["telegraph-source"], cache_sync.downloads.TELEGRAPH)
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
 # The CI fetchers run in .github/workflows/fetch-puzzles.yml and nowhere else.

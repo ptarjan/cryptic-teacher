@@ -310,13 +310,16 @@ unit_wayback_privateeye() {
 # can never stretch a unit past its limit; a post already started runs to its node cap.
 TIMES_GRID_SECONDS="${TIMES_GRID_SECONDS:-600}"
 TELEGRAPH_GRID_SECONDS="${TELEGRAPH_GRID_SECONDS:-600}"
+# The blogs' own fetches (fetch_wp_blog.py, posts and comments) run in GitHub Actions
+# (.github/workflows/blog-fetch.yml, Paul 2026-11-15: "Jobs should be on ci where
+# possible"); the cache-sync unit lands them on the media disk. The chains start at the parse.
 unit_blog_times() {
-  blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \
+  blog_chain Times fetch_times_listing.py \
     parse_timesforthetimes.py "times_grids.py --budget-seconds $TIMES_GRID_SECONDS" \
     file_times_puzzles.py
 }
 unit_blog_telegraph() {
-  blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
+  blog_chain Telegraph parse_bigdave44.py \
     "times_grids.py --blog bigdave44 --budget-seconds $TELEGRAPH_GRID_SECONDS" \
     file_telegraph_puzzles.py
 }
@@ -515,17 +518,14 @@ unit_ratings() {
   # fetch_snitch (one page, into tracked tools/data/snitch.json) runs in GitHub Actions:
   # .github/workflows/daily-units.yml `snitch`.
 
-  # Times for the Times comments: the newest month on disk and any after it are
-  # refetched, and the comment table rebuilt from the whole cache.
+  # Times for the Times comments: fetched in GitHub Actions (blog-fetch.yml; cache-sync
+  # lands the months on the media disk); the comment table is rebuilt here from the whole
+  # cache.
   # The table feeds the Times badges, which blend in the solve times commenters
   # state (tools/difficulty.py blend()), so a puzzle re-rates as its post gains
   # comments at the next reindex. It leaves the committed table alone when the
   # cache is absent. The report is written to tools/data/snitch_report.txt, whose
   # history is the record of how the numbers move.
-  if step fetch_wp_blog; then
-    python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
-    took fetch_wp_blog
-  fi
   if step blog_comment_difficulty; then
     python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
     took blog_comment_difficulty

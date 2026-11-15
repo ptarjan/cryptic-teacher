@@ -22,7 +22,7 @@ download path spelled anywhere else.
 | ft-pdf/, genius/, listener/, andlit-azed/ | publisher PDFs and archive pages | the series' own `*_puzzles.py` |
 | NAME-source/ | each cross-checked source's cache (Guardian, Telegraph, Independent, Globe) | `tools/cross_validate.py`; telegraph-source/ is written only by the `telegraph-bucket.yml` CI job (`tools/fetch_telegraph.py --holes all`), landed by `tools/cache_sync.py` |
 | times-feed/, times-listing/ | the Times puzzle feed and its Wayback listing | `tools/fetch_times_feed.py`, `tools/fetch_times_listing.py` |
-| fifteensquared/, timesforthetimes/, bigdave44/, georgeho/ | solving blogs' posts and comments | `tools/fetch_wp_blog.py`; fifteensquared/ posts are written only by the `fifteensquared-fetch.yml` CI job (`tools/fetch_fifteensquared.py`), landed by `tools/cache_sync.py` |
+| fifteensquared/, timesforthetimes/, bigdave44/, georgeho/ | solving blogs' posts and comments | `tools/fetch_wp_blog.py`; timesforthetimes/ and bigdave44/ posts (and the Times comments) are written only by the `blog-fetch.yml` CI job, landed by `tools/cache_sync.py`; fifteensquared/ posts are written only by the `fifteensquared-fetch.yml` CI job (`tools/fetch_fifteensquared.py`), landed by `tools/cache_sync.py` |
 | youtube/CHANNEL/subs/ | solve-along video subtitles | `tools/ctc_transcripts.py` reads them |
 | cross-validate/ | per-source cross-validation reports | `tools/cross_validate.py` |
 | probes/ | pages saved by hand while probing a new source; nothing reads them | by hand |

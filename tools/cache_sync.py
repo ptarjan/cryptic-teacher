@@ -22,8 +22,9 @@ keep reading unchanged.
     a row there for each post it lands (MANIFESTED): the manifest is how a scheduled
     reader sees a file without listing the spinning disk.
 
-A later cache (timesforthetimes, bigdave44) joins by a row in CACHES and a workflow
-that uploads cache-<name>-<run id>.
+A cache joins by a row in CACHES and a workflow that uploads cache-<name>-<run id>
+(timesforthetimes and bigdave44: blog-fetch.yml). SUPERSEDABLE files, the one exception to
+'only adds', are replaced by a later copy that holds all the old one's rows.
 """
 import argparse
 import json
@@ -39,11 +40,21 @@ import media_manifest
 
 REPO = "ptarjan/cryptic-teacher"
 #: cache name -> the folder of the media disk it mirrors.
-CACHES = {"telegraph-source": downloads.TELEGRAPH, "fifteensquared": downloads.FIFTEENSQUARED}
+CACHES = {"telegraph-source": downloads.TELEGRAPH, "fifteensquared": downloads.FIFTEENSQUARED,
+          "timesforthetimes": downloads.TIMESFORTHETIMES, "bigdave44": downloads.ROOT / "bigdave44"}
 #: cache name -> the workflow file that writes it and uploads cache-<name>-<run id>.
-WORKFLOWS = {"telegraph-source": "telegraph-bucket.yml", "fifteensquared": "fifteensquared-fetch.yml"}
+WORKFLOWS = {"telegraph-source": "telegraph-bucket.yml", "fifteensquared": "fifteensquared-fetch.yml",
+             "timesforthetimes": "blog-fetch.yml", "bigdave44": "blog-fetch.yml"}
 #: cache name -> the blog whose posts/<id>.json files it carries (manifest posts-<blog>).
-MANIFESTED = {"fifteensquared": "posts"}
+MANIFESTED = {"fifteensquared": "posts", "timesforthetimes": "posts", "bigdave44": "posts"}
+#: cache name -> the folder of month files (YYYY-MM.json) whose manifest (comments-<blog>) a
+#: landed file gets a row in. A month the blog's fetch refetched is replaced, never plain added:
+#: see SUPERSEDABLE.
+COMMENTED = {"timesforthetimes": "comments", "bigdave44": "comments"}
+#: The few files a fetch rewrites in place: a comments month still filling, and the blog's
+#: category list. A differing copy replaces the disk's one only when it holds everything the
+#: disk's has (every comment id; every category id), so nothing is ever lost.
+SUPERSEDABLE = {"comments", "categories.json"}
 
 
 def record_landed(name, dest, rel, data):
@@ -52,6 +63,26 @@ def record_landed(name, dest, rel, data):
     p = Path(rel)
     if name in MANIFESTED and len(p.parts) == 2 and p.parts[0] == MANIFESTED[name] and p.stem.isdigit():
         media_manifest.record_post(dest / p.parts[0], json.loads(data))
+    elif (name in COMMENTED and len(p.parts) == 2 and p.parts[0] == COMMENTED[name] and p.suffix == ".json"
+          and p.stem not in media_manifest.comment_keys(dest / p.parts[0])):
+        media_manifest.record_comments(dest / p.parts[0], p.stem)
+
+
+def supersedes(rel, old, new):
+    """True when `new` (bytes) is a later copy of the rewritable file `rel` that holds
+    everything `old` (bytes) has."""
+    p = Path(rel)
+    if not (p.name in SUPERSEDABLE or (p.parts and p.parts[0] in SUPERSEDABLE)):
+        return False
+    try:
+        a, b = json.loads(old), json.loads(new)
+    except ValueError:
+        return False
+    if isinstance(a, list) and isinstance(b, list):
+        return {r["id"] for r in a} <= {r["id"] for r in b}
+    if isinstance(a, dict) and isinstance(b, dict):
+        return set(a) <= set(b)
+    return False
 
 
 def gh(*args, out=None):
@@ -96,8 +127,16 @@ def land(zf, dest, dry=False, name=None):
         target = dest / info.filename
         data = zf.read(info)
         if target.exists():
-            if target.read_bytes() == data:
+            old = target.read_bytes()
+            if old == data:
                 same += 1
+            elif supersedes(info.filename, old, data):
+                if not dry:
+                    tmp = target.with_name(f".{target.name}.sync{os.getpid()}")
+                    tmp.write_bytes(data)
+                    os.replace(tmp, target)
+                    record_landed(name, dest, info.filename, data)
+                added += 1
             else:
                 differ.append(info.filename)
             continue
