@@ -21,9 +21,15 @@ delay=15
 
 runs=""
 while :; do
-  runs="$(gh run list --commit "$sha" --json databaseId,name,status,conclusion,url,headSha)" || runs="[]"
-  total="$(jq 'length' <<<"$runs")"
-  pending="$(jq '[.[] | select(.status != "completed")] | length' <<<"$runs")"
+  runs="$(gh run list --commit "$sha" --json databaseId,name,status,conclusion,url,headSha \
+    --jq '.[] | select(.headSha == "'"$sha"'") | [.databaseId, .name, .status, .conclusion, .url] | @tsv')" || runs=""
+  total=0
+  pending=0
+  while IFS=$'\t' read -r _ _ rstatus _; do
+    [ -z "$rstatus" ] && continue
+    total=$((total + 1))
+    [ "$rstatus" != "completed" ] && pending=$((pending + 1))
+  done <<<"$runs"
   elapsed=$((SECONDS - start))
   if [ "$total" -gt 0 ] && [ "$pending" -eq 0 ]; then
     break
@@ -36,14 +42,19 @@ while :; do
     echo "${sha:0:10} timed out after ${elapsed}s with $pending of $total runs unfinished" >&2
     exit 2
   fi
-  sleep "$delay"
+  # Never sleep past the limit that applies now.
+  limit=$timeout
+  [ "$total" -eq 0 ] && [ "$no_run_limit" -lt "$limit" ] && limit=$no_run_limit
+  nap=$((limit - elapsed))
+  [ "$delay" -lt "$nap" ] && nap=$delay
+  sleep "$nap"
   delay=$((delay * 2))
   [ "$delay" -gt 120 ] && delay=120
 done
 
 status=0
 failed_ids=""
-while IFS=$'\t' read -r id name conclusion url; do
+while IFS=$'\t' read -r id name _ conclusion url; do
   failed_jobs=""
   case "$conclusion" in
     success|skipped|neutral) ;;
@@ -54,7 +65,7 @@ while IFS=$'\t' read -r id name conclusion url; do
       ;;
   esac
   echo "${sha:0:10} $name $conclusion ${failed_jobs:--} $url"
-done < <(jq -r '.[] | [.databaseId, .name, .conclusion, .url] | @tsv' <<<"$runs")
+done <<<"$runs"
 
 for id in $failed_ids; do
   echo "--- last 40 lines of failed log, run $id ---"
