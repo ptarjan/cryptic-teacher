@@ -699,6 +699,10 @@ check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fi
       [f.RANKS[f.FOOTER_TITLE], eq.evidence_reason(f.FOOTER_TITLE), f.FOOTER_TITLE in eq.FIX_LANDED,
        f.FOOTER_TITLE in eq.UNFILED_FIRST,
        eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
+check("a TELEGRAPH_DATED page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [1, True, True, True, True],
+      [f.RANKS[f.TELEGRAPH_DATED], eq.evidence_reason(f.TELEGRAPH_DATED), f.TELEGRAPH_DATED in eq.FIX_LANDED,
+       f.TELEGRAPH_DATED in eq.UNFILED_FIRST, f.TELEGRAPH_DATED in eq.NEWEST_LANDED])
 # ---- an untitled verdict-less 1930-33 Gale Times page (numbers of 1-3 digits, fa.small_rescan) is due SMALL_TITLE:
 # ranked, evidence, fix-landed, the newest unfiled-first fix, first tier, and it feeds the VLM (its read asks).
 check("an untitled 1931 Gale Times page due SMALL_TITLE is ranked, evidence, fix-landed, in unfiled-first, tier 0",

@@ -4230,6 +4230,31 @@ check("an untitled verdict-less 1938 Gale Times page never looked over for its f
        f.footer_rescan({**_ft, "scan": {**_ft["scan"], "date": "1940-08-11", "item": "GaleTimes1940UKEnglish"}}),
        f.footer_rescan({**_ft, "scan": {**_ft["scan"], "item": "GaleTelegraph1938UKEnglish"}}),
        f.footer_rescan({**_ft, "scanKey": "0000000000000000"}), f.RANKS[f.FOOTER_TITLE]])
+# telegraph_dated_rescan / telegraph_loose_heading: a 1985 archive.org Daily Telegraph edition read with no verdict and no
+# puzzle, never looked over loosely, is due TELEGRAPH_DATED once (its scan stale, past blanket_or_fix); garbled heading
+# lines with a DOWN line beside them are found, the Quick's pair under its caption is not.
+_td = {"edition": "TheDailyTelegraph1985UKEnglish/1985-01-23_40308", "scanKey": f.scan_key(f.TELEGRAPH), "filesHash": "h",
+       "inputs": "h", "verdicts": [], "readAt": "2026-11-10T00:00:00+00:00",
+       "scan": {"date": "1985-01-23", "item": "TheDailyTelegraph1985UKEnglish", "puzzles": [], "solutions": [],
+                "wholeUntitled": True}}
+_tw = lambda t, x, y: [(x + 60 * k, y, x + 60 * k + 50, y + 20, w) for k, w in enumerate(t.split())]
+_tl = [_tw(".No. 18.3 U ACROSS", 200, 2400), _tw("DOWN", 700, 2402), _tw("QUICK CROSSWORD", 200, 3900),
+       _tw("ACROSS", 200, 3960), _tw("DOWN", 700, 3962)]
+check("a garbled Telegraph heading with a DOWN line beside it, over the Quick caption, is found with its digits; "
+      "the Quick's own pair, a lone ACROSS and a long line are not",
+      [(200, 2400, 430, 2420), "183", (200, 2400, 430, 2420), "183", None, None],
+      [*f.telegraph_loose_heading(_tl)[0:2], *f.telegraph_loose_heading(_tl[:2]), f.telegraph_loose_heading(_tl[:1]),
+       f.telegraph_loose_heading([_tl[2], _tl[3], _tl[4]])])
+check("a verdict-less Telegraph edition with no puzzle is due TELEGRAPH_DATED once; stamped, titled, with a verdict, "
+      "failed or of another paper it is not",
+      [True, False, f.TELEGRAPH_DATED, f.TELEGRAPH_DATED, False, False, False, False, False, 1],
+      [f.telegraph_dated_rescan(_td), f.scan_current(_td, "h"), f.fix_reason(_td), f.blanket_or_fix(_td, "inputs changed"),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], f.TELEGRAPH_READ: True}}),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "puzzles": [{"number": 18356, "leaf": 1}]}}),
+       f.telegraph_dated_rescan({**_td, "verdicts": [{"number": 18356}]}),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "failed": "x"}}),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
+       f.RANKS[f.TELEGRAPH_DATED]])
 # small_titles (r42): the 1930-33 Gale Times prints puzzle numbers of 1-3 digits ("PUZZLE No. 357"); TITLE and
 # SOLUTION read four. 1931-03-27 as the two page readers read it (the date implies 358; Gale's pages skip a few more
 # closed days than TIMES_1930_CLOSED holds).

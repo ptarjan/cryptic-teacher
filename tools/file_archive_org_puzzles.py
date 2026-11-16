@@ -4193,6 +4193,8 @@ def scan_anywhere(d):
     found = footer_titled(d, found)
     # No title read on a 1930-33 Gale Times page: its 1-3 digit title and solution heading, off the cached page reads.
     found = small_titled(d, found)
+    # No title read on an archive.org Daily Telegraph page: its loosely read heading, numbered by its date.
+    found = telegraph_titled(d, found)
     # Read whole and no title found (grid_first_scan reads such a page whole): a GF_TITLE rescan is done.
     if not found.get("failed") and not any(not p.get("fromSolutions") for p in found["puzzles"]):
         found = {**found, WHOLE_UNTITLED: True}
@@ -4355,6 +4357,81 @@ def footer_titled(d, found):
             return {**found, "puzzles": hits, FOOTER_READ: True,
                     "solutions": [s for s in found.get("solutions") or () if s["number"] not in titled]}
     return {**found, FOOTER_READ: True}
+
+
+#: The key of an archive.org Daily Telegraph scan (scan_anywhere's) of a page no title was read on whose heading was
+#: looked for loosely and numbered by its date (telegraph_titled), titled by it or not: its TELEGRAPH_DATED rescan is done.
+TELEGRAPH_READ = "telegraphRead"
+#: A Telegraph cryptic's ACROSS heading line, however garbled ("N6.1ff.if49 ACROSS", ".No. 18.3 U ACROSS", a bare "ACROSS").
+TELEGRAPH_ACROSS_LINE = re.compile(r"(?i)a\w?[cr]\w{0,2}s\W*$")
+TELEGRAPH_DOWN_LINE = re.compile(r"(?i)^\W*d[o0]wn\W*$")
+#: How far (px) from the ACROSS line's top its DOWN line's top may lie, and the longest the ACROSS line may be.
+TELEGRAPH_PAIR_Y = 40
+TELEGRAPH_HEAD_LEN = 30
+
+
+def telegraph_loose_heading(lines):
+    """(box, digits) of the topmost Telegraph cryptic heading of `lines` read loosely: a short line ending in an
+    ACROSS-like word with a DOWN line at about its height to its right, over any QUICK_CAPTION and not under one
+    (the Quick's own pair); else the box clue_block_heading finds over the clue block (digits ""); else None."""
+    quick = [box_of(ws) for ws in lines if QUICK_CAPTION.search(" ".join(w[4] for w in ws)) and len(" ".join(w[4] for w in ws)) < 30]
+    downs = [box_of(ws) for ws in lines if TELEGRAPH_DOWN_LINE.match(" ".join(w[4] for w in ws))]
+    found = []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        if len(text) >= TELEGRAPH_HEAD_LEN or not TELEGRAPH_ACROSS_LINE.search(text) or QUICK_CAPTION.search(text):
+            continue
+        box = box_of(ws)
+        if under_quick(box, quick) or any(box[3] > c[1] for c in quick):
+            continue
+        if any(abs(dn[1] - box[1]) <= TELEGRAPH_PAIR_Y and dn[0] > box[0] for dn in downs):
+            head = re.split(r"(?i)a\w?[cr]\w{0,2}s\W*$", text)[0]
+            found.append((box[1], box, re.sub(r"\D", "", head)))
+    if found:
+        _, box, digits = min(found)
+        return box, digits
+    box = clue_block_heading(lines, quick)
+    return (box, "") if box else None
+
+
+def telegraph_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle titled by its heading read loosely (telegraph_loose_heading,
+    off archive.org's text) and numbered by its date, where it is a Daily Telegraph edition with no title read and no
+    failure, stamped TELEGRAPH_READ. One number an issue (Monday to Saturday): each filed neighbour either side counts
+    to one (guardian_dated_titles); the number stands when exactly one of those counts agrees with the digits read
+    (guardian_agrees; any when none were read) and is not filed for another day. Outside scan(), whose key a change
+    here would move."""
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or paper_of(d) is not TELEGRAPH or not str(found.get("item", "")).startswith("TheDailyTelegraph"):
+        return found
+    try:
+        day = datetime.date.fromisoformat(found["date"])
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())
+                         if (d / f"leaf_{p['leaf']:04d}.jpg").exists()})
+    except (OSError, ValueError, KeyError, TypeError):
+        return found
+    stamped = {**found, TELEGRAPH_READ: True}
+    if day.weekday() == 6 or not leaves:
+        return stamped
+    text = leaf_lines(d / "djvu.xml.gz", set(leaves))
+    held = held_dates(TELEGRAPH.series)
+    before, after = neighbours(day, held)
+    counts = {m + issues_between(b, day) for b, m in [before] * bool(before)} | \
+        {m - issues_between(day, a) for a, m in [after] * bool(after)}
+    for leaf in leaves:
+        heading = telegraph_loose_heading(text.get(leaf, []))
+        if not heading:
+            continue
+        box, digits = heading
+        fits = [n for n in counts if (not digits or guardian_agrees(digits, n)) and held.get(n, day) == day]
+        if not fits and len(counts) == 1:
+            # every digit garbled past guardian_agrees: the one count the neighbours agree on stands
+            fits = [n for n in counts if held.get(n, day) == day]
+        if len(fits) != 1:
+            return stamped
+        return {**stamped, "puzzles": [{"number": fits[0], "leaf": leaf, "box": box, "titleReadBy": ["dated"]}],
+                "solutions": [s for s in found.get("solutions") or () if s["number"] != fits[0]]}
+    return stamped
 
 
 #: The key of a Gale Times scan (scan_anywhere's) of a SMALL_YEARS page no title was read on whose cached
@@ -14956,7 +15033,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not telegraph_host(r) \
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not telegraph_dated_rescan(r) and not telegraph_host(r) \
                     and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ios_title_rescan(r):
                 moved[k] = new
         if moved:
@@ -16409,6 +16486,25 @@ def telequick_rescan(row):
         if m and v.get("cause") == "not-a-grid" and all(TELEQUICK_INK[0] <= int(g) <= TELEQUICK_INK[1] for g in m.groups()):
             return scan_queue.read_before(row, scan_queue.when(REREAD_TELEQUICK))
     return False
+
+
+#: The due reason of an archive.org Daily Telegraph edition (1984-10 to 1985-07: ~61) read with no verdict and no puzzle
+#: ("puzzles: [], wholeUntitled"): its cryptic heading, "<garbled No. N> ACROSS" over a DOWN line beside it ("N6.1ff.if49
+#: ACROSS", "No. 18,4 12 ACROSS", or a bare pair; ~15 headings lost altogether), failed NUMBERED_HEADING's strict number.
+#: telegraph_titled reads it loosely and numbers it by its date. Scanned again, then read once.
+TELEGRAPH_DATED = "archive.org Daily Telegraph page with no title, its loosely read heading numbered by its date since"
+REREAD_TELEGRAPH_DATED = "2026-11-16T21:06:00+00:00"
+
+
+def telegraph_dated_rescan(row):
+    """Whether ledger `row` is due TELEGRAPH_DATED: a read (its "inputs" kept) TheDailyTelegraph edition with no verdict,
+    its scan (not failed) under a current key holding no puzzle and not stamped TELEGRAPH_READ. Its scan is stale
+    (scan_current) and rekey_scans leaves it, so it is scanned again once."""
+    scan = (row or {}).get("scan") or {}
+    if not (str(scan.get("item", "")).startswith("TheDailyTelegraph") and "inputs" in row and not row.get("verdicts")
+            and not scan.get("failed") and not scan.get(TELEGRAPH_READ) and not scan.get("puzzles")):
+        return False
+    return row.get("scanKey") in current_keys(TELEGRAPH) and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_DATED))
 
 
 #: The due reason of a Gale Telegraph Mon-Fri puzzle of 1980 on read incomplete from its grid image with no solution
@@ -23629,6 +23725,8 @@ def fix_reason(row):
         return SUNDAY_WEEKLY
     if telequick_rescan(row):
         return TELEQUICK
+    if telegraph_dated_rescan(row):
+        return TELEGRAPH_DATED
     if sunday_number_rescan(row):
         return SUNDAY_NUMBER
     if telegraph_saturday_due(row):
@@ -24407,6 +24505,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-16: a Gale Telegraph 1985-87 page refused not a grid for the Quick crossword's ink (telequick_rescan),
                   # scanned again then read once.
                   TELEQUICK,
+                  # 11-16: an archive.org Daily Telegraph 1984-85 page with no puzzle, its loosely read heading numbered by its
+                  # date (telegraph_dated_rescan), scanned again then read once.
+                  TELEGRAPH_DATED,
                   # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
                   SIDES_READ,
                   # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
@@ -24570,6 +24671,8 @@ def blanket_or_fix(row, blanket):
             return SUNDAY_WEEKLY
         if telequick_rescan(row):
             return TELEQUICK
+        if telegraph_dated_rescan(row):
+            return TELEGRAPH_DATED
         # 11-09: 358 Gale Sunday Telegraph rows due SUNDAY_SIDES (and the Telegraph Saturdays SIDES_READ) were planned
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if weekday_right_due(row):
@@ -24871,7 +24974,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -24909,7 +25012,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not telegraph_host(row) \
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not telegraph_dated_rescan(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ios_title_rescan(row)
 
 
