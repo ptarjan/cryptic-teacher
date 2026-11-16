@@ -3640,6 +3640,10 @@ check("a Gale Independent page refused for no clue lists is due INDEPENDENT_RIGH
       [True, False, True],
       [f.indy_right_due(_ir), f.indy_right_due({**_ir, "edition": "GaleTimes2015UKEnglish/2015-08-22"}),
        f.INDEPENDENT_RIGHT in f.RANKS])
+check("a stale-scan Independent row due a fix reason is planned under it, not the blanket reason (r80: 79 pages)",
+      [True, "inputs changed"],
+      [f.blanket_or_fix(_ir, "inputs changed") == f.fix_reason(_ir) != "inputs changed",
+       f.blanket_or_fix({**_ir, "verdicts": []}, "inputs changed")])
 _ib = {"edition": "GaleIndependentSunday1996UKEnglish/1996-03-10", "inputs": "x", "readAt": "2026-11-12T15:10:15+00:00",
        "verdicts": [{"number": 318, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
                      "imageUnread": "the white cells span 12 rows and 12 columns",

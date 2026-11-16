@@ -24309,6 +24309,14 @@ def refusal_passes(why):
     return bool(why) and why.startswith("refused ") and why.endswith(" before its fix")
 
 
+def _other_fix(row, blanket):
+    """The fix_reason of a non-Times `row` that blanket_or_fix's chain above names no branch for, else `blanket`.
+    11-16 r80: 79 Gale Independent 2010-14 pages due INDEPENDENT_RIGHT (also INDEPENDENT_HEADINGS, INDY_BARRED, INDY_LINKS,
+    INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, FT_HEADINGS, IOS_TITLES ...) stood "scan stale, answers missing",
+    which only_evidence drops, so neither the reread nor the scan it waits on was planned."""
+    return fix_reason(row) or blanket
+
+
 def blanket_or_fix(row, blanket):
     """`blanket` ("inputs changed", "titles changed": a reason only_evidence plans no unit for) for
     ledger `row`, but for a Times row whose fix_reason is an answers-only solution fix (SOLUTION_FIXES):
@@ -24410,7 +24418,7 @@ def blanket_or_fix(row, blanket):
             else INDY_FRAME if indy_frame_due(row) \
             else FAINT_EDGE if faint_edge_due(row) \
             else WHOLE_INK if whole_ink_due(row) \
-            else SUNDAY_ABOVE if sunday_above_due(row) else blanket
+            else SUNDAY_ABOVE if sunday_above_due(row) else _other_fix(row, blanket)
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
