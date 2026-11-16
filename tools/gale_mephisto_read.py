@@ -44,6 +44,8 @@ VERSION = 5
 GRID_FIX = 1
 #: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
 NUMBER_FIX = 1
+#: Bumped when only the lists' foot changes: the pages read with their first Down clues blank are read again.
+TAIL_FIX = 1
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -335,6 +337,9 @@ def read_done(row, done=None):
         return False
     if row and str(row.get("refused") or "").startswith("grid unread") and row.get("gridFix", 0) < GRID_FIX:
         # Refused before the comb search (comb_lattices) found grids printed with dotted thin rules: read again once.
+        return False
+    if row and not row.get("whole") and "1-down" in (row.get("blank") or ()) and row.get("tailFix", 0) < TAIL_FIX:
+        # Read before the Down clues at the left column's foot, under no heading the OCR read, were found (headless_tail).
         return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
@@ -949,12 +954,54 @@ def tail_strip(words, cut, edge, gl):
     heads = [w for w in words if gl.heading(w[4]) == "DOWN" and left <= w[0] <= left + 0.2 * (right - left)
              and bottom - 100 <= w[1] <= bottom + 400]
     if not heads:
-        return None
+        return headless_tail(words, cut, edge, gl)
     head = min(heads, key=lambda w: w[1])
+    return tail_lines(words, left, x_cut, head[1], gl)
+
+
+#: A line opening a note under the lists, not a clue.
+NOTE_LINE = re.compile(r"^\W*(?:the\s+editor|winners|prizes?|solutions?\b|answers\b)", re.IGNORECASE)
+
+
+def headless_tail(words, cut, edge, gl):
+    """tail_strip's strip when the OCR read no "Down" heading at the left column's foot (the first Down clues stand
+    under the Across list's last clue, No 2055's 1-down to 3-down): the Down list opens at the first clue-number line
+    of the left column whose number falls back to 3 or less after the Across numbers had reached 10. The strip is
+    marked headless (a 5th element) so lists_block gives the stitched block its Down heading. None when no line
+    does."""
+    left, top, right, _ = cut[0]
+    x_cut = left + edge - 10
+    lines = {}
+    for w in words:
+        if left <= w[0] < x_cut and w[1] >= top and re.search(r"\w", w[4]):
+            lines.setdefault(round((w[1] + w[3]) / 2 / 8), []).append(w)
+    seen = 0
+    for _, ws in sorted(lines.items()):
+        first = min(ws, key=lambda w: w[0])
+        if not (NUMBER_WORD.match(first[4]) and first[0] <= left + 0.1 * (right - left)):
+            continue
+        n = int(first[4].strip(".,"))
+        if seen >= 10 and n <= 3:
+            strip = tail_lines(words, left, x_cut, first[1], gl, note=True)
+            return strip + (True,) if strip else None
+        seen = max(seen, n)
+    return None
+
+
+def tail_lines(words, left, x_cut, head_y, gl, note=False):
+    """The strip (x0, y0, x1, y1) of the left column's lines from y `head_y` down to the gap before the note."""
+    head = (0, head_y)
     lines = {}
     for w in words:
         if left <= w[0] < x_cut and w[1] >= head[1] - 4 and re.search(r"\w", w[4]):
             lines.setdefault(round((w[1] + w[3]) / 2 / 8), []).append(w)
+    if note:
+        for k, ws in sorted(lines.items()):
+            if NOTE_LINE.match(" ".join(w[4] for w in sorted(ws))):
+                lines = {j: v for j, v in lines.items() if j < k}
+                break
+        if not lines:
+            return None
     mids = sorted(sum((w[1] + w[3]) / 2 for w in ws) / len(ws) for ws in lines.values())
     steps = sorted(b - a for a, b in zip(mids, mids[1:]) if b - a > 12)
     step = steps[len(steps) // 2] if steps else 40
@@ -987,19 +1034,29 @@ def lists_block(img, key, words, cut, gl):
     strip = edge and tail_strip(words, cut, edge, gl)
     if not strip:
         return down_headed(block, gl)
+    headless = len(strip) > 4
+    strip = strip[:4]
+    if headless and strip[1] < cut[0][3] - 4:
+        # The cut ran on over the Down clues (the solution's heading was garbled): it stops above them.
+        again = gl.times_block(img, key, ((cut[0][0], cut[0][1], cut[0][2], strip[1] - 4), []), words)
+        if again:
+            bimg, bkey = block = again
     piece = img.crop(strip)
-    shift = piece.height + 12
+    pad = 4 + (36 if headless else 0)
+    shift = piece.height + 12 + (36 if headless else 0)
     # The Across list's last clues may stand under the solution's heading too, above the Down heading: they go
     # on under the left column's foot, where the list runs on.
-    lead = lead_strip(words, cut, strip, gl)
+    lead = None if headless else lead_strip(words, cut, strip, gl)
     lead_img = img.crop(lead) if lead else None
     foot = lead_img.height + 8 if lead_img else 0
     canvas = Image.new(bimg.mode, (max(bimg.width, int(edge) + piece.width + 4), bimg.height + shift + foot), "white")
     canvas.paste(bimg, (0, shift))
-    canvas.paste(piece, (int(edge), 4))
+    canvas.paste(piece, (int(edge), pad))
     if lead_img:
         canvas.paste(lead_img, (max(0, lead[0] - cut[0][0]), shift + bimg.height + 4))
-    return canvas, gl.image_key(canvas)
+    stitched = canvas, gl.image_key(canvas)
+    # No Down heading was read over the strip: the stitched block is given one, over the strip's first line.
+    return down_headed(stitched, gl) if headless else stitched
 
 
 def lead_strip(words, cut, strip, gl):
@@ -1235,7 +1292,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
-    append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX}, store)
+    append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
+                "tailFix": TAIL_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

@@ -79,6 +79,10 @@ check("it is due once a neighbour has its offset", False, gm.read_done(unconf, {
 stale = {"file": "p", "date": "1975-03-09", "version": gm.VERSION, "refused": gm.UNNUMBERED}
 check("a number refusal before NUMBER_FIX is due", False, gm.read_done(stale))
 check("a number refusal at NUMBER_FIX stands", True, gm.read_done({**stale, "numberFix": gm.NUMBER_FIX}))
+part = {"file": "x.pdf", "number": 2055, "whole": False, "blank": ["1-down", "2-down"], "version": gm.VERSION}
+check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_done(part))
+check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX}))
+check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"]}))
 
 # --- the grid: 13 broken horizontal rules and thick bars on a 12x12 lattice of pitch 40
 pitch, x0, y0 = 40, 30, 20
