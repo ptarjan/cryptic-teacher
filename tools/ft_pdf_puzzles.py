@@ -80,7 +80,10 @@ LINK = re.compile(r'href="(?:https?://web\.archive\.org/web/\d+/)?((?:https?://[
                   r'Puzzle\s+(?:No\.?\s*)?(\d{1,2},?\d{3})\s*<')
 #: The same PDF files sit on both hosts under one UUID; Wayback captured the
 #: second (im.ft-static.com) in later years too.
-PDF_HOSTS = ("media.ft.com/cms/*", "im.ft-static.com/content/images/*")
+#: im.ft-static.com is too big to scan as one prefix, so it is asked one hex
+#: digit of the UUID at a time (the paths are content/images/<uuid>...).
+PDF_HOSTS = ("media.ft.com/cms/*",) + tuple(
+    f"im.ft-static.com/content/images/{c}*" for c in "0123456789abcdef")
 UUID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
 #: Captures from 2014 on are left to a later cross-check.
 ORPHAN_YEARS = range(2006, 2014)
@@ -216,9 +219,13 @@ def media_pdfs():
         failed = []
         for host, lo, hi in todo:
             try:
-                text = get(f"{CDX}?url={host}&output=json&filter=mimetype:application/pdf"
-                           f"&filter=statuscode:200&collapse=urlkey&from={lo}&to={hi}&limit=20000",
-                           timeout=300, tries=1 if len(lo) == 8 else 2).decode("utf-8", "replace")
+                # Only the three fields used, no collapse (it makes a wildcard
+                # host scan far slower), a short timeout so a stuck query is
+                # split rather than waited on.
+                text = get(f"{CDX}?url={host}&output=json&fl=timestamp,original,length"
+                           f"&filter=mimetype:application/pdf&filter=statuscode:200"
+                           f"&from={lo}&to={hi}&limit=20000",
+                           timeout=90, tries=1).decode("utf-8", "replace")
             except Exception as e:
                 print(f"  CDX {host} {lo}-{hi}: {type(e).__name__}: {e}")
                 failed += _split_span(host, lo, hi)
@@ -228,11 +235,11 @@ def media_pdfs():
                     r = json.loads(ln.strip().rstrip(","))
                 except ValueError:
                     continue
-                if isinstance(r, list) and len(r) > 6 and r[0] != "urlkey" and r[6].isdigit() \
-                        and ORPHAN_BYTES[0] < int(r[6]) < ORPHAN_BYTES[1]:
-                    u = r[2].replace(":80/", "/")
+                if isinstance(r, list) and len(r) == 3 and r[2].isdigit() \
+                        and ORPHAN_BYTES[0] < int(r[2]) < ORPHAN_BYTES[1]:
+                    u = r[1].replace(":80/", "/")
                     m = UUID.search(u)
-                    out.setdefault(m.group(0) if m else u, (r[1], u))
+                    out.setdefault(m.group(0) if m else u, (r[0], u))
             time.sleep(WAYBACK_PAUSE)
         todo = failed
         if not todo:
