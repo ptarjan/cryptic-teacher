@@ -77,7 +77,7 @@ wp               ins<in>([order]SORT, [Bird]TIT + [Chinese]CH + [woman]W)
 notes            {"<words as written in wp or def>": "why these words do this job here"}: every indicator and every leaf with letters
 surface          one sentence, 25 words max: what the clue pretends to be about
 walkthrough      optional, 1-2 sentences, 45 words max: what the parse cannot show
-definitionFit    one sentence, 30 words max: why the answer means the definition
+definitionFit    one sentence, 30 words max: why the answer means the definition (a double definition: one string covering both, never a list)
 misdirectedWord  the one clue word, spelt as printed, whose surface sense is furthest from its job
 joke             "pun" (a word's second sense or sound) or "absurd" (silly on purpose)
 answerInScene    true if the solution belongs in the picture the surface paints

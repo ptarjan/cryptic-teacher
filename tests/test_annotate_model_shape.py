@@ -197,5 +197,12 @@ try:
 except __import__("wordplay").WordplayError as e:
     check("a refusal lists the def texts to key a note by", "['Bread', 'a jolt']" in str(e), str(e))
 
+fit = annotation.nest({"def": ["a", "b"], "definitionFit": ["One sense.", "Other sense."]})
+check("a double definition's definitionFit list of sentences is joined into one string",
+      fit["explanation"]["definitionFit"] == "One sense. Other sense.", str(fit))
+fit = annotation.nest({"explanation": {"surface": "s"}, "definitionFit": ["x", 3]})
+check("a definitionFit list that is not all strings is left for the schema to refuse",
+      fit["explanation"]["definitionFit"] == ["x", 3], str(fit))
+
 print("model shape:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)

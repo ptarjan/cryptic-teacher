@@ -964,6 +964,11 @@ def nest(m):
     out = {k: v for k, v in m.items() if not any(k in ks for ks in NESTED.values())}
     for block, ks in NESTED.items():
         flat = {k: m[k] for k in ks if k in m}
+        # A double definition's model writes one definitionFit sentence per def, as a list of
+        # strings (annotate audit 11-16: 6 clues in one session refused by the schema): join them.
+        if isinstance(flat.get("definitionFit"), list) and flat["definitionFit"] \
+                and all(isinstance(s, str) and s.strip() for s in flat["definitionFit"]):
+            flat["definitionFit"] = " ".join(s.strip() for s in flat["definitionFit"])
         if flat and (out.get(block) is None or isinstance(out[block], dict)):
             out[block] = {**(out.get(block) or {}), **flat}
     return out
