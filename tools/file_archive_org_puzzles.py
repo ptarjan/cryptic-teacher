@@ -23246,6 +23246,14 @@ def blanket_or_fix(row, blanket):
             return QUICK_SET
         if quick_held_due(row):
             return QUICK_HELD
+        # 11-15: 69 TLS pages due TLS_MONTHLY (and the Sunday Times 1985-89 SUNDAY_PAIR's, the FT's FT_NUMBER_MENDED) were
+        # planned "inputs changed", which only_evidence drops: this branch named neither, so 0 of them were planned.
+        if tls_monthly_due(row):
+            return TLS_MONTHLY
+        if sunday_pair_due(row):
+            return SUNDAY_PAIR
+        if ft_number_due(row):
+            return FT_NUMBER_MENDED
         return TELEGRAPH_CELLS if telegraph_cells_due(row) else FT_FAINT if ft_faint_due(row) else TELEGRAPH_OWN if telegraph_own_due(row) \
             else TELEGRAPH_FIGURE if telegraph_figure_due(row) \
             else TELEGRAPH_LEAD_NUMBER if telegraph_lead_number_due(row) \
