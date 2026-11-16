@@ -86,10 +86,74 @@ def checked(n, day):
     return n if n and abs(n - estimate(day)) <= NEAR else None
 
 
-def number_of(cited, text):
-    """(number, where from) of a page: the citation's, else the page's text ("Mephisto 2250"), else two more
-    than the "Solution to Mephisto N" it prints; each checked against the weekly count."""
+#: Gale's own title of each Mephisto page ("Mephisto 1435", "Mephisto Crossword No. 152"), by document id, with the
+#: date: Mephisto/docs.json. The numbers drift from the weekly count by a skipped week now and then (+79 in 1961-65,
+#: +2 in 1985-88, +1 in 1989-94, 0 in 1995-2005, -1 in 2006), so a page's number is read off its titled neighbours.
+DOCS_NUMBER = re.compile(r"(?:\bNo\.?\s*|\bMephisto\s+)(\d{1,4})\b", re.IGNORECASE)
+#: Before this the Mephisto came out every other Sunday (numbers by issue, not by week).
+BIWEEKLY_END = datetime.date(1961, 6, 1)
+WEEK_ZERO = datetime.date(1957, 1, 6)
+#: From here the page's own number, checked against the weekly count, is all there is without a titled neighbour.
+COUNT_FROM = datetime.date(1995, 1, 1)
+_DOCS = {}
+
+
+def docs_index(path=None):
+    """({doc id: date}, [(date, number)] of the titled pages, by date) of Mephisto/docs.json."""
+    path = str(path or gi.MEPHISTO_DOCS)
+    if path not in _DOCS:
+        dates, titled = {}, []
+        try:
+            entries = json.loads(Path(path).read_text()).get("entries", [])
+        except (OSError, ValueError):
+            entries = []
+        for e in entries:
+            if e.get("kind") != "mephisto" or not e.get("doc") or not e.get("date"):
+                continue
+            day = datetime.date.fromisoformat(e["date"])
+            dates[e["doc"]] = day
+            m = DOCS_NUMBER.search(e.get("title") or "")
+            if m:
+                titled.append((day, int(m.group(1))))
+        _DOCS[path] = (dates, sorted(titled))
+    return _DOCS[path]
+
+
+def docs_number(day, own=None, titled=None):
+    """The number of the Mephisto of `day` from its titled neighbours: its own title when it runs on from them (above
+    the one before and below the one after, and in the weekly years at the offset of one of them), else the
+    weekly count at the offset the neighbours before and after share (a gap of skipped weeks between them gives
+    none). None when they say nothing sure."""
+    if titled is None:
+        titled = docs_index()[1]
+    before = [t for t in titled if t[0] < day]
+    after = [t for t in titled if t[0] > day]
+    prev, nxt = (before[-1] if before else None), (after[0] if after else None)
+    week = lambda d: (d - WEEK_ZERO).days // 7
+    offs = [t[1] - week(t[0]) for t in (prev, nxt) if t]
+    if own is not None:
+        if prev and own <= prev[1] or nxt and own >= nxt[1]:
+            return None
+        if day < BIWEEKLY_END or own - week(day) in offs or not offs:
+            return own
+        return None
+    if prev and nxt and day >= BIWEEKLY_END and offs[0] == offs[1]:
+        return week(day) + offs[0]
+    return None
+
+
+def number_of(cited, text, doc=None):
+    """(number, where from) of a page: its titled neighbours' (docs_number, `doc` = (date, title number or None)
+    the Gale page list gives), else the citation's, else the page's text ("Mephisto 2250"), else two more
+    than the "Solution to Mephisto N" it prints; each checked against the weekly count (from 1995 on: before, the
+    count runs two or three off and no number is taken but a titled one)."""
     day = cited[1]
+    if doc:
+        n = docs_number(doc[0], doc[1])
+        if n:
+            return n, "docs title" if n == doc[1] else "docs neighbours"
+    if day < COUNT_FROM:
+        return None, None
     if checked(cited[0], day):
         return cited[0], "citation"
     for m in TITLE_NUMBER.finditer(text or ""):
@@ -136,8 +200,20 @@ def append_row(row, store=STORE):
 CRASH_LIMIT = 3
 
 
+#: What a page with no number the Gale list, its neighbours or its text give is refused with (from the docs-number
+#: reading on) and what the 1,364 pages refused before it were (read again once, with the docs list).
+UNNUMBERED = "no Mephisto number: no titled neighbours of the Gale list agree on it, none printed on the page"
+STALE_UNNUMBERED = "no Mephisto number in the citation or the page text"
+
+
 def read_done(row):
-    """Whether a ledger row is a verdict of this VERSION: a crashed attempt is not, so the page stays due."""
+    """Whether a ledger row is a verdict of this VERSION: a crashed attempt is not, so the page stays due. A page
+    refused for want of a number before the Gale list's titles set it (STALE_UNNUMBERED) is read again once."""
+    if row and row.get("refused") == STALE_UNNUMBERED:
+        return False
+    if row and row.get("numberFrom") in ("solution printed", "page text") and (row.get("date") or "9") < COUNT_FROM.isoformat():
+        # A number read off the page before 1995 ran one or two off Gale's own titles (1988-02-07 is 1435, read 1434).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -755,11 +831,21 @@ def read_page(path, store=STORE, asker=None):
         verdict["refused"] = "no Sunday Times citation on the page"
         return verdict, None
     day = cited[1]
+    docid = DOC_ID.search(path.name.upper())
+    dates, titled = docs_index()
+    when = dates.get(docid.group(0)) if docid else None
+    own = next((n for d, n in titled if d == when), None) if when else None
+    doc = (when, own) if when else None
+    if day < COUNT_FROM and not (doc and docs_number(*doc, titled)):
+        # Before 1995 only a titled neighbour sets the number: no page read is worth the OCR.
+        verdict.update(refused=UNNUMBERED, date=day.isoformat())
+        return verdict, None
     key = gl.image_key(img)
     words = gl.page_words(img, key)
-    n, how = number_of(cited, ocr_clues.lines_of(words))
+    n, how = number_of(cited, ocr_clues.lines_of(words), doc)
     if n is None:
-        verdict["refused"] = "no Mephisto number in the citation or the page text"
+        verdict["refused"] = UNNUMBERED
+        verdict["date"] = day.isoformat()
         return verdict, None
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
