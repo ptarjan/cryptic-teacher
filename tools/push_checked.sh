@@ -2,6 +2,7 @@
 # Push local commits to origin/master, each first checked by tools/clobber_guard.py.
 #
 #     tools/push_checked.sh            # commits in origin/master..HEAD
+#     tools/push_checked.sh --wait     # then block on tools/ci_wait.sh (or CI_WAIT=1)
 #
 # For code and docs a session commits itself and pushes as is (puzzle commits go
 # through tools/push_puzzle_commit.sh, which runs the same guard). Refuses, with
@@ -19,4 +20,8 @@ for c in $(git rev-list --reverse origin/master..HEAD); do
   python3 "$here/clobber_guard.py" "$c" || exit $?
 done
 git push -q origin HEAD:master || exit $?
+# Opt-in only, so burn and other automated callers never block: --wait or CI_WAIT=1.
+if [ "${1:-}" = "--wait" ] || [ "${CI_WAIT:-}" = "1" ]; then
+  exec "$here/ci_wait.sh" "$(git rev-parse HEAD)"
+fi
 exit 0
