@@ -153,7 +153,8 @@ def main(argv):
         return 0
     if mode == "files":
         files = puzzle_files(changes)
-        print("\n".join(files))
+        if files:    # none: write nothing, so `[ -s changed.txt ]` sees an empty file
+            print("\n".join(files))
         return 3 if len(files) > MAX_FILES else 0
     print(f"since {base}: {len(changes)} path(s) changed", file=sys.stderr)
     # HEAD from git, not the disk: CI's sparse checkouts leave tools/data out.
