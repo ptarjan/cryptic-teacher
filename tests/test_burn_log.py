@@ -36,7 +36,19 @@ check(bare(run(["width 22 (cap: memory 22, cpu —, load —, quota pace 22) · 
       "a tie between caps names the first in order")
 check(bare(run(["width 0 (cap: memory 0, cpu —, load —, quota pace 0) · weekly 100% now, 3.0h to its reset"])),
       ["── paused: weekly 100% used, resets in 3h"], "width 0 with the week spent is a pause")
-check(len(run([WIDTH, WIDTH])), 1, "the same width twice says nothing new")
+check(bare(run(["width 1 (cap: memory 9, cpu —, load —, pressure 1, quota pace 5) · weekly 50% now, 80.0h to its reset; "
+                 "pressure some avg10 34.00 avg60 20.00, swap-in 0.10 MB/min, held to 1; was 3"])),
+      ["── 1 at once (held by pressure: PSI some avg10 34.00 avg60 20.00, swap-in 0.10 MB/min, held to 1) · "
+       "0 done/h · 0 no-change/h · weekly 50% used"], "a pressure hold names its PSI")
+check(bare(run(["width 1 (cap: memory 9, cpu —, load —, quota pace 1) · weekly 50% now, 80.0h to its reset, "
+                 "overnight cap 1 to his wake Mon 07:00 Pacific; was 3"])),
+      ["── 1 at once (held by overnight cap 1) · 0 done/h · 0 no-change/h · weekly 50% used"],
+      "an overnight cap is named")
+check(bare(run(["width 0 (cap: memory 9, cpu —, load —, quota pace 0) · weekly 50% now, 80.0h to its reset, "
+                 "overnight cap 0 to his wake Mon 07:00 Pacific; was 1"])),
+      ["── waiting: nothing may start right now · held by overnight cap 0 · weekly 50% used"],
+      "a waiting line names its limit")
+check(len(run([WIDTH, WIDTH])), 1,"the same width twice says nothing new")
 RUSH = ("width 15 (cap: memory 15, cpu —, load —, quota pace rush) · weekly 6% now, 140.0h to its reset; "
         "bridge 2.1 pts/h; cores unread; memory 6.2 GB available less 4 GB kept free, 250 MB a run, "
         "swap 4.0/4.0 GB used; was 13")

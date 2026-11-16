@@ -46,7 +46,7 @@ def puzzles_in(subject):
         return 0
     m = BAG_COUNT.search(subject)
     return int(m.group(1)) if m else 1
-CAP_ORDER = ("load", "cpu", "memory", "quota pace")  # which cap is named when several tie
+CAP_ORDER = ("pressure", "load", "cpu", "memory", "quota pace")  # which cap is named when several tie
 PROBLEM = re.compile(
     r"^ERROR|Traceback \(most recent|could not push|push (failed|refused)|push_puzzle_commit.*(failed|rejected|conflict)"
     r"|lost track of its runs|cannot authenticate|^ALERT: |CI (is )?red|\bKilled\b|timed out|terminated by signal")
@@ -101,11 +101,22 @@ MEM_DETAIL = re.compile(r"memory ([\d.]+) GB available less ([\d.]+) GB kept fre
                         r"(?:, \d+ MB a run)?(?:, swap ([\d.]+)/([\d.]+) GB used)?")
 
 
-def limit_note(limit, rush, rest):
+PRESSURE_DETAIL = re.compile(r"pressure some avg10 ([\d.]+) avg60 ([\d.]+), swap-in ([\d.]+) MB/min(?:, held to (\d+))?")
+NIGHT_DETAIL = re.compile(r"overnight cap (\d+)")
+
+
+def limit_note(limit, rush, rest, width=None):
     """The limit as the status line shows it. Memory comes with what it is made of
     (Paul 11-03: "it says memory is the limiter but memory looks fine": 6 GB available,
     of which the planner keeps 4 GB free, with swap full); a rush, where the planner asks
     for as many runs as memory holds, says so instead of passing for a usage pace."""
+    if limit == "pressure":
+        p = PRESSURE_DETAIL.search(rest or "")
+        return (f"held by pressure: PSI some avg10 {p.group(1)} avg60 {p.group(2)}, swap-in {p.group(3)} MB/min"
+                + (f", held to {p.group(4)}" if p.group(4) else "")) if p else "held by pressure"
+    n = NIGHT_DETAIL.search(rest or "")
+    if limit in (None, "usage pace") and n and width is not None and int(n.group(1)) == width:
+        return f"held by overnight cap {n.group(1)}"
     if limit != "memory":
         return None
     m = MEM_DETAIL.search(rest)
@@ -407,7 +418,9 @@ class Log:
         if self.width == 0:
             if self.week and self.week[0] >= 99:
                 return [self.out(now, "──", f"paused: {week}, resets in {self.week[1]:.0f}h")]
-            return [self.out(now, "──", "waiting: nothing may start right now" + (f" · {week}" if week else ""))]
+            return [self.out(now, "──", "waiting: nothing may start right now"
+                             + (f" · {self.limit_note or self.limit}" if self.limit_note or self.limit else "")
+                             + (f" · {week}" if week else ""))]
         nc, done, _ = self.window(now)
         share = f" ({nc / (nc + done):.0%})" if nc + done else ""
         shown = self.limit_note or self.limit
@@ -491,7 +504,8 @@ class Log:
             # The burn's width line ends "· N in flight"; the planner's inputs (memory among them)
             # follow on a "  why:" line, so the last one seen stands in until the next arrives.
             self.limit_note = limit_note(self.limit, "quota pace rush" in m.group(2),
-                                         m.group(3) if MEM_DETAIL.search(m.group(3) or "") else self.mem_said)
+                                         m.group(3) if MEM_DETAIL.search(m.group(3) or "") or self.limit != "memory" else self.mem_said,
+                                         self.width)
             w = re.search(r"weekly ([\d.]+)% now, ([\d.]+)h to its reset", m.group(3) or "")
             if w:
                 self.week = (float(w.group(1)), float(w.group(2)))
