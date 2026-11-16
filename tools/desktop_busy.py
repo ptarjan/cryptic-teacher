@@ -39,7 +39,7 @@ GAMES = ("Wow", "WowClassic", "WowT", "WowB", "WowClassicT", "WowClassicB")
 #: Folders whose programs are games, and those inside them that are not
 #: (D:\\llm holds the VLM's llama-server).
 GAME_DIRS = ("D:\\",)
-NOT_GAME_DIRS = ("D:\\llm\\", "D:\\Guilds-of-WoW-Addon\\")
+NOT_GAME_DIRS = ("D:\\llm\\", "D:\\Guilds-of-WoW-Addon\\", "D:\\imagine\\")
 #: Summed 3D utilisation, in percent, above which some other game is running.
 GPU_3D = 20
 #: The VLM's processes (tools/vlm_reader.py), whose 3D load is our own work.
