@@ -798,6 +798,15 @@ check("the Two-in-One crossword's text is cut at its second ACROSS heading; a on
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),
        f.first_clue_set("ACROSS\n1 a (3)"), f.sunday_left((640, 3253, 1358, 4015))])
+# ---- r88: a Sunday Telegraph 1970-77 page whose clue column's left was cut off is due SUNDAY_WIDE once.
+_wrow = {"edition": "GaleSundayTelegraph1973UKEnglish/1973-04-22", "readAt": "2026-11-11T08:08:53+00:00",
+         "verdicts": [{"number": 633, "refused": "no reading parses"}]}
+check("a Gale Sunday Telegraph 1973 page refused no reading parses is due SUNDAY_WIDE (ranked, in unfiled-first); the "
+      "column starts 820 px left of a small grid, 1.1 grids left of a big one; a 1980 page's refusal is not due",
+      [f.SUNDAY_WIDE, True, True, 350, 209, False],
+      [f.fix_reason(_wrow), f.SUNDAY_WIDE in f.RANKS, all(r in f.RANKS for r in eq.UNFILED_FIRST),
+       f.sunday_left((1000, 4000, 1460, 4700), True), f.sunday_left((1200, 4000, 2100, 4800), True),
+       f.sunday_wide_due({**_wrow, "edition": "GaleSundayTelegraph1980UKEnglish/1980-04-20"})])
 # ---- a Sunday Telegraph 1972-77 page filed with its Quickie set is due QUICK_SET once, in unfiled-first.
 _qrow = {"edition": "GaleSundayTelegraph1976UKEnglish/1976-02-08", "readAt": "2026-11-10T02:26:34+00:00",
          "verdicts": [{"number": 779, "id": "sundaytel-779", "wrote": True}]}
