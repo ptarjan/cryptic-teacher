@@ -614,6 +614,24 @@ GAP = 80
 #: The widest such gap over a column's DOWN heading that keeps the column going: the heading the
 #: 1981-86 Times sets alone at the foot of the across list's column, its first down clues under it.
 DOWN_GAP = 1.5 * GAP
+#: The widest white gap over the one DOWN heading that keeps a later column going when the ACROSS list ran on into it
+#: (the Gale Independent 2004-09 pages: ACROSS and 1 to 14 across in the first column, 23 to 26 across, then the DOWN
+#: heading 103-134 px under the last of them and 1 to 5 down in the second, the rest in the third).
+DOWN_FOOT_RUN = 3 * GAP
+
+
+def down_foot_runs_on(out, kept, line, last, downs):
+    """Whether `line`, the one DOWN heading of the window, set low in a column after the first, whose clues so far
+    (`kept`) open on a numbered clue that is the across list running on from the first column (`out`, its columns
+    kept so far, the first opening on ACROSS), is no more than DOWN_FOOT_RUN under the line over it (`last`)."""
+    return bool(kept and out and out[0] and len(downs) == 1 and line is downs[0]
+                and line[0] - last <= DOWN_FOOT_RUN
+                and clue_text.heading_of(out[0][0][4]) == "ACROSS"
+                and not clue_text.heading_of(kept[0][4])
+                and re.match(r"\s*\d{1,2}\b", kept[0][4]) is not None
+                and not any(clue_text.heading_of(x[4]) == "DOWN" for c in out for x in c))
+
+
 #: How far, in pixels, a line must start left of the split between two
 #: columns and run on right of it to be printed across both (a centred
 #: notice); a right-hand clue's outdented number starts a pixel or two left.
@@ -2157,7 +2175,8 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                     and not (closed and not stops(line[4]) and line[4] != NOTICE and last < closed[0]
                              and closed[1] < line[0] <= closed[1] + SOLUTION_GAP * GAP):
                 if not (line[0] - last <= DOWN_GAP and len(downs) == 1 and line is downs[0]
-                        and clue_text.heading_of(kept[0][4]) == "ACROSS"):
+                        and clue_text.heading_of(kept[0][4]) == "ACROSS") \
+                        and not down_foot_runs_on(out, kept, line, last, downs):
                     break
                 # The DOWN heading set lower in the across list's column, after white space, its
                 # first clues under it and the rest atop the next column (Gale 1981-86: the gap
@@ -16263,6 +16282,64 @@ def indy_gutter_down_due(row):
     return False
 
 
+#: The due reason of a Gale Independent page (2006-07, 22 of the 25 due rows) left unfiled with its first down clues blank, none laid ("no
+#: reading laid a clue on it", 1 to 5 down: 2006-01-12 No 6003, 2006-03-10, 2006-11-21, 2006-12-29 ...). The print
+#: sets ACROSS and the first across clues in column one, the across list runs on into column two (23 to 26 across), and
+#: the one DOWN heading stands low under it, 103-134 px of white under the last across line, its first down clues under
+#: it and the rest in column three. columns() cut column two at that gap: its exception for a DOWN heading set low
+#: (DOWN_FOOT, up to DOWN_GAP, 120) wanted the column to open on ACROSS, and this one opens on a clue. The 2004-08
+#: pages had the same cut at the third column (read since by INDY_COLUMNS); these are the later layout. down_foot_runs_on
+#: now keeps the column going to DOWN_FOOT_RUN under the across list's last line. Due by the ledger and the cached
+#: readings (indy_down_foot_due). Read once.
+INDY_DOWN_FOOT = "Independent page whose down list began low in the across list's second column, read since"
+REREAD_INDY_DOWN_FOOT = "2026-11-16T08:11:00+00:00"
+
+
+@functools.lru_cache(maxsize=4096)
+def indy_down_foot_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") holds one DOWN heading alone
+    in a column far right of its ACROSS heading's, more than GAP and at most DOWN_FOOT_RUN under the line over it."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+            words = [(float(w[0]), float(w[1]), float(w[2]), float(w[3]), str(w[4])) for o in wins for w in o["words"]]
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+        downs = {(round(w[0] / 20), round(w[1] / 20)): w for w in words if clue_text.heading_of(w[4].strip()) == "DOWN"}
+        acrosses = [w for w in words if clue_text.heading_of(w[4].strip()) == "ACROSS"]
+        if len(downs) != 1 or not acrosses:
+            continue
+        d = next(iter(downs.values()))
+        if min(d[0] - a[0] for a in acrosses) < 400:
+            continue
+        over = [w for w in words if d[0] - 130 <= w[0] <= d[0] + 60 and w[3] <= d[1] + 2 and w is not d]
+        if over and GAP < d[1] - max(w[3] for w in over) <= DOWN_FOOT_RUN:
+            return True
+    return False
+
+
+def indy_down_foot_due(row):
+    """Whether Gale Independent ledger `row`, read before REREAD_INDY_DOWN_FOOT, holds a puzzle not filed whole with
+    a first down light (numbered 1 to 3) blank as "no reading laid a clue on it" while a cached reading holds a
+    DOWN heading set low in a second column (indy_down_foot_read)."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GALE_INDEPENDENT.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_DOWN_FOOT)):
+        return False
+    for v in row.get("verdicts", ()):
+        blank = v.get("blank")
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None or not isinstance(blank, dict):
+            continue
+        firsts = [k for k, why in blank.items() if "no reading laid a clue" in str(why) and k.endswith("-down")
+                  and k.split("-")[0].isdigit() and int(k.split("-")[0]) <= 3]
+        if not firsts or not indy_down_foot_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The due reason of a Gale Telegraph page read before REREAD_TELEGRAPH_FIGURE with a clue blank "a digit inside a word" over a
 #: token the print sets: a glued cross-reference ("24down", "23across": 1988, 14 clues) or a figure and a word a dash joins
 #: ("500—and", "51—a"). suspect() takes these now (clue_text.XREF_GLUED, figure_dashed) and the cross-reference is spaced.
@@ -22547,6 +22624,8 @@ def fix_reason(row):
         return INDY_GUTTER_DOWN
     if indy_thin_due(row):
         return INDY_THIN
+    if indy_down_foot_due(row):
+        return INDY_DOWN_FOOT
     if ft_lead_whole_due(row):
         return FT_LEAD_WHOLE
     if ios_words_due(row):
@@ -23321,6 +23400,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_OVER_PLAIN, INDY_GUTTER_DOWN,
                   # 11-16: an Independent page refused no ACROSS and DOWN lists, its print columns read since (indy_thin_due).
                   INDY_THIN,
+                  # 11-16: an Independent page whose first down clues stood blank under a DOWN heading set low (indy_down_foot_due).
+                  INDY_DOWN_FOOT,
                   # 11-16: a Gale FT 1990s page refused no reading parses, its lead column cut inside (ft_lead_whole_due).
                   FT_LEAD_WHOLE,
                   # 11-15: an Independent on Sunday page whose enumerations carry a count of words (ios_words_due).
@@ -23426,6 +23507,7 @@ def blanket_or_fix(row, blanket):
             else INDY_OVER_PLAIN if indy_over_plain_due(row) \
             else INDY_GUTTER_DOWN if indy_gutter_down_due(row) \
             else INDY_THIN if indy_thin_due(row) \
+            else INDY_DOWN_FOOT if indy_down_foot_due(row) \
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else IOS_WORDS if ios_words_due(row) \
             else INDY_FRAME if indy_frame_due(row) \
@@ -23650,7 +23732,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
