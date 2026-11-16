@@ -4572,6 +4572,51 @@ def small_titled(d, found):
     return {**found, SMALL_READ: True, SMALL_FRAG: True}
 
 
+#: The key of a Gale Independent scan (scan_anywhere's) titled from the strip reads its scan left in the crop cache.
+INDY_TITLE_READ = "indyTitled"
+
+
+def indy_titled(d, found):
+    """Scan `found` of edition directory `d` with its title read from the cached strip reads (not the whole-page
+    ones; none made) where it is a Gale Independent (daily) page scan() found no title on: the page is a sports page
+    whose whole-page reads run the crossword's heading into the line beside it ("Walcott cross goalwards.
+    CrypticCrossword#7928 ByRadian ACROSS"), one reader of three (the strip Tesseract) reads it alone, and the
+    solution-band and title-band strips (ocr_titles' and the solution bands') hold it for all three: the number
+    that two or more of the readers read as a title, within the paper's slack of the date's. Outside scan(),
+    whose key a change here would move: it titles only pages scan() titled none on."""
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or paper_of(d) is not GALE_INDEPENDENT:
+        return found
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+        day = datetime.date.fromisoformat(str(found.get("date", "")))
+    except (OSError, ValueError, KeyError, TypeError):
+        return found
+    want = GALE_INDEPENDENT.expected(day)
+    for leaf in leaves:
+        key = f"{d.parent.name}_{d.name}_{leaf}"
+        votes, boxes = {}, {}
+        for path in sorted((CROPS / "titles").glob(f"{key}_*.json")):
+            parts = path.name[len(key) + 1:].split(".")
+            if len(parts) < 3 or parts[0] == "page":
+                continue
+            try:
+                words = json.loads(path.read_text())["words"]
+            except (OSError, ValueError, KeyError, TypeError):
+                continue
+            words = [(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5]
+            for n, box, _ in GALE_INDEPENDENT.headings(printed_lines(words))[0]:
+                if abs(n - want) <= GALE_INDEPENDENT.slack:
+                    votes.setdefault(n, set()).add(parts[1])
+                    boxes.setdefault(n, tuple(box))
+        votes = {n: v for n, v in votes.items() if len(v) >= 2}
+        if votes:
+            n = min(votes, key=lambda n: (-len(votes[n]), abs(n - want)))
+            return {**found, "puzzles": [{"number": n, "leaf": leaf, "box": boxes[n], "titleReadBy": sorted(votes[n])}],
+                    INDY_TITLE_READ: True}
+    return found
+
+
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
 #: found on the page being read (page id, windows) and the detector's boxes of
 #: the page band last read (key, results), which both page readers share.
@@ -17620,6 +17665,27 @@ def quarter_glued_due(row):
     return False
 
 
+#: The due reason of a Gale Independent (daily) sports page scanned with no title (wholeUntitled, no verdict) whose
+#: crossword heading "Cryptic Crossword #7928 By Radian" the whole-page reads ran into the line beside it (r95: the
+#: r84 census's 54 "NP0 no puzzle/no solution" 2010-14 rows; Gale cites the very number for each page, so none is
+#: a wrong-article fetch). Their cached strip reads (the title bands, the solution bands) hold the heading for two
+#: or three of the readers: 42 of the 54 give a number within slack of the date's (indy_titled). Read once.
+INDY_TITLED = "Gale Independent page with no title, its crossword heading read from its cached strip reads since"
+REREAD_INDY_TITLED = "2026-11-16T21:29:00+00:00"  # the push minute: a row read after it is not due again
+
+
+def indy_titled_due(row):
+    """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDY_TITLED, holds a scan that read its page
+    whole (WHOLE_UNTITLED) and found no title, with no verdict."""
+    rel = (row or {}).get("edition") or ""
+    scan = (row or {}).get("scan") or {}
+    if paper_of(Path(rel)).key != GALE_INDEPENDENT.key or not scan.get(WHOLE_UNTITLED) or scan.get("failed") \
+            or any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) or row.get("verdicts") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_TITLED)):
+        return False
+    return True
+
+
 #: The due reason of a Gale Independent page 2004-09 written unfiled with one or more down lights blank for the help-line
 #: banner under its clue columns ("Can't wait until tomorrow? Get help now at www.independent.co.uk/crosswords"; the
 #: reason "'www.independent.co.uk/c': a stray mark inside a word", "'solu': not a word" apart). Indy42 11-16 census of the
@@ -23773,6 +23839,8 @@ def fix_reason(row):
         return INDY_UNDER
     if ios_foot_due(row):
         return IOS_FOOT
+    if indy_titled_due(row):
+        return INDY_TITLED
     if ft_lead_whole_due(row):
         return FT_LEAD_WHOLE
     if ft_side_right_due(row):
@@ -24587,6 +24655,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_UNDER,
                   # 11-16: an Independent on Sunday page whose clue columns ran past the crop's foot (ios_foot_due).
                   IOS_FOOT,
+                  # 11-16: a Gale Independent sports page with no title, its heading read from cached strips (indy_titled_due).
+                  INDY_TITLED,
                   # 11-16: a Gale FT 1990s page refused no reading parses, its lead column cut inside (ft_lead_whole_due).
                   FT_LEAD_WHOLE,
                   # 11-16: a Gale FT page refused no reading parses with no text read, its columns right of a left-edge grid (ft_side_right_due).
@@ -24738,6 +24808,7 @@ def blanket_or_fix(row, blanket):
             else INDY_DOWN_FOOT if indy_down_foot_due(row) \
             else INDY_UNDER if indy_under_due(row) \
             else IOS_FOOT if ios_foot_due(row) \
+            else INDY_TITLED if indy_titled_due(row) \
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
             else SUNTEL_RIGHT if suntel_right_due(row) \
@@ -24974,7 +25045,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
