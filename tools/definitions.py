@@ -161,6 +161,12 @@ def damaged_run(text, clue, misread=True):
             walk(0, ci, None)
     if not runs and misread:
         runs = _misread_runs(want, toks, low, junk)
+    if not runs and misread and len(want) >= 4:
+        # the scan dropped a lone 'I' the quote has inside the run ('Mary and I go out' for
+        # the stored 'Mary and go out'): the quote minus that word is the clue's one run
+        alts = {damaged_run(" ".join(want[:k] + want[k + 1:]), clue, misread=False)
+                for k in range(1, len(want) - 1) if want[k] == "i"} - {None}
+        return alts.pop() if len(alts) == 1 else None
     if len(runs) != 1:
         return None
     a, b = runs.pop()

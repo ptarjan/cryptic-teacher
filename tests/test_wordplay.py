@@ -931,7 +931,11 @@ check("misread clue: a three-letter word is not mended by a dropped word", _D.da
 check("misread clue: two three-letter fits are not mended", _D.damaged_run("hut", "put and cut") is None)
 check("refusal names the nearest clue word", "'animation'" in w.not_in_clue("animation's", "Erotic film introduces animation technique"),
       w.not_in_clue("animation's", "Erotic film introduces animation technique"))
-check("misread clue: a different word is not mended", _D.damaged_run("throng", "Scorer awards fifty in throw") is None)
+check("misread clue: a lone I the scan dropped is mended",
+      _D.damaged_run("Mary and I go out with him", "Mary and go out with him") == "Mary and go out with him")
+check("misread clue: a dropped word other than I is not mended",
+      _D.damaged_run("Mary and Tom go out with him", "Mary and go out with him") is None)
+check("misread clue: a different word is not mended",_D.damaged_run("throng", "Scorer awards fifty in throw") is None)
 check("misread clue: two equal fits are not mended", _D.damaged_run("show", "snow and shot") is None)
 check("possessive 's the clue lacks is dropped from the quote", spans_of("[professional's]X", "Outlaw professional B writer")
       == [("professional", 7)], spans_of("[professional's]X", "Outlaw professional B writer"))
