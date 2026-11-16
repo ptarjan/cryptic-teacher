@@ -23,6 +23,7 @@ import datetime
 import json
 import os
 import re
+import signal
 import sys
 from pathlib import Path
 import clue_text
@@ -204,12 +205,30 @@ def square_lattice(gray, grid):
         lat = (0.0, 0.0, width / m, height / n)
     pitches = {round(p, 1) for p in (lat[2], width / m, height / n)}
     best = (0.0, None)
+    # the ink image and its opening depend on the pitch only (the opening's size), not the offsets: 11-15
+    # the ~225 offsets tried on a 2,600-px crop each redid both (tls:solution:751: 30+ min, never ended)
+    ink = (gray >= t.trove_grid.otsu(gray)).astype("uint8")
+    opens = {}
+
+    def agreement(lat_):
+        ys, xs = t.even(lat_, n)
+        k = max(2, round(min(ys[-1] - ys[0], xs[-1] - xs[0]) / n / 12))
+        if k not in opens:
+            opens[k] = t.opened(ink, k)
+        seen = {}
+        for r in range(n):
+            for c in range(m):
+                a = t.between(opens[k], ys, xs, r, c, 0.15)
+                if a.size == 0:
+                    return 0.0
+                seen[(r, c)] = float(a.mean()) < t.BLOCK_PAPER
+        return sum(seen[(r, c)] == (ch == "#") for r, row in enumerate(grid) for c, ch in enumerate(row)) / (n * m)
 
     def tried(x0, y0, p):
         nonlocal best
         if y0 < -p / 2 or y0 + n * p > height + p / 2 or x0 < -p / 2 or x0 + m * p > width + p / 2:
             return
-        fit = t.block_agreement(gray, grid, (float(x0), float(y0), p, p))
+        fit = agreement((float(x0), float(y0), p, p))
         if fit > best[0]:
             best = (fit, (float(x0), float(y0), p, p))
     # coarse (a cell is ~50 px at 2x, so 6 px steps are well inside one), then fine round the best
@@ -314,6 +333,32 @@ def load_solved(store=STORE):
     return jr.load_solved(store)
 
 
+#: A solution unit stops itself after this long (the queue kills one at 1,800 s and records nothing).
+UNIT_SECONDS = 1200
+
+
+class UnitTimeout(Exception):
+    pass
+
+
+@contextlib.contextmanager
+def deadline(seconds):
+    """Raise UnitTimeout in the running code after `seconds` (SIGALRM; no deadline off the main thread)."""
+    def fire(signum, frame):
+        raise UnitTimeout(f"over {seconds} s")
+    try:
+        before = signal.signal(signal.SIGALRM, fire)
+    except ValueError:  # not the main thread
+        yield
+        return
+    signal.alarm(seconds)
+    try:
+        yield
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, before)
+
+
 def solve_unit(rel, store=STORE, saved=SAVED):
     """Take the solution grid printed in a later issue into the held puzzle `rel` ("tls:solution:N") names
     (a blank light only, as jr.solve_puzzle: refused when the grid's blocks are not the puzzle's or the
@@ -336,9 +381,10 @@ def solve_unit(rel, store=STORE, saved=SAVED):
         verdict.update(tried=names, refused="every light already answered")
     else:
         try:
-            found, new = jr.solve_puzzle(old, todo, saved, store, finder=captioned(n), reader=read_crop,
-                                     tool=TOOL)
-        except Exception as e:  # any raise: a bad page is a verdict
+            with deadline(UNIT_SECONDS):
+                found, new = jr.solve_puzzle(old, todo, saved, store, finder=captioned(n), reader=read_crop,
+                                         tool=TOOL)
+        except Exception as e:  # any raise (or the deadline): a bad page is a verdict
             found, new = {"tried": todo, "refused": f"crashed: {type(e).__name__}: {e}"}, None
             print(found["refused"], file=sys.stderr)
         found["tool"] = TOOL
@@ -363,7 +409,11 @@ def solve_unit(rel, store=STORE, saved=SAVED):
                     except Exception as e:  # the write gate's refusal: the file stands as held
                         verdict["refused"] = f"write refused: {type(e).__name__}: {e}"
     if str(verdict.get("refused", "")).startswith("crashed"):
-        verdict.pop("version")  # a crash is no verdict: the puzzle stays due
+        # a crash is no verdict: the puzzle stays due, until CRASH_LIMIT attempts (the queue's 1,800-s
+        # kill writes nothing, so the deadline above is what records an attempt)
+        verdict["attempts"] = (last.get("attempts") or 0) + 1
+        if verdict["attempts"] < CRASH_LIMIT:
+            verdict.pop("version")
     jr.append_solved(verdict, store)
     print(json.dumps(verdict))
     return "read"

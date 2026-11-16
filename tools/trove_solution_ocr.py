@@ -459,8 +459,11 @@ def opened(a, k):
     patch of 1s narrower than k, keep the rest at its own size."""
     win = np.lib.stride_tricks.sliding_window_view
     p, q = k // 2, k - 1 - k // 2
-    eroded = win(np.pad(a, ((p, q), (p, q)), constant_values=1), (k, k)).min((2, 3))
-    return win(np.pad(eroded, ((p, q), (p, q)), constant_values=0), (k, k)).max((2, 3))
+    # a k x k min/max is a k x 1 one then a 1 x k one (k times, not k*k times, the work on a big crop)
+    padded = np.pad(a, ((p, q), (p, q)), constant_values=1)
+    eroded = win(win(padded, k, axis=0).min(-1), k, axis=1).min(-1)
+    padded = np.pad(eroded, ((p, q), (p, q)), constant_values=0)
+    return win(win(padded, k, axis=0).max(-1), k, axis=1).max(-1)
 
 
 def cell_paper(gray, lat, n):
