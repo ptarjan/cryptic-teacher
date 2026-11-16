@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 10
+VERSION = 11
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n(?:[o0]|umber)\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -845,14 +845,30 @@ def number_by_date(day):
 LAYOUT_SHARE = 0.85
 
 
-def layout_retry(img, key, gl, grid, lengths, blocks, read, laid):
+def blank_score(aj, grid, lengths, read, laid):
+    """(blank lights, - agreed clues) of a reading once laid on the grid: the lower is the better reading. More
+    clues agreed is no better reading when the lights it leaves blank are more (1997-09-20: the layout cut
+    agreed on 72 of 72 lights but left 9 blank, the plain cut 6 with 69 agreed)."""
+    if laid is None:
+        return (10 ** 6, 0)
+    done, blank = aj.lay_on(dict(laid), grid)
+    tails = {t for _, _, group in done.values() for t in (group or [])[1:]}
+    out = {*blank, *(read.get("blank") or {}), *(lid for lid, (text, _, _) in done.items()
+                                                  if lid not in tails and not (text or "").strip())}
+    return (len(out) + len(set(lengths) - set(done)), -read.get("agreed", 0))
+
+
+def layout_retry(img, key, gl, grid, lengths, blocks, read, laid, score=None):
     """(read, laid, [block] or None: the block kept): the heading cut's reading, or the one of the lists found by their own
     shape (gale_tls_read.layout_block: the 1997-2002 pages' headings are lost to the OCR, the title-less cut
     takes the pair under the grid, last week's solutions, and the clue columns beside it go unread) where it
-    agrees on more clues. A light only the other reading laid is taken from it. The reading it keeps stays
-    the cut's when the layout's agrees on no more."""
-    if laid is not None and not set(lengths) - set(laid) and read.get("agreed", 0) >= LAYOUT_SHARE * len(lengths):
+    leaves fewer lights blank (`score` (read, laid) -> the lower the better; by clues agreed without it). A
+    light only the other reading laid is taken from it. The reading it keeps stays the cut's when the
+    layout's is no better."""
+    if laid is not None and not set(lengths) - set(laid) and read.get("agreed", 0) >= LAYOUT_SHARE * len(lengths) \
+            and (score is None or score(read, laid)[0] <= 0):
         return read, laid, None
+    score = score or (lambda r, lid: (-r.get("agreed", 0),))
     import gale_tls_read as tr
     block = tr.layout_pick(img, gl.page_words(img, key), grid, lengths, gl)
     if not block:
@@ -860,7 +876,7 @@ def layout_retry(img, key, gl, grid, lengths, blocks, read, laid):
     again, laid2 = tr.lending(gl.times_read, [block], lengths)
     if laid2 is None:
         return read, laid, None
-    if laid is None or again.get("agreed", 0) > read.get("agreed", 0):
+    if laid is None or score(again, {**{k: v for k, v in (laid or {}).items() if k in lengths}, **laid2}) < score(read, laid):
         merged = {**{k: v for k, v in (laid or {}).items() if k in lengths}, **laid2}
         return again, merged, [block]
     return read, {**{k: v for k, v in laid2.items() if k in lengths}, **laid}, None
@@ -928,16 +944,19 @@ def read_page(path, store=STORE, asker=None):
     # The grid's light lengths give the vote a count for a clue whose own the OCR lost.
     lengths = {f"{n}-{d}": len(cells) for (n, d), cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
-    if laid is None or read.get("agreed", 0) < LAYOUT_SHARE * len(lengths):
+    def score(r, lid):
+        return blank_score(aj, g, lengths, r, lid)
+
+    if laid is None or read.get("agreed", 0) < LAYOUT_SHARE * len(lengths) or score(read, laid)[0] > 0:
         # reaching_cuts' widened box can read worse than the plain cut (1997-09-06: 61 -> 55 agreed, 8 -> 23
         # blanks, a wider block's columns read by the OCR in other bands): the plain cut is read too, the
-        # reading that agrees on more kept.
+        # reading that leaves fewer lights blank kept (JUMBO_FEWER_BLANKS).
         narrow = cut_blocks(False)
         if narrow and [b[0].size for b in narrow] != [b[0].size for b in blocks]:
             again, laid2 = gl.times_read(narrow, lengths)
-            if laid2 is not None and (laid is None or again.get("agreed", 0) > read.get("agreed", 0)):
+            if laid2 is not None and (laid is None or score(again, laid2) < score(read, laid)):
                 read, laid, blocks = again, laid2, narrow
-    read, laid, kept = layout_retry(img, key, gl, box, lengths, blocks, read, laid)
+    read, laid, kept = layout_retry(img, key, gl, box, lengths, blocks, read, laid, score)
     if kept:
         blocks = kept
         verdict["cut"] = "layout"
