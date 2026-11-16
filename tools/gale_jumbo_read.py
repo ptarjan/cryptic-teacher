@@ -55,6 +55,10 @@ NUMBERS = range(100, 1200)
 #: Bumped when the number reading changes: only the pages refused for want of a number are read again.
 NUMBER_FIX = 2
 NO_NUMBER = "no Jumbo number in the citation or the prize text"
+#: Bumped when the grid reading changes (GRID_SCALED: the crop read at the narrower widths and the pale
+#: reading too, as every other paper's grid is): only the pages refused "grid unread" are read again.
+GRID_FIX = 1
+GRID_UNREAD = "grid unread"
 #: A grid on the page, in the page's pixels: 23x23 or 27x27 cells.
 GRID_PX = (600, 3600)
 SOLUTIONS = downloads.TIMES_JUMBO_SOLUTIONS
@@ -121,6 +125,8 @@ def read_done(row):
     version while under CRASH_LIMIT) is not, so the page comes back as due."""
     if row and row.get("refused") == NO_NUMBER and row.get("numbered") != NUMBER_FIX:
         return False  # refused before the number reading was mended (NUMBER_FIX)
+    if row and str(row.get("refused") or "").startswith(GRID_UNREAD) and row.get("gridded") != GRID_FIX:
+        return False  # refused before the grid reading was mended (GRID_FIX)
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -933,7 +939,7 @@ def read_page(path, store=STORE, asker=None):
     def reader(box, pad):
         img.crop((max(0, box[0] - pad), max(0, box[1] - pad), min(img.width, box[2] + pad),
                   min(img.height, box[3] + pad))).save(gpath)
-        return trove_grid.read_grid(gpath)
+        return fa.scaled_grid_read(gpath)  # GRID_FIX: plain read first, then the shrunk and pale reads
 
     box, g, why = pick_grid(boxes, reader)
     if not g:
@@ -943,7 +949,7 @@ def read_page(path, store=STORE, asker=None):
         box, g, again = pick_grid(more, reader)
         why = again or why
     if not g:
-        verdict["refused"] = f"grid unread: {why}"
+        verdict.update(refused=f"{GRID_UNREAD}: {why}", gridded=GRID_FIX)
         return verdict, None
     def cut_blocks(reach):
         old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
