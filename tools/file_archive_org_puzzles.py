@@ -14485,6 +14485,33 @@ for _paper, _pins in _SUNDAY_WEEKLY_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before _scan read an FT archive.org leaf with under
+#: FT_SMALL_LINES lines of text and no title among them from its ink (ocr_headings), as it reads a leaf with no text.
+#: Every paper's key moves (the scan code is hashed whole), only FT's thin-text pages read otherwise: every scan
+#: stands, those with no puzzle found are scanned again once (ft_small_host, FT_SMALL_TEXT).
+_FT_SMALL_FIX = {
+    "ft": ("d12e924249053b3a", "a6ecd0e956e65e40", "c688e83698947d97"),
+    "gale": ("6d7f428c14979483", "c16c9837ce1755b3", "31d423984bebed77"),
+    "galeft": ("db5d103f6c50a1d7", "2afe5d54c56bb0cc", "5d728de822b6b906"),
+    "galeindependent": ("0c0facff769f790e", "97329824196cf67b", "a9abd2a0c3f79ad1"),
+    "galeindysunday": ("2af28c2256256587", "54b4a18fc1bae78a", "633b4370f00d46c4"),
+    "galesundaytelegraph": ("3c9e7061136c27e3", "01b592b5a33e6753", "4a3856e6581cf4f1"),
+    "galesundaytimes": ("cfe644f1c3496698", "a9617c502cb48526", "ff7169a3f7f79552"),
+    "galetelegraph": ("9d7300619501a030", "6d9359ac1c1a9f54", "b8e58c64c104a05d"),
+    "galetls": ("da37877cefec809b", "bb3b13672c711db2", "565ad90235a92c6c"),
+    "guardian": ("dce668ab5ec32556", "7e3395c6f58d49d0", "51f3a4793e6ae442"),
+    "telegraph": ("0b788cca873033ec", "2d6a62ee8f9f8431", "dcea1867e53ef690"),
+    "times": ("214f7ab6a8e0d64b", "89bc8215d1ce9fce", "98ec197583018910"),
+    "times1930": ("c933b52588e412fe", "2ef81be4ac4a6bb9", "e7252456ce6b5999"),
+}
+#: The scan keys an FT scan stood under before the fix above (ft_small_host).
+_FT_SMALL_OLD = frozenset({*_FT_SMALL_FIX["ft"][:2],
+                           *(k for k, v in CORPUS_KEYS.items() if v.get("ft") == _FT_SMALL_FIX["ft"][0])})
+for _paper, _pins in _FT_SMALL_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14525,7 +14552,7 @@ def prize_rescan(paper, key, rel):
                         _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2],
                         _TELEGRAPH_SATURDAY_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2],
                         _WINNERS_NUMBER_FIX["gale"][2], _WINNERS_1996_FIX["gale"][2],
-                        _SUNDAY_WEEKLY_FIX["gale"][2])
+                        _SUNDAY_WEEKLY_FIX["gale"][2], _FT_SMALL_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -14575,7 +14602,7 @@ def rekey_scans(ledger):
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
                     and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not telegraph_host(r) \
-                    and not indy_host(r) and not ft_host(r) and not ios_title_rescan(r):
+                    and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ios_title_rescan(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -16758,6 +16785,26 @@ def ft_speck_words_due(row):
         return False
     return any("clue [] names no light" in str(v.get("imageDisagrees")) and not v.get("refused") and not v.get("skip")
                for v in row.get("verdicts") or ())
+
+
+#: The due reason of an FT 1980-94 archive.org edition scanned as 0 puzzles under the scan key from before
+#: _FT_SMALL_FIX. Ftempty 11-16: 328 such editions (440 rows) had a detected leaf with under FT_SMALL_LINES lines of
+#: OCR text (231; 85 only such leaves: their djvu.xml has no text), which _scan counted as present and so read for titles
+#: from that text alone ("paper.headings([])" falls to ocr_titles). ocr_headings found a title on 2 of 4 sampled
+#: (1981-07-22 leaf 13: 4,626; 1981-05-02 leaf 11: 4,559). Such an edition is scanned again once.
+FT_SMALL_TEXT = "FT page of 1980-94 with no puzzle found, its thin archive.org text read as a page without text since"
+REREAD_FT_SMALL_TEXT = "2026-11-16T12:00:00+00:00"
+
+
+def ft_small_host(row):
+    """Whether FT ledger `row` (archive.org 1980-94) is an edition scanned under a key from before _FT_SMALL_FIX with no
+    puzzle found, no verdict and no failure: its scan is stale (scan_current) and rekey_scans leaves it, so it is
+    scanned again by this code once. (A leaf's line count is not in the ledger: an edition with no small leaf is
+    scanned again and finds the same.)"""
+    scan = (row or {}).get("scan") or {}
+    return row.get("scanKey") in _FT_SMALL_OLD and not scan.get("puzzles") and not row.get("verdicts") \
+        and not scan.get("failed") and re.match(r"FinancialTimes19(8\d|9[0-4])UKEnglish/", row.get("edition") or "") is not None \
+        and paper_of(row.get("edition") or "").key == "ft"
 
 
 #: The due reason of a Gale Sunday Telegraph 1995-2000 page refused "no reading parses" with no reading text at all, read
@@ -22903,6 +22950,8 @@ def fix_reason(row):
         return INDY_PAIRED
     if ios_title_due(row):
         return IOS_TITLES
+    if ft_small_host(row):
+        return FT_SMALL_TEXT
     if ft_next_due(row):
         return FT_HEADINGS
     if quarter_plain_due(row):
@@ -23648,6 +23697,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_SIDE_RIGHT,
                   # 11-16: a Gale Sunday Telegraph 1995-2000 page refused no reading parses with no text read, its columns right of a left-edge grid (suntel_right_due).
                   SUNTEL_RIGHT,
+                  # 11-16: an FT page of 1980-94 with no puzzle found, its thin archive.org text read as a page without text (ft_small_host).
+                  FT_SMALL_TEXT,
                   # 11-16: a Gale Independent page with its help-line banner read into a clue (indy_banner_due).
                   INDY_BANNER,
                   # 11-16: a Gale FT page with a clue laid on no light for its number hidden behind neighbouring print (ft_speck_words_due).
@@ -23761,6 +23812,7 @@ def blanket_or_fix(row, blanket):
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
             else SUNTEL_RIGHT if suntel_right_due(row) \
+            else FT_SMALL_TEXT if ft_small_host(row) \
             else INDY_BANNER if indy_banner_due(row) \
             else FT_SPECK_WORDS if ft_speck_words_due(row) \
             else IOS_WORDS if ios_words_due(row) \
@@ -23986,7 +24038,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -24025,7 +24077,7 @@ def scan_current(row, fh, rel=None):
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not telegraph_host(row) \
-        and not indy_host(row) and not ft_host(row) and not ios_title_rescan(row)
+        and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ios_title_rescan(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
