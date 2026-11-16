@@ -57,7 +57,8 @@ failed_ids=""
 while IFS=$'\t' read -r id name _ conclusion url; do
   failed_jobs=""
   case "$conclusion" in
-    success|skipped|neutral) ;;
+    # cancelled: a newer push superseded the run (deploy concurrency), not a verdict
+    success|skipped|neutral|cancelled) ;;
     *)
       status=1
       failed_ids="$failed_ids $id"
