@@ -5438,9 +5438,45 @@ def gale_telegraph_headings(lines, titles=()):
     if not puzzles and len({n for n, _ in strict}) == 1:
         # (the ACROSS word may share its row with another column's words)
         across = [tuple(w[:4]) for ws in lines for w in ws if ACROSS_LINE.match(w[4])]
-        if len(across) == 1:
+        # (a lone ACROSS under the QUICK CROSSWORD caption is the Quick's, not the cryptic's: 1985's pages print the
+        # cryptic's heading in art the OCR lost, the title found by the clue block's top)
+        quick = [box_of(ws) for ws in lines if QUICK_CAPTION.search(" ".join(w[4] for w in ws))]
+        if len(across) == 1 and under_quick(across[0], quick):
+            block = clue_block_heading(lines, quick)
+            if block is not None:
+                puzzles = [(strict[0][0] + 1, block, None)]
+        elif len(across) == 1:
             puzzles = [(strict[0][0] + 1, across[0], None)]
     return puzzles, solutions
+
+
+#: The Quick crossword's caption on a Gale Telegraph page, and how far (px) under its foot its ACROSS heading stands.
+QUICK_CAPTION = re.compile(r"\bq\w{0,2}c?k\W*\w{0,2}[o0]ss", re.IGNORECASE)
+QUICK_ACROSS_DROP = 60
+#: A clue's bracketed count as a word or a line's end ("(4,3)", the full-width brackets too).
+CLUE_COUNT_WORD = re.compile(r"[(（]\s*\d[\d,.\-\s]*[)）]\s*$")
+
+
+def under_quick(box, quick):
+    """Whether `box` (an ACROSS word's) lies within QUICK_ACROSS_DROP under the foot of any caption box of `quick`."""
+    return any(c[1] - 10 <= box[1] <= c[3] + QUICK_ACROSS_DROP and box[0] >= c[0] - QUICK_ACROSS_DROP for c in quick)
+
+
+def clue_block_heading(lines, quick):
+    """The box of a heading standing over the cryptic's clue block of a page with a QUICK_CAPTION in `quick`: the block
+    is the first run of six clue counts within 400 px of one another over the caption; the box lies just over the
+    first clue line, as wide as the counts' columns. None without such a run."""
+    counts = sorted((w[1], w) for ws in lines for w in ws if CLUE_COUNT_WORD.search(w[4])
+                    and all(w[3] < c[1] for c in quick))
+    for k in range(len(counts) - 5):
+        if counts[k + 5][0] - counts[k][0] > 400:
+            continue
+        run = [w for y, w in counts if counts[k][0] <= y <= counts[k][0] + 1500]
+        x0, x1 = min(w[0] for w in run) - 60, max(w[2] for w in run)
+        first = counts[k][0]
+        top = min([w[1] for ws in lines for w in ws if first - 130 <= w[1] <= first and x0 <= w[0] <= x1] + [first])
+        return (x0, top - 45, x1, top - 5)
+    return None
 
 
 #: A number of one to five digits, as the Independent and Sunday Times
@@ -14316,6 +14352,18 @@ for _paper, _pins in _WINNERS_NUMBER_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before gale_telegraph_headings stopped taking the Quick
+#: crossword's ACROSS (under its QUICK CROSSWORD caption) for the cryptic's title on a page whose one "SOLUTION No. N"
+#: heading numbers the puzzle: only the Gale Telegraph's parser reads otherwise, so every scan stands, and the
+#: 1985-87 pages refused "not a grid" for the Quick's ink are scanned again once (TELEQUICK).
+_TELEQUICK_FIX = {
+    "galetelegraph": ("003a5813d62026fa", "4326008b47463ab3", "5452e0b34af3fef4"),
+}
+for _paper, _pins in _TELEQUICK_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14404,7 +14452,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telegraph_host(r) \
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not telegraph_host(r) \
                     and not indy_host(r) and not ft_host(r) and not ios_title_rescan(r):
                 moved[k] = new
         if moved:
@@ -14553,7 +14601,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # TLS_ANCHORS 1982-91 (TLS_MONTHLY): a Gale TLS page's number-date check only, no grid's reading moves.
                   "ca09e46488965549": "432a5818529a9b11",
                   # caa84cf28d0 (gale_tls_read's square lattice search, unit deadline, trove_solution_ocr): TLS page reads only.
-                  "c828441d2ef9ccdb": "432a5818529a9b11"}
+                  "c828441d2ef9ccdb": "432a5818529a9b11",
+                  # gale_telegraph_headings: a lone ACROSS under the QUICK CROSSWORD caption is the Quick's (TELEQUICK): a
+                  # scan's title only, no solution grid's reading moves.
+                  "463203b1c1cd90f6": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -14698,7 +14749,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # TLS_ANCHORS 1982-91 (TLS_MONTHLY): the number its date implies only.
                 "d864e0b2d6127325": "9b3500cb5488df7c",
                 # caa84cf28d0 (gale_tls_read's square lattice search, unit deadline): TLS page reads only.
-                "e65970428db1f6f5": "9b3500cb5488df7c"}
+                "e65970428db1f6f5": "9b3500cb5488df7c",
+                # gale_telegraph_headings and the Quick's ACROSS (TELEQUICK): a scan's title only, the same read.
+                "a5e839a1968f7a37": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
@@ -15734,6 +15787,31 @@ def winners_number_rescan(row):
     return "inputs" in row and any(ed.startswith(f"GaleSundayTimes{y}") for y in WINNERS_NUMBER_YEARS) \
         and (day is None or day <= SUNDAY_WINNERS_DAYS[1]) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_WINNERS_NUMBER))
+
+
+#: The due reason of a Gale Telegraph 1985-87 page refused "the ink under the title is WxH, not a grid" (about
+#: 490x510: the Quick crossword's grid) for a title that was the Quick's ACROSS under its QUICK CROSSWORD caption: the
+#: cryptic's own heading stood in art the OCR lost, its clue block over the caption. gale_telegraph_headings reads the
+#: puzzle's box off that block now (33 census rows 11-15: 29 of 1985-05 to 1985-12). Scanned again, then read once.
+TELEQUICK = "Gale Telegraph 1985-87 page refused not a grid for the Quick crossword's ink, its cryptic heading found over its clue block since"
+REREAD_TELEQUICK = "2026-11-16T05:40:00+00:00"
+TELEQUICK_YEARS = ("1985", "1986", "1987")
+#: The least and most (px) of either side of the ink under the title taken for the Quick's grid (~490x510).
+TELEQUICK_INK = (440, 700)
+
+
+def telequick_rescan(row):
+    """Whether ledger `row` is due TELEQUICK: a read (its "inputs" kept) edition of GaleTelegraph<TELEQUICK_YEARS> with
+    a verdict refused "not a grid" for ink of TELEQUICK_INK's size, read before REREAD_TELEQUICK. Its scan is
+    stale (scan_current) and rekey_scans leaves it."""
+    ed = str((row or {}).get("edition") or "")
+    if "inputs" not in row or not any(ed.startswith(f"GaleTelegraph{y}") for y in TELEQUICK_YEARS):
+        return False
+    for v in row.get("verdicts") or ():
+        m = _INK_UNDER.search(v.get("refused") or "")
+        if m and v.get("cause") == "not-a-grid" and all(TELEQUICK_INK[0] <= int(g) <= TELEQUICK_INK[1] for g in m.groups()):
+            return scan_queue.read_before(row, scan_queue.when(REREAD_TELEQUICK))
+    return False
 
 
 #: The due reason of a Gale Telegraph Mon-Fri puzzle of 1980 on read incomplete from its grid image with no solution
@@ -22429,6 +22507,8 @@ def fix_reason(row):
         return WINNERS_TITLE
     if winners_number_rescan(row):
         return WINNERS_NUMBER
+    if telequick_rescan(row):
+        return TELEQUICK
     if sunday_number_rescan(row):
         return SUNDAY_NUMBER
     if telegraph_saturday_due(row):
@@ -23165,6 +23245,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-15: a Gale Sunday Times 1997 to 2005-09-11 page titled by its winners box, three low
                   # (winners_number_rescan), scanned again then read once.
                   WINNERS_NUMBER,
+                  # 11-16: a Gale Telegraph 1985-87 page refused not a grid for the Quick crossword's ink (telequick_rescan),
+                  # scanned again then read once.
+                  TELEQUICK,
                   # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
                   SIDES_READ,
                   # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
@@ -23284,6 +23367,8 @@ def blanket_or_fix(row, blanket):
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
         if winners_number_rescan(row):
             return WINNERS_NUMBER
+        if telequick_rescan(row):
+            return TELEQUICK
         # 11-09: 358 Gale Sunday Telegraph rows due SUNDAY_SIDES (and the Telegraph Saturdays SIDES_READ) were planned
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if weekday_right_due(row):
@@ -23565,7 +23650,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -23603,7 +23688,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not telegraph_host(row) \
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not telequick_rescan(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ios_title_rescan(row)
 
 

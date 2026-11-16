@@ -461,7 +461,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._TELEGRAPH_TITLE_FIX[gt.key][:2],
                                                                       *f._TELEGRAPH_PRIZE_MEND_FIX[gt.key][:2],
                                                                       *f._GUARDIAN_DATED_FIX[gt.key][:2],
-                                                                      *f._WINNERS_NUMBER_FIX[gt.key][:2]},
+                                                                      *f._WINNERS_NUMBER_FIX[gt.key][:2],
+                                                                      *f._TELEQUICK_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3574,6 +3575,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TELEQUICK_FIX:
+        return f._TELEQUICK_FIX[paper][2]
     if paper in f._WINNERS_NUMBER_FIX:
         return f._WINNERS_NUMBER_FIX[paper][2]
     if paper in f._TLS_MONTHLY_FIX:
@@ -5246,6 +5249,30 @@ check("a Gale Telegraph page with no title read, one glued 'SOLUTIONNo.19,190' h
       [[n for n, _, _ in f.gale_telegraph_headings(_lost)[0]],
        [n for n, _, _ in f.gale_telegraph_headings(_lost + [[(10, 4300, 90, 4330, "ACROSS")]])[0]],
        [n for n, _, _ in f.gale_telegraph_headings(_lost + [[(300, 2400, 600, 2440, "CROSSWORD"), (1170, 2400, 1300, 2440, "19,000")]])[0]]])
+# 1985-10-01 (Gale, puzzle 18570): the scan took the Quick's "ACROSS" under its "QUICK CROSSWORD" caption for the cryptic's
+# title (its ink the Quick's 490x512 grid); the cryptic's clue block stands over, its heading lost.
+_qsol = [(722, 4334, 852, 4381, "SOLUTION"), (860, 4334, 960, 4381, "No."), (970, 4334, 1100, 4381, "18,569")]
+_qcap = [(254, 4344, 448, 4386, "QUICK"), (454, 4344, 640, 4386, "CROSSWORD")]
+_qlost = [_qsol, _qcap, [(293, 4376, 404, 4417, "ACROSS")]]
+_qcounts = [[(259, 2865 + 40 * k, 384, 2900 + 40 * k, "(4,3,4)")] for k in range(6)]
+_qhead = f.gale_telegraph_headings(_qlost + _qcounts)[0]
+check("a Gale Telegraph page whose one ACROSS stands under its QUICK CROSSWORD caption is titled by its clue block's top "
+      "(solution heading + 1, a box over the first clue line); with no clue block, or no caption, the old reading stands",
+      [[18570], True, [], [18570], [(293, 4376, 404, 4417)]],
+      [[n for n, _, _ in _qhead], bool(_qhead) and _qhead[0][1][3] < 2865 and _qhead[0][1][1] > 2600,
+       [n for n, _, _ in f.gale_telegraph_headings(_qlost)[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_qsol, [(293, 4376, 404, 4417, "ACROSS")]])[0]],
+       [b for _, b, _ in f.gale_telegraph_headings([_qsol, [(293, 4376, 404, 4417, "ACROSS")]])[0]]])
+_tq = {**_tgrow, "edition": "GaleTelegraph1985UKEnglish/1985-10-01", "inputs": {}, "readAt": "2026-11-13T16:00:00+00:00",
+       "verdicts": [{"number": 18570, "cause": "not-a-grid", "refused": "the ink under the title is 490x512, not a grid"}]}
+check("a Gale Telegraph 1985-87 page read before the rescan, refused not a grid for ink under 700 px, is due TELEQUICK, "
+      "rank 1; a larger ink, a 1988 page, a later read, another refusal stand",
+      [True, f.TELEQUICK, 1, False, False, False, False],
+      [f.telequick_rescan(_tq), f.fix_reason(_tq), f.RANKS[f.TELEQUICK],
+       f.telequick_rescan({**_tq, "verdicts": [{**_tq["verdicts"][0], "refused": "the ink under the title is 900x512, not a grid"}]}),
+       f.telequick_rescan({**_tq, "edition": "GaleTelegraph1988UKEnglish/1988-10-01"}),
+       f.telequick_rescan({**_tq, "readAt": "2026-11-16T07:00:00+00:00"}),
+       f.telequick_rescan({**_tq, "verdicts": [{"number": 18570, "refused": "no reading parses"}]})])
 _fri = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-30", "readAt": "2026-11-13T16:00:00+00:00"}
 _sat90 = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-31", "scanKey": "3a96114ccf041759"}
 check("a Gale Telegraph Friday puzzle of 1980-2000 with no solution read is due TELEGRAPH_SATURDAY (ranked, kept), not a "
