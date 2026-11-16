@@ -815,6 +815,11 @@ def file_rows(path, pending, data=DATA):
             served[eid] = (answer_rows[key][0] if key in answer_rows
                            else letters(printed.get(eid)))
             problems = answer_typo_problems(puzzle, eid, fixes[eid], served[eid], fixes)
+            # tests/test_source_answer_wrong.py's floor, held at filing so a
+            # short note is sent back to the run instead of turning CI red.
+            if len(v[1].strip()) < 40:
+                problems.append(f"the evidence {v[1]!r} is under 40 characters: say what the "
+                                f"grid prints and why the wordplay builds {fixes[eid]}")
         elif field == "printedClue":
             key = f"{puzzle['id']}/{eid}"
             held = clue_rows.get(key)
