@@ -2809,6 +2809,7 @@ def right_gutter(lines, grid, right):
 #: of the next), the clues ran into each other and no reading laid them ("across clue [] names no light"). A clue-number
 #: start (INDY_COLUMN_MIN of them within INDY_COLUMN_SNAP px of one x, over every reading) marks a print column.
 INDY_COLUMN_MIN, INDY_COLUMN_SNAP = 4, 30
+INDY_COLUMN_THIN = 0.5
 _INDY_NUMBER_START = re.compile(r"\d{1,2}(?![\d,\-)])")
 
 
@@ -2829,7 +2830,13 @@ def indy_columns(lines, grid, right):
             groups[-1].append(x)
         else:
             groups.append([x])
-    heads = [g[len(g) // 2] for g in groups if len(g) >= INDY_COLUMN_MIN]
+    kept = [g for g in groups if len(g) >= INDY_COLUMN_MIN]
+    # NOPARSE_COLUMNS: a Saturday's solution grid beside the third column numbers its cells (12 starts at one x, 4 and 4
+    # at others, against the print columns' 33): groups far thinner than the third biggest are not print columns.
+    if len(kept) > 3:
+        big = sorted(len(g) for g in kept)[-3]
+        kept = [g for g in kept if len(g) >= INDY_COLUMN_THIN * big]
+    heads = [g[len(g) // 2] for g in kept]
     if len(heads) != 3 or not heads[0] < split < heads[2]:
         return right
     pitch = (heads[1] - heads[0], heads[2] - heads[1])
@@ -16206,6 +16213,32 @@ def indy_columns_due(row):
                for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale Independent (daily) page refused "no reading parses" with a reading finding "no ACROSS and
+#: DOWN lists under the grid", read before REREAD_INDY_THIN. 11-15 census (343 unfiled "no reading parses" pages with
+#: no reason queuing a reread, by paper x era x shape): the biggest cluster is the Independent 2004-15 daily (58, 29 of
+#: 2004). The clues stand right of the grid in three print columns (numbers at x 969, 1317, 1750 on 2004-03-13), and
+#: the Saturday's solution grid beside the third numbers its cells (12 starts at x 1797, 4 at 1892, 4 at 1987): four
+#: or five groups of number starts, so indy_columns() kept the two-window split, the first window read ACROSS and DOWN
+#: as one page-wide line ("Enveloped by anxiety, Musical movement - a") and no list parsed. It keeps the three
+#: fullest groups (INDY_COLUMN_THIN): 2004-03-13 reads 31 clues, 32 of 32 lights. Read once.
+INDY_THIN = "Independent page refused no ACROSS and DOWN lists, its three print columns told from a solution grid's cell numbers since"
+REREAD_INDY_THIN = "2026-11-16T04:54:00+00:00"
+
+
+def indy_thin_due(row):
+    """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDY_THIN, holds a puzzle not filed whose
+    verdict is refused "no reading parses" with a reading that found "no ACROSS and DOWN lists"."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GALE_INDEPENDENT.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_THIN)):
+        return False
+    series = paper_of(rel).series
+    return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
+               and filed_state(series, v.get("number")) is None
+               and any(str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values())
+               for v in row.get("verdicts") or ())
+
+
 #: The due reason of a Gale Sunday Telegraph 1991-95 page whose grid went unread, "the white cells span 14 rows and 15
 #: columns" (11-13 tally of latest rows: 24 of 1991-95, 1991-02-17 to 1995-03-12): the grid stands over the title with
 #: its foot rule touching the title's box, and the scan's footed() cut the crop at the line of the last row of cells,
@@ -22239,6 +22272,8 @@ def fix_reason(row):
         return INDY_OVER_PLAIN
     if indy_gutter_down_due(row):
         return INDY_GUTTER_DOWN
+    if indy_thin_due(row):
+        return INDY_THIN
     if ios_words_due(row):
         return IOS_WORDS
     if indy_frame_due(row):
@@ -23002,6 +23037,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   GUARDIAN_LAID, GUARDIAN_CUT, GUARDIAN_FOURTH,
                   # 11-15: an Independent page whose third clue column under the grid was cut (indy_over_plain_due).
                   INDY_OVER_PLAIN, INDY_GUTTER_DOWN,
+                  # 11-16: an Independent page refused no ACROSS and DOWN lists, its print columns read since (indy_thin_due).
+                  INDY_THIN,
                   # 11-15: an Independent on Sunday page whose enumerations carry a count of words (ios_words_due).
                   IOS_WORDS,
                   # 11-16: a Gale page whose stretched lattice was called larger than its frame (indy_frame_due).
@@ -23088,6 +23125,7 @@ def blanket_or_fix(row, blanket):
             else GUARDIAN_CUT if guardian_cut_due(row) \
             else INDY_OVER_PLAIN if indy_over_plain_due(row) \
             else INDY_GUTTER_DOWN if indy_gutter_down_due(row) \
+            else INDY_THIN if indy_thin_due(row) \
             else IOS_WORDS if ios_words_due(row) \
             else INDY_FRAME if indy_frame_due(row) \
             else FAINT_EDGE if faint_edge_due(row) \
@@ -23310,7 +23348,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
