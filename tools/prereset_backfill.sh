@@ -641,6 +641,9 @@ pool_launch() {
   # a conversation already under way is left to finish.
   [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ "$DRY_RUN" != 1 ] &&
     worker_implausible "$id" && return 1
+  # Clues from another puzzle than the grid's answers: recorded for a refetch, no session.
+  [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ "$DRY_RUN" != 1 ] &&
+    worker_misfiled "$id" && return 1
   # A puzzle already hinted whole, with nothing missing and nothing on the
   # shape list (a stale queue entry: the plan was read before its rows were
   # pruned), would be rewritten whole by annotate_check.to_write's None. Skip.

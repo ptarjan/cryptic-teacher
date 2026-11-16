@@ -194,6 +194,21 @@ worker_implausible() {   # id
   return 0
 }
 
+# Before an annotate session for id $1 is paid for: a puzzle whose clue text
+# belongs to another puzzle than its answers (tools/clue_answer_fit.py: 11-16,
+# eleven Sunday Times files each cost a session before it withdrew with "every
+# clue is from a different puzzle") is recorded against its inputs instead of
+# run. The record is --judged and releases itself when the puzzle's file is
+# refetched. 0 when it was recorded and must not be launched.
+worker_misfiled() {   # id
+  local why
+  why=$(python3 tools/clue_answer_fit.py check "$1") && return 1
+  [ -n "$why" ] || return 1
+  echo "  [$1] not annotating: $why"
+  python3 tools/failed_inputs.py record annotate "$1" --judged --reason "$why" >/dev/null || true
+  return 0
+}
+
 # Annotate $1, transcript to $2, in the conversation sid file $3 names.
 #   $4 the task, worded for a fresh run
 #   $5 a note to resume with instead (a retry after a cut-off), or empty
