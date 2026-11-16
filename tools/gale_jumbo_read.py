@@ -53,7 +53,7 @@ TITLE_WORD = re.compile(r"^\W*j?umbo\W*$", re.IGNORECASE)
 #: The Jumbo numbers the Times printed to 2014 (No 1124 ran on 20 Dec 2014).
 NUMBERS = range(100, 1200)
 #: Bumped when the number reading changes: only the pages refused for want of a number are read again.
-NUMBER_FIX = 1
+NUMBER_FIX = 2
 NO_NUMBER = "no Jumbo number in the citation or the prize text"
 #: A grid on the page, in the page's pixels: 23x23 or 27x27 cells.
 GRID_PX = (600, 3600)
@@ -480,6 +480,9 @@ NUMBER_FORMS = (
     # "sent to: Jumbo\n1104, The Times" / "to: Jumbo 1,019, The\nTimes" ("sent" lost or the line broken)
     re.compile(r"\bj[a-z]{1,2}bo\W{0,3}\s*(\d,?\d{2,3})\s*,\s*The\b", re.IGNORECASE),
     re.compile(r"\bj[a-z]{1,2}bo\b[^\n]{0,60}\n[^\n]{0,60}?(?<![\d,.])(\d,?\d{2,3}),\s*The\s+Times", re.IGNORECASE),
+    # the address begins with the paper's section: "Jumbo 191, Weekend, The Times", "Bank Holiday Jumbo (303), Weekend"
+    # (or its post code, or the "J" of Jumbo lost: "umbo 978, I'he Times")
+    re.compile(r"\bj?[a-z]{0,2}umbo\W{0,3}\(?(\d,?\d{2,3})\)?\s*[,;.]\s*(?:Weekend\b|E98\b|I'he\b)", re.IGNORECASE),
     # the "Jumbo" word lost from the line: "sent to: 1,025, The\nTimes, 3 Thomas More Square"
     re.compile(r"(?<![\d,.])(\d,\d{3}|\d{3}),\s*The\s+Times,?\s*\d?\s*(?:Thomas|London|1 Pennington)", re.IGNORECASE),
 )
@@ -514,8 +517,25 @@ def counted_number(day, known):
 
 def known_numbers(store=STORE):
     """[(date, number)] of the pages the ledger read a number off (the citation or the prize text)."""
-    return [(datetime.date.fromisoformat(r["date"]), r["number"]) for r in load_ledger(store).values()
-            if r.get("number") and r.get("date") and r.get("numberFrom") in ("citation", "prize text")]
+    got = sorted((datetime.date.fromisoformat(r["date"]), r["number"]) for r in load_ledger(store).values()
+                 if r.get("number") and r.get("date") and r.get("numberFrom") in ("citation", "prize text"))
+    return drop_strays(got)
+
+
+#: A dated number whose offset from the weekly count is this far from its neighbours' is a misread (a digit
+#: dropped: "111" for 1111, "101" for 1011), and would poison the counts made from it.
+STRAY_OFFSET = 30
+
+
+def drop_strays(got):
+    """`got` ([(date, number)] by date) less the numbers a dropped digit put far off their neighbours' count."""
+    off = [n - d.toordinal() // 7 for d, n in got]
+    keep = []
+    for i, pair in enumerate(got):
+        near = sorted(off[max(0, i - 4):i] + off[i + 1:i + 5])
+        if not near or abs(off[i] - near[len(near) // 2]) <= STRAY_OFFSET:
+            keep.append(pair)
+    return keep
 
 
 def number_of(img, key, cited, words, known=None):
