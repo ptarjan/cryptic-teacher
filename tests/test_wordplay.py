@@ -119,6 +119,7 @@ BAD = [
     ("DI with no reversal is told to add one", "DISOWN", "[papers]ID + [broadcast]SOWN", "ID reads backwards", "rev<"),
     ("letters short", "DEFAMATORY", "ana([folio]F + [made]) + [a] + [conservative]TOR", "9 letters against 10"),
     ("anagram short of a letter", "UNSOILED", "ana<crazy>([delusio])", "lacks N"),
+    ("an anagram one letter swapped names printedClue", "SCIMITAR", "ana<to deploy>([ICl] + [smart])", "printedClue"),
     ("an anagram that changes nothing", "OVAL", "ana<broken>([oval])", "no anagram"),
     ("an anagram over an insertion that can already spell it in order", "SEMIBREVE",
      "ana<off>([house]SEMI + ins<around>([beer]BREE, [five]V))", "no anagram"),

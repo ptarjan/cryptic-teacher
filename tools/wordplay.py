@@ -1723,7 +1723,10 @@ def diagnose(node, want):
         short = "".join(sorted((_count(want) - _count(bag)).elements()))
         return (f"{render(node)} has the letters {bag}; the answer needs an anagram of {want} "
                 f"here" + (f" (the fodder has {extra} to spare" if extra else " (") +
-                (f"{'; ' if extra else ''}it lacks {short})" if short else ")"))
+                (f"{'; ' if extra else ''}it lacks {short})" if short else ")") +
+                (f": one letter swapped. If the clue prints {extra} where the anagram needs {short} (an OCR "
+                 f"slip: m/rn, o/u, I/l), give the entry printedClue with that letter corrected; otherwise "
+                 f"the fodder is the wrong words" if len(extra) == 1 == len(short) else ""))
     seam = _seam_hint(node, want) if op == "charade" else None
     if seam:
         return seam
