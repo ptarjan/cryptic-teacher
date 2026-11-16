@@ -25525,7 +25525,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     # A unit (read_unit) that is not brief's reads and changes only its own editions' rows: the kept
     # fold (parsing only lines appended since) beside its own copies of those, not the whole ledger
     # streamed (~60 MB, once per unit); the rows it does not touch are shared and left as they are.
-    own = bool((unit or {}).get("dirs")) and not prepared
+    # A unit's own process has no planned dirs (read_unit's _PLANNED_DIRS is the queue's): it too takes the
+    # kept fold (one pickle, ~20 MB, and the lines since) instead of streaming the whole ledger (64-84 MB, ~4 s).
+    own = (bool((unit or {}).get("dirs")) or unit is not None and HELD_SERIES_CACHE is not None) and not prepared
     known = _standing(ledger) if prepared else dict(_planned_known(ledger)) if own else load_known(ledger)
     # A unit (read_unit) adds the rows it changed to the ledger; a run
     # holding the ledger's lock throughout rewrites it whole.
@@ -25545,7 +25547,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     dirs = (unit or {}).get("dirs") or edition_dirs(cache, paper)
     rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
     if own:
-        for r in rels.values():
+        # (A unit with no planned dirs changes only its own editions' rows.)
+        for r in (rels.values() if (unit or {}).get("dirs") else editions or ()):
             if r in known:
                 known[r] = copy.deepcopy(known[r])
     # With `newer`, only the editions laid out since then are read, and only
