@@ -464,6 +464,7 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._WINNERS_NUMBER_FIX[gt.key][:2],
                                                                       *f._TELEQUICK_FIX[gt.key][:2],
                                                                       *f._WINNERS_1996_FIX[gt.key][:2],
+                                                                      *f._SUNDAY_WEEKLY_FIX[gt.key][:2],
                                                                       *f._FT_SMALL_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
@@ -5733,8 +5734,9 @@ _wn_sols = f.sunday_times_headings([line("Solution No 4136", 200, 3100)])[1]
 _wn_titles = [(4134, (100, 100, 900, 140), None, ["en"])]
 _wn_day = datetime.date(2005, 9, 4)
 check("a Gale Sunday Times title the winners box's number (heading M - 2) is numbered M + 1 by the solution heading; "
-      "a title already M + 1, a later date, another paper, two headings stand",
-      [[4137], [4137], [4134], [4134], [4134], [4134]],
+      "a title already M + 1, a later date, another paper, a 1996 date stand; two headings (SUNDAY_WEEKLY: the number "
+      "runs weekly) number it 4137 too",
+      [[4137], [4137], [4134], [4134], [4137], [4134]],
       [[t[0] for t in f.sunday_winners_mended(ts, ss, p, d)] for ts, ss, p, d in (
           (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, _wn_day),
           (_wn_titles + [(4137, (100, 200, 900, 240), None, ["en"])], _wn_sols, f.GALE_SUNDAY_TIMES, _wn_day),
