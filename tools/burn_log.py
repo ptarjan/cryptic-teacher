@@ -101,7 +101,7 @@ MEM_DETAIL = re.compile(r"memory ([\d.]+) GB available less ([\d.]+) GB kept fre
                         r"(?:, \d+ MB a run)?(?:, swap ([\d.]+)/([\d.]+) GB used)?")
 
 
-PRESSURE_DETAIL = re.compile(r"pressure some avg10 ([\d.]+) avg60 ([\d.]+), swap-in ([\d.]+) MB/min(?:, held to (\d+))?")
+PRESSURE_DETAIL = re.compile(r"pressure some avg10 ([\d.]+)(?: avg60 ([\d.]+))?, swap-in ([\d.]+) MB/min(?:, held to (\d+))?")
 NIGHT_DETAIL = re.compile(r"overnight cap (\d+)")
 
 
@@ -112,7 +112,7 @@ def limit_note(limit, rush, rest, width=None):
     for as many runs as memory holds, says so instead of passing for a usage pace."""
     if limit == "pressure":
         p = PRESSURE_DETAIL.search(rest or "")
-        return (f"held by pressure: PSI some avg10 {p.group(1)} avg60 {p.group(2)}, swap-in {p.group(3)} MB/min"
+        return (f"held by pressure: PSI some avg10 {p.group(1)}" + (f" avg60 {p.group(2)}" if p.group(2) else "") + f", swap-in {p.group(3)} MB/min"
                 + (f", held to {p.group(4)}" if p.group(4) else "")) if p else "held by pressure"
     n = NIGHT_DETAIL.search(rest or "")
     if limit in (None, "usage pace") and n and width is not None and int(n.group(1)) == width:
