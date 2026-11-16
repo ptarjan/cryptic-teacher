@@ -3830,7 +3830,7 @@ check("an Independent on Sunday page whose barred grid's lattice was counted 11x
        f.blanket_or_fix(_ie, "scan stale, answers missing") == f.IOS_EVEN])
 _pr = {"edition": "GaleTimes1941UKEnglish/1941-07-03", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
        "scan": {"date": "1941-07-03", "item": "GaleTimes1941UKEnglish"},
-       "verdicts": [{"number": 3543, "imageUnread": "only 14 white cells found", "refused": "no reading parses"}]}
+       "verdicts": [{"number": 9999977, "imageUnread": "only 14 white cells found", "refused": "no reading parses"}]}
 check("a 1941 Gale Times page refused for too few white cells is due PALE_RULES, not one read since, filed, refused for "
       "another cause, or of 1950; pale_whys names the lattice refusals",
       [True, False, False, False, False, True],
