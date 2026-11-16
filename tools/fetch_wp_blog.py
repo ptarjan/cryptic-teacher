@@ -99,7 +99,9 @@ FIELDS = "id,date,slug,link,title,content,categories"
 
 
 def get(url, tries=4):
-    """A dropped connection is retried with backoff; an HTTP error answer is not."""
+    """A dropped connection, or a 200 whose body is not JSON (an empty or
+    half-sent answer the site gives now and then), is retried with backoff;
+    an HTTP error answer is not."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     for attempt in range(tries):
         try:
@@ -107,7 +109,8 @@ def get(url, tries=4):
                 return json.load(r), r.headers
         except urllib.error.HTTPError:
             raise
-        except (urllib.error.URLError, TimeoutError, ConnectionError):
+        except (urllib.error.URLError, TimeoutError, ConnectionError,
+                json.JSONDecodeError):
             if attempt == tries - 1:
                 raise
             time.sleep(30 * 2 ** attempt)
