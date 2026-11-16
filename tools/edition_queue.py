@@ -2063,6 +2063,11 @@ NEWEST_LANDED = (fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.QUARTER_BLANKS, fa.QUARTER
                  fa.INDY_THIN, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.TELEQUICK, fa.TELEGRAPH_DATED, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.FT_SPECK_WORDS, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.INDY_TITLED)
 
 
+#: The fixes whose rereads lead every other fix reread (fix_rereads_forward), whatever their rank: drop one
+#: once its rereads have started. 11-16: six sat 10-18 hours without a start.
+FIRST_FIXES = (fa.TELEQUICK, fa.FAINT_EDGE, fa.FT_SMALL_TEXT, fa.SUNDAY_WIDE, fa.TELEGRAPH_DATED, fa.INDY_TITLED)
+
+
 def fix_rereads_forward(out):
     """`out` (units in dispatch order) with the other papers' fix rereads (fix_landed_reread, rank 2, not the
     CT_NEWEST_FIRST papers' nor the Listener's: those have their own fixes-first rule) moved, in their order,
@@ -2074,15 +2079,21 @@ def fix_rereads_forward(out):
     def other(u):
         return u.get("paper") not in named and u.get("paper") != "listener"
     # The scans such a reread waits on (a "scan stale" unit marked "fix" by only_evidence) go with them.
-    fix = [u for u in out if other(u) and u.get("rank", 9) > 1
-           and (fix_landed_reread(u) or (u.get("kind") == "scan" and u.get("fix")))]
+    # 11-16: the title rescans of FIRST_FIXES (TELEQUICK, TELEGRAPH_DATED: rank 1) sat among the rank-1 Telegraph
+    # never-read units (index 9,239+), and the rank-2 ones (FAINT_EDGE, SUNDAY_WIDE, INDY_TITLED, FT_SMALL_TEXT)
+    # at 1,359-3,700 behind ~300 older NEWEST_LANDED rereads of the same capped non-Times slots
+    # (CT_NON_TIMES_BESIDE_TIMES = 2, ~900 s a Sunday Telegraph read): not one "start read" in 10-18 hours.
+    fix = [u for u in out if other(u)
+           and ((u.get("rank", 9) > 1 and (fix_landed_reread(u) or (u.get("kind") == "scan" and u.get("fix"))))
+                or (u.get("kind") == "read" and u.get("reason") in FIRST_FIXES))]
     if not fix:
         return out
     # 11-14: the newest fixes' rereads lead the block (stable, the order otherwise kept). The block is ~3,350
     # fix rereads of 5+ papers taking turns, and fresh reads start only as the VLM spool has room (spool_cap_hit),
     # so the walk's frontier sat at ~50: 37 SIDES_HEADED and 446 TELEGRAPH_CELLS rereads (index 289-500)
     # had not one "start read" in hours while older fixes' kept re-entering ahead of them.
-    fix.sort(key=lambda u: u.get("kind") != "read" or u.get("reason") not in NEWEST_LANDED)
+    fix.sort(key=lambda u: (not (u.get("kind") == "read" and u.get("reason") in FIRST_FIXES),
+                            u.get("kind") != "read" or u.get("reason") not in NEWEST_LANDED))
     ids = {id(u) for u in fix}
     rest = [u for u in out if id(u) not in ids]
     at = next((i for i, u in enumerate(rest) if other(u) and u.get("rank", 9) <= 1), len(rest))
