@@ -15830,7 +15830,7 @@ WINNERS_NUMBER = "Sunday Times page read before its title was numbered by its so
 REREAD_WINNERS_NUMBER = "2026-11-16T04:14:00+00:00"
 WINNERS_NUMBER_YEARS = tuple(str(y) for y in range(1997, 2006))
 #: The same for the 1995-96 pages (the box two puzzles back, sunday_winners_mended), read before REREAD_WINNERS_1996.
-REREAD_WINNERS_1996 = "2026-11-16T09:00:00+00:00"
+REREAD_WINNERS_1996 = "2026-11-16T08:12:00+00:00"
 WINNERS_1996_YEARS = ("1995", "1996")
 
 
