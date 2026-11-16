@@ -3878,6 +3878,16 @@ check("an Independent on Sunday 2001-04 page left with a light blank 'no reading
        bool(f.ios_foot_due({**_if, "verdicts": [{**_if["verdicts"][0], "blank": {"29-across": "a stray mark inside a word"}}]})),
        bool(f.ios_foot_due({**_if, "edition": "GaleIndependent2002UKEnglish/2002-06-30"})) or f.IOS_FOOT not in f.RANKS,
        f.blanket_or_fix(_if, "scan stale, answers missing") == f.IOS_FOOT])
+_sf = {"edition": "GaleSundayTelegraph1999UKEnglish/1999-09-05", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 1993, "id": "sundaytel-1993", "blank": {"26-down": "no reading laid a clue on it"}}]}
+check("a Gale Sunday Telegraph 1995-2000 page left with a light blank 'no reading laid a clue' is due SUNTEL_FOOT, not one read "
+      "since, a 1990 page, a page with no such blank or another paper's; it keeps the reason past the blanket",
+      [True, False, False, False, False, True],
+      [bool(f.suntel_foot_due(_sf)), bool(f.suntel_foot_due({**_sf, "readAt": "2026-11-18T00:00:00+00:00"})),
+       bool(f.suntel_foot_due({**_sf, "edition": "GaleSundayTelegraph1990UKEnglish/1990-03-04"})),
+       bool(f.suntel_foot_due({**_sf, "verdicts": [{**_sf["verdicts"][0], "blank": {"26-down": "a stray mark inside a word"}}]})),
+       bool(f.suntel_foot_due({**_sf, "edition": "GaleTelegraph1999UKEnglish/1999-09-05"})) or f.SUNTEL_FOOT not in f.RANKS,
+       f.blanket_or_fix(_sf, "scan stale, answers missing") == f.SUNTEL_FOOT])
 _pr = {"edition": "GaleTimes1941UKEnglish/1941-07-03", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
        "scan": {"date": "1941-07-03", "item": "GaleTimes1941UKEnglish"},
        "verdicts": [{"number": 9999977, "imageUnread": "only 14 white cells found", "refused": "no reading parses"}]}
