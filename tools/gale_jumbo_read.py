@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 9
+VERSION = 10
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n(?:[o0]|umber)\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -909,20 +909,34 @@ def read_page(path, store=STORE, asker=None):
     if not g:
         verdict["refused"] = f"grid unread: {why}"
         return verdict, None
-    old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
-    gl.TITLE_WORD = TITLE_WORD
-    gl.times_titles = with_fallback_title(old_titles, img.width)
-    gl.times_cuts = reaching_cuts(widest_cuts(old_cuts, gl), gl, box)
-    try:
-        blocks = gl.times_blocks(img, key)
-    finally:
-        gl.TITLE_WORD, gl.times_titles, gl.times_cuts = old, old_titles, old_cuts
+    def cut_blocks(reach):
+        old, old_titles, old_cuts = gl.TITLE_WORD, gl.times_titles, gl.times_cuts
+        gl.TITLE_WORD = TITLE_WORD
+        gl.times_titles = with_fallback_title(old_titles, img.width)
+        gl.times_cuts = widest_cuts(old_cuts, gl)
+        if reach:
+            gl.times_cuts = reaching_cuts(gl.times_cuts, gl, box)
+        try:
+            return gl.times_blocks(img, key)
+        finally:
+            gl.TITLE_WORD, gl.times_titles, gl.times_cuts = old, old_titles, old_cuts
+
+    blocks = cut_blocks(True)
     if not blocks:
         verdict["refused"] = "no Jumbo clue lists found on the page"
         return verdict, None
     # The grid's light lengths give the vote a count for a clue whose own the OCR lost.
     lengths = {f"{n}-{d}": len(cells) for (n, d), cells in aj.rg.light_cells(g).items()}
     read, laid = gl.times_read(blocks, lengths)
+    if laid is None or read.get("agreed", 0) < LAYOUT_SHARE * len(lengths):
+        # reaching_cuts' widened box can read worse than the plain cut (1997-09-06: 61 -> 55 agreed, 8 -> 23
+        # blanks, a wider block's columns read by the OCR in other bands): the plain cut is read too, the
+        # reading that agrees on more kept.
+        narrow = cut_blocks(False)
+        if narrow and [b[0].size for b in narrow] != [b[0].size for b in blocks]:
+            again, laid2 = gl.times_read(narrow, lengths)
+            if laid2 is not None and (laid is None or again.get("agreed", 0) > read.get("agreed", 0)):
+                read, laid, blocks = again, laid2, narrow
     read, laid, kept = layout_retry(img, key, gl, box, lengths, blocks, read, laid)
     if kept:
         blocks = kept
