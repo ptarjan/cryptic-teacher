@@ -24746,7 +24746,6 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
         fh = input_hash(d)
         # The one row from the kept fold (only lines appended since parsed), not the whole ~283 MB
         # ledger streamed per unit; a copy, as the fold's rows are shared and this unit may change its own.
-        import copy
         row = copy.deepcopy(_planned_known(ledger).get(rel)) or {}
         # A host due its solutions-only read once more (HOST_RESCAN) is read so whether its scan stands or not.
         due = host and host_rescan_due(paper_of(d), row)
@@ -24847,7 +24846,11 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     ledger_size = ledger.stat().st_size if prepared and ledger.exists() else 0
     # brief() shares the queue's standing() rows (only lines appended since
     # parsed): it returns before any scan or read writes to known.
-    known = _standing(ledger) if prepared else load_known(ledger)
+    # A unit (read_unit) that is not brief's reads and changes only its own editions' rows: the kept
+    # fold (parsing only lines appended since) beside its own copies of those, not the whole ledger
+    # streamed (~60 MB, once per unit); the rows it does not touch are shared and left as they are.
+    own = bool((unit or {}).get("dirs")) and not prepared
+    known = _standing(ledger) if prepared else dict(_planned_known(ledger)) if own else load_known(ledger)
     # A unit (read_unit) adds the rows it changed to the ledger; a run
     # holding the ledger's lock throughout rewrites it whole.
     changed = set()
@@ -24865,6 +24868,10 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     seen_by = vlm.version() if vlm.reachable() else None
     dirs = (unit or {}).get("dirs") or edition_dirs(cache, paper)
     rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
+    if own:
+        for r in rels.values():
+            if r in known:
+                known[r] = copy.deepcopy(known[r])
     # With `newer`, only the editions laid out since then are read, and only
     # they and the days after them scanned.
     fresh = None if newer is None else {rels[d] for d in dirs if staged_at(d) >= newer}
