@@ -24362,7 +24362,9 @@ def _other_fix(row, blanket):
     11-16 r80: 79 Gale Independent 2010-14 pages due INDEPENDENT_RIGHT (also INDEPENDENT_HEADINGS, INDY_BARRED, INDY_LINKS,
     INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, FT_HEADINGS, IOS_TITLES ...) stood "scan stale, answers missing",
     which only_evidence drops, so neither the reread nor the scan it waits on was planned."""
-    return fix_reason(row) or blanket
+    why = fix_reason(row)
+    # LOST_WRITE is a Times page's (named above for Times rows); another paper's keeps the blanket reason.
+    return why if why in BLANKET_PASSES and why != LOST_WRITE else blanket
 
 
 def blanket_or_fix(row, blanket):
