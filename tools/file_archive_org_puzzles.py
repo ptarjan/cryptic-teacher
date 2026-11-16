@@ -14409,7 +14409,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # SUNDAY_1970S and GUARDIAN_CUT: a scan's titles and clue columns only, no solution grid's reading moves.
                   "ee605728d17c7d78": "432a5818529a9b11",
                   # TLS_ANCHORS 1982-91 (TLS_MONTHLY): a Gale TLS page's number-date check only, no grid's reading moves.
-                  "ca09e46488965549": "432a5818529a9b11"}
+                  "ca09e46488965549": "432a5818529a9b11",
+                  # caa84cf28d0 (gale_tls_read's square lattice search, unit deadline, trove_solution_ocr): TLS page reads only.
+                  "c828441d2ef9ccdb": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -14552,7 +14554,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # Guardian title reads, see_number, SUNDAY_1970S and GUARDIAN_CUT: titles and clue columns only.
                 "cf744b71e55bcfcc": "9b3500cb5488df7c",
                 # TLS_ANCHORS 1982-91 (TLS_MONTHLY): the number its date implies only.
-                "d864e0b2d6127325": "9b3500cb5488df7c"}
+                "d864e0b2d6127325": "9b3500cb5488df7c",
+                # caa84cf28d0 (gale_tls_read's square lattice search, unit deadline): TLS page reads only.
+                "e65970428db1f6f5": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
