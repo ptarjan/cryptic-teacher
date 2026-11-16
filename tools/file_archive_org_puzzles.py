@@ -7172,6 +7172,28 @@ def held_between(held, window):
     return tuple(pairs[bisect.bisect_left(pairs, (window[0],)):bisect.bisect_right(pairs, (window[1], math.inf))])
 
 
+def sunday_count_off(n, day, held):
+    """Why No `n` of a Gale Sunday Times page of `day` cannot be filed, or None: the Sunday Times numbers one a
+    week, so the filed puzzles either side of `day` (the nearest held, never a global chain: printed numbers
+    skip, Christmas 1994) must lie as many numbers off as weeks, a few over (a skipped number) or, near, a few
+    under. 1987-07-26's title misread 3184 for 3194 sat in date order between 3183 (05-10) and 3201 (09-13) yet
+    ten numbers off both counts; it filed, and refused 3186 and 3190 as out of date order. Over every filed
+    Sunday Times neighbour pair only the misread breaks this."""
+    before, after = neighbours(day, held)
+    for other in (before, after):
+        if not other:
+            continue
+        weeks = abs((other[0] - day).days) // 7
+        gap = abs(other[1] - n)
+        if gap > weeks + 2 + weeks // 20:
+            return (f"No {n} on {day} is {gap} numbers from No {other[1]} on {other[0]}, {weeks} weeks "
+                    f"{'before' if other is before else 'after'}: a misread title, the Sunday Times numbering one a week")
+        if weeks <= 26 and weeks - gap > 4 + weeks // 10:
+            return (f"No {n} on {day} is only {gap} numbers from No {other[1]} on {other[0]}, {weeks} weeks "
+                    f"{'before' if other is before else 'after'}: a misread title, the Sunday Times numbering one a week")
+    return None
+
+
 def placed(n, day, held, vouched=False):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
@@ -7418,6 +7440,9 @@ def filed_number(d, found, hit):
         steady = Held.of(held).steady(paper.expected)
         if len(steady) < len(held):
             number, why = placed(n, day, steady, vouched)
+    if number is not None and paper is GALE_SUNDAY_TIMES:
+        why = sunday_count_off(number, day, held)
+        number = None if why else number
     if number is not None:
         why = same_scan(number, page_url(d, found, hit["leaf"]), day, paper.series)
     return number, day, why
