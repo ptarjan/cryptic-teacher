@@ -40,6 +40,8 @@ STORE = Path(os.path.expanduser("~/.cache/gale_mephisto"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
 VERSION = 5
+#: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
+GRID_FIX = 1
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -213,6 +215,9 @@ def read_done(row):
         return False
     if row and row.get("numberFrom") in ("solution printed", "page text") and (row.get("date") or "9") < COUNT_FROM.isoformat():
         # A number read off the page before 1995 ran one or two off Gale's own titles (1988-02-07 is 1435, read 1434).
+        return False
+    if row and str(row.get("refused") or "").startswith("grid unread") and row.get("gridFix", 0) < GRID_FIX:
+        # Refused before the comb search (comb_lattices) found grids printed with dotted thin rules: read again once.
         return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
@@ -519,6 +524,131 @@ def window_shifts(ink, ys, xs, reach=14, top=6):
     return [dx for _, dx in sorted(scored, key=lambda s: (-s[0], abs(s[1])))[:top]]
 
 
+#: The comb search (comb_lattices) pools the page so a cell is about this many pooled pixels, tries pitches (in page
+#: pixels) in COMB_PITCH, and keeps this many different peaks.
+COMB_POOL = 1300
+COMB_PITCH = (60, 150)
+COMB_KEEP = 4
+_COMB = {}
+
+
+def comb_lattices(ink, keep=COMB_KEEP):
+    """[(ys, xs)] of up to `keep` lattices of a 12x12 grid whose rules are too broken for long_rules (the later
+    pages print the thin rules dotted): the window (pitch, left, top) whose 13 rule rows and 13 rule columns hold
+    more ink than the rows and columns half a cell between them, on the page pooled to ~COMB_POOL px wide. The
+    lines are then set to the ink peaks beside them at the page's full size. Memoised on the page."""
+    import numpy as np
+    tag = (ink.shape, hash(ink[::53, ::53].tobytes()), keep)
+    if tag in _COMB:
+        return _COMB[tag]
+    h, w = ink.shape
+    f = max(1, w // COMB_POOL)
+    ph, pw = h // f, w // f
+    pooled = ink[:ph * f, :pw * f].reshape(ph, f, pw, f).mean((1, 3)).astype(np.float32)
+    cx = np.zeros((ph, pw + 1), np.float32)
+    np.cumsum(pooled, 1, out=cx[:, 1:])
+    cy = np.zeros((ph + 1, pw), np.float32)
+    np.cumsum(pooled, 0, out=cy[1:])
+    found = []
+    for p in np.arange(COMB_PITCH[0] / f, COMB_PITCH[1] / f + 0.01, 1.0):
+        side = int(round(12 * p))
+        if side + 4 >= min(ph, pw):
+            continue
+        tops = np.arange(0, ph - side - 2)
+        for x0 in range(0, pw - side - 2, 2):
+            x1 = x0 + side
+            on = np.zeros(len(tops), np.float32)
+            off = np.zeros(len(tops), np.float32)
+            for k in range(13):
+                r = np.clip(np.round(tops + k * p).astype(int), 0, ph - 1)
+                on += cx[r, x1] - cx[r, x0]
+                if k < 12:
+                    r = np.clip(np.round(tops + (k + 0.5) * p).astype(int), 0, ph - 1)
+                    off += cx[r, x1] - cx[r, x0]
+            bot = tops + side
+            von = np.zeros(len(tops), np.float32)
+            voff = np.zeros(len(tops), np.float32)
+            for k in range(13):
+                c = min(pw - 1, int(round(x0 + k * p)))
+                von += cy[bot, c] - cy[tops, c]
+                if k < 12:
+                    c = min(pw - 1, int(round(x0 + (k + 0.5) * p)))
+                    voff += cy[bot, c] - cy[tops, c]
+            score = (on / 13 - off / 12 + von / 13 - voff / 12) / side
+            i = int(np.argmax(score))
+            found.append((float(score[i]), float(p), x0, int(tops[i])))
+    found.sort(reverse=True)
+    out, kept = [], []
+    for score, p, x0, y0 in found:
+        if any(abs(x0 - a) < 6 * p and abs(y0 - b) < 6 * p for _, _, a, b in kept):
+            continue
+        kept.append((score, p, x0, y0))
+        lat = _comb_refine(ink, p * f, x0 * f, y0 * f)
+        if lat:
+            out.append(lat)
+        if len(kept) >= keep:
+            break
+    _COMB.clear()
+    _COMB[tag] = out
+    return out
+
+
+def _comb_refine(ink, p, x0, y0):
+    """(ys, xs) of the comb window set to the ink peaks within a quarter cell of each of its lines, or None."""
+    import numpy as np
+    h, w = ink.shape
+    side = int(round(12 * p))
+    if y0 + side >= h or x0 + side >= w:
+        return None
+    # The window is searched again at the page's full size: pitch within 6%, corner within 0.4 cell.
+    m = int(0.4 * p) + 2
+    ya, xa = max(0, y0 - m), max(0, x0 - m)
+    crop = ink[ya:min(h, y0 + side + 2 * m), xa:min(w, x0 + side + 2 * m)]
+    cx = np.zeros((crop.shape[0], crop.shape[1] + 1), np.int32)
+    np.cumsum(crop, 1, out=cx[:, 1:])
+    cy = np.zeros((crop.shape[0] + 1, crop.shape[1]), np.int32)
+    np.cumsum(crop, 0, out=cy[1:])
+    ch, cw = crop.shape
+    best = None
+    step = max(2, int(p / 30))
+    for q in np.arange(0.94 * p, 1.0601 * p, max(1.0, p / 50)):
+        span = int(round(12 * q))
+        tops = np.arange(0, ch - span - 3, step)
+        if not len(tops):
+            continue
+        for l0 in range(0, cw - span - 3, step):
+            l1 = l0 + span
+            on = np.zeros(len(tops), np.float32)
+            off = np.zeros(len(tops), np.float32)
+            for k in range(13):
+                for d in (-1, 0, 1):
+                    r = np.clip(np.round(tops + k * q).astype(int) + d, 0, ch - 1)
+                    on += cx[r, l1] - cx[r, l0]
+                if k < 12:
+                    for d in (-1, 0, 1):
+                        r = np.clip(np.round(tops + (k + 0.5) * q).astype(int) + d, 0, ch - 1)
+                        off += cx[r, l1] - cx[r, l0]
+            von = np.zeros(len(tops), np.float32)
+            voff = np.zeros(len(tops), np.float32)
+            bot = np.clip(tops + span, 0, ch)
+            for k in range(13):
+                for d in (-1, 0, 1):
+                    c = int(np.clip(round(l0 + k * q) + d, 0, cw - 1))
+                    von += cy[bot, c] - cy[tops, c]
+                if k < 12:
+                    for d in (-1, 0, 1):
+                        c = int(np.clip(round(l0 + (k + 0.5) * q) + d, 0, cw - 1))
+                        voff += cy[bot, c] - cy[tops, c]
+            score = (on / 13 - off / 12 + von / 13 - voff / 12)
+            i = int(np.argmax(score))
+            if best is None or score[i] > best[0]:
+                best = (float(score[i]), q, l0, int(tops[i]))
+    if best is None:
+        return None
+    _, q, l0, t0 = best
+    return ([float(ya + t0 + k * q) for k in range(13)], [float(xa + l0 + k * q) for k in range(13)])
+
+
 def read_barred(gray, lattice=None, wanted=None):
     """(rows, found, None) or (None, None, why) of the barred grid on `gray` (a page, uint8): the lattice found, its
     cell sides measured by listener_grid.read_box, the bars set as ios_barred.read_found sets them."""
@@ -527,14 +657,20 @@ def read_barred(gray, lattice=None, wanted=None):
     binary = len(np.unique(gray[::7, ::7])) <= 2
     ink = gray < (128 if binary else max(lg.trove_grid.otsu(gray), 1))
     cands = [lattice] if lattice else find_lattices(ink)
-    if not cands:
-        return None, None, "no 12x12 lattice of rules on the page"
     first = None
     for ys, xs in cands:
         rows, found, why = read_lattice(gray, ink, ys, xs, wanted)
         if rows is not None:
             return rows, found, None
         first = first or (found, why)
+    if not lattice:
+        # No long rule found sets the grid (a page printing its thin rules dotted, a blocked grid of another puzzle
+        # beside it): the window whose rule rows and columns hold the most ink is tried (comb_lattices).
+        for ys, xs in comb_lattices(ink):
+            rows, found, why = read_lattice(gray, ink, ys, xs, wanted)
+            if rows is not None:
+                return rows, found, None
+            first = first or (found, why)
     if not lattice:
         # The lattice's phase is a guess (the rules' broken left ends, a text line's rules): the same lattice a
         # cell or two along either way is tried, the symmetric bars and a Mephisto's lights saying which is the grid.
@@ -551,6 +687,8 @@ def read_barred(gray, lattice=None, wanted=None):
                 rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
                 if rows is not None:
                     return rows, found, None
+    if first is None:
+        return None, None, "no 12x12 lattice of rules on the page"
     return None, first[0], first[1]
 
 
@@ -607,6 +745,38 @@ def lists_cut(words, box):
         if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (STOP_WORD.match(w[4]) and not re.match(
                 r"(?i)(solutions?|answers)\s+(except|for|of|to the)\b", rest) and not rest.lower().startswith(
                     ("solutions", "solution ", "answers")))):
+            break
+        if w[1] - bottom > 3 * lh and bottom > top + 6 * lh:
+            break
+        bottom = max(bottom, w[3])
+    return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+def beside_cut(words, box):
+    """(box, masks) of the clue lists printed to the right of the grid at `box` (the later pages set the grid at the
+    page's left, the Across and Down columns beside it from the grid's top), or None: the Across heading right of the
+    grid near its top and the Down heading beside it give the two columns' width; the lists run down to the first
+    stop word or gap of three lines."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    heads = [w for w in words if gl.heading(w[4]) and box[1] - 6 * lh <= w[1] <= box[3] - 6 * lh and w[0] >= box[2] - lh
+             and w[0] - box[2] < 4 * (box[2] - box[0])]
+    across = [w for w in heads if gl.heading(w[4]) == "ACROSS"]
+    if not across:
+        return None
+    a = min(across, key=lambda w: (abs(w[1] - box[1]), w[0]))
+    downs = [w for w in heads if gl.heading(w[4]) == "DOWN" and w[0] > a[0] + 3 * lh and abs(w[1] - a[1]) < 3 * lh]
+    if not downs:
+        return None
+    d = min(downs, key=lambda w: w[0])
+    left, right = a[0] - lh / 2, d[0] + (d[0] - a[0]) - lh / 2
+    top = a[1] - lh / 2
+    inside = [w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top]
+    bottom = top
+    for w in sorted(inside, key=lambda w: w[1]):
+        rest = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
+                        if o[0] >= w[0] - 1 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2)
+        if w[1] > top + 6 * lh and STOP_LINE.match(rest):
             break
         if w[1] - bottom > 3 * lh and bottom > top + 6 * lh:
             break
@@ -810,7 +980,7 @@ def tight_mended(block, laid, blank, lengths, gl, asker=None):
 
 def listed(img, key, words, found, gl):
     """wanted_of the clue lists under the grid at `found`, read without the grid's lengths ([] when none read)."""
-    block = lists_block(img, key, words, lists_cut(words, found["box"]), gl)
+    block = lists_block(img, key, words, beside_cut(words, found["box"]) or lists_cut(words, found["box"]), gl)
     if not block:
         return []
     _, laid = gl.times_read([block], None)
@@ -865,7 +1035,7 @@ def read_page(path, store=STORE, asker=None):
     gpath = Path(store) / "grids" / f"{path.stem}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
     img.crop(found["box"]).save(gpath)
-    cut = lists_cut(words, found["box"])
+    cut = beside_cut(words, found["box"]) or lists_cut(words, found["box"])
     block = lists_block(img, key, words, cut, gl)
     if not block:
         verdict["refused"] = "no Mephisto clue lists found on the page"
@@ -941,7 +1111,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
-    append_row({**verdict, "version": VERSION}, store)
+    append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

@@ -80,6 +80,17 @@ gm.append_row({"file": "GALE_FP2.pdf", "failed": "crashed: X", "attempts": 1, "v
 check("a crashed page stays due", ["mephisto:GALE_FP2.pdf"], [u["rel"] for u in gm.plan(saved, store)])
 gm.append_row({"file": "GALE_FP1.pdf", "version": gm.VERSION - 1}, store)
 check("an older version is read again", 2, len(gm.plan(saved, store)))
+refused = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "grid unread: the bars are 0.10 symmetric"}
+check("a grid refusal before the comb search is due", False, gm.read_done(refused))
+check("a grid refusal at GRID_FIX stands", True, gm.read_done({**refused, "gridFix": gm.GRID_FIX}))
+check("another refusal is not re-read", True, gm.read_done({**refused, "refused": "no Mephisto clue lists found on the page"}))
+# the comb search finds a grid drawn with dotted thin rules and thick bars
+dotted = np.zeros((1300, 1300), bool)
+for i in range(13):
+    dotted[100 + 80 * i - 1:100 + 80 * i + 2, 100:1060:3] = True
+    dotted[100:1060:3, 100 + 80 * i - 1:100 + 80 * i + 2] = True
+combed = gm.comb_lattices(dotted, keep=1)
+check("the comb search finds a dotted lattice", True, bool(combed) and abs(combed[0][0][0] - 100) < 6 and abs(combed[0][1][12] - 1060) < 8)
 
 # --- the Down list's head at the left column's foot (1 and 2 Down, under a "Down" heading)
 import gale_listener as gl
