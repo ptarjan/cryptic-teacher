@@ -782,6 +782,7 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
     A paper whose ledger a batch run holds throughout is left out (its units
     could not add their rows)."""
     load_caches()
+    _HELD_SEEN.clear()
     try:
         # One scope for the whole plan: each series is listed and the VLM probed once, not per paper.
         with fa.held_once():
@@ -1396,10 +1397,27 @@ def only_evidence(paper, scans, reads, out=None):
 #: plan was kept (plan_file) and run from. A batch run holding it throughout outlasts this.
 PLAN_HOLD_WAIT = 20
 
+#: A paper whose ledger is held past PLAN_HOLD_WAIT is planned after every other paper, its ledger looked at
+#: again for this many PLAN_HOLD_WAITs, and left out only if it is held still. 11-16: about one plan in five
+#: left out Times, Telegraph, Guardian, FT and the Gale papers (archive_org_editions/filed.jsonl, one ledger
+#: and one lock for all of them; "planned: 0 scans, 2979 reads"), each after its own 20 s wait, twice
+#: (plan_inputs, _plan), while a restart's ledger_upkeep re-keyed that ledger once per paper (3-5 min held);
+#: the partial plan was kept and run from for ~20 min.
+PLAN_HOLD_RETRY = 6
 
-def ledger_held(ledger):
-    """Whether a batch run holds `ledger` (scan_queue.held after PLAN_HOLD_WAIT), not a unit's write."""
-    return bool(scan_queue.held(ledger, PLAN_HOLD_WAIT))
+#: {lock path: held} of ledger_held within one plan() (cleared as it starts): papers sharing a ledger (and
+#: plan_inputs then _plan) wait on its lock once, not once each.
+_HELD_SEEN = {}
+
+
+def ledger_held(ledger, wait=None):
+    """Whether a batch run holds `ledger` (scan_queue.held after PLAN_HOLD_WAIT), not a unit's write; the
+    answer this plan already had for its lock (_HELD_SEEN) unless `wait` (seconds) asks it again."""
+    path = str(scan_queue.lock_path(ledger))
+    if wait is None and path in _HELD_SEEN:
+        return _HELD_SEEN[path]
+    _HELD_SEEN[path] = held = bool(scan_queue.held(ledger, PLAN_HOLD_WAIT if wait is None else wait))
+    return held
 
 
 def plan_inputs(papers, cache, reread, asked):
@@ -1461,7 +1479,15 @@ def _plan(papers, cache, reread, out, asked=None):
     if vlm_reader.unconfigured() and out is not None:
         out.append(f"VLM NOT CONFIGURED: {vlm_reader.UNCONFIGURED}; treated as VLM down, "
                    "reads that need it wait (an explicitly empty VLM_READER_URL is the OCR-only opt-out)")
-    began, took = time.monotonic(), {}
+    began, took, later = time.monotonic(), {}, []
+
+    def paper_units(k, key):
+        sc, rd = fa.plan(fa.FILERS[key], cache, reread=reread, asked=asked.get(key, ()))
+        if not blanket:
+            sc, rd = only_evidence(key, sc, rd, out)
+        scans.extend((u["rank"], k, n, u) for n, u in enumerate(sc))
+        reads.extend((u["rank"], k, n, u) for n, u in enumerate(rd))
+
     for k, key in enumerate(papers):
         took[key] = time.monotonic()
         if key == "listener":
@@ -1479,16 +1505,24 @@ def _plan(papers, cache, reread, out, asked=None):
                 _, tr = only_evidence("trove", [], tr)
             reads += [(u["rank"], k, n, u) for n, u in enumerate(tr)]
             continue
-        paper = fa.FILERS[key]
-        if ledger_held(fa.ledger_of(cache, paper)):
-            if out is not None:
-                out.append(f"{key}: a run holds {fa.ledger_of(cache, paper).with_suffix('.lock')}; left out")
+        if ledger_held(fa.ledger_of(cache, fa.FILERS[key])):
+            later.append((k, key, len(out) if out is not None else 0))  # after the others (PLAN_HOLD_RETRY)
             continue
-        sc, rd = fa.plan(paper, cache, reread=reread, asked=asked.get(key, ()))
-        if not blanket:
-            sc, rd = only_evidence(key, sc, rd, out)
-        scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
-        reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
+        paper_units(k, key)
+    # A held ledger once more, each lock once, after every other paper: a restart's upkeep or a convoy of
+    # unit writes is over by now, and only a run holding it still (a batch run's) leaves its papers out.
+    asked_again, gone = set(), 0
+    for k, key, at in later:
+        ledger = fa.ledger_of(cache, fa.FILERS[key])
+        lock = str(scan_queue.lock_path(ledger))
+        took[f"{key} (held)"] = time.monotonic()
+        held = ledger_held(ledger, None if lock in asked_again else PLAN_HOLD_RETRY * PLAN_HOLD_WAIT)
+        asked_again.add(lock)
+        if not held:
+            paper_units(k, key)
+        elif out is not None:
+            out.insert(at + gone, f"{key}: a run holds {lock}; left out")
+            gone += 1
     scans, reads = hold_refusal_rereads(scans, reads, out)
     scans, reads = hold_low_yield_eras(scans, reads, out)
     ended = time.monotonic()
@@ -5159,9 +5193,15 @@ def take_over(path):
 
 def ledger_upkeep(papers, cache):
     """Re-key and fold each paper's ledger (under its lock, so units append
-    meanwhile): tens of seconds on the media mount."""
+    meanwhile): tens of seconds on the media mount, so each ledger once. (11-16: archive_org_editions/filed.jsonl
+    is a dozen papers' ledger and was re-keyed once per paper, its lock held 3-5 min after each restart; a
+    plan made then left all those papers out, ledger_held.)"""
+    done = set()
     for key in [k for k in papers if k != "listener"]:
         ledger = media_manifest.trove_ledger(ftp.CACHE) if key == "trove" else fa.ledger_of(cache, fa.FILERS[key])
+        if (key == "trove", str(ledger)) in done:
+            continue
+        done.add((key == "trove", str(ledger)))
         if key != "trove" and (n := fa.rekey_scans(ledger)):
             log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
         if key == "trove" and (n := ftp.rekey_unchanged(ledger)):
