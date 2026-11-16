@@ -12437,7 +12437,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # right_columns() read the ads, and the clue column left of the grid went unread).
     right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), ft_rise(paper, gbox, hit["box"]),
                                   paper.key == "galeindependent") if side == "below" and top is None \
-        and not sides and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
+        and not sides and not column and not paper.four and not third and kind not in ("plain", "lead") and not two_columns_only(paper, d) \
         else (None, None)
     # The Gale Independent 2004's three print columns under a grid with its solution box right of it: the third
     # overhangs the grid (x 2170-2600 of a grid ending 2150), ACROSS running into the second and DOWN over the
@@ -12482,6 +12482,13 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             lead = (alt_x, lead[1])
         elif alts is not None:
             alts.extend(("lead", x) for x in edge_candidates(img, gbox, lead)[1:])
+    # FT_LEAD_WHOLE: a Gale FT page's lead column untrimmed, and the gutters around that edge, tried as windows (the
+    # layout's window may have right columns, its lead read only by the plain window, whose alts are not kept).
+    if paper.key == "galeft" and alts is not None and side == "below" and top is None and (lead or right or over):
+        whole = indented_column(hit["box"], gbox, m)
+        if whole is not None:
+            alts.extend(a for a in (("lead", x) for x in edge_candidates(img, gbox, whole))
+                        if a not in alts and not (lead and a[1] == lead[0]))
     if right and kind == "right":
         right = (alt_x, *right[1:])
     elif right and alts is not None:
@@ -16324,6 +16331,34 @@ def indy_thin_due(row):
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and filed_state(series, v.get("number")) is None
                and any(str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values())
+               for v in row.get("verdicts") or ())
+
+
+#: The due reason of a Gale FT 1990s page refused "no reading parses" whose title stands left of its grid (the clue
+#: columns under the title, left of the grid), read before REREAD_FT_LEAD_WHOLE. 11-15 census (latest ledger row of
+#: 1,578 Gale FT 1990-99 editions: ~41 unfiled "no reading parses", 28 of them 1993-07 to 1993-12): trimmed_lead() cut
+#: the lead window at a blank run INSIDE the ACROSS column (1993-08-17: x 1949, the column and its ACROSS heading from
+#: x 1909: the reader saw "OSS", "pher,one"), so no ACROSS and DOWN lists parsed, and the only other windows were the
+#: trimmed gutters 1993 and 1949. The window's untrimmed edge (indented_column: 1746) and the gutters round it (1347,
+#: 1947) are alternatives now (FT_LEAD_WHOLE), as the filed pages' 1520 and 1602 were. Read once.
+FT_LEAD_WHOLE = "Gale FT page refused no reading parses, its lead column read from its untrimmed left edge since"
+REREAD_FT_LEAD_WHOLE = "2026-11-16T05:45:00+00:00"
+
+
+def ft_lead_whole_due(row):
+    """Whether Gale FT ledger `row`, read before REREAD_FT_LEAD_WHOLE, holds a puzzle not filed refused "no reading
+    parses" whose title's left edge stands 1500-2200 px from the page's, its clue lists not found or cut."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GALE_FT.key or not re.match(r"GaleFT199\d", rel) \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_FT_LEAD_WHOLE)):
+        return False
+    series = paper_of(rel).series
+    titles = {p.get("number"): p.get("box") for p in (row.get("scan") or {}).get("puzzles") or ()}
+    return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
+               and filed_state(series, v.get("number")) is None
+               and 1500 <= (titles.get(v.get("number")) or (0,))[0] <= 2200
+               and any(str(s).startswith("no ACROSS and DOWN lists") or "cannot find a clue number" in str(s)
+                       for s in (v.get("unparsed") or {}).values())
                for v in row.get("verdicts") or ())
 
 
@@ -22362,6 +22397,8 @@ def fix_reason(row):
         return INDY_GUTTER_DOWN
     if indy_thin_due(row):
         return INDY_THIN
+    if ft_lead_whole_due(row):
+        return FT_LEAD_WHOLE
     if ios_words_due(row):
         return IOS_WORDS
     if indy_frame_due(row):
@@ -23129,6 +23166,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_OVER_PLAIN, INDY_GUTTER_DOWN,
                   # 11-16: an Independent page refused no ACROSS and DOWN lists, its print columns read since (indy_thin_due).
                   INDY_THIN,
+                  # 11-16: a Gale FT 1990s page refused no reading parses, its lead column cut inside (ft_lead_whole_due).
+                  FT_LEAD_WHOLE,
                   # 11-15: an Independent on Sunday page whose enumerations carry a count of words (ios_words_due).
                   IOS_WORDS,
                   # 11-16: a Gale page whose stretched lattice was called larger than its frame (indy_frame_due).
@@ -23218,6 +23257,7 @@ def blanket_or_fix(row, blanket):
             else INDY_OVER_PLAIN if indy_over_plain_due(row) \
             else INDY_GUTTER_DOWN if indy_gutter_down_due(row) \
             else INDY_THIN if indy_thin_due(row) \
+            else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else IOS_WORDS if ios_words_due(row) \
             else INDY_FRAME if indy_frame_due(row) \
             else FAINT_EDGE if faint_edge_due(row) \
@@ -23441,7 +23481,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
