@@ -91,15 +91,23 @@ def get(path, **params):
         time.sleep(wait)
     url = f"{BASE}/{path}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            body = json.load(r)
-            total = int(r.headers.get("X-WP-TotalPages") or 1)
-    except urllib.error.HTTPError as e:
-        # Put the failure in the message; a caller should never need the log.
-        raise SystemExit(f"{url} -> HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}")
-    finally:
-        _last_request[0] = time.monotonic()
+    # A dropped connection, or a 200 whose body is not JSON (an empty answer the
+    # site gives now and then), is retried with backoff; an HTTP error is not.
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                body = json.load(r)
+                total = int(r.headers.get("X-WP-TotalPages") or 1)
+            break
+        except urllib.error.HTTPError as e:
+            # Put the failure in the message; a caller should never need the log.
+            raise SystemExit(f"{url} -> HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}")
+        except (urllib.error.URLError, TimeoutError, ConnectionError, json.JSONDecodeError):
+            if attempt == 3:
+                raise
+            time.sleep(30 * 2 ** attempt)
+        finally:
+            _last_request[0] = time.monotonic()
     return body, total
 
 
