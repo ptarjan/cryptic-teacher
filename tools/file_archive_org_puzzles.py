@@ -4402,6 +4402,9 @@ def grid_first_words(img, band, which, cache_path):
     return words
 
 
+FT_SMALL_LINES = 20
+
+
 def _scan(d):
     pages = json.loads((d / "pages.json").read_text())
     leaves = {p["leaf"] for p in pages.get("crossword_pages", ())
@@ -4412,7 +4415,10 @@ def _scan(d):
     paper = paper_of(d)
     text = leaf_lines(d / "djvu.xml.gz", leaves)
     for leaf in sorted(leaves):
-        if leaf not in text:
+        # An FT archive.org leaf with under FT_SMALL_LINES lines of text and no title among them has no text to read
+        # (a djvu.xml with none, or one word of a masthead): it is read from its ink like a leaf with no text at all.
+        thin = paper is FT and leaf in text and len(text[leaf]) < FT_SMALL_LINES and not paper.headings(text[leaf])[0]
+        if leaf not in text or thin:
             img = page(d, leaf)
             # A whole-page read runs a title into the column beside it; the
             # bands round each grid read it alone (ocr_titles).
