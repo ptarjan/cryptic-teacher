@@ -4755,8 +4755,10 @@ def sunday_winners_mended(titles, sols, paper, day):
             or len(seen) != 1:
         return titles
     want = next(iter(seen)) + 1
-    if any(t[0] == want for t in titles) or abs(want - sunday_times_expected_number(day)) > SUNDAY_TIMES_SLACK:
+    if abs(want - sunday_times_expected_number(day)) > SUNDAY_TIMES_SLACK:
         return titles
+    if any(t[0] == want for t in titles):
+        return [t for t in titles if t[0] != want - 3]
     return list({t[0]: t for t in ((want, *t[1:]) if t[0] == want - 3 else t for t in titles)}.values())
 
 
@@ -14153,19 +14155,19 @@ for _paper, _pins in _TLS_MONTHLY_FIX.items():
 #: moves, but only the Gale Sunday Times's pages of those years read otherwise: every scan stands, and those pages
 #: are read again once (WINNERS_NUMBER), the 91 files b30c5061bfd renumbered by hand among them.
 _WINNERS_NUMBER_FIX = {
-    "ft": ("59dd1373ead61432", "21d972a378b97f25", "2a65cd51591fec1a"),
-    "gale": ("9379485e659b335e", "8077177bdeec95d0", "3ecaf6a10f800f9e"),
-    "galeft": ("a4b510676c9eaae6", "a1d76796d04df372", "e19dfa2debd8d64b"),
-    "galeindependent": ("58b88369b54eab1c", "06f0c66a2d63ce5e", "a4a7d9ccba9a26ee"),
-    "galeindysunday": ("89f0e348d55fb691", "03e64591f4bbee05", "af096215824cdfce"),
-    "galesundaytelegraph": ("80bf7776db6afd3a", "a99e496bb5b9203a", "8d341c4fad9ef979"),
-    "galesundaytimes": ("7cb261675a55d659", "c09ee0834da6f8c9", "b096f9f21c3f72a6"),
-    "galetelegraph": ("485a6d87bbf3d3df", "3c29880f33b8fb17", "a9b5d18f7f61773d"),
-    "galetls": ("67c08b8e91a0d3e7", "cb97f0e5f4b23569", "1dbb90dd30f78122"),
-    "guardian": ("9a1183b516c1be9b", "0c05b7d01e05e8f3", "acaa07e4029ab1d7"),
-    "telegraph": ("08ee83f921248744", "7e625f4e0ee1f266", "8b10dc5d7de3f4e7"),
-    "times": ("a3c118b96b77f665", "5e3b563ec26e326b", "530b82cf6135e037"),
-    "times1930": ("cb3bfb639c928c38", "5d6af324edea605b", "ee1f895becfcc88d"),
+    "ft": ("59dd1373ead61432", "21d972a378b97f25", "045f39795f2abcf9"),
+    "gale": ("9379485e659b335e", "8077177bdeec95d0", "0e02cf48c4498145"),
+    "galeft": ("a4b510676c9eaae6", "a1d76796d04df372", "912efd04f85096bb"),
+    "galeindependent": ("58b88369b54eab1c", "06f0c66a2d63ce5e", "435d35eff5b77af8"),
+    "galeindysunday": ("89f0e348d55fb691", "03e64591f4bbee05", "334b46ef7fc49267"),
+    "galesundaytelegraph": ("80bf7776db6afd3a", "a99e496bb5b9203a", "58cec350f6eee7ae"),
+    "galesundaytimes": ("7cb261675a55d659", "c09ee0834da6f8c9", "d7f2b2c474d30c65"),
+    "galetelegraph": ("485a6d87bbf3d3df", "3c29880f33b8fb17", "003a5813d62026fa"),
+    "galetls": ("67c08b8e91a0d3e7", "cb97f0e5f4b23569", "8afa5b3ace71d3d8"),
+    "guardian": ("9a1183b516c1be9b", "0c05b7d01e05e8f3", "aa179d16623c2740"),
+    "telegraph": ("08ee83f921248744", "7e625f4e0ee1f266", "cf0c356df02f6372"),
+    "times": ("a3c118b96b77f665", "5e3b563ec26e326b", "d5e03fa3503c0c77"),
+    "times1930": ("cb3bfb639c928c38", "5d6af324edea605b", "53390f233b1098ea"),
 }
 for _paper, _pins in _WINNERS_NUMBER_FIX.items():
     for _keys in CORPUS_KEYS.values():
@@ -15545,7 +15547,7 @@ def sunday_number_rescan(row):
 #: reads "Solution No 4136"), filed three numbers low (91 files renumbered by hand in b30c5061bfd; 2003-05-18 filed as
 #: 4014 for 4017 by a reread). sunday_winners_mended reads the number after the solution heading. Read again, once.
 WINNERS_NUMBER = "Sunday Times page read before its title was numbered by its solution heading, not the winners box"
-REREAD_WINNERS_NUMBER = "2026-11-16T02:33:00+00:00"
+REREAD_WINNERS_NUMBER = "2026-11-16T04:14:00+00:00"
 WINNERS_NUMBER_YEARS = tuple(str(y) for y in range(1997, 2006))
 
 
@@ -22195,10 +22197,10 @@ def fix_reason(row):
         return HEADINGS_JOINED
     if winners_rescan(row):
         return WINNERS_TITLE
-    if sunday_number_rescan(row):
-        return SUNDAY_NUMBER
     if winners_number_rescan(row):
         return WINNERS_NUMBER
+    if sunday_number_rescan(row):
+        return SUNDAY_NUMBER
     if telegraph_saturday_due(row):
         return TELEGRAPH_SATURDAY
     if telegraph_next_due(row):
@@ -23042,10 +23044,10 @@ def blanket_or_fix(row, blanket):
             return WEEKDAY_RIGHT
         # 11-15: 155 of 217 Independent on Sunday rows due INDY_PAIRED were planned "scan stale, answers missing"
         # (a blanket reason only_evidence drops): its page's puzzle is held by no file, as good as never read.
-        if ios_even_due(row):
-            return IOS_EVEN
         if indy_paired_due(row):
             return INDY_PAIRED
+        if ios_even_due(row):
+            return IOS_EVEN
         if left_edge_grid_due(row):
             return LEFT_EDGE_GRID
         if quarter_plain_due(row):

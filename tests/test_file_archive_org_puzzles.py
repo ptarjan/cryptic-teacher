@@ -3820,7 +3820,7 @@ _ie = {"edition": "GaleIndependentSunday1997UKEnglish/1997-03-23", "readAt": "20
 check("an Independent on Sunday page whose barred grid's lattice was counted 11x12 is due IOS_EVEN, not one read since, filed, "
       "counted without a 12, or another paper's; it keeps the reason past the blanket (blanket_or_fix)",
       [True, False, False, False, False, True],
-      [bool(f.ios_even_due(_ie)), bool(f.ios_even_due({**_ie, "readAt": "2026-11-16T00:00:00+00:00"})),
+      [bool(f.ios_even_due(_ie)), bool(f.ios_even_due({**_ie, "readAt": "2026-11-16T02:00:00+00:00"})),
        bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "wrote": True}]})),
        bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "imageUnread": "the white cells span 10 rows and 11 columns"}]})),
        bool(f.ios_even_due({**_ie, "edition": "GaleIndependent2005UKEnglish/2005-01-30"})) or f.IOS_EVEN not in f.RANKS,
@@ -5656,7 +5656,7 @@ check("a Gale Sunday Times 1997-2005 page read before the rescan is due WINNERS_
       "a later read stand", [True, f.WINNERS_NUMBER, 1, False, False],
       [f.winners_number_rescan(_wnr), f.fix_reason(_wnr), f.RANKS[f.WINNERS_NUMBER],
        f.winners_number_rescan({**_wnr, "edition": "GaleSundayTimes2005UKEnglish/2005-09-18", "date": "2005-09-18"}),
-       f.winners_number_rescan({**_wnr, "readAt": "2026-11-16T00:00:00+00:00"})])
+       f.winners_number_rescan({**_wnr, "readAt": "2026-11-17T00:00:00+00:00"})])
 
 # The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
 # "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick
