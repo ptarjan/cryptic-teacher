@@ -13504,6 +13504,17 @@ def vlm_laid_plain(texts, laid, blank, lengths):
             after = k + 1 < len(entries) and bool(above) and entries[k + 1][0] == above[0]
             if (before and after) or (before and not above) or (after and not below):
                 found.add(words)
+        if len(found) > 1:
+            # PLAIN_VARIANTS: the reply holds the light's clue twice (a column read in two windows) and the two
+            # copies differ only in words short of four letters ("sort o name" / "a funereal sort of name"):
+            # the copy with the fewest stray one-letter words is the clue.
+            spelt_of = {w: frozenset(re.findall(r"[a-z]{4,}", w.lower())) for w in found}
+            if len(set(spelt_of.values())) != 1:
+                continue
+            stray = {w: len([t for t in re.findall(r"[A-Za-z]+", w) if len(t) == 1 and t.lower() not in "ai"])
+                     for w in found}
+            best = min(stray.values())
+            found = {w for w in found if stray[w] == best}
         if len(found) != 1:
             continue
         words = ocr_clues.trimmed(ocr_clues.clean(found.pop()), lid)
@@ -18732,7 +18743,7 @@ def quarter_1934_due(row):
 #: neighbours only where a count fitted that light, and a count-less print has none. With plain=True each takes the
 #: light its place in the list gives it, no count, when the neighbours leave exactly as many lights as clues. Once each.
 PLAIN_BETWEEN = "unfiled before its fix, a count-less 1930-33 clue whose number was lost laid on the light its place gives it"
-REREAD_PLAIN_BETWEEN = "2026-11-16T18:15:00+00:00"
+REREAD_PLAIN_BETWEEN = "2026-11-16T18:02:00+00:00"
 
 
 def plain_between_due(row):
