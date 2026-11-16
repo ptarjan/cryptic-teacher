@@ -501,6 +501,7 @@ if _spec.get("unit", {}).get("kind") in ("scan", "read"):
     sys.exit(unit_main(_spec))
 # The queue's own modules: imported only past the unit dispatch above, so a
 # unit's process never loads them.
+import ask_log_fold
 import code_reach
 import dir_cache
 import edition_commit
@@ -519,6 +520,9 @@ import ocr_remote
 import plan_fork
 import scan_queue
 import vlm_reader
+
+# vlm_asks.log read once, then by its appended lines (a plan pass parsed it whole ~45 times, ~900 MB).
+ask_log_fold.install(fa)
 
 #: Modules the queue process reaches only through lazy imports of the blog filers' paths (clues_only's
 #: _blog_build, ft_puzzles, ...) and never runs: it starts units, it reads no blog post. Loaded, they were in
