@@ -2133,6 +2133,28 @@ def band_unglued(ws, gutters):
             for w in ws if not BAND_PUZZLE_NUMBER.fullmatch(w[4])]
 
 
+#: The fewest short marks that make a column of them left of the clue columns (without_edge_marks).
+EDGE_MARKS = 6
+
+
+def without_edge_marks(lines, win):
+    """`lines` without the column of short marks (1-3 characters: "2", "1", "NN", "11") the scan holds just left of
+    the first of four clue columns' numbers (Gale Times 1934-12-03: a strip of digits at x 2016-2039 down the page's
+    whole column, the numbers starting at 2041), which each opened a line of its own text as a lost clue number.
+    A mark ends at least 2px left of where the column's clue numbers start (their median) and is as many as
+    EDGE_MARKS, else `lines` whole."""
+    x0, x1, _, top = win[:4]
+    opens = sorted(w[0] for ws in lines for w in ws if x0 <= w[0] < x1 and w[1] >= top and CLUE_OPENS.match(w[4]))
+    if len(opens) < 3:
+        return lines
+    edge = opens[len(opens) // 2]
+    def mark(w):
+        return x0 <= w[0] and w[2] <= edge - 2 and w[1] >= top and len(w[4]) <= 3
+    if sum(mark(w) for ws in lines for w in ws) < EDGE_MARKS:
+        return lines
+    return [[w for w in ws if not mark(w)] for ws in lines]
+
+
 def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None, strip=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; with `lead`, first one left of
@@ -2143,6 +2165,8 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     bottom = gy0 - 3 if above else right[2] if right else left[2] if left else gy1 + 1.8 * (gx1 - gx0)
     wins = windows(grid, third, margin, above, left, split, lead, right, strip)
     main = [w for w in wins if len(w) == 4]
+    if isinstance(split, tuple) and len(split) == 4 and above is None and not left and not right:
+        lines = without_edge_marks(lines, wins[0])
     reach = gx1 + RIGHT_REACH if above is None and not left and not right and not isinstance(split, tuple) else None
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
@@ -12888,7 +12912,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
              under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None)) \
             if above is None and left is None and not right else None
         quartered = paper.key == "gale" and (QUARTER_ALT_YEARS[0] <= d.name[:4] <= QUARTER_ALT_YEARS[1]
-                                             or plain_print(paper, d)) \
+                                             or quarter_print(paper, d)) \
             and above is None and left is None and not right and not over and not wide
         if wide_read:
             split = beside_split(every, gbox, wide)
@@ -17998,7 +18022,7 @@ def unfiled_modern(row):
 #: and none otherwise (the rest never asked). Its own reason, not "unfiled before its fix": CANARY_FAILED
 #: holds that one for the Times. Once each; only verdicts whose blank token now passes suspect().
 DASH_JOINED = "unfiled before its fix, a close-set dash"
-REREAD_DASH_JOINED = "2026-10-27T14:45:00+00:00"
+REREAD_DASH_JOINED = "2026-10-27T15:47:00+00:00"
 
 
 def dash_joined(row):
@@ -18474,7 +18498,14 @@ def quarter_plain_short(verdict, d):
     lists stand in four columns (ACROSS in the first two, DOWN on through all four) and the two-column window joins
     a column's rows to the next's, so the foot of its third column (18-23 down, the number glued to the first word
     and the line merged with the fourth column's) is read in no reading."""
-    return d is not None and plain_print(paper_of(d), d) and bool(verdict.get("blank")) and not verdict.get("refused")
+    return d is not None and quarter_print(paper_of(d), d) and bool(verdict.get("blank")) and not verdict.get("refused")
+
+
+def quarter_print(paper, d):
+    """Whether edition dir `d` of `paper` is a Gale Times page set in four clue columns under its grid that the
+    "quarters" window is tried on: VLM_PLAIN_YEARS' and QUARTER_1934's (the 1934 print has counts, plain_print's
+    has none)."""
+    return plain_print(paper, d) or paper.key == "gale" and d.name[:4] == QUARTER_1934_YEAR
 
 
 def plain_print(paper, d):
@@ -18577,6 +18608,38 @@ def quarter_blanks_due(row):
             return True
     return False
 
+
+#: The year of the Gale Times pages that print counts on their clues but set them in four columns under the grid
+#: like 1930-33's and 1936-40's (quarter_print): the two-column window joined a row's two columns ("12 A port in the
+#: jungle 27 Evergreens are never (4)."), counts landed on their own row, and clue numbers were lost.
+QUARTER_1934_YEAR = "1934"
+#: The reason, and its fix's time, of a 1934 Gale Times page written unfiled with a light blank (typically "across
+#: clue [] names no light the grid numbers after 18"): the four columns cut at their gutters ("quarters") were
+#: tried for 1930-33 and 1936-40 pages only, not 1934's, so the joined rows were the only reading (1934-12-03: 33
+#: lights laid loosely, one blank). The page's four-column window is tried now whenever a light stays blank. Once each.
+QUARTER_1934 = "unfiled before its fix, a 1934 page's four clue columns read"
+REREAD_QUARTER_1934 = "2026-11-16T15:47:00+00:00"
+
+
+def quarter_1934_due(row):
+    """Whether Gale Times ledger `row` of 1934, read before REREAD_QUARTER_1934, wrote a puzzle unfiled (an
+    "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) with a light blank."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "gale" or Path(rel).name[:4] != QUARTER_1934_YEAR \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_QUARTER_1934)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None:
+            continue
+        # A light left blank: the verdict's "blank", or its image reading's "clue [] names no light" (a clue number lost).
+        if not (isinstance(v.get("blank"), dict) and v["blank"]) \
+                and "clue [] names no light" not in str(v.get("imageDisagrees") or ""):
+            continue
+        if not v.get("unfiled") and v.get("complete") is not False and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
 
 
 def vlm_plain_due(row):
@@ -23383,6 +23446,8 @@ def fix_reason(row):
         return QUARTER_PLAIN
     if quarter_blanks_due(row):
         return QUARTER_BLANKS
+    if quarter_1934_due(row):
+        return QUARTER_1934
     if plain_laid_due(row):
         return PLAIN_LAID
     if sunday_1970s_due(row):
@@ -24083,7 +24148,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, SIDES_HEADED,
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, SIDES_HEADED,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
                   TELEGRAPH_OWN, TELEGRAPH_FIGURE,
                   # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
@@ -24202,6 +24267,8 @@ def blanket_or_fix(row, blanket):
             return QUARTER_PLAIN
         if quarter_blanks_due(row):
             return QUARTER_BLANKS
+        if quarter_1934_due(row):
+            return QUARTER_1934
         if plain_laid_due(row):
             return PLAIN_LAID
         if sunday_1970s_due(row):
@@ -24478,7 +24545,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -25111,7 +25178,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, IOS_EVEN, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, SIDES_HEADED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, IOS_EVEN, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, SIDES_HEADED)
 
 
 def keeps_vlm(why, row, unit=None):
