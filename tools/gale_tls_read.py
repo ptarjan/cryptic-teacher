@@ -112,7 +112,7 @@ def read_done(row):
     whose blank lights the VLM may still fill, vlm_due)."""
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX)) \
-        and not vlm_due(row) and not cite_due(row) and not glue_due(row)
+        and not vlm_due(row) and not cite_due(row) and not glue_due(row) and not names_due(row)
 
 
 #: r22: the 81 pages of Nos 1-89 (1982-10-22..1991-03-01) were refused "no TLS number: no numbered page on both
@@ -1146,6 +1146,43 @@ def glue_due(row):
     return any(spaced_glue(t) != t for t in ((row.get("unfit") or {}).get("suspect") or {}).values())
 
 
+#: r91: a page whose readings all agreed (agreed == clues) stood unfiled for a clue's real name or repeated word
+#: that fa.suspect doubts ("Jim Crace" 'a word misread as a name', "Greek ... Greek"; 13 of 142 suspect-only pages
+#: of 506 unfit TLS pages). Those flags, on such a page, are the print's own (names_printed), so the page is read
+#: once more (names_due).
+NAMES_FIX = 1
+NAMES_WHY = ("a word misread as a name", "a letter lost from a name", "an earlier word repeated inside the clue")
+
+
+def names_flagged(text):
+    """[token] fa.suspect flags in `text` for a reason only a real name or repeated word explains (NAMES_WHY), or
+    None when it flags anything else."""
+    flags = fa.suspect(text)
+    if not flags or any(why not in NAMES_WHY for _, why in flags):
+        return None
+    return [tok for tok, _ in flags]
+
+
+def names_due(row):
+    """Whether `row` (a verdict of this VERSION) is not whole, agreed on every clue, holds a suspect clue only a real
+    name explains (names_flagged), and was not read since NAMES_FIX."""
+    if row.get("whole") or row.get("namesFix") == NAMES_FIX or not row.get("clues") or row.get("agreed") != row.get("clues"):
+        return False
+    return any(names_flagged(t) for t in ((row.get("unfit") or {}).get("suspect") or {}).values())
+
+
+def names_printed(puzzle, verdict):
+    """`puzzle` with the real-name tokens (names_flagged) of each clue kept as printed, when every reading agreed
+    on the page's clues (verdict agreed == clues)."""
+    if not verdict.get("clues") or verdict.get("agreed") != verdict.get("clues"):
+        return
+    for e in puzzle["entries"]:
+        clue = e.get("clue") or {}
+        flagged = names_flagged(clue.get("text") or "")
+        if flagged:
+            clue["asPrinted"] = sorted({*(clue.get("asPrinted") or ()), *flagged})
+
+
 def mended_text(laid, printed):
     """(laid, printed) with each clue's text set to rights where the page's print is plain: the lone capitals of a
     neighbour's solution grid cut out of it, a bracket an ellipsis closes ("...)") given its opening, a quote
@@ -1392,6 +1429,7 @@ def read_page(path, store=STORE, asker=None, known=None):
                       url=url, printed=printed)
     if known and verdict.get("setter"):
         puzzle["setter"] = verdict["setter"]
+    names_printed(puzzle, verdict)
     verdict["whole"] = bool(fa.complete(puzzle))
     if not verdict["whole"]:
         verdict["unfit"] = unfit_why(puzzle)
@@ -1450,7 +1488,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
     tries = (before or {}).get("vlmTries", 0) + 1
     # a read that asked the VLM (or left nothing for it to lay) is the page's retry; else it is due again
     asked = bool(verdict.get("vlmColumns")) or not verdict.get("blank")
-    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "glueFix": GLUE_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
+    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "glueFix": GLUE_FIX, "namesFix": NAMES_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
     print(json.dumps(verdict))
     return "read"
 
