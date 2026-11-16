@@ -201,34 +201,37 @@ CDX_ROUNDS = 4
 CDX_RETRY_PAUSE = 120
 
 
-def _split_span(host, lo, hi):
-    """A CDX span that timed out, as its months (a month itself is retried
-    whole): a host-year is a huge query that Wayback answers with 503/504."""
-    if len(lo) == 8:
-        return [(host, f"{lo[:4]}{m:02d}", f"{lo[:4]}{m:02d}") for m in range(1, 13)]
-    return [(host, lo, hi)]
-
-
 def media_pdfs():
     """[(timestamp, url)] of every PDF Wayback holds at a crossword's size on
     either FT host, one per UUID, captured 2006-2013. The CDX reply can be cut
     short, so it is read line by line, one host and year at a time."""
     out = {}
-    todo = [(host, f"{year}0101", f"{year}1231") for host in PDF_HOSTS for year in ORPHAN_YEARS]
+    # A task is (host, lo, hi, page); page None means "ask how many pages
+    # first" (showNumPages), which the server answers in seconds even when the
+    # whole-span query 502s. Each page is then a small query of its own.
+    todo = [(host, f"{year}0101", f"{year}1231", None) for host in PDF_HOSTS for year in ORPHAN_YEARS]
     for rnd in range(CDX_ROUNDS):
         failed = []
-        for host, lo, hi in todo:
+        queue = list(todo)
+        while queue:
+            host, lo, hi, page = queue.pop(0)
+            span = f"url={host}&from={lo}&to={hi}"
             try:
+                if page is None:
+                    n = int(get(f"{CDX}?{span}&showNumPages=true", timeout=90,
+                                tries=1).decode().strip() or 0)
+                    print(f"  CDX {host} {lo[:4]}: {n} page(s)")
+                    queue += [(host, lo, hi, p) for p in range(n)]
+                    time.sleep(WAYBACK_PAUSE)
+                    continue
                 # Only the three fields used, no collapse (it makes a wildcard
-                # host scan far slower), a short timeout so a stuck query is
-                # split rather than waited on.
-                text = get(f"{CDX}?url={host}&output=json&fl=timestamp,original,length"
+                # host scan far slower).
+                text = get(f"{CDX}?{span}&output=json&fl=timestamp,original,length"
                            f"&filter=mimetype:application/pdf&filter=statuscode:200"
-                           f"&from={lo}&to={hi}&limit=20000",
-                           timeout=90, tries=1).decode("utf-8", "replace")
+                           f"&page={page}", timeout=120, tries=1).decode("utf-8", "replace")
             except Exception as e:
-                print(f"  CDX {host} {lo}-{hi}: {type(e).__name__}: {e}")
-                failed += _split_span(host, lo, hi)
+                print(f"  CDX {host} {lo}-{hi} page {page}: {type(e).__name__}: {e}")
+                failed.append((host, lo, hi, page))
                 continue
             for ln in text.splitlines():
                 try:
