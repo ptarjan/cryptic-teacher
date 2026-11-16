@@ -4321,6 +4321,11 @@ def footer_titled(d, found):
 #: whole-page reads were looked over for a 1-3 digit title (small_titled), titled by them or not: its SMALL_TITLE
 #: rescan is done.
 SMALL_READ = "smallRead"
+#: The stamp of a SMALL_READ scan made once small_titles took a heading's "PUZZLE No. N" without its "SOLUTION
+#: OF" (HEADING_FRAGMENT) and one read of the very number before the date's: a scan stamped SMALL_READ without
+#: it is scanned again (small_rescan, SMALL_TITLE) when it holds no title. 11-16: 101 Gale Times 1930-32 pages
+#: stood scanned to no puzzle so (the cached reads give 30 of them a heading).
+SMALL_FRAG = "smallFrag"
 #: The (first, last) years of the Gale Times whose puzzle numbers run under 1,000 for all or part of the year
 #: (No 1, 1930-02-01; No 1,000, 1933-04): the title reads "THE TIMES CROSSWORD PUZZLE No. 357" and the day
 #: before's "SOLUTION OF PUZZLE No. 356", no thousands comma, where TITLE and SOLUTION read four digits.
@@ -4341,8 +4346,15 @@ SOLUTION_SMALL = re.compile(r"^\W*(?:\S{1,2}\s+)?s[o0]luti[o0]n\s*(?:[o0][fpv]|t
 #: The footer under the clues: "Solution of puzzle No. 357, will appear in The Times to-morrow", the puzzle on
 #: its page in figures.
 FOOTER_SMALL = re.compile(r"s[o0]luti[o0]n\s*[o0][fpv]\s*p\w{2,5}\s*n[o0x]\W{0,3}\s*(\d{3,4})\W{0,3}\s*w[il1]{2}", re.IGNORECASE)
+#: The printed heading with "SOLUTION OF" lost to a misread or a column break ("PUZZLE No.60", "ZZLE NO. 29",
+#: "UZZLENo.574"; the small capitals only, so not the footer's "puzzle No. 75, will appear"), its number maybe
+#: split by a space ("No. 3 25" for 325). 11-16: 44 Gale Times pages of 1930-32 had no heading small_titles
+#: took (no "SOLUTION OF" in either read, or only one read of it), their title unread.
+HEADING_FRAGMENT = re.compile(r"P?U?Z?ZLE\W{0,3}\s*[NX][O0]?\W{0,3}\s*([\dSGBOIl]{1,4})(?:\s([\dSGBOIl]{1,3}))?(?![\dSGBOIl,]|\.\d)(?!\W{0,3}\s*W[IL1]{2})")
+#: The figures a heading's digits are misread as, by the letters standing in for them.
+HEADING_DIGITS = str.maketrans("SGBOIl", "568011")
 #: A word of a title's "THE TIMES", ahead of its "Crossword".
-TITLE_LEAD = re.compile(r"\W*(?:t[hb]?[eo]|t[il1]m\w{0,4})\W*$", re.IGNORECASE)
+TITLE_LEAD =re.compile(r"\W*(?:t[hb]?[eo]|t[il1]m\w{0,4})\W*$", re.IGNORECASE)
 
 
 def small_titles(reads, day, leaf):
@@ -4367,19 +4379,31 @@ def small_titles(reads, day, leaf):
         for ws in lines:
             text = " ".join(str(w[4]) for w in ws)
             heading = SOLUTION_SMALL.match(text)
-            hits = [(sols, heading, 0)] if heading else []
-            hits += [(feet, m, 0) for m in [FOOTER_SMALL.search(text)] if m]
+            num = int(heading[1]) if heading else None
+            hits = []
             t = None if heading else TITLE_SMALL.search(text)
+            if not t:  # a heading's "PUZZLE No. 60" without its "SOLUTION OF", or its number split by a space
+                frag = HEADING_FRAGMENT.search(text)
+                if frag:
+                    a, b = frag[1].translate(HEADING_DIGITS), (frag[2] or "").translate(HEADING_DIGITS)
+                    f = int(a)
+                    if b and abs(int(a + b) + 1 - want) < abs(f + 1 - want):
+                        f = int(a + b)
+                    if num is None or abs(f + 1 - want) < abs(num + 1 - want):
+                        num = f
+            if num is not None:
+                hits.append((sols, num, 0))
+            hits += [(feet, int(m[1]), 0) for m in [FOOTER_SMALL.search(text)] if m]
             if t:  # the title's box opens on the "THE TIMES" ahead of "Crossword"
                 at = [len(" ".join(str(w[4]) for w in ws[:j])) + (j > 0) for j in range(len(ws))]
                 k = max([j for j, a in enumerate(at) if a <= t.start()] or [0])
                 while k > 0 and TITLE_LEAD.match(str(ws[k - 1][4])):
                     k -= 1
-                hits.append((titles, t, k))
-            for table, m, k in hits:
-                if (id(table), int(m[1])) not in seen:
-                    seen.add((id(table), int(m[1])))
-                    table.setdefault(int(m[1]), []).append(box_of(ws[k:]))
+                hits.append((titles, int(t[1]), k))
+            for table, n, k in hits:
+                if (id(table), n) not in seen:
+                    seen.add((id(table), n))
+                    table.setdefault(n, []).append(box_of(ws[k:]))
     backed = {n: len(titles.get(n, ())) + len(feet.get(n, ())) + sum(len(sols.get(n - lag, ())) for lag in SOLUTION_LAGS)
               for n in titles if 0 < n <= SMALL_TOP and abs(n - want) <= SMALL_SLACK}
     backed = {n: v for n, v in backed.items() if v >= 2}
@@ -4391,11 +4415,15 @@ def small_titles(reads, day, leaf):
     # No title read twice or beside a heading: the solution headings two reads give (the day before's, within
     # SMALL_SLACK of the date's number) and no footer figures naming another puzzle, a title not read but for
     # its number (solution_titled boxes it over the grid the heading is printed under).
-    heads = [s for s, b in sols.items() if len(b) >= 2 and 0 < s + 1 <= SMALL_TOP and abs(s + 1 - want) <= SMALL_SLACK
+    # (read once, a heading naming the very number before the date's stands too: one reader lost the other's.)
+    heads = [s for s, b in sols.items() if (len(b) >= 2 or s + 1 == want) and 0 < s + 1 <= SMALL_TOP
+             and abs(s + 1 - want) <= SMALL_SLACK
              and all(n == s + 1 for n in feet)]
     heads.sort()
     if len(heads) == 2 and heads[1] - heads[0] == 5:  # (a Saturday's prize heading beside the day before's)
         heads = heads[1:]
+    if len(heads) > 1 and want - 1 in heads:  # (a title's "PUZZLE No. 75" read beside the heading's 74)
+        heads = [want - 1]
     if len(heads) != 1:
         return [], []
     return [], [{"number": s, "leaf": leaf, "box": tuple(sols[s][0])} for s in sorted(sols) if heads[0] - s in (0, 5)]
@@ -4421,10 +4449,10 @@ def small_titled(d, found):
             hits = solution_titled(d, sols)
         if hits:
             have = {s["number"] for s in found.get("solutions") or ()}
-            return {**found, "puzzles": hits, SMALL_READ: True,
+            return {**found, "puzzles": hits, SMALL_READ: True, SMALL_FRAG: True,
                     "solutions": [s for s in found.get("solutions") or () if s["number"] != hits[0]["number"]]
                     + [s for s in sols if s["number"] not in have]}
-    return {**found, SMALL_READ: True}
+    return {**found, SMALL_READ: True, SMALL_FRAG: True}
 
 
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
@@ -16079,8 +16107,8 @@ def small_rescan(row):
     scan = (row or {}).get("scan") or {}
     year = str(scan.get("date", ""))[:4]
     if not (str(scan.get("item", "")).startswith("GaleTimes") and SMALL_YEARS[0] <= year <= SMALL_YEARS[1]
-            and "inputs" in row and not row.get("verdicts") and not scan.get("failed") and not scan.get(SMALL_READ)
-            and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+            and "inputs" in row and not row.get("verdicts") and not scan.get("failed")
+            and not (scan.get(SMALL_READ) and scan.get(SMALL_FRAG)) and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
         return False
     return row.get("scanKey") in current_keys(GALE)
 
