@@ -1153,14 +1153,41 @@ def left_edge_grid(img, title, box):
     crop = (max(0, x0 - 60), y1 + 4, max(0, x0 - 60) + int(LEFT_EDGE_WIDTH[1] * img.width),
             min(box[1], y1 + 4 + int(0.24 * img.width)))
     ink = ink_box(img.crop(crop))
-    if ink is None:
-        return box
-    left, right, foot = crop[0] + ink[0], crop[0] + ink[2], crop[1] + ink[3]
-    width = right - left
-    if not LEFT_EDGE_WIDTH[0] * img.width <= width <= LEFT_EDGE_WIDTH[1] * img.width or foot - width < y1:
-        return box
-    square = (left, foot - width, right, foot)
-    return square if shaped_on(img, square) else box
+    if ink is not None:
+        left, right, foot = crop[0] + ink[0], crop[0] + ink[2], crop[1] + ink[3]
+        width = right - left
+        if LEFT_EDGE_WIDTH[0] * img.width <= width <= LEFT_EDGE_WIDTH[1] * img.width and foot - width >= y1:
+            square = (left, foot - width, right, foot)
+            if shaped_on(img, square):
+                return square
+    return faint_edge_grid(img, crop) or box
+
+
+def faint_edge_grid(img, crop):
+    """The 15x15 grid at the left edge of `crop` (the strip under a Gale Telegraph weekday title) when its ink is too
+    faint to be one patch (FAINT_EDGE: 2000-11-06, 12-04: the Quick's grid far under the title was taken, the cryptic's
+    ink here a few rows of lattice): the crop's whole ink gives its left and top (trove_grid.whole_ink), the clue
+    column right of it giving no width, and the side is the middle of the run of widths (0.19-0.24 of the page's) at
+    which trove_grid.read_grid reads a 15x15 lattice. None when fewer than 3 widths read one."""
+    import tempfile
+    import numpy as np
+    gray = np.asarray(img.crop(crop).convert("L"), dtype=np.uint8)
+    whole = trove_grid.whole_ink(gray < trove_grid.otsu(gray))
+    if whole is None:
+        return None
+    left, top = crop[0] + whole[0], crop[1] + whole[1]
+    good = []
+    with tempfile.TemporaryDirectory() as tmp:
+        path = os.path.join(tmp, "grid.png")
+        for side in range(int(LEFT_EDGE_WIDTH[0] * img.width), int(LEFT_EDGE_WIDTH[1] * img.width), max(4, img.width // 200)):
+            img.crop((left - 6, top - 6, left + side + 6, top + side + 6)).save(path)
+            got, _ = trove_grid.read_grid(path)
+            if got is not None and len(got) == 15:
+                good.append(side)
+    if len(good) < 3:
+        return None
+    box = (left, top, left + good[len(good) // 2], top + good[len(good) // 2])
+    return box if shaped_on(img, box) else None
 
 
 def sunday_foot(img, title, box, side):
@@ -1606,6 +1633,34 @@ def left_edge_grid_due(row):
     if day.weekday() == 5 or not WEEKDAY_RIGHT_DAYS[0] <= day <= WEEKDAY_RIGHT_DAYS[1]:
         return False
     return any(v.get("refused") == "no reading parses" for v in row.get("verdicts", ()))
+
+
+#: The reason of a Gale Telegraph weekday page of 1999-2000 not filed whose cryptic grid, at the page's left edge under
+#: its title, was too faint to be one patch of ink, so the scan's Quick crossword grid (13x13, far under the title) was
+#: read in its place ("the largest ink patch is WxH", "the white cells span ..."): faint_edge_grid takes the strip's whole
+#: ink for the grid's corner and the width at which a 15x15 lattice reads. 11-16: 4 of ~28 such 2000-09..12 pages read
+#: offline (the rest's rules too faint for any lattice). Once each.
+FAINT_EDGE = "Gale Telegraph weekday 2000 page whose faint cryptic grid at the left edge was read as the Quick's, its whole ink read as the grid since"
+REREAD_FAINT_EDGE = "2026-11-16T03:53:00+00:00"
+
+
+def faint_edge_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_FAINT_EDGE, holds a weekday of WEEKDAY_RIGHT_DAYS with a
+    puzzle not filed whose grid image was unread or whose readings were refused "no reading parses"."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galetelegraph" or not scan_queue.read_before(row, scan_queue.when(REREAD_FAINT_EDGE)):
+        return False
+    try:
+        day = datetime.date.fromisoformat(Path(rel).name[:10])
+    except ValueError:
+        return False
+    if day.weekday() == 5 or not WEEKDAY_RIGHT_DAYS[0] <= day <= WEEKDAY_RIGHT_DAYS[1]:
+        return False
+    series = paper_of(Path(rel)).series
+    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
+               and filed_state(series, v.get("number")) is None
+               and (v.get("imageUnread") or v.get("refused") == "no reading parses")
+               for v in row.get("verdicts") or ())
 
 
 #: How far the right column of a clues-above puzzle may run past the grid
@@ -22112,6 +22167,8 @@ def fix_reason(row):
         return IOS_WORDS
     if indy_frame_due(row):
         return INDY_FRAME
+    if faint_edge_due(row):
+        return FAINT_EDGE
     if whole_ink_due(row):
         return WHOLE_INK
     if indy_next_due(row):
@@ -22871,7 +22928,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-16: a Gale page whose stretched lattice was called larger than its frame (indy_frame_due).
                   INDY_FRAME,
                   # 11-16: a Gale page whose broken grid frame left no square ink patch (whole_ink_due).
-                  WHOLE_INK)
+                  WHOLE_INK,
+                  # 11-16: a Gale Telegraph weekday whose faint cryptic grid was read as the Quick's (faint_edge_due).
+                  FAINT_EDGE)
 
 
 def refusal_passes(why):
@@ -22950,6 +23009,7 @@ def blanket_or_fix(row, blanket):
             else INDY_GUTTER_DOWN if indy_gutter_down_due(row) \
             else IOS_WORDS if ios_words_due(row) \
             else INDY_FRAME if indy_frame_due(row) \
+            else FAINT_EDGE if faint_edge_due(row) \
             else WHOLE_INK if whole_ink_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
@@ -23169,7 +23229,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
