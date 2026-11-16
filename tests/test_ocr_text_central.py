@@ -51,6 +51,8 @@ CENTRAL = {
 ALLOWED = {
     ("gale_listener.py", "lookalike"): "Greek-to-Latin comparison key between two readings; never written back",
     ("gale_listener.py", "<module>"): "the LOOKALIKE comparison table lookalike() uses",
+    ("file_archive_org_puzzles.py", "<module>"): "HEADING_DIGITS: a heading's misread figures for its puzzle number (int), never clue text",
+    ("file_archive_org_puzzles.py", "small_titles"): "reads a heading fragment's number through HEADING_DIGITS; the text is not written back",
     ("apply_solution.py", "_fold"): "folds an answer to a lookup key (definitions.LOOKALIKES); answers, not clue text",
     ("ctc_transcripts.py", "norm"): "word key for matching transcript words; never written back",
     ("fetch_abbreviations.py", "expansions"): "HTML parsing: drops bracketed/quoted notes round an abbreviation's meanings",
