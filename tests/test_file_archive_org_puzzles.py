@@ -460,7 +460,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._TELEGRAPH_PRIZE_OF_FIX[gt.key][:2],
                                                                       *f._TELEGRAPH_TITLE_FIX[gt.key][:2],
                                                                       *f._TELEGRAPH_PRIZE_MEND_FIX[gt.key][:2],
-                                                                      *f._GUARDIAN_DATED_FIX[gt.key][:2]},
+                                                                      *f._GUARDIAN_DATED_FIX[gt.key][:2],
+                                                                      *f._WINNERS_NUMBER_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3573,6 +3574,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._WINNERS_NUMBER_FIX:
+        return f._WINNERS_NUMBER_FIX[paper][2]
     if paper in f._TLS_MONTHLY_FIX:
         return f._TLS_MONTHLY_FIX[paper][2]
     if paper in f._GUARDIAN_DATED_FIX:
@@ -5632,6 +5635,28 @@ check("a Gale Sunday Times 1987-94 page with no title, or only a winners box ref
        f.sunday_number_rescan({**_sn, "scan": {**_sn["scan"], "failed": "x"}}),
        f.sunday_number_rescan({**_snw, "verdicts": [{"number": 3369, "leaf": 0}]}),
        f.sunday_number_rescan({k: v for k, v in _sn.items() if k != "inputs"})])
+
+# 2005-09-04 (Gale FP1803553431): the winners box "Crossword No 4134" was the page's title, three low; its solution
+# heading "Solution No 4136" numbers the puzzle before the true 4137. 2003-05-18 was filed 4014 for 4017 so.
+_wn_sols = f.sunday_times_headings([line("Solution No 4136", 200, 3100)])[1]
+_wn_titles = [(4134, (100, 100, 900, 140), None, ["en"])]
+_wn_day = datetime.date(2005, 9, 4)
+check("a Gale Sunday Times title the winners box's number (heading M - 2) is numbered M + 1 by the solution heading; "
+      "a title already M + 1, a later date, another paper, two headings stand",
+      [[4137], [4137], [4134], [4134], [4134], [4134]],
+      [[t[0] for t in f.sunday_winners_mended(ts, ss, p, d)] for ts, ss, p, d in (
+          (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, _wn_day),
+          (_wn_titles + [(4137, (100, 200, 900, 240), None, ["en"])], _wn_sols, f.GALE_SUNDAY_TIMES, _wn_day),
+          (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, datetime.date(2005, 9, 18)),
+          (_wn_titles, _wn_sols, f.GALE_INDY_SUNDAY, _wn_day),
+          (_wn_titles, _wn_sols + [(4100, (0, 0, 1, 1))], f.GALE_SUNDAY_TIMES, _wn_day),
+          (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, datetime.date(1996, 12, 29)))])
+_wnr = {**_sn, "edition": "GaleSundayTimes2003UKEnglish/2003-05-18", "date": "2003-05-18"}
+check("a Gale Sunday Times 1997-2005 page read before the rescan is due WINNERS_NUMBER, rank 1; a 2005-09-18 page, "
+      "a later read stand", [True, f.WINNERS_NUMBER, 1, False, False],
+      [f.winners_number_rescan(_wnr), f.fix_reason(_wnr), f.RANKS[f.WINNERS_NUMBER],
+       f.winners_number_rescan({**_wnr, "edition": "GaleSundayTimes2005UKEnglish/2005-09-18", "date": "2005-09-18"}),
+       f.winners_number_rescan({**_wnr, "readAt": "2026-11-16T00:00:00+00:00"})])
 
 # The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
 # "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick

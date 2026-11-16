@@ -4735,7 +4735,29 @@ def ocr_headings(img, paper, key, day=None):
     sols = {n: reads for n, reads in sols.items() if len(reads) >= (1 if voted else least) or n + 1 in paired}
     found = [(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
              if len(reads) >= least or n - 1 in sols] or near
-    return gale_headings(img, paper, key, day, found, [(n, reads[0][1]) for n, reads in sols.items()])
+    sols = [(n, reads[0][1]) for n, reads in sols.items()]
+    return gale_headings(img, paper, key, day, sunday_winners_mended(found, sols, paper, day), sols)
+
+
+#: The Gale Sunday Times pages (1997 to 2005-09-11) whose winners box "Crossword No 4134" (the puzzle three weeks
+#: back, no colon after it) was taken as the page's title: the solution heading prints the number before the true
+#: title's, "Solution No 4136" on 2005-09-04's (FP1803553431), so the true title is 4137, not the box's 4134.
+SUNDAY_WINNERS_DAYS = (datetime.date(1997, 1, 1), datetime.date(2005, 9, 11))
+
+
+def sunday_winners_mended(titles, sols, paper, day):
+    """`titles` ([(number, box, setter, readers)]) of a Gale Sunday Times page of SUNDAY_WINNERS_DAYS whose only
+    solution heading M numbers the title the winners box three weeks back left standing (M - 2) mended to M + 1,
+    the number after the heading, when no title reads so already and M + 1 lies within SUNDAY_TIMES_SLACK of the
+    date's number."""
+    seen = {n for n, _ in sols}
+    if paper is not GALE_SUNDAY_TIMES or day is None or not SUNDAY_WINNERS_DAYS[0] <= day <= SUNDAY_WINNERS_DAYS[1] \
+            or len(seen) != 1:
+        return titles
+    want = next(iter(seen)) + 1
+    if any(t[0] == want for t in titles) or abs(want - sunday_times_expected_number(day)) > SUNDAY_TIMES_SLACK:
+        return titles
+    return list({t[0]: t for t in ((want, *t[1:]) if t[0] == want - 3 else t for t in titles)}.values())
 
 
 def paired_titles(titles, sols, paper, day):
@@ -14125,6 +14147,31 @@ for _paper, _pins in _TLS_MONTHLY_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before sunday_winners_mended numbered a Gale Sunday Times
+#: page of 1997 to 2005-09-11 by the number after its "Solution No M" heading where the title read was the winners
+#: box's M - 2 (the box three weeks back, no colon after it). The edit reaches ocr_headings, so every Gale paper's key
+#: moves, but only the Gale Sunday Times's pages of those years read otherwise: every scan stands, and those pages
+#: are read again once (WINNERS_NUMBER), the 91 files b30c5061bfd renumbered by hand among them.
+_WINNERS_NUMBER_FIX = {
+    "ft": ("59dd1373ead61432", "21d972a378b97f25", "2a65cd51591fec1a"),
+    "gale": ("9379485e659b335e", "8077177bdeec95d0", "3ecaf6a10f800f9e"),
+    "galeft": ("a4b510676c9eaae6", "a1d76796d04df372", "e19dfa2debd8d64b"),
+    "galeindependent": ("58b88369b54eab1c", "06f0c66a2d63ce5e", "a4a7d9ccba9a26ee"),
+    "galeindysunday": ("89f0e348d55fb691", "03e64591f4bbee05", "af096215824cdfce"),
+    "galesundaytelegraph": ("80bf7776db6afd3a", "a99e496bb5b9203a", "8d341c4fad9ef979"),
+    "galesundaytimes": ("7cb261675a55d659", "c09ee0834da6f8c9", "b096f9f21c3f72a6"),
+    "galetelegraph": ("485a6d87bbf3d3df", "3c29880f33b8fb17", "a9b5d18f7f61773d"),
+    "galetls": ("67c08b8e91a0d3e7", "cb97f0e5f4b23569", "1dbb90dd30f78122"),
+    "guardian": ("9a1183b516c1be9b", "0c05b7d01e05e8f3", "acaa07e4029ab1d7"),
+    "telegraph": ("08ee83f921248744", "7e625f4e0ee1f266", "8b10dc5d7de3f4e7"),
+    "times": ("a3c118b96b77f665", "5e3b563ec26e326b", "530b82cf6135e037"),
+    "times1930": ("cb3bfb639c928c38", "5d6af324edea605b", "ee1f895becfcc88d"),
+}
+for _paper, _pins in _WINNERS_NUMBER_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14163,7 +14210,8 @@ def prize_rescan(paper, key, rel):
     return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2],
                         _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2], _INSET_GRID_FIX["gale"][2],
                         _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2],
-                        _TELEGRAPH_SATURDAY_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2])
+                        _TELEGRAPH_SATURDAY_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2],
+                        _WINNERS_NUMBER_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -14212,7 +14260,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not telegraph_host(r) \
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telegraph_host(r) \
                     and not indy_host(r) and not ft_host(r) and not ios_title_rescan(r):
                 moved[k] = new
         if moved:
@@ -15490,6 +15538,26 @@ def sunday_number_rescan(row):
     return not scan.get("failed") and (not verdicts and not scan.get("puzzles")
                                        or winners and bool(verdicts) and all(v.get("cause") == "not-a-grid" for v in verdicts)) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_NUMBER))
+
+
+#: The due reason of a Gale Sunday Times page of 1997 to 2005-09-11 read before REREAD_WINNERS_NUMBER: its title was
+#: the winners box's number three weeks back ("Crossword No 4134" for 2005-09-04's No 4137, whose solution heading
+#: reads "Solution No 4136"), filed three numbers low (91 files renumbered by hand in b30c5061bfd; 2003-05-18 filed as
+#: 4014 for 4017 by a reread). sunday_winners_mended reads the number after the solution heading. Read again, once.
+WINNERS_NUMBER = "Sunday Times page read before its title was numbered by its solution heading, not the winners box"
+REREAD_WINNERS_NUMBER = "2026-11-16T02:33:00+00:00"
+WINNERS_NUMBER_YEARS = tuple(str(y) for y in range(1997, 2006))
+
+
+def winners_number_rescan(row):
+    """Whether ledger `row` is due WINNERS_NUMBER: a read (its "inputs" kept) edition of an item of
+    GaleSundayTimes<WINNERS_NUMBER_YEARS>, dated no later than SUNDAY_WINNERS_DAYS' last, read before
+    REREAD_WINNERS_NUMBER. Its scan is stale (scan_current) and rekey_scans leaves it."""
+    ed = str((row or {}).get("edition") or "")
+    day = _date_in(str(row.get("date") or "")) or _date_in(ed)
+    return "inputs" in row and any(ed.startswith(f"GaleSundayTimes{y}") for y in WINNERS_NUMBER_YEARS) \
+        and (day is None or day <= SUNDAY_WINNERS_DAYS[1]) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_WINNERS_NUMBER))
 
 
 #: The due reason of a Gale Telegraph Mon-Fri puzzle of 1980 on read incomplete from its grid image with no solution
@@ -22129,6 +22197,8 @@ def fix_reason(row):
         return WINNERS_TITLE
     if sunday_number_rescan(row):
         return SUNDAY_NUMBER
+    if winners_number_rescan(row):
+        return WINNERS_NUMBER
     if telegraph_saturday_due(row):
         return TELEGRAPH_SATURDAY
     if telegraph_next_due(row):
@@ -22852,6 +22922,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-13: a Gale Sunday Times 1987-94 page with no title or only its winners box, its "No N" alone over
                   # ACROSS read since (sunday_number_rescan), scanned again then read once.
                   SUNDAY_NUMBER,
+                  # 11-15: a Gale Sunday Times 1997 to 2005-09-11 page titled by its winners box, three low
+                  # (winners_number_rescan), scanned again then read once.
+                  WINNERS_NUMBER,
                   # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
                   SIDES_READ,
                   # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
@@ -22961,6 +23034,8 @@ def blanket_or_fix(row, blanket):
     holds no title at all: it reads the titles its scan holds now (10-28 r14: 17 rows, mostly a
     verdict read_as one off its scan's title; 72 whose rescan found no title keep the blanket reason)."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
+        if winners_number_rescan(row):
+            return WINNERS_NUMBER
         # 11-09: 358 Gale Sunday Telegraph rows due SUNDAY_SIDES (and the Telegraph Saturdays SIDES_READ) were planned
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if weekday_right_due(row):
@@ -23229,7 +23304,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -23267,7 +23342,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not telegraph_host(row) \
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ios_title_rescan(row)
 
 
