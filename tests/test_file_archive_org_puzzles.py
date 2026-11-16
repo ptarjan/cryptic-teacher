@@ -3578,6 +3578,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._SUNTEL_BY_FIX:
+        return f._SUNTEL_BY_FIX[paper][2]
     if paper in f._IOS_ENTRY_LINES_FIX:
         return f._IOS_ENTRY_LINES_FIX[paper][2]
     if paper in f._FT_SMALL_FIX:
@@ -3748,6 +3750,18 @@ check("an Independent on Sunday Beelzebub title with no number takes it from the
        [bool(f.ios_entry_lines_due(_ios_er)), bool(f.ios_entry_lines_due({**_ios_er, "scan": {"puzzles": [{"number": 526}]}})),
         bool(f.ios_entry_lines_due({**_ios_er, "edition": "GaleTimes2000UKEnglish/2000-03-05"})),
         bool(f.ios_entry_lines_due({**_ios_er, "readAt": "2026-11-16T13:00:00+00:00"})), f.IOS_ENTRY_LINES in f.RANKS]])
+_stb = lambda *rows: [p[0] for p in f.sunday_tel_headings([[(0, 100 * k, 900, 100 * k + 30, t)] for k, t in enumerate(rows)])[0]]
+_stb_r = {"edition": "GaleSundayTelegraph1994UKEnglish/1994-09-18", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "scan": {"puzzles": []}}
+check("a Sunday Telegraph 1991-94 title line 'Puzzle No.1736 by Nuala Considine' read 'Puzzie', 'Priee Puzzie' or 'ze Puzzle' "
+      "gives its number, a run-together 'PRIZEPUZZLENo1495' too; a 1990-94 page with no puzzle found, read before the fix, is due "
+      "SUNTEL_BY, one with a puzzle, a 1995 page and one read since are not",
+      [[1736], [1649], [1721], [1495], [], [True, False, False, False, True]],
+      [_stb("Puzzie No.1736 by Nuala Considine"), _stb("Priee Puzzie No.1649 by Nuale Con"), _stb("ze Puzzle No.1721 by Nuala Considine"),
+       _stb("PRIZEPUZZLENo1495"), _stb("Puzzle No. 1736 Nuala Considine"),
+       [bool(f.suntel_by_due(_stb_r)), bool(f.suntel_by_due({**_stb_r, "scan": {"puzzles": [{"number": 1736}]}})),
+        bool(f.suntel_by_due({**_stb_r, "edition": "GaleSundayTelegraph1995UKEnglish/1995-09-17"})),
+        bool(f.suntel_by_due({**_stb_r, "readAt": "2026-11-17T00:00:00+00:00"})), f.SUNTEL_BY in f.RANKS]])
 _ct = __import__("clue_text")
 _ocr = __import__("ocr_clues")
 _tr = {"edition": "GaleTelegraph1997UKEnglish/1997-11-08", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
