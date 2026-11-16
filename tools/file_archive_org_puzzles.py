@@ -14754,7 +14754,9 @@ def standing(paper, cache=CACHE):
 def _standing(ledger):
     """standing() of `ledger`: the queue's main thread's fold of it, shared
     by scan_stands and brief(), which read its rows and change none."""
-    return dir_cache.appended(ledger, dict, _fold_standing)
+    # Kept between processes like plan()'s fold (same fold of the same lines, so the same kept file):
+    # a fresh process (each unit, the plan child) would else parse the whole ~283 MB ledger first.
+    return dir_cache.appended(ledger, dict, _fold_standing, keep=_fold_keep())
 
 
 def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None, host=False):
@@ -24291,7 +24293,10 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
         if not mine:
             return "busy"
         fh = input_hash(d)
-        row = load_known(ledger).get(rel) or {}
+        # The one row from the kept fold (only lines appended since parsed), not the whole ~283 MB
+        # ledger streamed per unit; a copy, as the fold's rows are shared and this unit may change its own.
+        import copy
+        row = copy.deepcopy(_planned_known(ledger).get(rel)) or {}
         # A host due its solutions-only read once more (HOST_RESCAN) is read so whether its scan stands or not.
         due = host and host_rescan_due(paper_of(d), row)
         current = scan_current(row, fh, rel)
