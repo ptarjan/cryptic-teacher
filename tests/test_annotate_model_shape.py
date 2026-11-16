@@ -184,5 +184,18 @@ check("a null block removes its flat sentences, a null flag its flag",
       not set(got) & {"surface", "walkthrough", "definitionFit", "misdirectedWord"} and got.get("answerInScene") is True,
       str(sorted(got)))
 
+dd_entry = {"clue": {"text": "Bread, either way, is a jolt"}}
+try:
+    dd = annotation.from_model({"def": ["Bread", "a jolt"], "notes": {"bread,": "a flatbread"}}, dd_entry)
+    check("a double definition's note keyed in other case or punctuation is mended onto its def",
+          dd["definitions"][0].get("meaning") == "a flatbread", str(dd))
+except __import__("wordplay").WordplayError as e:
+    check("a double definition's note keyed in other case or punctuation is mended onto its def", False, str(e))
+try:
+    annotation.from_model({"def": ["Bread", "a jolt"], "notes": {"zzz": "x"}}, dd_entry)
+    check("a note naming no def and no wp is refused", False, "no refusal")
+except __import__("wordplay").WordplayError as e:
+    check("a refusal lists the def texts to key a note by", "['Bread', 'a jolt']" in str(e), str(e))
+
 print("model shape:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)

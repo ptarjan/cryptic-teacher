@@ -1051,6 +1051,13 @@ def from_model(m, entry, puzzle=None):
     for d in defs:
         if d["text"] in notes and d["text"] not in names:
             d["meaning" if len(defs) > 1 else "note"] = notes.pop(d["text"])
+        elif not wp:
+            # no wordplay to key a note to: a key that is a def's text up to case and
+            # edge punctuation ("Bread," for "bread") is that def's note
+            norm = lambda s: re.sub(r"^\W+|\W+$", "", s).casefold()
+            hit = [k for k in notes if norm(k) == norm(d["text"])]
+            if len(hit) == 1:
+                d["meaning" if len(defs) > 1 else "note"] = notes.pop(hit[0])
     out = {}
     if defs:
         out["definitions"] = defs
@@ -1081,7 +1088,10 @@ def from_model(m, entry, puzzle=None):
         drop_vacuous_sound(out["wordplay"])
         merge_sounded_charade(out["wordplay"], clue)
     elif notes:
-        raise wordplay.WordplayError(f"notes {sorted(notes)} name no definition, and there is no `wp`")
+        raise wordplay.WordplayError(
+            f"notes {sorted(notes)} name no definition, and there is no `wp`: a note is keyed by "
+            f"a `def`'s exact text ({[d['text'] for d in defs]}) or by a span of `wp`; "
+            f"re-key each note to a def's text, or write the `wp` the notes belong to")
     elif len(defs) < 2 and not m.get("definedByPreamble"):
         raise wordplay.WordplayError("no `wp`: only a double definition (two `def`s) has no wordplay")
     for k in ("explanation", "features", "hiddenLetter", "alteration"):
