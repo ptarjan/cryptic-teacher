@@ -15519,35 +15519,88 @@ def crop_headings(d, numbers):
     if k in _CROP_HEADINGS:
         return _CROP_HEADINGS[k]
     out = {}
-    for kind, pattern in (("head", CROP_WINNERS), ("cross", CROP_CROSSWORD), ("last", CROP_LAST_WEEK)):
+    found = {path: _crop_matches(path) for path in paths}
+    _crop_matches_save()
+    for kind in ("head", "cross", "last"):
         for path in paths:
-            try:
-                with open(path) as f:
-                    words = json.load(f).get("words") or ()
-            except (OSError, ValueError):
-                continue
-            for w in words:
-                if len(w) < 5 or not isinstance(w[4], str):
-                    continue
-                m = pattern.search(w[4])
-                if not m:
+            for mk, group, raw in found[path] or ():
+                if mk != kind:
                     continue
                 for n in numbers:
                     want = str(n - 1)
                     if n - 1 in out:
                         continue
                     if kind == "head":
-                        got = clue_text.digits_read(m.group(1))
+                        got = clue_text.digits_read(group)
                         if len(got) != len(want) or sum(a == b for a, b in zip(got, want)) < len(want) - 1:
                             continue
-                    elif kind == "cross" and m.group(1) != want:
+                    elif kind == "cross" and group != want:
                         continue
-                    box = [int(v) for v in w[:4]]
+                    box = [int(v) for v in raw]
                     if kind == "last":
                         box = [box[0], box[1] - 60, box[2], box[1] - 30]
                     out[n - 1] = {"number": n - 1, "leaf": 0, "box": box}
     _CROP_HEADINGS[k] = out
     return out
+
+
+#: {crop file path: ((mtime_ns, size), [(kind, the pattern's group 1 (None for "last"), the word's first four
+#: values)])}: what crop_headings takes from each cached reading, kept between processes (a Gale Sunday Telegraph unit
+#: json-parsed ~420 MB of ~2,000 editions' crops at every start, only for these few matching words). A file stands
+#: only while its (mtime_ns, size) is unmoved; the name carries a hash of the patterns, so changed ones read afresh.
+_CROP_MATCHES = {}
+_CROP_MATCHES_NEW = [0]
+_CROP_MATCHES_LOADED = []
+
+
+def _crop_matches_path():
+    src = "|".join(p.pattern + str(p.flags) for p in (CROP_WINNERS, CROP_CROSSWORD, CROP_LAST_WEEK))
+    return os.path.join(LEDGER_FOLDS, f"crop_matches.{hashlib.sha256(src.encode()).hexdigest()[:12]}.pickle")
+
+
+def _crop_matches(path):
+    """The kept (kind, group, box values) matches of crop file `path`, None when it cannot be read."""
+    if not _CROP_MATCHES_LOADED:
+        _CROP_MATCHES_LOADED.append(True)
+        try:
+            with open(_crop_matches_path(), "rb") as f:
+                got = pickle.load(f)
+            if isinstance(got, dict):
+                for p, hit in got.items():
+                    _CROP_MATCHES.setdefault(p, hit)
+        except (OSError, EOFError, ValueError, TypeError, AttributeError, pickle.UnpicklingError):
+            pass
+    try:
+        st = os.stat(path)
+    except OSError:
+        return None
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _CROP_MATCHES.get(path)
+    if hit is not None and hit[0] == stamp:
+        return hit[1]
+    try:
+        with open(path) as f:
+            words = json.load(f).get("words") or ()
+    except (OSError, ValueError):
+        return None
+    found = []
+    for kind, pattern in (("head", CROP_WINNERS), ("cross", CROP_CROSSWORD), ("last", CROP_LAST_WEEK)):
+        for w in words:
+            if len(w) < 5 or not isinstance(w[4], str):
+                continue
+            m = pattern.search(w[4])
+            if m:
+                found.append((kind, None if kind == "last" else m.group(1), list(w[:4])))
+    _CROP_MATCHES[path] = (stamp, found)
+    _CROP_MATCHES_NEW[0] += 1
+    return found
+
+
+def _crop_matches_save(final=False):
+    """Keep the matches made since the last save: once ~200 files are new, or at a pass's end (final) with any."""
+    if _CROP_MATCHES_NEW[0] >= (1 if final else 200):
+        _CROP_MATCHES_NEW[0] = 0
+        dir_cache._keep_save(_crop_matches_path(), dict(_CROP_MATCHES))
 
 
 def solution_sources(dirs, scans, rels, held, sister):
@@ -15571,6 +15624,7 @@ def solution_sources(dirs, scans, rels, held, sister):
                 if n not in first:
                     first[n] = {**s, "dir": d}
                     every.setdefault(n, set()).add(solution_source(first[n]))
+    _crop_matches_save(True)
     for n, s in sister.items():
         every.setdefault(n, set()).add(solution_source(s))
         if n in first:
