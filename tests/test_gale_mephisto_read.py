@@ -47,6 +47,39 @@ check("a typo'd citation falls to the solution printed (two back)", (2329, "solu
       gm.number_of((2239, D(2005, 4, 10)), "Solution to Mephisto 2327: Across"))
 check("a page with none falls to the weekly count", (2251, "weekly count"), gm.number_of((None, D(2003, 10, 12)), "nothing here"))
 
+# --- numbering before 1995: Gale's misread titles, the neighbours' bounds, the page's own printed number
+off = 1253 - gm.week(D(1986, 1, 5))
+titles = [(d, gm.week(d) + off) for d in (D(1986, 1, 5), D(1986, 1, 12), D(1986, 2, 2))]
+check("a title between two agreeing offsets gives the missing week", gm.week(D(1986, 1, 19)) + off, gm.docs_number(D(1986, 1, 19), None, titles))
+bad = [(D(1990, 1, 7), gm.week(D(1990, 1, 7)) - 188), (D(1990, 1, 14), 1601), (D(1990, 1, 21), gm.week(D(1990, 1, 21)) - 188)]
+check("a misread title (one rising 100 over its neighbours) is dropped", [bad[0], bad[2]], gm.sane_titles(bad))
+check("a title falling 90 under the next is dropped", 2, len(gm.sane_titles([(D(2005, 4, 3), gm.week(D(2005, 4, 3)) - 189),
+                                                                            (D(2005, 4, 10), 2239), (D(2005, 4, 17), gm.week(D(2005, 4, 17)) - 189)])))
+gap = [(D(1965, 9, 26), gm.week(D(1965, 9, 26)) - 110), (D(1985, 12, 1), gm.week(D(1985, 12, 1)) - 187)]
+check("20 years with no title: neighbours differ, no number", None, gm.docs_number(D(1975, 3, 9), None, gap))
+d75 = D(1975, 3, 9)
+check("bounds of the gap", (-188, -109), gm.offset_bounds(d75, gap))
+check("printed title number", [826], gm.printed_numbers("Mophisto Crosaword No 826 Across"))
+check("last week's solution plus one, the entry form's own", [1122, 1122],
+      gm.printed_numbers("SOLUTION TO MEPHISTO 1121 -Selenic and solutions to Mophiste 1122, The Times"))
+check("a Times crossword number is not a Mephisto's", [], gm.printed_numbers("CROSSWORD 2907 SOLUTION TO CROSSWORD 2907"))
+o = 826 - gm.week(d75)
+check("one printed number alone is not sure", (o, False), gm.printed_offset(d75, "Mophisto Crosaword No 826", gap))
+check("a near page with the same offset makes it sure", (o, True), gm.printed_offset(d75, "Mophisto Crosaword No 826", gap, {o}))
+check("two numbers that agree are sure", (o, True),
+      gm.printed_offset(d75, "Mephisto Crossword No 826 solutions to Mephisto 826", gap))
+check("a number outside the neighbours' offsets is refused", None, gm.printed_offset(d75, "Mephisto Crossword No 2826", gap))
+check("no titled neighbour after: no bounds", None, gm.offset_bounds(D(1999, 1, 3), gap))
+near_rows = [{"file": "a", "date": "1975-03-16", "number": 827, "numberFrom": "page printed"},
+             {"file": "b", "date": "1975-03-23", "seen": o}, {"file": "c", "date": "1976-03-23", "seen": 5}]
+check("near offsets from the ledger", {827 - gm.week(D(1975, 3, 16)), o}, gm.near_offsets(d75, near_rows))
+unconf = {"file": "p", "date": "1975-03-09", "version": gm.VERSION, "refused": gm.UNCONFIRMED, "seen": o}
+check("an unconfirmed page stays until a neighbour agrees", True, gm.read_done(unconf, {"p": unconf}))
+check("it is due once a neighbour has its offset", False, gm.read_done(unconf, {"p": unconf, "b": near_rows[1]}))
+stale = {"file": "p", "date": "1975-03-09", "version": gm.VERSION, "refused": gm.UNNUMBERED}
+check("a number refusal before NUMBER_FIX is due", False, gm.read_done(stale))
+check("a number refusal at NUMBER_FIX stands", True, gm.read_done({**stale, "numberFix": gm.NUMBER_FIX}))
+
 # --- the grid: 13 broken horizontal rules and thick bars on a 12x12 lattice of pitch 40
 pitch, x0, y0 = 40, 30, 20
 ink = np.zeros((600, 700), bool)

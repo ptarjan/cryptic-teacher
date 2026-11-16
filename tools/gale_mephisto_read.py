@@ -42,6 +42,8 @@ LEDGER = "ledger.jsonl"
 VERSION = 5
 #: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
 GRID_FIX = 1
+#: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
+NUMBER_FIX = 1
 PREFIX = "mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -95,6 +97,10 @@ DOCS_NUMBER = re.compile(r"(?:\bNo\.?\s*|\bMephisto\s+)(\d{1,4})\b", re.IGNORECA
 #: Before this the Mephisto came out every other Sunday (numbers by issue, not by week).
 BIWEEKLY_END = datetime.date(1961, 6, 1)
 WEEK_ZERO = datetime.date(1957, 1, 6)
+#: Gale's titles run weekly (one offset from the weekly count) from here.
+WEEKLY_FROM = datetime.date(1961, 2, 26)
+#: A page before 1995 with one printed number is confirmed by a page this many days off with the same offset.
+NEAR_DAYS = 56
 #: From here the page's own number, checked against the weekly count, is all there is without a titled neighbour.
 COUNT_FROM = datetime.date(1995, 1, 1)
 _DOCS = {}
@@ -117,8 +123,25 @@ def docs_index(path=None):
             m = DOCS_NUMBER.search(e.get("title") or "")
             if m:
                 titled.append((day, int(m.group(1))))
-        _DOCS[path] = (dates, sorted(titled))
+        _DOCS[path] = (dates, sane_titles(sorted(titled)))
     return _DOCS[path]
+
+
+def week(day):
+    """Whole weeks since the first Mephisto Sunday of 1957."""
+    return (day - WEEK_ZERO).days // 7
+
+
+def sane_titles(titled):
+    """`titled` [(date, number)] without the titles Gale's OCR misread (874 for 87, 1601 for 1501, 2330 for 2230 ...):
+    the offset (number less the week count) only ever falls, a skipped week at a time, so a title whose offset
+    rises by more than one from the last kept title's, or falls under the next title's by more than one, is dropped."""
+    out = []
+    for day, n in titled:
+        if not out or n - week(day) <= out[-1][1] - week(out[-1][0]) + NEAR:
+            out.append((day, n))
+    return [t for i, t in enumerate(out) if i + 1 == len(out)
+            or t[1] - week(t[0]) >= out[i + 1][1] - week(out[i + 1][0]) - NEAR]
 
 
 def docs_number(day, own=None, titled=None):
@@ -131,7 +154,6 @@ def docs_number(day, own=None, titled=None):
     before = [t for t in titled if t[0] < day]
     after = [t for t in titled if t[0] > day]
     prev, nxt = (before[-1] if before else None), (after[0] if after else None)
-    week = lambda d: (d - WEEK_ZERO).days // 7
     offs = [t[1] - week(t[0]) for t in (prev, nxt) if t]
     if own is not None:
         if prev and own <= prev[1] or nxt and own >= nxt[1]:
@@ -139,12 +161,92 @@ def docs_number(day, own=None, titled=None):
         if day < BIWEEKLY_END or own - week(day) in offs or not offs:
             return own
         return None
-    if prev and nxt and day >= BIWEEKLY_END and offs[0] == offs[1]:
+    if prev and nxt and prev[0] >= WEEKLY_FROM and offs[0] == offs[1]:
         return week(day) + offs[0]
+    if prev and nxt and nxt[0] < WEEKLY_FROM and (day - prev[0]).days % 14 == 0 \
+            and nxt[1] - prev[1] == (nxt[0] - prev[0]).days // 14 and (nxt[0] - prev[0]).days % 14 == 0:
+        # An issue Gale titled wrongly or not at all between two titled ones a fortnight apart each way.
+        return prev[1] + (day - prev[0]).days // 14
     return None
 
 
-def number_of(cited, text, doc=None):
+def offset_bounds(day, titled=None):
+    """(low, high) the offset (number less the weekly count) of a Mephisto of `day` can have: the titled neighbours'
+    (it only falls, a skipped week at a time, a one-off glitch aside), or None short of one on either side."""
+    if titled is None:
+        titled = docs_index()[1]
+    prev = [t for t in titled if t[0] < day][-1:]
+    nxt = [t for t in titled if t[0] > day][:1]
+    if not prev or not nxt:
+        return None
+    hi, lo = prev[0][1] - week(prev[0][0]), nxt[0][1] - week(nxt[0][0])
+    return lo - NEAR, hi + NEAR
+
+
+_MEPH = r"m\w{2,5}s[tfl][oe]"
+#: What a page before 1995 prints of its own number, as the OCR misreads the title ("Mophisto Crosaword No 826",
+#: "SOLUTION TO MEPHISTO 1121" over last week's answers, "solutions to Mophiste 1122" over this week's entry form).
+PRINTED_TITLE = re.compile(rf"\b{_MEPH}\W{{1,4}}cr\w{{3,8}}\W{{1,4}}n[o0]\W{{0,3}}(\d{{3,4}})\b", re.IGNORECASE)
+PRINTED_SOLUTION = re.compile(rf"\b(so\w{{3,8}})\s+to\s+{_MEPH}\W{{0,3}}(\d{{3,4}})\b", re.IGNORECASE)
+PRINTED_PLAIN = re.compile(rf"\b{_MEPH}\W{{0,3}}(\d{{3,4}})\b", re.IGNORECASE)
+
+
+def printed_numbers(text):
+    """[Mephisto numbers the page's text gives for its own puzzle]: the title's, the plain "Mephisto N", one more than
+    last week's "Solution to Mephisto N" and the same as the entry form's "Solutions to Mephisto N"."""
+    text = re.sub(r"\s+", " ", text or "")
+    out, taken = [], []
+    for m in PRINTED_SOLUTION.finditer(text):
+        taken.append(m.span())
+        n = int(m.group(2))
+        out.append(n if m.group(1).lower().endswith("s") else n + 1)
+    for rx in (PRINTED_TITLE, PRINTED_PLAIN):
+        for m in rx.finditer(text):
+            if not any(a <= m.start() < b for a, b in taken):
+                taken.append(m.span())
+                out.append(int(m.group(1)))
+    return out
+
+
+def printed_offset(day, text, titled=None, near=()):
+    """(offset, sure) the page's printed numbers give for a Mephisto of `day` before 1995, or None. Only an offset
+    inside the titled neighbours' bounds counts; it is sure when two printed numbers agree on it or a page
+    within weeks of this one (`near`: their offsets) has it too."""
+    bounds = offset_bounds(day, titled)
+    if not bounds:
+        return None
+    seen = {}
+    for n in printed_numbers(text):
+        o = n - week(day)
+        if bounds[0] <= o <= bounds[1]:
+            seen[o] = seen.get(o, 0) + 1
+    twice = [o for o, k in seen.items() if k >= 2]
+    if len(twice) == 1:
+        return twice[0], True
+    if len(seen) == 1:
+        (o,) = seen
+        return o, o in near
+    return None
+
+
+def near_offsets(day, rows, own=None):
+    """The offsets the ledger rows `rows` (a page's own excluded) of the Mephisto dates within NEAR_DAYS of `day` hold:
+    a numbered page's (not from the weekly count), or an unconfirmed page's `seen`."""
+    out = set()
+    for r in rows:
+        if r.get("file") == own or not r.get("date"):
+            continue
+        d = datetime.date.fromisoformat(r["date"])
+        if d == day or abs((d - day).days) > NEAR_DAYS:
+            continue
+        if r.get("number") and r.get("numberFrom") in ("docs title", "docs neighbours", "page printed", "citation"):
+            out.add(r["number"] - week(d))
+        elif r.get("seen") is not None:
+            out.add(r["seen"])
+    return out
+
+
+def number_of(cited, text, doc=None, near=()):
     """(number, where from) of a page: its titled neighbours' (docs_number, `doc` = (date, title number or None)
     the Gale page list gives), else the citation's, else the page's text ("Mephisto 2250"), else two more
     than the "Solution to Mephisto N" it prints; each checked against the weekly count (from 1995 on: before, the
@@ -155,6 +257,10 @@ def number_of(cited, text, doc=None):
         if n:
             return n, "docs title" if n == doc[1] else "docs neighbours"
     if day < COUNT_FROM:
+        # No titled neighbours agree: the page's own printed number, inside the neighbours' offsets and sure.
+        got = printed_offset(day, text, None, near)
+        if got and got[1]:
+            return week(day) + got[0], "page printed"
         return None, None
     if checked(cited[0], day):
         return cited[0], "citation"
@@ -205,13 +311,24 @@ CRASH_LIMIT = 3
 #: What a page with no number the Gale list, its neighbours or its text give is refused with (from the docs-number
 #: reading on) and what the 1,364 pages refused before it were (read again once, with the docs list).
 UNNUMBERED = "no Mephisto number: no titled neighbours of the Gale list agree on it, none printed on the page"
+#: A page whose one printed number sits inside its neighbours' offsets but no second reading agrees (yet).
+UNCONFIRMED = "Mephisto number unconfirmed: the one number printed on the page agrees with no second reading"
 STALE_UNNUMBERED = "no Mephisto number in the citation or the page text"
 
 
-def read_done(row):
+def read_done(row, done=None):
     """Whether a ledger row is a verdict of this VERSION: a crashed attempt is not, so the page stays due. A page
-    refused for want of a number before the Gale list's titles set it (STALE_UNNUMBERED) is read again once."""
+    refused for want of a number before the Gale list's titles set it (STALE_UNNUMBERED) is read again once, and
+    again at NUMBER_FIX (the titles grew, a misread title no longer breaks its neighbours, the page's printed
+    number counts); a page whose one printed number (UNCONFIRMED) a page near it in `done` (the ledger) now
+    holds too is read again."""
     if row and row.get("refused") == STALE_UNNUMBERED:
+        return False
+    if row and row.get("refused") == UNNUMBERED and row.get("numberFix", 0) < NUMBER_FIX:
+        return False
+    if row and row.get("refused") == UNCONFIRMED and done is not None and row.get("seen") is not None \
+            and row.get("date") and row["seen"] in near_offsets(datetime.date.fromisoformat(row["date"]),
+                                                                 done.values(), row.get("file")):
         return False
     if row and row.get("numberFrom") in ("solution printed", "page text") and (row.get("date") or "9") < COUNT_FROM.isoformat():
         # A number read off the page before 1995 ran one or two off Gale's own titles (1988-02-07 is 1435, read 1434).
@@ -228,7 +345,7 @@ def plan(saved=SAVED, store=STORE):
     listed each call: the fetch is still adding pages."""
     done = load_ledger(store)
     reason = "never read (Gale fetch)"
-    todo = [p for p in page_files(saved) if not read_done(done.get(p.name))]
+    todo = [p for p in page_files(saved) if not read_done(done.get(p.name), done)]
     todo.sort(key=lambda p: p.stat().st_mtime, reverse=True)
     return [{"rel": PREFIX + p.name, "rank": fa.RANKS[reason], "reason": reason, "needs": []} for p in todo]
 
@@ -1006,16 +1123,22 @@ def read_page(path, store=STORE, asker=None):
     when = dates.get(docid.group(0)) if docid else None
     own = next((n for d, n in titled if d == when), None) if when else None
     doc = (when, own) if when else None
-    if day < COUNT_FROM and not (doc and docs_number(*doc, titled)):
-        # Before 1995 only a titled neighbour sets the number: no page read is worth the OCR.
+    if day < COUNT_FROM and not (doc and docs_number(*doc, titled)) and not offset_bounds(day, titled):
+        # Before 1995 a titled neighbour sets the number, or the page's own printed one inside the neighbours'
+        # offsets: with no titled page on one side there is nothing to check a printed number against.
         verdict.update(refused=UNNUMBERED, date=day.isoformat())
         return verdict, None
     key = gl.image_key(img)
     words = gl.page_words(img, key)
-    n, how = number_of(cited, ocr_clues.lines_of(words), doc)
+    text = ocr_clues.lines_of(words)
+    near = near_offsets(day, load_ledger(store).values(), path.name) if day < COUNT_FROM else ()
+    n, how = number_of(cited, text, doc, near)
     if n is None:
         verdict["refused"] = UNNUMBERED
         verdict["date"] = day.isoformat()
+        got = printed_offset(day, text, titled) if day < COUNT_FROM else None
+        if got:
+            verdict.update(refused=UNCONFIRMED, seen=got[0])
         return verdict, None
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
@@ -1093,8 +1216,9 @@ def read_unit(rel, saved=SAVED, store=STORE):
     from fetch_puzzle import puzzle_path, write_puzzle_file
     name = rel[len(PREFIX):] if rel.startswith(PREFIX) else rel
     path = Path(saved) / name
-    before = load_ledger(store).get(name)
-    if not path.exists() or read_done(before):
+    ledger = load_ledger(store)
+    before = ledger.get(name)
+    if not path.exists() or read_done(before, ledger):
         return "current"
     try:
         verdict, puzzle = read_page(path, store)
@@ -1111,7 +1235,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
-    append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX}, store)
+    append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
