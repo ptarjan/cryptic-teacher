@@ -47,11 +47,14 @@ LEDGER = "ledger.jsonl"
 VERSION = 9
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
-CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
+CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n(?:[o0]|umber)\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
 ENTRY = re.compile(r"sent\s+to\W+jumbo\s+(?:cross\s?word\s+)?(\d[\d,. ]{0,5})", re.IGNORECASE)
 TITLE_WORD = re.compile(r"^\W*j?umbo\W*$", re.IGNORECASE)
-#: The Jumbo numbers the Times printed to 2014.
-NUMBERS = range(100, 1100)
+#: The Jumbo numbers the Times printed to 2014 (No 1124 ran on 20 Dec 2014).
+NUMBERS = range(100, 1200)
+#: Bumped when the number reading changes: only the pages refused for want of a number are read again.
+NUMBER_FIX = 1
+NO_NUMBER = "no Jumbo number in the citation or the prize text"
 #: A grid on the page, in the page's pixels: 23x23 or 27x27 cells.
 GRID_PX = (600, 3600)
 SOLUTIONS = downloads.TIMES_JUMBO_SOLUTIONS
@@ -116,6 +119,8 @@ CRASH_LIMIT = 3
 def read_done(row):
     """Whether a ledger row is a verdict of this VERSION: a crashed attempt (a "failed" row, no
     version while under CRASH_LIMIT) is not, so the page comes back as due."""
+    if row and row.get("refused") == NO_NUMBER and row.get("numbered") != NUMBER_FIX:
+        return False  # refused before the number reading was mended (NUMBER_FIX)
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -471,7 +476,12 @@ def pick_grid(boxes, reader, pads=(6, 0.08)):
 NUMBER_FORMS = (
     ENTRY,
     re.compile(r"\bj[a-z]{1,2}bo\b[^\n]{0,160}\n?[^\n]{0,12}?cross\s?word\s*\(?(\d[\d,.]{0,4})\)?,?\s+The\s+Times", re.IGNORECASE),
-    re.compile(r"\bj[a-z]{1,2}bo\s+cross\s?word\s*\(?(\d[\d,.]{0,4})\)?(?!\d)", re.IGNORECASE),
+    re.compile(r"\bj[a-z]{1,2}bo\s+cross\s?word\s*(?:n[o0]\W{0,3})?\(?(\d[\d,.]{0,4})\)?(?!\d)", re.IGNORECASE),
+    # "sent to: Jumbo\n1104, The Times" / "to: Jumbo 1,019, The\nTimes" ("sent" lost or the line broken)
+    re.compile(r"\bj[a-z]{1,2}bo\W{0,3}\s*(\d,?\d{2,3})\s*,\s*The\b", re.IGNORECASE),
+    re.compile(r"\bj[a-z]{1,2}bo\b[^\n]{0,60}\n[^\n]{0,60}?(?<![\d,.])(\d,?\d{2,3}),\s*The\s+Times", re.IGNORECASE),
+    # the "Jumbo" word lost from the line: "sent to: 1,025, The\nTimes, 3 Thomas More Square"
+    re.compile(r"(?<![\d,.])(\d,\d{3}|\d{3}),\s*The\s+Times,?\s*\d?\s*(?:Thomas|London|1 Pennington)", re.IGNORECASE),
 )
 
 
@@ -484,11 +494,42 @@ def number_in_text(text):
     return None
 
 
-def number_of(img, key, cited, words):
+#: A dated page counted from must lie within this of the page counted (holidays the count mispredicts add up).
+COUNT_SPAN = datetime.timedelta(weeks=14)
+
+
+def counted_number(day, known):
+    """The Jumbo number of the issue of `day` counted from the dated numbers `known` ([(date, number)] read
+    off other pages): forward from the nearest one before and back from the nearest one after, over the
+    Saturdays and bank holidays between (gale_jumbo.days), taken only when both counts agree."""
+    import gale_jumbo
+    before = max(((d, n) for d, n in known if d < day), default=None)
+    after = min(((d, n) for d, n in known if d > day), default=None)
+    if not before or not after or day - before[0] > COUNT_SPAN or after[0] - day > COUNT_SPAN:
+        return None
+    up = before[1] + len(gale_jumbo.days(before[0], day)) - 1
+    down = after[1] - (len(gale_jumbo.days(day, after[0])) - 1)
+    return up if up == down and up in NUMBERS and day in gale_jumbo.days(day, day) else None
+
+
+def known_numbers(store=STORE):
+    """[(date, number)] of the pages the ledger read a number off (the citation or the prize text)."""
+    return [(datetime.date.fromisoformat(r["date"]), r["number"]) for r in load_ledger(store).values()
+            if r.get("number") and r.get("date") and r.get("numberFrom") in ("citation", "prize text")]
+
+
+def number_of(img, key, cited, words, known=None):
     import ocr_clues
     if cited and cited[0]:
         return cited[0], "citation"
     n = number_in_text(ocr_clues.lines_of(words))
+    # the count from the dated pages either side (a holiday week that disagrees gives none) stands for a garbled
+    # title and prize text, and over a misread prize-text digit ("956" for 996); the 1997 holiday specials are numberless
+    if known is None:
+        known = known_numbers()
+    counted = counted_number(cited[1], known) if cited else None
+    if counted and counted != n:
+        return counted, "dated count"
     return (n, "prize text") if n else (None, None)
 
 
@@ -843,7 +884,7 @@ def read_page(path, store=STORE, asker=None):
     if n is None:
         n, how = number_by_date(day)
     if n is None:
-        verdict["refused"] = "no Jumbo number in the citation or the prize text"
+        verdict.update(refused=NO_NUMBER, numbered=NUMBER_FIX)
         return verdict, None
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
     boxes = grid_boxes(img)
