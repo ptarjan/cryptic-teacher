@@ -17160,7 +17160,10 @@ REREAD_INDY_FRAME = "2026-11-16T02:51:00+00:00"
 def indy_frame_due(row):
     """Whether Gale ledger `row`, read before REREAD_INDY_FRAME, holds a puzzle not filed whose grid image was unread
     for a lattice "larger than the WxHpx frame"."""
-    if "Gale" not in ((row or {}).get("edition") or "") \
+    # 11-16 r63: the archive.org Financial Times items (1988-90, 1996: 41 rows, 15x15 lattices 0.9 as tall as wide, "a
+    # 15x15 lattice at 39px a cell is larger than the 618x554px frame") are stretched so too; they read before the cut.
+    ed = (row or {}).get("edition") or ""
+    if not ("Gale" in ed or ed.startswith("FinancialTimes19")) \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_FRAME)):
         return False
     series = paper_of(row["edition"]).series
