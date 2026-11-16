@@ -158,6 +158,7 @@ class Log:
         self.snap = {}            # field -> its counts when its backlog started
         self.width = None
         self.limit = None
+        self.why_said = ""        # the last "  why:" line, for the pressure and overnight notes
         self.limit_note = None    # the limit as shown: memory with its numbers, a rush said
         self.reset_plan = None    # the planner's rush decision: "pacing to ... reset, 0 of 15 manual resets left"
         self.mem_said = ""        # the last "  why:" line: the burn prints the width's inputs there
@@ -477,8 +478,10 @@ class Log:
         return [self.out(now, "──", "idle: nothing queued")] + self.status(now, force=True)
 
     def handle(self, line, now):
-        if line.startswith("  why: ") and MEM_DETAIL.search(line):
-            self.mem_said = line
+        if line.startswith("  why: ") and (MEM_DETAIL.search(line) or PRESSURE_DETAIL.search(line)):
+            if MEM_DETAIL.search(line):
+                self.mem_said = line
+            self.why_said = line
             return []
         old = re.match(r"^width (\d+): need (\d+) .*?\(([\d.]+)% now, ([\d.]+)h to its reset.*?memory cap (\w+), "
                        r"cpu cap (\w+).*?load cap (\w+)", line)
@@ -504,7 +507,8 @@ class Log:
             # The burn's width line ends "· N in flight"; the planner's inputs (memory among them)
             # follow on a "  why:" line, so the last one seen stands in until the next arrives.
             self.limit_note = limit_note(self.limit, "quota pace rush" in m.group(2),
-                                         m.group(3) if MEM_DETAIL.search(m.group(3) or "") or self.limit != "memory" else self.mem_said,
+                                         (m.group(3) if MEM_DETAIL.search(m.group(3) or "") else self.mem_said) if self.limit == "memory"
+                                         else f"{m.group(3) or ''} {self.why_said}",
                                          self.width)
             w = re.search(r"weekly ([\d.]+)% now, ([\d.]+)h to its reset", m.group(3) or "")
             if w:
