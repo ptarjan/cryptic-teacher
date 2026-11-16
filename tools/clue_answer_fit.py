@@ -35,6 +35,23 @@ MIN_CLUES = 24
 MAX_HITS = 1
 
 
+OK_FILE = Path(__file__).parent / "data" / "clue_answer_fit_ok.txt"
+
+
+def reviewed_ok(path=None):
+    """Ids checked by hand whose clues fit (old-style definitions show few
+    letters): one per line, `id  # reason`. `check` passes them."""
+    path = Path(path or OK_FILE)
+    if not path.exists():
+        return set()
+    ids = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if line:
+            ids.add(line)
+    return ids
+
+
 def letters(text):
     return re.sub(r"[^a-z]", "", text.lower())
 
@@ -94,7 +111,10 @@ def main(argv):
         print(__doc__, file=sys.stderr)
         return 2
     import puzzle_paths
+    ok = reviewed_ok()
     for pid in argv[1:]:
+        if pid in ok:
+            continue
         path = puzzle_paths.find(pid)
         if not path:
             continue

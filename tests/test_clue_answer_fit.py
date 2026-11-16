@@ -4,8 +4,11 @@
 #     python3 tests/test_clue_answer_fit.py
 #
 # Tiny fixtures in, a reason or None out (tools/clue_answer_fit.py).
+import json
 import os
 import sys
+import tempfile
+from pathlib import Path
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import _path  # puts tools/ on sys.path
 import clue_answer_fit as F
@@ -53,5 +56,21 @@ check(F.shows_answer(*GOOD[2]), True, "acrostic shows")
 check(F.misfiled(puzzle(fits)), None, "clues that show their answers pass")
 check(F.shows_answer("Cat (3)", "CAT"), None, "a three-letter answer says nothing")
 check(F.misfiled({"id": "t-2", "entries": [{"clue": {"text": "x"}}]}), None, "no answers, nothing to compare")
+
+with tempfile.TemporaryDirectory() as d:
+    f = os.path.join(d, "ok.txt")
+    Path(f).write_text("# header\nfoo-1  # fits\n\nfoo-2\n")
+    check(F.reviewed_ok(f), {"foo-1", "foo-2"}, "allowlist parses ids, drops comments")
+    check(F.reviewed_ok(os.path.join(d, "none.txt")), set(), "a missing allowlist is empty")
+    # main() passes an allowlisted id even though its clues are refused.
+    import puzzle_paths
+    pf = os.path.join(d, "foo-1.json")
+    Path(pf).write_text(json.dumps(puzzle(mismatched)))
+    puzzle_paths.find = lambda pid: pf
+    F.OK_FILE = f
+    check(F.main(["check", "foo-1"]), 0, "an allowlisted puzzle passes check")
+    check(F.main(["check", "bar-9"]), 1, "a non-listed mismatched puzzle fails check")
+check({"sundaytimes-2167", "sundaytimes-3435"} <= F.reviewed_ok(os.path.join("tools", "data", "clue_answer_fit_ok.txt")),
+      True, "the seeded ids are listed")
 
 sys.exit(1 if fails else 0)
