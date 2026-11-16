@@ -135,24 +135,84 @@ def swap_pages(path="/proc/vmstat"):
         return None
 
 
+#: Severe memory pressure halves the ceiling toward its floor instead of stepping -2 (11-16 09:52: 32
+#: units at once after a paused hour, 6.6/8 GB swap at 2.5-7.4 GB/min, load 65, the OOM killer took the
+#: plan child; -2 every 120 s was far too slow). Over SEVERE_SWAP_MB of VM swap a minute, Windows under
+#: SEVERE_FREE_MB free, or hard faults over twice FAULTS_DOWN. CT_SEVERE_SWAP / CT_SEVERE_FREE override.
+SEVERE_SWAP_MB = int(os.environ.get("CT_SEVERE_SWAP") or 200)
+SEVERE_FREE_MB = int(os.environ.get("CT_SEVERE_FREE") or 1000)
+#: A relaunched queue ramps up from here, never from the last stored ceiling (CT_CEILING_START).
+CEILING_START = int(os.environ.get("CT_CEILING_START") or 12)
+#: Running units under the ceiling by more than this: the ceiling is not what binds, so free RAM read on
+#: a part-idle queue says nothing about the load the full ceiling would bring, and it does not step up.
+IDLE_SLACK = 2
+
+
 def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80, swap_mb=None, faults=None,
-                 low_mb=None):
-    """The new ceiling: -2 when Windows has under 2000 MB free (free_mb, or low_mb, the reading before a
-    cache drop), CPU is over cpu_hi, the VM swaps over SWAP_DOWN_MB a minute or Windows hard-faults over
-    FAULTS_DOWN pages a second; +2 when over 4500 MB free, CPU (unknown counts as busy) under cpu_lo,
-    swap still (under SWAP_HOLD_MB a minute) and faults under FAULTS_HOLD (unknown counts as still);
-    clamped to lo..hi. No RAM figure: unchanged."""
+                 low_mb=None, running=None):
+    """The new ceiling: halved (toward lo) under severe pressure (VM swap over SEVERE_SWAP_MB a minute,
+    Windows free under SEVERE_FREE_MB, faults over 2 x FAULTS_DOWN); else -2 when Windows has under 2000 MB
+    free (free_mb, or low_mb, the reading before a cache drop), CPU is over cpu_hi, the VM swaps over
+    SWAP_DOWN_MB a minute or Windows hard-faults over FAULTS_DOWN pages a second; +2 when over 4500 MB
+    free, CPU (unknown counts as busy) under cpu_lo, swap still (under SWAP_HOLD_MB a minute) and faults
+    under FAULTS_HOLD (unknown counts as still), and the `running` units (None: unknown) are not more than
+    IDLE_SLACK under the ceiling; clamped to lo..hi. No RAM figure: unchanged."""
     if free_mb is None:
         return ceiling
     new = ceiling
     swap = swap_mb or 0
     low = free_mb if low_mb is None else min(free_mb, low_mb)
-    if low < 2000 or (cpu or 0) > cpu_hi or swap > SWAP_DOWN_MB or (faults or 0) > FAULTS_DOWN:
+    if low < SEVERE_FREE_MB or swap > SEVERE_SWAP_MB or (faults or 0) > FAULTS_DOWN * 2:
+        new = min(ceiling - 2, ceiling // 2)
+    elif low < 2000 or (cpu or 0) > cpu_hi or swap > SWAP_DOWN_MB or (faults or 0) > FAULTS_DOWN:
         new = ceiling - 2
     elif free_mb > 4500 and (100 if cpu is None else cpu) < cpu_lo and swap <= SWAP_HOLD_MB \
-            and (faults or 0) <= FAULTS_HOLD:
+            and (faults or 0) <= FAULTS_HOLD and (running is None or running >= ceiling - IDLE_SLACK):
         new = ceiling + 2
     return max(lo, min(hi, new))
+
+
+def clamp_ceiling_start(start=None, log=None):
+    """At a queue start: a stored ceiling file over `start` (CEILING_START) is lowered to it, so a relaunch
+    ramps up from there; returns the line to log, or None."""
+    start = CEILING_START if start is None else start
+    path = os.path.expanduser(os.environ.get("CT_UNIT_CEILING_FILE") or CEILING_FILE)
+    try:
+        with open(path) as f:
+            stored = int(f.read().split()[0])
+    except (OSError, ValueError, IndexError):
+        return None
+    if stored <= start:
+        return None
+    try:
+        with open(path, "w") as f:
+            f.write(f"{start}\n")
+    except OSError:
+        return None
+    return f"ceiling: stored {stored} clamped to {start} at start (ramps up from there)"
+
+
+_SWAP_SEEN = [None]
+
+
+def swap_rate_now():
+    """MB a minute swapped since the last call of this (None on the first)."""
+    pages, now, last = swap_pages(), time.monotonic(), _SWAP_SEEN[0]
+    _SWAP_SEEN[0] = (pages, now) if pages is not None else None
+    if last is None or pages is None or now - last[1] < 1:
+        return None
+    return int((pages - last[0]) * 4 / 1024 * 60 / (now - last[1]))
+
+
+PLAN_FORK_MIN = int(os.environ.get("CT_PLAN_FORK_MIN") or 3 << 30)
+
+
+def vm_short(avail=None, swap_mb=None):
+    """True when the VM is short of memory for an in-process plan: MemAvailable under PLAN_FORK_MIN or
+    swap traffic over SWAP_DOWN_MB a minute (11-16: the OOM killer took a 2 GB plan child)."""
+    avail = available() if avail is None else avail
+    swap = swap_rate_now() if swap_mb is None else swap_mb
+    return (avail is not None and avail < PLAN_FORK_MIN) or (swap or 0) > SWAP_DOWN_MB
 
 
 def _win_free(host):
@@ -202,6 +262,7 @@ class CeilingController:
         self.thread = None
         self.lines = []
         self.swapped = None
+        self.running = None  # unit children running, given to poll() by the queue (None: unknown)
 
     def _swap_rate(self):
         """MB a minute swapped in+out since the last probe (None on the first)."""
@@ -234,7 +295,7 @@ class CeilingController:
         cur = unit_ceiling()
         new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
                            int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap,
-                           faults, low)
+                           faults, low, self.running)
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
             try:
@@ -247,8 +308,9 @@ class CeilingController:
             self.lines.append(f"ceiling: win free {free} MB (low {low}) cpu {cpu}% swap {swap} MB/min "
                               f"faults {faults}/s: {cur} -> {new}")
 
-    def poll(self, now=None):
+    def poll(self, now=None, running=None):
         now = time.monotonic() if now is None else now
+        self.running = running
         if (self.thread is None or not self.thread.is_alive()) and (self.last is None or now - self.last >= self.every):
             import threading
             self.last = now

@@ -2888,8 +2888,42 @@ check("ceiling_step: Windows hard faults or a low pre-drop reading step down; fa
       (18, 20, 22, 18),
       (mg.ceiling_step(20, 9000, 10, faults=mg.FAULTS_DOWN + 1), mg.ceiling_step(20, 9000, 10, faults=mg.FAULTS_HOLD + 1),
        mg.ceiling_step(20, 9000, 10, faults=0), mg.ceiling_step(20, 9000, 10, low_mb=1500)))
+check("ceiling_step: no step up while the running units sit well under the ceiling (idle queue); unknown keeps it",
+      (20, 20, 22, 22),
+      (mg.ceiling_step(20, 9000, 10, running=3), mg.ceiling_step(20, 9000, 10, running=17),
+       mg.ceiling_step(20, 9000, 10, running=18), mg.ceiling_step(20, 9000, 10, running=None)))
+check("ceiling_step: severe swap, low Windows free or double faults halve toward lo, else -2",
+      (16, 16, 16, 8, 18),
+      (mg.ceiling_step(32, 9000, 10, swap_mb=mg.SEVERE_SWAP_MB + 1), mg.ceiling_step(32, 900, 10),
+       mg.ceiling_step(32, 9000, 10, faults=mg.FAULTS_DOWN * 2 + 1), mg.ceiling_step(12, 9000, 10, swap_mb=3549),
+       mg.ceiling_step(20, 9000, 10, swap_mb=mg.SEVERE_SWAP_MB)))
+_cf = os.path.join(tempfile.mkdtemp(), "unit_ceiling")
+os.environ["CT_UNIT_CEILING_FILE"] = _cf
+with open(_cf, "w") as _f:
+    _f.write("32\n")
+check("clamp_ceiling_start: a stored 32 is lowered to the start value and logged",
+      (True, 12), (bool(mg.clamp_ceiling_start(12)), mg.unit_ceiling()))
+check("clamp_ceiling_start: a stored value at or under the start is left", (None, 12), (mg.clamp_ceiling_start(12), mg.unit_ceiling()))
+del os.environ["CT_UNIT_CEILING_FILE"]
+check("vm_short: low MemAvailable or busy swap", (True, True, False),
+      (mg.vm_short(2 << 30, 0), mg.vm_short(8 << 30, mg.SWAP_DOWN_MB + 1), mg.vm_short(8 << 30, 0)))
+_pf_run, _pf_en, _pf_short, _pf_plan = eq.plan_fork.run, eq.plan_fork.enabled, mg.vm_short, eq.plan
+eq.plan_fork.run = lambda fn, locks=(): ("failed", "child ended with no answer")
+eq.plan_fork.enabled = lambda: True
+eq.plan = lambda papers, cache=None, reread=None, out=None: ("in-process",)
+mg.vm_short = lambda *a, **k: True
+try:
+    eq.plan_forked(["times"])
+    _pf_got = "planned"
+except eq.PlanDeferred:
+    _pf_got = "deferred"
+mg.vm_short = lambda *a, **k: False
+_pf_got2 = eq.plan_forked(["times"])
+eq.plan_fork.run, eq.plan_fork.enabled, mg.vm_short, eq.plan = _pf_run, _pf_en, _pf_short, _pf_plan
+check("plan_forked: a dead child with the VM short of memory defers; with room it plans in-process",
+      ("deferred", ("in-process",)), (_pf_got, _pf_got2))
 M = 1 << 20
-_ps = [(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
+_ps =[(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
 check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},
       mg.tree_rss([10, 20, 99], _ps))
 check("unit_costs: the largest unit of a kind, at least UNIT_MIN; kinds none runs are absent",

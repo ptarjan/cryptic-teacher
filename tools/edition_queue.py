@@ -801,6 +801,14 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
         give_back_memory()
 
 
+class PlanDeferred(Exception):
+    """The plan fork died and the VM is short of memory: poll_plan makes no plan this pass and forks again."""
+
+
+#: Seconds poll_plan waits after a PlanDeferred before the next fork.
+PLAN_DEFER_S = 30
+
+
 def plan_forked(papers, cache=fa.CACHE, reread=None, out=None):
     """plan()'s answer, made in a forked child that exits (CT_PLAN_FORK=0: in this process): a plan's heap
     (~2 GB of transient objects pinned by the caches, none of it returned by malloc_trim) went with the child
@@ -821,6 +829,9 @@ def plan_forked(papers, cache=fa.CACHE, reread=None, out=None):
     if status == "err":
         raise got
     if status == "failed":
+        if mem_gate.vm_short():
+            log(f"plan fork failed ({got}); VM short of memory, not planned in this process: forking again next pass")
+            raise PlanDeferred(got)
         log(f"plan fork failed ({got}); planned in this process")
         return plan(papers, cache, reread, out)
     made, notes, dirs, saved = got
@@ -3603,7 +3614,8 @@ class _Poller:
         self.overdue()
         self.reload_check()
         if self.ceiling_ctl:
-            for line in self.ceiling_ctl.poll():
+            running = sum(1 for _, (u, _) in self.units_running() if u["kind"] != "fetch")
+            for line in self.ceiling_ctl.poll(running=running):
                 log(line)
         for b in self.beside:
             b.poll(self.may_start() and not self.game_now[0], None if self.seconds is None else self.seconds - (time.monotonic() - self.begun))
@@ -3653,7 +3665,7 @@ class _Poller:
             self.fresh_scans, self.fresh_reads = unchanged_eq(self.fresh_scans, self.new_scans), unchanged_eq(self.fresh_reads, self.new_reads)
 
     def poll_plan(self):
-        if self.may_start() and self.planner is None and not self.media.held() and (
+        if self.may_start() and self.planner is None and not self.media.held() and time.monotonic() >= getattr(self, "plan_defer_until", 0) and (
                 self.plan_done is None or time.monotonic() - self.plan_done >= self.replan and time.monotonic() - self.plan_done >= self.replan_after()):
             box = {"begun": time.monotonic(), "notes": []}
 
@@ -3682,6 +3694,9 @@ class _Poller:
                 self.planner[0].start()
         if self.planner is not None and not self.planner[0].is_alive() and "error" in self.planner[1] and self.media.down(self.planner[1]["error"]):
             self.planner = None  # the plan met the media share down: made again once it answers (media.hold)
+        if self.planner is not None and not self.planner[0].is_alive() and isinstance(self.planner[1].get("error"), PlanDeferred):
+            self.planner = None  # the fork died with the VM short of memory: forked again after PLAN_DEFER_S
+            self.plan_defer_until = time.monotonic() + PLAN_DEFER_S
         if self.planner is not None and not self.planner[0].is_alive():
             box, self.planner = self.planner[1], None
             if "error" in box:
@@ -4848,6 +4863,9 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
         self.ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
         if self.ceiling_ctl:
+            clamped = mem_gate.clamp_ceiling_start()
+            if clamped:
+                log(clamped)
             log(f"ceiling controller on: host {self.ceiling_ctl.host}, metrics {self.ceiling_ctl.metrics}, every {self.ceiling_ctl.every} s")
 
         threading.Thread(target=self.drainer_early, daemon=True, name="vlm drainer start").start()
