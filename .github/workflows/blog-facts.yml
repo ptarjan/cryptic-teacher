@@ -99,6 +99,7 @@ jobs:
           key: blogfacts-state-${{ github.run_id }}
           restore-keys: blogfacts-state-
       - name: Check the caches and build the posts manifests
+        id: check
         shell: bash
         run: |
           echo "posts caches: times=${{ steps.posts.outputs.cache-matched-key }} bigdave=${{ steps.bigdave.outputs.cache-matched-key }} fifteensquared=${{ steps.fifteen.outputs.cache-matched-key }}"
@@ -106,8 +107,12 @@ jobs:
           for b in timesforthetimes bigdave44 fifteensquared; do
             if [ ! -d "$CT_DOWNLOADS/$b/posts" ]; then
               wf=blog-fetch.yml; [ "$b" = fifteensquared ] && wf=fifteensquared-fetch.yml
-              echo "::warning::no post cache for $b (its fetch workflow has not saved one); skipping it, dispatching $wf to reseed"
+              # Running without a blog would crash on its missing manifest, or drop every
+              # fact it gives: this run writes nothing and the reseeded fetch's save is
+              # read by the next run.
+              echo "::warning::no post cache for $b (its fetch workflow has not saved one); dispatching $wf to reseed, writing nothing this run"
               gh workflow run "$wf" || echo "::warning::could not dispatch $wf"
+              echo "missing=$b" >> "$GITHUB_OUTPUT"
               continue
             fi
             echo "$b: $(ls "$CT_DOWNLOADS/$b/posts" | wc -l) posts"
@@ -116,12 +121,14 @@ jobs:
           mkdir -p /tmp/ct-blogfacts-state "$CT_DOWNLOADS/blog_facts_cache"
           df -h /tmp | tail -1
       - name: Parse bigdave44's posts
+        if: steps.check.outputs.missing == ''
         shell: bash
         run: |
           start=$SECONDS
           python3 tools/parse_bigdave44.py
           echo "parse_bigdave44: $((SECONDS - start))s"
       - name: Blog facts
+        if: steps.check.outputs.missing == ''
         id: facts
         shell: bash
         run: |
@@ -134,9 +141,11 @@ jobs:
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           [ "$rc" = 0 ] || { echo "::error::tools/blog_facts.py failed (rc=$rc)"; exit "$rc"; }
       - name: Blog compare
+        if: steps.check.outputs.missing == ''
         shell: bash
         run: python3 tools/blog_compare.py || echo "::warning::blog_compare failed"
       - name: Commit
+        if: steps.check.outputs.missing == ''
         id: commit
         shell: bash
         run: |
