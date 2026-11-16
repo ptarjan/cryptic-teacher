@@ -5417,6 +5417,20 @@ check("SUNDAY_UNDER is due for a 1960-67 Gale Sunday Times page written incomple
        f.windows_of((835, 3947, 1555, 4683), left=(lambda s: (setattr(s, "under", [688, 1100, 1500]), s)[1])(
            f.SolutionLeft((263, None, 5645))))])
 
+# A DOWN column's first line read as one word with the prize notice beside it: SUNDAY_NOTICE cuts it before the notice.
+_snr = {**_sur, "edition": "GaleSundayTimes1966UKEnglish/1966-04-24"}
+check("SUNDAY_NOTICE is due for a 1960-67 Gale Sunday Times page written incomplete read before it, no later read; wired and ranked; "
+      "under_unglued cuts a clue's line before the prize notice, the clue's piece ending at the gutter",
+      [[True, False], True,
+       [(1168, 4598, 1572.7567567567567, 4620, "16 Advocate the possibility of bear-"),
+        (1583, 4598, 2000, 4620, "Five book tokens.each valuedfl Is.are")]],
+      [[f.sunday_notice_due(_snr), f.sunday_notice_due({**_snr, "readAt": "2027-01-01T00:00:00+00:00"})],
+       f.RANKS[f.SUNDAY_NOTICE] == 2 and f.SUNDAY_NOTICE in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_NOTICE) is not None
+       and f.SUNDAY_NOTICE in _eq_bp.FIX_LANDED and f.SUNDAY_NOTICE in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_NOTICE in _eq_bp.NEWEST_LANDED,
+       f.under_unglued([(1168, 4598, 2000, 4620, "16 Advocate the possibility of bear-|Five book tokens.each valuedfl Is.are")],
+                       [1152, 1582, 2012])])
+
 # The Gale Sunday Times 1960-99 page whose solution-sized grid under its title (a 4118px scan, 574 at SCAN_WIDTH)
 # locate_grid passed over: SUNDAY_GRID is due for a refused "no reading parses" / "not a grid" row read before it, once.
 _sgrow = {"edition": "GaleSundayTimes1966UKEnglish/1966-05-15", "inputs": "x", "readAt": "2026-11-07T11:00:00+00:00",
