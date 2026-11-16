@@ -3743,6 +3743,8 @@ def quarter_reading_order(cols):
     (QUARTER_DOWN): the first column's lines under the heading follow the second's lines over it. Else `cols`."""
     if len(cols) != 4 or not cols[1]:
         return cols
+    if not any(clue_text.heading_of(line[4]) for c in cols for line in c):
+        return quarter_headless_order(cols)
     at = [i for i, line in enumerate(cols[1]) if clue_text.heading_of(line[4]) == "DOWN"]
     if len(at) != 1 or at[0] == 0 or any(clue_text.heading_of(line[4]) == "DOWN" for c in (cols[0], *cols[2:]) for line in c):
         return cols
@@ -3756,6 +3758,52 @@ def quarter_reading_order(cols):
     if clue_text.heading_of(first[0][4]) == "ACROSS":
         over, first = [first[0], *over], first[1:]
     return [over, first, [head, *under, *cols[1][at[0] + 1:]], cols[2], cols[3]]
+
+
+#: QUARTER_HEADLESS: the white space of the DOWN heading's row, as a multiple of the lines' median height, that cuts a column
+#: in two, and how far apart (px) the two first columns' cuts may lie.
+QUARTER_CUT = 0.6
+QUARTER_CUT_APART = 40
+
+
+def quarter_headless_order(cols):
+    """`cols` (four clue columns, columns()'s, with no ACROSS or DOWN heading among them) in print order with the two headings put
+    back, when the first two columns are cut by the same white space (the heading row, read in neither) with the numbers
+    starting again under it (1939-09-30 No 2999: ACROSS 1-15 / 18-28 over DOWN 1-4 / 5-8, the DOWN list on in the third and fourth
+    columns). Else `cols`."""
+    heights = sorted(line[1] - line[0] for c in cols for line in c)
+    if not heights or not all(cols):
+        return cols
+    cut = QUARTER_CUT * heights[len(heights) // 2]
+
+    def split(col):
+        gaps = [(col[i][0] - col[i - 1][1], i) for i in range(1, len(col))]
+        gap, i = max(gaps, default=(0, 0))
+        return (i, gap) if gap >= cut and i >= 3 and len(col) - i >= 2 else None
+
+    def lead(line):
+        m = re.match(r"[\s\[|]*(\d{1,2})(?=$|[^\d)\],.])", line[4])
+        return int(m.group(1)) if m else None
+    cuts = [split(c) for c in cols[:2]]
+    if not all(cuts):
+        return cols
+    (i0, _), (i1, _) = cuts
+    if abs(cols[0][i0][0] - cols[1][i1][0]) > QUARTER_CUT_APART:
+        return cols
+    over0 = [lead(line) for line in cols[0][:i0] if lead(line) is not None]
+    under0 = [lead(line) for line in cols[0][i0:] if lead(line) is not None]
+    over1 = [lead(line) for line in cols[1][:i1] if lead(line) is not None]
+    under1 = [lead(line) for line in cols[1][i1:] if lead(line) is not None]
+    # Each list's numbers rise through its columns, the DOWN list starting again under the cut.
+    if not (over0 and under0 and over1 and under1) or under0[0] >= over0[-1] or under1[0] <= under0[-1] \
+            or over1[0] <= over0[-1] or any(b < a for a, b in zip(over0, over0[1:])) \
+            or any(b < a for a, b in zip(under0, under0[1:])):
+        return cols
+    head = cols[0][0]
+    top = (head[0], head[0], head[2], head[2], "ACROSS")
+    down = cols[0][i0]
+    mark = (down[0], down[0], down[2], down[2], "DOWN")
+    return [[top, *cols[0][:i0]], cols[1][:i1], [mark, *cols[0][i0:]], cols[1][i1:], *cols[2:]]
 
 
 #: A clue number read with the column rule's mark before it ("[16 This its anagram", "127 Gets" is not: only a bracket).
@@ -17167,6 +17215,33 @@ def quarter_down_due(row):
     return False
 
 
+#: The reason of a Gale Times page of 1935-39 still refused "clue [] names no light" after QUARTER_DOWN's read (r71: 53 of the 59
+#: 1938-39 pages read since 13:22Z, the 164 of 1935-37 not yet). 1939-09-30 No 2999, offline: the readers' window cut from the
+#: gutter holds the four clue columns (grid-width quarters), but the row of the ACROSS heading is read with each column's first
+#: clue, lost to all four, and the DOWN heading's row is read in none, so no heading stands in any column and the lists ran
+#: into each other (ACROSS 1-15, DOWN 1-4, ACROSS 19-28, DOWN 5-8, then 14-24). column_text() now cuts the first two columns where
+#: both have the same white space with the numbers starting again under it, reads them over, then under, then the third and the
+#: fourth, and puts the two headings back (quarter_headless_order). Due by the ledger (quarter_headless_due). Read once.
+QUARTER_HEADLESS = "Gale Times page of four clue columns with no heading read in any, its lists cut where the numbers start again since"
+REREAD_QUARTER_HEADLESS = "2026-11-16T15:13:00+00:00"
+
+
+def quarter_headless_due(row):
+    """Whether Gale Times ledger `row` (1935-39), read before REREAD_QUARTER_HEADLESS, holds a puzzle whose clues disagree with
+    its grid with a clue "[]" laid on no light, not filed since."""
+    rel = (row or {}).get("edition") or ""
+    if not re.match(r"GaleTimes193[5-9]", rel) or paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_QUARTER_HEADLESS)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
+                or "clue [] names no light" not in str(v.get("imageDisagrees")):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The due reason of a Gale Independent page 2004-09 written unfiled with one or more down lights blank for the help-line
 #: banner under its clue columns ("Can't wait until tomorrow? Get help now at www.independent.co.uk/crosswords"; the
 #: reason "'www.independent.co.uk/c': a stray mark inside a word", "'solu': not a word" apart). Indy42 11-16 census of the
@@ -23256,6 +23331,8 @@ def fix_reason(row):
         return NUMBERLESS_LAID
     if quarter_down_due(row):
         return QUARTER_DOWN
+    if quarter_headless_due(row):
+        return QUARTER_HEADLESS
     if indy_banner_due(row):
         return INDY_BANNER
     if ft_speck_words_due(row):
@@ -24053,6 +24130,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   NUMBERLESS_LAID,
                   # 11-16: a Gale Times 1936-39 page unfiled with a clue "[]" laid on no light, its DOWN heading across two columns (quarter_down_due).
                   QUARTER_DOWN,
+                  # 11-16: the same pages read since, their headings lost to the window's columns (quarter_headless_due).
+                  QUARTER_HEADLESS,
                   # 11-16: an FT page of 1980-94 with no puzzle found, its thin archive.org text read as a page without text (ft_small_host).
                   FT_SMALL_TEXT,
                   # 11-16: a Gale Independent page with its help-line banner read into a clue (indy_banner_due).
@@ -24172,6 +24251,7 @@ def blanket_or_fix(row, blanket):
             else IOS_ENTRY_LINES if ios_entry_lines_due(row) \
             else NUMBERLESS_LAID if numberless_due(row) \
             else QUARTER_DOWN if quarter_down_due(row) \
+            else QUARTER_HEADLESS if quarter_headless_due(row) \
             else FT_SMALL_TEXT if ft_small_host(row) \
             else INDY_BANNER if indy_banner_due(row) \
             else FT_SPECK_WORDS if ft_speck_words_due(row) \
@@ -24398,7 +24478,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
