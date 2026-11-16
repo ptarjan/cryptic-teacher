@@ -6985,8 +6985,9 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:29:00+00:00", "no-reading-parses"
                   # (r10) crop_window.gutters on a window with no area (a lead column starting under the grid's
                   # foot: Coordinate 'lower' is less than 'upper'), solved()'s empty kept solution read
                   # (JSONDecodeError), the Quickie-set refusal "quick-set" missing from REFUSALS; the NoneType
-                  # and tesseract-timeout crashes no longer reproduce.
-                  "crashed": "2026-11-15T21:50:00+00:00"}
+                  # and tesseract-timeout crashes no longer reproduce. 11-16 02:27: ios_barred.evened's float
+                  # lattice/box edges as slice indices (TypeError: slice indices must be integers).
+                  "crashed": "2026-11-16T02:27:00+00:00"}
 
 #: {writeFailed message: ISO time}: an edition a puzzle of which failed to
 #: write with that message and was read before that time is read again

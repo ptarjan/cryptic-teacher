@@ -3872,6 +3872,16 @@ check("a Beelzebub's bars are mirror pairs (a bar thick on one side only is none
       [_fit[2][3] == "r" and _fit[9][7] == "r", _fit[7][1] == ".", _wins[2:], f.with_under((205, 589, 100), _ug, 3743)[2],
        f.IOS_WORDS_COUNT.sub(r"(\1)", "(12, 2 words) x (9, 2 words)").replace("(9)", "(9)"),
        [(1, "across", 6)] if _io.wanted_of({"across": [{"tokens": [{1}], "enums": {"3,3"}}]}) == [(frozenset({1}), "across", 6)] else None])
+_ev_gray = np.full((500, 500), 255, dtype=np.uint8)
+_ev_gray[100:400, 100:400] = 0
+try:
+    _ev = [_io.evened(_ev_gray, {"lattice": ([100.4, 399.6], [100.4, 399.6])}),
+           _io.evened(_ev_gray, {"box": (100.4, 100.4, 399.6, 399.6)})]
+    _ev_ok = [True, True]
+except TypeError:
+    _ev_ok = [False, False]
+check("an Independent on Sunday grid's lattice or box of float edges is cut on whole pixels, no slice TypeError",
+      [True, True], _ev_ok)
 _wl = [[(1350, 2937, 1698, 2967, "E14 5DL by 24 March. Winners of"), (1800, 2937, 2300, 2967, "Edwina breezed")],
        [(1348, 2963, 1693, 2993, "315:J E Pert, Bromley;"), (1802, 2984, 2309, 3019, "breezed in and said")]]
 _wb = (1350, 2937, 1698, 2967)
@@ -7624,8 +7634,8 @@ got, _ = f.read_solution(f.page(ed, 3), {**sol, "box": (300, 100, 440, 120)}, ["
 check("a grid cut by the window of a short heading is read whole", ({"1-across": "ABC"}, (352 * 3, 352 * 3)),
       (got, seen[0][0]))
 check("a box far from square (a speck under the heading) has no square cut", [],
-      f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 20)))
-check("a square box has none", [], f.squares(Image.new("L", (400, 400), 255), (0, 0, 300, 296)))
+      f.squares(Image.new("L", (500, 500), 255), (0, 0, 300, 20)))
+check("a square box has none", [], f.squares(Image.new("L", (500, 500), 255), (0, 0, 300, 296)))
 # matched_box(): a grid whose ink joins a neighbour's (1974-78: a 444x434 box for a 313px grid) is
 # found as the lattice whose blocks are the puzzle's.
 mg = ["..#..", ".#.#.", "#...#", ".#.#.", "..#.."]
@@ -9342,7 +9352,7 @@ check("and so is one off a Gale page", (None, True), (n, bool(why and "Sunday" i
 # word, and a title fewer than half the readers read stands when the page's
 # solution heading names the day before's puzzle (1987-01-08, -09).
 from PIL import Image
-gale_img = Image.new("L", (400, 400), 255)
+gale_img = Image.new("L", (500, 500), 255)
 gale_img.putpixel((10, 10), 0)
 def gale_words(by_reader):
     saved_bw = f.band_words

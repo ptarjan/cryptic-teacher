@@ -152,9 +152,9 @@ def evened(gray, g):
     whose rules listener_grid counted 11x12, 12x11, 8x12 or not at all read so, their bars 0.8+ symmetric."""
     if g.get("lattice"):
         ys, xs = g["lattice"]
-        y0, y1, x0, x1 = ys[0], ys[-1], xs[0], xs[-1]
+        y0, y1, x0, x1 = (int(round(v)) for v in (ys[0], ys[-1], xs[0], xs[-1]))  # lattice edges may be floats
     else:
-        x0, y0, x1, y1 = g["box"]
+        x0, y0, x1, y1 = (int(round(v)) for v in g["box"])
     h, w = y1 - y0, x1 - x0
     if min(h, w) < EVEN_SMALLEST or max(h, w) > EVEN_SQUARE * min(h, w):
         return None
