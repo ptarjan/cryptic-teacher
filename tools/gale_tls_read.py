@@ -112,7 +112,7 @@ def read_done(row):
     whose blank lights the VLM may still fill, vlm_due)."""
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX)) \
-        and not vlm_due(row) and not cite_due(row)
+        and not vlm_due(row) and not cite_due(row) and not glue_due(row)
 
 
 #: r22: the 81 pages of Nos 1-89 (1982-10-22..1991-03-01) were refused "no TLS number: no numbered page on both
@@ -1107,6 +1107,45 @@ def spaced_xref(text):
     return new if new != text and len(fa.suspect(new)) < len(fa.suspect(text)) else text
 
 
+#: Where a space was lost in the print's line (r62: 1-3 clues short, 26 of 125 suspect clues): a word glued to an
+#: initial ("fromE. L. Doctorow"), a figure ("dated1876", "Camus's28", "251musically", "I...made") or a bracket,
+#: quote or the word after a stop ("fingers,"has", "saint)recalls", "political(Thomas").
+GLUED = (
+    # an initial only where a capitalised word follows it, so a stray grid letter ("tableT.") is not made one
+    (re.compile(r"(?<=[a-z]{2})(?=[A-Z]\.\s+[A-Z])"), ""),
+    (re.compile(r"(?<=[a-z])([1-9]\d{0,3})(?=['’]s\b|[\s,.;:?!)\"”’]|$)"), r" \1"),
+    (re.compile(r"(?<=[a-z])([1-9]\d{0,2})(?=[A-Z][a-z]{2,})"), r" \1 "),
+    (re.compile(r"(?<![\w-])([1-9]\d{0,2})(?=[a-z]{4,})"), r"\1 "),
+    (re.compile(r"(?<=[a-z]{2})(?=\([A-Za-z]{2})"), ""),
+    (re.compile(r"(?<=[a-z]\))(?=[a-z]{2})"), ""),
+    (re.compile(r"(?<=[a-z][,;:?!])(?=[A-Za-z“‘(])"), ""),
+    (re.compile(r"(?<=[”\"])(?=\([A-Za-z])"), ""),
+    (re.compile(r"(?<=\.\.\.)(?=[A-Za-z])"), ""),
+)
+
+
+def spaced_glue(text):
+    """`text` with a space where a lost one is glued (GLUED), kept only when that leaves fewer words
+    ocr_clues.suspect flags; no letter is added or cut, so no word stands that the readers did not agree on."""
+    new = text
+    for pat, rep in GLUED:
+        new = pat.sub(rep or " ", new)
+    new = re.sub(r"  +", " ", new)
+    return new if new != text and len(fa.suspect(new)) < len(fa.suspect(text)) else text
+
+
+#: Bumped to read once more the pages whose suspect clue a lost space glues (glue_due). r62.
+GLUE_FIX = 1
+
+
+def glue_due(row):
+    """Whether `row` (a verdict of this VERSION) is not whole and holds a suspect clue spaced_glue mends, and was
+    not read since GLUE_FIX."""
+    if row.get("whole") or row.get("glueFix") == GLUE_FIX:
+        return False
+    return any(spaced_glue(t) != t for t in ((row.get("unfit") or {}).get("suspect") or {}).values())
+
+
 def mended_text(laid, printed):
     """(laid, printed) with each clue's text set to rights where the page's print is plain: the lone capitals of a
     neighbour's solution grid cut out of it, a bracket an ellipsis closes ("...)") given its opening, a quote
@@ -1134,6 +1173,7 @@ def mended_text(laid, printed):
             new = STRAY_COUNT.sub("", new)
         new = spaced_quotes(new)
         new = spaced_xref(new)
+        new = spaced_glue(new)
         if new != text:
             out[lid] = (new, enum, group)
         names = [w for w in new.split() if CAMEL_NAME.match(w)]
@@ -1410,7 +1450,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
     tries = (before or {}).get("vlmTries", 0) + 1
     # a read that asked the VLM (or left nothing for it to lay) is the page's retry; else it is due again
     asked = bool(verdict.get("vlmColumns")) or not verdict.get("blank")
-    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
+    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "glueFix": GLUE_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
     print(json.dumps(verdict))
     return "read"
 
