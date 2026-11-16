@@ -103,6 +103,19 @@ def largest_component(ink, step=2):
     return box
 
 
+def whole_ink(ink, least=8):
+    """Bounding box (x0, y0, x1, y1) of the rows and columns of `ink` holding at least `least` ink pixels, or None
+    when it is under 100px wide or not within 0.85-1.18 of square."""
+    cols = np.nonzero(ink.sum(axis=0) >= least)[0]
+    rows = np.nonzero(ink.sum(axis=1) >= least)[0]
+    if not len(cols) or not len(rows):
+        return None
+    w, h = int(cols[-1] - cols[0]) + 1, int(rows[-1] - rows[0]) + 1
+    if w < 100 or not 0.85 <= w / h <= 1.18:
+        return None
+    return int(cols[0]), int(rows[0]), int(cols[-1]) + 1, int(rows[-1]) + 1
+
+
 def pooled(ink, step=2):
     """Ink max-pooled over step x step blocks, so a rule thinner than a
     block survives the shrink."""
@@ -179,7 +192,16 @@ def white_cells(gray):
     sub = ink[y0:min(y1, ink.shape[0]), x0:min(x1, ink.shape[1])]
     h, w = sub.shape
     if w < 100 or not 0.85 <= w / h <= 1.18:
-        return None, f"the largest ink patch is {w}x{h}, not a square grid"
+        # A grid whose frame is broken (a faint scan: 2000 Telegraph, 18 pages whose largest patch was a
+        # row or two of the lattice) is the crop's own ink: the span of the rows and columns holding ink
+        # (WHOLE_INK), when that is the square one.
+        whole = whole_ink(ink)
+        if whole is None:
+            return None, f"the largest ink patch is {w}x{h}, not a square grid"
+        box = whole
+        x0, y0, x1, y1 = box
+        sub = ink[y0:min(y1, ink.shape[0]), x0:min(x1, ink.shape[1])]
+        h, w = sub.shape
     step = 2
     walls = pooled(not_paper[y0:y0 + h, x0:x0 + w], step)
     sh, sw = walls.shape
