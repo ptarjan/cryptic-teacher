@@ -462,7 +462,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._TELEGRAPH_PRIZE_MEND_FIX[gt.key][:2],
                                                                       *f._GUARDIAN_DATED_FIX[gt.key][:2],
                                                                       *f._WINNERS_NUMBER_FIX[gt.key][:2],
-                                                                      *f._TELEQUICK_FIX[gt.key][:2]},
+                                                                      *f._TELEQUICK_FIX[gt.key][:2],
+                                                                      *f._WINNERS_1996_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3575,6 +3576,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._WINNERS_1996_FIX:
+        return f._WINNERS_1996_FIX[paper][2]
     if paper in f._TELEQUICK_FIX:
         return f._TELEQUICK_FIX[paper][2]
     if paper in f._WINNERS_NUMBER_FIX:
@@ -5704,6 +5707,17 @@ check("a Gale Sunday Times title the winners box's number (heading M - 2) is num
           (_wn_titles, _wn_sols, f.GALE_INDY_SUNDAY, _wn_day),
           (_wn_titles, _wn_sols + [(4100, (0, 0, 1, 1))], f.GALE_SUNDAY_TIMES, _wn_day),
           (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, datetime.date(1996, 12, 29)))])
+# 1996-12-15 is No 3682 (3633 on 1996-01-07, one a week): its box two back read 3680, "Solution No 3681" under it.
+_w6_sols = f.sunday_times_headings([line("Solution No 3681", 200, 3100)])[1]
+_w6_titles = [(3680, (100, 100, 900, 140), None, ["en"])]
+check("a Gale Sunday Times 1996 title the box's number two back (heading M - 1) or three back is numbered M + 1; "
+      "a 1994 page and a 2010 one stand",
+      [[3682], [3682], [3680], [3680]],
+      [[t[0] for t in f.sunday_winners_mended(ts, ss, f.GALE_SUNDAY_TIMES, d)] for ts, ss, d in (
+          (_w6_titles, _w6_sols, datetime.date(1996, 12, 15)),
+          ([(3679, (100, 100, 900, 140), None, ["en"])], _w6_sols, datetime.date(1996, 12, 15)),
+          (_w6_titles, _w6_sols, datetime.date(1994, 12, 15)),
+          (_w6_titles, _w6_sols, datetime.date(2010, 12, 15)))])
 _wnr = {**_sn, "edition": "GaleSundayTimes2003UKEnglish/2003-05-18", "date": "2003-05-18"}
 check("a Gale Sunday Times 1997-2005 page read before the rescan is due WINNERS_NUMBER, rank 1; a 2005-09-18 page, "
       "a later read stand", [True, f.WINNERS_NUMBER, 1, False, False],

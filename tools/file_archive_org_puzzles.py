@@ -4859,7 +4859,10 @@ def ocr_headings(img, paper, key, day=None):
 #: The Gale Sunday Times pages (1997 to 2005-09-11) whose winners box "Crossword No 4134" (the puzzle three weeks
 #: back, no colon after it) was taken as the page's title: the solution heading prints the number before the true
 #: title's, "Solution No 4136" on 2005-09-04's (FP1803553431), so the true title is 4137, not the box's 4134.
-SUNDAY_WINNERS_DAYS = (datetime.date(1997, 1, 1), datetime.date(2005, 9, 11))
+#: 1995-96 pages too (the filer kept adding 1996 files two numbers low, 3652-54 three: 3644-3680 renumbered by date
+#: on 11-16): the box there two weeks back (SUNDAY_WINNERS_BACK).
+SUNDAY_WINNERS_DAYS = (datetime.date(1995, 1, 1), datetime.date(2005, 9, 11))
+SUNDAY_WINNERS_BACK = datetime.date(1997, 1, 1)
 
 
 def sunday_winners_mended(titles, sols, paper, day):
@@ -4874,9 +4877,10 @@ def sunday_winners_mended(titles, sols, paper, day):
     want = next(iter(seen)) + 1
     if abs(want - sunday_times_expected_number(day)) > SUNDAY_TIMES_SLACK:
         return titles
+    low = (want - 3,) if day >= SUNDAY_WINNERS_BACK else (want - 3, want - 2)
     if any(t[0] == want for t in titles):
-        return [t for t in titles if t[0] != want - 3]
-    return list({t[0]: t for t in ((want, *t[1:]) if t[0] == want - 3 else t for t in titles)}.values())
+        return [t for t in titles if t[0] not in low]
+    return list({t[0]: t for t in ((want, *t[1:]) if t[0] in low else t for t in titles)}.values())
 
 
 def paired_titles(titles, sols, paper, day):
@@ -14389,6 +14393,30 @@ for _paper, _pins in _TELEQUICK_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before sunday_winners_mended also numbered the Gale Sunday
+#: Times pages of 1995-96 by their solution heading (the box two puzzles back). Every Gale paper's key moves again,
+#: only the 1995-96 Gale Sunday Times pages read otherwise: every scan stands, those pages are read again once
+#: (WINNERS_NUMBER, REREAD_WINNERS_1996).
+_WINNERS_1996_FIX = {
+    "ft": ("045f39795f2abcf9", "70528458bd203c65", "89a335e0b37c831e"),
+    "gale": ("0e02cf48c4498145", "0d8014991e790d83", "c004b2f17bd586c6"),
+    "galeft": ("912efd04f85096bb", "f31f8f5a1b6eb563", "fe29ba181a859b12"),
+    "galeindependent": ("435d35eff5b77af8", "b5100a74cf26be9e", "1c8dc18276d3d19a"),
+    "galeindysunday": ("334b46ef7fc49267", "9ced3ddac525a3d3", "50fdd7846dc63132"),
+    "galesundaytelegraph": ("58cec350f6eee7ae", "9fee704d543a5d02", "54e4ca96f9b30a80"),
+    "galesundaytimes": ("d7f2b2c474d30c65", "98e09cd9e5af3bfd", "258f3da1f3b4a228"),
+    "galetelegraph": ("5452e0b34af3fef4", "a4f7a6b796dfe070", "3c9c33b95b5ed1c7"),
+    "galetls": ("8afa5b3ace71d3d8", "aaf9e212675dcb5a", "40703ea01ee0fafe"),
+    "guardian": ("aa179d16623c2740", "6ab89703532934a8", "c5b5ab7cf9974cab"),
+    "telegraph": ("cf0c356df02f6372", "5584be842b645172", "98c0e80442b4d7cf"),
+    "times": ("d5e03fa3503c0c77", "f432687d4fec84eb", "e13a79c6603b44be"),
+    "times1930": ("53390f233b1098ea", "a38f0a974891012b", "f7bf98e1284e560e"),
+}
+for _paper, _pins in _WINNERS_1996_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14428,7 +14456,7 @@ def prize_rescan(paper, key, rel):
                         _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2], _INSET_GRID_FIX["gale"][2],
                         _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2],
                         _TELEGRAPH_SATURDAY_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2],
-                        _WINNERS_NUMBER_FIX["gale"][2])
+                        _WINNERS_NUMBER_FIX["gale"][2], _WINNERS_1996_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -15801,6 +15829,9 @@ def sunday_number_rescan(row):
 WINNERS_NUMBER = "Sunday Times page read before its title was numbered by its solution heading, not the winners box"
 REREAD_WINNERS_NUMBER = "2026-11-16T04:14:00+00:00"
 WINNERS_NUMBER_YEARS = tuple(str(y) for y in range(1997, 2006))
+#: The same for the 1995-96 pages (the box two puzzles back, sunday_winners_mended), read before REREAD_WINNERS_1996.
+REREAD_WINNERS_1996 = "2026-11-16T09:00:00+00:00"
+WINNERS_1996_YEARS = ("1995", "1996")
 
 
 def winners_number_rescan(row):
@@ -15809,6 +15840,9 @@ def winners_number_rescan(row):
     REREAD_WINNERS_NUMBER. Its scan is stale (scan_current) and rekey_scans leaves it."""
     ed = str((row or {}).get("edition") or "")
     day = _date_in(str(row.get("date") or "")) or _date_in(ed)
+    if "inputs" in row and any(ed.startswith(f"GaleSundayTimes{y}") for y in WINNERS_1996_YEARS) \
+            and scan_queue.read_before(row, scan_queue.when(REREAD_WINNERS_1996)):
+        return True
     return "inputs" in row and any(ed.startswith(f"GaleSundayTimes{y}") for y in WINNERS_NUMBER_YEARS) \
         and (day is None or day <= SUNDAY_WINNERS_DAYS[1]) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_WINNERS_NUMBER))
