@@ -249,7 +249,10 @@ def read_grid(path):
     if rows != cols or rows not in SIZES:
         return None, f"the white cells span {rows} rows and {cols} columns"
     n = rows
-    if sw / pitch < n - 0.6 or sh / pitch < n - 0.6:
+    # A scan stretched (or squashed) one way has a row pitch unlike its column pitch (2004 Independent: 54px
+    # rows, 48px columns): each side is measured against its own pitch, not the mean, which called such a
+    # frame too small for its own lattice.
+    if sw / min(pitch, abs(fx[2])) < n - 0.6 or sh / min(pitch, abs(fy[1])) < n - 0.6:
         return None, (f"a {n}x{n} lattice at {pitch * step:.0f}px a cell is "
                       f"larger than the {w}x{h}px frame")
 
