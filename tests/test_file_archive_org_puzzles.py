@@ -3825,6 +3825,17 @@ check("an Independent on Sunday page whose barred grid's lattice was counted 11x
        bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "imageUnread": "the white cells span 10 rows and 11 columns"}]})),
        bool(f.ios_even_due({**_ie, "edition": "GaleIndependent2005UKEnglish/2005-01-30"})) or f.IOS_EVEN not in f.RANKS,
        f.blanket_or_fix(_ie, "scan stale, answers missing") == f.IOS_EVEN])
+_pr = {"edition": "GaleTimes1941UKEnglish/1941-07-03", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "scan": {"date": "1941-07-03", "item": "GaleTimes1941UKEnglish"},
+       "verdicts": [{"number": 3543, "imageUnread": "only 14 white cells found", "refused": "no reading parses"}]}
+check("a 1941 Gale Times page refused for too few white cells is due PALE_RULES, not one read since, filed, refused for "
+      "another cause, or of 1950; pale_whys names the lattice refusals",
+      [True, False, False, False, False, True],
+      [bool(f.pale_rules_due(_pr)), bool(f.pale_rules_due({**_pr, "readAt": "2026-11-17T00:00:00+00:00"})),
+       bool(f.pale_rules_due({**_pr, "verdicts": [{**_pr["verdicts"][0], "wrote": True}]})),
+       bool(f.pale_rules_due({**_pr, "verdicts": [{**_pr["verdicts"][0], "imageUnread": "the white cells span 12 rows and 12 columns"}]})),
+       bool(f.pale_rules_due({**_pr, "scan": {"date": "1950-07-03", "item": "GaleTimes1950UKEnglish"}})) or f.PALE_RULES not in f.RANKS,
+       f.pale_grid.pale_whys("too few neighbouring white cells to measure the lattice")])
 _icol = __import__("ios_columns")
 _row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
 # 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.

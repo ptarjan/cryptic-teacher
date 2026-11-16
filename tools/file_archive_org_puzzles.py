@@ -188,6 +188,7 @@ import punctuation
 import reconstruct_grid as rg
 import scan_queue
 import series as series_meta
+import pale_grid
 import trove_grid
 import trove_solution_ocr
 import ocr_retry
@@ -7515,6 +7516,12 @@ def scaled_grid_read(path):
         gray.resize((width, max(1, round(gray.height * width / gray.width))), Image.LANCZOS).save(buf, "PNG")
         buf.seek(0)
         got, _ = trove_grid.read_grid(buf)
+        if got:
+            return got, None
+    # A page whose cell rules print paler than the paper line (1940-41 Gale Times, PALE_RULES): its lights
+    # joined into one white patch, "only 9 white cells found". Read last, so a grid read before is read as it was.
+    if pale_grid.pale_whys(why):
+        got, _ = pale_grid.pale_read(path)
         if got:
             return got, None
     return None, why
@@ -15576,6 +15583,34 @@ def small_headed_due(row):
                for v in row.get("verdicts", ())) and scan_queue.read_before(row, scan_queue.when(REREAD_SMALL_HEADED))
 
 
+#: The due reason of a 1940-49 Gale Times page whose grid was refused "only N white cells found" or "too few
+#: neighbouring white cells to measure the lattice" (86 rows, 84 of them 1940-01 to 1941-07, the grid crop 530-1,330px
+#: square): the print's cell rules are a grey as pale as the paper's shading, on the paper side of trove_grid's
+#: not-paper line, so every light joined its neighbours (one white patch of 165,000 pooled pixels in a 1,050px
+#: grid). pale_grid.pale_read cuts the crop to black and white at the 90th percentile grey and hands it to read_grid:
+#: 65 of the 86 crops read, all 15x15 on 55-74 blocks, the rest still refused (a bar-less 14x15 count, a crop of ink
+#: and text). Read once, before REREAD_PALE_RULES.
+PALE_RULES = "1940s Gale Times page whose grid's rules were paler than the paper line, read by their black and white since"
+REREAD_PALE_RULES = "2026-11-16T06:51:00+00:00"
+PALE_YEARS = ("1940", "1949")
+
+
+def pale_rules_due(row):
+    """Whether Gale Times ledger `row` of PALE_YEARS, read before REREAD_PALE_RULES, holds a verdict not filed whose
+    grid was unread for too few white cells (pale_grid.pale_whys)."""
+    rel = (row or {}).get("edition") or ""
+    scan = (row or {}).get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if paper_of(rel).key != "gale" or not PALE_YEARS[0] <= year <= PALE_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_PALE_RULES)):
+        return False
+    series = paper_of(rel).series
+    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
+               and pale_grid.pale_whys(str(v.get("imageUnread") or ""))
+               and filed_state(series, v.get("number")) is None
+               for v in row.get("verdicts") or ())
+
+
 #: The reason of the Gale Times puzzles whose stored clue text came out cut or garbled and that Paul asked be
 #: fixed from the source (11-03, #cryptic-crosswords; annotation withdrew them). 16 are 2014 pages read 10-18
 #: to 10-22, before crop_window.cut_edge: the right clue window (RIGHT_SPAN) ended inside the down column, so
@@ -22384,6 +22419,8 @@ def fix_reason(row):
         return SMALL_TITLE
     if small_headed_due(row):
         return SMALL_HEADED
+    if pale_rules_due(row):
+        return PALE_RULES
     if failed_rescan(row):
         return FAILED_SCAN
     if joined_rescan(row):
@@ -23212,7 +23249,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-16: a Gale Telegraph weekday whose faint cryptic grid was read as the Quick's (faint_edge_due).
                   FAINT_EDGE,
                   # 11-15: a Gale Sunday Telegraph 1980-89 page with its ACROSS list over the grid's title (sunday_above_due).
-                  SUNDAY_ABOVE)
+                  SUNDAY_ABOVE,
+                  # 11-15 r30: a 1940s Gale Times page whose grid's pale rules left too few white cells (pale_rules_due).
+                  PALE_RULES)
 
 
 def refusal_passes(why):
@@ -23526,7 +23565,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
