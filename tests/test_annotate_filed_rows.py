@@ -124,9 +124,10 @@ try:
     F.write_puzzle_file(path, puzzle)
     pending = A.default_input(path)
     crossing = by_id["14-across"]["solution"]
+    EVIDENCE = "the wordplay MIN(US)CULE spells MINUSCULE, not MINISCULE"  # over the 40-character floor
     def typo(letters):
         pending.write_text(json.dumps({"15-down": {"answer": "MINUSCULE",
-                                                   "answerTypo": [letters, "the wordplay"]}}))
+                                                   "answerTypo": [letters, EVIDENCE]}}))
         before = (data / "source_answer_wrong.json").read_text()
         filed, err = AC.file_rows(path, pending, data)
         return filed, err, (data / "source_answer_wrong.json").read_text() == before
@@ -143,7 +144,7 @@ try:
     check("an answerTypo is filed", err is None and filed == ["answerTypo 15-down"])
     check("its row is [printed, corrected, evidence]",
           json.loads((data / "source_answer_wrong.json").read_text())["cryptic-22049/15-down"]
-          == ["MINISCULE", "MINUSCULE", "the wordplay"]
+          == ["MINISCULE", "MINUSCULE", EVIDENCE]
           and F.SOURCE_ANSWER_WRONG[("cryptic-22049", "15-down")][:2] == ("MINISCULE", "MINUSCULE"))
     check("the grid carries the corrected letters, and the field leaves the entry",
           {entry_id(e): e for e in F.read_puzzle_file(path)["entries"]}["15-down"]["solution"]
