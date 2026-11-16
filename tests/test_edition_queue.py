@@ -1203,6 +1203,9 @@ _sg = {"number": 9999985, "leaf": 0, "clues": 30, "complete": False, "readings":
        "imageUnread": "too few neighbouring white cells to measure the lattice", "pending": "no grid: the search found no grid"}
 _sgrow = {"edition": "GaleTimes1941UKEnglish/1941-08-14", "verdicts": [_sg], "readAt": "2026-10-26T09:34:44+00:00",
           "scan": {"date": "1941-08-14", "item": "GaleTimes1941UKEnglish", "puzzles": [{"number": 9999985, "leaf": 0}]}}
+# PALE_RULES (11-16) is due first for the same too-few-white-cells pages read before its cutoff, so these checks
+# run with its cutoff before the row's reading, as SCALED_GRID's own pages read in between.
+_pale_cutoff, f.REREAD_PALE_RULES = f.REREAD_PALE_RULES, "2026-10-01T00:00:00+00:00"
 check("a 1940-41 Gale Times page pending for a grid unread at its scan's size is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
       [f.SCALED_GRID, 2, True, True, True, None, True],
       [f.fix_reason(_sgrow), f.RANKS[f.SCALED_GRID], eq.evidence_reason(f.SCALED_GRID), f.SCALED_GRID in eq.FIX_LANDED,
@@ -1218,6 +1221,7 @@ check("not after the fix, nor a grid unread otherwise, nor one not pending, nor 
        f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1942-08-14", "item": "GaleTimes1942UKEnglish"}}),
        f.scaled_grid_due({**_sgrow, "edition": "NewsUK1941UKEnglish/1941-08-14_1",
                           "scan": {**_sgrow["scan"], "item": "NewsUK1941UKEnglish"}})])
+f.REREAD_PALE_RULES = _pale_cutoff
 # ---- the same on a 1939 Gale Times page (its readings stopped unparsed, no grid to lay them) is due once as
 # fa.SCALED_EARLY; read after its cutoff, or 1938, it is not.
 _se = {**_sg, "number": 9999983, "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' niece (8) 11 They are'"}}
