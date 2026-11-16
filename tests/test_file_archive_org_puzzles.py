@@ -3577,6 +3577,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._IOS_ENTRY_LINES_FIX:
+        return f._IOS_ENTRY_LINES_FIX[paper][2]
     if paper in f._FT_SMALL_FIX:
         return f._FT_SMALL_FIX[paper][2]
     if paper in f._WINNERS_1996_FIX:
@@ -3728,6 +3730,19 @@ check("an Independent on Sunday title run together or with a digit read as a let
        [bool(f.ios_title_due(_ios_r)), bool(f.ios_title_due({**_ios_r, "edition": "GaleIndependentSunday2016UKEnglish/2016-03-18"})),
         bool(f.ios_title_due({**_ios_r, "edition": "GaleTimes2004UKEnglish/2004-08-29"})),
         bool(f.ios_title_due({**_ios_r, "readAt": "2026-11-14T09:00:00+00:00"})), f.IOS_TITLES in f.RANKS]])
+_ios_e = lambda *rows: [p[0] for p in f.indy_sunday_headings(
+    [[(0, 100 * k, 900, 100 * k + 30, t)] for k, t in enumerate(rows)])[0]]
+_ios_er = {"edition": "GaleIndependentSunday2000UKEnglish/2000-03-05", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+           "scan": {"puzzles": []}}
+check("an Independent on Sunday Beelzebub title with no number takes it from the entry instruction split over two lines "
+      "('Mark entries' / 'Beelzebub 526 and send'); a 2000 page with no puzzle found, read before the fix, is due "
+      "IOS_ENTRY_LINES, one with a puzzle, a Times page and one read since are not",
+      [[526], [526], [True, False, False, False, True]],
+      [_ios_e("Beelzebub Prize Crossword", "Mark entries", "Beelzebub 526 and send"),
+       _ios_e("Beelzebub Prize Crossword", "Mark", "entries Beelzebub 526 and send"),
+       [bool(f.ios_entry_lines_due(_ios_er)), bool(f.ios_entry_lines_due({**_ios_er, "scan": {"puzzles": [{"number": 526}]}})),
+        bool(f.ios_entry_lines_due({**_ios_er, "edition": "GaleTimes2000UKEnglish/2000-03-05"})),
+        bool(f.ios_entry_lines_due({**_ios_er, "readAt": "2026-11-16T13:00:00+00:00"})), f.IOS_ENTRY_LINES in f.RANKS]])
 _ct = __import__("clue_text")
 _ocr = __import__("ocr_clues")
 _tr = {"edition": "GaleTelegraph1997UKEnglish/1997-11-08", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",

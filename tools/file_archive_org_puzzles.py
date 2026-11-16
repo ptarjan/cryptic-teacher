@@ -5841,8 +5841,12 @@ IOS_BEELZEBUB_TITLE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:prize\s*)?cr[o
                                  r"([\dIlOT|]{1,4})(?![\dIlOT|,])", re.IGNORECASE)
 #: The entry instruction under the Independent on Sunday's grid, "Mark entries Beelzebub 697 and send ...", its words
 #: run together by some readers; and the Beelzebub title line whose number it corrects.
-IOS_ENTRIES = re.compile(r"mark\s*entries\s*beelzeb\w*?\s*(\d{3,4})(?!\d)", re.IGNORECASE)
-IOS_BEELZEBUB_LINE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:prize\s*)?cr[o0]ss", re.IGNORECASE)
+#: The "Mark" may end the line over it (2000-01-02: "Biographical Dictionary. Mark" over "... entriesBeelzebub517andsend").
+IOS_ENTRIES = re.compile(r"(?:mark\s*)?entries\s*beelzeb\w*?\s*(\d{3,4})(?!\d)", re.IGNORECASE)
+#: The instruction's second line alone, set in a column of its own ("... Beelzebub 524 and send to", 2000-02-20).
+IOS_ENTRIES_SEND = re.compile(r"beelzeb\w*?\s*(\d{3,4})(?!\d)\s*and\s*send", re.IGNORECASE)
+#: "BeelzebubPrizeCnosswonuNo 695" (2003-06-01, a reader's "Crossword" misread) is the line by its "Beelzebub Prize" alone.
+IOS_BEELZEBUB_LINE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:(?:prize\s*)?cr[o0]ss|prize)", re.IGNORECASE)
 #: The Independent on Sunday's 2011-15 note over last issue's solution grid ("Solution for last issue").
 IOS_LAST_ISSUE = re.compile(r"solution\s*for\s*last\s*issue", re.IGNORECASE)
 #: Dated Independent on Sunday numbers: its first issue (28 January 1990) as No 1, "Beelzebub Prize Crossword
@@ -5933,7 +5937,12 @@ def indy_sunday_headings(lines, titles=()):
             puzzles.append((number_digits(clue_text.digits_read(m.group(1))), box, None))
     # The page's entry instruction ("Mark entries Beelzebub 697 and send") names the puzzle the title heads: a title
     # read short ("6" for 697) or wrong ("722" for 806) takes that number, two readers agreeing on the line.
-    entries = {int(m.group(1)) for ws in lines for m in [IOS_ENTRIES.search(" ".join(w[4] for w in ws))] if m}
+    # The instruction may break over two lines ("Mark entries" / "Beelzebub 526 and send", 2000-03-05): read joined too.
+    # The line under, in the same column (its left edge within 60, its top within 80), is the next line of the print.
+    texts = [" ".join(w[4] for w in ws) for ws in lines]
+    below = [ws[-1][4] + " " + v[4] for ws in lines if re.search(r"entries\W*$", ws[-1][4], re.IGNORECASE)
+             for row in lines for v in row if abs(v[0] - ws[-1][0]) < 60 and 0 < v[1] - ws[-1][1] < 80]
+    entries = {int(m.group(1)) for t in texts + below for m in [IOS_ENTRIES.search(t) or IOS_ENTRIES_SEND.search(t)] if m}
     if len(entries) == 1:
         (entry,) = entries
         puzzles[:] = [(entry, box, setter) if n != entry and IOS_BEELZEBUB_LINE.match(
@@ -5943,6 +5952,11 @@ def indy_sunday_headings(lines, titles=()):
         have_boxes = {p[1] for p in puzzles}
         puzzles += [(entry, box_of(ws), None) for ws in lines if box_of(ws) not in have_boxes
                     and IOS_BEELZEBUB_LINE.match(" ".join(w[4] for w in ws))]
+        # The title may share its line with another column's text ("thing, and crashed ... BEELZEBUB PRIZE Crossword"):
+        # its own chunk of the line is the title.
+        have_boxes = {p[1] for p in puzzles}
+        puzzles += [(entry, tuple(w[:4]), None) for ws in lines for w in ws if len(ws) > 1 and tuple(w[:4]) not in have_boxes
+                    and box_of(ws) not in have_boxes and IOS_BEELZEBUB_LINE.match(w[4])]
     # 2011-15: the Concise's own numbered title is no Beelzebub's, and the Beelzebub title set under "Solution for last
     # issue" heads last week's solution grid (No.1150 on 2012-03-18, the 2012-03-11 puzzle), not this week's puzzle.
     boxes = {box_of(ws): " ".join(w[4] for w in ws) for ws in lines}
@@ -14516,6 +14530,17 @@ for _paper, _pins in _FT_SMALL_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before indy_sunday_headings found a Beelzebub's number from
+#: "Mark entries Beelzebub N and send" lines split across lines or columns (scan_anywhere): only the Gale Independent on
+#: Sunday's pages read otherwise, so its old scans stand but for those that found no puzzle (IOS_ENTRY_LINES).
+_IOS_ENTRY_LINES_FIX = {
+    "galeindysunday": ("633b4370f00d46c4", "61d2293e2b3bcdcb", "6c4981297e101599"),
+}
+for _paper, _pins in _IOS_ENTRY_LINES_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -14757,7 +14782,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "c828441d2ef9ccdb": "432a5818529a9b11",
                   # gale_telegraph_headings: a lone ACROSS under the QUICK CROSSWORD caption is the Quick's (TELEQUICK): a
                   # scan's title only, no solution grid's reading moves.
-                  "463203b1c1cd90f6": "432a5818529a9b11"}
+                  "463203b1c1cd90f6": "432a5818529a9b11",
+                  # indy_sunday_headings reads a Beelzebub's number from an entry instruction split over lines (IOS_ENTRY_LINES):
+                  # a scan's title only, no solution grid's reading moves.
+                  "0bc767037d760082": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -14904,7 +14932,10 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # caa84cf28d0 (gale_tls_read's square lattice search, unit deadline): TLS page reads only.
                 "e65970428db1f6f5": "9b3500cb5488df7c",
                 # gale_telegraph_headings and the Quick's ACROSS (TELEQUICK): a scan's title only, the same read.
-                "a5e839a1968f7a37": "9b3500cb5488df7c"}
+                "a5e839a1968f7a37": "9b3500cb5488df7c",
+                # indy_sunday_headings: a Beelzebub's number from an entry instruction split over lines (IOS_ENTRY_LINES): a
+                # scan's title only, the same read.
+                "481b6d3c25efe6b2": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
@@ -16832,6 +16863,22 @@ def suntel_right_due(row):
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and not v.get("unparsed") and not v.get("dropped") and filed_state(series, v.get("number")) is None
                for v in row.get("verdicts") or ())
+
+
+#: The due reason of a Gale Independent on Sunday page 2000-04 read with no puzzle found ("no puzzle"): its Beelzebub title
+#: carried no number, which sat in the entry line ("Mark entries Beelzebub 526 and send") split across lines or columns;
+#: scan_anywhere finds it since (titles found on ~90 of 95 such rows offline). 11-16 census r59. Its scan key moved
+#: (_IOS_ENTRY_LINES_FIX): read once, before REREAD_IOS_ENTRY_LINES.
+IOS_ENTRY_LINES = "Gale Independent on Sunday page with no title found, its Beelzebub entry line read for its number since"
+REREAD_IOS_ENTRY_LINES = "2026-11-16T12:55:00+00:00"
+
+
+def ios_entry_lines_due(row):
+    """Whether Gale Independent on Sunday ledger `row`, read before REREAD_IOS_ENTRY_LINES, found no puzzle on its page."""
+    rel = (row or {}).get("edition") or ""
+    return paper_of(Path(rel)).key == GALE_INDY_SUNDAY.key and "inputs" in row \
+        and not (row.get("scan") or {}).get("puzzles") \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_IOS_ENTRY_LINES))
 
 
 #: The reason, and its fix's time, of a Times page (Gale 1940-49) written unfiled with a light blank "no reading laid a clue
@@ -22991,6 +23038,8 @@ def fix_reason(row):
         return FT_SIDE_RIGHT
     if suntel_right_due(row):
         return SUNTEL_RIGHT
+    if ios_entry_lines_due(row):
+        return IOS_ENTRY_LINES
     if numberless_due(row):
         return NUMBERLESS_LAID
     if indy_banner_due(row):
@@ -23782,6 +23831,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_SIDE_RIGHT,
                   # 11-16: a Gale Sunday Telegraph 1995-2000 page refused no reading parses with no text read, its columns right of a left-edge grid (suntel_right_due).
                   SUNTEL_RIGHT,
+                  # 11-16: a Gale Independent on Sunday page with no title found, its Beelzebub entry line read for its number (ios_entry_lines_due).
+                  IOS_ENTRY_LINES,
                   # 11-16: a Gale Times 1940-49 page unfiled with a light no reading laid, a clue with no number read (numberless_due).
                   NUMBERLESS_LAID,
                   # 11-16: an FT page of 1980-94 with no puzzle found, its thin archive.org text read as a page without text (ft_small_host).
@@ -23899,6 +23950,7 @@ def blanket_or_fix(row, blanket):
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
             else SUNTEL_RIGHT if suntel_right_due(row) \
+            else IOS_ENTRY_LINES if ios_entry_lines_due(row) \
             else NUMBERLESS_LAID if numberless_due(row) \
             else FT_SMALL_TEXT if ft_small_host(row) \
             else INDY_BANNER if indy_banner_due(row) \
@@ -24126,7 +24178,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, NUMBERLESS_LAID: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, NUMBERLESS_LAID: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
