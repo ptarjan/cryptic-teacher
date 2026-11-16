@@ -159,6 +159,7 @@ class Log:
         self.width = None
         self.limit = None
         self.why_said = ""        # the last "  why:" line, for the pressure and overnight notes
+        self.width_rest, self.width_rush = "", False   # the latest width line's tail and rush flag
         self.limit_note = None    # the limit as shown: memory with its numbers, a rush said
         self.reset_plan = None    # the planner's rush decision: "pacing to ... reset, 0 of 15 manual resets left"
         self.mem_said = ""        # the last "  why:" line: the burn prints the width's inputs there
@@ -482,6 +483,13 @@ class Log:
             if MEM_DETAIL.search(line):
                 self.mem_said = line
             self.why_said = line
+            # The planner's why line follows the width line, whose status line was already written
+            # without these numbers: restate it once when they change the limit's note.
+            if self.width and self.limit in ("pressure", None, "usage pace") and not self.restart:
+                note = limit_note(self.limit, self.width_rush, f"{self.width_rest} {line}", self.width)
+                if note != self.limit_note:
+                    self.limit_note = note
+                    return self.status(now, force=True)
             return []
         old = re.match(r"^width (\d+): need (\d+) .*?\(([\d.]+)% now, ([\d.]+)h to its reset.*?memory cap (\w+), "
                        r"cpu cap (\w+).*?load cap (\w+)", line)
@@ -506,6 +514,7 @@ class Log:
                 self.limit = "usage pace"
             # The burn's width line ends "· N in flight"; the planner's inputs (memory among them)
             # follow on a "  why:" line, so the last one seen stands in until the next arrives.
+            self.width_rest, self.width_rush = m.group(3) or "", "quota pace rush" in m.group(2)
             self.limit_note = limit_note(self.limit, "quota pace rush" in m.group(2),
                                          (m.group(3) if MEM_DETAIL.search(m.group(3) or "") else self.mem_said) if self.limit == "memory"
                                          else f"{m.group(3) or ''} {self.why_said}",
