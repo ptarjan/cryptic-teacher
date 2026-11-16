@@ -12903,6 +12903,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     bare = {lid for lid in lengths if not (laid.get(lid) or ("",))[0].strip()}
     read = {k: t for k, t in texts.items() if t.strip()}
     laid, blank = reconcile(laid, stream, lengths)
+    if paper.key in ("times", "gale") and not paper.four:
+        laid, numberless = numberless_laid(laid, texts, order[0], lengths)
+        if numberless:
+            verdict["numberless"] = numberless
     # A word every reading spells alike, or one reader ran together, is not blanked here (SHARED_WORD).
     laid, shared = shared_printed(laid, blank, read, parse)
     laid, blank = unfit_blanked(laid, blank, lengths, shared)
@@ -16828,6 +16832,85 @@ def suntel_right_due(row):
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and not v.get("unparsed") and not v.get("dropped") and filed_state(series, v.get("number")) is None
                for v in row.get("verdicts") or ())
+
+
+#: The reason, and its fix's time, of a Times page (Gale 1940-49) written unfiled with a light blank "no reading laid a clue
+#: on it" whose clue one reading read with its number lost. 11-16 census r46 (failure shapes r52): of 202 Gale Times
+#: 1940-49 pages 1-3 clues short with their solution linked, 96 blanks were this, the commonest. The clue is the first line
+#: of the second clue column (1945-10-01's 25 across "Not a watertight problem (6)", 1944-08-12's 22 across), its number glyph
+#: clipped at the crop's top (the Times reader holds a lone "4" there). The lead reading (ch) lost its count line, so the
+#: clue was swallowed and ftp.match, which lets a light be lost, laid the rest; the other reading (en5) parses it with no
+#: number between 24 and 26 and a count that fits the one light between them, but ocr_clues.reconcile finds a clue by its
+#: number. numberless_laid() lays such a clue on that one free light when every other reading's letters hold all its words
+#: (two readers still agree on it). Due by the ledger and the cached readings (numberless_due). Its own reason. Once each.
+NUMBERLESS_LAID = "unfiled before its fix, a clue read with no number laid on the light between its neighbours"
+REREAD_NUMBERLESS_LAID = "2026-11-16T14:30:00+00:00"
+
+
+def numberless_laid(laid, texts, lead, lengths):
+    """(laid, [light ids]) with each light the lead reading `lead` lost laid from another reading's clue that has no number
+    (its list's clue before and after it numbered, one light free between those, one count filling it) when every other
+    reading's letters (texts, VLM aside) hold each of its words of three letters or more, at least three of them."""
+    out, got = dict(laid), []
+    others = {k: t for k, t in texts.items() if k != "vlm" and t.strip()}
+    for k, t in others.items():
+        parsed, _ = parse(t, ones=False)
+        if not parsed:
+            continue
+        for direction in ("across", "down"):
+            cl = parsed[direction]
+            for i, c in enumerate(cl):
+                if (c["tokens"] and c["tokens"][0]) or c["see"] is not None or len(c["tokens"]) > 1 or not 0 < i < len(cl) - 1:
+                    continue
+                # The clues either side are the laid clues either side of a free light (their words open alike).
+                nums = sorted(int(x.split("-")[0]) for x in lengths if x.endswith("-" + direction))
+                if RUN_ON.search(c["text"]):
+                    continue
+
+                def opens(text):
+                    return re.sub(r"[^a-z]", "", (text or "").lower())[:6]
+
+                def laid_text(j):
+                    return (out.get(f"{nums[j]}-{direction}") or ("",))[0]
+                free = [f"{nums[at]}-{direction}" for at in range(1, len(nums) - 1) if not laid_text(at).strip()
+                        and len(opens(laid_text(at - 1))) == 6 and len(opens(laid_text(at + 1))) == 6
+                        and opens(cl[i - 1]["text"]) == opens(laid_text(at - 1))
+                        and opens(cl[i + 1]["text"]) == opens(laid_text(at + 1))]
+                if len(free) != 1:
+                    continue
+                lid = free[0]
+                fits = [e for e in c["enums"] if ftp.count(e) == lengths[lid]]
+                words = [w for w in re.findall(r"[a-z]+", c["text"].lower()) if len(w) >= 3]
+                if len(fits) != 1 or len(words) < 3:
+                    continue
+                rest = [re.sub(r"[^a-z]", "", o.lower()) for j, o in others.items() if j != k]
+                if rest and all(all(w in r for w in words) for r in rest):
+                    out[lid] = (c["text"], fits[0], None)
+                    got.append(lid)
+    return out, got
+
+
+def numberless_due(row):
+    """Whether Gale Times ledger `row` (1940-49), read before REREAD_NUMBERLESS_LAID, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a light blank "no reading laid a
+    clue on it" and two or more readings, a cached reading of its window held."""
+    rel = (row or {}).get("edition") or ""
+    if not re.match(r"GaleTimes194\d", rel) or paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_NUMBERLESS_LAID)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or v.get("number") is None or len(v.get("readings") or ()) < 2:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
+            continue
+        if not (CROPS / "rapid" / f"{Path(rel).name}_{v['number']}.{reader_key('ch')}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
 
 
 #: The due reason of a Gale Independent page 2004-09 written unfiled with one or more down lights blank for the help-line
@@ -22908,6 +22991,8 @@ def fix_reason(row):
         return FT_SIDE_RIGHT
     if suntel_right_due(row):
         return SUNTEL_RIGHT
+    if numberless_due(row):
+        return NUMBERLESS_LAID
     if indy_banner_due(row):
         return INDY_BANNER
     if ft_speck_words_due(row):
@@ -23697,6 +23782,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_SIDE_RIGHT,
                   # 11-16: a Gale Sunday Telegraph 1995-2000 page refused no reading parses with no text read, its columns right of a left-edge grid (suntel_right_due).
                   SUNTEL_RIGHT,
+                  # 11-16: a Gale Times 1940-49 page unfiled with a light no reading laid, a clue with no number read (numberless_due).
+                  NUMBERLESS_LAID,
                   # 11-16: an FT page of 1980-94 with no puzzle found, its thin archive.org text read as a page without text (ft_small_host).
                   FT_SMALL_TEXT,
                   # 11-16: a Gale Independent page with its help-line banner read into a clue (indy_banner_due).
@@ -23812,6 +23899,7 @@ def blanket_or_fix(row, blanket):
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
             else SUNTEL_RIGHT if suntel_right_due(row) \
+            else NUMBERLESS_LAID if numberless_due(row) \
             else FT_SMALL_TEXT if ft_small_host(row) \
             else INDY_BANNER if indy_banner_due(row) \
             else FT_SPECK_WORDS if ft_speck_words_due(row) \
@@ -24038,7 +24126,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, NUMBERLESS_LAID: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
