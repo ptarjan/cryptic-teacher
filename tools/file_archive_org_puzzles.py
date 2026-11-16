@@ -3610,6 +3610,12 @@ def loose_lists(tried, texts):
 #: I'm parking": the edge of the print beside the 2005-06 FT's clue columns, read at the crop's left edge, joined
 #: to the row and the list stopped "cannot find a clue number"): dropped by merge_rows. Nothing precedes a clue's number.
 SPECK_HEAD, CLUE_OPENS = re.compile(r"[a-z]{1,4}"), re.compile(r"\d{1,2}\s+[A-Za-z\"']")
+#: The same, a piece of the neighbouring print up to two short words with their marks ("ter of 17 Help raised for
+#: people", "Short, 2 Muck from isle over river": the 2008-01-19 Gale FT's Saturday page, the chess column's words
+#: read in the gutter left of its DOWN clues): the number was hidden, its clue stood laid on no light ("down clue []
+#: names no light", 2007-10 FT_SPECK_WORDS). Only a piece ending SPECK_GAP px or more left of the row's number.
+SPECK_GAP = 20
+SPECK_WORDS = re.compile(r"[A-Za-z]{1,6}[.,?!;:-]?(?:\s[A-Za-z]{1,4}[.,?!]?)?")
 
 
 def merge_rows(col):
@@ -3637,7 +3643,9 @@ def merge_rows(col):
     for r in rows:
         r.sort(key=lambda l: l[2])
         texts = [l[4] for l in r]
-        if len(r) > 1 and SPECK_HEAD.fullmatch(texts[0]) and CLUE_OPENS.match(texts[1]):
+        if len(r) > 1 and (SPECK_HEAD.fullmatch(texts[0]) and CLUE_OPENS.match(texts[1])
+                           or SPECK_WORDS.fullmatch(texts[0]) and r[1][2] - r[0][3] >= SPECK_GAP
+                           and (CLUE_OPENS.match(texts[1]) or r[1][2] - r[0][3] >= 3 * SPECK_GAP)):
             r, texts = r[1:], texts[1:]
         for k in range(len(r) - 1):
             # A box cut through a word reads its first letters again at its
@@ -16647,6 +16655,27 @@ def ft_side_right_due(row):
                for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Gale FT page (1991-2010) read before REREAD_FT_SPECK_WORDS with a clue laid on no light for its lost
+#: number ("down clue [] names no light the grid numbers after 24"). r44 census 11-16 (latest ledger rows read after the
+#: other FT fixes): the clue crop's left edge takes in the neighbouring print (the 2008-01-19 Saturday page's chess column:
+#: "ter of", "Short,", "k has" in the gutter x 1952, the clue numbers at x 2058), a piece of it read level with a clue's
+#: number joined its row ("ter of 17 Help raised ...", the number hidden, the clue laid with none). merge_rows now drops
+#: up to two short words well left of the row's number (SPECK_WORDS), as it dropped one lower-case word (SPECK_HEAD).
+FT_SPECK_WORDS = "Gale FT page, a clue read with its number hidden behind the neighbouring print's words since"
+REREAD_FT_SPECK_WORDS = "2026-11-16T09:46:00+00:00"
+
+
+def ft_speck_words_due(row):
+    """Whether Gale FT ledger `row`, read before REREAD_FT_SPECK_WORDS, holds a puzzle whose clues disagree with its grid
+    with a clue "[]" laid on no light."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GALE_FT.key or not re.match(r"GaleFT\d{4}", rel) \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_FT_SPECK_WORDS)):
+        return False
+    return any("clue [] names no light" in str(v.get("imageDisagrees")) and not v.get("refused") and not v.get("skip")
+               for v in row.get("verdicts") or ())
+
+
 #: The due reason of a Gale Sunday Telegraph 1995-2000 page refused "no reading parses" with no reading text at all, read
 #: before REREAD_SUNTEL_RIGHT. Suntel42 11-16 (latest ledger rows): 225 of the paper's 560 such refusals (1995 12, 1996 48,
 #: 1997 51, 1998 47, 1999 46, 2000 26). The grid stands at the page's left edge level with the title right of it
@@ -22717,6 +22746,8 @@ def fix_reason(row):
         return FT_SIDE_RIGHT
     if suntel_right_due(row):
         return SUNTEL_RIGHT
+    if ft_speck_words_due(row):
+        return FT_SPECK_WORDS
     if ios_words_due(row):
         return IOS_WORDS
     if indy_frame_due(row):
@@ -23497,6 +23528,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_SIDE_RIGHT,
                   # 11-16: a Gale Sunday Telegraph 1995-2000 page refused no reading parses with no text read, its columns right of a left-edge grid (suntel_right_due).
                   SUNTEL_RIGHT,
+                  # 11-16: a Gale FT page with a clue laid on no light for its number hidden behind neighbouring print (ft_speck_words_due).
+                  FT_SPECK_WORDS,
                   # 11-15: an Independent on Sunday page whose enumerations carry a count of words (ios_words_due).
                   IOS_WORDS,
                   # 11-16: a Gale page whose stretched lattice was called larger than its frame (indy_frame_due).
@@ -23604,6 +23637,7 @@ def blanket_or_fix(row, blanket):
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
             else SUNTEL_RIGHT if suntel_right_due(row) \
+            else FT_SPECK_WORDS if ft_speck_words_due(row) \
             else IOS_WORDS if ios_words_due(row) \
             else INDY_FRAME if indy_frame_due(row) \
             else FAINT_EDGE if faint_edge_due(row) \
@@ -23827,7 +23861,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, TELEQUICK: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,

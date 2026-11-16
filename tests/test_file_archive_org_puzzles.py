@@ -5344,6 +5344,23 @@ check("the Gale FT's old scans with no title or solution heading are due again, 
        f.ft_next_due({**_ftrow, "verdicts": [{**_ftrow["verdicts"][0], "solution": {}}]}),
        all(f.CORPUS_KEYS[o] == {"galeft": f.scan_key(f.GALE_FT)} for o in f._FT_HEADINGS_FIX["galeft"][:2])])
 
+# FT_SPECK_WORDS: the neighbouring print's words in the gutter left of a clue's number no longer hide it.
+check("up to two short words well left of a clue's number are dropped from its row (a column's piece stays when it "
+      "is no word run or stands beside the number); FT_SPECK_WORDS is due for a read Gale FT page with a clue laid on no "
+      "light for its number once",
+      [["17 Help raised for people"], ["17 Help raised for people"], ["Short, 2x"], ["nder? Sweden (8)"] if False else ["Sweden (8)"],
+       [True, False, False]],
+      [[l[4] for l in f.merge_rows([(3946, 3977, 2060, 2400, "17 Help raised for people"), (3946, 3970, 1952, 2010, "ter of")])],
+       [l[4] for l in f.merge_rows([(3946, 3977, 2060, 2400, "17 Help raised for people"), (3946, 3970, 1952, 2010, "k has")])],
+       [l[4] for l in f.merge_rows([(3946, 3977, 2000, 2400, "2x"), (3946, 3970, 1952, 2010, "Short,")])],
+       [l[4] for l in f.merge_rows([(3576, 3600, 2091, 2300, "Sweden (8)"), (3576, 3600, 1952, 2010, "nder?")])],
+       [f.ft_speck_words_due({"edition": "GaleFT2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2026-11-15T00:00:00+00:00",
+                              "verdicts": [{"number": 1, "imageDisagrees": "down clue [] names no light the grid numbers after 24"}]}),
+        f.ft_speck_words_due({"edition": "GaleFT2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2027-01-01T00:00:00+00:00",
+                              "verdicts": [{"number": 1, "imageDisagrees": "down clue [] names no light the grid numbers after 24"}]}),
+        f.ft_speck_words_due({"edition": "GaleFT2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2026-11-15T00:00:00+00:00",
+                              "verdicts": [{"number": 1, "imageDisagrees": "down clue [19] names no light the grid numbers after 18"}]})]])
+
 # The Gale FT's clue columns right of its grid start at the title's line, over RIGHT_RISE.
 _ftgrid = (243, 4220, 973, 4907)
 _ftright = (1790, 5113, f.Rise(90))
