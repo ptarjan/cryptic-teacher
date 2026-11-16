@@ -95,6 +95,8 @@ VLM_FIX = 1
 VLM_TRIES = 3
 #: Blank reasons the VLM's column reply can lay a clue for (jr.vlm_laid).
 VLM_FILLS = ("its count", "no reading laid a clue", "no clue read for it")
+#: Any blank reason is due the VLM once (see vlm_due), a page with vlmFix having had it asked.
+VLM_ANY = True
 
 
 def vlm_due(row):
@@ -104,7 +106,13 @@ def vlm_due(row):
         return False
     blank = row.get("blank") or []
     why = row.get("why") or {}
-    return 1 <= len(blank) <= 3 and any(str(why.get(lid, "")).startswith(VLM_FILLS) for lid in blank)
+    if not 1 <= len(blank) <= 3:
+        return False
+    # VLM_ANY: a page never read with the VLM asked (no vlmFix) is read again whatever its blank lights' reason
+    # ("a quotation it never closes", "readings differ", "both read ... not a word", "no other reading has"):
+    # the VLM's column reply spells those too (2010-03-12's 27-across, 2013-04-19's 7-down, whose Down column
+    # the live read never asked). r107: 198 of the 229 NP3 TLS pages 1991-2014 stood with no vlmTries.
+    return True if VLM_ANY else any(str(why.get(lid, "")).startswith(VLM_FILLS) for lid in blank)
 
 
 def read_done(row):
