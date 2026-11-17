@@ -1413,7 +1413,7 @@ sync_tree_around_dirty() {
   # Only paths origin changed can collide, so the untracked walk is limited to
   # them (the whole-tree `ls-files --others` read the entire checkout per sync).
   { git --no-optional-locks diff --name-only HEAD
-    [ -s "$changed" ] && git --no-optional-locks --literal-pathspecs ls-files --others --exclude-standard --pathspec-from-file="$changed"
+    [ -s "$changed" ] && tr '\n' '\0' <"$changed" | xargs -0 git --no-optional-locks --literal-pathspecs ls-files --others --exclude-standard --
   } | sort -u >"$dirty"
   comm -12 "$changed" "$dirty" >"$hold"
   git diff --name-only --diff-filter=D HEAD "$onto" | sort | comm -23 - "$hold" >"$gone"
@@ -1542,7 +1542,7 @@ sync_wave() {
   git --no-optional-locks diff --name-only --diff-filter=A HEAD "${SYNC_ONTO:-origin/master}" |
     grep -vE '^(puzzles/.*[.]json$|clues_only/|tools/)' >"$_added"
   if [ -s "$_added" ]; then
-    git --no-optional-locks --literal-pathspecs ls-files --others --exclude-standard --pathspec-from-file="$_added" |
+    tr '\n' '\0' <"$_added" | xargs -0 git --no-optional-locks --literal-pathspecs ls-files --others --exclude-standard -- |
       while IFS= read -r _stray; do rm -f -- "$_stray"; done
   fi
   rm -f "$_added"

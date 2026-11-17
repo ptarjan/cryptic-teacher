@@ -52,6 +52,17 @@ check "the run keeps its file, over origin's version" \
 check "the move names the path it went around" 'grep -q "puzzles/x/1/q.json" "$t/out"'
 git checkout -q -- puzzles/x/1/q.json; sync_tree
 
+# A run's NEW (untracked) puzzle that origin also adds: the move goes around it
+# too, keeping the run's file (found by ls-files --others over the changed paths).
+cd "$t/m"; g pull -q origin master 2>/dev/null; echo theirs > puzzles/x/1/n.json
+g add puzzles/x/1/n.json; g commit -qm addn; g push -q origin HEAD:master
+cd "$t/b"; echo inflight-new > puzzles/x/1/n.json
+sync_tree >"$t/out" 2>&1; rc=$?
+check "the move succeeds around an untracked file origin adds" '[ "$rc" -eq 0 ] && [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)" ]'
+check "the run keeps its untracked file" '[ "$(cat puzzles/x/1/n.json)" = inflight-new ]'
+check "no unknown-option error" '! grep -qi "unknown option" "$t/out"'
+git checkout -q -- puzzles/x/1/n.json; sync_tree
+
 # An unpublished commit that conflicts stops publishing and keeps HEAD.
 echo other > puzzles/x/1/p.json; printf 'mine\n' > tools/t.py; g commit -qam burn2
 cd "$t/m"; g pull -q origin master 2>/dev/null; echo theirs > puzzles/x/1/p.json; printf 'theirs\n' > tools/t.py
