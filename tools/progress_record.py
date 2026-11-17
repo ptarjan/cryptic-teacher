@@ -209,8 +209,11 @@ def backlog():
     # a host that never held its editions has no gale-editions manifest.
     if not media_manifest.built(media_manifest.GALE_EDITIONS):
         return None
-    import downloads
-    if not (downloads.ROOT / ".on-media-disk").exists():
+    # downloads refuses to import with the media disk unmounted (its one
+    # .on-media-disk stat); no stat here, the media disk spins.
+    try:
+        import downloads  # noqa: F401
+    except SystemExit:
         print("media disk not mounted: downloaded/queued not counted", file=sys.stderr)
         return None
     return edition_backlog.counts()[0]
