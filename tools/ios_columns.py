@@ -31,14 +31,25 @@ class IosLeft(tuple):
     top = 0
 
 
+#: IOS_WRAP: a grid standing this share of its width or more from the page's left edge (1994-06-12: x 607 of a 722 px
+#: grid) sets the lists in four columns the grid sits in the middle of: the first (ACROSS, then DOWN) left of the grid, the
+#: second and third under it, the fourth right of it (x 223-567, 605-947, 985-1330, 1368-1714), a clue running from the
+#: third's foot onto the fourth's top. The wide read reaches WRAP_REACH grid widths left of it and WRAP_RIGHT right of it.
+WRAP_FROM, WRAP_REACH, WRAP_RIGHT = 0.7, 0.75, 0.8
+#: A heading set on the title's line stands this far over the title's foot (1990-12-23: DOWN at y 2419, the foot 2426).
+HEAD_RISE = 40
+
+
 def four_layout(paper_key, name, side, grid, width):
-    """"left" (the columns left of the grid), "right" (right of it) or None for a page of Gale Independent on Sunday
-    `name` (a date) printed before FOUR_END."""
+    """"left" (the columns left of the grid), "right" (right of it), "wrap" (left of it, under it and right of it) or
+    None for a page of Gale Independent on Sunday `name` (a date) printed before FOUR_END."""
     if paper_key != "galeindysunday" or name >= FOUR_END:
         return None
     gw = grid[2] - grid[0]
     if side == "left" or grid[0] < 1.2 * gw:
-        return "right" if width - grid[2] > 1.2 * gw else None
+        if width - grid[2] <= 1.2 * gw:
+            return None
+        return "wrap" if side != "left" and grid[0] >= WRAP_FROM * gw else "right"
     return "left"
 
 
@@ -47,6 +58,8 @@ def crop_of(layout, grid, height, width):
     gw = grid[2] - grid[0]
     if layout == "left":
         return max(0, int(grid[0] - REACH * gw)), height, grid[0]
+    if layout == "wrap":
+        return max(0, int(grid[0] - WRAP_REACH * gw)), height, min(width, int(grid[2] + WRAP_RIGHT * gw))
     return grid[2] + 5, height, min(width, int(grid[2] + REACH * gw))
 
 
@@ -77,7 +90,7 @@ def bands(words, lo, hi, top, bottom):
 
 
 def _head_in(words, band, pattern, top):
-    return any(pattern.match(w[4].strip()) and band[0] - 5 <= w[0] < band[1] and w[1] >= top for w in words)
+    return any(pattern.match(w[4].strip()) and band[0] - 5 <= w[0] < band[1] and w[1] >= top - HEAD_RISE for w in words)
 
 
 def _first_line(words, band, top):
@@ -92,6 +105,8 @@ def fit(words, layout, grid, top, bottom, width):
     heading's right of it)."""
     gx0, _, gx1, _ = grid
     gw = gx1 - gx0
+    if layout == "wrap":
+        return fit_wrap(words, grid, top, bottom, width)
     if layout == "left":
         found = bands(words, max(0, int(gx0 - REACH * gw)), gx0, top, bottom)
         picked = []
@@ -119,3 +134,23 @@ def fit(words, layout, grid, top, bottom, width):
     if not picked or not seen:
         return None
     return [gx1 + 5] + [(a[1] + b[0]) // 2 for a, b in zip(picked, picked[1:])] + [picked[-1][1] + 8]
+
+
+def fit_wrap(words, grid, top, bottom, width):
+    """The edges [x0, grid's left, gutter, grid's right, x1] of the four columns of a WRAP page (the first left of the grid
+    under an ACROSS heading, the second and third under the grid split at their gutter, the fourth right of it), from the
+    wide read's `words`, or None when no band left of the grid holds the ACROSS heading or none stands right of it."""
+    gx0, _, gx1, gy1 = grid
+    gw = gx1 - gx0
+    left = bands(words, max(0, int(gx0 - WRAP_REACH * gw)), gx0, top, bottom)
+    if not left or not _head_in(words, left[-1], ACROSS_HEAD, top):
+        return None
+    first = left[-1]
+    found = bands(words, gx1 + 5, min(width, int(gx1 + WRAP_RIGHT * gw)), top, bottom)
+    if not found or found[0][0] - gx1 > 0.15 * gw \
+            or not WIDTH[0] <= (found[0][1] - found[0][0]) / (first[1] - first[0]) <= WIDTH[1]:
+        return None
+    under = [b for b in bands(words, gx0 - 10, gx1 + 10, gy1, bottom)
+             if WIDTH[0] <= (b[1] - b[0]) / (first[1] - first[0]) <= WIDTH[1]]
+    mid = (under[0][1] + under[1][0]) // 2 if len(under) == 2 else (gx0 + gx1) // 2
+    return [first[0] - 8, gx0 - 5, mid, gx1 + 5, found[0][1] + 8]

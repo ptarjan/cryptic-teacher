@@ -2911,6 +2911,12 @@ def ios_fit_left(every, grid, layout, title, img):
         return None
     out = ios_columns.IosLeft((edges[0], edges[1], img.height))
     out.edges, out.top = edges, title[3]
+    if layout == "wrap":
+        # IOS_WRAP: the first column left of the grid and the fourth right of it from the title's foot, the second and
+        # third (the third may overhang the grid by a word's end) under the grid's foot.
+        e = edges
+        out.panes = [(e[0], e[1], e[1], title[3]), (e[1], e[2], e[2], grid[3] - 5),
+                     (e[2], e[3], e[3] + 25, grid[3] - 5), (e[3], e[4], e[4], title[3])]
     if layout == "left":
         out.under = ios_third_right(grid)
     return out
@@ -13620,6 +13626,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                                   paper.key == "galeindependent") if side == "below" and top is None \
         and not sides and not column and not paper.four and not third and kind not in ("plain", "lead") and not two_columns_only(paper, d) \
         else (None, None)
+    if four == "wrap":
+        right = over = None  # IOS_WRAP: the columns are the ink-fitted panes, not right_columns' strip beside the grid
     if right and paper.key == "galeindysunday" and d.name[:4] > INDY_SUNDAY_BARRED_END:
         # IOS_FOOT: the 2001-04 Beelzebub's clue lists run on past right_columns' 0.3 of the grid's height under it, to the page's foot.
         right = (right[0], img.height, *right[2:])
@@ -17965,6 +17973,35 @@ def ios_foot_due(row):
         if not any("no reading laid a clue" in str(why) for why in blank.values()):
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The due reason of a Gale Independent on Sunday Beelzebub page before 1995-07-23 refused "no reading parses" with no
+#: reading text at all (or every reading finding "no ACROSS and DOWN lists"): r183 census, 18 + 3 pages of 1993-94. The grid
+#: stands 0.83-0.89 of its width from the page's left edge, the lists in four columns it sits in the middle of (1994-06-12:
+#: ACROSS then DOWN at x 223-567 from the grid's top, two columns x 605-947 and 985-1330 under the grid, the fourth x 1368-1714
+#: right of it, a clue running from the third's foot onto the fourth's top). four_layout read it as the columns right of a
+#: grid at the page's edge: the wide read began right of the grid, found no DOWN heading, and no window was cut. ios_columns
+#: now reads a grid 0.7+ of its width in as "wrap" (the wide read from 0.75 widths left to 0.8 right, fit_wrap's four panes);
+#: a heading set on the title's own line (1990-12-23) counts too (HEAD_RISE). Read once.
+IOS_WRAP = "Independent on Sunday Beelzebub page whose four clue columns wrap its grid (left, under, right), read since"
+REREAD_IOS_WRAP = "2026-11-17T19:27:00+00:00"  # the push time (coordinator lands it): a row read after it is not due again
+
+
+def ios_wrap_due(row):
+    """Whether Gale Independent on Sunday ledger `row` (before 1995-07-23), read before REREAD_IOS_WRAP, holds a puzzle not
+    filed refused "no reading parses" with no reading text, or only "no ACROSS and DOWN lists"."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GALE_INDY_SUNDAY.key or Path(rel).name[:10] >= ios_columns.FOUR_END \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_IOS_WRAP)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") != "no reading parses" or v.get("number") is None or v.get("dropped"):
+            continue
+        if any(not str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values()):
+            continue
+        if not filed_state(GALE_INDY_SUNDAY.series, v.get("number")):
             return True
     return False
 
@@ -25222,6 +25259,8 @@ def fix_reason(row):
         return SUNTEL_LIST
     if ios_foot_due(row):
         return IOS_FOOT
+    if ios_wrap_due(row):
+        return IOS_WRAP
     if indy_titled_due(row):
         return INDY_TITLED
     if ft_lead_whole_due(row):
@@ -26080,6 +26119,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   IOS_FOOT, SUNTEL_FOOT, SUNTEL_LIST,
                   # 11-16: a Gale Independent sports page with no title, its heading read from cached strips (indy_titled_due).
                   INDY_TITLED,
+                  # 11-17: an Independent on Sunday Beelzebub page whose four columns wrap its grid (ios_wrap_due).
+                  IOS_WRAP,
                   # 11-16: a Gale FT 1990s page refused no reading parses, its lead column cut inside (ft_lead_whole_due).
                   FT_LEAD_WHOLE,
                   # 11-16: a Gale FT page refused no reading parses with no text read, its columns right of a left-edge grid (ft_side_right_due).
@@ -26279,6 +26320,7 @@ def blanket_or_fix(row, blanket):
             else SUNTEL_FOOT if suntel_foot_due(row) \
             else SUNTEL_LIST if suntel_list_due(row) \
             else IOS_FOOT if ios_foot_due(row) \
+            else IOS_WRAP if ios_wrap_due(row) \
             else INDY_TITLED if indy_titled_due(row) \
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
@@ -26519,7 +26561,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, TELE_OVER: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, TELE_OVER: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,

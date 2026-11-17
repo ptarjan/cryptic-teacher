@@ -3946,6 +3946,19 @@ check("a pre-1995 Beelzebub's clue columns are fitted to its words: four left of
        _icol.fit(_words4, "left", (1741, 2886, 2461, 3666), 2850, 3936, 3296),
        _icol.fit(_words2, "right", (278, 2275, 998, 2990), 2316, 3785, 3296),
        _icol.fit([_row(1036, 1575, 2400, "1 text")], "right", (278, 2275, 998, 2990), 2316, 3785, 3296)])
+# 1994-06-12: the grid at 607-1329 (2266-2990), ACROSS left of it, two columns under it, the fourth right of it.
+_wgrid = (607, 2266, 1329, 2990)
+_wwords = [_row(225, 400, 2264, "ACROSS"), _row(1368, 1700, 2264, "in primitive man (7)")] + \
+    [_row(x, x + 340, y, "%d Clue text here" % k) for x in (225, 1368) for k, y in enumerate(range(2300, 3800, 33))] + \
+    [_row(x, x + 340, y, "%d Clue text here" % k) for x in (605, 985) for k, y in enumerate(range(3040, 3800, 33))]
+check("a pre-1995 Beelzebub whose grid stands 0.7+ of its width in is a wrap page: the ACROSS column left of it, two under, "
+      "one right, fitted from the words (IOS_WRAP); one with no ACROSS heading left of the grid is none",
+      ["wrap", "right", [217, 602, 965, 1334, 1716], None, True],
+      [_icol.four_layout("galeindysunday", "1994-06-12", "below", _wgrid, 3296),
+       _icol.four_layout("galeindysunday", "1990-12-23", "below", (402, 2381, 1120, 3099), 3296),
+       _icol.fit(_wwords, "wrap", _wgrid, 2230, 3870, 3296),
+       _icol.fit(_wwords[1:], "wrap", _wgrid, 2230, 3870, 3296),
+       f.IOS_WRAP in f.RANKS])
 _lone = [[(210, 430, 230, 460, "1")], [(210, 640, 400, 670, "ACROSS")], [(210, 690, 590, 720, "1 Foo bar (4)")],
          [(610, 440, 630, 470, "3")], [(610, 640, 700, 670, "DOWN")], [(610, 690, 990, 720, "2 Baz (3)")]]
 _lone_cols = f.columns(_lone, (1000, 500, 1400, 900), None, 40, None, (200, 600, 2000))
