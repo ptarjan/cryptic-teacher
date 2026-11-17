@@ -1512,6 +1512,22 @@ def check_rewrite(old, new, flags):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
                           f"{was[entry_id(e)]!r} with a blank one; carry it across "
                           f"(fetch_puzzle.merge_annotations)"))
+    # A reread whose clue is the held clue with page prose glued in front (times-2110's 18-across,
+    # 11-17: "The two thousand with -the solution, ... parentheses denote the 17 fang to vacate 118
+    # Moving house" for the held "Moving house"): 6+ words ahead of the held text, and a bare
+    # clue number among them, is the notice paragraph and the last clue's tail, not the clue.
+    # (Checked against every held clue, `lost` or not: 18-across's held text was one of the two
+    # lights holding "Moving house", so it was in `lost`.)
+    held_text = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or [])}
+    for e in new.get("entries") or []:
+        had = (held_text.get(entry_id(e)) or "").strip()
+        text = e["clue"].get("text", "").strip()
+        if len(had.split()) >= 2 and len(text) > len(had) and text.lower().endswith(had.lower()):
+            front = text[:len(text) - len(had)].split()
+            if len(front) >= 6 and any(re.fullmatch(r"\d{1,3}", w) for w in front):
+                flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue {had!r} "
+                              f"with {text!r}, the same words with {len(front)} words of page prose "
+                              f"in front of them (a clue number among them)"))
     # A light the new file still has but leaves blank is an answer withdrawn
     # (a model's fill over a blog write-up taken back), not another puzzle's.
     blank = {entry_id(e) for e in new.get("entries") or [] if not e.get("solution")}
