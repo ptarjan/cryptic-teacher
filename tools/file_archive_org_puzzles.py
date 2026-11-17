@@ -12835,7 +12835,7 @@ SUNDAY_MID = "Gale Sunday Times 1976-78 page refused not a grid, its live headin
 # Due again 11-17 (SUNDAY_MID_BELOW, _HEAD, _LOW_FOOT, _NUMBER_RISE): 1976-03 to 1977-09 pages whose caption stands
 # 0.3-0.62 grid widths under the live grid's foot (the ACROSS heading level with the grid's top, the DOWN list in
 # three columns under it) were still refused "not a grid"; 34-row census r96 cluster, ~28 of them this shape.
-REREAD_SUNDAY_MID = "2026-11-17T04:00:00+00:00"
+REREAD_SUNDAY_MID = "2026-11-17T02:45:00+00:00"
 
 
 def sunday_mid_due(row):
