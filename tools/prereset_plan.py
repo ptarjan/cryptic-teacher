@@ -121,8 +121,9 @@ DEFAULT_CEILING = 28
 # averaged 251 MB (session 207, peak of a run 387 on average). Headroom 4 -> 2 GB on
 # 11-14 at #household's word: the VM runs swappiness 0 with a 256 MB kernel reserve,
 # and at ~11.4 GB used it swapped 0.11 MB/min in, 0 out. Width never drops below the
-# runs alive (they are counted, never killed), which is the hysteresis.
-MEM_HEADROOM_KB = 2 * 1024 * 1024
+# runs alive (they are counted, never killed), which is the hysteresis. 2 -> 1 GB on
+# 11-17 at the owner's word (card q6076e9) until the 11-18 weekly reset; back to 2 GB after.
+MEM_HEADROOM_KB = 1 * 1024 * 1024
 RUN_RSS_KB = 250 * 1024
 # The least a run is taken to hold: runs a few seconds old read ~7 MB each, and
 # averaging those 11-12 put the memory cap at 348 against a real ~16 (runs settle at 210-250 MB).
@@ -1476,8 +1477,8 @@ MEM_CASES = [
 # (meminfo, RSS of runs in flight) -> the memory cap's inputs in words (mem_detail)
 MEM_DETAIL_CASES = [
     (f"MemAvailable: {6 * GB} kB\nSwapTotal: {4 * GB} kB\nSwapFree: 0 kB\n", [],
-     "memory 6.0 GB available less 2 GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
-    (f"MemAvailable: {6 * GB} kB\n", [512000], "memory 6.0 GB available less 2 GB kept free, 500 MB a run"),
+     "memory 6.0 GB available less 1 GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
+    (f"MemAvailable: {6 * GB} kB\n", [512000], "memory 6.0 GB available less 1 GB kept free, 500 MB a run"),
     ("garbage", [], None),
 ]
 # (cores other processes use, cores the burn uses, cores, runs) -> cpu cap
