@@ -6,9 +6,9 @@ files the kernel keeps dropping does not lower MemAvailable, but it shows in
 stalled on memory) and, once it swaps, in /proc/vmstat pswpin. The burn read
 ~950 MB/min of cache with 7.7 GB "free" (11-14).
 
-`cap(state_path, alive, now)` returns (width cap or None, words). Hot: some
-avg10 AND avg60 above HOT_PSI (a sustained stall, not one 10 s burst from
-another room), or swap-in above HOT_SWAPIN_MB_MIN since the last call. While
+`cap(state_path, alive, now)` returns (width cap or None, words). Hot: full
+avg10 AND avg60 above HOT_PSI (every task stalled at once and
+sustained: thrash, not one 10 s burst), or swap-in above HOT_SWAPIN_MB_MIN since the last call. While
 hot the cap is 3/4 of itself (of the runs alive when not yet held; never
 under 1), lowered at most once per STEP_S. Calm (not hot) for BAND_S: the cap
 rises by 1 per BAND_S. Quiet (avg10 under QUIET_PSI, swap-in under
@@ -21,7 +21,10 @@ import sys
 import time
 from pathlib import Path
 
-HOT_PSI = 1.0
+#: "full" PSI (all tasks stalled), the same bar as mem_gate.PSI_MAX. Ordinary
+#: ambient "some" stall of 4-6% and "full" of ~3% with no swap-in (11-17, other
+#: rooms' jobs) held the cap at 1 for hours; a width-1 burn cannot lower it.
+HOT_PSI = 10.0
 QUIET_PSI = 0.5
 HOT_SWAPIN_MB_MIN = 1.0
 QUIET_SWAPIN_MB_MIN = 0.25
@@ -38,9 +41,9 @@ RAISE_STEP = 2
 PAGE = 4096
 
 
-def read_psi(text, field="avg10"):
-    """some `field` (avg10, avg60) from /proc/pressure/memory text, None if absent."""
-    m = re.search(rf"^some .*?\b{field}=([\d.]+)", text or "", re.MULTILINE)
+def read_psi(text, field="avg10", kind="some"):
+    """`kind` (some, full) `field` (avg10, avg60) from /proc/pressure/memory text, None if absent."""
+    m = re.search(rf"^{kind} .*?\b{field}=([\d.]+)", text or "", re.MULTILINE)
     return float(m[1]) if m else None
 
 
@@ -56,11 +59,14 @@ def _read(path):
         return None
 
 
-def step(state, psi, pswpin, alive, now, psi60=None):
+def step(state, psi, pswpin, alive, now, psi60=None, full=None, full60=None):
     """(new state, cap or None, words) from the previous state and readings.
-    `psi60` (some avg60) defaults to `psi`."""
+    `psi60` (some avg60) defaults to `psi`; `full`/`full60` (full avg10/avg60,
+    the hot test) default to `psi`/`psi60`."""
     st = dict(state or {})
     psi60 = psi if psi60 is None else psi60
+    full = psi if full is None else full
+    full60 = psi60 if full60 is None else full60
     rate = None
     if st.get("t") is not None and st.get("pswpin") is not None and now > st["t"]:
         rate = max(0, pswpin - st["pswpin"]) * PAGE / 1048576 / ((now - st["t"]) / 60)
@@ -73,7 +79,7 @@ def step(state, psi, pswpin, alive, now, psi60=None):
     st["t"], st["pswpin"] = keep_t, keep_p
     swap = rate if rate is not None else st.get("rate", 0.0)
     st["rate"] = swap
-    hot = (psi > HOT_PSI and psi60 > HOT_PSI) or swap > HOT_SWAPIN_MB_MIN
+    hot = (full > HOT_PSI and full60 > HOT_PSI) or swap > HOT_SWAPIN_MB_MIN
     quiet = psi < QUIET_PSI and swap < QUIET_SWAPIN_MB_MIN
     cap = st.get("cap")
     st.pop("band_since", None)  # pre-11-15 state: the calm timer replaced it
@@ -104,7 +110,7 @@ def step(state, psi, pswpin, alive, now, psi60=None):
             if st["moved"] == now and cap > max(alive, 1) + RAISE_STEP:
                 cap = None
     st["cap"] = cap
-    words = f"pressure some avg10 {psi:.2f} avg60 {psi60:.2f}, swap-in {swap:.2f} MB/min" + (
+    words = f"pressure some avg10 {psi:.2f} avg60 {psi60:.2f}, full avg10 {full:.2f} avg60 {full60:.2f}, swap-in {swap:.2f} MB/min" + (
         f", held to {cap}" if cap is not None else "")
     return st, cap, words
 
@@ -121,7 +127,8 @@ def cap(state_path, alive, now=None, psi_text=None, vmstat_text=None):
         state = json.loads(Path(state_path).read_text())
     except (OSError, ValueError):
         state = None
-    state, held, words = step(state, psi, pin, alive, now, psi60)
+    full, full60 = read_psi(psi_text, kind="full"), read_psi(psi_text, "avg60", "full")
+    state, held, words = step(state, psi, pin, alive, now, psi60, full, full60)
     try:
         Path(state_path).write_text(json.dumps(state) + "\n")
     except OSError:
@@ -142,11 +149,11 @@ def self_test():
     check("pswpin", read_pswpin("pgpgin 5\npswpin 77\n"), 77)
     s, c, _ = step(None, 0.1, 0, 20, 1000)
     check("first quiet", c, None)
-    s, c, _ = step(s, 2.0, 0, 20, 1060)
+    s, c, _ = step(s, 12.0, 0, 20, 1060)
     check("hot lowers", c, 15)
-    s, c, _ = step(s, 2.0, 0, 15, 1100)
+    s, c, _ = step(s, 12.0, 0, 15, 1100)
     check("hot rate-limited", c, 15)
-    s, c, _ = step(s, 2.0, 0, 15, 1200)
+    s, c, _ = step(s, 12.0, 0, 15, 1200)
     check("hot again", c, 11)
     s, c, _ = step(s, 0.6, 0, 11, 1300)
     check("band holds", c, 11)
@@ -159,16 +166,22 @@ def self_test():
     check("raises stepwise", c, 15)
     check("avg60", read_psi("some avg10=2.50 avg60=1.25 avg300=0.10 total=5", "avg60"), 1.25)
     # 11-15: a 10 s burst (avg10 hot, avg60 calm) is another room's blip, not a cut
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, psi60=0.4)
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 15.0, 0, 1, 1000, psi60=0.4)
     check("avg10 spike alone holds", c, 6)
     # 11-15: hot under a held cap cuts the cap, not the 1 run alive (was 6 -> 1)
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, psi60=3.0)
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 15.0, 0, 1, 1000, psi60=12.0)
     check("hot cuts the cap, not alive", c, 4)
     # 11-15: avg10 wobbling across QUIET_PSI still accrues calm time and climbs
     s = {"t": 0, "pswpin": 0, "cap": 1, "moved": 0}
     for i in range(12):
         s, c, _ = step(s, 0.3 if i % 2 else 0.7, 0, 1, 60 * (i + 1))
     check("wobble climbs", c, 2)
+    # 11-17: ambient some 5 / full 3 with no swap-in is not hot
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, 4.0, 3.0, 3.0)
+    check("ambient stall holds", c, 6)
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, 4.0, 12.0, 11.0)
+    check("full stall cuts", c, 4)
+    check("full", read_psi("some avg10=1 avg60=2\nfull avg10=3.5 avg60=1", kind="full"), 3.5)
     # swap-in: 4096 pages = 16 MB over a minute is hot with psi calm
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 4096, 8, 60)
     check("swap-in hot", c, 6)
