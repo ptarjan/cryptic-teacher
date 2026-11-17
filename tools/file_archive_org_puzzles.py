@@ -18261,14 +18261,16 @@ def teleprize_due(row):
 TELE_GRID = "Gale Telegraph 1985-89 page refused at its grid (a lattice a row short, the Quick's ACROSS taken for its title), read since"
 REREAD_TELE_GRID = "2026-11-17T05:30:00+00:00"
 #: The widest (px) a title box may be for a lone word, the ACROSS of the Quick's clue list.
-TELE_GRID_WORD = 130
+TELE_GRID_WORD = 150
 
 
 def tele_grid_due(row):
     """Whether Gale Telegraph ledger `row` (1985-89), read before REREAD_TELE_GRID, holds a verdict whose grid was unread
     for "the white cells span", or was refused "not a grid" for a one-word title box (TELE_GRID_WORD wide)."""
     rel = (row or {}).get("edition") or ""
-    if not re.match(r"GaleTelegraph198[5-9]", rel) or "inputs" not in row \
+    # (1990-99 too, r163: 31 rows read 11-14/15 under scans whose title was the Quick's ACROSS box (a rule or 300x300 ink
+    # under it); gale_telegraph_headings finds the cryptic's own title box, ~700 wide, on 30 of them now)
+    if not re.match(r"GaleTelegraph(198[5-9]|199\d)", rel) or "inputs" not in row \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_TELE_GRID)):
         return False
     boxes = {p.get("number"): p.get("box") for p in (row.get("scan") or {}).get("puzzles") or ()}
