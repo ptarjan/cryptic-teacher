@@ -4460,6 +4460,20 @@ check("a lost number laid between its neighbours only on the second pass, with e
       (base, {**base, "4-across": "Lost"}, {**base, "4-across": "Lost"}),
       tuple({k: v[0] for k, v in f.lay_loose(lost, g, *t)[0].items()} for t in ((), (set(),), ({"4-across"},))))
 
+# NUMBERLESS_FIT: a numberless capital-opened clue out of order takes the one free light its count fills; a tail does not.
+g = ["...#...", ".......", "...#..."]
+off = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                  {"tokens": [{7}], "text": "Middle", "enums": {"7"}, "see": None},
+                  {"tokens": [{8}], "text": "Low", "enums": {"3"}, "see": None},
+                  {"tokens": [{9}], "text": "End", "enums": {"3"}, "see": None},
+                  {"tokens": [set()], "text": "Lost clue", "enums": {"3"}, "see": None}],
+       "down": []}
+off["across"].insert(0, {"tokens": [set()], "text": "tail of one", "enums": {"3"}, "see": None})
+_got = lambda *a, **k: sorted(k_ for k_ in f.lay_loose(off, g, *a, **k)[0])
+check("an out-of-order numberless clue takes the one free light of its length only with fits_alone, not a lower-case tail",
+      (["1-across", "7-across", "8-across", "9-across"], ["1-across", "4-across", "7-across", "8-across", "9-across"]),
+      (_got(set()), _got(set(), fits_alone=True)))
+
 # Real readings whose list headings the OCR lost. The lists are put back
 # where the clue numbers start rising again (file_trove_puzzles.heads).
 # The Times, 1974-05-14, archive.org's reading: no ACROSS, and DOWN read
