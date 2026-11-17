@@ -43,7 +43,11 @@ VERSION = 5
 #: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
 GRID_FIX = 1
 #: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
-NUMBER_FIX = 1
+NUMBER_FIX = 2
+#: The Gale list of titles, beside the saved pages (downloads.GALE_CROSSWORDS, which the live units set through
+#: CT_DOWNLOADS): gale_inbox.MEPHISTO_DOCS follows local.json's media_root, unset on the queue's machine, so the live
+#: units read an empty list (0 titles, no anchors) and refused every page before 1995 whatever the offset runs said.
+DOCS_PATH = downloads.GALE_CROSSWORDS / "Mephisto" / "docs.json"
 #: Bumped when only the lists' foot changes: the pages read with their first Down clues blank are read again.
 TAIL_FIX = 1
 #: Bumped when only the lists' bare numbers and missing headings change (bare_mended): the pages refused "no clue
@@ -113,7 +117,7 @@ _DOCS = {}
 
 def docs_index(path=None):
     """({doc id: date}, [(date, number)] of the titled pages, by date) of Mephisto/docs.json."""
-    path = str(path or gi.MEPHISTO_DOCS)
+    path = str(path or DOCS_PATH)
     if path not in _DOCS:
         dates, titled = {}, []
         try:
