@@ -1217,7 +1217,8 @@ def left_block(img, words, box, heads, gl):
     a, d = heads
     lh = gl.line_height(words)
     # The headings stand centred over the column, which is the grid's width and ends a line before the grid.
-    left = int(box[0] - lh - (box[2] - box[0]))
+    # The clue numbers stand left of that (about a line and a half further), so the cut goes out to them.
+    left = int(box[0] - 3 * lh - (box[2] - box[0]))
     gx0, gx1 = int(box[0] - lh), int(box[2] + lh)
 
     def foot(x0, x1, top, notes):
