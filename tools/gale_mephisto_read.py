@@ -206,10 +206,30 @@ RUN_NEAR = (0, -1, -2)
 RUN_RANGE = (-200, -100)
 
 
+#: Bumped when only the bridged gaps change: pages refused for want of a number inside RUN_BRIDGES are read again.
+BRIDGE_FIX = 1
+#: (first date, last date, offset) of the gaps between two anchors (a titled page or an OFFSET_RUNS end) at the SAME
+#: offset: the offset only ever falls, a skipped week at a time, so none fell between them and every Sunday in the gap
+#: is the weekly count at that offset. 1961-02-26 is Gale's title Mephisto 106 (offset -110, the first of the weekly
+#: titles); 1965-07-04 starts the -110 run. A gap between anchors at different offsets is NOT bridged (the fall's week
+#: is unknown): 1965-09-26..1966-10-09 (-110/-111), 1969-03-30..06-08 (-112/-115), 1976-01-25..1978-02-26
+#: (-121/-128), 1978-02-26..1980-03-23 (-128/-180), 1980-03-23..1981-05-17 (-180/-181), 1981-06-28..08-16,
+#: 1982-10-17..1983-02-06, 1983-10-02..12-18 (-183/-185/-187) stay refused, as do the weeks before 1961-02-26 (Mephisto
+#: ran fortnightly, the numbers count issues) and 1974-02-17..03-31 (-120/-121 around one page). Each bridged page still
+#: needs its printed numbers (any) to sit at the offset or one or two below (run_number).
+RUN_BRIDGES = (("1961-02-27", "1965-07-03", -110),)
+
+
 def run_offset(day):
-    """The offset (number less the week count) of OFFSET_RUNS holding `day`, else None."""
+    """The offset (number less the week count) of OFFSET_RUNS or RUN_BRIDGES holding `day`, else None."""
     iso = day.isoformat()
-    return next((o for a, b, o in OFFSET_RUNS if a <= iso <= b), None)
+    return next((o for a, b, o in (*OFFSET_RUNS, *RUN_BRIDGES) if a <= iso <= b), None)
+
+
+def bridged(day):
+    """Whether `day` lies in a RUN_BRIDGES gap (not in an OFFSET_RUNS run of its own)."""
+    iso = day.isoformat()
+    return any(a <= iso <= b for a, b, _ in RUN_BRIDGES)
 
 
 def run_number(day, text):
@@ -387,6 +407,9 @@ def read_done(row, done=None):
             return False
         if row.get("runFix", 0) < RUN_FIX and row.get("date") and run_offset(datetime.date.fromisoformat(row["date"])) is not None:
             # Refused before the offset runs (OFFSET_RUNS) numbered the pages inside them: read again once.
+            return False
+        if row.get("bridgeFix", 0) < BRIDGE_FIX and row.get("date") and bridged(datetime.date.fromisoformat(row["date"])):
+            # Refused before the gap between two anchors at one offset (RUN_BRIDGES) was numbered: read again once.
             return False
     if row and row.get("refused") == UNCONFIRMED and done is not None and row.get("seen") is not None \
             and row.get("date") and row["seen"] in near_offsets(datetime.date.fromisoformat(row["date"]),
@@ -1382,7 +1405,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
-                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "columnFix": COLUMN_FIX}, store)
+                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "bridgeFix": BRIDGE_FIX,"columnFix": COLUMN_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
