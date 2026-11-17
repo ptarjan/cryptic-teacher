@@ -69,6 +69,29 @@ The 2015-2016 Times gap is mostly weekday runs of five (26095-26099,
   cryptic-grid-reconstruction). Puzzle numbers come from held neighbours by
   date, and case has to be restored (proper nouns). Where both exist, the
   Times feed or the National Post PDFs (below) give proper case.
+- **Filer (11-17):** `tools/file_cryptonite.py DATA_DIR` (docstring has the
+  rules). The number is accepted only when every printing calendar that fits
+  the held neighbours gives the same one. Leave-one-out on 1,534 held puzzles
+  (2001-2020, all four series): every one right, none wrong. The grid is filed
+  only when exactly one half-turn-symmetric 15x15 takes the answers. Case comes
+  back by rule: the first word of each sentence, "I", and words our own clues
+  capitalise mid-clue at least 90% of the time. Provenance: `retrievedFrom:
+  dataset`, `acquiredBy: tools/file_cryptonite.py`. The site cannot show a
+  clue-only puzzle (clues_only/ is never published), so an unplaced one is
+  skipped.
+- **What will not file, measured:**
+  - Sunday Telegraph 2001-08: the held numbers leave about 16 fewer numbers
+    than Sundays, and the dataset does not show which Sundays went unprinted,
+    so every number is ambiguous. One more held anchor inside the hole would
+    unlock it.
+  - Sunday Times 2001-06: the dataset's answers miss our held puzzles on most
+    dates (they agree from late 2006 on), so paper-years under 90% agreement
+    are not filed.
+  - Saturday Times and some 2008+ Telegraph dates carry two cryptics (Jumbo
+    or Toughie) that share numbers, so they cannot be split.
+- **Filed:** a pilot of 14 so far: Telegraph 2002-08 (9), Sunday Times 2010
+  and 2012 (2), Times 2015-16 (3). The full run is pending; see the filer's
+  report.
 
 ### 2. The Times feed, wider id search (existing source): ~110 Times 2015-2016
 

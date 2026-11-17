@@ -174,6 +174,8 @@ RETRIEVAL_CHANNELS = {
                  "(the National Library of Australia's Trove, archive.org, Gale): clue "
                  "text from OCR, the grid from the page image. source.url is the page there",
     "authored": "not retrieved from anywhere — set in this repo",
+    "dataset": "read from a third party's research dataset of the paper's clues and "
+               "answers, not from the paper or a write-up. source.url is the dataset",
     "unknown": "the corpus cannot say which of the above it was",
 }
 
@@ -288,6 +290,12 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a bigdave44.com write-up's clue list and answers, the grid "
                 "rebuilt from them by tools/times_grids.py"},
+    "tools/file_cryptonite.py": {
+        "channel": "dataset",
+        "what": "the Cryptonite research dataset (github.com/aviaefrat/cryptonite), "
+                "which holds the paper's clues and answers LOWERCASED with no grid "
+                "or number: clue case restored by rule, the number forced by held "
+                "neighbours, the grid rebuilt from the clue numbers and answers"},
     "tools/ft_puzzles.py": {
         "channel": "blog",
         "what": "a fifteensquared write-up's clue list and answers, the grid "
@@ -438,7 +446,14 @@ ACQUISITION_BY_SOURCE = {
     ("telegraph", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     # Ours: set in this repo and never fetched, so there is no url and no host.
     ("authored", ""): ("tools/build_authored_puzzle.py",),
+    # The Cryptonite dataset's repo (tools/file_cryptonite.py, DATASET_HOSTS).
+    ("telegraph", "github.com"): ("tools/file_cryptonite.py",),
+    ("sundaytel", "github.com"): ("tools/file_cryptonite.py",),
+    ("times", "github.com"): ("tools/file_cryptonite.py",),
+    ("sundaytimes", "github.com"): ("tools/file_cryptonite.py",),
 }
+#: Hosts of clue datasets with no grid: every puzzle off one is rebuilt.
+DATASET_HOSTS = {"github.com"}
 #: The tool that files a blog series' puzzles, by the blog it reads. A series
 #: naming a blog missing here fails at import.
 BLOG_FILER = {"timesforthetimes.co.uk": "tools/file_times_puzzles.py",
@@ -762,7 +777,7 @@ def grid_origin(series, url=None):
     and a blog series can hold puzzles read off its publisher's feed (the
     Telegraph's bucket, tools/fetch_telegraph.py)."""
     host = host_of(url)
-    if is_book(series) or host in BLOG_FILER or host in GEORGEHO_HOSTS:
+    if is_book(series) or host in BLOG_FILER or host in GEORGEHO_HOSTS or host in DATASET_HOSTS:
         return "reconstructed"
     if "blog" in series_table.meta(series) and not any(
             channel_of(t) == "publisher" for t in ACQUISITION_BY_SOURCE.get((series, host), ())):
