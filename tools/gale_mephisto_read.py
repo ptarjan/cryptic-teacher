@@ -41,7 +41,7 @@ LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
 VERSION = 5
 #: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
-GRID_FIX = 1
+GRID_FIX = 2
 #: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
 NUMBER_FIX = 2
 #: The Gale list of titles, beside the saved pages (downloads.GALE_CROSSWORDS, which the live units set through
@@ -907,9 +907,76 @@ def read_barred(gray, lattice=None, wanted=None):
                 rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
                 if rows is not None:
                     return rows, found, None
+    if not lattice:
+        # The rules found sit on a lattice a few per cent off across (a scan stretched one way, the long rules broken
+        # short): the lattice is fitted again to the ink's own line profiles, and its half-cell shifts tried.
+        for ys, xs in cands[:3]:
+            for y2, x2 in refit_lattices(ink, ys, xs):
+                rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
+                if rows is not None:
+                    return rows, found, None
     if first is None:
         return None, None, "no 12x12 lattice of rules on the page"
     return None, first[0], first[1]
+
+
+def _comb_axis(prof, a0, pitch, span=1.5, pitches=(0.9, 1.1), keep=2):
+    """[(score, start, pitch)] of the best combs of 13 lines on `prof` (the ink's share along one axis, smoothed 3 px
+    either way): the line start within `span` pitches of `a0` and the pitch within `pitches` of `pitch` whose 13
+    lines hold more ink than the 12 halfway between, `keep` of them that differ."""
+    import numpy as np
+    n = len(prof)
+    k = 3
+    sm = np.convolve(prof, np.ones(2 * k + 1) / (2 * k + 1), mode="same")
+    out = []
+    for p in np.arange(pitch * pitches[0], pitch * pitches[1] + 1e-9, pitch * 0.004):
+        starts = np.arange(int(a0 - span * pitch), int(a0 + span * pitch) + 1)
+        starts = starts[(starts >= 0) & (starts + 12 * p < n - 1)]
+        if not len(starts):
+            continue
+        on = np.zeros(len(starts))
+        off = np.zeros(len(starts))
+        for i in range(13):
+            on += sm[np.round(starts + i * p).astype(int)]
+            if i < 12:
+                off += sm[np.round(starts + (i + 0.5) * p).astype(int)]
+        score = on / 13 - off / 12
+        j = int(np.argmax(score))
+        out.append((float(score[j]), float(starts[j]), float(p)))
+    out.sort(reverse=True)
+    kept = []
+    for s, a, p in out:
+        if all(abs(a - b) > 0.3 * pitch or abs(p - q) > 0.03 * pitch for _, b, q in kept):
+            kept.append((s, a, p))
+        if len(kept) >= keep:
+            break
+    return kept
+
+
+#: Half-cell shifts (across, down) of a refitted lattice tried after it: its left end and top may sit on a rule
+#: beside the grid's own (the frame, a caption's rule).
+REFIT_SHIFTS = ((-0.5, 0), (0.5, 0), (-0.5, -0.5), (-0.5, 0.5), (0.5, -0.5), (0.5, 0.5), (0, 0.5), (0, -0.5))
+
+
+def refit_lattices(ink, ys, xs, keep=2):
+    """[(ys, xs)] of the lattice (ys, xs) fitted again to the ink's line profiles (the columns' ink in the grid's band
+    sets x0 and the pitch across, then the rows' ink in that width the same down), then the half-cell shifts."""
+    h, w = ink.shape
+    px, py = (xs[-1] - xs[0]) / CELLS, (ys[-1] - ys[0]) / CELLS
+    out = []
+    band = ink[int(max(0, ys[0])):int(min(h, ys[-1]))]
+    for _, x0, p in _comb_axis(band.mean(0), xs[0], px, keep=keep):
+        xx = [x0 + i * p for i in range(CELLS + 1)]
+        rp = ink[:, int(max(0, xx[0])):int(min(w, xx[-1]))].mean(1)
+        for _, y0, q in _comb_axis(rp, ys[0], py, keep=1):
+            out.append(([y0 + i * q for i in range(CELLS + 1)], xx))
+    for yy, xx in list(out):
+        qx, qy = (xx[-1] - xx[0]) / CELLS, (yy[-1] - yy[0]) / CELLS
+        for dx, dy in REFIT_SHIFTS:
+            y2, x2 = [y + dy * qy for y in yy], [x + dx * qx for x in xx]
+            if y2[0] >= 0 and x2[0] >= 0 and y2[-1] < h and x2[-1] < w:
+                out.append((y2, x2))
+    return out
 
 
 def read_lattice(gray, ink, ys, xs, wanted=None):
