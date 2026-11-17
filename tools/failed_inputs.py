@@ -112,6 +112,26 @@ def committed(pid):
     if top is None:
         return None
     top = Path(top.strip())
+    # Where the tree has the file is where HEAD almost always has it, and `show` of one
+    # path reads two tree objects; the `ls-files` glob below reads the whole ~110k-entry
+    # index (tens of MB per call, one per ledger record per fingerprint change, 10-17).
+    guesses = []
+    for found in (puzzle_paths.find(pid), clues_only.find(pid)):
+        try:
+            rel = Path(found).resolve().relative_to(top.resolve()).as_posix() if found else None
+        except (OSError, ValueError):
+            rel = None
+        if rel and rel.endswith(f"/{pid}.json"):
+            guesses.append(rel)
+    for name in guesses:
+        text = _git(top, "show", f"HEAD:{name}")
+        if text is None:
+            continue
+        try:
+            data = json.loads(text)
+        except ValueError:
+            return None
+        return ("clues" if name.startswith("clues_only/") else "puzzle", data)
     names = _git(top, "ls-files", "--", f"puzzles/*/*/{pid}.json", f"clues_only/*/{pid}.json")
     for name in (names or "").split():
         text = _git(top, "show", f"HEAD:{name}")
