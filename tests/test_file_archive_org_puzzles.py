@@ -3698,11 +3698,22 @@ _icd = {"edition": "GaleIndependent2011UKEnglish/2011-12-09", "inputs": "x", "re
 check("an Independent page whose clue numbers stand in three print columns right of the grid gets a third window (the "
       "gutters between the columns, the old edge the third's); two columns stay two; a page left incomplete with a lost-number "
       "clue is due INDY_COLUMNS, a Times page and one read since are not",
-      [(1611, 1256, 3024), 2004, (2004, 1303, 3024), [True, False, False, True]],
+      [(1611, 1256, 3024), 2004, (2004, 1303, 3024), [True, False, True, True]],
       [tuple(f.indy_columns(_ic, _icg, _icr)[:3]),
        f.third_of(f.indy_columns(_ic, _icg, _icr)), f.indy_columns(_ic2, _icg, _icr),
        [f.indy_columns_due(_icd), f.indy_columns_due({**_icd, "edition": "GaleTimes2011UKEnglish/2011-12-09"}),
         f.indy_columns_due({**_icd, "readAt": "2026-11-14T04:00:00+00:00"}), f.INDY_COLUMNS in f.RANKS]])
+_i2 = [[(x, 2000 + 60 * k, x + 250, 2030 + 60 * k, f"{k + 1} Clue words")] for x in (2824, 3133) for k in range(5)]
+_i2g = (2078, 1495, 2800, 2215)
+_i2d = {**_icd, "edition": "GaleIndependent2013UKEnglish/2013-07-10", "readAt": "2026-11-16T06:45:00+00:00",
+        "verdicts": [{"number": 8342, "leaf": 0, "wrote": True, "unfiled": 1, "blank": {"2-down": "no reading laid a clue on it"}}]}
+_i2r = f.indy_columns(_i2, _i2g, (3955, 3447, 2611))
+check("an Independent page with two clue print columns and the gutter beyond both gets its gutter between them and "
+      "its far edge at the old gutter; the gutter between them stays; a 2010-15 page written unfiled with a light no "
+      "reading laid is due INDY_COLUMNS, a 2008 one is not",
+      [3447, True, None, [True, False]],
+      [_i2r[0], 2824 < _i2r[1] < 3133, f.indy_two_columns(_i2, _i2g, (3955, 3000, 2611), [2824, 3133]),
+       [f.indy_columns_due(_i2d), f.indy_columns_due({**_i2d, "edition": "GaleIndependent2008UKEnglish/2008-07-10"})]])
 _sf = {"edition": "GaleSundayTelegraph1993UKEnglish/1993-01-31", "inputs": "x", "readAt": "2026-11-10T12:00:00+00:00",
        "verdicts": [{"number": 1652, "leaf": 0, "imageUnread": "the white cells span 14 rows and 15 columns", "refused": "no reading parses"}]}
 check("a Gale Sunday Telegraph 1991-95 page whose grid was unread a row short is due SUNDAY_FOOT (ranked); a 1997 page, "

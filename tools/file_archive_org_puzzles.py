@@ -3102,7 +3102,7 @@ def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE, roomy=False):
             return None
     elif x1 > img.width or img.height - gy1 >= 1.2 * gw:
         return None
-    bottom = int(gy1 + RIGHT_DROP * (gy1 - gy0))
+    bottom = int(gy1 + (INDY_RIGHT_DROP if roomy else RIGHT_DROP) * (gy1 - gy0))
     strip = img.crop((gx1 + 5, gy0, x1, min(img.height, bottom))).convert("L")
     hist = strip.histogram()
     if sum(hist[:128]) < RIGHT_INK * strip.width * strip.height:
@@ -3189,6 +3189,35 @@ INDY_COLUMN_THIN = 0.5
 _INDY_NUMBER_START = re.compile(r"\d{1,2}(?![\d,\-)])")
 
 
+#: The Gale Independent 2010-14's page with TWO clue print columns right of its grid and other print (the puzzles box:
+#: "Puzzle solutions", "Maths puzzle", number starts at x 3482-3597 of 2013-07-10) right of them: right_gutter put its
+#: gutter (3447) beyond both clue columns (numbers at x 2824 and 3133), so the first window held both, their rows
+#: read across ("3 Accept failure of mother's" / "1 Making use of MOT twice (4,2,5,4)"), the clues ran into each
+#: other and only the VLM's list laid them ("5 of 11 counted clues lie on the grid", 2-down "no reading laid a
+#: clue on it"). The window is cut at that gutter and the new one set between the two columns (INDY_TWO_COLUMNS).
+#: The Independent's roomy right window (INDY_RIGHT) reaches INDY_RIGHT_DROP of the grid's height under it, not
+#: RIGHT_DROP: the first column's DOWN list ran on past the foot (2013-07-10's "2 Holiday course for high flier? (8)"
+#: at y 2442-2487, the foot 2431), its clue and number never read.
+INDY_TWO_PITCH = 150
+INDY_RIGHT_DROP = 0.55
+
+
+def indy_two_columns(lines, grid, right, heads):
+    """`right` with its gutter set between the two print columns the clue numbers' left edges `heads` mark and its
+    far edge at the old gutter, when exactly two columns of numbers stand left of the old gutter, INDY_TWO_PITCH apart
+    and the gutter lies over 0.6 of a pitch beyond the second; else None."""
+    x1, split, bottom, *rest = right
+    left = [h for h in heads if h < split]
+    if len(left) != 2 or left[1] - left[0] < INDY_TWO_PITCH:
+        return None
+    pitch = left[1] - left[0]
+    if split < left[1] + 0.6 * pitch:
+        return None
+    top = grid[1] - rise_of(right)
+    mid = gutter(lines, (left[0] + 0.6 * pitch, bottom, left[1] - 5, bottom), top, left[0] + 0.6 * pitch, left[1] - 5)
+    return split, mid, bottom, *rest
+
+
 def indy_columns(lines, grid, right):
     """`right` (right_gutter's) with the third window of the Independent's three print columns (Third), the gutters
     set between the columns the clue numbers' left edges mark (the first at least a third of the pitch left of the
@@ -3213,6 +3242,9 @@ def indy_columns(lines, grid, right):
         big = sorted(len(g) for g in kept)[-3]
         kept = [g for g in kept if len(g) >= INDY_COLUMN_THIN * big]
     heads = [g[len(g) // 2] for g in kept]
+    two = indy_two_columns(lines, grid, right, [g[len(g) // 2] for g in groups if len(g) >= INDY_COLUMN_MIN])
+    if two:
+        return two
     if len(heads) != 3 or not heads[0] < split < heads[2]:
         return right
     pitch = (heads[1] - heads[0], heads[2] - heads[1])
@@ -18244,8 +18276,13 @@ def indy_links_due(row):
 #: two windows, the second two columns' rows run together (indy_columns). 11-13 census: ~140 incomplete rows;
 #: 2011-12-09 and 2010-04-06 read since lay every light (28 and 31 agreed, "across clue [] names no light" before).
 #: Read once, before REREAD_INDY_COLUMNS.
-INDY_COLUMNS = "Independent page with a clue column's rows run into the next, its three clue columns read since"
-REREAD_INDY_COLUMNS = "2026-11-14T03:00:00+00:00"
+#: Due again 11-17 (indy_two_columns, INDY_RIGHT_DROP: the 2010-14 page with TWO clue print columns and a puzzles box
+#: right of them, its first window holding both columns run together, the ch/en5 readings dropped "5 of 11 counted
+#: clues lie on the grid" and only the VLM's list laid clues; its list's tail under the window's foot): 2013-07-10 reads
+#: 28 of 28 lights since (27 and 2-down blank before). Those 2010-15 rows were written unfiled ("wrote"), which the
+#: first reason skipped: ~55 of the 63 + 32 + 30 near-miss rows of the census.
+INDY_COLUMNS = "Independent page with a clue column's rows run into the next, its clue columns read since"
+REREAD_INDY_COLUMNS = "2026-11-17T20:12:00+00:00"
 
 
 def indy_columns_due(row):
@@ -18255,7 +18292,8 @@ def indy_columns_due(row):
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_COLUMNS)):
         return False
     series = paper_of(row["edition"]).series
-    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote") and not v.get("refused")
+    written = "2010" <= Path(row["edition"]).name[:4] <= "2015"
+    return any(not v.get("skip") and v.get("number") is not None and (written or not v.get("wrote")) and not v.get("refused")
                and filed_state(series, v.get("number")) is None
                and ("clue [] names no light" in str(v.get("imageDisagrees"))
                     or any("no reading laid a clue" in str(why) for why in (v.get("blank") or {}).values()))
