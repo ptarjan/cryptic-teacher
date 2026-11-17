@@ -50,6 +50,7 @@ import os
 import pathlib
 import subprocess
 import sys
+import time
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import annotate_audit as audit
@@ -397,8 +398,29 @@ def decide(dry_run=False, now=None):
     return 0
 
 
+RECORD_EVERY_S = 600   # the burn calls `record` at every checkpoint; each call loads the 80 MB audit cache
+RECORD_STAMP = audit._CACHE_DIR / "ledger-record.stamp"
+
+
 def record(since=None, until=None, dry_run=False):
+    """One audit lock hold for both windows: the session cache is read once, not twice."""
     now = until or now_utc()
+    if since is None and until is None and not dry_run:
+        try:
+            if time.time() - RECORD_STAMP.stat().st_mtime < RECORD_EVERY_S:
+                return None  # the window since the last row only grows: a later call covers it
+        except OSError:
+            pass
+        try:
+            RECORD_STAMP.parent.mkdir(parents=True, exist_ok=True)
+            RECORD_STAMP.touch()
+        except OSError:
+            pass
+    with audit._exclusive():
+        return _record(now, since, until, dry_run)
+
+
+def _record(now, since, until, dry_run):
     rows = read_ledger()
     if since is None:
         floor = now - datetime.timedelta(hours=MAX_WINDOW_H)
