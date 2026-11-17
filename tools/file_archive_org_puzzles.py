@@ -13817,6 +13817,26 @@ GUARDIAN_FOURTH = "Guardian page with a fourth clue column beside the one right 
 REREAD_GUARDIAN_FOURTH = "2026-11-15T22:46:00+00:00"  # the push time: a row read after it is not due again
 
 
+#: GUARDIAN_PAIR: the fewest lines of a fourth column's tail, the lowest clue number such a pair may open on, the most
+#: its two numbers may differ by, and the most a line's tail may stand below the first (a puzzle whose down list ends
+#: in a fourth column of two clues, "20 Publicity wrong for counsel (6)" and "23 A fair solution to the due (5)" under
+#: 1997-04-07's third column: FOURTH_LINES wanted three, 20 and 23 down stood "no reading laid a clue on it").
+PAIR_LINES, PAIR_LOW, PAIR_SPREAD, PAIR_DROP = 2, 12, 8, 120
+GUARDIAN_PAIR = "Guardian page with a two-clue fourth column beside the one right of its grid, read since"
+REREAD_GUARDIAN_PAIR = "2026-11-17T01:31:00+00:00"  # the push time: a row read after it is not due again
+
+
+def fourth_pair(found, lines=None):
+    """True when `found` (guardian_fourth's lines opening on a number at the third column's edge) are two lines of
+    one column: numbers PAIR_LOW or more (an advertisement's "9 Stuck?" is none), rising, no more than PAIR_SPREAD
+    apart, the second line no more than PAIR_DROP below the first (a clue list's last two clues, not text beside it)."""
+    rows = sorted({(a[1] // 20, int(a[4]), a[0], a[1]) for a in found})
+    if len(rows) != PAIR_LINES:
+        return False
+    (_, n1, x1, y1), (_, n2, x2, y2) = rows
+    return n1 >= PAIR_LOW and 0 < n2 - n1 <= PAIR_SPREAD and abs(x1 - x2) <= 12 and 0 < y2 - y1 <= PAIR_DROP
+
+
 def guardian_fourth(lines, grid, third):
     """`third` (width, top) of a Guardian page, or (width, top, split, width, top) when the djvu words hold a fourth
     clue column beside the one it reads (GUARDIAN_FOURTH: its window ended 26 px into the fourth column's numbers
@@ -13831,7 +13851,7 @@ def guardian_fourth(lines, grid, third):
             if re.fullmatch(r"\d{1,2}", a[4]) and edge - FOURTH_LEAD <= a[0] < edge and b[0] >= edge - 10 \
                     and top <= a[1] <= grid[3] + 1.8 * (grid[2] - grid[0]) and re.search(r"[A-Za-z]{2}", b[4]):
                 found.append(a)
-    if len({a[1] // 20 for a in found}) < FOURTH_LINES:
+    if len({a[1] // 20 for a in found}) < FOURTH_LINES and not fourth_pair(found, lines):
         return third
     split = min(a[0] for a in found) - 12
     return (width, top, split, width, min(a[1] for a in found) - 12)
@@ -16987,6 +17007,24 @@ def guardian_notice_due(row):
     rel = (row or {}).get("edition") or ""
     if paper_of(Path(rel)).key != GUARDIAN.key \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_GUARDIAN_NOTICE)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
+                or not isinstance(v.get("blank"), dict) \
+                or not any(k.endswith("-down") and "no reading laid a clue" in str(why) for k, why in v["blank"].items()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+def guardian_pair_due(row):
+    """Whether Guardian ledger `row`, read before REREAD_GUARDIAN_PAIR, has a verdict (not refused, not skipped) with a
+    down light blank no reading laid a clue on, its puzzle not held whole: the down list's last two clues may stand
+    in a fourth column of two lines (GUARDIAN_PAIR, fourth_pair)."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GUARDIAN.key \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_GUARDIAN_PAIR)):
         return False
     for v in row.get("verdicts", ()):
         if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None \
@@ -23936,6 +23974,8 @@ def fix_reason(row):
         return GUARDIAN_LAID
     if guardian_notice_due(row):
         return GUARDIAN_NOTICE
+    if guardian_pair_due(row):
+        return GUARDIAN_PAIR
     if guardian_fourth_due(row):
         return GUARDIAN_FOURTH
     if guardian_cut_due(row):
@@ -24761,7 +24801,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # (ft_faint_due).
                   FT_FAINT,
                   # 11-15: a Guardian page with a clue no reading laid, read since (guardian_laid_due).
-                  GUARDIAN_LAID, GUARDIAN_CUT, GUARDIAN_FOURTH, GUARDIAN_NOTICE,
+                  GUARDIAN_LAID, GUARDIAN_CUT, GUARDIAN_FOURTH, GUARDIAN_NOTICE, GUARDIAN_PAIR,
                   # 11-15: an Independent page whose third clue column under the grid was cut (indy_over_plain_due).
                   INDY_OVER_PLAIN, INDY_GUTTER_DOWN,
                   # 11-16: an Independent page refused no ACROSS and DOWN lists, its print columns read since (indy_thin_due).
@@ -24920,6 +24960,7 @@ def blanket_or_fix(row, blanket):
             else GUARDIAN_LAID if guardian_laid_due(row) \
             else GUARDIAN_FOURTH if guardian_fourth_due(row) \
             else GUARDIAN_NOTICE if guardian_notice_due(row) \
+            else GUARDIAN_PAIR if guardian_pair_due(row) \
             else GUARDIAN_CUT if guardian_cut_due(row) \
             else INDY_OVER_PLAIN if indy_over_plain_due(row) \
             else INDY_GUTTER_DOWN if indy_gutter_down_due(row) \
@@ -25165,7 +25206,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
