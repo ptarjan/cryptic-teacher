@@ -208,6 +208,32 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"
 # and it is recorded against the puzzle like any other failure.
 ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 
+# blog_chain <paper> <step>...: each step is a tools/ script and its arguments; a failed
+# step alerts. unit_commit's cross_validate step still runs through it.
+blog_chain() {
+  local paper=$1 step out step_rc=0
+  shift
+  out="$(mktemp "${TMPDIR:-/tmp}/cryptic-blog.XXXXXX")"
+  for step in "$@"; do
+    step_start=$SECONDS
+    # shellcheck disable=SC2086  # a step is a script and its arguments
+    python3 tools/$step >"$out" 2>&1
+    step_rc=$?
+    cat "$out"
+    echo "$step: rc=$step_rc in $((SECONDS - step_start))s"
+    [ $step_rc -eq 0 ] && continue
+    case "$step" in
+      fetch_*)
+        alert "the $paper fetch \`$step\` failed (rc=$step_rc), so the $paper puzzles are filed and dated from what is already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$out" | cut -c1-200)"$'\n'"\`\`\`" ;;
+      *)
+        alert "the $paper chain stopped at \`$step\` (rc=$step_rc); the steps after it were skipped, so no new $paper puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$out" | cut -c1-200)"$'\n'"\`\`\`"
+        break ;;
+    esac
+  done
+  rm -f "$out"
+  return $step_rc
+}
+
 # Record a lost night against the puzzle's current inputs. failed_inputs.py
 # refuses transient reasons (a usage lockout, an expired login, a network
 # error), since those runs learned nothing about the grid. Extra arguments go
