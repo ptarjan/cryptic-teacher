@@ -2541,6 +2541,7 @@ def reannotate_tier(rows, annotate_blocked=(), only=(), taken=()):
     ids = shape_queue.puzzle_ids()
     return round_robin([p for p in rows if p["id"] in ids and p["annotated"] and p["id"] not in taken
                         and p["id"] not in annotate_blocked and not p.get("style")
+                        and not p.get("awaitsPreamble")
                         and (not only or p["series"] in only)])
 
 

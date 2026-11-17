@@ -288,5 +288,12 @@ check("flagged skips the stale row", Q.flagged(pz) == {"1-across": "arity_ins: x
 check("prune drops only the stale row",
       PR.stale_ids(rows_, lambda pid: pz if pid == "stale-1" else None) == {"stale-1#2a"})
 
+# mephisto-3264 (11-15..17): a pending row on a puzzle that awaits its preamble is no one's to
+# redo (shape_due answers []), yet the planner re-picked it hourly and the launch skipped it.
+Q._live_cache.clear()
+Q._still_flagged_here = lambda pid: pid != "preamble-1"
+Q.pending = lambda: {"preamble-1": {"1a": "x"}, "live-1": {"1a": "x"}}
+check("puzzle_ids leaves out a puzzle with nothing a run can redo", Q.puzzle_ids() == {"live-1"})
+
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)

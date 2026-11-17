@@ -136,8 +136,45 @@ def exhausted():
     return [r["id"] for r in rows() if r.get("tried") and tries(r) >= MAX_TRIES]
 
 
+_live_cache = {}
+
+
+def _still_flagged_here(pid):
+    """Whether puzzle `pid` still has a pending clue no detector has settled (flagged()). A
+    puzzle that cannot be read stays: the run's own checks decide."""
+    try:
+        import puzzle_paths
+        path = puzzle_paths.find(pid)
+        if path is None:
+            return True
+        import annotate_check
+        return bool(annotate_check.shape_due(json.loads(path.read_text(encoding="utf-8"))))
+    except (OSError, ValueError, SystemExit):
+        return True
+
+
 def puzzle_ids():
-    return set(pending())
+    """The puzzles with a pending row that still fires. pending() keeps a stale row (the clue was
+    fixed by another sweep, mephisto-3264 3d: reversedCharadeOrder no longer fires) until
+    tools/prune_shape_queue.py drops it, and the planner re-picked such a puzzle at every
+    re-plan: the launch then skipped it ("already fully hinted"), every ~hour, ~90 times in
+    a week. flagged() drops stale rows for a run, so the planner asks it too. Cached per
+    version of the rows, the annotate code and each puzzle's file mtime."""
+    out = set()
+    for pid in pending():
+        try:
+            import puzzle_paths
+            path = puzzle_paths.find(pid)
+            stamp = path.stat().st_mtime_ns if path else None
+        except (OSError, SystemExit):
+            stamp = None
+        key = (id(rows()), code_sha(), stamp)
+        hit = _live_cache.get(pid)
+        if hit is None or hit[0] != key:
+            hit = _live_cache[pid] = (key, _still_flagged_here(pid))
+        if hit[1]:
+            out.add(pid)
+    return out
 
 
 def clue_key(entry):
