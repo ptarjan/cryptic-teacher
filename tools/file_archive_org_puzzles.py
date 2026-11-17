@@ -11758,7 +11758,7 @@ def _read_best(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
             break
         # The VLM is not asked again for a clue the best window so far already has
         # (lend_laid): another window is read for the clues that one is still missing.
-        lent = best[1].get("_laid") if vlm_for is not False else None
+        lent = best[1].get("_laid") if vlm_for is not False or alt == ("halves", None) else None
         more = any(a != first for a in alts[i + 1:])
         if vlm_for is not False and VLM_WINDOWS and judged + 1 >= VLM_WINDOWS:
             more = False  # the last window shown: its picks are not deferred to a window that will not come
@@ -11798,15 +11798,17 @@ def _read_best(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
     return best[1], best[2]
 
 
-def lend_laid(laid, blank, lent):
+def lend_laid(laid, blank, lent, uncounted=False):
     """(laid, blank, {lights}) with each blank light that `lent` (another window's laid
     clues, light -> (text, count, group)) has a clue for, of the same count, laid with
-    that clue: the VLM is then asked only for what no window has read yet."""
+    that clue: the VLM is then asked only for what no window has read yet. `uncounted`:
+    a blank light laid with no count at all takes the lent clue's count too."""
     laid, blank, got = dict(laid), dict(blank), set()
     for lid in list(blank):
         theirs, mine = lent.get(lid), laid.get(lid)
-        if theirs and (theirs[0] or "").strip() and mine is not None and theirs[1] == mine[1]:
-            laid[lid] = (theirs[0], mine[1], mine[2])
+        if theirs and (theirs[0] or "").strip() and mine is not None and \
+                (theirs[1] == mine[1] or (uncounted and not mine[1] and theirs[1])):
+            laid[lid] = (theirs[0], theirs[1] if uncounted else mine[1], mine[2])
             del blank[lid]
             got.add(lid)
     return laid, blank, got
@@ -13592,6 +13594,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         laid, blank, retried = retry_weak(img, key, cols, read, laid, blank, lengths, tail)
         if retried:
             verdict["retried"] = sorted(retried)
+    # SUB_COLUMNS: the sub-column window's clean lines fill the blanks of the best window's read, not replace it: the
+    # window reads from the best window's laid clues, and lends them to its own blanks (it then holds the union).
+    if lent and blank and kind == "halves" and block_read:
+        laid, blank, lent_to = lend_laid(laid, blank, lent, uncounted=True)
+        if lent_to:
+            verdict["lent"] = sorted(lent_to)
     if lent and blank and "vlm" in texts and vlm_on and vlm.wanted():
         laid, blank, lent_to = lend_laid(laid, blank, lent)
         if lent_to:
@@ -13642,8 +13650,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if len(blank_now) != len(blank):
             verdict["vlmLaid"] = sorted(blank.keys() - blank_now.keys())
         blank = blank_now
-    if vlm_on:
-        verdict["_laid"] ={lid: v for lid, v in laid.items() if (v[0] or "").strip() and lid not in blank}
+    if vlm_on or (paper.key == "gale" and BLOCK_YEARS[0] <= d.name[:4] <= BLOCK_YEARS[1] and kind != "halves"):
+        verdict["_laid"] = {lid: v for lid, v in laid.items() if (v[0] or "").strip() and lid not in blank}
     laid, blank, alike = tail(laid, blank)
     if alike:
         verdict["asPrinted"] = alike
