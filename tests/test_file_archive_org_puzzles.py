@@ -9355,6 +9355,15 @@ check("a rule read as a 1 before a digit stays the number's (NEXT_CLUE's '|5' is
 check("a clue number behind a rule's mark cuts the row where the rest ends on a hyphenated word",
       ["Heights of literary", "19 His type was photo-"],
       [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Heights of literary ·19 His type was photo-")], [2273])])
+# Gale 1935-06-24, 1938-02-17, 1939-08-03 (MARKED_RISE): "!", "[" "(" before two digits, the row ending on a lower-case word.
+check("a '!' before a rising clue number cuts the row ending on a lower-case word",
+      ["Engage a building", "17 Grenade burst with"],
+      [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Engage a building !17 Grenade burst with")], [2273])])
+check("a '[' before a rising clue number cuts the row ending on a lower-case word",
+      ["Rises as a bird", "21 Foot of a hill with"],
+      [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Rises as a bird [21 Foot of a hill with")], [2273])])
+check("a mark before a number that does not rise on the row's own stays whole",
+      1, len(f.split_across([(2085, 3183, 2424, 3207, "22 Engage a building !17 Grenade burst with")], [2273])))
 # Gale 1964-10-16's 4 down: the VLM was asked for the one column with a weak light, its reply a list with no
 # heading (parse() needs both lists), and the readers' line was garbled ("4 t u p n emstic a lly").
 _vlmcol = "4 Euphemistically\nmore bloody (7).\n5 Tripped under\ncanvas (7).\n6 Love-bird? (4).\n"
