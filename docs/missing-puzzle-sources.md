@@ -89,9 +89,20 @@ The 2015-2016 Times gap is mostly weekday runs of five (26095-26099,
     are not filed.
   - Saturday Times and some 2008+ Telegraph dates carry two cryptics (Jumbo
     or Toughie) that share numbers, so they cannot be split.
-- **Filed:** a pilot of 14 so far: Telegraph 2002-08 (9), Sunday Times 2010
-  and 2012 (2), Times 2015-16 (3). The full run is pending; see the filer's
-  report.
+- **Filed (11-17 full run): 2,013 puzzles.** Telegraph 1,598 (2001: 19, 2002:
+  250, 2003: 236, 2004: 245, 2005: 238, 2006: 230, 2007: 188, 2008: 170, 2009:
+  18, 2013: 4); Sunday Times 221 (2007: 32, 2008: 29, 2009: 19, 2010: 31, 2011:
+  26, 2012: 27, 2013: 24, 2014: 21, 2015: 7, 2016: 3, 2017: 2); Times 192
+  (2000-2020, 1-26 a year, most in 2006 and 2010); Sunday Telegraph 2 (2010,
+  2011). Of 14,059 dates skipped, 10,472 were already held and 1,734 were
+  Quick puzzles. The rest, by reason: 735 no grid (clue numbers skip), 406
+  label disagrees with the weekday, 347 Sunday Telegraph number ambiguous, 82
+  two cryptics on the date, 79 no grid takes the answers, 71 Sunday Times
+  2001-06 dataset disagrees with our held puzzles (see above), 100 write
+  refused by the filing guard (id or served-page mismatch), 19 clue count
+  unlike a 15x15, 12 no number free, 2 held neighbours disagree with the
+  calendar. Filing also merged nine Telegraph and ten Times "book" twins into
+  the new ids (tools/data/renamed_ids.json).
 
 ### 2. The Times feed, wider id search (existing source): ~110 Times 2015-2016
 
