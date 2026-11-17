@@ -3680,6 +3680,10 @@ _tf.tempdir = _tempdir
 # vlm_drainer starts only the threads that have ended.
 _logged, _calls, _stop = [], [], _th.Event()
 def _step():
+    # Only this test's own drainer thread counts: a straggler from an earlier drainer test (its stop
+    # set but still in a step) may call the patched step too, which made the count flake (3 vs 4).
+    if _th.current_thread() not in _thr:
+        return False
     _calls.append(1)
     if len(_calls) <= 2:
         raise KeyError("boom")

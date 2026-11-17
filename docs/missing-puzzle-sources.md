@@ -27,7 +27,7 @@ The 2015-2016 Times gap is mostly weekday runs of five (26095-26099,
 
 ## Ranked sources
 
-### 1. Cryptonite dataset (Times + Telegraph clues, 2000-2020): ~3,065 puzzles
+### 1. Cryptonite dataset (Times + Telegraph clues, 2000-2020): about 3,000 puzzles as of 11-17
 
 - **What it holds:** one row per clue: `publisher` (Times/Telegraph),
   `sub_publisher` (e.g. "The Times"), print `date` (epoch ms, UTC midnight),
