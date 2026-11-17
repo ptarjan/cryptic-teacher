@@ -19572,7 +19572,7 @@ def sub_columns_due(row):
 #: reader lost a two-line clue's first line, the other printed it whole, and the vote left it blank for want of the third
 #: reading relaid() asks. mid_other() lays the whole one when the other's text is its tail. Once each.
 MID_OTHER = "unfiled before its fix, a 1980-89 Telegraph page's clue a reader lost the first line of laid from the other reader"
-REREAD_MID_OTHER = "2026-11-17T05:00:00+00:00"
+REREAD_MID_OTHER = "2026-11-17T04:47:00+00:00"
 
 
 def mid_other_due(row):
