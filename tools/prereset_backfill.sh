@@ -223,6 +223,26 @@ MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 # Niced, with everything it runs: the pool shares this machine with the bridge.
 WORKER_MODEL="$MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_WRAP="nice -n 19"
+# While the rush is armed (tools/prereset_plan.py auto_rush: two or more manual resets
+# free, so the week's quota is to be spent flat out), each run is RUSH_MODEL's, Fable.
+# Rushing, memory is what binds (250 MB a run whatever the model), and an Opus run moves the
+# meter only ~0.3 pts per run-hour, so on 11-17 the burn sat at width 1 with ~15 points of the
+# week headed for expiry. Fable took the same wall time as Opus on the 30078 benchmark at
+# ~3x the cost (docs/APP.md), so it spends ~3x the quota per MB, and it is the annotator
+# Opus is graded against. Paced (no rush), each point is scarce, so runs stay ANNOTATE_MODEL.
+# Empty RUSH_MODEL turns this off. The choice is made at each launch and kept in
+# $RUNS/<id>.model for the fill's provenance (solve_applied).
+RUSH_MODEL="${RUSH_MODEL-fable}"
+burn_model() {
+  local until
+  until=$(cat "${CT_MAIN_CHECKOUT:-$REPO}/.prereset.rush" 2>/dev/null)
+  case "$until" in ''|*[!0-9]*) echo "$MODEL"; return ;; esac
+  if [ -n "$RUSH_MODEL" ] && [ "$until" -gt "$(date +%s)" ]; then
+    echo "$RUSH_MODEL"
+  else
+    echo "$MODEL"
+  fi
+}
 WORKER_JOB="pre-reset backfill"
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
 # what spends the paced meter (weekly) to EXHAUSTED by its reset,
@@ -460,8 +480,11 @@ run_claude() {
   local tag="$1" prompt="$2" fill="${3:-}" log resume_at note="" m
   log="/tmp/ct-prereset-$1.txt"
   resume_at="/tmp/ct-prereset-$1.resume"
+  # run_claude runs in its own background subshell (pool_launch), so this sets this run's model only.
+  WORKER_MODEL=$(burn_model)
+  echo "$WORKER_MODEL" 2>/dev/null >"$RUNS/$tag.model" || true
   if [ "$DRY_RUN" = 1 ]; then
-    echo "would spend one $MODEL run on $tag" >"$log"
+    echo "would spend one $WORKER_MODEL run on $tag" >"$log"
     sleep 1
     return 0
   fi
@@ -506,7 +529,9 @@ solve_applied() {
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
   else
-    worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.resume"
+    # The fill is the model's that ran it (run_claude's choice), not the shell's default.
+    WORKER_MODEL="$(cat "$RUNS/$id.model" 2>/dev/null || echo "$MODEL")" \
+      worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.resume"
     case $? in
       0) ;;
       3) # Mendable (worker_mendable): resumed next, its note and fill kept.

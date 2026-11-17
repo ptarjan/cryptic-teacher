@@ -216,7 +216,9 @@ BRIDGE_MEAN_FILE = ".prereset.bridge_mean"
 METER_STALE_S = 900
 TOKEN_WEIGHT = {"input_tokens": 1.0, "cache_creation_input_tokens": 1.25,
                 "cache_read_input_tokens": 0.1, "output_tokens": 5.0}
-MODEL_WEIGHT = {"opus": 5.0, "sonnet": 3.0, "haiku": 1.0}
+# Fable: its 1h cache write billed $16/MTok on 11-17 (2x input), so $8 input. The burn runs it
+# while rushing (prereset_backfill.sh RUSH_MODEL).
+MODEL_WEIGHT = {"fable": 8.0, "opus": 5.0, "sonnet": 3.0, "haiku": 1.0}
 # The burn's per-run rate from the transcripts needs this many run-hours in
 # the window, else the log's rate below stands.
 RUN_HOURS_MIN = 0.25
@@ -464,15 +466,20 @@ def quiet(epoch, sleep=None):
     return awake.asleep(epoch, sleep)
 
 
-def overnight_cap(pct, now, end, rate, bridge):
+def overnight_cap(pct, now, end, rate, bridge, bed=None):
     """The most runs that, spread until `end` (his predicted wake, or the reset
     if sooner), leave room for the bridge alone at NIGHT_BRIDGE_FACTOR times
-    `bridge` to stay NIGHT_GUARD points under EXHAUSTED until then. None when
-    an input is missing."""
+    `bridge` to stay NIGHT_GUARD points under EXHAUSTED until then. Before `bed`
+    (his bedtime; None: now) the bridge counts at its plain rate: he is awake, and
+    the burn re-plans every checkpoint, so the margin is for the hours nobody
+    watches. 11-17: charging 1.5x over all 15h to a 03:00 reset at noon read
+    24% + 3.6 x 1.5 x 15.3 = 107% and capped the burn at 0, where the bridge's
+    real spend left ~20 points. None when an input is missing."""
     try:
         hours = max(AIM_MIN_H, (end - now) / 3600)
-        room = (EXHAUSTED - NIGHT_GUARD - pct
-                - max(0.0, bridge or 0.0) * NIGHT_BRIDGE_FACTOR * hours)
+        day = 0.0 if bed is None else min(hours, max(0.0, (bed - now) / 3600))
+        spend = max(0.0, bridge or 0.0) * (day + NIGHT_BRIDGE_FACTOR * (hours - day))
+        room = EXHAUSTED - NIGHT_GUARD - pct - spend
         return max(0, int(room / (hours * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
@@ -541,7 +548,7 @@ def night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural=False):
     if (plan[1] if plan and plan[0] else until) <= bed:
         return None
     end = min(up, until)
-    runs = overnight_cap(pct, now, end, rate, bridge)
+    runs = overnight_cap(pct, now, end, rate, bridge, bed)
     return None if runs is None else (runs, end)
 
 
@@ -1182,7 +1189,10 @@ def show_resets():
           + (f" at {rate:.2f} pts per run-hour" if rate else ""))
     print("overnight: the meter is due full before his bedtime" if night is None else
           f"overnight: at most {night[0]} runs until {at(night[1])}, so the bridge alone at "
-          f"{NIGHT_BRIDGE_FACTOR:g}x stays under {EXHAUSTED - NIGHT_GUARD:g}%")
+          f"{NIGHT_BRIDGE_FACTOR:g}x after his bedtime stays under {EXHAUSTED - NIGHT_GUARD:g}%")
+    if rush_active(_read(home / RUSH), pct, now):
+        print("rushing: the burn runs flat out at the memory cap, on the rush model "
+              "(prereset_backfill.sh RUSH_MODEL); the pace and overnight cap above are unused")
     print("\n".join(awake.describe(sleep, now)))
     return 0
 
@@ -1311,7 +1321,8 @@ def width(arg=None, floor=1):
                f"{dt.datetime.fromtimestamp(plan[1], PACIFIC):%a %H:%M} Pacific at {plan[2]:.1f} pts/h")
     if night is not None:
         aim += (f", overnight cap {night[0]} to his wake "
-                f"{dt.datetime.fromtimestamp(night[1], PACIFIC):%a %H:%M} Pacific")
+                f"{dt.datetime.fromtimestamp(night[1], PACIFIC):%a %H:%M} Pacific"
+                + (" (unused: rushing)" if rushing else ""))
     dash = lambda v: "—" if v is None else v
     # "width W (cap: ...)" is the part that says how wide and why; what follows the dot
     # changes every call, so the burn prints this line only when the part before it does.
@@ -1699,6 +1710,9 @@ GUARD_CASES = [
     ((60, NOON, 60, (1, MON22 + 9 * 3600, 4.0), 0.5, 1.0, LEARNED), (1, MON22 + 8.5 * 3600)),
     # no reset planned and the natural one at 03:00: guarded to the reset, 38 - 22.5 points
     ((60, NOON, 15, (0, NOON + 15 * 3600, 2.0), 0.5, 1.0, LEARNED), (2, NOON + 15 * 3600)),
+    # 11-17 at noon: 24%, a 03:00 reset, the bridge at 3.6 pts/h, 0.3 a run-hour. 1.5x over all
+    # 15h read 107% and 0 runs; 1x until 22:30 and 1.5x after leaves 10.3 points, 2 runs
+    ((24, NOON, 15, (0, NOON + 15 * 3600, 5.0), 0.3, 3.6, LEARNED), (2, NOON + 15 * 3600)),
     ((None, NOON, 15, None, 0.5, 1.0, LEARNED), None),
 ]
 
