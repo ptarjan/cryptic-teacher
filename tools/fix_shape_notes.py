@@ -145,7 +145,7 @@ def r_does_not_give(node, parent, ctx):
     except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
         return None
     found, seen = [], set()
-    for late in (False, True, "inside", "cut", "shrink"):
+    for late in (False, True, "inside", "abbr", "cut", "shrink"):
         # the end cut of a leaf is the last resort: beside the plural-S / surplus-leaf edits it only adds a
         # second way (HIFT for SHIFT) to a tree that has one right edit already; a piece pulled inside the
         # container or anagram beside it (and a reversed argument) is tried only when no other edit works
@@ -194,6 +194,24 @@ def _trim_leaves(node, answer):
 _DOUBLED_PLURALS = {"pounds", "pages", "lines", "verses", "volumes"}
 
 
+_ABBR = {}
+
+
+def _abbr_values(words):
+    """The letters the abbreviation tables read `words` as (Motorway MI, European EU); a possessive 's is
+    tried bare. Never the clue word's own letters: that is no abbreviation."""
+    if not _ABBR:
+        pairs, _ = V._attested()
+        for k, g in pairs | set(V._EXTRA_PAIRS):
+            _ABBR.setdefault(k, set()).add(g)
+    text = str(words).upper()
+    out = set(_ABBR.get(re.sub(r"[^A-Z]", "", text), ()))
+    bare = re.sub(r"['\u2019]S\b", "", text)
+    if bare != text:
+        out |= _ABBR.get(re.sub(r"[^A-Z]", "", bare), set())
+    return {x for x in out if x and x.isalpha() and x != re.sub(r"[^A-Z]", "", text)}
+
+
 def _does_not_give_edits(node, k, clue=None, late=False):
     """Every single-edit copy of `node` the doesNotGive mend tries at its k-th node: a container's
     arguments swapped, or a container written as the charade of its two arguments (either order: ADRIFT
@@ -206,6 +224,18 @@ def _does_not_give_edits(node, k, clue=None, late=False):
         return new, list(walk(new))[k][0]
     n = list(walk(node))[k][0]
     parts = n.get("parts") or []
+    if late == "abbr":
+        # a leaf filed with one abbreviation of its clue word where the table lists another that gives the answer
+        # ([Motorway]M for LIMIT: the table has MI, EU for 'European', SH for 'shilling'); r_does_not_give keeps it
+        # only when exactly one such swap, anywhere in the tree, gives the answer
+        if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha():
+            for x in sorted(_abbr_values(n["words"]) - {W.letters(n["gives"])}):
+                new, t = fresh()
+                t["gives"] = x
+                if t.get("note"):
+                    t["note"] = f"{t['words']} gives {x}"
+                out.append(new)
+        return out
     if late == "cut":
         # the last resort of all: one letter dropped from inside a leaf ([girl]GAIL -> GAL for GA(BRIE)L,
         # [Watching]EYEING -> EYING), tried only when no end cut gave the answer; r_does_not_give keeps it

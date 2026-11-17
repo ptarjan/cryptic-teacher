@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # The 'wordplay does not give the answer' refusals of the 11-16 annotate runs: an anagram whose fodder
-# carries a link word ('and', 'a', 'the') is mended, a container that needs CO written backwards says
-# the abbreviation may simply be OC, and the audit replay counts refusals it cannot replay.
+# carries a link word ('and', 'a', 'the') is mended, a leaf whose clue word the table abbreviates another way
+# (CO for OC, M for MI) is swapped when that alone gives the answer, and the audit replay counts refusals it cannot replay.
 #
 #     python3 tests/test_refusal_mends.py
 import os
@@ -35,8 +35,12 @@ out = tr("ana<disaster>([real])", "Haig was a real disaster", "EARL")
 check("an anagram that already fits is untouched", out == "ana<disaster>([real])")
 
 out = tr("ins<entry is in>([New]LATE, [officer]CO)", "New officer entry is in place", "LOCATE")
-check("a container needing CO backwards still refuses, and names [officer]OC as the plain leaf",
-      out.startswith("REFUSED") and "read backwards" in out and "[officer]OC" in out)
+check("CO for 'officer' is mended to the table's OC (LOCATE)", not out.startswith("REFUSED") and "[officer]OC" in out)
+out = tr("ins<taking in>([grant]DONATION, [motorway]M)", "Government grant taking in motorway", "DOMINATION")
+check("[motorway]M is mended to the table's MI when only that gives the answer (DOMINATION)",
+      not out.startswith("REFUSED") and "[motorway]MI" in out)
+out = tr("ins<taking in>([grant]DONATION, [motorway]M)", "Government grant taking in motorway", "DONATIONS")
+check("an abbreviation swap that does not give the answer stays refused", out.startswith("REFUSED"))
 
 # a refusal whose clue is not on this host is counted, not dropped
 item = {"pid": "no-such-puzzle-0", "eid": "1-across", "ans": "ABC", "wp": "[x]AB", "sess": "s", "retries": 0,
