@@ -206,6 +206,15 @@ def media_pdfs():
     either FT host, one per UUID, captured 2006-2013. The CDX reply can be cut
     short, so it is read line by line, one host and year at a time."""
     out = {}
+    cache_file = CACHE / "orphans_cdx.json"      # finished pages survive a killed run
+    cache = json.loads(cache_file.read_text()) if cache_file.exists() else {"pages": {}, "rows": {}}
+
+    def save():
+        CACHE.mkdir(parents=True, exist_ok=True)
+        tmp = cache_file.with_suffix(".tmp")
+        tmp.write_text(json.dumps(cache))
+        tmp.replace(cache_file)
+
     # A task is (host, lo, hi, page); page None means "ask how many pages
     # first" (showNumPages), which the server answers in seconds even when the
     # whole-span query 502s. Each page is then a small query of its own.
@@ -216,11 +225,19 @@ def media_pdfs():
         while queue:
             host, lo, hi, page = queue.pop(0)
             span = f"url={host}&from={lo}&to={hi}"
+            key = f"{host} {lo} {page}"
+            if page is None and f"{host} {lo}" in cache["pages"]:
+                queue += [(host, lo, hi, p) for p in range(cache["pages"][f"{host} {lo}"])]
+                continue
+            if page is not None and key in cache["rows"]:
+                continue
             try:
                 if page is None:
                     n = int(get(f"{CDX}?{span}&showNumPages=true", timeout=90,
                                 tries=1).decode().strip() or 0)
                     print(f"  CDX {host} {lo[:4]}: {n} page(s)")
+                    cache["pages"][f"{host} {lo}"] = n
+                    save()
                     queue += [(host, lo, hi, p) for p in range(n)]
                     time.sleep(WAYBACK_PAUSE)
                     continue
@@ -233,6 +250,7 @@ def media_pdfs():
                 print(f"  CDX {host} {lo}-{hi} page {page}: {type(e).__name__}: {e}")
                 failed.append((host, lo, hi, page))
                 continue
+            found = []
             for ln in text.splitlines():
                 try:
                     r = json.loads(ln.strip().rstrip(","))
@@ -240,9 +258,9 @@ def media_pdfs():
                     continue
                 if isinstance(r, list) and len(r) == 3 and r[2].isdigit() \
                         and ORPHAN_BYTES[0] < int(r[2]) < ORPHAN_BYTES[1]:
-                    u = r[1].replace(":80/", "/")
-                    m = UUID.search(u)
-                    out.setdefault(m.group(0) if m else u, (r[0], u))
+                    found.append([r[0], r[1].replace(":80/", "/")])
+            cache["rows"][key] = found
+            save()
             time.sleep(WAYBACK_PAUSE)
         todo = failed
         if not todo:
@@ -252,6 +270,9 @@ def media_pdfs():
             time.sleep(CDX_RETRY_PAUSE * (rnd + 1))
     if todo:
         print(f"  CDX: {len(todo)} host-year(s) still failing, skipped: {todo}")
+    for ts, u in (r for rows in cache["rows"].values() for r in rows):
+        m = UUID.search(u)
+        out.setdefault(m.group(0) if m else u, (ts, u))
     return sorted(out.values())
 
 
