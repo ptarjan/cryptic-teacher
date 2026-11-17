@@ -4285,10 +4285,10 @@ check("small_titles: a 1-3 digit title two reads give, the heading before it kep
 _s2 = [(1500, 400, 1900, 450, "THE TIMES SCrossword"), (1500, 455, 1800, 505, "PUZZLE No.382")]
 _sh = [(2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE No. 356")]
 _sd = _d.date(1931, 4, 27)
-check("small_titles: a title set on two lines is one; two reads of the day before's heading alone give it, one "
-      "read or a footer naming another puzzle does not",
+check("small_titles: a title set on two lines is one; the day before's heading alone read twice, or once within 8 under "
+      "(1 over) the date's number, gives it (SMALL_LONE); a footer naming another puzzle does not",
       [([{"number": 382, "leaf": 0, "box": (1500, 400, 1900, 505)}], []), ([], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
-       ([], []), ([], [])],
+       ([], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]), ([], [])],
       [f.small_titles([_s2, _s2], _sd, 0), f.small_titles([_sh, _sh], _sday, 0), f.small_titles([_sh], _sday, 0),
        f.small_titles([_sh + [(2042, 3739, 2753, 3794, "Solution of puzzle No. 360, will appear in The Times to-morrow.")], _sh],
                       _sday, 0)])
@@ -4333,14 +4333,19 @@ check("an untitled verdict-less 1931 Gale Times page never looked over for a sma
       "stale); stamped, titled, with a verdict, failed, of 1934, a Gale Telegraph's or under an old key it is not",
       [True, False, f.SMALL_TITLE, f.SMALL_TITLE, True, False, False, False, False, False, False, False, 2],
       [f.small_rescan(_sr), f.scan_current(_sr, "h"), f.fix_reason(_sr), f.blanket_or_fix(_sr, "inputs changed"),
-       f.scan_current({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True}}, "h"),
-       f.small_rescan({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True}}),
+       f.scan_current({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True, f.SMALL_FIGURES: True}}, "h"),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True, f.SMALL_FIGURES: True}}),
        f.small_rescan({**_sr, "scan": {**_sr["scan"], "puzzles": [{"number": 357, "leaf": 0}]}}),
        f.small_rescan({**_sr, "verdicts": [{"number": 357, "id": "times-357"}]}),
        f.small_rescan({**_sr, "scan": {**_sr["scan"], "failed": "x"}}),
        f.small_rescan({**_sr, "scan": {**_sr["scan"], "date": "1934-03-27", "item": "GaleTimes1934UKEnglish"}}),
        f.small_rescan({**_sr, "scan": {**_sr["scan"], "item": "GaleTelegraph1931UKEnglish"}}),
        f.small_rescan({**_sr, "scanKey": "0000000000000000"}), f.RANKS[f.SMALL_TITLE]])
+check("a page stamped SMALL_READ and SMALL_FRAG but not SMALL_FIGURES is due SMALL_TITLE again; heading_figures reads "
+      "'1S6' as 186 beside 187 and '5S3' as 583 beside 584 (not 553)",
+      [True, 186, 583],
+      [f.small_rescan({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True}}),
+       f.heading_figures("1S6", 187), f.heading_figures("5S3", 584)])
 # HELD_LINKED: a Times row a held-title read left answerless (no id, no solutionFrom) whose number a host's heading
 # links now (sol_seen holds it, its solutionsSeen did not) is due HELD_LINKED, not the blanket "inputs changed";
 # not one already linked, one that read its answers, one whose number is not linked, or another paper's.

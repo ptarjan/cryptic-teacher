@@ -158,6 +158,7 @@ import functools
 import fnmatch
 import gzip
 import hashlib
+import itertools
 import json
 import math
 import os
@@ -4477,7 +4478,7 @@ SMALL_SLACK = 12
 #: 1-3 digit number, not the head of a "1,041".
 TITLE_SMALL = re.compile(r"cross\s?w[o0]rd\W{0,3}\s*p\w{2,5}\W{0,3}\s*n[o0x]\W{0,3}\s*(\d{1,4})(?![\d,]|\.\d)", re.IGNORECASE)
 #: "SOLUTION OF PUZZLE No. 356", under the clues.
-SOLUTION_SMALL = re.compile(r"^\W*(?:\S{1,2}\s+)?s[o0]luti[o0]n\s*(?:[o0][fpv]|t[o0])\s*p\w{2,5}\s*n[o0x]\W{0,3}\s*(\d{1,4})(?![\d,]|\.\d)(?!\W{0,3}\s*w[il1]{2})",
+SOLUTION_SMALL = re.compile(r"^\W*(?:\S{1,2}\s+)?s[o0]luti[o0]n\s*(?:[o0][fpv]|t[o0])\s*p\w{2,5}\W{0,3}\s*[nx][o0x]\W{0,3}\s*(\d{1,4})(?![\d,]|\.\d)(?!\W{0,3}\s*w[il1]{2})",
                             re.IGNORECASE)
 #: The footer under the clues: "Solution of puzzle No. 357, will appear in The Times to-morrow", the puzzle on
 #: its page in figures.
@@ -4486,9 +4487,30 @@ FOOTER_SMALL = re.compile(r"s[o0]luti[o0]n\s*[o0][fpv]\s*p\w{2,5}\s*n[o0x]\W{0,3
 #: "UZZLENo.574"; the small capitals only, so not the footer's "puzzle No. 75, will appear"), its number maybe
 #: split by a space ("No. 3 25" for 325). 11-16: 44 Gale Times pages of 1930-32 had no heading small_titles
 #: took (no "SOLUTION OF" in either read, or only one read of it), their title unread.
-HEADING_FRAGMENT = re.compile(r"P?U?Z?ZLE\W{0,3}\s*[NX][O0]?\W{0,3}\s*([\dSGBOIl]{1,4})(?:\s([\dSGBOIl]{1,3}))?(?![\dSGBOIl,]|\.\d)(?!\W{0,3}\s*W[IL1]{2})")
+HEADING_FRAGMENT = re.compile(r"P?U?Z?ZL[EN]\W{0,3}\s*[NX][O0]?\W{0,3}\s*([\dSGBOIlTZ]{1,4})(?:\s([\dSGBOIlTZ]{1,3}))?(?![\dSGBOIlTZ,]|\.\d)(?!\W{0,3}\s*W[IL1]{2})")
 #: The figures a heading's digits are misread as, by the letters standing in for them.
 HEADING_DIGITS = str.maketrans("SGBOIl", "568011")
+#: The figures each letter of a heading's number may stand for ("S" is a 5 or an 8: "1S6" for 186, "5S3" for 583).
+HEADING_ALTS = {"S": "58", "G": "6", "B": "8", "O": "0", "I": "1", "l": "1", "T": "7", "Z": "2"}
+#: The stamp of a SMALL_READ scan made once small_titles read a heading's letter-for-figure by the figures the
+#: date's number is nearest to (heading_figures: "1S6" is 186 not 156) and took one read of a heading within
+#: SMALL_LONE of the date's number (the other reader's lost), with "SOLUTION OF PUZZLE'No: 161" and "Xo." read.
+#: 11-16: 71 Gale Times 1930-32 pages (no heading read twice) stood scanned to no puzzle; their cached reads hold it.
+SMALL_FIGURES = "smallFigures"
+#: How far a heading's number plus one may stray from the date's number when only one read gives it (drift runs
+#: -3 to -7 in 1932: the pages skip more closed days than TIMES_1930_CLOSED holds).
+SMALL_LONE = 8
+
+
+def heading_figures(digits, want):
+    """The number the heading's `digits` (figures and the letters HEADING_ALTS names) read as that puts
+    number + 1 nearest `want`: ("1S6", 187) is 186."""
+    best = None
+    for combo in itertools.product(*(HEADING_ALTS.get(c, c) for c in digits)):
+        n = int("".join(combo))
+        if best is None or abs(n + 1 - want) < abs(best + 1 - want):
+            best = n
+    return best
 #: A word of a title's "THE TIMES", ahead of its "Crossword".
 TITLE_LEAD =re.compile(r"\W*(?:t[hb]?[eo]|t[il1]m\w{0,4})\W*$", re.IGNORECASE)
 
@@ -4513,7 +4535,7 @@ def small_titles(reads, day, leaf):
                   and 0 <= b[0][1] - a[0][3] <= 2 * (a[0][3] - a[0][1])]
         seen = set()
         for ws in lines:
-            text = " ".join(str(w[4]) for w in ws)
+            text = " ".join(str(w[4]) for w in ws).replace("$", "S")
             heading = SOLUTION_SMALL.match(text)
             num = int(heading[1]) if heading else None
             hits = []
@@ -4521,10 +4543,10 @@ def small_titles(reads, day, leaf):
             if not t:  # a heading's "PUZZLE No. 60" without its "SOLUTION OF", or its number split by a space
                 frag = HEADING_FRAGMENT.search(text)
                 if frag:
-                    a, b = frag[1].translate(HEADING_DIGITS), (frag[2] or "").translate(HEADING_DIGITS)
-                    f = int(a)
-                    if b and abs(int(a + b) + 1 - want) < abs(f + 1 - want):
-                        f = int(a + b)
+                    a, b = frag[1], frag[2] or ""
+                    f = heading_figures(a, want)
+                    if b and abs(heading_figures(a + b, want) + 1 - want) < abs(f + 1 - want):
+                        f = heading_figures(a + b, want)
                     if num is None or abs(f + 1 - want) < abs(num + 1 - want):
                         num = f
             if num is not None:
@@ -4552,7 +4574,7 @@ def small_titles(reads, day, leaf):
     # SMALL_SLACK of the date's number) and no footer figures naming another puzzle, a title not read but for
     # its number (solution_titled boxes it over the grid the heading is printed under).
     # (read once, a heading naming the very number before the date's stands too: one reader lost the other's.)
-    heads = [s for s, b in sols.items() if (len(b) >= 2 or s + 1 == want) and 0 < s + 1 <= SMALL_TOP
+    heads = [s for s, b in sols.items() if (len(b) >= 2 or -SMALL_LONE <= s + 1 - want <= 1) and 0 < s + 1 <= SMALL_TOP
              and abs(s + 1 - want) <= SMALL_SLACK
              and all(n == s + 1 for n in feet)]
     heads.sort()
@@ -4583,12 +4605,17 @@ def small_titled(d, found):
         hits, sols = small_titles(cached_page_words(f"{d.parent.name}_{d.name}_{leaf}"), day, leaf)
         if not hits and sols:  # headings alone: the title boxed over the grid they are printed under
             hits = solution_titled(d, sols)
+            if hits:  # (a number another date holds, or off the one the filed neighbours either side give, is a misread)
+                held = held_dates(GALE.series)
+                fixed = implied(day, held)
+                if held.get(hits[0]["number"], day) != day or fixed not in (None, hits[0]["number"]):
+                    hits = []
         if hits:
             have = {s["number"] for s in found.get("solutions") or ()}
-            return {**found, "puzzles": hits, SMALL_READ: True, SMALL_FRAG: True,
+            return {**found, "puzzles": hits, SMALL_READ: True, SMALL_FRAG: True, SMALL_FIGURES: True,
                     "solutions": [s for s in found.get("solutions") or () if s["number"] != hits[0]["number"]]
                     + [s for s in sols if s["number"] not in have]}
-    return {**found, SMALL_READ: True, SMALL_FRAG: True}
+    return {**found, SMALL_READ: True, SMALL_FRAG: True, SMALL_FIGURES: True}
 
 
 #: The key of a Gale Independent scan (scan_anywhere's) titled from the strip reads its scan left in the crop cache.
@@ -16327,7 +16354,7 @@ def small_rescan(row):
     year = str(scan.get("date", ""))[:4]
     if not (str(scan.get("item", "")).startswith("GaleTimes") and SMALL_YEARS[0] <= year <= SMALL_YEARS[1]
             and "inputs" in row and not row.get("verdicts") and not scan.get("failed")
-            and not (scan.get(SMALL_READ) and scan.get(SMALL_FRAG)) and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+            and not (scan.get(SMALL_READ) and scan.get(SMALL_FRAG) and scan.get(SMALL_FIGURES)) and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
         return False
     return row.get("scanKey") in current_keys(GALE)
 
