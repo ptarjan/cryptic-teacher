@@ -3864,7 +3864,7 @@ try:
     check("an Independent page refused for a number held on another date, the number now held on its day, is due INDY_REDATED; "
           "one read since, a number held elsewhere and a title a verdict read are not",
           [True, False, False, False, True],
-          [bool(f.indy_redated_due(_ir)), bool(f.indy_redated_due({**_ir, "readAt": "2026-11-14T17:00:00+00:00"})),
+          [bool(f.indy_redated_due(_ir)), bool(f.indy_redated_due({**_ir, "readAt": "2026-11-18T00:00:00+00:00"})),
            bool(f.indy_redated_due({**_ir, "scan": {"date": "2015-07-18", "puzzles": [{"number": 8972}]}})),
            bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8972}]})),
            bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8973, "read_as": 8973}]})) and f.INDY_REDATED in f.RANKS])

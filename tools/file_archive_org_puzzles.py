@@ -18670,13 +18670,17 @@ def indy_dropped_due(row):
 #: each plan, so the row is due only while a title or refusal names a number held on the edition's day. Only answers and
 #: clues our read agrees with are added; a blog answer is never overwritten. Read once, before REREAD_INDY_REDATED.
 INDY_REDATED = "Independent page refused for a number held under another date, the held date corrected since"
-REREAD_INDY_REDATED = "2026-11-14T16:00:00+00:00"
+# 11-17 widened to Gale Independent on Sunday: 25 2010-14 pages refused "No 1099 is already filed for 2011-03-06, not
+# 2011-03-13" were read while 2011 held dates were a week early (875e9e0db06, reverted e8a9fb26919); 1099, 1102, 1114,
+# 1122, 1126 and 1139 are now held on the page's own day. The other 19 (2010 weekly cites one low, 2013-14 Gale a week
+# after the blog) stay copies of held puzzles and are not due: the held number must equal the page's day.
+REREAD_INDY_REDATED = "2026-11-17T12:33:00+00:00"
 
 
 def indy_redated_due(row):
     """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDY_REDATED, holds a number-date-mismatch refusal of
     a number now held on the edition's day, or a scan title now held on that day that no verdict read as."""
-    if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
+    if paper_of((row or {}).get("edition") or "").key not in ("galeindependent", "galeindysunday") \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_REDATED)):
         return False
     scan = row.get("scan") or {}
