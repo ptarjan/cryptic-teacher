@@ -161,6 +161,8 @@ def damaged_run(text, clue, misread=True):
             walk(0, ci, None)
     if not runs and misread:
         runs = _misread_runs(want, toks, low, junk)
+    if not runs and misread:
+        runs = _one_word_off(want, toks)
     if not runs and misread and len(want) >= 4:
         # the scan dropped a lone 'I' the quote has inside the run ('Mary and I go out' for
         # the stored 'Mary and go out'): the quote minus that word is the clue's one run
@@ -260,6 +262,25 @@ def _misread_runs(want, toks, low, junk):
                 if rank == best:
                     found.add((toks[idx[a]][1], toks[idx[b]][2]))
     return found
+
+
+def _one_word_off(want, toks):
+    """{(start, end)} of the clue's one run of as many words as the quote (three or more)
+    that matches it word for word but for one word of four letters or more that is up to two
+    edits off ('Part of door' for the scan's 'Pan of door', 'corner' for 'comer'): the
+    scan's misreading of a word the model read correctly. Every clue token counts here,
+    a lone capital too ('A post-natal ...'). Two such runs, or none, mend nothing."""
+    n = len(want)
+    if n < 3:
+        return set()
+    low = [_fold_accents(t[0]).casefold() for t in toks]
+    runs = set()
+    for k in range(len(toks) - n + 1):
+        diff = [(w, c) for w, c in zip(want, low[k:k + n]) if w != c]
+        if len(diff) == 1 and max(map(len, diff[0])) >= 4 and min(map(len, diff[0])) >= 3 \
+                and _lev(*diff[0]) <= 2:
+            runs.add((toks[k][1], toks[k + n - 1][2]))
+    return runs if len(runs) == 1 else set()
 
 
 def _one_edit(a, b):

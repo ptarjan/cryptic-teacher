@@ -937,6 +937,14 @@ check("misread clue: a dropped word other than I is not mended",
       _D.damaged_run("Mary and Tom go out with him", "Mary and go out with him") is None)
 check("misread clue: a different word is not mended",_D.damaged_run("throng", "Scorer awards fifty in throw") is None)
 check("misread clue: two equal fits are not mended", _D.damaged_run("show", "snow and shot") is None)
+check("one-word-off: a word two edits off in a run of three or more is mended",
+      _D.damaged_run("having turned the corner", "Mad, having turned the comer") == "having turned the comer")
+check("one-word-off: a lone capital opening the run is no debris",
+      _D.damaged_run("A post-natal service for women", "A post-nasal service for women") == "A post-nasal service for women")
+check("one-word-off: two words off are not mended", _D.damaged_run("Got better soon", "Cor bever soon") is None)
+check("one-word-off: a two-word quote is not mended", _D.damaged_run("Part door", "Pan door here") is None)
+check("one-word-off: two equal runs are not mended",
+      _D.damaged_run("the sort of energy", "the sort of enemy and the sort of enemy") is None)
 check("possessive 's the clue lacks is dropped from the quote", spans_of("[professional's]X", "Outlaw professional B writer")
       == [("professional", 7)], spans_of("[professional's]X", "Outlaw professional B writer"))
 check("possessive 's the clue prints stays", spans_of("[pro's]X", "Outlaw pro's B writer") == [("pro's", 7)])
