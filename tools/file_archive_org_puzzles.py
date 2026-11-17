@@ -15826,6 +15826,18 @@ for _paper, _pins in _FT_TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before 400f5a43356 ("Fix red master") added a prose guard to
+#: ft_headings: only the FT's and the Gale FT's keys moved, and no page read otherwise, so every scan stands under the key
+#: it stood under before (_FT_TITLE_FIX's), now the new key.
+_FT_PROSE_FIX = {
+    "ft": ("c92613b393a050b3", "449499b1aece419b", "760f1694e5a88ea2"),
+    "galeft": ("65077b0c10f371ba", "17185a2a9ca80b01", "e8d65f623fb460ce"),
+}
+for _paper, _pins in _FT_PROSE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -16082,7 +16094,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "5f40266aabea8b7c": "432a5818529a9b11",
                   # ft_headings reads a title from a glued column line, a tall-print number line, a number beside it
                   # (FT_TITLE_GLUED): a scan's title only, no solution grid's reading moves.
-                  "c9945c4079d1b127": "432a5818529a9b11"}
+                  "c9945c4079d1b127": "432a5818529a9b11",
+                  # 400f5a43356: ft_headings' prose guard: a scan's title only, no solution grid's reading moves.
+                  "748f9ff0735ba283": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -16242,7 +16256,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # sunday_tel_headings and solution_bands read a bare "COMPETITION No N" (SUNTEL_BARE): a scan's heading only.
                 "bb6f32f8717a7d1e": "9b3500cb5488df7c",
                 # ft_headings reads a title from a glued column line (FT_TITLE_GLUED): a scan's title only.
-                "8992f5e29aea5093": "9b3500cb5488df7c"}
+                "8992f5e29aea5093": "9b3500cb5488df7c",
+                # 400f5a43356: ft_headings' prose guard: a scan's title only, the same read.
+                "f0316c3af0603a94": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
