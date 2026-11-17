@@ -18291,7 +18291,7 @@ def ft_small_host(row):
 #: another line's, the 1990-91 title in large print with its number line over a line's height under it. ft_headings now
 #: reads 13 of the 35 (the rest are the solution notice's "marked Monday Crossword" and articles). Scanned again once.
 FT_TITLE_GLUED = "FT page of 1990-94 with no puzzle found, its title run onto a neighbouring column's words or its number under large print since"
-REREAD_FT_TITLE_GLUED = "2026-11-17T16:55:00+00:00"
+REREAD_FT_TITLE_GLUED = "2026-11-17T16:58:00+00:00"
 
 
 def ft_title_host(row):
