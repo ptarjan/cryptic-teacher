@@ -76,7 +76,10 @@ DOC_ID = re.compile(r"[A-Z]{2,6}\d{9,10}")
 FIRST = (2250, datetime.date(2003, 10, 5))
 NEAR = 1
 #: Dates whose weekly count is confirmed by the numbers pages gave (offsets 0, with a stray two-off misread).
-COUNTED = (datetime.date(2001, 1, 1), datetime.date(2004, 12, 31))
+COUNTED = (datetime.date(1995, 1, 8), datetime.date(2004, 12, 31))
+#: Bumped when COUNTED grew: pages 1995-2000 refused for want of a number (every one of the 190 that gave a number,
+#: citation or text, sits on the weekly count, offset -189 from 1995-01-08) are read again once.
+COUNT_FIX = 1
 #: The Mephisto is a 12x12 barred grid.
 CELLS = 12
 #: The grid's rules run this share of the page's width at least.
@@ -423,6 +426,9 @@ def read_done(row, done=None):
             return False
         if row.get("runFix", 0) < RUN_FIX and row.get("date") and run_offset(datetime.date.fromisoformat(row["date"])) is not None:
             # Refused before the offset runs (OFFSET_RUNS) numbered the pages inside them: read again once.
+            return False
+        if row.get("countFix", 0) < COUNT_FIX and COUNTED[0].isoformat() <= (row.get("date") or "") <= COUNTED[1].isoformat():
+            # Refused before the weekly count was taken for 1995-2000 as it is for 2001-04 (COUNTED).
             return False
         if row.get("bridgeFix", 0) < BRIDGE_FIX and row.get("date") and bridged(datetime.date.fromisoformat(row["date"])):
             # Refused before the gap between two anchors at one offset (RUN_BRIDGES) was numbered: read again once.
@@ -1552,7 +1558,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
-                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
+                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
