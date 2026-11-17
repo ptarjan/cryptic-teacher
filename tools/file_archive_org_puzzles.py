@@ -12672,9 +12672,12 @@ def sunday_times_band(img, gbox, title, key, paper):
     that runs on right of the grid) at one pitch."""
     gx0, gy0, gx1, gy1 = gbox
     gw = gx1 - gx0
-    if not SUNDAY_BAND_DEPTH[0] * gw <= gy0 - title[3] <= SUNDAY_BAND_DEPTH[1] * gw:
+    # (A title right of the grid, lower than its top - 1982-03-14: grid y 5548-6309, title y 6142 - leaves the band's
+    # top to the ACROSS heading, searched from a grid's width over the grid: SUNDAY_BAND_BESIDE.)
+    beside = title[1] > gy0
+    if not beside and not SUNDAY_BAND_DEPTH[0] * gw <= gy0 - title[3] <= SUNDAY_BAND_DEPTH[1] * gw:
         return None
-    top = max(0, title[1] - 10)
+    top = max(0, int(gy0 - SUNDAY_BAND_DEPTH[1] * gw)) if beside else max(0, title[1] - 10)
     crop = BandCrop((max(0, gx0 - paper.margin), int(gy1 + SUNDAY_BAND_FOOT * gw), int(gx1 + SUNDAY_BAND_REACH * gw)))
     crop.top = top
     probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.{reader_key('ch')}.json", None, paper.margin, None,
@@ -12711,7 +12714,13 @@ def sunday_times_band(img, gbox, title, key, paper):
         if abs((c - cols[-1]) - pitch) > SUNDAY_BAND_PITCH * gw:
             break
         cols.append(c)
-    later = [c for c in heads[len(cols):] if c > cols[-1]]
+    if beside:
+        # Another puzzle's ACROSS heading over its own list (the Concise, at the one pitch) ends this one's columns.
+        stops = [w[0] for w in words if top <= w[1] < gy0 - 5 and re.match(r"\W*ACR[O0U]SS", w[4], re.I)
+                 and w[0] > c3 + SUNDAY_BAND_GAP]
+        if stops:
+            cols = [c for c in cols if c < min(stops) - SUNDAY_BAND_GAP] or cols[:3]
+    later =[c for c in heads[len(cols):] if c > cols[-1]]
     right = min(cols[-1] + pitch + 5, later[0] - 15) if later else cols[-1] + pitch + 5
     out = BandLeft((max(0, c1 - SUNDAY_BAND_PAD), None, crop[1]))
     out.edges = (out[0], *[c - 8 for c in cols[1:]], min(img.width, crop[2], right))
@@ -12722,7 +12731,10 @@ def sunday_times_band(img, gbox, title, key, paper):
 #: The reason of a Gale Sunday Times 1980-84 page refused "no reading parses" or written incomplete with a clue no
 #: reading laid: its ACROSS band over its grid and the DOWN column right of it read since (sunday_times_band).
 SUNDAY_BAND = "Gale Sunday Times 1980-84 page refused no reading parses, its ACROSS band over its grid and its DOWN column right of it read since"
-REREAD_SUNDAY_BAND = "2026-11-14T15:30:00+00:00"
+# Due again 11-17 (SUNDAY_BAND_BESIDE: the title right of the grid, lower than its top, 1981-82 pages: grid x 301-1019
+# y 5548-6309, title x 1065 y 6142, ACROSS at y 5225 over the grid, DOWN's list the fourth column at x 1391); r162
+# cluster #14, 23 rows, 5 of that shape (the 1983-84 pages' grids at the page top are another).
+REREAD_SUNDAY_BAND = "2026-11-17T16:06:00+00:00"
 
 
 def sunday_band_due(row):
@@ -13368,6 +13380,15 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if caption is not None:
             gbox, side = caption, "below"
             verdict["gridBox"] = "over its caption"
+    # A 1980-84 Gale Sunday Times page whose title stands right of its grid, the ACROSS band over the grid and the DOWN
+    # column right of it (sunday_times_band, SUNDAY_BAND_BESIDE): read as a grid with its title under its top.
+    band_beside = None
+    if side == "left" and gbox is not None and paper.key == "galesundaytimes" \
+            and SUNDAY_BAND_YEARS[0] <= d.name[:4] <= SUNDAY_BAND_YEARS[1]:
+        band_beside = sunday_times_band(img, gbox, hit["box"], f"{d.name}_{n}", paper)
+        if band_beside is not None:
+            side = "below"
+            verdict["gridBox"] = "title right of its grid, clues over it"
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
@@ -13468,6 +13489,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if column is None and paper.key == "galesundaytimes" and SUNDAY_BAND_YEARS[0] <= d.name[:4] <= SUNDAY_BAND_YEARS[1] \
             and side == "below" and top is None:
         column = sunday_times_band(img, gbox, hit["box"], key, paper)
+    if column is None and band_beside is not None:
+        column = band_beside
     # A 1985-89 Gale Sunday Times page's cryptic list far left of its grid, the Quickie's beside it (sunday_times_pair).
     if column is None and paper.key == "galesundaytimes" and (SUNDAY_PAIR_YEARS[0] <= d.name[:4] <= SUNDAY_PAIR_YEARS[1]
                                                                or caption is not None) \
