@@ -657,6 +657,32 @@ def same_tree(cwd, burn_cwd):
     return cwd == burn_cwd or (len(a) == 2 and a == b)
 
 
+# Directories under a project that hold no transcripts: a session's tool outputs, thousands of
+# files each. `glob("**/*.jsonl")` walked them all every call (~110 MB of directory reads a
+# minute, the page cache dropped under it); skipping them finds the same .jsonl files.
+NO_TRANSCRIPTS = frozenset({"tool-results", "memory", "node_modules", ".git"})
+
+
+def transcript_files(projects):
+    """Every .jsonl under projects, the tree walked without the NO_TRANSCRIPTS directories."""
+    stack = [str(projects)]
+    while stack:
+        try:
+            with os.scandir(stack.pop()) as it:
+                entries = list(it)
+        except OSError:
+            continue
+        for e in entries:
+            try:
+                if e.is_dir(follow_symlinks=False):
+                    if e.name not in NO_TRANSCRIPTS:
+                        stack.append(e.path)
+                elif e.name.endswith(".jsonl"):
+                    yield Path(e.path)
+            except OSError:
+                continue
+
+
 def transcript_spend(projects, burn_cwd, start, end):
     """(other, burn, burn run-hours) over [start, end] from every transcript
     under projects: token weights, one per message id, the burn's being the
@@ -681,7 +707,7 @@ def transcript_spend(projects, burn_cwd, start, end):
     cache["burn_cwd"] = burn_cwd
     files = cache.setdefault("files", {})
     seen, dirty = set(), False
-    for path in Path(projects).glob("**/*.jsonl"):
+    for path in transcript_files(projects):
         try:
             st = path.stat()
             if st.st_mtime < start:
@@ -1810,6 +1836,13 @@ def spend_self_test():
             rec(start + 600 + 1800, "/burn", "r2", 100, "s1")]) + "\n")
         (burn / "s1" / "subagents" / "x.jsonl").write_text(
             rec(start + 3000, "/burn", "r3", 200, "s1", side=True) + "\n")
+        (burn / "s1" / "tool-results").mkdir()
+        (burn / "s1" / "tool-results" / "skipped.jsonl").write_text(
+            rec(start + 3100, "/home", "t1", 999999) + "\n")
+        found = sorted(p.relative_to(tmp).as_posix() for p in transcript_files(tmp))
+        if found != ["-bridge/a.jsonl", "-burn/s1.jsonl", "-burn/s1/subagents/x.jsonl"]:
+            print(f"FAIL transcript_files = {found}", file=sys.stderr)
+            bad += 1
         other, mine, hours = transcript_spend(tmp, "/burn", start, end)
         # bridge: (100 + 200 + 500 haiku at a fifth) x 5; burn: 400 x 5 over 0.5h
         want = (400 * 5.0, 400 * 5.0, 0.5)
