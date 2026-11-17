@@ -405,7 +405,7 @@ PRERESET_LOG="${PRERESET_LOG:-}"
 PRERESET_LOG="${PRERESET_LOG/#\~/$HOME}"  # the plugin's env is not ~-expanded
 if [ -n "${HOUSEHOLD_ROOM:-}" ] && [ -x "$TRACK_JOB" ]; then
   "$TRACK_JOB" ${PRERESET_LOG:+--log "$PRERESET_LOG"} "$HOUSEHOLD_ROOM" "$$" "Hint burn" \
-    "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1" >/dev/null 2>&1 \
+    "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1 | sed -e 's/^--- //' -e 's/ ---\$//' -e 's/, next .*//'" >/dev/null 2>&1 \
     || echo "track-job.sh failed (rc=$?); the burn runs without a status lane"
 fi
 
@@ -1179,11 +1179,15 @@ run_pool() {
       # Width 0 with nothing left to checkpoint: nap, then ask for the width again.
       if [ "$stop" = 0 ] && [ "$wide" = 0 ] && [ "$POOL_DONE" = 0 ] &&
          [ "$at" -lt "${#queue[@]}" ]; then
-        [ "$NAP_SAID" = 1 ] || echo "--- pool of 0: napping ${POOL_CHECK_SECS}s at a time until the width is above 0 ---"
+        [ "$NAP_SAID" = 1 ] || echo "--- pool of 0: napping, checking width every ${POOL_CHECK_SECS}s ---"
         NAP_SAID=1
         sleep "$POOL_CHECK_SECS"
         wide=$(wave_width)
-        [ "$wide" = 0 ] || NAP_SAID=0
+        if [ "$wide" != 0 ]; then
+          NAP_SAID=0
+          # The lane shows the last pool line: replace the stale nap line.
+          echo "--- pool of $wide: ${#POOL_RUNS[@]} in flight ($(pool_live) running), $(( ${#queue[@]} - at )) queued ---"
+        fi
         continue
       fi
       # Nothing in flight and nothing left to start: one last checkpoint for the
