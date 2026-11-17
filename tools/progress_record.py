@@ -11,6 +11,7 @@ tools/progress.py for the phases and the backfill's dating).
 import collections
 import datetime
 import hashlib
+import importlib
 import json
 import os
 import subprocess
@@ -212,7 +213,7 @@ def backlog():
     # downloads refuses to import with the media disk unmounted (its one
     # .on-media-disk stat); no stat here, the media disk spins.
     try:
-        import downloads  # noqa: F401
+        importlib.import_module("downloads")
     except SystemExit:
         print("media disk not mounted: downloaded/queued not counted", file=sys.stderr)
         return None

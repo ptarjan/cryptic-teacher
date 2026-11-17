@@ -1,6 +1,7 @@
 """INDY_BANNER: the Gale Independent's help-line banner is cut from every reading's column text, and a ledger row
 whose clue stood blank for it is due once (indy_banner_due)."""
 import sys
+from datetime import datetime, timedelta
 
 import _path  # puts tools/ on sys.path
 
@@ -29,7 +30,7 @@ row = {"edition": "GaleIndependent2008UKEnglish/2008-08-14", "readAt": "2026-11-
                      "blank": {"6-down": "'www.independent.co.uk/c': a stray mark inside a word"}}]}
 check("a row blank for the banner, read before the fix, is due", fa.indy_banner_due(row))
 check("fix_reason names it or an earlier Independent fix", bool(fa.fix_reason(row)))
-late = dict(row, readAt="2026-11-17T00:00:00+00:00")
+late = dict(row, readAt=(datetime.fromisoformat(fa.REREAD_INDY_BANNER) + timedelta(hours=1)).isoformat())
 check("a row read after the fix is not due", not fa.indy_banner_due(late))
 other = dict(row, verdicts=[dict(row["verdicts"][0], blank={"6-down": "'solu': not a word"})])
 check("a row blank for another cause is not due", not fa.indy_banner_due(other))

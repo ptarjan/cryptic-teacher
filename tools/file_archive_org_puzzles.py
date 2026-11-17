@@ -2057,8 +2057,9 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
 #: Where a clue starts inside a recogniser's line: its number ("12", "l4",
 #: "I6", "18:") and a capital.
 #: A stop may close the line before it with no space ("out-. .23' Fires", Gale 1956-02-16's 23 down).
-#: A clue's number may carry one stray mark in front of two digits ("l33 If the use": clue_text.LEAD_NUMBER_START).
-NEXT_CLUE = re.compile(rf"(?<=[\s\-.])(?:\d{{1,2}}|[IlJ|!]\d|\d[IlsSoO]|{clue_text.LEAD_NUMBER_START})"
+#: A clue's number may carry one stray mark in front of two digits ("l33 If the use": clue_text.LEAD_NUMBER_START),
+#: but not a "!" before two digits: marked_starts (MARKED_RISING) cuts that only where the number rises, and drops the mark.
+NEXT_CLUE = re.compile(rf"(?<=[\s\-.])(?:\d{{1,2}}|[IlJ|!]\d|\d[IlsSoO]|(?!!){clue_text.LEAD_NUMBER_START})"
                        r"\W{0,2}\s*[A-Z\"'\u2018\u201c]")
 #: The solution box's heading ("SOLUTION OF PUZZLE No. 7,091", read "SoLUTioN'orPuzzLB"), which the
 #: 1950s Times sets in the row of the clue beside it: a cut like a clue's number (Gale 1952-12-13's 8 down).
