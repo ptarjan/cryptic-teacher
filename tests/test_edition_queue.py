@@ -4355,6 +4355,33 @@ check("fed: a full pool of ready reads holds a plain stale scan", True, _fed(_pl
 _pk.heads = {}
 check("fed: a fix scan is never held for ready reads", False, _fed({**_plain, "fix": True}))
 
+_calls = []
+def _flaky(n_bad, exc):
+    def f(x):
+        _calls.append(x)
+        if len(_calls) <= n_bad:
+            raise exc
+        return x * 2
+    return f
+_sleep, eq.time.sleep = eq.time.sleep, lambda s: None
+try:
+    check("ledger_retry: EAGAIN twice then answers", (4, 3), (eq.ledger_retry(_flaky(2, BlockingIOError(11, "again")), 2), len(_calls)))
+    _calls.clear()
+    try:
+        eq.ledger_retry(_flaky(99, BlockingIOError(11, "again")), 2)
+        _got = "no raise"
+    except BlockingIOError:
+        _got = len(_calls)
+    check("ledger_retry: gives up after 5 tries", 5, _got)
+    _calls.clear()
+    try:
+        eq.ledger_retry(_flaky(99, FileNotFoundError(2, "gone")), 2)
+    except FileNotFoundError:
+        _got = len(_calls)
+    check("ledger_retry: a missing file is not retried", 1, _got)
+finally:
+    eq.time.sleep = _sleep
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")

@@ -101,6 +101,7 @@ A fetch unit loads only its source's module and that module's MODULES
 import argparse
 import ctypes
 import datetime
+import errno
 import functools
 import hashlib
 import itertools
@@ -1794,7 +1795,7 @@ def fresh(papers, cache=fa.CACHE, now=None):
         for staged, d in laid:
             if not any(p.item.match(d.parent.name) for p in (paper, *paper.also)):
                 continue
-            rows = fa.standing(paper, cache) if rows is None else rows
+            rows = ledger_retry(fa.standing, paper, cache) if rows is None else rows
             row = rows.get(f"{d.parent.name}/{d.name}") or {}
             try:
                 if "inputs" not in row or row.get("filesHash") != fa.input_hash(d):
@@ -2808,6 +2809,23 @@ def trove_plan(reread, asked):
         units = [{**u, "kind": "read", "paper": "trove"} for u in ftp.plan(reread=reread, asked=asked)]
         _TROVE.update(asked=asked, at=time.monotonic(), units=units)
     return _TROVE["units"]
+
+
+def transient_oserror(e):
+    """A momentary refusal (EAGAIN, EINTR, EBUSY) from a CIFS lock, not a share that is gone."""
+    return isinstance(e, (BlockingIOError, InterruptedError)) or getattr(e, "errno", None) in (errno.EAGAIN, errno.EINTR, errno.EBUSY)
+
+
+def ledger_retry(fn, *args, tries=5, pause=2.0):
+    """fn(*args), asked again `tries` times, `pause` s apart, while it fails transiently
+    (11-16 20:30: open() of filed-gale.jsonl raised EAGAIN and killed the queue)."""
+    for n in range(tries):
+        try:
+            return fn(*args)
+        except OSError as e:
+            if not transient_oserror(e) or n == tries - 1:
+                raise
+            time.sleep(pause)
 
 
 def key_of(unit):
@@ -4461,7 +4479,7 @@ class _RankPicker:
     def stood(self, u):
         paper = fa.FILERS[u["paper"]]
         if u["paper"] not in self.stands:
-            self.stands[u["paper"]] = fa.standing(paper, self.cache)
+            self.stands[u["paper"]] = ledger_retry(fa.standing, paper, self.cache)
         return fa.scan_stands(paper, u["rel"], self.cache_s, self.stands[u["paper"]], self.stand_keys, u.get("reason") in fa.HOST_REASONS)
 
     def stage_reads(self):
@@ -4615,6 +4633,8 @@ class _RankPicker:
             try:
                 stands_now = u["kind"] == "scan" and u["paper"] in fa.FILERS and self.stood(u)
             except OSError as e:  # its ledger or files on the media share, which did not answer (10-20, 10-23)
+                if transient_oserror(e):
+                    continue  # 11-16: EAGAIN on the CIFS ledger outlasted its retries: skip this unit this pass, not the queue
                 if not self.media.down(e):
                     raise
                 break
