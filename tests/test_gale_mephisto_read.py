@@ -147,6 +147,10 @@ check("an older version is read again", 2, len(gm.plan(saved, store)))
 refused = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "grid unread: the bars are 0.10 symmetric"}
 check("a grid refusal before the comb search is due", False, gm.read_done(refused))
 check("a grid refusal at GRID_FIX stands", True, gm.read_done({**refused, "gridFix": gm.GRID_FIX}))
+bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list on the page", "bareFix": gm.BARE_FIX, "date": "1960-01-03"}
+check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
+check("a no-clue-list refusal at WRAP_FIX stands", True, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
+check("a later no-clue-list refusal is not due", True, gm.read_done({**bare, "date": "1998-01-04"}))
 check("another refusal is not re-read", True, gm.read_done({**refused, "refused": "no Mephisto clue lists found on the page"}))
 # the comb search finds a grid drawn with dotted thin rules and thick bars
 dotted = np.zeros((1300, 1300), bool)

@@ -53,6 +53,10 @@ TAIL_FIX = 1
 #: Bumped when only the lists' bare numbers and missing headings change (bare_mended): the pages refused "no clue
 #: list on the page" are read again (not every page).
 BARE_FIX = 1
+#: Bumped when the early-1960s lists (the Across clues under the grid and beside it, the Down beside it, no heading
+#: read over them: wrapped_cut/wrapped_block) change: pages before 1965 refused "no clue list" are read again.
+WRAP_FIX = 1
+WRAP_TO = "1964-12-31"
 PREFIX ="mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -446,6 +450,10 @@ def read_done(row, done=None):
     if row and str(row.get("refused") or "").startswith("no clue list") and row.get("bareFix", 0) < BARE_FIX:
         # Refused before the lists' bare clue numbers (1995-99 print "5 Cry echoed", no stop) and unread headings
         # were put in the form the Listener's readers open on (bare_mended).
+        return False
+    if row and str(row.get("refused") or "").startswith("no clue list") and row.get("wrapFix", 0) < WRAP_FIX \
+            and (row.get("date") or "9") <= WRAP_TO:
+        # Refused before the grid-wrapping lists of 1960-64 were cut and stacked (wrapped_block).
         return False
     if row and row.get("refused") == "no reading parses" and row.get("listsFix", 0) < LISTS_FIX:
         # Refused before the lists' cut stopped at the Solution heading, the Bookwise heading or the gap under the
@@ -1098,6 +1106,79 @@ def beside_cut(words, box):
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
 
 
+#: The line opening the entry rules under the early-1960s lists ("Solutions, addressed to Mephisto Crossword No 76").
+STOP_RULES = re.compile(r"^\W*(?:solutions?|entries)\b", re.IGNORECASE)
+
+
+def down_words(words, box, lh, gl):
+    """The Down heading words right of the grid at `box` within its first page column (wrapped_cut)."""
+    width = box[2] + lh - (box[0] - lh)
+    right = box[0] - lh + 2 * width
+    return [w for w in words if gl.heading(w[4]) == "DOWN" and box[2] <= w[0] < right - 4 * lh
+            and box[1] <= w[1] <= box[3] + 10 * lh]
+
+
+def wrapped_block(img, words, box, cut, gl):
+    """The block (image, key) of the lists wrapped_cut found: the left column under the grid, then the right
+    column down to the Down heading, stacked as one Across column, the Down clues under the heading in a column
+    beside it, each under a heading word written into the block's cached words (as down_headed does)."""
+    from PIL import Image
+    lh = gl.line_height(words)
+    down = min(down_words(words, box, lh, gl), key=lambda w: w[1])
+    x0, y0, x1, y1 = cut[0]
+    mid = int(x0 + (x1 - x0) / 2)
+    parts = [(x0, int(box[3]), mid, y1), (mid, y0, x1, int(down[1]) - 2)]
+    downs = (mid, int(down[3]) + 2, x1, y1)
+    pad, head = 12, 56
+    across = [img.crop(p) for p in parts if p[3] > p[1]]
+    dimg = img.crop(downs)
+    wide = mid - x0
+    height = max(sum(c.height + pad for c in across), dimg.height) + head + pad
+    canvas = Image.new(img.mode, (2 * wide + 60, height), "white")
+    y = head
+    for c in across:
+        canvas.paste(c, (0, y))
+        y += c.height + pad
+    canvas.paste(dimg, (wide + 60, head))
+    key = gl.image_key(canvas)
+    path = gl.OCR_CACHE / f"{key}.page.{gl.ocr_clues.reader_key('times')}.json"
+    got = gl.page_words(canvas, key)
+    if not any(w[4] == "Across" and w[0] == 4 for w in got):
+        gl.write_whole(path, json.dumps([list(w) for w in got] + [[4, 4, 200, head - 8, "Across"],
+                                                                     [wide + 64, 4, wide + 200, head - 8, "Down"]]))
+    return canvas, key
+
+
+def wrapped_cut(words, box):
+    """(box, masks) of the 1960-64 lists, printed in two page columns the grid's width each: the Across clues
+    under the grid in the left one and carried on beside the grid in the right one, the Down heading standing in
+    that column; the grid itself masked. None when no Down heading stands right of the grid, in its first
+    column's width. The lists run down to the entry rules ("Solutions, addressed to ...") or a gap of three
+    lines under the grid."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    width = box[2] + lh - (box[0] - lh)
+    left = box[0] - lh
+    right = left + 2 * width
+    downs = down_words(words, box, lh, gl)
+    if not downs:
+        return None
+    top = box[1] - lh / 2
+    inside = sorted((w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top
+                     and not (box[0] <= (w[0] + w[2]) / 2 <= box[2] and box[1] <= (w[1] + w[3]) / 2 <= box[3])),
+                    key=lambda w: w[1])
+    bottom = box[3]
+    for w in inside:
+        if w[1] <= box[3]:
+            continue
+        if w[1] > box[3] + 3 * lh and STOP_RULES.match(w[4]) and min(abs(w[0] - left), abs(w[0] - left - width)) < 4 * lh:
+            break
+        if w[1] - bottom > 3 * lh:
+            break
+        bottom = max(bottom, w[3])
+    return (int(left), int(top), int(right), int(bottom + lh / 2)), [tuple(int(v) for v in box)]
+
+
 #: A clue number as the OCR reads it opening a line.
 NUMBER_WORD = re.compile(r"^\d{1,2}[.,]?$")
 
@@ -1480,8 +1561,10 @@ def page_read(path, store=STORE, asker=None):
     gpath = Path(store) / "grids" / f"{path.stem}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
     img.crop(found["box"]).save(gpath)
-    cut = beside_cut(words, found["box"]) or lists_cut(words, found["box"])
-    block = lists_block(img, key, words, cut, gl)
+    cut = beside_cut(words, found["box"])
+    wrapped = None if cut else wrapped_cut(words, found["box"])
+    cut = cut or wrapped or lists_cut(words, found["box"])
+    block = wrapped_block(img, words, found["box"], cut, gl) if wrapped else lists_block(img, key, words, cut, gl)
     if not block:
         verdict["refused"] = "no Mephisto clue lists found on the page"
         return verdict, None
@@ -1559,7 +1642,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
-                "bareFix": BARE_FIX, "listsFix": LISTS_FIX}, store)
+                "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
