@@ -3711,6 +3711,15 @@ check("a Gale Sunday Telegraph 1991-95 page whose grid was unread a row short is
       [f.sunday_foot_due(_sf), f.sunday_foot_due({**_sf, "edition": "GaleSundayTelegraph1997UKEnglish/1997-11-16"}),
        f.sunday_foot_due({**_sf, "edition": "GaleTelegraph1993UKEnglish/1993-01-31"}),
        f.sunday_foot_due({**_sf, "readAt": "2026-11-14T06:00:00+00:00"}), f.SUNDAY_FOOT in f.RANKS])
+_st = {"edition": "GaleSundayTimes1985UKEnglish/1985-05-26", "inputs": "x", "readAt": "2026-11-14T12:13:16+00:00",
+       "verdicts": [{"number": 3081, "leaf": 0, "imageUnread": "the white cells span 14 rows and 15 columns"}]}
+check("a Gale Sunday Times 1985-89 page whose grid was unread a row short is due SUNDAY_TALL (ranked); a 1992 page, "
+      "a Sunday Telegraph page, a 14-column one and one read since are not",
+      [True, False, False, False, False, True],
+      [f.sunday_tall_due(_st), f.sunday_tall_due({**_st, "edition": "GaleSundayTimes1992UKEnglish/1992-05-24"}),
+       f.sunday_tall_due({**_st, "edition": "GaleSundayTelegraph1985UKEnglish/1985-05-26"}),
+       f.sunday_tall_due({**_st, "verdicts": [{"imageUnread": "the white cells span 14 rows and 14 columns"}]}),
+       f.sunday_tall_due({**_st, "readAt": "2026-11-17T20:00:00+00:00"}), f.SUNDAY_TALL in f.RANKS])
 _iad = {"edition": "GaleIndependent2010UKEnglish/2010-03-05", "inputs": "x", "readAt": "2026-11-09T09:19:02+00:00",
         "verdicts": [{"number": 99327, "leaf": 0, "imageUnread": "too few neighbouring white cells to measure the lattice",
                       "refused": "no reading parses", "cause": "no-reading-parses"}]}
