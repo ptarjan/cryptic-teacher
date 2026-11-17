@@ -191,6 +191,22 @@ try:
     A.mend_clues(blank)
     check("a restored blank clue is no longer missing",
           blank["entries"][0]["clue"] == {"text": "Restored words"})
+
+    # A correction supersedes the asPrinted tokens of the text it replaces:
+    # the misprints it mended are gone, the ones it kept stay.
+    stale = {"id": "times-18749", "entries": [
+        {"number": 2, "direction": "down",
+         "clue": {"text": "Defensive ior players", "asPrinted": ["ior", "Defensive", "gone"]}},
+        {"number": 3, "direction": "down",
+         "clue": {"text": "Brownish-yellowsiltcontainslead", "asPrinted": ["Brownish-yellowsiltcontainslead"]}}]}
+    F.SOURCE_CLUE_WRONG[("times-18749", "2-down")] = ("Defensive ior players", "Defensive players", "test")
+    F.SOURCE_CLUE_WRONG[("times-18749", "3-down")] = (
+        "Brownish-yellowsiltcontainslead", "Brownish-yellow silt contains lead", "test")
+    A.mend_clues(stale)
+    check("a corrected clue keeps only the asPrinted tokens it still holds",
+          stale["entries"][0]["clue"] == {"text": "Defensive players", "asPrinted": ["Defensive"]})
+    check("and drops the key when none is left",
+          stale["entries"][1]["clue"] == {"text": "Brownish-yellow silt contains lead"})
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 sys.exit(1 if fails else 0)

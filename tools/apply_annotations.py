@@ -344,6 +344,18 @@ def mend_clues(puzzle):
         printed = source_clue(puzzle["id"], entry_id(entry), text)
         if printed != text:
             entry["clue"]["text"] = printed
+            # asPrinted keeps the misprinted spelling of words in the text it
+            # was filed against (an OCR's 'ior', a glued run of words); a
+            # corrected clue no longer holds those tokens, and the validator
+            # refuses a token the text lacks ("asPrinted [...] is no token of
+            # the clue text"). The correction supersedes them.
+            if entry["clue"].get("asPrinted"):
+                words = printed.split()
+                kept = [t for t in entry["clue"]["asPrinted"] if t in words]
+                if kept:
+                    entry["clue"]["asPrinted"] = kept
+                else:
+                    del entry["clue"]["asPrinted"]
             if printed.strip():
                 entry["clue"].pop("missing", None)
                 entry["clue"].pop("missingNote", None)
