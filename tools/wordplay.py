@@ -1877,8 +1877,16 @@ def _container_reversed_hint(node, want):
     if len(ok) != 1:
         return None
     arg = render(parts[ok[0]])
-    return (f"{render(node)} gives the answer {want} only with {arg} read backwards: write "
-            f"rev<indicator>({arg}) as that argument, with a reversal word from the clue as its indicator")
+    msg = (f"{render(node)} gives the answer {want} only with {arg} read backwards: write "
+           f"rev<indicator>({arg}) as that argument, with a reversal word from the clue as its indicator")
+    leaf = parts[ok[0]]
+    if "op" not in leaf and leaf.get("words") and len(letters(leaf.get("gives") or "")) == 2:
+        # 3 of the 61 still-failing refusals on 11-16 were CO written where OC (the officer
+        # commanding) is the abbreviation: no reversal word exists, the letters just run the other way
+        back = letters(leaf["gives"])[::-1]
+        msg += (f". If no clue word reverses it, the clue's own abbreviation is the other way round: "
+                f"write [{leaf['words']}]{back} as a plain leaf (no rev) in its place")
+    return msg
 
 
 _TIMES = re.compile(r"\b(three|thrice|triple|treble|trebled|tripled|four|quadruple|five)\b", re.I)
@@ -2191,6 +2199,20 @@ def _is_sub(small, big):
     return bool(n) and any(big[i:i + n] == small for i in range(len(big) - n + 1))
 
 
+def _with_fodder_trimmed(tree, answer):
+    """`tree` with one link word cut from an anagram's fodder (tools/wordplay_fodder_mend.py) when
+    that makes it give `answer`, else None."""
+    import wordplay_fodder_mend
+    repaired = copy.deepcopy(tree)
+    if not wordplay_fodder_mend.drop_surplus_fodder_word(repaired, answer):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
 def _with_rule_mends(tree, clue, answer):
     """`tree` mended by the bag's doesNotGive fixer (fix_shape_suspects.RULE_REPAIRS, the one table
     the old puzzles' sweep reads too): arguments of a container the wrong way round, a charade out of
@@ -2254,7 +2276,8 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
         evaluate(tree, answer)
     except WordplayError as err:
         tree = (_with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
-                or _with_after_swapped(tree, answer) or _with_rule_mends(tree, clue, answer))
+                or _with_after_swapped(tree, answer) or _with_fodder_trimmed(tree, answer)
+                or _with_rule_mends(tree, clue, answer))
         if tree is None:
             left = unaccounted_words(locate_copy(clue_out, clue, taken), clue, taken)
             if left and "does not give" in str(err):

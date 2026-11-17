@@ -135,7 +135,8 @@ def refusals(paths, since):
     out = []
     for path in paths:
         try:
-            if pathlib.Path(path).stat().st_mtime < since.timestamp():
+            # mtime is the LAST write and a run can start a day earlier (annotate_audit.sessions)
+            if pathlib.Path(path).stat().st_mtime < since.timestamp() - 86400:
                 continue
         except OSError:
             continue
@@ -243,6 +244,10 @@ def replay(items, index=None):
         if k not in seen:
             clue = clue_text(index, it["pid"], it["eid"])
             if clue is None:
+                # the puzzle file is not on this host (a sparse checkout): keep the refusal so the
+                # report says "N could not be replayed", not "no refused wordplays found"
+                seen[k] = dict(it, clue="", now="unreplayed", msg="", rewrite=None)
+                out.append(seen[k])
                 continue
             msg = try_translate(it["wp"], clue, it["ans"])
             fixed = next((n for n, f in REWRITES if msg and f(it["wp"], it["ans"]) != it["wp"]
@@ -283,10 +288,12 @@ def report(items, budget=1500):
     if not items:
         return "replay: no refused wordplays found in the transcripts"
     fails = [i for i in items if i["now"] == "fails"]
-    fixed = len(items) - len(fails)
+    lost = [i for i in items if i["now"] == "unreplayed"]
+    fixed = len(items) - len(fails) - len(lost)
     cleared = [i for i in items if i["cleared"]]
     lines = [f"replay through today's evaluator: {len(items)} distinct refused wordplays, "
-             f"{len(fails)} still fail, {fixed} already fixed by later commits"]
+             f"{len(fails)} still fail, {fixed} already fixed by later commits"
+             + (f", {len(lost)} could not be replayed (puzzle file missing here)" if lost else "")]
     if cleared:
         r = sorted(i["retries"] for i in cleared)
         lines.append(f"retries each refusal cost before it cleared: median {r[len(r) // 2]}, "
