@@ -19497,7 +19497,7 @@ def clue_block_due(row):
 #: "starts mid-clue"): each list is two sub-columns whose lines the recognisers join. The block is cut at its
 #: ink gutters now (SUB_COLUMNS' "halves" window, ink_quarters). Once each.
 SUB_COLUMNS = "unfiled before its fix, a 1930-39 page's clue block cut in its sub-columns at the page's ink gutters"
-REREAD_SUB_COLUMNS = "2026-11-17T03:00:00+00:00"
+REREAD_SUB_COLUMNS = "2026-11-17T04:27:00+00:00"
 
 
 def sub_columns_due(row):
