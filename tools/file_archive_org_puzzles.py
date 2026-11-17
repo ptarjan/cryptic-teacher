@@ -12667,6 +12667,19 @@ SUNDAY_MID_YEARS = ("1976", "1978")
 #: How far over the grid the columns' crop starts, how far left of the grid it reaches and under the grid it runs, and
 #: how far right of it (shares of the grid's width).
 SUNDAY_MID_TOP, SUNDAY_MID_LEFT, SUNDAY_MID_FOOT, SUNDAY_MID_RIGHT = 0.64, 0.58, 0.27, 0.12
+#: How far under the grid's foot the caption's top may stand (a share of the grid's width; 1976-03 to 1977-09 pages
+#: set it 0.3-0.62 under, 1976-10-03: grid foot 4668, caption 4961, grid 716 wide) and how far the caption's right
+#: may run over the grid's left (1977-06-12: 5 px).
+SUNDAY_MID_BELOW, SUNDAY_MID_OVERLAP = 0.65, 0.02
+#: How far under the grid's top the ACROSS heading may stand (a share of the grid's width; it was -0.2 over, and
+#: 1976-10-03's stands 15 px over the grid's top, level with it, 1976-03-28's 39 px under it).
+SUNDAY_MID_HEAD = 0.12
+#: How far under the grid the columns' crop runs where the caption stands under the grid's foot (1976-10-03: the
+#: DOWN heading 0.49 widths under the foot).
+SUNDAY_MID_LOW_FOOT = 1.4
+#: How far over the ACROSS heading's line (px) the number may be read: 1976-03-28 stands "No.2665" 53 px over it,
+#: in the line of "CROSSWORD" and over the heading's own word.
+SUNDAY_MID_NUMBER_RISE = 70
 
 
 def sunday_times_mid(img, title, number, key, paper):
@@ -12677,7 +12690,7 @@ def sunday_times_mid(img, title, number, key, paper):
     found = []
     for g in grids_on(img, shaped=lambda b: shaped_on(img, b)):
         gw = g[2] - g[0]
-        if g[0] > title[2] and g[1] - 0.3 * gw <= title[1] <= g[3] + 0.3 * gw:
+        if g[0] > title[2] - SUNDAY_MID_OVERLAP * gw and g[1] - 0.3 * gw <= title[1] <= g[3] + SUNDAY_MID_BELOW * gw:
             found.append(g)
     if not found:
         return None
@@ -12685,20 +12698,23 @@ def sunday_times_mid(img, title, number, key, paper):
     gx0, gy0, gx1, gy1 = gbox
     gw = gx1 - gx0
     top = max(0, int(gy0 - SUNDAY_MID_TOP * gw))
-    crop = BandCrop((max(0, int(gx0 - SUNDAY_MID_LEFT * gw)), int(gy1 + SUNDAY_MID_FOOT * gw),
+    # A caption under the grid's foot (SUNDAY_MID_BELOW) leaves the DOWN heading further down: the crop runs on.
+    foot = min(img.height, int(gy1 + (SUNDAY_MID_LOW_FOOT if title[1] > gy1 else SUNDAY_MID_FOOT) * gw))
+    crop = BandCrop((max(0, int(gx0 - SUNDAY_MID_LEFT * gw)), foot,
                      min(img.width, int(gx1 + SUNDAY_MID_RIGHT * gw))))
     crop.top = top
     probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.{reader_key('ch')}.json", None, paper.margin, None,
                         crop, None, None, None)
     words = [w for ws in probe for w in ws]
-    across = [w for w in words if re.match(r"\W*ACR[O0U]SS\W*$", w[4], re.I) and w[1] < gy0 - 0.2 * gw
+    across = [w for w in words if re.match(r"\W*[I1l|]?ACR[O0U]SS\W*$", w[4], re.I) and w[1] < gy0 + SUNDAY_MID_HEAD * gw
               and gx0 - SUNDAY_MID_LEFT * gw <= w[0] < gx0 - 0.3 * gw]
     if not across:
         return None
     head = min(across, key=lambda w: w[1])
     named = [(w, int(m.group(1) + m.group(2))) for w in words
              for m in [re.match(r"\W*N[o0]\W*\s*(\d),?(\d{3})(?!\d)", w[4], re.I)]
-             if m and abs(w[1] - head[1]) < 30 and 0 < w[0] - head[2] < 0.5 * gw]
+             if m and -30 < head[1] - w[1] <= SUNDAY_MID_NUMBER_RISE
+             and (0 < w[0] - head[2] < 0.5 * gw or abs(w[0] - head[0]) < 0.2 * gw)]
     if not named or named[0][1] != number + 1:
         return None
     if not any(re.match(r"\W*D[O0]WN\W*$", w[4], re.I) and head[0] - 30 <= w[0] < head[0] + 0.4 * gw and w[1] >= gy0 + 0.3 * gw
@@ -12717,14 +12733,24 @@ def sunday_times_mid(img, title, number, key, paper):
     firsts = [c for c in heads if gx0 - SUNDAY_MID_LEFT * gw <= c < gx0 - 0.4 * gw]
     seconds = [c for c in heads if abs(c - gx0) <= 0.1 * gw]
     thirds = [c for c in heads if gx0 + 0.3 * gw <= c <= gx0 + 0.7 * gw]
-    if not firsts or not thirds:
+    if not firsts:
         return None
-    c1, c2, c3 = firsts[0], seconds[0] if seconds else gx0 + 22, thirds[0]
+    c1, c2 = firsts[0], seconds[0] if seconds else gx0 + 22
+    # (A third column whose numbers are read inside longer lines stands one pitch on from the second, as in
+    # sunday_times_live: 1977-04-17, the DOWN columns under the grid, the third's numbers not read alone.)
+    c3 = thirds[0] if thirds else c2 + (c2 - c1)
+    if not thirds and not gx0 + 0.3 * gw <= c3 <= gx0 + 0.7 * gw:
+        return None
     out = BandLeft((max(0, c1 - SUNDAY_BAND_PAD), None, crop[1]))
     out.edges = (out[0], c2 - 8, c3 - 8, crop[2])
-    out.top, out.crop = top, crop
     word = named[0][0]
-    return gbox, out, (head[0], head[1], word[2], word[3]), number + 1
+    # A caption under the grid's foot (the live heading level with the grid's top, adverts over it in the columns'
+    # strips): the columns start at the heading's own line, not the fixed room over the grid.
+    if title[1] > gy1:
+        top = max(0, min(head[1], word[1]) - SUNDAY_BAND_RISE)
+        crop.top = top
+    out.top, out.crop = top, crop
+    return gbox, out, (head[0], min(head[1], word[1]), max(head[2], word[2]), max(head[3], word[3])), number + 1
 
 
 #: A Gale Sunday Times 1976-78 page whose scanned title is the live puzzle's own ("CROSSWORD No. 2773", x 2897-4004
@@ -12806,7 +12832,10 @@ def sunday_1970s_due(row):
 #: live puzzle's heading right of it): the live heading, its grid and its three clue columns read since
 #: (sunday_times_mid).
 SUNDAY_MID = "Gale Sunday Times 1976-78 page refused not a grid, its live heading right of the winners caption with its columns read since"
-REREAD_SUNDAY_MID = "2026-11-14T08:00:00+00:00"
+# Due again 11-17 (SUNDAY_MID_BELOW, _HEAD, _LOW_FOOT, _NUMBER_RISE): 1976-03 to 1977-09 pages whose caption stands
+# 0.3-0.62 grid widths under the live grid's foot (the ACROSS heading level with the grid's top, the DOWN list in
+# three columns under it) were still refused "not a grid"; 34-row census r96 cluster, ~28 of them this shape.
+REREAD_SUNDAY_MID = "2026-11-17T04:00:00+00:00"
 
 
 def sunday_mid_due(row):
