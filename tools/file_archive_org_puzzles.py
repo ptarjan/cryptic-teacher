@@ -12794,7 +12794,9 @@ def sunday_title_grid_due(row):
 #: ("SUNDAY TIMES CROSSWORD") stands over the grid and the clue columns left of it. The ink under the caption was taken
 #: for the grid ("the ink under the title is 718x52, not a grid", 1990) or the grid was read "above" the title with
 #: no lists under it ("no ACROSS and DOWN lists", 1985-89, ~25 pages in the r147 census).
-SUNDAY_CAPTION_YEARS = ("1985", "1990")
+SUNDAY_CAPTION_YEARS = ("1985", "1994")
+#: The 1991-94 pages (r147 cluster 16, wide 700px+ captions under the grid) are due from here; 1985-90's from REREAD_SUNDAY_CAPTION.
+REREAD_SUNDAY_CAPTION_LATE = "2026-11-17T10:54:00+00:00"
 #: How far under the grid's foot the caption's top may stand (a share of the grid's width) and how far over the grid
 #: the stand-in title box ends (the heading's line stands over the grid's top).
 SUNDAY_CAPTION_GAP, SUNDAY_CAPTION_HEAD = 0.6, 0.2
@@ -12832,8 +12834,9 @@ def sunday_caption_due(row):
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
             or not SUNDAY_CAPTION_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_CAPTION_YEARS[1]:
         return False
+    cutoff = REREAD_SUNDAY_CAPTION if edition.split("/")[-1][:4] <= "1990" else REREAD_SUNDAY_CAPTION_LATE
     return any(v.get("cause") in ("not-a-grid", "no-reading-parses") for v in row.get("verdicts") or ()) \
-        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_CAPTION))
+        and scan_queue.read_before(row, scan_queue.when(cutoff))
 
 
 #: The Gale Sunday Times pages of 1968-76 whose title ("SUNDAY TIMES CROSSWORD No. 2353", a line of small print)
@@ -12848,6 +12851,9 @@ SUNDAY_OVER_GAP, SUNDAY_OVER_RISE = 0.6, 1.7
 #: title box tops 3 px over its grid's last row (the grid foot 5314, the title 5311), and the page, its grid found
 #: "above" the title, read only the solutions list under it for clues.
 SUNDAY_OVER_LAP = 0.03
+#: SUNDAY_STACKED, 1970-74: the DOWN heading under the ACROSS heading at the same left edge (px) at least this share of the
+#: grid's width lower (1970-05-03: ACROSS (3297, 3031), DOWN (3298, 3709), the grid ~720 wide).
+SUNDAY_STACKED_X, SUNDAY_STACKED_DROP = 80, 0.5
 
 
 def sunday_times_over(img, title, key, paper):
@@ -12876,7 +12882,11 @@ def sunday_times_over(img, title, key, paper):
     top = min(w[1] for w in across) - SUNDAY_BAND_RISE
     if not any(re.search(r"\bD[O0]WN\b", w[4], re.I) and gx0 + 0.3 * gw <= w[0] + 0.5 * (w[2] - w[0]) and top <= w[1] < gy0 - 5
                for w in words):
-        return None
+        # SUNDAY_STACKED: the DOWN heading stands in the ACROSS column's foot, the DOWN list running on in the next column.
+        head = min(across, key=lambda w: w[1])
+        if not any(re.search(r"\bD[O0]WN\b", w[4], re.I) and abs(w[0] - head[0]) <= SUNDAY_STACKED_X
+                   and head[1] + SUNDAY_STACKED_DROP * gw < w[1] < gy0 - 5 for w in words):
+            return None
     return gbox, top
 
 
@@ -12884,6 +12894,23 @@ def sunday_times_over(img, title, key, paper):
 #: the title, the clue columns over the grid, read since (sunday_times_over).
 SUNDAY_OVER = "Gale Sunday Times 1968-76 page refused not a grid, its grid over its title with the clue columns over the grid read since"
 REREAD_SUNDAY_OVER = "2026-11-13T23:00:00+00:00"
+#: The reason of a Gale Sunday Times 1970-74 page refused "not a grid" whose clue columns over the grid stack ACROSS and
+#: DOWN in ONE column (the DOWN heading in the ACROSS column's foot, the list running on in the next column): read since
+#: (sunday_times_over's SUNDAY_STACKED_X/_DROP alternative).
+SUNDAY_STACKED = "Gale Sunday Times 1970-74 page refused not a grid, its DOWN heading in the foot of the ACROSS column over the grid, read since"
+REREAD_SUNDAY_STACKED = "2026-11-17T10:54:00+00:00"
+SUNDAY_STACKED_YEARS = ("1970", "1974")
+
+
+def sunday_stacked_due(row):
+    """Whether Gale Sunday Times ledger `row` is due SUNDAY_STACKED: a puzzle of a 1970-74 edition refused "not a grid",
+    read before REREAD_SUNDAY_STACKED."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
+            or not SUNDAY_STACKED_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_STACKED_YEARS[1]:
+        return False
+    return any(v.get("cause") == "not-a-grid" for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_STACKED))
 
 
 def sunday_over_due(row):
@@ -24847,6 +24874,8 @@ def fix_reason(row):
         return SUNDAY_QUICKIE_CUT
     if sunday_caption_due(row):
         return SUNDAY_CAPTION
+    if sunday_stacked_due(row):
+        return SUNDAY_STACKED
     if sunday_over_due(row):
         return SUNDAY_OVER
     if sunday_pair_due(row):
@@ -25536,7 +25565,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   FT_HEADINGS,
                   # 11-13: a Gale FT page read with a blank clue or an unparsed list, its clue columns read from
                   # the title's line since (ft_clues_due).
-                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, SUNDAY_CAPTION, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, QUARTER_1935, PLAIN_BETWEEN, CLUE_BLOCK, SUB_COLUMNS, SUB_REFUSED, MARKED_HYPHEN, MID_OTHER, SIDES_HEADED,
+                  FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, SUNDAY_CAPTION, SUNDAY_STACKED, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, QUARTER_1935, PLAIN_BETWEEN, CLUE_BLOCK, SUB_COLUMNS, SUB_REFUSED, MARKED_HYPHEN, MID_OTHER, SIDES_HEADED,
                   # 11-13: a Gale Telegraph page with a clue blank mid-clue (telegraph_own_due).
                   TELEGRAPH_OWN, TELEGRAPH_FIGURE,
                   # 11-13: a Gale Independent page read while its number was held under another date (indy_redated_due).
@@ -25999,7 +26028,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -26632,7 +26661,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, IOS_EVEN, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, SUNDAY_CAPTION, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, QUARTER_1935, PLAIN_BETWEEN, CLUE_BLOCK, SUB_COLUMNS, SUB_REFUSED, MARKED_HYPHEN, MID_OTHER, SIDES_HEADED)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, IOS_EVEN, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, SUNDAY_CAPTION, SUNDAY_STACKED, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, QUARTER_1935, PLAIN_BETWEEN, CLUE_BLOCK, SUB_COLUMNS, SUB_REFUSED, MARKED_HYPHEN, MID_OTHER, SIDES_HEADED)
 
 
 def keeps_vlm(why, row, unit=None):
