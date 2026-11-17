@@ -9326,6 +9326,10 @@ check("but not where the rest of the line is no whole clue (no count closes it),
 check("a rule read as a 1 before a digit stays the number's (NEXT_CLUE's '|5' is 15)",
       "|5 Grotesque insect I caught",
       f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). |5 Grotesque insect I caught")], [400])[-1][4])
+# Gale 1935-05-13 (MARKED_HYPHEN): a row whose second clue wraps on a broken word has no count to close it.
+check("a clue number behind a rule's mark cuts the row where the rest ends on a hyphenated word",
+      ["Heights of literary", "19 His type was photo-"],
+      [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Heights of literary ·19 His type was photo-")], [2273])])
 # Gale 1964-10-16's 4 down: the VLM was asked for the one column with a weak light, its reply a list with no
 # heading (parse() needs both lists), and the readers' line was garbled ("4 t u p n emstic a lly").
 _vlmcol = "4 Euphemistically\nmore bloody (7).\n5 Tripped under\ncanvas (7).\n6 Love-bird? (4).\n"
