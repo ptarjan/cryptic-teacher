@@ -10018,6 +10018,18 @@ if f.quarter_print(_q_paper, Path("1935-04-05")) and f.quarter_print(_q_paper, P
 else:
     print("FAIL Gale Times 1935 pages are read in their four clue columns (QUARTER_1935)")
     out += "\nFAILS 1"
+# Gale Times June 1933 (COUNT_FIRST): the count stands right after the number, "1(9)A small measure (17(7)Not necessarily".
+_cf = "ACROSS\n1(9)A small measure (17(7)Not necessarily\nso. 20(6)Study this atti-\ntude 23(5)Heavy\nDOWN\n1(4)Herc visitors 5(6)Neckwear done\nprov"
+_cf_parsed = f.parse(_cf)[0]
+if _cf_parsed and [c["text"] for c in _cf_parsed["across"]] == ["A small measure", "Not necessarily so.", "Study this attitude", "Heavy"] \
+        and [c["enums"] for c in _cf_parsed["down"]] == [{"4"}, {"6"}] \
+        and f.count_first("ACROSS\n1 A thing (5)\n2 Other (4)") == "ACROSS\n1 A thing (5)\n2 Other (4)" \
+        and f.count_first_due({"edition": "GaleTimes1933UKEnglish/1933-06-05", "readAt": "2026-11-18T00:00:00+00:00"}) is False \
+        and f.COUNT_FIRST in f.RANKS:
+    print("ok   a count printed right after its clue number is read as the clue's (COUNT_FIRST)")
+else:
+    print("FAIL a count printed right after its clue number is read as the clue's (COUNT_FIRST)")
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
