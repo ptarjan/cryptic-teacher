@@ -1,13 +1,8 @@
 """sunday_count_off refuses a title off an unbroken weekly run (1985-11-17 read 3104 for 3106)."""
-import sys
-from pathlib import Path
+import datetime
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import _path  # noqa: F401,E402  puts tools/ on sys.path
-
-import datetime  # noqa: E402
-
-import file_archive_org_puzzles as fa  # noqa: E402
+import _path  # puts tools/ on sys.path
+import file_archive_org_puzzles as fa
 
 D = datetime.date
 
