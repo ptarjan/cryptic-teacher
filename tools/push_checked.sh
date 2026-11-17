@@ -62,6 +62,14 @@ check() {
   for c in $(git rev-list --reverse origin/master..HEAD); do
     python3 "$here/clobber_guard.py" "$c" >&2 || return $?
   done
+  # A Python file that no longer parses stops every job that reloads onto
+  # master (11-17: a misplaced colon in edition_queue.py killed the Guardian
+  # re-file), so refuse it here rather than wait for CI.
+  local f
+  for f in $(git diff --name-only --diff-filter=AM origin/master..HEAD -- '*.py'); do
+    git show "HEAD:$f" | python3 -c 'import ast, sys; ast.parse(sys.stdin.read(), sys.argv[1])' "$f" >&2 \
+      || { echo "$f does not parse" >&2; return 4; }
+  done
   return 0
 }
 
@@ -70,7 +78,7 @@ n=0
 while :; do
   check
   rc=$?
-  [ "$rc" -eq 0 ] || fail "$rc" "clobber_guard refused (exit $rc)"
+  [ "$rc" -eq 0 ] || fail "$rc" "pre-push check refused (exit $rc)"
   n=$((n + 1))
   if git push -q origin HEAD:master >&2; then
     break
