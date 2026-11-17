@@ -10009,6 +10009,15 @@ elif ocr == "ok":
 else:
     print(f"FAIL Gale 1987-01-07's solution grid: {ocr}")
     out += "\nFAILS 1"
+_q_paper = f.paper_of(Path("GaleTimes1935UKEnglish/1935-04-05"))
+if f.quarter_print(_q_paper, Path("1935-04-05")) and f.quarter_print(_q_paper, Path("1934-04-05")) \
+        and not f.quarter_print(_q_paper, Path("1940-04-05")) \
+        and f.quarter_1935_due({"edition": "GaleTimes1935UKEnglish/1935-04-05", "readAt": "2026-11-16T00:00:00+00:00"}) is False \
+        and f.fix_reason({}) != f.QUARTER_1935 and f.QUARTER_1935 in f.RANKS:
+    print("ok   Gale Times 1935 pages are read in their four clue columns (QUARTER_1935)")
+else:
+    print("FAIL Gale Times 1935 pages are read in their four clue columns (QUARTER_1935)")
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
