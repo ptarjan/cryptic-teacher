@@ -35,7 +35,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 6, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 7, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -122,7 +122,7 @@ def crossword(prod, titles, number=None, sunday=False):
     # two-into-one puzzles.
     # The Times' index on page 2 lists "Crossword 95 Today's Weather" (the
     # page it is on), and its news reports the championship.
-    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?(two|2)\b|\bt2\b|mephisto|french"
+    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|jigsaw|times ?(two|2)\b|\bt2\b|mephisto|french"
                      r"|general knowledge|champion\b|\bcontest|today's weather|miscellany"
                      + ("" if prod in ("TGRH", "TTDA") else r"|two-into-one")
                      + ("" if prod == "LSNR" else r"|listener")
@@ -145,6 +145,8 @@ def crossword(prod, titles, number=None, sunday=False):
         cands.sort(key=lambda i: not re.search(r"beelzebub", titles[i], re.IGNORECASE))
     if prod == "TGRH":
         cands.sort(key=lambda i: not (TELEGRAPH_DAILY.search(titles[i]) or TELEGRAPH_PLAIN.search(titles[i])))
+        # "Crossword No 12,345" (any digits) is the puzzle itself: before the rest
+        cands.sort(key=lambda i: not re.search(r"^\W*[cg]ross-? ?w[oa]rd\W*no\.?\W*\d", titles[i], re.IGNORECASE))
     if prod == "TGRH":  # the Sunday Telegraph: "Prize Puzzle No. 1976" (1990s), "Two-in-One Crossword" before
         cands.sort(key=lambda i: not SUNDAY_PUZZLE.search(titles[i]))
     if prod == "FTHA":
