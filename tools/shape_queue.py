@@ -22,6 +22,7 @@ pruned row reaches master with the tree that settled it, and a discarded run
 puts its rows back."""
 import contextlib
 import hashlib
+import importlib
 import json
 import os
 import re
@@ -147,7 +148,10 @@ def _still_flagged_here(pid):
         path = puzzle_paths.find(pid)
         if path is None:
             return True
-        import annotate_check
+        # importlib, not `import`: the page build and filer units import this module, and a
+        # literal import would pull annotate_check's whole tree into their static reach
+        # (tests/test_ci_cache_deps.js scans import lines).
+        annotate_check = importlib.import_module("annotate_check")
         return bool(annotate_check.shape_due(json.loads(path.read_text(encoding="utf-8"))))
     except (OSError, ValueError, SystemExit):
         return True

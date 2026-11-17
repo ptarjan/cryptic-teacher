@@ -5869,7 +5869,11 @@ def ft_headings(lines, titles=()):
                 line = ws[max(0, c - 2):]
                 m = FT_TITLE.match(" ".join(x[4] for x in line))
                 num, under = (None, line)
-                if m:
+                # "No crossword appears in today's" over a line "puzzle. No 5,355, will be pub-" (the solution's number)
+                # is prose, no title: a "No" before the word and words after it and no digit, as in the loop above.
+                prose = bool(re.match(r"\W*no\s", " ".join(x[4] for x in line), re.IGNORECASE)
+                             and m and re.search(r"[a-z]{3}", m.group(1), re.IGNORECASE) and not re.search(r"\d", m.group(1)))
+                if m and not prose:
                     num = FT_NUMBER_AFTER.match(m.group(1))
                     box = box_of(line)
                     h = max(box[3] - box[1], 1)
