@@ -401,6 +401,10 @@ def read_done(row, done=None):
     if row and not row.get("whole") and "1-down" in (row.get("blank") or ()) and row.get("tailFix", 0) < TAIL_FIX:
         # Read before the Down clues at the left column's foot, under no heading the OCR read, were found (headless_tail).
         return False
+    if row and not row.get("whole") and row.get("blank") and row.get("columnFix", 0) < COLUMN_FIX \
+            and row.get("version") == VERSION and not row.get("refused"):
+        # Read with the clue columns cut at numbers inside a clue's lines (column_lefts): the VLM saw a fragment.
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1143,12 +1147,37 @@ TIGHT_LEFT = 30
 WORDS_COUNT = re.compile(r"\(\s*(\d{1,2})\s*,\s*(?:two|three|four|five|six)\s+words?\s*\)", re.IGNORECASE)
 
 
+#: Bumped when only the clue columns' cut changes: the pages read with a blank light are read again (not every page).
+COLUMN_FIX = 1
+#: A Mephisto clue column is wider than this share of the block (two or three columns hold the lists).
+MIN_COLUMN = 0.2
+
+
+def column_lefts(located, width, step=40, least=3):
+    """The left edges of the clue columns (gale_jumbo_read.number_lefts), a run of numbers standing within MIN_COLUMN
+    of the block's width of a longer run dropped: numbers inside a clue's own lines (a count, a year, a figure
+    opening a wrapped line) lined up as a column and cut the real column to the strip of its number and first word,
+    so the VLM and the tight crops were asked a fragment."""
+    import gale_jumbo_read as gj
+    xs = sorted(w[0] for w in gj.numbers_of(located))
+    runs = []
+    for x in xs:
+        if runs and x - runs[-1][-1] <= step:
+            runs[-1].append(x)
+        else:
+            runs.append([x])
+    runs = [r for r in runs if len(r) >= least]
+    kept = [r for r in runs if not any(o is not r and len(o) > len(r) and abs(min(o) - min(r)) < MIN_COLUMN * width
+                                       for o in runs)]
+    return [min(r) - 15 for r in kept]
+
+
 def tight_crops(block, number, gl, gj):
     """[image] of each clue standing under `number` in the clue block ((image, key)): the column's strip from the
     number's line to the next clue's number (one clue, so the reader has nothing else to mistake it for)."""
     bimg, bkey = block
     located = gl.figures(gl.page_words(bimg, bkey))
-    lefts = gj.number_lefts(located)
+    lefts = column_lefts(located, bimg.width)
     if not lefts:
         return []
     edges = lefts + [bimg.width]
@@ -1302,7 +1331,7 @@ def read_page(path, store=STORE, asker=None):
     for lid, (text, _, _) in laid.items():
         if lid not in tails and not (text or "").strip():
             blank.setdefault(lid, gj.UNLAID)
-    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted)
+    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, lefts_of=column_lefts)
     if asked:
         verdict["vlmColumns"] = asked
     if blank:
@@ -1353,7 +1382,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
-                "tailFix": TAIL_FIX, "runFix": RUN_FIX}, store)
+                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "columnFix": COLUMN_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

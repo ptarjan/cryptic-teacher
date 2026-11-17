@@ -712,13 +712,13 @@ def number_lefts(located, step=40, least=3):
     return [min(r) - 15 for r in runs if len(r) >= least]
 
 
-def vlm_strips(blocks, numbers, gl):
+def vlm_strips(blocks, numbers, gl, lefts_of=None):
     """[(image, box)] of the clue columns of `blocks` ((image, key)) holding a line that opens on a number
     within NEAR_NUMBER of one of `numbers` (the blank lights'): the columns cut at gale_listener.column_lefts."""
     out = []
     for bimg, bkey in blocks:
         located = gl.figures(gl.page_words(bimg, bkey))
-        lefts = number_lefts(located)
+        lefts = (lefts_of or (lambda loc, width: number_lefts(loc)))(located, bimg.width)
         if not lefts:
             continue
         edges = lefts + [bimg.width]
@@ -732,7 +732,7 @@ def vlm_strips(blocks, numbers, gl):
     return out
 
 
-def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printed=None):
+def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printed=None, lefts_of=None):
     """(laid, blank) with each blank light the VLM's reading of the clue columns holding it lays
     (fa.vlm_laid: the one clue under its number whose count fills the light, its words spelt in
     the page's own readings). The VLM is asked the columns holding a blank light only, and only
@@ -747,7 +747,7 @@ def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printe
             return laid, blank, 0
         def reader(im, box):
             return fa.vlm.read(fa.vlm.crop(im, box))
-    strips = vlm_strips(blocks, sorted({int(k.split("-")[0]) for k in [*blank, *weak]}), gl)
+    strips = vlm_strips(blocks, sorted({int(k.split("-")[0]) for k in [*blank, *weak]}), gl, lefts_of)
     if not strips:
         return laid, blank, 0
     parts = []

@@ -97,8 +97,9 @@ check("number_of takes the run's number before 1995", (w - 121, "offset run"),
       gm.number_of((None, D(1975, 3, 9)), "Mephisto Crossword No %d" % (w - 121), None))
 part = {"file": "x.pdf", "number": 2055, "whole": False, "blank": ["1-down", "2-down"], "version": gm.VERSION}
 check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_done(part))
-check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX}))
-check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"]}))
+check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
+check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
+check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
 
 # --- the grid: 13 broken horizontal rules and thick bars on a 12x12 lattice of pitch 40
 pitch, x0, y0 = 40, 30, 20
@@ -162,6 +163,13 @@ check("no Down heading at the foot: no strip", None, gm.tail_strip(foot[1:], ((9
 
 check("a count's own words are dropped", "bit (11)", gm.WORDS_COUNT.sub(r"(\1)", "bit (11, three words)"))
 check("a plain count is left", "bit (5,4)", gm.WORDS_COUNT.sub(r"(\1)", "bit (5,4)"))
+
+def numbered(x, n, y0=100):
+    return [w for i in range(n) for w in ((x, y0 + 40 * i, x + 20, y0 + 40 * i + 25, str(i + 1)),
+                                          (x + 30, y0 + 40 * i, x + 90, y0 + 40 * i + 25, "Word"))]
+cols = numbered(20, 10) + numbered(620, 10) + numbered(140, 3, 900)
+check("a short run of numbers inside a column is no column", [5, 605], gm.column_lefts(cols, 1200))
+check("two real columns stay", [5, 605], gm.column_lefts(numbered(20, 10) + numbered(620, 8), 1200))
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
