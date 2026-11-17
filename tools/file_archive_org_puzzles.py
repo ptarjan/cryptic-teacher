@@ -4346,6 +4346,8 @@ def scan_anywhere(d):
     found = footer_titled(d, found)
     # No title read on a 1930-33 Gale Times page: its 1-3 digit title and solution heading, off the cached page reads.
     found = small_titled(d, found)
+    # No title read on a Gale Independent (daily) sports page: its heading off the cached strip reads (INDY_TITLED).
+    found = indy_titled(d, found)
     # No title read on an archive.org Daily Telegraph page: its loosely read heading, numbered by its date.
     found = telegraph_titled(d, found)
     # Read whole and no title found (grid_first_scan reads such a page whole): a GF_TITLE rescan is done.
@@ -4755,6 +4757,27 @@ def small_titled(d, found):
 INDY_TITLE_READ = "indyTitled"
 
 
+_INDY_MONTHS = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
+                "november", "december")
+
+
+def indy_dated_number(text, day, want):
+    """The puzzle number in the whole-page read line `text` ("Cryptic Crossword #795311 April 2012", the number run
+    into the printed day) of the heading printed under `day`'s date, within the paper's slack of `want`; None where
+    the line holds no such heading or the date it prints is not `day`'s. A date that agrees is the second witness."""
+    m = re.search(r"#\s*(\d{4,7})\s*(\d{1,2})?\s*([A-Za-z]{3,9})\s*(20\d\d)", text)
+    if not m or m[3].lower() != _INDY_MONTHS[day.month - 1] or int(m[4]) != day.year:
+        return None
+    digits, ds = m[1], str(day.day)
+    if m[2]:
+        if m[2] != ds:
+            return None
+    elif digits.endswith(ds) and len(digits) > len(ds):
+        digits = digits[:-len(ds)]
+    n = int(digits)
+    return n if abs(n - want) <= GALE_INDEPENDENT.slack else None
+
+
 def indy_titled(d, found):
     """Scan `found` of edition directory `d` with its title read from the cached strip reads (not the whole-page
     ones; none made) where it is a Gale Independent (daily) page scan() found no title on: the page is a sports page
@@ -4789,6 +4812,19 @@ def indy_titled(d, found):
                     votes.setdefault(n, set()).add(parts[1])
                     boxes.setdefault(n, tuple(box))
         votes = {n: v for n, v in votes.items() if len(v) >= 2}
+        if not votes:  # the whole-page reads' heading line, its number glued to the printed date, the date its own
+            for path in sorted((CROPS / "titles").glob(f"{key}_page.*.json")):
+                try:
+                    words = json.loads(path.read_text())["words"]
+                except (OSError, ValueError, KeyError, TypeError):
+                    continue
+                words = [(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5]
+                for line in printed_lines(words):
+                    n = indy_dated_number(" ".join(str(w[4]) for w in line), day, want)
+                    if n is not None:
+                        votes.setdefault(n, set()).add(path.name.split(".")[1])
+                        boxes.setdefault(n, (min(w[0] for w in line), min(w[1] for w in line),
+                                             max(w[2] for w in line), max(w[3] for w in line)))
         if votes:
             n = min(votes, key=lambda n: (-len(votes[n]), abs(n - want)))
             return {**found, "puzzles": [{"number": n, "leaf": leaf, "box": boxes[n], "titleReadBy": sorted(votes[n])}],
@@ -18454,7 +18490,10 @@ def quarter_glued_due(row):
 #: a wrong-article fetch). Their cached strip reads (the title bands, the solution bands) hold the heading for two
 #: or three of the readers: 42 of the 54 give a number within slack of the date's (indy_titled). Read once.
 INDY_TITLED = "Gale Independent page with no title, its crossword heading read from its cached strip reads since"
-REREAD_INDY_TITLED = "2026-11-16T21:29:00+00:00"  # the push minute: a row read after it is not due again
+#: r167 11-17: indy_titled was defined but never called by scan_anywhere, so the 11-16 reread titled nothing (37 rows
+#: left NP0, 30 with two strip readers on the heading, 7 with only the whole-page reads, "#795311 April 2012" with the
+#: day glued to the number, which indy_dated_number reads); now wired, due once more.
+REREAD_INDY_TITLED = "2026-11-17T14:25:00+00:00"  # the push minute: a row read after it is not due again
 
 
 def indy_titled_due(row):
