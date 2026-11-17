@@ -60,7 +60,16 @@ SOLUTION_TO = re.compile(r"solution\s+to\s+mephisto\W{0,3}(\d{4})\b", re.IGNOREC
 TITLE_WORD = re.compile(r"^\W*mephisto\W*$", re.IGNORECASE)
 STOP_WORD = re.compile(r"^\W*(?:solutions?|winners|prizes?|answers)\W*$", re.IGNORECASE)
 #: The line heading last week's answers, as the OCR misreads it ("Soklstion to Mephisto 2283:").
-STOP_LINE = re.compile(r"^\W*(?:so\w{3,8}n|answers)\s+to\s+m[a-z]{4,}o\b", re.IGNORECASE)
+STOP_LINE = re.compile(r"^\W*(?:so\w{3,8}[nae]|answers)\s*(?:t[oa]\s+m[a-z]{4,9}\b|\w{1,2}\s+\w{2,10}\s+[12]\d{3}\b)",
+                       re.IGNORECASE)
+#: The "Bookwise" quiz heading (1995-99) stands under the lists where no solution column's heading reaches the cut.
+STOP_BOOKWISE = re.compile(r"^\W*b[o0]{2}kw\w*\W*$", re.IGNORECASE)
+#: Bumped when only the lists' cut changes (LISTS_FIX 1: the cut ran on past last week's solution or the lists' foot
+#: into the page's articles): pages refused "no reading parses" are read again once.
+LISTS_FIX = 1
+#: A word box taller than this many lines is a misread, not a clue line; a gap of GAP_LINES lines under the lists
+#: (3 before LISTS_FIX 1) ends them.
+TALL_BOX, GAP_LINES = 1.8, 2.15
 DOC_ID = re.compile(r"[A-Z]{2,6}\d{9,10}")
 #: The first Mephisto the Sunday Times numbered No 2250 (2003-10-05); one a week, a number a page's text gives is
 #: taken when within this many of the count (a Christmas week with no puzzle moves it by one).
@@ -431,6 +440,10 @@ def read_done(row, done=None):
     if row and str(row.get("refused") or "").startswith("no clue list") and row.get("bareFix", 0) < BARE_FIX:
         # Refused before the lists' bare clue numbers (1995-99 print "5 Cry echoed", no stop) and unread headings
         # were put in the form the Listener's readers open on (bare_mended).
+        return False
+    if row and row.get("refused") == "no reading parses" and row.get("listsFix", 0) < LISTS_FIX:
+        # Refused before the lists' cut stopped at the Solution heading, the Bookwise heading or the gap under the
+        # lists (lists_cut): the cut ran on into the page's articles.
         return False
     if row and not row.get("whole") and "1-down" in (row.get("blank") or ()) and row.get("tailFix", 0) < TAIL_FIX:
         # Read before the Down clues at the left column's foot, under no heading the OCR read, were found (headless_tail).
@@ -1024,16 +1037,24 @@ def lists_cut(words, box):
     titles = [w for w in inside if TITLE_WORD.match(w[4]) and w[1] - box[3] < 40 * lh]
     top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
     bottom = top
+    # LISTS_FIX: a box taller than TALL_BOX lines is a misread (the OCR merged a column's lines or the solution's grid
+    # of letters into one box): its foot no longer pushes the cut's bottom past the solution's heading below it.
     for w in sorted((w for w in inside if w[3] > top), key=lambda w: w[1]):
         # The stop is the heading of last week's answers ("Solution to Mephisto 2283:"), not the word "solutions"
         # in a note beside the lists ("the reference for all solutions except proper nouns").
         rest = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
                         if o[0] >= w[0] - 1 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2)
-        if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (STOP_WORD.match(w[4]) and not re.match(
-                r"(?i)(solutions?|answers)\s+(except|for|of|to the)\b", rest) and not rest.lower().startswith(
-                    ("solutions", "solution ", "answers")))):
+        if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or STOP_BOOKWISE.match(w[4]) or (
+                STOP_WORD.match(w[4]) and not w[4].rstrip().endswith("?") and not re.search(r"\(\s*\d", rest)
+                and not re.match(
+                    r"(?i)(solutions?|answers)\s+(except|for|of|to the)\b", rest) and not rest.lower().startswith(
+                        ("solutions", "solution ", "answers")))):
+            # The cut stops above the heading, whatever a taller box before it reached.
+            bottom = min(bottom, w[1])
             break
-        if w[1] - bottom > 3 * lh and bottom > top + 6 * lh:
+        if w[3] - w[1] > TALL_BOX * lh:
+            continue
+        if w[1] - bottom > GAP_LINES * lh and bottom > top + 6 * lh:
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
@@ -1532,7 +1553,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
-                "bareFix": BARE_FIX}, store)
+                "bareFix": BARE_FIX, "listsFix": LISTS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
