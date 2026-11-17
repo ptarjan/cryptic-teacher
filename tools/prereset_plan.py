@@ -1467,9 +1467,9 @@ GB = 1024 * 1024
 MEM_CASES = [
     (f"MemTotal: 1 kB\nMemAvailable: {6 * GB} kB\n", [], (6 * GB - MEM_HEADROOM_KB) // RUN_RSS_KB),
     (f"MemAvailable: {6 * GB} kB\n", [512000, 512000], 2 + (6 * GB - MEM_HEADROOM_KB) // 512000),
-    (f"MemAvailable: {int(1.9 * GB)} kB\n", [], 0),
+    (f"MemAvailable: {MEM_HEADROOM_KB - GB // 10} kB\n", [], 0),
     # 2026-11-11: available under the reserve, 3 seconds-old runs at 7 MB: no room, width = runs alive
-    (f"MemAvailable: {int(1.9 * GB)} kB\n", [7000, 7000, 7000], 3),
+    (f"MemAvailable: {MEM_HEADROOM_KB - GB // 10} kB\n", [7000, 7000, 7000], 3),
     (f"MemAvailable: {6 * GB} kB\n", [7000, 7000, 7000], 3 + (6 * GB - MEM_HEADROOM_KB) // RUN_RSS_FLOOR_KB),
     ("garbage", [], None),
     (None, [], None),
@@ -1477,8 +1477,8 @@ MEM_CASES = [
 # (meminfo, RSS of runs in flight) -> the memory cap's inputs in words (mem_detail)
 MEM_DETAIL_CASES = [
     (f"MemAvailable: {6 * GB} kB\nSwapTotal: {4 * GB} kB\nSwapFree: 0 kB\n", [],
-     "memory 6.0 GB available less 1 GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
-    (f"MemAvailable: {6 * GB} kB\n", [512000], "memory 6.0 GB available less 1 GB kept free, 500 MB a run"),
+     f"memory 6.0 GB available less {MEM_HEADROOM_KB / 1048576:g} GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
+    (f"MemAvailable: {6 * GB} kB\n", [512000], f"memory 6.0 GB available less {MEM_HEADROOM_KB / 1048576:g} GB kept free, 500 MB a run"),
     ("garbage", [], None),
 ]
 # (cores other processes use, cores the burn uses, cores, runs) -> cpu cap
