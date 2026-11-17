@@ -127,6 +127,9 @@ def read_done(row):
         return False  # refused before the number reading was mended (NUMBER_FIX)
     if row and str(row.get("refused") or "").startswith(GRID_UNREAD) and row.get("gridded") != GRID_FIX:
         return False  # refused before the grid reading was mended (GRID_FIX)
+    if row and row.get("vlmColumns") and not row.get("whole") and row.get("printedFix") != PRINTED_FIX \
+            and not row.get("refused"):
+        return False  # read before the VLM's agreeing spelling of a word the lexicon lacks was kept (PRINTED_FIX)
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -729,7 +732,7 @@ def vlm_strips(blocks, numbers, gl):
     return out
 
 
-def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None):
+def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printed=None):
     """(laid, blank) with each blank light the VLM's reading of the clue columns holding it lays
     (fa.vlm_laid: the one clue under its number whose count fills the light, its words spelt in
     the page's own readings). The VLM is asked the columns holding a blank light only, and only
@@ -759,7 +762,51 @@ def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None):
         texts[f"page{len(texts)}"] = " ".join(w[4] for w in located)
     got, left = vlm_laid(texts, laid, blank, lengths, voted or {})
     got = vlm_spelt(texts, got, weak - set(blank), lengths)
+    if printed is not None:
+        printed.update(vlm_printed(texts, got, lengths))
     return got, left, len(strips)
+
+
+#: A ledger row read before the VLM's agreement kept a word the lexicon lacks (a rare word both the page and the
+#: VLM spell alike: "Lias", "uprose") is read again once when the VLM had been asked its columns.
+PRINTED_FIX = 1
+
+
+def vlm_printed(texts, laid, lengths):
+    """{light: [token]} (the clue's `asPrinted`) of each laid clue ocr_clues.suspect refuses whose word the VLM's
+    reply spells letter for letter too (ocr_clues.printed_alike: two readings hold it): the clue the VLM reads
+    under the light's number whose count fills the light and which is the page's own but for spelling (ALIKE)."""
+    clues = fa.vlm_clues(texts.get("vlm") or "")
+    out = {}
+    for lid, (text, enum, group) in laid.items():
+        if not text or lid not in lengths or not fa.ocr_clues.suspect(text):
+            continue
+        number, way = lid.split("-")
+        cells = sum(lengths.get(i, 0) for i in group or [lid])
+        rival = any(o != lid and o.split("-")[0] == number and lengths.get(o) == lengths.get(lid) for o in lengths)
+        found = []
+        for k, (m, words, count) in enumerate(clues):
+            if str(m) != number or (rival and vlm_direction(clues, k, number, lengths) != way):
+                continue
+            words = fa.ocr_clues.trimmed(fa.ocr_clues.clean(words), lid)
+            if fa.ocr_clues.similar(words.lower(), text.lower()) >= ALIKE and fa.ftp.count(count) == cells:
+                found.append(words)
+        if len(found) != 1:
+            continue
+        # A word the lexicon lacks (a rare word it reads as a name: "Lias", one letter off "bias") that the
+        # VLM, the reader independent of the OCR, spells letter for letter as the vote does is the print's:
+        # printed_alike's one-letter test guards against OCR readers sharing a slip, which the VLM does not.
+        mine = " ".join(found[0].lower().split())
+        tokens = []
+        for raw, why in fa.ocr_clues.suspect(text):
+            word = raw.strip(fa.ocr_clues.EDGE).lower()
+            if len(word) >= fa.ocr_clues.EVERY_SHORTEST and why in ("not a word", *fa.ocr_clues.NAME_WHYS) \
+                    and re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z-])", mine) \
+                    and not re.search(r"[a-z]-\s*" + re.escape(word), mine):
+                tokens.append(raw)
+        if tokens:
+            out[lid] = sorted(set(tokens))
+    return out
 
 
 def vlm_spelt(texts, laid, weak, lengths):
@@ -999,7 +1046,9 @@ def read_page(path, store=STORE, asker=None):
     for lid, (text, _, _) in laid.items():
         if lid not in tails and not (text or "").strip():
             blank.setdefault(lid, UNLAID)
-    laid, blank, asked = vlm_mended(blocks, laid, blank, lengths, gl, asker, voted)
+    kept_words = {}
+    laid, blank, asked = vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, kept_words)
+    verdict["printedFix"] = PRINTED_FIX
     if asked:
         verdict["vlmColumns"] = asked
     verdict["lights"] = len(laid)
@@ -1008,7 +1057,7 @@ def read_page(path, store=STORE, asker=None):
     doc = DOC_ID.search(path.name.upper())  # a 2010s document id has six letters, gale_inbox's only two
     url = f"https://link.gale.com/apps/doc/{doc.group(0)}/TTDA?sid=bookmark-TTDA" if doc else None
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Times jumbo cryptic crossword No {n:,}",
-                      url=url, printed=read.get("asPrinted"))
+                      url=url, printed={**(read.get("asPrinted") or {}), **kept_words} or None)
     if concise_set(puzzle):
         verdict["refused"] = CONCISE_REFUSAL
         return verdict, None

@@ -235,5 +235,19 @@ gj.read_unit("jumbo:D.pdf", saved, store)
 check("settled as refused after CRASH_LIMIT crashes", False, "jumbo:D.pdf" in [u["rel"] for u in gj.plan_pages(saved, store)])
 gj.read_page = real
 
+# --- PRINTED_FIX: a rare word the page and the VLM spell alike is the print's
+pl = {"48-across": 10, "48-down": 3}
+lid_text = "What uprose with Lias rocks, perhaps?"
+got = gj.vlm_printed({"vlm": "48 What uprose with Lias rocks, perhaps? (10)"},
+                     {"48-across": (lid_text + " (10)", "10", None)}, pl)
+check("a word both readings spell is kept as printed", {"48-across": ["Lias"]}, got)
+got = gj.vlm_printed({"vlm": "48 What uprose with Lies rocks, perhaps? (10)"},
+                     {"48-across": (lid_text + " (10)", "10", None)}, pl)
+check("a word the VLM spells otherwise is not", {}, got)
+old = {"file": "x.pdf", "version": gj.VERSION, "vlmColumns": 2, "whole": False}
+check("a not-whole row the VLM was asked is due once", False, gj.read_done(old))
+check("stamped, it is done", True, gj.read_done({**old, "printedFix": gj.PRINTED_FIX}))
+check("a row the VLM never saw is done", True, gj.read_done({**old, "vlmColumns": None}))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
