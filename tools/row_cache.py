@@ -95,17 +95,27 @@ def _prune(conn, cutoff):
     One DELETE over a store of tens of gigabytes keeps every freed page in the
     WAL until it commits (21GB seen); a batch per key range commits, then
     checkpoints, so the WAL stays small and a killed prune keeps its progress."""
-    lo = None
+    # The key reached is kept (table prune_at, with its cutoff) in the batch's
+    # own transaction: a prune the caller's timeout kills used to start over
+    # at the first key on the next call, re-reading the whole store (7.6GB)
+    # every call for as long as no call lived to the end of it.
+    conn.execute("CREATE TABLE IF NOT EXISTS prune_at(cutoff INTEGER, lo TEXT)")
+    saved = conn.execute("SELECT cutoff, lo FROM prune_at").fetchone()
+    lo = saved[1] if saved and saved[0] == cutoff else None
     while True:
         args = (lo,) if lo is not None else ()
         row = conn.execute(f"SELECT max(key) FROM (SELECT key FROM rows {'WHERE key > ?' if args else ''}"
                            f" ORDER BY key LIMIT {PRUNE_BATCH})", args).fetchone()
         hi = row[0]
         if hi is None:
+            with conn:
+                conn.execute("DELETE FROM prune_at")
             return
         with conn:
             conn.execute("DELETE FROM rows WHERE used < ?" + (" AND key > ?" if args else "") + " AND key <= ?",
                          (cutoff, *args, hi))
+            conn.execute("DELETE FROM prune_at")
+            conn.execute("INSERT INTO prune_at VALUES(?,?)", (cutoff, hi))
         conn.execute("PRAGMA wal_checkpoint(PASSIVE)")
         lo = hi
 
