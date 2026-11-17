@@ -76,7 +76,10 @@ POLITE = 0.5
 #: round the last Daily; it stops at the first Daily the date's own page gives.
 NARROW = range(-36, 7)
 AFTER_LAST = range(-4, 13)
-WIDE = 150
+#: The wide reach is searched outward from the centre (nearest ids first), so a
+#: far batch costs only the probes up to it. Times Cryptic No 26095 sits +161
+#: from its Quick, past the old 150; 400 is the bound.
+WIDE = 400
 LAST_DAYS = 10
 MISSES = CACHE / "narrow-misses.txt"
 TITLE_NUMBER = re.compile(r"(?:No\.?|Number)\s*\(?\s*0*(\d+)", re.I)
@@ -409,7 +412,7 @@ def narrow_ids(date, quick, last=None):
     def around(c, ks):
         return [c + k for k in ks]
 
-    wide = range(-WIDE, WIDE + 1)
+    wide = [k for r in range(WIDE + 1) for k in ((r, -r) if r else (0,))]
     order = [*(around(last, AFTER_LAST) if last else []), *around(quick, NARROW),
              *around(quick, wide), *(around(last, wide) if last else [])]
     return [i for i in dict.fromkeys(order) if i > 0]

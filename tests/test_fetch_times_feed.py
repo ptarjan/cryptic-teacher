@@ -107,14 +107,17 @@ def narrow():
         out.append(f"{len(probed)} probed, {stats[day]}, "
                    f"cached {sorted(x.name for x in tmp.glob('*.json'))}")
     plain, after = f.narrow_ids(day, 5441), f.narrow_ids(day, 5441, 5440)
-    return "\n".join([*out, f"{plain[0]} {plain[-1]} {len(plain)} {after[0]} {len(after)}"])
+    far = plain.index(5441 + 161)
+    outward = plain.index(5441 + 200) > far and plain.index(5441 - 161) > plain.index(5441 - 100)
+    return "\n".join([*out, f"{plain[0]} {plain[-1]} {len(plain)} {after[0]} {len(after)} "
+                      f"{far < 500} {outward}"])
 
 
 check("the narrow search probes only the window round the Quick, skips Sundays, "
       "caches the hit and drops the probed misses on a rerun",
       """64 probed, (64, 1), cached ['20150602-5429.json']
 64 probed, (64, 1), cached ['20150602-5429.json']
-5405 5591 301 5436 302""", narrow())
+5405 5041 801 5436 802 True True""", narrow())
 
 if fails:
     print(f"{fails} check(s) failed")
