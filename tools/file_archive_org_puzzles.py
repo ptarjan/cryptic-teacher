@@ -5709,6 +5709,9 @@ FT_NUMBER = re.compile(r"^\W*(?:puzzle\s+)?no\W{0,2}\s*(\d{1,2}[,.?^]?\d{3})\b(.
 #: title: the OCR runs the next column's last word into the title's line
 #: ("~nTupblfih“parkCtT- CROSSWORD PUZZLE NO. 1,652").
 FT_LEAD_JUNK = 2
+#: The title word of an FT crossword, as a word of a line the page's columns were read onto; the "No.N" after it.
+FT_TITLE_WORD = re.compile(r"^\W*cross\s?word\W*$", re.IGNORECASE)
+FT_NUMBER_AFTER = re.compile(r"^(?:[^\d]{0,40}?\s)?(?:puzzle\s+)?no\W{0,2}\s*(\d{1,2}[,.?^]?\d{3})\b(.*)$", re.IGNORECASE)
 FT_SETTER = re.compile(r"set\s+by\s+([A-Za-z][A-Za-z'-]+)", re.IGNORECASE)
 #: The previous puzzle's solution grid: "Solution 8,650", or in the 1970s
 #: "SOLUTION TO PUZZLE" over "No. 2,765".
@@ -5790,9 +5793,17 @@ def ft_headings(lines, titles=()):
             return num, ws
         box = box_of(ws)
         cx = (box[0] + box[2]) / 2
+        h = max(box[3] - box[1], 1)
         for v in lines:
-            if v is not ws and box[3] - 5 <= box_of(v)[1] <= box[3] + 80 \
-                    and box_of(v)[0] - 150 <= cx <= box_of(v)[2] + 150:
+            vb = box_of(v)
+            # FT_TITLE_TALL: a title in the 1990-91 page's large print has its number line a line's height and a half
+            # under it (1990-07-30: "CROSSWORD" y 6028-6102, "No.7,302 Set by PROTEUS" from 6204).
+            # FT_NUMBER_ROW: its number line may start inside the title's own height (1983-01-06: title y 3274-3315,
+            # "PUZZLE No. 5,064" from 3302; 1994-05-23: 3743-3770, "No.8,460" from 3760), or stand right of the title
+            # on its row (1982-01-12: "F.T. CROSSWORD" x 1794-2107, "PUZZLE No. 4,769" x 2125-2438, same top).
+            under = box[1] + h / 2 <= vb[1] <= box[3] + max(80, 1.5 * h) and vb[0] - 150 <= cx <= vb[2] + 150
+            beside = abs(vb[1] - box[1]) <= h / 2 and 0 <= vb[0] - box[2] <= 2 * (box[2] - box[0])
+            if v is not ws and (under or beside):
                 num = FT_NUMBER.match(" ".join(w[4] for w in v))
                 if num:
                     return num, v
@@ -5812,14 +5823,44 @@ def ft_headings(lines, titles=()):
         # FT_LEAD_JUNK words.
         for k in range(min(FT_LEAD_JUNK, len(ws) - 1) + 1):
             line = ws[k:] if k else ws
-            m = FT_TITLE.match(" ".join(w[4] for w in line))
+            # FT_UNDERSCORE: an underscore run onto the title word ("vo _CROSSWORD") is not a word character here.
+            m = FT_TITLE.match(" ".join(w[4] for w in line).replace("_", " "))
             # Words after "CROSSWORD" and no number: prose ("No crossword
-            # appears in today's edition"), not a title over its number.
-            prose = m and re.search(r"[a-z]", m.group(1), re.IGNORECASE) and not re.search(r"\d", m.group(1))
+            # appears in today's edition"), not a title over its number. A lone mark or letter ("F.T. CROSSWORD R",
+            # "CROSSWORD | j*"") is the print's rule or a speck, not prose: it takes a word of three letters.
+            prose = m and re.search(r"[a-z]{3}", m.group(1), re.IGNORECASE) and not re.search(r"\d", m.group(1))
             num, under = numbered(line, m.group(1)) if m and not prose else (None, line)
             if num:
                 ws = line
                 break
+        if not num:
+            # FT_GLUED_COLUMNS: the 1994 text runs a column's words onto the title's line ("1A Liberal member could
+            # MONDAY PRIZE CROSSWORD : e friend (9) cause concern (3) No.8,403 Set by ADAMANT") and the number's
+            # line likewise: the title from its own words (up to two before it), its number the first "No.N" after
+            # it on the line or on a line just under it, as a suffix of that line from the "No".
+            for c, w in enumerate(ws):
+                if not FT_TITLE_WORD.match(w[4]) or c == 0:
+                    continue
+                line = ws[max(0, c - 2):]
+                m = FT_TITLE.match(" ".join(x[4] for x in line))
+                num, under = (None, line)
+                if m:
+                    num = FT_NUMBER_AFTER.match(m.group(1))
+                    box = box_of(line)
+                    h = max(box[3] - box[1], 1)
+                    for v in () if num else lines:
+                        for j in range(len(v)):
+                            tail = v[j:]
+                            vb = box_of(tail)
+                            if v is not ws and box[1] + h / 2 <= vb[1] <= box[3] + max(80, 1.5 * h) \
+                                    and vb[0] - 150 <= box[0] + 300 <= vb[2] + 150 and FT_NUMBER.match(" ".join(x[4] for x in tail)):
+                                num, under = FT_NUMBER.match(" ".join(x[4] for x in tail)), tail
+                                break
+                        if num:
+                            break
+                if num:
+                    ws = line
+                    break
         if not num:
             continue
         box, whole = box_of(ws), box_of(ws + under)
