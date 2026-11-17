@@ -118,7 +118,7 @@ check("doesNotGive counter fires on a tree that does not give the answer, not on
       counters["doesNotGive"](bad, {"_answer": "ABAB"}, "a b ab") == 1 and counters["doesNotGive"](amb, {"_answer": "ABAB"}, "") == 0)
 msg = mend("[Perfect]HONEY + rev<brought about>([team]PARTY)", "Perfect team brought about", "HONEYTRAP")
 check("doesNotGive: a letter doubled at the join is named, not mended", msg.startswith("REFUSED") and "one letter too many" in msg and "extra Y" in msg)
-msg = mend("[Question]Q + [concerned with]IN + [church]CE", "Question concerned with church", "QUINCE")
+msg = mend("[Quarry]Q + [concerned with]IN + [church]CE", "Quarry concerned with church", "QUINCE")
 check("doesNotGive: a letter missing at the join is named, not mended", "one letter short of QUINCE: U is missing at letter 2" in msg)
 # doesNotGive residue, 10-27 audit (123 distinct refusals left after the earlier mends; 33 were one edit from the answer)
 check("doesNotGive: a container that is really a charade (ADRIFT is AD + RIFT) is mended, its container word dropped",
@@ -137,8 +137,8 @@ check("doesNotGive: a leaf under rev() already filed reversed is turned round",
       mend("ins<in><packaging>([new]RECENT, rev<returned>([it's]TI))", "in packaging new returned it's", "RETICENT")
       .endswith("rev<returned>([it's]IT))"))
 check("doesNotGive: a container no single edit fixes (LIT round M is not LIMIT) stays refused, naming the run it needs inside",
-      mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT").startswith("REFUSED")
-      and "needs IM or MI inside" in mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT"))
+      mend("ins<included>([came down]LIT, [mum]M)", "Maximum came down included mum", "LIMIT").startswith("REFUSED")
+      and "needs IM or MI inside" in mend("ins<included>([came down]LIT, [mum]M)", "Maximum came down included mum", "LIMIT"))
 check("doesNotGive: a hidden word reads & as AND ('Accident & Emergency' hides TANDEM)",
       mend("hid<in>([Accident & Emergency])", "Accident & Emergency in vehicle for two", "TANDEM") == "hid<in>([Accident & Emergency])")
 msg = mend("ins<occupying>([previous]LATE, [Military leader]CO)", "Previous occupying Military leader", "LOCATE")

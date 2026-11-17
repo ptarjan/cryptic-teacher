@@ -3822,7 +3822,9 @@ for src, (name, _) in sorted(eq.FETCH_UNITS.items()):
                          timeout=120).stderr.strip().splitlines()[-1]
     check(f"a {src} fetch unit loads its MODULES, not the queue's, and exits its outcome", f"{eq.EXITS['busy']} True []", got)
 # A scan or read unit loads its paper's module and what that may load
-# (lazy imports too), not the queue's other filers and fetchers.
+# (lazy imports too), not the queue's other filers and fetchers. (mem_gate is no longer on the list:
+# shape_queue's lazy annotate_check import, 1c29e1a, puts it in every filer's reach through
+# blog_facts/letter_facts' lazy imports, and it is a small module with no side effects at import.)
 for kind, paper, fn in (("scan", "gale", "scan_unit"), ("read", "trove", "read_unit")):
     name = eq.UNIT_MODULES.get(paper, eq.UNIT_MODULES[None])
     unit_probe = (f"import importlib, json, os, runpy, sys\n"
@@ -3833,7 +3835,7 @@ for kind, paper, fn in (("scan", "gale", "scan_unit"), ("read", "trove", "read_u
                   f"try:\n    runpy.run_path('edition_queue.py', run_name='__main__')\n"
                   f"except SystemExit as e:\n"
                   f"    print(e.code, 'puzzle_integrity' in sys.modules,\n"
-                  f"          [n for n in ('fetch_trove', 'gale_listener', 'mem_gate') if n in sys.modules],"
+                  f"          [n for n in ('fetch_trove', 'gale_listener') if n in sys.modules],"
                   f" file=sys.stderr)")
     got = subprocess.run([sys.executable, "-c", unit_probe], capture_output=True, text=True,
                          timeout=120).stderr.strip().splitlines()[-1]

@@ -70,9 +70,18 @@ def err(eid, change):
     except W.WordplayError as e:
         return str(e)
     return ""
+# translate now mends this one itself (the table's [conservative]TORY, fix_shape_notes' abbreviation
+# swap), so the refusal's wording is read with the rule mends off.
+_mends = W._with_rule_mends
+W._with_rule_mends = lambda tree, clue, answer: None
+try:
+    _wrong = err("11-across", lambda m: m.update(wp=m["wp"].replace("TORY", "TORE")))
+finally:
+    W._with_rule_mends = _mends
 check("a leaf with the wrong letters names it and the letters wanted",
-      "[conservative]TORE gives TORE; the answer needs TORY here" in
-      err("11-across", lambda m: m.update(wp=m["wp"].replace("TORY", "TORE"))))
+      "[conservative]TORE gives TORE; the answer needs TORY here" in _wrong)
+check("a leaf with the wrong letters the table has another way is mended",
+      err("11-across", lambda m: m.update(wp=m["wp"].replace("TORY", "TORE"))) == "")
 check("a word not in the clue is named",
       "'turned' is not in the clue" in err("22-down", lambda m: m.update(wp="rev<turned>([Harry]YRRAH)")))
 check("an old-prompt key says what to write instead",
