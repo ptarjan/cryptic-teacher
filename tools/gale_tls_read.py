@@ -106,7 +106,9 @@ def vlm_due(row):
         return False
     blank = row.get("blank") or []
     why = row.get("why") or {}
-    if not 1 <= len(blank) <= 3:
+    # r128: up to jr.VLM_BLANKS (16) lights, the most the VLM is asked for: 45 pages (38 of the 192 unfiled NP3 TLS
+    # pages 1995-2014) stood with 4-16 lights blank and no vlmFix, never offered the VLM's column reply again.
+    if not 1 <= len(blank) <= jr.VLM_BLANKS:
         return False
     # VLM_ANY: a page never read with the VLM asked (no vlmFix) is read again whatever its blank lights' reason
     # ("a quotation it never closes", "readings differ", "both read ... not a word", "no other reading has"):
