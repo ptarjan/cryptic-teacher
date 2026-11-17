@@ -100,6 +100,11 @@ check("a titled page found: no unit trust page",
       [h["leaf"] for h in fa.crossword_hits([*cryptic[:17], ut[17], *cryptic[18:]], prior)] == [13])
 check("a titled page found: no dense page",
       [h["leaf"] for h in fa.crossword_hits([*cryptic[:11], dense[11], *cryptic[12:]], prior)] == [13])
+check("no title: the currency leaves are fetched too, marked currency",
+      [(h["leaf"], h.get("currency")) for h in fa.crossword_hits(ut, prior, [5, 21])]
+      == [(5, True), (17, None), (21, None), (27, None)])
+check("currency_leaves: a heading or a garbled title",
+      fa.currency_leaves(["x", "CURRENCIES, MONEY AND CAPITAL MARKETS", "cROSSW ORD", "prize puzzle", "y"]) == [1, 2, 3])
 
 # An item holding one edition alone (the 1930 Times: an item an issue) counts
 # the crossword leaves of the items nearest it by date named like it; a done

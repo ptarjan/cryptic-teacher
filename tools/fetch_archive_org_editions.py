@@ -181,6 +181,23 @@ DENSE_ENUMS = 10
 #: often reads but whose title it loses: an edition with no crossword title
 #: in its text fetches each page so headed too (crossword_hits).
 UNIT_TRUST = re.compile(r"(?i)unit\s+trust\s+information\s+service")
+#: The 1990-94 FT prints its weekday crossword on its currencies page
+#: ("CURRENCIES, MONEY AND CAPITAL MARKETS", under the pound spot table) and
+#: the OCR often keeps that heading but loses the crossword's title and
+#: clues: an edition of these items with no crossword title in its text
+#: fetches each page so headed too (crossword_hits currency).
+FT_CURRENCY_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1990, 1995))
+CURRENCY_PAGE = re.compile(r"(?i)currencies,?\s*money\s+and\s+capital\s+markets|pound\s+spot\s*[-–]?\s*forward")
+#: A crossword title or prize line the OCR garbled ("cROSSW", "prize puzzle"):
+#: detect() wants an ACROSS heading or six counts besides, a market page's
+#: noise gives neither.
+FT_TITLE = re.compile(r"(?i)cross\s?w|c[rao]{1,2}s{1,2}\s?w[oa0]?r?d|prize\s+puz")
+#: The days either side of an FT edition whose titled crosswords vote its
+#: month_leaves, and how many leaves from the front and from the back they pick:
+#: the weekday puzzle moves with the paper's page count (a leave-one-out
+#: check on filed 1990-94 editions: 3 each reaches the filed leaf 80%).
+MONTH_DAYS = 20
+MONTH_PICKS = 3
 RETRY_WAITS = (5, 15, 45, 120)
 ITEM_SECONDS = 300
 #: Least gap between refetches of one item's metadata after a 404 (refresh_metadata).
@@ -344,7 +361,7 @@ def prior_unfetched(d):
         pages = memo(path, read_pages)
     except (OSError, ValueError):
         return False
-    return unfetched(pages, lambda: crossword_leaves(d))
+    return currency_missing(d, pages) or unfetched(pages, lambda: crossword_leaves(d))
 
 
 def unfetched(pages, counts):
@@ -354,6 +371,8 @@ def unfetched(pages, counts):
     hits = pages.get("crossword_pages") or ()
     if any(titled(h) or h.get("pdf") for h in hits):
         return False
+    if pages.get("currency_missing"):
+        return True
     shown = {h["leaf"] for h in hits if not any(h.get(k) for k in GUESSED) and not sister(h)}
     c = counts()
     common = _common_leaves(c, pages["leaves"])
@@ -792,19 +811,41 @@ IA_DONE = "archiveorg-done"
 IA_PAGES = "archiveorg-pages"
 
 
-def page_summary(doc):
+def currency_missing(d, doc):
+    """Whether edition dir `d`, with pages.json `doc`, is of FT_CURRENCY_ITEMS,
+    holds no daily crossword title among its fetched pages and has a leaf
+    currency_picks names (its stored page texts) it has not fetched."""
+    if os.path.basename(os.path.dirname(os.fspath(d))) not in FT_CURRENCY_ITEMS:
+        return False
+    hits = doc.get("crossword_pages") or ()
+    if any(titled(h) or h.get("pdf") for h in hits):
+        return False
+    try:
+        with gzip.open(os.path.join(d, "pagetext.json.gz")) as f:
+            texts = json.load(f)["texts"]
+    except (OSError, ValueError, KeyError, EOFError):
+        return False
+    return bool(set(currency_picks(d, texts)) - {h["leaf"] for h in hits})
+
+
+def page_summary(doc, missing=False):
     """What stale() reads of pages.json `doc`: its leaf count and each
-    crossword page's leaf, headings and marks (no sizes)."""
-    return {"leaves": doc.get("leaves"),
-            "crossword_pages": [{k: v for k, v in h.items() if k not in ("width", "height", "enums")}
-                                for h in doc.get("crossword_pages") or ()]}
+    crossword page's leaf, headings and marks (no sizes), and whether
+    currency_missing."""
+    out = {"leaves": doc.get("leaves"),
+           "crossword_pages": [{k: v for k, v in h.items() if k not in ("width", "height", "enums")}
+                               for h in doc.get("crossword_pages") or ()]}
+    if missing:
+        out["currency_missing"] = True
+    return out
 
 
-def record_pages(d, files, doc):
+def record_pages(d, files, doc, missing=False):
     """Append edition dir `d`'s pages.json `doc` (just written, or read once)
-    to IA_PAGES under its files' hash `files`."""
+    to IA_PAGES under its files' hash `files`; `missing` is currency_missing."""
     media_manifest.record(IA_PAGES, os.path.join(d, "pages.json"), edition=media_manifest.edition_rel(d),
-                          files=files, pages=None if doc is None else page_summary(doc))
+                          files=files, pages=None if doc is None else page_summary(doc, missing),
+                          currency_checked=True)
 
 
 def record_done(out, item, name):
@@ -838,8 +879,10 @@ def _pages_off_disk(out, rel, files):
         doc = json.loads(Path(d, "pages.json").read_bytes())
     except (OSError, ValueError):
         doc = None
-    record_pages(d, files, doc)
-    return {"edition": rel, "files": files, "pages": None if doc is None else page_summary(doc)}
+    missing = doc is not None and currency_missing(d, doc)
+    record_pages(d, files, doc, missing)
+    return {"edition": rel, "files": files, "pages": None if doc is None else page_summary(doc, missing),
+            "currency_checked": True}
 
 
 def load_done_manifest(out):
@@ -867,7 +910,8 @@ def load_done_manifest(out):
     def summary(rel):
         files = eds[rel].get("files")
         row = held.get(rel)
-        if row is None or row.get("files") != files:
+        if row is None or row.get("files") != files \
+                or (rel.startswith(FT_CURRENCY_ITEMS) and not row.get("currency_checked")):
             row = held[rel] = _pages_off_disk(out, rel, files)
         return row.get("pages")
 
@@ -1007,7 +1051,7 @@ def sister(hit):
 
 
 #: The marks of a crossword_hits page fetched with no crossword in its text.
-GUESSED = ("prior", "dense", "ocr_empty", "unit_trust")
+GUESSED = ("prior", "dense", "ocr_empty", "unit_trust", "currency")
 ITEM_DATED = re.compile(r"(.+?)_(\d{4}-\d{2}-\d{2})_[^/]*")
 
 
@@ -1150,9 +1194,47 @@ def _prior_leaves(counts, count):
     return sorted(n for n in leaves if 0 <= n < count)
 
 
-def crossword_hits(pages, prior=()):
+def currency_leaves(texts):
+    """The leaves of `texts` (a text each) headed as the FT's currencies page
+    or holding a garbled crossword title (FT_TITLE)."""
+    return [leaf for leaf, text in enumerate(texts) if CURRENCY_PAGE.search(text) or FT_TITLE.search(text)]
+
+
+def month_leaves(edition_dir, count):
+    """The leaves of an edition of `count` leaves its siblings within
+    MONTH_DAYS days print a titled crossword on most often: the MONTH_PICKS
+    commonest from the front and from the back."""
+    d = Path(edition_dir)
+    day = iso_day(d.name[:10])
+    if not day:
+        return []
+    fronts, backs = collections.Counter(), collections.Counter()
+    for e in memo(d.parent, subdirs):
+        near = iso_day(e[:10])
+        if e == d.name or not near or abs(near - day) > MONTH_DAYS:
+            continue
+        try:
+            pages = memo(d.parent / e / "pages.json", read_pages)
+        except (OSError, ValueError):
+            continue
+        for hit in pages.get("crossword_pages") or ():
+            if titled(hit):
+                fronts[hit["leaf"]] += 1
+                backs[pages["leaves"] - 1 - hit["leaf"]] += 1
+    leaves = {n for n, _ in fronts.most_common(MONTH_PICKS)} | {count - 1 - n for n, _ in backs.most_common(MONTH_PICKS)}
+    return sorted(n for n in leaves if 0 <= n < count)
+
+
+def currency_picks(edition_dir, texts):
+    """The leaves of an FT_CURRENCY_ITEMS edition (its page `texts`) fetched
+    when none holds a crossword title: currency_leaves and its month_leaves."""
+    return sorted(set(currency_leaves(texts)) | set(month_leaves(edition_dir, len(texts))))
+
+
+def crossword_hits(pages, prior=(), currency=()):
     """The pages.json crossword_pages for [(width, height, text)] pages; when
-    none holds a crossword title, the `prior` leaves (prior_leaves) too."""
+    none holds a crossword title, the `prior` leaves (prior_leaves) too, and
+    the `currency` leaves (currency_picks, FT_CURRENCY_ITEMS)."""
     hits = []
     for leaf, (w, h, text) in enumerate(pages):
         score, enums, headings = detect(text)
@@ -1176,6 +1258,10 @@ def crossword_hits(pages, prior=()):
         have |= {h["leaf"] for h in hits}
         hits += [{"leaf": leaf, "unit_trust": True, "width": w, "height": h}
                  for leaf, (w, h, text) in enumerate(pages) if leaf not in have and UNIT_TRUST.search(text)]
+        if currency:
+            have |= {h["leaf"] for h in hits}
+            hits += [{"leaf": leaf, "currency": True, "width": pages[leaf][0], "height": pages[leaf][1]}
+                     for leaf in currency if leaf not in have]
         hits.sort(key=lambda h: h["leaf"])
     return hits
 
@@ -1205,7 +1291,7 @@ def fetch_edition(fx, item, meta, name):
             cached = {"texts": texts, "words": {}}
     if cached is not None:
         texts, words = cached["texts"], cached["words"]
-        hits = crossword_hits([(0, 0, t) for t in texts], prior_leaves(d, len(texts)))
+        hits = crossword_hits([(0, 0, t) for t in texts], prior_leaves(d, len(texts)), currency_picks(d, texts) if item in FT_CURRENCY_ITEMS else ())
         need = {h["leaf"] for h in hits} - {int(k) for k in words}
         try:
             if need or not os.path.exists(xml_path):
@@ -1236,7 +1322,7 @@ def fetch_edition(fx, item, meta, name):
         if aligned != xml:
             write_atomic(xml_path, gzip.compress(aligned, 6))
         pages = page_texts(aligned)
-        hits = crossword_hits(pages, prior_leaves(d, len(pages)))
+        hits = crossword_hits(pages, prior_leaves(d, len(pages)), currency_picks(d, [t for _, _, t in pages]) if item in FT_CURRENCY_ITEMS else ())
     jp2 = {f for f in files if f.endswith("_jp2.zip")}
     zipname = name + "_jp2.zip"
     if hits and zipname not in jp2:
@@ -1487,7 +1573,8 @@ class Run:
                     log(f"stopping: {self.in_a_row} editions in a row failed; archive.org looks down")
             return False
         kinds = {"pdf": "(PDF page with a grid)", "ocr_empty": "(blank OCR)", "prior": "(prior leaf)",
-                 "dense": "(densest with counts)", "unit_trust": "(unit trust page)"}
+                 "dense": "(densest with counts)", "unit_trust": "(unit trust page)",
+                 "currency": "(currencies page)"}
         heads = "; ".join(h for hit in hits for h in (hit.get("headings")
                           or [next((v for k, v in kinds.items() if hit.get(k)), "(no heading)")])[:2])
         with self.lock:
