@@ -1,6 +1,7 @@
 """INDY_TITLED: a Gale Independent sports page scanned with no title is due once (indy_titled_due), and indy_titled
 leaves a page that has a title alone."""
 import sys
+from datetime import datetime, timedelta
 
 import _path  # puts tools/ on sys.path
 
@@ -20,7 +21,7 @@ row = {"edition": "GaleIndependent2012UKEnglish/2012-03-13", "readAt": "2026-11-
                 "wholeUntitled": True}, "verdicts": []}
 check("an untitled read-whole Independent row read before the fix is due", fa.indy_titled_due(row))
 check("fix_reason names it", fa.fix_reason(row) == fa.INDY_TITLED)
-check("a row read after the fix is not due", not fa.indy_titled_due(dict(row, readAt="2026-11-17T00:00:00+00:00")))
+check("a row read after the fix is not due", not fa.indy_titled_due(dict(row, readAt=(datetime.fromisoformat(fa.REREAD_INDY_TITLED) + timedelta(hours=1)).isoformat())))
 check("a row with a verdict is not due", not fa.indy_titled_due(dict(row, verdicts=[{"number": 1}])))
 check("a titled scan is not due", not fa.indy_titled_due(
     dict(row, scan=dict(row["scan"], puzzles=[{"number": 7928, "leaf": 0, "box": [0, 0, 1, 1]}]))))
