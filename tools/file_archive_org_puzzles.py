@@ -5203,6 +5203,8 @@ SOLUTION_WORD = re.compile(r"\bsolution\b", re.IGNORECASE)
 WINNERS_WORD = re.compile(r"c[o0]mpet[il1]t[il1][o0]n", re.IGNORECASE)
 WINNERS_SOLUTION = re.compile(r"^w[il1]nn", re.IGNORECASE)
 WINNERS_BAND = 1100
+#: A word that is just a heading's number (no colon after it): the bare Sunday Telegraph heading's (SUNDAY_TEL_BARE).
+SUNTEL_BARE_NUMBER = re.compile(r"^(?:n[o0]\W{0,3})?[\dTIl]?\d?[,.]?\d{3}(?![\d,:])\W*$", re.IGNORECASE)
 #: A solution heading's band, re-read whole by every reader: from just left of
 #: its "Solution" word (or its grid's left edge) this far right, and this far
 #: over and under the word (over the grid, this far up from its top), in
@@ -5259,6 +5261,11 @@ def solution_bands(img, words, plural=False):
         m = WINNERS_WORD.search(text)
         if m and any(WINNERS_SOLUTION.search(t) and y0 < (b0 + b1) / 2 < y1 and b0 > y0 - pad
                      for _, b0, _, b1, t in words):
+            wide.append((x0 + (x1 - x0) * m.start() // max(len(text), 1), y0 - pad, y1 + pad))
+        elif m and (SUNDAY_TEL_BARE.match(text) or any(
+                SUNTEL_BARE_NUMBER.match(t) and y0 < (b0 + b1) / 2 < y1 and a0 >= x1 - pad
+                for a0, b0, _, b1, t in words)):
+            # SUNTEL_BARE: the bare "COMPETITION No 1546" heading (1990-92): a number, no colon, on the word's line.
             wide.append((x0 + (x1 - x0) * m.start() // max(len(text), 1), y0 - pad, y1 + pad))
     bands = []
     for x, top, foot in starts + wide:
@@ -6467,6 +6474,13 @@ SUNDAY_TEL_WINNERS = re.compile(r"c[o0]mpet[il1]t[il1][o0]n\W{0,3}(?:n[o0]\W{0,3
                                 + r"\W{0,3}w[il1]nn", re.IGNORECASE)
 
 
+#: SUNTEL_BARE: the 1990-92 Gale Sunday Telegraph's solution heading, "COMPETITION No 1546" bare (not the entry notice
+#: "COMPETITION No 1547: Three book tokens", its number a colon past). 11-17: of 153 1990-92 editions 135 had it,
+#: its number one under the page's title (101 of 102 with a title), none a WINNERS heading.
+SUNDAY_TEL_BARE = re.compile(r"^\W*c[o0]mpet[il1]t[il1][o0]n\W{0,3}(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(?!\s*:)",
+                             re.IGNORECASE)
+
+
 def sunday_tel_headings(lines, titles=()):
     """titled_headings() of a Sunday Telegraph page, a title's number joined from the line under or beside it,
     and its "COMPETITION No. N WINNERS & SOLUTION" heading (SUNDAY_TEL_WINNERS) as the solution heading of N."""
@@ -6479,6 +6493,19 @@ def sunday_tel_headings(lines, titles=()):
         m = SUNDAY_TEL_WINNERS.search(" ".join(w[4] for w in ws))
         if m:
             solutions.append((number_digits(m.group(1)), box_of(ws)))
+    # SUNTEL_BARE: 1990-92 print "COMPETITION No 1546" (no WINNERS, a "QUICKIE No.1326" or prose after) over the solution
+    # of the puzzle a week back: the number one under a title read on the page or in `titles`.
+    known = {p[0] for p in puzzles} | set(titles)
+    held = {s[0] for s in solutions}
+    for line in lines:
+        # (a line a heading shares with another column's words: from each word on)
+        for ws in (line[k:] for k in range(len(line))):
+            m = SUNDAY_TEL_BARE.match(" ".join(w[4] for w in ws))
+            if m:
+                n = number_digits(m.group(1))
+                if n + 1 in known and n not in held:
+                    held.add(n)
+                    solutions.append((n, box_of(ws)))
     return puzzles, solutions
 
 
@@ -15402,6 +15429,30 @@ for _paper, _pins in _TELEPRIZE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before sunday_tel_headings read a Gale Sunday Telegraph 1990-92
+#: page's bare "COMPETITION No N" as the solution heading of N (SUNDAY_TEL_BARE) and solution_bands read a band over its
+#: "COMPETITION" word: shared scan code that moves every key, but only galesundaytelegraph's pages read otherwise (its 1990-92
+#: puzzles with no solution linked, SUNTEL_BARE: scanned again), so every scan stands under its paper's new key.
+_SUNTEL_BARE_FIX = {
+    "ft": ("9dc8d8af742f1c84", "f9da6b711564a1dd", "d3e92b6ce0f973e4"),
+    "gale": ("3786951f9cabab6b", "86b00bce5a962d6e", "a53e30c9be8c1058"),
+    "galeft": ("a26fecb13e7c406d", "162f2ebf28ea37c2", "2a41778f9a8eec16"),
+    "galeindependent": ("3aa49ecd0db4fd6d", "975d9f15980f081b", "45a7cb927fd95e81"),
+    "galeindysunday": ("a89169c2b43b6ec0", "6539507d4ca34c48", "7e5c69a6bd640244"),
+    "galesundaytelegraph": ("3d893ad2e2ce0514", "d6957124f5cc120e", "9467aef25ecc6306"),
+    "galesundaytimes": ("05b378a7b65ccf0f", "8f1fad79302b9e99", "fe6c08669195d94f"),
+    "galetelegraph": ("39a04dff98e74a66", "b4eb03d91ab5cd96", "87a44e1fb9227d03"),
+    "galetls": ("8960f6611722b494", "0994aa001c014346", "618b48f0a83a85a0"),
+    "guardian": ("9eed0c479f813327", "58b7bf3a0eda39c0", "678756038657be0e"),
+    "telegraph": ("374cb2f60b191242", "ac6155f03ee15ea1", "463b5fe907c9199d"),
+    "times": ("b8440f0416fc4946", "a60d70ec29c622cf", "9eed52025f211b01"),
+    "times1930": ("f1c7fe4f2b3a0cdf", "7b5f3a8fb78d68c8", "37f7fd9f5f36cc33"),
+}
+for _paper, _pins in _SUNTEL_BARE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -15442,7 +15493,7 @@ def prize_rescan(paper, key, rel):
                         _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2],
                         _TELEGRAPH_SATURDAY_FIX["gale"][2], _TELEPRIZE_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2],
                         _WINNERS_NUMBER_FIX["gale"][2], _WINNERS_1996_FIX["gale"][2],
-                        _SUNDAY_WEEKLY_FIX["gale"][2], _FT_SMALL_FIX["gale"][2])
+                        _SUNDAY_WEEKLY_FIX["gale"][2], _FT_SMALL_FIX["gale"][2], _SUNTEL_BARE_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -15491,7 +15542,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not tele_grid_due(r) and not telegraph_dated_rescan(r) and not telegraph_host(r) \
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not tele_grid_due(r) and not telegraph_dated_rescan(r) and not suntel_bare_due(r) and not telegraph_host(r) \
                     and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ios_title_rescan(r):
                 moved[k] = new
         if moved:
@@ -15653,7 +15704,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   "dd2900deb95703b6": "432a5818529a9b11",
                   # Paper.headings passes the day to gale_telegraph_headings, which titles a winners-line Monday and a numberless
                   # Saturday caption page (TELEPRIZE): a scan's title only, no solution grid's reading moves.
-                  "3fbc9c981a082029": "432a5818529a9b11"}
+                  "3fbc9c981a082029": "432a5818529a9b11",
+                  # sunday_tel_headings and solution_bands read a bare "COMPETITION No N" (SUNTEL_BARE): a scan's heading only.
+                  "5f40266aabea8b7c": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -15809,7 +15862,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # gale_telegraph_headings puts the Quick's ACROSS aside on a page of two (TELEPAIR): a scan's title only.
                 "a2da49dc97244122": "9b3500cb5488df7c",
                 # Paper.headings passes the day to gale_telegraph_headings (TELEPRIZE): a scan's title only, the same read.
-                "a95b818ef88791cb": "9b3500cb5488df7c"}
+                "a95b818ef88791cb": "9b3500cb5488df7c",
+                # sunday_tel_headings and solution_bands read a bare "COMPETITION No N" (SUNTEL_BARE): a scan's heading only.
+                "bb6f32f8717a7d1e": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
@@ -18004,6 +18059,23 @@ def suntel_by_due(row):
     return paper_of(Path(rel)).key == GALE_SUNDAY_TELEGRAPH.key and bool(re.match(r"GaleSundayTelegraph199[0-4]", rel)) \
         and "inputs" in row and not (row.get("scan") or {}).get("puzzles") \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNTEL_BY))
+
+
+#: The due reason of a Gale Sunday Telegraph 1990-92 page whose puzzle was read but no solution linked (11-17 census r146:
+#: of 153 pages, none of 125 with a puzzle had a solution, none a "WINNERS & SOLUTION" heading): the solution of the puzzle
+#: a week back sits under a bare "COMPETITION No 1546" heading (SUNDAY_TEL_BARE), no WINNERS after the number. The page
+#: is scanned again (sunday_tel_headings, solution_bands now read a band there); its row's scan key moved (_SUNTEL_BARE_FIX).
+SUNTEL_BARE = "Gale Sunday Telegraph 1990-92 puzzle with no solution linked, its bare 'COMPETITION No N' heading read since"
+REREAD_SUNTEL_BARE = "2026-11-17T06:34:00+00:00"
+
+
+def suntel_bare_due(row):
+    """Whether Gale Sunday Telegraph ledger `row` (1990-92), read before REREAD_SUNTEL_BARE, found a puzzle and no solution."""
+    rel = (row or {}).get("edition") or ""
+    scan = (row or {}).get("scan") or {}
+    return bool(re.match(r"GaleSundayTelegraph199[0-2]", rel)) and paper_of(Path(rel)).key == GALE_SUNDAY_TELEGRAPH.key \
+        and "inputs" in row and bool(scan.get("puzzles")) and not scan.get("solutions") \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNTEL_BARE))
 
 
 #: The due reason of a Gale Telegraph 1985-89 page read with no puzzle ("puzzles: [], wholeUntitled", no verdict) whose
@@ -24547,6 +24619,8 @@ def fix_reason(row):
         return SUNTEL_BY
     if teleprize_due(row):
         return TELEPRIZE
+    if suntel_bare_due(row):
+        return SUNTEL_BARE
     if telepair_due(row):
         return TELEPAIR
     if tele_grid_due(row):
@@ -25377,6 +25451,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   IOS_ENTRY_LINES,
                   # 11-16: a Gale Sunday Telegraph 1990-94 page with no title found, its misread "Puzzle No N by setter" line read (suntel_by_due).
                   SUNTEL_BY,
+                  # 11-17: a Gale Sunday Telegraph 1990-92 puzzle with no solution linked, its bare "COMPETITION No N" heading read (suntel_bare_due).
+                  SUNTEL_BARE,
                   # 11-17: a Gale Telegraph 1985-89 page with no title found, its cryptic's ACROSS told from the Quick's (telepair_due).
                   TELEPAIR,
                   # 11-17: a Gale Telegraph 1990-94 page with no title found, titled by its winners line or its date (teleprize_due).
@@ -25467,6 +25543,8 @@ def blanket_or_fix(row, blanket):
             return TELE_GRID
         if telegraph_dated_rescan(row):
             return TELEGRAPH_DATED
+        if suntel_bare_due(row):
+            return SUNTEL_BARE
         # 11-09: 358 Gale Sunday Telegraph rows due SUNDAY_SIDES (and the Telegraph Saturdays SIDES_READ) were planned
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if weekday_right_due(row):
@@ -25550,6 +25628,7 @@ def blanket_or_fix(row, blanket):
             else SUNTEL_RIGHT if suntel_right_due(row) \
             else IOS_ENTRY_LINES if ios_entry_lines_due(row) \
             else SUNTEL_BY if suntel_by_due(row) \
+            else SUNTEL_BARE if suntel_bare_due(row) \
             else NUMBERLESS_LAID if numberless_due(row) \
             else QUARTER_DOWN if quarter_down_due(row) \
             else QUARTER_HEADLESS if quarter_headless_due(row) \
@@ -25782,7 +25861,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -25820,7 +25899,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not telegraph_dated_rescan(row) and not telegraph_host(row) \
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not telegraph_dated_rescan(row) and not suntel_bare_due(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ios_title_rescan(row)
 
 

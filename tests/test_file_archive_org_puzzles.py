@@ -467,7 +467,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._SUNDAY_WEEKLY_FIX[gt.key][:2],
                                                                       *f._FT_SMALL_FIX[gt.key][:2],
                                                                       *f._TELEPAIR_FIX[gt.key][:2],
-                                                                      *f._TELEPRIZE_FIX[gt.key][:2]},
+                                                                      *f._TELEPRIZE_FIX[gt.key][:2],
+                                                                      *f._SUNTEL_BARE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3580,6 +3581,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._SUNTEL_BARE_FIX:
+        return f._SUNTEL_BARE_FIX[paper][2]
     if paper in f._TELEPRIZE_FIX:
         return f._TELEPRIZE_FIX[paper][2]
     if paper in f._TELEPAIR_FIX:
@@ -3768,6 +3771,22 @@ check("a Sunday Telegraph 1991-94 title line 'Puzzle No.1736 by Nuala Considine'
        [bool(f.suntel_by_due(_stb_r)), bool(f.suntel_by_due({**_stb_r, "scan": {"puzzles": [{"number": 1736}]}})),
         bool(f.suntel_by_due({**_stb_r, "edition": "GaleSundayTelegraph1995UKEnglish/1995-09-17"})),
         bool(f.suntel_by_due({**_stb_r, "readAt": "2026-11-17T00:00:00+00:00"})), f.SUNTEL_BY in f.RANKS]])
+_sbl = lambda rows, titles=(): [s[0] for s in f.sunday_tel_headings([[(0, 100 * k, 900, 100 * k + 30, t)] for k, t in enumerate(rows)], titles)[1]]
+_sbl_r = {"edition": "GaleSundayTelegraph1991UKEnglish/1991-01-27", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "scan": {"puzzles": [{"number": 1547}], "solutions": []}}
+check("a Sunday Telegraph 1990-92 page's bare 'COMPETITION No 1546' (or 'COMPETITIONNO1516', a Quickie number after) is the solution "
+      "heading of the puzzle a week back (a title one over), not the entry notice 'COMPETITION No 1547: Three book tokens' nor a "
+      "number with no title beside it; a 1990-92 page with a puzzle and no solution read before the fix is due SUNTEL_BARE, one "
+      "with a solution, a 1993 page and one read since are not",
+      [[1546], [1516], [1604], [], [], [True, False, False, False, True]],
+      [_sbl(["Prize Puzzle No.1547 by Colin Parsons", "COMPETITION No 1546"]),
+       _sbl(["PRIZE PUZZLE No 1517", "COMPETITIONNO1516"]),
+       _sbl(["Prize Puzzle No.1605 by Colin Parsons", "COMPETITION No.1604 QUICKIE No.1326"]),
+       _sbl(["Prize Puzzle No.1547 by Colin Parsons", "COMPETITION No 1547: Three book tokens"]),
+       _sbl(["COMPETITION No 1546"]),
+       [bool(f.suntel_bare_due(_sbl_r)), bool(f.suntel_bare_due({**_sbl_r, "scan": {"puzzles": [{"number": 1547}], "solutions": [{"number": 1546}]}})),
+        bool(f.suntel_bare_due({**_sbl_r, "edition": "GaleSundayTelegraph1993UKEnglish/1993-01-24"})),
+        bool(f.suntel_bare_due({**_sbl_r, "readAt": "2026-11-17T07:00:00+00:00"})), f.SUNTEL_BARE in f.RANKS]])
 _ct = __import__("clue_text")
 _ocr = __import__("ocr_clues")
 _tr = {"edition": "GaleTelegraph1997UKEnglish/1997-11-08", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
