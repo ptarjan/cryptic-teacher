@@ -78,7 +78,23 @@ check("an unconfirmed page stays until a neighbour agrees", True, gm.read_done(u
 check("it is due once a neighbour has its offset", False, gm.read_done(unconf, {"p": unconf, "b": near_rows[1]}))
 stale = {"file": "p", "date": "1975-03-09", "version": gm.VERSION, "refused": gm.UNNUMBERED}
 check("a number refusal before NUMBER_FIX is due", False, gm.read_done(stale))
-check("a number refusal at NUMBER_FIX stands", True, gm.read_done({**stale, "numberFix": gm.NUMBER_FIX}))
+check("a number refusal at NUMBER_FIX inside an offset run is due for RUN_FIX", False,
+      gm.read_done({**stale, "numberFix": gm.NUMBER_FIX}))
+check("a number refusal at NUMBER_FIX and RUN_FIX stands", True,
+      gm.read_done({**stale, "numberFix": gm.NUMBER_FIX, "runFix": gm.RUN_FIX}))
+check("outside any run it stands at NUMBER_FIX", True,
+      gm.read_done({**stale, "date": "1979-03-09", "numberFix": gm.NUMBER_FIX}))
+# offset runs: a page inside one takes the week count plus the run's offset when its printed numbers sit at it or just below
+w = gm.week(D(1975, 3, 9))
+check("a run holds its dates", -121, gm.run_offset(D(1975, 3, 9)))
+check("the weeks the offset fell in have no run", None, gm.run_offset(D(1976, 6, 6)))
+check("a page with nothing printed takes the run's number", w - 121, gm.run_number(D(1975, 3, 9), "no number here"))
+check("last week's number alone sits one below: taken", w - 121, gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 122}"))
+check("a printed number far off the run refuses", None, gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 130}"))
+check("a number above the run's refuses", None, gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 120}"))
+check("a one-page run needs its own number printed", None, gm.run_number(D(1978, 2, 26), "nothing"))
+check("number_of takes the run's number before 1995", (w - 121, "offset run"),
+      gm.number_of((None, D(1975, 3, 9)), "Mephisto Crossword No %d" % (w - 121), None))
 part = {"file": "x.pdf", "number": 2055, "whole": False, "blank": ["1-down", "2-down"], "version": gm.VERSION}
 check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_done(part))
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX}))

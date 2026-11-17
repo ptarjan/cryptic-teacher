@@ -185,6 +185,48 @@ def offset_bounds(day, titled=None):
     return lo - NEAR, hi + NEAR
 
 
+#: Bumped when only the offset runs change: pages refused for want of a number inside a run are read again.
+RUN_FIX = 1
+#: (first date, last date, offset) of the stretches of Sundays 1965-94 whose Mephisto number less the week count is
+#: one value throughout. Each run is the first and last of the pages whose own text prints two numbers a week or two
+#: apart (own and last week's, or the answers' two back; the higher one is the page's own) and agree on the offset,
+#: with the offset falling only (a skipped week at a time): 1965-07, 1985-12 and 1989-01 are also titles of Gale's own
+#: list, which agree. A single-date run is one page's own pair. Between runs (the weeks the offset fell in) no page
+#: has a number but its own pair. Built from the printed text of the 1,429 refused pages 1965-94 (census r96).
+OFFSET_RUNS = (
+    ("1965-07-04", "1965-09-26", -110), ("1966-10-09", "1966-12-18", -111), ("1967-01-29", "1969-03-30", -112),
+    ("1969-06-08", "1970-12-13", -115), ("1971-01-10", "1971-11-14", -116), ("1972-01-09", "1973-11-25", -117),
+    ("1974-02-17", "1974-02-17", -120), ("1974-03-31", "1976-01-25", -121), ("1978-02-26", "1978-02-26", -128),
+    ("1980-03-23", "1980-03-23", -180), ("1981-05-17", "1981-06-28", -181), ("1981-08-16", "1982-10-17", -182),
+    ("1983-02-06", "1983-10-02", -183), ("1983-12-18", "1983-12-18", -185), ("1984-01-15", "1988-12-18", -187),
+    ("1989-01-01", "1994-12-11", -188),
+)
+#: The offsets a page's printed numbers may differ from its own by: last week's, and the answers' two back.
+RUN_NEAR = (0, -1, -2)
+RUN_RANGE = (-200, -100)
+
+
+def run_offset(day):
+    """The offset (number less the week count) of OFFSET_RUNS holding `day`, else None."""
+    iso = day.isoformat()
+    return next((o for a, b, o in OFFSET_RUNS if a <= iso <= b), None)
+
+
+def run_number(day, text):
+    """The number a Mephisto of `day` has inside an offset run, when the page's printed numbers (any inside
+    RUN_RANGE) all sit at the run's offset or the one or two below it, and a single-date run's page prints its own."""
+    o = run_offset(day)
+    if o is None:
+        return None
+    seen = {n - week(day) for n in printed_numbers(text)}
+    seen = {s for s in seen if RUN_RANGE[0] <= s <= RUN_RANGE[1]}
+    if any(s - o not in RUN_NEAR for s in seen):
+        return None
+    if any(a == b == day.isoformat() for a, b, _ in OFFSET_RUNS) and o not in seen:
+        return None
+    return week(day) + o
+
+
 _MEPH = r"m\w{2,5}s[tfl][oe]"
 #: What a page before 1995 prints of its own number, as the OCR misreads the title ("Mophisto Crosaword No 826",
 #: "SOLUTION TO MEPHISTO 1121" over last week's answers, "solutions to Mophiste 1122" over this week's entry form).
@@ -263,7 +305,8 @@ def number_of(cited, text, doc=None, near=()):
         got = printed_offset(day, text, None, near)
         if got and got[1]:
             return week(day) + got[0], "page printed"
-        return None, None
+        n = run_number(day, text)
+        return (n, "offset run") if n else (None, None)
     if checked(cited[0], day):
         return cited[0], "citation"
     for m in TITLE_NUMBER.finditer(text or ""):
@@ -318,6 +361,16 @@ UNCONFIRMED = "Mephisto number unconfirmed: the one number printed on the page a
 STALE_UNNUMBERED = "no Mephisto number in the citation or the page text"
 
 
+def now_titled(row):
+    """Whether the Gale list's titles (docs_number) give the page of ledger row `row` a number now."""
+    m = DOC_ID.search(str(row.get("file") or "").upper())
+    dates, titled = docs_index()
+    when = dates.get(m.group(0)) if m else None
+    if not when or when >= COUNT_FROM:
+        return False
+    return docs_number(when, next((n for d, n in titled if d == when), None), titled) is not None
+
+
 def read_done(row, done=None):
     """Whether a ledger row is a verdict of this VERSION: a crashed attempt is not, so the page stays due. A page
     refused for want of a number before the Gale list's titles set it (STALE_UNNUMBERED) is read again once, and
@@ -328,6 +381,13 @@ def read_done(row, done=None):
         return False
     if row and row.get("refused") == UNNUMBERED and row.get("numberFix", 0) < NUMBER_FIX:
         return False
+    if row and str(row.get("refused") or "").startswith("no Mephisto number"):
+        if now_titled(row):
+            # Refused before the Gale list (docs.json, which grows) titled the page or its neighbours: it does now.
+            return False
+        if row.get("runFix", 0) < RUN_FIX and row.get("date") and run_offset(datetime.date.fromisoformat(row["date"])) is not None:
+            # Refused before the offset runs (OFFSET_RUNS) numbered the pages inside them: read again once.
+            return False
     if row and row.get("refused") == UNCONFIRMED and done is not None and row.get("seen") is not None \
             and row.get("date") and row["seen"] in near_offsets(datetime.date.fromisoformat(row["date"]),
                                                                  done.values(), row.get("file")):
@@ -1293,7 +1353,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
-                "tailFix": TAIL_FIX}, store)
+                "tailFix": TAIL_FIX, "runFix": RUN_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
