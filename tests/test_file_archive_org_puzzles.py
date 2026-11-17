@@ -466,7 +466,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._WINNERS_1996_FIX[gt.key][:2],
                                                                       *f._SUNDAY_WEEKLY_FIX[gt.key][:2],
                                                                       *f._FT_SMALL_FIX[gt.key][:2],
-                                                                      *f._TELEPAIR_FIX[gt.key][:2]},
+                                                                      *f._TELEPAIR_FIX[gt.key][:2],
+                                                                      *f._TELEPRIZE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3579,6 +3580,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._TELEPRIZE_FIX:
+        return f._TELEPRIZE_FIX[paper][2]
     if paper in f._TELEPAIR_FIX:
         return f._TELEPAIR_FIX[paper][2]
     if paper in f._SUNTEL_BY_FIX:
@@ -5387,6 +5390,40 @@ check("a Gale Telegraph 1985-89 page read before the rescan with no puzzle found
        f.telepair_due({**_tp, "verdicts": [{"number": 1}]}),
        f.telepair_due({**_tp, "readAt": "2026-11-17T07:00:00+00:00"}),
        f.telepair_due({**_tp, "edition": "GaleTelegraph1990UKEnglish/1990-01-06"})])
+# 1990-08-20 (Gale, Monday, puzzle 20087): "WINNERS OF PRIZE Crossword No 20,080", its one ACROSS above; 1990-08-25 (Saturday,
+# 20092): "Today's Prize Crossword" with the cryptic's ACROSS over it and the Quick's far under.
+_pw = [(1439, 2791, 1881, 2828, "WINNERS"), (1439, 2791, 1500, 2828, "OF"), (1500, 2791, 1600, 2828, "PRIZE"),
+       (1600, 2791, 1700, 2828, "Crossword"), (1700, 2791, 1750, 2828, "No"), (1750, 2791, 1881, 2828, "20,080")]
+_pwa = [(316, 2576, 432, 2609, "ACROSS")]
+_pwq = [(779, 4300, 892, 4333, "ACROSS")]
+_pwd = datetime.date(1990, 8, 20)
+_pc = [(958, 3476, 1100, 3518, "Today's"), (1100, 3476, 1180, 3518, "Prize"), (1180, 3476, 1239, 3518, "Crossword")]
+_pca = [(303, 2594, 419, 2627, "ACROSS")]
+_pcq = [(768, 4317, 882, 4356, "ACROSS")]
+check("a Gale Telegraph Monday with no title is the winners line's number + 7 (its ACROSS's box; the date's number "
+      "within 12 of it, else none); a Saturday's numberless caption takes the dated number (the ACROSS over it, not the "
+      "Quick's under it), only with the day; Paper.headings passes the day on",
+      [[20087], [(316, 2576, 432, 2609)], [20087], [], [20092], [(303, 2594, 419, 2627)], [], [20092], [], []],
+      [[n for n, _, _ in f.gale_telegraph_headings([_pw, _pwa], day=_pwd)[0]],
+       [tuple(b) for _, b, _ in f.gale_telegraph_headings([_pw, _pwa], day=_pwd)[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pw, _pwa])[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pw, _pwa], day=datetime.date(1990, 10, 20))[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]],
+       [tuple(b) for _, b, _ in f.gale_telegraph_headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pc, _pca, _pcq])[0]],
+       [n for n, _, _ in f.GALE_TELEGRAPH.headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pc, _pca, _pcq, [(300, 2900, 420, 2930, "ACROSS")]],
+                                                    day=datetime.date(1990, 8, 25))[0]],
+       [n for n, _, _ in f.TELEGRAPH.headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]]])
+_tz = {**_tp, "edition": "GaleTelegraph1990UKEnglish/1990-08-20"}
+check("a Gale Telegraph 1990-94 page read before the rescan with no puzzle found and no verdict is due TELEPRIZE, rank 1; "
+      "one with a puzzle, a verdict, a later read, a 1989 page stands",
+      [True, f.TELEPRIZE, 1, False, False, False, False],
+      [f.teleprize_due(_tz), f.fix_reason(_tz), f.RANKS[f.TELEPRIZE],
+       f.teleprize_due({**_tz, "scan": {"puzzles": [{"number": 20087}], "wholeUntitled": True}}),
+       f.teleprize_due({**_tz, "verdicts": [{"number": 1}]}),
+       f.teleprize_due({**_tz, "readAt": "2026-11-18T07:00:00+00:00"}),
+       f.teleprize_due({**_tz, "edition": "GaleTelegraph1989UKEnglish/1989-12-30"})])
 _fri = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-30", "readAt": "2026-11-13T16:00:00+00:00"}
 _sat90 = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-31", "scanKey": "3a96114ccf041759"}
 check("a Gale Telegraph Friday puzzle of 1980-2000 with no solution read is due TELEGRAPH_SATURDAY (ranked, kept), not a "
