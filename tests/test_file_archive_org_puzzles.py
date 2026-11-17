@@ -4474,6 +4474,17 @@ check("an out-of-order numberless clue takes the one free light of its length on
       (["1-across", "7-across", "8-across", "9-across"], ["1-across", "4-across", "7-across", "8-across", "9-across"]),
       (_got(set()), _got(set(), fits_alone=True)))
 
+# NUMBERLESS_EARLY: fits_alone serves the Gale Times pages of 1930-39; the 1930-34 rows read before its fix are due.
+_gt = lambda y, n: f.numberless_fit_on(f.paper_of(Path(f"GaleTimes{y}UKEnglish/{y}-{n}")), Path(f"GaleTimes{y}UKEnglish/{y}-{n}"))
+_row = lambda rel, at: {"edition": rel, "readAt": at, "verdicts": [{"id": "times-1", "number": 1, "unfiled": 3,
+                                                                    "blank": {"3-across": "no reading laid a clue on it"}}]}
+check("fits_alone's years run 1930-39 and the early reason is due for a 1930-34 Times row read before it, not 1935-39",
+      (True, True, False, True, False, False),
+      (_gt(1930, "12-15"), _gt(1939, "01-05"), _gt(1929, "01-05"),
+       f.numberless_early_due(_row("GaleTimes1932UKEnglish/1932-03-17", "2026-11-17T02:00:00+00:00")),
+       f.numberless_early_due(_row("GaleTimes1936UKEnglish/1936-03-17", "2026-11-17T02:00:00+00:00")),
+       f.numberless_early_due(_row("GaleTimes1932UKEnglish/1932-03-17", "2026-11-17T23:00:00+00:00"))))
+
 # Real readings whose list headings the OCR lost. The lists are put back
 # where the clue numbers start rising again (file_trove_puzzles.heads).
 # The Times, 1974-05-14, archive.org's reading: no ACROSS, and DOWN read
