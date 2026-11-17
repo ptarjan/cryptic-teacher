@@ -394,15 +394,42 @@ def find_daily(pool, number, filed, quick_ids, log=print):
     return None
 
 
-def quick_id_on(date, window=7):
+_QUICKS = None
+
+
+def quick_ids_by_date():
+    """{date: id} of the cached Quicks, read once (the cache is on a slow disk)."""
+    global _QUICKS
+    if _QUICKS is None:
+        _QUICKS = {d: i for d, i, _ in cached(QUICK)}
+    return _QUICKS
+
+
+def interpolated_id(date, quicks):
+    """A seed id for `date` by straight-line interpolation (clamped to the
+    nearest known id past either end) between the cached Quicks either side."""
+    before = max((d for d in quicks if d <= date), default=None)
+    after = min((d for d in quicks if d >= date), default=None)
+    if before is None or after is None:
+        return quicks[before or after]
+    if before == after:
+        return quicks[before]
+    frac = (date - before).days / (after - before).days
+    return round(quicks[before] + frac * (quicks[after] - quicks[before]))
+
+
+def quick_id_on(date, window=7, interpolate=False):
     """The id of the Quick cached for `date`, else of the nearest cached date
-    within `window` days (ids drift slowly), as (id, date) or None."""
+    within `window` days (ids drift slowly), as (id, date) or None. With
+    `interpolate`, a date with none near gets a seed interpolated from the
+    cached Quicks either side, returned as (id, None)."""
+    quicks = quick_ids_by_date()
     for k in sorted(range(-window, window + 1), key=abs):
         d = date + datetime.timedelta(days=k)
-        for p in CACHE.glob(f"{d:%Y%m%d}-*.json"):
-            data = json.loads(p.read_text(encoding="utf-8"))
-            if data["copy"].get("crosswordtype") == QUICK:
-                return int(p.stem.split("-")[1]), d
+        if d in quicks:
+            return quicks[d], d
+    if interpolate and quicks:
+        return interpolated_id(date, quicks), None
     return None
 
 
@@ -497,6 +524,9 @@ def main(argv=None):
     ap.add_argument("--daily-narrow", nargs=2, type=datetime.date.fromisoformat,
                     metavar=("FROM", "TO"), help="cache the Dailies the feed has for these "
                     "dates, probing only the window around each date's Quick id")
+    ap.add_argument("--daily-unseeded", nargs=2, type=datetime.date.fromisoformat,
+                    metavar=("FROM", "TO"), help="like --daily-narrow, but only for dates with "
+                    "no cached Quick within a week, seeded by interpolating between Quicks")
     ap.add_argument("--daily-series", action="store_true", help="--file files the Dailies")
     ap.add_argument("--file", action="store_true", help="file the cached Quicks not on disk")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
@@ -521,6 +551,18 @@ def main(argv=None):
         with concurrent.futures.ThreadPoolExecutor(NARROW_THREADS) as pool:
             narrow_daily(pool, days, have, log=lambda s: print(s, flush=True),
                          skip=set(filed_dailies().values()))
+    if a.daily_unseeded:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        lo, hi = a.daily_unseeded
+        filed = filed_dailies()
+        have = {number_of(data) for _, _, data in cached(DAILY)} | set(filed)
+        days = [lo + datetime.timedelta(days=k) for k in range((hi - lo).days + 1)]
+        days = [d for d in days if d not in set(filed.values()) and not quick_id_on(d)]
+        print(f"{len(days)} dates have no Quick near", flush=True)
+        with concurrent.futures.ThreadPoolExecutor(NARROW_THREADS) as pool:
+            narrow_daily(pool, days, have, log=lambda s: print(s, flush=True),
+                         quick_of=lambda d: quick_id_on(d, interpolate=True),
+                         skip=set(filed.values()))
     if a.daily or a.daily_missing:
         CACHE.mkdir(parents=True, exist_ok=True)
         filed = filed_dailies()
