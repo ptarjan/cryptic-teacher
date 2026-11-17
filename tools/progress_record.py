@@ -209,7 +209,37 @@ def backlog():
     # a host that never held its editions has no gale-editions manifest.
     if not media_manifest.built(media_manifest.GALE_EDITIONS):
         return None
+    import downloads
+    if not (downloads.ROOT / ".on-media-disk").exists():
+        print("media disk not mounted: downloaded/queued not counted", file=sys.stderr)
+        return None
     return edition_backlog.counts()[0]
+
+
+#: A series whose downloaded falls below this share of its last recorded count
+#: is a partial count (2026-11-15: every scanned paper fell 25-90% for a day).
+MAX_DROP = 0.9
+
+
+def guard_queue(queue, days, today):
+    """queue ({series: [downloaded, queued]}) without the series whose downloaded
+    fell sharply against the latest earlier row that has one: a partial count
+    (disk half-synced, manifest mid-build) is recorded as null, never charted
+    as a drop. Each refusal is logged."""
+    if not queue:
+        return queue
+    prev = [d for d in days if d < today and any(c[progress.QUEUED] is not None
+                                                 for c in days[d].values())]
+    last = days[max(prev)] if prev else {}
+    out = {}
+    for s, c in queue.items():
+        was = last.get(s, [None] * len(progress.PHASES))[progress.DOWNLOADED]
+        if was and c[0] is not None and c[0] < was * MAX_DROP:
+            print(f"::warning::{s}: downloaded {c[0]} is under {MAX_DROP:.0%} of {was}: "
+                  "partial count, not recorded", file=sys.stderr)
+            continue
+        out[s] = c
+    return out
 
 
 def fetching(rows, papers=None):
@@ -261,7 +291,8 @@ def record(today=None):
         ledger, queue = held_counts(today, days)
     else:
         ledger, queue = ledger_on(today), backlog()
-    days[today] = progress.day_row(files, ledger, queue)
+    queue = guard_queue(queue, days, today)
+    days[today] =progress.day_row(files, ledger, queue)
     progress.save(days)
     return days[today]
 
@@ -277,8 +308,8 @@ def write_counts(today):
     if ledger is None:
         print(f"no coverage ledger for {today} yet")
         return 75
-    queue = backlog() or {}
-    led = ledger.get("series", {})
+    queue = guard_queue(backlog() or {}, progress.load(), today)
+    led =ledger.get("series", {})
     series = {s: [led[s]["exist"] if s in led else None, led[s]["filed"] if s in led else None,
                   *queue.get(s, [None, None])] for s in sorted(led.keys() | queue.keys())}
     COUNTS.write_text(json.dumps({"at": today, "series": series}, sort_keys=True, separators=(",", ":")) + "\n")
