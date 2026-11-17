@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 11
+VERSION = 12  # v12 WIDE_KEPT_TALL: gale_tls_read.layout_pick keeps the tall layout block when the side-by-side set reads worse
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n(?:[o0]|umber)\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)

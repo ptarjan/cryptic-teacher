@@ -863,9 +863,19 @@ def layout_pick(img, words, grid, lengths, gl):
     no clue on some light of the tall one (1592's; 1341's tall one reads whole and stays)."""
     block = layout_block(img, words, grid)
     if block and block[0].height > LAYOUT_MAX_HEIGHT:
-        _, laid = lending(gl.times_read, [block], lengths)
+        tall, laid = lending(gl.times_read, [block], lengths)
         if laid is None or set(lengths) - set(laid):
-            return layout_block(img, words, grid, wide=True) or block
+            wide = layout_block(img, words, grid, wide=True)
+            if not wide:
+                return block
+            if laid is None or not tall.get("agreed"):
+                return wide
+            # WIDE_KEPT_TALL: the side-by-side set is kept only where it reads no worse than the tall one (1997-11-08:
+            # the tall one agreed on 73 of 76 lights, the set read 0 and the page was filed on 24 clues).
+            again, laid2 = lending(gl.times_read, [wide], lengths)
+            if laid2 is not None and (len(set(lengths) - set(laid2)), -again.get("agreed", 0)) \
+                    <= (len(set(lengths) - set(laid)), -tall.get("agreed", 0)):
+                return wide
     return block
 
 
