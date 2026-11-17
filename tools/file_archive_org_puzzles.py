@@ -7878,6 +7878,16 @@ def sunday_count_off(n, day, held):
     ten numbers off both counts; it filed, and refused 3186 and 3190 as out of date order. Over every filed
     Sunday Times neighbour pair only the misread breaks this."""
     before, after = neighbours(day, held)
+    # Neighbours either side that run unbroken (one number a week between them) fix the number outright: the
+    # +-2 slack below is for a run with a skipped number in it. 1985-11-17's caption number, read by one reader,
+    # was 3104 between 3101 (10-13) and 3110 (12-15), two low yet inside both slacks; the run fixes it 3106.
+    if before and after and (day - before[0]).days % 7 == 0 and (after[0] - day).days % 7 == 0:
+        total = (after[0] - before[0]).days // 7
+        if after[1] - before[1] == total:
+            fixed = before[1] + (day - before[0]).days // 7
+            if n != fixed:
+                return (f"No {n} on {day} breaks the weekly run No {before[1]} on {before[0]} to No {after[1]} on "
+                        f"{after[0]}, which makes it No {fixed}: a misread title, the Sunday Times numbering one a week")
     for other in (before, after):
         if not other:
             continue
