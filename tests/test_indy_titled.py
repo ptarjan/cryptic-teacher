@@ -31,6 +31,12 @@ check("a Times row is not due", not fa.indy_titled_due(dict(row, edition="GaleTi
 check("INDY_TITLED ranked", fa.INDY_TITLED in fa.RANKS)
 found = {"date": "2012-03-13", "puzzles": [{"number": 7928, "leaf": 0, "box": [0, 0, 1, 1]}], "solutions": []}
 check("a titled scan is left alone", fa.indy_titled(fa.Path("/nonexistent"), found) is found)
+day = fa.datetime.date(2004, 4, 12)
+check("a 2004 'No. 5455 Monday 12 April' line is read", fa.indy_day_number("No. 5455 Monday 12 April", day, 5459) == 5455)
+check("the glued line is read", fa.indy_day_number("5455Monday12April", day, 5459) == 5455)
+check("another day's date is refused", fa.indy_day_number("No. 5455 Monday 19 April", day, 5459) is None)
+check("another weekday is refused", fa.indy_day_number("No. 5455 Tuesday 12 April", day, 5459) is None)
+check("a number far from the date's is refused", fa.indy_day_number("No. 9455 Monday 12 April", day, 5459) is None)
 
 if fails:
     print("test_indy_titled: failed")

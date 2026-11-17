@@ -4803,6 +4803,27 @@ def indy_dated_number(text, day, want):
     return n if abs(n - want) <= GALE_INDEPENDENT.slack else None
 
 
+#: The 2004-05 Independent's number line under "THE MONDAY CROSSWORD": "No. 5455 Monday 12 April" (the readers drop the
+#: "No." or run it all together: "5455Monday12April"), also "No 7294, 2 March".
+_INDY_DAY_NUMBER = re.compile(r"(?<!\d)(\d{4})\s*,?\s*(?:(mon|tues|wednes|thurs|fri|satur|sun)day\W{0,3}\s*)?"
+                              r"(\d{1,2})\s*([A-Za-z]{3,9})\b", re.IGNORECASE)
+
+
+def indy_day_number(text, day, want):
+    """The puzzle number of the "No. 5455 Monday 12 April" line `text` where the date it prints (its day of the month, its
+    month and, if given, its weekday) is `day`'s and the number is within the paper's slack of `want`; None otherwise.
+    The date that agrees is the second witness."""
+    for m in _INDY_DAY_NUMBER.finditer(text):
+        if m[4].lower() != _INDY_MONTHS[day.month - 1] or int(m[3]) != day.day:
+            continue
+        if m[2] and ("mon", "tues", "wednes", "thurs", "fri", "satur", "sun")[day.weekday()] != m[2].lower():
+            continue
+        n = int(m[1])
+        if abs(n - want) <= GALE_INDEPENDENT.slack:
+            return n
+    return None
+
+
 def indy_titled(d, found):
     """Scan `found` of edition directory `d` with its title read from the cached strip reads (not the whole-page
     ones; none made) where it is a Gale Independent (daily) page scan() found no title on: the page is a sports page
@@ -4838,14 +4859,17 @@ def indy_titled(d, found):
                     boxes.setdefault(n, tuple(box))
         votes = {n: v for n, v in votes.items() if len(v) >= 2}
         if not votes:  # the whole-page reads' heading line, its number glued to the printed date, the date its own
-            for path in sorted((CROPS / "titles").glob(f"{key}_page.*.json")):
+            for path in sorted((CROPS / "titles").glob(f"{key}_*.json")):
                 try:
                     words = json.loads(path.read_text())["words"]
                 except (OSError, ValueError, KeyError, TypeError):
                     continue
                 words = [(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5]
                 for line in printed_lines(words):
-                    n = indy_dated_number(" ".join(str(w[4]) for w in line), day, want)
+                    text = " ".join(str(w[4]) for w in line)
+                    n = indy_dated_number(text, day, want) if "_page." in path.name else None
+                    if n is None:
+                        n = indy_day_number(text, day, want)
                     if n is not None:
                         votes.setdefault(n, set()).add(path.name.split(".")[1])
                         boxes.setdefault(n, (min(w[0] for w in line), min(w[1] for w in line),
@@ -18623,7 +18647,11 @@ INDY_TITLED = "Gale Independent page with no title, its crossword heading read f
 #: r167 11-17: indy_titled was defined but never called by scan_anywhere, so the 11-16 reread titled nothing (37 rows
 #: left NP0, 30 with two strip readers on the heading, 7 with only the whole-page reads, "#795311 April 2012" with the
 #: day glued to the number, which indy_dated_number reads); now wired, due once more.
-REREAD_INDY_TITLED = "2026-11-17T14:25:00+00:00"  # the push minute: a row read after it is not due again
+#: r178 11-17: the 14:25Z cutoff was spent by the queue's own batch (111 Gale Independent rows read 14:3x-14:42Z, the
+#: live worktree's code not yet carrying the scan_anywhere call: 93 stayed wholeUntitled with no puzzle, 54 of 2010-14
+#: and 39 of 2000-04). Their cached strip reads title 2010-14's numbered "Cryptic Crossword #7618 By Anax" lines
+#: (indy_titled run offline on 2011-03-17 and -07-13: 7618, 7719, three readers each); due once more, the cutoff moved.
+REREAD_INDY_TITLED = "2026-11-17T17:26:00+00:00"  # the push minute: a row read after it is not due again
 
 
 def indy_titled_due(row):
