@@ -99,16 +99,19 @@ FIELDS = "id,date,slug,link,title,content,categories"
 
 
 def get(url, tries=4):
-    """A dropped connection, or a 200 whose body is not JSON (an empty or
-    half-sent answer the site gives now and then), is retried with backoff;
-    an HTTP error answer is not."""
+    """A dropped connection, a 200 whose body is not JSON (an empty or
+    half-sent answer the site gives now and then), or a busy server's 429 or
+    5xx (a 503 failed a whole scheduled run, 2026-11-17) is retried with
+    backoff; any other HTTP error answer is not."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     for attempt in range(tries):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 return json.load(r), r.headers
-        except urllib.error.HTTPError:
-            raise
+        except urllib.error.HTTPError as e:
+            if (e.code != 429 and e.code < 500) or attempt == tries - 1:
+                raise
+            time.sleep(30 * 2 ** attempt)
         except (urllib.error.URLError, TimeoutError, ConnectionError,
                 json.JSONDecodeError):
             if attempt == tries - 1:
