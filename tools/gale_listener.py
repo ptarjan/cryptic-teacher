@@ -1025,6 +1025,9 @@ def lend_heads(words):
 
 #: Set by a caller whose lists are one clue a line under numbers its readers lose now and then (gale_tls_read).
 LEND_NUMBERS = False
+#: Set by a caller whose lists print their clue numbers bare (gale_mephisto_read, 1995-99): a function putting a
+#: reading's words in the form the column finders open on. Applied to the page's and every reading's words.
+WORD_FIX = None
 
 
 SYMBOL_NUMBER = re.compile(r"[§$&%#@!?]")
@@ -1915,6 +1918,8 @@ def read_page(img, key, lengths=None):
     page's grid, when the caller has read it (al.vote)."""
     verdict = {}
     located = figures(page_words(img, key))
+    if WORD_FIX:
+        located = WORD_FIX(located)
     if pages := elsewhere(located):
         verdict["seePages"] = pages
     if not any(heading(w[4]) for w in located) and not column_lefts(located):
@@ -1944,6 +1949,8 @@ def read_page(img, key, lengths=None):
     for which in [] if dotted else rapid * 2:
         words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]],
                                             [located] + [words[o] for o in rapid if o != which]))
+    if WORD_FIX:
+        words = {k: WORD_FIX(w) for k, w in words.items()}
     words = lend_heads(words)
     words = {k: hanging_numbers(w) for k, w in words.items()}
     if LEND_NUMBERS:

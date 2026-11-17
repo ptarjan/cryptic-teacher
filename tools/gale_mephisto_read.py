@@ -46,7 +46,10 @@ GRID_FIX = 1
 NUMBER_FIX = 1
 #: Bumped when only the lists' foot changes: the pages read with their first Down clues blank are read again.
 TAIL_FIX = 1
-PREFIX = "mephisto:"
+#: Bumped when only the lists' bare numbers and missing headings change (bare_mended): the pages refused "no clue
+#: list on the page" are read again (not every page).
+BARE_FIX = 1
+PREFIX ="mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
 SOLUTION_TO = re.compile(r"solution\s+to\s+mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -420,6 +423,10 @@ def read_done(row, done=None):
         return False
     if row and str(row.get("refused") or "").startswith("grid unread") and row.get("gridFix", 0) < GRID_FIX:
         # Refused before the comb search (comb_lattices) found grids printed with dotted thin rules: read again once.
+        return False
+    if row and str(row.get("refused") or "").startswith("no clue list") and row.get("bareFix", 0) < BARE_FIX:
+        # Refused before the lists' bare clue numbers (1995-99 print "5 Cry echoed", no stop) and unread headings
+        # were put in the form the Listener's readers open on (bare_mended).
         return False
     if row and not row.get("whole") and "1-down" in (row.get("blank") or ()) and row.get("tailFix", 0) < TAIL_FIX:
         # Read before the Down clues at the left column's foot, under no heading the OCR read, were found (headless_tail).
@@ -997,6 +1004,43 @@ def beside_cut(words, box):
 NUMBER_WORD = re.compile(r"^\d{1,2}[.,]?$")
 
 
+#: A clue number printed bare (1995-99 print "5 Cry echoed", no stop after it).
+BARE_NUMBER = re.compile(r"^\d{1,2}$")
+#: Bare numbers standing within this of each other's left edge, at least BARE_RUN of them, are a clue column's.
+BARE_STEP, BARE_RUN = 12, 4
+
+
+def bare_stops(words):
+    """`words` put in the form the Listener's readers open on when no clue column is found in them
+    (gale_listener.column_lefts needs a stop after a number): the bare numbers lined up at a column's left edge
+    (BARE_RUN or more) are given their stop, and an Across heading is put over the leftmost column's first number
+    when none is read (the 1995-99 lists print no heading over the left column, or the OCR reads it as a word):
+    "no clue list on the page". `words` itself (the same list) when its columns are found already or no bare column
+    stands in it. This is gale_listener.WORD_FIX while a Mephisto is read; nothing is written to the OCR cache
+    (down_headed's rewrite apart)."""
+    import statistics
+    import gale_listener as gl
+    if gl.column_lefts(words):
+        return words
+    nums = [w for w in words if BARE_NUMBER.match(w[4])]
+    aligned = [w for w in nums if sum(abs(o[0] - w[0]) <= BARE_STEP for o in nums) >= BARE_RUN]
+    if len(aligned) < 2 * BARE_RUN:
+        return words
+    mark = {id(w) for w in aligned}
+    out = [(*w[:4], w[4] + ".") if id(w) in mark else w for w in words]
+    if not any(gl.heading(w[4]) == "ACROSS" for w in gl.headings(words)):
+        left = min(w[0] for w in aligned)
+        col = [w for w in aligned if w[0] - left <= BARE_STEP]
+        first = min(col, key=lambda w: w[1])
+        h = max(10, int(statistics.median(w[3] - w[1] for w in aligned)))
+        head = (int(left), max(0, int(first[1]) - h - 4), int(left) + 4 * h, max(1, int(first[1]) - 4), "Across")
+        # The heading's own letters read as a word ("cross") lie under it: they go, as lend_heads drops them.
+        out = [w for w in out if not (head[0] - 10 <= (w[0] + w[2]) / 2 <= head[2] + 10
+                                      and head[1] - 4 <= (w[1] + w[3]) / 2 <= head[3] + 4)]
+        out.append(head)
+    return out
+
+
 def down_headed(block, gl):
     """`block` (image, key) of the clue lists with its page words given a "Down" heading word when the Across
     heading is read and no Down one is (the right-hand column is printed under no heading: the lists then read as
@@ -1004,7 +1048,7 @@ def down_headed(block, gl):
     words of the block are rewritten (the other readers take the heading from them, gale_listener.lend_heads)."""
     import statistics
     img, key = block
-    words = gl.page_words(img, key)
+    words = bare_stops(gl.page_words(img, key))
     heads = gl.headings(words)
     across = next((w for w in sorted(heads, key=lambda w: w[1]) if gl.heading(w[4]) == "ACROSS"), None)
     if across is None or any(gl.heading(w[4]) == "DOWN" for w in heads):
@@ -1113,7 +1157,7 @@ def lists_block(img, key, words, cut, gl):
     if not block:
         return None
     bimg, bkey = block
-    bwords = gl.page_words(bimg, bkey)
+    bwords = bare_stops(gl.page_words(bimg, bkey))
     across = next((w for w in gl.headings(bwords) if gl.heading(w[4]) == "ACROSS"), None)
     if across is None:
         return block
@@ -1143,7 +1187,7 @@ def lists_block(img, key, words, cut, gl):
         canvas.paste(lead_img, (max(0, lead[0] - cut[0][0]), shift + bimg.height + 4))
     stitched = canvas, gl.image_key(canvas)
     # No Down heading was read over the strip: the stitched block is given one, over the strip's first line.
-    return down_headed(stitched, gl) if headless else stitched
+    return down_headed(stitched, gl)
 
 
 def lead_strip(words, cut, strip, gl):
@@ -1274,6 +1318,17 @@ def listed(img, key, words, found, gl):
 
 
 def read_page(path, store=STORE, asker=None):
+    """(verdict, puzzle or None) of one saved page (page_read), the Listener's readers given bare_stops for the
+    pages' bare clue numbers while it is read."""
+    import gale_listener as gl
+    was, gl.WORD_FIX = gl.WORD_FIX, bare_stops
+    try:
+        return page_read(path, store, asker)
+    finally:
+        gl.WORD_FIX = was
+
+
+def page_read(path, store=STORE, asker=None):
     """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (gale_jumbo_read.vlm_mended)."""
     import numpy as np
     import gale_listener as gl
@@ -1405,7 +1460,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
-                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "bridgeFix": BRIDGE_FIX,"columnFix": COLUMN_FIX}, store)
+                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
+                "bareFix": BARE_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
