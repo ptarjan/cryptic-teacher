@@ -1058,8 +1058,12 @@ def committed_copy(puzzle):
         return None
 
 
-def write_puzzle_file(path, puzzle, generator=None):
+def write_puzzle_file(path, puzzle, generator=None, dry_run=False):
     """Write `puzzle` and its shim; return the path written.
+
+    dry_run runs every check and refusal exactly as a write would, then returns
+    the path without writing a file, shim, index entry, ledger line or book
+    twin: a caller's count of what would file is the real run's count.
 
     Inside the corpus the caller's path names the puzzle, not the place: the
     file goes where puzzle_paths.file_for() puts it, and any copy of the same
@@ -1110,7 +1114,12 @@ def write_puzzle_file(path, puzzle, generator=None):
     elif old is not None and old.get("awaitsPreamble") is True:
         puzzle["awaitsPreamble"] = True
     if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
-        puzzle = corroborate.corroborate(puzzle)
+        if dry_run:
+            import tempfile
+            with tempfile.TemporaryDirectory() as scratch:
+                puzzle = corroborate.corroborate(puzzle, ledger=Path(scratch) / "ledger.json")
+        else:
+            puzzle = corroborate.corroborate(puzzle)
     # Whatever changed a clue's text (the writer's re-read, an erratum, the
     # corroborated reading above), an annotation written for the old words
     # does not reach disk on the new ones.
@@ -1180,8 +1189,10 @@ def write_puzzle_file(path, puzzle, generator=None):
     # filer wrote it, and every corpus write enters the index, so a second
     # copy filed by the same run is refused too.
     # An unsolved, unannotated book file of its clues gives way (unsolved_book_yields): retired once this is written.
-    yielded = check_not_copy(puzzle) if corpus and held is None else []
+    yielded = check_not_copy(puzzle, record=not dry_run) if corpus and held is None else []
     dest = puzzle_paths.file_for(puzzle) if corpus else path
+    if dry_run:
+        return dest
     dest.parent.mkdir(parents=True, exist_ok=True)
     # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
     # the corpus while its writer is still filing, and a kill mid-write must
@@ -4097,7 +4108,7 @@ def retire_yielded_book(book, path, new_id):
     renamed_ids.write({**(renamed_ids.read(m) if m.exists() else {}), book: new_id}, m)
 
 
-def check_not_copy(puzzle):
+def check_not_copy(puzzle, record=True):
     """Refuse a page whose clues are another held puzzle's, of any series or
     number. /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with
     Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either
@@ -4118,7 +4129,7 @@ def check_not_copy(puzzle):
         if (path := unsolved_book_yields(puzzle, other)) is not None:
             yields.append((other, path))
             continue
-        if is_book(other) and not is_book(puzzle["id"]):
+        if record and is_book(other) and not is_book(puzzle["id"]):
             import book_twins
             book_twins.add(other, puzzle["id"], root=puzzle_paths.PUZZLE_DIR.parent)
         why = f"{shared} of {m} clues are {other}'s"

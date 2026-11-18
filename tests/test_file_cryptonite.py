@@ -59,7 +59,18 @@ def test_recase():
     assert fc.recase("odd. it's 'mad' (3)", caps) == "Odd. It's 'mad' (3)"
 
 
+def test_mend_clue():
+    f = "\ufffd"
+    assert fc.mend_clue(f"It{f}s not one of the novices that{f}s not running") == "It's not one of the novices that's not running"
+    assert fc.mend_clue(f"Brief toss of a coin {f} call!") == "Brief toss of a coin \u2014 call!"
+    assert fc.mend_clue(f"{f}metal in the form of a salver{f} does fool you") == '"metal in the form of a salver" does fool you'
+    assert fc.mend_clue(f"Distress call made on workers{f} holiday") == "Distress call made on workers' holiday"
+    assert fc.mend_clue(f"a steak flamb{f}?") == f"a steak flamb{f}?"   # an accent is not guessed
+    assert fc.mend_clue("Supply drug (crack}") == "Supply drug (crack)"
+
+
 if __name__ == "__main__":
+    test_mend_clue()
     test_place()
     test_number_for()
     test_recase()

@@ -316,10 +316,52 @@ def recase(text, caps):
 
 # ----------------------------------------------------------------- filing
 
+def mend_clue(text):
+    """The clue with the characters the dataset lost put back, or unchanged.
+
+    Cryptonite's Telegraph and Sunday Telegraph clues of 2005-2009 were read
+    as UTF-8 from Windows-1252 text, so each curly quote, apostrophe and dash
+    arrived as U+FFFD. The bytes are gone but the character is not in doubt:
+    a gap between letters is an apostrophe ("it?s"), a lone one between spaces
+    is a dash, a gap opening a word opens a quote and one closing it closes
+    it (written straight; the writer curls nothing), and an s with nothing open before it is a plural possessive
+    ("workers? holiday"). Any gap left that these do not settle stays, so the
+    writer's own U+FFFD check still refuses the clue (an accented letter, as
+    in "flamb?", is not guessed). A brace closing a parenthesis ("(crack}") is
+    a typo for the bracket."""
+    if "\ufffd" in text:
+        text = re.sub(r"(?<=\S) \ufffd (?=\S)|^\ufffd | \ufffd$", lambda m: m.group().replace("\ufffd", "\u2014"), text)
+        text = re.sub(r"(?<=[A-Za-z])\ufffd(?=[a-z])", "'", text)
+        out, opened = [], False
+        for i, ch in enumerate(text):
+            if ch != "\ufffd":
+                out.append(ch)
+                continue
+            before = text[i - 1] if i else " "
+            after = text[i + 1] if i + 1 < len(text) else " "
+            if not before.isalnum() and after.isalnum():
+                out.append('"')
+                opened = True
+            elif before.isalnum() or before in "?!.,;":
+                if opened:
+                    out.append('"')
+                    opened = False
+                elif before == "s":
+                    out.append("'")
+                else:
+                    out.append(ch)
+            else:
+                out.append(ch)
+        text = "".join(out)
+    if "}" in text and text.count("(") > text.count(")"):
+        text = text.replace("}", ")", 1)
+    return text
+
+
 def puzzle_of(series, number, day, rs, grid, caps):
     entries = entries_of(rs)
     for e in entries:
-        e["clue"] = recase(e["clue"], caps)
+        e["clue"] = recase(mend_clue(e["clue"]), caps)
     rec = {"post_id": f"cryptonite-{series}-{day}", "series": series, "link": URL,
            "date": day.isoformat(), "entries": entries}
     row = {"grid": list(grid), "number": number, "how": "unique"}
@@ -396,11 +438,13 @@ def run(data_dir, write=True, pilot=None, workers=None, report=None):
         for (series, day, number, rs), (grid, why) in zip(cands, placed):
             if why is None:
                 puzzle, why = puzzle_of(series, number, day, rs, grid, caps)
-            if why is None and write:
+            if why is None:
                 try:
-                    write_puzzle_file(puzzle_path(series, number), puzzle, generator=TOOL)
+                    write_puzzle_file(puzzle_path(series, number), puzzle, generator=TOOL,
+                                      dry_run=not write)
                 except ValueError as e:
-                    why = "write refused: " + str(e).split(":")[0][:60]
+                    why = "write refused: " + str(e)
+                    print(f"refused {series}-{number} {day}: {e}", flush=True)
             if why:
                 skipped[(series, day.year, why)] += 1
                 continue
