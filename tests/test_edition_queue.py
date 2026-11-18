@@ -548,6 +548,8 @@ check("not after the fix, nor for another paper, nor with a blank that names no 
 f.run_on_tail_read = lambda key, word: False
 # ---- a Times page written unfiled whose blank lights a replay of the current reader lays, no other reason due
 # (fa.LAID_PUZZLES: r12's 12 Gale pages, e.g. 1944-12-13's 4,613), is due once as LAID_BLANKS.
+_bf_was = f.block_forties_due  # a newer reread (BLOCK_FORTIES) claims 1940s Gale pages first; these rows test the older reasons
+f.block_forties_due = lambda row: False
 _lb_was = f.LAID_PUZZLES
 f.LAID_PUZZLES = frozenset((9999995,))
 _lb = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
@@ -569,6 +571,7 @@ check("not after REREAD_LAID_BLANKS, nor complete, refused, another number or an
        f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "number": 9999994, "id": "times-9999994"}]}),
        f.laid_blanks_due({**_lbrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 f.LAID_PUZZLES = _lb_was
+f.block_forties_due = _bf_was
 check("nor with no reading printing them after a count", False, f.run_on_tail_lost(_rtrow))
 f.run_on_tail_read = _rt_read
 # ---- a Times page written unfiled while a reading of its clue window ends a line on a count whose 1 was read as i
@@ -1091,6 +1094,7 @@ check("not read since, nor a light unanswered, nor another blank, nor another pa
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
        "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("22-down", "23-down", "25-down", "27-down")}}
+f.block_forties_due = lambda row: False  # as above
 _strow = {"edition": "GaleTimes1942UKEnglish/1942-06-20", "verdicts": [_st], "readAt": "2026-10-26T03:06:10+00:00"}
 check("a 1940-44 page blanked for its down tail is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
       [f.STRIP_TAIL, 2, True, True, True, None],
@@ -1102,6 +1106,7 @@ check("not after the fix, nor an across clue unlaid, nor 1945-49 (read so since 
        f.strip_tailed({**_strow, "verdicts": [{**_st, "blank": {**_st["blank"], "1-across": "no reading laid a clue on it"}}]}),
        f.strip_tailed({**_strow, "edition": "GaleTimes1946UKEnglish/1946-06-20"}),
        f.strip_tailed({**_strow, "edition": "NewsUK1942UKEnglish/1942-06-20_1"})])
+f.block_forties_due = _bf_was
 # ---- a Times page written unfiled whose clue window caught the line-end letters of the column to its left ("e 11
 # Office worker", "S" alone; times-23760) is due once (fa.EDGE_LETTERS), ordered with never-read pages, never canary-held.
 _el = {"id": "times-9999989", "number": 9999989, "complete": False, "wrote": True, "unfiled": 2, "clues": 30,
