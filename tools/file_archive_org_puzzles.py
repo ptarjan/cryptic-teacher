@@ -2187,11 +2187,47 @@ MARKED_OPEN = re.compile(r"[a-z]{2,}(?:\s+\S)?$")
 MARKED_OPEN_STRAY = re.compile(r"[a-z]{2,}\s+\S$")
 
 
+#: BARRED_GLUED (r222): the next column's clue number set right after the last word of the clue before it, with the rule's bar
+#: or a comma or colon between and no space ("surprising|23 Famous peak dis-", "Isle|26 \"The", "occupants,17 Domestic celebra-",
+#: "shaped:27 Gassed."): MARKED_NEXT wants a space before its mark and NEXT_CLUE one before the number, so split_across left the
+#: Gale Times 1930-35 row whole and the clue was laid by no reading. The number must rise on the row's earlier ones and the rest
+#: of the row end whole (a count, a broken word, a lower-case word, or one word and its stop).
+BARRED_GLUED = re.compile(r"(?<=[A-Za-z,.:;?!)])(?:\|(?=\d{1,2}\.?\s?[A-Z\"'‘“(])|[,:;]\s?(?=(?:\d{1,2})\s[A-Z\"'‘“][a-z]))")
+BARRED_WHOLE = re.compile(r"\s?(\d{1,2})\.?\s?[A-Z\"'‘“(].*")
+BARRED_WORD = re.compile(r"[A-Za-z'\-]{3,}[.!?]$")
+
+
+def barred_starts(text, taken=()):
+    """{a clue number's place in `text`: its mark's (the number's own, behind a comma or colon)} for each BARRED_GLUED start
+    not in `taken`, whose number rises on the row's earlier ones and whose rest ends whole."""
+    out = {}
+    for m in BARRED_GLUED.finditer(text):
+        got = BARRED_WHOLE.match(text, m.end())
+        if not got:
+            continue
+        s = got.start(1)
+        rest = text[s:]
+        if s in taken or s in out or not (MARKED_CLOSE.search(rest) or MARKED_OPEN.search(rest) or BARRED_WORD.search(rest.split(None, 1)[-1])):
+            continue
+        earlier = [int(n) for n in re.findall(r"(?<![\d(])(\d{1,2})(?=\s?[A-Z\"'])", text[:m.start()])]
+        if earlier and int(got.group(1)) <= max(earlier):
+            continue
+        out[s] = m.start() if text[m.start()] == "|" else s
+    return out
+
+
 def marked_starts(text):
     """{a clue number's place in `text`: its mark's} for each MARKED_NEXT start NEXT_CLUE does not read
     (a bar it reads as a number's 1, "|5 Clue", stays its), the rest of the line closed by a count (or a broken word;
-    or, behind a "!", "[" or "(" mark, a rising number and a lower-case word: MARKED_RISING)."""
+    or, behind a "!", "[" or "(" mark, a rising number and a lower-case word: MARKED_RISING), and each barred_starts
+    number glued to the word before it (BARRED_GLUED)."""
     plain = {m.start() for m in NEXT_CLUE.finditer(text)}
+    out = _marked_starts(text, plain)
+    out.update(barred_starts(text, {*plain, *out}))
+    return out
+
+
+def _marked_starts(text, plain):
     out = {m.start() + 1: m.start() for m in MARKED_NEXT.finditer(text)
            if m.start() not in plain and MARKED_CLOSE.search(text, m.end())}
     for m in MARKED_RISING.finditer(text):
@@ -19618,6 +19654,41 @@ def down_half_due(row):
     return False
 
 
+#: BARRED_NUMBER (r222): Gale Times 1930-49 pages (374 rows "no reading laid a clue on it", r209 census) whose lost clue's number
+#: stands glued to the clue before it across a column gutter, behind the rule's bar or a comma ("surprising|23 Famous peak dis-",
+#: "occupants,17 Domestic celebra-"): split_across left the row whole, so no column's window held it. barred_starts cuts it.
+#: Due only where the lead reading's held words hold such a start. Read once.
+BARRED_NUMBER = "Gale Times 1930-49 page unfiled for a clue number glued to the word before it, its gutter row cut there since"
+REREAD_BARRED_NUMBER = "2026-11-18T19:09:00+00:00"  # the push time: a row read after it is not due again
+
+
+def barred_number_due(row):
+    """Whether Gale Times ledger `row` of 1930-49, read before REREAD_BARRED_NUMBER, holds a verdict not filed (nothing wrote)
+    with a light blank "no reading laid a clue on it" whose number a held word of its lead reading holds as a barred_starts one."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(rel).key != "gale" or not "1930" <= Path(rel).name[:4] <= "1949" or "Times" not in rel.split("/")[0] \
+            or "Financial" in rel or "Sunday" in rel \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_BARRED_NUMBER)):
+        return False
+    series = paper_of(rel).series
+    for v in row.get("verdicts") or ():
+        blank = v.get("blank") or {}
+        if v.get("skip") or v.get("number") is None or v.get("wrote") or not any("no reading laid a clue" in str(w) for w in blank.values()) \
+                or filed_state(series, v.get("number")) is not None:
+            continue
+        try:
+            held = json.loads((CROPS / "rapid" / f"{Path(rel).name}_{v['number']}.{reader_key('ch')}.json").read_text())
+        except (OSError, ValueError):
+            continue
+        lost = {k.split("-")[0] for k, w in blank.items() if "no reading laid a clue" in str(w)}
+        for o in [held, *held.get("more", ())]:
+            for w in o.get("words") or ():
+                text = str(w[4])
+                if any(re.match(r"\d{1,2}", text[s:]) and re.match(r"\d{1,2}", text[s:]).group() in lost for s in barred_starts(text)):
+                    return True
+    return False
+
+
 def indy_right_due(row):
     """Whether Gale Independent (daily) ledger `row`, read before REREAD_INDEPENDENT_RIGHT, holds a puzzle refused
     "not-a-grid" for the ink under its title, or "no-reading-parses" with a reading that found no ACROSS and DOWN
@@ -25909,6 +25980,8 @@ def fix_reason(row):
         return IOS_LEAD
     if down_half_due(row):
         return DOWN_HALF
+    if barred_number_due(row):
+        return BARRED_NUMBER
     if indy_titled_due(row):
         return INDY_TITLED
     if ft_lead_whole_due(row):
@@ -26789,6 +26862,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   IOS_LEAD,
                   # 11-18: a Gale Times 1936-49 page unfiled for a clue two readings print whole (down_half_due).
                   DOWN_HALF,
+                  # 11-18: a Gale Times 1930-49 page unfiled for a clue whose number stood glued to the word before it (barred_number_due).
+                  BARRED_NUMBER,
                   # 11-16: a Gale FT 1990s page refused no reading parses, its lead column cut inside (ft_lead_whole_due).
                   FT_LEAD_WHOLE,
                   # 11-16: a Gale FT page refused no reading parses with no text read, its columns right of a left-edge grid (ft_side_right_due).
@@ -27003,6 +27078,7 @@ def blanket_or_fix(row, blanket):
             else IOS_ACROSS if ios_across_due(row) \
             else IOS_LEAD if ios_lead_due(row) \
             else DOWN_HALF if down_half_due(row) \
+            else BARRED_NUMBER if barred_number_due(row) \
             else INDY_TITLED if indy_titled_due(row) \
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
@@ -27245,7 +27321,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,

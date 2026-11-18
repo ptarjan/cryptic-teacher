@@ -10159,6 +10159,16 @@ if _cf_parsed and [c["text"] for c in _cf_parsed["across"]] == ["A small measure
 else:
     print("FAIL a count printed right after its clue number is read as the clue's (COUNT_FIRST)")
     out += "\nFAILS 1"
+if f.marked_starts("surprising|23 Famous peak dis-") == {11: 10} \
+        and f.marked_starts("1Their occupants,17 Domestic celebra-") == {17: 17} \
+        and f.marked_starts("21A litle book might|25 Turnover.") == {21: 20} \
+        and f.marked_starts("costs 3,17 Smith and sons") == {} \
+        and f.marked_starts("1 Poet hidden in a 5,12 Tales (4).") == {} \
+        and f.BARRED_NUMBER in f.RANKS:
+    print("ok   a clue number glued to the word before it behind a bar or comma is cut there (BARRED_NUMBER)")
+else:
+    print("FAIL a clue number glued to the word before it behind a bar or comma is cut there (BARRED_NUMBER)")
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
