@@ -183,7 +183,9 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX}))
+_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX}
+check("a 1960s no-clue-list refusal before LATTICE_FIX is due", False, gm.read_done(_stamped))
+check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX}))
 check("a later no-clue-list refusal is not due", True, gm.read_done({**bare, "date": "1998-01-04"}))
 check("another refusal is not re-read", True, gm.read_done({**refused, "refused": "no Mephisto clue lists found on the page"}))
 # the comb search finds a grid drawn with dotted thin rules and thick bars
