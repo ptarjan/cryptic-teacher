@@ -84,9 +84,22 @@ The 2015-2016 Times gap is mostly weekday runs of five (26095-26099,
     than Sundays, and the dataset does not show which Sundays went unprinted,
     so every number is ambiguous. One more held anchor inside the hole would
     unlock it.
-  - Sunday Times 2001-06: the dataset's answers miss our held puzzles on most
-    dates (they agree from late 2006 on), so paper-years under 90% agreement
-    are not filed.
+  - Sunday Times 2001-06: this once read "the dataset's answers miss our held
+    puzzles on most dates". That was wrong. The rule compared the dataset's
+    answer set with ours on each held date, and most of those held puzzles
+    carried no answers (the Gale scans gave clues only), so the overlap was
+    near zero whatever the dataset held. Cross-checked clue by clue
+    (tools/check_cryptonite.py), the dataset's clue text matches ours at
+    overlap 1.0 on nearly every date; where we do hold answers they agree,
+    except 14 puzzles of 2001-09 to 2002-10 that carry the answers of the
+    puzzle 21 days earlier (the paper prints a solution three weeks after its
+    puzzle, and the page's solution block was joined to the page's puzzle).
+    tools/repair_cryptonite.py fills the missing answers and replaces those
+    (ledger: docs/cryptonite_repairs.json). With the repaired corpus the
+    "disagree" skip fell from 71 dates to 14 (2001: 5, 2002: 9; those years
+    still sit under 90% agreement), and a dry run of file_cryptonite now
+    would file 39 Sunday Times puzzles of 2003-06 (2003: 7, 2004: 17, 2005:
+    13, 2006: 2) that it skipped before; 2001-02 remain unfiled.
   - Saturday Times and some 2008+ Telegraph dates carry two cryptics (Jumbo
     or Toughie) that share numbers, so they cannot be split.
 - **Filed (11-17 full run): 2,013 puzzles.** Telegraph 1,598 (2001: 19, 2002:
