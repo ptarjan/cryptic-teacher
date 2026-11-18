@@ -570,7 +570,8 @@ n_bare, ex_bare, amb_bare, miss_bare, unc_bare, bud_bare = tally(out2, "NUMBERLE
 # Updated 53 -> 54 after CI run 43618384233: one more series/size bucket arrived in puzzles/.
 # Updated 54 -> 55 after CI run 43683853301: one more series/size bucket arrived in puzzles/.
 # Updated 55 -> 56 after CI run 43725675980: the nationmag series arrived in puzzles/.
-same("every series and size was drawn from", field("GROUPS", out2), "56")
+# Updated 56 -> 57 after CI run 44307824156: one more series/size bucket arrived in puzzles/.
+same("every series and size was drawn from", field("GROUPS", out2), "57")
 same("every attempt lands in exactly one of the five buckets",
      ex_num + amb_num + miss_num + unc_num + bud_num, n_num)
 # Everything below is stated against the attempts that finished AND whose

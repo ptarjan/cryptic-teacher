@@ -267,7 +267,7 @@ def fetch_raw_json(puzzle_id):
 
 # ---------- mapping onto our puzzle shape ----------
 
-TITLE_RE = re.compile(r"No\.?\s*([\d,]+)\s*$")
+TITLE_RE = re.compile(r"(?:No\.?\s*)?([\d,]+)\s*$")
 ENUM_TAIL_RE = re.compile(r"\([\d,\-.\s]+\)\s*$")
 # The Globe's own Saturday puzzle, billed in the payload's `help` field as
 # "Every Saturday, only at The Globe and Mail". Compared exactly rather than
