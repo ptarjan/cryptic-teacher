@@ -18957,7 +18957,11 @@ def tele_over_due(row):
     """Whether Gale Telegraph ledger `row` (1985-89), read before REREAD_TELE_OVER, holds a puzzle refused "not a grid" for
     "the ink under the title" (or read with a blank-free refusal of its grid): a read of its title over its clue columns."""
     rel = (row or {}).get("edition") or ""
-    if not re.match(r"GaleTelegraph198[5-9]", rel) or "inputs" not in row \
+    # (1990-2000 too, r214: 39 rows read 11-04..17 refused "the ink under the title is WxH, not a grid" on a title box ~780
+    # wide, the cryptic's own: the code since reads the grid under it (dry: 1990-02-21, 1992-11-11, 1995-02-15, 1999-04-30
+    # and 1999-09-22 give a 28-30 light grid), so they are read again with no change to the title reading, whose
+    # TELE_OVER_YEARS stays 1985-89 (a swap to the heading over the clue columns on 1999-09-22 lost the grid))
+    if not re.match(r"GaleTelegraph(198[5-9]|199\d|2000)", rel) or "inputs" not in row \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_TELE_OVER)):
         return False
     return any(v.get("cause") == "not-a-grid" and str(v.get("refused") or "").startswith("the ink under the title is ")
