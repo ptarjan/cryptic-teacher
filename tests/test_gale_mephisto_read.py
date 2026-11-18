@@ -110,6 +110,14 @@ check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_don
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
 check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
 check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
+many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}
+check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
+check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
+check("a 2000s page with 4+ blanks is not due for MID_FIX", True, gm.read_done({**many, "date": "2003-10-05"}))
+box = (180, 1729, 1044, 2630)
+ws = [(1057, 1650 + 28 * k, 1090, 1670 + 28 * k, str(20 + k)) for k in range(6)] + [(200, 2700, 260, 2720, "1")]
+check("the right column's split is its numbers' left edge", 1049, gm.column_split(ws, box, 1068, 1700, 2600, 24))
+check("numbers right of the half way line leave it", 1068, gm.column_split([(1090, 1700 + 28 * k, 1100, 1720, "5") for k in range(6)], box, 1068, 1700, 2600, 24))
 
 # --- the grid: 13 broken horizontal rules and thick bars on a 12x12 lattice of pitch 40
 pitch, x0, y0 = 40, 30, 20

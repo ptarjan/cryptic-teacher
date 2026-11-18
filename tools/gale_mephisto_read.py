@@ -473,6 +473,11 @@ def read_done(row, done=None):
             and row.get("version") == VERSION and not row.get("refused"):
         # Read with the clue columns cut at numbers inside a clue's lines (column_lefts): the VLM saw a fragment.
         return False
+    if row and row.get("midFix", 0) < MID_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and "1950" <= (row.get("date") or "9") < "1990" and (
+            row.get("refused") == "no reading parses" or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
+        # Read with the wrapped lists' second column cut through its clue numbers (column_split).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1125,6 +1130,23 @@ def down_words(words, box, lh, gl):
             and box[1] <= w[1] <= box[3] + 10 * lh]
 
 
+#: Bumped when only the wrapped lists' column split changes (column_split): the pages read with four or more blank
+#: lights, or refused "no reading parses", are read again once.
+MID_FIX = 1
+
+
+def column_split(words, box, mid, y0, y1, lh):
+    """The x where wrapped_block splits the two page columns: half the cut's width (`mid`), moved left to the right
+    column's own left edge when its clue numbers stand left of it (the grid is as wide as a page column and the next
+    column starts a few pixels past it, so the half way line cut the numbers' first digit off: "no clue read for
+    it"). The edge is the lowest x of a run of four or more clue numbers within 30 pixels, right of the grid."""
+    xs = sorted(int(w[0]) for w in words if NUMBER_WORD.match(w[4]) and y0 <= w[1] <= y1 and box[2] - lh / 2 <= w[0] < mid + 4 * lh)
+    for i, x in enumerate(xs):
+        if x < mid and sum(1 for o in xs[i:] if o - x <= 30) >= 4:
+            return int(min(mid, x - 8))
+    return int(mid)
+
+
 def wrapped_block(img, words, box, cut, gl):
     """The block (image, key) of the lists wrapped_cut found: the left column under the grid, then the right
     column down to the Down heading, stacked as one Across column, the Down clues under the heading in a column
@@ -1133,7 +1155,7 @@ def wrapped_block(img, words, box, cut, gl):
     lh = gl.line_height(words)
     down = min(down_words(words, box, lh, gl), key=lambda w: w[1])
     x0, y0, x1, y1 = cut[0]
-    mid = int(x0 + (x1 - x0) / 2)
+    mid = column_split(words, box, x0 + (x1 - x0) / 2, y0, y1, lh)
     parts = [(x0, int(box[3]), mid, y1), (mid, y0, x1, int(down[1]) - 2)]
     downs = (mid, int(down[3]) + 2, x1, y1)
     pad, head = 12, 56
@@ -1726,7 +1748,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
-                "leftFix": LEFT_FIX}, store)
+                "leftFix": LEFT_FIX, "midFix": MID_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
