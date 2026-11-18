@@ -61,6 +61,11 @@ WRAP_TO = "1964-12-31"
 #: Bumped when the 1960-64 lists printed left of the grid in the page's corner (left_cut/left_block) are read: the
 #: pages before 1965 refused "no clue list", "no reading parses" or "grid unread" are read again once.
 LEFT_FIX = 1
+#: Bumped when only the left-of-grid lists' cut changes (HEAD_ROW_FIX 1: the cut starts at each heading's top with the
+#: heading whited out, so the first Across and Down clue lines are not sliced, and the notes box under the Down clues
+#: is whited out of the column strip): the 1960-64 pages read with four or more blank lights, or refused
+#: "no reading parses" or "no clue list", are read again once.
+HEAD_ROW_FIX = 1
 PREFIX ="mephisto:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*(?:Sunday\s+)?Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 TITLE_NUMBER = re.compile(r"mephisto\W{0,3}(\d{4})\b", re.IGNORECASE)
@@ -536,6 +541,12 @@ def read_done(row, done=None):
             and "1955" <= (row.get("date") or "9") < "1980" and (
             row.get("refused") == "no reading parses" or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
         # Read with the wrapped lists' Down column running on into last week's solution notes (solution_stop).
+        return False
+    if row and row.get("headRowFix", 0) < HEAD_ROW_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and "1960" <= (row.get("date") or "9") <= WRAP_TO and (
+            row.get("refused") in ("no reading parses", "no clue list on the page")
+            or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
+        # Read with the first clue line under a heading sliced and the notes box in the Down strip (left_block).
         return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
@@ -1414,6 +1425,28 @@ def left_cut(words, box):
     return a, min(downs, key=lambda w: w[1])
 
 
+def notes_box(words, under, box, lh):
+    """(x0, y0, x1, y1) of the notes and last week's answers' box ("NOTES", "SOLUTION TO No. N") standing in the left
+    end of the `under` strip of left_block, to be whited out (HEAD_ROW_FIX: its lines ran into the Down clues of the
+    column right of it): from the line of its heading down to the strip's foot, out to the first gap of a line and a
+    half in the words under that heading. None when no heading stands in the strip, or no gap."""
+    x0, y0, x1, y1 = under
+    heads = sorted((w for w in words if STOP_NOTES.match(w[4]) and x0 <= (w[0] + w[2]) / 2 <= x1
+                    and box[3] + 3 * lh < w[1] < y1), key=lambda w: w[1])
+    if not heads:
+        return None
+    top = heads[0][1]
+    xs = sorted(int(w[0]) for w in words if NUMBER_WORD.match(w[4]) and top < w[1] < y1 and x0 + 6 * lh < w[0] < x1)
+    best = None
+    for i, x in enumerate(xs):
+        run = sum(1 for o in xs[i:] if o - x <= 30)
+        if run >= 5 and (best is None or run > best[0]):
+            best = (run, x)
+    if best is None:
+        return None
+    return (int(x0), int(top - 2), int(best[1] - 8), int(y1))
+
+
 def left_block(img, words, box, heads, gl):
     """The block (image, key) of the lists left_cut found: the Across column, then the Down column (the clues under
     the Down heading in the left column, then those under the grid), stacked as wrapped_block does, each under a
@@ -1437,15 +1470,31 @@ def left_block(img, words, box, heads, gl):
         return int(bottom + lh / 2)
 
     mid = int(box[0] - lh / 2)
-    parts = [(left, int(a[3]) + 2, mid, int(d[1]) - 2)]
-    down_left = (left, int(d[3]) + 2, mid, foot(left, mid, int(d[3]) + 2, True))
+    # HEAD_ROW_FIX: the heading's box runs a line's height or more (the OCR merged the first clue line into it), so a cut
+    # at its foot sliced the first clue's line ("1 alsy cou De" for "1 Daisy could be"): the cut starts at the
+    # heading's top, a line high, and the heading's own ink is whited out.
+    a_top, d_top = int(a[1]) - 2, int(d[1]) - 2
+    parts = [(left, a_top, mid, d_top)]
+    down_left = (left, d_top, mid, foot(left, mid, int(d[3]) + 2, True))
     under = (gx0, int(box[3]), gx1, foot(gx0, gx1, int(box[3]), False))
     pieces = [p for p in (down_left, under) if p[3] - p[1] > 2 * lh]
     if not pieces or parts[0][3] <= parts[0][1]:
         return None
     pad, head = 12, 56
-    across = img.crop(parts[0])
-    crops = [img.crop(p) for p in pieces]
+    def whited(p, h):
+        from PIL import ImageDraw
+        c = img.crop(p)
+        ImageDraw.Draw(c).rectangle([int(h[0]) - 4 - p[0], int(h[1]) - 2 - p[1], int(h[2]) + 4 - p[0],
+                                     int(min(h[3], h[1] + 0.9 * lh)) + 1 - p[1]], fill="white")
+        return c
+
+    across = whited(parts[0], a)
+    crops = [whited(p, d) if p is down_left else img.crop(p) for p in pieces]
+    rect = notes_box(words, under, box, lh)
+    if rect and under in pieces:
+        from PIL import ImageDraw
+        ImageDraw.Draw(crops[pieces.index(under)]).rectangle(
+            [rect[0] - under[0], rect[1] - under[1], rect[2] - under[0], rect[3] - under[1]], fill="white")
     wide = max([across.width] + [c.width for c in crops])
     height = max(across.height, sum(c.height + pad for c in crops)) + head + pad
     canvas = Image.new(img.mode, (2 * wide + 60, height), "white")
@@ -1934,7 +1983,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "anchorFix": ANCHOR_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
-                "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX}, store)
+                "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
