@@ -285,7 +285,7 @@ WORD = re.compile(r"[A-Za-z]+")
 def count_forms(text, forms):
     """Tally each word's written form, except where a sentence starts."""
     for m in WORD.finditer(text or ""):
-        before = text[:m.start()].rstrip(" \"'‘“(")
+        before = text[:m.start()].rstrip(" \"'\u2018\u201c(")
         if before and before[-1] not in ".?!:;":
             forms[m.group().lower()][m.group()] += 1
 
@@ -310,7 +310,7 @@ def recase(text, caps):
         return caps.get(w, w)
     text = WORD.sub(word, text)
     # The first letter of the clue and of every sentence in it.
-    return re.sub(r"(^|[.?!]\s+)([\"'‘“(]*)([a-z])",
+    return re.sub(r"(^|[.?!]\s+)([\"'\u2018\u201c(]*)([a-z])",
                   lambda m: m.group(1) + m.group(2) + m.group(3).upper(), text)
 
 
