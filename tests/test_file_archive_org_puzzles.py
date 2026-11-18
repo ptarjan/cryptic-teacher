@@ -470,7 +470,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._TELEPRIZE_FIX[gt.key][:2],
                                                                       *f._SUNTEL_BARE_FIX[gt.key][:2],
                                                                       *f._FT_TITLE_FIX.get(gt.key, ())[:2],
-                                                                      *f._FT_PROSE_FIX.get(gt.key, ())[:2]},
+                                                                      *f._FT_PROSE_FIX.get(gt.key, ())[:2],
+                                                                      *f._FT_NOISY_FIX.get(gt.key, ())[:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3583,6 +3584,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._FT_NOISY_FIX:
+        return f._FT_NOISY_FIX[paper][2]
     if paper in f._FT_PROSE_FIX:
         return f._FT_PROSE_FIX[paper][2]
     if paper in f._FT_TITLE_FIX:
@@ -5289,6 +5292,13 @@ check("a no-crossword notice over the solution's number is no title", [],
       f.ft_headings([line("No crossword appears in today's", 586, 3307), line("puzzle. No 5,355, will be pub-", 586, 3399)])[0])
 check("prose with a crossword in it and no number is no title", [],
       f.ft_headings([line("the paper's crossword setter retired", 200, 300)])[0])
+check("FT_NOISY_TITLE: a stray letter, a glued prefix, a stray digit, a lost title word, a lost title word over a Set by line; "
+      "a solution notice's Puzzle No and a Set by with no number are none",
+      [[5704], [5938], [5725], [5696], [8379], [], []],
+      [[n for n, _, _ in f.ft_headings([line(t, 291, 2180)])[0]]
+       for t in ("F.T. CROSSWORD PUZZLE E No. 5.704", "F.T.CROSSWORD PUZZLE No. 5,938", "F.T. :CROSSWORD: PUZZLE'No. 5 5,725",
+                 "PUZZLE No. 5,696", "No.8,379 Set by CINEPHILE", "Solution to Puzzle No. 5,695 PO Box 4, Norwich",
+                 "Set by DANTE")])
 check("FT numbers the dates imply, and our first ftcryptic's", [True, True, True, False],
       [abs(n - f.ft_expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
        for d, n in [("1975-05-01", 2766), ("1992-06-11", 7870), ("2009-11-12", 13232), ("1995-01-03", 19742)]])
