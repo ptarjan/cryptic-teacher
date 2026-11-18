@@ -3944,6 +3944,15 @@ check("an Independent on Sunday 2001-09 page with 4+ across lights blank is due 
        bool(f.ios_across_due({**_ia, "edition": "GaleIndependentSunday1997UKEnglish/1997-03-23"})),
        bool(f.ios_across_due({**_ia, "readAt": "2026-11-19T00:00:00+00:00"})),
        f.blanket_or_fix(_ia, "scan stale, answers missing") == f.IOS_ACROSS])
+_il = {**_ia, "readAt": "2026-11-18T08:31:37+00:00", "verdicts": [{**_ia["verdicts"][0], "unfiled": 5}]}
+check("an Independent on Sunday 2001-09 page read after IOS_ACROSS with 4+ across lights still blank is due IOS_LEAD, not "
+      "one with 3, a 1997 page or one read since; it keeps the reason past the blanket",
+      [True, False, False, False, True],
+      [bool(f.ios_lead_due(_il)),
+       bool(f.ios_lead_due({**_il, "verdicts": [{**_il["verdicts"][0], "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11)}}]})),
+       bool(f.ios_lead_due({**_il, "edition": "GaleIndependentSunday1997UKEnglish/1997-03-23"})),
+       bool(f.ios_lead_due({**_il, "readAt": "2026-11-19T00:00:00+00:00"})),
+       f.blanket_or_fix(_il, "scan stale, answers missing") == f.IOS_LEAD])
 _if = {"edition": "GaleIndependentSunday2002UKEnglish/2002-06-30", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
        "verdicts": [{"number": 647, "id": "indysunday-647", "blank": {"29-across": "no reading laid a clue on it"}}]}
 check("an Independent on Sunday 2001-04 page left with a light blank 'no reading laid a clue' is due IOS_FOOT, not one read "
