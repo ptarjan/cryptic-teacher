@@ -26,8 +26,11 @@ from pathlib import Path
 #: rooms' jobs) held the cap at 1 for hours; a width-1 burn cannot lower it.
 HOT_PSI = 10.0
 QUIET_PSI = 0.5
-HOT_SWAPIN_MB_MIN = 1.0
-QUIET_SWAPIN_MB_MIN = 0.25
+#: Swap-in of 1-4 MB/min (pages of a 2 GB swap touched now and then) held the
+#: burn at width 1-3 on 11-17 with memory room for 5-9 runs and half the week
+#: unspent; real thrash is hundreds of MB/min.
+HOT_SWAPIN_MB_MIN = 20.0
+QUIET_SWAPIN_MB_MIN = 2.0
 QUIET_S = 300
 #: Calm but not quiet (PSI between quiet and hot), the pressure is usually other
 #: rooms' doing and a burn held at the floor cannot lower it; raise anyway, one
@@ -182,8 +185,8 @@ def self_test():
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, 4.0, 12.0, 11.0)
     check("full stall cuts", c, 4)
     check("full", read_psi("some avg10=1 avg60=2\nfull avg10=3.5 avg60=1", kind="full"), 3.5)
-    # swap-in: 4096 pages = 16 MB over a minute is hot with psi calm
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 4096, 8, 60)
+    # swap-in: 8192 pages = 32 MB over a minute is hot with psi calm
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 8192, 8, 60)
     check("swap-in hot", c, 6)
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 100, 8, 60)
     check("swap-in small", c, None)
