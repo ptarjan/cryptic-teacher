@@ -102,6 +102,14 @@ check("a page with nothing printed takes the run's number", w - 121, gm.run_numb
 check("last week's number alone sits one below: taken", w - 121, gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 122}"))
 check("a printed number far off the run refuses", None, gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 130}"))
 check("a number above the run's refuses", None, gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 120}"))
+check("a misread far off the run is ignored beside a number at its offset", w - 121,
+      gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 127} Solution to Mephisto {w - 122}"))
+check("only misreads far off, none at the offset: refused", None,
+      gm.run_number(D(1975, 3, 9), f"Mephisto Crossword No {w - 127}"))
+check("NUMBER_FIX 3 re-dues a number refusal inside a run", False,
+      gm.read_done({**stale, "numberFix": 2, "runFix": gm.RUN_FIX}))
+check("NUMBER_FIX 3 leaves a gap page (no run) as it was", True,
+      gm.read_done({**stale, "date": "1977-03-09", "numberFix": 2, "runFix": gm.RUN_FIX}))
 check("a one-page run needs its own number printed", None, gm.run_number(D(1978, 2, 26), "nothing"))
 check("number_of takes the run's number before 1995", (w - 121, "offset run"),
       gm.number_of((None, D(1975, 3, 9)), "Mephisto Crossword No %d" % (w - 121), None))

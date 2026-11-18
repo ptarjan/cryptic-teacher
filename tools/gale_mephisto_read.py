@@ -43,7 +43,7 @@ VERSION = 5
 #: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
 GRID_FIX = 2
 #: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
-NUMBER_FIX = 2
+NUMBER_FIX = 3
 #: The Gale list of titles, beside the saved pages (downloads.GALE_CROSSWORDS, which the live units set through
 #: CT_DOWNLOADS): gale_inbox.MEPHISTO_DOCS follows local.json's media_root, unset on the queue's machine, so the live
 #: units read an empty list (0 titles, no anchors) and refused every page before 1995 whatever the offset runs said.
@@ -237,6 +237,8 @@ OFFSET_RUNS = (
 #: The offsets a page's printed numbers may differ from its own by: last week's, and the answers' two back.
 RUN_NEAR = (0, -1, -2)
 RUN_RANGE = (-200, -100)
+#: A printed number this near the run's offset (but outside RUN_NEAR) is no mere misread: the page is refused.
+RUN_AMBIGUOUS = 3
 
 
 #: Bumped when only the bridged gaps change: pages refused for want of a number inside RUN_BRIDGES are read again.
@@ -273,7 +275,10 @@ def run_number(day, text):
         return None
     seen = {n - week(day) for n in printed_numbers(text)}
     seen = {s for s in seen if RUN_RANGE[0] <= s <= RUN_RANGE[1]}
-    if any(s - o not in RUN_NEAR for s in seen):
+    # A misread number (-136, -109 against -115 ...) far off the run is ignored while another printed number sits at the
+    # offset or one or two below it: the anchors either side hold the offset, which only falls. A number a few
+    # weeks above or just under that window still refuses the page.
+    if seen and (not any(s - o in RUN_NEAR for s in seen) or any(abs(s - o) <= RUN_AMBIGUOUS and s - o not in RUN_NEAR for s in seen)):
         return None
     if any(a == b == day.isoformat() for a, b, _ in OFFSET_RUNS) and o not in seen:
         return None
@@ -433,7 +438,9 @@ def read_done(row, done=None):
     if row and row.get("refused") == STALE_UNNUMBERED:
         return False
     if row and row.get("refused") == UNNUMBERED and row.get("numberFix", 0) < NUMBER_FIX:
-        return False
+        # NUMBER_FIX 3 (run_number ignores a misread far off its run): only a page inside a run can read differently.
+        if row.get("numberFix", 0) < 2 or (row.get("date") and run_offset(datetime.date.fromisoformat(row["date"])) is not None):
+            return False
     if row and str(row.get("refused") or "").startswith("no Mephisto number"):
         if now_titled(row):
             # Refused before the Gale list (docs.json, which grows) titled the page or its neighbours: it does now.
