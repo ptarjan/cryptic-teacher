@@ -2124,7 +2124,31 @@ PREAMBLE_POINTER = re.compile(r"see\s+(?:the\s+)?(?:preamble|introduction|instru
                               r"(?:\(\d+(?:[,-]\d+)*\))?[\s.]*", re.IGNORECASE)
 
 
-def duplicated_clues(entries, one_list=False):
+#: Words a clue repeated across ACROSS and DOWN has before it is called a
+#: misread (puzzle_integrity.CROSS_DUP_WORDS says the same of the write).
+PRINTED_PAIR_WORDS = 6
+
+
+def printed_pair(entries, ids):
+    """Whether `ids` are two lights the Times printed one short clue on: one
+    ACROSS and one DOWN, of other numbers and other lengths (a themed puzzle's
+    "Child's play (two words)" at 1-across, 13 letters, and 9-down; "Woman in
+    White" at 12-across and 16-down, times-3720 and 9924). One number's across
+    and down of one length (times-4720's "Moreapparent than real", times-1744)
+    stay a clue read onto its neighbour. mend_held took every such pair for a
+    shared clue and blanked it, each reread filling it again."""
+    if len(ids) != 2:
+        return False
+    by = {entry_id(e): e for e in entries}
+    two = [by.get(i) for i in ids]
+    if None in two or {e.get("direction") for e in two} != {"across", "down"} \
+            or len({e.get("number") for e in two}) < 2 or len({e.get("length") for e in two}) < 2:
+        return False
+    text = ((two[0].get("clue") or {}).get("text") or "").strip()
+    return len(text.split()) < PRINTED_PAIR_WORDS and not re.match(r"see\b", text, re.I)
+
+
+def duplicated_clues(entries, one_list=False, times=False):
     """[[entry id, ...]] of lights served the same clue words, "See N" stubs,
     "See preamble" pointers (PREAMBLE_POINTER)
     and clues with no letters aside. A source serving one clue on two lights has lost
@@ -2132,14 +2156,16 @@ def duplicated_clues(entries, one_list=False):
     With `one_list`, only lights in the same direction count: a reading lays
     each printed line in its own list, so the same words under ACROSS and
     under DOWN are printed twice (Listener No 3's 32A and 2D, "An
-    exclamation.")."""
+    exclamation."). With `times`, so is a printed_pair of the Times.
+    The mend_held rereads pass it for a Times file."""
     seen = {}
     for e in entries:
         text = (e.get("clue") or {}).get("text") or ""
         words = clue_words(text)
         if words and not is_continuation(text) and not PREAMBLE_POINTER.fullmatch(text.strip(" .…\t\n")):
             seen.setdefault((e.get("direction") if one_list else None, words), []).append(entry_id(e))
-    return [ids for ids in seen.values() if len(ids) > 1]
+    # With `times`, a printed_pair of the Times is no duplicate.
+    return [ids for ids in seen.values() if len(ids) > 1 and not (times and printed_pair(entries, ids))]
 
 
 def clue_leftovers(entries):

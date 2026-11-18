@@ -28548,7 +28548,8 @@ def keep_held_clues(puzzle, old):
     if (old.get("source") or {}).get("acquiredBy") != TOOL \
             or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return []
-    lost = {i for ids in duplicated_clues(old["entries"]) for i in ids} | strayed(old, spaces=False) | set(faults(old))
+    lost = {i for ids in duplicated_clues(old["entries"], times=(old.get("source") or {}).get("publisher") == "Times")
+            for i in ids} | strayed(old, spaces=False) | set(faults(old))
     was = {entry_id(e): e for e in old["entries"]}
     kept = []
     for e in puzzle["entries"]:
@@ -28602,7 +28603,8 @@ def mend_held(puzzle, path, tool=TOOL):
     if (old.get("source") or {}).get("acquiredBy") != tool \
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
-    shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
+    times = (old.get("source") or {}).get("publisher") == "Times"
+    shared = {i for ids in duplicated_clues(old["entries"], times=times) for i in ids}
     # A held clue's run of spaces (edition_commit.spaced) is cut to one, and
     # its punctuation's certain mends made (punctuation.mend_puzzle), in
     # place, annotation and all: the words stand.
@@ -28630,7 +28632,7 @@ def mend_held(puzzle, path, tool=TOOL):
             e["clue"] = now.get(entry_id(e)) or fallback(entry_id(e))
     # This reading's clue for a lost light may be one the file keeps on
     # another: that light's falls back too.
-    for ids in duplicated_clues(old["entries"]):
+    for ids in duplicated_clues(old["entries"], times=times):
         for e in old["entries"]:
             if entry_id(e) in ids and entry_id(e) in lost:
                 e["clue"] = fallback(entry_id(e))

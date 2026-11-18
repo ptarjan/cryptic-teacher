@@ -94,6 +94,16 @@ _v, _p = f.merged_read({}, _mine, {"agreed": 4}, {"grid": ["g"], "entries": _the
 check("merged_read: another set of lights: the VLM pass stands", 2, len(_p["entries"]))
 check("a poor window is read again, picks and all", False, f.unpickable(_t, {"2-down": "x", "5-down": "y", "6-down": "z", "7-down": "w", "8-down": "v"}, 30))
 
+# A short clue the Times printed on an across and a down of other numbers and lengths is no shared clue
+# (times-3720, 9924: mend_held blanked it, each reread filled it); one number's across and down is.
+import fetch_puzzle as _fpp
+_pair = [_entry(12, "across", '" Woman in White"', length=5), _entry(16, "down", '" Woman in White"', length=9)]
+_same = [_entry(26, "across", "An extraordinary production", length=5), _entry(26, "down", "An extraordinary production", length=5)]
+check("duplicated_clues: a printed Times pair stands", ([["12-across", "16-down"]], []),
+      (_fpp.duplicated_clues(_pair), _fpp.duplicated_clues(_pair, times=True)))
+check("duplicated_clues: one number's across and down is still shared", [["26-across", "26-down"]],
+      _fpp.duplicated_clues(_same, times=True))
+
 # The readers' own list for a new puzzle that repeats a held puzzle's clues is refused as a copy
 # at the write, so the VLM is not asked about it (held_copy).
 import fetch_puzzle as _fp
