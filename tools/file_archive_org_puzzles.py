@@ -6003,6 +6003,10 @@ def ft_headings(lines, titles=()):
                     continue
                 tail = ws[c:]
                 num = next((m for m in (p.match(" ".join(x[4] for x in tail)) for p in FT_NOISY_TITLES) if m), None)
+                # Only a number of 1985-94 (under 10,000; a Gale FT's "No.10,116 Set by X" is gale_ft_headings'), and one
+                # whose number the title lines found already (its number line read again on its own) is not a second title.
+                if num and (number_of(num.group(1)) >= 10000 or any(q[0] == number_of(num.group(1)) for q in puzzles)):
+                    num = None
                 if num:
                     ws, under = tail, tail
                     break
