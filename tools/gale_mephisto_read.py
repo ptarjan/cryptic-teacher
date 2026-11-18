@@ -41,7 +41,7 @@ LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
 VERSION = 5
 #: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
-GRID_FIX = 2
+GRID_FIX = 3
 #: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
 NUMBER_FIX = 3
 #: The Gale list of titles, beside the saved pages (downloads.GALE_CROSSWORDS, which the live units set through
@@ -931,6 +931,23 @@ def _comb_refine(ink, p, x0, y0):
     return ([float(ya + t0 + k * q) for k in range(13)], [float(xa + l0 + k * q) for k in range(13)])
 
 
+BLOB_WINDOW = 31
+BLOB_SHARE = 0.01
+
+
+def unblobbed(ink):
+    """`ink` with its solid black areas (windows BLOB_WINDOW px square 90% ink, grown by the window) taken out, or None
+    when they are under BLOB_SHARE of the page."""
+    import cv2
+    import numpy as np
+    k = BLOB_WINDOW
+    blob = cv2.blur(ink.astype(np.uint8) * 255, (k, k)) > 230
+    if blob.mean() < BLOB_SHARE:
+        return None
+    blob = cv2.dilate(blob.astype(np.uint8), np.ones((k, k), np.uint8)) > 0
+    return ink & ~blob
+
+
 def read_barred(gray, lattice=None, wanted=None):
     """(rows, found, None) or (None, None, why) of the barred grid on `gray` (a page, uint8): the lattice found, its
     cell sides measured by listener_grid.read_box, the bars set as ios_barred.read_found sets them."""
@@ -945,6 +962,19 @@ def read_barred(gray, lattice=None, wanted=None):
         if rows is not None:
             return rows, found, None
         first = first or (found, why)
+    solid = None if lattice else unblobbed(ink)
+    if solid is not None:
+        # GRID_FIX 3: a page with solid black areas (a scan's shadow, a photographed edge) sets the lattice by their
+        # edges, cells all ink (1962-06-24: 9% of the page, six lattices inside it, the grid beside it read 0.00
+        # symmetric): the grid is looked for on the ink with those areas taken out.
+        ink = solid
+        cands = find_lattices(ink)
+        first = None
+        for ys, xs in cands:
+            rows, found, why = read_lattice(gray, ink, ys, xs, wanted)
+            if rows is not None:
+                return rows, found, None
+            first = first or (found, why)
     if not lattice:
         # No long rule found sets the grid (a page printing its thin rules dotted, a blocked grid of another puzzle
         # beside it): the window whose rule rows and columns hold the most ink is tried (comb_lattices).

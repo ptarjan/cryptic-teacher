@@ -168,6 +168,12 @@ check("an older version is read again", 2, len(gm.plan(saved, store)))
 refused = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "grid unread: the bars are 0.10 symmetric"}
 check("a grid refusal before the comb search is due", False, gm.read_done(refused))
 check("a grid refusal at GRID_FIX stands", True, gm.read_done({**refused, "gridFix": gm.GRID_FIX}))
+check("a grid refusal at GRID_FIX 2 is due", False, gm.read_done({**refused, "gridFix": 2}))
+_page = np.zeros((600, 600), bool)
+check("a page with no solid black area is left as it is", None, gm.unblobbed(_page))
+_page[100:400, 100:400] = True
+_solid = gm.unblobbed(_page)
+check("a solid black area is taken out of the ink", True, _solid is not None and not _solid[250, 250])
 bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list on the page", "bareFix": gm.BARE_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
