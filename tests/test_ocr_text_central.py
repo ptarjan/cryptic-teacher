@@ -54,7 +54,6 @@ ALLOWED = {
     ("file_archive_org_puzzles.py", "<module>"): "HEADING_DIGITS: a heading's misread figures for its puzzle number (int), never clue text",
     ("apply_solution.py", "_fold"): "folds an answer to a lookup key (definitions.LOOKALIKES); answers, not clue text",
     ("ctc_transcripts.py", "norm"): "word key for matching transcript words; never written back",
-    ("file_cryptonite.py", "recase"): "restores capitals to the dataset's lowercased clues (sentence starts); not an OCR or quote fix",
     ("fetch_abbreviations.py", "expansions"): "HTML parsing: drops bracketed/quoted notes round an abbreviation's meanings",
     ("fetch_puzzle.py", "separators"): "a format string's apostrophe, not clue text",
     ("ft_pdf_puzzles.py", "parse_clues"): "possessive 's stripped to compare words for a layout test",

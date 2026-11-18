@@ -24,7 +24,9 @@ answer is exactly the light's length. Edit classes:
 Never edited: a different word that is no shift (kept, listed under
 "unresolved"), a same-length variant of one or two letters, or an anagram of
 the dataset's (the dataset's rows are the scrambled ones there). An edit that
-would put a letter against a crossing answer we keep is refused. Puzzles whose
+would put a letter against a crossing answer we keep is refused, and a puzzle whose
+repaired answers still disagree at any crossing (puzzle_integrity's CROSS check) is
+left whole and listed as refused with light "*". Puzzles whose
 solutions.origin is not published, unsolved or unknown (a model's or a
 write-up's answers) are left whole.
 
@@ -170,6 +172,24 @@ def apply_edits(puzzle, edits):
         sol["origin"] = "published"
 
 
+def crossing_defects(puzzle, edits):
+    """puzzle_integrity's CROSS findings for `puzzle` once `edits` are applied
+    (the whole puzzle, not only the edited lights, so a fill that disagrees with
+    a kept answer or another fill is caught). The write is refused if any."""
+    import copy
+
+    import puzzle_integrity as pi
+    after = copy.deepcopy(puzzle)
+    apply_edits(after, edits)
+    checkable = [e for e in after["entries"]
+                 if fc.letters(e.get("solution") or "") and len(fc.letters(e["solution"])) == e["length"]]
+    for e in checkable:
+        e["solution"] = fc.letters(e["solution"])
+    flags = []
+    pi.check_cross(after, checkable, flags)
+    return [f[2] for f in flags]
+
+
 def dump(puzzle):
     return json.dumps(puzzle, indent=FORMAT, ensure_ascii=False) + "\n"
 
@@ -219,6 +239,11 @@ def run(data_dir, fix=False, only=None):
             for r in refused:
                 refused_all.append({"puzzle": puzzle["id"], "date": day.isoformat(), **r})
             if not edits:
+                continue
+            bad = crossing_defects(puzzle, edits)
+            if bad:      # the lights disagree among themselves: another puzzle's answers, whole
+                refused_all.append({"puzzle": puzzle["id"], "date": day.isoformat(), "light": "*",
+                                    "class": "crossing", "ours": "", "theirs": "; ".join(bad[:3])})
                 continue
             origin = (puzzle.get("solutions") or {}).get("origin")
             if origin not in REPAIRABLE:
