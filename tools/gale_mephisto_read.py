@@ -489,6 +489,11 @@ def read_done(row, done=None):
             row.get("refused") == "no reading parses" or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
         # Read with the wrapped lists' second column cut through its clue numbers (column_split).
         return False
+    if row and row.get("solutionFix", 0) < SOLUTION_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and "1955" <= (row.get("date") or "9") < "1980" and (
+            row.get("refused") == "no reading parses" or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
+        # Read with the wrapped lists' Down column running on into last week's solution notes (solution_stop).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1181,26 +1186,68 @@ def wrapped_block(img, words, box, cut, gl):
     down = min(down_words(words, box, lh, gl), key=lambda w: w[1])
     x0, y0, x1, y1 = cut[0]
     mid = column_split(words, box, x0 + (x1 - x0) / 2, y0, y1, lh)
-    parts = [(x0, int(box[3]), mid, y1), (mid, y0, x1, int(down[1]) - 2)]
-    downs = (mid, int(down[3]) + 2, x1, y1)
+    # SOLUTION_FIX: the entry rules and a notice box stand between the grid and the Across heading: the list opens at it.
+    heads = [w for w in words if gl.heading(w[4]) == "ACROSS" and w[4][:1].isupper() and x0 <= w[0] < x0 + 8 * lh
+             and box[3] <= w[1] < y1 - 4 * lh]
+    top = int(min(heads, key=lambda w: w[1])[3]) + 2 if heads else int(box[3])
+    parts = [(x0, top, mid, y1), (mid, y0, x1, int(down[1]) - 2)]
     pad, head = 12, 56
     across = [img.crop(p) for p in parts if p[3] > p[1]]
-    dimg = img.crop(downs)
     wide = mid - x0
-    height = max(sum(c.height + pad for c in across), dimg.height) + head + pad
-    canvas = Image.new(img.mode, (2 * wide + 60, height), "white")
-    y = head
-    for c in across:
-        canvas.paste(c, (0, y))
-        y += c.height + pad
-    canvas.paste(dimg, (wide + 60, head))
-    key = gl.image_key(canvas)
-    path = gl.OCR_CACHE / f"{key}.page.{gl.ocr_clues.reader_key('times')}.json"
-    got = gl.page_words(canvas, key)
+    foot = y1
+    for again in (False, True):
+        downs = (mid, int(down[3]) + 2, x1, foot)
+        dimg = img.crop(downs)
+        height = max(sum(c.height + pad for c in across), dimg.height) + head + pad
+        canvas = Image.new(img.mode, (2 * wide + 60, height), "white")
+        y = head
+        for c in across:
+            canvas.paste(c, (0, y))
+            y += c.height + pad
+        canvas.paste(dimg, (wide + 60, head))
+        key = gl.image_key(canvas)
+        path = gl.OCR_CACHE / f"{key}.page.{gl.ocr_clues.reader_key('times')}.json"
+        got = gl.page_words(canvas, key)
+        # SOLUTION_FIX: the cut ran on past the Down clues into last week's solution ("Mephisto Crossword No 675
+        # Across", then its wordplay notes numbered like clues): the Down column stops above that heading.
+        stop = solution_stop(got, wide + 60, head, lh)
+        if stop is None or again:
+            break
+        foot = min(foot, downs[1] + int(stop) - head - 6)
     if not any(w[4] == "Across" and w[0] == 4 for w in got):
         gl.write_whole(path, json.dumps([list(w) for w in got] + [[4, 4, 200, head - 8, "Across"],
                                                                      [wide + 64, 4, wide + 200, head - 8, "Down"]]))
     return canvas, key
+
+
+#: Bumped when only the wrapped lists' Down column stops above last week's solution heading (solution_stop): the pages
+#: read with four or more blank lights, or refused "no reading parses", are read again once.
+SOLUTION_FIX = 1
+#: The word "Crossword" as the OCR reads it (the heading "Mephisto Crossword No 675 Across" of last week's solution).
+CROSSWORD_WORD = re.compile(r"^\W*cr[o0]\w{0,2}s\w{0,2}w\w{0,3}d\W*$", re.IGNORECASE)
+
+
+def solution_stop(got, left, head, lh):
+    """The y (in the block's words `got`) of the line holding "Crossword" in the Down column (x from `left`) at least
+    six lines under the block's heading row `head`, or None: last week's solution heading under the Down clues."""
+    hits = [w[1] for w in got if w[0] >= left - 12 and w[1] > head + 6 * lh and CROSSWORD_WORD.match(w[4])]
+    return min(hits) if hits else None
+
+
+#: A word opening the page's foot notice under the lists ("Published by Times Newspapers", "Advertising Departments").
+STOP_FOOT = re.compile(r"^\W*(?:published|advertising)\W*$", re.IGNORECASE)
+
+
+def rules_head(inside, rule, lh, gl):
+    """Whether the entry rules at the word `rule` open the lists rather than close them (SOLUTION_FIX: the 1965-79
+    pages print "Solutions, addressed to Mephisto Crossword No N ..." under the grid, the Across heading and its
+    clues under that in the same column): an Across heading or a clue number stands in the column within ten lines
+    under the rules."""
+    for v in inside:
+        if 0 < v[1] - rule[1] < 12 * lh and abs(v[0] - rule[0]) < 4 * lh and (
+                gl.heading(v[4]) == "ACROSS" or (v[1] - rule[1] > 2.5 * lh and NUMBER_WORD.match(v[4]))):
+            return True
+    return False
 
 
 def wrapped_cut(words, box):
@@ -1225,7 +1272,10 @@ def wrapped_cut(words, box):
     for w in inside:
         if w[1] <= box[3]:
             continue
-        if w[1] > box[3] + 3 * lh and STOP_RULES.match(w[4]) and min(abs(w[0] - left), abs(w[0] - left - width)) < 4 * lh:
+        if w[1] > box[3] + 3 * lh and STOP_RULES.match(w[4]) and min(abs(w[0] - left), abs(w[0] - left - width)) < 4 * lh \
+                and not rules_head(inside, w, lh, gl):
+            break
+        if STOP_FOOT.match(w[4]) and w[1] > box[3] + 3 * lh:
             break
         if w[1] - bottom > 3 * lh:
             break
@@ -1775,7 +1825,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
-                "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX}, store)
+                "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
+                "solutionFix": SOLUTION_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
