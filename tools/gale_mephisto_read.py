@@ -20,6 +20,7 @@ clue filed is written (fa.complete), unsolved; puzzles/mephisto's held numbers a
 The standing pass plans each unread page as a unit (tools/edition_queue.py, paper "listener", rel
 "mephisto:NAME"), ahead of the Listener's own pages.
 """
+import collections
 import datetime
 import json
 import os
@@ -483,6 +484,10 @@ def read_done(row, done=None):
     if row and row.get("leftFix", 0) < LEFT_FIX and (row.get("date") or "9") <= WRAP_TO and (
             str(row.get("refused") or "").startswith(("no clue list", "grid unread")) or row.get("refused") == "no reading parses"):
         # Refused before the lists printed left of the grid (left_cut) were cut.
+        return False
+    if row and str(row.get("refused") or "").startswith("no clue list") and row.get("downFix", 0) < DOWN_FIX \
+            and "1950" <= (row.get("date") or "9") < "1990":
+        # Refused before the Down heading the OCR never read beside the grid was placed (missing_down).
         return False
     if row and not row.get("whole") and "1-down" in (row.get("blank") or ()) and row.get("tailFix", 0) < TAIL_FIX:
         # Read before the Down clues at the left column's foot, under no heading the OCR read, were found (headless_tail).
@@ -1194,8 +1199,42 @@ def down_words(words, box, lh, gl):
     """The Down heading words right of the grid at `box` within its first page column (wrapped_cut)."""
     width = box[2] + lh - (box[0] - lh)
     right = box[0] - lh + 2 * width
-    return [w for w in words if gl.heading(w[4]) == "DOWN" and box[2] <= w[0] < right - 4 * lh
-            and box[1] <= w[1] <= box[3] + 10 * lh]
+    found = [w for w in words if gl.heading(w[4]) == "DOWN" and box[2] <= w[0] < right - 4 * lh
+             and box[1] <= w[1] <= box[3] + 10 * lh]
+    return found or missing_down(words, box, lh, right)
+
+
+#: Bumped when only the Down heading the OCR never read in the wrapped lists' second column is placed (missing_down):
+#: the pages refused "no clue list on the page" before 1990 are read again once.
+DOWN_FIX = 1
+ENUM_WORD = re.compile(r"^\W*\(\s*\d")
+
+
+def missing_down(words, box, lh, right):
+    """[a Down heading word] set where the Down clues start in the page column beside the grid at `box`, when the OCR
+    read no heading there (DOWN_FIX: the Across clues carry on in that column and the Down heading is the one line it
+    drops, "no clue list on the page"): the clue numbers at the column's left edge run up to the Across list's last
+    and fall to a low number that the next two follow (a misread number, "1" for 27, is not followed by more low
+    ones); the heading goes under the line of that last Across clue holding its enumeration. [] when no such
+    drop stands in the column."""
+    zone = [w for w in words if box[2] - lh / 2 <= w[0] < right - 4 * lh and box[1] <= w[1] <= box[3] + 10 * lh]
+    nums = sorted((w for w in zone if NUMBER_WORD.match(w[4])), key=lambda w: w[1])
+    if len(nums) < 8:
+        return []
+    edge = collections.Counter(int(w[0] // 24) for w in nums).most_common(1)[0][0]
+    nums = [w for w in nums if abs(int(w[0] // 24) - edge) <= 1]
+    vals = [int(re.sub(r"\D", "", w[4])) for w in nums]
+    for i in range(len(nums) - 3):
+        if vals[i] >= 12 and vals[i + 1] <= vals[i] - 8 and vals[i + 2] <= vals[i] - 8 and vals[i + 3] <= vals[i] - 8 \
+                and vals[i + 1] < vals[i + 2] <= vals[i + 3] + 1 and vals[i + 3] - vals[i + 1] <= 6:
+            a, b = nums[i], nums[i + 1]
+            lines = sorted((w for w in zone if a[1] - lh / 2 <= w[1] < b[1] - lh / 2 and ENUM_WORD.match(w[4])),
+                           key=lambda w: w[1])
+            if not lines:
+                continue
+            top = int(lines[0][3] + 2)
+            return [(int(a[0]), top, int(a[0] + 4 * lh), int(top + lh), "Down")]
+    return []
 
 
 #: Bumped when only the wrapped lists' column split changes (column_split): the pages read with four or more blank
@@ -1864,7 +1903,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
-                "solutionFix": SOLUTION_FIX}, store)
+                "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
