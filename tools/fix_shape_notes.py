@@ -10,6 +10,7 @@ import re
 import validate_annotations as V
 import wordplay as W
 from fix_shape_base import walk, leaf
+from fix_shape_gaps import gap_edits
 
 
 # What each op's indicator does, for an indicator the model filed with no note (indicators.note,
@@ -222,7 +223,8 @@ def _does_not_give_edits(node, k, clue=None, late=False):
     def fresh():
         new = copy.deepcopy(node)
         return new, list(walk(new))[k][0]
-    n = list(walk(node))[k][0]
+    n, par = list(walk(node))[k]
+    parent_op = (par or {}).get("op")
     parts = n.get("parts") or []
     if late == "abbr":
         # a leaf filed with one abbreviation of its clue word where the table lists another that gives the answer
@@ -263,8 +265,10 @@ def _does_not_give_edits(node, k, clue=None, late=False):
     if late == "inside":
         return _inside_tier(fresh, n, parts, node, clue)
     if late:
-        # the last-resort tier of r_does_not_give: only the one-letter end cut of a leaf
-        if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
+        # the last-resort tier of r_does_not_give: only the one-letter end cut of a leaf (a bare removed piece too:
+        # del(resent, SENT) for OGRES is del(resent, ENT))
+        if leaf(n) and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3 \
+                and (n.get("words") or (parent_op == "deletion")):
             for cut in (n["gives"][1:], n["gives"][:-1]):
                 new, t = fresh()
                 t["gives"] = cut
@@ -444,6 +448,7 @@ def _does_not_give_edits(node, k, clue=None, late=False):
                 t.clear()
                 t.update(only)
             out.append(new)
+    out += gap_edits(fresh, n, node, clue)
     return [_flat_charades(new) for new in out]
 
 

@@ -395,4 +395,20 @@ check("doesNotGive: that cut is any stretch of the leaf (editor's is ED, not EDI
       mend("ins<surroundings>([fashionable]SWISH, [editor's]EDIS)", "fashionable surroundings editor's", "SWEDISH")
       == "ins<surroundings>([fashionable]SWISH, [editor's]ED)")
 
+# doesNotGive, 11-18 audit: a clue word the tree left out (article, anagram fodder neighbour), a removed piece one
+# letter too long at its start, and removed letters that sit in the base in the other order
+check("doesNotGive: an unclaimed 'a' printed before a leaf is joined to it as A (RAMMING)",
+      mend("ins<during>([call]RING, [couple of thousand]MM)", "Hitting call during a couple of thousand", "RAMMING")
+      == "ins<during>([call]RING, [a] + [couple of thousand]MM)")
+check("doesNotGive: an anagram fodder grows by the unclaimed clue word beside it (JETTISON)",
+      mend("[plane]JET + ana<flying>([It's])", "Throw out plane flying it's on", "JETTISON")
+      == "[plane]JET + ana<flying>([it's on])")
+check("doesNotGive: a deleted bare piece one letter too long at its start is cut (SENT is ENT, OGRES)",
+      mend("rev<back>([turn]GO) + del<losing fifty percent>([resent], SENT)", "Monsters turn back and resent losing fifty percent", "OGRES")
+      == "rev<back>([turn]GO) + del<losing fifty percent>([resent], ENT)")
+check("doesNotGive: removed letters in the other order are one deletion each (FINAL less IF, INFERNAL)",
+      mend("[Gather]INFER + del<missing from>([final], [if])", "Gather final missing from if to be hellish", "INFERNAL").startswith("[Gather]INFER + del<missing from>(del("))
+check("doesNotGive: an unclaimed 'a' that does not fix the answer leaves the tree refused",
+      mend("ins<when visiting>([politician]MP, [member of the clergy]REV)", "Politician when visiting member of the clergy, a rebuild", "REVAMP").startswith("REFUSED"))
+
 sys.exit(1 if fails else 0)
