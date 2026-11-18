@@ -1701,6 +1701,9 @@ def sunday_prize_cut_due(row):
 #: lays it from that one reading, its words put to the others and checked as relaid's are.
 SUNDAY_LEAD = "Gale Sunday Telegraph 1975-89 page with a clue no reading laid, laid from the one reading that printed it by number since"
 REREAD_SUNDAY_LEAD = "2026-11-18T12:25:00+00:00"  # placeholder: the push minute
+#: 11-18 r224: REVERTED at read time and in the due lists. The live judge (r223) found 29 lights laid over 199 rereads, 0 answers
+#: gained, 0 newly whole, 2 junk clue texts of 12, so the single numbered reading is no longer laid. The constants and the two
+#: functions below stay only so the ledger's old SUNDAY_LEAD rows and the RANKS / UNFILED_FIRST tables still resolve.
 
 
 def sunday_lead_best(paper, d):
@@ -14292,8 +14295,6 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # A clue the vote left blank, laid again from each reading that printed
     # it whole (the reprint's among them) and put to the rest.
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
-    if sunday_lead_best(paper, d):
-        laid, blank = sunday_single_laid(read, laid, blank, parse, lengths)
     if paper.key in ("galesundaytelegraph", "galetelegraph", "gale"):
         laid, blank = mid_other(read, laid, blank, parse, lengths)
     # A light the readings print as only "See N" is that clue, not a blank to ask the VLM for.
@@ -25956,8 +25957,6 @@ def fix_reason(row):
         return SUNDAY_NOTICE_CUT
     if sunday_prize_cut_due(row):
         return SUNDAY_PRIZE_CUT
-    if sunday_lead_due(row):
-        return SUNDAY_LEAD
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -27027,8 +27026,7 @@ def blanket_or_fix(row, blanket):
             else SUNDAY_ABOVE if sunday_above_due(row) \
             else SUNDAY_WIDE if sunday_wide_due(row) \
             else SUNDAY_NOTICE_CUT if sunday_notice_cut_due(row) \
-            else SUNDAY_PRIZE_CUT if sunday_prize_cut_due(row) \
-            else SUNDAY_LEAD if sunday_lead_due(row) else _other_fix(row, blanket)
+            else SUNDAY_PRIZE_CUT if sunday_prize_cut_due(row) else _other_fix(row, blanket)
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
