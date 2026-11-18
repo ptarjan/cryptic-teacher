@@ -12779,6 +12779,13 @@ def sunday_under_due(row):
 REREAD_SUNDAY_HELD = "2026-11-18T03:30:00+00:00"
 
 
+def held_or_wrote(v):
+    """Whether verdict `v` was written to the corpus ("wrote") or held unfiled (verdict "unfiled", the puzzle in the
+    unfiled folder, never "wrote"; a refusal is neither). r193: the "wrote"-gated Gale Sunday Times reasons (SUNDAY_NOTICE
+    / _FEET / _BAND / _1970S) skipped the held ones."""
+    return bool(v.get("wrote") or (v.get("unfiled") and not v.get("refused")))
+
+
 def sunday_held_due(row):
     """Whether Gale Sunday Times ledger `row` holds a verdict held unfiled (never written) with a clue no reading laid,
     read before REREAD_SUNDAY_HELD."""
@@ -12807,7 +12814,7 @@ def sunday_notice_due(row):
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
             or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
         return False
-    return any(v.get("wrote") and not v.get("complete") and (v.get("blank") or (v.get("lights") or 0) - (v.get("clues") or 0) >= NOTICE_SHORT)
+    return any(held_or_wrote(v) and not v.get("complete") and (v.get("blank") or (v.get("lights") or 0) - (v.get("clues") or 0) >= NOTICE_SHORT)
                for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_NOTICE))
 
@@ -12829,7 +12836,7 @@ def sunday_feet_due(row):
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
             or not SUNDAY_FEET_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_FEET_YEARS[1]:
         return False
-    return any(v.get("wrote") and not v.get("complete") and "no reading laid a clue on it" in (v.get("blank") or {}).values()
+    return any(held_or_wrote(v) and not v.get("complete") and "no reading laid a clue on it" in (v.get("blank") or {}).values()
                for v in row.get("verdicts") or ()) and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_FEET))
 
 
@@ -12957,7 +12964,7 @@ def sunday_band_due(row):
             or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses"
-               or v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
+               or held_or_wrote(v) and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_BAND))
 
 
@@ -13423,7 +13430,7 @@ def sunday_1970s_due(row):
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
             or not SUNDAY_1970S_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_1970S_YEARS[1]:
         return False
-    return any(v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
+    return any(held_or_wrote(v) and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_1970S))
 
 
