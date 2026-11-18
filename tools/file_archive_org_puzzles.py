@@ -1198,6 +1198,60 @@ def left_edge_grid(img, title, box):
     return faint_edge_grid(img, crop) or box
 
 
+#: A 2000-10..12 Gale Telegraph weekday page whose cryptic grid is too faint for grid_under_clues (it took the Quick's
+#: grid 1100-1500px lower, or none) and whose own title is the "Across" heading over its clue column (2000-10-10,
+#: 12-05, 12-13) or stands over the grid's left part (2000-12-07: title 199-759, grid 405-1127, clue columns from 1156):
+#: HEAD_GRID_GAP, how far left of the cryptic "Across" heading the grid's right edge lies (12-07: 29, 11-23: 23).
+HEAD_GRID_GAP = 26
+HEAD_GRID_SIDE = (0.14, 0.22)
+HEAD_GRID_WIDTH, HEAD_GRID_DROP = 0.17, 47
+
+
+def head_grid(d, img, title, box):
+    """The cryptic grid of a weekday Gale Telegraph page whose `box` (grid_under_clues, left_edge_grid) is the Quick's, far
+    under `title` (LEFT_EDGE_GAP): a square the Quick's width, its right edge HEAD_GRID_GAP left of the cryptic's
+    "Across" heading (the cached page read's, with its "Down" beside it, on the title's row) and its foot the foot of the
+    ink there, when that is grid-shaped; else `box`."""
+    W = img.width
+    if box is None:
+        return box
+    wide = box[2] - box[0] > HEAD_GRID_SIDE[1] * W
+    if box[1] - title[3] <= LEFT_EDGE_GAP * W and not wide:
+        return box
+    words = []
+    for which in ("ch", "en5"):
+        try:
+            words = json.loads((CROPS / "titles" / f"{d.parent.name}_{d.name}_0_page.{which}.json").read_text()).get("words") or []
+        except (OSError, ValueError):
+            continue
+        break
+    across = [w for w in words if re.fullmatch(r"\W*ACR[O0U]SS\W*", str(w[4]), re.I)
+              and title[1] - 80 <= w[1] <= title[3] + 260 and w[0] > 0.2 * W]
+    across = [a for a in across if any(re.fullmatch(r"\W*D[O0]WN\W*", str(w[4]), re.I) and abs(w[1] - a[1]) <= 30
+                                       and 0.08 * W <= w[0] - a[0] <= 0.2 * W for w in words)]
+    if not across:
+        return box
+    head = min(across, key=lambda a: a[1])
+    right, side = int(head[0]) - HEAD_GRID_GAP, box[2] - box[0]
+    if not HEAD_GRID_SIDE[0] * W <= side <= HEAD_GRID_SIDE[1] * W:
+        side = int(HEAD_GRID_WIDTH * W)
+    narrow = title[2] - title[0] < 0.08 * W
+    top = title[1] - 20 if narrow else title[3] + 4
+    crop = (max(0, right - side - 60), top, right + 10, top + int(1.3 * side))
+    ink = ink_box(img.crop(crop))
+    squares = []
+    if ink is not None and abs(crop[0] + ink[2] - right) <= 25:
+        foot = crop[1] + ink[3]
+        squares.append((right - side, foot - side, right, foot))
+    # Ink too faint for a foot (2000-11-20, 12-04): the grid's top lies HEAD_GRID_DROP under its heading.
+    if not narrow:
+        squares.append((right - side, int(head[1]) + HEAD_GRID_DROP, right, int(head[1]) + HEAD_GRID_DROP + side))
+    for square in squares:
+        if square[0] >= 0 and square[1] >= title[1] and shaped_on(img, square):
+            return square
+    return box
+
+
 def faint_edge_grid(img, crop):
     """The 15x15 grid at the left edge of `crop` (the strip under a Gale Telegraph weekday title) when its ink is too
     faint to be one patch (FAINT_EDGE: 2000-11-06, 12-04: the Quick's grid far under the title was taken, the cryptic's
@@ -1308,6 +1362,7 @@ SUNDAY_GUTTER = 0.53
 #: Quick's Down list from 5650; 2000-12-08 the same). WEEKDAY_RIGHT_DROP: the crop's foot, as a share of the grid's
 #: width under the grid (0.42: the last clue line stands, the advert and Quick lines under it do not leak).
 WEEKDAY_RIGHT_DROP = 0.42
+WEEKDAY_NEAR = (0.7, 0.3)
 WEEKDAY_RIGHT_DAYS = (datetime.date(1999, 1, 1), datetime.date(2000, 12, 31))
 
 
@@ -1321,7 +1376,10 @@ def sides_columns(img, grid, title, x0, paper, right_of=False, drop=None):
         return None
     k = img.width / SCAN_WIDTH
     gw = grid[2] - grid[0]
-    if right_of and grid[0] < SUNDAY_SIDES_LEFT * gw and grid[1] - title[3] <= SIDES_BAND * k:
+    # A weekday page (`drop`) sets its grid 0.2-0.6 of its width in from the page's edge and 0.1-0.3 of it under the
+    # title (2000-11-23: 143 in, 183 under; 2000-12-07 405 in, 74 under): WEEKDAY_NEAR.
+    near = drop is not None and grid[0] < WEEKDAY_NEAR[0] * gw and -0.1 * gw <= grid[1] - title[3] <= WEEKDAY_NEAR[1] * gw
+    if right_of and (grid[0] < SUNDAY_SIDES_LEFT * gw and grid[1] - title[3] <= SIDES_BAND * k or near):
         return 0, (min(img.width, int(grid[2] + 5 + gw + 60)), int(grid[2] + SUNDAY_GUTTER * gw)), \
             min(img.height, int(grid[3] + (drop if drop is not None else 1.8) * gw))
     if grid[1] - title[3] > SIDES_BAND * k or grid[0] - x0 < SIDES_LEFT * gw:
@@ -1939,6 +1997,34 @@ def faint_edge_due(row):
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and (v.get("imageUnread") or v.get("refused") == "no reading parses")
+               for v in row.get("verdicts") or ())
+
+
+#: The reason of a Gale Telegraph weekday page of 2000-10..12 refused "no reading parses" whose cryptic grid stood in from
+#: the page's edge under (or as) the "Across" heading of its clue columns: the scan's grid was the Quick's (far under the
+#: title) and sides_columns refused a grid not at the edge (the crop read x 183-960, the clue columns at 1156-1640 never
+#: read). head_grid takes the grid from the cached page read's "Across" heading, sides_columns (WEEKDAY_NEAR) both
+#: columns right of it. 11-18: ~22 pages. Once each.
+HEAD_GRID = "Gale Telegraph weekday 2000-10..12 page refused no reading parses, its grid taken from its Across heading and its clue columns right of it read since"
+REREAD_HEAD_GRID = "2026-11-18T19:37:00+00:00"
+HEAD_GRID_DAYS = (datetime.date(2000, 10, 1), datetime.date(2000, 12, 31))
+
+
+def head_grid_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_HEAD_GRID, holds a weekday of HEAD_GRID_DAYS with a puzzle
+    not filed refused "no reading parses"."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galetelegraph" or not scan_queue.read_before(row, scan_queue.when(REREAD_HEAD_GRID)):
+        return False
+    try:
+        day = datetime.date.fromisoformat(Path(rel).name[:10])
+    except ValueError:
+        return False
+    if day.weekday() == 5 or not HEAD_GRID_DAYS[0] <= day <= HEAD_GRID_DAYS[1]:
+        return False
+    series = paper_of(Path(rel)).series
+    return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
+               and filed_state(series, v.get("number")) is None and v.get("refused") == "no reading parses"
                for v in row.get("verdicts") or ())
 
 
@@ -13724,7 +13810,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if paper.key == "galetelegraph" and paper.clues_above and gbox is not None \
             and datetime.date.fromisoformat(d.name[:10]).weekday() != 5 \
             and WEEKDAY_RIGHT_DAYS[0] <= datetime.date.fromisoformat(d.name[:10]) <= WEEKDAY_RIGHT_DAYS[1]:
-        gbox = left_edge_grid(img, hit["box"], gbox)
+        gbox = head_grid(d, img, hit["box"], left_edge_grid(img, hit["box"], gbox))
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
     if side != "below" and not paper.clues_above and not paper.four \
             and ((paper.key == "gale" and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1])
@@ -26018,6 +26104,8 @@ def fix_reason(row):
         return IOS_WORDS
     if indy_frame_due(row):
         return INDY_FRAME
+    if head_grid_due(row):
+        return HEAD_GRID
     if faint_edge_due(row):
         return FAINT_EDGE
     if whole_ink_due(row):
@@ -26906,6 +26994,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   INDY_FRAME,
                   # 11-16: a Gale page whose broken grid frame left no square ink patch (whole_ink_due).
                   WHOLE_INK,
+                  # 11-18: a Gale Telegraph weekday 2000-10..12 refused, its grid off the Across heading (head_grid_due).
+                  HEAD_GRID,
                   # 11-16: a Gale Telegraph weekday whose faint cryptic grid was read as the Quick's (faint_edge_due).
                   FAINT_EDGE,
                   # 11-15: a Gale Sunday Telegraph 1980-89 page with its ACROSS list over the grid's title (sunday_above_due).
@@ -27097,6 +27187,7 @@ def blanket_or_fix(row, blanket):
             else FT_SPECK_WORDS if ft_speck_words_due(row) \
             else IOS_WORDS if ios_words_due(row) \
             else INDY_FRAME if indy_frame_due(row) \
+            else HEAD_GRID if head_grid_due(row) \
             else FAINT_EDGE if faint_edge_due(row) \
             else WHOLE_INK if whole_ink_due(row) \
             else SUNDAY_ABOVE if sunday_above_due(row) \
@@ -27321,7 +27412,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, HEAD_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
