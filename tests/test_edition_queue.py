@@ -4099,7 +4099,7 @@ check("a lazy import, a script only mentioned, tests, pages and other scripts ar
       ([], 4), (lambda r: (r[0], len(r[1])))(hr.relevant(["tools/lazy_only.py", "tools/mention.py", "tools/page.js", "tools/unrelated.py"], cl)))
 check("the real queue's closure holds the units' scripts and not the site builders or fetchers it never starts",
       (True, True, True, True, False, False, False, True),  # shape_queue: a commit loads it (edition_commit.MODULES)
-      tuple(("tools/" + n in hr.queue_code(eq.TOOLS)) for n in ("scan_queue.py", "vlm_reader.py", "file_archive_org_puzzles.py", "ocr_full_pass.sh",
+      tuple(("tools/" + n in hr.queue_code(eq.TOOLS, exclude=eq.reload_skip())) for n in ("scan_queue.py", "vlm_reader.py", "file_archive_org_puzzles.py", "ocr_full_pass.sh",
                                                                  "build_seo_pages.py", "fetch_globeandmail.py", "ci_cache.js", "shape_queue.py")))
 # A wrapper runs the root in its code: one that names it in a comment is no wrapper. Excluded stems are not entered.
 for name, text in {"cmt.sh": "# see tools/q.py\necho hi\n", "x.py": "import helper\n"}.items():
