@@ -4,14 +4,15 @@
     python3 tools/ab_arm.py sundaytimes-4612      # prints "fable high"
 
 Paul 11-17: "You can use all these spends as ab tests to see if they are worth it."
-While the burn rushes, each run is one of ARMS; opus/medium is the paced baseline
-and is not an arm here. The same id always draws the same arm (reproducible), and
+While the burn rushes, each run is one of ARMS. 11-18: Paul asked "Why opus high effort
+and not medium?" and no opus/medium rush run had been logged, so the arms are Opus at both
+efforts (the Fable arms lost: fable/high $1.06 a puzzle vs opus/high $0.38). The same id always draws the same arm (reproducible), and
 ids spread evenly over arms in the long run. tools/ab_report.py reads the result.
 """
 import hashlib
 import sys
 
-ARMS = [("fable", "medium"), ("fable", "high"), ("fable", "max"), ("opus", "high")]
+ARMS = [("opus", "medium"), ("opus", "high")]
 
 
 def pick(puzzle_id, arms=None):
