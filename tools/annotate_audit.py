@@ -78,7 +78,11 @@ WAKE_SH = os.environ.get("WAKE_SH") or __import__("local_config").path("househol
 ROOM = os.environ.get("HOUSEHOLD_ROOM", "cryptic-crosswords")
 
 # $/MTok: input, output, cache read, 5-minute cache write, 1-hour cache write.
-PRICES = {"claude-opus-5-5": (4, 20, 0.20, 5, 8)}
+# Fable 5.2: $8 in, $40 out, $0.20 cache hit, $10 5m write, $16 1h write; source
+# https://platform.claude.com/docs/en/about-claude/pricing (Claude Fable 5.2 row).
+# Priced by the session's own model id, so runs with no .effort ("fable/?") cost the same.
+PRICES = {"claude-opus-5-5": (4, 20, 0.20, 5, 8),
+          "claude-fable-5-2": (8, 40, 0.20, 10, 16)}
 MIN_SESSIONS = 30          # per window, before a trend or a finding may wake anyone
 FIX_FLOOR = 0.03           # a finding must touch this share of sessions to be a fix target
 COOLDOWN_DAYS = 7          # a woken finding is skipped this long unless it has grown
