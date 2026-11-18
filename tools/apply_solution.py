@@ -462,7 +462,9 @@ def main():
     if not isinstance(fill, dict):
         raise SystemExit('--fill must be a JSON object of entry id -> '
                          '{"answer": ..., "definition": ...}')
-    waiting = clues_only.read(args.number) if "-" in args.number else None
+    # A filed puzzle wins over a clues-only copy of the same id (a stale reading).
+    waiting = (clues_only.read(args.number)
+               if "-" in args.number and not puzzle_paths.find(args.number) else None)
     generator = None
     if waiting is not None:
         # Held as its clues alone: the answers, in clue order, give the grid,

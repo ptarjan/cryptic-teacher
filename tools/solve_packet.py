@@ -17,6 +17,7 @@ Usage: python3 tools/solve_packet.py 30080
 import argparse
 
 import clues_only
+import puzzle_paths
 import nation_key  # the setters' printed notes for a Nation puzzle
 from fetch_puzzle import read_puzzle_view, resolve_puzzle
 from groups import entry_id
@@ -98,7 +99,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("number", help="puzzle id or bare number")
     args = ap.parse_args()
-    waiting = clues_only.read(args.number) if "-" in args.number else None
+    # A filed puzzle wins over a clues-only copy of the same id (a stale reading).
+    waiting = (clues_only.read(args.number)
+               if "-" in args.number and not puzzle_paths.find(args.number) else None)
     if waiting is not None:
         print(clues_only_packet(waiting))
         return

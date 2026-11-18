@@ -1815,6 +1815,26 @@ def check_strays(published, flags, files):
         check_filed(path, puzzle, flags)
 
 
+#: Clues-only copies kept beside a filed puzzle on purpose, until their cleaner clue text
+#: (the filed Gale OCR holds ad text and misreads) is carried into it (11-18).
+KEPT_TWINS = {"independent-8764", "independent-8823", "independent-8913"}
+
+
+def check_twin_clues_only(paths, flags):
+    """FILED for each puzzle id held both as puzzles/<series>/<year>/<id>.json and
+    clues_only/<series>/<id>.json: one id, one state (tools/clues_only.py). The
+    clues-only twin is a stale reading that the annotate burn must not pick up
+    (times-26591, 11-17)."""
+    held = {}
+    for path in (puzzle_paths.PUZZLE_DIR.parent / "clues_only").glob("*/*.json"):
+        held[path.stem] = path
+    for name in paths:
+        twin = held.get(name.rsplit("/", 1)[-1][:-len(".json")])
+        if twin is not None and twin.stem not in KEPT_TWINS:
+            flags.append(("FILED", twin.stem, f"{_rel(twin)} is the clues-only copy of the filed "
+                          f"{name}: drop it (tools/drop_clues_only_twin.py)"))
+
+
 _TODAY = None
 
 
@@ -2132,6 +2152,7 @@ def audit(files, paths, today, only=None):
         held.append(row)
     cross = []
     check_dates(held, cross)
+    check_twin_clues_only(paths if only is None else judged, cross)
     if only is None:
         check_strays(set(paths), cross, files)
         index = ClueIndex()

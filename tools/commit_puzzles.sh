@@ -34,9 +34,27 @@ ct_commit_puzzles() {  # ct_commit_puzzles <job>
   local -a upd=() upd_ids=()
   git diff --cached --quiet && return 0
   trailer="$(python3 "$_cp_dir/provenance.py" trailer 2>/dev/null)"
+  # One id, one state: a puzzle filed under puzzles/ takes its clues-only copy
+  # (clues_only/<series>/<id>.json) with it in the same commit, whichever filer
+  # wrote it (times-26591, 11-17). A copy holding anything the puzzle lacks stays,
+  # reported on stderr (tools/drop_clues_only_twin.py).
+  local -a added=() twins=()
+  mapfile -t added < <(git diff --cached --name-only --diff-filter=A -- puzzles | grep '\.json$')
+  if [ "${#added[@]}" -gt 0 ]; then
+    mapfile -t twins < <(python3 "$_cp_dir/drop_clues_only_twin.py" "${added[@]}")
+  fi
   while IFS= read -r line; do
     [[ "$line" == *.json ]] || continue
     IFS=$'\t' read -r -a p <<<"$line"
+    # Its twin goes in the commit of the puzzle it was promoted to.
+    if [[ "$line" == D*$'\t'clues_only/* ]]; then
+      [[ " ${twins[*]} " == *" ${p[1]} "* ]] && continue
+    fi
+    if [[ "$line" == A* ]]; then
+      t="${p[1]#puzzles/}"
+      t="clues_only/${t%%/*}/${p[1]##*/}"
+      [[ " ${twins[*]} " == *" $t "* ]] && p+=("$t")
+    fi
     if [[ "$line" == M* ]]; then
       upd+=("${p[1]}")
       t="${p[1]##*/}"

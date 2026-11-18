@@ -3032,10 +3032,11 @@ def unsolved(pid):
     """Whether the puzzle's file lacks an answer to any entry: the burn solves
     it cold before annotating it. A puzzle held clues-only has no answer yet."""
     import clues_only
-    if clues_only.find(pid, held_dir()):
-        return True
     from fetch_puzzle import read_puzzle_file
-    from puzzle_paths import resolve_puzzle
+    from puzzle_paths import find, resolve_puzzle
+    # A filed puzzle wins over a clues-only copy of the same id (a stale reading).
+    if not find(pid) and clues_only.find(pid, held_dir()):
+        return True
     return not all(e.get("solution") for e in read_puzzle_file(resolve_puzzle(pid))["entries"])
 
 
