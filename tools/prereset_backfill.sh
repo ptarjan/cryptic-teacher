@@ -485,8 +485,17 @@ run_claude() {
   resume_at="/tmp/ct-prereset-$1.resume"
   # run_claude runs in its own background subshell (pool_launch), so this sets this run's model only.
   WORKER_MODEL=$(burn_model)
-  if [ -n "$RUSH_MODEL" ] && [ "$WORKER_MODEL" = "$RUSH_MODEL" ] && [ -n "$RUSH_EFFORT" ]; then WORKER_EFFORT="$RUSH_EFFORT"; fi
+  if [ -n "$RUSH_MODEL" ] && [ "$WORKER_MODEL" = "$RUSH_MODEL" ]; then
+    # Rushing: the run's arm (model, effort) is drawn from tools/ab_arm.py, seeded by the
+    # puzzle id, so the spend is an A/B (tools/ab_report.py). RUSH_AB=0 keeps the fixed pair.
+    if [ "${RUSH_AB-1}" != 0 ] && arm=$(python3 tools/ab_arm.py "$tag" 2>/dev/null) && [ -n "$arm" ]; then
+      WORKER_MODEL="${arm% *}"; WORKER_EFFORT="${arm#* }"
+    elif [ -n "$RUSH_EFFORT" ]; then
+      WORKER_EFFORT="$RUSH_EFFORT"
+    fi
+  fi
   echo "$WORKER_MODEL" 2>/dev/null >"$RUNS/$tag.model" || true
+  echo "$WORKER_EFFORT" 2>/dev/null >"$RUNS/$tag.effort" || true
   if [ "$DRY_RUN" = 1 ]; then
     echo "would spend one $WORKER_MODEL run on $tag" >"$log"
     sleep 1
@@ -534,6 +543,7 @@ solve_applied() {
     echo "  [$id] would apply the fill"
   else
     # The fill is the model's that ran it (run_claude's choice), not the shell's default.
+    WORKER_EFFORT="$(cat "$RUNS/$id.effort" 2>/dev/null || echo "$ANNOTATE_EFFORT")" \
     WORKER_MODEL="$(cat "$RUNS/$id.model" 2>/dev/null || echo "$MODEL")" \
       worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.resume"
     case $? in

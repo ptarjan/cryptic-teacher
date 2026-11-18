@@ -451,6 +451,7 @@ def main():
                     help='JSON file mapping entry id -> answer and definition, e.g. '
                          '{"1-across": {"answer": "POPULAR FRONT", "definition": "Left-wing alliance"}}')
     ap.add_argument("--model", default="unknown", help="which model produced the fill")
+    ap.add_argument("--effort", default="", help="the effort it ran at (A/B arm, tools/ab_report.py)")
     ap.add_argument("--check-only", action="store_true",
                     help="report and exit without touching the puzzle file")
     ap.add_argument("--no-reindex", action="store_true",
@@ -531,6 +532,7 @@ def main():
         item["solution"] = normalise(fill[cid])
     detail = {
         "model": args.model,
+        **({"effort": args.effort} if args.effort else {}),
         "date": datetime.date.today().isoformat(),
         "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts"
                  + (f", agrees with the {printed} answers the paper printed" if printed else ""),

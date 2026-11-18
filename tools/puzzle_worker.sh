@@ -319,7 +319,7 @@ worker_apply() {   # id fill log verdict sidfile [notefile]
   restore_puzzle "$id"
   if [ -s "$fill" ]; then
     # --no-reindex: the index is the caller's to rebuild when its run ends.
-    if python3 tools/apply_solution.py "$id" --fill "$fill" --model "$WORKER_MODEL" --no-reindex >"$verdict" 2>&1; then
+    if python3 tools/apply_solution.py "$id" --fill "$fill" --model "$WORKER_MODEL" --effort "${WORKER_EFFORT:-}" --no-reindex >"$verdict" 2>&1; then
       # The solver's own account outlives the run, for the miss diagnosis to
       # read when the paper's key grades it.
       python3 tools/solve_misses.py keep-log "$id" "$log"
