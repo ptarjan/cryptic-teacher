@@ -114,8 +114,13 @@ many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 
 check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
 check("a 2000s page with 4+ blanks is not due for MID_FIX", True, gm.read_done({**many, "date": "2003-10-05"}))
+noparse = {"file": "x.pdf", "refused": "no reading parses", "date": "2003-04-06", "version": gm.VERSION, "listsFix": gm.LISTS_FIX,
+           "leftFix": gm.LEFT_FIX, "midFix": gm.MID_FIX}
+check("a 2000s no-parse refusal before HEAD_FIX is due", False, gm.read_done(noparse))
+check("a 2000s no-parse refusal at HEAD_FIX stands", True, gm.read_done({**noparse, "headFix": gm.HEAD_FIX}))
+check("a 1970s no-parse refusal is not due for HEAD_FIX", True, gm.read_done({**noparse, "date": "1972-03-19"}))
 box = (180, 1729, 1044, 2630)
-ws = [(1057, 1650 + 28 * k, 1090, 1670 + 28 * k, str(20 + k)) for k in range(6)] + [(200, 2700, 260, 2720, "1")]
+ws =[(1057, 1650 + 28 * k, 1090, 1670 + 28 * k, str(20 + k)) for k in range(6)] + [(200, 2700, 260, 2720, "1")]
 check("the right column's split is its numbers' left edge", 1049, gm.column_split(ws, box, 1068, 1700, 2600, 24))
 check("numbers right of the half way line leave it", 1068, gm.column_split([(1090, 1700 + 28 * k, 1100, 1720, "5") for k in range(6)], box, 1068, 1700, 2600, 24))
 

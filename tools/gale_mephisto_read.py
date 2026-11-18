@@ -70,6 +70,13 @@ STOP_WORD = re.compile(r"^\W*(?:solutions?|winners|prizes?|answers)\W*$", re.IGN
 STOP_LINE = re.compile(r"^\W*(?:so\w{3,8}[nae]|answers)\s*(?:t[oa]\s+m[a-z]{4,9}\b|\w{1,2}\s+\w{2,10}\s+[12]\d{3}\b)",
                        re.IGNORECASE)
 #: The "Bookwise" quiz heading (1995-99) stands under the lists where no solution column's heading reaches the cut.
+#: The first word of a heading wrapped over two lines ("Solution" / "to Mephisto 1819", HEAD_FIX).
+STOP_WRAPPED = re.compile(r"^\W*so\w{3,8}[nae]\W*$", re.IGNORECASE)
+#: Bumped when only the lists' cut changes again (HEAD_FIX 1: a wrapped "Solution to Mephisto N" heading stops it):
+#: the pages from 1989 on refused "no reading parses" are read again once.
+HEAD_FIX = 1
+#: The gap (lines) that ends the lists while their Down heading is still below them (HEAD_FIX).
+GAP_BEFORE_DOWN = 4.5
 STOP_BOOKWISE = re.compile(r"^\W*b[o0]{2}kw\w*\W*$", re.IGNORECASE)
 #: Bumped when only the lists' cut changes (LISTS_FIX 1: the cut ran on past last week's solution or the lists' foot
 #: into the page's articles): pages refused "no reading parses" are read again once.
@@ -461,6 +468,10 @@ def read_done(row, done=None):
     if row and row.get("refused") == "no reading parses" and row.get("listsFix", 0) < LISTS_FIX:
         # Refused before the lists' cut stopped at the Solution heading, the Bookwise heading or the gap under the
         # lists (lists_cut): the cut ran on into the page's articles.
+        return False
+    if row and row.get("refused") == "no reading parses" and row.get("headFix", 0) < HEAD_FIX \
+            and (row.get("date") or "0") >= "1989":
+        # Refused before a heading wrapped over two lines ("Solution" / "to Mephisto N") stopped the lists' cut.
         return False
     if row and row.get("leftFix", 0) < LEFT_FIX and (row.get("date") or "9") <= WRAP_TO and (
             str(row.get("refused") or "").startswith(("no clue list", "grid unread")) or row.get("refused") == "no reading parses"):
@@ -1063,6 +1074,8 @@ def lists_cut(words, box):
     titles = [w for w in inside if TITLE_WORD.match(w[4]) and w[1] - box[3] < 40 * lh]
     top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
     bottom = top
+    downs = [w[1] for w in inside if gl.heading(w[4]) == "DOWN" and top < w[1] < top + 80 * lh]
+    down_y = min(downs) if downs else None
     # LISTS_FIX: a box taller than TALL_BOX lines is a misread (the OCR merged a column's lines or the solution's grid
     # of letters into one box): its foot no longer pushes the cut's bottom past the solution's heading below it.
     for w in sorted((w for w in inside if w[3] > top), key=lambda w: w[1]):
@@ -1070,7 +1083,13 @@ def lists_cut(words, box):
         # in a note beside the lists ("the reference for all solutions except proper nouns").
         rest = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
                         if o[0] >= w[0] - 1 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2)
-        if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or STOP_BOOKWISE.match(w[4]) or (
+        # HEAD_FIX: the heading wraps in a narrow column ("Solution" over "to Mephisto 1819"): the line under it
+        # is read on with the word before STOP_LINE is asked.
+        under = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
+                         if o[0] >= w[0] - 1 and 0.5 * lh < (o[1] + o[3]) / 2 - (w[1] + w[3]) / 2 < 1.7 * lh) \
+            if STOP_WRAPPED.match(w[4]) else ""
+        if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (under and STOP_LINE.match(w[4] + " " + under))
+                                    or STOP_BOOKWISE.match(w[4]) or (
                 STOP_WORD.match(w[4]) and not w[4].rstrip().endswith("?") and not re.search(r"\(\s*\d", rest)
                 and not re.match(
                     r"(?i)(solutions?|answers)\s+(except|for|of|to the)\b", rest) and not rest.lower().startswith(
@@ -1080,7 +1099,10 @@ def lists_cut(words, box):
             break
         if w[3] - w[1] > TALL_BOX * lh:
             continue
-        if w[1] - bottom > GAP_LINES * lh and bottom > top + 6 * lh:
+        # HEAD_FIX: the lists reach their Down heading before a gap ends them (OCR that lost a line or two of a noisy
+        # page leaves a gap of 2-3 lines in the middle of the Across clues); a wider one still ends them.
+        reached = down_y is None or bottom >= down_y
+        if w[1] - bottom > (GAP_LINES if reached else GAP_BEFORE_DOWN) * lh and bottom > top + 6 * lh:
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
@@ -1110,9 +1132,12 @@ def beside_cut(words, box):
     for w in sorted(inside, key=lambda w: w[1]):
         rest = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
                         if o[0] >= w[0] - 1 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2)
-        if w[1] > top + 6 * lh and STOP_LINE.match(rest):
+        under = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
+                         if o[0] >= w[0] - 1 and 0.5 * lh < (o[1] + o[3]) / 2 - (w[1] + w[3]) / 2 < 1.7 * lh) \
+            if STOP_WRAPPED.match(w[4]) else ""
+        if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (under and STOP_LINE.match(w[4] + " " + under))):
             break
-        if w[1] - bottom > 3 * lh and bottom > top + 6 * lh:
+        if w[1] - bottom > (3 if bottom >= d[1] else GAP_BEFORE_DOWN) * lh and bottom > top + 6 * lh:
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
@@ -1663,7 +1688,9 @@ def page_read(path, store=STORE, asker=None):
     gpath.parent.mkdir(parents=True, exist_ok=True)
     img.crop(found["box"]).save(gpath)
     cut = beside_cut(words, found["box"])
-    wrapped = None if cut else wrapped_cut(words, found["box"])
+    # HEAD_FIX: the grid-wrapping lists are the 1960s'; the 1989-2004 pages' Down heading beside the grid is theirs
+    # (the lists under it), not a second page column.
+    wrapped = None if cut or day.isoformat() >= "1989" else wrapped_cut(words, found["box"])
     lefted = None if cut or wrapped else left_cut(words, found["box"])
     cut = cut or wrapped or lists_cut(words, found["box"])
     if lefted:
@@ -1748,7 +1775,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
-                "leftFix": LEFT_FIX, "midFix": MID_FIX}, store)
+                "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
