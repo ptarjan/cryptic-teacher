@@ -1787,6 +1787,64 @@ def sunday_restart_due(row):
     return False
 
 
+#: The reason of a Gale Independent (daily) page, 2000-14, left unfiled with a light "no reading laid a clue on it" whose
+#: clue window holds THREE print columns of clue numbers (INDY_THREE_FULL or more starts in each, evenly pitched): the
+#: ACROSS list in the first two columns and the DOWN list from the second's foot into the third (2009-12-23 No 7235: numbers
+#: at x 3140, 3463, 3787; 20 of 30 clues read, the 10 down clues of the third column blank). right_gutter() set its gutter
+#: just before the third column and indy_two_columns() took the third for other print past it (the puzzles box, 2013-07-10),
+#: cutting it off. indy_columns() now keeps three columns when each holds a full list's numbers, the third's far edge at
+#: the gutter before the "Tuesday's solution" box beside it. Offline on cached readings: 2009-12-23 20 -> 30 clues, 9 blank
+#: lights to 1; 2006-07-13 and 2005-10-19 every light read.
+INDY_THREE = "Independent page whose third clue column stood past the window's gutter, its three columns read since"
+REREAD_INDY_THREE = "2026-11-18T23:07:00+00:00"  # placeholder: the push minute (UTC)
+
+
+@functools.lru_cache(maxsize=4096)
+def indy_three_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") holds three print columns of
+    clue-number starts evenly pitched, INDY_THREE_FULL or more starts in each."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            words = [(float(w[0]), float(w[1]), float(w[2]), float(w[3]), str(w[4])) for w in held["words"]]
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+        top = min((w[1] for w in words), default=0)
+        groups = []
+        for x in sorted(w[0] for w in words if w[1] >= top + 20 and _INDY_NUMBER_START.match(w[4])):
+            if groups and x - groups[-1][-1] <= INDY_COLUMN_SNAP:
+                groups[-1].append(x)
+            else:
+                groups.append([x])
+        kept = [g for g in groups if len(g) >= INDY_COLUMN_MIN]
+        if len(kept) != 3 or min(len(g) for g in kept) < INDY_THREE_FULL:
+            continue
+        heads = [g[len(g) // 2] for g in kept]
+        pitch = (heads[1] - heads[0], heads[2] - heads[1])
+        if min(pitch) >= 150 and abs(pitch[0] - pitch[1]) <= 0.25 * max(pitch):
+            return True
+    return False
+
+
+def indy_three_due(row):
+    """Whether Gale Independent (daily) ledger `row` of 2000-14, read before REREAD_INDY_THREE, holds a verdict not
+    refused, not skipped, with a light "no reading laid a clue on it", its cached clue window three print columns."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(Path(rel)).key != GALE_INDEPENDENT.key or not "2000" <= Path(rel).name[:4] <= "2014" \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_THREE)):
+        return False
+    for v in row.get("verdicts", ()):
+        blank = v.get("blank")
+        if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None or not isinstance(blank, dict):
+            continue
+        if not any("no reading laid a clue" in str(why) for why in blank.values()):
+            continue
+        if indy_three_read(f"{Path(rel).name}_{v['number']}") \
+                and not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: A Gale Sunday Telegraph 1975-89 page's noisier readers (ch, Tesseract) lose a clue's number ("aSomelhing that is done with
 #: arc-lights", 1984-06-24's 5 down; 1984-09-02's 4 and 17 down), so only RapidOCR's en5 had the clue by number and
 #: ocr_clues.relaid, which wants a second reading to print a like clue under that number, left the light "no reading laid a
@@ -3460,6 +3518,10 @@ def indy_two_columns(lines, grid, right, heads):
     return split, mid, bottom, *rest
 
 
+#: INDY_THREE_FULL: the starts of clue numbers a print column holds at least for indy_three_read() to count it.
+INDY_THREE_FULL = 6
+
+
 def indy_columns(lines, grid, right):
     """`right` (right_gutter's) with the third window of the Independent's three print columns (Third), the gutters
     set between the columns the clue numbers' left edges mark (the first at least a third of the pitch left of the
@@ -3502,6 +3564,12 @@ def indy_columns(lines, grid, right):
         return right
     gutters = [gutter(lines, (a, bottom, b, bottom), top, a, b)
                for a, b in ((heads[0] + 0.6 * pitch[0], heads[1] - 5), (heads[1] + 0.6 * pitch[1], heads[2] - 5))]
+    if three:
+        # INDY_THREE: print right of the third column (the "Tuesday's solution" box beside it, its first letters 5-10px off
+        # the clue lines' ends) joins no clue: the window ends at the gutter after the column.
+        lo, hi = int(heads[2] + 0.75 * pitch[1]), min(int(x1), int(heads[2] + 1.1 * pitch[1]))
+        if lo < hi:
+            x1 = min(x1, gutter(lines, (lo, bottom, hi, bottom), top, lo, hi))
     return gutters[1], gutters[0], bottom, *rest, Third(x1)
 
 
@@ -26209,6 +26277,8 @@ def fix_reason(row):
         return SUNDAY_RESTART
     if indy_foot_tail_due(row):
         return INDY_FOOT_TAIL
+    if indy_three_due(row):
+        return INDY_THREE
     if indy_next_due(row):
         return INDEPENDENT_HEADINGS
     if indy_right_due(row):
@@ -27100,6 +27170,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   SUNDAY_RESTART,
                   # 11-18 r235: an Independent page refused no ACROSS and DOWN lists, its third column and low DOWN heading read since.
                   INDY_FOOT_TAIL,
+                  # 11-18 r234: a Gale Independent page whose third clue column stood past the window's gutter (indy_three_due).
+                  INDY_THREE,
                   # 11-15 r30: a 1940s Gale Times page whose grid's pale rules left too few white cells (pale_rules_due).
                   PALE_RULES)
 
@@ -27290,7 +27362,8 @@ def blanket_or_fix(row, blanket):
             else SUNDAY_NOTICE_CUT if sunday_notice_cut_due(row) \
             else SUNDAY_PRIZE_CUT if sunday_prize_cut_due(row) \
             else SUNDAY_RESTART if sunday_restart_due(row) \
-            else INDY_FOOT_TAIL if indy_foot_tail_due(row) else _other_fix(row, blanket)
+            else INDY_FOOT_TAIL if indy_foot_tail_due(row) \
+            else INDY_THREE if indy_three_due(row) else _other_fix(row, blanket)
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -27509,7 +27582,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, INDY_FOOT_TAIL: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, HEAD_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SUNDAY_RESTART: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, INDY_FOOT_TAIL: 2, INDY_THREE: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, HEAD_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SUNDAY_RESTART: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,

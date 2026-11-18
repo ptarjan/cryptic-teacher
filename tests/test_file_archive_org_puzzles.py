@@ -10169,6 +10169,18 @@ if f.marked_starts("surprising|23 Famous peak dis-") == {11: 10} \
 else:
     print("FAIL a clue number glued to the word before it behind a bar or comma is cut there (BARRED_NUMBER)")
     out += "\nFAILS 1"
+_it_lines = [[(x, 2000 + 50 * k, x + 20, 2020 + 50 * k, str(k + 1))] for x in (3140, 3463, 3787) for k in range(8)]
+_it_grid = (2407, 2006, 3127, 2726)
+_it = f.indy_columns(_it_lines, _it_grid, (4499, 3767, 3104))
+_it_two = f.indy_columns(_it_lines[:16], _it_grid, (4499, 3767, 3104))
+if f.third_of(_it) and _it[0] < 3787 and 3300 < _it[1] < 3463 and f.third_of(_it_two) is None \
+        and f.indy_three_due({"edition": "GaleIndependent2009UKEnglish/2009-12-23", "readAt": "2026-11-18T11:14:58+00:00",
+                              "verdicts": [{"number": 1, "id": "independent-1", "blank": {"8-down": "x"}}]}) is False \
+        and f.INDY_THREE in f.RANKS:
+    print("ok   the Independent's three evenly pitched clue columns are kept when the old gutter stands before the third (INDY_THREE)")
+else:
+    print("FAIL the Independent's three evenly pitched clue columns are kept when the old gutter stands before the third (INDY_THREE)")
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
