@@ -4101,8 +4101,23 @@ check("the real queue's closure holds the units' scripts and not the site builde
       (True, True, True, True, False, False, False, True),  # shape_queue: a commit loads it (edition_commit.MODULES)
       tuple(("tools/" + n in hr.queue_code(eq.TOOLS)) for n in ("scan_queue.py", "vlm_reader.py", "file_archive_org_puzzles.py", "ocr_full_pass.sh",
                                                                  "build_seo_pages.py", "fetch_globeandmail.py", "ci_cache.js", "shape_queue.py")))
+# A wrapper runs the root in its code: one that names it in a comment is no wrapper. Excluded stems are not entered.
+for name, text in {"cmt.sh": "# see tools/q.py\necho hi\n", "x.py": "import helper\n"}.items():
+    (tree / name).write_text(text)
+check("a shell script naming the root only in a comment is not its wrapper",
+      (False, True), ("tools/cmt.sh" in hr.queue_code(tree, "q.py"), "tools/wrap.sh" in hr.queue_code(tree, "q.py")))
+check("an excluded module and what only it reaches are outside the closure; import_reach follows lazy imports",
+      ({"q.py", "child.py", "childdep.py", "wrap.sh", "part.sh"}, {"q", "lazy_only"}),
+      ({p[6:] for p in hr.queue_code(tree, "q.py", exclude=("helper",))}, hr.import_reach(tree, "q", exclude=("helper",))))
+_all, _guardian = eq.queue_closure(), eq.queue_closure(["guardian"])
+check("a Guardian run reloads for its read path and the queue's code, not for the Globe fetcher, the shape repairs, "
+      "the Listener's Gale readers or a script that only mentions the queue in a comment",
+      (True, True, True, True, False, False, False, False, False, True),
+      tuple(("tools/" + n in _guardian) for n in ("edition_queue.py", "file_archive_org_puzzles.py", "fetch_puzzle.py", "ocr_full_pass.sh",
+                                                   "fetch_globeandmail.py", "fix_shape_notes.py", "gale_mephisto_read.py",
+                                                   "prereset_backfill.sh", "file_trove_puzzles.py")) + ("tools/gale_mephisto_read.py" in _all,))
 push_file(seed, "tools/b.py", "1\n", "unrelated tool")
-irrelevant = hr.Watcher(mine, closure={"tools/a.py"})
+irrelevant =hr.Watcher(mine, closure={"tools/a.py"})
 import contextlib, io
 out = io.StringIO()
 with contextlib.redirect_stdout(out):

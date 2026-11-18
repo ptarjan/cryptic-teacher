@@ -3086,11 +3086,29 @@ def code_files():
     return {f: digest(f) for f in paths}
 
 
-def queue_closure():
-    """The tools/ files (repo-relative) whose change reloads this queue:
-    hot_reload.queue_code's, and every module this process has loaded."""
-    mine = {f"tools/{f.name}" for f in code_files()}
-    return hot_reload.queue_code(TOOLS) | mine
+#: Modules only the named paper's plan and units use: a run of other papers never executes them, so
+#: a push to one (gale_mephisto_read changed six times in a 5 h Guardian run) is no reload for it.
+PAPER_ONLY = {"listener": ("gale_mephisto_read", "gale_jumbo_read", "gale_tls_read", "gale_listener", "file_gale_listener"),
+              "trove": ("file_trove_puzzles",)}
+#: Modules the queue reaches only through a lazy import and no read runs: the Globe and Mail fetcher
+#: (cross_validate's lazy import) and the shape-repair tools (wordplay's lazy import of fix_shape_suspects).
+NEVER_RUN = ("fetch_globeandmail", "fix_shape_suspects", "fix_shape_notes")
+
+
+def reload_skip(papers=None):
+    """The module stems whose change reloads nothing for a run of `papers` (None: every paper)."""
+    papers = PAPERS if papers is None else papers
+    return set(NEVER_RUN) | {m for k, ms in PAPER_ONLY.items() if k not in papers for m in ms}
+
+
+def queue_closure(papers=None):
+    """The tools/ files (repo-relative) whose change reloads a queue of `papers`:
+    hot_reload.queue_code's, and every module this process has loaded that the
+    run can reach (reload_skip's, and what only they reach, are left out)."""
+    skip = reload_skip(papers)
+    reach = hot_reload.import_reach(TOOLS, "edition_queue", skip)
+    mine = {f"tools/{f.name}" for f in code_files() if f.stem in reach or f.stem == "edition_queue"}
+    return hot_reload.queue_code(TOOLS, exclude=skip) | mine
 
 
 def digest(path):
@@ -4809,7 +4827,7 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         # A re-exec blocks these across it (reexec); the handlers are in place now.
         signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
         self.code = code_files()
-        self.watcher = hot_reload.Watcher(TOOLS.parent, closure=queue_closure()).start() if hot_reload.enabled() and watch else None
+        self.watcher = hot_reload.Watcher(TOOLS.parent, closure=queue_closure(self.papers)).start() if hot_reload.enabled() and watch else None
         self.begun = self.code_checked = time.monotonic()
         self.running = {}  # pid: (unit, started)
         self.tried = set()

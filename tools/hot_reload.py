@@ -100,14 +100,46 @@ def _needs(tools, name, names):
     return out & names
 
 
-def queue_code(tools, root="edition_queue.py"):
+def _code_lines(text):
+    """`text` without its comment lines."""
+    return "\n".join(l for l in text.split("\n") if not l.lstrip().startswith("#"))
+
+
+def import_reach(tools, root="edition_queue", exclude=()):
+    """The stems of the tools/ modules `root` may load: every import in its code (a
+    function's lazy one too), transitively, not entered past a stem in `exclude`."""
+    tools = Path(tools)
+    seen, todo = set(), [root]
+    while todo:
+        m = todo.pop()
+        path = tools / f"{m}.py"
+        if m in seen or m in exclude or not path.exists():
+            continue
+        seen.add(m)
+        try:
+            tree = ast.parse(path.read_text(encoding="utf-8", errors="replace"))
+        except SyntaxError:
+            continue
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                todo += [a.name.split(".")[0] for a in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module and not node.level:
+                todo.append(node.module.split(".")[0])
+    return seen
+
+
+def queue_code(tools, root="edition_queue.py", exclude=()):
     """The tools/ files (repo-relative paths) a queue running `root` can run:
     root, the shell wrappers that start it, and what each loads or launches,
     transitively (_needs). A change to any other tools/ file (a fetcher the
-    queue never starts, the site builders, tests) cannot change the queue."""
+    queue never starts, the site builders, tests) cannot change the queue.
+    A wrapper runs root in its code: a script that only names it in a comment
+    (prereset_backfill.sh) is none. `exclude` (module stems) are not entered, so
+    a file reached only through them is out too."""
     tools = Path(tools)
     names = {p.name for p in tools.iterdir() if p.suffix in (".py", ".sh", ".js") and not p.name.startswith("test_")}
-    todo = [root] + sorted(n for n in names if n.endswith(".sh") and root in (tools / n).read_text(errors="replace"))
+    names -= {f"{e}.py" for e in exclude}
+    todo = [root] + sorted(n for n in names if n.endswith(".sh") and root in _code_lines((tools / n).read_text(errors="replace")))
     seen, leaves, wrappers = set(), set(), set(todo[1:])
     while todo:
         n = todo.pop()
