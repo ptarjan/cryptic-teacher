@@ -346,7 +346,20 @@ def tick(queue, dry=False):
           + (f" ({' '.join(waiting[:8])}{' ...' if len(waiting) > 8 else ''})" if waiting else ""))
     if hasattr(mod, "after_tick") and not dry:
         mod.after_tick(Ledger(queue), now)
+    if not dry and getattr(mod, "SLOTS", 0) and not running and not started and not waiting:
+        sweep_trees(mod)
     return 0
+
+
+def sweep_trees(mod):
+    """The queue is at rest: drop its idle slot trees (tools/tree_sweep.py), so
+    full checkouts do not sit on the disk between runs."""
+    import tree_sweep
+    root = os.environ.get("CT_WORKTREE_ROOT") or str(Path.home() / ".cryptic-teacher")
+    try:
+        tree_sweep.sweep(main_checkout(), root, [f"{mod.TREE}-{n}" for n in range(1, mod.SLOTS + 1)], log=log)
+    except (OSError, subprocess.SubprocessError) as e:  # a failed sweep must never fail the tick
+        log(f"tree_sweep: {e}")
 
 
 #: A skipped tick still runs in full this often, which is what carries a
