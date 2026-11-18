@@ -85,7 +85,9 @@ while :; do
   fi
   [ "$n" -lt "$tries" ] || fail 1 "push rejected after $n tries"
   echo "push rejected; rebasing onto origin/master (try $n of $tries)" >&2
-  if ! git pull -q --rebase origin master >&2; then
+  # fetch + rebase FETCH_HEAD, not pull: pull --rebase fails in a detached lease tree
+  # ("no candidate for rebasing").
+  if ! { git fetch -q origin master >&2 && git rebase -q FETCH_HEAD >&2; }; then
     git rebase --abort >&2 2>/dev/null
     fail 3 "rebase conflict, aborted"
   fi
