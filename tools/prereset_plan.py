@@ -179,6 +179,9 @@ PLAN_SHARE = 0.8
 # burn rushes the meter (and wakes the room to reset) only with two or more free, and with one
 # or none it paces the meter to the natural reset, the held one left for him to use by hand.
 MANUAL_RESERVE = 1
+# Owner 11-18: "Careful with spend you're overshooting". Rushing within a day of the
+# natural reset just spends a manual reset for a few hours of quota, so pace instead.
+RUSH_MIN_H = 24
 PACIFIC = awake.PACIFIC
 # Lockout safety (owner 11-01: "try to know when I'm awake so you don't lock me
 # out when I'm sleeping"). Unless the plan fills the meter before his next
@@ -493,13 +496,15 @@ def abt(epoch):
     return f"{t:%a %H:%M} ABT"
 
 
-def rush_choice(left, until):
+def rush_choice(left, until, now):
     """(rush, words) for `left` manual resets free now and the natural reset at
     `until` (owner 11-03: "spend any resets we have so rush when we have one and
     don't when we don't"), the last MANUAL_RESERVE kept unspent (11-08: rush only with two or
     more free). Words are the status line's: "rushing; 2 of 25 manual resets left" or
     "pacing to Wed 04:00 ABT reset; 1 of 25 manual resets left; 1 kept in reserve"."""
     tally = f"{left} of {MANUAL_RESETS} manual resets left"
+    if until - now < RUSH_MIN_H * 3600:
+        return False, f"pacing to {abt(until)} reset; {tally}; natural reset near"
     if left > MANUAL_RESERVE:
         return True, f"rushing; {tally}"
     held = f"; {min(left, MANUAL_RESERVE)} kept in reserve" if left and MANUAL_RESERVE else ""
@@ -514,7 +519,7 @@ def auto_rush(home, left, until, now):
     the natural reset, so the burn paces the meter to EXHAUSTED by then. The
     files stay the burn's switches (--rush, --natural-only), now set from the
     count each call instead of by hand. Returns rush_choice's words."""
-    rush, words = rush_choice(left, until)
+    rush, words = rush_choice(left, until, now)
     try:
         if rush:
             if not rush_active(_read(home / RUSH), 0.0, now):
@@ -1600,10 +1605,16 @@ def width_self_test():
                        (1, (False, f"pacing to {abt(when)} reset; 1 of {MANUAL_RESETS} manual resets left; 1 kept in reserve")),
                        (2, (True, f"rushing; 2 of {MANUAL_RESETS} manual resets left")),
                        (3, (True, f"rushing; 3 of {MANUAL_RESETS} manual resets left"))]:
-        got = rush_choice(left, when)
+        got = rush_choice(left, when, when - 3 * 86400)
         if got != want:
             print(f"FAIL rush_choice({left}) = {got!r}, want {want!r}", file=sys.stderr)
             bad += 1
+    # 11-18: within RUSH_MIN_H of the natural reset, never rush, whatever is left.
+    want = (False, f"pacing to {abt(when)} reset; 5 of {MANUAL_RESETS} manual resets left; natural reset near")
+    got = rush_choice(5, when, when - 4 * 3600)
+    if got != want:
+        print(f"FAIL rush_choice near reset = {got!r}, want {want!r}", file=sys.stderr)
+        bad += 1
     real = weekly_usage.usage_pct
     def unreadable(_group):
         raise RuntimeError("no reading")
