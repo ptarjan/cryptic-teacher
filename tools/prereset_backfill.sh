@@ -232,7 +232,10 @@ WORKER_MODEL="$MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_WRAP="nice -n 19"
 # Opus is graded against. Paced (no rush), each point is scarce, so runs stay ANNOTATE_MODEL.
 # Empty RUSH_MODEL turns this off. The choice is made at each launch and kept in
 # $RUNS/<id>.model for the fill's provenance (solve_applied).
-RUSH_MODEL="${RUSH_MODEL-fable}"
+# 11-18: Paul, "And you can go back to opus". Opus/high was the best A/B arm ($0.45 a
+# puzzle, 100% pass), so RUSH_MODEL is opus and RUSH_AB defaults to 0 (no Fable arms):
+# every run is Opus. The Fable text above is why it was once the default.
+RUSH_MODEL="${RUSH_MODEL-opus}"
 # Rushing, a run at higher effort spends more of the expiring week for the same
 # 250 MB of memory, and thinks harder over the parse.
 RUSH_EFFORT="${RUSH_EFFORT-high}"
@@ -488,7 +491,7 @@ run_claude() {
   if [ -n "$RUSH_MODEL" ] && [ "$WORKER_MODEL" = "$RUSH_MODEL" ]; then
     # Rushing: the run's arm (model, effort) is drawn from tools/ab_arm.py, seeded by the
     # puzzle id, so the spend is an A/B (tools/ab_report.py). RUSH_AB=0 keeps the fixed pair.
-    if [ "${RUSH_AB-1}" != 0 ] && arm=$(python3 tools/ab_arm.py "$tag" 2>/dev/null) && [ -n "$arm" ]; then
+    if [ "${RUSH_AB-0}" != 0 ] && arm=$(python3 tools/ab_arm.py "$tag" 2>/dev/null) && [ -n "$arm" ]; then
       WORKER_MODEL="${arm% *}"; WORKER_EFFORT="${arm#* }"
     elif [ -n "$RUSH_EFFORT" ]; then
       WORKER_EFFORT="$RUSH_EFFORT"
