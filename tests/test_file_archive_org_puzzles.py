@@ -4346,9 +4346,11 @@ check("a garbled Telegraph heading with a DOWN line beside it, over the Quick ca
        f.telegraph_loose_heading([_tl[2], _tl[3], _tl[4]])])
 check("a verdict-less Telegraph edition with no puzzle is due TELEGRAPH_DATED once; stamped, titled, with a verdict, "
       "failed or of another paper it is not",
-      [True, False, f.TELEGRAPH_DATED, f.TELEGRAPH_DATED, False, False, False, False, False, 1],
+      [True, False, f.TELEGRAPH_DATED, f.TELEGRAPH_DATED, True, False, False, False, False, False, 1],
       [f.telegraph_dated_rescan(_td), f.scan_current(_td, "h"), f.fix_reason(_td), f.blanket_or_fix(_td, "inputs changed"),
+       # stamped but read before REREAD_TELEGRAPH_DATED_LATE (its filed neighbours not yet held): due again once
        f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], f.TELEGRAPH_READ: True}}),
+       f.telegraph_dated_rescan({**_td, "readAt": "2026-11-19T00:00:00+00:00", "scan": {**_td["scan"], f.TELEGRAPH_READ: True}}),
        f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "puzzles": [{"number": 18356, "leaf": 1}]}}),
        f.telegraph_dated_rescan({**_td, "verdicts": [{"number": 18356}]}),
        f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "failed": "x"}}),

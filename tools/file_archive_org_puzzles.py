@@ -4720,8 +4720,11 @@ def telegraph_titled(d, found):
     before, after = neighbours(day, held)
     counts = {m + issues_between(b, day) for b, m in [before] * bool(before)} | \
         {m - issues_between(day, a) for a, m in [after] * bool(after)}
-    for leaf in leaves:
-        heading = telegraph_loose_heading(text.get(leaf, []))
+    # A heading with figures read (a "No. 14,153 ACROSS" pair) leads a bare one (a clue block found on a news page's
+    # leaf, 1971: the dense leaf 18 before the real puzzle's leaf 21).
+    headings = [(leaf, telegraph_loose_heading(text.get(leaf, []))) for leaf in leaves]
+    headings.sort(key=lambda lh: not (lh[1] and lh[1][1]))
+    for leaf, heading in headings:
         if not heading:
             continue
         box, digits = heading
@@ -17568,16 +17571,23 @@ def telequick_rescan(row):
 #: telegraph_titled reads it loosely and numbers it by its date. Scanned again, then read once.
 TELEGRAPH_DATED = "archive.org Daily Telegraph page with no title, its loosely read heading numbered by its date since"
 REREAD_TELEGRAPH_DATED = "2026-11-16T21:06:00+00:00"
+#: 11-18: 48 archive.org Daily Telegraph 1970-89 editions (36 of 1971) were read 11-17 12:44 stamped TELEGRAPH_READ with no
+#: puzzle: telegraph_titled numbers a heading by its filed neighbours either side (held_dates) and the neighbours
+#: (1971-06-10's 14150, filed 12:59) were not yet filed, so no count stood. Scanned again once the neighbours are held.
+REREAD_TELEGRAPH_DATED_LATE = "2026-11-18T09:58:00+00:00"
 
 
 def telegraph_dated_rescan(row):
     """Whether ledger `row` is due TELEGRAPH_DATED: a read (its "inputs" kept) TheDailyTelegraph edition with no verdict,
-    its scan (not failed) under a current key holding no puzzle and not stamped TELEGRAPH_READ. Its scan is stale
+    its scan (not failed) under a current key holding no puzzle and not stamped TELEGRAPH_READ (or stamped but read
+    before REREAD_TELEGRAPH_DATED_LATE, the filed neighbours that number it since). Its scan is stale
     (scan_current) and rekey_scans leaves it, so it is scanned again once."""
     scan = (row or {}).get("scan") or {}
     if not (str(scan.get("item", "")).startswith("TheDailyTelegraph") and "inputs" in row and not row.get("verdicts")
-            and not scan.get("failed") and not scan.get(TELEGRAPH_READ) and not scan.get("puzzles")):
+            and not scan.get("failed") and not scan.get("puzzles")):
         return False
+    if scan.get(TELEGRAPH_READ):
+        return row.get("scanKey") in current_keys(TELEGRAPH) and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_DATED_LATE))
     return row.get("scanKey") in current_keys(TELEGRAPH) and scan_queue.read_before(row, scan_queue.when(REREAD_TELEGRAPH_DATED))
 
 
