@@ -8478,6 +8478,31 @@ def log_vlm_corpus(key, cols, read, lengths, parse, laid):
         ocr_retry.record(key, lid, box, per, theirs[0][0], matched)
 
 
+def down_half_parse(text, ones=True):
+    """parse(text), else, for a Times page whose reading's ACROSS list is lost to the print's adverts (its ACROSS
+    heading set mid-line in a row of notice text, so ftp.sections wants no lists at all) but whose DOWN list stands
+    alone and clean: ({"across": [], "down": clues}, None) of that list. 1948-05-22's ch and en5 readings both
+    print 11 down "Author of "The Ingoldsby Legends" (6)." whole, yet parse refused both, so leaked_laid saw no
+    reading of it and the light stood "no reading laid a clue on it" (27 of 64 Gale Times 1936-49 rows, r207)."""
+    got = parse(text, ones)
+    if got[0] is not None or not text.strip():
+        return got
+    lines = text.splitlines()
+    for i, line in enumerate(lines):
+        m = ftp.HEADING_RE.match(line)
+        if m and clue_text.direction(m.group(2)) == "down":
+            break
+    else:
+        return got
+    secs = ftp.sections("ACROSS\n" + "\n".join(lines[i:]))
+    if secs is None:
+        return got
+    clues, why = ftp.clues(tidy(secs["down"], ones), see=ones, tails=ones)
+    if why or not clues:
+        return got
+    return {"across": [], "down": clues}, None
+
+
 def leaked_laid(read, laid, blank, parse):
     """(laid, blank) with each blank light laid from the clue two readings
     print alike once the number each ran into it is taken off
@@ -14239,7 +14264,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         # A light no reading laid and the VLM's pick left blank, laid from the
         # readers that agree on its clue.
         laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths, bare=bare)
-        laid, blank = leaked_laid(read, laid, blank, parse)
+        laid, blank = leaked_laid(read, laid, blank, down_half_parse if paper.key in ("times", "gale") and not paper.four else parse)
         # Each filed clue as the readings print it: its count's shape, each word's
         # capital, hyphen and spelling.
         laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
@@ -14250,11 +14275,17 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         # The slips one clue's own text shows (its count left after its words,
         # a drop capital, a word broken by a space): tools/clue_repair.mend_text.
         laid = {lid: (clue_repair.mend_text(t, e) if t else t, e, g) for lid, (t, e, g) in laid.items()}
+        spaced = set()
+        if paper.key in ("times", "gale") and not paper.four:
+            # A lost space before an opening quote put back (DOWN_HALF: quote_spaced).
+            spaced = {lid for lid, (t, _, _) in laid.items() if t and quote_spaced(t) != t}
+            laid = {lid: (quote_spaced(t), e, g) if lid in spaced else (t, e, g) for lid, (t, e, g) in laid.items()}
         laid = book_marked(laid, book_clues(reprints))
         # A word no lexicon knows, or a bracket never shut, that the readings
         # print alike is the print's own ("ignis"): filed as its asPrinted.
         alike = {lid: got for lid, (t, _, _) in laid.items() if t and lid not in blank and (
-            got := ocr_clues.printed_alike(t, [r for r, _ in ocr_clues.readings_for(read, lid, parse)]))}
+            got := ocr_clues.printed_alike(t, [r for r, _ in ocr_clues.readings_for(read, lid, parse)])
+            or (name_held(t, [r for r, _ in ocr_clues.readings_for(read, lid, parse)]) if lid in spaced else []))}
         laid, blank = unfit_blanked(laid, blank, lengths, alike)
         alike = {lid: got for lid, got in alike.items() if lid not in blank}
         if paper.four:
@@ -16653,6 +16684,43 @@ def shared_printed(laid, blank, read, parse):
     return laid, printed
 
 
+def quote_spaced(text):
+    """`text` with the space lost before an opening double quote put back ('Author of"The Ingoldsby' for 'of "The':
+    Gale 1948-05-22's 11 down, refused "'of"The': a stray mark inside a word"), kept only where the word before it
+    and the word the quote opens are both listed words; and a glued pair of listed words ("infavour." for "in
+    favour.") split when the joined form is no listed word and just one split leaves two listed words (DOWN_HALF)."""
+    out, quotes = [], 0
+    for tok in text.split(" "):
+        m = re.fullmatch(r"([A-Za-z]{2,})([\"“])([A-Za-z]{2,})(.*)", tok)
+        if m and quotes % 2 == 0 and ocr_clues.is_word(m.group(1)) and ocr_clues.is_word(m.group(3)):
+            out.extend([m.group(1), m.group(2) + m.group(3) + m.group(4)])
+        else:
+            m = re.fullmatch(r"([A-Za-z]{4,})([.,;:!?]*)", tok)
+            if m and not ocr_clues.known(m.group(1)):
+                cuts = [i for i in range(2, len(m.group(1)) - 1)
+                        if ocr_clues.is_word(m.group(1)[:i]) and ocr_clues.is_word(m.group(1)[i:])]
+                if len(cuts) == 1:
+                    tok = m.group(1)[:cuts[0]] + " " + m.group(1)[cuts[0]:] + m.group(2)
+            out.append(tok)
+        quotes += tok.count('"') + tok.count("“") + tok.count("”")
+    return " ".join(out)
+
+
+def name_held(text, readings):
+    """The names of `text` (a clue quote_spaced mended) that suspect() refuses only as a name, when every reading
+    that has the clue (two at least) holds each word: the print's own ("Ingoldsby" in 'Author of "The Ingoldsby
+    Legends"', DOWN_HALF); else []."""
+    sus = ocr_clues.suspect(text)
+    theirs = [" ".join(r.lower().split()) for r in readings if r]
+    if not sus or len(theirs) < 2 or any(why not in ocr_clues.NAME_WHYS for _, why in sus):
+        return []
+    words = [raw.strip(ocr_clues.EDGE).lower() for raw, _ in sus]
+    if any(len(w) < ocr_clues.EVERY_SHORTEST or not all(re.search(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])", r) for r in theirs)
+           for w in words):
+        return []
+    return [raw for raw, _ in sus]
+
+
 def speck_mended(text, enum, cells, printed=()):
     """The text clue_repair.mend_text makes of a laid clue `text` that
     ocr_clues.unfit refuses only for a stray mark or a word no lexicon has,
@@ -16664,7 +16732,7 @@ def speck_mended(text, enum, cells, printed=()):
     why = ocr_clues.unfit(text, enum, cells, printed)
     if not text or not why or not re.search(r"a stray mark inside a word|not a word$", why):
         return None
-    mended = clue_repair.mend_text(text, enum)
+    mended = clue_repair.mend_text(quote_spaced(text), enum)
     if mended == text or ocr_clues.unfit(mended, enum, cells, printed):
         return None
     return mended
@@ -19423,6 +19491,34 @@ def ios_lead_due(row):
         blank = v.get("blank") or {}
         across = [k for k, why in blank.items() if str(k).endswith("-across") and "no reading laid a clue" in str(why)]
         if v.get("skip") or v.get("number") is None or v.get("wrote") and not v.get("unfiled") or len(across) < 4 \
+                or filed_state(series, v.get("number")) is not None:
+            continue
+        return True
+    return False
+
+
+#: DOWN_HALF (r207): Gale Times 1936-49 pages (27 of 64 single-blank rows) written unfiled with one or two lights "no reading
+#: laid a clue on it" though two RapidOCR readings print the clue whole (1948-05-22's 11 down "Author of "The Ingoldsby
+#: Legends" (6)."): the lead reading ran it into the footer with no count, so lay_loose refused it, and leaked_laid (two
+#: readings printing it alike) saw no reading of it, because parse refuses a whole text whose ACROSS heading is lost mid-line
+#: in the adverts above the list though its DOWN list stands clean. down_half_parse reads that list alone. Read once.
+DOWN_HALF = "Gale Times 1936-49 page unfiled for a clue its other readings print whole, their lone DOWN list read since"
+REREAD_DOWN_HALF = "2026-11-18T15:58:00+00:00"  # the push time: a row read after it is not due again
+
+
+def down_half_due(row):
+    """Whether Gale Times ledger `row` of 1936-49, read before REREAD_DOWN_HALF, holds a verdict not filed (nothing
+    wrote) with one to three lights blank "no reading laid a clue on it" and no other blank."""
+    rel = (row or {}).get("edition") or ""
+    if paper_of(rel).key != "gale" or not "1936" <= Path(rel).name[:4] <= "1949" or "Times" not in rel.split("/")[0] \
+            or "Financial" in rel or "Sunday" in rel \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_DOWN_HALF)):
+        return False
+    series = paper_of(rel).series
+    for v in row.get("verdicts") or ():
+        blank = v.get("blank") or {}
+        unlaid = [k for k, why in blank.items() if "no reading laid a clue" in str(why)]
+        if v.get("skip") or v.get("number") is None or v.get("wrote") or not 1 <= len(unlaid) <= 3 or len(unlaid) < len(blank) \
                 or filed_state(series, v.get("number")) is not None:
             continue
         return True
@@ -25691,6 +25787,8 @@ def fix_reason(row):
         return IOS_ACROSS
     if ios_lead_due(row):
         return IOS_LEAD
+    if down_half_due(row):
+        return DOWN_HALF
     if indy_titled_due(row):
         return INDY_TITLED
     if ft_lead_whole_due(row):
@@ -26565,6 +26663,8 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   IOS_ACROSS,
                   # 11-18: the same pages with the lead window cut 40-120 px inside the title edge (ios_lead_due).
                   IOS_LEAD,
+                  # 11-18: a Gale Times 1936-49 page unfiled for a clue two readings print whole (down_half_due).
+                  DOWN_HALF,
                   # 11-16: a Gale FT 1990s page refused no reading parses, its lead column cut inside (ft_lead_whole_due).
                   FT_LEAD_WHOLE,
                   # 11-16: a Gale FT page refused no reading parses with no text read, its columns right of a left-edge grid (ft_side_right_due).
@@ -26774,6 +26874,7 @@ def blanket_or_fix(row, blanket):
             else IOS_WRAP if ios_wrap_due(row) \
             else IOS_ACROSS if ios_across_due(row) \
             else IOS_LEAD if ios_lead_due(row) \
+            else DOWN_HALF if down_half_due(row) \
             else INDY_TITLED if indy_titled_due(row) \
             else FT_LEAD_WHOLE if ft_lead_whole_due(row) \
             else FT_SIDE_RIGHT if ft_side_right_due(row) \
@@ -27017,7 +27118,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, MID_OTHER: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
