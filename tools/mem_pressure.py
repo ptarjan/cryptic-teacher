@@ -32,13 +32,17 @@ QUIET_PSI = 0.5
 HOT_SWAPIN_MB_MIN = 20.0
 QUIET_SWAPIN_MB_MIN = 2.0
 QUIET_S = 300
+#: Quiet needs only a low swap-in rate and full avg60 under this, not some avg10:
+#: ambient some of 0.5-2 from other rooms (11-17: some 0.58/1.63, full 0.26/0.64,
+#: swap-in 0.10 MB/min) kept the cap out of quiet at 1-2 for hours.
+QUIET_FULL_PSI = 2.0
 #: Calm but not quiet (PSI between quiet and hot), the pressure is usually other
 #: rooms' doing and a burn held at the floor cannot lower it; raise anyway, one
 #: run per this long, so the cap never sticks at 1 for hours (11-14). One timer
 #: since the last hot reading: 11-15 the quiet and band timers reset each other
 #: as avg10 wobbled across QUIET_PSI, neither ever ran out, and the cap sat at 1
 #: for ~24h with memory room for 8-18 runs.
-BAND_S = 600
+BAND_S = 300
 STEP_S = 120
 RAISE_STEP = 2
 PAGE = 4096
@@ -82,8 +86,11 @@ def step(state, psi, pswpin, alive, now, psi60=None, full=None, full60=None):
     st["t"], st["pswpin"] = keep_t, keep_p
     swap = rate if rate is not None else st.get("rate", 0.0)
     st["rate"] = swap
-    hot = (full > HOT_PSI and full60 > HOT_PSI) or swap > HOT_SWAPIN_MB_MIN
-    quiet = psi < QUIET_PSI and swap < QUIET_SWAPIN_MB_MIN
+    # a short window's burst (new runs paging in after a reload) is not thrash
+    long_win = rate is not None and now - state["t"] >= 60
+    swap_hot = swap > HOT_SWAPIN_MB_MIN and (long_win or swap >= 3 * HOT_SWAPIN_MB_MIN or rate is None)
+    hot = (full > HOT_PSI and full60 > HOT_PSI) or swap_hot
+    quiet = swap < QUIET_SWAPIN_MB_MIN and full60 < QUIET_FULL_PSI
     cap = st.get("cap")
     st.pop("band_since", None)  # pre-11-15 state: the calm timer replaced it
     if hot:
@@ -158,15 +165,15 @@ def self_test():
     check("hot rate-limited", c, 15)
     s, c, _ = step(s, 12.0, 0, 15, 1200)
     check("hot again", c, 11)
-    s, c, _ = step(s, 0.6, 0, 11, 1300)
+    s, c, _ = step(s, 0.6, 0, 11, 1300, 0.6, 3.0, 3.0)
     check("band holds", c, 11)
     s, c, _ = step(s, 0.1, 0, 11, 1400)
     s, c, _ = step(s, 0.1, 0, 11, 1600)
-    check("quiet not yet sustained", c, 11)
-    s, c, _ = step(s, 0.1, 0, 11, 1750)
-    check("quiet raises", c, 13)
-    s, c, _ = step(s, 0.1, 0, 13, 1900)
-    check("raises stepwise", c, 15)
+    check("band raises before quiet sustained", c, 12)
+    s, c, _ = step(s, 0.1, 0, 12, 1750)
+    check("quiet raises", c, 14)
+    s, c, _ = step(s, 0.1, 0, 14, 1900)
+    check("raises stepwise", c, 16)
     check("avg60", read_psi("some avg10=2.50 avg60=1.25 avg300=0.10 total=5", "avg60"), 1.25)
     # 11-15: a 10 s burst (avg10 hot, avg60 calm) is another room's blip, not a cut
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 15.0, 0, 1, 1000, psi60=0.4)
@@ -178,7 +185,7 @@ def self_test():
     s = {"t": 0, "pswpin": 0, "cap": 1, "moved": 0}
     for i in range(12):
         s, c, _ = step(s, 0.3 if i % 2 else 0.7, 0, 1, 60 * (i + 1))
-    check("wobble climbs", c, 2)
+    check("wobble climbs", c, None)
     # 11-17: ambient some 5 / full 3 with no swap-in is not hot
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, 4.0, 3.0, 3.0)
     check("ambient stall holds", c, 6)
@@ -191,12 +198,22 @@ def self_test():
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 100, 8, 60)
     check("swap-in small", c, None)
     # band with swap-in quiet: holds, then creeps up after BAND_S
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 1, "moved": 0}, 0.5, 0, 1, 60)
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 1, "moved": 0}, 0.5, 0, 1, 60, 0.5, 3.0, 3.0)
     check("band floor holds", c, 1)
-    s, c, _ = step(s, 0.5, 0, 1, 60 + BAND_S)
+    s, c, _ = step(s, 0.5, 0, 1, 60 + BAND_S, 0.5, 3.0, 3.0)
     check("band creeps up", c, 2)
-    s, c, _ = step(s, 0.5, 0, 2, 120 + BAND_S)
+    s, c, _ = step(s, 0.5, 0, 2, 120 + BAND_S, 0.5, 3.0, 3.0)
     check("band creep rate-limited", c, 2)
+    # 11-17: ambient some 0.6/1.6, full 0.3/0.6, no swap-in is quiet: climbs
+    s = {"t": 0, "pswpin": 0, "cap": 1, "moved": 0}
+    s, c, _ = step(s, 0.6, 0, 3, 100, 1.6, 0.3, 0.6)
+    s, c, _ = step(s, 0.6, 0, 3, 100 + QUIET_S + STEP_S, 1.6, 0.3, 0.6)
+    check("ambient some still quiet", c, 1 + RAISE_STEP)
+    # a 10 MB burst over a 30 s window is 20 MB/min: not hot; 100 MB/min is
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 4, "moved": 0}, 0.0, 3000, 8, 30)
+    check("short burst holds", c, 4)
+    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 4, "moved": -1000}, 0.0, 12000, 8, 30)
+    check("huge short burst cuts", c, 3)
     return bad
 
 
