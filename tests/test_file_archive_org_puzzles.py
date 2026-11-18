@@ -3932,6 +3932,18 @@ check("an Independent on Sunday page whose barred grid's lattice was counted 11x
        bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "imageUnread": "the white cells span 10 rows and 11 columns"}]})),
        bool(f.ios_even_due({**_ie, "edition": "GaleIndependent2005UKEnglish/2005-01-30"})) or f.IOS_EVEN not in f.RANKS,
        f.blanket_or_fix(_ie, "scan stale, answers missing") == f.IOS_EVEN])
+_ia = {"edition": "GaleIndependentSunday2006UKEnglish/2006-09-03", "readAt": "2026-11-16T22:14:29+00:00", "inputs": "x",
+       "verdicts": [{"number": 864, "id": "indysunday-864",
+                     "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11, 12, 13)}}]}
+check("an Independent on Sunday 2001-09 page with 4+ across lights blank is due IOS_ACROSS, not one with 3, a down blank, "
+      "a 1997 page, one read since or filed; it keeps the reason past the blanket",
+      [True, False, False, False, False, True],
+      [bool(f.ios_across_due(_ia)),
+       bool(f.ios_across_due({**_ia, "verdicts": [{**_ia["verdicts"][0], "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11)}}]})),
+       bool(f.ios_across_due({**_ia, "verdicts": [{**_ia["verdicts"][0], "blank": {**_ia["verdicts"][0]["blank"], "3-down": "no reading laid a clue on it"}}]})),
+       bool(f.ios_across_due({**_ia, "edition": "GaleIndependentSunday1997UKEnglish/1997-03-23"})),
+       bool(f.ios_across_due({**_ia, "readAt": "2026-11-19T00:00:00+00:00"})),
+       f.blanket_or_fix(_ia, "scan stale, answers missing") == f.IOS_ACROSS])
 _if = {"edition": "GaleIndependentSunday2002UKEnglish/2002-06-30", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
        "verdicts": [{"number": 647, "id": "indysunday-647", "blank": {"29-across": "no reading laid a clue on it"}}]}
 check("an Independent on Sunday 2001-04 page left with a light blank 'no reading laid a clue' is due IOS_FOOT, not one read "
