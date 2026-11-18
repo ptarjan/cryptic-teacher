@@ -463,6 +463,11 @@ def now_titled(row):
     return docs_number(when, next((n for d, n in titled if d == when), None), titled) is not None
 
 
+def gj_cap():
+    import gale_jumbo_read as gj
+    return gj.VLM_BLANKS
+
+
 def read_done(row, done=None):
     """Whether a ledger row is a verdict of this VERSION: a crashed attempt is not, so the page stays due. A page
     refused for want of a number before the Gale list's titles set it (STALE_UNNUMBERED) is read again once, and
@@ -554,6 +559,11 @@ def read_done(row, done=None):
             or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
         # Read with the grid's lattice a pitch off (its last rule a text line's) or laid on text lines (LATTICE_FIX 1).
         return False
+    if row and row.get("vlmAllFix", 0) < VLM_ALL_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("vlmColumns") and "1955" <= (row.get("date") or "9") < "1990" \
+            and len(row.get("blank") or ()) > gj_cap():
+        # Read with more blank lights than the VLM's cap, so its columns were never asked (VLM_ALL_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -611,6 +621,11 @@ SHORT_RULE_SHARE = 0.07
 PITCH = (24, 400)
 #: 1 ranks lattices of equal matches by how near their lines lie to the rules (0 = the old order).
 LATTICE_FIX = 1
+#: VLM_ALL_FIX 1: the VLM is asked a page's clue columns whatever the count of blank lights (the jumbo cap of 16 left
+#: 1955-89 wrapped pages with 17-40 blank lights unasked: 328 rows). It reads whole columns, so the ask count is the
+#: columns', not the lights'; vlm_laid still lays only a clue whose count fills the light.
+VLM_ALL_FIX = 1
+VLM_ALL = 48
 #: Fewest lights either way of a Mephisto's grid (they run 14-24 each way); a lattice reading fewer is held back.
 LOPSIDED = 8
 LOPSIDED_READS = []
@@ -1958,7 +1973,7 @@ def page_read(path, store=STORE, asker=None):
     for lid, (text, _, _) in laid.items():
         if lid not in tails and not (text or "").strip():
             blank.setdefault(lid, gj.UNLAID)
-    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, lefts_of=column_lefts)
+    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, lefts_of=column_lefts, cap=VLM_ALL)
     if asked:
         verdict["vlmColumns"] = asked
     if blank:
@@ -2013,7 +2028,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
-                "latticeFix": LATTICE_FIX}, store)
+                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
