@@ -231,7 +231,7 @@ jobs:
               exit 0
             fi
             echo "daily-units: push $n lost the race; rebasing on the new tip"
-            git fetch -q --depth=100 origin master || { sleep 5; continue; }
+            git fetch -q origin master || { sleep 5; continue; }
             if ! git rebase -q origin/master; then
               git rebase --abort
               echo "::error::rebase conflicted"
