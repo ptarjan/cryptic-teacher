@@ -548,6 +548,12 @@ def read_done(row, done=None):
             or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
         # Read with the first clue line under a heading sliced and the notes box in the Down strip (left_block).
         return False
+    if row and row.get("latticeFix", 0) < LATTICE_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and "1955" <= (row.get("date") or "9") < "1970" and (
+            row.get("refused") in ("no reading parses", "no clue list on the page")
+            or (not row.get("refused") and len(row.get("blank") or ()) >= 4)):
+        # Read with the grid's lattice a pitch off (its last rule a text line's) or laid on text lines (LATTICE_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -603,6 +609,11 @@ FEW_MATCHED = 8
 SHORT_RULE_SHARE = 0.07
 #: A cell's pitch is within these many pixels (a page scans at ~97 px a cell; the later pages are smaller).
 PITCH = (24, 400)
+#: 1 ranks lattices of equal matches by how near their lines lie to the rules (0 = the old order).
+LATTICE_FIX = 1
+#: Fewest lights either way of a Mephisto's grid (they run 14-24 each way); a lattice reading fewer is held back.
+LOPSIDED = 8
+LOPSIDED_READS = []
 
 
 def lattice_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED):
@@ -634,6 +645,12 @@ def lattices_1d(pos, lo=PITCH[0], hi=PITCH[1], need=MATCHED, limit=6):
                     hits.append((k, near))
             # The widest pitch wins a near tie: a page's text lines are evenly spaced too, but closer than a cell.
             score = len(hits) + min(p, 150) / 40
+            if LATTICE_FIX and hits:
+                # LATTICE_FIX: lattices matching as many lines tie, and the text-line rules under the grid make a
+                # lattice a pitch off the grid as good a match (1969-09-14: rules 1880..2776 are the grid, 1950..2852
+                # takes the text rule at 2858 for its last line, the grid's own lattice then dropped as its twin):
+                # the one whose lines lie nearest the rules found ranks first.
+                score -= 2 * sum(abs(v - (a + k * p)) for k, v in hits) / len(hits) / p
             if len(hits) >= need:
                 found.append((score, hits))
     out = []
@@ -1001,6 +1018,7 @@ def read_barred(gray, lattice=None, wanted=None):
     cell sides measured by listener_grid.read_box, the bars set as ios_barred.read_found sets them."""
     import numpy as np
     import listener_grid as lg
+    LOPSIDED_READS.clear()
     binary = len(np.unique(gray[::7, ::7])) <= 2
     ink = gray < (128 if binary else max(lg.trove_grid.otsu(gray), 1))
     cands = [lattice] if lattice else find_lattices(ink)
@@ -1055,6 +1073,9 @@ def read_barred(gray, lattice=None, wanted=None):
                 rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
                 if rows is not None:
                     return rows, found, None
+    if LOPSIDED_READS:
+        rows, found = LOPSIDED_READS[0]
+        return rows, found, None
     if first is None:
         return None, None, "no 12x12 lattice of rules on the page"
     return None, first[0], first[1]
@@ -1148,6 +1169,14 @@ def read_lattice(gray, ink, ys, xs, wanted=None):
     lights = len(rg.light_cells(fitted))
     if not LIGHTS[0] <= lights <= LIGHTS[1]:
         return None, found, f"the grid has {lights} lights, not a Mephisto's"
+    if LATTICE_FIX and not wanted:
+        lit = rg.light_cells(fitted)
+        across = sum(1 for _, d in lit if d == "across")
+        if min(across, len(lit) - across) < LOPSIDED:
+            # LATTICE_FIX: a lattice laid on text lines reads bars on every cell, symmetric and 24-46 lights, but
+            # nearly all of them down (1969: 2 across, 24 down): kept only if no other lattice reads.
+            LOPSIDED_READS.append((fitted, found))
+            return None, found, f"the grid has {across} across lights of {len(lit)}: a lattice on text"
     return fitted, found, None
 
 
@@ -1983,7 +2012,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "anchorFix": ANCHOR_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
-                "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX}, store)
+                "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
+                "latticeFix": LATTICE_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
