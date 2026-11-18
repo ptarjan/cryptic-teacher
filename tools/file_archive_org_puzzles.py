@@ -15938,8 +15938,8 @@ for _paper, _pins in _FT_PROSE_FIX.items():
 #: the FT's and the Gale FT's keys moved; only an edition with no puzzle found reads otherwise: every scan stands, those with
 #: no puzzle found are scanned again once (ft_noisy_host, FT_NOISY_TITLE).
 _FT_NOISY_FIX = {
-    "ft": ("760f1694e5a88ea2", "ede17b6bd8652c42", "ab0bf056b8c123de"),
-    "galeft": ("e8d65f623fb460ce", "4f7f2c72713a8c1e", "920d286fac4cd4b8"),
+    "ft": ("760f1694e5a88ea2", "ede17b6bd8652c42", "f1b028663e9ee949"),
+    "galeft": ("e8d65f623fb460ce", "4f7f2c72713a8c1e", "8817c574c15050c0"),
 }
 #: The scan keys an FT scan stood under before the fix above (ft_noisy_host).
 _FT_NOISY_OLD = frozenset({*_FT_NOISY_FIX["ft"][:2],
@@ -16209,7 +16209,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # 400f5a43356: ft_headings' prose guard: a scan's title only, no solution grid's reading moves.
                   "748f9ff0735ba283": "432a5818529a9b11",
                   # FT_NOISY_TITLE: ft_headings reads a noisy title line: a scan's title only, no solution grid's reading moves.
-                  "50b7d6756dd66ef7": "432a5818529a9b11"}
+                  "50b7d6756dd66ef7": "432a5818529a9b11",
+                  # the same fix, its numbers under 10,000 and no number twice: still a scan's title only.
+                  "28c6d2df423c8474": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -16373,7 +16375,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # 400f5a43356: ft_headings' prose guard: a scan's title only, the same read.
                 "f0316c3af0603a94": "9b3500cb5488df7c",
                 # FT_NOISY_TITLE: ft_headings reads a noisy title line: a scan's title only, the same read.
-                "17fded5e7d951c59": "9b3500cb5488df7c"}
+                "17fded5e7d951c59": "9b3500cb5488df7c",
+                # the same fix, its numbers under 10,000 and no number twice: still a scan's title only.
+                "9c7e00d74133cffa": "9b3500cb5488df7c"}
 
 
 def input_hash(d):
