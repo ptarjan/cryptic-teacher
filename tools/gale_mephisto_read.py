@@ -938,7 +938,8 @@ BLOB_SHARE = 0.01
 def unblobbed(ink):
     """`ink` with its solid black areas (windows BLOB_WINDOW px square 90% ink, grown by the window) taken out, or None
     when they are under BLOB_SHARE of the page."""
-    import cv2
+    import ocr_clues
+    cv2 = ocr_clues.capped_cv2()
     import numpy as np
     k = BLOB_WINDOW
     blob = cv2.blur(ink.astype(np.uint8) * 255, (k, k)) > 230
