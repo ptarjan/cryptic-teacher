@@ -22,6 +22,9 @@ row = {"edition": "GaleIndependent2012UKEnglish/2012-03-13", "readAt": "2026-11-
 check("an untitled read-whole Independent row read before the fix is due", fa.indy_titled_due(row))
 check("fix_reason names it", fa.fix_reason(row) == fa.INDY_TITLED)
 check("a row read after the fix is not due", not fa.indy_titled_due(dict(row, readAt=(datetime.fromisoformat(fa.REREAD_INDY_TITLED) + timedelta(hours=1)).isoformat())))
+check("a scan indy_titled has looked over is not due", not fa.indy_titled_due(
+    dict(row, scan=dict(row["scan"], **{fa.INDY_LOOKED: True}))))
+check("a row that is due is not a current scan", not fa.scan_current(dict(row, filesHash="h", scanKey="x"), "h"))
 check("a run-together heading is read", fa.INDY_RUN_HEADING.search("CRYPTICCROSSWORD7759BYM0RPH")[1] == "7759")
 check("a row with a verdict is not due", not fa.indy_titled_due(dict(row, verdicts=[{"number": 1}])))
 check("a titled scan is not due", not fa.indy_titled_due(

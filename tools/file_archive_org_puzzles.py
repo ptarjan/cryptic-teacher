@@ -4950,6 +4950,9 @@ def small_titled(d, found):
 
 #: The key of a Gale Independent scan (scan_anywhere's) titled from the strip reads its scan left in the crop cache.
 INDY_TITLE_READ = "indyTitled"
+#: The key of a Gale Independent scan (scan_anywhere's) indy_titled looked its strip reads over, titled by them or not:
+#: the scan is current for INDY_TITLED (indy_titled_due) once it holds this.
+INDY_LOOKED = "indyLooked"
 
 
 _INDY_MONTHS = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
@@ -5055,7 +5058,7 @@ def indy_titled(d, found):
             n = min(votes, key=lambda n: (-len(votes[n]), abs(n - want)))
             return {**found, "puzzles": [{"number": n, "leaf": leaf, "box": boxes[n], "titleReadBy": sorted(votes[n])}],
                     INDY_TITLE_READ: True}
-    return found
+    return {**found, INDY_LOOKED: True}
 
 
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
@@ -19073,7 +19076,13 @@ INDY_TITLED = "Gale Independent page with no title, its crossword heading read f
 #: indy_day_number): offline the current code titles 105 of them (2012-09-06, 2012-08-28 among them); 2011-08-29 more with
 #: INDY_RUN_HEADING ("CRYPTICCROSSWORD7759BY", no spaces). Left: 2008-01-01 (a notice that Saturday's prize
 #: crossword was omitted: wrong article), 2006-05-25, 2006-01-04, 2007-01-25, 2011-04-18 (heading unread).
-REREAD_INDY_TITLED = "2026-11-18T09:12:00+00:00"  # the push minute: a row read after it is not due again
+#: r212 11-18: the real cause of the three spent cutoffs. The reread never re-scanned: the stored scan (current key, files
+#: hash unchanged) stood in scan_current, so read_unit re-read the same untitled scan each time (111 rows read 09:31-09:35Z,
+#: after the live worktree carried indy_day_number and INDY_RUN_HEADING, still wholeUntitled with no puzzle) while indy_titled
+#: run offline on the same cached strips titles 106 of the 111 (2012-09-06 No 8080, 2012-08-28; left 2006-01-04, 2006-05-25,
+#: 2007-01-25, 2008-01-01, 2011-04-18). scan_current now holds such a row stale (indy_titled_due) until it is scanned
+#: again, as gf_rescan's rows are; the scan keeps its key (indy_titled is outside scan_key's reach).
+REREAD_INDY_TITLED = "2026-11-18T13:15:00+00:00"  # the push minute: a row read after it is not due again
 
 
 def indy_titled_due(row):
@@ -19083,6 +19092,7 @@ def indy_titled_due(row):
     scan = (row or {}).get("scan") or {}
     if paper_of(Path(rel)).key != GALE_INDEPENDENT.key or not scan.get(WHOLE_UNTITLED) or scan.get("failed") \
             or any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) or row.get("verdicts") \
+            or scan.get(INDY_LOOKED) \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_TITLED)):
         return False
     return True
@@ -27046,7 +27056,8 @@ def scan_current(row, fh, rel=None):
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not tel_title_far_due(row) and not block_forties_due(row) and not telegraph_dated_rescan(row) and not suntel_bare_due(row) and not telegraph_host(row) \
-        and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ft_title_host(row) and not ft_noisy_host(row) and not ios_title_rescan(row)
+        and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ft_title_host(row) and not ft_noisy_host(row) and not ios_title_rescan(row) \
+        and not indy_titled_due(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
