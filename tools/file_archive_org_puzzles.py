@@ -13524,7 +13524,7 @@ SUNDAY_STACKED_YEARS = ("1970", "1974")
 SUNDAY_BETWEEN_YEARS = ("1965", "1969")
 SUNDAY_BETWEEN_GAP = 0.6
 SUNDAY_BETWEEN = "Gale Sunday Times 1965-69 page refused no reading parses, its clue columns between its heading and its grid read since"
-REREAD_SUNDAY_BETWEEN = "2026-11-18T16:20:00+00:00"
+REREAD_SUNDAY_BETWEEN = "2026-11-18T20:42:00+00:00"
 
 
 def sunday_between_due(row):
@@ -13870,6 +13870,17 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if between is not None:
             (gbox, over_top), side = between, "below"
             verdict["gridBox"] = "under its clue columns"
+    # A 1965-69 Gale Sunday Times page whose title banner stands left of its grid (side "right") with the one clue column
+    # under it, ACROSS over DOWN, left of the grid (SUNDAY_BETWEEN's second shape; 1967-06-04: the column's numbers at x
+    # 2690, the grid x 3138-3858): read as the one-column page it is (sunday_times_column), not as a lead column
+    # centred under the banner, whose window began 190 px inside the column.
+    right_column = None
+    if side == "right" and gbox is not None and paper.key == "galesundaytimes" and over_top is None \
+            and SUNDAY_BETWEEN_YEARS[0] <= d.name[:4] <= SUNDAY_BETWEEN_YEARS[1]:
+        right_column = sunday_times_column(img, gbox, f"{d.name}_{n}", paper)
+        if right_column is not None:
+            side = "below"
+            verdict["gridBox"] = "right of its title, one clue column left of it"
     if over_top is None and (side is None or side == "above" and d.name[:4] < SUNDAY_MID_YEARS[0]) and paper.key == "galesundaytimes" \
             and SUNDAY_OVER_YEARS[0] <= d.name[:4] <= SUNDAY_OVER_YEARS[1]:
         over_grid = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper)
@@ -14032,6 +14043,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         column = sunday_times_band(img, gbox, hit["box"], key, paper)
     if column is None and band_beside is not None:
         column = band_beside
+    if column is None and right_column is not None:
+        column = right_column
     # A 1985-89 Gale Sunday Times page's cryptic list far left of its grid, the Quickie's beside it (sunday_times_pair).
     if column is None and paper.key == "galesundaytimes" and (SUNDAY_PAIR_YEARS[0] <= d.name[:4] <= SUNDAY_PAIR_YEARS[1]
                                                                or caption is not None) \
