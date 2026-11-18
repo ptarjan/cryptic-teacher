@@ -564,6 +564,11 @@ def read_done(row, done=None):
             and len(row.get("blank") or ()) > gj_cap():
         # Read with more blank lights than the VLM's cap, so its columns were never asked (VLM_ALL_FIX 1).
         return False
+    if row and row.get("enumFix", 0) < ENUM_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and "1960" <= (row.get("date") or "9") < "1980" and row.get("refused") in (
+                "no reading parses", "no clue list on the page"):
+        # Refused before missing_down placed the Down heading the OCR garbled when no enumeration marks the Across foot.
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -625,6 +630,9 @@ LATTICE_FIX = 1
 #: 1955-89 wrapped pages with 17-40 blank lights unasked: 328 rows). It reads whole columns, so the ask count is the
 #: columns', not the lights'; vlm_laid still lays only a clue whose count fills the light.
 VLM_ALL_FIX = 1
+#: ENUM_FIX 1: missing_down places the Down heading above the first Down clue when the OCR read no enumeration on the
+#: last Across clue's lines (1970-73 wrapped pages, refused no reading parses / no clue list); those rows are read again.
+ENUM_FIX = 1
 VLM_ALL = 48
 #: Fewest lights either way of a Mephisto's grid (they run 14-24 each way); a lattice reading fewer is held back.
 LOPSIDED = 8
@@ -1310,6 +1318,7 @@ def missing_down(words, box, lh, right):
     edge = collections.Counter(int(w[0] // 24) for w in nums).most_common(1)[0][0]
     nums = [w for w in nums if abs(int(w[0] // 24) - edge) <= 1]
     vals = [int(re.sub(r"\D", "", w[4])) for w in nums]
+    spare = None
     for i in range(len(nums) - 3):
         if vals[i] >= 12 and vals[i + 1] <= vals[i] - 8 and vals[i + 2] <= vals[i] - 8 and vals[i + 3] <= vals[i] - 8 \
                 and vals[i + 1] < vals[i + 2] <= vals[i + 3] + 1 and vals[i + 3] - vals[i + 1] <= 6:
@@ -1317,9 +1326,25 @@ def missing_down(words, box, lh, right):
             lines = sorted((w for w in zone if a[1] - lh / 2 <= w[1] < b[1] - lh / 2 and ENUM_WORD.match(w[4])),
                            key=lambda w: w[1])
             if not lines:
+                # ENUM_FIX: the OCR read no enumeration on the last Across clue's lines (the 1970s pages' last Across
+                # clue wraps to a line whose "(12)" it drops): the heading stands the line above the first Down clue.
+                bottom = int(b[1] - 3)
+                if spare is None and bottom - lh >= a[3]:
+                    spare = [(int(a[0]), int(bottom - lh), int(a[0] + 4 * lh), bottom, "Down")]
                 continue
             top = int(lines[0][3] + 2)
             return [(int(a[0]), top, int(a[0] + 4 * lh), int(top + lh), "Down")]
+    if spare:
+        return spare
+    # ENUM_FIX: the last Across number misread as one digit and a first Down number as another ("34" read "3", "2" read
+    # "1"): the first number of 1-2 after a gap of 2.8 lines or more that follows Across numbers of 12 or more is the
+    # first Down clue's, the heading standing the line above it.
+    for i in range(1, len(nums)):
+        if vals[i] <= 2 and max(vals[max(0, i - 3):i]) >= 12 and nums[i][1] - nums[i - 1][1] >= 2.8 * lh \
+                and i + 2 < len(nums) and vals[i + 1] <= vals[i + 2] + 1 \
+                and nums[i][1] - nums[i - 1][3] >= 1.8 * lh:
+            bottom = int(nums[i][1] - 4)
+            return [(int(nums[i][0]), bottom - int(lh), int(nums[i][0] + 4 * lh), bottom, "Down")]
     return []
 
 
@@ -2028,7 +2053,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
-                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX}, store)
+                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
