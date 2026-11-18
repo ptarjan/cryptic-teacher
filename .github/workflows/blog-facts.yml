@@ -62,6 +62,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          # The branch, not the triggering sha: a workflow_run waits in the
+          # concurrency queue while the run ahead pushes, and a checkout of the
+          # sha from when it was triggered recomputes facts already pushed,
+          # then add/add-conflicts on rebase (run 44397643133, 11-18).
+          ref: master
           fetch-depth: 100
           token: ${{ secrets.PUSH_TOKEN || github.token }}
       - uses: ./.github/actions/setup
