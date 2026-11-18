@@ -493,6 +493,10 @@ class Log:
             pm = re.match(r"^(\d+) (.*)$", part)
             no, what = (pm.group(1), pm.group(2)) if pm else (None, part)
             w = re.match(r"^(?:wrote )?(\S+-\d+)(?: \(incomplete: (\d+) blank, unfiled\))?$", what)
+            if w and not what.startswith("wrote "):
+                # a bare id: read, nothing written (edition_commit.read_line), so not a filing
+                out.append(self.out("✗", f"{pretty(unit)}: No {no} read again, nothing new to write (not filed)"))
+                continue
             if w or what == "read":
                 if w and w.group(2):
                     out.append(self.out("✗", f"{pretty(unit)}: No {no} read, but {plural(int(w.group(2)), 'answer')} "

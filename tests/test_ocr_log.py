@@ -43,6 +43,9 @@ check(bare(run([f"09:41:02 read {UNIT}: 5355 wrote times-5355 (vlm 0)",
 check(bare(run([f"09:41:02 read {UNIT}: 5324 wrote times-5324 (incomplete: 4 blank, unfiled) (vlm 8 cached)"])),
       ["✗ Times 1947-05-10: No 5324 read, but 4 answers are still blank, so it was not filed (still missing)"],
       "an incomplete read says what was lost")
+check(bare(run([f"09:41:02 read {UNIT}: 5324 times-5324 (vlm 0)"])),
+      ["✗ Times 1947-05-10: No 5324 read again, nothing new to write (not filed)"],
+      "a bare id (nothing written) is not called a filing")
 check(bare(run(["09:41:02 read FinancialTimes1987UKEnglish/1987-01-31_30148: 6241 wrote ftcryptic-6241 (vlm 5 cached)"])),
       ["✓ Financial Times 1987-01-31: puzzle No 6241 filed"], "an archive edition is named by paper and date")
 
