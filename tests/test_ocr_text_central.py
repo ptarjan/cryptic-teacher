@@ -49,6 +49,7 @@ CENTRAL = {
 #: (file, enclosing function) -> why a hit there is not an OCR/text fix.
 #: Keep it short: a real text fix moves to clue_text.py instead of landing here.
 ALLOWED = {
+    ("file_cryptonite.py", "mend_clue"): "restores characters Cryptonite lost to U+FFFD (cp1252 read as UTF-8); a source-encoding repair, not OCR normalisation",
     ("gale_listener.py", "lookalike"): "Greek-to-Latin comparison key between two readings; never written back",
     ("gale_listener.py", "<module>"): "the LOOKALIKE comparison table lookalike() uses",
     ("file_archive_org_puzzles.py", "<module>"): "HEADING_DIGITS: a heading's misread figures for its puzzle number (int), never clue text",
