@@ -155,6 +155,7 @@ class Log:
         self.restart = None
         self.pool_raw = self.width_raw = None
         self.backlog = None       # field -> {puzzle: clues}, read when a backlog starts
+        self.backlog_file = None  # ((inode, size, mtime), parsed) of the backlog file last read
         self.snap = {}            # field -> its counts when its backlog started
         self.width = None
         self.limit = None
@@ -206,9 +207,17 @@ class Log:
         if self.backlog is not None:
             return self.backlog
         try:
-            with open(os.path.join(self.repo, "tools", "annotation_backlog.json")) as f:
+            path = os.path.join(self.repo, "tools", "annotation_backlog.json")
+            st = os.stat(path)
+            key = (st.st_ino, st.st_size, st.st_mtime_ns)
+            # Re-parsed only when the file changed: it is big, and a backlog line comes every few minutes.
+            if self.backlog_file is not None and self.backlog_file[0] == key:
+                return self.backlog_file[1]
+            with open(path) as f:
                 data = json.load(f)
-            return {k: v for k, v in data.items() if isinstance(v, dict)}
+            parsed = {k: v for k, v in data.items() if isinstance(v, dict)}
+            self.backlog_file = (key, parsed)
+            return parsed
         except (OSError, ValueError, TypeError):
             return {}
 
@@ -717,15 +726,20 @@ class TokenIndex:
                     state = self.state[path] = {"ino": st_ino, "off": 0, "first": None, "tokens": 0.0,
                                                 "ids": set(), "skip": False}
                 if not state["skip"] and size > state["off"]:
-                    with path.open("rb") as fh:
-                        fh.seek(state["off"])
-                        chunk = fh.read()
-                    end = chunk.rfind(b"\n") + 1  # a partial last line waits for the next scan
-                    state["off"] += end
-                    for raw in chunk[:end].decode(errors="replace").split("\n"):
-                        self.take(state, raw)
-                        if state["skip"]:
+                    # Only the new bytes, and at most this many a read: a transcript that is not a
+                    # backfill's is dropped at its first line, so it is never read whole.
+                    while not state["skip"] and size > state["off"]:
+                        with path.open("rb") as fh:
+                            fh.seek(state["off"])
+                            chunk = fh.read(1 << 20 if state["first"] is None else 8 << 20)
+                        end = chunk.rfind(b"\n") + 1  # a partial last line waits for the next scan
+                        if not end:
                             break
+                        state["off"] += end
+                        for raw in chunk[:end].decode(errors="replace").split("\n"):
+                            self.take(state, raw)
+                            if state["skip"]:
+                                break
             except OSError:
                 continue
             first, tokens = state["first"], state["tokens"]
