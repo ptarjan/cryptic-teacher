@@ -12592,7 +12592,7 @@ def sunday_times_foot_due(row):
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row:
         return False
     return any(v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
-        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_TIMES_FOOT))
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_TIMES_FOOT)) or sunday_held_due(row)
 
 
 #: The reason of a Gale Sunday Times 1960-99 page refused "no reading parses" or "not a grid": its grid under its title,
@@ -12718,7 +12718,23 @@ def sunday_under_due(row):
             or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
         return False
     return any(v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
-        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_UNDER))
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_UNDER)) or sunday_held_due(row)
+
+
+#: r188: the Gale Sunday Times pages held (verdict "unfiled", never "wrote": 4+ lights blank, so the puzzle went to the
+#: unfiled folder, not the puzzles) with a clue no reading laid. The 11-15 census: 165 open editions of cluster 3 (1960-64
+#: 54, 1980-84 32, 1985-89 19...), 120 of them never written, so SUNDAY_UNDER / _1970S / _BAND / _FEET (all "wrote"-gated)
+#: were never due for them, though every one was read before those fixes (11-14 to 11-16). Due once, read before
+#: REREAD_SUNDAY_HELD; each of those reasons names them, by the years of its own.
+REREAD_SUNDAY_HELD = "2026-11-18T03:30:00+00:00"
+
+
+def sunday_held_due(row):
+    """Whether Gale Sunday Times ledger `row` holds a verdict held unfiled (never written) with a clue no reading laid,
+    read before REREAD_SUNDAY_HELD."""
+    return any(v.get("unfiled") and not v.get("wrote") and not v.get("complete") and not v.get("refused")
+               and "no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_HELD))
 
 
 #: The reason of a Gale Sunday Times 1960-67 page written incomplete with a DOWN clue no reading laid after SUNDAY_UNDER

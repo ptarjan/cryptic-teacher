@@ -5690,6 +5690,19 @@ check("SUNDAY_FEET is due for a 1987-2013 Gale Sunday Times page written incompl
        and f.SUNDAY_FEET in _eq_bp.FIX_LANDED and f.SUNDAY_FEET in _eq_bp.UNFILED_FIRST
        and f.SUNDAY_FEET in _eq_bp.NEWEST_LANDED])
 
+# r188: a Gale Sunday Times page held unfiled (never written) with a clue no reading laid is due once, any year.
+_shd = {**_strow, "edition": "GaleSundayTimes1964UKEnglish/1964-12-13", "readAt": "2026-11-14T23:30:00+00:00",
+        "verdicts": [{"number": 2080, "unfiled": 7, "complete": False, "blank": {"9-down": "no reading laid a clue on it"}}]}
+check("a Gale Sunday Times page held unfiled with a clue no reading laid is due the 1960-67 and the any-year reason, "
+      "not when written, complete, read later, or another paper",
+      [True, True, False, False, False, False, True],
+      [f.sunday_under_due(_shd), f.sunday_times_foot_due({**_shd, "edition": "GaleSundayTimes1985UKEnglish/1985-08-11"}),
+       f.sunday_times_foot_due({**_shd, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_times_foot_due({**_shd, "verdicts": [{**_shd["verdicts"][0], "wrote": True}]}),
+       f.sunday_times_foot_due({**_shd, "verdicts": [{**_shd["verdicts"][0], "complete": True}]}),
+       f.sunday_times_foot_due({**_shd, "edition": "GaleFT1964UKEnglish/1964-10-04"}),
+       f.sunday_times_foot_due(_shd)])
+
 # The Gale Sunday Times 1960-67 page whose DOWN list runs on in columns under the grid: SUNDAY_UNDER.
 _sur = {**_strow, "edition": "GaleSundayTimes1964UKEnglish/1964-10-04", "readAt": "2026-11-14T23:30:00+00:00"}
 check("SUNDAY_UNDER is due for a 1960-67 Gale Sunday Times page written incomplete with a blank clue read before it, "
