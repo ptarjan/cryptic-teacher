@@ -914,8 +914,16 @@ def explain(name=None):
         print(f"no `{name}` in {Path(__file__).name}. Run --explain with no name for the list.")
         return 1
     if len(found) > EXPLAIN_AT_MOST:
-        print(f"`{name}` is not a check's name; {len(found)} checks use it: "
-              f"{', '.join(found)}. `--explain <one of these>` prints it.")
+        # A bare list sends the run back for a second call; a one-line hint per check lets it pick.
+        shown = found[:8]
+        print(f"`{name}` is a field, not a check's name; {len(found)} checks read it "
+              f"(most relevant first). `--explain <check name>` prints one:\n")
+        for key in shown:
+            doc = (ast.get_docstring(named[key]) or "").split("\n")[0]
+            print(f"  {key}\n      {doc or '(no docstring)'}")
+        if len(found) > len(shown):
+            print(f"\n  ...and {len(found) - len(shown)} more: "
+                  f"{', '.join(found[len(shown):])}")
         return 0
     if found != [name]:
         print(f"# `{name}` is not a name here; the closest: {', '.join(found)}\n")
