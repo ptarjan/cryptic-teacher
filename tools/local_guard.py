@@ -115,7 +115,7 @@ def _argv_verdict(argv, depth):
         mod = rest[rest.index("-m") + 1:][:1]
         if mod and mod[0].split(".")[0] in ("pytest", "unittest"):
             return f"python -m {mod[0]}"
-    helpish = any(a in ("-h", "--help") for a in rest)
+    helpish = any(a in ("-h", "--help", "--explain") for a in rest)
     if prog == "node" and "--check" in rest[:2] or prog == "node" and "-c" in rest[:1]:
         return None
     if prog in SHELLS or is_py or prog in ("node", "uv", "poetry"):

@@ -960,7 +960,7 @@ NON_CHECK_FINDINGS = (
 def explain_non_check(name):
     """The note for a finding that is no check (see NON_CHECK_FINDINGS), or None."""
     for pattern, note in NON_CHECK_FINDINGS:
-        if re.search(pattern, name, re.I):
+        if re.search(pattern, name, re.IGNORECASE):
             return note
     return None
 

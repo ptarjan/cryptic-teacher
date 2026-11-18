@@ -31,7 +31,7 @@ ALLOW = [
     "git commit -F - <<'EOF'\nfix\npytest\nEOF",
     "gh run list", "node --check tools/smoke_test.js", "ruff check tools/x.py",
     "python3 tools/validate_annotations.py puzzles/times/times-1.json",
-    "python3 tools/blog_facts.py --help", "grep -n pytest tools/x.py",
+    "python3 tools/blog_facts.py --help", "python3 tools/validate_annotations.py --explain", "grep -n pytest tools/x.py",
     "tools/prereset_backfill.sh", "bash tools/prereset_watch.sh",
     "track-job.sh ch --run lbl -- sleep 5", "wake.sh -q room",
     "cat puzzles/times/times-1.json | head", "python3 tools/ci_scope.py decide x",
