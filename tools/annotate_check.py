@@ -1769,7 +1769,8 @@ def main(argv):
     rows = [r for r in scan(path) if r[0] == 0]
     if rows:
         print("\nwalkthroughs that only re-narrate their own blocks "
-              "(say what the blocks CANNOT show):")
+              "(say what the blocks CANNOT show; this is a review list, not a validator check, "
+              "so there is nothing to --explain: reword the walkthrough):")
         for _, _, cid, answer, hits, walk in rows:
             print(f"  {cid} {answer} names {', '.join(hits)}\n      {walk}")
         issues.append(f"{len(rows)} re-narrated walkthrough(s)")

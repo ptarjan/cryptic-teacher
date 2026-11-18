@@ -574,7 +574,10 @@ say("explain_takes_dashed_words", "def check_cryptic_definition_cap(" in explain
 say("explain_unknown_refused", explained("zzqx")[0] == 1)
 say("explain_takes_a_ratchet_field", "CDEF_REPEAT =" in explained("wordplay.cdefRepeat")[1])
 say("explain_takes_a_message_phrase", explained("check_assembly_machine_checkable")[0] == 0
-    and "machine-checkable assembly" in explained("check_assembly_machine_checkable")[1])'''
+    and "machine-checkable assembly" in explained("check_assembly_machine_checkable")[1])
+say("explain_renarrate_is_no_check", explained("renarrate")[0] == 0
+    and "not a validator check" in explained("renarrate")[1]
+    and explained("renarrated_walkthrough")[0] == 0)'''
 
 WORKED = r'''import build_annotate_prompt as B, validate_annotations as V
 from fetch_puzzle import read_puzzle_file, resolve_puzzle
@@ -644,6 +647,7 @@ explain_takes_dashed_words
 explain_takes_a_ratchet_field
 explain_takes_a_message_phrase
 explain_unknown_refused
+explain_renarrate_is_no_check
 comma_answer_spaced
 answer_opener_trimmed
 unname_gives_the_answer

@@ -898,6 +898,9 @@ def explain(name=None):
         return 0
 
     found = explain_matches(name, named, lines)
+    if not found and (note := explain_non_check(name)):
+        print(note)
+        return 0
     if not found:
         # A run passes the words of a message it saw, and a message is built
         # inside a larger function, so show the lines that print it.
@@ -939,6 +942,27 @@ def explain(name=None):
 
 
 EXPLAIN_AT_MOST = 3
+
+#: Findings the check tool prints that no validator check wrote (so no `[check_name]` follows them),
+#: by a regex over what a run passes to --explain: the answer printed instead of a refusal.
+NON_CHECK_FINDINGS = (
+    (r"re-?narrat",
+     "`renarrate` is not a validator check: it is the check tool's section \"walkthroughs that only "
+     "re-narrate their own blocks\", from tools/find_renarration.py. Nothing fails the build; "
+     "it lists walkthroughs naming the letter chunks the blocks already show.\n"
+     "The fix: rewrite that walkthrough to say what the blocks CANNOT show (the joke, the "
+     "misdirection, the convention), and drop the fragment -> letters narration. A name there "
+     "is fine when it teaches a reusable convention (OCT = abbreviation, OPUS = 'work'). "
+     "Do not open the tool's source."),
+)
+
+
+def explain_non_check(name):
+    """The note for a finding that is no check (see NON_CHECK_FINDINGS), or None."""
+    for pattern, note in NON_CHECK_FINDINGS:
+        if re.search(pattern, name, re.I):
+            return note
+    return None
 
 
 def explain_matches(name, named, lines):
