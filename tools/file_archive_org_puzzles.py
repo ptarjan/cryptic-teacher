@@ -4908,6 +4908,9 @@ _INDY_MONTHS = ("january", "february", "march", "april", "may", "june", "july", 
                 "november", "december")
 
 
+INDY_RUN_HEADING = re.compile(r"CRYPTICCROSSWORD#?(\d{4,7})BY", re.IGNORECASE)
+
+
 def indy_dated_number(text, day, want):
     """The puzzle number in the whole-page read line `text` ("Cryptic Crossword #795311 April 2012", the number run
     into the printed day) of the heading printed under `day`'s date, within the paper's slack of `want`; None where
@@ -4992,6 +4995,10 @@ def indy_titled(d, found):
                     n = indy_dated_number(text, day, want) if "_page." in path.name else None
                     if n is None:
                         n = indy_day_number(text, day, want)
+                    if n is None and "_page." in path.name:  # "CRYPTICCROSSWORD7759BYM0RPH", the words run together
+                        m = INDY_RUN_HEADING.search(text.replace(" ", ""))
+                        if m and abs(int(m[1]) - want) <= GALE_INDEPENDENT.slack:
+                            n = int(m[1])
                     if n is not None:
                         votes.setdefault(n, set()).add(path.name.split(".")[1])
                         boxes.setdefault(n, (min(w[0] for w in line), min(w[1] for w in line),
@@ -19005,7 +19012,11 @@ INDY_TITLED = "Gale Independent page with no title, its crossword heading read f
 #: live worktree's code not yet carrying the scan_anywhere call: 93 stayed wholeUntitled with no puzzle, 54 of 2010-14
 #: and 39 of 2000-04). Their cached strip reads title 2010-14's numbered "Cryptic Crossword #7618 By Anax" lines
 #: (indy_titled run offline on 2011-03-17 and -07-13: 7618, 7719, three readers each); due once more, the cutoff moved.
-REREAD_INDY_TITLED = "2026-11-17T17:26:00+00:00"  # the push minute: a row read after it is not due again
+#: r199 11-18: the 17:26Z cutoff was spent again (111 rows read 17:3x-17:4xZ, before the live worktree carried
+#: indy_day_number): offline the current code titles 105 of them (2012-09-06, 2012-08-28 among them); 2011-08-29 more with
+#: INDY_RUN_HEADING ("CRYPTICCROSSWORD7759BY", no spaces). Left: 2008-01-01 (a notice that Saturday's prize
+#: crossword was omitted: wrong article), 2006-05-25, 2006-01-04, 2007-01-25, 2011-04-18 (heading unread).
+REREAD_INDY_TITLED = "2026-11-18T09:12:00+00:00"  # the push minute: a row read after it is not due again
 
 
 def indy_titled_due(row):
