@@ -181,12 +181,14 @@ DENSE_ENUMS = 10
 #: often reads but whose title it loses: an edition with no crossword title
 #: in its text fetches each page so headed too (crossword_hits).
 UNIT_TRUST = re.compile(r"(?i)unit\s+trust\s+information\s+service")
-#: The 1990-94 FT prints its weekday crossword on its currencies page
+#: The 1989-94 FT prints its weekday crossword on its currencies page (1989:
+#: 45 of 60 filed puzzles sit on one, 1988: none; 21 of the 28 unfiled 1989
+#: editions had that page unfetched)
 #: ("CURRENCIES, MONEY AND CAPITAL MARKETS", under the pound spot table) and
 #: the OCR often keeps that heading but loses the crossword's title and
 #: clues: an edition of these items with no crossword title in its text
 #: fetches each page so headed too (crossword_hits currency).
-FT_CURRENCY_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1990, 1995))
+FT_CURRENCY_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1989, 1995))
 CURRENCY_PAGE = re.compile(r"(?i)currencies,?\s*money\s+and\s+capital\s+markets|pound\s+spot\s*[-–]?\s*forward")
 #: A crossword title or prize line the OCR garbled ("cROSSW", "prize puzzle"):
 #: detect() wants an ACROSS heading or six counts besides, a market page's
