@@ -87,7 +87,12 @@ check("outside any run it stands at NUMBER_FIX", True,
 fixed = {**stale, "numberFix": gm.NUMBER_FIX, "runFix": gm.RUN_FIX}
 check("a bridged gap's refusal before BRIDGE_FIX is due", False, gm.read_done({**fixed, "date": "1963-05-05"}))
 check("a bridged gap's refusal at BRIDGE_FIX stands", True, gm.read_done({**fixed, "date": "1963-05-05", "bridgeFix": gm.BRIDGE_FIX}))
-check("an unbridged gap (1965-09-26..1966-10-09) is not re-due", True, gm.read_done({**fixed, "date": "1966-03-06"}))
+check("an unbridged gap (1976-02..1978-01) is not re-due", True, gm.read_done({**fixed, "date": "1977-03-06"}))
+check("an anchored week's refusal before ANCHOR_FIX is due", False, gm.read_done({**fixed, "date": "1966-03-06"}))
+check("an anchored week's refusal at ANCHOR_FIX stands", True,
+      gm.read_done({**fixed, "date": "1966-03-06", "anchorFix": gm.ANCHOR_FIX}))
+check("an anchored week takes the weekly count", -111, gm.run_offset(D(1966, 3, 6)))
+check("the week after a missing Sunday (1979-12-23) is not anchored", None, gm.run_offset(D(1979, 12, 30)))
 check("a gap between different offsets is not bridged", None, gm.run_offset(D(1977, 6, 5)))
 check("the gap 1961-02-26..1965-07-04 (both ends -110) is bridged", -110, gm.run_offset(D(1963, 5, 5)))
 check("the weeks before the first anchor are not", None, gm.run_offset(D(1960, 12, 18)))
@@ -178,7 +183,7 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX}))
+check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX}))
 check("a later no-clue-list refusal is not due", True, gm.read_done({**bare, "date": "1998-01-04"}))
 check("another refusal is not re-read", True, gm.read_done({**refused, "refused": "no Mephisto clue lists found on the page"}))
 # the comb search finds a grid drawn with dotted thin rules and thick bars

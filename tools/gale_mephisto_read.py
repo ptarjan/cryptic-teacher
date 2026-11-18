@@ -256,10 +256,38 @@ BRIDGE_FIX = 1
 RUN_BRIDGES = (("1961-02-27", "1965-07-03", -110),)
 
 
+#: Bumped when only ANCHOR_BRIDGES change: pages refused for want of a number inside them are read again.
+ANCHOR_FIX = 1
+#: (first date, last date, offset) of the weeks within reach of an anchor (a titled page, an OFFSET_RUNS end or a
+#: page whose two printed numbers agree, with the page before or after it at the same offset) with no Sunday MISSING
+#: from Gale's list between. The offset only falls, and only where a Sunday had no Mephisto (it is then missing from the
+#: list: Christmas and New Year's Day, the 1974 power cuts, Easter 1978, the 1978-79 Times strike); a Sunday the list
+#: lacks that the offset did not fall over is a gap in the list (1965-10-17, 1966-12-25 ...). So a page's offset is its
+#: anchor's across the Sundays the list has, and the falls match the missing Sundays one for one where a gap holds both:
+#: 1965-12-26 (-110/-111), 1966-12-25 and 1967-01-08 (-111/-112 at 1967-01-01), 1970-12-27, 1971-12-26, the three
+#: 1974 Sundays (01-13, 01-27, 02-10: -117 to -120), 1978-03-26 and 04-02 (-128/-130), the strike's 50 (1978-12-03 to
+#: 1979-11-11: -130 to -180, so 1979-11-18 is 1012 + 1 = 1013). NOT bridged, for want of one count: 1976-02-01 to
+#: 1978-01-08 (eight Sundays missing, seven falls: which one is only a gap in the list is unknown, 89 pages print no
+#: number), 1979-12-23 to 1980-03-23 (-180 or -181: the page of 1980-03-23 and the pages after it disagree by one).
+ANCHOR_BRIDGES = (
+    ("1965-09-27", "1965-12-19", -110), ("1966-01-02", "1966-10-08", -111), ("1967-01-01", "1967-01-28", -112),
+    ("1969-04-06", "1969-04-19", -112), ("1969-05-25", "1969-06-01", -115), ("1970-12-14", "1970-12-26", -115),
+    ("1971-01-03", "1971-01-09", -116), ("1971-11-15", "1971-12-25", -116), ("1971-12-27", "1972-01-08", -117),
+    ("1973-11-26", "1974-01-12", -117), ("1978-01-01", "1978-03-25", -128), ("1978-04-09", "1978-11-26", -130),
+    ("1979-11-18", "1979-12-22", -180), ("1980-03-30", "1981-05-16", -181),
+)
+
+
 def run_offset(day):
-    """The offset (number less the week count) of OFFSET_RUNS or RUN_BRIDGES holding `day`, else None."""
+    """The offset (number less the week count) of OFFSET_RUNS, RUN_BRIDGES or ANCHOR_BRIDGES holding `day`, else None."""
     iso = day.isoformat()
-    return next((o for a, b, o in (*OFFSET_RUNS, *RUN_BRIDGES) if a <= iso <= b), None)
+    return next((o for a, b, o in (*OFFSET_RUNS, *RUN_BRIDGES, *ANCHOR_BRIDGES) if a <= iso <= b), None)
+
+
+def anchored(day):
+    """Whether `day` lies in an ANCHOR_BRIDGES stretch."""
+    iso = day.isoformat()
+    return any(a <= iso <= b for a, b, _ in ANCHOR_BRIDGES)
 
 
 def bridged(day):
@@ -454,6 +482,9 @@ def read_done(row, done=None):
             return False
         if row.get("bridgeFix", 0) < BRIDGE_FIX and row.get("date") and bridged(datetime.date.fromisoformat(row["date"])):
             # Refused before the gap between two anchors at one offset (RUN_BRIDGES) was numbered: read again once.
+            return False
+        if row.get("anchorFix", 0) < ANCHOR_FIX and row.get("date") and anchored(datetime.date.fromisoformat(row["date"])):
+            # Refused before the weeks within reach of an anchor (ANCHOR_BRIDGES) were numbered: read again once.
             return False
     if row and row.get("refused") == UNCONFIRMED and done is not None and row.get("seen") is not None \
             and row.get("date") and row["seen"] in near_offsets(datetime.date.fromisoformat(row["date"]),
@@ -1900,7 +1931,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
             target.parent.mkdir(parents=True, exist_ok=True)
             scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     append_row({**verdict, "version": VERSION, "gridFix": GRID_FIX, "numberFix": NUMBER_FIX,
-                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "columnFix": COLUMN_FIX,
+                "tailFix": TAIL_FIX, "runFix": RUN_FIX, "countFix": COUNT_FIX, "bridgeFix": BRIDGE_FIX, "anchorFix": ANCHOR_FIX, "columnFix": COLUMN_FIX,
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX}, store)
