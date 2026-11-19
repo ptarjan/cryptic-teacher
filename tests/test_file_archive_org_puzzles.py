@@ -4365,6 +4365,32 @@ check("a verdict-less Telegraph edition with no puzzle is due TELEGRAPH_DATED on
        f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "failed": "x"}}),
        f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
        f.RANKS[f.TELEGRAPH_DATED]])
+# guardian_loose_titles / guardian_set_rescan: an archive.org Guardian weekday edition read with no puzzle is due
+# GUARDIAN_SET once; a title with a word glued on or split, or a "Set by" line over "Across", is found loosely.
+_gd = {"edition": "TheGuardian1997UKEnglish/1997-11-28_119", "scanKey": f.scan_key(f.GUARDIAN), "filesHash": "h",
+       "inputs": "h", "verdicts": [], "readAt": "2026-11-10T00:00:00+00:00",
+       "scan": {"date": "1997-11-28", "item": "TheGuardian1997UKEnglish", "puzzles": [], "solutions": [], "wholeUntitled": True}}
+_gl = lambda t, x, y: [(x + 60 * k, y, x + 60 * k + 50, y + 20, w) for k, w in enumerate(t.split())]
+check("a Guardian title with a word glued on, split, or a Set by line over Across is found; the Quick's and a "
+      "solution label are not",
+      [[((533, 3131, 703, 3151), "21133", None)], [((533, 3131, 1063, 3151), "21341", "Pasquale")],
+       [((1577, 3700, 2177, 3735), "", "Fidelio")], [], []],
+      [f.guardian_loose_titles([_gl("Guardian CrosswordTVio 21,133", 533, 3131)]),
+       f.guardian_loose_titles([_gl("Guardian C rosswor d No 21,341 Set by Pasquale", 533, 3131)]),
+       f.guardian_loose_titles([_gl("Set by Fidelio", 1577, 3745), _gl("Across", 1577, 3794)]),
+       f.guardian_loose_titles([_gl("Quick Crossword No. 8749", 533, 3131), _gl("CROSSWORD SOLUTION 21,448", 533, 3300)]),
+       f.guardian_loose_titles([_gl("Set by Fidelio", 1577, 3745), _gl("Across", 300, 3794)])])
+check("a verdict-less Guardian weekday edition with no puzzle is due GUARDIAN_SET once; a Sunday, stamped, titled, with a "
+      "verdict, failed or of another paper it is not",
+      [True, False, f.GUARDIAN_SET, f.GUARDIAN_SET, False, False, False, False, False, False, 1],
+      [f.guardian_set_rescan(_gd), f.scan_current(_gd, "h"), f.fix_reason(_gd), f.blanket_or_fix(_gd, "inputs changed"),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "date": "1997-11-30"}}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], f.GUARDIAN_READ: True}}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "puzzles": [{"number": 21133, "leaf": 14}]}}),
+       f.guardian_set_rescan({**_gd, "verdicts": [{"number": 21133}]}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "failed": "x"}}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
+       f.RANKS[f.GUARDIAN_SET]])
 # small_titles (r42): the 1930-33 Gale Times prints puzzle numbers of 1-3 digits ("PUZZLE No. 357"); TITLE and
 # SOLUTION read four. 1931-03-27 as the two page readers read it (the date implies 358; Gale's pages skip a few more
 # closed days than TIMES_1930_CLOSED holds).

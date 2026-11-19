@@ -702,6 +702,10 @@ check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fi
       [f.RANKS[f.FOOTER_TITLE], eq.evidence_reason(f.FOOTER_TITLE), f.FOOTER_TITLE in eq.FIX_LANDED,
        f.FOOTER_TITLE in eq.UNFILED_FIRST,
        eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
+check("a GUARDIAN_SET page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [1, True, True, True, True],
+      [f.RANKS[f.GUARDIAN_SET], eq.evidence_reason(f.GUARDIAN_SET), f.GUARDIAN_SET in eq.FIX_LANDED,
+       f.GUARDIAN_SET in eq.UNFILED_FIRST, f.GUARDIAN_SET in eq.NEWEST_LANDED])
 check("a TELEGRAPH_DATED page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
       [1, True, True, True, True],
       [f.RANKS[f.TELEGRAPH_DATED], eq.evidence_reason(f.TELEGRAPH_DATED), f.TELEGRAPH_DATED in eq.FIX_LANDED,
