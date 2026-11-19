@@ -244,7 +244,8 @@ Working here:
 
 - To change many clues, Write `{"8-down": {"field": value}}` under `tools/`
   (`tools/_patch_<ID>.json`, never `/tmp`) and add `--patch <file>` to the check. Each
-  field is replaced and null removes it, except `notes`, merged key by key.
+  field is replaced and null removes it, except `notes`, merged key by key: when a patch
+  changes `wp` or `def`, null each old note key the new one no longer uses.
 - Edit's `old_string` must be copied from a Read of the file just now, never recalled
   from your Write or a check message: you wrote the file blind, so it misses. To change
   one clue's fields, use a patch, not Edit.

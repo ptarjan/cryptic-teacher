@@ -206,6 +206,35 @@ try:
 except __import__("wordplay").WordplayError as e:
     check("a refusal lists the def texts to key a note by", "['Bread', 'a jolt']" in str(e), str(e))
 
+# 'name no definition' refusals (annotate audit 11-19): the notes are the model's own
+wpe = __import__("wordplay")
+
+
+def _notes_of(m, clue):
+    try:
+        r = annotation.from_model(m, {"clue": {"text": clue}})
+        return [d.get("meaning") for d in r["definitions"]], None
+    except wpe.WordplayError as e:
+        return None, str(e)
+
+
+got, err = _notes_of({"def": ["Some American Indians", "are very boastful"],
+                      "notes": {"Some American Indians": "a tribe", "are very boastful": "to brag"}},
+                     "Some. American Indians are very boastful")
+check("a note keyed by the def as written follows the def respelled to the clue's marked run",
+      got == ["a tribe", "to brag"], str((got, err)))
+got, err = _notes_of({"def": ["Bread", "a jolt"],
+                      "notes": {"Bread": "a loaf", "a jolt": "a shock", "stale span": "old"}}, "Bread a jolt")
+check("stale notes are dropped once every def has its own note",
+      got == ["a loaf", "a shock"], str((got, err)))
+got, err = _notes_of({"def": ["Formerly", "formerly"],
+                      "notes": {"Formerly": "once", "formerly#2": "previously"}}, "Formerly formerly")
+check("`word#2` keys the second def reading that word",
+      got == ["once", "previously"], str((got, err)))
+got, err = _notes_of({"def": ["Bread", "a jolt"], "notes": {"Bread": "a loaf", "zzz": "x"}}, "Bread a jolt")
+check("a leftover note is still refused while a def has no note",
+      got is None and "name no definition" in err, str((got, err)))
+
 fit = annotation.nest({"def": ["a", "b"], "definitionFit": ["One sense.", "Other sense."]})
 check("a double definition's definitionFit list of sentences is joined into one string",
       fit["explanation"]["definitionFit"] == "One sense. Other sense.", str(fit))

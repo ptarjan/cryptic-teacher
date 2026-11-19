@@ -1028,6 +1028,8 @@ def from_model(m, entry, puzzle=None):
     if any(not isinstance(d.get("text"), str) or not d["text"] for d in defs):
         raise wordplay.WordplayError("`def` is the definition's clue words, a string (or a list "
                                      "of two for a double definition)")
+    for d in defs:
+        d["_raw"] = d["text"]      # as the model wrote it: place() may respell it to the clue's run
     if defs:
         try:
             defs = D.place(defs, clue)
@@ -1054,6 +1056,12 @@ def from_model(m, entry, puzzle=None):
     if wp:
         names = {re.sub(r"#\d+$", "", s[k]) for s, k in wordplay._spans(wordplay.parse(wp), True)}
     for d in defs:
+        raw = d.pop("_raw", d["text"])
+        if raw != d["text"] and raw in notes and raw not in names and d["text"] not in notes:
+            # the model keyed the note by the def as it wrote it; place() has since put the
+            # clue's own run there (a stray mark or OCR slip in the clue: "Some. American
+            # Indians"), so the note is keyed by the words the def now has
+            notes[d["text"]] = notes.pop(raw)
         if d["text"] in notes and d["text"] not in names:
             d["meaning" if len(defs) > 1 else "note"] = notes.pop(d["text"])
         elif not wp:
@@ -1063,6 +1071,8 @@ def from_model(m, entry, puzzle=None):
             hit = [k for k in notes if norm(k) == norm(d["text"])]
             if len(hit) == 1:
                 d["meaning" if len(defs) > 1 else "note"] = notes.pop(hit[0])
+    if not wp:
+        mend_def_notes(defs, notes)
     out = {}
     if defs:
         out["definitions"] = defs
@@ -1110,6 +1120,23 @@ def from_model(m, entry, puzzle=None):
         out["features"] = {**out["features"], **{k: v for k, v in FEATURE_DEFAULTS.items()
                                                  if k not in out["features"]}}
     return out
+
+
+def mend_def_notes(defs, notes):
+    """Notes left over on a clue with no `wp`, mended in place when only one reading fits
+    (the 'name no definition' refusals, annotate audit 11-19: 27 sessions).
+
+    `word#2` is the second def reading `word` (a double definition that repeats a word);
+    and once every def has its own note, what is left is stale (a patch that dropped the
+    `wp` leaves its span notes in the merge) and adds nothing, so it is dropped."""
+    key = "meaning" if len(defs) > 1 else "note"
+    for k in [k for k in notes if re.fullmatch(r".+#\d+", k)]:
+        base, n = k.rsplit("#", 1)
+        same = [x for x in defs if x["text"].casefold() == base.casefold()]
+        if len(same) >= int(n) and key not in same[int(n) - 1]:
+            same[int(n) - 1][key] = notes.pop(k)
+    if notes and defs and all(key in d for d in defs):
+        notes.clear()
 
 
 def fill_palindrome_fodder(tree, defs, want):
