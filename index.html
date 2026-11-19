@@ -53,6 +53,11 @@
      links show as before. The timer is the fail-safe for a boot that dies. -->
 <script>
 document.documentElement.classList.add("ct-boot");
+/* Same test as notifyAvailable() in app-view.js (the endpoint is always set):
+   a browser without push never shows the Notify button, so it is hidden from
+   first paint instead of vanishing when app-boot.js runs. */
+if (!(navigator.serviceWorker && window.PushManager && typeof Notification !== "undefined"))
+  document.documentElement.classList.add("ct-nopush");
 setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }, 15000);
 </script>
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
