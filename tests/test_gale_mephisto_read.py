@@ -126,7 +126,7 @@ check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_don
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
 check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
 check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
-many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX, "gapFix": gm.GAP_FIX}
+many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX, "gapFix": gm.GAP_FIX, "aboveFix": gm.ABOVE_FIX}
 check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
 check("a 1970s page with 4+ blanks before STRAY_FIX is due", False, gm.read_done({**many, "midFix": gm.MID_FIX, "strayFix": 0}))
@@ -144,10 +144,26 @@ check("a 1970s page 4+ blank with a clue never read, before PRIOR_FIX, is due", 
 check("the same page at PRIOR_FIX stands", True, gm.read_done({**_prior, "priorFix": gm.PRIOR_FIX}))
 check("a 1970s page 4+ blank, none unread, is not due for PRIOR_FIX", True, gm.read_done({**_prior, "why": {"2-down": "both read 'Zt', not a word"}}))
 check("a 1980s page is not due for PRIOR_FIX", True, gm.read_done({**_prior, "date": "1985-03-03"}))
-_gap = {**_prior, "priorFix": gm.PRIOR_FIX}
+_gap = {**_prior, "priorFix": gm.PRIOR_FIX, "aboveFix": gm.ABOVE_FIX}
 check("a 1970s page 4+ blank with a clue never read, before GAP_FIX, is due", False, gm.read_done({**_gap, "gapFix": 0}))
 check("the same page at GAP_FIX stands", True, gm.read_done({**_gap, "gapFix": gm.GAP_FIX}))
 check("a 1980s page is not due for GAP_FIX", True, gm.read_done({**_gap, "date": "1985-03-03", "gapFix": 0}))
+_above = {**_gap, "gapFix": gm.GAP_FIX, "aboveFix": 0}
+check("a 1970s page 4+ blank with a clue never read, before ABOVE_FIX, is due", False, gm.read_done(_above))
+check("the same page at ABOVE_FIX stands", True, gm.read_done({**_above, "aboveFix": gm.ABOVE_FIX}))
+check("a 1980s page is not due for ABOVE_FIX", True, gm.read_done({**_above, "date": "1985-03-03"}))
+check("a whole page is not due for ABOVE_FIX", True, gm.read_done({**_above, "whole": True}))
+# ABOVE_FIX: the lists printed above the grid, their title and headings above them, are cut down to the grid's top.
+_abox = (1000, 1500, 1900, 2400)
+_aw = [(1005, 100, 1200, 124, "Mephisto"), (1005, 200, 1100, 224, "Across"), (1005, 900, 1090, 924, "Down")]
+_aw += [(1005, 260 + 40 * k, 1030, 280 + 40 * k, str(k + 1)) for k in range(30)]
+_aw += [(1040, 1470, 1300, 1492, "last clue (5)")]
+_ac = gm.above_cut(_aw, _abox)
+check("above_cut takes the lists from the title down to the grid", True, _ac is not None and _ac[0][1] < 100 and 1480 <= _ac[0][3] <= 1500 + 22)
+check("above_cut masks the grid", [_abox], _ac[1] if _ac else None)
+check("above_cut needs the Down heading", None, gm.above_cut([w for w in _aw if w[4] != "Down"], _abox))
+check("above_cut needs the clue numbers", None, gm.above_cut(_aw[:3] + _aw[-1:], _abox))
+check("above_cut leaves lists under the grid alone", None, gm.above_cut([(1005, 2500, 1100, 2524, "Across"), (1005, 2900, 1090, 2924, "Down")] + _aw[3:], _abox))
 # GAP_FIX: the entry rules that open the Across list stand more than three lines under last week's answers beside the grid.
 _gbox = (100, 100, 500, 500)
 _gw = [(110, 520 + 24 * i, 180, 540 + 24 * i, "word") for i in range(2)]
@@ -218,7 +234,7 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX, "leftGap": gm.LEFT_GAP, "gapFix": gm.GAP_FIX}
+_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX, "leftGap": gm.LEFT_GAP, "gapFix": gm.GAP_FIX, "aboveFix": gm.ABOVE_FIX}
 check("a 1960s no-clue-list refusal before LATTICE_FIX is due", False, gm.read_done(_stamped))
 check("a 1960 no-clue-list refusal before LEFT_GAP is due", False, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX, "leftGap": 0}))
 check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX}))

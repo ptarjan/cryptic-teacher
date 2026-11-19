@@ -617,6 +617,11 @@ def read_done(row, done=None):
             and len(row.get("blank") or ()) >= 4 and "no clue read for it" in (row.get("why") or {}).values():
         # Read with the lists' cut run on over the gap before the entry rules that open the Across list (GAP_FIX 1).
         return False
+    if row and row.get("aboveFix", 0) < ABOVE_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and "1955" <= (row.get("date") or "9") < "1980" \
+            and len(row.get("blank") or ()) >= 4 and "no clue read for it" in (row.get("why") or {}).values():
+        # Read with the lists printed above the grid not cut (ABOVE_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1339,6 +1344,37 @@ def lists_cut(words, box):
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+#: Bumped when the lists printed ABOVE the grid (the Mephisto title, then the Across and Down headings and the clues, the
+#: grid at the foot of its column: above_cut) are cut: the 1955-79 pages left with four or more blank lights, a clue
+#: never read, are read again once. (Taking the wrapped cut out to a hanging Across heading, the 1971-01 page, read
+#: 6 clues where 15 were: not done.)
+ABOVE_FIX = 1
+
+
+def above_cut(words, box):
+    """(box, masks) of the clue lists printed above the grid at `box` in its column, or None (ABOVE_FIX): the Across
+    heading in the grid's column above it, the Down heading under that and a dozen clue numbers at the heading's edge
+    above the grid; the cut runs from the Mephisto title above the Across heading down to the grid's top."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    near = [w for w in words if abs(w[0] - box[0]) < 3 * lh]
+    across = [w for w in near if gl.heading(w[4]) == "ACROSS" and w[4][:1].isupper() and box[1] - 60 * lh < w[1] < box[1] - 8 * lh]
+    if not across:
+        return None
+    a = max(across, key=lambda w: w[1])
+    if not any(gl.heading(w[4]) == "DOWN" and a[1] + 5 * lh < w[1] < box[1] - 2 * lh for w in near):
+        return None
+    nums = [w for w in words if NUMBER_WORD.match(w[4]) and abs(w[0] - a[0]) < 2 * lh and a[1] < w[1] < box[1]]
+    if len(nums) < 12:
+        return None
+    left, right = min([a[0]] + [w[0] for w in nums]) - lh / 2, box[2] + lh
+    titles = [w for w in words if TITLE_WORD.match(w[4]) and left <= w[0] <= right and a[1] - 12 * lh < w[1] < a[1]]
+    top = (min(titles, key=lambda w: w[1])[1] - lh / 2) if titles else a[1] - lh
+    lines = [w[3] for w in words if left <= (w[0] + w[2]) / 2 <= right and a[1] <= w[1] < box[1]]
+    bottom = min(max(lines), box[1] + lh)
+    return (int(left), int(top), int(right), int(bottom)), [tuple(int(v) for v in box)]
 
 
 def beside_cut(words, box):
@@ -2102,7 +2138,7 @@ def tight_mended(block, laid, blank, lengths, gl, asker=None):
 
 def listed(img, key, words, found, gl):
     """wanted_of the clue lists under the grid at `found`, read without the grid's lengths ([] when none read)."""
-    block = lists_block(img, key, words, beside_cut(words, found["box"]) or lists_cut(words, found["box"]), gl)
+    block = lists_block(img, key, words, beside_cut(words, found["box"]) or (ABOVE_FIX and above_cut(words, found["box"])) or lists_cut(words, found["box"]), gl)
     if not block:
         return []
     _, laid = gl.times_read([block], None)
@@ -2174,7 +2210,7 @@ def page_read(path, store=STORE, asker=None):
     gpath = Path(store) / "grids" / f"{path.stem}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
     img.crop(found["box"]).save(gpath)
-    cut = beside_cut(words, found["box"])
+    cut = beside_cut(words, found["box"]) or (ABOVE_FIX and above_cut(words, found["box"])) or None
     # HEAD_FIX: the grid-wrapping lists are the 1960s'; the 1989-2004 pages' Down heading beside the grid is theirs
     # (the lists under it), not a second page column.
     wrapped = None if cut or day.isoformat() >= "1989" else wrapped_cut(words, found["box"])
@@ -2267,7 +2303,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
-                "strayFix": STRAY_FIX, "gapFix": GAP_FIX}, store)
+                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
