@@ -18210,7 +18210,7 @@ def guardian_set_rescan(row):
 #: read (11-17/18) and 115 stayed unfiled, in 1994 "MONDAY PRIZE CROSSWORD" / "No.8,532 Set by ADAMANT" right of the grid,
 #: which no band of ocr_titles covers. Scanned again, then read once.
 FT_RIGHT = "archive.org FT page with no puzzle found, the band right of its grid read for the title since"
-REREAD_FT_RIGHT = "2026-11-19T00:00:00+00:00"
+REREAD_FT_RIGHT = "2026-11-19T10:38:00+00:00"
 
 
 def ft_right_rescan(row):
