@@ -29,9 +29,11 @@ A cache joins by a row in CACHES and a workflow that uploads cache-<name>-<run i
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
+import time
 import zipfile
 from pathlib import Path
 
@@ -88,13 +90,26 @@ def merged(rel, old, new):
     return None
 
 
-def gh(*args, out=None):
-    """`gh api` output as text (or streamed to the file object `out`)."""
-    r = subprocess.run(["gh", "api", *args], stdout=out or subprocess.PIPE, stderr=subprocess.PIPE,
-                       text=out is None, timeout=900, check=False)
-    if r.returncode:
-        raise RuntimeError(f"gh api {' '.join(args)}: {(r.stderr or b'')[-300:]}")
-    return r.stdout
+TRANSIENT = re.compile(r"i/o timeout|connection reset|connection refused|TLS handshake timeout|EOF|"
+                       r"dial tcp|\b50[234]\b", re.I)
+
+
+def gh(*args, out=None, delays=(5, 20)):
+    """`gh api` output as text (or streamed to the file object `out`). Transient network
+    failures are retried after each of `delays` seconds."""
+    for attempt in range(len(delays) + 1):
+        if out is not None and attempt:
+            out.seek(0)
+            out.truncate()
+        r = subprocess.run(["gh", "api", *args], stdout=out or subprocess.PIPE, stderr=subprocess.PIPE,
+                           text=out is None, timeout=900, check=False)
+        if not r.returncode:
+            return r.stdout
+        err = r.stderr if isinstance(r.stderr, str) else (r.stderr or b"").decode("utf-8", "replace")
+        if attempt < len(delays) and TRANSIENT.search(err):
+            time.sleep(delays[attempt])
+            continue
+        raise RuntimeError(f"gh api {' '.join(args)}: {r.stderr[-300:] if r.stderr else b''}")
 
 
 def artifacts(name):
