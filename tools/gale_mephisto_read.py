@@ -588,6 +588,12 @@ def read_done(row, done=None):
                 "no reading parses", "no clue list on the page"):
         # Refused with the Across/Down headings hanging in the margin on their first clue's line (HANG_FIX 1).
         return False
+    if row and row.get("leftGap", 0) < LEFT_GAP and row.get("version") == VERSION and not row.get("whole") \
+            and "1960" <= (row.get("date") or "9") < "1970" and row.get("refused") in (
+                "no reading parses", "no clue list on the page"):
+        # Refused with the lists left of the grid not cut: the Across heading out or lower than left_cut looked, or the
+        # Down heading garbled (LEFT_GAP 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1572,23 +1578,36 @@ def wrapped_cut(words, box):
 STOP_NOTES = re.compile(r"^\W*(?:notes|solutions?)\b", re.IGNORECASE)
 
 
+#: Bumped when left_cut reads the lists left of the grid with the Across heading further out or lower than the
+#: grid's top (the title between), and sets a Down heading the OCR garbled where the column's numbers fall (missing_down):
+#: the 1960s pages refused "no reading parses" or "no clue list on the page" are read again once.
+LEFT_GAP = 1
+
+
 def left_cut(words, box):
     """(Across heading, Down heading) of the early-1960s lists printed LEFT of the grid at `box` (LEFT_FIX: the grid
     stands in the page's right-hand corner, the Across clues in the column beside it from the grid's top, the Down
-    heading in that column under them, the Down clues on under it and in the column under the grid), or None."""
+    heading in that column under them, the Down clues on under it and in the column under the grid), or None.
+    LEFT_GAP: the Across heading may stand up to a grid's width and a third further left, and 12 lines under the
+    grid's top; a Down heading the OCR dropped is set where the column's clue numbers fall (missing_down)."""
     import gale_listener as gl
     lh = gl.line_height(words)
     wide = box[2] - box[0]
-    heads = [w for w in words if gl.heading(w[4]) and w[2] <= box[0] + lh and box[0] - wide < w[0]
+    heads = [w for w in words if gl.heading(w[4]) and w[2] <= box[0] + lh and box[0] - 1.35 * wide < w[0]
              and box[1] - 6 * lh <= w[1] <= box[3] + 4 * lh]
-    across = [w for w in heads if gl.heading(w[4]) == "ACROSS" and abs(w[1] - box[1]) < 6 * lh]
+    across = [w for w in heads if gl.heading(w[4]) == "ACROSS" and abs(w[1] - box[1]) < 12 * lh]
     if not across:
         return None
     a = min(across, key=lambda w: abs(w[1] - box[1]))
     downs = [w for w in heads if gl.heading(w[4]) == "DOWN" and abs(w[0] - a[0]) < 4 * lh and w[1] > a[1] + 6 * lh]
-    if not downs:
-        return None
-    return a, min(downs, key=lambda w: w[1])
+    if downs:
+        return a, min(downs, key=lambda w: w[1])
+    lists = [w for w in words if a[0] - 3 * lh <= w[0] < box[0] - lh / 2 and w[1] >= a[1]]
+    fake = (0, a[1], int(a[0] - 3 * lh) + lh / 2, box[3] + 15 * lh)
+    got = missing_down(lists, fake, lh, box[0] - lh / 2 + 4 * lh)
+    if got and got[0][1] > a[1] + 6 * lh:
+        return a, got[0]
+    return None
 
 
 def notes_box(words, under, box, lh):
@@ -1622,7 +1641,7 @@ def left_block(img, words, box, heads, gl):
     lh = gl.line_height(words)
     # The headings stand centred over the column, which is the grid's width and ends a line before the grid.
     # The clue numbers stand left of that (about a line and a half further), so the cut goes out to them.
-    left = int(box[0] - 3 * lh - (box[2] - box[0]))
+    left = int(min(box[0] - 3 * lh - (box[2] - box[0]), a[0] - 3 * lh))
     gx0, gx1 = int(box[0] - lh), int(box[2] + lh)
 
     def foot(x0, x1, top, notes):
@@ -2190,7 +2209,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
-                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX}, store)
+                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP}, store)
     print(json.dumps(verdict))
     return "read"
 

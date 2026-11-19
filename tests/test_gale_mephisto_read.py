@@ -194,8 +194,9 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX}
+_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX, "leftGap": gm.LEFT_GAP}
 check("a 1960s no-clue-list refusal before LATTICE_FIX is due", False, gm.read_done(_stamped))
+check("a 1960 no-clue-list refusal before LEFT_GAP is due", False, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX, "leftGap": 0}))
 check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX}))
 check("a 1970s no-reading-parses refusal before ENUM_FIX is due", False, gm.read_done({
     **bare, "refused": "no reading parses", "date": "1973-11-18", "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX,
