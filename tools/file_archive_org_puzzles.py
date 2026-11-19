@@ -13661,6 +13661,7 @@ SUNDAY_BAND_DEPTH, SUNDAY_BAND_REACH, SUNDAY_BAND_FOOT = (0.1, 1.0), 1.05, 0.6
 SUNDAY_BAND_LINES, SUNDAY_BAND_GAP, SUNDAY_BAND_PAD, SUNDAY_BAND_RISE = 2, 40, 25, 25
 #: How far apart (share of the grid's width) the columns' pitches may differ.
 SUNDAY_BAND_PITCH = 0.12
+SUNDAY_BAND_WIDE = 1.65  # SUNDAY_BAND3: the crop's reach for a page of five columns
 #: How far down beside the grid (share of its width) the band's right columns' lines count towards their numbers' x.
 SUNDAY_BAND_SIDE = 0.35
 
@@ -13726,6 +13727,24 @@ def sunday_times_band(img, gbox, title, key, paper):
     elif len(heads) >= 3 and heads[0] <= gx0 + 0.3 * gw \
             and abs((heads[1] - heads[0]) - 2 * (heads[2] - heads[1])) <= 1.5 * SUNDAY_BAND_PITCH * gw:
         heads = [heads[0], (heads[0] + heads[1]) // 2] + heads[1:]
+    # SUNDAY_BAND3: a page of five columns (1982-05-23: x 286, 653, 1013, 1376, 1740, beside a grid x 263-983) is cut by the
+    # crop's reach after the fourth; with no column read past the third, the band's crop is widened and probed again.
+    if len(heads) == 3 and not beside:
+        wide = BandCrop((crop[0], crop[1], int(gx1 + SUNDAY_BAND_WIDE * gw)))
+        wide.top = top
+        words2 = [w for ws in rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.{reader_key('ch')}.json", None, paper.margin,
+                                         None, wide, None, None, None) for w in ws]
+        xs2 = sorted(w[0] for w in words2 if re.match(r"[^\w(\[]{0,2}\d{1,2}(?!\d)", w[4]) and heads[2] + SUNDAY_BAND_GAP < w[0]
+                     and (start <= w[1] < gy0 - 5 or gy0 - 5 <= w[1] < gy0 + SUNDAY_BAND_SIDE * gw))
+        more = []
+        for x in xs2:
+            if more and x - more[-1][-1] <= SUNDAY_BAND_GAP:
+                more[-1].append(x)
+            else:
+                more.append([x])
+        more = [g[len(g) // 2] for g in more if len(g) >= SUNDAY_BAND_LINES][:1]
+        if more and abs((more[0] - heads[2]) - 2 * (heads[2] - heads[1])) <= SUNDAY_BAND_PITCH * gw:
+            heads, crop = heads + more, wide
     if len(heads) < 3:
         return None
     c1, c2, c3 = heads[:3]
@@ -13735,8 +13754,12 @@ def sunday_times_band(img, gbox, title, key, paper):
     # Further columns at the same pitch (1982: a fourth, from x 1436 beside a grid ending 1052) are the list's too;
     # a column at another pitch is another article's and ends the last.
     cols = [c1, c2, c3]
+    # SUNDAY_BAND3: a column whose numbers stand below the grid's top (the fourth, 1982-05-23: x 1376 in lines of several
+    # clues "13 Razst lamb: 14 National: 16") has no number in the band's rows: a next head two pitches on stands over it.
     for c in heads[3:]:
-        if abs((c - cols[-1]) - pitch) > SUNDAY_BAND_PITCH * gw:
+        if abs((c - cols[-1]) - 2 * pitch) <= SUNDAY_BAND_PITCH * gw:
+            cols.append((cols[-1] + c) // 2)
+        elif abs((c - cols[-1]) - pitch) > SUNDAY_BAND_PITCH * gw:
             break
         cols.append(c)
     if beside:
@@ -13745,7 +13768,7 @@ def sunday_times_band(img, gbox, title, key, paper):
                  and w[0] > c3 + SUNDAY_BAND_GAP]
         if stops:
             cols = [c for c in cols if c < min(stops) - SUNDAY_BAND_GAP] or cols[:3]
-    later =[c for c in heads[len(cols):] if c > cols[-1]]
+    later = [c for c in heads if c > cols[-1]]
     right = min(cols[-1] + pitch + 5, later[0] - 15) if later else cols[-1] + pitch + 5
     out = BandLeft((max(0, c1 - SUNDAY_BAND_PAD), None, crop[1]))
     out.edges = (out[0], *[c - 8 for c in cols[1:]], min(img.width, crop[2], right))
@@ -13831,6 +13854,26 @@ def sunday_merged2_due(row):
     return any(held_or_wrote(v) and not v.get("complete") and not v.get("refused")
                and "no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_MERGED2))
+
+
+#: r285: the same held pages as SUNDAY_MERGED2 whose band runs to five columns (1982-05-23: x 286, 653, 1013, 1376, 1740 beside a
+#: grid x 263-983): the crop's reach ended at the fourth, and the fourth's numbers (lines of several clues, "13 Razst lamb: 14
+#: National: 16") stood below the band's rows, so sunday_times_band gave three columns and the DOWN clues 15, 17, 18, 20, 22
+#: were left blank (1982-05-23, 1982-06-27). With no column read past the third it probes a wider crop and puts the missing
+#: fourth midway.
+SUNDAY_BAND3 = "Gale Sunday Times 1980-84 page held with DOWN clues no reading laid, its fourth and fifth columns read since"
+REREAD_SUNDAY_BAND3 = "2026-11-19T23:59:00+00:00"
+
+
+def sunday_band3_due(row):
+    """Whether Gale Sunday Times ledger `row` is due SUNDAY_BAND3: as sunday_merged_due, read before REREAD_SUNDAY_BAND3."""
+    edition = (row or {}).get("edition") or ""
+    if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
+            or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
+        return False
+    return any(held_or_wrote(v) and not v.get("complete") and not v.get("refused")
+               and "no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ()) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_BAND3))
 
 
 #: The reason of a Gale Sunday Times 1980-84 page refused "no reading parses" or written incomplete with a clue no
@@ -26988,6 +27031,8 @@ def fix_reason(row):
         return SUNDAY_UNDER_WIDE
     if sunday_vote_other_due(row):
         return SUNDAY_VOTE_OTHER
+    if sunday_band3_due(row):
+        return SUNDAY_BAND3
     if sunday_merged2_due(row):
         return SUNDAY_MERGED2
     if sunday_merged_due(row):
@@ -27910,6 +27955,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   SUNDAY_TAIL,
                   SUNDAY_VOTE_OTHER,
                   SUNDAY_MERGED2,
+                  SUNDAY_BAND3,
                   # 11-15 r30: a 1940s Gale Times page whose grid's pale rules left too few white cells (pale_rules_due).
                   PALE_RULES)
 
@@ -28112,7 +28158,7 @@ def blanket_or_fix(row, blanket):
             else INDY_THREE if indy_three_due(row) \
             else INDY_THREE_MORE if indy_three_more_due(row) \
             else INDY_REPARSE if indy_reparse_due(row) \
-            else SUNDAY_UNDER_DOWN if sunday_under_down_due(row) else SUNDAY_TOP if sunday_top_due(row) else SUNDAY_UNDER_WIDE if sunday_under_wide_due(row) else SUNDAY_MERGED if sunday_merged_due(row) else SUNDAY_TAIL if sunday_tail_due(row) else SUNDAY_VOTE_OTHER if sunday_vote_other_due(row) else SUNDAY_MERGED2 if sunday_merged2_due(row) else _other_fix(row, blanket)
+            else SUNDAY_UNDER_DOWN if sunday_under_down_due(row) else SUNDAY_TOP if sunday_top_due(row) else SUNDAY_UNDER_WIDE if sunday_under_wide_due(row) else SUNDAY_MERGED if sunday_merged_due(row) else SUNDAY_TAIL if sunday_tail_due(row) else SUNDAY_VOTE_OTHER if sunday_vote_other_due(row) else SUNDAY_MERGED2 if sunday_merged2_due(row) else SUNDAY_BAND3 if sunday_band3_due(row) else _other_fix(row, blanket)
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -28331,7 +28377,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, GUARDIAN_SET: 1, FT_RIGHT: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, INDY_FOOT_TAIL: 2, INDY_THREE: 2, INDY_THREE_MORE: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, SOLO_READ: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, UNGLUE_LEAD: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, HEAD_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SUNDAY_RESTART: 2, INDY_REPARSE: 2, SUNDAY_UNDER_DOWN: 2, SUNDAY_TOP: 2, SUNDAY_UNDER_WIDE: 2, SUNDAY_MERGED: 2, SUNDAY_TAIL: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, SUNDAY_VOTE_OTHER: 2, SUNDAY_MERGED2: 2, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SUNDAY_NUMBER: 1, WINNERS_NUMBER: 1, SUNDAY_WEEKLY: 1, TELEQUICK: 1, TELEPAIR: 1, TELEPRIZE: 1, TELE_GRID: 1, TELEGRAPH_DATED: 1, GUARDIAN_SET: 1, FT_RIGHT: 1, TELEGRAPH_NEXT_DAY: 2, TELEGRAPH_HOSTED: 2, TELEGRAPH_PRIZE_DAY: 2, TELEGRAPH_SATURDAY: 2, TELEGRAPH_WHOLE: 2, TELEGRAPH_CELLS: 2, FT_FAINT: 2, TELEGRAPH_OWN: 2, TELEGRAPH_FIGURE: 2, TELEGRAPH_LEAD_NUMBER: 2, TELEGRAPH_STOP: 2, TELEGRAPH_FITTED: 2, GUARDIAN_LAID: 2, GUARDIAN_CUT: 2, GUARDIAN_FOURTH: 2, GUARDIAN_NOTICE: 2, GUARDIAN_PAIR: 2, GUARDIAN_ACROSS: 2, INDY_OVER_PLAIN: 2, INDY_GUTTER_DOWN: 2, IOS_WORDS: 2, INDY_THIN: 2, FT_LEAD_WHOLE: 2, FT_SIDE_RIGHT: 2, SUNTEL_RIGHT: 2, IOS_ENTRY_LINES: 1, SUNTEL_BY: 1, SUNTEL_BARE: 1, NUMBERLESS_LAID: 2, QUARTER_DOWN: 2, QUARTER_HEADLESS: 2, QUARTER_GLUED: 2, FT_SMALL_TEXT: 2, FT_TITLE_GLUED: 2, FT_NOISY_TITLE: 2, INDY_BANNER: 2, INDY_FOOT_TAIL: 2, INDY_THREE: 2, INDY_THREE_MORE: 2, FT_SPECK_WORDS: 2, INDY_FRAME: 2, WHOLE_INK: 2, FAINT_EDGE: 2, INDY_DOWN_FOOT: 2, INDY_UNDER: 2, IOS_FOOT: 2, SUNTEL_FOOT: 2, SUNTEL_LIST: 2,INDY_TITLED: 2, IOS_WRAP: 2, IOS_ACROSS: 2, IOS_LEAD: 2, DOWN_HALF: 2, BARRED_NUMBER: 2, INDY_REDATED: 2, INDY_PAIRED: 2, IOS_EVEN: 2, PALE_RULES: 2, INDEPENDENT_HEADINGS: 2, INDEPENDENT_RIGHT: 2, INDY_BARRED: 2, INDY_BARRED_LATE: 2, INDY_LINKS: 2, INDY_COLUMNS: 2, INDY_ABOVE: 2, INDY_WIDE: 2, INDY_DROPPED: 2, SUNDAY_FOOT: 1, IOS_TITLES: 2, FT_HEADINGS: 2, FT_CLUES: 2, FT_GLUED: 2, FT_THIRD: 2, SUNDAY_TIMES_FOOT: 2, SUNDAY_GRID: 2, SUNDAY_LEFT: 2, SUNDAY_BAND: 2, SUNDAY_PAIR: 2, SUNDAY_TITLE_GRID: 2, SUNDAY_OVER: 2, SUNDAY_CAPTION: 2, SUNDAY_STACKED: 2, SUNDAY_BETWEEN: 2, FT_NUMBER_MENDED: 2, TLS_MONTHLY: 2, SUNDAY_MID: 2, NUMBER_GRID: 2, SUNDAY_QUICKIE_CUT: 2, SUNDAY_UNDER: 2, SUNDAY_NOTICE: 2, SUNDAY_FEET: 2, SUNDAY_TALL: 2, SUNDAY_1970S: 2, PLAIN_LAID: 2, QUARTER_PLAIN: 2, QUARTER_BLANKS: 2, QUARTER_1934: 2, QUARTER_1935: 2, PLAIN_BETWEEN: 2, CLUE_BLOCK: 2, SUB_COLUMNS: 2, SUB_REFUSED: 2, MARKED_HYPHEN: 2, MARKED_RISE: 2, SOLO_READ: 2, COUNT_FIRST: 2, NUMBERLESS_FIT: 2, NUMBERLESS_EARLY: 2, TEL_TITLE_FAR: 2, BLOCK_FORTIES: 2, TELE_OVER: 2, TELE_HEAD: 2, MID_OTHER: 2, MID_TIMES: 2, UNGLUE_LEAD: 2, SIDES_HEADED: 2, WEEKDAY_RIGHT: 2, LEFT_EDGE_GRID: 2, HEAD_GRID: 2, SUNDAY_ABOVE: 2, SUNDAY_WIDE: 2, SUNDAY_NOTICE_CUT: 2, SUNDAY_PRIZE_CUT: 2, SUNDAY_LEAD: 2, SUNDAY_RESTART: 2, INDY_REPARSE: 2, SUNDAY_UNDER_DOWN: 2, SUNDAY_TOP: 2, SUNDAY_UNDER_WIDE: 2, SUNDAY_MERGED: 2, SUNDAY_TAIL: 2, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, SUNDAY_VOTE_OTHER: 2, SUNDAY_MERGED2: 2, SUNDAY_BAND3: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
