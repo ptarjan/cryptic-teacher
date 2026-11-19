@@ -42,7 +42,7 @@ LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
 VERSION = 5
 #: Bumped when only the grid finding changes: the pages refused "grid unread" are read again (not every page).
-GRID_FIX = 3
+GRID_FIX = 4
 #: Bumped when only the numbering changes: the pages refused for want of a number are read again (not every page).
 NUMBER_FIX = 3
 #: The Gale list of titles, beside the saved pages (downloads.GALE_CROSSWORDS, which the live units set through
@@ -1048,6 +1048,9 @@ def _comb_refine(ink, p, x0, y0):
     return ([float(ya + t0 + k * q) for k in range(13)], [float(xa + l0 + k * q) for k in range(13)])
 
 
+#: Lattices (of find_lattices, best first) whose shifted phases are tried (GRID_FIX 4).
+SHIFT_LATTICES = 6
+
 BLOB_WINDOW = 31
 BLOB_SHARE = 0.01
 
@@ -1123,6 +1126,21 @@ def read_barred(gray, lattice=None, wanted=None):
         # short): the lattice is fitted again to the ink's own line profiles, and its half-cell shifts tried.
         for ys, xs in cands[:3]:
             for y2, x2 in refit_lattices(ink, ys, xs):
+                rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
+                if rows is not None:
+                    return rows, found, None
+    if not lattice:
+        # GRID_FIX 4: the grid's own lattice is often not among the first two (1980-84: two lattices of 150 px cells on
+        # the text, the grid's 74 px one fourth to sixth, its phase a cell or two off, the bars read 0.1-0.3
+        # symmetric): the shifts are tried on the lattices after them too, each at its own pitch.
+        shifts = sorted(((dx, dy) for dx in range(-5, 6) for dy in range(-2, 3) if dx or dy),
+                        key=lambda s: (abs(s[0]) + abs(s[1]), abs(s[1])))
+        for ys, xs in cands[2:SHIFT_LATTICES]:
+            px, py = (xs[-1] - xs[0]) / CELLS, (ys[-1] - ys[0]) / CELLS
+            for dx, dy in shifts:
+                y2, x2 = [y + dy * py for y in ys], [x + dx * px for x in xs]
+                if y2[0] < 0 or x2[0] < 0 or y2[-1] >= ink.shape[0] or x2[-1] >= ink.shape[1]:
+                    continue
                 rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
                 if rows is not None:
                     return rows, found, None

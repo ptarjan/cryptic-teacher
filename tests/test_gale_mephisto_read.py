@@ -183,6 +183,7 @@ check("an older version is read again", 2, len(gm.plan(saved, store)))
 refused = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "grid unread: the bars are 0.10 symmetric"}
 check("a grid refusal before the comb search is due", False, gm.read_done(refused))
 check("a grid refusal at GRID_FIX stands", True, gm.read_done({**refused, "gridFix": gm.GRID_FIX}))
+check("a grid refusal at GRID_FIX 3 is due", False, gm.read_done({**refused, "gridFix": 3}))
 check("a grid refusal at GRID_FIX 2 is due", False, gm.read_done({**refused, "gridFix": 2}))
 _page = np.zeros((600, 600), bool)
 check("a page with no solid black area is left as it is", None, gm.unblobbed(_page))
