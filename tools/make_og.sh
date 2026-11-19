@@ -147,6 +147,8 @@ case "${1:-}" in
 esac
 
 # Every card on disk, not only the ones drawn this run, so a card the cache
-# carried in from an earlier run is converted too.
-shopt -s nullglob
-python3 "$REPO/tools/og_palette.py" "$REPO/og.png" "$REPO"/og/.site/*.png "$REPO"/og/*.png
+# carried in from an earlier run is converted too. Directories, not globs: the
+# expanded og/*.png list outgrew the kernel's argument limit (exit 126).
+dirs=()
+for d in "$REPO/og/.site" "$REPO/og"; do [ -d "$d" ] && dirs+=("$d"); done
+python3 "$REPO/tools/og_palette.py" "$REPO/og.png" ${dirs[@]+"${dirs[@]}"}

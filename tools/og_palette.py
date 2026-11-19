@@ -99,9 +99,18 @@ def todo(paths, limit):
     return fresh + older[:limit], len(older) - min(len(older), limit)
 
 
+def expand(paths):
+    """Files as given; a directory stands for every *.png directly in it, so
+    the caller can pass og/ instead of a glob that outgrows ARG_MAX."""
+    out = []
+    for p in map(Path, paths):
+        out.extend(sorted(p.glob("*.png")) if p.is_dir() else [p])
+    return out
+
+
 def main(paths):
     limit = int(os.environ.get("OG_REPALETTE_LIMIT", "1000"))
-    work, left = todo([Path(p) for p in paths], limit)
+    work, left = todo(expand(paths), limit)
     done = sum(parallel.pmap(palettise, [str(p) for p in work], chunksize=16))
     if done:
         print(f"og_palette: {done} card(s) rewritten as {COLOURS}-colour palette PNGs")
