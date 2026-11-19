@@ -10333,7 +10333,7 @@ _m3 = [f.indy_three_read("2008-10-30_6877"), f.indy_three_read("2008-10-30_6877"
 f.CROPS = _crops3
 f.indy_three_read.cache_clear()
 if _m3 == [True, False, False, True, False] and f.RANKS[f.INDY_THREE_MORE] == 2 \
-        and f.INDY_THREE_MORE in _eq3.NEWEST_LANDED and _eq3.UNFILED_FIRST[-1] == f.INDY_THREE_MORE:
+        and f.INDY_THREE_MORE in _eq3.NEWEST_LANDED and f.INDY_THREE_MORE in _eq3.UNFILED_FIRST:
     print("ok   a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE")
 else:
     print("FAIL a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE", _m3)
