@@ -10464,6 +10464,32 @@ if _m4 == [False, True, False, True] and f.RANKS[f.INDY_THREE_FEW] == 2 \
     print("ok   an Independent page whose third clue column held five clue starts is due INDY_THREE_FEW")
 else:
     print("FAIL an Independent page whose third clue column held five clue starts is due INDY_THREE_FEW", _m4)
+# r296 INDY_THIRD_TOP: the 2004 third column's first lines stand over the plain window's top, in a strip window beside the grid.
+_c4 = Path(_tf3.mkdtemp())
+(_c4 / "rapid").mkdir()
+_ys4 = [2484, 2510, 2535, 2559, 2584, 2608, 2634]
+_w4 = [[2208, y, 2400, y + 20, "word of clue"] for y in _ys4] + [[2175, 2289, 2190, 2309, "E"]]
+(_c4 / "rapid" / f"2004-07-21_5541.{f.reader_key('en5')}.json").write_text(json.dumps(
+    {"box": [1386, 2632, 2563, 3532], "words": [[2208, 2634, 2400, 2654, "point of no return (7)"]],
+     "more": [{"box": [2151, 1937, 3296, 2986], "words": _w4}]}))
+(_c4 / "rapid" / f"2004-03-16_5432.{f.reader_key('en5')}.json").write_text(json.dumps(
+    {"box": [135, 4141, 1406, 5000], "words": [], "more": [{"box": [900, 3373, 2047, 4535],
+     "words": [[1345, 4141 - 30 * k, 1500, 4161 - 30 * k, "article text here"] for k in range(1, 8)]}]}))
+_crops4, f.CROPS = f.CROPS, _c4
+f.indy_third_top_read.cache_clear()
+_row4 = {"edition": "GaleIndependent2004UKEnglish/2004-07-21", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 5541, "id": "independent-5541", "blank": {"4-down": "no reading laid a clue on it"}}]}
+_m4 = [f.indy_third_top([(2208, y, 2400, y + 20, "word of clue") for y in _ys4], 2156, 2632),
+       f.indy_third_top([(2208, y, 2400, y + 20, "word of clue") for y in (2300, 2610)], 2156, 2632),
+       f.indy_third_top_read("2004-07-21_5541"), f.indy_third_top_read("2004-03-16_5432"),
+       f.indy_third_top_due(_row4), f.indy_third_top_due({**_row4, "readAt": "2027-01-01T00:00:00+00:00"})]
+f.CROPS = _crops4
+f.indy_third_top_read.cache_clear()
+if _m4 == [2476, None, True, False, True, False] and f.RANKS[f.INDY_THIRD_TOP] == 2 and f.INDY_THIRD_TOP in _eq3.NEWEST_LANDED \
+        and _eq3.UNFILED_FIRST[-1] == f.INDY_THIRD_TOP and f.INDY_THIRD_TOP in _eq3.FIX_LANDED:
+    print("ok   a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP")
+else:
+    print("FAIL a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP", _m4)
     out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
