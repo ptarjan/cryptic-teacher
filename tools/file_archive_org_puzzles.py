@@ -21811,7 +21811,7 @@ def marked_rise_due(row):
 #: garbled it under half). The vote's two-reader rule stands; each other RapidOCR reader now reads such a clue's window
 #: alone, in tiles (solo_numbers), for the second reading.
 SOLO_READ = "unfiled before its fix, a Times clue only one reading printed read again alone by the other readers"
-REREAD_SOLO_READ = "2026-11-19T23:59:00+00:00"
+REREAD_SOLO_READ = "2026-11-19T20:30:00+00:00"
 
 
 def solo_read_due(row):
@@ -21820,7 +21820,7 @@ def solo_read_due(row):
     solo readings (readSolo) and not since held with every clue."""
     rel = row.get("edition") or ""
     if paper_of(Path(rel)).key != "gale" or not SOLO_YEARS[0] <= rel.split("/")[-1][:4] <= SOLO_YEARS[1] \
-            or not scan_queue.read_before(row, scan_queue.when(REREAD_SOLO_READ)):
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SOLO_READ)) or run_on_tail_lost(row):
         return False
     for v in row.get("verdicts", ()):
         if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None or v.get("readSolo"):
