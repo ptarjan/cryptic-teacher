@@ -10375,6 +10375,35 @@ if _m3 == [True, False, False, True, False] and f.RANKS[f.INDY_THREE_MORE] == 2 
 else:
     print("FAIL a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE", _m3)
     out += "\nFAILS 1"
+# r291 INDY_UNDER_SPLIT: three print columns under the grid, the first window of the old split holding two of them.
+_g4 = (173, 448, 893, 1167)
+_w4 = [[x, 1200 + 50 * k, x + 200, 1220 + 50 * k, str(k + 1)] for x in (170, 420, 671) for k in range(8)]
+_lines4 = [[tuple(w) for w in _w4]]
+if f.indy_under_columns(_lines4, _g4, (585, 957, 1399), 40) == (416, 667, 947) \
+        and f.indy_under_columns(_lines4, _g4, (300, 957, 1399), 40) == (300, 957, 1399) \
+        and f.indy_under_columns([_lines4[0][:16]], _g4, (585, 957, 1399), 40) == (585, 957, 1399):
+    print("ok   an Independent page's first two columns under the grid are cut at their numbers (INDY_UNDER_SPLIT)")
+else:
+    print("FAIL an Independent page's first two columns under the grid are cut at their numbers (INDY_UNDER_SPLIT)")
+    out += "\nFAILS 1"
+_c4 = Path(_tf3.mkdtemp())
+(_c4 / "rapid").mkdir()
+(_c4 / "rapid" / f"2012-02-13_7903.{f.reader_key('ch')}.json").write_text(json.dumps({"box": [1, 2, 3, 4], "words": [], "more": [{"box": [133, 1167, 923, 2463], "words": _w4}]}))
+_crops4, f.CROPS = f.CROPS, _c4
+f.indy_under_read.cache_clear()
+_row4 = {"edition": "GaleIndependent2012UKEnglish/2012-02-13", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 7903, "id": "independent-7903", "blank": {"1-down": "no reading laid a clue on it"}}]}
+_m4 = [f.indy_under_read("2012-02-13_7903"), f.indy_under_split_due(_row4),
+       f.indy_under_split_due({**_row4, "readAt": "2027-01-01T00:00:00+00:00"}), f.fix_reason(_row4)]
+f.CROPS = _crops4
+f.indy_under_read.cache_clear()
+if _m4 == [True, True, False, f.INDY_UNDER_SPLIT] and f.RANKS[f.INDY_UNDER_SPLIT] == 2 \
+        and f.INDY_UNDER_SPLIT in _eq3.NEWEST_LANDED and _eq3.UNFILED_FIRST[-1] == f.INDY_UNDER_SPLIT \
+        and all(r in f.RANKS for r in _eq3.UNFILED_FIRST):
+    print("ok   an Independent page with three print columns under the grid is due INDY_UNDER_SPLIT")
+else:
+    print("FAIL an Independent page with three print columns under the grid is due INDY_UNDER_SPLIT", _m4)
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):

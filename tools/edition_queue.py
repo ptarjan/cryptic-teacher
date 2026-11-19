@@ -953,6 +953,7 @@ def evidence_reason(reason):
                           fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.INDY_BARRED_LATE, fa.INDY_LINKS, fa.INDY_COLUMNS, fa.INDY_ABOVE, fa.INDY_WIDE, fa.INDY_DROPPED, fa.SUNDAY_FOOT, fa.IOS_TITLES, fa.TELEGRAPH_OWN, fa.TELEGRAPH_FIGURE, fa.INDY_REDATED, fa.INDY_PAIRED, fa.IOS_EVEN, fa.IOS_EVEN, fa.TELEGRAPH_LEAD_NUMBER, fa.TELEGRAPH_STOP, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS, fa.INDY_OVER_PLAIN, fa.INDY_GUTTER_DOWN, fa.IOS_WORDS, fa.PALE_RULES, fa.INDY_THIN, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_SPECK_WORDS, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.INDY_THREE, fa.INDY_REPARSE, fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE, fa.SUNDAY_MERGED, fa.SUNDAY_TAIL, fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST, fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3,  # a Gale Telegraph solution grid read short with no cell classified
                           fa.INDEPENDENT_HEADINGS,  # a Gale Independent page, its glued title / weekday-only solution heading read since
                           fa.INDY_THREE_MORE,  # a Gale Independent page whose three clue columns stood in a later cached window
+                          fa.INDY_UNDER_SPLIT,  # a Gale Independent page whose first two clue columns under the grid ran together
                           fa.INDY_FOOT_TAIL,  # a Gale Independent page refused no ACROSS and DOWN lists, its third column / low DOWN heading read since
                           fa.INDEPENDENT_RIGHT, fa.INDY_BARRED,  # a Gale Independent page refused for its grid / clue lists, clues right of the grid read since
                           fa.FT_HEADINGS,  # a Gale FT page, its glued title / solution heading read since
@@ -2093,7 +2094,7 @@ NEWEST_LANDED = (fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.QUARTER_BL
                  fa.FT_SMALL_TEXT, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE,
                  fa.FT_SPECK_WORDS, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST,
                  fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER,
-                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3)
+                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_UNDER_SPLIT)
 
 
 #: The fixes whose rereads lead every other fix reread (fix_rereads_forward), whatever their rank: drop one
@@ -2572,7 +2573,9 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  # second-reader word parted since (fa.unglue_lead_due).
                  fa.UNGLUE_LEAD,
                  # 11-19 r273: a Gale Sunday Telegraph page with a clue "no other reading has" a word, laid from the reading that spelt it whole since (fa.sunday_vote_other_due)
-                 fa.SUNDAY_VOTE_OTHER)
+                 fa.SUNDAY_VOTE_OTHER,
+                 # 11-19 r291: a Gale Independent 2010-13 page whose first two clue columns under the grid ran together (fa.indy_under_split_due)
+                 fa.INDY_UNDER_SPLIT)
 
 
 
