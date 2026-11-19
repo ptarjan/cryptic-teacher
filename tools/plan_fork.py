@@ -12,6 +12,7 @@ import signal
 import tempfile
 import threading
 import time
+import traceback
 from pathlib import Path
 
 #: Where a child leaves its answer for the parent (a pipe would block the child once it fills).
@@ -61,6 +62,10 @@ def run(fn, locks=()):
             try:
                 answer = ("ok", fn())
             except BaseException as e:
+                try:  # the parent's traceback stops at its re-raise: ship the child's call sites with the error
+                    e.plan_child_traceback = traceback.format_exc()
+                except Exception:
+                    pass
                 answer = ("err", e)
             try:
                 blob = pickle.dumps(answer, protocol=pickle.HIGHEST_PROTOCOL)

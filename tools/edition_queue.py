@@ -832,6 +832,13 @@ def plan_forked(papers, cache=fa.CACHE, reread=None, out=None):
             # 11-19 07:59: EAGAIN opening a Gale PDF on CIFS in the plan child killed the queue (rc=1)
             log(f"plan met a momentary CIFS refusal ({got}); planning again next pass")
             raise PlanDeferred(got)
+        tb = getattr(got, "plan_child_traceback", None)
+        if tb:
+            log("plan child raised:\n" + tb.rstrip())
+        if isinstance(got, FileNotFoundError) and "/puzzles/" in str(getattr(got, "filename", "") or ""):
+            # 11-19 12:19: a git rebase rewrote a puzzle file while the plan child read it; planned again next pass
+            log(f"plan met a puzzle file vanishing ({got}); planning again next pass")
+            raise PlanDeferred(got)
         raise got
     if status == "failed":
         if mem_gate.vm_short():
