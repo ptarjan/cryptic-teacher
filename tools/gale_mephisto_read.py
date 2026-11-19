@@ -1234,6 +1234,13 @@ def lists_cut(words, box):
     import gale_listener as gl
     lh = gl.line_height(words)
     left, right = box[0] - lh, box[2] + lh
+    # HANG_FIX: the Across heading hangs in the margin left of the lists' numbers (and a Down heading stands on the
+    # first Down clue's line): the cut's left edge is taken out to the heading, whose lists stood cut off from it.
+    hung = [w for w in words if gl.heading(w[4]) == "ACROSS" and left - 10 * lh <= w[0] < left - lh / 2
+            and box[3] < w[1] < box[3] + 40 * lh
+            and any(o[4][:1].isdigit() and abs(o[1] - w[1]) < lh and left - lh <= o[0] <= left + 2 * lh for o in words)]
+    if hung:
+        left = min(w[0] for w in hung) - lh / 2
     inside = [w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[1] > box[3]]
     titles = [w for w in inside if TITLE_WORD.match(w[4]) and w[1] - box[3] < 40 * lh]
     top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
@@ -1655,6 +1662,35 @@ BARE_NUMBER = re.compile(r"^\d{1,2}$")
 BARE_STEP, BARE_RUN = 12, 4
 
 
+#: Bumped when a heading hanging in the margin left of its list's first number ("ACROSS 1. Like something...", the
+#: heading less than gale_listener.ALONE from the number, so no heading alone on its line) is narrowed to stand
+#: alone (hung_heads), and the cut under the grid takes in a hanging Across heading (lists_cut): the pages refused
+#: "no reading parses" or "no clue list on the page" are read again once.
+HANG_FIX = 1
+
+
+def hung_heads(words, gl):
+    """`words` with each ACROSS/DOWN heading word that stands on a clue's line, left of the clue's number and nearer
+    it than gale_listener.ALONE, narrowed (its right edge pulled in) to stand ALONE from that number: the heading
+    stays where it is, and is found as the heading of the list. `words` itself when none is."""
+    out, changed = list(words), False
+    for i, w in enumerate(words):
+        if gl.heading(w[4]) not in ("ACROSS", "DOWN"):
+            continue
+        h = w[3] - w[1]
+        line = [o for o in words if o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < h / 2]
+        if not line or any(o[2] <= w[0] + h for o in line):
+            continue
+        first = min(line, key=lambda o: o[0])
+        if first[0] < w[2] or first[0] - w[2] >= gl.ALONE or not re.match(r"^\d{1,2}[.,]?$", first[4]):
+            continue
+        edge = int(first[0] - gl.ALONE - 1)
+        if edge <= w[0] + (w[2] - w[0]) / 3:
+            continue
+        out[i], changed = (*w[:2], edge, w[3], w[4]), True
+    return out if changed else words
+
+
 def bare_stops(words):
     """`words` put in the form the Listener's readers open on when no clue column is found in them
     (gale_listener.column_lefts needs a stop after a number): the bare numbers lined up at a column's left edge
@@ -1665,6 +1701,7 @@ def bare_stops(words):
     (down_headed's rewrite apart)."""
     import statistics
     import gale_listener as gl
+    words = hung_heads(words, gl)
     if gl.column_lefts(words):
         return words
     nums = [w for w in words if BARE_NUMBER.match(w[4])]
@@ -2126,7 +2163,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
-                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX}, store)
+                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
