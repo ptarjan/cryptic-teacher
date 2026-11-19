@@ -5878,6 +5878,21 @@ check("SUNDAY_TOP is due for a 1980-84 Sunday Times row refused no reading parse
        f.RANKS[f.SUNDAY_TOP] == 2 and f.SUNDAY_TOP in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_TOP) is not None
        and f.SUNDAY_TOP in _eq_bp.FIX_LANDED and f.SUNDAY_TOP in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Telegraph under-grid DOWN column's window reaches SUNDAY_UNDER_REACH of the grid's width past the middle
+# (1981-09-06: a line ending x 921 against a middle of 914): SUNDAY_UNDER_WIDE is due once for a 1977-98 row with a DOWN blank.
+_suw = {"edition": "GaleSundayTelegraph1981UKEnglish/1981-09-06", "readAt": "2026-11-01T00:00:00+00:00",
+        "verdicts": [{"number": 1064, "blank": {"20-down": "no reading laid a clue on it"}}]}
+_suw_win = f.windows_of((564, 3393, 1284, 4152), left=f.UnderSides((189, (1719,), 5137)))
+check("SUNDAY_UNDER_WIDE is due for a 1977-98 Sunday Telegraph row with a DOWN clue no reading laid, read before it, once; "
+      "not an ACROSS-only blank; the under-grid window's right edge passes its gutter; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True, True],
+      [f.sunday_under_wide_due(_suw),
+       f.sunday_under_wide_due({**_suw, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_under_wide_due({**_suw, "verdicts": [{"number": 1064, "blank": {"20-across": "no reading laid a clue on it"}}]}),
+       _suw_win[1][2] > _suw_win[1][1],
+       f.RANKS[f.SUNDAY_UNDER_WIDE] == 2 and f.SUNDAY_UNDER_WIDE in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_UNDER_WIDE) is not None
+       and f.SUNDAY_UNDER_WIDE in _eq_bp.FIX_LANDED and f.SUNDAY_UNDER_WIDE in _eq_bp.UNFILED_FIRST])
+
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
 check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
