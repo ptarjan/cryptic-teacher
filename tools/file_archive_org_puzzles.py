@@ -20276,7 +20276,7 @@ def ft_clues_due(row):
 FT_NUMBER_MENDED = "FT page refused number-date-mismatch, its lost digit put back and its date-order neighbours weighed since"
 REREAD_FT_NUMBER = "2026-11-14T03:00:00+00:00"
 #: The archive.org FT's cutoff for the same reason (ft_number_due): Held.steady weighs the neighbours by their offset.
-REREAD_FT_STEADY = "2026-11-19T12:50:00+00:00"
+REREAD_FT_STEADY = "2026-11-19T12:52:00+00:00"
 
 
 def ft_number_due(row):
