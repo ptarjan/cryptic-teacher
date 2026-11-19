@@ -10398,11 +10398,37 @@ _m4 = [f.indy_under_read("2012-02-13_7903"), f.indy_under_split_due(_row4),
 f.CROPS = _crops4
 f.indy_under_read.cache_clear()
 if _m4 == [True, True, False, f.INDY_UNDER_SPLIT] and f.RANKS[f.INDY_UNDER_SPLIT] == 2 \
-        and f.INDY_UNDER_SPLIT in _eq3.NEWEST_LANDED and _eq3.UNFILED_FIRST[-1] == f.INDY_UNDER_SPLIT \
+        and f.INDY_UNDER_SPLIT in _eq3.NEWEST_LANDED and f.INDY_UNDER_SPLIT in _eq3.UNFILED_FIRST \
         and all(r in f.RANKS for r in _eq3.UNFILED_FIRST):
     print("ok   an Independent page with three print columns under the grid is due INDY_UNDER_SPLIT")
 else:
     print("FAIL an Independent page with three print columns under the grid is due INDY_UNDER_SPLIT", _m4)
+# r292 INDY_RIGHT_CUT: three clue columns right of the grid (pitch 350), the second's first line cut through at the window's top.
+_w5 = [[x, 2217 + 50 * k, x + 200, 2240 + 50 * k, str(k + 1)] for x in (3343, 3693, 4046) for k in range(8)]
+_w5[8][1], _w5[8][3], _w5[8][4] = 2217, 2232, "Resinentgroup"
+_c5 = Path(_tf3.mkdtemp())
+(_c5 / "rapid").mkdir()
+(_c5 / "rapid" / f"2012-02-24_7913.{f.reader_key('ch')}.json").write_text(json.dumps({"box": [3290, 2217, 4433, 3271], "words": _w5}))
+_crops5, f.CROPS = f.CROPS, _c5
+f.indy_right_cut_read.cache_clear()
+_row5 = {"edition": "GaleIndependent2012UKEnglish/2012-02-24", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 7913, "id": "independent-7913", "blank": {"9-down": "no reading laid a clue on it"}}]}
+_m5 = [f.indy_right_cut_read("2012-02-24_7913"), f.indy_right_cut_due(_row5),
+       f.indy_right_cut_due({**_row5, "readAt": "2027-01-01T00:00:00+00:00"}), f.indy_right_cut_due({**_row5, "edition": "GaleIndependent2015UKEnglish/2015-02-24"})]
+_w5[8][4] = "9"
+(_c5 / "rapid" / f"2012-02-24_7913.{f.reader_key('ch')}.json").write_text(json.dumps({"box": [3290, 2217, 4433, 3271], "words": _w5}))
+f.indy_right_cut_read.cache_clear()
+_m5.append(f.indy_right_cut_read("2012-02-24_7913"))
+f.CROPS = _crops5
+f.indy_right_cut_read.cache_clear()
+_pa5 = type("P", (), {"key": "galeindependent"})()
+_m5 += [f.indy_rise(_pa5, Path("2012-02-24")), f.indy_rise(_pa5, Path("2015-02-24"))]
+if _m5 == [True, True, False, False, False, f.INDY_RIGHT_RISE, f.RIGHT_RISE] and f.RANKS[f.INDY_RIGHT_CUT] == 2 \
+        and f.INDY_RIGHT_CUT in _eq3.NEWEST_LANDED and f.INDY_RIGHT_CUT in _eq3.UNFILED_FIRST \
+        and all(r in f.RANKS for r in _eq3.UNFILED_FIRST):
+    print("ok   an Independent page with right-of-grid columns cut through their first line is due INDY_RIGHT_CUT")
+else:
+    print("FAIL an Independent page with right-of-grid columns cut through their first line is due INDY_RIGHT_CUT", _m5)
     out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
