@@ -5893,6 +5893,19 @@ check("SUNDAY_UNDER_WIDE is due for a 1977-98 Sunday Telegraph row with a DOWN c
        f.RANKS[f.SUNDAY_UNDER_WIDE] == 2 and f.SUNDAY_UNDER_WIDE in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_UNDER_WIDE) is not None
        and f.SUNDAY_UNDER_WIDE in _eq_bp.FIX_LANDED and f.SUNDAY_UNDER_WIDE in _eq_bp.UNFILED_FIRST])
 
+# Gale Sunday Telegraph 1984-06-24 9 across: the leading reader's "movnga problem" left the clue's last word paired with
+# nothing ("no other reading has 'problem'"); vote_other() lays the clue from the reader that spelt it whole.
+_svo = {"edition": "GaleSundayTelegraph1984UKEnglish/1984-06-24", "readAt": "2026-11-01T00:00:00+00:00",
+        "verdicts": [{"number": 1205, "unfiled": 9, "blank": {"9-across": "no other reading has 'problem'"}}]}
+check("SUNDAY_VOTE_OTHER is due for an unfiled Sunday Telegraph row with a 'no other reading has' blank, read before it, once; "
+      "not a Sunday Times row; vote_other ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True],
+      [f.sunday_vote_other_due(_svo),
+       f.sunday_vote_other_due({**_svo, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_vote_other_due({**_svo, "edition": "GaleSundayTimes1984UKEnglish/1984-06-24"}),
+       f.RANKS[f.SUNDAY_VOTE_OTHER] == 2 and f.SUNDAY_VOTE_OTHER in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_VOTE_OTHER) is not None
+       and f.SUNDAY_VOTE_OTHER in _eq_bp.FIX_LANDED and f.SUNDAY_VOTE_OTHER in _eq_bp.UNFILED_FIRST])
+
 # The Gale Sunday Times 1980-84 page whose ACROSS band was read in merged lines and whose right columns start level with the
 # grid's top (sunday_times_band, SUNDAY_BAND_SIDE): SUNDAY_MERGED is due for a held 1980-84 row with a clue no reading laid, once.
 _mgrow = {**_sgrow, "edition": "GaleSundayTimes1983UKEnglish/1983-03-27",
