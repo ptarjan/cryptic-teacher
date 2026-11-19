@@ -5893,6 +5893,21 @@ check("SUNDAY_UNDER_WIDE is due for a 1977-98 Sunday Telegraph row with a DOWN c
        f.RANKS[f.SUNDAY_UNDER_WIDE] == 2 and f.SUNDAY_UNDER_WIDE in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_UNDER_WIDE) is not None
        and f.SUNDAY_UNDER_WIDE in _eq_bp.FIX_LANDED and f.SUNDAY_UNDER_WIDE in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1980-84 page whose ACROSS band was read in merged lines and whose right columns start level with the
+# grid's top (sunday_times_band, SUNDAY_BAND_SIDE): SUNDAY_MERGED is due for a held 1980-84 row with a clue no reading laid, once.
+_mgrow = {**_sgrow, "edition": "GaleSundayTimes1983UKEnglish/1983-03-27",
+          "verdicts": [{"number": 1, "unfiled": 4, "complete": False, "blank": {"1-across": "no reading laid a clue on it"}}]}
+check("SUNDAY_MERGED is due for a held 1980-84 Sunday Times row with a clue no reading laid, read before it, once; no other "
+      "year, no complete one; ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [True, False, False, False, True],
+      [f.sunday_merged_due(_mgrow),
+       f.sunday_merged_due({**_mgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_merged_due({**_mgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-03-27"}),
+       f.sunday_merged_due({**_mgrow, "verdicts": [{"number": 1, "unfiled": 4, "complete": True, "blank": {}}]}),
+       f.RANKS[f.SUNDAY_MERGED] == 2 and f.SUNDAY_MERGED in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_MERGED) is not None
+       and f.SUNDAY_MERGED in _eq_bp.FIX_LANDED and f.SUNDAY_MERGED in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_MERGED in _eq_bp.NEWEST_LANDED])
+
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
 check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
