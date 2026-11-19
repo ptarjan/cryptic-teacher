@@ -958,7 +958,7 @@ def evidence_reason(reason):
                           fa.INDEPENDENT_RIGHT, fa.INDY_BARRED,  # a Gale Independent page refused for its grid / clue lists, clues right of the grid read since
                           fa.FT_HEADINGS,  # a Gale FT page, its glued title / solution heading read since
                           fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_GRID, fa.SUNDAY_LEFT, fa.SUNDAY_BAND, fa.SUNDAY_PAIR, fa.SUNDAY_TITLE_GRID, fa.SUNDAY_OVER, fa.SUNDAY_CAPTION, fa.SUNDAY_STACKED, fa.SUNDAY_BETWEEN, fa.FT_NUMBER_MENDED, fa.TLS_MONTHLY, fa.SUNDAY_MID, fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT, fa.SUNDAY_UNDER, fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.SUNDAY_1970S, fa.PLAIN_LAID, fa.QUARTER_PLAIN, fa.QUARTER_BLANKS, fa.QUARTER_1934, fa.QUARTER_1935, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.SUB_REFUSED, fa.MARKED_HYPHEN, fa.MARKED_RISE, fa.SOLO_READ, fa.COUNT_FIRST, fa.NUMBERLESS_FIT, fa.NUMBERLESS_EARLY, fa.TEL_TITLE_FAR, fa.BLOCK_FORTIES, fa.TELE_OVER, fa.TELE_HEAD, fa.MID_OTHER, fa.MID_TIMES, fa.UNGLUE_LEAD, fa.SIDES_HEADED, fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID,  # a Gale FT page (and WEEKDAY_RIGHT's Telegraph weekday 1999-2000 refused no reading parses, its columns right of its grid read since; and SIDES_HEADED's Telegraph Saturday 1999-2000 refused no ACROSS and DOWN lists, its headed columns read since) with a blank clue or unparsed list, its columns read from the title's line since
-                          fa.HEAD_GRID,  # a Gale Telegraph weekday 2000-10..12 refused no reading parses, its grid off its Across heading
+                          fa.HEAD_GRID, fa.TELE_LEFT,  # a Gale Telegraph weekday 2000-10..12 refused no reading parses, its grid off its Across heading
                           fa.SIDES_READ,  # a Gale Telegraph page refused no reading parses, its columns either side of its grid
                           fa.SUNDAY_SIDES,  # the same for a Gale Sunday Telegraph 1987-98 page
                           fa.SUNDAY_RIGHT,  # that page read since, still no clue lists: its columns right of its grid
@@ -2094,7 +2094,7 @@ NEWEST_LANDED = (fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.QUARTER_BL
                  fa.FT_SMALL_TEXT, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE,
                  fa.FT_SPECK_WORDS, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST,
                  fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER,
-                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_UNDER_SPLIT, fa.INDY_RIGHT_CUT)
+                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_UNDER_SPLIT, fa.INDY_RIGHT_CUT, fa.TELE_LEFT)
 
 
 #: The fixes whose rereads lead every other fix reread (fix_rereads_forward), whatever their rank: drop one
@@ -2577,7 +2577,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  # 11-19 r291: a Gale Independent 2010-13 page whose first two clue columns under the grid ran together (fa.indy_under_split_due)
                  fa.INDY_UNDER_SPLIT,
                  # 11-19 r292: a Gale Independent 2011-13 page whose clue columns right of the grid were cut through their first line (fa.indy_right_cut_due)
-                 fa.INDY_RIGHT_CUT)
+                 fa.INDY_RIGHT_CUT,
+                 # 11-19 r291: a Gale Telegraph page whose grid read a column short (its first column cut off by the crop
+                 # under a bare ACROSS title box), the grid widened to the left since (fa.tele_left_due).
+                 fa.TELE_LEFT)
 
 
 

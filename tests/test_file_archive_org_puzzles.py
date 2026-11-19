@@ -5974,6 +5974,22 @@ check("SUNDAY_BAND3 is due for a held 1980-84 Sunday Times row with a clue no re
        and f.SUNDAY_BAND3 in _eq_bp.FIX_LANDED and f.SUNDAY_BAND3 in _eq_bp.UNFILED_FIRST
        and f.SUNDAY_BAND3 in _eq_bp.NEWEST_LANDED])
 
+# A Gale Telegraph page whose grid read "the white cells span 15 rows and 14 columns" (its first column cut off by the crop
+# under a bare ACROSS title box, 1988-07-20): TELE_LEFT is due once for a row read before it; not a row of another shape
+# (15 rows and 13 columns), year or paper, nor a row read after; no title leaves the grid box unwidened.
+_tl = {"edition": "GaleTelegraph1988UKEnglish/1988-07-20", "inputs": "x", "readAt": "2026-11-19T09:11:10+00:00",
+       "verdicts": [{"number": 19438, "imageUnread": "the white cells span 15 rows and 14 columns"}]}
+check("TELE_LEFT is due for a Gale Telegraph 1985-2000 row whose grid read 15 rows and 14 columns, read before it, once; not "
+      "another shape, paper or a later read; no box, no widening; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, False, None, True],
+      [f.tele_left_due(_tl),
+       f.tele_left_due({**_tl, "verdicts": [{"imageUnread": "the white cells span 15 rows and 13 columns"}]}),
+       f.tele_left_due({**_tl, "edition": "GaleSundayTelegraph1988UKEnglish/1988-07-17"}),
+       f.tele_left_due({**_tl, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.tele_left_grid(None, (0, 0, 0, 0), None),
+       f.RANKS[f.TELE_LEFT] == 2 and f.TELE_LEFT in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.TELE_LEFT) is not None
+       and f.TELE_LEFT in _eq_bp.UNFILED_FIRST and f.TELE_LEFT in _eq_bp.NEWEST_LANDED])
+
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
 check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
