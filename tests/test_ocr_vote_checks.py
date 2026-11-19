@@ -1636,6 +1636,10 @@ check("a letter read as a stop is the word a reading prints with one letter ther
 check("agree() puts a faulty vote's gap to the other readings",
       "Measure associated with lobsters",
       oc.agree("Measure.:associated with lobsters", [mark("2 x 3 Measure associated with lobsters (9) 4 y")] * 2)[0])
+check("a clue's first word the other reading glued to a misread next word is parted and agreed (r267: 21 A welcome)",
+      "A welcome come back",
+      oc.vote("A welcome come back (6).", [["Awclcome", "come", "back", "(6)."]] * 2, number=21, count="6")[0])
+check("a known word is not parted by that rule", ["Awelcome", "come"], oc.unglued(["Awelcome", "come"], ["a", "welcome", "come"]) and ["Awelcome", "come"])
 print(f"FAILS {fails}")
 if fails:
     print("test_ocr_vote_checks: failed")

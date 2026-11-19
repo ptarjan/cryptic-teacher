@@ -5927,6 +5927,15 @@ check("SUNDAY_TAIL is due for a pre-1977 Sunday Telegraph row with a DOWN clue n
        [ln[4] for ln in _sut_cols[0]] + [_sut_cols[1][0][4]],
        f.RANKS[f.SUNDAY_TAIL] == 2 and f.SUNDAY_TAIL in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_TAIL) is not None
        and f.SUNDAY_TAIL in _eq_bp.FIX_LANDED and f.SUNDAY_TAIL in _eq_bp.UNFILED_FIRST])
+_ug = {"edition": "GaleTimes1934UKEnglish/1934-04-17", "readAt": "2026-11-15T22:53:41+00:00",
+       "verdicts": [{"number": 374, "id": "times-374", "blank": {"21-down": "no other reading has 'A'"}}]}
+check("UNGLUE_LEAD is due for a 1930-49 Times row blank 'no other reading has' a short word, read before it, once; not a long word; "
+      "ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True],
+      [f.unglue_lead_due(_ug), f.unglue_lead_due({**_ug, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.unglue_lead_due({**_ug, "verdicts": [{"number": 374, "id": "t", "blank": {"21-down": "no other reading has 'Treacherous'"}}]}),
+       f.RANKS[f.UNGLUE_LEAD] == 2 and f.UNGLUE_LEAD in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.UNGLUE_LEAD) is not None
+       and f.UNGLUE_LEAD in _eq_bp.FIX_LANDED and f.UNGLUE_LEAD in _eq_bp.UNFILED_FIRST])
 
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.

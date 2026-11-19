@@ -1414,8 +1414,8 @@ def unglued(theirs, low):
             continue
         run = runs.get(t.lower())
         if run is None and t.isalpha():
-            near = [r for j, r in runs.items() if len(r) > 2 and len(j) == len(t)
-                    and sum(a != b for a, b in zip(j, t.lower())) == 1]
+            near = [r for j, r in runs.items() if (len(r) > 2 or len(r[0]) <= 3 and len(r[1]) >= 5 and not known(t.lower()))
+                    and len(j) == len(t) and sum(a != b for a, b in zip(j, t.lower())) == 1]
             run = near[0] if len(near) == 1 else None
         k = 0
         for w in run or [t]:
