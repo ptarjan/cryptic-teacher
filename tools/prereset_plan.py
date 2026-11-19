@@ -1301,9 +1301,15 @@ def width(arg=None, floor=1):
     load = cpu_load(home / CPU_STATE)
     runs = cpu_runs(len(rss), os.environ.get("CT_SPAN_RUNS"))
     cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
-    if rushing:  # flat out: memory is the only cap
+    if rushing:  # flat out: memory is the only cap, save the owner's night
         runs_needed = DEFAULT_CEILING if mem is None else mem
         cpu = None
+        # 11-19 owner, at 91% while rushing at width 13 at his bedtime: "at this burn rate
+        # you will run out while i'm sleeping". A rush ends in a manual reset only he can
+        # press, so a meter spent in his night locks every room out until he wakes: the
+        # overnight cap binds the rush too.
+        if night is not None and night[0] < runs_needed:
+            runs_needed = night[0]
     w = width_for(runs_needed, mem, cpu, current, floor)
     busy = load_cap(read_load1(), os.cpu_count(), w)
     if busy is not None and w > busy:
@@ -1326,8 +1332,7 @@ def width(arg=None, floor=1):
                f"{dt.datetime.fromtimestamp(plan[1], PACIFIC):%a %H:%M} Pacific at {plan[2]:.1f} pts/h")
     if night is not None:
         aim += (f", overnight cap {night[0]} to his wake "
-                f"{dt.datetime.fromtimestamp(night[1], PACIFIC):%a %H:%M} Pacific"
-                + (" (unused: rushing)" if rushing else ""))
+                f"{dt.datetime.fromtimestamp(night[1], PACIFIC):%a %H:%M} Pacific")
     dash = lambda v: "—" if v is None else v
     # "width W (cap: ...)" is the part that says how wide and why; what follows the dot
     # changes every call, so the burn prints this line only when the part before it does.
