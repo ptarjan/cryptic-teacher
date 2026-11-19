@@ -5907,6 +5907,26 @@ check("SUNDAY_MERGED is due for a held 1980-84 Sunday Times row with a clue no r
        f.RANKS[f.SUNDAY_MERGED] == 2 and f.SUNDAY_MERGED in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_MERGED) is not None
        and f.SUNDAY_MERGED in _eq_bp.FIX_LANDED and f.SUNDAY_MERGED in _eq_bp.UNFILED_FIRST
        and f.SUNDAY_MERGED in _eq_bp.NEWEST_LANDED])
+# The Gale Sunday Telegraph 1960-77 page's DOWN tail stands in one column the grid's width under it (1969-04-06: 23 and 24
+# down x 964-972 under a grid from 966), and the left column's notice ended the list before it: SUNDAY_TAIL is due once for
+# a pre-1977-09-18 row with a DOWN blank; the window takes the whole width; the tail's lines are spliced before the notice.
+_sut = {"edition": "GaleSundayTelegraph1969UKEnglish/1969-04-06", "readAt": "2026-11-01T00:00:00+00:00",
+        "verdicts": [{"number": 425, "blank": {"23-down": "no reading laid a clue on it"}}]}
+_sut_left = f.UnderSides((121, (2577,), 6136))
+_sut_left.full = True
+_sut_win = f.windows_of((966, 4492, 1672, 5209), left=_sut_left)
+_sut_cols = f.tail_spliced([[(0, 0, 0, 0, "22 Claw (6)"), (0, 0, 0, 0, "PRIZEwINNERS OF No.424")],
+                            [(0, 0, 0, 0, "23 Collision (6)"), (0, 0, 0, 0, "COMPETITION No.425")]], _sut_left)
+check("SUNDAY_TAIL is due for a pre-1977 Sunday Telegraph row with a DOWN clue no reading laid, read before it, once; not "
+      "a 1977+ row; the tail window spans the grid; the tail clues move before the notice; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True, ["22 Claw (6)", "23 Collision (6)", "PRIZEwINNERS OF No.424"], True],
+      [f.sunday_tail_due(_sut),
+       f.sunday_tail_due({**_sut, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_tail_due({**_sut, "edition": "GaleSundayTelegraph1981UKEnglish/1981-09-06"}),
+       _sut_win[1][2] >= 1672,
+       [ln[4] for ln in _sut_cols[0]] + [_sut_cols[1][0][4]],
+       f.RANKS[f.SUNDAY_TAIL] == 2 and f.SUNDAY_TAIL in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_TAIL) is not None
+       and f.SUNDAY_TAIL in _eq_bp.FIX_LANDED and f.SUNDAY_TAIL in _eq_bp.UNFILED_FIRST])
 
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
