@@ -828,6 +828,10 @@ def plan_forked(papers, cache=fa.CACHE, reread=None, out=None):
     status, got = plan_fork.run(work, [(dir_cache, "_THREADS_LOCK"), (scan_queue, "_KEPT_LOCK"), (vlm_reader, "_DRAINING_LOCK"),
                                        (vlm_reader, "_MINE_LOCK"), (fa, "_HELD_LOCKS"), (sys.modules[__name__], "_LOAD_LOCK")])
     if status == "err":
+        if transient_oserror(got):
+            # 11-19 07:59: EAGAIN opening a Gale PDF on CIFS in the plan child killed the queue (rc=1)
+            log(f"plan met a momentary CIFS refusal ({got}); planning again next pass")
+            raise PlanDeferred(got)
         raise got
     if status == "failed":
         if mem_gate.vm_short():
