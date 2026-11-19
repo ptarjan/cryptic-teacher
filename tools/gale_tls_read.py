@@ -122,7 +122,8 @@ def read_done(row):
     whose blank lights the VLM may still fill, vlm_due)."""
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and (row.get("attempts", 1) < CRASH_LIMIT or row.get("crashFix") != CRASH_FIX)) \
-        and not vlm_due(row) and not cite_due(row) and not glue_due(row) and not names_due(row)
+        and not vlm_due(row) and not cite_due(row) and not glue_due(row) and not names_due(row) \
+        and not dash_due(row)
 
 
 #: r22: the 81 pages of Nos 1-89 (1982-10-22..1991-03-01) were refused "no TLS number: no numbered page on both
@@ -1166,6 +1167,36 @@ def glue_due(row):
     return any(spaced_glue(t) != t for t in ((row.get("unfit") or {}).get("suspect") or {}).values())
 
 
+#: r282: a quotation's blanked answer prints as a dash with its affix after it ("many ——s than", "Cruel, but —d and
+#: bland"); the readers drop the dash or space it off its letter, and the lone "s"/"d" is a stray letter to
+#: ocr_clues.suspect (16 of 47 suspect-only pages 1995-2014 held no other fault). The dash is rejoined or, where
+#: no dash was read, set before the lone letter; only a mark is added, never a letter, and only in a quotation.
+DASH_JOIN = re.compile(r"(?<=\s)([\u2014\u2013-]+)\s+([sd])(?=[\s,.;:?!)\"\u201d\u2019]|$)")
+DASH_LONE = re.compile(r"(?<=[\w,;:]\s)(?<![\u2014\u2013-])([sd])(?=[\s,.;:?!)\"\u201d\u2019]|$)")
+QUOTE_MARK = re.compile(r"[\"\u201c\u201d]")
+
+
+def dashed_affix(text):
+    """`text` (a quotation) with the dash its blanked answer printed set back before a lone "s" or "d" the readers
+    left stray, kept only when that leaves fewer words ocr_clues.suspect flags."""
+    if not QUOTE_MARK.search(text):
+        return text
+    new = DASH_LONE.sub(lambda m: "\u2014" + m.group(1), DASH_JOIN.sub(r"\1\2", text))
+    return new if new != text and len(fa.suspect(new)) < len(fa.suspect(text)) else text
+
+
+#: Bumped to read once more the pages whose suspect clue dashed_affix mends . r282.
+DASH_FIX = 1
+
+
+def dash_due(row):
+    """Whether `row` (a verdict of this VERSION) is not whole and holds a suspect clue dashed_affix mends and was not read since DASH_FIX."""
+    if row.get("whole") or row.get("dashFix") == DASH_FIX:
+        return False
+    return any(dashed_affix(t) != t
+               for t in ((row.get("unfit") or {}).get("suspect") or {}).values())
+
+
 #: r91: a page whose readings all agreed (agreed == clues) stood unfiled for a clue's real name or repeated word
 #: that fa.suspect doubts ("Jim Crace" 'a word misread as a name', "Greek ... Greek"; 13 of 142 suspect-only pages
 #: of 506 unfit TLS pages). Those flags, on such a page, are the print's own (names_printed), so the page is read
@@ -1231,6 +1262,7 @@ def mended_text(laid, printed):
         new = spaced_quotes(new)
         new = spaced_xref(new)
         new = spaced_glue(new)
+        new = dashed_affix(new)
         if new != text:
             out[lid] = (new, enum, group)
         names = [w for w in new.split() if CAMEL_NAME.match(w)]
@@ -1508,7 +1540,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
     tries = (before or {}).get("vlmTries", 0) + 1
     # a read that asked the VLM (or left nothing for it to lay) is the page's retry; else it is due again
     asked = bool(verdict.get("vlmColumns")) or not verdict.get("blank")
-    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "glueFix": GLUE_FIX, "namesFix": NAMES_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
+    append_row({**verdict, "version": VERSION, "citeFix": CITE_FIX, "glueFix": GLUE_FIX, "namesFix": NAMES_FIX, "dashFix": DASH_FIX, "vlmTries": tries,**({"vlmFix": VLM_FIX} if asked else {})}, store)
     print(json.dumps(verdict))
     return "read"
 

@@ -59,6 +59,7 @@ ALLOWED = {
     ("fetch_puzzle.py", "separators"): "a format string's apostrophe, not clue text",
     ("ft_pdf_puzzles.py", "parse_clues"): "possessive 's stripped to compare words for a layout test",
     ("genius_puzzles.py", "read_pdf"): "layout: drops the numbers of a jigsaw's alphabetical list from its preamble",
+    ("gale_tls_read.py", "dashed_affix"): "Gale TLS only: a quotation's blanked-answer dash set back before a lone s/d, kept only when ocr_clues.suspect flags fewer words; in a central module it would move every paper's scan key",
     ("parse_bigdave44.py", "rendered_lines"): "HTML parsing: writes the blog's answer separator, not repairing text",
 }
 
