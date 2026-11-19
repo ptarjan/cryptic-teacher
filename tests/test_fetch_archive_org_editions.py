@@ -111,6 +111,15 @@ check("FT 1985-88 items take the currency picks; a 1985-88 row stamped True only
       and fa.currency_stamped("FinancialTimes1990UKEnglish/1990-02-02_x", {"currency_checked": True})
       and fa.currency_stamped("FinancialTimes1987UKEnglish/1987-02-02_30149", {"currency_checked": fa.CURRENCY_STAMP}))
 
+_prose = "the " * 30 + "of and to in a is for that on was it " * 3
+check("garble_leaves: first leaf of each 3+ run of gibberish leaves; 1986-88 picks only, stamp redone once",
+      fa.garble_leaves([_prose, "xx", _prose, "Jx Kq 12 " * 50, "Jx Kq 12 " * 50, "", _prose, "q " * 60, "z " * 60]) == [3]
+      and fa.garble_leaves([_prose] * 5) == []
+      and fa.currency_picks("/x/FinancialTimes1987UKEnglish/1987-02-02_x", [_prose, *["Jx Kq 12 " * 50] * 3])[-1:] == [1]
+      and not fa.currency_stamped("FinancialTimes1987UKEnglish/1987-02-02_x", {"currency_checked": fa.CURRENCY_STAMP_OLD})
+      and fa.currency_stamped("FinancialTimes1985UKEnglish/1985-02-02_x", {"currency_checked": fa.CURRENCY_STAMP_OLD})
+      and fa.currency_stamped("FinancialTimes1987UKEnglish/1987-02-02_x", {"currency_checked": fa.CURRENCY_STAMP}))
+
 # An item holding one edition alone (the 1930 Times: an item an issue) counts
 # the crossword leaves of the items nearest it by date named like it; a done
 # edition with no title and no text-shown page among those leaves is due again.

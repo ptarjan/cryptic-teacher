@@ -196,7 +196,9 @@ FT_EARLY_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1985, 1989))
 FT_CURRENCY_ITEMS = FT_EARLY_ITEMS + tuple(f"FinancialTimes{y}UKEnglish" for y in range(1989, 1995))
 #: What IA_PAGES rows' currency_checked holds once FT_CURRENCY_ITEMS' 1985-94
 #: picks were worked out; a 1989-94 row's older True stands.
-CURRENCY_STAMP = "1985-94"
+CURRENCY_STAMP = "1985-94b"
+#: The stamp before GARBLE_ITEMS joined (its rows stand for the other items).
+CURRENCY_STAMP_OLD = "1985-94"
 CURRENCY_PAGE = re.compile(r"(?i)currencies,?\s*money\s+and\s+capital\s+markets|pound\s+spot\s*[-–]?\s*forward")
 #: A crossword title or prize line the OCR garbled ("cROSSW", "prize puzzle"):
 #: detect() wants an ACROSS heading or six counts besides, a market page's
@@ -206,6 +208,18 @@ FT_TITLE = re.compile(r"(?i)cross\s?w|c[rao]{1,2}s{1,2}\s?w[oa0]?r?d|prize\s+puz
 #: month_leaves, and how many leaves from the front and from the back they pick:
 #: the weekday puzzle moves with the paper's page count (a leave-one-out
 #: check on filed 1990-94 editions: 3 each reaches the filed leaf 80%).
+#: FT 1986-88 print the weekday crossword on the first leaf of a block of 3+
+#: leaves of share tables, whose OCR is gibberish (r284: 57-66% of the filed 1987
+#: and 1988 editions' crossword leaves are one; r261's picks missed it for 76 of
+#: 82 unfiled 1987 editions). A leaf with under GARBLE_STOP of its words (40+)
+#: among the commonest English function words is gibberish, a blank one too.
+GARBLE_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1986, 1989))
+GARBLE_STOP = 0.19
+GARBLE_WORDS = 40
+GARBLE_RUN = 3
+STOP_WORDS = frozenset("the of and to in a is for that on was it as at by with be has said but are from its an have "
+                       "not will this which or their his had been were more also than one new after year who up two "
+                       "last may would about".split())
 MONTH_DAYS = 20
 MONTH_PICKS = 3
 RETRY_WAITS = (5, 15, 45, 120)
@@ -842,7 +856,8 @@ def currency_stamped(rel, row):
     """Whether IA_PAGES `row` of edition `rel` had its currency picks worked out
     for the item's years (a 1989-94 row's older True holds)."""
     stamp = row.get("currency_checked")
-    return stamp == CURRENCY_STAMP or (stamp is True and not rel.startswith(FT_EARLY_ITEMS))
+    return stamp == CURRENCY_STAMP or (stamp == CURRENCY_STAMP_OLD and not rel.startswith(GARBLE_ITEMS)) \
+        or (stamp is True and not rel.startswith(FT_EARLY_ITEMS))
 
 
 def page_summary(doc, missing=False):
@@ -1242,10 +1257,25 @@ def month_leaves(edition_dir, count):
     return sorted(n for n in leaves if 0 <= n < count)
 
 
+def garble_leaves(texts):
+    """The first leaf of each run of GARBLE_RUN+ gibberish leaves of `texts`
+    (GARBLE_STOP): where the 1986-88 FT's crossword sits."""
+    def gibberish(text):
+        words = re.findall(r"[A-Za-z']+", text)
+        return len(words) < GARBLE_WORDS or sum(w.lower() in STOP_WORDS for w in words) < GARBLE_STOP * len(words)
+    flags = [gibberish(t) for t in texts]
+    return [leaf for leaf, bad in enumerate(flags)
+            if bad and (leaf == 0 or not flags[leaf - 1]) and all(flags[leaf:leaf + GARBLE_RUN]) and leaf + GARBLE_RUN <= len(flags)]
+
+
 def currency_picks(edition_dir, texts):
     """The leaves of an FT_CURRENCY_ITEMS edition (its page `texts`) fetched
-    when none holds a crossword title: currency_leaves and its month_leaves."""
-    return sorted(set(currency_leaves(texts)) | set(month_leaves(edition_dir, len(texts))))
+    when none holds a crossword title: currency_leaves and its month_leaves,
+    and for GARBLE_ITEMS its garble_leaves."""
+    picks = set(currency_leaves(texts)) | set(month_leaves(edition_dir, len(texts)))
+    if os.path.basename(os.path.dirname(os.fspath(edition_dir))) in GARBLE_ITEMS:
+        picks |= set(garble_leaves(texts))
+    return sorted(picks)
 
 
 def crossword_hits(pages, prior=(), currency=()):
