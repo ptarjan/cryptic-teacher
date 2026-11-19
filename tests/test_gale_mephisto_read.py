@@ -126,7 +126,7 @@ check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_don
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
 check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
 check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
-many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX}
+many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX, "gapFix": gm.GAP_FIX}
 check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
 check("a 1970s page with 4+ blanks before STRAY_FIX is due", False, gm.read_done({**many, "midFix": gm.MID_FIX, "strayFix": 0}))
@@ -144,6 +144,21 @@ check("a 1970s page 4+ blank with a clue never read, before PRIOR_FIX, is due", 
 check("the same page at PRIOR_FIX stands", True, gm.read_done({**_prior, "priorFix": gm.PRIOR_FIX}))
 check("a 1970s page 4+ blank, none unread, is not due for PRIOR_FIX", True, gm.read_done({**_prior, "why": {"2-down": "both read 'Zt', not a word"}}))
 check("a 1980s page is not due for PRIOR_FIX", True, gm.read_done({**_prior, "date": "1985-03-03"}))
+_gap = {**_prior, "priorFix": gm.PRIOR_FIX}
+check("a 1970s page 4+ blank with a clue never read, before GAP_FIX, is due", False, gm.read_done({**_gap, "gapFix": 0}))
+check("the same page at GAP_FIX stands", True, gm.read_done({**_gap, "gapFix": gm.GAP_FIX}))
+check("a 1980s page is not due for GAP_FIX", True, gm.read_done({**_gap, "date": "1985-03-03", "gapFix": 0}))
+# GAP_FIX: the entry rules that open the Across list stand more than three lines under last week's answers beside the grid.
+_gbox = (100, 100, 500, 500)
+_gw = [(110, 520 + 24 * i, 180, 540 + 24 * i, "word") for i in range(2)]
+_gw += [(110 + 40 * i, 2000, 150 + 40 * i, 2020, "x") for i in range(3)]
+_gw = [(w[0], w[1] - 1400 if w[1] >= 1000 else w[1], w[2], w[3] - 1400 if w[3] >= 1000 else w[3], w[4]) for w in _gw]
+_rules = [(110, 840, 200, 860, "Solutions"), (210, 840, 300, 860, "addressed"),
+          (110, 900, 200, 920, "Across"), (110, 930, 130, 950, "1"), (140, 930, 300, 950, "Clue")]
+_cut = gm.wrapped_cut(_gw + _rules + [(520, 160, 560, 180, "Down")], _gbox)
+check("wrapped_cut runs on over the gap to the entry rules that open the Across list", True, _cut is not None and _cut[0][3] >= 950)
+_cut2 = gm.wrapped_cut(_gw + [(110, 840, 200, 860, "Solutions"), (210, 840, 300, 860, "addressed")] + [(520, 160, 560, 180, "Down")], _gbox)
+check("wrapped_cut still stops at entry rules that open nothing", True, _cut2 is not None and _cut2[0][3] < 700)
 check("last week's answers heading stops the lists", True, bool(gm.STOP_PRIOR.match("Mephisto Crossword No 545 Across")))
 check("the puzzle's own title does not", False, bool(gm.STOP_PRIOR.match("Mephisto Crossword Mo 546, THE SUNDAY TIMES,")))
 noparse = {"file": "x.pdf", "refused": "no reading parses", "date": "2003-04-06", "version": gm.VERSION, "listsFix": gm.LISTS_FIX,
@@ -203,7 +218,7 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX, "leftGap": gm.LEFT_GAP}
+_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX, "leftGap": gm.LEFT_GAP, "gapFix": gm.GAP_FIX}
 check("a 1960s no-clue-list refusal before LATTICE_FIX is due", False, gm.read_done(_stamped))
 check("a 1960 no-clue-list refusal before LEFT_GAP is due", False, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX, "leftGap": 0}))
 check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX}))

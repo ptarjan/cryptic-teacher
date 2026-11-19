@@ -612,6 +612,11 @@ def read_done(row, done=None):
             and len(row.get("blank") or ()) >= 2:
         # Read with a stray number in the Across list taken for the Down list's head (STRAY_FIX 1).
         return False
+    if row and row.get("gapFix", 0) < GAP_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and "1955" <= (row.get("date") or "9") < "1980" \
+            and len(row.get("blank") or ()) >= 4 and "no clue read for it" in (row.get("why") or {}).values():
+        # Read with the lists' cut run on over the gap before the entry rules that open the Across list (GAP_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1541,6 +1546,12 @@ def wrapped_block(img, words, box, cut, gl):
 #: the 1955-79 pages left with two or more blank lights are read again once.
 STRAY_FIX = 1
 
+#: Bumped when wrapped_cut no longer ends the lists at the gap between the grid (and last week's answers beside it) and
+#: the entry rules that open the Across list (the 1970s pages: a chess position or the notice box stands between, the
+#: cut stopped at the grid's foot and the Across clues were never cut): the 1955-79 pages left with four or more blank
+#: lights, a clue never read, are read again once.
+GAP_FIX = 1
+
 
 #: Bumped when only the wrapped lists' Down column stops above last week's solution heading (solution_stop): the pages
 #: read with four or more blank lights, or refused "no reading parses", are read again once.
@@ -1599,7 +1610,11 @@ def wrapped_cut(words, box):
             break
         if STOP_FOOT.match(w[4]) and w[1] > box[3] + 3 * lh:
             break
-        if w[1] - bottom > 3 * lh:
+        # GAP_FIX: entry rules that open the Across list stand under a gap of more than three lines (last week's answers
+        # beside the grid end first): the lists go on from them.
+        opens = GAP_FIX and any(-lh < r[1] - w[1] < 12 * lh for r in inside if STOP_RULES.match(r[4]) and r[1] > box[3] + 3 * lh
+                                and abs(r[0] - left) < 4 * lh and rules_head(inside, r, lh, gl))
+        if w[1] - bottom > 3 * lh and not opens:
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), [tuple(int(v) for v in box)]
@@ -2252,7 +2267,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
-                "strayFix": STRAY_FIX}, store)
+                "strayFix": STRAY_FIX, "gapFix": GAP_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
