@@ -732,11 +732,14 @@ def vlm_strips(blocks, numbers, gl, lefts_of=None):
     return out
 
 
-def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printed=None, lefts_of=None, cap=None):
+def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printed=None, lefts_of=None, cap=None, strip_ocr=False):
     """(laid, blank) with each blank light the VLM's reading of the clue columns holding it lays
     (fa.vlm_laid: the one clue under its number whose count fills the light, its words spelt in
     the page's own readings). The VLM is asked the columns holding a blank light only, and only
-    when VLM_BLANKS lights or fewer are blank. `reader` (img, box) -> text stands in for the VLM."""
+    when VLM_BLANKS lights or fewer are blank. `reader` (img, box) -> text stands in for the VLM. `strip_ocr`: the
+    OCR reads each strip the VLM was shown, enlarged as it saw it, and its words join the page's own readings the
+    VLM's clue must be spelt in (a second OCR reader of the column: the page-sized reading drops whole runs of lines
+    that the enlarged column gives back; the VLM is still never laid without an OCR reading of its words)."""
     # A laid clue ocr_clues refuses (a stray letter, a digit in a word) is asked after too: the VLM may spell it.
     weak = {lid for lid, (text, enum, group) in laid.items() if text and lid in lengths and (
         fa.ocr_clues.suspect(text) or fa.ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid])))}
@@ -760,6 +763,10 @@ def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None, printe
     for bimg, bkey in blocks:
         located = gl.figures(gl.page_words(bimg, bkey))
         texts[f"page{len(texts)}"] = " ".join(w[4] for w in located)
+    if strip_ocr:
+        for k, (im, box) in enumerate(strips):
+            seen = fa.vlm.crop(im, box)
+            texts[f"strip{k}"] = " ".join(w[4] for w in gl.figures(gl.page_words(seen, gl.image_key(seen))))
     got, left = vlm_laid(texts, laid, blank, lengths, voted or {})
     got = vlm_spelt(texts, got, weak - set(blank), lengths)
     if printed is not None:

@@ -123,13 +123,17 @@ check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_don
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
 check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
 check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
-many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX}
+many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX}
 check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
 check("a 2000s page with 4+ blanks is not due for MID_FIX", True, gm.read_done({**many, "date": "2003-10-05"}))
 _unasked = {k: v for k, v in many.items() if k != "vlmMissFix"}
 check("a page with 4+ blanks and no VLM column asked before VLM_MISS_FIX is due", False, gm.read_done({**_unasked, "midFix": gm.MID_FIX}))
-check("the same page that asked the VLM stands", True, gm.read_done({**_unasked, "midFix": gm.MID_FIX, "vlmColumns": 2}))
+check("the same page that asked the VLM stands", True, gm.read_done({**_unasked, "midFix": gm.MID_FIX, "vlmColumns": 2, "stripFix": gm.STRIP_FIX}))
+_nostrip = {k: v for k, v in many.items() if k != "stripFix"}
+check("a page 4+ blank after VLM columns, before STRIP_FIX, is due", False, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2}))
+check("a page with 3 blank after VLM columns is not due for STRIP_FIX", True, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2, "blank": ["2-down", "3-down", "4-down"]}))
+check("a whole page is not due for STRIP_FIX", True, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2, "whole": True}))
 noparse = {"file": "x.pdf", "refused": "no reading parses", "date": "2003-04-06", "version": gm.VERSION, "listsFix": gm.LISTS_FIX,
            "leftFix": gm.LEFT_FIX, "midFix": gm.MID_FIX, "solutionFix": gm.SOLUTION_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}
 check("a 2000s no-parse refusal before HEAD_FIX is due", False, gm.read_done(noparse))

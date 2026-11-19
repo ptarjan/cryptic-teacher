@@ -576,6 +576,10 @@ def read_done(row, done=None):
             and 4 <= len(row.get("blank") or ()) <= VLM_ALL:
         # Read with blank lights and no VLM column asked: the VLM was spooled or down mid-read (VLM_MISS_FIX 1).
         return False
+    if row and row.get("stripFix", 0) < STRIP_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and row.get("vlmColumns") and len(row.get("blank") or ()) >= 4:
+        # Read with the VLM's columns laid only where the page-sized OCR spelt them, 4+ lights blank (STRIP_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -641,6 +645,10 @@ VLM_ALL_FIX = 1
 #: without) was recorded done with no VLM column asked: 304 of the 1955-79 pages with 4+ blank lights "no clue read for it"
 #: (their strips exist now). read_unit now guards the row (scan_queue.vlm_guard); those rows are read again once.
 VLM_MISS_FIX = 1
+#: STRIP_FIX 1: the VLM's column replies laid too few clues on the pages still 4+ blank after them (319 rows): its words
+#: must be spelt in the page-sized OCR reading, which dropped runs of lines the VLM read whole (1972-10-22: 13-18
+#: across read, nothing laid). vlm_mended(strip_ocr) adds the OCR of each strip as the VLM saw it as a second reader.
+STRIP_FIX = 1
 #: ENUM_FIX 1: missing_down places the Down heading above the first Down clue when the OCR read no enumeration on the
 #: last Across clue's lines (1970-73 wrapped pages, refused no reading parses / no clue list); those rows are read again.
 ENUM_FIX = 1
@@ -2061,7 +2069,7 @@ def page_read(path, store=STORE, asker=None):
     for lid, (text, _, _) in laid.items():
         if lid not in tails and not (text or "").strip():
             blank.setdefault(lid, gj.UNLAID)
-    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, lefts_of=column_lefts, cap=VLM_ALL)
+    laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, lefts_of=column_lefts, cap=VLM_ALL, strip_ocr=True)
     if asked:
         verdict["vlmColumns"] = asked
     if blank:
@@ -2118,7 +2126,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
-                "vlmMissFix": VLM_MISS_FIX}, store)
+                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
