@@ -9625,6 +9625,19 @@ check("a light number no reading opens a clue on is unread",
 check("nor when another reading, or a clue's number inside a merged row, has it",
       set(), f.unread_numbers(_g3, {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "it may 3 Bar (3)")]],
                                     "en5": [[(0, 1, 0, 1, "2, 1 Baz (3)")]]}))
+_solo = {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "3 Bar (3)")]],
+         "en5": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "2 Baz (3)"), (4, 5, 0, 1, "3 Bar (3)")]]}
+check("SOLO_READ: a light number only one reading opens a clue on is read alone by the readers that opened none there",
+      {"ch": {2}}, f.solo_numbers(_g3, _solo))
+check("and none when two readings open it, or none does",
+      {}, f.solo_numbers(_g3, {"ch": _solo["en5"], "en5": _solo["en5"]}))
+check("SOLO_READ is due a Times page unfiled with a light blank only one reading printed, read before the cutoff, not one read solo",
+      [True, False],
+      [f.solo_read_due({"edition": "GaleTimes1939UKEnglish/1939-02-08", "readAt": "2026-11-17T15:19:47+00:00",
+                        "verdicts": [{"number": 99999, "id": "times-99999", "unfiled": 1, "blank": {"5-down": "no other reading has 'The'"}}]}),
+       f.solo_read_due({"edition": "GaleTimes1939UKEnglish/1939-02-08", "readAt": "2026-11-17T15:19:47+00:00",
+                        "verdicts": [{"number": 99999, "id": "times-99999", "unfiled": 1, "readSolo": [5],
+                                      "blank": {"5-down": "no other reading has 'The'"}}]})])
 check("a clue number read as a box of its own joins the line beside it, the line's copy of its last figure dropped (1961-03-10)",
       [(773, 4768, 1215, 4804, "25 Mock at 'the Rock, going East (4).")],
       f.numbers_joined([(773, 4770, 804, 4791, "25"), (790, 4768, 1215, 4804, "5 Mock at 'the Rock, going East (4).")]))
