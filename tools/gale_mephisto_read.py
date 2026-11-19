@@ -580,6 +580,11 @@ def read_done(row, done=None):
             and not row.get("refused") and not row.get("failed") and row.get("vlmColumns") and len(row.get("blank") or ()) >= 4:
         # Read with the VLM's columns laid only where the page-sized OCR spelt them, 4+ lights blank (STRIP_FIX 1).
         return False
+    if row and row.get("hangFix", 0) < HANG_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and "1960" <= (row.get("date") or "9") < "1990" and row.get("refused") in (
+                "no reading parses", "no clue list on the page"):
+        # Refused with the Across/Down headings hanging in the margin on their first clue's line (HANG_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1687,7 +1692,8 @@ def hung_heads(words, gl):
         edge = int(first[0] - gl.ALONE - 1)
         if edge <= w[0] + (w[2] - w[0]) / 3:
             continue
-        out[i], changed = (*w[:2], edge, w[3], w[4]), True
+        # Raised a line (just above its clue's line): the heading stands alone on its row, as list_lines wants it.
+        out[i], changed = (w[0], w[1] - h, edge, w[3] - h, w[4]), True
     return out if changed else words
 
 

@@ -138,7 +138,7 @@ noparse = {"file": "x.pdf", "refused": "no reading parses", "date": "2003-04-06"
            "leftFix": gm.LEFT_FIX, "midFix": gm.MID_FIX, "solutionFix": gm.SOLUTION_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}
 check("a 2000s no-parse refusal before HEAD_FIX is due", False, gm.read_done(noparse))
 check("a 2000s no-parse refusal at HEAD_FIX stands", True, gm.read_done({**noparse, "headFix": gm.HEAD_FIX}))
-check("a 1970s no-parse refusal is not due for HEAD_FIX", True, gm.read_done({**noparse, "date": "1972-03-19"}))
+check("a 1970s no-parse refusal is not due for HEAD_FIX", True, gm.read_done({**noparse, "date": "1972-03-19", "hangFix": gm.HANG_FIX}))
 box = (180, 1729, 1044, 2630)
 ws =[(1057, 1650 + 28 * k, 1090, 1670 + 28 * k, str(20 + k)) for k in range(6)] + [(200, 2700, 260, 2720, "1")]
 check("the right column's split is its numbers' left edge", 1049, gm.column_split(ws, box, 1068, 1700, 2600, 24))
@@ -190,7 +190,7 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}
+_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX}
 check("a 1960s no-clue-list refusal before LATTICE_FIX is due", False, gm.read_done(_stamped))
 check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX}))
 check("a 1970s no-reading-parses refusal before ENUM_FIX is due", False, gm.read_done({
@@ -198,6 +198,10 @@ check("a 1970s no-reading-parses refusal before ENUM_FIX is due", False, gm.read
     "headRowFix": gm.HEAD_ROW_FIX, "listsFix": gm.LISTS_FIX, "headFix": gm.HEAD_FIX, "midFix": gm.MID_FIX,
     "solutionFix": gm.SOLUTION_FIX, "latticeFix": gm.LATTICE_FIX}))
 check("the same refusal at ENUM_FIX stands", True, gm.read_done({
+    **bare, "refused": "no reading parses", "date": "1973-11-18", "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX,
+    "headRowFix": gm.HEAD_ROW_FIX, "listsFix": gm.LISTS_FIX, "headFix": gm.HEAD_FIX, "midFix": gm.MID_FIX,
+    "solutionFix": gm.SOLUTION_FIX, "latticeFix": gm.LATTICE_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP, "hangFix": gm.HANG_FIX}))
+check("the same refusal at ENUM_FIX and DOWN_GAP but before HANG_FIX is due", False, gm.read_done({
     **bare, "refused": "no reading parses", "date": "1973-11-18", "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX,
     "headRowFix": gm.HEAD_ROW_FIX, "listsFix": gm.LISTS_FIX, "headFix": gm.HEAD_FIX, "midFix": gm.MID_FIX,
     "solutionFix": gm.SOLUTION_FIX, "latticeFix": gm.LATTICE_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}))
