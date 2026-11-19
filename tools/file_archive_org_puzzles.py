@@ -7988,8 +7988,16 @@ class Held(dict):
             keep = {}
             for i, (d, m) in enumerate(self.pairs):
                 near = sorted(off[max(0, i - reach):i + reach + 1])
-                if abs(off[i] - near[len(near) // 2]) <= tolerance:
-                    keep[m] = d
+                if abs(off[i] - near[len(near) // 2]) > tolerance:
+                    continue
+                # r259: a spike within the slack (2272/2273 filed 1973-11-12/13 for Sep 12/13, 4153 on 1980-02-06
+                # for 4193, 35-40 off) differs from the offsets of the few filed either side on both sides; the
+                # edge of a long run (5186 of 1983-08) agrees with one side and stays.
+                before, after = sorted(off[max(0, i - 4):i]), sorted(off[i + 1:i + 5])
+                if before and after and abs(off[i] - before[len(before) // 2]) > 20 \
+                        and abs(off[i] - after[len(after) // 2]) > 20:
+                    continue
+                keep[m] = d
             memo[expected] = Held(keep) if len(keep) < len(self) else self
         return memo[expected]
 
@@ -20268,7 +20276,7 @@ def ft_clues_due(row):
 FT_NUMBER_MENDED = "FT page refused number-date-mismatch, its lost digit put back and its date-order neighbours weighed since"
 REREAD_FT_NUMBER = "2026-11-14T03:00:00+00:00"
 #: The archive.org FT's cutoff for the same reason (ft_number_due): Held.steady weighs the neighbours by their offset.
-REREAD_FT_STEADY = "2026-11-15T20:15:00+00:00"
+REREAD_FT_STEADY = "2026-11-19T12:50:00+00:00"
 
 
 def ft_number_due(row):
