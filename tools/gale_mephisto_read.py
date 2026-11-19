@@ -564,10 +564,12 @@ def read_done(row, done=None):
             and len(row.get("blank") or ()) > gj_cap():
         # Read with more blank lights than the VLM's cap, so its columns were never asked (VLM_ALL_FIX 1).
         return False
-    if row and row.get("enumFix", 0) < ENUM_FIX and row.get("version") == VERSION and not row.get("whole") \
+    if row and (row.get("enumFix", 0) < ENUM_FIX or row.get("downGap", 0) < DOWN_GAP) \
+            and row.get("version") == VERSION and not row.get("whole") \
             and "1960" <= (row.get("date") or "9") < "1980" and row.get("refused") in (
                 "no reading parses", "no clue list on the page"):
-        # Refused before missing_down placed the Down heading the OCR garbled when no enumeration marks the Across foot.
+        # Refused before missing_down placed the Down heading the OCR garbled when no enumeration marks the Across foot
+        # (ENUM_FIX), or read as a lone garbled word or dropped on an empty line above the first Down number (DOWN_GAP).
         return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
@@ -633,6 +635,9 @@ VLM_ALL_FIX = 1
 #: ENUM_FIX 1: missing_down places the Down heading above the first Down clue when the OCR read no enumeration on the
 #: last Across clue's lines (1970-73 wrapped pages, refused no reading parses / no clue list); those rows are read again.
 ENUM_FIX = 1
+#: DOWN_GAP 1: missing_down also finds the Down heading as a lone garbled word ("own") in the column or as the empty line
+#: above a first Down number the OCR misread (1970s pages' Across carried on right of the grid); refused rows read again.
+DOWN_GAP = 1
 VLM_ALL = 48
 #: Fewest lights either way of a Mephisto's grid (they run 14-24 each way); a lattice reading fewer is held back.
 LOPSIDED = 8
@@ -1345,6 +1350,48 @@ def missing_down(words, box, lh, right):
                 and nums[i][1] - nums[i - 1][3] >= 1.8 * lh:
             bottom = int(nums[i][1] - 4)
             return [(int(nums[i][0]), bottom - int(lh), int(nums[i][0] + 4 * lh), bottom, "Down")]
+    return lone_heading(zone, nums, vals, lh) or empty_slot(zone, nums, vals, lh)
+
+
+def lone_heading(zone, nums, vals, lh):
+    """[a Down heading word] at the line of the column holding one short word of letters indented a little from the
+    clue numbers' edge, the garbled "Down" ("own", DOWN_GAP): Across numbers of 12 or more stand within six lines
+    above it and a low number (4 or less) within eight lines under it; the lines either side are close
+    (under 1.8 lines). [] otherwise."""
+    if not nums:
+        return []
+    edge = min(w[0] for w in nums)
+    lines = collections.defaultdict(list)
+    for w in zone:
+        lines[int(w[1] // 12)].append(w)
+    rows = sorted(sorted(g, key=lambda w: w[0]) for g in lines.values())
+    ys = sorted(set(round(w[1]) for w in zone))
+    for g in rows:
+        if len(g) != 1:
+            continue
+        w = g[0]
+        if not re.fullmatch(r"[A-Za-z]{2,7}[.,:]?", w[4]) or not edge + 0.4 * lh <= w[0] <= edge + 3 * lh:
+            continue
+        above = [v for n, v in zip(nums, vals) if w[1] - 6 * lh <= n[1] < w[1]]
+        below = [v for n, v in zip(nums, vals) if w[1] < n[1] <= w[1] + 8 * lh]
+        before = [y for y in ys if y < w[1] - 6]
+        after = [y for y in ys if y > w[1] + 6]
+        if above and max(above) >= 12 and below and min(below) <= 4 and before and after \
+                and w[1] - max(before) < 1.8 * lh and min(after) - w[1] < 1.8 * lh:
+            return [(int(edge), int(w[1]), int(edge + 4 * lh), int(w[3]), "Down")]
+    return []
+
+
+def empty_slot(zone, nums, vals, lh):
+    """[a Down heading word] set in the empty line above the first Down number (DOWN_GAP): a number of 1-2 that
+    follows numbers of 12 or more by two lines or more, three of the four numbers after it at 8 or less and rising,
+    and no word standing in the line above it (the OCR dropped the heading there). [] otherwise."""
+    for i in range(1, len(nums) - 3):
+        top, bottom = int(nums[i][1] - lh - 4), int(nums[i][1] - 3)
+        if vals[i] <= 2 and max(vals[max(0, i - 3):i]) >= 12 and nums[i][1] - nums[i - 1][1] >= 2 * lh \
+                and sum(v <= 8 for v in vals[i + 1:i + 5]) >= 3 and vals[i + 1] <= vals[i + 3] \
+                and not any(top + 5 <= (w[1] + w[3]) / 2 <= bottom - 5 for w in zone):
+            return [(int(nums[i][0]), top, int(nums[i][0] + 4 * lh), bottom, "Down")]
     return []
 
 
@@ -1688,9 +1735,16 @@ def headless_tail(words, cut, edge, gl):
         if left <= w[0] < x_cut and w[1] >= top and re.search(r"\w", w[4]):
             lines.setdefault(round((w[1] + w[3]) / 2 / 8), []).append(w)
     seen = 0
+    # DOWN_GAP: the entry rules' notice stands over the Across heading in the lists' cut of the 1970 pages ("12 Coley
+    # Street" counted as an Across number of 12, so the Across list's first clue opened the Down list): only the lines
+    # under that heading count.
+    opens = [w[1] for w in words if gl.heading(w[4]) == "ACROSS" and left <= w[0] < x_cut and w[1] >= top]
+    start = min(opens) if opens else None
     for _, ws in sorted(lines.items()):
         first = min(ws, key=lambda w: w[0])
         if not (NUMBER_WORD.match(first[4]) and first[0] <= left + 0.1 * (right - left)):
+            continue
+        if start is not None and first[1] < start:
             continue
         n = int(first[4].strip(".,"))
         if seen >= 10 and n <= 3:
@@ -2053,7 +2107,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
-                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX}, store)
+                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP}, store)
     print(json.dumps(verdict))
     return "read"
 

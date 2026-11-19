@@ -128,7 +128,7 @@ check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(m
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
 check("a 2000s page with 4+ blanks is not due for MID_FIX", True, gm.read_done({**many, "date": "2003-10-05"}))
 noparse = {"file": "x.pdf", "refused": "no reading parses", "date": "2003-04-06", "version": gm.VERSION, "listsFix": gm.LISTS_FIX,
-           "leftFix": gm.LEFT_FIX, "midFix": gm.MID_FIX, "solutionFix": gm.SOLUTION_FIX, "enumFix": gm.ENUM_FIX}
+           "leftFix": gm.LEFT_FIX, "midFix": gm.MID_FIX, "solutionFix": gm.SOLUTION_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}
 check("a 2000s no-parse refusal before HEAD_FIX is due", False, gm.read_done(noparse))
 check("a 2000s no-parse refusal at HEAD_FIX stands", True, gm.read_done({**noparse, "headFix": gm.HEAD_FIX}))
 check("a 1970s no-parse refusal is not due for HEAD_FIX", True, gm.read_done({**noparse, "date": "1972-03-19"}))
@@ -183,7 +183,7 @@ bare = {"file": "GALE_FP1.pdf", "version": gm.VERSION, "refused": "no clue list 
         "downFix": gm.DOWN_FIX, "date": "1960-01-03"}
 check("a no-clue-list refusal before the wrapped lists is due", False, gm.read_done(bare))
 check("a no-clue-list refusal at WRAP_FIX but before LEFT_FIX is due", False, gm.read_done({**bare, "wrapFix": gm.WRAP_FIX}))
-_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX}
+_stamped = {**bare, "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX, "downFix": gm.DOWN_FIX, "headRowFix": gm.HEAD_ROW_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}
 check("a 1960s no-clue-list refusal before LATTICE_FIX is due", False, gm.read_done(_stamped))
 check("a no-clue-list refusal at LEFT_FIX stands", True, gm.read_done({**_stamped, "latticeFix": gm.LATTICE_FIX}))
 check("a 1970s no-reading-parses refusal before ENUM_FIX is due", False, gm.read_done({
@@ -191,6 +191,10 @@ check("a 1970s no-reading-parses refusal before ENUM_FIX is due", False, gm.read
     "headRowFix": gm.HEAD_ROW_FIX, "listsFix": gm.LISTS_FIX, "headFix": gm.HEAD_FIX, "midFix": gm.MID_FIX,
     "solutionFix": gm.SOLUTION_FIX, "latticeFix": gm.LATTICE_FIX}))
 check("the same refusal at ENUM_FIX stands", True, gm.read_done({
+    **bare, "refused": "no reading parses", "date": "1973-11-18", "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX,
+    "headRowFix": gm.HEAD_ROW_FIX, "listsFix": gm.LISTS_FIX, "headFix": gm.HEAD_FIX, "midFix": gm.MID_FIX,
+    "solutionFix": gm.SOLUTION_FIX, "latticeFix": gm.LATTICE_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}))
+check("the same refusal at ENUM_FIX but before DOWN_GAP is due", False, gm.read_done({
     **bare, "refused": "no reading parses", "date": "1973-11-18", "wrapFix": gm.WRAP_FIX, "leftFix": gm.LEFT_FIX,
     "headRowFix": gm.HEAD_ROW_FIX, "listsFix": gm.LISTS_FIX, "headFix": gm.HEAD_FIX, "midFix": gm.MID_FIX,
     "solutionFix": gm.SOLUTION_FIX, "latticeFix": gm.LATTICE_FIX, "enumFix": gm.ENUM_FIX}))
@@ -202,6 +206,18 @@ _bx = (200, 1600, 1000, 2500)
 _nums = _across + _downs
 check("a Down heading is set over the first Down number when no enumeration line is read", 1,
       len(gm.missing_down(_nums, _bx, _lh, 1900)))
+# DOWN_GAP: a lone garbled word ("own") between the Across foot and the first Down clue is the heading; so is the empty
+# line above a misread first Down number
+_ax = [(1100, 1600 + 27 * i, 1130, 1623 + 27 * i, str(n)) for i, n in enumerate((28, 29, 30, 31))]
+_ax += [(1135, 1600 + 27 * 4, 1400, 1623 + 27 * 4, "Across foot (5)"), (1167, 1600 + 27 * 5, 1221, 1617 + 27 * 5, "own")]
+_dn = [(1100, 1600 + 27 * 6 + 27 * i, 1130, 1623 + 27 * 6 + 27 * i, str(n)) for i, n in enumerate((3, 4, 5, 6, 7))]
+check("a lone garbled word between the lists is set as the Down heading", [(1100, 1735, 1196, 1752 + 7, "Down")],
+      gm.missing_down(_ax + _dn, _bx, _lh, 1900))
+_ax2 = [(1100, 1600 + 27 * i, 1130, 1623 + 27 * i, str(n)) for i, n in enumerate((28, 29, 31, 2))] + [
+    (1135, 1600 + 27 * 4, 1400, 1623 + 27 * 4, "Across foot (5)"), (1135, 1600 + 27 * 5, 1400, 1623 + 27 * 5, "more words")]
+_dn2 = [(1100, 1600 + 27 * 8 + 27 * i, 1130, 1623 + 27 * 8 + 27 * i, str(n)) for i, n in enumerate((1, 2, 3, 4, 5))]
+check("the empty line above a Down number is set as the Down heading", 1, len(gm.missing_down(_ax2 + _dn2, _bx, _lh, 1900)))
+check("no heading is set in a list of Across clues alone", [], gm.missing_down(_ax + _ax2, _bx, _lh, 1900))
 check("a later no-clue-list refusal is not due", True, gm.read_done({**bare, "date": "1998-01-04"}))
 check("another refusal is not re-read", True, gm.read_done({**refused, "refused": "no Mephisto clue lists found on the page"}))
 # the comb search finds a grid drawn with dotted thin rules and thick bars
@@ -236,6 +252,17 @@ def numbered(x, n, y0=100):
 cols = numbered(20, 10) + numbered(620, 10) + numbered(140, 3, 900)
 check("a short run of numbers inside a column is no column", [5, 605], gm.column_lefts(cols, 1200))
 check("two real columns stay", [5, 605], gm.column_lefts(numbered(20, 10) + numbered(620, 8), 1200))
+
+# DOWN_GAP: the entry rules' notice ("12 Coley Street") over the Across heading is not an Across number of 12
+_nl = [(100, 1000, 300, 1030, "Solutions"), (100, 1040, 140, 1070, "12"), (150, 1040, 400, 1070, "Coley"),
+       (100, 1100, 180, 1130, "Across")]
+_nl += [(100, 1140 + 40 * i, 140, 1170 + 40 * i, str(n)) for i, n in enumerate((1, 9, 10, 11))]
+_nl += [(100, 1300, 140, 1330, "30"), (100, 1340, 140, 1370, "1"), (100, 1380, 140, 1410, "2")]
+_cut = ((90, 900, 1000, 1500), [])
+_got = gm.headless_tail(_nl, _cut, 500, gl)
+check("the notice's number is no Across number: the Down list opens at its first clue", 1340 - 6, _got and _got[1])
+check("without the Across heading the notice's number still counts", 1140 - 6, gm.headless_tail(
+    [w for w in _nl if w[4] != "Across"], _cut, 500, gl)[1])
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
