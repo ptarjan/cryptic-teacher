@@ -21701,16 +21701,16 @@ def mid_other_due(row):
 #: ("Awclcome" -> "A", "wclcome") as it already parted three or more words, so the readings agree on "A" and the
 #: dictionary mends "wclcome". Once each.
 UNGLUE_LEAD = "unfiled before its fix, a 1930-49 Times page's clue first word the second reader had glued to a misread next word"
-REREAD_UNGLUE_LEAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD_UNGLUE_LEAD = "2026-11-19T21:20:00+00:00"  # placeholder: the push minute (UTC)
 UNGLUE_LEAD_BLANK = re.compile(r"no other reading has '[A-Za-z]{1,3}'$")
 
 
 def unglue_lead_due(row):
     """Whether Gale Times ledger `row` of 1930-49, read before REREAD_UNGLUE_LEAD, wrote a puzzle unfiled with a light
-    blank "no other reading has" a word of up to three letters."""
+    blank "no other reading has" a word of up to three letters, unless its blank is a run-on tail (RUN_ON_TAIL first)."""
     rel = row.get("edition") or ""
     if paper_of(Path(rel)).key != "gale" or not "1930" <= Path(rel).name[:4] <= "1949" \
-            or not scan_queue.read_before(row, scan_queue.when(REREAD_UNGLUE_LEAD)):
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_UNGLUE_LEAD)) or run_on_tail_lost(row):
         return False
     return any(not v.get("refused") and not v.get("skip") and v.get("id") and v.get("number") is not None
                and not v.get("complete") and isinstance(v.get("blank"), dict)
