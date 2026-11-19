@@ -47,6 +47,7 @@ import ft_puzzles
 import media_manifest
 import parse_timesforthetimes as tftt
 import puzzle_integrity
+import puzzle_paths
 import reconstruct_grid as rg
 import clue_text
 import downloads
@@ -332,6 +333,49 @@ def neighbour_date(n, idx):
             days.append(d)
         d += datetime.timedelta(days=1)
     return days[n - lo - 1] if len(days) == hi - lo - 1 else None
+
+
+#: The widest gap in numbers between the dated puzzles either side of an
+#: undated one that still gives it a date: a wider gap is a guess, not a fit.
+FIT_GAP = 40
+
+
+def fitted_dates(todo, idx, posts):
+    """{number: date} for the numbers in `todo` the FT's page gave no day,
+    fitted as file_blog_puzzles.fit_undated does every other undated paper
+    puzzle: the printing days between the dated numbers either side (the FT's
+    page days in `idx` and the puzzles already held), rising with the numbers,
+    none after the fifteensquared post. A number whose dated neighbours are
+    more than FIT_GAP numbers apart is left out, unfiled."""
+    dates = {}
+    for path in puzzle_paths.puzzle_files(SERIES):
+        rec = json.loads(path.read_text())
+        if rec.get("number") and rec.get("date"):
+            dates[rec["number"]] = datetime.date.fromisoformat(rec["date"])
+    for k, v in idx.items():
+        if v.get("date"):
+            dates[int(k)] = datetime.date.fromisoformat(v["date"])
+    undated = [n for n in todo if n not in dates]
+    anchors = sorted(dates)
+    guess, latest, fits = {}, {}, {}
+    for n in undated:
+        lo = max((k for k in anchors if k < n), default=None)
+        hi = min((k for k in anchors if k > n), default=None)
+        if lo is None or hi is None or hi - lo > FIT_GAP:
+            continue
+        span = (dates[hi] - dates[lo]).days
+        guess[n] = dates[lo] + datetime.timedelta(days=round(span * (n - lo) / (hi - lo)))
+        post = posts.get(n)
+        latest[n] = (datetime.date.fromisoformat(post["date"][:10]) if post
+                     else datetime.date.max)
+        fits[n] = None
+    if not fits:
+        return {}
+    near = {k: v for k, v in dates.items()
+            if any(abs(k - n) <= FIT_GAP for n in fits)}
+    near.update(fits)
+    got = file_blog_puzzles.fit_undated(near, guess, latest, ft_puzzles.printing_day)
+    return {n: got[n] for n in fits if got.get(n)}
 
 
 # ------------------------------------------------------------------ fetch
@@ -977,6 +1021,8 @@ def file(write=True, limit=None, numbers=None, log=print):
     filed, skipped = [], collections.Counter()
     on_disk = None
     ledger = LEDGER.open("a") if write else None
+    fitted = fitted_dates([n for n in todo if not puzzle_path(SERIES, n).exists()
+                           and not idx.get(str(n), {}).get("date")], idx, posts)
     for n in todo:
         if puzzle_path(SERIES, n).exists():
             skipped["already filed"] += 1
@@ -987,7 +1033,7 @@ def file(write=True, limit=None, numbers=None, log=print):
         entry = idx.get(str(n), {})
         # The FT's own crossword page printed the day beside the link.
         date = (datetime.date.fromisoformat(entry["date"]) if entry.get("date")
-                else neighbour_date(n, idx))
+                else neighbour_date(n, idx) or fitted.get(n))
         try:
             pdf = read_pdf(pdf_path(n))
             puzzle, why = assemble(n, pdf, posts.get(n), date, entry.get("url"), how)
@@ -999,11 +1045,14 @@ def file(write=True, limit=None, numbers=None, log=print):
             key = puzzle_integrity.content_hash(puzzle)
             if key in on_disk:
                 puzzle, why = None, f"reprint of {on_disk[key]}"
-        if puzzle is not None and write:
+        if puzzle is not None:
+            # A dry run runs the write's own checks, so it cannot promise
+            # what the write then refuses.
             try:
                 correct_source_answers(puzzle["id"], puzzle["entries"])
                 write_puzzle_file(puzzle_path(SERIES, n), puzzle,
-                                  generator=GENERATOR if how == "live" else GENERATOR_WAYBACK)
+                                  generator=GENERATOR if how == "live" else GENERATOR_WAYBACK,
+                                  dry_run=not write)
             except ValueError as e:
                 puzzle, why = None, f"refused on write: {str(e).split(': ', 1)[-1][:120]}"
         if puzzle is not None:
