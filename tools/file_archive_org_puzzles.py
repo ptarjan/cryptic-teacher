@@ -1610,6 +1610,19 @@ def quick_set(parsed):
     return len(texts) >= QUICK_CLUES and sum(len(t.split()) for t in texts) < QUICK_WORDS * len(texts)
 
 
+#: Papers whose Gale reader has filed Concise sets as cryptics (Independent on Sunday 2011-1130, 2012-1149, ...): the
+#: write-time guard concise_gale refuses a list averaging under QUICK_WORDS over QUICK_CLUES non-blank clues.
+CONCISE_GUARDED = frozenset({"galeindependent", "galeindysunday"})
+
+
+def concise_gale(paper, parsed):
+    """Whether `parsed` is a Concise clue set read for a CONCISE_GUARDED paper (blank clues not counted)."""
+    if paper.key not in CONCISE_GUARDED:
+        return False
+    texts = [t for v in parsed.values() for c in v if (t := c.get("text") or "").strip()]
+    return len(texts) >= QUICK_CLUES and sum(len(t.split()) for t in texts) < QUICK_WORDS * len(texts)
+
+
 #: A line that is the capitals ACROSS and at most three short words more, no digit or count: a heading with a
 #: neighbour column's words glued on (a clue line opens on its number, a wrapped one is never in capitals).
 QUICKIE_ACROSS = re.compile(r"^\W*ACROSS\b(?:\s+[^\s\d()]{1,5}){0,5}\W*$")
@@ -14770,7 +14783,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         return refuse(verdict, "no-reading-parses", "no reading parses"), None
     ok, done, count, _, order, parsed, laid, why = max(tried, key=lambda t: t[:4])
     # A Two-in-One page's Quickie set is never the puzzle's clues (Sunday Telegraph 1976-77 filed with them).
-    if sunday and quick_set(parsed):
+    if (sunday and quick_set(parsed)) or concise_gale(paper, parsed):
         return refuse(verdict, "quick-set", "the clue list is the straightforward (Quickie) set, not the cryptic"), None
     verdict["readings"] = list(order)
     verdict["clues"] = count
