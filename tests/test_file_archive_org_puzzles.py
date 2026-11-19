@@ -10268,6 +10268,29 @@ if f.third_of(_it) and _it[0] < 3787 and 3300 < _it[1] < 3463 and f.third_of(_it
 else:
     print("FAIL the Independent's three evenly pitched clue columns are kept when the old gutter stands before the third (INDY_THREE)")
     out += "\nFAILS 1"
+# r271 INDY_THREE_MORE: three print columns in a later cached window (the first, a plain window under the grid, is empty).
+import tempfile as _tf3
+import edition_queue as _eq3
+_c3 = Path(_tf3.mkdtemp())
+(_c3 / "rapid").mkdir()
+_w3 = [[x, 2000 + 50 * k, x + 20, 2020 + 50 * k, str(k + 1)] for x in (3140, 3463, 3787) for k in range(8)]
+(_c3 / "rapid" / f"2008-10-30_6877.{f.reader_key('ch')}.json").write_text(
+    json.dumps({"box": [1, 2, 3, 4], "words": [], "more": [{"box": [5, 6, 7, 8], "words": _w3}]}))
+_crops3, f.CROPS = f.CROPS, _c3
+f.indy_three_read.cache_clear()
+_row3 = {"edition": "GaleIndependent2008UKEnglish/2008-10-30", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 6877, "id": "independent-6877", "blank": {"8-down": "no reading laid a clue on it"}}]}
+_m3 = [f.indy_three_read("2008-10-30_6877"), f.indy_three_read("2008-10-30_6877", True),
+       f.indy_three_due(_row3), f.indy_three_more_due(_row3),
+       f.indy_three_more_due({**_row3, "readAt": "2027-01-01T00:00:00+00:00"})]
+f.CROPS = _crops3
+f.indy_three_read.cache_clear()
+if _m3 == [True, False, False, True, False] and f.RANKS[f.INDY_THREE_MORE] == 2 \
+        and f.INDY_THREE_MORE in _eq3.NEWEST_LANDED and _eq3.UNFILED_FIRST[-1] == f.INDY_THREE_MORE:
+    print("ok   a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE")
+else:
+    print("FAIL a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE", _m3)
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
