@@ -8,11 +8,16 @@ While the burn rushes, each run is one of ARMS. 11-18: Paul asked "Why opus high
 and not medium?" and no opus/medium rush run had been logged, so the arms are Opus at both
 efforts (the Fable arms lost: fable/high $1.06 a puzzle vs opus/high $0.38). The same id always draws the same arm (reproducible), and
 ids spread evenly over arms in the long run. tools/ab_report.py reads the result.
+
+11-19: over a day of rush runs (about 1,080 per arm), opus/medium cost $0.31 a puzzle
+against $0.36 for opus/high, and $0.40 against $0.44 per puzzle that passed its first
+check, though it passed that check less often (77% vs 81%). Failures are redone inside
+the burn, so medium is cheaper per finished puzzle: the burn now runs opus/medium only.
 """
 import hashlib
 import sys
 
-ARMS = [("opus", "medium"), ("opus", "high")]
+ARMS = [("opus", "medium")]
 
 
 def pick(puzzle_id, arms=None):
