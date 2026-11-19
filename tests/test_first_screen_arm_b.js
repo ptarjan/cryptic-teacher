@@ -24,7 +24,14 @@ const hidden = (r, id) => r[id].classList.contains("hidden");
 const ab = () => JSON.parse(st["ct-ab1"] || "null") || {};
 
 check(ab().arm === "b", "the first visit is enrolled in arm b: " + st["ct-ab1"]);
-check(ab().sent && ab().sent.indexOf("visit") >= 0, "the visit step is recorded for arm b");
+check(!(ab().sent || []).includes("visit"), "the visit step waits for 3 visible seconds");
+global.flushTimers(3000);
+check(ab().sent && ab().sent.indexOf("visit") >= 0, "the visit step is recorded for arm b after 3s visible");
+// With no gesture at all (a bounce), the visit still counts: not gesture-gated.
+const dBot = boot({ query: "?p=" + ID, arm: "b", bot: true });
+global.flushTimers(3000);
+check(JSON.parse(dBot.storage["ct-ab1"] || "null").sent.includes("visit") && dBot.beacons.length === 1,
+      "a visitor who never touches the page is still counted as a visit");
 check(st["ct:nux"] === "0", "the first-visit cursor is written: " + st["ct:nux"]);
 check(!!reg["grid"] && reg["grid"].children.length > 0, "the grid renders");
 check(hidden(reg, "welcome"), "arm b does not block the grid with the dialog");

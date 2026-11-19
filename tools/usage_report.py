@@ -29,6 +29,9 @@ from pathlib import Path
 import kv
 
 ROOT = Path(__file__).resolve().parent.parent
+# Visits before this day were gesture-gated, which undercounted arm a (its
+# blocking dialog made bouncers never touch the page); count A/B 1 from here.
+AB1_SINCE = "2026-11-19"
 KEY = re.compile(r"^e:(\d{4}-\d{2}-\d{2}):([a-z0-9-]+):")
 
 
@@ -50,7 +53,7 @@ def ab_section(total):
     step once). Delete with the test."""
     from math import erfc, sqrt
     v = {arm: total[f"ab1-{arm}-visit"] for arm in "ab"}
-    print("\nA/B 1: first screen (a = dialog, b = hint line)")
+    print(f"\nA/B 1: first screen (a = dialog, b = hint line), days from {AB1_SINCE}")
     print(f"  {'':<8}{'visits':>8}{'letter':>16}{'entry':>16}{'done':>16}")
     for arm in "ab":
         cells = []
@@ -72,7 +75,7 @@ def ab_section(total):
     else:
         print("  letter rate: no variance yet, no p-value")
     if min(v.values()) < 145:
-        print(f"  too little data: {min(v.values())} on the smaller arm. 145 per arm detects "
+        print(f"  too little data: {min(v.values())} on the smaller arm since {AB1_SINCE}. 145 per arm detects "
               "13% -> 26% (about 15 days at roughly 19 new visits a day); "
               "a smaller lift needs about 440 per arm.")
 
@@ -184,7 +187,11 @@ def main():
     # of OPENS throughout rather than of the previous step, because the steps are
     # not a strict sequence — plenty of solvers take a hint without ever pressing
     # check — and a chain of conditional rates would read as one when it is not.
-    ab_section(total)
+    ab_total = Counter()
+    for d in days:
+        if d not in flagged and d >= AB1_SINCE:
+            ab_total.update({n: c for n, c in by_day[d].items() if n.startswith("ab1-")})
+    ab_section(ab_total)
     opens = total["open"]
     # Each hint name goes at most once a session, so a session that took the
     # definition and then the walkthrough is counted in two of them and the sum

@@ -191,10 +191,10 @@
   }
   ["pointerdown", "keydown", "touchstart", "wheel"].forEach((t) =>
     window.addEventListener(t, humanArrived, true));
-  function beacon(name) {
+  function beacon(name, skipGate) {
     if (eventsSent.has(name)) return;
     if (looksAutomated()) return;
-    if (!humanSeen) { onHuman(() => beacon(name)); return; }
+    if (!humanSeen && !skipGate) { onHuman(() => beacon(name)); return; }
     try { if (localStorage.getItem(INTERNAL_KEY)) return; } catch (e) { /* counted */ }
     eventsSent.add(name);
     if (AB_MIRROR[name]) abSend(AB_MIRROR[name]);
@@ -282,12 +282,12 @@
     // has plainly been here before, whatever the tally says.
     const first = isFirstVisit(seen);
     abEnrollIfFirst(); // A/B 1 (a no-op when bindWelcome already did it at load)
+    abVisitWhenSeen();
     nuxSeed(first);
     // Only once a person has touched the page (see onHuman): the tally is
     // written then too, so a bounce does not turn tomorrow's first visit into a
     // "return".
     onHuman(() => {
-      abSend("visit");
       const seenNow = store.get("ct:seen", null);
       if (seenNow && seenNow.last === today) return;
       const days = (seenNow ? seenNow.days : (hasAnySave() ? 1 : 0)) + 1;
@@ -381,7 +381,30 @@
   function abSend(step) {
     if (!ab || ab.day !== abToday() || ab.sent.indexOf(step) >= 0) return;
     ab.sent.push(step); abSave();
-    beacon("ab1-" + ab.arm + "-" + step);
+    // The visit step skips the gesture gate: arm a's blocking dialog made
+    // arm a's bouncers never touch the page, so gating on a touch undercounted
+    // arm a only. UA bot filtering (looksAutomated, in beacon) still applies.
+    beacon("ab1-" + ab.arm + "-" + step, step === "visit");
+  }
+  // The A/B "visit" step: the page has been visible for 3 continuous seconds.
+  // Nothing the arm changes can affect it, so both arms are counted alike.
+  function abVisitWhenSeen() {
+    if (!ab || ab.sent.indexOf("visit") >= 0) return;
+    let timer = null;
+    const visible = () => document.visibilityState === "visible";
+    const stop = () => { if (timer) { clearTimeout(timer); timer = null; } };
+    function check() {
+      if (!visible()) { stop(); return; }
+      if (timer) return;
+      timer = setTimeout(() => {
+        timer = null;
+        if (!visible()) return;
+        document.removeEventListener("visibilitychange", check);
+        abSend("visit");
+      }, 3000);
+    }
+    document.addEventListener("visibilitychange", check);
+    check();
   }
   const AB_MIRROR = { letter: "letter", entry: "entry", done: "done" };
   // Arm b: the dialog is opt-in via the link. typedYet hides the hint line once a letter is typed.

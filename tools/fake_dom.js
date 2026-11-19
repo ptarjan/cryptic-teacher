@@ -246,6 +246,7 @@ function bootApp(opts) {
   canonicalLink.href = (fs.readFileSync(path.join(ROOT, "index.html"), "utf8")
     .match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
   const document = {
+    visibilityState: "visible", // app-core's A/B visit waits on 3s of visibility
     readyState: "complete",
     activeElement: null,
     head: new FakeEl("head"),
