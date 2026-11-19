@@ -10445,6 +10445,25 @@ if _m5 == [True, True, False, False, False, f.INDY_RIGHT_RISE, f.RIGHT_RISE] and
     print("ok   an Independent page with right-of-grid columns cut through their first line is due INDY_RIGHT_CUT")
 else:
     print("FAIL an Independent page with right-of-grid columns cut through their first line is due INDY_RIGHT_CUT", _m5)
+# r294 INDY_THREE_FEW: a third clue column holding five clue starts (INDY_THREE_FULL wants six), read before INDY_THREE landed.
+_c4 = Path(_tf3.mkdtemp())
+(_c4 / "rapid").mkdir()
+_w4 = [[x, 2000 + 50 * k, x + 20, 2020 + 50 * k, str(k + 1)] for x, n in ((925, 12), (1227, 12), (1528, 5)) for k in range(n)]
+(_c4 / "rapid" / f"2015-05-14_8917.{f.reader_key('ch')}.json").write_text(
+    json.dumps({"box": [1, 2, 3, 4], "words": _w4}))
+_crops4, f.CROPS = f.CROPS, _c4
+f.indy_three_read.cache_clear()
+_row4 = {"edition": "GaleIndependent2015UKEnglish/2015-05-14", "readAt": "2026-11-18T21:21:57+00:00",
+         "verdicts": [{"number": 8917, "id": "independent-8917", "blank": {"19-down": "no reading laid a clue on it"}}]}
+_m4 = [f.indy_three_read("2015-05-14_8917"), f.indy_three_few_due(_row4), f.indy_three_few_due({**_row4, "readAt": "2026-11-19T01:00:00+00:00"}),
+       f.fix_reason(_row4) == f.INDY_THREE_FEW]
+f.CROPS = _crops4
+f.indy_three_read.cache_clear()
+if _m4 == [False, True, False, True] and f.RANKS[f.INDY_THREE_FEW] == 2 \
+        and f.INDY_THREE_FEW in _eq3.NEWEST_LANDED and f.INDY_THREE_FEW in _eq3.UNFILED_FIRST:
+    print("ok   an Independent page whose third clue column held five clue starts is due INDY_THREE_FEW")
+else:
+    print("FAIL an Independent page whose third clue column held five clue starts is due INDY_THREE_FEW", _m4)
     out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
