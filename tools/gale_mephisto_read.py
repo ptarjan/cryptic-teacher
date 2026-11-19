@@ -262,7 +262,7 @@ RUN_BRIDGES = (("1961-02-27", "1965-07-03", -110),)
 
 
 #: Bumped when only ANCHOR_BRIDGES change: pages refused for want of a number inside them are read again.
-ANCHOR_FIX = 1
+ANCHOR_FIX = 2
 #: (first date, last date, offset) of the weeks within reach of an anchor (a titled page, an OFFSET_RUNS end or a
 #: page whose two printed numbers agree, with the page before or after it at the same offset) with no Sunday MISSING
 #: from Gale's list between. The offset only falls, and only where a Sunday had no Mephisto (it is then missing from the
@@ -273,13 +273,16 @@ ANCHOR_FIX = 1
 #: 1974 Sundays (01-13, 01-27, 02-10: -117 to -120), 1978-03-26 and 04-02 (-128/-130), the strike's 50 (1978-12-03 to
 #: 1979-11-11: -130 to -180, so 1979-11-18 is 1012 + 1 = 1013). NOT bridged, for want of one count: 1976-02-01 to
 #: 1978-01-08 (eight Sundays missing, seven falls: which one is only a gap in the list is unknown, 89 pages print no
-#: number), 1979-12-23 to 1980-03-23 (-180 or -181: the page of 1980-03-23 and the pages after it disagree by one).
+#: number; ANCHOR_FIX 2: 1977-02-13..06-19 at -126, the stretch whose first, middle and last own titles ("MEPHISTO No. 923 Across", 930, 941) three readers each
+#: (the page-sized OCR and the title line cut out at 3x by the fine-tuned and the stock model) spell at -126, no page in it (or before the next fall) printing
+#: a number above that offset, and no Sunday missing from the list inside it), 1979-12-23 to 1980-03-23 (-180 or -181: the page of 1980-03-23 and the pages after it disagree by one).
 ANCHOR_BRIDGES = (
     ("1965-09-27", "1965-12-19", -110), ("1966-01-02", "1966-10-08", -111), ("1967-01-01", "1967-01-28", -112),
     ("1969-04-06", "1969-04-19", -112), ("1969-05-25", "1969-06-01", -115), ("1970-12-14", "1970-12-26", -115),
     ("1971-01-03", "1971-01-09", -116), ("1971-11-15", "1971-12-25", -116), ("1971-12-27", "1972-01-08", -117),
     ("1973-11-26", "1974-01-12", -117), ("1978-01-01", "1978-03-25", -128), ("1978-04-09", "1978-11-26", -130),
     ("1979-11-18", "1979-12-22", -180), ("1980-03-30", "1981-05-16", -181),
+    ("1977-02-13", "1977-06-19", -126),
 )
 
 

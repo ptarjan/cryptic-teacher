@@ -87,14 +87,17 @@ check("outside any run it stands at NUMBER_FIX", True,
 fixed = {**stale, "numberFix": gm.NUMBER_FIX, "runFix": gm.RUN_FIX}
 check("a bridged gap's refusal before BRIDGE_FIX is due", False, gm.read_done({**fixed, "date": "1963-05-05"}))
 check("a bridged gap's refusal at BRIDGE_FIX stands", True, gm.read_done({**fixed, "date": "1963-05-05", "bridgeFix": gm.BRIDGE_FIX}))
-check("an unbridged gap (1976-02..1978-01) is not re-due", True, gm.read_done({**fixed, "date": "1977-03-06"}))
+check("an unbridged gap (1976-02..1978-01, outside 1977-02-13..06-19) is not re-due", True, gm.read_done({**fixed, "date": "1977-07-03"}))
 check("an anchored week's refusal before ANCHOR_FIX is due", False, gm.read_done({**fixed, "date": "1966-03-06"}))
 check("an anchored week's refusal at ANCHOR_FIX stands", True,
       gm.read_done({**fixed, "date": "1966-03-06", "anchorFix": gm.ANCHOR_FIX}))
 check("an anchored week takes the weekly count", -111, gm.run_offset(D(1966, 3, 6)))
 check("the week after a missing Sunday (1979-12-23) is not anchored", None, gm.run_offset(D(1979, 12, 30)))
-check("a gap between different offsets is not bridged", None, gm.run_offset(D(1977, 6, 5)))
+check("a gap between different offsets is not bridged", None, gm.run_offset(D(1977, 7, 3)))
 check("the gap 1961-02-26..1965-07-04 (both ends -110) is bridged", -110, gm.run_offset(D(1963, 5, 5)))
+check("1977-02-13..06-19 (the -126 stretch) is anchored", -126, gm.run_offset(D(1977, 5, 1)))
+check("a -126 week with a number above its offset is refused", None, gm.run_number(D(1977, 5, 1), f"Mephisto Crossword No {gm.week(D(1977, 5, 1)) - 125}"))
+check("a -126 week with no number takes the count", gm.week(D(1977, 5, 1)) - 126, gm.run_number(D(1977, 5, 1), "nothing"))
 check("the weeks before the first anchor are not", None, gm.run_offset(D(1960, 12, 18)))
 check("a bridged page takes the weekly count", gm.week(D(1963, 5, 5)) - 110, gm.run_number(D(1963, 5, 5), ""))
 check("a bridged page whose printed number disagrees is refused", None,
@@ -114,7 +117,7 @@ check("only misreads far off, none at the offset: refused", None,
 check("NUMBER_FIX 3 re-dues a number refusal inside a run", False,
       gm.read_done({**stale, "numberFix": 2, "runFix": gm.RUN_FIX}))
 check("NUMBER_FIX 3 leaves a gap page (no run) as it was", True,
-      gm.read_done({**stale, "date": "1977-03-09", "numberFix": 2, "runFix": gm.RUN_FIX}))
+      gm.read_done({**stale, "date": "1977-07-09", "numberFix": 2, "runFix": gm.RUN_FIX}))
 check("a one-page run needs its own number printed", None, gm.run_number(D(1978, 2, 26), "nothing"))
 check("number_of takes the run's number before 1995", (w - 121, "offset run"),
       gm.number_of((None, D(1975, 3, 9)), "Mephisto Crossword No %d" % (w - 121), None))
