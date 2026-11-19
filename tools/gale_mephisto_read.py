@@ -571,6 +571,11 @@ def read_done(row, done=None):
         # Refused before missing_down placed the Down heading the OCR garbled when no enumeration marks the Across foot
         # (ENUM_FIX), or read as a lone garbled word or dropped on an empty line above the first Down number (DOWN_GAP).
         return False
+    if row and row.get("vlmMissFix", 0) < VLM_MISS_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and not row.get("vlmColumns") \
+            and 4 <= len(row.get("blank") or ()) <= VLM_ALL:
+        # Read with blank lights and no VLM column asked: the VLM was spooled or down mid-read (VLM_MISS_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -632,6 +637,10 @@ LATTICE_FIX = 1
 #: 1955-89 wrapped pages with 17-40 blank lights unasked: 328 rows). It reads whole columns, so the ask count is the
 #: columns', not the lights'; vlm_laid still lays only a clue whose count fills the light.
 VLM_ALL_FIX = 1
+#: VLM_MISS_FIX 1: a page read while the VLM spooled or lost its asks (vlm_mended swallows that RuntimeError and reads on
+#: without) was recorded done with no VLM column asked: 304 of the 1955-79 pages with 4+ blank lights "no clue read for it"
+#: (their strips exist now). read_unit now guards the row (scan_queue.vlm_guard); those rows are read again once.
+VLM_MISS_FIX = 1
 #: ENUM_FIX 1: missing_down places the Down heading above the first Down clue when the OCR read no enumeration on the
 #: last Across clue's lines (1970-73 wrapped pages, refused no reading parses / no clue list); those rows are read again.
 ENUM_FIX = 1
@@ -2095,6 +2104,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
         print(verdict["failed"], file=sys.stderr)
         append_row({**verdict, "version": VERSION if attempts >= CRASH_LIMIT else None}, store)
         return "failed"
+    scan_queue.vlm_guard(f"{name} row")  # a read the VLM spooled or lost is deferred, not recorded (VLM_MISS_FIX)
     if puzzle is not None and verdict.get("whole"):
         target = puzzle_path(SERIES, verdict["number"])
         if target.exists():
@@ -2107,7 +2117,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "bareFix": BARE_FIX, "listsFix": LISTS_FIX, "wrapFix": WRAP_FIX,
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
-                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP}, store)
+                "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
+                "vlmMissFix": VLM_MISS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
