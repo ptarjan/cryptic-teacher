@@ -5863,6 +5863,21 @@ check("SUNDAY_BAND is due for a 1980-84 Sunday Times row refused no reading pars
        f.RANKS[f.SUNDAY_BAND] == 2 and f.SUNDAY_BAND in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_BAND) is not None
        and f.SUNDAY_BAND in _eq_bp.FIX_LANDED and f.SUNDAY_BAND in _eq_bp.UNFILED_FIRST])
 
+# The Gale Sunday Times 1980-84 page with its grid at the page's top left and the title right of it, the clue columns right of
+# the grid (sunday_top_page): SUNDAY_TOP is due for a 1980-84 row refused "no reading parses", once.
+check("SUNDAY_TOP is due for a 1980-84 Sunday Times row refused no reading parses, read before it, once; no other year; "
+      "ranked, evidence, fix-landed, unfiled-first; the top-left grid with its title right of it is the layout, a title "
+      "far under the grid's top or left of it is not",
+      [True, False, False, True, False, False, True],
+      [f.sunday_top_due({**_sgrow, "edition": "GaleSundayTimes1984UKEnglish/1984-02-12"}),
+       f.sunday_top_due({**_sgrow, "edition": "GaleSundayTimes1984UKEnglish/1984-02-12", "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_top_due(_sgrow),
+       f.sunday_top_page((328, 285, 1048, 1025), (1074, 289, 2006, 398)),
+       f.sunday_top_page((355, 2238, 919, 2839), (1416, 1826, 1768, 1931)),
+       f.sunday_top_page((328, 285, 1048, 1025), (339, 289, 900, 398)),
+       f.RANKS[f.SUNDAY_TOP] == 2 and f.SUNDAY_TOP in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_TOP) is not None
+       and f.SUNDAY_TOP in _eq_bp.FIX_LANDED and f.SUNDAY_TOP in _eq_bp.UNFILED_FIRST])
+
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
 check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
