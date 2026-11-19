@@ -188,7 +188,15 @@ UNIT_TRUST = re.compile(r"(?i)unit\s+trust\s+information\s+service")
 #: the OCR often keeps that heading but loses the crossword's title and
 #: clues: an edition of these items with no crossword title in its text
 #: fetches each page so headed too (crossword_hits currency).
-FT_CURRENCY_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1989, 1995))
+#: 1985-88 joined it (r261: 90 of the 149 unfiled 1985-94 editions with no
+#: puzzle found were of 1985-88, 73 of them 1987, whose month_leaves and
+#: garbled titles currency_picks names and the fetch never took, for want of
+#: this list): their rows are stamped again (CURRENCY_STAMP, currency_stamped).
+FT_EARLY_ITEMS = tuple(f"FinancialTimes{y}UKEnglish" for y in range(1985, 1989))
+FT_CURRENCY_ITEMS = FT_EARLY_ITEMS + tuple(f"FinancialTimes{y}UKEnglish" for y in range(1989, 1995))
+#: What IA_PAGES rows' currency_checked holds once FT_CURRENCY_ITEMS' 1985-94
+#: picks were worked out; a 1989-94 row's older True stands.
+CURRENCY_STAMP = "1985-94"
 CURRENCY_PAGE = re.compile(r"(?i)currencies,?\s*money\s+and\s+capital\s+markets|pound\s+spot\s*[-–]?\s*forward")
 #: A crossword title or prize line the OCR garbled ("cROSSW", "prize puzzle"):
 #: detect() wants an ACROSS heading or six counts besides, a market page's
@@ -830,6 +838,13 @@ def currency_missing(d, doc):
     return bool(set(currency_picks(d, texts)) - {h["leaf"] for h in hits})
 
 
+def currency_stamped(rel, row):
+    """Whether IA_PAGES `row` of edition `rel` had its currency picks worked out
+    for the item's years (a 1989-94 row's older True holds)."""
+    stamp = row.get("currency_checked")
+    return stamp == CURRENCY_STAMP or (stamp is True and not rel.startswith(FT_EARLY_ITEMS))
+
+
 def page_summary(doc, missing=False):
     """What stale() reads of pages.json `doc`: its leaf count and each
     crossword page's leaf, headings and marks (no sizes), and whether
@@ -847,7 +862,7 @@ def record_pages(d, files, doc, missing=False):
     to IA_PAGES under its files' hash `files`; `missing` is currency_missing."""
     media_manifest.record(IA_PAGES, os.path.join(d, "pages.json"), edition=media_manifest.edition_rel(d),
                           files=files, pages=None if doc is None else page_summary(doc, missing),
-                          currency_checked=True)
+                          currency_checked=CURRENCY_STAMP)
 
 
 def record_done(out, item, name):
@@ -884,7 +899,7 @@ def _pages_off_disk(out, rel, files):
     missing = doc is not None and currency_missing(d, doc)
     record_pages(d, files, doc, missing)
     return {"edition": rel, "files": files, "pages": None if doc is None else page_summary(doc, missing),
-            "currency_checked": True}
+            "currency_checked": CURRENCY_STAMP}
 
 
 def load_done_manifest(out):
@@ -913,7 +928,7 @@ def load_done_manifest(out):
         files = eds[rel].get("files")
         row = held.get(rel)
         if row is None or row.get("files") != files \
-                or (rel.startswith(FT_CURRENCY_ITEMS) and not row.get("currency_checked")):
+                or (rel.startswith(FT_CURRENCY_ITEMS) and not currency_stamped(rel, row)):
             row = held[rel] = _pages_off_disk(out, rel, files)
         return row.get("pages")
 

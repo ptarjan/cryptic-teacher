@@ -105,6 +105,11 @@ check("no title: the currency leaves are fetched too, marked currency",
       == [(5, True), (17, None), (21, None), (27, None)])
 check("currency_leaves: a heading or a garbled title",
       fa.currency_leaves(["x", "CURRENCIES, MONEY AND CAPITAL MARKETS", "cROSSW ORD", "prize puzzle", "y"]) == [1, 2, 3])
+check("FT 1985-88 items take the currency picks; a 1985-88 row stamped True only is checked again, a 1989-94 one is not",
+      "FinancialTimes1987UKEnglish" in fa.FT_CURRENCY_ITEMS
+      and not fa.currency_stamped("FinancialTimes1987UKEnglish/1987-02-02_30149", {"currency_checked": True})
+      and fa.currency_stamped("FinancialTimes1990UKEnglish/1990-02-02_x", {"currency_checked": True})
+      and fa.currency_stamped("FinancialTimes1987UKEnglish/1987-02-02_30149", {"currency_checked": fa.CURRENCY_STAMP}))
 
 # An item holding one edition alone (the 1930 Times: an item an issue) counts
 # the crossword leaves of the items nearest it by date named like it; a done
