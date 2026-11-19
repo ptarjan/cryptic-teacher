@@ -126,9 +126,11 @@ check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_don
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
 check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
 check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
-many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX}
+many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX}
 check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
+check("a 1970s page with 4+ blanks before STRAY_FIX is due", False, gm.read_done({**many, "midFix": gm.MID_FIX, "strayFix": 0}))
+check("a 1990s page with 4+ blanks is not due for STRAY_FIX", True, gm.read_done({**many, "date": "1993-10-05", "strayFix": 0}))
 check("a 2000s page with 4+ blanks is not due for MID_FIX", True, gm.read_done({**many, "date": "2003-10-05"}))
 _unasked = {k: v for k, v in many.items() if k != "vlmMissFix"}
 check("a page with 4+ blanks and no VLM column asked before VLM_MISS_FIX is due", False, gm.read_done({**_unasked, "midFix": gm.MID_FIX}))
@@ -286,6 +288,14 @@ _got = gm.headless_tail(_nl, _cut, 500, gl)
 check("the notice's number is no Across number: the Down list opens at its first clue", 1340 - 6, _got and _got[1])
 check("without the Across heading the notice's number still counts", 1140 - 6, gm.headless_tail(
     [w for w in _nl if w[4] != "Across"], _cut, 500, gl)[1])
+
+# STRAY_FIX: a stray "2" between two Across clues (30, then 31) is no Down list; the real run 1, 2, 3 at the foot is
+_sy = [(100, 1100, 180, 1130, "Across")] + [(100, 1140 + 40 * i, 140, 1170 + 40 * i, str(n)) for i, n in enumerate((1, 9, 10, 11, 29))]
+_sy += [(100, 1340, 140, 1370, "2"), (100, 1380, 140, 1410, "31"), (100, 1420, 140, 1450, "32")]
+check("a stray 2 inside the Across list opens no Down list", None, gm.headless_tail(_sy, ((90, 900, 1000, 1500), []), 500, gl))
+check("1, 2, 3 under the Across list still open it", 1340 - 6, gm.headless_tail(
+    [w for w in _sy if w[4] not in ("2", "31", "32")] + [(100, 1340 + 40 * i, 140, 1370 + 40 * i, str(i + 1)) for i in range(3)],
+    ((90, 900, 1000, 1500), []), 500, gl)[1])
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

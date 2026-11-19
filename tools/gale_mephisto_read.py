@@ -607,6 +607,11 @@ def read_done(row, done=None):
         # Refused with the lists left of the grid not cut: the Across heading out or lower than left_cut looked, or the
         # Down heading garbled (LEFT_GAP 1).
         return False
+    if row and row.get("strayFix", 0) < STRAY_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and "1955" <= (row.get("date") or "9") < "1980" \
+            and len(row.get("blank") or ()) >= 2:
+        # Read with a stray number in the Across list taken for the Down list's head (STRAY_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1531,6 +1536,12 @@ def wrapped_block(img, words, box, cut, gl):
     return canvas, key
 
 
+#: Bumped when headless_tail no longer takes a stray small number (a diagram's figure) between two Across clues for the
+#: foot of the Across list's Down clues (it stitched the lists' tail over the right column and lost the Down list):
+#: the 1955-79 pages left with two or more blank lights are read again once.
+STRAY_FIX = 1
+
+
 #: Bumped when only the wrapped lists' Down column stops above last week's solution heading (solution_stop): the pages
 #: read with four or more blank lights, or refused "no reading parses", are read again once.
 SOLUTION_FIX = 1
@@ -1860,13 +1871,24 @@ def headless_tail(words, cut, edge, gl):
     # under that heading count.
     opens = [w[1] for w in words if gl.heading(w[4]) == "ACROSS" and left <= w[0] < x_cut and w[1] >= top]
     start = min(opens) if opens else None
-    for _, ws in sorted(lines.items()):
+    ordered = sorted(lines.items())
+    numbered = []
+    for _, ws in ordered:
+        first = min(ws, key=lambda w: w[0])
+        if NUMBER_WORD.match(first[4]) and first[0] <= left + 0.1 * (right - left) and (start is None or first[1] >= start):
+            numbered.append((first[1], int(first[4].strip(".,"))))
+    for _, ws in ordered:
         first = min(ws, key=lambda w: w[0])
         if not (NUMBER_WORD.match(first[4]) and first[0] <= left + 0.1 * (right - left)):
             continue
         if start is not None and first[1] < start:
             continue
         n = int(first[4].strip(".,"))
+        # STRAY_FIX: a stray "2" (a diagram's figure) between two Across clues is no Down list: the number line under
+        # it runs on past the Across numbers so far (31 after 29), where the Down clues at the foot run 1, 2, 3 on.
+        after = next((m for y, m in numbered if y > first[1] + 4), None)
+        if seen >= 10 and n <= 3 and after is not None and after > max(seen, n + 3):
+            continue
         if seen >= 10 and n <= 3:
             strip = tail_lines(words, left, x_cut, first[1], gl, note=True)
             return strip + (True,) if strip else None
@@ -2229,7 +2251,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
-                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX}, store)
+                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
+                "strayFix": STRAY_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
