@@ -706,6 +706,10 @@ check("a GUARDIAN_SET page is ranked, evidence, fix-landed, unfiled-first, newes
       [1, True, True, True, True],
       [f.RANKS[f.GUARDIAN_SET], eq.evidence_reason(f.GUARDIAN_SET), f.GUARDIAN_SET in eq.FIX_LANDED,
        f.GUARDIAN_SET in eq.UNFILED_FIRST, f.GUARDIAN_SET in eq.NEWEST_LANDED])
+check("an FT_RIGHT page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [1, True, True, True, True],
+      [f.RANKS[f.FT_RIGHT], eq.evidence_reason(f.FT_RIGHT), f.FT_RIGHT in eq.FIX_LANDED,
+       f.FT_RIGHT in eq.UNFILED_FIRST, f.FT_RIGHT in eq.NEWEST_LANDED])
 check("a TELEGRAPH_DATED page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
       [1, True, True, True, True],
       [f.RANKS[f.TELEGRAPH_DATED], eq.evidence_reason(f.TELEGRAPH_DATED), f.TELEGRAPH_DATED in eq.FIX_LANDED,

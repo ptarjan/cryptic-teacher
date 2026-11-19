@@ -4391,6 +4391,22 @@ check("a verdict-less Guardian weekday edition with no puzzle is due GUARDIAN_SE
        f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "failed": "x"}}),
        f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
        f.RANKS[f.GUARDIAN_SET]])
+# ft_right_rescan (r253): an archive.org FT 1985-94 edition read with no puzzle and no verdict is due FT_RIGHT once (the band
+# right of its grid is read for the title, ft_right_titled); stamped, titled, with a verdict, failed, of 1995 or of Gale not.
+_fr = {"edition": "FinancialTimes1994UKEnglish/1994-08-15_15", "scanKey": f.scan_key(f.FT), "filesHash": "h",
+       "inputs": "h", "verdicts": [], "readAt": "2026-11-17T00:00:00+00:00",
+       "scan": {"date": "1994-08-15", "item": "FinancialTimes1994UKEnglish", "puzzles": [], "solutions": [], "wholeUntitled": True}}
+check("a verdict-less FT 1985-94 edition with no puzzle is due FT_RIGHT once; stamped, titled, with a verdict, failed, "
+      "of 1995 or of Gale it is not",
+      [True, False, f.FT_RIGHT, f.FT_RIGHT, False, False, False, False, False, False, 1],
+      [f.ft_right_rescan(_fr), f.scan_current(_fr, "h"), f.fix_reason(_fr), f.blanket_or_fix(_fr, "inputs changed"),
+       f.ft_right_rescan({**_fr, "scan": {**_fr["scan"], f.FT_RIGHT_READ: True}}),
+       f.ft_right_rescan({**_fr, "scan": {**_fr["scan"], "puzzles": [{"number": 8532, "leaf": 31}]}}),
+       f.ft_right_rescan({**_fr, "verdicts": [{"number": 8532}]}),
+       f.ft_right_rescan({**_fr, "scan": {**_fr["scan"], "failed": "x"}}),
+       f.ft_right_rescan({**_fr, "edition": "FinancialTimes1995UKEnglish/1995-08-15_15"}),
+       f.ft_right_rescan({**_fr, "edition": "GaleFT1994UKEnglish/1994-08-15"}),
+       f.RANKS[f.FT_RIGHT]])
 # small_titles (r42): the 1930-33 Gale Times prints puzzle numbers of 1-3 digits ("PUZZLE No. 357"); TITLE and
 # SOLUTION read four. 1931-03-27 as the two page readers read it (the date implies 358; Gale's pages skip a few more
 # closed days than TIMES_1930_CLOSED holds).
