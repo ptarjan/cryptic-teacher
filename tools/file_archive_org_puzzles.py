@@ -4283,6 +4283,32 @@ def solo_numbers(grid, cols):
     return {w: u & one for w, u in unseen.items() if u & one and w not in ocr_clues.TESS_MODELS}
 
 
+#: A solo number's place inside a row: an optional stray mark or "1", the number, a capital.
+def solo_cut(rapid, numbers):
+    """`rapid` ([[word]]) with each word holding a clue number of `numbers` after other text ("17 He makes the door
+    22 He was engineer") cut there into two words at the character share of the number, the stray mark before it
+    dropped. `rapid` itself when none was cut."""
+    out, cut = [], False
+    for line in rapid:
+        row = []
+        for w in line:
+            text, hit = str(w[4]), None
+            for n in sorted(numbers):
+                for m in re.finditer(rf"(?<!\d)[|!Il1]?{n}(?!\d)\s?(?=[A-Z\"'\u2018\u201c])", text):
+                    if text[:m.start()].strip() and re.search(r"\d\s?[A-Z\"']", text[:m.start()] + text[m.start():m.start() + 4]):
+                        hit = (m, n) if hit is None or m.start() < hit[0].start() else hit
+            if hit is None:
+                row.append(w)
+                continue
+            m, n = hit
+            x = w[0] + (w[2] - w[0]) * m.start() / len(text)
+            row.append((w[0], w[1], x - 1, w[3], text[:m.start()].rstrip()))
+            row.append((x, w[1], w[2], w[3], text[m.start() + m.group().index(str(n)):]))
+            cut = True
+        out.append(row)
+    return out if cut else rapid
+
+
 def _overlap(a, b):
     """The share of the smaller of boxes `a` and `b` ((x0, y0, x1, y1, ...)) that both cover."""
     w = min(a[2], b[2]) - max(a[0], b[0])
@@ -14829,6 +14855,17 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         # reader that opened none there: the vote needs a second reading of the clue, and the whole crop's read
         # (scaled down) lost the line.
         solo = solo_numbers(g, cols) if g and solo_on(d) else {}
+        # SOLO_CUT: a solo number standing inside a row (two clues set side by side in one window, no gutter between
+        # them in `wins`: 1931-04-18's "17 He makes the door 22 He was engineer") cuts the row there in every reader.
+        mid = set().union(*solo.values()) if solo else set()
+        for which in READERS:
+            if mid and which in rapid:
+                cut = solo_cut(rapid[which], mid)
+                if cut is not rapid[which]:
+                    rapid[which] = cut
+                    cols[which] = columns(cut, gbox, third, m, above, left, split, lead, right, strip)
+                    verdict["readSolo"] = sorted(set(verdict.get("readSolo") or ()) | mid)
+        solo = solo_numbers(g, cols) if solo else {}
         for which, need in solo.items():
             more = alone_words(img, wins, gbox[3] + 1.8 * gw if not (above or right or left) else (
                 gbox[1] - 3 if above else right[2] if right else left[2]), which, rapid[which], need)

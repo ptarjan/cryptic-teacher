@@ -9638,6 +9638,11 @@ check("SOLO_READ is due a Times page unfiled with a light blank only one reading
        f.solo_read_due({"edition": "GaleTimes1939UKEnglish/1939-02-08", "readAt": "2026-11-17T15:19:47+00:00",
                         "verdicts": [{"number": 99999, "id": "times-99999", "unfiled": 1, "readSolo": [5],
                                       "blank": {"5-down": "no other reading has 'The'"}}]})])
+check("SOLO_CUT: a solo clue number inside a row cuts it there, a stray '1' before the number dropped (Gale 1931-04-18's 22 down)",
+      ["17 He makes the door", "22 He was engineer"],
+      [w[4] for w in f.solo_cut([[(0, 0, 400, 10, "17 He makes the door 122 He was engineer")]], {22})[0]])
+check("and a row that opens on it, or holds no such number, stays whole",
+      [[(0, 0, 400, 10, "22 He was")]], f.solo_cut([[(0, 0, 400, 10, "22 He was")]], {22}))
 check("a clue number read as a box of its own joins the line beside it, the line's copy of its last figure dropped (1961-03-10)",
       [(773, 4768, 1215, 4804, "25 Mock at 'the Rock, going East (4).")],
       f.numbers_joined([(773, 4770, 804, 4791, "25"), (790, 4768, 1215, 4804, "5 Mock at 'the Rock, going East (4).")]))
