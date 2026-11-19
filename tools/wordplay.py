@@ -2470,14 +2470,18 @@ def merge_hidden_run(tree, clue):
             continue
         leaves = parts[0].get("parts") or []
         if (len(leaves) < 2 or parts[0].get("indicators")
-                or not all("op" not in p and p.get("words") and "at" in p and "gives" not in p
+                or not all("op" not in p and p.get("words") and "at" in p
+                           and ("gives" not in p or re.search(r"\d", str(p["words"])))
                            and not p.get("select") and not p.get("unchecked") for p in leaves)):
             continue
-        if any(clue[a["at"] + len(a["words"]):b["at"]].strip(" \t") or b["at"] < a["at"] + len(a["words"])
+        if any(clue[a["at"] + len(a["words"]):b["at"]].strip(" \t,;:") or b["at"] < a["at"] + len(a["words"])
                for a, b in zip(leaves, leaves[1:])):
             continue
         first, last = leaves[0], leaves[-1]
         merged = {"words": clue[first["at"]:last["at"] + len(last["words"])], "at": first["at"]}
+        if any("gives" in p for p in leaves):
+            # a cross-reference ([16]MEDALLION + [I confess]): the words it stands for, then the printed ones
+            merged["gives"] = "".join(letters(p["gives"]) if "gives" in p else letters(p["words"]) for p in leaves)
         notes = [p["note"].rstrip(". ") for p in leaves if p.get("note")]
         if notes:
             merged["note"] = "; ".join(notes)
