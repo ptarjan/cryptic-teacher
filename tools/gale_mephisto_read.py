@@ -81,6 +81,14 @@ STOP_WRAPPED = re.compile(r"^\W*so\w{3,8}[nae]\W*$", re.IGNORECASE)
 #: Bumped when only the lists' cut changes again (HEAD_FIX 1: a wrapped "Solution to Mephisto N" heading stops it):
 #: the pages from 1989 on refused "no reading parses" are read again once.
 HEAD_FIX = 1
+#: The line heading last week's answers on the 1957-74 pages with no "Solution to" ("Mephisto Crossword No 544 Across"):
+#: not the puzzle's own title under the grid, which carries ", THE SUNDAY TIMES" or leads the entry rules.
+STOP_PRIOR = re.compile(r"^\W*mephisto\W+cross\w*\W+(?:no|n[o0]|mo)\W*\d{2,4}\b(?!.*(?:times|tmes|solutions?\b))", re.IGNORECASE)
+#: Bumped when the cut under the grid stops at the answers' "Mephisto Crossword No N Across" heading and starts at the
+#: Across/Down headings' left edge (PRIOR_FIX 1: the cut ran on into last week's solution, its answers garbling the clue
+#: lines, and clipped the clue numbers the headings stand over): the 1955-74 pages read with 4+ lights
+#: blank, none of them "no reading laid a clue on it" only, are read again once.
+PRIOR_FIX = 1
 #: The gap (lines) that ends the lists while their Down heading is still below them (HEAD_FIX).
 GAP_BEFORE_DOWN = 4.5
 STOP_BOOKWISE = re.compile(r"^\W*b[o0]{2}kw\w*\W*$", re.IGNORECASE)
@@ -582,6 +590,11 @@ def read_done(row, done=None):
     if row and row.get("stripFix", 0) < STRIP_FIX and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and row.get("vlmColumns") and len(row.get("blank") or ()) >= 4:
         # Read with the VLM's columns laid only where the page-sized OCR spelt them, 4+ lights blank (STRIP_FIX 1).
+        return False
+    if row and row.get("priorFix", 0) < PRIOR_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and "1955" <= (row.get("date") or "9") < "1975" \
+            and len(row.get("blank") or ()) >= 4 and "no clue read for it" in (row.get("why") or {}).values():
+        # Read with the lists' cut run on past last week's "Mephisto Crossword No N Across" answers (PRIOR_FIX 1).
         return False
     if row and row.get("hangFix", 0) < HANG_FIX and row.get("version") == VERSION and not row.get("whole") \
             and "1960" <= (row.get("date") or "9") < "1990" and row.get("refused") in (
@@ -1273,6 +1286,12 @@ def lists_cut(words, box):
             and any(o[4][:1].isdigit() and abs(o[1] - w[1]) < lh and left - lh <= o[0] <= left + 2 * lh for o in words)]
     if hung:
         left = min(w[0] for w in hung) - lh / 2
+    # PRIOR_FIX: a heading a few pixels left of the grid's edge less a line (the 1957-70 pages) has its clue numbers
+    # clipped by the cut (the OCR then reads clue lines with no number): the cut's left edge is taken out to it.
+    flush = [w[0] for w in words if PRIOR_FIX and gl.heading(w[4]) in ("ACROSS", "DOWN") and left - lh / 2 <= w[0] < left + 2
+             and box[3] < w[1] < box[3] + 40 * lh]
+    if flush:
+        left = min(flush) - lh / 2
     inside = [w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[1] > box[3]]
     titles = [w for w in inside if TITLE_WORD.match(w[4]) and w[1] - box[3] < 40 * lh]
     top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
@@ -1292,6 +1311,7 @@ def lists_cut(words, box):
                          if o[0] >= w[0] - 1 and 0.5 * lh < (o[1] + o[3]) / 2 - (w[1] + w[3]) / 2 < 1.7 * lh) \
             if STOP_WRAPPED.match(w[4]) else ""
         if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (under and STOP_LINE.match(w[4] + " " + under))
+                                    or (w[1] > top + 12 * lh and PRIOR_FIX and STOP_PRIOR.match(rest))
                                     or STOP_BOOKWISE.match(w[4]) or (
                 STOP_WORD.match(w[4]) and not w[4].rstrip().endswith("?") and not re.search(r"\(\s*\d", rest)
                 and not re.match(
@@ -2209,7 +2229,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "leftFix": LEFT_FIX, "midFix": MID_FIX, "headFix": HEAD_FIX,
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
-                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP}, store)
+                "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

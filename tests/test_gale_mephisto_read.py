@@ -137,6 +137,13 @@ _nostrip = {k: v for k, v in many.items() if k != "stripFix"}
 check("a page 4+ blank after VLM columns, before STRIP_FIX, is due", False, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2}))
 check("a page with 3 blank after VLM columns is not due for STRIP_FIX", True, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2, "blank": ["2-down", "3-down", "4-down"]}))
 check("a whole page is not due for STRIP_FIX", True, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2, "whole": True}))
+_prior = {**many, "midFix": gm.MID_FIX, "vlmColumns": 2, "stripFix": gm.STRIP_FIX, "why": {"2-down": "no clue read for it"}}
+check("a 1970s page 4+ blank with a clue never read, before PRIOR_FIX, is due", False, gm.read_done(_prior))
+check("the same page at PRIOR_FIX stands", True, gm.read_done({**_prior, "priorFix": gm.PRIOR_FIX}))
+check("a 1970s page 4+ blank, none unread, is not due for PRIOR_FIX", True, gm.read_done({**_prior, "why": {"2-down": "both read 'Zt', not a word"}}))
+check("a 1980s page is not due for PRIOR_FIX", True, gm.read_done({**_prior, "date": "1985-03-03"}))
+check("last week's answers heading stops the lists", True, bool(gm.STOP_PRIOR.match("Mephisto Crossword No 545 Across")))
+check("the puzzle's own title does not", False, bool(gm.STOP_PRIOR.match("Mephisto Crossword Mo 546, THE SUNDAY TIMES,")))
 noparse = {"file": "x.pdf", "refused": "no reading parses", "date": "2003-04-06", "version": gm.VERSION, "listsFix": gm.LISTS_FIX,
            "leftFix": gm.LEFT_FIX, "midFix": gm.MID_FIX, "solutionFix": gm.SOLUTION_FIX, "enumFix": gm.ENUM_FIX, "downGap": gm.DOWN_GAP}
 check("a 2000s no-parse refusal before HEAD_FIX is due", False, gm.read_done(noparse))
