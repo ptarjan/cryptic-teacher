@@ -5950,6 +5950,18 @@ check("UNGLUE_LEAD is due for a 1930-49 Times row blank 'no other reading has' a
        f.RANKS[f.UNGLUE_LEAD] == 2 and f.UNGLUE_LEAD in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.UNGLUE_LEAD) is not None
        and f.UNGLUE_LEAD in _eq_bp.FIX_LANDED and f.UNGLUE_LEAD in _eq_bp.UNFILED_FIRST])
 
+# SUNDAY_MERGED2: the same pages with the title closer over the grid than 0.2 grid widths, or the second column's numbers lost.
+check("SUNDAY_MERGED2 is due for a held 1980-84 Sunday Times row with a clue no reading laid, read before it, once; no other "
+      "year, no complete one; ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [True, False, False, False, True],
+      [f.sunday_merged2_due(_mgrow),
+       f.sunday_merged2_due({**_mgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_merged2_due({**_mgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-03-27"}),
+       f.sunday_merged2_due({**_mgrow, "verdicts": [{"number": 1, "unfiled": 4, "complete": True, "blank": {}}]}),
+       f.RANKS[f.SUNDAY_MERGED2] == 2 and f.SUNDAY_MERGED2 in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_MERGED2) is not None
+       and f.SUNDAY_MERGED2 in _eq_bp.FIX_LANDED and f.SUNDAY_MERGED2 in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_MERGED2 in _eq_bp.NEWEST_LANDED])
+
 # The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
 # SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
 check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
