@@ -31,6 +31,13 @@ The wake rule (should_wake), in code, queued quietly (wake.sh -q) to the room:
       level since the last commit touching annotate code;
 at most once per COOLDOWN_H (1) hours. The wake text carries the payback numbers.
 
+11-19: the room was woken hourly about a cause it had settled as a genuine model error
+(investigated 5 times). Now: a no-lever record (tools/data/annotate_no_lever.json, tracked)
+holds until the cause's $/clue passes NO_LEVER_RISE x the recorded or NO_LEVER_DAYS pass,
+whatever code commits land; each re-mark counts an investigation, which adds $6 to that
+cause's assumed fix cost; the payback horizon is the clues the burn does in PAYBACK_DAYS; and
+only a wake (real, not -q) is sent when should_wake fires. Every other line stays in the log.
+
 Paul 10-23: "why aren't you doing cost fixing more often?" - at $0.015-0.021/clue the
 old fixed $0.022 target never woke, even with one retry cause burning dollars an hour.
 Then: "Lower the goal. I want to spend inference fixing the per clue as long as it pays
@@ -60,8 +67,13 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 CACHE = pathlib.Path(os.environ.get("ANNOTATE_CACHE", pathlib.Path.home() / ".cache"))
 LEDGER = pathlib.Path(os.environ.get("ANNOTATE_LEDGER", CACHE / "annotate_cost_ledger.jsonl"))
 STATE = pathlib.Path(os.environ.get("ANNOTATE_WAKE_STATE", CACHE / "annotate_cost_wake.json"))
-NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER", CACHE / "annotate_no_lever.json"))
+# The no-lever book is tracked repo data (11-19): the room's settled causes survive a cache wipe.
+NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER", REPO / "tools" / "data" / "annotate_no_lever.json"))
+OLD_NO_LEVER = CACHE / "annotate_no_lever.json"   # where the book lived until 11-19: migrated once
 NO_LEVER_RISE = 1.5   # a no-lever cause wakes again when its $/clue passes this x the recorded
+NO_LEVER_DAYS = 14    # ...or when this many days have passed since the record's date
+FIX_COST_PER_INVESTIGATION = 6.0   # each earlier look at a cause adds this to its assumed fix cost
+PAYBACK_DAYS = 30     # the saving counts the clues the burn does in this many days, no more
 WAKE_SH = os.environ.get("WAKE_SH") or __import__("local_config").path("household_dir") + "/tools/wake.sh"
 WAKE_ROOM = os.environ.get("ANNOTATE_WAKE_ROOM", "-1003929432016:61")
 MIN_SESSIONS = 5
@@ -199,20 +211,43 @@ def report(rows=None):
 
 
 def read_no_lever():
-    """{cause key: {label, date, per_clue, commit, commit_time}} the room marked investigated."""
+    """{cause key: {label, date, per_clue, commit, commit_time, count}} the room marked
+    investigated. The first run without the repo file copies the old cache file's contents in."""
+    if not NO_LEVER.exists() and OLD_NO_LEVER != NO_LEVER and OLD_NO_LEVER.exists():
+        try:
+            book = json.loads(OLD_NO_LEVER.read_text())
+            NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
+            NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
+        except (OSError, ValueError):
+            pass
     try:
         return json.loads(NO_LEVER.read_text())
     except (OSError, ValueError):
         return {}
 
 
-def muted(rec, per_clue, since_commit):
-    """True while a no-lever record holds: no new annotate-code commit, $/clue under 1.5x."""
+def muted(rec, per_clue, now=None):
+    """True while a no-lever record holds: the cause's $/clue is under NO_LEVER_RISE x the
+    recorded one and the record is under NO_LEVER_DAYS old. An annotate-code commit no longer
+    lifts it (11-19: the same genuine model error was re-investigated five times)."""
     if not rec:
         return False
-    if (rec.get("commit_time") or None) != (since_commit or None):
+    if per_clue >= rec.get("per_clue", 0) * NO_LEVER_RISE:
         return False
-    return per_clue < rec.get("per_clue", 0) * NO_LEVER_RISE
+    if rec.get("date"):
+        now = now or now_utc()
+        age = now.date() - datetime.date.fromisoformat(rec["date"])
+        if age > datetime.timedelta(days=NO_LEVER_DAYS):
+            return False
+    return True
+
+
+def investigated(rec):
+    """'investigated N times, last <date>' for a cause the room has settled, else ''."""
+    if not rec:
+        return ""
+    n = rec.get("count") or 1
+    return f"investigated {n} time{'s' if n != 1 else ''}, last {rec.get('date') or '?'}"
 
 
 def mark_no_lever(cause, rows, commit, now=None):
@@ -229,6 +264,7 @@ def mark_no_lever(cause, rows, commit, now=None):
                 rec = {"label": c.get("label"), "date": now.date().isoformat(),
                        "per_clue": round(per_clue, 6), "commit": commit[0], "commit_time": commit[1]}
                 book = read_no_lever()
+                rec["count"] = (book.get(key, {}).get("count") or (1 if key in book else 0)) + 1
                 book[key] = rec
                 NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
                 NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
@@ -255,24 +291,37 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
     best = min((x for x in rolls if x is not None), default=None)
     top_cause = (rows[-1].get("top_causes") or [{}])[0]
     per_clue, mean_clues = cause_per_clue(rows, top_cause.get("key"))
-    left = clues_left(mean_clues)
+    key = top_cause.get("key")
+    rec = (no_lever or {}).get(key)
+    left = min(clues_left(mean_clues), burn_clues_per_day(rows) * PAYBACK_DAYS)
+    fix_cost = FIX_COST + FIX_COST_PER_INVESTIGATION * ((rec or {}).get("count") or (1 if rec else 0))
     saving = per_clue * left * SUCCESS_RATE
     rate = cause_rate(rows, top_cause.get("key"))
     facts = {"cur": cur, "best": best, "rate": rate, "saving": saving, "left": left,
-             "per_clue": per_clue, "key": top_cause.get("key")}
+             "per_clue": per_clue, "key": key, "fix_cost": fix_cost,
+             "investigated": investigated(rec)}
     woken = state.get("woken")
     if woken and (now - parse(woken)).total_seconds() < COOLDOWN_H * 3600:
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
     pay = (f"top cause `{top_cause.get('key')}` (${per_clue:.4f}/clue after check, ${rate:.2f}/h): "
-           f"est. saving ${saving:.0f} over the remaining ~{left:,.0f} clues vs ~${FIX_COST:.0f} fix cost")
-    if saving > FIX_COST:
-        if muted((no_lever or {}).get(top_cause.get("key")), per_clue, since_commit):
-            return None, f"{pay} - marked no-lever, no new annotate-code commit, under {NO_LEVER_RISE}x"
+           f"est. saving ${saving:.0f} over the next ~{left:,.0f} clues vs ~${fix_cost:.0f} fix cost")
+    if saving > fix_cost:
+        if muted(rec, per_clue, now):
+            return None, f"{pay} - marked no-lever ({investigated(rec)}), under {NO_LEVER_RISE}x and {NO_LEVER_DAYS} days"
         return pay, facts
     if best and cur > best * (1 + REGRESS):
         return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
                 f"${best:.3f} since the last annotate-code commit; {pay}"), facts
     return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; {pay} - not worth a fix"
+
+
+def burn_clues_per_day(rows):
+    """Clues the burn does a day, from the recent rows' clues over their hours (0 with none)."""
+    clues = hours = 0.0
+    for r in rows[-RATE_ROWS:]:
+        clues += r.get("clues") or 0
+        hours += (parse(r["end"]) - parse(r["start"])).total_seconds() / 3600
+    return clues / hours * 24 if hours > 0 else 0.0
 
 
 def cause_rate(rows, key):
@@ -347,12 +396,17 @@ def work_order(reason, facts, rows, commit):
         lines.append(f"Top cause: {top['label']} - {top['sessions']} sessions, {spend} spent after the check"
                      + (f", ${facts['rate']:.2f}/h." if facts.get("rate") is not None else "."))
     if saving is not None:
-        verdict = "worth fixing" if saving > FIX_COST else "not worth a fix"
-        lines.append(f"Payback: saves ~${saving:,.0f} over ~{facts['left']:,.0f} clues left "
-                     f"vs ~${FIX_COST:.0f} to fix - {verdict}.")
+        fix_cost = facts.get("fix_cost", FIX_COST)
+        worth = saving > fix_cost
+        lines.append(f"Payback: saves ~${saving:,.0f} over the next ~{facts['left']:,.0f} clues "
+                     f"vs ~${fix_cost:.0f} to fix - {'worth fixing' if worth else 'not worth a fix'}.")
+        if facts.get("investigated"):
+            lines.append(f"This cause: {facts['investigated']}.")
     else:
         lines.append(f"Why: {reason}.")
-    lines.append("Next: find a fix already landed for this cause; if none, have one Sonnet worker fix it.")
+    worth = saving is None or saving > facts.get("fix_cost", FIX_COST)
+    lines.append("Next: find a fix already landed for this cause; if none, have one Sonnet worker fix it."
+                 if worth else "Next: nothing to fix for this cause; check what changed in the last code commit.")
     lines.append("Recent runs (end, sessions, clues, $/clue, turns/clue):")
     for r in last:
         pc, tc = r.get("cost_per_clue"), r.get("turns_per_clue")
@@ -360,11 +414,14 @@ def work_order(reason, facts, rows, commit):
                      f"${pc or 0:.3f}, {tc or 0:.2f} turns")
     lines.append("Last code change: %s %s" % (commit[0] or "?", commit[2] or ""))
     lines.append("--- Instructions for the agent ---")
-    lines.append("Ledger: ~/.cache/annotate_cost_ledger.jsonl; `python3 tools/annotate_audit.py --since "
-                 "<ISO> --json` re-audits a window. Check git log for a fix already landed for this "
+    tail = ("Ledger: ~/.cache/annotate_cost_ledger.jsonl; `python3 tools/annotate_audit.py --since "
+            "<ISO> --json` re-audits a window.")
+    if worth:
+        tail += (" Check git log for a fix already landed for this "
                  "cause; if none, spawn ONE Sonnet worker in a sparse worktree to fix it, code-side if "
                  "possible, and have it also judge whether tools/annotate_prompt.md could steer the "
                  "model better on this cause (Paul 10-30); goal is the payback above, not a fixed $/clue.")
+    lines.append(tail)
     return "\n".join(lines)[:1900]
 
 
@@ -386,7 +443,10 @@ def decide(dry_run=False, now=None):
     if dry_run:
         print("annotate ledger: WOULD WAKE (dry run)\n" + text)
         return 0
-    rc = subprocess.run([WAKE_SH, "-q", "-c", WAKE_ROOM, text], check=False).returncode
+    # A real wake, not -q: should_wake only fires on a regression or an unmuted cause worth
+    # fixing, and a quiet wake rode onto the next message (11-19). Every other hourly line
+    # stays in the burn log (stdout above, .prereset.debug.log) and never wakes the room.
+    rc = subprocess.run([WAKE_SH, "-c", WAKE_ROOM, text], check=False).returncode
     if rc:
         print(f"annotate ledger: wake.sh exited {rc}; nothing recorded")
         return rc
@@ -454,7 +514,7 @@ def main(argv=None):
     ap.add_argument("cmd", nargs="?", choices=["record", "decide", "report"])
     ap.add_argument("--no-lever", metavar="CAUSE",
                     help="mark a top cause (its key or label) investigated with no lever: the alert "
-                    "stays quiet until a new annotate-code commit or its $/clue passes 1.5x")
+                    "stays quiet until its $/clue passes 1.5x the recorded or 14 days pass")
     ap.add_argument("--since")
     ap.add_argument("--until")
     ap.add_argument("--dry-run", action="store_true",

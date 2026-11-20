@@ -750,14 +750,28 @@ def level(key, value):
 
 def ledger_muted():
     """key -> bool: the room settled this cause as having no code lever (annotate_ledger
-    --no-lever), by the ledger's own `muted` (lapses at the next annotate-code commit)."""
+    --no-lever), by the ledger's own `muted` (lapses at 1.5x the recorded $/clue or after 14 days)."""
     import annotate_ledger as L   # imports this module, so only at call time
     commit = L.code_commit()
     rows = L.read_ledger()
     if commit[1]:
         rows = [r for r in rows if L.parse(r["end"]) >= L.parse(commit[1])]
     book = L.read_no_lever()
-    return lambda key: L.muted(book.get(key), L.cause_per_clue(rows, key)[0], commit[1])
+    return lambda key: L.muted(book.get(key), L.cause_per_clue(rows, key)[0])
+
+
+def settled_note(ranked):
+    """Lines naming each ranked cause the room settled as no-lever (annotate_ledger --no-lever),
+    with 'investigated N times, last <date>'; '' when none. Never a fix target (see pick)."""
+    try:
+        import annotate_ledger as L
+        book = L.read_no_lever()
+        is_muted = ledger_muted()
+        out = [f"  {f['title']}: {L.investigated(book[f['key']])}" for f in ranked
+               if f["key"] in book and is_muted(f["key"])]
+    except Exception:    # a note must never break the audit
+        return ""
+    return "\n\nsettled, no code lever (not a fix target):\n" + "\n".join(out) if out else ""
 
 
 def pick(ranked, trends, state, now, muted=lambda key: False):
@@ -976,6 +990,7 @@ def _main(argv=None):
     if gone:
         text += "\n\nnot ranked, the validator has since reworded or dropped the message:\n" + "\n".join(
             f"  {n[len(SUPERSEDED):]} — {k} of {cur['n']} sessions" for n, k in gone.most_common())
+    text += settled_note(ranked)
     print(text)
     if not args.wake:
         return 0

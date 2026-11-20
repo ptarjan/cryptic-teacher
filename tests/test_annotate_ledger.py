@@ -72,18 +72,62 @@ check(L.should_wake(mild, None, quiet, now)[0], None, "7.5% over best: quiet")
 left(10000)
 check(L.should_wake(flat, None, quiet, now)[0] is not None, True, "big payback, flat $/clue: wake")
 # no-lever: the room investigated the cause and found nothing to fix.
-nl = {"rule:a": {"per_clue": 0.01, "commit_time": None}}
+today = now.date().isoformat()
+nl = {"rule:a": {"per_clue": 0.01, "date": today, "count": 3}}
 check(L.should_wake(flat, None, quiet, now, nl)[0], None, "no-lever cause, same $/clue: quiet")
-nl_c = {"rule:a": {"per_clue": 0.01, "commit_time": fix}}
-check(L.should_wake(worse, fix, quiet, now, nl_c)[0], None, "no-lever cause, same last commit: quiet")
-check(L.should_wake(worse, fix, quiet, now, nl)[0] is not None, True,
-      "no-lever recorded before a NEW annotate-code commit: wakes again")
-check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.0066, "commit_time": None}})[0] is not None,
+check("investigated 3 times, last " + today in L.should_wake(flat, None, quiet, now, nl)[1], True,
+      "a muted cause is mentioned as investigated N times, last <date>")
+check(L.should_wake(worse, fix, quiet, now, nl)[0], None,
+      "no-lever holds across a new annotate-code commit (11-19: no lapse on commits)")
+check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.0066, "date": today}})[0] is not None,
       True, "no-lever cause whose $/clue rose past 1.5x the recorded: wakes again")
-check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.0070, "commit_time": None}})[0], None,
+check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.0070, "date": today}})[0], None,
       "no-lever cause under 1.5x the recorded $/clue: quiet")
-check(L.should_wake(flat, None, quiet, now, {"rule:b": {"per_clue": 0.01, "commit_time": None}})[0] is not None,
+check(L.should_wake(flat, None, quiet, now, {"rule:b": {"per_clue": 0.01, "date": today}})[0] is not None,
       True, "no-lever on a different cause does not mute this one")
+rec = {"per_clue": 0.01, "date": "2026-11-01"}
+d14, d15 = datetime.datetime(2026, 11, 15, 12, tzinfo=datetime.timezone.utc), datetime.datetime(2026, 11, 16, 12, tzinfo=datetime.timezone.utc)
+check((L.muted(rec, 0.01, d14), L.muted(rec, 0.01, d15)), (True, False), "muted for 14 days, then lapses")
+check(L.muted(rec, 0.0149, d14), True, "under 1.5x: muted")
+check(L.muted(rec, 0.015, d14), False, "at 1.5x: lifted")
+check(L.muted(None, 0.01, d14), False, "no record: not muted")
+check(L.investigated({"date": "2026-11-01"}), "investigated 1 time, last 2026-11-01", "an old record counts once")
+# each prior investigation adds $6 to the assumed fix cost: $0.01 x 1,000 x 0.5 = $5 here
+left(2400)   # saving $12: worth the $6 fix, not worth $12 (count 1) or $18
+check(L.should_wake(flat, None, quiet, now)[0] is not None, True, "no record: $12 saving beats the $6 fix")
+check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.001, "date": "2026-01-01", "count": 1}})[0],
+      None, "after one investigation the fix costs $12: $12 saving is not worth it")
+reason, facts = L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.001, "date": "2026-01-01", "count": 0}})
+check(facts["fix_cost"] if isinstance(facts, dict) else None, 6.0, "count 0: the base fix cost")
+# the horizon is the clues the burn does in 30 days: flat rows do 100 clues an hour
+check(L.burn_clues_per_day(flat), 2400.0, "burn pace from the recent rows' clues/hour")
+left(10 ** 9)
+_, facts = L.should_wake(flat, None, quiet, now)
+check(facts["left"], 2400.0 * 30, "payback horizon capped at 30 days of burn")
+left(1000)
+_, facts = L.should_wake(flat, None, quiet, now)
+check(facts["left"], 1000, "a smaller backlog still bounds it")
+# a not-worth-fixing wake drops the instruction to spawn a fixer
+cheap_facts = {"cur": 0.04, "best": 0.03, "saving": 1.0, "left": 100, "per_clue": 0.01, "fix_cost": 12.0,
+               "rate": 0.5, "investigated": "investigated 2 times, last 2026-11-01"}
+t = L.work_order("why", cheap_facts, worse, ("abc123", "x", "Annotate fix"))
+check(("Sonnet worker" in t, "not worth a fix" in t, "investigated 2 times" in t), (False, True, True),
+      "not worth fixing: no 'have one Sonnet worker fix it', and the investigation count shows")
+with tempfile.TemporaryDirectory() as d:
+    d = pathlib.Path(d)
+    saved = (L.NO_LEVER, L.OLD_NO_LEVER)
+    L.NO_LEVER, L.OLD_NO_LEVER = d / "data" / "nl.json", d / "old.json"
+    check(L.read_no_lever(), {}, "no repo file and no old cache: empty book")
+    L.OLD_NO_LEVER.write_text(json.dumps({"rule:x": {"per_clue": 0.1, "date": "2026-10-25"}}))
+    check(L.read_no_lever(), {"rule:x": {"per_clue": 0.1, "date": "2026-10-25"}}, "first run migrates the old cache file")
+    check(json.loads(L.NO_LEVER.read_text()), {"rule:x": {"per_clue": 0.1, "date": "2026-10-25"}}, "...into the repo file")
+    L.OLD_NO_LEVER.write_text("{}")
+    check(len(L.read_no_lever()), 1, "an existing repo file is never overwritten by the old cache")
+    rows5 = [row(i, 0.04) for i in range(1, 4)]
+    r1 = L.mark_no_lever("rule:a", rows5, (None, None, None), now)
+    r2 = L.mark_no_lever("rule:a", rows5, (None, None, None), now)
+    check((r1["count"], r2["count"]), (1, 2), "re-marking the same key counts the investigation")
+    L.NO_LEVER, L.OLD_NO_LEVER = saved
 left(1000)
 
 recent = {"woken": (now - datetime.timedelta(minutes=30)).isoformat(), "top": "rule:a"}
