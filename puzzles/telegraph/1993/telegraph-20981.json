@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "After a job",
     "enumeration": "4"
    },
-   "solution": "POST"
+   "solution": "POST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "After",
+      "at": 0,
+      "meaning": "the Latin-derived prefix meaning after, as in postwar"
+     },
+     {
+      "text": "job",
+      "at": 8,
+      "meaning": "a position of employment"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Post- means later as a prefix, and a post is also a paid position or appointment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "After"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,48 @@
     "text": "Surface pollution total is about a hundred",
     "enumeration": "4"
    },
-   "solution": "SCUM"
+   "solution": "SCUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surface pollution",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is about",
+       "at": 24,
+       "note": "is about means one word goes around another, so the sum wraps the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "total",
+       "at": 18,
+       "gives": "SUM",
+       "note": "a total is a sum"
+      },
+      {
+       "words": "a hundred",
+       "at": 33,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A count of a pollutant is put at roughly a hundred.",
+     "walkthrough": "'is about' puts C, the Roman hundred, inside SUM.",
+     "definitionFit": "Scum is the film of dirt or froth that floats on top of a liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +124,42 @@
     "text": "Give out just when it is time to got back",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to got back",
+       "at": 30,
+       "note": "to go back means the word time is read from its last letter to its first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 25,
+       "gives": "TIME",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives up just at the moment they should return.",
+     "walkthrough": "'to go back' turns TIME round; 'just when it is' is padding to make the surface read.",
+     "definitionFit": "To emit something is to send or discharge it outwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +173,29 @@
     "text": "Murder detective's first question to no one in particular",
     "enumeration": "7"
    },
-   "solution": "ANYBODY"
+   "solution": "ANYBODY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Murder detective's first question",
+      "at": 0,
+      "meaning": "a detective arriving at a murder scene might first ask whether there is a corpse"
+     },
+     {
+      "text": "no one in particular",
+      "at": 37,
+      "meaning": "whichever person at all, unspecified"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Split in two the word asks whether a corpse is present; whole, it means whoever, any person at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +215,29 @@
      }
     ]
    },
-   "solution": "CLOSEMATCH"
+   "solution": "CLOSEMATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Much the same colours",
+      "at": 0,
+      "meaning": "two shades nearly identical are a near likeness"
+     },
+     {
+      "text": "hard fought game",
+      "at": 38,
+      "meaning": "a contest decided by a narrow margin"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Colours that nearly correspond are a near likeness; a narrowly contested game is also a tight contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "colours"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +261,30 @@
      }
     ]
    },
-   "solution": "TOUCHMENOT"
+   "solution": "TOUCHMENOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plea by reluctant lender",
+      "at": 0,
+      "meaning": "to touch someone is to borrow money from them, so a reluctant lender begs not to be touched"
+     },
+     {
+      "text": "an explosive bloomer",
+      "at": 28,
+      "meaning": "the impatiens plant of that name has seed pods that burst open when ripe"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The flower Impatiens noli-tangere has pods that burst when brushed, and the phrase is also a plea not to be asked for a loan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +304,35 @@
      }
     ]
    },
-   "solution": "THEYREOFF"
+   "solution": "THEYREOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cry stinking fish when the starter's flag falls?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cry stinking fish when the starter's flag falls?",
+       "at": 0,
+       "note": "a remark that fish have gone bad doubles as the commentator's shout as a race begins"
+      }
+     ]
+    },
+    "spelling": "THEY'RE OFF",
+    "explanation": {
+     "definitionFit": "Racing commentators shout this phrase as the horses leave the start, and it also says that some food has spoiled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +346,50 @@
     "text": "Bitterness robs the Bible of its heart",
     "enumeration": "4"
    },
-   "solution": "BILE"
+   "solution": "BILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bitterness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "robs",
+       "at": 11,
+       "note": "robs signals that a letter is taken away from the book"
+      },
+      {
+       "text": "of its heart",
+       "at": 26,
+       "note": "its heart is the middle letter of the five-letter book name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Bible",
+       "at": 16,
+       "gives": "BIBLE",
+       "note": "taken as written, the holy book"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bitter feeling strips scripture of its core meaning.",
+     "walkthrough": "BIBLE has five letters, so its heart is the third, B; removing it leaves the answer.",
+     "definitionFit": "Bile, the digestive fluid, figuratively means bitter anger or resentment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +403,41 @@
     "text": "Hook an early heretic from an uncivilised land",
     "enumeration": "9"
    },
-   "solution": "BARBARIAN"
+   "solution": "BARBARIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from an uncivilised land",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hook",
+       "at": 0,
+       "gives": "BARB",
+       "note": "a barb is the backward-pointing hook on an arrow or fish-hook"
+      },
+      {
+       "words": "an early heretic",
+       "at": 5,
+       "gives": "ARIAN",
+       "note": "an Arian followed Arius, whose fourth-century teaching was condemned as heresy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hooked weapon is linked with an early church heretic from wild country.",
+     "walkthrough": "Arius was a 4th-century priest whose views on the Trinity the early Church condemned.",
+     "definitionFit": "To the Greeks and Romans, a barbarian was a foreigner from outside their civilised world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +451,29 @@
     "text": "Schedule provided by a pedestal sundial?",
     "enumeration": "9"
    },
-   "solution": "TIMETABLE"
+   "solution": "TIMETABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Schedule",
+      "at": 0,
+      "meaning": "a list of times for trains, classes and so on"
+     },
+     {
+      "text": "a pedestal sundial?",
+      "at": 21,
+      "meaning": "a sundial on a stand is literally a table that tells the hour"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A schedule of departures is a timetable; a sundial on a pedestal is whimsically a table showing the hour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +487,41 @@
     "text": "English City newspaper called The Salamander",
     "enumeration": "3"
    },
-   "solution": "EFT"
+   "solution": "EFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salamander",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "City newspaper",
+       "at": 8,
+       "gives": "FT",
+       "note": "the FT, Financial Times, is the newspaper of the City of London financial district"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A London financial paper gives an amphibian a name.",
+     "walkthrough": "The City is London's financial district, and the Financial Times is its paper.",
+     "definitionFit": "An eft is a newt, a small amphibian of the salamander family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +535,11 @@
     "text": "Crusty bread from a flower in South Wales",
     "enumeration": "4"
    },
-   "solution": "RUSK"
+   "solution": "RUSK",
+   "annotationWithheld": {
+    "why": "Crusty bread from a flower in South Wales: the river USK gives USK, but no clue word supplies the R, so the clue looks garbled as held",
+    "clue": "Crusty bread from a flower in South Wales"
+   }
   },
   {
    "number": 12,
@@ -220,7 +553,42 @@
     "text": "Boy turns delinquent",
     "enumeration": "3"
    },
-   "solution": "YOB"
+   "solution": "YOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "delinquent",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns",
+       "at": 4,
+       "note": "turns means the word boy is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boy",
+       "at": 0,
+       "gives": "BOY",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad goes bad.",
+     "walkthrough": "'turns' sends BOY backwards; the surface reads as a boy turning to crime.",
+     "definitionFit": "A yob is a rowdy, loutish young man, the British slang word for a hooligan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +608,41 @@
      }
     ]
    },
-   "solution": "LASTORDER"
+   "solution": "LASTORDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taken just before closing time",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "640 gallons",
+       "at": 12,
+       "gives": "LAST",
+       "note": "a last is an old unit of capacity, here 640 gallons"
+      },
+      {
+       "words": "Request",
+       "at": 0,
+       "gives": "ORDER",
+       "note": "an order is a request for goods or drinks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for an enormous quantity of drink just before a pub shuts.",
+     "walkthrough": "A last is an old British trade measure; for liquid it was 640 gallons.",
+     "definitionFit": "In a British pub the barman calls for final drink requests shortly before closing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +656,42 @@
     "text": "Landlord has a stake in mailing charge",
     "enumeration": "10"
    },
-   "solution": "LETTERPOST"
+   "solution": "LETTERPOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mailing charge",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Landlord",
+       "at": 0,
+       "gives": "LETTER",
+       "note": "a letter is one who lets property"
+      },
+      {
+       "words": "a stake",
+       "at": 13,
+       "gives": "POST",
+       "note": "a post is a stake driven into the ground"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord has invested in something.",
+     "walkthrough": "'Has a stake' looks like having a financial interest, but the stake is a wooden POST.",
+     "definitionFit": "Letter post is the postal rate for sending letters as opposed to parcels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stake"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +715,53 @@
      }
     ]
    },
-   "solution": "SHEDATEAR"
+   "solution": "SHEDATEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sobbed",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Woman",
+       "at": 0,
+       "gives": "SHE",
+       "note": "she refers to a woman"
+      },
+      {
+       "words": "had",
+       "at": 6,
+       "gives": "D"
+      },
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "words": "rip",
+       "at": 12,
+       "gives": "TEAR",
+       "note": "a tear is a rip in cloth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman tore her dress and wept.",
+     "walkthrough": "'Tear' is read as a rip, but the answer reads the same letters as a drop from the eye.",
+     "definitionFit": "To shed a tear is to weep, an idiom for crying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rip"
+    }
+   }
   },
   {
    "number": 15,
@@ -298,7 +781,29 @@
      }
     ]
    },
-   "solution": "OPENCOURT"
+   "solution": "OPENCOURT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outdoor tennis ground",
+      "at": 0,
+      "meaning": "a tennis surface in the open air"
+     },
+     {
+      "text": "where judges admit the public",
+      "at": 22,
+      "meaning": "a court session that spectators may attend"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A tennis court without a roof is open, and a hearing anyone may watch is held openly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judges"
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +817,41 @@
     "text": "The purposes of first rate writing",
     "enumeration": "4"
    },
-   "solution": "AIMS"
+   "solution": "AIMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The purposes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "first rate",
+       "at": 16,
+       "gives": "AI",
+       "note": "A1 means first-rate, with the 1 read as the letter I"
+      },
+      {
+       "words": "writing",
+       "at": 27,
+       "gives": "MS",
+       "note": "MS is the abbreviation for manuscript, a piece of writing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The goals of excellent writing.",
+     "walkthrough": "A1 (first-class) is written AI, the figure 1 standing for I.",
+     "definitionFit": "Aims are goals or intentions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -326,7 +865,29 @@
     "text": "Said to have circulated forged notes",
     "enumeration": "7"
    },
-   "solution": "UTTERED"
+   "solution": "UTTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Said",
+      "at": 0,
+      "meaning": "spoke or voiced"
+     },
+     {
+      "text": "to have circulated forged notes",
+      "at": 5,
+      "meaning": "uttering is the legal term for passing counterfeit money"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To utter is to speak, and in law to utter is to put forged money into circulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +901,58 @@
     "text": "Oil refinery in Gath supplies its mightiest son",
     "enumeration": "7"
    },
-   "solution": "GOLIATH"
+   "solution": "GOLIATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "its mightiest son",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in places the jumbled letters inside the town name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gath",
+       "at": 16,
+       "gives": "GATH",
+       "note": "taken as written, the Philistine city"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refinery",
+         "at": 4,
+         "note": "a refinery processes crude, so the letters of oil are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oil",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oil refinery in the ancient city supplies its greatest son.",
+     "walkthrough": "'refinery' makes OLI from OIL, and 'in' puts it inside GATH after the G. Goliath came from Gath in the Bible.",
+     "definitionFit": "Goliath, the giant slain by David, was a champion from Gath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -360,7 +972,29 @@
      }
     ]
    },
-   "solution": "HANDSUP"
+   "solution": "HANDSUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who knows the answer",
+      "at": 0,
+      "meaning": "a teacher asking which pupils can respond"
+     },
+     {
+      "text": "a highwayman's threat",
+      "at": 24,
+      "meaning": "a robber orders victims to raise their arms"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A teacher asks pupils to raise an arm if they can respond, and a robber orders surrender the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -374,7 +1008,40 @@
     "text": "To her is given a name fit for a heavenly queen",
     "enumeration": "4"
    },
-   "solution": "HERA"
+   "solution": "HERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heavenly queen",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "her",
+       "at": 3,
+       "gives": "HER",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is given a name worthy of a goddess.",
+     "walkthrough": "HER plus A gives the name.",
+     "definitionFit": "Hera was queen of the Greek gods on Olympus, wife of Zeus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1055,41 @@
     "text": "Cut straw 2.54 cm long for a songbird",
     "enumeration": "9"
    },
-   "solution": "CHAFFINCH"
+   "solution": "CHAFFINCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "songbird",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cut straw",
+       "at": 0,
+       "gives": "CHAFF",
+       "note": "chaff is chopped straw or husks"
+      },
+      {
+       "words": "2.54 cm",
+       "at": 10,
+       "gives": "INCH",
+       "note": "an inch is 2.54 centimetres"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Measuring chopped straw for a bird.",
+     "walkthrough": "An inch is exactly 2.54 centimetres.",
+     "definitionFit": "The chaffinch is a common European finch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -402,7 +1103,42 @@
     "text": "One with a 50/50 chance of recovery?",
     "enumeration": "3"
    },
-   "solution": "ILL"
+   "solution": "ILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One with a 50/50 chance of recovery?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "50/50",
+       "at": 11,
+       "gives": "LL",
+       "note": "L is the Roman numeral fifty, twice"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A patient whose odds of getting better are even.",
+     "walkthrough": "The whole clue is the definition: a sick person may or may not recover.",
+     "definitionFit": "Someone unwell is a person whose recovery is uncertain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1152,42 @@
     "text": "Return of the oat to the Chinese path",
     "enumeration": "3"
    },
-   "solution": "TAO"
+   "solution": "TAO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Chinese path",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Return of",
+       "at": 0,
+       "note": "Return of means the word oat is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the oat",
+       "at": 10,
+       "gives": "OAT",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grain coming back along a road in China.",
+     "walkthrough": "'Return of' reverses OAT.",
+     "definitionFit": "Tao, in Chinese philosophy, is the Way, the path of nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1201,47 @@
     "text": "Church recess called by a brief addition to a note",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Church recess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      },
+      {
+       "words": "brief addition",
+       "at": 26,
+       "gives": "PS",
+       "note": "PS, postscript, is a short addition to a letter"
+      },
+      {
+       "words": "note",
+       "at": 46,
+       "gives": "E",
+       "note": "E is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church alcove given a short postscript.",
+     "walkthrough": "'Note' plays on a letter with a PS, but E is the musical note.",
+     "definitionFit": "An apse is the vaulted semicircular recess at the east end of a church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1255,30 @@
     "text": "Emphasize importance of tube railway route",
     "enumeration": "9"
    },
-   "solution": "UNDERLINE"
+   "solution": "UNDERLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Emphasize importance of",
+      "at": 0,
+      "meaning": "to stress"
+     },
+     {
+      "text": "tube railway route",
+      "at": 24,
+      "meaning": "an underground track runs beneath the surface"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To stress something is to put a line beneath it; a line beneath the streets is a tube route."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tube"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1292,29 @@
     "text": "Teases wool into a raised rows of knitting",
     "enumeration": "4"
    },
-   "solution": "RIBS"
+   "solution": "RIBS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teases",
+      "at": 0,
+      "meaning": "makes fun of"
+     },
+     {
+      "text": "raised rows of knitting",
+      "at": 19,
+      "meaning": "a knitted pattern of ridges"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To rib someone is to tease them, and ribs are ridged lines in knitwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wool"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1328,41 @@
     "text": "Edge one's way cautiously in church",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Edge one's way cautiously",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 26,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "church",
+       "at": 29,
+       "gives": "CH",
+       "note": "CH is the standard abbreviation for church; that the letters also run on in the printed words is a coincidence, not a hidden word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Creeping carefully into a church.",
+     "walkthrough": "CH is a common short form of church.",
+     "definitionFit": "To inch forward is to move slowly by small degrees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +1376,43 @@
     "text": "They look and sound as if they agree",
     "enumeration": "4"
    },
-   "solution": "EYES"
+   "solution": "EYES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They look",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYES",
+     "indicators": [
+      {
+       "text": "sound as if",
+       "at": 14,
+       "note": "sound as if means the letters are chosen because they are said like another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "they agree",
+       "at": 26,
+       "gives": "AYES",
+       "note": "ayes are votes in favour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who look and seem to be agreeing.",
+     "walkthrough": "'Ayes' are yes votes in Parliament, pronounced like the answer.",
+     "definitionFit": "Eyes are the organs of sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -500,7 +1426,40 @@
     "text": "Former enemy of American navy vessel right to the end",
     "enumeration": "4"
    },
-   "solution": "USSR"
+   "solution": "USSR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Former enemy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American navy vessel",
+       "at": 16,
+       "gives": "USS",
+       "note": "USS, United States Ship, prefixes American navy vessel names"
+      },
+      {
+       "words": "right",
+       "at": 37,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time foe of the US Navy fought to the last.",
+     "walkthrough": "The R goes last, as 'to the end' says; USS is the prefix of US Navy ship names.",
+     "definitionFit": "The Soviet Union was America's Cold War adversary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -514,7 +1473,30 @@
     "text": "A handy adjuster for a torture instrument",
     "enumeration": "10"
    },
-   "solution": "THUMBSCREW"
+   "solution": "THUMBSCREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A handy adjuster",
+      "at": 0,
+      "meaning": "a screw turned by hand"
+     },
+     {
+      "text": "torture instrument",
+      "at": 23,
+      "meaning": "a device crushing the digits"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A screw with a winged head is turned by fingers; it is also an old device for crushing fingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "handy"
+    }
+   }
   }
  ]
 }
