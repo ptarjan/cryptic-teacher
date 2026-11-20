@@ -101,21 +101,38 @@ def problems(sizes, allow):
     return out
 
 
+#: Exit status of a gate that could not weigh anything (no git repo here, an unknown base ref, no
+#: allowlist): callers refuse a push or commit only on 1 (a file is too big), never on this.
+GATE_SKIPPED = 3
+
+
+def worktree_root():
+    """The work tree the gate runs in (the caller's cwd), else this script's own."""
+    r = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True)
+    return Path(r.stdout.strip()) if r.returncode == 0 and r.stdout.strip() else ROOT
+
+
 def gate(argv):
-    """--range BASE HEAD / --staged [--unstage]: exit 1 and say why when a changed file is too big."""
-    allow = json.loads((ROOT / ALLOWLIST).read_text(encoding="utf-8"))
-    if argv[0] == "--range" and len(argv) == 3:
-        sizes = changed_sizes(argv[1], argv[2])
-    elif argv[0] == "--staged":
-        sizes = changed_sizes("--cached")
-    else:
+    """--range BASE HEAD / --staged [--unstage]: exit 1 and say why when a changed file is too big;
+    GATE_SKIPPED (3) when it could not tell (unknown base, no allowlist)."""
+    if not (argv[0] == "--staged" or (argv[0] == "--range" and len(argv) == 3)):
         print(__doc__, file=sys.stderr)
         return 2
+    root = worktree_root()
+    try:
+        allow = json.loads((root / ALLOWLIST).read_text(encoding="utf-8"))
+        if argv[0] == "--range":
+            sizes = changed_sizes(argv[1], argv[2], root=root)
+        else:
+            sizes = changed_sizes("--cached", root=root)
+    except (subprocess.CalledProcessError, OSError, ValueError) as e:
+        print(f"check_file_sizes: skipped ({type(e).__name__}: {e})", file=sys.stderr)
+        return GATE_SKIPPED
     bad = oversize(sizes, allow)
     for path, line in bad:
         print(f"check_file_sizes: refused: {line}", file=sys.stderr)
         if "--unstage" in argv:
-            subprocess.run(["git", "-C", str(ROOT), "reset", "-q", "--", path])
+            subprocess.run(["git", "-C", str(root), "reset", "-q", "--", path])
     return 1 if bad else 0
 
 

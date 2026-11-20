@@ -40,7 +40,7 @@ ct_commit_puzzles() {  # ct_commit_puzzles <job>
   # reported on stderr (tools/drop_clues_only_twin.py).
   local -a added=() twins=()
   mapfile -t added < <(git diff --cached --name-only --diff-filter=A -- puzzles | grep '\.json$')
-  if [ "${#added[@]}" -gt 0 ]; then
+  if [ "${#added[@]}" -gt 0 ] && [ -f "$_cp_dir/drop_clues_only_twin.py" ]; then
     mapfile -t twins < <(python3 "$_cp_dir/drop_clues_only_twin.py" "${added[@]}")
   fi
   while IFS= read -r line; do

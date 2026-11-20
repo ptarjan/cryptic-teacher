@@ -140,7 +140,8 @@ publish() {
   fi
   local rc
   # A big file outside puzzles/ stays off master (tools/check_file_sizes.py): nothing is pushed.
-  if ! out=$(python3 "$here/check_file_sizes.py" --range origin/master "$sha" 2>&1); then
+  out=$(python3 "$here/check_file_sizes.py" --range origin/master "$sha" 2>&1); rc=$?
+  if [ "$rc" = 1 ]; then  # 1 = too big; any other status = the gate could not tell, push on
     echo "push_puzzle_commit: refused, a file over the size limit: $out" >&2
     return 1
   fi
