@@ -264,6 +264,13 @@ def _misread_runs(want, toks, low, junk):
     return found
 
 
+def _affixed(a, b):
+    """True when one word is the other with letters added only at the start or the end
+    ('unsteadily' for 'steadily'): a different word, not a misread one."""
+    s, l = sorted((a, b), key=len)
+    return l.startswith(s) or l.endswith(s)
+
+
 def _one_word_off(want, toks):
     """{(start, end)} of the clue's one run of as many words as the quote (two or more)
     that matches it word for word but for one word of four letters or more that is up to two
@@ -280,7 +287,8 @@ def _one_word_off(want, toks):
         # a two-word quote is mended only for a word of four letters or more, two edits off
         # only when one of the two is five letters or more ('Make clear' for 'Make dear')
         if len(diff) == 1 and max(map(len, diff[0])) >= 4 and min(map(len, diff[0])) >= (4 if n == 2 else 3) \
-                and _lev(*diff[0]) <= (2 if n > 2 or max(map(len, diff[0])) >= 5 else 1):
+                and _lev(*diff[0]) <= (2 if n > 2 or max(map(len, diff[0])) >= 5 else 1) \
+                and not (n == 2 and _lev(*diff[0]) == 2 and _affixed(*diff[0])):
             runs.add((toks[k][1], toks[k + n - 1][2]))
     return runs if len(runs) == 1 else set()
 
