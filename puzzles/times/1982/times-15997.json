@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Like Lear's spoon — or fork",
     "enumeration": "8"
    },
-   "solution": "RUNCIBLE"
+   "solution": "RUNCIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like Lear's spoon",
+      "at": 0,
+      "meaning": "Edward Lear's nonsense poem The Owl and the Pussy-cat has the pair dine with a spoon of this kind"
+     },
+     {
+      "text": "fork",
+      "at": 23,
+      "meaning": "the word has since been applied to a three-pronged pickle fork with a cutting edge"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Lear coined the nonsense adjective for a spoon, and later usage gave the name to a pronged pickle fork."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fork"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,61 @@
     "text": "Refutation of later return, without exception",
     "enumeration": "8"
    },
-   "solution": "REBUTTAL"
+   "solution": "REBUTTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refutation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 28,
+       "note": "without in its old sense of outside, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "at": 20,
+         "note": "return means the letters of the word later are turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "later",
+         "at": 14,
+         "gives": "LATER",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "exception",
+       "at": 36,
+       "gives": "BUT",
+       "note": "but means except, a word of exception"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebuttal comes back later with no exceptions allowed.",
+     "walkthrough": "'return' makes RETAL, and 'without' puts it around BUT, giving RE-BUT-TAL.",
+     "definitionFit": "A counter-argument that disproves a claim is a formal denial of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +137,42 @@
     "text": "Invalid comes on tree in Australian plain",
     "enumeration": "9"
    },
-   "solution": "NULLARBOR"
+   "solution": "NULLARBOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Australian plain",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Invalid",
+       "at": 0,
+       "gives": "NULL",
+       "note": "null as in null and void, without legal force"
+      },
+      {
+       "words": "tree",
+       "at": 17,
+       "gives": "ARBOR",
+       "note": "arbor is the Latin word for a tree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick person comes across a single tree in the outback.",
+     "walkthrough": "'Invalid' looks like a sick person but is the adjective meaning void.",
+     "definitionFit": "The Nullarbor is the vast treeless flatland in southern Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Invalid"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +186,58 @@
     "text": "Beheading of 29 distressed Soames' wife",
     "enumeration": "5"
    },
-   "solution": "IRENE"
+   "solution": "IRENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soames' wife",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "distressed",
+       "at": 16,
+       "note": "distressed means the remaining letters are upset into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Beheading of",
+         "at": 0,
+         "note": "beheading removes the first letter of the word in question"
+        }
+       ],
+       "parts": [
+        {
+         "words": "29",
+         "at": 13,
+         "gives": "DENIER",
+         "note": "29 refers to the answer at 29 across, the unit of yarn fineness"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grisly beheading upsets the wife of a man called Soames.",
+     "walkthrough": "'Beheading of' cuts ENIER from DENIER, and 'distressed' rearranges it. Soames Forsyte is the husband in Galsworthy's Forsyte Saga.",
+     "definitionFit": "In The Forsyte Saga, Soames Forsyte's unhappy first wife is the beautiful Irene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distressed"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +251,11 @@
     "text": "French mistress nominally in no end of trouble",
     "enumeration": "7"
    },
-   "solution": "LENCLOS"
+   "solution": "LENCLOS",
+   "annotationWithheld": {
+    "why": "French mistress nominally in no end of trouble (7): Ninon de Lenclos is the courtesan, but no reading of 'nominally in no end of trouble' builds the letters; scan agrees and a search found no source",
+    "clue": "French mistress nominally in no end of trouble"
+   }
   },
   {
    "number": 5,
@@ -100,7 +269,50 @@
     "text": "Ducky type of two-wheeler, nothing less?",
     "enumeration": "6"
    },
-   "solution": "SCOTER"
+   "solution": "SCOTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ducky type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "less",
+       "at": 35,
+       "note": "less tells us to take away the zero from the vehicle's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two-wheeler",
+       "at": 14,
+       "gives": "SCOOTER",
+       "note": "a scooter is a small two-wheeled motor vehicle"
+      },
+      {
+       "words": "nothing",
+       "at": 27,
+       "gives": "O",
+       "note": "nothing is zero, shaped like the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a cute moped would do without a part.",
+     "walkthrough": "'Ducky' reads as an endearment, but here it means of the duck family.",
+     "definitionFit": "A scoter is a dark sea duck, so it is a type of duck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ducky"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +326,34 @@
     "text": "For a rider it means an immediate deduction",
     "enumeration": "9"
    },
-   "solution": "COROLLARY"
+   "solution": "COROLLARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For a rider it means an immediate deduction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "For a rider it means an immediate deduction",
+       "at": 0,
+       "note": "a rider in logic is an extra proposition following directly from one proved, not a horseman"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "In geometry, a proposition following directly from a proven theorem is its rider or consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rider"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +367,29 @@
     "text": "One writer or two?",
     "enumeration": "5"
    },
-   "solution": "TWAIN"
+   "solution": "TWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One writer",
+      "at": 0,
+      "meaning": "the pen name of the American author of Huckleberry Finn"
+     },
+     {
+      "text": "two?",
+      "at": 14,
+      "meaning": "an old word for the number two"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Samuel Clemens wrote as Mark Twain, and twain is archaic for a pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +403,29 @@
     "text": "Rearrange or repair?",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rearrange",
+      "at": 0,
+      "meaning": "to sort again, put into a new order"
+     },
+     {
+      "text": "repair?",
+      "at": 13,
+      "meaning": "to repair to a place is to go there, to have recourse to it"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Sorting again is putting things in a fresh order, and to go somewhere habitually is to betake oneself there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repair"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +439,41 @@
     "text": "A cigar perhaps which a fly could make poisonous",
     "enumeration": "6"
    },
-   "solution": "AGARIC"
+   "solution": "AGARIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which a fly could make poisonous",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 8,
+       "note": "perhaps hints that the letters given could be arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A cigar",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smoker wonders whether a fly landing on a cigar could poison it.",
+     "walkthrough": "'perhaps' rearranges ACIGAR. The definition works because the fly agaric is a poisonous toadstool: add the word fly and the mushroom becomes the toxic one.",
+     "definitionFit": "Mushrooms of this genus are harmless in general, but the fly variety, red with white spots, is toxic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +487,58 @@
     "text": "Bowled by one with game leg? Rot!",
     "enumeration": "5"
    },
-   "solution": "BILGE"
+   "solution": "BILGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rot!",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bowled",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the cricket abbreviation for bowled"
+      },
+      {
+       "words": "one",
+       "at": 10,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "game",
+         "at": 19,
+         "note": "a game leg is a lame or crooked one, so the letters of leg are twisted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer with an injured leg is dismissed, and someone scoffs.",
+     "walkthrough": "'game' turns LEG into LGE.",
+     "definitionFit": "Bilge is slang for nonsense, the same exclamation as rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +552,40 @@
     "text": "Is in range perhaps of some Africans",
     "enumeration": "9"
    },
-   "solution": "NIGERIANS"
+   "solution": "NIGERIANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some Africans",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 12,
+       "note": "perhaps says the letters of the preceding words might be arranged some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is in range",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something seems to lie within reach of certain Africans.",
+     "walkthrough": "'perhaps' rearranges ISINRANGE.",
+     "definitionFit": "Citizens of a large West African country are a group of people from that continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +599,29 @@
     "text": "Itinerant drummer?",
     "enumeration": "9"
    },
-   "solution": "TRAVELLER"
+   "solution": "TRAVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Itinerant",
+      "at": 0,
+      "meaning": "someone who moves about from place to place"
+     },
+     {
+      "text": "drummer?",
+      "at": 10,
+      "meaning": "American slang for a commercial salesman on the road"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A wanderer is one who journeys about, and in the US a salesman going round drumming up trade is called by the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drummer"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +635,57 @@
     "text": "Antisocial type of individual gets left right outside",
     "enumeration": "5"
    },
-   "solution": "LONER"
+   "solution": "LONER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Antisocial type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 46,
+       "note": "outside says the pair of letters for left and right go round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "at": 35,
+         "gives": "L"
+        },
+        {
+         "words": "right",
+         "at": 40,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "individual",
+       "at": 19,
+       "gives": "ONE",
+       "note": "an individual is one single person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recluse finds himself hemmed in by politics of both sides.",
+     "walkthrough": "'outside' wraps L and R around ONE.",
+     "definitionFit": "A solitary person who avoids company is an unsociable sort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +699,59 @@
     "text": "Evergreen artist is back, having objection to America",
     "enumeration": "7"
    },
-   "solution": "ARBUTUS"
+   "solution": "ARBUTUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evergreen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "is back",
+         "at": 17,
+         "note": "is back means the letters for the artist are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "artist",
+         "at": 10,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, a crossword artist"
+        }
+       ]
+      },
+      {
+       "words": "objection",
+       "at": 33,
+       "gives": "BUT",
+       "note": "but is a word of objection, as in no buts"
+      },
+      {
+       "words": "America",
+       "at": 46,
+       "gives": "US",
+       "note": "US is short for the United States"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter returns from abroad with complaints about America.",
+     "walkthrough": "'is back' turns RA into AR.",
+     "definitionFit": "The strawberry tree is a shrub that keeps its leaves all year round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +765,41 @@
     "text": "Less exciting way for Rowe's hero",
     "enumeration": "9"
    },
-   "solution": "TAMERLANE"
+   "solution": "TAMERLANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rowe's hero",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Less exciting",
+       "at": 0,
+       "gives": "TAMER",
+       "note": "tamer means more docile and less thrilling"
+      },
+      {
+       "words": "way",
+       "at": 14,
+       "gives": "LANE",
+       "note": "a lane is a narrow road or way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duller route is chosen for the hero of a playwright called Rowe.",
+     "walkthrough": "Nicholas Rowe wrote the 1701 tragedy Tamerlane about the Mongol conqueror.",
+     "definitionFit": "The Central Asian conqueror Timur is the title character of Nicholas Rowe's play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +813,48 @@
     "text": "Charles' holding in commercial groups",
     "enumeration": "6"
    },
-   "solution": "CHAINS"
+   "solution": "CHAINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commercial groups",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 9,
+       "note": "holding means the shortened name grips the little word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charles'",
+       "at": 0,
+       "gives": "CHAS",
+       "note": "Chas is a common abbreviation of Charles"
+      },
+      {
+       "words": "in",
+       "at": 17,
+       "gives": "IN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Charles has a stake in some business groups.",
+     "walkthrough": "'Charles' holding' reads like a man's shareholding; the possessive is just the abbreviated name, which grips the little word.",
+     "definitionFit": "Linked shops or hotels under one owner form retail networks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +868,42 @@
     "text": "Impute nun with offence to Order — that's elementary",
     "enumeration": "9"
    },
-   "solution": "NEPTUNIUM"
+   "solution": "NEPTUNIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's elementary",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "offence to Order",
+       "at": 16,
+       "note": "an offence against order disturbs things, so the letters are thrown out of their arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Impute nun",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone accuses a nun of offending her religious order, and calls it obvious.",
+     "walkthrough": "'offence to Order' rearranges IMPUTENUN. The definition plays on elementary meaning a chemical element.",
+     "definitionFit": "Neptunium is chemical element 93, so it is something elemental."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +917,34 @@
     "text": "Early home for corgis?",
     "enumeration": "8"
    },
-   "solution": "CARDIGAN"
+   "solution": "CARDIGAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Early home for corgis?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Early home for corgis?",
+       "at": 0,
+       "note": "the Welsh county from which one breed of the short-legged dog takes its name"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Cardigan Welsh corgi was bred in the old Welsh county of Cardiganshire, the dog's original home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +958,11 @@
     "text": "Peter, noted right half-back, gets title for Britain, I hear",
     "enumeration": "6"
    },
-   "solution": "GRIMES"
+   "solution": "GRIMES",
+   "annotationWithheld": {
+    "why": "Peter, noted right half-back, gets title for Britain, I hear (6): Peter Grimes is the opera, but no reading of 'right half-back', 'title for Britain' and the homophone signal builds the letters; scan agrees and a search found no source",
+    "clue": "Peter, noted right half-back, gets title for Britain, I hear"
+   }
   },
   {
    "number": 20,
@@ -310,7 +976,34 @@
     "text": "It was great to have two Popes at once!",
     "enumeration": "6"
    },
-   "solution": "SCHISM"
+   "solution": "SCHISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It was great to have two Popes at once!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It was great to have two Popes at once!",
+       "at": 0,
+       "note": "great is part of the name of the medieval split when rival pontiffs reigned, not praise"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Great Western split of 1378 to 1417 saw rival popes in Rome and Avignon, a division in the Church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "great"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1017,30 @@
     "text": "In Greece it's plain there's a place for exhibitions",
     "enumeration": "7"
    },
-   "solution": "OLYMPIA"
+   "solution": "OLYMPIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In Greece it's plain",
+      "at": 0,
+      "meaning": "the ancient sanctuary of the Games lies on a plain in the western Peloponnese"
+     },
+     {
+      "text": "a place for exhibitions",
+      "at": 29,
+      "meaning": "a large exhibition hall in West London"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller notes a Greek plain that has an exhibition venue.",
+     "definitionFit": "The Greek site is a lowland sanctuary, and the London hall of the same name hosts shows and trade fairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,10 +1051,32 @@
    },
    "length": 7,
    "clue": {
-    "text": "Number opposed to, cardinal's service-book",
+    "text": "Number opposed to cardinal's service-book",
     "enumeration": "7"
    },
-   "solution": "ORDINAL"
+   "solution": "ORDINAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number opposed to cardinal",
+      "at": 0,
+      "meaning": "a number showing position, such as third, as against a counting number like three"
+     },
+     {
+      "text": "service-book",
+      "at": 29,
+      "meaning": "a book setting out the order of church services and ordinations"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Positional numbers contrast with counting numbers, and a church manual of rites carries the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1090,34 @@
     "text": "Charged for a start with being drunk?",
     "enumeration": "6"
    },
-   "solution": "PRIMED"
+   "solution": "PRIMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charged for a start with being drunk?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Charged for a start with being drunk?",
+       "at": 0,
+       "note": "reads like a court charge, but means loaded ready to fire, and slang for tipsy"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A gun loaded for firing is ready, and someone who has had a few drinks is slangily described the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Charged"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1131,33 @@
     "text": "He is said to have got the message",
     "enumeration": "5"
    },
-   "solution": "ROGER"
+   "solution": "ROGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He is said to have got the message",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He is said to have got the message",
+       "at": 0,
+       "note": "a man's name that radio operators say to confirm a signal was received"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "In radio procedure the word stands for received, so a man of that name is the one who says it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1171,41 @@
     "text": "Heights of Anglo-mania reached by Israelis in war",
     "enumeration": "5"
    },
-   "solution": "GOLAN"
+   "solution": "GOLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heights",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mania",
+       "at": 17,
+       "note": "mania suggests frenzy, so the letters of the word before it go wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anglo",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craze for things English reaches a high point among Israelis at war.",
+     "walkthrough": "'mania' rearranges ANGLO. The Golan Heights were captured by Israel in the 1967 war.",
+     "definitionFit": "The Golan is a plateau known as the Heights on the Syrian border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mania"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1219,30 @@
     "text": "Bigoted kind of reader, opposed to paperbacks?",
     "enumeration": "9"
    },
-   "solution": "HIDEBOUND"
+   "solution": "HIDEBOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bigoted",
+      "at": 0,
+      "meaning": "narrow-minded and set in one's ways"
+     },
+     {
+      "text": "kind of reader, opposed to paperbacks?",
+      "at": 8,
+      "meaning": "a whimsical reading: someone who insists on books bound in leather"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Narrow-minded people are rigid in outlook, and a book lover scorning soft covers would want leather bindings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reader"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1256,43 @@
     "text": "It's kind of Myrtle to join us,- but phoney",
     "enumeration": "5"
    },
-   "solution": "BOGUS"
+   "solution": "BOGUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "phoney",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "It's kind of Myrtle",
+       "at": 0,
+       "gives": "BOG",
+       "note": "bog myrtle is a fragrant shrub of wet heathland"
+      },
+      {
+       "words": "us",
+       "at": 28,
+       "gives": "US",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Myrtle kindly joins a group but seems insincere.",
+     "walkthrough": "'kind of Myrtle' looks like praise of a woman called Myrtle; it is the plant bog myrtle.",
+     "definitionFit": "Something fake or counterfeit is not genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1306,28 @@
     "text": "Carnation from Josephine's country house",
     "enumeration": "9"
    },
-   "solution": "MALMAISON"
+   "solution": "MALMAISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carnation",
+      "at": 0,
+      "meaning": "a variety of large-flowered pink grown in greenhouses"
+     },
+     {
+      "text": "Josephine's country house",
+      "at": 15,
+      "meaning": "the chateau near Paris where the Empress Josephine lived"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A cultivated pink is named after the empress's chateau, which itself was her rural home west of Paris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -436,7 +1341,34 @@
     "text": "Such is the concern of any active business man",
     "enumeration": "5"
    },
-   "solution": "GOING"
+   "solution": "GOING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Such is the concern of any active business man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Such is the concern of any active business man",
+       "at": 0,
+       "note": "a firm that is trading and solvent is described with a stock phrase built on the word concern"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A solvent, trading firm is a going concern, so the word describes the company any working businessman runs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "concern"
+    }
+   }
   },
   {
    "number": 29,
@@ -450,7 +1382,34 @@
     "text": "The measure of a fine yarn",
     "enumeration": "6"
    },
-   "solution": "DENIER"
+   "solution": "DENIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The measure of a fine yarn",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The measure of a fine yarn",
+       "at": 0,
+       "note": "a unit used to state how thin a silk or nylon thread is, read as if judging a good story"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "This unit gives the weight in grams of 9000 metres of thread, so it rates how fine stocking yarn is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "yarn"
+    }
+   }
   },
   {
    "number": 30,
@@ -464,7 +1423,43 @@
     "text": "It's news to the bishop, perhaps. Bully for him!",
     "enumeration": "8"
    },
-   "solution": "FLASHMAN"
+   "solution": "FLASHMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bully",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "news",
+       "at": 5,
+       "gives": "FLASH",
+       "note": "a flash is a brief urgent news report"
+      },
+      {
+       "words": "the bishop, perhaps",
+       "at": 13,
+       "gives": "MAN",
+       "note": "a bishop is one example of a chess man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hears a piece of news about a cleric and cheers.",
+     "walkthrough": "'Bully for him!' sounds like congratulation; Flashman is the bully in Tom Brown's Schooldays, a Victorian English school novel.",
+     "definitionFit": "The tormentor of younger boys at Rugby School in Hughes's novel is literature's classic schoolboy thug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bully"
+    }
+   }
   }
  ]
 }
