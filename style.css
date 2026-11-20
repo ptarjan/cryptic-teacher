@@ -147,7 +147,11 @@ button, a.ghost {
 }
 button:hover, a.ghost:hover { border-color: var(--accent); }
 .ghost { background: transparent; }
-a.ghost { text-decoration: none; display: inline-block; }
+a.ghost { text-decoration: none; display: inline-block; background: transparent; }
+/* a.ghost outranks the bare .ghost rule above, so without this the Learn link
+   kept the card fill its button siblings drop, and showed an underline. */
+a.ghost:visited { color: var(--fg); }
+a.ghost:hover, a.ghost:focus-visible { text-decoration: none; }
 .small { padding: 2px 8px; }
 .tool { font-size: .8rem; padding: 4px 10px; }
 .tool.danger:hover { border-color: var(--wrong); color: var(--wrong); }
