@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Seat in restaurant car?",
     "enumeration": "6"
    },
-   "solution": "BUFFET"
+   "solution": "BUFFET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seat",
+      "at": 0,
+      "meaning": "a ... can be a low stool or footstool to sit on"
+     },
+     {
+      "text": "restaurant car?",
+      "at": 8,
+      "meaning": "a train's catering carriage where snacks are served is called by this name"
+     }
+    ],
+    "explanation": {
+     "surface": "A diner on a train wonders where to sit.",
+     "definitionFit": "Both senses are real: a footstool-style seat and a railway carriage selling food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Seat"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,42 @@
     "text": "Town's four banks closed",
     "enumeration": "5"
    },
-   "solution": "URBAN"
+   "solution": "URBAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Town's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "closed",
+       "at": 18,
+       "note": "closed means shut in, so the letters sit enclosed inside the words four banks"
+      }
+     ],
+     "parts": [
+      {
+       "words": "four banks",
+       "at": 7,
+       "gives": "URBAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In one town all four banks have shut their doors.",
+     "walkthrough": "'closed' looks like news about banks shutting, but it says the answer is enclosed in 'four banks'. 'Town's' is possessive, matching an adjective meaning of the town.",
+     "definitionFit": "Something urban belongs to a city or town, as opposed to the countryside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "closed"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +121,60 @@
     "text": "One hopes to find lots of aquatic creatures if standing over tank?",
     "enumeration": "9"
    },
-   "solution": "FISHERMAN"
+   "solution": "FISHERMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One hopes to find lots of aquatic creatures",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 56,
+       "note": "in a down entry, being over something means sitting above it, so this piece comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "standing",
+         "at": 47,
+         "note": "in a down clue, standing upright makes the word if read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "if",
+         "at": 44,
+         "gives": "IF"
+        }
+       ]
+      },
+      {
+       "words": "tank",
+       "at": 61,
+       "gives": "SHERMAN",
+       "note": "the Sherman was an American tank of the Second World War"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler is pictured perched on top of a fish tank hoping for a big catch.",
+     "walkthrough": "In a down entry 'standing' turns a word upright, so it reads upwards, and 'over' puts that piece on top. The Sherman was the main US tank of World War II.",
+     "definitionFit": "An angler casts a line hoping for a large catch of fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tank"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +188,50 @@
     "text": "Small room available for hire: I'll take up residence",
     "enumeration": "6"
    },
-   "solution": "TOILET"
+   "solution": "TOILET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small room",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "take up residence",
+       "at": 36,
+       "note": "to take up residence is to move in, so the letter goes inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "available for hire",
+       "at": 11,
+       "gives": "TOLET",
+       "note": "a property on offer to rent is 'to let'"
+      },
+      {
+       "words": "I'll",
+       "at": 31,
+       "gives": "I",
+       "note": "the speaker I, the subject who will move in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord advertises a tiny room to rent, and someone says they'll move in.",
+     "walkthrough": "'I'll' stands for the speaker who will move in; 'take up residence' signals going inside. 'To let' is the British sign for a property available to rent.",
+     "definitionFit": "A lavatory is a small room, and 'smallest room' is a common euphemism for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +245,60 @@
     "text": "Ship's officer included in separate travel document",
     "enumeration": "8"
    },
-   "solution": "PASSPORT"
+   "solution": "PASSPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "travel document",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included in",
+       "at": 15,
+       "note": "the letters are included in, that is placed inside, the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "separate",
+       "at": 27,
+       "gives": "PART",
+       "note": "to separate two things is to part them"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ship's",
+         "at": 0,
+         "gives": "SS",
+         "note": "SS stands for steamship, the prefix of a ship's name"
+        },
+        {
+         "words": "officer",
+         "at": 7,
+         "gives": "PO",
+         "note": "PO is short for Petty Officer, a naval rank"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's officer's papers are kept apart in a travel wallet.",
+     "walkthrough": "'Ship's' is the prefix SS (steamship), not a possessive; 'included in' sends the ship's officer inside the word for separate.",
+     "definitionFit": "A passport is the official paper a traveller shows at borders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "separate"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +326,42 @@
      }
     ]
    },
-   "solution": "PAINTTHETOWNRED"
+   "solution": "PAINTTHETOWNRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Celebrate wildly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ordering",
+       "at": 18,
+       "note": "ordering means putting into a new order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pinot when ratted",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk reveller keeps ordering Pinot noir long after being plastered.",
+     "walkthrough": "'ordering' looks like asking for wine at the bar but rearranges PINOT WHEN RATTED. 'Ratted' is British slang for very drunk.",
+     "definitionFit": "The idiom means to go out and party exuberantly through a town's bars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ordering"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +375,28 @@
     "text": "Bloody optimistic",
     "enumeration": "8"
    },
-   "solution": "SANGUINE"
+   "solution": "SANGUINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bloody",
+      "at": 0,
+      "meaning": "an old sense meaning of blood, or blood-red"
+     },
+     {
+      "text": "optimistic",
+      "at": 7,
+      "meaning": "hopeful and cheerful about the future"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word comes from Latin for blood, giving both a blood-related sense and the humour-based sense of cheerful confidence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +416,49 @@
      }
     ]
    },
-   "solution": "PINUP"
+   "solution": "PINUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "at": 18,
+       "note": "keeps means holds within, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "young man",
+       "at": 8,
+       "gives": "PUP",
+       "note": "a pup is an old word for a cheeky or conceited young man"
+      },
+      {
+       "words": "at home",
+       "at": 24,
+       "gives": "IN",
+       "note": "being at home is being in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young man has a poster on his bedroom wall at home.",
+     "walkthrough": "'young man' is the dated sense of pup, a cocky youth; 'keeps' signals that he holds the 'at home' word inside him.",
+     "definitionFit": "A pin-up is a picture of an attractive person stuck on a wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +472,49 @@
     "text": "Fracas as editor's introduced cut",
     "enumeration": "9"
    },
-   "solution": "REDUCTION"
+   "solution": "REDUCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introduced",
+       "at": 19,
+       "note": "introduced means brought in, so one piece is put inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fracas",
+       "at": 0,
+       "gives": "RUCTION",
+       "note": "a ruction is a noisy disturbance or row"
+      },
+      {
+       "words": "editor's",
+       "at": 10,
+       "gives": "ED",
+       "note": "ED is the usual abbreviation for editor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newsroom row erupts when the editor brings in cutbacks.",
+     "walkthrough": "'as' is just a link; 'introduced' signals the editor's abbreviation going inside the word for a fracas.",
+     "definitionFit": "A reduction is a cut, as in a cut in price or staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduced"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +528,52 @@
     "text": "Gorge in island discovered by an old Ethiopian",
     "enumeration": "10"
    },
-   "solution": "ABYSSINIAN"
+   "solution": "ABYSSINIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old Ethiopian",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gorge",
+       "at": 0,
+       "gives": "ABYSS",
+       "note": "an abyss is a deep chasm or gorge"
+      },
+      {
+       "words": "in",
+       "at": 6,
+       "gives": "IN"
+      },
+      {
+       "words": "island",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the abbreviation for island on maps"
+      },
+      {
+       "words": "an",
+       "at": 30,
+       "gives": "AN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Explorers find a deep ravine on an island.",
+     "walkthrough": "'discovered by' simply links the pieces. Abyssinia was the former name of Ethiopia.",
+     "definitionFit": "Abyssinia is the historical name of Ethiopia, so a native of it is an Ethiopian of former times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +587,54 @@
     "text": "Nothing new, as detective abandons leads",
     "enumeration": "4"
    },
-   "solution": "NADA"
+   "solution": "NADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nothing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leads",
+       "at": 35,
+       "note": "the leads of the words are their front letters, taken from new, as, detective and abandons"
+      }
+     ],
+     "parts": [
+      {
+       "words": "new",
+       "at": 8
+      },
+      {
+       "words": "as",
+       "at": 13
+      },
+      {
+       "words": "detective",
+       "at": 16
+      },
+      {
+       "words": "abandons",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective drops his leading lines of enquiry and is left with nothing new.",
+     "walkthrough": "'leads' looks like a detective's clues but takes the first letter of each of the four words.",
+     "definitionFit": "Spanish for nothing, used in English slang to mean zilch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leads"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +648,58 @@
     "text": "Something arousing curiosity during half term holiday",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something arousing curiosity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "during",
+       "at": 29,
+       "gives": "IN",
+       "note": "in means during, as in 'in the summer'"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 36,
+         "note": "half of term means only its front half is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "term",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "words": "holiday",
+       "at": 46,
+       "gives": "REST",
+       "note": "a holiday is a rest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A half-term break is when curiosity is stirred.",
+     "walkthrough": "'half' takes TER, the front half of 'term'.",
+     "definitionFit": "Interest is what attracts attention and curiosity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +713,55 @@
     "text": "Carefully analyse a French film in discussion",
     "enumeration": "6"
    },
-   "solution": "UNPICK"
+   "solution": "UNPICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carefully analyse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a French",
+       "at": 18,
+       "gives": "UN",
+       "note": "UN is French for a"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PICK",
+       "indicators": [
+        {
+         "text": "in discussion",
+         "at": 32,
+         "note": "in discussion means spoken, so the letters are what is heard"
+        }
+       ],
+       "parts": [
+        {
+         "words": "film",
+         "at": 27,
+         "gives": "PIC",
+         "note": "a pic is informal for a film or picture"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Critics dissect a French movie in conversation.",
+     "walkthrough": "'in discussion' says the film word is heard rather than read, so its spelling changes.",
+     "definitionFit": "To unpick an argument is to take it apart in detail, like unpicking stitches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discussion"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +775,42 @@
     "text": "Form of must",
     "enumeration": "4"
    },
-   "solution": "STUM"
+   "solution": "STUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Form of must",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Form of",
+       "at": 0,
+       "note": "a form of a word is a reshaping of its letters, signalling a rearrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "must",
+       "at": 8
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A brief note on one variety of grape juice.",
+     "walkthrough": "The whole clue does double duty: the letters of 'must' rearranged, and the thing itself, which is unfermented grape juice.",
+     "definitionFit": "Stum is grape juice before or during fermentation, a variety of the winemaker's must."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "must"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +824,69 @@
     "text": "To certain people eating hot stew is appetising",
     "enumeration": "9"
    },
-   "solution": "TOOTHSOME"
+   "solution": "TOOTHSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appetising",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 18,
+       "note": "eating means taking in, so the shuffled letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "To",
+         "at": 0,
+         "gives": "TO"
+        },
+        {
+         "words": "certain people",
+         "at": 3,
+         "gives": "SOME",
+         "note": "some means certain unnamed people"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stew",
+         "at": 29,
+         "note": "a stew is a mixture, so the letters of hot are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hot",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some diners tuck into a hot stew that looks delicious.",
+     "walkthrough": "'stew' signals jumbling 'hot', and 'eating' puts those letters inside 'To' plus the word for certain people, read as one piece.",
+     "definitionFit": "Toothsome food is tasty, pleasing to the teeth and palate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stew"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +900,60 @@
     "text": "Her Majesty gets about with help … from me?",
     "enumeration": "8"
    },
-   "solution": "HANDMAID"
+   "solution": "HANDMAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Her Majesty gets about with help … from me?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gets about",
+         "at": 12,
+         "note": "getting about something is going round it, so one piece surrounds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Her Majesty",
+         "at": 0,
+         "gives": "HM"
+        },
+        {
+         "words": "with",
+         "at": 23,
+         "gives": "AND",
+         "note": "and means with or plus"
+        }
+       ]
+      },
+      {
+       "words": "help",
+       "at": 28,
+       "gives": "AID",
+       "note": "aid means help"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "The Queen travels around with assistance, perhaps from a lady's maid.",
+     "walkthrough": "'gets about' signals the Majesty abbreviation going round 'with'. Read whole, the clue pictures the speaker as a servant helping a queen.",
+     "definitionFit": "A handmaid is a female servant attending a lady, giving personal assistance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +967,59 @@
     "text": "Model woman, queen in a short time",
     "enumeration": "9"
    },
-   "solution": "MANNEQUIN"
+   "solution": "MANNEQUIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in means placed inside, so these letters go within the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a short time",
+       "at": 22,
+       "gives": "MIN",
+       "note": "MIN is short for minute, a short time"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "woman",
+         "at": 6,
+         "gives": "ANNE",
+         "note": "Anne is a woman's name"
+        },
+        {
+         "words": "queen",
+         "at": 13,
+         "gives": "QU"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model woman becomes queen in no time at all.",
+     "walkthrough": "'in' signals the woman and queen going inside the abbreviation for minute, 'a short time'.",
+     "definitionFit": "A mannequin is a dummy or a person who models clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1039,61 @@
      }
     ]
    },
-   "solution": "MAYAPPLE"
+   "solution": "MAYAPPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fruit plant",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protects",
+       "at": 4,
+       "note": "protects means wraps round, so the other pieces sit inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Man",
+       "at": 0,
+       "gives": "MALE",
+       "note": "a man is a male"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bark",
+         "at": 13,
+         "gives": "YAP",
+         "note": "to yap is to bark shrilly"
+        },
+        {
+         "words": "soft",
+         "at": 21,
+         "gives": "P",
+         "note": "P is piano, the music abbreviation for soft"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man guards a bark that rests on soft fruit.",
+     "walkthrough": "'protects' signals the man surrounding the rest; 'on' in a down clue places bark above soft. P for soft is from music notation (piano).",
+     "definitionFit": "The mayapple is a North American woodland plant with an edible yellow fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bark"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1107,30 @@
     "text": "Thrown towards bottom in ventilation shaft",
     "enumeration": "8"
    },
-   "solution": "DOWNCAST"
+   "solution": "DOWNCAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thrown towards bottom",
+      "at": 0,
+      "meaning": "cast down, flung to the bottom"
+     },
+     {
+      "text": "ventilation shaft",
+      "at": 25,
+      "meaning": "a mine shaft carrying fresh air down into the workings"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is flung down a mine's air shaft.",
+     "definitionFit": "The phrase 'cast down' gives the first sense; in mining the word names the shaft that draws air downward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thrown"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1144,59 @@
     "text": "Number from African republic retreating after leader's deposed",
     "enumeration": "4"
    },
-   "solution": "NINE"
+   "solution": "NINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "retreating",
+       "at": 29,
+       "note": "retreating means going backwards, so the letters are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader's deposed",
+         "at": 46,
+         "note": "the leader of the word, its front letter, is removed from power"
+        }
+       ],
+       "parts": [
+        {
+         "words": "African republic",
+         "at": 12,
+         "gives": "BENIN",
+         "note": "Benin is a republic in West Africa"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An African country's forces pull back after a coup topples its leader.",
+     "walkthrough": "'leader's deposed' drops B from BENIN to give ENIN, and 'retreating' turns it round.",
+     "definitionFit": "Nine is a whole number, the one after eight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deposed"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1210,42 @@
     "text": "Engineers getting tax break",
     "enumeration": "6"
    },
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "break",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Engineers",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, the British Army's engineering corps"
+      },
+      {
+       "words": "tax",
+       "at": 18,
+       "gives": "CESS",
+       "note": "a cess is an old word for a tax or levy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers are granted a tax break.",
+     "walkthrough": "'getting' just joins the pieces.",
+     "definitionFit": "A recess is a break, as in a pause in parliament or school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tax"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1265,72 @@
      }
     ]
    },
-   "solution": "CHACHA"
+   "solution": "CHACHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 15,
+       "note": "about means surrounding, so the shortened word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 5,
+         "note": "without its end, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Talk",
+         "at": 0,
+         "gives": "CHAT",
+         "note": "to chat is to talk"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21
+        },
+        {
+         "words": "church",
+         "at": 23,
+         "gives": "CH"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talks on and on about a church dance.",
+     "walkthrough": "'endlessly' docks the last letter from the word for talk, and 'about' has what is left wrap round 'a' and the church abbreviation.",
+     "definitionFit": "The cha-cha is a Latin American ballroom dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1344,41 @@
     "text": "Conservative confronts talented Liberal politician",
     "enumeration": "5"
    },
-   "solution": "CABLE"
+   "solution": "CABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Liberal politician",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "words": "talented",
+       "at": 23,
+       "gives": "ABLE",
+       "note": "able means talented or skilled"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory faces a gifted Liberal across the chamber.",
+     "walkthrough": "'confronts' places C before ABLE. Vince Cable was a leader of the UK Liberal Democrats.",
+     "definitionFit": "Vince Cable is a Liberal Democrat politician and former party leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1392,59 @@
     "text": "Keen to relax during day, at these times?",
     "enumeration": "8"
    },
-   "solution": "WEEKENDS"
+   "solution": "WEEKENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "at these times?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 14,
+       "note": "during means within, so the jumbled letters sit inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "day",
+       "at": 21,
+       "gives": "WEDS",
+       "note": "Weds is a common abbreviation for Wednesday"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to relax",
+         "at": 5,
+         "note": "to relax something is to loosen it, so the letters of keen are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Keen",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People keen to unwind ask on which days they can do it.",
+     "walkthrough": "'to relax' signals loosening, so rearranging, 'Keen'; 'during' puts those letters inside a short form of Wednesday.",
+     "definitionFit": "Saturdays and Sundays are when people rest, so 'weekends' answers when keen folk unwind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relax"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1458,49 @@
     "text": "Live and work in valley",
     "enumeration": "5"
    },
-   "solution": "DWELL"
+   "solution": "DWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in means placed inside, so this letter goes within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "valley",
+       "at": 17,
+       "gives": "DELL",
+       "note": "a dell is a small wooded valley"
+      },
+      {
+       "words": "work",
+       "at": 9,
+       "gives": "W",
+       "note": "W is the physics symbol for work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lives and works in a valley.",
+     "walkthrough": "'in' puts W inside DELL.",
+     "definitionFit": "To dwell somewhere is to live there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1514,31 @@
     "text": "Turkey making attack",
     "enumeration": "4"
    },
-   "solution": "BOMB"
+   "solution": "BOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turkey",
+      "at": 0,
+      "meaning": "a flop or failure, especially a show that fails"
+     },
+     {
+      "text": "attack",
+      "at": 14,
+      "meaning": "to attack from the air"
+     }
+    ],
+    "explanation": {
+     "surface": "A Turkish military assault is under way.",
+     "definitionFit": "A play that bombs is a turkey, a total failure; and to bomb is to attack with explosives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1552,42 @@
     "text": "Due respect given? Wrong, if one's this",
     "enumeration": "10"
    },
-   "solution": "PERSECUTED"
+   "solution": "PERSECUTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Due respect given? Wrong, if one's this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Wrong",
+       "at": 19,
+       "note": "wrong means not as it should be, so the letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Due respect",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone who is shown respect is not, the clue suggests, being hounded.",
+     "walkthrough": "'Wrong' rearranges DUE RESPECT. Read whole, someone hounded is not being given due respect.",
+     "definitionFit": "Someone harassed or oppressed is treated without proper respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1601,53 @@
     "text": "Preacher always right at beginning and end",
     "enumeration": "8"
    },
-   "solution": "REVEREND"
+   "solution": "REVEREND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Preacher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at beginning",
+       "at": 22,
+       "note": "at the beginning means this letter comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right",
+       "at": 16,
+       "gives": "R"
+      },
+      {
+       "words": "always",
+       "at": 9,
+       "gives": "EVER",
+       "note": "ever means always, as in 'ever hopeful'"
+      },
+      {
+       "words": "end",
+       "at": 39,
+       "gives": "END"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher who is always right from first to last.",
+     "walkthrough": "'at beginning' puts R before EVER, and 'end' gives its own letters last.",
+     "definitionFit": "A reverend is a member of the clergy, who preaches sermons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1661,53 @@
     "text": "Old winding English railway tracks",
     "enumeration": "6"
    },
-   "solution": "SENILE"
+   "solution": "SENILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "winding",
+         "at": 4,
+         "note": "winding back means turning round, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "railway tracks",
+         "at": 20,
+         "gives": "LINES",
+         "note": "railway lines are tracks"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 12,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old English railway winds along its tracks.",
+     "walkthrough": "'winding' signals winding back, so the tracks word reads backwards; English's abbreviation follows it.",
+     "definitionFit": "Senile describes the mental decline that can come with great age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "winding"
+    }
+   }
   }
  ]
 }
