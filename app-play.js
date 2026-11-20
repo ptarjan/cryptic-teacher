@@ -814,20 +814,14 @@
       if (isEntrySolved(e) && solvedWith[entryId(e)] === undefined) {
         solvedWith[entryId(e)] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
         // You were being quizzed on a rung of this clue and then you solved it
-        // from the grid. Leaving the question up asks you to go on hunting for
-        // the definition in a clue you have already beaten — the same reason
-        // the rung buttons stop quizzing once a clue is solved. So hand the
-        // rung over instead of dropping the guess on the floor: you were owed
-        // an explanation and the score is settled anyway, so it is free.
-        // Marked WORKED OUT, not merely handed over. The score is already
-        // settled above and the rung is free either way, but the panel says
-        // which rungs were earned and which were bought, and a handed-over rung
-        // would look bought. Solving the clue is a better answer to
-        // "which words define it" than pointing at the words, so it is scored
-        // as one.
+        // from the grid. The question comes down: it asks you to go on hunting
+        // for the definition in a clue you have already beaten.
         if (guessing && guessing.key === entryKey(e)) {
-          if (earnedRungs(e).indexOf(guessing.rung) < 0) earnedRungs(e).push(guessing.rung);
-          showHint(e, guessing.rung);
+          // Dropped, not handed over (Paul 11-20: "If I didn't use any clues
+          // they shouldn't be automatically given to me when I solve"). The
+          // question is often the free one asked on arrival, so showing its
+          // rung gave a solver who never asked for help the explanation anyway.
+          // Every rung stays one free tap away on a solved clue.
           guessing = null;
         }
         beacon("entry");
