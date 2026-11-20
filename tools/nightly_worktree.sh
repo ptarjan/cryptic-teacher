@@ -493,7 +493,9 @@ push_or_raced() {
   # Never push a big file outside puzzles/ that is not allowlisted (tools/check_file_sizes.py).
   out=$(python3 tools/check_file_sizes.py --range origin/master HEAD 2>&1) && rc=0 || rc=$?
   [ "$rc" -eq 1 ] && { printf '%s\npush refused: file over the size limit\n' "$out" >&2; return 1; }
-  bash tools/same_history.sh >&2 || return 1
+  # Inline, not tools/same_history.sh: tests source this file from trees without it.
+  git merge-base HEAD origin/master >/dev/null 2>&1 \
+    || { echo "HEAD shares no history with origin/master — this tree predates the history squash; hard-reset it to origin/master and redo the work" >&2; return 1; }
   out=$(git push --porcelain -q origin HEAD:master 2>&1)
   rc=$?
   [ "$rc" -eq 0 ] && return 0
