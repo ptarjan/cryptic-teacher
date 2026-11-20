@@ -27,6 +27,7 @@ on:
       - "tools/annotation_backlog.json"
       - "tools/data/blog_compare.json"
       - "tools/data/blog_facts/inputs.sha256"
+      - "tools/data/corroboration_ledger.json"
 
 permissions:
   contents: read
@@ -93,7 +94,7 @@ jobs:
             case "$f" in
               puzzles/*.json|puzzles/*.blog|tools/data/source_clue_wrong.json|tools/data/source_answer_wrong.json) ;;
               tools/data/setter_error.json|tools/data/blog_disagree.json|tools/data/shape_reannotate.json) ;;
-              tools/annotation_backlog.json|tools/data/blog_compare.json|tools/data/blog_facts/inputs.sha256) ;;
+              tools/annotation_backlog.json|tools/data/blog_compare.json|tools/data/blog_facts/inputs.sha256|tools/data/corroboration_ledger.json) ;;
               *) only=false ;;
             esac
           done < <(git diff --name-only "$BEFORE" HEAD)

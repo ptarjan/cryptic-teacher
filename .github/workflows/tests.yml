@@ -6,6 +6,10 @@
 # verdict is `full` (a deleted puzzle, too many files). Every run here is a full
 # run: there is no scope job and no fast path.
 #
+# The ledger the OCR pass commits every few minutes (tools/data/corroboration_ledger.json)
+# is in the same ignore list: no test reads it, and each such push used to replace the
+# pending run of a code commit (a superseded pending run shows cancelled).
+#
 # The workflow has one concurrency group per ref with cancel-in-progress false,
 # so a burst of code pushes is one running suite and one pending, and a newer
 # pending run replaces an older one (it shows cancelled; the newer run tests the
@@ -68,6 +72,7 @@ on:
       - "tools/annotation_backlog.json"
       - "tools/data/blog_compare.json"
       - "tools/data/blog_facts/inputs.sha256"
+      - "tools/data/corroboration_ledger.json"
   pull_request:
   # The backstop for the skips above: a superseded code commit, or a puzzle push
   # whose dispatch from check.yml failed, still gets the tip tested within a few

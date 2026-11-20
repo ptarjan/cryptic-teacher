@@ -46,8 +46,11 @@ BACKLOG = validate_scope.BACKLOG
 #: Derived files the daily jobs rewrite: blog_compare.py's report (only
 #: build_readme.py's prose names it) and blog_facts.py's input hashes (read only by
 #: blog_facts.py, blog_store.py and prereset_backfill.sh). No test or validator
-#: reads either, so a change to one must not send the push down the full path.
-DERIVED_DATA = {"tools/data/blog_compare.json", "tools/data/blog_facts/inputs.sha256"}
+#: reads either, nor the OCR corroboration ledger (tools/corroborate.py writes it
+#: every few minutes in the OCR pass: 71 commits in 12 hours),
+#: so a change to one must not send the push down the full path.
+DERIVED_DATA = {"tools/data/blog_compare.json", "tools/data/blog_facts/inputs.sha256",
+                "tools/data/corroboration_ledger.json"}
 MAX_FILES = 1500
 #: Paths the site build never reads: the test suite, the docs, the workflows
 #: other than pages.yml (not .github/actions/, which pages.yml runs), and the
