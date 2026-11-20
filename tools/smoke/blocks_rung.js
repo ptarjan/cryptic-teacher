@@ -169,9 +169,10 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
 
   // And the other way out: you stop hunting for the definition because you have
   // just written the answer into the grid. Leaving the question up would be the
-  // site quizzing you on a clue you had already beaten, so the rung is handed
-  // over — free, the score being settled. Quietly: one clue
-  // coming out gets no announcement, only the finished grid does.
+  // site quizzing you on a clue you had already beaten, so it comes down. The
+  // rung is NOT handed over (Paul 11-20: a solver who used no clues is not given
+  // one on solving); it stays openable by choice. Quietly: one clue coming out
+  // gets no announcement, only the finished grid does.
   openIt();
   defBtn().onclick();
   assert(panelHTML().includes("guess-clue ask"), "asked a third time");
@@ -182,8 +183,8 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   html = registry["hint-body"].innerHTML;
   assert(!isAsking(registry["hint-body"]),
     "solving the clue takes the question away: " + html);
-  assert(html.includes("hint-step"),
-    "and hands over the rung it was asking about rather than dropping it: " + html);
+  assert(!html.includes("hint-step"),
+    "and does not hand over the rung it was asking about: " + html);
   assert(html.indexOf("class=\"paper\"") < 0,
     "and throws no paper at a single clue: " + html);
 }

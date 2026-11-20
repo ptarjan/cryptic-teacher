@@ -378,12 +378,10 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   }
 }
 
-// --- solving a clue while a rung is quizzing you earns that rung ---
-// The score was already settled the moment the clue went in, so the rung costs
-// nothing either way — but the panel says which rungs were EARNED and which
-// were bought, and a rung handed over at that moment must not arrive looking
-// bought. Solving the clue is a better answer to "which words give which letters"
-// than pointing at the words, so it is scored as one.
+// --- solving a clue while a rung is quizzing you closes the question ---
+// It does not hand that rung over: a solver who opened no clues is not given
+// one on solving (Paul 11-20). The rung stays openable by choice, and only the
+// rungs actually bought are charged.
 {
   const d = require("../fake_dom.js").boot({ query: "?p=quiptic-1396" });
   const reg = d.registry;
@@ -406,8 +404,10 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   assert(!body().includes("worked out · free"), "and it is unanswered until something answers it");
 
   "EVALUATED".split("").forEach((c) => kd(key(c)));
-  assert(body().includes("worked out · free"),
-    "solving the clue answers the question it was asking: " + body().slice(0, 600));
+  // Solving closes the question; it does not answer it for the solver (Paul
+  // 11-20: no clue is handed over on solving unless they opened it).
+  assert(!body().includes("worked out · free"),
+    "solving the clue does not hand over the answer to the question it was asking: " + body().slice(0, 600));
   assert(/Solved <strong>1\/30<\/strong>/.test(reg["scorebar"].innerHTML),
     "the clue is solved: " + reg["scorebar"].innerHTML);
   assert(/<strong>2<\/strong> hints used/.test(reg["scorebar"].innerHTML),
