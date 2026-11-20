@@ -12,7 +12,7 @@
 #     attempts.jsonl, filings.jsonl (and categories.json, bigdave44's posts_read.jsonl, and
 #     the Times listing captures, times-listing/). About 50 MB packed; one actions/cache
 #     entry per paper (blogchain-<paper>-*), seeded once from the draft release asset
-#     <paper>-chain-seed.tgz of cache-seed-chain-<paper> (made from the media copy);
+#     <paper>-chain-seed.tgz of ci-cache-seeds (made from the media copy);
 #   * the Telegraph's calendar, restored from telegraph-bucket.yml's telegraph-source cache;
 #   * puzzles/ and tools/data/, which are the checkout.
 # Filed puzzles are committed one per puzzle (tools/commit_puzzles.sh) and pushed as
@@ -99,7 +99,7 @@ jobs:
         shell: bash
         run: |
           id=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq \
-            "[.[] | select(.tag_name==\"cache-seed-chain-$PAPER\")][0].assets[] | select(.name==\"$PAPER-chain-seed.tgz\") | .id")
+            "[.[] | select(.tag_name==\"ci-cache-seeds\")][0].assets[] | select(.name==\"$PAPER-chain-seed.tgz\") | .id")
           [ -n "$id" ] || { echo "::error::no chain seed asset for $PAPER"; exit 1; }
           gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$id" > /tmp/seed.tgz
           tar -xzf /tmp/seed.tgz -C "$CT_DOWNLOADS"

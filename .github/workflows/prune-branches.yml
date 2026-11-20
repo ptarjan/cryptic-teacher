@@ -1,0 +1,65 @@
+# Delete remote branches that master already holds.
+#
+# Workers push one branch per piece of work and rarely delete it; by 2026-11
+# the repo had ~60 branches, 22 of them with nothing master lacked. A branch
+# goes when `git cherry origin/master origin/<b>` prints no '+' line (every
+# commit is patch-equivalent to one on master, so squashes and rebases count)
+# and its tip commit is over a day old (a fresh branch with no commit of its
+# own yet is not swept under its worker). master is never touched.
+# Each branch logs one line: KEEP/DELETE/WOULD-DELETE and why. Run by hand with
+# dry_run=true to see the plan without deleting.
+name: Prune merged branches
+
+on:
+  schedule:
+    - cron: "43 10 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Log what would be deleted, delete nothing"
+        type: boolean
+        default: false
+
+concurrency:
+  group: prune-branches
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # History only (no blobs, no files): git cherry fetches the blobs it
+      # needs to compute patch ids on demand.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: .github
+      - name: Prune
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -u
+          cutoff=$(date -d '1 day ago' +%s)
+          git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin | while read -r b; do
+            case "$b" in HEAD|master) continue;; esac
+            ref="refs/remotes/origin/$b"
+            tip=$(git log -1 --format=%ct "$ref")
+            plus=$(git cherry origin/master "$ref" | grep -c '^+' || true)
+            if [ "$plus" != 0 ]; then
+              echo "KEEP $b: $plus commit(s) not in master"
+            elif [ "$tip" -ge "$cutoff" ]; then
+              echo "KEEP $b: all in master but tip is under 1 day old"
+            elif [ "${DRY_RUN:-false}" = true ]; then
+              echo "WOULD-DELETE $b: all in master, tip $(git log -1 --format=%cI "$ref")"
+            elif gh api -X DELETE "repos/${GITHUB_REPOSITORY}/git/refs/heads/$b" > /dev/null; then
+              echo "DELETE $b: all in master, tip $(git log -1 --format=%cI "$ref")"
+            else
+              echo "::warning::could not delete $b"
+            fi
+          done

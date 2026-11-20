@@ -65,6 +65,7 @@ SITE_INERT_DIRS = ("tests/", "docs/")
 SITE_INERT_FILES = {
     ".github/workflows/check.yml", ".github/workflows/codeql.yml",
     ".github/workflows/fetch-puzzles.yml", ".github/workflows/nightly-smoke.yml",
+    ".github/workflows/prune-branches.yml",
     ".github/workflows/tests.yml", "tools/data/deploy_budgets.json",
 }
 

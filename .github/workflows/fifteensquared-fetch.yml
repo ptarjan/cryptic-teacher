@@ -10,7 +10,7 @@
 # for comments, stays manual; the derived azed/ ft/ independent/ folders are the local
 # filers' and never come here):
 #   * restored from actions/cache; when that is empty (first run, or evicted) it is seeded
-#     from the draft release asset cache-seed-fifteensquared (made once from the media
+#     from the draft release asset fifteensquared-seed.tgz of ci-cache-seeds (made once from the media
 #     copy; a draft is not public, and raw cache contents never go in the repo);
 #   * saved again when the run fetched anything (older saves are deleted);
 #   * each run's NEW files go up as the artifact cache-fifteensquared-<run id>, kept 90
@@ -59,7 +59,7 @@ jobs:
         shell: bash
         run: |
           id=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq \
-            '[.[] | select(.tag_name=="cache-seed-fifteensquared")][0].assets[] | select(.name=="fifteensquared-seed.tgz") | .id')
+            '[.[] | select(.tag_name=="ci-cache-seeds")][0].assets[] | select(.name=="fifteensquared-seed.tgz") | .id')
           [ -n "$id" ] || { echo "::warning::no seed asset; starting from an empty cache"; exit 0; }
           mkdir -p "$CACHE_DIR"
           gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$id" > /tmp/seed.tgz

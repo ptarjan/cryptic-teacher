@@ -6,7 +6,7 @@
 # this job and its only writer now (cross_validate.py telegraph --fetch and
 # extend_archive.py stay manual):
 #   * restored from actions/cache; when that is empty (first run, or evicted) it is seeded
-#     from the draft release asset cache-seed-telegraph-source, made once from the media
+#     from the draft release asset telegraph-source-seed.tgz of ci-cache-seeds, made once from the media
 #     copy (a draft is not public; raw cache contents never go in the repo);
 #   * saved again when the run fetched anything;
 #   * each run's NEW files go up as the artifact cache-telegraph-source-<run id>, kept 90
@@ -58,7 +58,7 @@ jobs:
         shell: bash
         run: |
           id=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq \
-            '[.[] | select(.tag_name=="cache-seed-telegraph-source")][0].assets[] | select(.name=="telegraph-source-seed.tgz") | .id')
+            '[.[] | select(.tag_name=="ci-cache-seeds")][0].assets[] | select(.name=="telegraph-source-seed.tgz") | .id')
           [ -n "$id" ] || { echo "::warning::no seed asset; starting from an empty cache"; exit 0; }
           mkdir -p "$CACHE_DIR"
           gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$id" > /tmp/seed.tgz

@@ -10,7 +10,7 @@
 # never the parsed/filed derivatives, which are the local parsers') has this job as its
 # only fetcher now, and works as in fifteensquared-fetch.yml:
 #   * restored from actions/cache; when empty it is seeded from the draft release asset
-#     <blog>-seed.tgz of cache-seed-<blog> (made once from the media copy);
+#     <blog>-seed.tgz of ci-cache-seeds (made once from the media copy);
 #   * saved again when the run fetched anything (older saves are deleted);
 #   * each run's NEW (or changed) files go up as the artifact cache-<blog>-<run id>, kept
 #     90 days, which tools/cache_sync.py (the cache-sync unit) lands on the media disk.
@@ -63,7 +63,7 @@ jobs:
         shell: bash
         run: |
           id=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq \
-            "[.[] | select(.tag_name==\"cache-seed-$BLOG\")][0].assets[] | select(.name==\"$BLOG-seed.tgz\") | .id")
+            "[.[] | select(.tag_name==\"ci-cache-seeds\")][0].assets[] | select(.name==\"$BLOG-seed.tgz\") | .id")
           [ -n "$id" ] || { echo "::warning::no seed asset; starting from an empty cache"; exit 0; }
           mkdir -p "$CACHE_DIR"
           gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$id" > /tmp/seed.tgz
