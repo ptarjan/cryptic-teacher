@@ -1884,7 +1884,7 @@ def sunday_tail_due(row):
 #: blank lights to 5, 1984-10-21 4 to 3. vote_other() lays the clue from each reading in turn. Once each; the 2-reader rule
 #: (another reading prints a like clue, the vote holds every word) is unchanged.
 SUNDAY_VOTE_OTHER = "Gale Sunday Telegraph page with a clue no other reading had the word of, laid from the reading that spelt it whole since"
-REREAD_SUNDAY_VOTE_OTHER = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD_SUNDAY_VOTE_OTHER = "2026-11-20T03:33:00+00:00"  # placeholder: the push minute (UTC)
 
 
 def sunday_vote_other_due(row):
@@ -2019,7 +2019,7 @@ def indy_rise(paper, d):
 
 
 INDY_RIGHT_CUT = "Independent page whose clue columns right of the grid were cut through their first line, read from higher since"
-REREAD_INDY_RIGHT_CUT = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD_INDY_RIGHT_CUT = "2026-11-20T03:33:00+00:00"  # placeholder: the push minute (UTC)
 
 
 @functools.lru_cache(maxsize=4096)
@@ -2073,7 +2073,7 @@ def indy_right_cut_due(row):
 #: nor INDY_THREE_MORE was ever due. Due: such a page, read before REREAD_INDY_THREE and the cutoff below. Pages read since
 #: INDY_THREE (70 more with a thin third column) already had the three windows, and are not due.
 INDY_THREE_FEW = "Independent page whose third clue column held four or five clue starts, its three columns read since"
-REREAD_INDY_THREE_FEW = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD_INDY_THREE_FEW = "2026-11-20T03:33:00+00:00"  # placeholder: the push minute (UTC)
 INDY_THREE_LEAST = 4
 
 
@@ -2109,7 +2109,7 @@ def indy_three_few_due(row):
 #: window right of the grid whose words join each reader's. Due: such a page (its cached strip window holding that chain
 #: over the plain window's top) not filed, read before REREAD_INDY_THIRD_TOP.
 INDY_THIRD_TOP = "Independent page whose third clue column began beside the grid, its first clues read since"
-REREAD_INDY_THIRD_TOP = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD_INDY_THIRD_TOP = "2026-11-20T03:33:00+00:00"  # placeholder: the push minute (UTC)
 INDY_THIRD_GAP, INDY_THIRD_REACH, INDY_THIRD_MIN = 60, 260, 2
 #: How far right of the grid's edge (px) a third column's lines start at most: 2004-07-21's at 57, none of an article's at 444.
 INDY_THIRD_NEAR = 150
@@ -2452,7 +2452,7 @@ def head_grid_due(row):
 #: widens the crop's left by TELE_LEFT_MORE (px at SCAN_WIDTH) when the ink touches its left edge and is narrower than tall,
 #: taking the wider ink only if it is the square the grid is. A read-time change: no scan key moves. Once each.
 TELE_LEFT = "Gale Telegraph 1985-2000 page whose grid read a column short (its first column cut off), its grid widened to the left since"
-REREAD_TELE_LEFT = "2026-11-19T23:59:00+00:00"
+REREAD_TELE_LEFT = "2026-11-20T03:33:00+00:00"
 TELE_LEFT_MORE = 200
 
 
@@ -4065,7 +4065,7 @@ def indy_under_columns(lines, grid, split, margin):
 #: window's left edge: the right-of-grid pages' pitch is 350), read before REREAD_INDY_UNDER_SPLIT. 2012-02-13 No 7903
 #: read 28 of 28 lights agreed on a dry read since (15 blank before without the VLM; live, 1-down blank).
 INDY_UNDER_SPLIT = "Independent page whose first two clue columns under the grid ran together, its columns cut at their numbers since"
-REREAD_INDY_UNDER_SPLIT = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD_INDY_UNDER_SPLIT = "2026-11-20T03:33:00+00:00"  # placeholder: the push minute (UTC)
 INDY_UNDER_PITCH_MAX, INDY_UNDER_EDGE = 300, 60
 
 
@@ -14159,7 +14159,7 @@ def sunday_merged_due(row):
 #: 0.2 grid widths (1982-07-04: grid x 279-999 y 4460-5228, title y 4202-4338, 122 px = 0.17): sunday_times_band gave no
 #: band at its depth gate and the ACROSS band's clues were left blank (14 held 1980-83 rows, 5-9 lights blank).
 SUNDAY_MERGED2 = "Gale Sunday Times 1980-84 page held with ACROSS clues no reading laid, its title close over the grid, its band read since"
-REREAD_SUNDAY_MERGED2 = "2026-11-19T23:59:00+00:00"
+REREAD_SUNDAY_MERGED2 = "2026-11-20T03:33:00+00:00"
 
 
 def sunday_merged2_due(row):
@@ -14179,7 +14179,7 @@ def sunday_merged2_due(row):
 #: were left blank (1982-05-23, 1982-06-27). With no column read past the third it probes a wider crop and puts the missing
 #: fourth midway.
 SUNDAY_BAND3 = "Gale Sunday Times 1980-84 page held with DOWN clues no reading laid, its fourth and fifth columns read since"
-REREAD_SUNDAY_BAND3 = "2026-11-19T23:59:00+00:00"
+REREAD_SUNDAY_BAND3 = "2026-11-20T03:33:00+00:00"
 
 
 def sunday_band3_due(row):
