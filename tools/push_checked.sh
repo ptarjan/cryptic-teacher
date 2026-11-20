@@ -70,6 +70,9 @@ check() {
     git show "HEAD:$f" | python3 -c 'import ast, sys; ast.parse(sys.stdin.read(), sys.argv[1])' "$f" >&2 \
       || { echo "$f does not parse" >&2; return 4; }
   done
+  # Duplicate assignments, conflict markers, unregistered reasons, new ruff findings and moved
+  # keys (tools/prepush_check.py); the key snapshot is tools/data/keys.json (--write-keys).
+  python3 "$here/prepush_check.py" >&2 || { echo "tools/prepush_check.py refused the push" >&2; return 5; }
   return 0
 }
 
