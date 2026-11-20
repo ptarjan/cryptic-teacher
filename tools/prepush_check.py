@@ -143,7 +143,9 @@ def ruff_findings(name, text):
     for line in r.stdout.splitlines():
         m = re.match(r"^.*?:\d+:\d+: (F\d+) (.*)$", line)
         if m:
-            found.append((m.group(1), m.group(2)))
+            # F811 names the earlier definition's line ("from line 6092"): an edit above it moves that
+            # number and an old finding read as new, so it is left out like the finding's own line.
+            found.append((m.group(1), re.sub(r" from line \d+", "", m.group(2))))
     return found
 
 
