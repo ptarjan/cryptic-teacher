@@ -200,6 +200,7 @@ fetch_base() {
     [ "$rc" -gt 128 ] && return 2
     return 1
   fi
+  bash "$here/same_history.sh" "${commit:-HEAD}" >&2 || return 1
   base=$(git rev-parse origin/master)
 }
 

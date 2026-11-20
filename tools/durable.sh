@@ -343,6 +343,8 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
   else
     git fetch -q origin master 2>/dev/null
   fi || echo "durable: fetch of origin/master failed or timed out; moving to the one last fetched"
+  # A tree on the pre-squash history shares no root with origin/master: never rebase it there.
+  bash "$_durable_dir/same_history.sh" >&2 || return 1
   # A process starting off this tree (tools/edition_queue.py) loads its code
   # under a shared lock on code.lock; the move takes it alone, so none loads
   # half of each version.

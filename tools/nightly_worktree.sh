@@ -493,6 +493,7 @@ push_or_raced() {
   # Never push a big file outside puzzles/ that is not allowlisted (tools/check_file_sizes.py).
   out=$(python3 tools/check_file_sizes.py --range origin/master HEAD 2>&1) && rc=0 || rc=$?
   [ "$rc" -eq 1 ] && { printf '%s\npush refused: file over the size limit\n' "$out" >&2; return 1; }
+  bash tools/same_history.sh >&2 || return 1
   out=$(git push --porcelain -q origin HEAD:master 2>&1)
   rc=$?
   [ "$rc" -eq 0 ] && return 0

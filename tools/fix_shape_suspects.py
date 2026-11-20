@@ -67,7 +67,7 @@ at a time: run it when no other job is rewriting puzzles/. Then:
                                                         # allowances of THESE puzzles only
     git add -- puzzles/ tools/annotation_backlog.json tools/data/shape_reannotate.json
     git commit -m "Repair N mechanical wordplay shape faults in M puzzles ..."
-    git fetch && git rebase origin/master && git push origin HEAD:master
+    git fetch && tools/same_history.sh && git rebase origin/master && git push origin HEAD:master
 
 Nothing is un-hinted and nothing becomes due by this sweep; the re-annotation list
 is a separate queue decision.

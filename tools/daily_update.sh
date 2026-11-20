@@ -960,6 +960,7 @@ REBUILT
       # than preventing it.
       attempt_push() {
         git fetch -q origin master &&
+          bash tools/same_history.sh &&
           { git rebase -q --autostash origin/master || rebuild_generated_conflicts; } &&
           push_or_raced
       }

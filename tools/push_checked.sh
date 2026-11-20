@@ -14,6 +14,9 @@
 # `git pull --rebase origin master`, re-runs the guard and retries the push, up to
 # PUSH_TRIES (default 3) pushes; a rebase conflict is aborted cleanly and reported.
 #
+# Exit 6 refuses a tree whose history shares no commit with origin/master (it predates
+# the history squash; tools/same_history.sh): nothing is rebased or pushed.
+#
 # The last stdout line is always exactly `PUSHED <short-sha>` (exit 0) or
 # `FAILED <reason>` (non-zero exit; the guard's own code when it refused).
 #
@@ -45,6 +48,7 @@ while [ $# -gt 0 ]; do
 done
 
 git fetch -q origin master >&2 || fail 1 "git fetch failed"
+bash "$here/same_history.sh" >&2 || fail 6 "history shares no root with origin/master (tree predates the history squash)"
 
 if [ "$have_msg" = 1 ]; then
   if git diff --cached --quiet; then
@@ -90,7 +94,9 @@ while :; do
   echo "push rejected; rebasing onto origin/master (try $n of $tries)" >&2
   # fetch + rebase FETCH_HEAD, not pull: pull --rebase fails in a detached lease tree
   # ("no candidate for rebasing").
-  if ! { git fetch -q origin master >&2 && git rebase -q FETCH_HEAD >&2; }; then
+  if ! { git fetch -q origin master >&2 \
+    && { bash "$here/same_history.sh" >&2 || fail 6 "history shares no root with origin/master (tree predates the history squash)"; } \
+    && git rebase -q FETCH_HEAD >&2; }; then
     git rebase --abort >&2 2>/dev/null
     fail 3 "rebase conflict, aborted"
   fi
