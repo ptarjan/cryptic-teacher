@@ -93,6 +93,9 @@ PACE_DAYS = 7           # the page's 7-day pace
 DEFAULT_CLUES_PER_PUZZLE = 28
 SUCCESS_RATE = 0.5    # a fix is assumed to work half the time
 FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not measured)
+MIN_CAUSE_SESSIONS = 3  # the top cause must show in this many sessions over RATE_ROWS rows
+                        # before its payback wakes the room: 11-20 one session's $0.21 was
+                        # projected over 1.1M clues into a "$127 saving" wake
 RATE_ROWS = 6         # recent rows averaged for the cause's $/h (never fewer than 3)
 # What "annotate code" means for the best-level baseline.
 CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/validate_*.py", ":(exclude)tools/validate_scope.py", "tools/puzzle_worker.sh",
@@ -305,7 +308,10 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
     pay = (f"top cause `{top_cause.get('key')}` (${per_clue:.4f}/clue after check, ${rate:.2f}/h): "
            f"est. saving ${saving:.0f} over the next ~{left:,.0f} clues vs ~${fix_cost:.0f} fix cost")
-    if saving > fix_cost:
+    seen = cause_sessions(rows, key)
+    if saving > fix_cost and seen < MIN_CAUSE_SESSIONS:
+        pay += f" - seen in only {seen} session(s), under {MIN_CAUSE_SESSIONS}: too thin to project"
+    elif saving > fix_cost:
         if muted(rec, per_clue, now):
             return None, f"{pay} - marked no-lever ({investigated(rec)}), under {NO_LEVER_RISE}x and {NO_LEVER_DAYS} days"
         return pay, facts
@@ -334,6 +340,12 @@ def cause_rate(rows, key):
                 cost += c.get("cost_after_check") or 0
                 hours += (parse(r["end"]) - parse(r["start"])).total_seconds() / 3600
     return cost / hours if hours > 0 else 0.0
+
+
+def cause_sessions(rows, key):
+    """Sessions that failed the first check on the cause, over the last RATE_ROWS rows."""
+    return sum(c.get("sessions") or 0 for r in rows[-RATE_ROWS:]
+               for c in r.get("top_causes") or [] if c.get("key") == key)
 
 
 def cause_per_clue(rows, key):
