@@ -109,7 +109,10 @@ check("`requested archive times` names the edition", ["NewsUK1990UKEnglish/1990-
 check("`requested archive ft` does not", [], requested("archive", "ft"))
 
 # The burn's queue leaves it out while the re-read is open.
-index = tmp / "index.json"
+# Its own folder: print_backlog walks the index's folder for */*/*-N.json puzzle files, and
+# tmp/data/source_clue_wrong/times-18.json (a ledger shard) matches that shape.
+(tmp / "plan").mkdir()
+index = tmp / "plan" / "index.json"
 index.write_text(json.dumps({"puzzles": [
     {"id": pid, "series": "times", "date": "1990-01-02", "annotated": False, "hasSolutions": True},
     {"id": "times-18750", "series": "times", "date": "1990-01-03", "annotated": False, "hasSolutions": True}]}))
