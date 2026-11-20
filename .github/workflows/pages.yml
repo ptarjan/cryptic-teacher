@@ -867,8 +867,8 @@ jobs:
       # redo through (a rule edit or the nightly lexicon rebuild flags puzzles
       # that were committed clean) and writes what it flagged for the requeue
       # job. Any other error fails the shard first, and then nothing is pushed.
-      - name: Check a ninth of the annotations
-        run: python3 tools/validate_annotations.py --shard ${{ matrix.shard }}/9 --drift-out "$RUNNER_TEMP/drift.${{ matrix.shard }}.json"
+      - name: Check a twelfth of the annotations
+        run: python3 tools/validate_annotations.py --shard ${{ matrix.shard }}/12 --drift-out "$RUNNER_TEMP/drift.${{ matrix.shard }}.json"
       - name: Keep what the shard flagged
         uses: actions/upload-artifact@v6
         with:
@@ -905,4 +905,4 @@ jobs:
           path: ${{ runner.temp }}/drift
           merge-multiple: true
       - name: Requeue what the rules newly flag
-        run: python3 tools/requeue_drift.py --publish "$RUNNER_TEMP"/drift/drift.?.json
+        run: python3 tools/requeue_drift.py --publish "$RUNNER_TEMP"/drift/drift.*.json
