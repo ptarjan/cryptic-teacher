@@ -848,6 +848,17 @@ st2["indicators"][0]["at"] = 11
 st2["parts"][0]["at"] = 8
 check("spanOverlap: a leaf that could give the word up as well is ambiguous, left",
       FL.r_span_overlap(st2, None, {"clue": sclue, "answer": "X", "tree": st2}) is None)
+# a compound the clue hyphenates ("tale-wrecked") is two words: the hyphen goes with the cut.
+hclue = "Involve in tale-wrecked"
+ht = W.parse("ana<tale-wrecked>([in tale])")
+ht["indicators"][0]["at"] = 11
+ht["parts"][0]["at"] = 8
+got = FL.r_span_overlap(ht, None, {"clue": hclue, "answer": "ENTAIL", "tree": ht})
+check("spanOverlap: a hyphenated indicator gives up the shared word and its hyphen",
+      bool(got) and got["indicators"][0]["text"] == "wrecked" and got["indicators"][0]["at"] == 16)
+check("spanOverlap: _edge_trim cuts at a hyphen (Youth-leader / leader; ill-treated / ill)",
+      FL._edge_trim((0, 12), (6, 12), "Youth-leader") == (0, (0, 5))
+      and FL._edge_trim((0, 11), (0, 3), "ill-treated") == (0, (4, 11)))
 lf, ind = {"words": "men on", "at": 22}, {"text": "spree", "at": 26}
 FN._replace_places(lf, ind, True, ["on", "spree"], "Try to chase car with men on spree")
 check("a leaf grown by the indicator's first word moves the indicator on",

@@ -942,6 +942,11 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
+#: what may sit between two cut pieces and be dropped with the cut: spaces, punctuation and the
+#: hyphen of a compound the clue prints as one word ("ill-treated" -> indicator "treated" beside
+#: leaf "ill"; "Youth-leader" -> leaf "Youth" beside indicator "leader").
+_JOINERS = " ,;-\u2013\u2014"
+
 _STOP = frozenset("a an and as at by for from in into is of on or the to with".split())
 
 
@@ -956,8 +961,8 @@ def _edge_trim(a, b, clue):
             return None
         s, e = (inner[1], outer[1]) if inner[0] == outer[0] else (outer[0], inner[0])
         text = clue[s:e]
-        s += len(text) - len(text.lstrip(" ,;"))
-        e -= len(text) - len(text.rstrip(" ,;"))
+        s += len(text) - len(text.lstrip(_JOINERS))
+        e -= len(text) - len(text.rstrip(_JOINERS))
         return (0 if outer is a else 1, (s, e)) if s < e and word(s, e) and word(*inner) else None
     return None
 
@@ -992,8 +997,8 @@ def _cross_trim(tree, a, b, sa, sb, clue, answer):
     for item, box in ((a, sa), (b, sb)):
         s, e = (box[0], lo) if box[0] < lo else (hi, box[1])
         text = clue[s:e]
-        s += len(text) - len(text.lstrip(" ,;"))
-        e -= len(text) - len(text.rstrip(" ,;"))
+        s += len(text) - len(text.lstrip(_JOINERS))
+        e -= len(text) - len(text.rstrip(_JOINERS))
         if word(s, e):
             tries.append((item, s, e))
     before = V.span_overlaps(W.locate(copy.deepcopy(tree), clue))
