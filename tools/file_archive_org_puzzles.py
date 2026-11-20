@@ -15601,6 +15601,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if len(blank_now) != len(blank):
             verdict["vlmLaid"] = sorted(blank.keys() - blank_now.keys())
         blank = blank_now
+    if blank and vlm_on and vlm.wanted() and not paper.four and not backsolve:
+        # SOLO_VLM: a light one reader alone holds, the VLM's reading of its lines the second reader.
+        laid, blank_now = solo_vlm_laid(img, cols, texts, laid, blank, lengths, plain_print(paper, d), verdict)
+        if len(blank_now) != len(blank):
+            verdict["soloVlm"] = sorted(blank.keys() - blank_now.keys())
+        blank = blank_now
     if vlm_on or (paper.key == "gale" and block_year(d.name) and kind != "halves"):
         verdict["_laid"] = {lid: v for lid, v in laid.items() if (v[0] or "").strip() and lid not in blank}
     laid, blank, alike = tail(laid, blank)
@@ -15879,6 +15885,147 @@ def vlm_laid_plain(texts, laid, blank, lengths):
             continue
         laid[lid] = (words, None, None)
         del blank[lid]
+    return laid, blank
+
+
+#: SOLO_VLM: a light blank as "no reading laid a clue on it" or "no other reading has W" whose numbered clue exactly
+#: one OCR reader holds is read once by the VLM from a crop of that reader's lines for the clue. The 2-reader rule
+#: stands: the VLM's transcription is the second reader and lays the clue only when the reader's own words stand
+#: against it in the vote (ocr_clues.reconcile: each word the same, or a near-miss the vote accepts). Only on a page
+#: with 1 to SOLO_VLM_BLANKS blank lights, at most SOLO_VLM_ASKS asks. A spooled or lost ask is a deferred read
+#: (vlm_reader's missed flag, which scan_queue.vlm_guard turns into no write), never a page done.
+SOLO_VLM_WHY = ("no reading laid a clue on it", "no other reading has")
+SOLO_VLM_ASKS = 6
+SOLO_VLM_BLANKS = 6
+#: Most printed lines a clue's crop takes; its page pixels' margin round them, and the narrowest crop (vlm_reader.MIN_BOX).
+SOLO_LINES = 5
+SOLO_PAD = 14
+#: How like the reader's clue the VLM's must be, and a line's opening number.
+SOLO_ALIKE = 0.85
+SOLO_NUMBER = re.compile(r"^\W{0,2}(\d{1,2})(?!\d)")
+SOLO_COUNT_END = re.compile(r"\(\s*[\dIlOoS]{1,2}(?:\s*[,.\-–;]\s*[\dIlOoS]{1,2})*\s*[)1l]?\s*[.,]?\s*$")
+
+
+def solo_why(why):
+    """Whether blank reason `why` is one SOLO_VLM reads."""
+    return any(str(why).startswith(w) for w in SOLO_VLM_WHY)
+
+
+def solo_holders(texts, order, lid, cells, plain):
+    """{reader: (clue words, count shape or None)}: each reader of `order` that holds a clue of two words or more
+    under the number of light `lid` alone (no "See", no link) whose count fills `cells` (any, on a `plain`
+    print that sets none)."""
+    n, way = lid.split("-")
+    out = {}
+    for k in order:
+        t = texts.get(k) or ""
+        parsed, _ = parse(t) if t.strip() else (None, None)
+        for c in (parsed or {}).get(way, ()):
+            if not c["tokens"] or int(n) not in c["tokens"][0]:
+                continue
+            if len(c["tokens"]) == 1 and c["see"] is None and len(ocr_clues.tokens(c["text"])) >= 2:
+                fill = sorted(ocr_clues.shape(e) for e in c.get("enums") or () if ftp.count(e) == cells)
+                if fill or (plain and not c.get("enums")):
+                    out[k] = (ocr_clues.clean(c["text"]), fill[0] if fill else None)
+            break
+    return out
+
+
+def solo_box(img, columns, number, words, plain):
+    """The page box of the lines that print clue `number` (its words `words`) in one reader's `columns`
+    (columns() output), padded and at least vlm_reader.MIN_BOX; None when the lines are not found once, or a
+    counted clue's lines show no count at their end."""
+    head = re.sub(r"[^a-z]", "", words.lower())[:10]
+    found = []
+    for col in columns:
+        for i, ln in enumerate(col):
+            m = SOLO_NUMBER.match(str(ln[4]))
+            if not m or int(m.group(1)) != number:
+                continue
+            rest = re.sub(r"[^a-z]", "", str(ln[4])[m.end():].lower())[:10]
+            if head and rest[:5] != head[:5] and similar(rest, head) < 0.6:
+                continue
+            found.append((col, i))
+    if len(found) != 1:
+        return None
+    col, i = found[0]
+    lines, j = [col[i]], i
+    while j + 1 < len(col) and len(lines) < SOLO_LINES and not SOLO_COUNT_END.search(str(col[j][4])) \
+            and not SOLO_NUMBER.match(str(col[j + 1][4])):
+        j += 1
+        lines.append(col[j])
+    if not plain and not SOLO_COUNT_END.search(str(lines[-1][4])):
+        return None
+    x0 = min(ln[2] for ln in col)
+    x1 = max(ln[3] for ln in col)
+    y0 = min(ln[0] for ln in lines)
+    y1 = max(ln[1] for ln in lines)
+    w, h = vlm.MIN_BOX
+    grow_x, grow_y = max(0, w - (x1 - x0)) / 2, max(0, h - (y1 - y0 + 2 * SOLO_PAD)) / 2
+    return (max(0, int(x0 - SOLO_PAD - grow_x)), max(0, int(y0 - SOLO_PAD - grow_y)),
+            min(img.width, int(x1 + SOLO_PAD + grow_x)), min(img.height, int(y1 + SOLO_PAD + grow_y)))
+
+
+def solo_second(lid, reply, words, enum, cells, texts, lengths, plain):
+    """The clue to lay on light `lid` when the VLM's `reply` (its transcription of the reader's lines) agrees with
+    the reader's `words`, else None: the reply's own clue under the light's number (its count the reader's, or none
+    on a `plain` print) is at least SOLO_ALIKE like the reader's, and the reader's words put to it as the one other
+    reading stand in the vote, fit to file and unrefused (the rule relaid applies)."""
+    number = lid.split("-")[0]
+    if plain:
+        entries = [(n, w) for n, w, _ in vlm_plain_entries(reply) if str(n) == number]
+        theirs = {w for _, w in entries}
+        count = None
+    else:
+        heard = [(w, c) for n, w, c in vlm_clues(reply) if str(n) == number and ftp.count(c) == cells]
+        theirs = {w for w, _ in heard}
+        count = enum
+    if len(theirs) != 1:
+        return None
+    mine = ocr_clues.trimmed(ocr_clues.clean(next(iter(theirs))), lid)
+    if similar(mine.lower(), words.lower()) < SOLO_ALIKE or ocr_clues.merged(mine):
+        return None
+    other = f"{number} {mine}" + (f" ({count})" if count else "")
+    got, why = ocr_clues.reconcile({lid: (words, enum, None)}, [other], lengths, uncounted=plain)
+    text, shape, _ = got[lid]
+    if lid in why or not text or ocr_clues.fault(text, shape, cells) or ocr_clues.suspect(text) \
+            or ocr_clues.unfit(text, shape, cells):
+        return None
+    return text, shape
+
+
+def solo_vlm_laid(img, cols, texts, laid, blank, lengths, plain, verdict):
+    """(laid, blank) with each blank light SOLO_VLM reads laid (see above). Asks nothing on a page of more than
+    SOLO_VLM_BLANKS blank lights, and sets verdict["soloVlm"] to the lights laid."""
+    if not blank or len(blank) > SOLO_VLM_BLANKS:
+        return laid, blank
+    order = [k for k in cols if k != "vlm"]
+    asks = []
+    for lid in sorted(blank):
+        if not solo_why(blank[lid]) or not lengths.get(lid) or (laid.get(lid) or ("",))[2]:
+            continue
+        held = solo_holders(texts, order, lid, lengths[lid], plain)
+        if len(held) != 1:
+            continue
+        who, (words, enum) = next(iter(held.items()))
+        box = solo_box(img, cols[who], int(lid.split("-")[0]), words, plain)
+        if box:
+            asks.append((lid, box, words, enum))
+    asks = asks[:SOLO_VLM_ASKS]
+    if not asks:
+        return laid, blank
+    try:
+        with vlm.because("solo:" + ",".join(a[0] for a in asks)):
+            replies = vlm.read_columns("solo", img, [a[1] for a in asks])
+    except RuntimeError:
+        verdict["soloVlmDeferred"] = True  # spooled or lost: vlm_reader's missed flag keeps the read from being written
+        return laid, blank
+    laid, blank = dict(laid), dict(blank)
+    for (lid, _, words, enum), reply in zip(asks, replies):
+        got = solo_second(lid, reply or "", words, enum, lengths[lid], texts, lengths, plain)
+        if got:
+            laid[lid] = (got[0], got[1], None)
+            del blank[lid]
     return laid, blank
 
 
