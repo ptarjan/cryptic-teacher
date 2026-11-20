@@ -1,0 +1,12 @@
+about    = "Daily burn review: append one row to ~/.cache/cryptic-burn-review.jsonl, wake the room only when the diff trips"
+room     = "cryptic-crosswords"
+# 05:30 America/Chicago = 04:30 in the scheduler's own zone (America/Edmonton; both zones
+# change clocks together, so the offset is always one hour), once a day. Compute only (the burn log plus the transcript audit,
+# well under a minute): no model call. It always writes the day's row (status ok, no-work or
+# error), and queues one wake (wake.sh -q) only on a new top ranked item, $/clue up more than
+# 25%, over 6h at width 1, or a status that is not ok. Reasoning is in tools/burn_review.py.
+schedule = "30 4 * * *"
+where    = "container"
+run      = "~/github/cryptic-teacher/tools/burn_review.sh"
+log      = "~/github/cryptic-teacher/.burn_review.log"
+timeout  = 900
