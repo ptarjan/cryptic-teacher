@@ -4362,6 +4362,28 @@ def lead_split(lines, grid, lead, margin=40):
     return lead + (edge,)
 
 
+#: FT_LEAD_ONE: a Gale FT page's lead window (the column left of the grid) wider than LEAD_TWO of the grid's width is
+#: split in two at the x the fewest words cross (lead_split), though the page prints one ACROSS column there when the
+#: window's left edge lies far out (lead_column's, 2006-10-14: x 1246-1799 holding the column x 1397-1799). The
+#: split then cut that column through its middle at x 1628, where 10-13 words of each reading cross: the first line
+#: of every two-line clue (a word past x 1628, or a whole line the window's right edge refused) was lost, its second
+#: line ("ment (8)") kept, and clues read "Fool pickpockets ment" (FT 2006-10-14's 28 lights, VLM-merged from the
+#: cut text). A real gutter between two lists is crossed by none: that many words crossing is no gutter, the window
+#: one column. Only the Gale FT's: lead_split is every Gale paper's.
+FT_LEAD_CROSSING = 6
+
+
+def ft_lead_split(paper, lines, grid, lead, margin=40):
+    """lead_split(), with the inner gutter of a Gale FT window dropped where FT_LEAD_CROSSING or more words
+    (`lines`, every reading's) cross it between the window's top and the grid's foot."""
+    out = lead_split(lines, grid, lead, margin)
+    if getattr(paper, "key", paper) != "galeft" or len(out) != 4:
+        return out
+    mid, gy1 = out[3], grid[3]
+    crossing = sum(1 for ws in lines for w in ws if w[0] < mid < w[2] and lead[1] <= w[1] < gy1)
+    return out[:3] if crossing >= FT_LEAD_CROSSING else out
+
+
 #: IOS_ACROSS: a Gale Independent on Sunday 2001-09 page sets its Beelzebub's lists in three columns left of the grid
 #: under the title (2006-09-03: title x 215-846, columns from 215, 520 and 820, the grid from 1134), ACROSS in the
 #: first. trimmed_lead cut the window at the first gutter, x 520, and the ACROSS column was never read (1-30 across
@@ -15240,7 +15262,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         left = column
     if lead:
         lead = ios_lead_split(every, gbox, lead, m) if paper.key == "galeindysunday" and d.name[:4] > INDY_SUNDAY_BARRED_END \
-            else lead_split(every, gbox, lead, m)
+            else ft_lead_split(paper, every, gbox, lead, m)
     if right:
         right = right_gutter(every, gbox, right)
         if paper.key == "galeft":
