@@ -95,6 +95,7 @@ import mend_trunc_leaf
 import mend_literal_edge
 import mend_lone_edge
 import mend_misplaced_indicator
+import mend_note_letters
 import provenance
 import puzzle_schema
 import shape_queue
@@ -1223,6 +1224,26 @@ def mend_trunc_leaves(path, pending):
     return changed
 
 
+def mend_note_letters_leaves(path, pending):
+    """Spell out, in each clue written in the model's shape, a lone leaf of "notes"/"keys" over an answer
+    made only of A-G as one piece per letter (singleLeaf, mend_note_letters); the entry ids changed."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = read_puzzle_file(path)["entries"]
+    except (ValueError, OSError, KeyError):
+        return []
+    by_id = {entry_id(e): e for e in entries}
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        e = by_id.get(eid) or {}
+        if isinstance(a, dict) and annotation.is_model(a) and mend_note_letters.mend(
+                a, (e.get("clue") or {}).get("text"), e.get("solution")):
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def mend_misplaced_indicators(path, pending):
     """Move, in each clue written in the model's shape, an indicator filed on a charade that signals another
     op onto that op (misplacedIndicator, mend_misplaced_indicator); the entry ids changed. Only a move that
@@ -1687,6 +1708,10 @@ def main(argv):
         if trunc:
             print(f"leaves giving a word one letter short of the word they hold, rewritten as a "
                   f"deletion in {pending.name}: {', '.join(trunc)}\n")
+        nl = mend_note_letters_leaves(path, pending)
+        if nl:
+            print(f"a lone leaf of notes/keys over an A-G answer, spelt out one note per letter "
+                  f"in {pending.name}: {', '.join(nl)}\n")
         mis = mend_misplaced_indicators(path, pending)
         if mis:
             print(f"indicators filed on a charade that signal another op, moved onto that op "
