@@ -942,7 +942,10 @@ check("one-word-off: a word two edits off in a run of three or more is mended",
 check("one-word-off: a lone capital opening the run is no debris",
       _D.damaged_run("A post-natal service for women", "A post-nasal service for women") == "A post-nasal service for women")
 check("one-word-off: two words off are not mended", _D.damaged_run("Got better soon", "Cor bever soon") is None)
-check("one-word-off: a two-word quote is not mended", _D.damaged_run("Part door", "Pan door here") is None)
+check("one-word-off: a two-word quote with a short word off is not mended", _D.damaged_run("Part door", "Pan door here") is None)
+check("one-word-off: a two-word quote one edit off in a four-letter word is mended",
+      _D.damaged_run("Make clear", "Make dear the fish must be kept") == "Make dear")
+check("one-word-off: a two-word quote three edits off is not mended", _D.damaged_run("Make clear", "Make beer the fish") is None)
 check("one-word-off: two equal runs are not mended",
       _D.damaged_run("the sort of energy", "the sort of enemy and the sort of enemy") is None)
 check("possessive 's the clue lacks is dropped from the quote", spans_of("[professional's]X", "Outlaw professional B writer")
