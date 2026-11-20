@@ -109,8 +109,10 @@ body {
   color: var(--fg);
   font: 16px/1.5 Georgia, "Times New Roman", serif;
   /* Every page is viewport-fit=cover (for the tab bar's home-indicator inset),
-     so in landscape the sides reach under the notch: keep text clear of it. */
-  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
+     so the page reaches under the status bar on top and the notch at the sides
+     in landscape: keep text clear of both, or the header sits blurred under the
+     iPhone status bar. */
+  padding: env(safe-area-inset-top, 0px) max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -1652,7 +1654,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 
 .clue-strip { display: none; }
 @media (max-width: 700px) {
-  body { padding: 0 8px 40px; }
+  body { padding: env(safe-area-inset-top, 0px) 8px 40px; }
   /* Six touch-sized buttons do not fit one phone line, and once the row wraps
      there is no slack left to push anything into: `margin-left: auto` would
      only strand the divider at the end of whichever line it landed on. Back to
@@ -1679,7 +1681,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    pointer; the sizes inside stay in the touch rules above. app.js writes --rows,
    --cols and --lay-top (how far down the page the puzzle starts). */
 @media (min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px) {
-  body { max-width: none; padding: 0 28px 48px; }
+  body { max-width: none; padding: env(safe-area-inset-top, 0px) 28px 48px; }
   #app .layout {
     --wide-cap: calc((100dvh - var(--lay-top, 150px) - 16px) / var(--rows, 15) - 1px);
     --wide-col: min(calc(var(--cols, 15) * (var(--wide-cap) + 1px) + 4px), 52%);
