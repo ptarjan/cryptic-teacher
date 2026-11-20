@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Clear the prairie",
     "enumeration": "5"
    },
-   "solution": "PLAIN"
+   "solution": "PLAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0,
+      "meaning": "... means clear or obvious, as in ... English"
+     },
+     {
+      "text": "the prairie",
+      "at": 6,
+      "meaning": "a prairie is a wide flat grassland, a type of level open land"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tidies up the grassland.",
+     "definitionFit": "Both senses are standard: obvious, and a broad flat expanse such as grassland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,32 @@
     "text": "Kind of maggot",
     "enumeration": "6"
    },
-   "solution": "GENTLE"
+   "solution": "GENTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0,
+      "meaning": "kind or mild-mannered"
+     },
+     {
+      "text": "maggot",
+      "at": 8,
+      "meaning": "an old angler's word for a fly larva used as bait"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what species a grub belongs to.",
+     "walkthrough": "'Kind of' reads as 'a variety of', but 'Kind' is one definition and 'of' a link to the second.",
+     "definitionFit": "Mild in temper is one sense; anglers also call a blowfly larva used as bait by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +115,42 @@
      }
     ]
    },
-   "solution": "ROSEBOWL"
+   "solution": "ROSEBOWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for the flower show",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Female",
+       "at": 0,
+       "gives": "ROSE",
+       "note": "Rose is a woman's name, so a female"
+      },
+      {
+       "words": "take over",
+       "at": 7,
+       "gives": "BOWL",
+       "note": "in cricket a bowler delivers, or takes, an over: to bowl"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman assumes control of arrangements at the horticultural event.",
+     "walkthrough": "'take over' looks like seizing control, but in cricket you bowl an over.",
+     "definitionFit": "A rose bowl is a vessel for displaying blooms, and often a trophy awarded at such events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +164,42 @@
     "text": "Letter from a girl I've got attached to",
     "enumeration": "7"
    },
-   "solution": "MISSIVE"
+   "solution": "MISSIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a girl",
+       "at": 12,
+       "gives": "MISS",
+       "note": "a miss is a girl or young unmarried woman"
+      },
+      {
+       "words": "I've",
+       "at": 19,
+       "gives": "IVE",
+       "note": "taken as written, apostrophe dropped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receives a note from a young woman they have become fond of.",
+     "walkthrough": "'got attached to' reads as fondness but only joins the two pieces side by side.",
+     "definitionFit": "A missive is a formal written message, the same as a letter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attached"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +213,67 @@
     "text": "Hot work getting a century in test",
     "enumeration": "8"
    },
-   "solution": "TROPICAL"
+   "solution": "TROPICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting",
+       "at": 9,
+       "note": "the work, getting a hundred, takes C into it as well, a second insertion"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "the word for work goes inside the word for a test, splitting it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "test",
+         "at": 30,
+         "gives": "TRIAL",
+         "note": "a trial is a test"
+        },
+        {
+         "words": "work",
+         "at": 4,
+         "gives": "OP",
+         "note": "OP is short for opus, a work"
+        }
+       ]
+      },
+      {
+       "words": "a century",
+       "at": 17,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, a century"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman scores a hundred in a Test match played in sweltering heat.",
+     "walkthrough": "'in' puts OP inside TRIAL after its R, and 'getting' takes C in too, after the I: TR-OP-I-C-AL.",
+     "definitionFit": "Tropical weather is sweltering, so the word serves as an adjective for heat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "century"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +287,42 @@
     "text": "Enter into an arrangement for storage",
     "enumeration": "9"
    },
-   "solution": "RETENTION"
+   "solution": "RETENTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "storage",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "an arrangement",
+       "at": 11,
+       "note": "an arrangement of letters is a rearrangement of the words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Enter into",
+       "at": 0,
+       "note": "taken as written, nine letters to shuffle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees to a deal for warehousing goods.",
+     "walkthrough": "'Enter into an arrangement' reads as making a deal; the first two words are the fodder and 'an arrangement' says shuffle them.",
+     "definitionFit": "Retention is keeping or holding something, which is what storage does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +346,35 @@
      }
     ]
    },
-   "solution": "SLEEPONIT"
+   "solution": "SLEEPONIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turn over in bed?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Turn over in bed?",
+       "at": 0,
+       "note": "not rolling over while asleep, but turning a problem over in the mind overnight before deciding"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restless sleeper rolls onto the other side.",
+     "definitionFit": "The phrase means to delay a decision until the next day, mulling it while sleeping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +388,52 @@
     "text": "Distress and gravity remarkably rife",
     "enumeration": "5"
    },
-   "solution": "GRIEF"
+   "solution": "GRIEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gravity",
+       "at": 13,
+       "gives": "G",
+       "note": "g is the symbol for acceleration due to gravity"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "remarkably",
+         "at": 21,
+         "note": "something done remarkably is done unusually, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rife",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble and seriousness are surprisingly widespread.",
+     "walkthrough": "'gravity' looks like seriousness but is the physics symbol G, shuffled with RIFE.",
+     "definitionFit": "Grief is deep sorrow, a form of mental distress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gravity"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +447,34 @@
     "text": "A highlight of the night that's clear",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A highlight of the night that's clear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A highlight of the night that's clear",
+       "at": 0,
+       "note": "a bright point that lights up a cloudless night sky"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Celestial bodies shining in a cloudless sky are literally points of light at night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "highlight"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +488,32 @@
     "text": "No energy? ?And no inclination apparently",
     "enumeration": "8"
    },
-   "solution": "LISTLESS"
+   "solution": "LISTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No energy",
+      "at": 0,
+      "meaning": "lacking energy or enthusiasm"
+     },
+     {
+      "text": "no inclination apparently",
+      "at": 16,
+      "meaning": "a list is a lean or tilt, so without a list is without a slope"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is tired and has no desire to do anything.",
+     "walkthrough": "'inclination' seems to mean desire; read it as a tilt, a list, and the second definition is LIST + LESS.",
+     "definitionFit": "Lethargic people are said to lack energy; a ship with no lean is literally without a list."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inclination"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +527,30 @@
     "text": "Fancied the cheaper sort of cigarettes",
     "enumeration": "6"
    },
-   "solution": "TIPPED"
+   "solution": "TIPPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancied",
+      "at": 0,
+      "meaning": "a horse ... to win is one fancied by pundits"
+     },
+     {
+      "text": "the cheaper sort of cigarettes",
+      "at": 8,
+      "meaning": "filter cigarettes have a tip on the end"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone liked the budget brand of smokes.",
+     "definitionFit": "Racing tipsters' picks are favoured runners; filter smokes have a tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancied"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +564,36 @@
     "text": "A flying duck",
     "enumeration": "4"
    },
-   "solution": "ZERO"
+   "solution": "ZERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A flying duck",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A flying duck",
+       "at": 0,
+       "note": "not a bird but a Japanese wartime fighter plane, whose name is also a cricketer's score of nothing, a duck"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird on the wing.",
+     "walkthrough": "A duck in cricket is a score of nothing; the Mitsubishi fighter of that name flew.",
+     "definitionFit": "Nought in cricket is called a duck, and the wartime Mitsubishi fighter bore the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +607,48 @@
     "text": "In truth, the account is the truth!",
     "enumeration": "8"
    },
-   "solution": "VERACITY"
+   "solution": "VERACITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the truth",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the abbreviation for account goes inside the word for truth"
+      }
+     ],
+     "parts": [
+      {
+       "words": "truth",
+       "at": 3,
+       "gives": "VERITY",
+       "note": "verity means truth"
+      },
+      {
+       "words": "account",
+       "at": 14,
+       "gives": "AC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists the story told is honest.",
+     "walkthrough": "'In truth' reads as 'honestly', but it puts AC inside VERITY.",
+     "definitionFit": "Veracity is truthfulness, conformity to fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +668,41 @@
      }
     ]
    },
-   "solution": "TAKEAFTER"
+   "solution": "TAKEAFTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "are a chip off the old block",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Accept",
+       "at": 0,
+       "gives": "TAKE",
+       "note": "to take is to accept"
+      },
+      {
+       "words": "later",
+       "at": 7,
+       "gives": "AFTER",
+       "note": "after means later"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told they resemble a parent and should accept it in time.",
+     "definitionFit": "To resemble a parent is to be like them, the meaning of the idiom about a chip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Accept"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +716,53 @@
     "text": "Just the chap to lead out the ANC",
     "enumeration": "7"
    },
-   "solution": "MANDELA"
+   "solution": "MANDELA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just the chap to lead out the ANC",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the chap",
+       "at": 5,
+       "gives": "MAN",
+       "note": "a man is a chap"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 22,
+         "note": "out signals the letters of lead are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lead",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "This man is the right leader for South Africa's liberation movement.",
+     "walkthrough": "MAN plus DELA, a scramble of LEAD signalled by 'out'; the whole clue also describes him.",
+     "definitionFit": "Nelson Mandela led the African National Congress, the party abbreviated ANC."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +776,41 @@
     "text": "Find the record has finished",
     "enumeration": "8"
    },
-   "solution": "DISCOVER"
+   "solution": "DISCOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the record",
+       "at": 5,
+       "gives": "DISC",
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "words": "finished",
+       "at": 20,
+       "gives": "OVER",
+       "note": "over means finished"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone learns that the album has ended.",
+     "definitionFit": "To discover is to find something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +824,31 @@
     "text": "Sort of clip found at the end of a lead",
     "enumeration": "7"
    },
-   "solution": "BULLDOG"
+   "solution": "BULLDOG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of clip",
+      "at": 0,
+      "meaning": "a ... clip is a sprung metal clip for holding papers"
+     },
+     {
+      "text": "found at the end of a lead",
+      "at": 13,
+      "meaning": "a dog of this breed is found on the end of its leash"
+     }
+    ],
+    "explanation": {
+     "surface": "A clip fastened to the end of a cable.",
+     "definitionFit": "Stationery: a strong sprung clip bears the breed's name; and a breed of canine is walked on a leash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +862,30 @@
     "text": "Meat for sale at a bargain price?",
     "enumeration": "8"
    },
-   "solution": "UNDERCUT"
+   "solution": "UNDERCUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0,
+      "meaning": "the tenderloin of beef"
+     },
+     {
+      "text": "for sale at a bargain price",
+      "at": 5,
+      "meaning": "to sell more cheaply than rivals"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether this meat is being sold cheaply.",
+     "definitionFit": "Butchers call the tenderloin by this name; and a firm that underprices competitors does this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Meat"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +899,58 @@
     "text": "Attack by a saint about one who became one",
     "enumeration": "7"
    },
-   "solution": "ASSAULT"
+   "solution": "ASSAULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 18,
+         "note": "the abbreviation for saint goes about, around, the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "saint",
+         "at": 12,
+         "gives": "ST"
+        },
+        {
+         "words": "one who became one",
+         "at": 24,
+         "gives": "SAUL",
+         "note": "Saul of Tarsus became St Paul"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy person is attacked by a convert.",
+     "walkthrough": "Saul was converted on the road to Damascus and became the apostle Paul, later a saint.",
+     "definitionFit": "An assault is a violent attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +964,36 @@
     "text": "Extreme comfort for those who have retired",
     "enumeration": "8"
    },
-   "solution": "BEDSOCKS"
+   "solution": "BEDSOCKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extreme comfort for those who have retired",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Extreme comfort for those who have retired",
+       "at": 0,
+       "note": "warmth for the extremities, the feet, of people who have gone to bed, not of pensioners"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Luxury for people who have stopped working.",
+     "walkthrough": "'retired' suggests pensioners but means gone to bed; 'Extreme' points at the extremities, the feet.",
+     "definitionFit": "Woolly foot coverings worn in bed keep sleepers' feet warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1007,41 @@
     "text": "Musical acts assembled",
     "enumeration": "4"
    },
-   "solution": "CATS"
+   "solution": "CATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "assembled",
+       "at": 13,
+       "note": "things assembled are put together in a new order, so the letters of acts are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "acts",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Performers gather for a stage show.",
+     "walkthrough": "The show is Andrew Lloyd Webber's long-running musical based on T S Eliot's poems.",
+     "definitionFit": "Lloyd Webber's long-running stage show based on T S Eliot's poems bears this title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acts"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1055,30 @@
     "text": "Drink when in adversity",
     "enumeration": "4"
    },
-   "solution": "DOWN"
+   "solution": "DOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0,
+      "meaning": "to ... a pint is to drink it in one"
+     },
+     {
+      "text": "in adversity",
+      "at": 11,
+      "meaning": "to be low or in trouble"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone takes a drink when times are hard.",
+     "definitionFit": "Swallowing a drink quickly is to swig it; someone dejected or in difficulty is said to be low."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1092,30 @@
     "text": "Sound citizen",
     "enumeration": "6"
    },
-   "solution": "WORTHY"
+   "solution": "WORTHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0,
+      "meaning": "sound, deserving or of good character"
+     },
+     {
+      "text": "citizen",
+      "at": 6,
+      "meaning": "a prominent local person"
+     }
+    ],
+    "explanation": {
+     "surface": "A dependable member of the community.",
+     "definitionFit": "Respectable and deserving is one sense; a notable townsperson is another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1129,46 @@
     "text": "Bid for a chest without a top",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without a top",
+       "at": 16,
+       "note": "the first letter, the top of a down entry, is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chest",
+       "at": 10,
+       "gives": "COFFER",
+       "note": "a coffer is a chest for valuables"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bids for a trunk missing its lid.",
+     "walkthrough": "'without a top' looks like a lidless chest but removes the C from COFFER.",
+     "definitionFit": "An offer is a proposal of a price, as at an auction bid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 25,
@@ -388,7 +1182,41 @@
     "text": "On the surface, a delivery vehicle",
     "enumeration": "6"
    },
-   "solution": "AFLOAT"
+   "solution": "AFLOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "On the surface",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      },
+      {
+       "words": "delivery vehicle",
+       "at": 18,
+       "gives": "FLOAT",
+       "note": "a milk float is a British electric delivery van"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A van delivering goods to the neighbourhood.",
+     "walkthrough": "A milk float is the small electric van that delivers milk in Britain.",
+     "definitionFit": "Something floating rests on top of water, buoyant rather than sunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surface"
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1230,42 @@
     "text": "Display skill in flying machines",
     "enumeration": "8"
    },
-   "solution": "AIRCRAFT"
+   "solution": "AIRCRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flying machines",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Display",
+       "at": 0,
+       "gives": "AIR",
+       "note": "to air something is to display it"
+      },
+      {
+       "words": "skill",
+       "at": 8,
+       "gives": "CRAFT",
+       "note": "craft means skill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pilots show off their ability in planes.",
+     "walkthrough": "The surface suggests an air show, but 'Display' is AIR and 'skill' CRAFT.",
+     "definitionFit": "Planes and helicopters are machines that fly; the plural form is the same as the singular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Display"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1279,32 @@
     "text": "A column seen in flight",
     "enumeration": "5"
    },
-   "solution": "NEWEL"
+   "solution": "NEWEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A column",
+      "at": 0,
+      "meaning": "the upright post of a staircase"
+     },
+     {
+      "text": "seen in flight",
+      "at": 9,
+      "meaning": "a flight of stairs, where the post stands"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper feature is spotted on a plane.",
+     "walkthrough": "'flight' suggests air travel but means a flight of stairs.",
+     "definitionFit": "A staircase's central pillar or end post carries this name and stands within a flight of steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1318,30 @@
     "text": "The killing of animals thus large is a disaster",
     "enumeration": "9"
    },
-   "solution": "SLAUGHTER"
+   "solution": "SLAUGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The killing of animals",
+      "at": 0,
+      "meaning": "the butchering of livestock"
+     },
+     {
+      "text": "thus large is a disaster",
+      "at": 23,
+      "meaning": "killing on a large scale is a massacre"
+     }
+    ],
+    "explanation": {
+     "surface": "Culling livestock on a big scale is a catastrophe.",
+     "definitionFit": "Butchers kill livestock this way; mass killing of people is also called this, a calamity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   }
  ]
 }
