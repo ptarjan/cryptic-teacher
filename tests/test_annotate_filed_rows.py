@@ -21,6 +21,7 @@ import json, shutil, sys, tempfile
 from pathlib import Path
 import apply_annotations as A
 import annotate_check as AC
+import json_merge
 import fetch_puzzle as F
 import validate_annotations as V
 from groups import entry_id
@@ -118,7 +119,7 @@ try:
     # its fourth cell unchecked. Unfiled here, so the file is as the paper served it.
     rows = json.loads((data / "source_answer_wrong.json").read_text())
     rows.pop("cryptic-22049/15-down", None)
-    (data / "source_answer_wrong.json").write_text(AC.dump_lines(rows))
+    (data / "source_answer_wrong.json").write_text(json_merge.dump_lines(rows))
     F.SOURCE_ANSWER_WRONG.pop(("cryptic-22049", "15-down"), None)
     src = F.puzzle_paths.find("cryptic-22049")
     path = tmp / src.name

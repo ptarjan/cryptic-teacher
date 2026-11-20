@@ -97,8 +97,10 @@ left(2400)   # saving $12: worth the $6 fix, not worth $12 (count 1) or $18
 check(L.should_wake(flat, None, quiet, now)[0] is not None, True, "no record: $12 saving beats the $6 fix")
 check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.001, "date": "2026-01-01", "count": 1}})[0],
       None, "after one investigation the fix costs $12: $12 saving is not worth it")
-reason, facts = L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.001, "date": "2026-01-01", "count": 0}})
-check(facts["fix_cost"] if isinstance(facts, dict) else None, 6.0, "count 0: the base fix cost")
+left(10 ** 9)   # a big backlog, so the saving beats any fix cost and facts is the dict
+check(L.should_wake(flat, None, quiet, now)[1]["fix_cost"], 6.0, "no record: the base fix cost")
+check(L.should_wake(flat, None, quiet, now, {"rule:a": {"per_clue": 0.001, "date": "2026-01-01", "count": 2}})[1]["fix_cost"],
+      18.0, "two investigations: the base plus $12")
 # the horizon is the clues the burn does in 30 days: flat rows do 100 clues an hour
 check(L.burn_clues_per_day(flat), 2400.0, "burn pace from the recent rows' clues/hour")
 left(10 ** 9)

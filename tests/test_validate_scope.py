@@ -88,9 +88,9 @@ more = ROWS[:-1] + ', "times-21965/3-down": ["definition", "c"]}'
 expect("an added row with its puzzle", rows(more, [("M", P)]), "files")
 expect("an added row, puzzle unchanged", rows(more), "files")
 assert rows(more)[1] == [P]
-expect("a row removed", rows('{"times-1/2-down": ["type", "b"]}', [("M", P)]), "full", "blog_disagree.json")
+expect("a row removed", rows('{"times-1/2-down": ["type", "b"]}', [("M", P)]), "full", "times-21.json")
 expect("a new shard with its puzzle", v.decide([("A", T), ("M", P)], lambda p: None, lambda p: more, where), "files")
-expect("a table that is not json", rows("{", [("M", P)]), "full", "blog_disagree.json")
+expect("a table that is not json", rows("{", [("M", P)]), "full", "times-21.json")
 expect("the authored clues",v.decide([("M", "tools/data/authored_A001_clues.json")]), "full", "authored_A001_clues.json")
 expect("the workflow", v.decide([("M", ".github/workflows/pages.yml")]), "full", "pages.yml")
 expect("a reached module with no old text", v.decide([("M", "tools/validate_annotations.py")]), "full", "old text")

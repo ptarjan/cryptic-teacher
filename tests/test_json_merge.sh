@@ -164,8 +164,11 @@ check "origin's diagnosed_misses.json is one line per key" \
 # tables (tools/puzzle_rows.py TABLES) and the book reads every acquire_book run
 # records. A new table added to puzzle_rows without a .gitattributes line fails here.
 for t in $(cd "$ROOT/tools" && python3 -c 'import puzzle_rows; print(*puzzle_rows.TABLES)') book_reads; do
-  check "tools/data/$t.json is merged per key" \
-    "$(git -C "$ROOT" check-attr merge -- "tools/data/$t.json" | awk '{print $NF}')" json-keys
+  # a sharded ledger is a folder of shards (tools/sharded_table.py): check its first shard
+  rel=$(cd "$ROOT/tools" && python3 -c 'import sys, sharded_table as S; print(S.rel_paths(sys.argv[1]))' "$t")
+  rel=$(cd "$ROOT" && ls $rel | head -1)
+  check "$rel is merged per key" \
+    "$(git -C "$ROOT" check-attr merge -- "$rel" | awk '{print $NF}')" json-keys
 done
 
 # annotation_backlog.json (field -> puzzle -> count) was once unregistered, so two
@@ -193,7 +196,9 @@ check "backlog: larger allowance wins, entries the other side added survive" \
 # What is committed: every json-keys file in its one-line-per-key layout, which
 # is what lets the merge and the filter be no-ops on it.
 for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*filter=json-keys.*/\1/p' "$ROOT/.gitattributes"); do
-  check "$f is one line per key" "$(canonical < "$ROOT/$f")" True
+  for g in $(cd "$ROOT" && ls $f); do   # a shard folder's glob names many files
+    check "$g is one line per key" "$(canonical < "$ROOT/$g")" True
+  done
 done
 
 # A puzzle both nightly jobs annotated (everyman-4172): the update's
