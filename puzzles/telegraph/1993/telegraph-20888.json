@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Savoy, for example, needs a number of keys",
     "enumeration": "7"
    },
-   "solution": "CABBAGE"
+   "solution": "CABBAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Savoy, for example",
+      "at": 0,
+      "meaning": "the Savoy is a crinkly-leaved variety of the green vegetable"
+     },
+     {
+      "text": "a number of keys",
+      "at": 26,
+      "meaning": "the musical keys C, A, B, B, A, G and E spell out the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel guest needs a bunch of room keys.",
+     "definitionFit": "A Savoy is a leafy green garden vegetable; the same word can be spelt entirely with the note names of musical keys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Savoy"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,54 @@
     "text": "Cigar dear in France? Too bad!",
     "enumeration": "7"
    },
-   "solution": "CHEROOT"
+   "solution": "CHEROOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cigar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dear in France",
+       "at": 6,
+       "gives": "CHER",
+       "note": "cher is the French word for dear"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 26,
+         "note": "something gone bad is spoilt, so the letters of the word too are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Too",
+         "at": 22,
+         "gives": "TOO",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims at the price of a smoke abroad.",
+     "walkthrough": "'bad' turns TOO into OOT, which follows CHER.",
+     "definitionFit": "A cheroot is a type of cigar cut square at both ends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +132,41 @@
     "text": "Representation of Dorian G to abide? No! It is breaking up naturally",
     "enumeration": "14"
    },
-   "solution": "BIODEGRADATION"
+   "solution": "BIODEGRADATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "breaking up naturally",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Representation of",
+       "at": 0,
+       "note": "a fresh representation re-presents the letters of the phrase in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dorian G to abide",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nod to Wilde's Dorian Gray, whose portrait decays while he does not.",
+     "walkthrough": "'Representation of' rearranges DORIANGTOABIDE; the portrait in Wilde's novel is the misdirection.",
+     "definitionFit": "Biodegradation is the decomposition of material by bacteria and other living organisms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Representation"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +180,46 @@
     "text": "A reading-desk for a doctor on round",
     "enumeration": "4"
    },
-   "solution": "AMBO"
+   "solution": "AMBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reading-desk",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "doctor",
+       "at": 21,
+       "gives": "MB",
+       "note": "MB is Bachelor of Medicine, a doctor's qualification"
+      },
+      {
+       "words": "round",
+       "at": 31,
+       "gives": "O",
+       "note": "O is round in shape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church lectern is provided for a physician making rounds.",
+     "definitionFit": "An ambo is a raised pulpit or lectern in early Christian churches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +233,45 @@
     "text": "Joy-niece, perhaps, who loses her head",
     "enumeration": "7"
    },
-   "solution": "ELATION"
+   "solution": "ELATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "who loses her head",
+       "at": 20,
+       "note": "losing her head means the first letter of the relative is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "niece, perhaps",
+       "at": 4,
+       "gives": "RELATION",
+       "note": "a niece is one example of a family relative"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A niece who loses her head is jolly about it.",
+     "definitionFit": "Elation is a feeling of great happiness, a synonym for joy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +285,31 @@
     "text": "Home fixture for Avon City",
     "enumeration": "4"
    },
-   "solution": "BATH"
+   "solution": "BATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Home fixture",
+      "at": 0,
+      "meaning": "a tub plumbed into a house for washing"
+     },
+     {
+      "text": "Avon City",
+      "at": 17,
+      "meaning": "the spa city in the former English county of Avon, in the south-west"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports schedule lists a home match for a city team.",
+     "definitionFit": "A bath is a fitted tub in a house, and also the name of the Roman spa city in what was the county of Avon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fixture"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +323,49 @@
     "text": "Pirate's kit carried by players",
     "enumeration": "7"
    },
-   "solution": "BRIGAND"
+   "solution": "BRIGAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pirate's",
+      "at": 0,
+      "note": "the 's stands for 'is', so the definition is just the pirate"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carried by",
+       "at": 13,
+       "note": "something carried by another sits inside it, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "players",
+       "at": 24,
+       "gives": "BAND",
+       "note": "a band is a group of musical players"
+      },
+      {
+       "words": "kit",
+       "at": 9,
+       "gives": "RIG",
+       "note": "a rig is a set of equipment or outfit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A buccaneer's outfit is borne by a band of performers.",
+     "definitionFit": "A brigand is a bandit or outlaw, near enough to a pirate in plundering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +379,41 @@
     "text": "Planned go at encircling ancient Roman",
     "enumeration": "4"
    },
-   "solution": "TOGA"
+   "solution": "TOGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "encircling ancient Roman",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Planned",
+       "at": 0,
+       "note": "a planned arrangement is a deliberate reordering of the letters of these two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "go at",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A planned attempt at surrounding a figure from Rome.",
+     "walkthrough": "'encircling' looks like a container signal; it belongs to the definition, the garment wrapped round a Roman.",
+     "definitionFit": "The garment draped around a citizen of ancient Rome was the toga."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "encircling"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +427,48 @@
     "text": "Sirius put shadows on pitch",
     "enumeration": "7"
    },
-   "solution": "DOGSTAR"
+   "solution": "DOGSTAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sirius",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 19,
+       "note": "in a down clue, one piece placed on another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shadows",
+       "at": 11,
+       "gives": "DOGS",
+       "note": "to shadow someone is to follow or dog them"
+      },
+      {
+       "words": "pitch",
+       "at": 22,
+       "gives": "TAR",
+       "note": "tar is black pitch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star player tracks an opponent on the football field.",
+     "definitionFit": "Sirius is the brightest star in the night sky, in the constellation Canis Major."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +482,41 @@
     "text": "In season, Cicero turned out to be a licence holder…",
     "enumeration": "14"
    },
-   "solution": "CONCESSIONAIRE"
+   "solution": "CONCESSIONAIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a licence holder",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turned out",
+       "at": 18,
+       "note": "turned out suggests the letters are turned around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In season, Cicero",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Roman orator Cicero proves to hold a permit when it is the right season.",
+     "walkthrough": "'turned out' rearranges INSEASONCICERO.",
+     "definitionFit": "A concessionaire holds a licence or concession to trade on someone else's premises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cicero"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +540,41 @@
      }
     ]
    },
-   "solution": "ETONBOATINGSONG"
+   "solution": "ETONBOATINGSONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Air of schoolboys",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a storm",
+       "at": 39,
+       "note": "a storm tosses things around, so these letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "NB-not going to sea",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note says schoolboys are not going sailing in rough weather.",
+     "walkthrough": "'in a storm' rearranges NBNOTGOINGTOSEA; the boating theme of the surface fits the answer, an air from Eton, the English public school.",
+     "definitionFit": "The Eton Boating Song is the famous tune of the English public school's rowing pupils."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Air"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +588,51 @@
     "text": "Comply with honour at year's opening",
     "enumeration": "4"
    },
-   "solution": "OBEY"
+   "solution": "OBEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comply with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "honour",
+       "at": 12,
+       "gives": "OBE",
+       "note": "the OBE, Officer of the Order of the British Empire, is a British honour"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 29,
+         "note": "the opening of the word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "year's",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone accepts a royal honour at the new year's honours list.",
+     "definitionFit": "To obey is to do as told, to follow orders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "honour"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +646,34 @@
     "text": "Gold sovereign?",
     "enumeration": "5"
    },
-   "solution": "MIDAS"
+   "solution": "MIDAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gold sovereign?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Gold sovereign?",
+       "at": 0,
+       "note": "not a coin but a king of legend whose touch turned everything to gold"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The mythical Phrygian king was granted the touch that turned all to gold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +687,42 @@
     "text": "Tax some disco takings",
     "enumeration": "4"
    },
-   "solution": "SCOT"
+   "solution": "SCOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tax",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 4,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disco takings",
+       "at": 9,
+       "gives": "SCOT",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A levy on part of the nightclub's receipts.",
+     "definitionFit": "Scot is an old word for a tax or payment, as in scot-free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takings"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +736,41 @@
     "text": "… in a type of Roman police-district",
     "enumeration": "5"
    },
-   "solution": "MANOR"
+   "solution": "MANOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "police-district",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "a type of",
+       "at": 5,
+       "note": "a type of suggests a variant form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roman",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: a licence holder in a Roman police area.",
+     "walkthrough": "'a type of' rearranges ROMAN.",
+     "definitionFit": "In British police slang, an officer's manor is the patch or area they cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roman"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +784,59 @@
     "text": "Number observed around Civic Centre",
     "enumeration": "5"
    },
-   "solution": "SEVEN"
+   "solution": "SEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 16,
+       "note": "the word for observed goes around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "observed",
+       "at": 7,
+       "gives": "SEEN",
+       "note": "something observed has been seen"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Centre",
+         "at": 29,
+         "note": "the centre of the word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Civic",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A figure is spotted near the town's civic centre.",
+     "walkthrough": "'Centre' takes V from Civic; 'around' puts SEEN round it.",
+     "definitionFit": "Seven is a whole number, one more than six."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Civic"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +850,48 @@
     "text": "Land-express that carries the queen",
     "enumeration": "7"
    },
-   "solution": "TERRAIN"
+   "solution": "TERRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carries",
+       "at": 18,
+       "note": "a train carries passengers inside it, so the train word holds the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "express",
+       "at": 5,
+       "gives": "TRAIN",
+       "note": "an express is a fast train"
+      },
+      {
+       "words": "the queen",
+       "at": 26,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overland express service has the monarch aboard.",
+     "definitionFit": "Terrain is a stretch of ground considered for its physical features."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "express"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +905,31 @@
     "text": "Surgeon's assistant with his back to the wall?",
     "enumeration": "7"
    },
-   "solution": "DRESSER"
+   "solution": "DRESSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surgeon's assistant",
+      "at": 0,
+      "meaning": "a person who helps in the theatre by dressing wounds"
+     },
+     {
+      "text": "with his back to the wall?",
+      "at": 20,
+      "meaning": "a kitchen cabinet with shelves, which stands against a wall"
+     }
+    ],
+    "explanation": {
+     "surface": "A hard-pressed theatre assistant is cornered.",
+     "definitionFit": "A dresser is both a surgeon's helper who dresses wounds and a sideboard with shelves standing against a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +943,59 @@
     "text": "Security-device for bundle holding old assortment",
     "enumeration": "7"
    },
-   "solution": "PADLOCK"
+   "solution": "PADLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Security-device",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 27,
+       "note": "the bundle word holds the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bundle",
+       "at": 20,
+       "gives": "PACK",
+       "note": "a pack is a bundle of things"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "assortment",
+         "at": 39,
+         "note": "an assortment is a mixed collection, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lock fastens a bundle containing a miscellany of old things.",
+     "walkthrough": "'assortment' turns OLD into DLO; 'holding' puts it inside PACK.",
+     "definitionFit": "A padlock is a detachable lock with a hinged shackle, used to secure things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bundle"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1009,52 @@
     "text": "Bank to protect soldiers-standard tape put out",
     "enumeration": "7"
    },
-   "solution": "PARAPET"
+   "solution": "PARAPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bank to protect soldiers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "standard",
+       "at": 25,
+       "gives": "PAR",
+       "note": "par is the normal or standard level"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "put out",
+         "at": 39,
+         "note": "put out suggests the letters are disturbed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tape",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers protected by an earthwork put out a standard tape.",
+     "walkthrough": "'put out' turns TAPE into APET, after PAR.",
+     "definitionFit": "A parapet is a protective wall or earth bank along the front of a trench."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1068,47 @@
     "text": "This kosher diet brings saint to knees, in a way",
     "enumeration": "7"
    },
-   "solution": "KNESSET"
+   "solution": "KNESSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This kosher diet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a way",
+       "at": 40,
+       "note": "in a way suggests the letters are arranged in another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "saint",
+       "at": 24,
+       "gives": "ST"
+      },
+      {
+       "words": "knees",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strict Jewish diet of food makes a saint kneel.",
+     "walkthrough": "'in a way' rearranges ST and KNEES; 'diet' is not food but a parliament, and 'kosher' points to Israel.",
+     "definitionFit": "The Knesset is the parliament of Israel, and a diet is a legislative assembly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1122,41 @@
     "text": "Place for driving off to China is full of people",
     "enumeration": "7"
    },
-   "solution": "TEEMING"
+   "solution": "TEEMING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "full of people",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Place for driving off",
+       "at": 0,
+       "gives": "TEE",
+       "note": "the tee is where a golfer drives off"
+      },
+      {
+       "words": "China",
+       "at": 25,
+       "gives": "MING",
+       "note": "Ming was a Chinese dynasty, and Ming porcelain is fine china"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf tee in China is crowded.",
+     "definitionFit": "Teeming means swarming or crowded, packed with life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "driving"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1170,52 @@
     "text": "Better half takes car to the very limits",
     "enumeration": "7"
    },
-   "solution": "TERMINI"
+   "solution": "TERMINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the very limits",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 7,
+         "note": "half of the word means its second three letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Better",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "car",
+       "at": 18,
+       "gives": "MINI",
+       "note": "the Mini is a small British car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife takes the car to the edge.",
+     "walkthrough": "'Better half' looks like a spouse; it is the last half of Better, TER.",
+     "definitionFit": "Termini are end points or boundaries, the plural of terminus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1235,41 @@
      }
     ]
    },
-   "solution": "GOATGOD"
+   "solution": "GOATGOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a satyr",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 10,
+       "note": "perhaps suggests another possible arrangement of the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Good tag",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Suggests a fitting label for a satyr.",
+     "walkthrough": "'perhaps' rearranges GOODTAG.",
+     "definitionFit": "A satyr is a woodland deity with goat-like features, half man and half beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tag"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1283,30 @@
     "text": "Term to express contempt for strike-breakers",
     "enumeration": "4"
    },
-   "solution": "RATS"
+   "solution": "RATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Term to express contempt",
+      "at": 0,
+      "meaning": "an exclamation of annoyance or disgust"
+     },
+     {
+      "text": "strike-breakers",
+      "at": 29,
+      "meaning": "workers who cross a picket line, called scabs"
+     }
+    ],
+    "explanation": {
+     "surface": "Pickets have a choice word for scabs.",
+     "definitionFit": "The word is an exclamation of disgust and also slang for scabs, disloyal workers who break a strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Term"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1320,42 @@
     "text": "Type of conference, long",
     "enumeration": "5"
    },
-   "solution": "PEARL"
+   "solution": "PEARL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "conference",
+       "at": 8,
+       "gives": "PEAR",
+       "note": "Conference is a popular variety of pear"
+      },
+      {
+       "words": "long",
+       "at": 20,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of meeting runs on at length.",
+     "walkthrough": "'conference' is not a meeting but the pear variety.",
+     "definitionFit": "Pearl was an old printing type size of five points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "conference"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1369,43 @@
     "text": "Governess out east unaffected by retirement?",
     "enumeration": "4"
    },
-   "solution": "ANNA"
+   "solution": "ANNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Governess out east",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "unaffected by retirement",
+       "at": 19,
+       "note": "retiring means going backwards, and the name reads the same either way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Governess out east",
+       "at": 0,
+       "gives": "ANNA",
+       "note": "these definition words give the whole answer, and the answer is itself the palindrome: it reads the same from either end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A governess in the East is unchanged by leaving work.",
+     "walkthrough": "The governess is Anna Leonowens of Anna and the King of Siam; 'retirement' signals reading backwards.",
+     "definitionFit": "Anna Leonowens taught the children of the King of Siam, in South-East Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1419,40 @@
     "text": "Dead spirit one can beat",
     "enumeration": "4"
    },
-   "solution": "DRUM"
+   "solution": "DRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one can beat",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dead",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "words": "spirit",
+       "at": 5,
+       "gives": "RUM",
+       "note": "rum is a spirit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dead drunk on spirits, one can be beaten.",
+     "definitionFit": "A drum is a percussion instrument you strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1466,48 @@
     "text": "Dress-ring lost by old film-idol",
     "enumeration": "4"
    },
-   "solution": "GARB"
+   "solution": "GARB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost by",
+       "at": 11,
+       "note": "the ring is lost by the film idol, taken out of her name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old film-idol",
+       "at": 19,
+       "gives": "GARBO",
+       "note": "Greta Garbo was a film star of the 1920s and 30s"
+      },
+      {
+       "words": "ring",
+       "at": 6,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star of old films has lost a dress ring.",
+     "definitionFit": "Garb is clothing, a synonym for dress as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1521,34 @@
     "text": "Time-taking thief of the saw?",
     "enumeration": "15"
    },
-   "solution": "PROCRASTINATING"
+   "solution": "PROCRASTINATING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Time-taking thief of the saw?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Time-taking thief of the saw?",
+       "at": 0,
+       "note": "the proverb 'the thief of time', a saw being a saying, describes delaying"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Putting off tasks is called the thief of time in Edward Young's old saying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1562,48 @@
     "text": "Mark of musicians in the street",
     "enumeration": "4"
    },
-   "solution": "SMUT"
+   "solution": "SMUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "the musicians are placed inside the street abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the street",
+       "at": 21,
+       "gives": "ST",
+       "note": "ST is the abbreviation for street"
+      },
+      {
+       "words": "musicians",
+       "at": 8,
+       "gives": "MU",
+       "note": "MUS is short for musicians"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sign of buskers playing in the street.",
+     "definitionFit": "A smut is a smudge or black mark of soot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "musicians"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1617,34 @@
     "text": "Multiply without going forth?",
     "enumeration": "7"
    },
-   "solution": "INBREED"
+   "solution": "INBREED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Multiply without going forth?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Multiply without going forth?",
+       "at": 0,
+       "note": "breeding while staying within the family rather than going out"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "To breed from closely related stock is to reproduce within a closed group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forth"
+    }
+   }
   }
  ]
 }
