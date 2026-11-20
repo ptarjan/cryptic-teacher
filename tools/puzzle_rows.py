@@ -41,6 +41,18 @@ def table_path(name, root=ROOT):
     return Path(root) / "tools" / "data" / f"{name}.json"
 
 
+def load_table(name, root=ROOT):
+    """Table `name`'s rows (a sharded one whole), {} when it is not there."""
+    import sharded_table
+    return sharded_table.load(name, Path(root) / "tools" / "data")
+
+
+def save_table(name, rows, root=ROOT):
+    """Write the table; returns the files changed (shards: only those that moved)."""
+    import sharded_table
+    return sharded_table.save(name, rows, Path(root) / "tools" / "data")
+
+
 def key_id(key):
     return key.split("/", 1)[0]
 
@@ -61,10 +73,9 @@ def retire(old, new=None, root=ROOT):
     already has is kept and old's is dropped. Returns the table files written."""
     written = []
     for name in TABLES:
-        path = table_path(name, root)
-        if not path.exists():
+        rows = load_table(name, root)
+        if not rows:
             continue
-        rows = json.loads(path.read_text(encoding="utf-8"))
         out, changed = {}, False
         for key, value in rows.items():
             if key_id(key) != old:
@@ -76,8 +87,7 @@ def retire(old, new=None, root=ROOT):
                 if moved not in rows:
                     out[moved] = value
         if changed:
-            path.write_text(dump(name, out), encoding="utf-8")
-            written.append(path)
+            written += save_table(name, out, root)
     light = Path(root) / LIGHT_TABLE
     if light.exists() and old in light_ids(light.read_text(encoding="utf-8")):
         print(f"puzzle_rows: SOURCE_LIGHT_WRONG in {LIGHT_TABLE} keys {old}; "
@@ -112,10 +122,14 @@ def staged_gone(root=ROOT):
 def leftovers(gone, read):
     """[(table, key)] rows of a gone id; read(relative path) gives a file's text or None."""
     left = []
+    import sharded_table
     for name in TABLES:
-        text = read(f"tools/data/{name}.json")
-        if text:
-            left += [(name, k) for k in json.loads(text) if key_id(k) in gone]
+        for i in gone:
+            rel = (f"tools/data/{name}/{sharded_table.shard_of(i)}.json" if sharded_table.sharded(name)
+                   else f"tools/data/{name}.json")
+            text = read(rel)
+            if text:
+                left += [(name, k) for k in json.loads(text) if key_id(k) == i]
     text = read(LIGHT_TABLE)
     if text:
         left += [("SOURCE_LIGHT_WRONG", i) for i in sorted(light_ids(text) & set(gone))]
@@ -148,9 +162,7 @@ def check(root=ROOT):
     import puzzle_paths
     ids = set()
     for name in TABLES:
-        path = table_path(name, root)
-        if path.exists():
-            ids |= {key_id(k) for k in json.loads(path.read_text(encoding="utf-8"))}
+        ids |= {key_id(k) for k in load_table(name, root)}
     ids |= light_ids((Path(root) / LIGHT_TABLE).read_text(encoding="utf-8"))
     bad = sorted(i for i in ids if puzzle_paths.find(i) is None)
     for i in bad:

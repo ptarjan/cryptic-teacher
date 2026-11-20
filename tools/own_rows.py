@@ -8,7 +8,7 @@
 
 The pre-reset backfill runs several puzzles at once in one tree, and every run
 files its source corrections as rows of shared files: SOURCE_CLUE_WRONG and
-SOURCE_ANSWER_WRONG in tools/data/source_clue_wrong.json and
+SOURCE_ANSWER_WRONG in tools/data/source_clue_wrong/ and
 tools/data/source_answer_wrong.json, a setter's slips in
 tools/data/setter_error.json (each keyed "puzzle id/entry id"), the other
 SOURCE_* tables (SOURCE_LIGHT_WRONG, ...) in tools/fetch_puzzle.py. So a
@@ -35,11 +35,43 @@ import subprocess
 import sys
 from pathlib import Path
 
+import sharded_table
+
 TOOLS = Path(__file__).resolve().parent
 FETCHER = TOOLS / "fetch_puzzle.py"
 REL = "tools/fetch_puzzle.py"
-DATA_RELS = ("tools/data/setter_error.json", "tools/data/source_answer_wrong.json",
-             "tools/data/source_clue_wrong.json", "tools/data/blog_disagree.json")
+TABLES = ("setter_error", "source_answer_wrong", "source_clue_wrong", "blog_disagree")
+#: The pathspecs of those tables, for git: a file, or the folder of a sharded one
+#: (tools/sharded_table.py).
+DATA_PATHS = tuple(f"tools/data/{n}" if sharded_table.sharded(n) else f"tools/data/{n}.json"
+                   for n in TABLES)
+
+
+def data_rels(pid):
+    """The files of the tables that hold puzzle `pid`'s rows: one shard of a
+    sharded table, the table's file otherwise."""
+    return tuple(f"tools/data/{n}/{sharded_table.shard_of(pid)}.json" if sharded_table.sharded(n)
+                 else f"tools/data/{n}.json" for n in TABLES)
+
+
+def _is_shard(rel):
+    return rel.count("/") == 3
+
+
+def _head(rel):
+    """HEAD's text of `rel`; a shard HEAD lacks is an empty table."""
+    if _is_shard(rel):
+        r = subprocess.run(["git", "-C", str(TOOLS.parent), "show", f"HEAD:{rel}"],
+                           capture_output=True, text=True)
+        return r.stdout if r.returncode == 0 else "{}"
+    return git("show", f"HEAD:{rel}")
+
+
+def _tree_text(rel, path=None):
+    path = path or TOOLS.parent / rel
+    if _is_shard(rel) and not path.is_file():
+        return "{}"
+    return path.read_text()
 #: Lists of {"id": "<puzzle>#<clue>", ...} rows, spliced by tools/shape_queue.splice:
 #: the shape re-annotation list, whose rows a run prunes as it files their trees.
 #: Skipped where the file is not there (a test repo without it).
@@ -139,8 +171,12 @@ def _stage_blob(rel, blob):
     """The `--index-info` line that stages `blob` as `rel`; the caller feeds all of
     a stage's lines to one update-index, because every update-index rewrites the
     tree's whole (split) index: six of them per commit were ~18 MB of disk writes."""
+    held = git("ls-tree", "HEAD", "--", rel).split()
+    if _is_shard(rel) and not json.loads(blob):
+        # a shard left with no rows is deleted, or never made
+        return f"0 {'0' * 40}\t{rel}\n" if held else ""
     sha = git("hash-object", "-w", "--stdin", "--path", rel, stdin=blob).strip()
-    mode = git("ls-tree", "HEAD", "--", rel).split()[0]
+    mode = held[0] if held else "100644"
     return f"{mode} {sha}\t{rel}\n"
 
 
@@ -166,6 +202,14 @@ def _lists():
         if ok:
             out.append(rel)
     return out
+
+
+def files_changed():
+    """The table files (a shard is one) the tree holds that differ from HEAD's,
+    new ones too: what a worker sets aside with its run."""
+    out = subprocess.run(["git", "-C", str(TOOLS.parent), "ls-files", "-m", "-o", "--exclude-standard",
+                          "--", REL, *DATA_PATHS, *LIST_RELS], capture_output=True, text=True, check=True).stdout
+    return out.split()
 
 
 def _merger(rel):
@@ -230,13 +274,14 @@ def stage(*pids):
     one's rows (staged one at a time, each would rebuild from HEAD and undo the last)."""
     import shape_queue
     info = []
-    for rel in (REL, *DATA_RELS, *_lists()):
-        head = git("show", f"HEAD:{rel}")
+    rels = list(dict.fromkeys(r for p in pids for r in data_rels(p)))
+    for rel in (REL, *rels, *_lists()):
+        head = git("show", f"HEAD:{rel}") if rel == REL or rel in LIST_RELS else _head(rel)
         if rel in LIST_RELS:
             with shape_queue.locked():
                 donor = (TOOLS.parent / rel).read_text()
         else:
-            donor = (TOOLS.parent / rel).read_text()
+            donor = _tree_text(rel)
         text = head
         for pid in pids:
             text = _merger(rel)(text, donor, pid)
@@ -261,6 +306,10 @@ def _write(rel, path, text):
         shape_queue.write(text, path)
     else:
         from json_merge import write_atomic
+        if _is_shard(rel) and not json.loads(text):
+            path.unlink(missing_ok=True)   # a shard with no rows left is not kept
+            return
+        path.parent.mkdir(parents=True, exist_ok=True)
         write_atomic(path, text)
 
 
@@ -270,24 +319,24 @@ def revert(pid):
     if kept != tree:
         FETCHER.write_text(kept)
         print(f"  [{pid}] put its rows of {REL} back as HEAD has them")
-    for rel in (*DATA_RELS, *_lists()):
+    for rel in (*data_rels(pid), *_lists()):
         path = TOOLS.parent / rel
         with _guard(rel):
-            text = path.read_text()
-            kept = _merger(rel)(text, git("show", f"HEAD:{rel}"), pid)
+            text = _tree_text(rel)
+            kept = _merger(rel)(text, git("show", f"HEAD:{rel}") if rel in LIST_RELS else _head(rel), pid)
             if kept != text:
                 _write(rel, path, kept)
                 print(f"  [{pid}] put its rows of {rel} back as HEAD has them")
 
 
 def graft(pid, donor_dir):
-    for rel in (REL, *DATA_RELS, *LIST_RELS):
+    for rel in (REL, *data_rels(pid), *LIST_RELS):
         donor = Path(donor_dir) / rel
-        if not donor.is_file() or not (TOOLS.parent / rel).is_file():
+        if not donor.is_file() or not (_is_shard(rel) or (TOOLS.parent / rel).is_file()):
             continue
         path = TOOLS.parent / rel
         with _guard(rel):
-            text = path.read_text()
+            text = _tree_text(rel)
             merge = _merger(rel)
             kept = merge(text, donor.read_text(), pid)
             if kept != text:
@@ -297,7 +346,10 @@ def graft(pid, donor_dir):
 
 def main(argv):
     if argv == ["paths"]:
-        print("\n".join((REL, *DATA_RELS, *LIST_RELS)))
+        print("\n".join((REL, *DATA_PATHS, *LIST_RELS)))
+        return
+    if argv == ["files"]:
+        print("\n".join(files_changed()))
         return
     if len(argv) == 3 and argv[0] == "graft":
         graft(argv[1], argv[2])

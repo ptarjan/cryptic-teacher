@@ -433,7 +433,7 @@ def check_clue_unchanged(puzzle, path, errors):
 
 
 def check_clue_rows_held(puzzle, errors):
-    """A puzzle holds every tools/data/source_clue_wrong.json row filed for
+    """A puzzle holds every tools/data/source_clue_wrong/ row filed for
     it: a clue still as the source served it, where the row prints it
     otherwise, ships the misprint beside the row that mends it.
     tools/annotate_check.py writes the rows in (apply_annotations.mend_clues)."""
@@ -442,7 +442,7 @@ def check_clue_rows_held(puzzle, errors):
         printed = source_clue(puzzle.get("id"), entry_id(e), text)
         if clue_words(printed) != clue_words(text):
             errors.append(
-                f"{entry_id(e)}: tools/data/source_clue_wrong.json prints this clue "
+                f"{entry_id(e)}: tools/data/source_clue_wrong/ prints this clue "
                 f"as {printed!r}, but the file holds {text!r}. Run python3 "
                 f"tools/annotate_check.py {puzzle.get('id')}, which writes the row in")
 

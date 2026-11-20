@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Does fold_reprints.rekeyer rename a folded id both as a whole JSON string and
 # as the lead of one ("globeandmail-3334 2-down MOSS", a "canberra-750213/11-across"
-# key of tools/data/source_clue_wrong.json), and leave a longer
+# key of tools/data/source_clue_wrong/), and leave a longer
 # number, a mid-string mention and other series alone?
 #
 #     python3 tests/test_fold_reprints.py

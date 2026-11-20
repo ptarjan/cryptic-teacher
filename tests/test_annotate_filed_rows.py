@@ -3,7 +3,7 @@
 #
 #     python3 tests/test_annotate_filed_rows.py
 #
-# An entry's `printedClue` becomes its tools/data/source_clue_wrong.json row and
+# An entry's `printedClue` becomes its tools/data/source_clue_wrong/ row and
 # `setterError` its tools/data/setter_error.json row, each in key order, one row
 # per line, and both leave the entry. `answerTypo` files a
 # tools/data/source_answer_wrong.json row and puts its letters in the grid,
@@ -37,7 +37,10 @@ data = tmp / "data"
 data.mkdir()
 try:
     for name in ("source_clue_wrong", "setter_error", "source_answer_wrong", "blog_disagree"):
-        shutil.copy(AC.DATA / f"{name}.json", data / f"{name}.json")
+        if AC.sharded_table.sharded(name):
+            shutil.copytree(AC.DATA / name, data / name)
+        else:
+            shutil.copy(AC.DATA / f"{name}.json", data / f"{name}.json")
     src = F.puzzle_paths.find("times-18749")
     path = tmp / src.name
     shutil.copy(src, path)
@@ -55,15 +58,16 @@ try:
     filed, err = AC.file_rows(path, pending, data)
     check("both fields are filed", err is None and sorted(filed) == sorted(
         [f"printedClue {a}", f"setterError {b}"]))
-    clue_rows = json.loads((data / "source_clue_wrong.json").read_text())
+    clue_rows = AC.sharded_table.load("source_clue_wrong", data)
     check("printedClue's row opens with the clue as shown",
           clue_rows[f"times-18749/{a}"] == [shown, mended, "OCR misread: the OCR read test words"])
     check("setterError's row is as given",
           json.loads((data / "setter_error.json").read_text())[f"times-18749/{b}"]
           == ["FR UMBLE", "FUMBLER", "test"])
-    text = (data / "source_clue_wrong.json").read_text()
+    text = (data / "source_clue_wrong" / f"{AC.sharded_table.shard_of('times-18749')}.json").read_text()
     keys = [l.split('"')[1] for l in text.splitlines()[1:-1]]
-    check("the table stays one sorted row per line", keys == sorted(keys) and len(keys) == len(clue_rows))
+    check("the shard stays one sorted row per line", keys == sorted(keys) and keys
+          and all(AC.sharded_table.shard_of(k) == AC.sharded_table.shard_of('times-18749') for k in keys))
     ann = json.loads(pending.read_text())
     check("the fields leave the entries", "printedClue" not in ann[a] and "setterError" not in ann[b])
     check("this process sees the rows", F.corrected_clue("times-18749", a) == mended
@@ -79,7 +83,7 @@ try:
     pending.write_text(json.dumps(ann))
     AC.file_rows(path, pending, data)
     check("a re-filed row keeps the clue as shown",
-          json.loads((data / "source_clue_wrong.json").read_text())[f"times-18749/{a}"][0] == shown)
+          AC.sharded_table.load("source_clue_wrong", data)[f"times-18749/{a}"][0] == shown)
 
     ann = json.loads(pending.read_text())
     ann[a]["printedClue"] = "Printed words"
@@ -164,7 +168,7 @@ try:
     pending.write_text(json.dumps({"1-down": {"blogDisagree": ["definition, type", "the blog underlines wordplay"]}}))
     filed, err = AC.file_rows(path, pending, data)
     check("a blogDisagree is filed", err is None and filed == ["blogDisagree 1-down"]
-          and json.loads((data / "blog_disagree.json").read_text())["times-18749/1-down"][0] == "definition,type"
+          and AC.sharded_table.load("blog_disagree", data)["times-18749/1-down"][0] == "definition,type"
           and "blogDisagree" not in json.loads(pending.read_text())["1-down"])
     check("and the blog checks skip it", V.blog_kept({"id": "times-18749"}, {"number": 1, "direction": "down"}, "type"))
 

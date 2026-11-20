@@ -779,7 +779,6 @@ def open_requests():
 #: Reads before this moment predate the re-read requests; a puzzle
 #: they left with a printedClue row has not been re-read since.
 FLAGGED_BEFORE = "2026-10-05T07:26:02-06:00"
-CLUE_ROWS = Path(__file__).resolve().parent / "data" / "source_clue_wrong.json"
 
 
 def flagged_requests():
@@ -788,7 +787,8 @@ def flagged_requests():
     last read before FLAGGED_BEFORE: the same shape as request_reread's, so
     the source's next read closes it. Derived from the table, so it cannot go
     stale."""
-    ids = {k.split("/", 1)[0] for k in json.loads(CLUE_ROWS.read_text(encoding="utf-8"))}
+    import sharded_table
+    ids = {k.split("/", 1)[0] for k in sharded_table.load("source_clue_wrong")}
     t = when(FLAGGED_BEFORE)
     return [{"id": i, "filer": f, "source": key, "why": ["printedClue"], "requestedAt": FLAGGED_BEFORE}
             for i, (f, key, row) in _sorted_sources(sources())[0] if i in ids and read_before(row, t)]

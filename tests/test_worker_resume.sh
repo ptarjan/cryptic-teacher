@@ -34,11 +34,12 @@ alert() { echo "ALERT: $*"; }
 main="$t/main"
 mkdir -p "$main/tools/data" "$main/puzzles/s/2026" "$main/clues_only/s"
 printf 'SOURCE_LIGHT_WRONG = {\n}\n' >"$main/tools/fetch_puzzle.py"
-cp "$REPO/tools/own_rows.py" "$REPO/tools/json_merge.py" "$REPO/tools/puzzle_schema.py" "$REPO/tools/shape_queue.py" "$main/tools/"
+cp "$REPO/tools/own_rows.py" "$REPO/tools/sharded_table.py" "$REPO/tools/json_merge.py" "$REPO/tools/puzzle_schema.py" "$REPO/tools/shape_queue.py" "$main/tools/"
 cp "$REPO/tools/data/puzzle.schema.json" "$main/tools/data/"
 # Every table own_rows.py owns rows of, named by it, so a table added there is
 # in this repo too.
-for rel in $(cd "$REPO/tools" && python3 -c 'import own_rows; print(*own_rows.DATA_RELS)'); do
+for rel in $(cd "$REPO/tools" && python3 -c 'import own_rows; print(*own_rows.data_rels("s-a"))'); do
+  mkdir -p "$main/$(dirname "$rel")"
   printf '{\n "z-1/1-across": ["x", "Y", "a sibling\x27s row"]\n}\n' >"$main/$rel"
 done
 cat >"$main/tools/puzzle_paths.py" <<'PY'
@@ -92,14 +93,14 @@ echo "edits that parse (blank clues and all), master untouched: put back, kept, 
 start_run "$tree" s-a >/dev/null
 echo '{"clues": "annotated half"}' >"$tree/puzzles/s/2026/s-a.json"
 echo '{"1a": "hint"}' >"$tree/tools/_ann_s-a.json"
-printf '{\n "s-a/1-across": ["x", "Y", "why"],\n "z-1/1-across": ["x", "Y", "a sibling\x27s row"]\n}\n' >"$tree/tools/data/source_clue_wrong.json"
+printf '{\n "s-a/1-across": ["x", "Y", "why"],\n "z-1/1-across": ["x", "Y", "a sibling\x27s row"]\n}\n' >"$tree/tools/data/source_clue_wrong/other.json"
 restart "$tree"
 rm -f "$tree/tools/_ann_s-a.json"
 put_back s-a; rc=$?
 check "resumes" "0" "$rc"
 check "the puzzle's edits are back" '{"clues": "annotated half"}' "$(cat "$tree/puzzles/s/2026/s-a.json")"
 check "its annotation file is back" '{"1a": "hint"}' "$(cat "$tree/tools/_ann_s-a.json" 2>/dev/null)"
-check "its row of the source tables is back beside the sibling's" "2" "$(grep -c '"s-a/1-across"\|"z-1/1-across"' "$tree/tools/data/source_clue_wrong.json")"
+check "its row of the source tables is back beside the sibling's" "2" "$(grep -c '"s-a/1-across"\|"z-1/1-across"' "$tree/tools/data/source_clue_wrong/other.json")"
 check "the note says the edits are as it left them" "1" "$(note | grep -c 'exactly as you left them')"
 check "the record stays for the run, its aside is gone" "yes no" \
   "$([ -s "$runs/s-a.sid" ] && echo yes || echo no) $([ -e "$runs/s-a.aside" ] && echo yes || echo no)"

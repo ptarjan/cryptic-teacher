@@ -32,10 +32,10 @@ cp "$REPO"/tools/*.py "$tree/tools/"
 mkdir -p "$tree/tools/data"
 # The tables own_rows splices are real files, since git stores a symlink's
 # target; the rest are linked.
-owned=$(cd "$REPO/tools" && python3 -c 'import own_rows; print(" ".join(own_rows.DATA_RELS))')
+owned=$(cd "$REPO/tools" && python3 -c 'import own_rows; print(" ".join(own_rows.DATA_PATHS))')
 for f in "$REPO"/tools/data/*; do
   case " $owned " in
-    *" tools/data/${f##*/} "*) cp "$f" "$tree/tools/data/" ;;
+    *" tools/data/${f##*/} "*) cp -r "$f" "$tree/tools/data/" ;;
     *) ln -s "$f" "$tree/tools/data/" ;;
   esac
 done
@@ -81,10 +81,11 @@ from json_merge import dump_lines
 
 
 def file_row(table, key, row):
-    path = Path("tools/data") / f"{table}.json"
-    rows = json.loads(path.read_text())
+    import sharded_table
+    data = Path("tools/data")
+    rows = sharded_table.load(table, data)
     rows[key] = row
-    path.write_text(dump_lines(rows))
+    sharded_table.save(table, rows, data)
 
 
 for pid in sys.argv[1:]:
@@ -149,10 +150,10 @@ import json, sys
 sys.path.insert(0, "tools")
 from json_merge import dump_lines
 from pathlib import Path
-p = Path("tools/data/source_clue_wrong.json")
-rows = json.loads(p.read_text())
+import sharded_table
+rows = sharded_table.load("source_clue_wrong")
 rows[f"{sys.argv[1]}/99-across"] = ["Served", "Printed", "simulated"]
-p.write_text(dump_lines(rows))
+sharded_table.save("source_clue_wrong", rows)
 PY
 printf '\n' >>"puzzles/times/1984/$A.json"
 stage_puzzle "$A" && commit "Reannotate $A"
@@ -169,11 +170,11 @@ import json, sys
 sys.path.insert(0, "tools")
 from json_merge import dump_lines
 from pathlib import Path
-p = Path("tools/data/source_clue_wrong.json")
-rows = json.loads(p.read_text())
+import sharded_table
+rows = sharded_table.load("source_clue_wrong")
 for pid in sys.argv[1:] + ["times-1"]:
     rows[f"{pid}/98-across"] = ["Served", "Printed", "simulated"]
-p.write_text(dump_lines(rows))
+sharded_table.save("source_clue_wrong", rows)
 PY
 python3 tools/own_rows.py stage "$A" "$B"
 check "a multi-id stage holds every named puzzle's row" "2" \
@@ -207,11 +208,11 @@ import json, sys
 sys.path.insert(0, "tools")
 from json_merge import dump_lines
 from pathlib import Path
-p = Path("tools/data/source_clue_wrong.json")
-rows = json.loads(p.read_text())
+import sharded_table
+rows = sharded_table.load("source_clue_wrong")
 for pid in sys.argv[1:]:
     rows[f"{pid}/97-across"] = ["Served", "Printed", "simulated"]
-p.write_text(dump_lines(rows))
+sharded_table.save("source_clue_wrong", rows)
 PY
 for id in "$A" "$B"; do printf '\n' >>"puzzles/times/1984/$id.json"; done
 stage_puzzle "$A" && worker_commit "Annotate $A (shared table)" "puzzles/times/1984/$A.json" $(python3 tools/own_rows.py paths)

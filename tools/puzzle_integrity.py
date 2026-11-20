@@ -199,6 +199,7 @@ import punctuation
 import puzzle_paths
 import puzzle_schema
 import quotes
+import sharded_table
 import reprints
 import series as series_meta
 import wordplay
@@ -1453,7 +1454,7 @@ def check_duplicated_clues(puzzle, flags):
         flags.append(("SHAPE", puzzle.get("id"), f"{', '.join(ids)}: one clue read onto "
                       f"{len(ids)} lights, so the others' clues were lost: file it on the light "
                       f"it fits and the rest blank (ocr_clues.one_light_each), or the printed "
-                      f"clue in tools/data/source_clue_wrong.json"))
+                      f"clue in tools/data/source_clue_wrong/"))
 
 
 #: Words a clue needs before one copy under ACROSS and another under DOWN is
@@ -1888,8 +1889,10 @@ def _table_salt():
     src = (Path(__file__).resolve().parent / "fetch_puzzle.py").read_text(encoding="utf-8")
     h = hashlib.sha1()
     for name in sorted(set(re.findall(r'load_source_table\("(\w+)"\)', src))):
-        f = data / f"{name}.json"
-        h.update(name.encode() + b"\0" + (f.read_bytes() if f.exists() else b"absent") + b"\0")
+        # a sharded ledger is every shard, in name order
+        body = b"\0".join(f.name.encode() + b"\0" + f.read_bytes()
+                          for f in sharded_table.files(name, data)) or b"absent"
+        h.update(name.encode() + b"\0" + body + b"\0")
     return h.hexdigest()[:16]
 
 

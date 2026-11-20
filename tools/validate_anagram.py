@@ -33,7 +33,7 @@ def multiset_diff(a, b):
 #: holds the anagram fodder as printed, the letters it should give, and the
 #: evidence that the print says so (the source page read, not a guess);
 #: setter_error_problems says which rows fit. Unlike
-#: tools/data/source_clue_wrong.json nothing is corrected: the clue stays as
+#: tools/data/source_clue_wrong/ nothing is corrected: the clue stays as
 #: printed, the annotation explains it as printed, and its walkthrough tells the
 #: solver what is wrong with it.
 SETTER_ERROR = load_source_table("setter_error")

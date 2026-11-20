@@ -64,7 +64,7 @@ class Decide(unittest.TestCase):
         self.assertEqual(verdict([("M", P), ("A", BACKLOG)], old, tighter), "full")
 
     def test_entry_table_rows_only_for_a_changed_puzzle_and_never_removed(self):
-        table = "tools/data/blog_disagree.json"
+        table = "tools/data/blog_disagree/times-07.json"
         old = json.dumps({"times-7619/1-across": ["type", "x"], "x-1/2-down": ["type", "y"]})
         added = json.dumps({"times-7619/1-across": ["type", "x"], "x-1/2-down": ["type", "y"], "times-7619/3-down": ["definition", "z"]})
         self.assertEqual(verdict([("M", P), ("M", table)], old, added), "fast")
@@ -104,7 +104,7 @@ class Wiring(unittest.TestCase):
 
         ignored = listed(raw, "paths-ignore:")[:len(listed(chk, "paths:"))]
         self.assertEqual(ignored, listed(chk, "paths:"))
-        data = {"puzzles/**/*.json", "puzzles/**/*.blog", *S.validate_scope.ENTRY_TABLES, *S.QUEUE_STATE,
+        data = {"puzzles/**/*.json", "puzzles/**/*.blog", *S.validate_scope.ENTRY_TABLES, *S.validate_scope.ENTRY_SHARD_GLOBS, *S.QUEUE_STATE,
                 S.validate_scope.BACKLOG, *S.DERIVED_DATA}
         self.assertEqual(set(ignored), data)
 

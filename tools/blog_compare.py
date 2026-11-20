@@ -14,7 +14,7 @@ our own clue and never the blogger's prose. Two uses come of it:
 A disagreement is a prompt to look, never an overwrite: bloggers underline
 wordplay and miss pieces as often as we do (see SOURCE_ANSWER_WRONG for how
 far even an official key can be trusted). A clue a run has looked at and kept
-is filed in tools/data/blog_disagree.json and not counted again. The puzzles
+is filed in tools/data/blog_disagree/ and not counted again. The puzzles
 left with a disagreement are `due`: tools/prereset_backfill.sh re-checks
 them once the annotation backlog is spent.
 
@@ -23,7 +23,7 @@ them once the annotation backlog is spent.
     python3 tools/blog_compare.py --due      # the due puzzle ids, most disagreements first
     python3 tools/blog_compare.py --keep cryptic-30043 20-down definition "why ours stands"
 
---keep files one checked clue in tools/data/blog_disagree.json, for a run
+--keep files one checked clue in tools/data/blog_disagree/, for a run
 re-checking an annotated puzzle (whose fixes are edits to the puzzle file, not
 an _ann file, so annotate_check's `blogDisagree` filing is not there for it).
 
@@ -38,13 +38,13 @@ from pathlib import Path
 
 import definitions
 from fetch_puzzle import blog_facts_for, puzzle_files, puzzle_paths, read_puzzle_view, with_blog_facts
-from json_merge import dump_lines
+import sharded_table
 from groups import entry_id
 import validate_annotations as V
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "blog_compare.json"
-TABLE = ROOT / "tools" / "data" / "blog_disagree.json"
+TABLE_NAME = "blog_disagree"  # a folder of shards, tools/sharded_table.py
 #: How many example disagreements of each kind the report keeps.
 EXAMPLES = 12
 
@@ -157,9 +157,9 @@ def keep_ours(pid, eid, fields, why):
         return f"no puzzle {pid}"
     if eid not in {entry_id(e) for e in read_puzzle_view(path)["entries"]}:
         return f"{eid}: not an entry of {pid}"
-    rows = json.loads(TABLE.read_text(encoding="utf-8"))
+    rows = sharded_table.load(TABLE_NAME)
     rows[f"{pid}/{eid}"] = [fields, why.strip()]
-    TABLE.write_text(dump_lines(rows), encoding="utf-8")
+    sharded_table.save(TABLE_NAME, rows)
     V.BLOG_DISAGREE[(pid, eid)] = (fields, why.strip())  # this process's checks see it at once
     return None
 
@@ -181,15 +181,17 @@ def clue_warnings(path):
 
 
 def unshipped(pid):
-    """How many of puzzle `pid`'s rows of blog_disagree.json differ in the tree from HEAD's:
+    """How many of puzzle `pid`'s rows of blog_disagree differ in the tree from HEAD's:
     the clues a re-check run kept ours on and nobody has committed yet. A run that only
     files keeps leaves the puzzle's own file as it was, so this is its only trace."""
     import subprocess
-    head = subprocess.run(["git", "-C", str(ROOT), "show", "HEAD:tools/data/blog_disagree.json"],
+    shard = f"{sharded_table.shard_of(pid)}.json"
+    head = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:tools/data/{TABLE_NAME}/{shard}"],
                           check=False, capture_output=True, text=True)
+    path = sharded_table.folder(TABLE_NAME) / shard
     try:
         was = json.loads(head.stdout) if head.returncode == 0 else {}
-        now = json.loads(TABLE.read_text(encoding="utf-8"))
+        now = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     except (OSError, ValueError):
         return 0
     mine = {k for k in set(was) | set(now) if k.split("/", 1)[0] == pid}
@@ -214,7 +216,7 @@ def main():
         return 0
     if args.keep:
         err = keep_ours(*args.keep)
-        print(err or f"filed {args.keep[0]}/{args.keep[1]} in tools/data/blog_disagree.json")
+        print(err or f"filed {args.keep[0]}/{args.keep[1]} in tools/data/blog_disagree/")
         return 1 if err else 0
     if args.due:
         held = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
@@ -235,7 +237,7 @@ def main():
     report = {
         "_why": "Our annotations against the blogs' marked facts (tools/blog_compare.py). "
                 "Rates are disagreements per clue where both sides mark that fact; "
-                "`due` is each puzzle's clues still disagreeing, unfiled in blog_disagree.json, "
+                "`due` is each puzzle's clues still disagreeing, unfiled in blog_disagree, "
                 "which tools/prereset_backfill.sh re-checks. A disagreement is a prompt to check, "
                 "not an overwrite.",
         "coverage": dict(sorted(cover.items())),

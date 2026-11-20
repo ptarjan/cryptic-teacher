@@ -81,7 +81,7 @@ def contradicted(puzzle, blog):
 
 #: Tables keyed by puzzle id, whose rows follow a folded id to its original.
 #: Their JSON is rewritten by key (json_merge.dump_lines).
-REKEYED_BY_KEY = ("tools/data/source_clue_wrong.json",)
+REKEYED_BY_KEY = ("source_clue_wrong",)
 REKEYED = ("tools/data/yt_solvers/cryptics_uncovered_moments.json",
            "tools/data/yt_solvers/cryptics_uncovered_unstick.json",
            "tools/data/yt_solvers/cryptics_uncovered_parse_check.json",
@@ -110,11 +110,11 @@ def rekey(pairs):
     for name in REKEYED:
         path = root / name
         path.write_text(sub(path.read_text(encoding="utf-8")), encoding="utf-8")
-    from json_merge import dump_lines, write_atomic
+    import sharded_table
+    from json_merge import dump_lines
     for name in REKEYED_BY_KEY:
-        path = root / name
-        rows = json.loads(sub(path.read_text(encoding="utf-8")), object_pairs_hook=unique_keys)
-        write_atomic(path, dump_lines(rows))
+        rows = json.loads(sub(json.dumps(sharded_table.load(name))), object_pairs_hook=unique_keys)
+        sharded_table.save(name, rows)
     ninas = root / "tools" / "data" / "ninas.json"
     ninas.write_text(dump_lines(json.loads(sub(ninas.read_text(encoding="utf-8")))),
                      encoding="utf-8")

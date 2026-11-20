@@ -76,7 +76,7 @@ expect("a new entry", backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 2, "t
 expect("an allowance for a puzzle with no file", backlog(OLD, tight, resolve=lambda s: {}), "full", "times-21965")
 expect("a new field", backlog(OLD, OLD[:-1] + ', "other": {}}', [("M", P)]), "full", "annotation_backlog.json")
 expect("a backlog that is not json", backlog(OLD, "{", [("M", P)]), "full", "annotation_backlog.json")
-T = "tools/data/blog_disagree.json"
+T = "tools/data/blog_disagree/times-21.json"
 ROWS = '{"times-21965/1-across": ["type", "a"], "times-1/2-down": ["type", "b"]}'
 
 
@@ -89,6 +89,7 @@ expect("an added row with its puzzle", rows(more, [("M", P)]), "files")
 expect("an added row, puzzle unchanged", rows(more), "files")
 assert rows(more)[1] == [P]
 expect("a row removed", rows('{"times-1/2-down": ["type", "b"]}', [("M", P)]), "full", "blog_disagree.json")
+expect("a new shard with its puzzle", v.decide([("A", T), ("M", P)], lambda p: None, lambda p: more, where), "files")
 expect("a table that is not json", rows("{", [("M", P)]), "full", "blog_disagree.json")
 expect("the authored clues",v.decide([("M", "tools/data/authored_A001_clues.json")]), "full", "authored_A001_clues.json")
 expect("the workflow", v.decide([("M", ".github/workflows/pages.yml")]), "full", "pages.yml")

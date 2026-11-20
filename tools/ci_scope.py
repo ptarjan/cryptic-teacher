@@ -98,8 +98,8 @@ def decide(changes, base_text=None, head_text=None, site=False, code_ok=False):
     rows = set()
     code = []
     for st, path in changes:
-        if path in validate_scope.ENTRY_TABLES and st == "M" and base_text:
-            old = base_text(path)
+        if validate_scope.entry_table_change(path, st) and base_text:
+            old = "{}" if st == "A" else base_text(path)
             new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
             moved = validate_scope.entry_rows_moved(old, new) if old is not None else None
             if moved is None:

@@ -121,7 +121,7 @@ worker_set_aside() {   # tree sidfile
   while IFS= read -r p; do
     git -C "$tree" diff --quiet HEAD -- "$p" && continue
     mkdir -p "$rec.aside/rows/$(dirname "$p")" && cp -p "$tree/$p" "$rec.aside/rows/$p"
-  done < <(cd "$tree" && python3 tools/own_rows.py paths)
+  done < <(cd "$tree" && python3 tools/own_rows.py files)
 }
 
 # Every record of any job that ran in tree $1, set aside: called before the
@@ -1133,7 +1133,7 @@ _worker_finish() {
   # again, so the OCR learns what the annotator mended.
   python3 tools/annotate_check.py --reread "$id" || true
   if [ -z "$(git --no-optional-locks status --porcelain -- "$(puzzle_spec "$id")")" ]; then
-    # A blog re-check that filed "ours stands" (blog_compare.py --keep) wrote tools/data/blog_disagree.json
+    # A blog re-check that filed "ours stands" (blog_compare.py --keep) wrote tools/data/blog_disagree/ (a shard)
     # and left the puzzle's file alone: that is the work, not a wasted run (11-03 12:25: 8 of 12 runs
     # logged "nothing to change" and never committed their rows). Its rows ride out in the commit below.
     blog_kept=0

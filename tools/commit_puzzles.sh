@@ -81,7 +81,11 @@ ct_commit_puzzles() {  # ct_commit_puzzles <job>
       python3 "$_cp_dir/puzzle_rows.py" retire "${gone%.json}" $now >/dev/null || return 1
       # book_twins too: a book file that gave way to its newspaper copy (fetch_puzzle.unsolved_book_yields) drops its pair.
       for t in source_clue_wrong source_answer_wrong setter_error blog_disagree ninas blind_misses diagnosed_misses book_twins renamed_ids; do
-        [ -f "tools/data/$t.json" ] && p+=("tools/data/$t.json")
+        if [ -d "tools/data/$t" ]; then   # a sharded ledger (tools/sharded_table.py): a folder, new shards too
+          git add -A -- "tools/data/$t" && p+=("tools/data/$t")
+        elif [ -f "tools/data/$t.json" ]; then
+          p+=("tools/data/$t.json")
+        fi
       done
     fi
     git commit -q -m "$(printf '%s\n\n%s' "$subj" "$trailer")" -- "${p[@]:1}" || return 1

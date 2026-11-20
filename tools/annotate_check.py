@@ -26,7 +26,7 @@ these runs cannot get approved.
 
 An entry's `printedClue` (a misread clue mended), `setterError` (a setter's
 slip) and `answerTypo` (the paper's key misprinted) are filed as its rows of
-tools/data/source_clue_wrong.json, setter_error.json and
+tools/data/source_clue_wrong/ (shards), setter_error.json and
 source_answer_wrong.json and taken off the entry (FILED), so filing one is a
 field in the same write, not a hand edit of a sorted table. An `answerTypo`
 also puts the corrected letters in the puzzle file's grid before the apply.
@@ -105,7 +105,7 @@ import wordplay
 from apply_annotations import (
     annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle
-from json_merge import dump_lines, write_atomic
+import sharded_table
 from validate_annotations import letters
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname
 from find_renarration import scan
@@ -245,7 +245,7 @@ def to_write(puzzle, before):
     readable = {entry_id(e) for e in clued(clues)}
     if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
         # A clue the OCR lost is the run's too: the scan may print it, and
-        # a source_clue_wrong.json row with "" served restores it.
+        # a source_clue_wrong row with "" served restores it.
         readable |= {entry_id(e) for e in clues if validate_annotations.is_blank_clue(e["clue"].get("text", ""))}
     # A clue withheld for the text it still has is not due (fetch_puzzle.withheld_stands).
     only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
@@ -752,7 +752,7 @@ def drop_noop_printed_clue(path, pending, data=DATA):
         return []
     puzzle = read_puzzle_file(path)
     by_id = {entry_id(e): e for e in puzzle["entries"]}
-    clue_rows = json.loads((data / "source_clue_wrong.json").read_text(encoding="utf-8"))
+    clue_rows = sharded_table.load("source_clue_wrong", data)
     dropped = []
     for eid, a in ann.items():
         v = a.get("printedClue") if isinstance(a, dict) else None
@@ -799,8 +799,8 @@ def file_rows(path, pending, data=DATA):
     unknown = sorted({eid for _, eid, _ in wants} - set(by_id))
     if unknown:
         return [], f"{', '.join(unknown)}: not an entry of {puzzle['id']}, so nothing to file"
-    answer_rows = json.loads((data / "source_answer_wrong.json").read_text(encoding="utf-8"))
-    clue_rows = json.loads((data / "source_clue_wrong.json").read_text(encoding="utf-8"))
+    answer_rows = sharded_table.load("source_answer_wrong", data)
+    clue_rows = sharded_table.load("source_clue_wrong", data)
     printed = provenance.printed_answers(puzzle)
     fixes = {eid: letters(v[0]) for field, eid, v in wants if field == "answerTypo"}
     served = {}
@@ -851,7 +851,7 @@ def file_rows(path, pending, data=DATA):
     tables = {}
     for field, eid, v in wants:
         name = FILED[field][0]
-        rows = tables.setdefault(name, json.loads((data / f"{name}.json").read_text(encoding="utf-8")))
+        rows = tables.setdefault(name, sharded_table.load(name, data))
         key = f"{puzzle['id']}/{eid}"
         row = [x.strip() for x in v]
         if field == "printedClue":
@@ -870,7 +870,7 @@ def file_rows(path, pending, data=DATA):
         rows[key] = row
         del ann[eid][field]
     for name, rows in tables.items():
-        write_atomic(data / f"{name}.json", dump_lines(rows))
+        sharded_table.save(name, rows, data)
     if fixes:
         fetch_puzzle.write_puzzle_file(path, puzzle)
     write_pending(pending, ann)
@@ -1493,7 +1493,7 @@ def name_checks(report):
 def misread(path):
     """([(entry id, printed clue)] as HEAD has the puzzle (the source's
     reading), [what met a misread]) for the puzzle at `path`: "printedClue"
-    for a source_clue_wrong.json row HEAD lacks, and each misread check that
+    for a source_clue_wrong row HEAD lacks, and each misread check that
     fails: check_clue_unchanged (the run rewrote the clue to fit its parse) and
     check_anagram_letters (the clue's fodder cannot give the answer's letters),
     and "lostClue" for an entry the run left null (a clue it could not parse,
@@ -1505,8 +1505,10 @@ def misread(path):
     import enumeration
     clues = [(eid, enumeration.printed(e["clue"])) for eid, e in entries.items()]
     why = []
-    rows = json.loads((DATA / "source_clue_wrong.json").read_text(encoding="utf-8"))
-    head = subprocess.run(["git", "show", "HEAD:tools/data/source_clue_wrong.json"], cwd=ROOT,
+    shard = f"source_clue_wrong/{sharded_table.shard_of(pid)}.json"
+    path_rows = DATA / shard
+    rows = json.loads(path_rows.read_text(encoding="utf-8")) if path_rows.exists() else {}
+    head = subprocess.run(["git", "show", f"HEAD:tools/data/{shard}"], cwd=ROOT,
                           capture_output=True, text=True, check=False)
     held = json.loads(head.stdout) if head.returncode == 0 else {}
     if any(k.split("/", 1)[0] == pid and held.get(k) != v for k, v in rows.items()):

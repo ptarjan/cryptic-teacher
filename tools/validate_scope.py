@@ -96,8 +96,17 @@ BACKLOG = "tools/annotation_backlog.json"
 #: and the blog checks look one up by that key), so an added or edited row is
 #: an input of that puzzle's check alone. Burn commits file them beside the
 #: puzzle they describe and used to force the full suite and a full check.
-ENTRY_TABLES = tuple(f"tools/data/{n}.json" for n in
-                     ("source_clue_wrong", "source_answer_wrong", "setter_error", "blog_disagree"))
+ENTRY_TABLES = tuple(f"tools/data/{n}.json" for n in ("source_answer_wrong", "setter_error"))
+#: The two big ledgers are folders of shards (tools/sharded_table.py): a shard
+#: added or edited is the same kind of change as an edit of a table.
+ENTRY_SHARD_GLOBS = ("tools/data/source_clue_wrong/*.json", "tools/data/blog_disagree/*.json")
+ENTRY_SHARDS = re.compile(r"tools/data/(?:source_clue_wrong|blog_disagree)/[\w\-]+\.json")
+
+
+def entry_table_change(path, st):
+    """Whether (st, path) is an added or edited entry-table file: a table is
+    edited, a shard of a sharded one is edited or new."""
+    return (path in ENTRY_TABLES and st == "M") or (bool(ENTRY_SHARDS.fullmatch(path)) and st in ("A", "M"))
 
 
 def entry_rows_moved(old_text, new_text):
@@ -183,8 +192,8 @@ def decide(changes, base_text=None, head_text=None, resolve=None):
     for st, path in changes:
         if path.startswith(UNREAD) or path in QUEUE_STATE or path in PROMPTS:
             continue
-        if path in ENTRY_TABLES and st == "M" and base_text:
-            old = base_text(path)
+        if entry_table_change(path, st) and base_text:
+            old = "{}" if st == "A" else base_text(path)
             new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
             moved = entry_rows_moved(old, new) if old is not None else None
             if moved is None:

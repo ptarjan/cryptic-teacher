@@ -19,10 +19,10 @@ on:
     paths:
       - "puzzles/**/*.json"
       - "puzzles/**/*.blog"
-      - "tools/data/source_clue_wrong.json"
+      - "tools/data/source_clue_wrong/*.json"
       - "tools/data/source_answer_wrong.json"
       - "tools/data/setter_error.json"
-      - "tools/data/blog_disagree.json"
+      - "tools/data/blog_disagree/*.json"
       - "tools/data/shape_reannotate.json"
       - "tools/annotation_backlog.json"
       - "tools/data/blog_compare.json"
@@ -92,8 +92,8 @@ jobs:
           only=true
           while read -r f; do
             case "$f" in
-              puzzles/*.json|puzzles/*.blog|tools/data/source_clue_wrong.json|tools/data/source_answer_wrong.json) ;;
-              tools/data/setter_error.json|tools/data/blog_disagree.json|tools/data/shape_reannotate.json) ;;
+              puzzles/*.json|puzzles/*.blog|tools/data/source_clue_wrong/*.json|tools/data/source_answer_wrong.json) ;;
+              tools/data/setter_error.json|tools/data/blog_disagree/*.json|tools/data/shape_reannotate.json) ;;
               tools/annotation_backlog.json|tools/data/blog_compare.json|tools/data/blog_facts/inputs.sha256|tools/data/corroboration_ledger.json) ;;
               *) only=false ;;
             esac
@@ -128,6 +128,28 @@ jobs:
         shell: bash
         run: |
           grep -q '^full' "$RUNNER_TEMP/verdict.txt" && echo "::notice::$(cat "$RUNNER_TEMP/verdict.txt"): the full suite is tests.yml's" || echo "data-only push"
+
+  # A big file many jobs rewrite is the costliest thing in the repository (the two
+  # source ledgers were ~18 MB a day): every tracked file outside puzzles/ over 512 KB
+  # is split or named, with a reason, in tools/data/large_file_allowlist.json. The
+  # sparse tree holds all but puzzles/, so the sizes come from one batched fetch.
+  sizes:
+    name: file sizes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/puzzles/
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: No big file outside puzzles/ unless allowlisted
+        run: python3 tools/check_file_sizes.py
 
   # Its own job so that actions: write goes to these steps and not to the checks.
   dispatch:

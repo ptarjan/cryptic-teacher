@@ -1950,7 +1950,7 @@ unset CT_BACKFILL_FIELD
 # (definition, type, blocks) and lists as `due` the puzzles with a disagreement
 # nobody has looked at. A disagreement is a prompt to check, not an overwrite:
 # the run fixes ours where the blog is right and files why ours stands where it
-# is not (tools/data/blog_disagree.json), which takes the clue off the list.
+# is not (tools/data/blog_disagree/), which takes the clue off the list.
 # Re-planned when the phase starts, so tonight's filed rows count.
 if [ "$burn_stopped" = 0 ] && ! past_deadline; then
   if [ "$POOL_PHASE" != blog-recheck ]; then

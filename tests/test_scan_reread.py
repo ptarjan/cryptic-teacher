@@ -48,17 +48,20 @@ shutil.copy(src, path)
 puzzle = F.read_puzzle_file(path)
 data = tmp / "data"
 data.mkdir()
-shutil.copy(AC.DATA / "source_clue_wrong.json", data / "source_clue_wrong.json")
+SHARD = AC.sharded_table.shard_of(pid) + ".json"
+(data / "source_clue_wrong").mkdir()
+shutil.copy(AC.DATA / "source_clue_wrong" / SHARD, data / "source_clue_wrong" / SHARD)
 AC.DATA = data
+SHARD_PATH = data / "source_clue_wrong" / SHARD
 
 clues, why = AC.misread(path)
 check("a clean annotation met no misread", [], why)
-rows = json.loads((data / "source_clue_wrong.json").read_text())
+rows = json.loads(SHARD_PATH.read_text())
 eid = f"{puzzle['entries'][0]['number']}-{puzzle['entries'][0]['direction']}"
 rows[f"{pid}/{eid}"] = ["shown", "printed", "OCR misread: test"]
-(data / "source_clue_wrong.json").write_text(json.dumps(rows))
+SHARD_PATH.write_text(json.dumps(rows))
 check("a printedClue row HEAD lacks is a misread", ["printedClue"], AC.misread(path)[1])
-(data / "source_clue_wrong.json").write_text(json.dumps({k: v for k, v in rows.items() if k != f"{pid}/{eid}"}))
+SHARD_PATH.write_text(json.dumps({k: v for k, v in rows.items() if k != f"{pid}/{eid}"}))
 broken = copy.deepcopy(puzzle)
 # The file stores a tree, not assembly.anagrams: misprint an anagram's own
 # fodder leaf (a leaf with no gives is its own letters), losing its last

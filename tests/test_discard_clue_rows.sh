@@ -11,7 +11,7 @@
 #   - every SOURCE_CLUE_WRONG row for it names a clue the file shows, which is
 #     what tests/test_source_answer_wrong.py holds CI to;
 #   - the rows committed with its earlier annotation are kept;
-#   - tools/data/source_clue_wrong.json is byte for byte as committed;
+#   - tools/data/source_clue_wrong/ is byte for byte as committed;
 #   - a puzzle the run wrote new is removed, with its rows.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -28,10 +28,10 @@ cp "$REPO"/tools/*.py "$tree/tools/"
 mkdir -p "$tree/tools/data"
 # The tables own_rows splices are real files, since git stores a symlink's
 # target; the rest are linked.
-owned=$(cd "$REPO/tools" && python3 -c 'import own_rows; print(" ".join(own_rows.DATA_RELS))')
+owned=$(cd "$REPO/tools" && python3 -c 'import own_rows; print(" ".join(own_rows.DATA_PATHS))')
 for f in "$REPO"/tools/data/*; do
   case " $owned " in
-    *" tools/data/${f##*/} "*) cp "$f" "$tree/tools/data/" ;;
+    *" tools/data/${f##*/} "*) cp -r "$f" "$tree/tools/data/" ;;
     *) ln -s "$f" "$tree/tools/data/" ;;
   esac
 done
@@ -72,8 +72,8 @@ new.write_text(path.read_text().replace(pid, "times-99999"))
 
 from json_merge import dump_lines
 
-data = Path("tools/data/source_clue_wrong.json")
-rows = json.loads(data.read_text())
+import sharded_table
+rows = sharded_table.load("source_clue_wrong")
 rows[f"{pid}/{entry_id(printed)}"] = [printed["clue"]["text"][7:], printed["clue"]["text"],
                                      "OCR misread: simulated by test_discard_clue_rows"]
 rows[f"{pid}/{entry_id(mismatched)}"] = ["A served text the file never held",
@@ -81,14 +81,16 @@ rows[f"{pid}/{entry_id(mismatched)}"] = ["A served text the file never held",
                                         "OCR misread: simulated by test_discard_clue_rows"]
 rows["times-99999/1-across"] = ["Served", "Printed",
                                 "OCR misread: simulated by test_discard_clue_rows"]
-data.write_text(dump_lines(rows))
+sharded_table.save("source_clue_wrong", rows)
 PY
+git add -N -- tools/data   # the new puzzle's shard is a new file: make diff show it
 check "the simulated run filed three rows" "3" \
   "$(git diff -U0 -- tools/data | grep -c '^+ "times-\(16348\|99999\)/')"
 
 discard_puzzle "$PID"
 discard_puzzle times-99999
 
+git reset -q -- tools/data
 check "the puzzle file is back as committed" "" "$(git status --porcelain -- puzzles)"
 check "the table is byte for byte as committed" "" "$(git diff --stat -- tools/data)"
 check "no alert" "" "$(cat "$ALERTS" 2>/dev/null)"
@@ -112,7 +114,7 @@ PY
 field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /, ""); print}' <<<"$out"; }
 check "every row left for the puzzle names a clue its file shows" "none" "$(field BAD)"
 check "the rows committed with its annotation are kept" \
-  "$(grep -c "\"$PID/" "$REPO/tools/data/source_clue_wrong.json")" "$(field KEPT)"
+  "$(cat "$REPO"/tools/data/source_clue_wrong/*.json | grep -c "\"$PID/")" "$(field KEPT)"
 check "a new puzzle's rows go with it" "0" "$(field NEW)"
 
 # A row the run filed and a sibling already committed is dropped all the same:
@@ -122,8 +124,8 @@ import json, sys
 sys.path.insert(0, "tools")
 from json_merge import dump_lines
 from pathlib import Path
-p = Path("tools/data/source_clue_wrong.json")
-rows = json.loads(p.read_text())
+import sharded_table
+rows = sharded_table.load("source_clue_wrong")
 rows["times-16348/1-across"] = ["Served", "Printed",
                                 "OCR misread: simulated by test_discard_clue_rows"]
 p.write_text(dump_lines(rows))
@@ -131,7 +133,7 @@ PY
 git -c user.name=t -c user.email=t@t commit -qam sibling
 discard_puzzle "$PID"
 check "a row a sibling already committed is dropped too" "0" \
-  "$(grep -c '"times-16348/1-across"' tools/data/source_clue_wrong.json)"
+  "$(cat tools/data/source_clue_wrong/*.json | grep -c '"times-16348/1-across"')"
 
 [ "$fails" = 0 ] && echo "discard_clue_rows: all checks passed" \
   || echo "discard_clue_rows: $fails FAILED"

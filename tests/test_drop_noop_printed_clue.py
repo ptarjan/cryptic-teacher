@@ -27,7 +27,6 @@ id0, id1 = AC.entry_id(e0), AC.entry_id(e1)
 shown = e0["clue"]["text"]
 with tempfile.TemporaryDirectory() as d:
     d = Path(d)
-    (d / "source_clue_wrong.json").write_text("{}")
     f = d / "_ann_x.json"
     f.write_text(json.dumps({
         id0: {"printedClue": [shown + " ", "evidence that is long enough to be argued here"], "def": "d"},

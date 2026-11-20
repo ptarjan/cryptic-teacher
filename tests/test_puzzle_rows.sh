@@ -27,7 +27,7 @@ git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/r" 2>/dev/null
 R="$tmp/r"
 mkdir -p "$R/tools/data" "$R/puzzles/x/2017" "$R/hooks"
-cp "$here"/{puzzle_rows.py,durable.sh,unstage_unparsable.sh,commit_puzzles.sh,push_puzzle_commit.sh,clobber_guard.py,commit_subject.py,renamed_ids.py,gitlog_cache.py,json_merge.py} "$R/tools/"
+cp "$here"/{puzzle_rows.py,durable.sh,unstage_unparsable.sh,commit_puzzles.sh,push_puzzle_commit.sh,clobber_guard.py,commit_subject.py,renamed_ids.py,gitlog_cache.py,json_merge.py,sharded_table.py} "$R/tools/"
 # SOURCE_LIGHT_WRONG, as fetch_puzzle.py spells it.
 printf 'SOURCE_LIGHT_WRONG = {\n    ("x-9", "1-across"): (\n        {}, {}, ""),\n}\n' >"$R/tools/fetch_puzzle.py"
 printf '#!/bin/sh\nexec python3 tools/puzzle_rows.py --check-staged\n' >"$R/hooks/pre-commit"
@@ -37,7 +37,8 @@ git config core.hooksPath "$R/hooks"
 for n in 1 2 3 4 9; do
   python3 -c 'import json,sys; json.dump({"id": sys.argv[1], "entries": [{"n": i, "c": sys.argv[1] + " clue %d of many words" % i} for i in range(30)]}, open(sys.argv[2], "w"), indent=1)' "x-$n" "puzzles/x/2017/x-$n.json"
 done
-cat >tools/data/source_clue_wrong.json <<'EOF'
+mkdir -p tools/data/source_clue_wrong
+cat >tools/data/source_clue_wrong/x-00.json <<'EOF'
 {
  "x-1/1-across": ["servd", "served", "a misread"],
  "x-2/3-down": ["a", "b", "c"],
@@ -49,16 +50,16 @@ echo '{"README": "x"}' >tools/data/renamed_ids.json
 git add -A && git commit -qm start && git push -q origin master 2>/dev/null
 
 # retire, without git.
-cp tools/data/source_clue_wrong.json "$tmp/scw"
+cp tools/data/source_clue_wrong/x-00.json "$tmp/scw"
 python3 tools/puzzle_rows.py retire x-1 >/dev/null
 check "a drop discards its rows and no other" '["x-2/3-down", "x-3/5-across"]' \
-  "$(python3 -c 'import json; print(json.dumps(list(json.load(open("tools/data/source_clue_wrong.json")))))')"
-check "and keeps the table's layout" "$(grep -v x-1 "$tmp/scw")" "$(cat tools/data/source_clue_wrong.json)"
+  "$(python3 -c 'import json; print(json.dumps(list(json.load(open("tools/data/source_clue_wrong/x-00.json")))))')"
+check "and keeps the table's layout" "$(grep -v x-1 "$tmp/scw")" "$(cat tools/data/source_clue_wrong/x-00.json)"
 check "a puzzle-keyed table too" '["x-2"]' "$(python3 -c 'import json; print(json.dumps(list(json.load(open("tools/data/ninas.json")))))')"
 git checkout -q -- tools/data
 python3 tools/puzzle_rows.py retire x-2 x-4 >/dev/null
 check "a rename carries its rows" '["x-1/1-across", "x-3/5-across", "x-4/3-down"]' \
-  "$(python3 -c 'import json; print(json.dumps(sorted(json.load(open("tools/data/source_clue_wrong.json")))))')"
+  "$(python3 -c 'import json; print(json.dumps(sorted(json.load(open("tools/data/source_clue_wrong/x-00.json")))))')"
 check "SOURCE_LIGHT_WRONG is named for hand editing" 1 \
   "$(python3 tools/puzzle_rows.py retire x-9 2>&1 >/dev/null | grep -c 'SOURCE_LIGHT_WRONG')"
 git checkout -q -- tools/data
@@ -90,7 +91,7 @@ check "durable commits the drop past the gate" "Drop x-1" \
 check "after the filing" "Drop x-1|File x-6" \
   "$(git --git-dir="$tmp/origin.git" log --format=%s -2 master | tr '\n' '|' | sed 's/|$//')"
 check "and its rows go in that commit" 0 \
-  "$(git --git-dir="$tmp/origin.git" show master:tools/data/source_clue_wrong.json | grep -c x-1)"
+  "$(git --git-dir="$tmp/origin.git" show master:tools/data/source_clue_wrong/x-00.json | grep -c x-1)"
 check "nothing left uncommitted" "" "$(git status --porcelain)"
 
 cd "$here/.." || exit 1

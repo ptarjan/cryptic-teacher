@@ -2524,9 +2524,10 @@ def V_edit_distance(a, b):
 #: The filers whose Times clue text is a scan's OCR (pre-2015 prints), the only files --annotated-mends touches.
 OCR_TEXT_FILERS = ("tools/file_archive_org_puzzles.py", "tools/file_trove_puzzles.py")
 ANNOTATED_BEFORE = "2015"
-#: The table a clue correction is filed in, so every re-fetch writes it and validate_annotations lets the
-#: annotation stand beside it (check_clue_unchanged, check_clue_rows_held).
-CLUE_ROWS = Path(fetcher.__file__).resolve().parent / "data" / "source_clue_wrong.json"
+#: The table a clue correction is filed in (tools/data/source_clue_wrong/, sharded_table), so every re-fetch
+#: writes it and validate_annotations lets the annotation stand beside it (check_clue_unchanged,
+#: check_clue_rows_held).
+CLUE_TABLE = "source_clue_wrong"
 
 
 def _drop_emptied(ann):
@@ -2552,7 +2553,7 @@ def repair_annotated_mends(apply_it=False, paths=None, request=True):
     Times file an OCR filer (OCR_TEXT_FILERS) filed for a print before ANNOTATED_BEFORE, no blog's write-up
     keying it. Each clue mend is written through enumeration.rewrite_entry, so every annotation `at` after
     the edit moves by its length change and a phrase quoting the bad span becomes the mended words (one
-    left quoting nothing goes), and filed as a source_clue_wrong.json row [as served, as printed, "OCR
+    left quoting nothing goes), and filed as a source_clue_wrong row [as served, as printed, "OCR
     misread: ..."], so a re-fetch writes it and validate_annotations lets the annotation stand. A mend
     that leaves validate_annotations an error the held file lacked is not made. A named answer is taken
     only at its light's length, every held crossing letter its own (solutions.printed follows it where it
@@ -2565,12 +2566,12 @@ def repair_annotated_mends(apply_it=False, paths=None, request=True):
     import corroborate
     import provenance
     import validate_annotations as V
-    from json_merge import dump_lines, write_atomic
+    import sharded_table
     is_word, _ = clue_repair.lexicon()
     if paths is None:
         paths = puzzle_paths.puzzle_files("times")
     out = {"mended": [], "answers": [], "asked": [], "left": [], "refused": [], "requests": 0}
-    rows = json.loads(CLUE_ROWS.read_text(encoding="utf-8"))
+    rows = sharded_table.load(CLUE_TABLE)
     rows_added = False
     for path in paths:
         if path.parent.name.isdigit() and path.parent.name >= ANNOTATED_BEFORE:
@@ -2664,7 +2665,7 @@ def repair_annotated_mends(apply_it=False, paths=None, request=True):
             if scan_queue.request_reread(held, clues, ["annotatorNote"]):
                 out["requests"] += 1
     if apply_it and rows_added:
-        write_atomic(CLUE_ROWS, dump_lines(rows))
+        sharded_table.save(CLUE_TABLE, rows)
     return out
 
 
@@ -2743,7 +2744,7 @@ def build_parser():
     ap.add_argument("--annotated-mends", action="store_true",
                     help="only mend the pre-2015 OCR'd Times clue text (and answers) the annotation's notes say the "
                          "scan broke ('docs is a misprint for does', 'the scan repeats pun-', \"'110>' is scan "
-                         "debris\"), filed as source_clue_wrong.json rows, annotation offsets moved; the paper's "
+                         "debris\"), filed as source_clue_wrong rows, annotation offsets moved; the paper's "
                          "own misprints left; notes giving no edit asked of the scan queue again "
                          "(repair_annotated_mends); --apply writes")
     ap.add_argument("--define", action="store_true",

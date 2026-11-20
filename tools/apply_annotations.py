@@ -335,7 +335,7 @@ def refusal(path, puzzle, err):
 
 
 def mend_clues(puzzle):
-    """Write each source_clue_wrong.json row into `puzzle`'s clues. A row that
+    """Write each source_clue_wrong row into `puzzle`'s clues. A row that
     gives a blank clue its printed words makes it a clue with words, so it
     stops being marked missing; one whose words are a reconstruction
     (fetch_puzzle.RECONSTRUCTED) marks the clue `reconstructed`."""

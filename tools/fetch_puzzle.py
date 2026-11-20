@@ -57,6 +57,7 @@ from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+import sharded_table  # the big ledgers kept as shard folders
 import series as series_meta  # what each series IS; see tools/series.py
 import provenance  # where each puzzle came from; see tools/provenance.py
 import corroborate  # every other source we hold; see tools/corroborate.py
@@ -1986,14 +1987,13 @@ def bare_letters(solution):
 
 
 def load_source_table(name):
-    """{(puzzle id, entry id): (served, corrected, why)} from tools/data/<name>.json,
-    a flat object keyed "puzzle id/entry id", one row per line, sorted: writers add
-    different lines, and tools/json_merge.py (named in .gitattributes) merges them."""
-    path = Path(__file__).resolve().parent / "data" / f"{name}.json"
+    """{(puzzle id, entry id): (served, corrected, why)} from tools/data/<name>.json
+    (or its shard folder, tools/sharded_table.py), a flat object keyed "puzzle
+    id/entry id", one row per line, sorted: writers add different lines, and
+    tools/json_merge.py (named in .gitattributes) merges them."""
     for attempt in (0, 1):
         try:
-            with open(path, encoding="utf-8") as f:
-                held = json.load(f)
+            held = sharded_table.load(name)
             break
         except json.JSONDecodeError:
             # a writer caught mid-rewrite (they replace atomically now, but an
@@ -2081,7 +2081,7 @@ def correct_source_answers(pid, entries):
 # again, and tools/validate_annotations.py lets an annotation written for the
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
-# The rows live in tools/data/source_clue_wrong.json, keyed "puzzle id/entry id".
+# The rows live in tools/data/source_clue_wrong/, keyed "puzzle id/entry id".
 SOURCE_CLUE_WRONG = load_source_table("source_clue_wrong")
 
 
@@ -3079,7 +3079,7 @@ WITHHELD = "annotationWithheld"
 def withheld_stands(entry):
     """Whether `entry` is withheld and its clue still reads as it did when the
     run withheld it. A clue cut short in the OCR, mended since (a re-read, a
-    source_clue_wrong.json row), is due again; so is any clue whose text moved."""
+    source_clue_wrong row), is due again; so is any clue whose text moved."""
     held = entry.get(WITHHELD)
     return (isinstance(held, dict) and "annotation" not in entry
             and held.get("clue") == entry["clue"].get("text", ""))
