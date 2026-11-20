@@ -28,9 +28,9 @@ need = P.paced_need(6, 140, R, mean)
 check(f"the weekly mean leaves a real need ({need})", need is not None and need >= 1)
 
 check("the burn's cwd as its records name it", P.same_tree(
-    "/Users/pt/.cryptic-teacher/prereset_backfill", "/data/home/.cryptic-teacher/prereset_backfill"))
+    "/home/mac/.cryptic-teacher/prereset_backfill", "/home/srv/.cryptic-teacher/prereset_backfill"))
 check("another tree is not the burn", not P.same_tree(
-    "/Users/pt/github/cryptic-teacher", "/data/home/.cryptic-teacher/prereset_backfill"))
+    "/home/mac/github/cryptic-teacher", "/home/srv/.cryptic-teacher/prereset_backfill"))
 check("no cwd is not the burn", not P.same_tree(None, "/burn"))
 
 now = 1_000_000.0

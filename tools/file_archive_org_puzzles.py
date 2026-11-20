@@ -28013,7 +28013,7 @@ def _text_linked(st, paper, d, rel, scan, day, held, deadline, fh):
 UNCONFIGURED_READ = "read while the VLM was unconfigured"
 #: Spans (first, last readAt, UTC ISO text) of rows written before rows carried
 #: the "vlmUnset" mark, when no VLM address was configured: 10-21 06:59-07:34,
-#: the live queue (HOME=/data/home) had no ~/.config/cryptic-teacher/local.json
+#: the live queue (the server HOME) had no ~/.config/cryptic-teacher/local.json
 #: after commit 763b3d76b2 moved the addresses there. Only rows with no "vlm" count.
 UNCONFIGURED_SPANS = (("2026-10-21T06:59:00+00:00", "2026-10-21T07:34:59+00:00"),)
 

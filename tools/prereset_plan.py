@@ -190,7 +190,7 @@ PACIFIC = awake.PACIFIC
 # sooner): overnight_cap.
 NIGHT_BRIDGE_FACTOR = 1.5
 NIGHT_GUARD = 1.0
-WAKE_SH = "/Users/pt/github/household/tools/wake.sh"
+WAKE_SH = os.environ.get("WAKE_SH") or __import__("local_config").path("household_dir") + "/tools/wake.sh"
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
 # the weekly meter's rise in usage-history.csv, split between the burn and
@@ -660,7 +660,7 @@ def _tail(path, start, chunk=1 << 18):
 def same_tree(cwd, burn_cwd):
     """True when a record's cwd is the burn's tree. The burn runs from
     /data/home/.cryptic-teacher/prereset_backfill, which its records name
-    /Users/pt/.cryptic-teacher/prereset_backfill (the same directory), so an
+    <home>/.cryptic-teacher/prereset_backfill (the same directory), so an
     exact match never held and the burn's spend was counted as the bridge's;
     the last two path parts decide instead."""
     if not isinstance(cwd, str):
