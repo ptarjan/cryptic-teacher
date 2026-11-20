@@ -173,7 +173,7 @@ import urllib.parse
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
-import clue_repair
+import clue_repair, fix_reasons
 import clue_text
 import quotes
 import crop_window
@@ -27140,6 +27140,10 @@ def fix_reason(row):
     its grids. Due
     whether its scan stands or not, so a stale scan never sinks it to the
     whole-corpus rank."""
+    # A fix registered in tools/reasons/ (fix_reasons.py): the newest fixes, asked first.
+    registered = fix_reasons.due(row)
+    if registered:
+        return registered
     # Named puzzles Paul asked be fixed from the source: first, whatever else the row is due for.
     if clue_garbled_due(row):
         return CLUE_GARBLED
@@ -28301,7 +28305,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   SUNDAY_MERGED2,
                   SUNDAY_BAND3,
                   # 11-15 r30: a 1940s Gale Times page whose grid's pale rules left too few white cells (pale_rules_due).
-                  PALE_RULES)
+                  PALE_RULES) + fix_reasons.of("blanket")
 
 
 def refusal_passes(why):
@@ -28731,7 +28735,7 @@ RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HO
          # A Listener page numbered by its title read, or refused unnumbered, while
          # its citation's date went unread (gale_listener.CITE_FIX): never read as
          # its own puzzle, as good as unread, and 35 held another's clues (10-24).
-         "refused misnumbered before its fix": 0}
+         "refused misnumbered before its fix": 0} | fix_reasons.ranks()
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is a puzzle read without answers that no page links a
 #: solution heading to and an edition is dated within SOLUTION_DAYS after it
@@ -29358,7 +29362,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, IOS_EVEN, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, SUNDAY_CAPTION, SUNDAY_STACKED, SUNDAY_BETWEEN, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_TALL, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, QUARTER_1935, PLAIN_BETWEEN, CLUE_BLOCK, SUB_COLUMNS, SUB_REFUSED, MARKED_HYPHEN, MARKED_RISE, COUNT_FIRST, MID_OTHER, SIDES_HEADED, NUMBERLESS_FIT, NUMBERLESS_EARLY, TEL_TITLE_FAR, BLOCK_FORTIES, TELE_OVER, TELE_HEAD)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED, TELEGRAPH_NEXT_DAY, TELEGRAPH_HOSTED, TELEGRAPH_PRIZE_DAY, TELEGRAPH_SATURDAY, TELEGRAPH_WHOLE, TELEGRAPH_CELLS, FT_FAINT, TELEGRAPH_FITTED, INDY_PAIRED, IOS_EVEN, INDEPENDENT_HEADINGS, INDEPENDENT_RIGHT, INDY_BARRED, INDY_BARRED_LATE, INDY_LINKS, INDY_COLUMNS, INDY_ABOVE, INDY_WIDE, INDY_DROPPED, SUNDAY_FOOT, IOS_TITLES, FT_HEADINGS, FT_CLUES, FT_GLUED, FT_THIRD, SUNDAY_TIMES_FOOT, SUNDAY_GRID, SUNDAY_LEFT, SUNDAY_BAND, SUNDAY_PAIR, SUNDAY_TITLE_GRID, SUNDAY_OVER, SUNDAY_CAPTION, SUNDAY_STACKED, SUNDAY_BETWEEN, FT_NUMBER_MENDED, TLS_MONTHLY, SUNDAY_MID, NUMBER_GRID, SUNDAY_QUICKIE_CUT, SUNDAY_UNDER, SUNDAY_NOTICE, SUNDAY_FEET, SUNDAY_TALL, SUNDAY_1970S, PLAIN_LAID, QUARTER_PLAIN, QUARTER_BLANKS, QUARTER_1934, QUARTER_1935, PLAIN_BETWEEN, CLUE_BLOCK, SUB_COLUMNS, SUB_REFUSED, MARKED_HYPHEN, MARKED_RISE, COUNT_FIRST, MID_OTHER, SIDES_HEADED, NUMBERLESS_FIT, NUMBERLESS_EARLY, TEL_TITLE_FAR, BLOCK_FORTIES, TELE_OVER, TELE_HEAD) + fix_reasons.of("solution_fix")
 
 
 def keeps_vlm(why, row, unit=None):

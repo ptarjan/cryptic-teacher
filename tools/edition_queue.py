@@ -508,6 +508,7 @@ import dir_cache
 import edition_commit
 import fetch_archive_org_editions as fetch_ao
 import fetch_trove
+import fix_reasons
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_jumbo_read
@@ -1334,6 +1335,7 @@ def evidence_reason(reason):
             # One a HELD_TITLE reread read again after HELD_STRIPS' time with no ask (fa.held_asked: 10-27, 131
             # Times puzzles 1-5 short, 1950s 106, none planned): answers-only with the VLM, once.
             or reason == fa.HELD_ASKED
+            or reason in fix_reasons.of("kept")  # a fix registered in tools/reasons/
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
 
 
@@ -2094,7 +2096,7 @@ NEWEST_LANDED = (fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.QUARTER_BL
                  fa.FT_SMALL_TEXT, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE,
                  fa.FT_SPECK_WORDS, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST,
                  fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER,
-                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_UNDER_SPLIT, fa.INDY_RIGHT_CUT, fa.TELE_LEFT, fa.INDY_THREE_FEW, fa.INDY_THIRD_TOP)
+                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_UNDER_SPLIT, fa.INDY_RIGHT_CUT, fa.TELE_LEFT, fa.INDY_THREE_FEW, fa.INDY_THIRD_TOP) + fix_reasons.of("newest_landed")
 
 
 #: The fixes whose rereads lead every other fix reread (fix_rereads_forward), whatever their rank: drop one
@@ -2585,7 +2587,7 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.INDY_THREE_FEW,
                  # 11-19 r296: a Gale Independent 2004 page whose third clue column began beside the grid, its first clues
                  # (4 and 5 down) read since (fa.indy_third_top_due).
-                 fa.INDY_THIRD_TOP)
+                 fa.INDY_THIRD_TOP) + fix_reasons.of("unfiled_first")
 
 
 
@@ -2616,7 +2618,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.SUNDAY_GRID, fa.SUNDAY_LEFT, fa.SUNDAY_BAND, fa.SUNDAY_PAIR, fa.SUNDAY_TITLE_GRID, fa.SUNDAY_OVER, fa.SUNDAY_CAPTION, fa.SUNDAY_STACKED, fa.SUNDAY_BETWEEN, fa.FT_NUMBER_MENDED, fa.TLS_MONTHLY, fa.SUNDAY_MID, fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT, fa.SUNDAY_UNDER, fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.SUNDAY_1970S, fa.PLAIN_LAID, fa.QUARTER_PLAIN, fa.QUARTER_BLANKS, fa.QUARTER_1934, fa.QUARTER_1935, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.MID_OTHER, fa.SIDES_HEADED, fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID, fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.INDY_BARRED_LATE, fa.INDY_LINKS, fa.INDY_COLUMNS, fa.INDY_ABOVE, fa.INDY_WIDE, fa.INDY_DROPPED, fa.SUNDAY_FOOT, fa.IOS_TITLES, fa.TELEGRAPH_OWN, fa.TELEGRAPH_FIGURE, fa.INDY_REDATED, fa.INDY_PAIRED, fa.IOS_EVEN, fa.TELEGRAPH_LEAD_NUMBER, fa.TELEGRAPH_STOP, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS, fa.INDY_OVER_PLAIN, fa.INDY_GUTTER_DOWN, fa.IOS_WORDS, fa.PALE_RULES, fa.INDY_THIN, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_SPECK_WORDS, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.INDY_THREE, fa.INDY_REPARSE, fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE, fa.SUNDAY_MERGED, fa.INDY_THREE_MORE, fa.SUNDAY_TAIL, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST, fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER, fa.SUB_REFUSED, fa.MARKED_HYPHEN, fa.COUNT_FIRST, fa.NUMBERLESS_FIT, fa.NUMBERLESS_EARLY, fa.TEL_TITLE_FAR, fa.BLOCK_FORTIES, fa.TELE_OVER, fa.TELE_HEAD, fa.MID_TIMES, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_THREE_FEW, fa.INDY_THIRD_TOP,
                  # 11-17 r169: a 1935-39 Gale Times page unfiled with a light blank, a clue's number behind a "!", "[" or "("
                  # mark in a row ending on a lower-case word read since (fa.marked_rise_due).
-                 fa.MARKED_RISE, fa.SOLO_READ)
+                 fa.MARKED_RISE, fa.SOLO_READ) + fix_reasons.of("fix_landed")
 
 
 def unproven_first(unit):
