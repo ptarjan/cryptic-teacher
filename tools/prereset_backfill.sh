@@ -2053,6 +2053,7 @@ if [ -n "$(git --no-optional-locks status --porcelain)" ]; then
   # regenerated pages and tables in the one after.
   tools/commit_puzzles.sh "Republish after pre-reset backfill" ||
     alert "the pre-reset backfill could not commit its puzzles one by one; they ride in the republish commit"
+  python3 tools/check_file_sizes.py --staged --unstage >&2  # a big unlisted blob is left behind, not committed
   git diff --cached --quiet ||
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
   left=$(git --no-optional-locks status --porcelain | cut -c4- | tr '\n' ' ')

@@ -607,6 +607,9 @@ worker_commit() {   # subject paths...
   # and own_rows.py stage put exactly the ids' rows in it (hash-object and
   # update-index, never git add of the whole table). Callers hold ct-index.lock,
   # which is what keeps a sibling's staging out of this index meanwhile.
+  # A staged blob over the size limit and not allowlisted is unstaged, not committed
+  # (tools/check_file_sizes.py says which and why on stderr).
+  python3 tools/check_file_sizes.py --staged --unstage >&2
   for try in 1 2 3 4 5; do
     out=$(git commit -q -m "$(printf '%s\n\n%s%s' "$subject" "${body:+$body$'\n\n'}" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
     rc=$?

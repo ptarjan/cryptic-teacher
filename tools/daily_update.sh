@@ -870,6 +870,8 @@ unit_commit() {  # subject
     python3 tools/renamed_ids.py --stage
     tools/commit_puzzles.sh "$(python3 tools/daily_units.py job "$1")" ||
       alert "the daily unit $1 could not commit its puzzles one by one; they ride in the unit's closing commit"
+    # A staged blob over the size limit, not allowlisted, is unstaged (it then shows as left behind).
+    python3 tools/check_file_sizes.py --staged --unstage >&2
     git diff --cached --quiet ||
       git commit -m "$(printf '%s\n\n%s' "$(git diff --cached --name-status -M -- puzzles | python3 tools/commit_subject.py "$(python3 tools/daily_units.py job "$1")")" "$(python3 tools/provenance.py trailer)")"
     # Nothing may be left behind. With one writer this is not a judgement

@@ -3,6 +3,11 @@
 
     python3 tools/check_file_sizes.py            # check HEAD's tree
     python3 tools/check_file_sizes.py --list     # print every file over the limit
+    python3 tools/check_file_sizes.py --range BASE HEAD   # only files HEAD adds/changes vs BASE
+    python3 tools/check_file_sizes.py --staged [--unstage] # only what is staged (--unstage drops them)
+
+--range and --staged are the cheap gates for a push or a commit (prepush_check.py, the jobs'
+commit and push functions): they weigh only the changed blobs and ignore stale allowlist entries.
 
 Git stores a whole new blob for each change of a file, so a big file that many
 jobs rewrite (tools/data/source_clue_wrong.json and blog_disagree.json were each
@@ -52,6 +57,32 @@ def tracked_sizes(root=ROOT):
     return {p: size[s] for p, s in shas.items() if s in size and not p.startswith(EXEMPT_PREFIX)}
 
 
+def changed_sizes(*diff_args, root=ROOT):
+    """{path: size} of the files a `git diff --raw` (diff_args: `--cached`, or `BASE HEAD`) adds or
+    modifies outside puzzles/, symlinks and submodules left out."""
+    out = subprocess.run(["git", "-C", str(root), "diff", "--raw", "--abbrev=40", "-z", "--no-renames", "--diff-filter=AM",
+                          *diff_args, "--", ":(exclude)puzzles"],
+                         capture_output=True, text=True, check=True).stdout.split("\0")
+    shas = {}
+    for meta, path in zip(out[0::2], out[1::2]):
+        _om, nm, _os, ns, _st = meta.lstrip(":").split()
+        if nm in ("100644", "100755"):
+            shas[path] = ns
+    if not shas:
+        return {}
+    res = subprocess.run(["git", "-C", str(root), "cat-file", "--batch-check=%(objectname) %(objectsize)"],
+                         input="".join(f"{s}\n" for s in shas.values()), capture_output=True, text=True,
+                         check=True).stdout.splitlines()
+    size = {sha: int(n) for sha, _, n in (line.partition(" ") for line in res) if n.isdigit()}
+    return {p: size[s] for p, s in shas.items() if s in size}
+
+
+def oversize(sizes, allow):
+    """(path, message) for the (changed) files over the limit without an allowlist reason."""
+    return [(path, m) for path in sorted(sizes) for m in problems({path: sizes[path]}, allow)
+            if m.startswith(path + " ")]
+
+
 def problems(sizes, allow):
     """The messages for the files over the limit without an allowlist reason,
     and for allowlist entries that are stale or lack a reason."""
@@ -70,7 +101,27 @@ def problems(sizes, allow):
     return out
 
 
+def gate(argv):
+    """--range BASE HEAD / --staged [--unstage]: exit 1 and say why when a changed file is too big."""
+    allow = json.loads((ROOT / ALLOWLIST).read_text(encoding="utf-8"))
+    if argv[0] == "--range" and len(argv) == 3:
+        sizes = changed_sizes(argv[1], argv[2])
+    elif argv[0] == "--staged":
+        sizes = changed_sizes("--cached")
+    else:
+        print(__doc__, file=sys.stderr)
+        return 2
+    bad = oversize(sizes, allow)
+    for path, line in bad:
+        print(f"check_file_sizes: refused: {line}", file=sys.stderr)
+        if "--unstage" in argv:
+            subprocess.run(["git", "-C", str(ROOT), "reset", "-q", "--", path])
+    return 1 if bad else 0
+
+
 def main(argv):
+    if argv and argv[0] in ("--range", "--staged"):
+        return gate(argv)
     sizes = tracked_sizes()
     if argv == ["--list"]:
         for path, n in sorted(sizes.items(), key=lambda kv: -kv[1]):

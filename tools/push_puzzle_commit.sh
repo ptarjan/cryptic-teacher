@@ -139,6 +139,11 @@ publish() {
     return 0
   fi
   local rc
+  # A big file outside puzzles/ stays off master (tools/check_file_sizes.py): nothing is pushed.
+  if ! out=$(python3 "$here/check_file_sizes.py" --range origin/master "$sha" 2>&1); then
+    echo "push_puzzle_commit: refused, a file over the size limit: $out" >&2
+    return 1
+  fi
   out=$(net_git push -q --no-verify origin "$sha:refs/heads/master" 2>&1); rc=$?
   if [ "$rc" = 0 ]; then
     date +%s >"$stamp"

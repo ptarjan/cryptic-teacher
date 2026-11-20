@@ -14,6 +14,9 @@ a thing a bad merge or a hurried edit has done:
      blanket pass, a solution fix nor a reason evidence_reason keeps (so the plan drops it with
      no log line); and new ruff F821/F811/F401 findings against origin/master (a constant that
      shadows another name);
+  5. a file outside puzzles/ over 512 KB, not in tools/data/large_file_allowlist.json, that the push
+     adds or changes against origin/master (check_file_sizes.py; the 1.6 MB source_clue_wrong.json
+     was re-committed by a burn step, cd05aba, and CI was the first to say so);
   4. the solution key or a paper's scan key moving from tools/data/keys.json: a moved key
      rereads every row read under the old one, so pin it (the *_PINS / *_FIX tables) or, when
      the reread is intended, rerun --write-keys.
@@ -210,6 +213,19 @@ def check_keys(fa):
     return key_problems(json.loads(KEYS.read_text(encoding="utf-8")), current_keys(fa))
 
 
+def check_sizes():
+    """Big files this push adds or changes against origin/master, via check_file_sizes."""
+    sys.path.insert(0, str(TOOLS))
+    import check_file_sizes as cfs
+    try:
+        sizes = cfs.changed_sizes("origin/master", "HEAD", root=REPO)
+        allow = json.loads((REPO / cfs.ALLOWLIST).read_text(encoding="utf-8"))
+    except (subprocess.CalledProcessError, OSError, ValueError) as e:
+        warn(f"file size check skipped ({type(e).__name__}: {e})")
+        return []
+    return [msg for _path, msg in cfs.oversize(sizes, allow)]
+
+
 def main(argv):
     write = "--write-keys" in argv
     problems = check_sources()
@@ -232,6 +248,7 @@ def main(argv):
         return 0
     if eq is not None:
         problems += check_registry(eq, fa)
+    problems += check_sizes()
     problems += check_ruff()
     if fa is not None:
         try:
