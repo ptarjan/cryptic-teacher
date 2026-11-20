@@ -10485,8 +10485,9 @@ _m4 = [f.indy_third_top([(2208, y, 2400, y + 20, "word of clue") for y in _ys4],
        f.indy_third_top_due(_row4), f.indy_third_top_due({**_row4, "readAt": "2027-01-01T00:00:00+00:00"})]
 f.CROPS = _crops4
 f.indy_third_top_read.cache_clear()
+# (the registry reasons, SOLO_VLM now, stand after the last hand-listed one in UNFILED_FIRST: [-2:])
 if _m4 == [2476, None, True, False, True, False] and f.RANKS[f.INDY_THIRD_TOP] == 2 and f.INDY_THIRD_TOP in _eq3.NEWEST_LANDED \
-        and _eq3.UNFILED_FIRST[-1] == f.INDY_THIRD_TOP and f.INDY_THIRD_TOP in _eq3.FIX_LANDED:
+        and f.INDY_THIRD_TOP in _eq3.UNFILED_FIRST[-2:] and f.INDY_THIRD_TOP in _eq3.FIX_LANDED:
     print("ok   a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP")
 else:
     print("FAIL a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP", _m4)
