@@ -104,8 +104,10 @@ check(L.burn_clues_per_day(flat), 2400.0, "burn pace from the recent rows' clues
 left(10 ** 9)
 _, facts = L.should_wake(flat, None, quiet, now)
 check(facts["left"], 2400.0 * 30, "payback horizon capped at 30 days of burn")
-left(1000)
+left(1000)   # saving $5 is under the $6 fix, so no wake and facts is the reason string: cheapen the fix to see the facts
+fix_cost, L.FIX_COST = L.FIX_COST, 1.0
 _, facts = L.should_wake(flat, None, quiet, now)
+L.FIX_COST = fix_cost
 check(facts["left"], 1000, "a smaller backlog still bounds it")
 # a not-worth-fixing wake drops the instruction to spawn a fixer
 cheap_facts = {"cur": 0.04, "best": 0.03, "saving": 1.0, "left": 100, "per_clue": 0.01, "fix_cost": 12.0,
