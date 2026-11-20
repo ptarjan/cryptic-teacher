@@ -483,8 +483,13 @@ def oldest_held(series):
     makes anchoring at the far end of the archive the difference between
     fetching N days and re-fetching the entire history to reach them.
     """
-    days = [series_meta.puzzle_day(p) for p in (read_puzzle_file(f) for f in puzzle_files())
-            if p["id"].startswith(f"{series}-")]
+    # Open only this series' files in its earliest year folder: reading all
+    # 54k puzzle files to find one date reread 4 GB per run on a loaded host.
+    files = puzzle_files(series)
+    years = sorted(f.parent.name for f in files if f.parent.name.isdigit())
+    if years:
+        files = [f for f in files if f.parent.name == years[0]]
+    days = [series_meta.puzzle_day(read_puzzle_file(f)) for f in files]
     return min(days) if days else None
 
 
