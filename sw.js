@@ -6,6 +6,8 @@
    - A STAMPED asset (a URL with ?v=<content hash>, tools/stamp_assets.py: the
      JS, CSS, icons, and each puzzle's .gz) is CACHE-FIRST. Its
      URL changes whenever its bytes do, so a cached copy can never be stale.
+   - An UNSTAMPED puzzle file (the page opening the one it is on) is served
+     from the puzzle cache at once if any stamp of it is held.
    - The home page (HTML), and anything unstamped (puzzles/index.json, the
      manifest), is NETWORK-FIRST with the cache as the fallback, so an online
      visit always gets the newest deploy and an offline one gets the last copy.
@@ -131,6 +133,20 @@ async function networkFirst(req, name, key, onFresh) {
   ]);
 }
 
+// A held puzzle file (any stamp of it) at once; the network answers only when
+// none is held.
+async function heldFirst(req) {
+  const cache = await caches.open(PUZZLES);
+  const held = await cache.match(req, { ignoreSearch: true });
+  if (held) return held;   // freshness comes from the page's stamped saves
+  const res = await fetch(req);
+  if (res.ok && !res.redirected) {
+    await cache.put(req, res.clone());
+    await trimPuzzles(cache);
+  }
+  return res;
+}
+
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET" || req.headers.has("range")) return;
@@ -165,6 +181,15 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   const name = isPuzzleFile(url) ? PUZZLES : SHELL;
+  if (name === PUZZLES && !url.searchParams.has("v")) {
+    // The page opens the puzzle it is on by its bare address, but the copy
+    // saved for offline is filed under its stamped one (?v=). Held is found
+    // by path and served at once: on a
+    // slow connection that is up but crawling, a saved puzzle must not wait
+    // on the network and leave the page blank.
+    event.respondWith(heldFirst(req));
+    return;
+  }
   if (url.searchParams.has("v")) {
     event.respondWith(cacheFirst(req, name));
   } else {

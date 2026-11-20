@@ -153,6 +153,17 @@ const page = (v) => `<!doctype html><link rel="stylesheet" href="style.css?v=${v
     assert(live.status === 404, "online, /puzzles/<id>/ is whatever the server says (here 404)");
   }
 
+  // ---- 5. a saved puzzle opens at once on a crawling connection (Paul 11-20)
+  {
+    const h = harness(site);
+    const pz = await h.caches.open("ct-puzzles-1");
+    await pz.put(new Request(SCOPE + "puzzles/times-1.js.gz?v=aaaa"), new Response("held", { headers: { "content-type": "application/gzip" } }));
+    // A network that never answers: the held copy must still come back.
+    h.setOnline(false);
+    const res = await h.request(SCOPE + "puzzles/times-1.js.gz");
+    assert(res && (await res.text()) === "held", "a puzzle saved under its stamp is served for the bare address, no network wait");
+  }
+
   if (fails.length) { console.log("FAIL\n  " + fails.join("\n  ")); process.exit(1); }
   console.log("PASS test_sw_shell_recovery");
 })().catch((e) => { console.log("FAIL", e); process.exit(1); });
