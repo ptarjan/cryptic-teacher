@@ -6,7 +6,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "unfiled before its fix, a blank light one reader holds the clue of, read by the VLM as the second reader"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-20T05:14:00+00:00"
 YEARS = {"gale": ("1930", "1949"), "galesundaytelegraph": ("1975", "1999"), "galeindependent": ("2000", "2015")}
 WHY = ("no reading laid a clue on it", "no other reading has")
 MOST = 6
