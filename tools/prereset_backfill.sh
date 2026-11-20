@@ -1512,6 +1512,11 @@ shelve_code_edits() {
 OWNED_BY_ORIGIN=(tools/data/blog_compare.json tools/data/blog_facts/ tools/data/lexicons/)
 publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
+  # A sharded ledger's old one-file form (tools/sharded_table.py SHARDED) is
+  # never published: a tree that synced across the split while a run had it
+  # modified kept it as a stray, and this step re-added the 1.6 MB file
+  # (cd05aba, 11-20). Every row of it is in the shards, so it is removed here.
+  rm -f tools/data/source_clue_wrong.json tools/data/blog_disagree.json
   # shellcheck disable=SC2046  # one path per line, none with a space
   set -- tools/data/ $(python3 tools/own_rows.py paths | sed 's/^/:(exclude)/') "${OWNED_BY_ORIGIN[@]/#/:(exclude)}"
   [ -n "$(git --no-optional-locks status --porcelain -- "$@")" ] || return 0
