@@ -153,6 +153,9 @@ in a double definition each definition's note says what that sense means.
 - **&lit**: `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
 - **Homophone** (`sound`): the first check fails ("no block says what is said aloud",
   the commonest first failure) unless the word said aloud is on ONE leaf.
+  HEARD and SPELT are two spellings: `sound<ind>([a grisly]BEAR, BARE)`, never the
+  answer twice (`[a grisly]BARE, BARE` fails "nothing was heard"); HEARD is the
+  clue words' own word.
 - **Spoonerism**: `spoon`, never `sound()` round it; no one-leaf rule applies. Written
   letters swapped: `spoon(a, b)`; swapped by sound: `spoon(a, b, SPELT)`.
 

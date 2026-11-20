@@ -68,7 +68,9 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
         elif letters(b["soundsLike"]) == letters(b["gives"]):
             errors.append(f"{tag}: soundsLike {b['soundsLike']!r} and gives "
                           f"{b['gives']!r} are the same letters, so nothing was heard. "
-                          f"A homophone is two spellings of one sound")
+                          f"A homophone is two spellings of one sound: in `wp` the leaf of "
+                          f"sound<ind>([clue words]HEARD, SPELT) holds the word the "
+                          f"clue words say, spelt as that word, never the answer twice")
         elif letters(b["soundsLike"]) == letters(ann.get("answer") or ""):
             errors.append(f"{tag}: soundsLike {b['soundsLike']!r} is the answer itself, "
                           f"and the blocks rung prints it before the walkthrough. "
