@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Piper, foreman of the crew",
     "enumeration": "9"
    },
-   "solution": "BOATSWAIN"
+   "solution": "BOATSWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piper",
+      "at": 0,
+      "meaning": "a ship's officer who sounds the whistle or pipe to call the hands"
+     },
+     {
+      "text": "foreman of the crew",
+      "at": 7,
+      "meaning": "the petty officer in charge of a ship's deck hands and rigging"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A bosun blows the call on a pipe and supervises the deckhands, so both senses fit the ship's petty officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piper"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,49 @@
     "text": "Flower many found in flatter surroundings",
     "enumeration": "9"
    },
-   "solution": "BUTTERCUP"
+   "solution": "BUTTERCUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 12,
+       "note": "found in says the word for many is placed inside the phrase for flatter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flatter",
+       "at": 21,
+       "gives": "BUTTERUP",
+       "note": "to flatter someone is to butter them up"
+      },
+      {
+       "words": "many",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, so many"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A great many of something turn up surrounded by flatter ground.",
+     "walkthrough": "'flatter' looks like an adjective about level ground, but it is the verb; 'surroundings' backs up 'found in', saying the flattering phrase encloses the number.",
+     "definitionFit": "A buttercup is a common yellow meadow plant in bloom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flatter"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +125,43 @@
     "text": "Profession of a fellow in Jordan",
     "enumeration": "5"
    },
-   "solution": "AMMAN"
+   "solution": "AMMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in Jordan",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Profession",
+       "at": 0,
+       "gives": "AM",
+       "note": "a profession is a declaration, as in 'I am', so the verb of avowal"
+      },
+      {
+       "words": "fellow",
+       "at": 16,
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in Jordan declares what job he does.",
+     "walkthrough": "'Profession' looks like a job, but here it is an avowal: the fellow professes 'I am a man', giving AM plus MAN.",
+     "definitionFit": "Amman is the capital city located in Jordan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Profession"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +175,11 @@
     "text": "Shilling given to old ones without hesitation",
     "enumeration": "8"
    },
-   "solution": "SOLDIERS"
+   "solution": "SOLDIERS",
+   "annotationWithheld": {
+    "why": "Shilling given to old ones without hesitation (8): S + OLD gives SOLD, but no reading of 'ones without hesitation' yields IERS, and no other parse gives SOLDIERS",
+    "clue": "Shilling given to old ones without hesitation"
+   }
   },
   {
    "number": 4,
@@ -86,7 +193,11 @@
     "text": "Little boy in a rage gets repeal…",
     "enumeration": "8"
    },
-   "solution": "ABROGATE"
+   "solution": "ABROGATE",
+   "annotationWithheld": {
+    "why": "Little boy in a rage gets repeal (8): no word for little boy fits inside A RAGE or an anagram of it to give ABROGATE (the leftover letters B, O, T are not contiguous)",
+    "clue": "Little boy in a rage gets repeal…"
+   }
   },
   {
    "number": 5,
@@ -100,7 +211,42 @@
     "text": "… and not this chap from France.",
     "enumeration": "6"
    },
-   "solution": "NORMAN"
+   "solution": "NORMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from France",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "and not",
+       "at": 2,
+       "gives": "NOR",
+       "note": "nor is the conjunction meaning and not"
+      },
+      {
+       "words": "chap",
+       "at": 15,
+       "gives": "MAN",
+       "note": "a chap is a man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: a repeal, and not this Frenchman.",
+     "walkthrough": "The ellipsis joins this clue to 4 Down's surface, but the wordplay stands alone.",
+     "definitionFit": "Normans came from Normandy in northern France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +260,29 @@
     "text": "Palm-tree for a parrot",
     "enumeration": "5"
    },
-   "solution": "MACAW"
+   "solution": "MACAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Palm-tree",
+      "at": 0,
+      "meaning": "a tropical American palm shares its name with the bird"
+     },
+     {
+      "text": "parrot",
+      "at": 16,
+      "meaning": "a large, brightly coloured long-tailed tropical bird"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both a tropical American palm species and a large long-tailed tropical bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Palm-tree"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +296,41 @@
     "text": "Complaint of a female graduate",
     "enumeration": "6"
    },
-   "solution": "MALADY"
+   "solution": "MALADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "graduate",
+       "at": 22,
+       "gives": "MA",
+       "note": "MA is a Master of Arts, a graduate"
+      },
+      {
+       "words": "female",
+       "at": 15,
+       "gives": "LADY",
+       "note": "a lady is a female"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman with a degree makes a grievance.",
+     "definitionFit": "A complaint in the sense of an illness or ailment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +344,41 @@
     "text": "Island crop for goat",
     "enumeration": "9"
    },
-   "solution": "CAPRICORN"
+   "solution": "CAPRICORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "goat",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Island",
+       "at": 0,
+       "gives": "CAPRI",
+       "note": "Capri is an island in the Bay of Naples"
+      },
+      {
+       "words": "crop",
+       "at": 7,
+       "gives": "CORN",
+       "note": "corn is a cereal crop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island's harvest is grown to feed a goat.",
+     "definitionFit": "The zodiac sign is symbolised by a sea-goat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goat"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +392,48 @@
     "text": "We let her appear in the scene",
     "enumeration": "5"
    },
-   "solution": "WHERE"
+   "solution": "WHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the scene",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appear in",
+       "at": 11,
+       "note": "appear in says the word her shows up inside the word we"
+      }
+     ],
+     "parts": [
+      {
+       "words": "We",
+       "at": 0,
+       "gives": "WE"
+      },
+      {
+       "words": "her",
+       "at": 7,
+       "gives": "HER",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We allow her to come on stage.",
+     "walkthrough": "'let' is only a link word; 'scene' is defined by the noun sense, as in 'the where and when'.",
+     "definitionFit": "Where, as a noun, is the place or setting in which something happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scene"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +447,34 @@
     "text": "What pride makes of an acrobat?",
     "enumeration": "7"
    },
-   "solution": "TUMBLER"
+   "solution": "TUMBLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What pride makes of an acrobat?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What pride makes of an acrobat?",
+       "at": 0,
+       "note": "pride goes before a fall, so it turns a person into one who falls; an acrobat who does falls and somersaults"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "An acrobat who performs somersaults and falls, and proverbially pride makes one fall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pride"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +488,52 @@
     "text": "Sapper pales anew, suffering this",
     "enumeration": "7"
    },
-   "solution": "RELAPSE"
+   "solution": "RELAPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "suffering this",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sapper",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE, the Royal Engineers, whose soldiers are sappers"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "anew",
+         "at": 13,
+         "note": "anew means the letters of pales are made over afresh in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pales",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army engineer goes pale again, as when sickness returns.",
+     "walkthrough": "'anew' signals the rearrangement of 'pales'; the sapper is the Royal Engineers convention, and the definition leans on the surface, where a relapse is what the soldier suffers.",
+     "definitionFit": "A relapse is a falling back into illness that a patient undergoes after apparent recovery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sapper"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +547,33 @@
     "text": "Mental weariness, having crossed Channel",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mental weariness, having crossed Channel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mental weariness, having crossed Channel",
+       "at": 0,
+       "note": "a listless boredom described by a word that came to English from France across the Channel"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The French loanword for listless boredom, borrowed into English from across the Channel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +587,29 @@
     "text": "Old man's archaic method of ringing the changes",
     "enumeration": "9"
    },
-   "solution": "GRANDSIRE"
+   "solution": "GRANDSIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old man",
+      "at": 0,
+      "meaning": "an archaic word for a grandfather, as the clue's 'archaic' says"
+     },
+     {
+      "text": "method of ringing the changes",
+      "at": 18,
+      "meaning": "a named method used in English church change ringing"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "It is both an old word for grandfather and the name of a standard bell-ringing method."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +623,48 @@
     "text": "In the plant it produces swiftness",
     "enumeration": "8"
    },
-   "solution": "CELERITY"
+   "solution": "CELERITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swiftness",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In says the word it is placed inside the name of the plant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the plant",
+       "at": 3,
+       "gives": "CELERY",
+       "note": "celery is a salad plant"
+      },
+      {
+       "words": "it",
+       "at": 13,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something in a plant makes it grow fast.",
+     "walkthrough": "'produces' is a link joining wordplay to definition.",
+     "definitionFit": "Celerity is a formal word for speed or quickness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +678,48 @@
     "text": "Rock music's sound under the trees",
     "enumeration": "9"
    },
-   "solution": "LIMESTONE"
+   "solution": "LIMESTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 19,
+       "note": "under, in a down clue, places the sound below the trees"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the trees",
+       "at": 25,
+       "gives": "LIMES",
+       "note": "limes are linden trees"
+      },
+      {
+       "words": "music's sound",
+       "at": 5,
+       "gives": "TONE",
+       "note": "a tone is a musical sound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rock music is heard beneath the trees.",
+     "definitionFit": "Limestone is a sedimentary stone made largely of calcium carbonate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +733,35 @@
     "text": "Long for one in Strathclyde",
     "enumeration": "4"
    },
-   "solution": "LOCH"
+   "solution": "LOCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long for one in Strathclyde",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Long for one in Strathclyde",
+       "at": 0,
+       "note": "Long is the name of a Scottish sea inlet in the Strathclyde region, so it is an example of the lake word"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Long' looks like the verb to yearn, but it is the proper name of a sea inlet in western Scotland.",
+     "definitionFit": "A Scottish word for a lake or sea inlet, of which Long is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +775,34 @@
     "text": "Wonderland court was certainly not so cruel",
     "enumeration": "9"
    },
-   "solution": "HEARTLESS"
+   "solution": "HEARTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wonderland court was certainly not so cruel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Wonderland court was certainly not so cruel",
+       "at": 0,
+       "note": "the court of the Queen of Hearts in Alice in Wonderland was full of hearts, so could not be lacking them, though it was in fact cruel"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Heartless means cruel, and a court ruled by the Queen of Hearts was literally full of hearts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +816,34 @@
     "text": "What a relief this was in 1900",
     "enumeration": "8"
    },
-   "solution": "MAFEKING"
+   "solution": "MAFEKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What a relief this was in 1900",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What a relief this was in 1900",
+       "at": 0,
+       "note": "the besieged South African town relieved in May 1900 during the Boer War, sparking celebrations in Britain"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The relief of the besieged South African town in 1900 caused wild rejoicing in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +857,33 @@
     "text": "\"Oh soft of the still midnight\" (Keats)",
     "enumeration": "8"
    },
-   "solution": "EMBALMER"
+   "solution": "EMBALMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"Oh soft of the still midnight\" (Keats)",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\"Oh soft of the still midnight\" (Keats)",
+       "at": 0,
+       "note": "the opening line of Keats's sonnet To Sleep, with the missing word to be filled in"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Keats addresses sleep as a preserver of the dead, the word filling the gap in his sonnet's first line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +897,43 @@
     "text": "Some coypu, maybe, or a large cat",
     "enumeration": "4"
    },
-   "solution": "PUMA"
+   "solution": "PUMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a large cat",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coypu, maybe",
+       "at": 5,
+       "gives": "PUMA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a coypu, perhaps, or a big cat.",
+     "walkthrough": "The draft's definition took in 'or', which is only the link between wordplay and definition, so it is dropped here.",
+     "definitionFit": "The puma, or cougar, is a big American feline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coypu"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +947,34 @@
     "text": "Home of a diabolical marsupial",
     "enumeration": "8"
    },
-   "solution": "TASMANIA"
+   "solution": "TASMANIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Home of a diabolical marsupial",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Home of a diabolical marsupial",
+       "at": 0,
+       "note": "the island state where the devil, a carnivorous pouched mammal, lives"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Australian island state is the native home of the devil, a fierce pouched mammal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "diabolical"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +988,43 @@
     "text": "More than one of Verdi's characters",
     "enumeration": "6"
    },
-   "solution": "DIVERS"
+   "solution": "DIVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More than one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "characters",
+       "at": 25,
+       "note": "characters means the letters of Verdi's are taken as letters and reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Verdi's",
+       "at": 17,
+       "gives": "VERDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several figures from the operas of Verdi.",
+     "walkthrough": "'characters' looks like the people in an opera, but it means letters: those of VERDIS rearranged.",
+     "definitionFit": "Divers is an old word for several or various."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1038,33 @@
     "text": "Its maltreatment did so fluster Tweedledum",
     "enumeration": "6"
    },
-   "solution": "RATTLE"
+   "solution": "RATTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Its maltreatment did so fluster Tweedledum",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Its maltreatment did so fluster Tweedledum",
+       "at": 0,
+       "note": "in Through the Looking-Glass, Tweedledum is furious that his new toy has been spoilt"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "In Carroll's story, Tweedledum's spoilt toy noisemaker provokes the battle with Tweedledee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fluster"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1078,45 @@
     "text": "Send down for making acute stir",
     "enumeration": "9"
    },
-   "solution": "RUSTICATE"
+   "solution": "RUSTICATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Send down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "making",
+       "at": 14,
+       "note": "making means the letters of acute stir are made into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "acute",
+       "at": 21
+      },
+      {
+       "words": "stir",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student is expelled for causing a big fuss.",
+     "walkthrough": "'making' rearranges ACUTESTIR into the answer.",
+     "definitionFit": "To rusticate is to suspend a student from university for a time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stir"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1130,35 @@
     "text": "Absolute competitor",
     "enumeration": "5"
    },
-   "solution": "RIVAL"
+   "solution": "RIVAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Absolute competitor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Absolute competitor",
+       "at": 0,
+       "note": "Captain Absolute is a character in Sheridan's comedy named after competitors in love"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Absolute' looks like an adjective, but it is Captain Absolute from Sheridan's play The Rivals.",
+     "definitionFit": "A competitor is an opponent, and Captain Absolute is one of Sheridan's title figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Absolute"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1172,46 @@
     "text": "Slang for a sovereign understood",
     "enumeration": "5"
    },
-   "solution": "ARGOT"
+   "solution": "ARGOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slang",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "words": "sovereign",
+       "at": 12,
+       "gives": "R",
+       "note": "R stands for rex or regina, a sovereign"
+      },
+      {
+       "words": "understood",
+       "at": 22,
+       "gives": "GOT",
+       "note": "got means understood, as in 'I got it'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colloquial word for a monarch is grasped.",
+     "definitionFit": "Argot is the jargon or cant of a particular group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1226,41 @@
     "enumeration": "5",
     "countFrom": "grid"
    },
-   "solution": "GENRE"
+   "solution": "GENRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "style",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Information",
+       "at": 0,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "words": "about",
+       "at": 12,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Details on fashion.",
+     "definitionFit": "A genre is a kind or category of artistic work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Information"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1274,45 @@
     "text": "Not live broadcast, though vivid",
     "enumeration": "7"
    },
-   "solution": "VIOLENT"
+   "solution": "VIOLENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vivid",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 9,
+       "note": "broadcast means the letters of not live are scattered and resown"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Not",
+       "at": 0
+      },
+      {
+       "words": "live",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recorded rather than live programme that is still colourful.",
+     "walkthrough": "'broadcast' rearranges NOTLIVE.",
+     "definitionFit": "Violent colours are intense, garish and vivid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1326,59 @@
     "text": "Huge fellows in semi-drunken state",
     "enumeration": "7"
    },
-   "solution": "IMMENSE"
+   "solution": "IMMENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in says the fellows go inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunken",
+         "at": 21,
+         "note": "drunken means the letters of semi are staggering about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "semi",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "fellows",
+       "at": 5,
+       "gives": "MEN",
+       "note": "fellows are men"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Big men in a half-sozzled condition.",
+     "walkthrough": "'drunken' rearranges the four letters of 'semi', and 'in' places the fellows in the middle of that jumble; 'state' is only a link word.",
+     "definitionFit": "Immense means enormous or vast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fellows"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1392,33 @@
     "text": "But this castle's not in' West Yorkshire",
     "enumeration": "5"
    },
-   "solution": "LEEDS"
+   "solution": "LEEDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "But this castle's not in' West Yorkshire",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "But this castle's not in' West Yorkshire",
+       "at": 0,
+       "note": "the castle of this name is in Kent, though a big city of the same name is in West Yorkshire"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The city is in West Yorkshire, but the castle of that name stands in Kent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "castle's"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +1432,34 @@
     "text": "With which four young oysters were consumed",
     "enumeration": "9"
    },
-   "solution": "EAGERNESS"
+   "solution": "EAGERNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "With which four young oysters were consumed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "With which four young oysters were consumed",
+       "at": 0,
+       "note": "in Carroll's poem The Walrus and the Carpenter, four young oysters hurried up all keen for the treat, and were then eaten"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Carroll's four young oysters were keen for the treat and were consumed by keenness in both senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "consumed"
+    }
+   }
   }
  ]
 }
