@@ -1,0 +1,958 @@
+# Setting a puzzle: filling the grid
+
+This file explains how we set an original puzzle. There are two steps:
+
+1. `tools/grid_fill.py` fills a legal British grid with answers.
+2. A human writes the clues and their annotations.
+
+`tools/grid_fill.py` does not write clues, and never will. That judgement is the
+point of the site.
+
+The annotation rules themselves are in `docs/STYLE.md`. This file records how the
+clue-writing rules were found and measured, using our first authored puzzle,
+A001 (id `authored-1`; twenty clues, built from `tools/data/sample_fill_11.json` and
+`tools/data/authored_A001_clues.json`).
+
+## Quick start
+
+```bash
+bash tools/fetch_lexicon.sh          # once: ~26 MB of word data, gitignored
+python3 tools/grid_fill.py --size 11 --seed 1
+python3 tools/grid_fill.py --size 11 --seed 3 --fills 60 --out my_fill.json
+python3 tools/grid_fill.py --size 13 --check-only     # just validate a template
+python3 tools/clueability.py --word CARPET            # why a word scores what it does
+```
+
+The worked example, `tools/data/sample_fill_11.json`, was made with:
+
+```bash
+python3 tools/grid_fill.py --size 11 --seed 3 --fills 60 \
+    --min-familiarity 25 --min-clue 40 --out tools/data/sample_fill_11.json
+```
+
+## The grid conventions, and why each one
+
+Each rule is a `check_*` function in `tools/grid_fill.py`. A template that fails
+any of them is **refused, not filled**. This matters: the first three 11x11
+patterns written by hand for this tool were all illegal (three-letter entries,
+orphan lights, a disconnected region), and the checker caught all three.
+
+| check | rule | source |
+| --- | --- | --- |
+| `check_shape` | square, odd side | universal in British blocked grids; an odd side gives a true centre for the symmetry |
+| `check_symmetry` | 180-degree rotational symmetry | universal; a Guardian grid looks the same upside down |
+| `check_min_entry_length` | every entry at least 4 letters | Exet. 86.9% of 8,416 Guardian grids in `puzzles/` agree, and 78.5% of all 35,457; the Times (63%) and Times Quick (32%) often go down to 3, so `--min-entry 3` allows it |
+| `check_every_light_is_used` | every light is in at least one entry | a light in no entry can never be filled. A light in exactly ONE entry is fine: that is an unchecked letter, which British grids have and American ones do not |
+| `check_unchecked_runs` | no two adjacent unchecked letters | Exet's strict reading, and what 99.7% of Guardian grids do. The Times, Telegraph and Toughie have a mid-entry pair in about one grid in nine, which `--relax-unches` allows (two in the middle of an entry, never at an end) |
+| `check_entry_checking` | no entry has more unchecked than checked letters; entries of 9+ may have one more | Exet. Stricter than "at least half, rounded down": a 5-letter entry needs 3 checked, not 2 |
+| `check_connectivity` | all lights form one connected region | a detached corner is a second crossword |
+| `check_checked_ratio` | 28-52% of all letters checked | measured: 98% of the 35,457 grids in `puzzles/` sit at 31.5-40%, median 36% |
+| `check_through_cut` | at least 3 lights cross every cut line | Exet recommends 4 on a 15x15; scaled by side length. A solver stuck in one region needs several ways to carry letters into the next |
+
+Sources: [Exet](https://github.com/viresh-ratnakar/exet), Viresh Ratnakar's
+British-grid editor, whose validator is the strict reading; and
+[georgeho.org/counting-cryptics](https://georgeho.org/counting-cryptics/), which
+measured published grids. It agrees on symmetry, odd side, connectivity and
+half-checking, but allows two consecutive unchecked letters in the middle of an
+entry. Where the two sources differ, the strict rule is the default and the
+loose one is a flag, so the choice is visible.
+
+**The overall checked ratio and the per-entry rule are different rules.**
+Folklore says "half the letters are checked". Real grids check 31-40% of letters
+overall, while every individual entry is at least half checked.
+
+The two built-in templates were found by searching symmetric block patterns and
+keeping the ones that pass every check. Change them freely: they are plain text
+blocks of `#` and `.` at the top of `tools/grid_fill.py`. `--template FILE`
+loads one from disk.
+
+## Why the fill is clueability-aware
+
+**A grid that fills is not necessarily a grid that can be clued.** Every example
+below came from this tool's own runs:
+
+* **KILOMETERS**: legal and common, but an American spelling that a British
+  solver would call an error. The Lufz lexicon's Britain region lists 5,212 such
+  spellings, and the filler drops all of them.
+* **PARC** and **PROTO**: PARC is French, and PROTO is a prefix with no
+  definition. Both are good *pieces* of wordplay and impossible *answers*.
+* **AMINO**: only ever appears in "amino acid", so it cannot be defined
+  honestly.
+* **ENTRUSTED**: a common word with no anagram, reversal or container, only one
+  dull charade. It is not wrong, just a clue nobody enjoys. A filler that cannot
+  see this fills a grid with them.
+
+So `tools/clueability.py` scores every word once (cached) on the hooks a setter
+uses: anagram, near-anagram (letters minus a standard abbreviation), charade,
+container, homophone, reversal, deletion, hidden-ability, and a weak
+double-definition proxy. It adds a **fairness floor** from the lexicon's
+importance ranking. The score is used twice:
+
+1. **as an ordering**, so the backtracking search tries the best-hooked word
+   first, and
+2. **as a floor**, so a word below it is not a legal fill at all. Each entry
+   length has its own pair, measured from published answers (below);
+   `--min-clue` and `--min-familiarity` replace them with one floor for every
+   length.
+
+A human judges the result from the reported score distribution. Fills are
+ranked by their **worst** entry first, then their mean, because one unclueable
+answer sinks a grid however good the other nineteen are.
+
+### The outer loop: veto and blacklist
+
+Scoring is a heuristic and will sometimes still produce an unclueable word. So
+`fill()` is a **generator with a veto hook**:
+
+```python
+banned = {}
+gen = grid_fill.fill(grid, by_len, veto=lambda w: banned.get(w), seed=1)
+solution, _ = next(gen)
+# ...try to clue it; if BANANA defeats you:
+banned["BANANA"] = "no definition that isn't a giveaway"
+solution, _ = next(gen)        # search RESUMES; BANANA is gone
+```
+
+Vetoing a word unwinds the search to the frame that chose it (see `Revoked`)
+instead of restarting, so the next fill is nearly free. If you change that code:
+a veto must also remove the word from the subtree already being searched, not
+only from new candidates, or the resumed generator offers the banned word
+again.
+
+Record each rejection in `tools/data/unclueable.json` **with a reason**, so the
+knowledge is kept instead of rediscovered. (`docs/STYLE.md` applies the same
+principle to product feedback.) Most current entries are proper nouns: Lufz
+folds them into lowercase entries, and its `isProperNoun` only looks at
+capitalisation, so it cannot tell ERIC the name from a common noun. Until there
+is a better signal, the blacklist catches names.
+
+## Word data
+
+`bash tools/fetch_lexicon.sh` fetches the
+[Lufz lexicon](https://github.com/viresh-ratnakar/lufz) and
+[exet-lexicon.js](https://github.com/viresh-ratnakar/exet) (both MIT). It then
+runs `tools/build_lexicon.js`, which loads them headless in a Node `vm` and
+writes `tools/data/lexicon.tsv`. Lufz is UKACD18, the classic British cryptic
+word list, cleaned up and extended with a Wikipedia-derived importance ranking,
+CMUdict pronunciations and Porter2 stems.
+
+What each extra is used for:
+
+* **importance rank** is the fairness floor. The fallback when the lexicon is
+  missing, `/usr/share/dict/words`, has no score column, so with it there is *no*
+  fairness floor. The filler says so loudly, and the fill will contain obscure
+  words.
+* **pronunciations** make the homophone hook a phonetic fact, not a spelling
+  guess.
+* **stems** give each word a family size (EARTH has forty relatives, ERIC has
+  two), which is a better double-definition proxy than raw frequency.
+* **the Britain region** is the British-spelling filter described above.
+
+Licences, and what is committed versus fetched: `tools/data/README.md`.
+
+`build_abbreviations.table()` (river = R, street = ST, ...) holds a sense
+when the dictionary lists it — `tools/data/lexicons/abbreviations.json`,
+English Wiktionary's abbreviations and Wikipedia's crossword abbreviation
+list, refreshed by
+`tools/fetch_abbreviations.py` — and a clue in
+`tools/data/lexicons/blocks.json` uses it, plus the members of the SYSTEMATIC
+families (Roman numerals, NATO alphabet, chemical symbols...). Clue counts only
+rank: a reading no dictionary lists stays out however often it is clued.
+Solvers read it too: `tools/build_abbreviations.py` publishes it as
+`abbreviations.js`, and the building-blocks rung names the conventions a clue
+used ("river = R"). So a sense the table holds is something the site then teaches.
+
+## What the clue-writing step gets
+
+`--out FILE` writes JSON whose entries use the same shape as `puzzles/*.json`,
+so a clued puzzle can be assembled without reshaping anything:
+
+```json
+{
+  "number": 1, "direction": "across",
+  "position": {"x": 0, "y": 0}, "length": 4,
+  "solution": "PACE", "checkedPattern": "PaCe", "checkedIndices": [0, 2],
+  "clueability": 73, "familiarity": 29, "hooks": "ANCXDH"
+}
+```
+
+For each entry the clue writer gets:
+
+* the answer and where it sits;
+* which letters are checked: uppercase in `checkedPattern`. A crossing clue
+  confirms those, so an unchecked letter must be gettable from the wordplay
+  alone;
+* which mechanisms are available, as `hooks` flags: **A**nagram,
+  **N**ear-anagram, **C**harade, **X** container, **P** homophone (phonetic),
+  **R**eversal (lowercase `r` = contains a reversed word), **D**eletion,
+  **H**ideable. `python3 tools/clueability.py --word PACE` prints the splits
+  behind the flags.
+
+A human still writes, per entry, the `clue` and the `annotation` (type,
+definition, indicators, blocks, walkthrough), which `tools/validate_annotations.py`
+and `docs/STYLE.md` govern. The annotation rules apply here: the definition must
+match the answer's part of speech, every content word must be accounted for,
+and the type must name every mechanism. An answer with several hooks makes that
+easier.
+
+## Performance notes
+
+Filling is backtracking search. It uses minimum-remaining-values ordering over
+letter-position bitmask indexes, forward-checks every crossing slot, has a node
+and time budget per restart, and restarts randomly with jittered candidate
+order. An 11x11 fills in well under a second. `--fills N` generates N distinct
+fills and keeps the best.
+
+If a grid will not fill, try these in order: `--seed`, `--fills`, `--restarts`,
+then a lower `--min-clue`. If you keep lowering the floor, the template is the
+problem, not the budget.
+
+The default floors are per length, in `tools/data/fill_floors.json`:
+`tools/build_fill_floors.py` sets each at the 25th percentile of the
+clueability and of the familiarity of published single-word answers of that
+length, and the nightly rebuilds it. Both scores fall with length (a
+published 4-letter answer has a median clueability of 64, a 13-letter one 34),
+so one flat floor rejects most long answers: a flat 40/25 passes 45% of
+published 4-letter answers and 11% of 13-letter ones, and only 38 of the 1,252
+thirteen-letter words in the cache. At the measured floors about 60% of
+published answers pass at every length, and 488 thirteen-letter words qualify.
+`--min-clue 40 --min-familiarity 25` gives a flat floor.
+
+## What blind grading found
+
+A001's twenty clues were scored against 60 published clues for the same
+answers, taken from the Times, Guardian, FT and Independent blogs. Three judges
+scored them on five axes from `tools/data/grading_rubric.md`, without being told
+which clues were ours. Build the packets with `tools/grade_clues.py`, judge them
+with `tools/grade_clues_judge.sh` and score them with `tools/score_grading.py`.
+
+                  ours   human    gap
+    surface       3.10    3.73   -0.63
+    misdirection  2.47    3.68   -1.21
+    penny-drop    2.43    3.41   -0.98
+    economy       4.17    4.02   +0.15
+    fairness      4.72    4.00   +0.72
+    OVERALL       3.38    3.77   -0.39
+
+Our clue beat the best human clue for the same answer on 1 of 20. Judges asked
+to spot the machine-written clue were right 50% of the time, against 25% chance.
+
+Read the table as a diagnosis. **Soundness is solved; it is not what is
+missing.** Nor is it a lead. `tools/favourite_grading.py` scored 700 pairs of
+a solver-named favourite and a clue from the same puzzle on these five axes.
+Misdirection (58% of pairs, p=0.001) and penny-drop (57%, p=0.003) favour the
+named clue. Surface is flat (52%). Fairness runs the other way: the favourite
+scored as *less* fair in 60% of pairs. The unweighted OVERALL predicts
+nothing (51%). The +0.72 on fairness comes from `tools/validate_annotations.py`. The
+human field included an anagram with no anagram indicator, a hidden word with
+no hidden indicator, and one clue with no derivation at all, and every judge
+noticed. Our clues never fail that way.
+
+The loss is in **misdirection and penny-drop**. Both come from one habit:
+writing the mechanism down in order and then putting a sentence around it.
+`Later rewritten, to change` is fodder, indicator, definition, in that order,
+with a comma fencing off the definition. It is fair, and nobody would enjoy it.
+Our worst six all have that shape.
+
+So the rule is about *order of work*:
+
+> Decide what the clue is **about** before you decide how it works. The surface
+> idea (a scene, a joke, a piece of news) is what you are writing; fit the
+> mechanism into it. Assembling parts and then smoothing the result produced
+> every clue we lost with.
+
+Two habits to break (the retired `clue_quality.py` linter, in git history, flagged both).
+
+- **Do not attach the definition with a copula.** `Cold heap is inexpensive`
+  makes the clue state its own answer. Real setters make the definition part of
+  the sentence's meaning.
+- ~~**Do not stand the anagram indicator next to its fodder.**~~ **Withdrawn:
+  this was wrong.** It came from one judge's remark and was never checked.
+  Across 38,830 published anagram clues with a verified fodder, **88.9% put the
+  indicator directly against it**. `Naples rebuilt` is the normal shape, not a
+  giveaway. The part worth keeping: choose an indicator that reads as ordinary
+  description in the surface. Whether it sounds like an instruction matters far
+  more than where it sits. The concealment section of the retired `clue_quality.py`
+  (git history) had the measurement, including why an apparently significant position effect
+  (p=0.03) does not survive being one of six cuts tried on thirteen clues.
+
+Do not over-correct: **economy was already fine** (+0.15), so the answer is not
+longer clues. The `terse` flag fires on ten of the twenty, including the best
+ones. Extra words help only if they buy a surface idea.
+
+### 2026-09-29: Opus 5.5, same twenty answers, same sixty human clues
+
+`claude-opus-5-5` wrote twenty fresh clues without seeing any earlier A001 clue
+or any published clue for these answers. It got these rules with the A001
+examples removed, and all twenty passed `tools/validate_annotations.py`. Judges
+are `tools/grade_clues_judge.sh`: three fresh `claude-opus-5-5` runs at
+medium effort per arm. July recorded neither the judges' model nor their prompt,
+so a control arm re-judged July's round-two packets byte for byte.
+
+| arm | ours | human | gap | wins /20 | spotted |
+| --- | --- | --- | --- | --- | --- |
+| round two, July judges | 3.56 | 3.76 | -0.20 | 5 | 36% |
+| round two, new judges (control) | 3.51 | 3.46 | +0.05 | 5 | 33% |
+| current A001, new judges | 3.60 | 3.35 | +0.25 | 8 | 25% |
+| Opus 5.5 fresh, new judges | 3.78 | 3.29 | +0.48 | 7 | 14% |
+
+**Compare arms against the control row, not against July.** The new judges
+score the same human clues about 0.3 lower. That moves every gap about +0.25
+before any clue changes. With that subtracted, the rewrite is worth about +0.2
+and the model about +0.2 more. Most of the fresh set's lead is economy (+1.16)
+and fairness (+0.89). Misdirection is still behind (-0.14). The fresh clues are
+conventional Times-style (`Step softly, champion`, `Hacks on the beers`), not
+pub jokes. The judges are the same model as the author, and that may be part of
+why they like them.
+
+**2026-09-29, round two, under the joke quota.** A fresh `claude-opus-5-5`
+author, isolated the same way, wrote twenty clues that pass the authored
+validator. It tagged 17 of them as jokes and wrote no cryptic definitions. It
+finished in under four minutes. Both arms faced the same sixty rivals from
+puzzles/ (seed 11), with three `claude-opus-5-5` judges at medium effort, run
+one at a time:
+
+| arm | misdir + penny-drop gap | misdirection | penny-drop | wins /20 | spotted |
+| --- | --- | --- | --- | --- | --- |
+| first Opus 5.5 set (control) | -0.24 | -0.33 | -0.14 | 4 | 24% |
+| round two | -0.65 | -0.78 | -0.53 | 2 (both ties) | 39% |
+
+The quota was met by tagging, not by writing. `Journalists on beers`, `Help
+worker as deputy` and `Agent hates to stand for` carry a joke tag in name
+only. The validator can count `features.joke`; it cannot tell whether the
+joke is there.
+
+**2026-09-29, round three: write five, then pick one, with no quota.**
+`tools/author_trial.py` gave each answer to its own fresh `claude-opus-5-5`
+author, at high effort, with no tools and an empty working directory. The
+prompt was `tools/author_trial_author.md`: the round-one rules, the judges'
+round-two complaints stated in general terms, and a process. The author names
+the obvious split and rejects it, then writes five candidates from different
+decompositions, each with its scene written before its clue. Every candidate
+went through the build-time validator. The author got the errors back, up to
+two repair rounds; all 20 answers needed at least one, and 2 of 100 candidates
+were dropped. A separate fresh run picked one per answer on misdirection and
+penny-drop alone (`tools/author_trial_select.md` plus the rubric). The picks
+faced round two's exact sixty rivals (`tools/grade_clues.py --rivals-from`,
+because the seed alone would draw a different LEADERSHIP field) and three
+serial judges:
+
+| arm | misdir + penny-drop gap | misdirection | penny-drop | wins /20 | spotted |
+| --- | --- | --- | --- | --- | --- |
+| first Opus 5.5 set (control) | -0.24 | -0.33 | -0.14 | 4 | 24% |
+| round two | -0.65 | -0.78 | -0.53 | 2 (both ties) | 39% |
+| round three, five then pick | +0.45 | +0.38 | +0.52 | 11 (1 tie) | 14% |
+
+Best, by misdirection + penny-drop: `The Venus de Milo isn't (5)` = ARMED
+(4.67, a cryptic definition and every judge's favourite), `Spilt ether? Don't
+cry! (5)` = THERE (4.17), `Streep cracked safes (6)` = PETERS and `Chips for
+eleven? (4)` = SIDE (4.00 each). Worst: `Walter lost his head for a change (5)`
+= ALTER (2.00) lost to the published HALTER-minus-H clue, the same mechanism
+with a better scene. `Wise man holds up fingers (5)` = NAMES (2.83) could not
+be parsed. `Chief's joint gives direction (10)` = LEADER'S HIP and `Milan side
+buried in print errors (5)` = INTER (3.00 each) were spotted as bare
+mechanisms.
+
+**Verdict: better than the control, by +0.69 on the headline gap.** Judges
+chose our clue as favourite 31 of 60 times, against 15 by chance. Two things
+flatter it. The selector is the judges' model reading the judges' rubric, so
+the pick step optimises for this grader's taste. And these judges scored the
+same human clues 0.12 lower than round two's did. On our own score alone
+(3.52 against the control's 2.95), the gain is still +0.57.
+
+## What Cracking the Cryptic praises
+
+Mark Goodliffe and Simon Anthony solve Times cryptics aloud on YouTube and say
+when a clue delights them. `tools/ctc_transcripts.py` reads the subtitles of
+their crossword videos, finds each reaction ("brilliant", "what a clue",
+laughter; "unfair", "obscure"), ties it to the clue in our annotated copy of
+the puzzle, and a judge names the reason from the transcript
+(`tools/ctc_reasons_prompt.md`). Lift is the share of praised clues with a
+label over its share among all annotated clues in the same puzzles.
+
+The rules it implies:
+
+1. **Put the definition to work in the joke.** Praised clues carry a pun
+   (`features.joke: pun`) at lift 1.30 and an apt definition at lift 1.23,
+   both p < 0.001 (461 praised clues against 2,909 in the same puzzles). In
+   the judge's words: a neat mechanism 215 times, misdirection 169, a clever
+   definition 94, an unexpected split of the answer 88, a natural surface 75.
+2. **Spend one or two clues per puzzle on the rare types.** Cryptic
+   definitions (lift 1.99, p 0.008), &lits (1.82, p 0.010) and letter
+   substitutions (1.80, p 0.042) are praised well above their rate.
+   Charades, containers, anagrams and deletions are praised at their rate,
+   so the type is not what gets a charade praised.
+3. **Split a phrase the reader cannot help reading whole.** The clues they
+   dwelt on longest cut a fixed phrase against its grain: NATIONS from
+   `I beat back responsibility after leaving United States` ("you have to cut
+   it between United and States"), FANCY DRESS BALL from `Do not say no to
+   bandage on part of foot`.
+4. **Length is not the lever.** Praised clues average 7.5 words against
+   7.2 in the same puzzles.
+5. **They almost never complain,** so this cannot tell us what to avoid:
+   41 of 1,637 judged reactions were complaints, mostly an obscure
+   word or a loose definition.
+
+Our own `features.misdirectedWord` is set on 95% of annotated clues, praised
+or not, so it measures nothing. What they call misdirection is narrower: a
+word whose surface sense is strong and wrong (`strike` in TENPINS, `turn in`
+in LACTATE, a phrase that only looks like anagram fodder in HOROSCOPE).
+
+Clues they singled out:
+
+    These all downed on strike? (7)                            = TENPINS
+    What could indicate eagle making descent? (7)              = LINEAGE   "one of the best clues of the year"
+    Box that might arrive at any time? (6)                     = TARDIS
+    Winning shot from majestic Djokovic? (4)                   = SERB      "winning shot sounds like a noun, but it's an instruction"
+    Artists in a funny way capturing lives? (9)                = SATIRISTS "an absolute banger of a clue"
+    Where riders may be introduced by heartless groom? (6)     = PRENUP
+    Clear skin that's surprising close to your ears (6)        = CORNEA
+    Half undressed, shy about large exercise clothes (7)       = TOPLESS   "the surface is unbelievable"
+
+The full list, with each reason in their words, is `python3
+tools/ctc_transcripts.py report`; the data is `tools/data/ctc_moments.json`
+and `tools/data/ctc_reasons.json`.
+
+### Our hint text against what the solver said
+
+`python3 tools/ctc_transcripts.py hintcheck` lines each rung of our ladder up
+against the same clue's spoken explanation (7,076 annotated CtC clues) and
+writes `tools/data/ctc_hint_check.json`. Silence is unknown, so a class needs
+the solver to have said something that differs. Counts, 2026-10-17:
+
+    def_span                    5   the definition they name is not ours
+    indicator_span              1   the indicator they name is not ours
+    device_named_differently  180   a device they name that our type lacks
+    unlock_absent               8   a hard solve's unlock has no rung that carries it
+    early_giveaway             41   an early rung spells the answer or a piece
+    solver_simpler            263   they explained it in <=30 words, we use 3x or more
+    jargon_unsaid           5,014   template words (clue-independent) that the channel never says
+
+Seventy-five of these read by hand: **none showed our hint wrong.** Fifty-nine
+were detector noise (a solver's wrong attempt that they retract, "not firm" read
+as "firm is the definition", the previous clue's talk bleeding in, and the port
+artefacts below), sixteen were real style differences. What we learned:
+
+- **Definition spans agree.** Five flagged, five noise (INANE "no sorry it's not
+  the definition", COMPLIANCE "the definition here is *not* firm"). With the
+  parse check's 39 in 2,292, no definition annotation has been shown wrong by a
+  solver.
+- **The ladder covers what unsticks them.** Of 883 annotated hard solves, 99.9%
+  have a rung that carries the unlock (definition 41%, blocks 20%, indicator
+  15%, device 9%, letters already in the grid 6.5%, a word's other sense 3.6%).
+  The letters-in-the-grid unlock is the reveal-a-letter button, not a rung.
+- **A word read in its other sense** is the one unlock we sometimes omit: INDIE
+  ("pass on" = DIE ON: "passed meaning died") and SPONGY ("soft" read as the
+  definition first) have no `misdirectedWord`. Rare (2 of 32), and it is a data
+  gap, not a wording one.
+- **Solvers explain in one sentence.** On the 263 clues they solved quickly and
+  explained in <=30 words, the explanation is "definition, the one trick"
+  (ORGANIST: "an anagram of ROASTING gives ORGANIST"); our walkthrough is
+  77-239 words. This is a style difference, not a fault: a rung is read by
+  someone who did not solve it. Not acted on.
+- **Jargon is solver-specific.** "Charade" is the label of our commonest type
+  and CtC say it 6 times in 476 videos (Pat Cousins 333, Lucyverbalist 226, in
+  150 videos each); CtC say "wordplay" (1,342) and "surface" (1,414). "Shortfall"
+  in the anagram blurb: 3 (CtC). Our wording is conventional; CtC's is chattier.
+  Not changed.
+- **Do not trust the Python port for wording.** `compare_mc.ladder_steps` is a
+  port of the rung logic, not the text: it says "separable" and "misleads" (not
+  in app.js), does not trim `defPlace` seams or apply `maskAnswer` (so the
+  anagram blurb "comes from elsewhere" read as spelling ELSEWHERE). All 26
+  `early_giveaway` rows read were that. A faithful hint-text comparison renders
+  through `tools/fake_dom.js`, as `make_hint_packets.js` does.
+- **Device disagreements are the solver's wrong attempts.** 21 of 22 read were
+  "maybe it's an anagram" before the real parse, or the neighbouring clue's
+  talk. The real one: WRISTBAND, stored `double_definition`, called "just a
+  cryptic definition"; the rung's "Double or cryptic definition" label does not
+  commit, so the hint text is fine.
+
+No validator check or prompt rule came out of this: nothing was wrong in the
+text, and the one data gap (misdirected word) is already tracked.
+
+## The surface is a sentence, and it carries a joke
+
+The six worst clues were rewritten under the rule above, and the feedback was:
+*they still do not read as real sentences or have cute puns*. For example,
+`That Conservative lot, and mean with it (5)` is a grammatical fragment with no
+finite verb, built from two definitions and a conjunction. Nobody has ever said
+it. Apply two tests before a clue counts as finished:
+
+**Say it aloud with no crossword in mind.** It must be something a person would
+actually say: a headline, a complaint, gossip, advice. Being grammatical is not
+enough; grammatical fragments pass that test and still fail.
+
+**Name the joke in one clause.** *She hopes he'll change — at the altar.* *The
+bully's name-calling turns out to be a list of stars.* If you cannot, there is no
+penny-drop for the solver, and polishing the wordplay will not add one.
+
+**Be willing to throw the mechanism away.** In the rewrite, the author kept each
+already-chosen mechanism and hunted for a surface to fit it: mechanism first
+with a coat of paint, which the previous rule forbids. Four of the six rewrites
+that finally worked changed clue type entirely. Three are in A001: CHEAP went
+from charade to anagram, SIDE from container to hidden word, ALTER from anagram
+to homophone. The sentence came first, and the mechanism was found inside it.
+
+### The validator holds you to it
+
+The rule above was on the page during the September trial, and the clues
+still came out as standard Times clues: level with a typical published clue,
+beaten by the best on 13 of 20, with a joke on 8 of 20. Prose alone did not
+hold. So two parts of it are ERRORs on every puzzle we set, and
+`tools/build_authored_puzzle.py` will not write a puzzle that has one:
+
+* **Every clue states its scene in `explanation.surface`.** Write this first:
+  one sentence, in the world's words, of what the clue is about. Then find the
+  mechanism inside it. The surface may not use crossword vocabulary (`anagram`,
+  `letters`, `hidden`, `definition`...) and may not name the answer. Only 1.6%
+  of published surfaces use that vocabulary, so a surface that needs it is
+  describing the machinery. (`check_authored_surface`)
+* **A pun names its word.** A clue tagged `features.joke: pun` names the word
+  whose second sense carries it in `features.misdirectedWord`. There is no joke
+  quota: a quota of half was met by tagging clues rather
+  than writing jokes, and scored worse (see the grading section).
+  (`check_authored_puns`)
+
+The favourites' own surfaces show what the field is for. Everyman 4087's
+`Business listing two things enjoyed by Victorian conwoman? (6,3,6)` =
+HUSTLE AND BUSTLE has the surface "A trade directory of everything a
+Victorian swindler could want", with its pun on `Business`. Guardian 29952's
+`Seriously funny minute where head blown off in which Groucho's prop
+backfires? (10)` = TRAGICOMIC has "A gag in which the cigar goes off in
+Groucho Marx's face", with its pun on `minute`. Each is a scene
+you could tell someone about, and the mechanism was found inside it.
+
+The retired `clue_quality.py` (git history) also flagged `imperative-opening` and
+`unattested-phrasing`, but its vote table said to read them with care. Against
+2,082 solver favourites, both point the right way but are too rare to
+establish. The two tests above remain judgements, made aloud.
+
+## The standard is a pub joke, not a rubric score
+
+The round-two rewrites passed the rubric. Then a human read the five clues that
+had beaten their whole human field and said: *those aren't very good, none of
+those are real sentences.* He was right, and it means the scoreboard was wrong,
+not the reader:
+
+> `Newspaper: Morgan dropped a million (5)` is a definition glossed with a
+> colon. `Concerning hotel staff, the press (9)` is a verbless fragment opening
+> on a bare RE marker. `Dwindles as time enters the Lords (6)` is a front
+> definition attached to a narration of its own wordplay. `Pool turned into a
+> circuit (4)` shows "turned" as a visible instruction. **They won because the
+> judges were rewarding rubric-compliance.** Beating a field is not evidence of
+> quality when the field and the judges share a rubric.
+
+Write against named clues, not a table:
+
+    Two girls, one on each knee (7)               = PATELLA
+    Die of cold (3,4)                             = ICE CUBE
+    Amundsen's forwarding address (4)             = MUSH
+    A stiff examination (4-6)                     = POST-MORTEM
+    Bergamot herbal extract for bodybuilder? (6)  = MOTHER
+
+They are short, complete and funny, and the definition is invisible because the
+sentence depends on it. None has any crossword furniture. PATELLA is a plain
+charade, so "no furniture" does not mean "no mechanism": `one on each knee` is
+both the assembly instruction and the picture.
+
+MOTHER shows the same for a hidden word, and is the clearest example of
+**exactly two pieces, nothing superfluous**:
+
+    Bergamot herbal   wordplay fodder — berga|MOT HER|bal
+    extract           the hidden indicator, and also a real herbal product
+    for               joinery
+    bodybuilder?      definition
+
+Five words, and each does two jobs. `extract` is the crossword instruction *and*
+something a herbal shop sells, so it never reads as an instruction.
+`bodybuilder?` is the joke: the reader pictures a gym, and the answer is that
+mothers build bodies. The `?` does its proper job, flagging a definition that is
+true but whimsical, not apologising for a loose one. Compare A001's hidden words
+(`Milan club buried in winter`): sound, but the container word is visibly there
+only to hide letters.
+
+Test each candidate against MOTHER: can you write the four-line table for your
+clue, with every word of the surface in exactly one row?
+
+The rules applied to all twenty A001 clues in that pass:
+
+1. **A complete English sentence.** Subject and finite verb, or an idiom people
+   actually say. Imperatives are fine (`Die of cold`).
+2. **Banned furniture:** any clue that is a bare noun phrase listing wordplay
+   and then meaning. A definition may stand behind a comma or colon.
+   Favourites do that more often than the other clues in their puzzle (odds
+   1.5x over 2,082 favourites), so the fault is the parts list, not the
+   punctuation. The votes cannot judge `Concerning` / `About` openings (15
+   clues) or `Sounds like` (72 clues, no penalty).
+3. **The pun must be nameable and cute.** The reader should smile. If the only
+   pleasure is that the mechanism works, the clue fails, however sound it is.
+4. **Length is not the lever.** Published clues run a median of 7 words.
+   Among the clues in one puzzle, 9+ words is favoured (odds 1.45x) and 4-6
+   words disfavoured (0.77x). Cut padding, not length.
+5. **Choose the mechanism last**, from material the sentence already contains.
+   If nothing fits, find a different sentence. Never repair it by narrating the
+   wordplay.
+
+The cost: pushing for the pun raised A001's cryptic-definition count from one to
+six, because several answers (PACE, THERE, ARMED, ORGAN, PETERS, REPORTERS) gave
+a funny sentence and no funny mechanism. A puzzle that is a third cryptic
+definitions is unbalanced by any published standard. The next section is the
+pass that fixed it.
+
+## The sentence AND the wordplay
+
+The twenty rewritten clues were read back, and the verdict was:
+
+> **They are good for sentences now but they don't have wordplay anymore.**
+
+Six of twenty had become bare cryptic definitions. So the rule:
+
+> A clue needs the sentence **and** the wordplay, both in the same few words. A
+> funny sentence with no mechanism is a cryptic definition, and a cryptic
+> definition is a treat, not a technique: **at most two in a puzzle we set**,
+> enforced by `tools/validate_annotations.py` as an ERROR
+> (`MAX_CRYPTIC_DEFINITIONS`).
+
+A clue gives two routes to the same answer. A joke with no mechanism is a quiz
+question: the solver shares your reference or has nothing to work on, and no
+crossing letter helps them reason. That is why the cap is a number, not a
+preference.
+
+**Why this keeps happening.** A funny sentence is much easier to find than a
+funny mechanism, and the mechanism is the part that will not bend. So chasing
+the pub-joke standard constantly pushes you to drop the mechanism. Each of those
+six clues was defensible on its own; the damage only showed when they were
+counted. Hence a whole-puzzle check, not a per-clue one. The limit of 2 is
+measured: 95.8% of 2,437 annotated published puzzles have two or fewer (the
+Times Jumbo goes over in 23%, daily cryptics in 0.5-2%). It is a balance
+rule, not a quality one. Solvers favour cryptic definitions over every type
+but the spoonerism (odds 3.1x), which is exactly why a setter chasing favour
+overspends them.
+
+**A narrated mechanism is not a hidden one.** Two A001 clues had a real
+mechanism and still failed, because the indicator was an instruction dressed as
+a sentence:
+
+    There's a bit of the president in our team (4)   SIDE
+    Every ship needs a leader in front (10)          LEADERSHIP
+
+`a bit of` and `in front` are not description. They are the setter telling the
+solver *take part of this word* and *put that one first*. Both were fixed by
+giving the indicator ordinary meaning, or by removing it:
+
+    There's a mole in the president's team (4)          in = the only signal, and
+                                                        a mole really is buried
+                                                        in pre-SIDE-nt
+    Leaders get hip and mistake it for direction (10)   a charade needs no
+                                                        indicator at all
+
+The test: **would this word be in the sentence if there were no crossword?**
+`in` passes. `a bit of` fails. Watch for `a bit of`, `some of`, `in front`,
+`turned`, `rebuilt`, `back` and `about` doing nothing but announcing the
+machinery.
+
+What the pass produced: four cryptic definitions converted, two kept.
+
+| answer | was (no mechanism) | now | mechanism |
+| --- | --- | --- | --- |
+| THERE | Where the grass is greener | Time here would be better spent yonder | charade, T + HERE |
+| REPORTERS | These porters carry stories, not bags | The press are riddled with pet errors | anagram of PET ERRORS |
+| ORGAN | The only instrument you can donate | The donor's dreadful groan comes from the instrument | anagram of GROAN |
+| PETERS | What Peter does when Paul gets paid | With the Queen among the pets, interest dwindles | container, ER in PETS |
+| PACE | Expectant fathers do it up and down | *kept* | — |
+| ARMED | What the Venus de Milo isn't | *kept* | — |
+
+PACE and ARMED are the two allowed cryptic definitions. They were kept because
+their available mechanisms are the weakest, not because their jokes are the
+best. PACE offers only an anagram of CAPE or the charade P + ACE, and neither
+supports a joke. Every synonym of ARMED is a phrase (`carrying a weapon`, `under
+arms`), so no clue can define it tightly enough to be worth the machinery. The
+test for spending one of your two: **not "is this funny" but "is the mechanism I
+would swap in actually worse than nothing".**
+
+## Exactly two pieces
+
+The next read-back was about the words that are not part of the clue:
+
+> **A good cryptic clue doesn't have anything superfluous which isn't directly
+> part of the wordplay. It should be exactly two pieces. Definition, optional
+> joinery and wordplay.**
+
+So every word does exactly one of three jobs: part of the DEFINITION, part of the
+WORDPLAY (fodder or indicator), or a LINK WORD joining the two. A word that only
+makes the surface read nicely is a fault, **however good the sentence**. In the
+schema it has one signature: a block with `"gives": ""`, the "surface only"
+padding that `docs/STYLE.md`'s leftover-words rule tells the annotator to record.
+Nine of A001's twenty clues had one.
+
+`check_two_pieces()` in `tools/validate_annotations.py` makes it an ERROR, scoped
+by `is_authored()` to puzzles whose `series` is `"authored"`. The scoping is
+required: real setters pad, and the annotator must be able to say so. Unscoped,
+the check fires **eighteen times on 30039 alone**, mostly on double definitions,
+where a block legitimately carries no letters. A check that fires on honest work
+is a broken check.
+
+The opposite fault needs no scoping, because it is wrong in a published grid
+too: the DEFINITION's own words used again as wordplay.
+`check_definition_not_fodder()` catches it. A block taking letters from words
+the definition already claimed means the two halves overlap. Its worst form is
+invisible to every other check: `definition: "Hard rock"` beside a block
+`"Hard rock" > HORSE` concatenates perfectly and explains nothing. It warns per
+clue, since a setter occasionally reuses a word on purpose, and ERRORs past
+`MAX_DEFINITION_REUSE` in one puzzle, since that means the annotator described
+the clues instead of solving them.
+
+### The fault no check catches
+
+A `cryptic definition` claims no letters, so it contradicts nothing and no
+consistency check can reach it. That makes it the one type an annotator can use
+without solving anything. Four candidate checks were measured against the corpus:
+
+| candidate | hits on honest work | outcome |
+| --- | --- | --- |
+| a block hands over the whole answer | 4 of the 9 existing cryptic definitions | rejected |
+| the `definition` spans the whole clue | 8 of 9 | rejected |
+| a known indicator word appears in the clue | 3 of 9 | rejected |
+| blocks give the right letters in the wrong order, with no mechanism named | 11 of 175 charades | kept, as `check_blocks_in_answer_order` |
+
+The fourth was first rejected as noise, because the letters in all eleven were
+correct (for example PEAS + SWEET for SWEET PEAS). That was a mistake: the ORDER
+is what is being taught, and PEAS before SWEET makes the learner reassemble what
+the annotation should show. What made it look like noise was scope. Limited to
+`type == "charade"` exactly, it has 10 hits in 127 and no false positives. Every
+hit outside that scope is a container or a rotation, whose blocks are
+*supposed* to come before the positional step.
+
+The general lesson: before shelving a check for firing on honest work, ask
+whether the rule is wrong or only its scope, and whether "honest work" is a
+judgement you made or a default you gave the existing corpus.
+
+For the remaining case, the defence is a human:
+`check_cryptic_definition_cap()` warns from the cap upwards and names every
+cryptic definition in the puzzle, and a human reads them. This is deliberate. A
+check that catches the remaining case does not exist, because every version
+tried was wrong more often than right.
+
+The cap is scoped the same way, in the other direction: our own count is ours
+to change, but a published setter's count is a fact about their grid
+(quiptic-1372, by Harpo, has five real cryptic definitions). So it ERRORs on
+authored puzzles and warns on fetched ones. An ERROR on a published grid can
+only be met by leaving clues blank, and a rule that can be satisfied with
+blanks turns a loud failure into a silent one. So `check_every_clue_is_annotated()`
+makes a blank annotation an error, exempting only an entry the setter printed
+with no clue text.
+
+### Rebuilding and validating an authored puzzle
+
+An authored puzzle's id is `authored-<number>`, the same `<series>-<number>`
+shape as every fetched puzzle, so the schema, `tools/puzzle_integrity.py` and
+`tools/validate_annotations.py` treat it like any other. Its source names us as
+publisher and has no url: it was set here, not fetched from anywhere. After
+editing a `tools/data/authored_*_clues.json` file, you MUST rebuild the puzzle
+and validate it by id:
+
+```bash
+python3 tools/build_authored_puzzle.py --clues tools/data/authored_A001_clues.json \
+    --number 1 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 2026-07-29 \
+    --annotated-by human
+python3 tools/validate_annotations.py authored-1
+python3 tools/puzzle_integrity.py authored-1
+rm puzzles/authored/*/authored-1.json
+```
+
+`tools/build_authored_puzzle.py` writes `puzzles/authored/<year>/authored-1.json`,
+the year of `--date` (it uses the grid in `tools/data/sample_fill_11.json` unless
+`--fill` says otherwise), and refuses to write a puzzle that
+`tools/validate_annotations.py` has an ERROR for. Delete the file when you are done: A001 is not published,
+and the clues JSON is the source.
+
+A clean validate ends with no ERROR lines.
+
+### Why filler is banned, and the nine fixes
+
+A funny sentence is easy if filler is allowed. Put `There's a…`, `Our…`, `she
+hopes he'll…` around any two pieces and something readable falls out. Banning
+filler is what separates a clue from a joke that happens to contain the answer.
+The rule makes the job harder: every word must serve the machinery *and* the
+sentence must be funny, which is the actual craft. Expect to throw candidates
+away.
+
+All nine, before and after:
+
+| answer | was (padding in **bold**) | now | mechanism |
+| --- | --- | --- | --- |
+| ORGAN | **The donor's** dreadful groan comes from the instrument | The instrument makes a dreadful groan | anagram of GROAN |
+| INTER | Milan club bury **the opposition** | Milan club buried in winter | hidden in w-INTER |
+| PLEASE | Delight **mother** with the magic word | Delight in the magic word | double definition |
+| PETERS | With the Queen among the pets, **interest** dwindles | Surrounded by pets, the Queen dwindles | container, ER in PETS |
+| SIDE | **There's a mole** in the president's team | *clue unchanged, re-annotated* | hidden in pre-SIDE-nt |
+| REPRESENTS | **Our** rep resents **the people** he speaks for | Rep resents what he stands for | charade, REP + RESENTS |
+| STOREY | Ground floor, and **the world's your** oyster | The oyster lives on the ground floor | anagram of OYSTER |
+| ARGUE | **There's** a row among the star guests | *clue unchanged, re-annotated* | hidden in st-ARGUE-sts |
+| ALTER | At the altar **she hopes he'll** change | Husband slips out of the halter to change | deletion, HALTER less H |
+
+Two of the nine were **mis-annotation, not filler**. The rule has to allow for
+that:
+
+* SIDE's `There's a mole in` is not padding; it is the hidden-word
+  **indicator**. A mole is something concealed inside an organisation, so the
+  phrase says *something is buried in here* without any crossword instruction,
+  which is exactly what an indicator should do.
+* ARGUE's `There's` is **joinery**. It carries no letters and is not definition,
+  but it is the finite verb that makes the clue a sentence instead of a noun
+  phrase. It belongs in `linkWords`, where the app greys it and tells the learner
+  there is no mechanism in it.
+
+The test: does the word contribute letters, restrict the parse, or hold the
+sentence together grammatically? If none of these, it is filler. An indicator or
+a link word is *claimed*, so it can be shown to the solver; padding can only be
+apologised for.
+
+**Is shorter usually the answer?** Mostly. The seven rewritten clues went from 49
+words to 43 (mean 7.0 to 6.1; all twenty went from 139 to 133). Four got
+shorter; INTER and STOREY stayed the same length; ALTER got one word LONGER,
+because the padding-free version needed a real mechanism (HALTER less H) where
+the padded one leaned on a homophone plus a joke told in the padding. Padding is
+a *symptom* of a clue a word or two too long, but the cure is finding a mechanism
+the sentence can pay for, not cutting words until it fits.
+
+**The two cryptic definitions.** Read strictly, PACE and ARMED fail "exactly two
+pieces": they have one piece, a definition, and no wordplay. They were kept on
+purpose. The rule governs *superfluous* words, and in a cryptic definition every
+word is part of the definition, so nothing is superfluous. The count keeps them
+honest, and `MAX_CRYPTIC_DEFINITIONS` holds it at two. For whoever revisits
+this: **ARMED is an anagram of DREAM**, and `Venus de Milo's broken dream` is a
+real semi-&lit, with `broken` doing double duty on a broken statue. It was not
+used because it is a bare noun phrase, which breaks rule 1 of "The standard is a
+pub joke" in exchange for the mechanism. If the two cryptic definitions ever
+have to go, start from that clue.
+
+## When the blocks already told them
+
+> **When you basically give the whole answer in the building blocks you don't
+> need to have the full walkthrough.**
+
+The rule, what a walkthrough should keep, and `check_walkthrough_budget()` are in
+`docs/STYLE.md`, "The blocks already told them". The evidence behind it: all twenty
+A001 walkthroughs ran 44-63 words (median 54), and every one restated its own
+blocks, just when the learner no longer needed it. Trimmed to what the blocks
+cannot show, they run 19-42 words, median 32. The budget warns above 45, which
+sits above the 99th percentile (40) of 74,474 published walkthroughs with
+blocks (median 19). It catches outliers, not style.
+
+Before changing this, know two things:
+
+* **The walkthrough may be short but never empty.** `ladderSteps()` in `app.js`
+  always adds the "Full walkthrough" rung, and the validator requires the field.
+  An empty one shows as a labelled rung with a blank paragraph: a visible hole,
+  and no place for the mechanism line on clues with no blocks.
+* **The check is a word budget, not a redundancy detector**, and the code says
+  so. A semantic version was built and thrown away. It scored the fraction of
+  walkthrough vocabulary already in the clue and blocks: 0.21 for the bad A001
+  set, 0.16 after the rewrite, and 0.30 for published puzzles. The good
+  walkthroughs scored *worse* than the bad ones, because naming the joke reuses
+  the clue's own words. Do not rebuild it without new evidence.
+
+## The joints: link words, adjacency, direction
+
+The clue offered as the best of the pass was rejected, for two structural
+reasons. Here it is with its annotation:
+
+    The oyster lives on the ground floor (6)   = STOREY
+
+    The oyster    fodder
+    lives on      link
+    ground        anagram indicator
+    floor         definition
+
+> **A link word has to stand in for an equals sign**, and **an anagram
+> indicator has to be next to the fodder it operates on.**
+
+This clue breaks both. `lives on` states no equivalence between wordplay and
+definition; it is surface padding filed as a link word. That makes the clue
+three pieces (wordplay, PADDING, definition), a direct breach of "Exactly two
+pieces" above. And `ground` cannot reach back over `lives on the` to shuffle
+`The oyster`: an indicator only operates on what it touches.
+
+**STOREY felt like the best clue in the set because of those faults.** The
+padding made the surface smooth. `The oyster lives on the ground floor` reads
+like a line from a nature programme because three of its words serve the
+picture instead of the machinery. A sound clue must buy its surface with words
+that are already working. **So a smooth surface is not evidence of soundness;
+often it is evidence against it**, because the easiest route to a smooth surface
+is to stop paying for it.
+
+A third fault of the same kind turned up while auditing for the first two. It
+survived calibration in one direction only:
+
+> **A reversal indicator must point the way the entry runs.** `Back at the pool
+> for another circuit (4)` = LOOP was **14-DOWN**. `Up` is the fix, because an
+> upward word binds to down entries. Published setters do use `back` on down
+> entries (15% of its uses), so the validator treats it as neutral.
+
+### The rules
+
+| rule | check | what it allows |
+| --- | --- | --- |
+| Link words are an equals sign | `check_link_words_are_equivalences` | equivalence (`is`, `'s`), derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`, `indicating`, `to locate`), prepositional joining (`for`, `from`, `of`, `in`, `with`, `after`), and grammatical glue: `CORE_LINKS`. Plus every word published clues declare as a link word 10+ times across 5+ setters (`then`, `but`, `seen`, `using`), measured into `tools/data/clue_joints.json` |
+| An indicator operates on what it touches | `check_indicator_adjacency` | only link words between an anagram indicator and its fodder, plus the definition, which sometimes sits in the gap |
+| An indicator is not its own fodder | `check_indicator_outside_fodder` | nothing: a word whose letters are being shuffled cannot also be the instruction to shuffle them, so the indicator must sit outside every locatable reading of the fodder. The adjacency check cannot see this, because an indicator inside the fodder has no gap to measure and scores as perfectly placed |
+| A reversal runs along the entry | `check_reversal_direction` | across only: `west`, `east`, `aback`. Down only: `up`, `rising`, `raised`, `climbing`, `lifted`, `north` and the rest of `tools/data/clue_joints.json`. Everything else is neutral, including `back` and `returning`, which published setters use on down entries in 15-24% of cases |
+
+All four are ERRORs, scoped by `is_authored()` like the two-pieces rule.
+
+### Calibration
+
+The standing rule: **a check that flags Araucaria is a broken check.** The
+word lists are measured from published annotations by
+`tools/build_clue_joints.py`, which the nightly reruns. `python3 tools/validate_annotations.py --unscoped <ids>` runs
+the rules on published grids. Results over the whole annotated corpus
+(2026-09-28, 74,474 clues):
+
+| check | published sample | hits |
+| --- | --- | --- |
+| link words are equivalences | 24,755 declared link-word phrases | 3.9% of tokens outside the vocabulary, none of them used more than nine times |
+| indicator adjacency | 9,914 anagram clues with a locatable fodder | 24 (0.24%), each apparently an annotation slip |
+| reversal direction | 2,087 reversals using an axis word | 25 (1.2%) |
+
+The July calibration used eight Guardian puzzles and got every one of these
+wrong in a way the small sample could not show. Its link list missed 9.8% of
+published link-word tokens, and its adjacency glue flagged 95 published
+anagrams. Its reversal lists bound `back` and `returning` to across entries,
+which flagged 250 published reversals. **Reversal direction is lopsided:** an
+upward word almost never reverses an across entry (`up` does it 2 times in
+168). But `back` reverses a down entry in 25 of 170 uses. When a sample is
+too small to calibrate against, wait for the corpus; do not ship on 19 data
+points.
+
+Two of the original eight puzzles' clues fall inside the adjacency check's
+allowances, and those allowances were added because of them: 30043 1A (`Bans recitals – where this is
+played?`) puts its definition between fodder and indicator, and 30067 20D
+(`Bertie develops from bad to worse`) puts annotated padding there. Three more
+(30040 8A, 30040 11A, 30041 20A) build their fodder by deleting letters, so no
+span of the clue contains it. The check skips those, with a warning when the
+clue is ours.
+
+The adjacency rule does *not* contradict the withdrawn advice in "What blind
+grading found". That advice said an indicator next to its fodder is a
+*giveaway*, and measurement killed it (88.9% of published anagrams do it). This
+rule says a separated indicator is *unsound*. They are different claims, and the
+same measurement supports both: adjacency is the norm because adjacency is how
+indicators work. The retired `clue_quality.py` had an `indicator-abuts-fodder`
+smell, based only on its correlation with judge score, and says so. The only
+valid response to that smell is a different indicator, never a moved one.
+
+### What the audit changed
+
+| answer | was | now | fault |
+| --- | --- | --- | --- |
+| STOREY | The oyster lives on the ground floor | Ground oyster makes a floor | link word + adjacency |
+| THERE | Time here would be better spent yonder | Time here leads to yonder | link word (four words of padding) |
+| LEADERSHIP | Leaders get hip and mistake it for direction | Leaders get hip and find direction | link word (`mistake it`) |
+| LOOP | Back at the pool for another circuit | Up the pool for another circuit | reversal direction (down entry) |
+
+STOREY keeps its pun (floor as surface, floor as storey) and pays for it
+honestly. Crushed oyster shell really is laid as flooring, so `Ground` both
+describes the material and shuffles it, and `makes` is a true equals sign. Five
+words, four jobs, nothing spare. LOOP's walkthrough teaches the direction
+convention.

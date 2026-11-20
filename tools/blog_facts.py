@@ -1,0 +1,2758 @@
+#!/usr/bin/env python3
+"""Structural facts about our clues, read off the blogs that explain them.
+
+timesforthetimes, fifteensquared and bigdave44 write up most of the puzzles we
+hold. Their prose is theirs and is never copied. What this keeps is what the
+blogger's markup states about the clue itself:
+
+  * the definition: the words the blogger underlined, which are words of the
+    clue, so a span is kept only where it is an exact run of whole words of
+    OUR copy of the clue;
+  * the building blocks, where the write-up gives its wordplay as capitals
+    and the clue words they come from: TAKE (arrange), NIC[k] (cut), PAPA =
+    pop, scheme (PLOT). Kept as [letters, clue words] while parsing, written
+    as the annotation's block object (see fact_json), and only where the
+    words are an exact run of whole words of our clue (see blocks);
+  * the clue type, where the write-up names it in a form that means one thing
+    (see TYPES) and, for an anagram, holds fodder with the answer's letters;
+    or where its wordplay spells the type out, which is kept only when the
+    pieces put together by its own operators give exactly the answer (see
+    wordplay_type);
+  * the indicators, only where a convention marks them: a bracketed [word]
+    under a timesforthetimes key that says so, an italic (<em>word</em>), the
+    gloss on a named operation ("<em>reversed</em> (backing)", "anagram
+    (strangely) of"), and again only words that are in the clue.
+
+The join never trusts a title. A post is a candidate for every puzzle whose
+number its title carries, and it is that puzzle's post only if our clue texts
+are found in it, in order: a clue is a long enough string that finding it is
+the proof.
+
+    python3 tools/blog_facts.py            # write tools/data/blog_facts/
+    python3 tools/blog_facts.py --measure  # and print coverage per blog and series
+    python3 tools/blog_facts.py --sample 30 --seed 1   # and print rows to check by hand
+    python3 tools/blog_facts.py --if-changed  # the nightly: skip when no input moved
+    python3 tools/blog_facts.py --reparse [BLOG ...]  # after a parser change: re-parse cached posts
+    python3 tools/blog_facts.py --jobs 1      # one process instead of the default two
+    python3 tools/blog_facts.py --score       # precision and recall against blog_facts_gold.jsonl
+
+Reads the caches the fetchers write under downloads.ROOT; never the
+network.
+"""
+import argparse
+import atexit
+import ast
+import collections
+import hashlib
+import html
+import html.parser
+import itertools
+import json
+import multiprocessing
+import os
+import random
+import re
+import shutil
+import sqlite3
+import sys
+import tempfile
+import time
+import unicodedata
+from concurrent.futures import ProcessPoolExecutor
+from functools import lru_cache
+from pathlib import Path
+import downloads
+import media_manifest
+from build_abbreviations import table as abbreviations_table
+from clue_types import NAMES
+from definitions import place
+from fetch_puzzle import puzzle_files, read_puzzle_file, read_puzzle_view
+from groups import entry_id
+from puzzle_schema import order
+
+ROOT = Path(__file__).resolve().parent.parent
+
+DATA = downloads.ROOT
+OUT = ROOT / "tools" / "data" / "blog_facts"
+#: What each write-up says of its clues short of their blocks (see leads), for
+#: letter_facts.py: the clue's words and the answer's letters, but kept out of
+#: the repo, being a clue's worth of lines per clue.
+LEADS = DATA / "blog_leads.json"
+#: The digest of every input the files in OUT were written from; see inputs_digest.
+STAMP = OUT / "inputs.sha256"
+#: Each post's join, kept by extract so a run parses only what is new: one
+#: file per join, named by the digest of its inputs (see cache_key). A change
+#: to the parser leaves the cache alone; whoever makes it runs --reparse once.
+CACHE = DATA / "blog_facts_cache"
+#: The first item of every cache key. It is fixed: changing it orphans every
+#: cached join and the next run re-parses them all.
+CACHE_SALT = "fb2b83f44d84fc7ca417b368533590eef62de4eefe5319ebf1c352625027bde1"
+#: A local-disk copy of what extract reads off DATA (a virtiofs share, where
+#: each of the ~45k posts and ~45k cached joins costs an open): each post's
+#: sha256 and title by (path, size, mtime), and each cached join by its key.
+#: Reading 90k small files there took most of a run's 2h limit.
+INDEX = Path.home() / ".cache" / "cryptic-blog-facts-index.sqlite"
+
+#: Blog key -> (cache directory, the name a reader is shown). The key is what
+#: the sidecar stores; the name is what the site prints beside the link.
+BLOGS = {
+    "timesforthetimes": (DATA / "timesforthetimes", "Times for the Times"),
+    "fifteensquared": (DATA / "fifteensquared", "Fifteensquared"),
+    "bigdave44": (DATA / "bigdave44", "Big Dave's Crossword Blog"),
+}
+
+#: A post is a puzzle's write-up when at least this share of its clues is found
+#: in it. Old Times posts blog only the interesting clues, so this is low; a
+#: wrong puzzle scores zero, never a half.
+MIN_ALIGNED = 0.3
+
+U_ON, U_OFF, E_ON, E_OFF = "", "", "", ""
+MARKS = U_ON + U_OFF + E_ON + E_OFF
+BLOCK_TAGS = {"p", "br", "div", "tr", "td", "th", "li", "h1", "h2", "h3", "h4",
+              "h5", "h6", "table", "tbody", "ul", "ol"}
+UNDERLINE_STYLE = re.compile(r"text-decoration(?:-line)?\s*:\s*underline", re.IGNORECASE)
+#: fifteensquared's table plugin marks the definition by class, not by style.
+DEFINITION_CLASS = re.compile(r"(?:^|\s)fts-definition(?:\s|$)")
+#: A post with none of these marks its definitions, if at all, in bold italic.
+ANY_UNDERLINE = re.compile(r"<u>|<ins>|text-decoration(?:-line)?\s*:\s*underline|fts-definition", re.IGNORECASE)
+SKIP_TAGS = {"s", "strike", "del", "script", "style"}
+BOLD, ITALIC = {"b", "strong"}, {"i", "em"}
+
+
+class _Flatten(html.parser.HTMLParser):
+    """HTML to text, with underline and emphasis kept as sentinel characters.
+    `bold_italic` reads bold italic as the underline, for posts that use it so."""
+
+    def __init__(self, bold_italic=False):
+        super().__init__(convert_charrefs=True)
+        self.out, self.stack, self.skip = [], [], 0
+        self.bold_italic = bold_italic
+
+    def handle_starttag(self, tag, attrs):
+        if tag in BLOCK_TAGS:
+            self.out.append("\n")
+        if tag in ("br", "img", "hr"):
+            return
+        mark = ""
+        if tag in SKIP_TAGS:
+            self.skip += 1
+            mark = "skip"
+        elif (tag in ("u", "ins") or UNDERLINE_STYLE.search(dict(attrs).get("style") or "")
+              or DEFINITION_CLASS.search(dict(attrs).get("class") or "")
+              or (self.bold_italic and self.stack and {tag, self.stack[-1][0]} in (
+                  {b, i} for b in BOLD for i in ITALIC))):
+            mark = U_ON
+        elif tag in ("em", "i"):
+            mark = E_ON
+        if mark and mark != "skip":
+            self.out.append(mark)
+        self.stack.append((tag, mark))
+
+    def handle_endtag(self, tag):
+        if tag in BLOCK_TAGS:
+            self.out.append("\n")
+        for i in range(len(self.stack) - 1, -1, -1):
+            if self.stack[i][0] == tag:
+                for _, mark in reversed(self.stack[i:]):
+                    if mark == "skip":
+                        self.skip -= 1
+                    elif mark:
+                        self.out.append(U_OFF if mark == U_ON else E_OFF)
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data):
+        if not self.skip:
+            self.out.append(data)
+
+
+def flatten(rendered):
+    p = _Flatten(bold_italic=not ANY_UNDERLINE.search(rendered))
+    p.feed(rendered)
+    p.close()
+    return "".join(p.out).replace("\xa0", " ")
+
+
+def fold(ch):
+    """A character as the letter it is compared by: accents off, lower case."""
+    return unicodedata.normalize("NFKD", ch)[:1].lower()
+
+
+def projection(text, marked=False):
+    """(letters, positions, underline runs, emphasis flags) of a text.
+
+    An underline run is numbered, 0 for none, so two underlines with only a
+    space between them stay two spans: a double definition is two.
+
+    Only letters are compared: punctuation, quotes, spacing and enumerations
+    differ between a blog's copy of a clue and the paper's."""
+    letters, pos, under, emph = [], [], [], []
+    u = e = run = 0
+    joined = False  # an underline resuming mid-word, as in Me<u>di</u>a, is the same span
+    for i, ch in enumerate(text):
+        if marked and ch in MARKS:
+            if ch == U_ON and u == 0 and not joined:
+                run += 1
+            u += {U_ON: 1, U_OFF: -1}.get(ch, 0)
+            e += {E_ON: 1, E_OFF: -1}.get(ch, 0)
+            continue
+        f = fold(ch)
+        joined = bool(u) and f.isalnum() or (joined and ch in MARKS)
+        if f.isalnum() and f.isascii():
+            letters.append(f)
+            pos.append(i)
+            under.append(run if u > 0 else 0)
+            emph.append(e > 0)
+    return "".join(letters), pos, under, emph
+
+
+ENUM_TAIL = re.compile(r"\s*\((?:[\d,\s\-–.]|words?)+\)\s*$")
+
+
+def clue_body(clue):
+    """The clue without its enumeration, which blogs print in varied forms."""
+    return ENUM_TAIL.sub("", clue or "").strip()
+
+
+def is_word_start(s, i):
+    return i == 0 or not s[i - 1].isalnum()
+
+
+def is_word_end(s, j):
+    return j >= len(s) or not s[j].isalnum() or s[j] in "'’"
+
+
+def spans_of(runs, pos, body):
+    """Underline runs over the clue's letters, as whole-word substrings of
+    `body`, or None when any run cuts into a word (a sloppy underline)."""
+    out, i = [], 0
+    while i < len(runs):
+        if not runs[i]:
+            i += 1
+            continue
+        j = i
+        while j + 1 < len(runs) and runs[j + 1] == runs[i]:
+            j += 1
+        a, b = pos[i], pos[j] + 1
+        if not (is_word_start(body, a) and is_word_end(body, b)):
+            return None
+        out.append(body[a:b])
+        i = j + 1
+    return out
+
+
+# --------------------------------------------------------------------- types
+
+#: Where a sentence of a write-up begins: a clue type is named at the start
+#: of one ("Hidden in ...", "BRUSSELS – hidden reversed ...").
+OPENS = r"(?:^|(?<=[\n:–—;.(])|(?<=[\n:–—;.(] ))\s*(?:it's\s+|this\s+is\s+|an?\s+|just\s+an?\s+|simply\s+an?\s+)?"
+
+#: The wordplay a write-up names in a form that means one thing, as a
+#: clue_types name. First match wins. and_lit is not read: bloggers and
+#: annotators split on &lit against cryptic definition too often for it to
+#: be a fact.
+TYPES = (
+    ("double_definition", re.compile(
+        r"\b(?:double|two|triple|three)[\s-]+def(?:inition|n)?s?\b|\bDD\b|\b2\s?defs?\b"
+        r"|\b(?:two|three|2|3) meanings\b", re.IGNORECASE)),
+    ("cryptic_definition", re.compile(OPENS + r"(?:cryptic(?:ally)?\s+def(?:inition)?|CD)\b", re.IGNORECASE)),
+    ("anagram", re.compile(r"\banagram\b|\banag\b|[A-Z)]\*|\*\s*\(|\banagrind", re.IGNORECASE)),
+    ("spoonerism", re.compile(r"\bspooner(?:ism|'s)?\b", re.IGNORECASE)),
+    ("homophone", re.compile(r"\bhomophone\b|\bsounds like\b", re.IGNORECASE)),
+    ("hidden_word", re.compile(
+        OPENS + r"(?:reversed?\s+|reverse\s+)?hidden\b"
+        r"|\bhidden\s+(?:reversed?\s+|backwards\s+)?(?:word\s+)?(?:in|within|inside)\b|\[hidden", re.IGNORECASE)),
+)
+#: A write-up that hedges ("almost a DD", "a dd cum cd", "sort of") or denies
+#: ("not an anagram") has not named the type, so nothing is read off it.
+HEDGED = re.compile(
+    r"\bnot\s+(?:an?\s+|the\s+|quite\s+)?(?:anagram|homophone|hidden|double|cryptic|&\s*lit)"
+    r"|\bnot quite\b|\balmost\b|\bsort of\b|\bkind of\b|\bnearly\b|\bish\b|\bcum\b"
+    r"|\bI think\b|\bI suppose\b|\bdefinition\s*\?|\b[cd]d\s*\?"
+    r"|\b[cd]d\s*/\s*[cd]d\b|\bsemi|\bor (?:an?|the) (?:anagram|homophone|double|cryptic|&\s*lit)",
+    re.IGNORECASE)
+ANAGRAM_NAMED = dict(TYPES)["anagram"]
+REVERSED = re.compile(r"\brevers|\bbackwards?\b|\bup\b(?=.*\bhidden)", re.IGNORECASE)
+assert {n for n, _ in TYPES} <= set(NAMES)
+
+
+def clue_type(expl):
+    """The one clue type `expl` names unambiguously, as a type list, or None."""
+    if HEDGED.search(expl):
+        return None
+    for name, rx in TYPES:
+        if rx.search(expl):
+            if name == "hidden_word" and REVERSED.search(expl):
+                return ["hidden_word", "reversal"]
+            return [name]
+    return None
+
+
+# ---------------------------------------------------------------- indicators
+
+#: A timesforthetimes post puts indicators in [square brackets] only where its
+#: blogger's key says so; other bloggers' brackets hold glosses or deletions.
+BRACKETS_ARE_INDICATORS = re.compile(r"(?:indicators|directions) in square (?:ones|brackets)", re.IGNORECASE)
+BRACKETED = re.compile(r"(?<![A-Za-z])\[([^\[\]]{2,60})\](?![A-Za-z])")
+ITALIC_IN_PARENS = re.compile(r"\(" + E_ON + r"([^" + MARKS + r"()]{2,60})" + E_OFF + r"\)")
+ELLIPSIS = re.compile(r"\s*(?:…|\.\.\.)\s*")
+#: A bracket's clue words glossed with the letters their last words give.
+BRACKET_GLOSS = re.compile(r"^(?P<w>.+?)\s+[–—-]\s+(?P<l>[A-Za-z]{1,3})$")
+#: A word in the write-up's own letters rather than the clue's: "{ornat}e", "ORNATE".
+MARKED_WORD = re.compile(r"^\S*[{}\[\]]\S*$|^[A-ZÀ-ÖØ-Þ]+$")
+
+
+def bracket_reading(inner):
+    """(indicator words, (letters, clue words) or None) of a bracket on a post
+    whose key puts indicators in them. "[releasing son – s]" is the indicator
+    "releasing" and S from "son", split where the last words are what the
+    letters abbreviate; "[cutting last of {ornat}e]" ends in the fodder, which
+    is not the indicator."""
+    block = None
+    m = BRACKET_GLOSS.match(inner.strip())
+    if m:
+        words, letters = m.group("w").split(), m.group("l")
+        inner = m.group("w")
+        for k in range(1, len(words)):
+            src = " ".join(words[k:])
+            if src.lower() in ABBR.get(letters.lower(), ()):
+                inner, block = " ".join(words[:k]), (letters.upper(), src)
+                break
+    words = inner.split()
+    while len(words) > 1 and MARKED_WORD.match(words[-1]):
+        words.pop()
+    return " ".join(words), block
+
+
+def in_clue(phrase, body):
+    """`phrase` as an exact run of whole words of `body`, spelled as in body.
+    Curly and straight apostrophes are one character here."""
+    phrase = phrase.strip(" '‘’\"“”,.;:!?")
+    if len(phrase) < 2:
+        return None
+    norm = lambda t: t.replace("’", "'").replace("‘", "'")
+    m = re.search(r"(?<![\w'])" + re.escape(norm(phrase)) + r"(?![\w])", norm(body), re.IGNORECASE)
+    return body[m.start():m.end()] if m else None
+
+
+# ------------------------------------------------------------------ wordplay
+
+#: A capital block as the blogs write it: capitals, maybe several words of
+#: them, with deleted or expanded letters attached in brackets or lower-case
+#: parentheses (UA[E], PLUT{o}, R(un), (fac)E). Only the capitals are letters.
+CAP = "A-ZÀ-ÖØ-Þ"
+ATT = r"(?:\[[A-Za-z]{1,15}\]|\{[A-Za-z]{1,15}\}|\([A-Za-z]{1,15}\))"
+CAPWORD = rf"(?:{ATT})*[{CAP}](?:[{CAP}'’.\-]|{ATT})*(?<![’'.\-])(?:['’]s(?![a-z])|(?<=S)['’](?=\s))?"
+ATOM = re.compile(rf"(?<![\w'’])(?:{CAPWORD})(?: (?:{CAPWORD}))*(?![\w\[{{])")
+#: What a block's letters come from, right after them: `WORD (clue words)`,
+#: `WORD(‘clue words’)`, `WORD (=clue words)`, `WORD [clue words]`,
+#: `WORD=“clue words”`, `WORD = clue words`, `WORD for ‘clue words’` or
+#: `WORD {clue words}`, braces holding words and not letters cut off the next.
+QUOTED = r"['‘\"“”](?P<q>(?:[^'‘’\"“”()]|(?<=[a-z])['’](?=[a-z])){1,60})['’\"”](?![A-Za-z])"
+SOURCE = re.compile(
+    r"(?:(?<=[A-Z]\.[A-Z])\.)?"  # E.G. ("say"): the dotted abbreviation's last dot
+    r"(?:\s*\(\s*=?\s*(?:" + QUOTED.replace("q>", "p>") + r"|(?P<s>[^()]{1,150}))\s*\)"
+    r"|\s*\[\s*(?P<b>[^\[\]]{1,60})\s*\]"
+    r"|\s*=\s*(?:" + QUOTED + r"|(?P<e>[A-Za-z][a-z'’ \-]{0,40}))"
+    r"|\s+for\s+" + QUOTED.replace("q>", "f>") +
+    r"|\s*\{(?P<c>[a-z][a-z'’ \-]{2,59})\}(?![A-Za-z]))")
+#: A gloss that names its clue words among other things: "(staff, long piece
+#: of wood)", "(publicity – Public Relations)".
+GLOSS_PARTS = re.compile(r"\s*[,;]\s*|\s+[–—-]\s+")
+
+
+def only_selecting(words):
+    """Whether clue words say nothing but which letters to take ("topped and
+    tailed"), which makes them the indicator of a cut and not a block's source
+    unless the letters are in them ("most of the" -> TH)."""
+    rest = SELECTING.sub(" ", words)
+    return not re.sub(r"(?i)\b(?:and|of|the|a|an|its|at|to|in|on)\b|[^A-Za-z]", "", rest)
+
+
+def source_words(m, body, no_brackets=False, multiword=False):
+    """The clue words a SOURCE match names, as spelled in the clue, or None.
+    A gloss naming them among other things is read only for a one-word block:
+    "A PP (pianissimo, quiet)" does not say which letters are quiet."""
+    if m.group("b") is not None and no_brackets:
+        return None
+    raw = next((m.group(g) for g in "psbqfc" if m.group(g)), None)
+    if raw:
+        raw = raw.strip()
+        if not re.search(r"[a-z]", raw):
+            return None
+        hit = in_clue(raw, body)
+        if hit:
+            return hit
+        # PART ("region", reversed): a later part may be the operator's indicator.
+        parts = GLOSS_PARTS.split(raw)
+        parts = [h for h in (in_clue(p, body) for p in parts[:1] + [p for p in parts[1:] if not unary_operator(p)]) if h]
+        return parts[0] if len(parts) == 1 and not multiword else None
+    words = (m.group("e") or "").split()
+    for k in range(min(4, len(words)), 0, -1):
+        hit = in_clue(" ".join(words[:k]), body)
+        if hit:
+            return hit
+    return None
+
+
+def literal_gloss(caps, src, body):
+    """Whether "ARTICLE (edited)" writes a clue word in capitals as fodder,
+    glossed with the clue word that works on it: then the gloss is that
+    word's indicator, not the source of its letters."""
+    return (len(atom_letters(caps)) >= 3 and not re.search(ATT, caps)
+            and bool(in_clue(caps, body)) and atom_letters(src.upper()) != atom_letters(caps))
+
+
+def atom_letters(s):
+    """The letters a capital block stands for: its capitals, folded."""
+    s = re.sub(ATT, "", s)
+    return "".join(f for f in map(fold, s) if f.isalnum() and f.isascii())
+
+
+def whole_word_of(s):
+    """R(un) -> Run, PLUT{o} -> PLUTo: the word an abbreviated block is cut
+    from, or None when nothing is attached to it."""
+    if not re.search(ATT, s) or " " in s:
+        return None
+    return re.sub(r"[\[\]{}()]", "", s)
+
+
+#: A block written the other way round, clue words then letters: "scheme
+#: (PLOT)". Only where the words run back to a clause boundary, so which words
+#: they are is not a choice.
+LETTERS_AFTER = re.compile(rf"(?:^|(?<=[,;:+()–—\n]))\s*(?P<w>[A-Za-z][a-z'’\-]*(?: [a-z][a-z'’\-]*){{0,2}})"
+                           rf"\s*\((?P<l>[{CAP}][{CAP}'’ ]*)\)")
+
+
+#: Clue words that put pieces together rather than give letters: a gloss
+#: that holds one ("going round one area") is the blogger's reading of the
+#: clue, not the words a block comes from.
+OPERATES = re.compile(r"(?i)\b(?:going|goes|round|around|containing|holding|swallowing|embracing|"
+                      r"reversed|returning|entering)\b")
+
+
+ATTACHED = re.compile(rf"(?<![\w])([{CAP}][{CAP}'’]*)\(([{E_ON}]?)([a-z][a-z'’ \-]*)([{E_OFF}]?)\)")
+
+
+#: One letter twice for a plural source: "B+B (bishops)" is the block BB.
+DOUBLED = re.compile(rf"(?<![\w'’\]}})])([{CAP}])\s*\+\s*\1(?=\s+[(\[{{])")
+
+
+def detach_sources(text, body):
+    """HON(sweetheart) as HON (sweetheart): a source written against its
+    letters, told from R(un), a word cut short, by which of the two is a word
+    of the clue."""
+    def one(m):
+        caps, word = m.group(1), m.group(3)
+        whole = (caps + word).lower()
+        if whole in ABBR.get(atom_letters(caps), ()) or in_clue(caps + word, body) or not in_clue(word, body):
+            return m.group()
+        return f"{caps} ({m.group(2)}{word}{m.group(4)})"
+    return DOUBLED.sub(r"\1\1", ATTACHED.sub(one, text))
+
+
+def blocks(expl, body, answer, bracket_key=False):
+    """[(letters, clue words)] for every capital block the write-up sources
+    to an exact run of whole words of the clue. A block that is the whole
+    answer is the definition restated, not a piece of wordplay. Anagram
+    fodder is (letters, clue words, "anagrammed"): see fodder_blocks."""
+    found = []
+    for m in ATOM.finditer(expl):
+        src = None
+        s = SOURCE.match(expl, m.end())
+        if s and bracketed_operator(m.group()) == "minus" == bracketed_operator(s.group().strip(" ()[]{}=")):
+            continue  # TER (exeTER) MINUS (without): the operator in capitals, glossed with its indicator
+        if s:
+            # A bracket after a cut block glosses the cut; on a post whose key
+            # puts indicators in brackets, no bracket is ever a source.
+            src = source_words(s, body, bracket_key or bool(re.search(ATT, m.group())), " " in m.group())
+            whole = whole_word_of(m.group())
+            if src and whole and SELECTING.search(src) and in_clue(whole, body):
+                src = None  # LAM(b) (‘tailless’): the gloss names the cut, and lamb is the word
+            if (src and not whole and only_selecting(src) and not selected(m.group(), src)
+                    and (re.search(ATT, m.group()) or len(atom_letters(m.group())) <= 2
+                         or SELECTING.search(" ".join(expl[:m.start()].split()[-1:])))):
+                src = None  # "final S (topped and tailed)": S is what goes, not a piece; A TAD (a little) is one
+            if src and literal_gloss(m.group(), src, body):
+                continue
+        pieces = [m.group()]
+        if not src and " " in m.group():
+            # A(ny) E(nthusiasm): each word its own abbreviation; but
+            # [slipsh]OD ESSA[y] is a hidden word, and its pieces no blocks.
+            words = m.group().split(" ")
+            hidden = re.match(ATT, words[0]) and re.search(rf"{ATT}$", words[-1])
+            pieces = [] if hidden else words
+        for n, piece in enumerate(pieces):
+            whole = whole_word_of(piece)
+            s2 = src or (in_clue(whole, body) if whole else None)
+            if s2:
+                found.append((m.start(), n, piece, s2))
+    for m in LETTERS_AFTER.finditer(expl):
+        src = in_clue(m.group("w"), body)
+        if src:
+            found.append((m.start(), 0, m.group("l"), src))
+    for m in BRACKETED.finditer(expl) if bracket_key else ():
+        glossed = bracket_reading(m.group(1))[1]
+        src = glossed and in_clue(glossed[1], body)
+        if src:
+            found.append((m.start(), 0, glossed[0], src))
+    out, at = [], []
+    for pos, _, piece, src in sorted(found):
+        letters = atom_letters(piece)
+        b = re.sub(ATT, "", piece).strip(" .").replace(".", "").upper()
+        b = (b.replace(" ", "") if re.fullmatch(r"(?:\w )+\w", b) else b, src)  # U[nited] N[ations] is UN
+        if letters == answer and whole_word_of(piece) and not SELECTING.search(src):
+            # RE{s}IGN (give up work): the answer is the word less a cut, and
+            # the word is the piece; STOA{t} (tailless) glosses the cut instead.
+            whole = whole_word_of(piece)
+            letters, b = atom_letters(whole.upper()), (whole.upper().replace("-", "").strip(" ."), src)
+        if (letters and letters != answer and letters != atom_letters(src.upper()) and b not in out
+                and not (" " in src and OPERATES.search(src))):
+            out.append(b)
+            at.append(pos)
+    # Anagram fodder is a block of the clue's own words, marked with the
+    # operation that shuffles it; a plain block the same is that one.
+    for pos, letters, src in fodder_blocks(expl, body, answer, bool(ANAGRAM_NAMED.search(expl))):
+        same = [k for k, b in enumerate(out) if len(b) == 2 and atom_letters(b[0]) == atom_letters(letters)
+                and b[1] == src]
+        if same:
+            out[same[0]] = (letters, src, "anagrammed")
+        elif not any(b[1] == src and len(b) == 3 for b in out):
+            out.append((letters, src, "anagrammed"))
+            at.append(pos)
+    return [b for _, b in sorted(zip(at, out), key=lambda x: x[0])]
+
+
+# The operators a write-up spells its wordplay with, longest first within a
+# kind. A binary one joins the pieces either side; `rev` operators take them
+# in the other order ("POSERS after OP" is OP + POSERS).
+OPS = {
+    "concat": ["followed by", "plus", "and then", "and", "then", "+", "&", "before", "above",
+               "on top of", "atop", "placed above", "placed before", "ahead of", "in front of"],
+    "rconcat": ["preceded by", "coming after", "after", "following", "follows", "behind", "below",
+                "beneath", "under", "underneath", "placed below", "placed under", "placed after",
+                "comes after"],
+    "adjoin": ["next to", "beside", "alongside", "with", "by", "against", "joined to", "joining",
+               "attached to", "added to", "linked to", "together with"],
+    "around": ["taking in", "takes in", "going round", "going around", "wrapped around",
+               "around", "round", "containing", "contains", "holding", "holds", "outside",
+               "covering", "swallowing", "embracing", "enclosing", "surrounding", "housing",
+               "including", "includes", "grasping", "clutching", "eating", "about", "around",
+               "annexes", "admits", "admitting", "accepts", "accepting", "grabs", "grabbing",
+               "keeps", "keeping", "takes", "taking", "catches", "catching", "captures",
+               "capturing", "hugs", "hugging", "clutches", "embraces", "swallows", "eats",
+               "consumes", "consuming", "boxes", "boxing", "wraps", "wrapping", "covers",
+               "surrounds", "encircles", "encircling", "circles", "circling", "envelops",
+               "enveloping", "houses", "harbours", "harbouring", "has", "having", "gets in",
+               "going outside", "goes around", "goes round", "to include", "includes",
+               "sheltering", "shelters", "guarding", "guards", "nursing", "nurses", "hiding",
+               "hides", "holding in", "keeping in", "taking up", "gripping", "grips", "outside of"],
+    "inside": ["inserted into", "inserted in", "contained in", "contained by", "held by",
+               "taken in by", "inside of", "going into", "put in", "inside", "within",
+               "into", "entering", "in", "inserted", "put into", "interrupting", "interrupts",
+               "splitting", "splits", "breaking", "breaks", "enters", "invading", "invades",
+               "goes in", "going in", "caught by", "grabbed by", "held in", "swallowed by",
+               "eaten by", "consumed by", "captured by", "kept by", "taken by", "boxed by",
+               "wrapped in", "wrapped by", "covered by", "surrounded by", "embraced by",
+               "hugged by", "clutched by", "gripped by", "housed by", "sheltered by", "nursed by",
+               "inside of", "stuck in", "going inside", "put inside", "placed inside", "placed in"],
+    "minus": ["removed from", "taken from", "minus", "without", "less", "losing", "loses",
+              "dropping", "drops", "excluding", "lacking", "but not", "not", "-"],
+    "reversed_all": ["all reversed", "all backwards", "the whole reversed", "all back", "all written backwards"],
+    "reversed": ["reversed", "reversal", "backwards", "back", "in reverse", "<"],
+    "anagrammed": ["anagrammed", "anagram", "*"],
+    "reverse_of": ["a reversal of", "the reversal of", "reversal of", "reverse of", "a reverse of", "<="],
+    "anagram_of": ["an anagram of", "anagram of", "*"],
+    "first letters": ["first letters of", "initial letters of", "the first letters of"],
+    "first letter": ["first letter of", "initial letter of", "the first letter of",
+                     "the initial letter of"],
+    "last letters": ["last letters of", "the last letters of"],
+    "last letter": ["last letter of", "final letter of", "the last letter of", "the final letter of"],
+    "middle letters": ["middle letters of", "the middle letters of", "central letters of"],
+    "middle letter": ["middle letter of", "central letter of", "the middle letter of"],
+    "outer letters": ["outer letters of", "1st and last letters of", "the outer letters of", "first and last letters of",
+                      "the first and last letters of"],
+    "alternate letters": ["alternate letters of", "odd letters of", "even letters of",
+                          "the odd letters of", "the even letters of", "every other letter of",
+                          "every second letter of"],
+    "trimmed": ["minus first letter", "minus last letter", "minus its first letter",
+                "minus its last letter", "minus the first letter", "minus the last letter",
+                "without its first letter", "without its last letter", "without the first letter",
+                "without the last letter", "minus first and last letters", "minus outer letters",
+                "minus last two letters", "minus first two letters", "minus middle letter",
+                "minus middle letters", "minus its first and last letters", "curtailed",
+                "beheaded", "shortened", "truncated"],
+    "announce": ["envelope", "insertion", "charade", "container", "a charade", "an envelope",
+                 "an insertion", "anagrind", "aind", "ind", "a combination of", "combination of",
+                 "a composite of","a charade of", "charade of", "an envelope of", "envelope of", "an insertion of",
+                 "insertion of", "a container of"],
+}
+BINARY = {"concat", "rconcat", "adjoin", "around", "inside", "minus"}
+POSTFIX = {"reversed", "reversed_all", "anagrammed", "trimmed"}
+#: Selections and trims give the letters the blog's caps already show
+#: ([LAK]E, WA[S]); they only name the mechanism, and account for the brackets.
+SELECT = {"first letter", "first letters", "last letter", "last letters", "middle letter",
+          "middle letters", "outer letters", "alternate letters", "trimmed"}
+PREFIX = {"reverse_of", "anagram_of"} | (SELECT - {"trimmed"})
+#: What each operator makes the clue, as a clue_types name.
+PART = {"concat": "charade", "rconcat": "charade", "adjoin": "charade", "reversed_all": "reversal", "juxtapose": "charade", "around": "container",
+        "inside": "container", "minus": "deletion", "reversed": "reversal", "reverse_of": "reversal",
+        "anagrammed": "anagram", "anagram_of": "anagram", "cut": "deletion",
+        "trimmed": "deletion", **{k: "letter_selection" for k in SELECT - {"trimmed"}}}
+#: The order a type read off the wordplay lists its names in.
+PART_ORDER = ["charade", "anagram", "container", "deletion", "reversal", "letter_selection"]
+assert set(PART.values()) <= set(PART_ORDER) <= set(NAMES)
+#: The standard abbreviations: R(un) is the convention R = run, where B[ail]
+#: is a word cut short.
+ABBR = {k.lower(): {w.lower() for w in v} for k, v in abbreviations_table().items()}
+
+
+def atom_flags(s):
+    """What an atom's attached letters say it went through, as type parts.
+
+    Bracketed letters are the ones not used, and that is a selection as often
+    as a deletion: O[penly] R[evered] keeps first letters, {articl}E the last,
+    C{ritica}L the outer ones, where {r}OSIER and PLUT{o} lose a letter or
+    two. So the kept letters decide, and what they cannot decide is `cutp`,
+    which names no type. R(un) and T{ime} are the abbreviations R and T."""
+    whole = re.sub(r"[()\[\]{}]", "", s).lower()
+    if whole in ABBR.get(atom_letters(s), ()):
+        return frozenset()
+    kinds = set()
+    for word in s.split(" "):
+        if not re.search(ATT, word):
+            continue
+        kept = [bool(re.fullmatch(rf"[{CAP}'’.\-]+", p)) for p in re.split(rf"({ATT})", word) if p]
+        parts = [p for p in re.split(rf"({ATT})", word) if p]
+        kept_letters = "".join(atom_letters(p) for p, k in zip(parts, kept) if k)
+        cut = len(re.sub(r"[^A-Za-z]", "", word)) - len(kept_letters)
+        shape = "".join("k" if k else "c" for k in kept)
+        single = all(len(re.sub(r"[^A-Za-z]", "", p)) == 1 for p in parts)
+        if single and len(parts) > 2 and re.fullmatch(r"c?(?:kc)+k?", shape):
+            kinds.add("alternate letters")  # Z{o}E{e}A{r}L{y}, (d)A(m)N(i)N(g)
+        elif re.fullmatch(rf"[{CAP}]\([a-z]+\)", word):
+            kinds.add("cutp")  # Y(outh): the first letter, or the abbreviation Y
+        elif len(kept_letters) == 1 and shape == "kc":
+            kinds.add("first letter")
+        elif len(kept_letters) == 1 and shape == "ck":
+            kinds.add("last letter")
+        elif len(kept_letters) == 1 and shape == "ckc":
+            kinds.add("middle letter")
+        elif len(kept_letters) == 2 and shape == "kck":
+            kinds.add("outer letters")
+        elif cut <= 2 or cut < len(kept_letters):
+            kinds.add("cut")
+        else:
+            kinds.add("cutp")
+    words = s.split(" ")
+    if "alternate letters" in kinds and kinds <= {"alternate letters", "first letter", "last letter", "cutp"}:
+        return frozenset({"alternate letters"})  # U(s) beside A(l)L(y) is one more alternate letter
+    if len(words) > 1 and re.match(rf"{ATT}", words[0]) and re.search(rf"{ATT}$", words[-1]):
+        return frozenset({"cutp"})  # [slipsh]OD ESSA[y]: a hidden word, which is no deletion
+    if {"first letter"} == kinds and len([w for w in s.split(" ") if re.search(ATT, w)]) > 1:
+        kinds = {"first letters"}
+    if {"last letter"} == kinds and len([w for w in s.split(" ") if re.search(ATT, w)]) > 1:
+        kinds = {"last letters"}
+    if len(words) > 1 and "cut" in kinds:
+        kinds.add("juxtapose")  # (F)UND O: pieces side by side, one of them cut
+    return frozenset(kinds)
+
+
+#: A gloss a blogger puts after an operator: the indicator it reads.
+GLOSS_ONE = re.compile(r"\s*(?:or\s+)?(?:\((?P<p>[^()]{1,60})\)|\[(?P<b>[^\[\]]{1,60})\]|" + QUOTED + r")")
+
+
+def _op_regex():
+    alts = []
+    for kind, words in OPS.items():
+        for w in words:
+            alts.append((len(w), kind, w))
+    alts.sort(reverse=True)
+    pat = "|".join(f"(?P<o{i}>{re.escape(w)}{'' if not w[-1].isalpha() else r'(?![a-z])'})"
+                   for i, (_, _, w) in enumerate(alts))
+    return re.compile(r"(?i)(?:" + pat + ")"), [(k, w) for _, k, w in alts]
+
+
+OP_RX, OP_KINDS = _op_regex()
+#: Operator words too common in glosses to be read as the clue's indicator.
+LINK_OPS = {"and", "with", "then", "plus", "has", "having", "not", "by", "-", "+", "&", "*", "<"}
+
+
+def bracketed_operator(inner):
+    """The operator kind a bracket's whole content names, as in "LASS (girl)
+    [wrapping] G", where the blogger writes the clue's indicator in place of
+    their own operator; else None. Right after unsourced letters the same
+    bracket is their source: ON (about)."""
+    m = OP_RX.fullmatch(inner.strip(" '‘’\"“”"))
+    if not m or m.group().lower() in LINK_OPS:
+        return None
+    kind = OP_KINDS[int(m.lastgroup[1:])][0]
+    return None if kind == "announce" else kind
+
+
+def unary_operator(part):
+    """A gloss part that names a reversal or an anagram, never a piece's
+    meaning: CA (circa, about) is two meanings, PART ("region", reversed) not."""
+    return bracketed_operator(part) in POSTFIX | PREFIX
+#: Where the wordplay stops and the blogger's prose starts.
+PROSE_BREAK = re.compile(r"[.;](?=\s|$)|[!?](?=\s+[a-z]|\s*$)|\s[–—]\s|\s\|\s|:\s"
+                         r"|,(?=\s+for\s+(?!['‘\"“]))")  # ", for Patrick Pearse": what the answer is
+
+
+def strip_answer(line, answer):
+    """The line without the answer the blogger opens it with, in whatever
+    form: "{AS IF} –", "LEEWAY :", "CRITERIA RITE for…"."""
+    at, got = re.match(r"\s*[{(]?", line).end(), ""
+    for w in re.compile(rf"[{CAP}][{CAP}'’\-]*(?![a-z])").finditer(line, at):
+        if line[at:w.start()].strip(" ") or len(got) >= len(answer):
+            break
+        got += atom_letters(w.group())
+        at = w.end()
+        if got == answer:
+            sep = re.compile(r"[})]?\s*(?:[:–—=|]|\s-\s)?\s*").match(line, at)
+            return line[sep.end():]
+    return line
+
+
+def wordplay_head(expl, answer):
+    """The wordplay line of an explanation, answer and trailing prose cut off:
+    the first line that is neither the answer, a number nor an enumeration."""
+    return next(wordplay_heads(expl, answer), "")
+
+
+def wordplay_heads(expl, answer):
+    """Every line of an explanation that could be its wordplay, as
+    wordplay_head cuts it, in order: a blogger may gloss the definition first."""
+    for line in expl.split("\n"):
+        line = line.replace("", "").replace("", "").replace(E_ON, "").replace(E_OFF, "").strip()
+        letters = "".join(f for f in map(fold, line) if f.isalnum() and f.isascii())
+        if not re.search(r"[a-zA-Z]", line) or letters == answer or re.fullmatch(r"\d+[ad]?", letters):
+            continue
+        line = re.sub(r"&nbsp;?", " ", line).strip()
+        line = strip_answer(line, answer).lstrip("-–— ")
+        # "Alternate letters (regularly) of": the gloss after the phrase.
+        line = re.sub(r"(?i)\b(letters?|anagram|reversal|reverse|half)\s*(\([^()]*\)|\[[^\[\]]*\])\s+of\b",
+                      r"\1 of \2", line)
+        # "An anagram of IM SO inserted into another (fancy) of LACE": a second anagram.
+        line = re.sub(r"(?i)(\banagram\b.*?)\banother\s*(\([^()]*\)|\[[^\[\]]*\])\s+of\b",
+                      r"\1an anagram of \2", line)
+        line = re.sub(r"(?i)^insert\s+(.{1,40}?)\s+(in|into|inside|between)\b", r"\1 \2", line)
+        line = re.sub(rf"\s*=\s*[{CAP}][{CAP}\s'’\-]*\W*$", "", line)
+        # Cut at the first break outside brackets.
+        depth, cut = 0, len(line)
+        for i, ch in enumerate(line):
+            depth += ch in "([{"
+            depth -= ch in ")]}"
+            if (depth == 0 and PROSE_BREAK.match(line, i) and not re.match(r"\.[A-Z]", line[i:i + 2])
+                    and not re.search(r"(?<![A-Za-z])[A-Z]\.[A-Z]$", line[:i])):  # E.G. is no full stop
+                cut = i
+                break
+        line = line[:cut].strip(" ,")
+        # "CAKE with LAMB inserted" is CAKE around LAMB.
+        line = re.sub(r"\b(?:with|has|having)\s+(.{1,40}?)\s+(?:inserted|put in|placed inside|inside)\b",
+                      r"around \1", line)
+        line = re.sub(r"\bwith\s+(.{1,40}?)\s+(?:removed|deleted|dropped|omitted|taken out|missing)\b",
+                      r"minus \1", line)
+        yield line
+
+
+#: Words a blogger puts in front of an operator ("is placed around", "going
+#: outside", "is then placed"); read past only where an operator follows. In
+#: lower case, since in capitals they are letters: "then IS inside F".
+FILLER = re.compile(r"(?:(?:[Ii]s|[Aa]re|[Bb]eing|[Bb]een|[Aa]ll|[Tt]hen|[Pp]laced|[Pp]ut|[Gg]oes|[Gg]oing|[Ww]hich)\s+)+")
+#: Quoted clue words used as their own letters: "of ‘is’ in NUANCE".
+LITERAL = re.compile(r"['‘\"“](?P<w>[A-Za-z][a-z ]{0,20})['’\"”]")
+
+
+APPOSITION = re.compile(r",\s*(?=an?\s+(?:anagram|reversal|envelope|insertion|charade|container|"
+                        r"combination|subtraction|deletion)\b)")
+
+
+class _Fail(Exception):
+    """Where the wordplay stopped being wordplay."""
+    def __init__(self, at=0):
+        super().__init__(at)
+        self.at = at
+
+
+def _bracketed(s, i):
+    """The index of the bracket closing the one at s[i], or -1."""
+    d = 0
+    for j in range(i, len(s)):
+        d += s[j] in "([{"
+        d -= s[j] in ")]}"
+        if d == 0:
+            return j
+    return -1
+
+
+def tokens(s, depth=0):
+    """The wordplay as operands and operators; _Fail(at) on anything else."""
+    out, i = [], 0
+    while i < len(s):
+        # "APTING, an anagram of ‘giant’ plus P": what APTING is made of.
+        appo = APPOSITION.match(s, i)
+        if appo and out and out[-1][0] in ("val", "group"):
+            out.append(("bin", "equals"))
+            i = appo.end()
+            continue
+        if s[i] in " ,\t":
+            i += 1
+            continue
+        art = re.match(r"(?:A|An|The|a|an|the)\s+", s[i:])
+        after = art and OP_RX.match(s, i + art.end())
+        if after and OP_KINDS[int(after.lastgroup[1:])][0] not in BINARY:
+            i += art.end()  # "A reversal (‘x’) of": the article is not the letter A
+            continue
+        op = OP_RX.match(s, i)
+        if op and " " in op.group() and s[i] in "AaTt" and OP_KINDS[int(op.lastgroup[1:])][1][:2].lower() in ("a ", "an", "th"):
+            m = None
+        else:
+            m = ATOM.match(s, i)
+        if m:
+            i = m.end()
+            sourced = False
+            while True:
+                src = SOURCE.match(s, i)
+                if src and sourced and bracketed_operator(src.group().strip(" ()[]{}=")):
+                    break  # LASS (girl) [wrapping] G: the clue's operator, standing for the blog's
+                if src and (src.group("p") or src.group("q") or src.group("f") or src.group("e") or src.group("c")
+                            or re.search(r"[a-z]", (src.group("s") or "") + (src.group("b") or ""))):
+                    i = src.end()
+                    e = src.group("e")
+                    if e and re.match(rf"\s*[{CAP}]", s[src.end():]):
+                        # "PAPA = pop has KIR": an unbracketed gloss that runs into
+                        # the next letters ends at the operator before them.
+                        op_at = next((w.start() for w in re.finditer(r"(?<= )[a-z]", e)
+                                      if (o := OP_RX.match(e, w.start())) and not e[o.end():].strip()), None)
+                        if op_at is not None:
+                            i = src.start("e") + op_at
+                    sourced = True
+                    continue
+                break
+            flags = atom_flags(m.group())
+            if len(atom_letters(m.group())) == 1 and not sourced and not flags:
+                flags = frozenset({"bare"})  # K in ROO + K: a letter from somewhere unsaid
+            full = atom_letters(re.sub(r"[()\[\]{}]", "", m.group())) if flags else None
+            out.append(("val", atom_letters(m.group()), flags, full))
+            continue
+        lit = LITERAL.match(s, i)
+        if lit and not OP_RX.fullmatch(lit.group("w")):
+            out.append(("val", "".join(f for f in map(fold, lit.group("w")) if f.isalnum()), frozenset()))
+            i = lit.end()
+            src = SOURCE.match(s, i)
+            if src and re.search(r"[a-z]", src.group()):
+                i = src.end()
+            continue
+        if s[i] in "'‘’\"“”":
+            i += 1
+            continue
+        if s[i] in "([{":
+            j = _bracketed(s, i)
+            if j < 0 or depth >= 3:
+                raise _Fail(i)
+            inner = s[i + 1:j]
+            op_word = bracketed_operator(inner)
+            if op_word and out and out[-1][0] in ("val", "group", "post"):
+                kind = op_word
+                out.append(("post" if kind in POSTFIX else "pre" if kind in PREFIX else "bin", kind))
+                i = j + 1
+                continue
+            star_after = s[j + 1:j + 2] == "*"
+            star_before = s[i - 1:i] == "*" and out and out[-1] == ("pre", "anagram_of")
+            if out and out[-1][0] == "group" and s[i - 1:i] not in (" ", "\t") and re.fullmatch(r"[a-z]+", inner):
+                raise _Fail(i)  # [OLI]{ves}: a group cut short, which nothing here models
+            if inner.lstrip().startswith("*") or (
+                    out and out[-1][0] == "group" and re.search(r"[a-z]", inner) and not star_after):
+                i = j + 1  # the group's gloss: "(DOW[n] + SE[a]) (blue + ocean)"
+                continue
+            if star_after or star_before:
+                letters = "".join(f for f in map(fold, inner) if f.isalnum() and f.isascii())
+                if not letters:
+                    raise _Fail(i)
+                if star_before:
+                    out.pop()
+                out.append(("val", ("ana", "".join(sorted(letters))), frozenset({"anagram_of"})))
+                i = j + 1 + star_after
+                continue
+            try:
+                out.append(("group", tokens(inner, depth + 1)))
+            except _Fail:
+                raise _Fail(i)
+            i = j + 1
+            continue
+        fill = FILLER.match(s, i)
+        if fill and OP_RX.match(s, fill.end()):
+            i = fill.end()
+            continue
+        if op:
+            kind, w = OP_KINDS[int(op.lastgroup[1:])]
+            i = op.end()
+            if w == "*":
+                kind = "anagrammed" if out and out[-1][0] in ("val", "group") else "anagram_of"
+                star = STAR_GLOSS.match(s, i) or re.match(r"\s*[(\[]\s*\*[^()\[\]]*[)\]]", s[i:])
+                if star:
+                    i += star.end() if star.re is not STAR_GLOSS else star.end() - i
+            else:
+                while True:
+                    g = GLOSS_ONE.match(s, i)
+                    if not (g and re.search(r"[a-z]", g.group()) and s[g.end():g.end() + 1] != "*"):
+                        break
+                    i = g.end()
+                if kind in POSTFIX and re.match(r"\s*of(?![a-z])", s[i:]):
+                    kind = {"reversed": "reverse_of", "anagrammed": "anagram_of"}.get(kind, kind)
+            if kind in POSTFIX and not (out and out[-1][0] in ("val", "group", "post")):
+                kind = {"reversed": "reverse_of", "anagrammed": "anagram_of"}.get(kind, kind)
+            if kind != "announce":
+                out.append(("post" if kind in POSTFIX else "pre" if kind in PREFIX else "bin", kind))
+            continue
+        m = re.match(r"(?:the|a|an|of|or|The|An)(?![a-z])\s*", s[i:]) or (
+            re.match(r"A\s+(?=[a-z])", s[i:]) if OP_RX.match(s, i + 2) else None)
+        if m:
+            i += m.end()
+            continue
+        raise _Fail(i)
+    return out
+
+
+CAP_SET = 400
+
+
+def _concat(a, b):
+    if a and b and isinstance(a[-1], str) and isinstance(b[0], str):
+        return a[:-1] + (a[-1] + b[0],) + b[1:]
+    return a + b
+
+
+def _flat(v):
+    return "".join(v) if all(isinstance(p, str) for p in v) else None
+
+
+# A value is a tuple of pieces, each a string of letters in order, an
+# ("ana", sorted letters) run in any order, or a ("ctn", sorted letters,
+# value) run: shuffled letters with the value set somewhere inside them.
+
+def _letters(v):
+    return "".join(p if isinstance(p, str) else p[1] if p[0] == "ana" else p[1] + _letters(p[2])
+                   for p in v)
+
+
+def _reverse(v):
+    return tuple(p[::-1] if isinstance(p, str) else p if p[0] == "ana" else ("ctn", p[1], _reverse(p[2]))
+                 for p in reversed(v))
+
+
+def _apply(kind, a, b=None):
+    """Every value `kind` makes of the values a (and b)."""
+    if kind in ("concat", "juxtapose"):
+        return [_concat(a, b)]
+    if kind == "rconcat":
+        return [_concat(b, a)]
+    if kind == "adjoin":
+        return [_concat(a, b), _concat(b, a)]
+    if kind == "equals":
+        flat = _flat(a)
+        return [a] if flat and _matches(b, flat) else []
+    if kind in ("reversed", "reverse_of", "reversed_all"):
+        return [_reverse(a)]
+    if kind in SELECT:
+        return [a] + [(x,) for x in _select(kind, _flat(a) or "") if x]
+    if kind in ("anagrammed", "anagram_of"):
+        return [(("ana", "".join(sorted(_letters(a)))),)]
+    if kind in ("around", "inside"):
+        outer, inner = (a, b) if kind == "around" else (b, a)
+        s = _flat(outer)
+        if s is None:
+            if len(outer) == 1 and outer[0][0] == "ana":
+                return [(("ctn", outer[0][1], inner),)]
+            return []
+        return [_concat(_concat((s[:k],), inner), (s[k:],)) for k in range(1, len(s))]
+    if kind == "minus":
+        s, t = _flat(a), _flat(b)
+        if not s or not t:
+            return []
+        return [(r,) for r in _removals(s, t)]
+    return []
+
+
+def _select(kind, s):
+    """The letters `kind` picks out of a whole word, where the blog wrote
+    the word rather than the letters (last letter of ‘Washington’)."""
+    if not s:
+        return []
+    mid = len(s) // 2
+    return {"first letter": [s[0]], "last letter": [s[-1]], "outer letters": [s[0] + s[-1]],
+            "middle letter": [s[mid]] if len(s) % 2 else [],
+            "middle letters": [s[mid - 1:mid + 1]] if len(s) % 2 == 0 else [s[mid - 1:mid + 2]],
+            "alternate letters": [s[::2], s[1::2]],
+            # "minus the first letter", "curtailed": which end the phrase names
+            # is not kept, so every such trim, and the answer picks.
+            "trimmed": [s[1:], s[:-1], s[1:-1], s[2:], s[:-2], s[:mid] + s[mid + 1:],
+                        s[:mid - 1] + s[mid + 1:]]}.get(kind, [])
+
+
+def _removals(s, t, cap=20):
+    """Every string left by taking the letters of t out of s, in order:
+    INDICATES less A and E is INDICTS."""
+    if not t:
+        return {s}
+    out = set()
+    for k in range(len(s)):
+        if s[k] == t[0]:
+            for r in _removals(s[k + 1:], t[1:], cap):
+                out.add(s[:k] + r)
+                if len(out) >= cap:
+                    return out
+    return out
+
+
+def _through(kind, ops):
+    """The operators of a value after `kind` applies to it. A selection names
+    what the brackets of its operand did, so they are no longer a deletion;
+    pieces put together only to be shuffled are anagram fodder, not a charade."""
+    if kind in SELECT:
+        ops = ops - {"cut", "cutp", "first letter", "first letters", "last letter", "last letters",
+                     "middle letter", "outer letters"}
+    if kind in ("anagrammed", "anagram_of"):
+        ops = ops - {"concat", "juxtapose", "rconcat", "adjoin"}
+    return ops | {kind}
+
+
+def _length(v):
+    return len(_letters(v))
+
+
+def _matches(v, answer):
+    """Whether value `v` spells exactly `answer`."""
+    if not v:
+        return not answer
+    p, rest = v[0], v[1:]
+    if isinstance(p, str):
+        return answer.startswith(p) and _matches(rest, answer[len(p):])
+    n = len(p[1]) if p[0] == "ana" else len(p[1]) + _length(p[2])
+    here, after = answer[:n], answer[n:]
+    if len(here) < n or not _matches(rest, after):
+        return False
+    if p[0] == "ana":
+        return "".join(sorted(here)) == p[1]
+    m = _length(p[2])
+    return any(_matches(p[2], here[k:k + m]) and "".join(sorted(here[:k] + here[k + m:])) == p[1]
+               for k in range(1, n - m))
+
+
+def _values(toks, limit):
+    """{value: frozenset of operator kinds} over every reading of `toks`."""
+    n = len(toks)
+    memo = {}
+
+    def unit(i, j):
+        """Whether toks[i:j] is one operand with its own unary operators: a
+        prefix or suffix binds to that, never to a run of pieces, so that
+        "anagram of HERON after MO" is not also an anagram of all of it."""
+        kinds = [t[0] for t in toks[i:j]]
+        core = [k for k in kinds if k not in ("pre", "post")]
+        return (len(core) == 1 and core[0] != "bin"
+                and all(k == "pre" for k in kinds[:kinds.index(core[0])])
+                and all(k == "post" for k in kinds[kinds.index(core[0]) + 1:]))
+
+    def span(i, j):
+        if (i, j) in memo:
+            return memo[(i, j)]
+        res = {}
+
+        def add(vals, ops):
+            for v in vals:
+                if len(res) >= CAP_SET:
+                    return
+                if _length(v) <= 2 * limit + 4:
+                    res.setdefault(v, set()).add(ops)
+        memo[(i, j)] = res
+        if j - i == 1:
+            t = toks[i]
+            if t[0] == "val":
+                add([(t[1],)], frozenset(t[2]))
+                if len(t) > 3 and t[3]:
+                    # [vale]DICTION without VALE: the word before the cut.
+                    add([(t[3],)], frozenset({"uncut"}))
+            elif t[0] == "group":
+                for v, opss in _values(t[1], limit).items():
+                    for ops in opss:
+                        add([v], ops)
+            return res
+        if toks[i][0] == "pre":
+            wide = set() if unit(i + 1, j) else {"wide"}
+            for v, opss in span(i + 1, j).items():
+                for ops in opss:
+                    add(_apply(toks[i][1], v), _through(toks[i][1], ops) | wide)
+        if toks[j - 1][0] == "post":
+            wide = set() if unit(i, j - 1) or toks[j - 1][1] == "reversed_all" else {"wide"}
+            for v, opss in span(i, j - 1).items():
+                for ops in opss:
+                    add(_apply(toks[j - 1][1], v), _through(toks[j - 1][1], ops) | wide)
+        for k in range(i + 1, j):
+            if toks[k][0] == "bin" and i < k < j - 1:
+                left, right = span(i, k), span(k + 1, j)
+                for a, oa in left.items():
+                    for b, ob in right.items():
+                        for x in oa:
+                            for y in ob:
+                                add(_apply(toks[k][1], a, b), x | y | {toks[k][1]})
+            if toks[k][0] != "bin" and toks[k - 1][0] != "bin" and toks[k][0] != "post" and toks[k - 1][0] != "pre":
+                left, right = span(i, k), span(k, j)
+                for a, oa in left.items():
+                    for b, ob in right.items():
+                        for x in oa:
+                            for y in ob:
+                                add(_apply("juxtapose", a, b), x | y | {"juxtapose"})
+        return res
+
+    return span(0, n) if n else {}
+
+
+#: Prose that names an operation, which a type read off the wordplay before
+#: it would leave out.
+NAMES_AN_OPERATION = re.compile(
+    r"(?i)revers|backward|anagram|\*|minus|without|\bless\b|losing|remov|delet|dropp|insert|"
+    r"contain|around|\bround|inside|within|envelop|swallow|embrac|\bfirst|\blast|middle|letter|"
+    r"\bhalf|\bmost|almost|\bcut|trim|behead|curtail|endless|headless|topless|tailless|homophone|"
+    r"sounds|hidden|missing|omit|take away|taken|\bout\b|replac|substitut|swap|exchang|instead|chang")
+
+
+def wordplay_type(expl, answer, body=""):
+    """The clue type the first line of the write-up that spells one out gives,
+    as head_type reads it. A line naming a hidden word, a homophone or a
+    spoonerism says the letters come some way the operators cannot show."""
+    for head in wordplay_heads(expl, answer):
+        if re.search(r"(?i)hidden|homophone|sounds|spoon|lurk", head):
+            return None
+        t = head_type(head, answer, body)
+        if t:
+            return t
+    return None
+
+
+def head_type(head, answer, body=""):
+    """The clue type the write-up's wordplay spells out, when its pieces put
+    together by its own operators give exactly the answer; else None. Every
+    reading that gives the answer must use the same operators. A single
+    letter the write-up does not source may have been picked out of a clue
+    word ("ROO + K" for top of Kilkenny), so where the clue has a selecting
+    word, such a reading names no type."""
+    if not head:
+        return None
+    try:
+        toks = tokens(head)
+    except _Fail as e:
+        # Wordplay then prose ("{p}ROBIN{g} without its wings"): the wordplay
+        # alone, if the prose names no operation it would have left out.
+        rest = head[e.at:]
+        if e.at == 0 or NAMES_AN_OPERATION.search(rest) or SELECTING.search(rest):
+            return None
+        try:
+            toks = tokens(head[:e.at])
+        except (_Fail, RecursionError):
+            return None
+    except RecursionError:
+        return None
+    while toks and toks[-1][0] == "bin":
+        toks.pop()  # "PR-[of]-ESS=”claim”, with “of being ignored”": prose, not an operand
+    if len(toks) > 16:
+        return None
+    if len(toks) == 1 and toks[0][0] == "val" and toks[0][1] == answer and toks[0][2] == {"cut"} \
+            and " " not in head.strip():
+        return ["deletion"]  # {r}OSIER, LO[g]IN: one word with letters taken off
+    if not any(t[0] in ("bin", "pre", "post") or (t[0] == "val" and t[2]) for t in toks) \
+            and sum(t[0] != "bin" for t in toks) < 2:
+        return None
+    hits = {frozenset(ops) for v, opss in _values(toks, len(answer)).items()
+            if _matches(v, answer) for ops in opss}
+    # An operator binds to the piece beside it unless only a wider reading
+    # spells the answer: "anagram of HERON after MO" is MO + (HERON)*.
+    if any("wide" not in ops for ops in hits):
+        hits = {ops for ops in hits if "wide" not in ops}
+    parts = {frozenset(PART[o] for o in ops if o in PART) for ops in hits}
+    # "an anagram of INTO A CH": the fodder all shuffled, or all but a CH left
+    # in place; pieces run together under the operator are its fodder.
+    least = min(parts, key=len, default=None)
+    if least and "anagram" in least and all(least <= p and p - least <= {"charade"} for p in parts):
+        parts = {least}
+    if len(parts) != 1 or any("cutp" in ops or ("bare" in ops and SELECTING.search(body)) for ops in hits):
+        return None
+    (p,) = parts
+    if not p:
+        return None
+    return [x for x in PART_ORDER if x in p]
+
+
+#: An operation the write-up names, then in parentheses the clue words that
+#: indicate it: "<em>reversed</em> (backing)", "anagram (strangely) of",
+#: "An envelope (‘amid’) of", "inside (“into”)".
+IND_OP = re.compile(
+    r"(?i)(?<![a-z])(?:anagram(?:med)?|reversal|reversed|reverse|backwards|envelope|insertion|"
+    r"inside|within|into|(?-i:in)|around|round|containing|contained(?: in| by)?|holding|taking in|"
+    r"inserted(?: in| into)?|minus|without|losing|removed|deleted|deletion|excluding|dropping|"
+    r"hidden(?: answer| word)?(?: in)?|hiding in|lurker|lurking|homophone(?: of)?|sounds? like|sound-alike|"
+    r"another(?=\s*\([^()]*\)\s+of)|"
+    r"(?:first|last|middle|outer|inner|odd|even|alternate)\s+letters?(?: of)?|"
+    r"after|following|followed by|next to|preceded by|before)(?:\s+of)?"
+    r"\s*(?:/\s*['‘\"“”](?P<s>[^'‘’\"“”()]{1,50})['’\"”]"
+    r"|\(\s*(?:or\s+)?(?:['‘\"“](?P<q>[^'‘’\"“”()]{1,50})['’\"”]|(?P<w>[^()]{1,50}))\s*\)"
+    r"|\[\s*(?P<b>[^\[\]]{1,50})\s*\])")
+#: An indicator the write-up names as one: "(indicated by treated)", "the
+#: anagram indicator being “provided by”", "with ‘circulating’ signposting".
+NAMED_IND = re.compile(
+    r"(?i)(?:indicated by|indicator (?:is|being|here is)|anagrind (?:is|being)|signalled by)\s*"
+    r"(?:['‘\"“](?P<q>[^'‘’\"“”()]{1,40})['’\"”]|(?P<w>[a-z][a-z' ]{0,30}?)(?=[).,;]|$))"
+    r"|['‘\"“](?P<r>[^'‘’\"“”()]{1,40})['’\"”]\s+(?:is|as|being)\s+the\s+(?:\w+\s+)?(?:indicator|anagrind)"
+    r"|with\s+['‘\"“](?P<t>[^'‘’\"“”()]{1,40})['’\"”]\s+(?:signposting|indicating|signalling)")
+#: A gloss after letters picked out of or cut from a word, which names the
+#: picking: "feeD (conclusion of)", "LAM(b) (‘tailless’)", "[initially lacking]".
+CUT_GLOSS = re.compile(rf"(?:\w*[a-z][{CAP}]\w*|[{CAP}]\w*[a-z]\b|\S*{ATT}\S*)"
+                       r"\s*(?:\(\s*(?P<p>[^()]{1,50})\)|\[\s*(?P<b>[^\[\]]{1,50})\])")
+#: The anagram star glossed with its indicator: "(*changed)", "[* = to become …]".
+STAR_GLOSS = re.compile(r"[(\[]\s*\*\s*=?\s*(?P<w>[a-z][^()\[\]]{0,50}?)\s*[)\]]")
+ITALIC_OP = re.compile(E_ON + r"(?P<op>[^" + MARKS + r"()]{1,40})" + E_OFF +
+                       r"\s*\(\s*(?:['‘\"“](?P<q>[^'‘’\"“”()]{1,50})['’\"”]|(?P<w>[^()]{1,50}))\s*\)")
+
+
+#: Words in a block's clue words that say only part of them is used: the
+#: letters were selected or cut, which the type must then name.
+SELECTING = re.compile(
+    r"(?i)\b(?:most|mostly|almost|nearly|endless(?:ly)?|half|first|initial(?:ly)?|final(?:ly)?|"
+    r"last|head(?:less|s|ed)?|lead(?:er|ing|s)?|start|end(?:s|ing)?|finish|centre|center|heart|middle|"
+    r"core|odd(?:ly|s)?|even(?:ly)?|regular(?:ly)?|alternate(?:ly)?|brief(?:ly)?|short|shortly|"
+    r"little|bit|top(?:less|s|ped)?|tail(?:less|s|ed)?|trimmed|clipped|docked|cut|dropping|losing|without|missing|empty|"
+    r"outside|edges?|borders?|extremes?|limits?|sides?|capital|opening|beginning|minus|"
+    r"occasionally|periodically|conclusion|primarily|lacking)\b")
+
+
+def selected(letters, src):
+    """Whether a block's letters look picked out of its clue words ("cat
+    finally" -> T, "most of the" -> TH) rather than meant by them ("was
+    first" -> LED): a selecting word, and the letters in order in the rest."""
+    hit = SELECTING.search(src)
+    if not hit:
+        return False
+    rest = "".join(f for f in map(fold, src[:hit.start()] + src[hit.end():]) if f.isalnum())
+    it = iter(rest)
+    return all(ch in it for ch in atom_letters(letters))
+
+
+#: A write-up's word for a hidden answer, which it may not otherwise name:
+#: "A lurker hiding in (carries) deacon usually", "lurking in AustraLIAN Alps".
+LURKER = re.compile(r"(?i)\blurk(?:er|ers|ing|s)?\b")
+HIDE_SEP = r"[\s()\[\]{}'’.\-]*"
+
+
+def shown_hidden(expl, body, answer):
+    """["hidden_word"] (+ "reversal") where the write-up prints the run of clue
+    words the answer hides in with the answer marked off by case or by
+    brackets: "ValentiNO BLEeding", "milTON Keynes", "G(RAVE)send",
+    "[slipsh]OD ESSA[y]"; or calls it a lurker and the clue's letters hold it.
+    One word must carry letters on both sides, and no selecting word may sit
+    in the clue, else "s(TAR)t" or "HATRE(d)" would be a hidden word."""
+    if not answer or len(answer) < 3:
+        return None
+    words = [(m.start(), m.end(), "".join(f for f in map(fold, m.group()) if f.isalnum() and f.isascii()))
+             for m in re.finditer(r"[\w'’\-]+", body)]
+    run_letters = "".join(w for _, _, w in words)
+    for target, kind in ((answer, ["hidden_word"]), (answer[::-1], ["hidden_word", "reversal"])):
+        if LURKER.search(expl) and target in run_letters:
+            return kind
+        at = run_letters.find(target)
+        while at >= 0:
+            end, k, first = at + len(target), 0, None
+            for i, (_, _, w) in enumerate(words):  # the clue words the answer's letters fall in
+                if first is None and k + len(w) > at:
+                    first = i
+                k += len(w)
+                if k >= end:
+                    last = i
+                    break
+            start = sum(len(w) for _, _, w in words[:first])
+            run = "".join(w for _, _, w in words[first:last + 1])
+            pre, post = at - start, len(run) - (end - start)
+            one_word = first == last
+            if (pre or post) and not (one_word and (not (pre and post) or SELECTING.search(body))):
+                rx = HIDE_SEP.join(map(re.escape, run))
+                for m in re.finditer(r"(?<![A-Za-z])" + rx + r"(?![A-Za-z])", expl, re.IGNORECASE):
+                    if _marks_off(m.group(), pre, len(target), body[words[first][0]:words[last][1]]):
+                        return kind
+            at = run_letters.find(target, at + 1)
+    return None
+
+
+def _marks_off(text, pre, n, clue_run):
+    """Whether letters pre..pre+n of `text` stand apart from the rest: all
+    capitals among lower case (a capital the clue has, as in "ValentiNO
+    BLEeding", marks nothing), or all inside brackets, or all outside them."""
+    clue_caps = [ch.isupper() for ch in clue_run if ch.isalpha()]
+    letters, inside, depth = [], [], 0
+    for ch in text:
+        if ch in "([{":
+            depth += 1
+        elif ch in ")]}":
+            depth -= 1
+        elif ch.isalpha():
+            letters.append(ch)
+            inside.append(depth > 0)
+    ans = range(pre, pre + n)
+    rest = [i for i in range(len(letters)) if i not in ans]
+    if len(clue_caps) == len(letters) and all(letters[i].isupper() for i in ans) \
+            and not all(clue_caps[i] for i in ans) \
+            and all(letters[i].islower() or clue_caps[i] for i in rest):
+        return True
+    return bool(rest) and (all(inside[i] for i in ans) and not any(inside[i] for i in rest)
+                           or all(inside[i] for i in rest) and not any(inside[i] for i in ans))
+
+
+def checked_type(expl, expl_marked, answer, blk, body=""):
+    """The clue type, where the write-up's letters bear it out.
+
+    A named anagram stands only where its fodder is in the write-up and
+    holds the answer's letters, since "anagram" is said of every clue with
+    one in it; a named homophone stands only where nothing is added to it.
+    A spelled-out type stands only where no block's clue words say part of
+    them was cut away, which the operators would then not have named."""
+    named = clue_type(expl) or (not HEDGED.search(expl) and shown_hidden(expl, body, answer)) or None
+    head = wordplay_head(expl_marked, answer) if answer else ""
+    if named == ["anagram"] and not has_fodder(expl, answer):
+        named = None
+    if named == ["homophone"] and (re.search(r"\+|\band\b|\bplus\b", head) or len(blk) > 1):
+        named = None
+    spelled = wordplay_type(expl_marked, answer, body) if answer else None
+    if spelled and any(selected(letters, src) for letters, src in blk) and not \
+            {"deletion", "letter_selection"} & set(spelled):
+        spelled = None
+    return combined_type(named, spelled)
+
+
+def has_fodder(expl, answer):
+    """Whether the write-up holds the answer's letters in one run of caps or
+    one bracketed group: the fodder of a whole-clue anagram. The answer
+    itself, which the write-up prints, is not its own fodder."""
+    runs = [t for _, t in _fodder_runs(expl)]
+    letters = [atom_letters(r) if r.upper() == r else
+               "".join(f for f in map(fold, r) if f.isalnum() and f.isascii()) for r in runs]
+    return any(x != answer and sorted(x) == sorted(answer) for x in letters)
+
+
+#: Where a write-up marks letters as anagram fodder: (X)*, *(X), X*, "anagram
+#: (gloss) of X", "X (anag)". Each gives the fodder's text as group "f".
+FWORD = r"[A-Za-zÀ-ÿ\[\]{}'’\-]+"
+FCAPS = rf"(?<![\w\[\]{{}}'’\-])(?P<f>(?:{FWORD}\s+)*?{FWORD})"  # trimmed to its capitals by capsy
+FGROUP = r"(?:\(\s*(?P<f>[^()*]{2,60}?)\s*\)|\[\s*(?P<f2>[^()\[\]*]{2,60}?)\s*\])"
+MARKED_FODDER = [
+    re.compile(FGROUP + r"\s*\*"),
+    re.compile(r"(?<![\w)\]}'’*])\s*\*\s*" + FGROUP),  # a star after letters is theirs, and a gloss follows
+    re.compile(FCAPS + r"\s*\*"),
+    re.compile(FCAPS + r"\s*[(\[]\s*(?i:anag)\b"),
+    re.compile(r"(?i:\banag(?:ram)?\b\.?)\s*(?:\([^()]{0,40}\)|\[[^\[\]]{0,40}\]|,?\s*['‘\"“][^'‘’\"“”]{1,30}['’\"”])?"
+               r"\s*(?i:of)\s+(?:" + QUOTED.replace("q>", "f>") + "|" + FGROUP.replace("f>", "g>").replace("f2>", "g2>")
+               + rf"|(?P<h>{FWORD}(?:[\s+&]+{FWORD}){{0,7}}))"),
+]
+#: A denial: "not an anagram of", which names fodder only to rule it out.
+NOT_ANAGRAM = re.compile(r"(?i)\bnot\s+(?:an?\s+|the\s+|quite\s+)?anag")
+
+
+def capsy(tok):
+    """Whether a word is written in the blog's capitals: at least as many
+    capitals as lower-case letters outside brackets (PATChES, A, not The)."""
+    t = re.sub(r"\[[^\]]*\]|\{[^}]*\}", "", tok)
+    up = len(re.findall(rf"[{CAP}]", t))
+    return up > 0 and up >= len(re.findall(r"[a-zß-ÿ]", t))
+
+
+def _fodder_token(tok):
+    """(kept letters, whole word's letters) of one fodder word as a blog writes
+    it: PATChES keeps its capitals, Lan[dy] and HA[t] what is outside the
+    brackets, Tiber all of it; the whole word is the clue's."""
+    whole = "".join(f for f in map(fold, re.sub(r"[\[\]{}]", "", tok)) if f.isalnum() and f.isascii())
+    outside = re.sub(r"\[[^\]]*\]|\{[^}]*\}", "", tok)
+    if re.search(r"[\[{]", tok):
+        kept = outside
+    elif capsy(tok):
+        kept = re.sub(r"[a-zß-ÿ]", "", tok)  # RaCE: the a is not used
+    else:
+        kept = tok
+    return "".join(f for f in map(fold, kept) if f.isalnum() and f.isascii()), whole
+
+
+def _clue_runs(body):
+    """{letters: [(start, end)]} of every run of whole words of `body`."""
+    words = [(m.start(), m.end(), "".join(f for f in map(fold, m.group()) if f.isalnum() and f.isascii()))
+             for m in re.finditer(r"[\wÀ-ÿ'’]+", body)]
+    runs = collections.defaultdict(list)
+    for i in range(len(words)):
+        acc = ""
+        for j in range(i, len(words)):
+            acc += words[j][2]
+            if acc:
+                runs[acc].append((words[i][0], words[j][1]))
+    return runs
+
+
+def fodder_blocks(expl, body, answer, named):
+    """[(position, letters, clue words)] for the anagram fodder a write-up names.
+
+    Fodder counts only where its letters check against the answer: all of
+    them, in another order, or, where the write-up marks the fodder as an
+    anagram's, a part of them. Each piece is kept only as a run of whole
+    words of the clue found there once, so its letters are the clue's own;
+    fodder spread over the clue (A COURT ... GRASS) is one block a run.
+    `named` says the write-up names an anagram, which lets any run holding
+    all the answer's letters be fodder, as has_fodder reads it."""
+    if not answer or NOT_ANAGRAM.search(expl):
+        return []
+    cands = []
+    for k, rx in enumerate(MARKED_FODDER):
+        for m in rx.finditer(expl):
+            g = next(g for g in ("f", "f2", "g", "g2", "h") if m.groupdict().get(g))
+            # Bare words are fodder only as far as they are capitals: the run
+            # before a star or "(anag)" ends at it, the one after "of" starts there.
+            cands.append((m.start(g), m.group(g), True, "suffix" if k in (2, 3) else "prefix" if g == "h" else None))
+    if named:
+        cands += [(p, t, False, None) for p, t in _fodder_runs(expl)]
+    runs = _clue_runs(body)
+    need = collections.Counter(answer)
+    out = []
+    for at, text, marked, trim in sorted(cands, key=lambda c: (c[0], not c[2])):
+        toks = [t for t in re.split(r"[\s+&,]+", text.strip(" '‘’\"“”")) if re.search(r"[A-Za-z]", t)]
+        if trim:
+            order = toks[::-1] if trim == "suffix" else toks
+            n = next((i for i, t in enumerate(order) if not capsy(t)), len(order))
+            toks = toks[len(toks) - n:] if trim == "suffix" else toks[:n]
+        elif any(capsy(t) for t in toks):
+            toks = [t for t in toks if capsy(t)]  # "ACT and ONE": the and is prose
+        # "anagram of LATIN + E": where the operand ends is not written, so
+        # the longest run of it whose letters check.
+        for n in range(len(toks), 0 if trim == "prefix" else len(toks) - 1, -1):
+            pieces = [_fodder_token(t) for t in toks[:n]]
+            kept = "".join(k for k, _ in pieces)
+            if kept != answer and len(kept) >= 3 and (
+                    sorted(kept) == sorted(answer) or marked and not collections.Counter(kept) - need):
+                break
+        else:
+            continue
+        i = 0
+        while i < len(pieces):
+            for j in range(len(pieces), i, -1):
+                spans = runs.get("".join(w for _, w in pieces[i:j]), [])
+                if len(spans) == 1:
+                    letters = " ".join(k for k, _ in pieces[i:j]).upper()
+                    src = body[spans[0][0]:spans[0][1]]
+                    if letters.replace(" ", "") and all((letters, src) != o[1:] for o in out):
+                        out.append((at + i, letters, src))
+                    i = j
+                    break
+            else:
+                i += 1
+    return out
+
+
+def _fodder_runs(expl):
+    """(position, text) of every run of capitals and every bracketed group of
+    a write-up: where has_fodder looks for a whole-clue anagram's fodder."""
+    return [(m.start(), m.group()) for m in ATOM.finditer(expl)] + [
+        (m.start(1), m.group(1)) for m in re.finditer(r"[(\[{]([^()\[\]{}]{2,60})[)\]}]", expl)
+        if not re.match(r"[\[{(]?[A-Za-z]", expl[m.end():m.end() + 2])]  # [OLI]{ves} is cut fodder
+
+
+def combined_type(named, spelled):
+    """The type a write-up names and the one its wordplay spells out, as one.
+    The spelled one is letter-checked, so it wins where it only adds parts to
+    the named one; where they disagree, neither is a fact."""
+    if not (named and spelled):
+        return named or spelled
+    if set(named) <= set(spelled):
+        return spelled
+    return None
+
+
+#: Letters a passive operation is said of: "a second A is inserted (round another)".
+PASSIVE_SUBJECT = re.compile(rf"(?<![\w'’\]}})])(?P<x>[{CAP}][{CAP}'’]*(?: [{CAP}][{CAP}'’]*)*)"
+                             r"\s+(?:is|are)(?:\s+(?:then|now|also|being|placed|put))*\s+$")
+
+
+#: The operations that bring in a piece from elsewhere: a container's.
+PUTS_IN = {"inside", "around"}
+
+
+def op_gloss(plain, m, body):
+    """The indicator in the gloss IND_OP matched at `m`. "X is inserted
+    (gloss)" glosses the whole clause, so where X is put in and is letters
+    that are not clue words themselves, the gloss may hold X's source too
+    ("round another" for A): only an end of it that names a container is
+    the indicator then. A deletion's X is the clue's own letters."""
+    g = m.group("q") or m.group("w") or m.group("s") or m.group("b")
+    subj = PASSIVE_SUBJECT.search(plain, 0, m.start())
+    if (not (subj and body) or bracketed_operator(re.split(r"\s*[(\[/]", m.group())[0]) not in PUTS_IN
+            or atom_letters(subj.group("x")) in _clue_runs(body)):
+        return g
+    words = g.split()
+    for n in range(len(words) - 1, 0, -1):
+        for part in (" ".join(words[:n]), " ".join(words[-n:])):
+            if bracketed_operator(part) in PUTS_IN:
+                return part
+    return g if len(words) == 1 else None
+
+
+def operation_indicators(expl_marked, body=""):
+    """The glosses the write-up hangs on a named operation, italic or plain."""
+    plain = expl_marked.replace(E_ON, "").replace(E_OFF, "")
+    out = [g for m in IND_OP.finditer(plain) if (g := op_gloss(plain, m, body))]
+    out += [m.group("w") for m in STAR_GLOSS.finditer(plain)]
+    for m in re.finditer(r"[(\[]\s*([^()\[\]]{2,60}?)\s*[)\]]", plain):
+        # After letters the bracket's first part is their source: PART ("region", reversed).
+        after_caps = re.search(rf"[{CAP}.]\s?$", plain[:m.start()])
+        parts = GLOSS_PARTS.split(m.group(1))
+        out += [p.strip(" '‘’\"“”") for p in (parts[1:] if after_caps else parts)
+                if (unary_operator if after_caps else bracketed_operator)(p)]
+    out += [next(g for g in m.groups() if g) for m in NAMED_IND.finditer(plain)]
+    for m in CUT_GLOSS.finditer(plain):
+        for part in GLOSS_PARTS.split((m.group("p") or m.group("b")).strip(" '‘’\"“”")):
+            if SELECTING.search(part):
+                out.append(part.strip(" '‘’\"“”"))
+    for m in ITALIC_OP.finditer(expl_marked):
+        op = m.group("op").strip()
+        if op and len(op.split()) <= 4 and not re.search(r"\d|[A-Z]{2}", op):
+            out.append(m.group("q") or m.group("w"))
+    out += [m.group(1) for m in ITALIC_IN_PARENS.finditer(expl_marked)
+            if not re.search(rf"[{CAP}]\s*$", expl_marked[:m.start()])]  # BAG(<i>sack</i>) is a source
+    return out
+
+
+def indicators(blog, expl_marked, body, brackets, avoid=()):
+    """Indicator words the blog's own convention marks, as spelled in `body`.
+    `brackets` says whether this post's key declares [bracketed] indicators;
+    `avoid` is what the clue's other words already are (definitions, block
+    sources), which an indicator cannot also be."""
+    marked = expl_marked.replace(U_ON, "").replace(U_OFF, "")
+    raw = []
+    if blog == "timesforthetimes" and brackets:
+        raw += [bracket_reading(r)[0] for r in BRACKETED.findall(marked.replace(E_ON, "").replace(E_OFF, ""))]
+    raw += operation_indicators(marked, body)
+    plain = re.sub("[" + MARKS + "]", "", marked)
+    for m in ATOM.finditer(plain):
+        s = SOURCE.match(plain, m.end())
+        src = s and (s.group("p") or s.group("s") or s.group("b")) and source_words(s, body)
+        if src and literal_gloss(m.group(), src, body):  # a bracket; "= contentious" is the definition
+            raw.append(src)
+    out = []
+    for r in raw:
+        parts = [p for p in ELLIPSIS.split(r) if p.strip()]
+        found = [in_clue(p, body) for p in parts]
+        if parts and all(found):
+            out.extend(f for f in found if f not in out and not overlaps(f, avoid))
+    return out
+
+
+def indicator_objects(texts, types):
+    """Indicator phrases as a fact stores them: [{"text": phrase}], with
+    "for" the fact's type where `types` is exactly one type, the only case
+    where which mechanism each phrase signals is known."""
+    t = {"for": types[0]} if len(types or ()) == 1 else {}
+    return [{"text": x, **t} for x in texts]
+
+
+def overlaps(phrase, others):
+    """Whether `phrase` is, or sits inside, or holds, one of `others`."""
+    words = lambda t: " " + " ".join(re.findall(r"[\w'’]+", t.lower())) + " "
+    p = words(phrase)
+    return any(p in words(o) or words(o) in p for o in others)
+
+
+# ---------------------------------------------------------------- the posts
+
+def rendered(field):
+    """A WordPress `rendered` field, whichever of three shapes a fetcher stored."""
+    if isinstance(field, dict):
+        return field.get("rendered", "")
+    if isinstance(field, str) and field.startswith("{'rendered'"):
+        try:
+            return ast.literal_eval(field)["rendered"]
+        except (ValueError, SyntaxError):
+            return field
+    return field or ""
+
+
+NUMBER = re.compile(r"(?<![\d,])(\d{1,2},\d{3}|\d{3,6})(?![\d,])")
+
+
+def post_numbers(title):
+    return {int(n.replace(",", "")) for n in NUMBER.findall(html.unescape(title))}
+
+
+#: A clue phrase the write-up prints within this many characters of a
+#: capital block is a word it may say the block comes from ("GAFFE or error").
+NEAR = 30
+#: What a write-up says a capital block stands for, right after it: "(a
+#: girl's name)", "[fellow]", "= error", "or error", "for idiot", "meaning trendy".
+GLOSS_AFTER = re.compile(r"\s*(?:\(([^()]{1,80})\)|\[([^\[\]]{1,80})\]|[=:–-]\s*([^,;.()+]{1,60})"
+                         r"|\s(?:or|for|is|meaning|being|as|i\.e\.)\s+([^,;.()+]{1,60}))")
+#: Letters in brackets that are capitals: PR(E)Y is PRY around E.
+INSIDE = re.compile(r"\(([A-Z]{1,15})\)|\[([A-Z]{1,15})\]|\{([A-Z]{1,15})\}")
+#: The most clue words one lead names, as letter_facts.MAX_RUN.
+LEAD_RUN = 4
+#: A write-up that says a letter is taken from a word: "the first letter of
+#: cauldron", "last of cider", "moral, ultimately".
+TAKES_LETTER = re.compile(
+    r"(?i)\b(?:first|last|final|initial|opening|starting|end|leading|head|tail|outer|outside)\b"
+    r"[\w\s]{0,20}?\bletters?\b|\b(?:first|last|start|end|head|tail|top|bottom|back|front) of\b"
+    r"|\binitial(?:ly|s)?\b|\bfinally\b|\bultimately\b|\bprimarily\b|\bat first\b|\bat last\b")
+
+
+def leads(expl, body, answer):
+    """What a write-up says of a clue short of stating its blocks, for
+    letter_facts to put blocks together from: {"caps": the capital blocks
+    it prints whose letters are in the answer, "near": [[caps, clue words
+    it glosses them with, after them or else just before]], "printed": the longest runs of clue words it
+    prints, "anagram": whether it names an anagram, "letter": whether it
+    says a letter is taken from a word}. Letters
+    and the clue's own words only, as blocks are; empty where it says none."""
+    answer = answer.upper()
+    need = collections.Counter(answer)
+    caps = []
+    for m in ATOM.finditer(expl):
+        for piece in {m.group(), *m.group().split(" ")}:
+            inner = ["".join(g) for g in INSIDE.findall(piece)]
+            for c in [atom_letters(INSIDE.sub("", piece))] + inner:
+                c = c.upper()
+                if c and c != answer and not collections.Counter(c) - need:
+                    caps.append((m.start(), m.end(), c))
+    ws = [(w.start(), w.end()) for w in re.finditer(r"[\w'’\-]+", body)]
+    phrase = lambda i, j: body[ws[i][0]:ws[j - 1][1]]
+
+    def runs_in(text):
+        """The longest runs of clue words `text` prints, as (i, j, where)."""
+        out = []
+        for i in range(len(ws)):
+            for j in range(i + 1, min(len(ws), i + LEAD_RUN) + 1):
+                pat = r"\W+".join(re.escape(w) for w in re.findall(r"[\w'’\-]+", phrase(i, j)))
+                hit = re.search(r"(?<![\w'’])" + pat + r"(?![\w])", text, re.IGNORECASE)
+                if not hit:
+                    break
+                if out and out[-1][0] == i:
+                    out.pop()
+                if not out or out[-1][1] < j:
+                    out.append((i, j, hit.start()))
+        return out
+
+    near = set()
+    for a, b, c in caps:
+        g = GLOSS_AFTER.match(expl, b)
+        got = runs_in(next(x for x in g.groups() if x)) if g else []
+        if not got:  # "a synonym of faithful SURE"
+            before = re.split(r"[(),;:.+–—*]", expl[max(0, a - NEAR):a])[-1]
+            got = sorted(runs_in(before), key=lambda r: r[2])[-1:]
+        near |= {(c, phrase(i, j)) for i, j, _ in got}
+    printed = runs_in(expl)
+    out = {}
+    if caps:
+        out["caps"] = sorted({c for *_, c in caps})
+    if near:
+        out["near"] = sorted(map(list, near))
+    if printed:
+        out["printed"] = [phrase(i, j) for i, j, _ in printed]
+    if ANAGRAM_NAMED.search(expl) and not NOT_ANAGRAM.search(expl):
+        out["anagram"] = True
+    if TAKES_LETTER.search(expl):
+        out["letter"] = True
+    return out
+
+
+def load_post(path):
+    d = json.loads(path.read_text(encoding="utf-8"))
+    return {"id": d["id"], "link": d.get("link"), "title": html.unescape(rendered(d.get("title"))),
+            "content": rendered(d.get("content"))}
+
+
+def puzzle_entries(p):
+    """[(entry id, clue body, solution)] in the order blogs print them."""
+    rows = [e for e in p["entries"] if clue_body(e["clue"].get("text"))]
+    rows.sort(key=lambda e: (e["direction"] != "across", e["number"]))
+    return [(entry_id(e), clue_body(e["clue"]["text"]), e.get("solution") or "") for e in rows]
+
+
+def align(entries, stream):
+    """Per entry, the (start, end) of its clue's letters in `stream`'s projection.
+
+    Clues are searched for in order from the last one found, which is the order
+    blogs print them in; a clue not found after the cursor is looked for from
+    the top once, and taken only if it occurs there exactly once."""
+    letters = stream[0]
+    hits, cursor = {}, 0
+    for eid, body, _ in entries:
+        key = projection(body)[0]
+        if len(key) < 4:
+            continue
+        at = letters.find(key, cursor)
+        if at < 0:
+            first = letters.find(key)
+            if first < 0 or letters.find(key, first + 1) >= 0:
+                continue
+            at = first
+        hits[eid] = (at, at + len(key))
+        cursor = at + len(key)
+    return hits
+
+
+#: Where a write-up moves on to the next clue: a line that is a clue number,
+#: alone or with its direction, before anything but prose ("2 defs" is prose),
+#: or an Across/Down heading. Bounds the explanation when the next clue itself
+#: was not found.
+NEXT_CLUE = re.compile(
+    r"\n[ \t\ue000-\ue003]*(?:\d{1,2}(?:[ \t]*(?:a|d|ac|dn|across|down)\b)?[ \t.]*"
+    r"(?=\n|[ \t]*[\"'‘“A-Z(\ue000-\ue003])|(?:across|down)\b)", re.IGNORECASE)
+
+
+def facts_for_post(blog, entries, post):
+    """{entry id: facts} for every clue of `entries` found in `post`."""
+    text = flatten(post["content"])
+    stream = projection(text, marked=True)
+    letters, pos, under, _ = stream
+    hits = align(entries, stream)
+    brackets = bool(BRACKETS_ARE_INDICATORS.search(text))
+    starts = sorted(a for a, _ in hits.values())
+    out = {}
+    for eid, body, solution in entries:
+        if eid not in hits:
+            continue
+        a, b = hits[eid]
+        nxt = next((s for s in starts if s >= b), len(letters))
+        seg_start = pos[b - 1] + 1
+        seg_end = pos[nxt] if nxt < len(letters) else len(text)
+        expl_marked = text[seg_start:seg_end]
+        cut = NEXT_CLUE.search(expl_marked, 1)
+        expl_marked = expl_marked[:cut.start() if cut else 1200][:1200]
+        expl_marked = detach_sources(expl_marked, body)
+        expl = re.sub("[" + MARKS + "]", "", expl_marked)
+        bpos = projection(body)[1]
+        defs = spans_of(under[a:b], bpos, body)
+        fact = {"found": True}
+        if defs:
+            fact["definition"] = defs
+        elif defs is None:
+            fact["badSpan"] = True
+        answer = projection(solution)[0]
+        blk = blocks(expl, body, answer, brackets) if answer else []
+        t = checked_type(expl, expl_marked, answer, [b for b in blk if len(b) == 2], body) \
+            or (["double_definition"] if two_ends(defs, body) and not blk and "+" not in expl else None)
+        if t:
+            fact["type"] = t
+        # A hidden word's letters are no blocks; nor are a definition-only
+        # clue's: what its write-up spells out ("N[arc]O becomes NO") is the
+        # pun explained, not wordplay, and the site would show both ladders.
+        if blk and not {"hidden_word", "cryptic_definition", "double_definition"} & set(t or ()):
+            fact["blocks"] = heard_blocks(t, blk, answer, body)
+        whole_clue = defs and projection(" ".join(defs))[0] == projection(body)[0]  # &lit
+        ind = indicators(blog, expl_marked, body, brackets,
+                         avoid=([] if whole_clue else defs or []) + [b[1] for b in blk])
+        if ind:
+            fact["indicators"] = indicator_objects(ind, t)
+        if answer:
+            said = leads(expl, body, answer)
+            if said:
+                fact["leads"] = said
+        out[eid] = fact
+    return out
+
+
+def _work(args):
+    blog, path, candidates, keep_facts = args
+    post = load_post(path)
+    best = None
+    for pid, source, _ in candidates:
+        entries = entries_of(source)
+        facts = facts_for_post(blog, entries, post)
+        score = len(facts) / max(1, len(entries))
+        if score >= MIN_ALIGNED and (best is None or score > best[1]):
+            best = (pid, score, facts, len(entries))
+    if best is None:
+        return None
+    pid, score, facts, clues = best
+    line, said = published(pid, blog, post["link"], facts)
+    return {"blog": blog, "post": post["id"], "url": post["link"], "id": pid, "score": score,
+            "clues": clues, "line": line, "leads": said, **({"facts": facts} if keep_facts else {})}
+
+
+def published(pid, blog, url, facts):
+    """What `facts`, the join of puzzle `pid` to `url`, ship as: its line of
+    its sidecar and its line of the leads file, each
+    None where it has none. bigdave44's stand-in puzzles ship neither."""
+    if pid.startswith("bd:"):
+        return None, None
+    clues = clues_of(pid)
+    entries = {eid: fact_json(publishable(f), clues.get(eid)) for eid, f in sorted(facts.items())}
+    entries = {k: v for k, v in entries.items() if v}
+    line = row_line(pid, {"blog": blog, "name": BLOGS[blog][1], "url": url, "entries": entries}) if entries else None
+    said = {eid: f["leads"] for eid, f in sorted(facts.items()) if f.get("leads")}
+    said = json.dumps(pid, ensure_ascii=False) + ":" + json.dumps(said, ensure_ascii=False, separators=(",", ":")) \
+        if said else None
+    return line, said
+
+
+def puzzle_row(path):
+    """What a run reads off one puzzle file through its view, which costs a
+    deepcopy and a wordplay evaluation a puzzle: its id, number and series,
+    puzzle_entries, the digest load_puzzles keys a join by, and "annotated",
+    letter_facts.annotation_rows' rows for it."""
+    import enumeration
+    p = read_puzzle_view(path)
+    ents = puzzle_entries(p)
+    clues = {entry_id(e): e["clue"].get("text", "") for e in p["entries"]}
+    annotated = []
+    for e in p.get("entries", []):
+        a = e.get("annotation") or {}
+        if not (a.get("type") and e["clue"].get("text") and e.get("solution")):
+            continue
+        facts = {"type": a["type"], "definition": [d["text"] for d in a.get("definitions", ())],
+                 "blocks": [[b["gives"], b["clueFragment"]] for b in a.get("blocks", ())
+                            if b.get("gives") and b.get("clueFragment")]}
+        if a.get("indicators"):
+            facts["indicators"] = list(a["indicators"])
+        annotated.append((p["id"], entry_id(e), enumeration.printed(e["clue"]), e["solution"], facts))
+    return {"id": p["id"], "number": p["number"], "series": p.get("series"),
+            "named_series": p.get("series", "cryptic"), "entries": ents,
+            "digest": hashlib.sha256(json.dumps([ents, clues]).encode()).hexdigest(), "annotated": annotated}
+
+
+def puzzle_rows():
+    """(path, puzzle_row(path)) for every puzzle file, in puzzle_files()
+    order, each reached once and let go: held whole they were ~1.5GB. A run reads them three times (inputs_digest, load_puzzles,
+    letter_facts.annotation_rows) and the filer commits every few seconds, so
+    --if-changed is nearly always a full run: rows are kept per file by
+    tools/row_cache.py, keyed by the file's blob and the code puzzle_row
+    reaches, and only the files that moved are viewed again."""
+    import row_cache
+    paths = puzzle_files()
+    return zip(paths, row_cache.cached_map("blog_facts", puzzle_row, paths, lazy=True))
+
+
+def load_puzzles(extra=()):
+    """{number: [(id, source, digest)]} over our puzzles, plus any `extra`
+    records, and {id: series}. A source is where entries_of reads the puzzle's
+    entries: the parent holds no clues, since every parse worker it forks would
+    copy them. The digest covers all a join reads of the puzzle: its entries
+    and, for published(), its clues."""
+    by_number = collections.defaultdict(list)
+    series = {}
+    for path, r in puzzle_rows():
+        if r["entries"]:
+            by_number[r["number"]].append((r["id"], path, r["digest"]))
+            series[r["id"]] = r["named_series"]
+    for pid, number, source, digest, s in extra:
+        by_number[number].append((pid, source, digest))
+        series[pid] = s
+    return by_number, series
+
+
+@lru_cache(maxsize=4096)
+def entries_of(source):
+    """puzzle_entries of a load_puzzles source: a puzzle file, or (path, byte
+    offset) of a record in bigdave_records' copy of bigdave44's parsed.jsonl."""
+    if isinstance(source, tuple):
+        path, at = source
+        with open(path, "rb") as f:
+            f.seek(at)
+            return bigdave_entries(json.loads(f.readline()))
+    return puzzle_entries(read_puzzle_file(source))
+
+
+def bigdave_entries(r):
+    """puzzle_entries of one record of bigdave44's parsed.jsonl."""
+    return [(entry_id(e), clue_body(e.get("clue")), e.get("answer") or "")
+            for e in r["entries"] if clue_body(e.get("clue"))]
+
+
+def bigdave_records():
+    """bigdave44's own parsed light lists, as stand-in puzzles to measure on,
+    each (id, number, (copy, byte offset of its record), digest of its
+    record, series). Ids are prefixed so nothing mistakes them for ours. The
+    offsets point into a private copy, since the blog fetchers rewrite
+    parsed.jsonl while a run is still reading records by offset."""
+    path = BLOGS["bigdave44"][0] / "parsed.jsonl"
+    if not path.exists():
+        return []
+    copy = parsed_copy(path)
+    out = []
+    with open(copy, "rb") as f:
+        at = 0
+        for line in f:
+            r = json.loads(line)
+            if bigdave_entries(r):
+                out.append((f"bd:{r['series']}-{r['number']}", r["number"], (copy, at),
+                            hashlib.sha256(line).hexdigest(), "bd:" + r["series"]))
+            at += len(line)
+    return out
+
+
+_PARSED_COPIES = {}
+
+
+def parsed_copy(path):
+    """A copy of `path` this process keeps until it exits."""
+    if path not in _PARSED_COPIES:
+        fd, copy = tempfile.mkstemp(prefix="bigdave-parsed-", suffix=".jsonl")
+        with os.fdopen(fd, "wb") as out, open(path, "rb") as f:
+            shutil.copyfileobj(f, out)
+        pid = os.getpid()
+        atexit.register(lambda: os.getpid() == pid and os.unlink(copy))
+        _PARSED_COPIES[path] = copy
+    return _PARSED_COPIES[path]
+
+
+class Spool:
+    """Text parked in a temporary file: put() returns the key get() reads it
+    back by. The joins' published lines wait here, not in the parent's heap,
+    until write() lays them out in id order."""
+
+    def __init__(self):
+        self.f = tempfile.TemporaryFile()  # deleted when the Spool is collected
+
+    def put(self, text):
+        if text is None:
+            return None
+        b = text.encode("utf-8")
+        at = self.f.seek(0, os.SEEK_END)
+        self.f.write(b)
+        return at, len(b)
+
+    def get(self, key):
+        self.f.seek(key[0])
+        return self.f.read(key[1]).decode("utf-8")
+
+
+def keep(best, r, spool):
+    """Take `r` as its puzzle's join if no post was found more completely,
+    its published lines parked in `spool`."""
+    if r and (r["id"] not in best or r["score"] > best[r["id"]]["score"]):
+        r["line"], r["leads"] = spool.put(r["line"]), spool.put(r["leads"])
+        best[r["id"]] = r
+
+
+def cache_key(blog, data_sha, cands):
+    """The name a post's join is cached under: the sha256 of the post's bytes
+    and the entries and clues of its candidate puzzles, never the code that
+    parsed it."""
+    return hashlib.sha256(json.dumps([CACHE_SALT, blog, data_sha,
+                                      [(pid, digest) for pid, _, digest in cands]]).encode()).hexdigest()
+
+
+class Index:
+    """INDEX: post (sha256, title) by path, size and mtime, and joins by key."""
+
+    def __init__(self, path=None):
+        path = path or INDEX
+        path.parent.mkdir(parents=True, exist_ok=True)
+        self.db = sqlite3.connect(path)
+        self.db.execute("CREATE TABLE IF NOT EXISTS post (path TEXT PRIMARY KEY, size INT, mtime INT, sha TEXT, title TEXT)")
+        self.db.execute("CREATE TABLE IF NOT EXISTS join_ (key TEXT PRIMARY KEY, json TEXT)")
+        # Per puzzle, the inputs whose regraft (_regraft) an earlier write found
+        # was one of them unchanged: "old", the sidecar's bytes, or "body", the line's.
+        self.db.execute("CREATE TABLE IF NOT EXISTS regraft (pid TEXT PRIMARY KEY, key TEXT, kept TEXT)")
+        self.writes = 0
+
+    def _wrote(self):
+        """Commit every 1000 writes, so a run killed while seeding keeps what it read."""
+        self.writes += 1
+        if self.writes % 1000 == 0:
+            self.db.commit()
+
+    def post(self, path):
+        """(sha256 of the post's bytes, its rendered title), or None for a post that is not JSON.
+
+        The fetchers store a post whole and never rewrite it, so a post held
+        here is answered without touching the media disk; only a new one is
+        stat-ed and read."""
+        row = self.db.execute("SELECT size, mtime, sha, title FROM post WHERE path=?", (str(path),)).fetchone()
+        if row and row[2] is not None:
+            return row[2], row[3]
+        st = path.stat()
+        if row and row[0] == st.st_size and row[1] == st.st_mtime_ns:
+            return None
+        data = path.read_bytes()
+        try:
+            got = hashlib.sha256(data).hexdigest(), rendered(json.loads(data.decode("utf-8")).get("title"))
+        except ValueError:
+            got = None
+        self.db.execute("INSERT OR REPLACE INTO post VALUES (?,?,?,?,?)",
+                        (str(path), st.st_size, st.st_mtime_ns, *(got or (None, None))))
+        self._wrote()
+        return got
+
+    def join(self, key):
+        row = self.db.execute("SELECT json FROM join_ WHERE key=?", (key,)).fetchone()
+        return row[0] if row else None
+
+    def put_join(self, key, text):
+        self.db.execute("INSERT OR REPLACE INTO join_ VALUES (?,?)", (key, text))
+        self._wrote()
+
+    def regrafts(self):
+        """{puzzle id: (key, kept)} of every regraft held."""
+        return {pid: (k, kept) for pid, k, kept in self.db.execute("SELECT pid, key, kept FROM regraft")}
+
+    def put_regraft(self, pid, key, kept):
+        self.db.execute("INSERT OR REPLACE INTO regraft VALUES (?,?,?)", (pid, key, kept))
+        self._wrote()
+
+    def prune(self, keys):
+        """Drop every join not under `keys`; returns the keys dropped."""
+        self.db.execute("CREATE TEMP TABLE keep (key TEXT PRIMARY KEY)")
+        self.db.executemany("INSERT OR IGNORE INTO keep VALUES (?)", ((k,) for k in keys))
+        gone = [k for (k,) in self.db.execute("SELECT key FROM join_ WHERE key NOT IN (SELECT key FROM keep)")]
+        self.db.execute("DELETE FROM join_ WHERE key NOT IN (SELECT key FROM keep)")
+        self.db.execute("DROP TABLE keep")
+        return gone
+
+    def close(self):
+        self.db.commit()
+        self.db.close()
+
+
+def _bounded_map(ex, fn, items, window):
+    """ex.map(fn, items) in order, with at most `window` tasks submitted
+    beyond the one being waited on, so the results of a long list do not pile
+    up in the parent while it writes the earlier ones."""
+    pending = collections.deque()
+    items = iter(items)
+    for item in itertools.islice(items, window):
+        pending.append(ex.submit(fn, item))
+    while pending:
+        r = pending.popleft().result()
+        for item in itertools.islice(items, 1):
+            pending.append(ex.submit(fn, item))
+        yield r
+
+
+#: The fewest posts to parse that extract starts its pool for: a night's few
+#: are parsed in this process, sparing the workers' start-up.
+POOL_MIN = 64
+
+
+def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, reparse=()):
+    """Every post of `blogs` joined to the puzzle it writes up: {id: record},
+    one per puzzle, the post whose clues were found most completely, and
+    {id: series}, and the Spool holding each record's published lines.
+
+    A post's join is kept in CACHE under the digest of the post and the entries
+    and clues of its candidate puzzles, and only a post whose digest is not
+    there is parsed. The posts of the blogs in `reparse` are parsed anyway and
+    their cache entries rewritten. With `keep_facts` every record carries its
+    raw facts, which the cache does not hold, so every post is parsed."""
+    extra = bigdave_records() if with_bigdave_records else ()
+    by_number, series = load_puzzles(extra)
+    index = Index()
+    work = []
+    for blog in blogs:
+        posts = BLOGS[blog][0] / "posts"
+        # The post list is the SSD manifest the fetcher appends to, not a listing.
+        for path in sorted(posts / f"{i}.json" for i in media_manifest.post_ids(posts)):
+            got = index.post(path)
+            if got is None:
+                continue
+            sha, title = got
+            cands = [c for n in post_numbers(title) for c in by_number.get(n, ())]
+            if cands:
+                key = cache_key(blog, sha, cands)
+                cached = None if keep_facts else CACHE / key[:2] / f"{key}.json"
+                hit = None
+                if cached and blog not in reparse:
+                    hit = index.join(key)
+                    if hit is None:
+                        try:
+                            hit = cached.read_text(encoding="utf-8")
+                            index.put_join(key, hit)
+                        except FileNotFoundError:
+                            pass
+                # A hit's text is read again from INDEX as the loop reaches it,
+                # never held for every post at once.
+                work.append(((blog, path, cands, keep_facts), None if hit is None else key, not hit, cached))
+                del hit
+    del by_number
+    misses = [w for w, _, miss, _ in work if miss]
+    if jobs == 1 or len(misses) < POOL_MIN:
+        ex, parsed = None, map(_work, misses)
+    else:
+        # Spawned, not forked: a fork shows this process's whole heap (the joins
+        # read so far, the work list) again in each worker's resident size, and
+        # 11-14 the tree held ~1.95GB, two workers at ~510MB each. A spawned one
+        # holds only the imports (~40MB) and what _work reads, file by file.
+        ex = ProcessPoolExecutor(jobs, mp_context=multiprocessing.get_context("spawn"))
+        parsed = _bounded_map(ex, _work, misses, (jobs or os.cpu_count() or 1) * 32)
+    best, spool = {}, Spool()
+    for _, hit_key, _, cached in work:
+        if hit_key is not None:
+            r = json.loads(index.join(hit_key))
+        else:
+            r = next(parsed)
+            if cached:
+                text = json.dumps(r, ensure_ascii=False)
+                cached.parent.mkdir(parents=True, exist_ok=True)
+                tmp = cached.with_suffix(".tmp")
+                tmp.write_text(text, encoding="utf-8")
+                tmp.replace(cached)
+                index.put_join(cached.stem, text)
+        keep(best, r, spool)
+    if ex:
+        ex.shutdown()
+    if not keep_facts and set(blogs) == set(BLOGS):
+        used = {cached.name for _, _, _, cached in work}
+        # The joins INDEX holds are the cached ones: CACHE is not listed.
+        for key in index.prune(name.removesuffix(".json") for name in used):
+            (CACHE / key[:2] / f"{key}.json").unlink(missing_ok=True)
+    index.close()
+    print(f"parsed {len(misses)} of {len(work)} posts; the rest were cached by an earlier run")
+    return best, series, spool
+
+
+def in_child(fn):
+    """Run fn() in a forked child, exiting as it does: a non-zero exit (a
+    budget stop's DEFERRED_RC, an error's 1) is this process's too."""
+    sys.stdout.flush()
+    sys.stderr.flush()
+    pid = os.fork()
+    if pid == 0:
+        code = 1  # an interrupt's, which leaves no traceback
+        try:
+            fn()
+            code = 0
+        except SystemExit as e:
+            code = e.code if isinstance(e.code, int) else 0 if e.code is None else 1
+            if not isinstance(e.code, (int, type(None))):
+                print(e.code, file=sys.stderr)
+        except Exception:
+            import traceback
+            traceback.print_exc()
+        finally:
+            atexit._run_exitfuncs()
+            sys.stdout.flush()
+            sys.stderr.flush()
+            os._exit(code)
+    code = os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1])
+    if code:
+        sys.exit(code if code > 0 else 128 - code)
+
+
+def inputs_digest():
+    """A digest of the inputs the output is read from: each blog's cached
+    posts, bigdave44's parsed light lists, and the clues of every puzzle. Posts
+    are cached once and never rewritten, so a post is its id, read off the SSD
+    posts manifest (tools/media_manifest.py), never a listing of the media disk; a
+    puzzle is only what the join reads, so a new annotation moves nothing. The
+    code is not an input: a change to it is applied by running without
+    --if-changed, with --reparse when the parser changed."""
+    h = hashlib.sha256()
+    for blog in sorted(BLOGS):
+        posts = BLOGS[blog][0] / "posts"
+        h.update(json.dumps([blog, sorted(media_manifest.post_ids(posts))]).encode())
+    parsed = BLOGS["bigdave44"][0] / "parsed.jsonl"
+    try:
+        h.update(parsed.read_bytes())
+    except FileNotFoundError:
+        pass
+    for _, r in puzzle_rows():
+        h.update(json.dumps([r["id"], r["number"], r["series"], r["entries"]]).encode())
+    return h.hexdigest()
+
+
+# ------------------------------------------------------------------ outputs
+
+#: The most words between the two halves of a double definition: 98.5% of
+#: the ones blogs named have at most this many ("for", "to be").
+MAX_DD_GAP = 2
+
+
+def two_ends(defs, body):
+    """Whether two underlined spans are the clue's first and last words with
+    at most MAX_DD_GAP words between: the two halves of a double definition,
+    where a split definition or a blogger's emphasis sits elsewhere."""
+    if not defs or len(defs) != 2:
+        return False
+    head, tail = defs
+    a, b = body.find(head), body.rfind(tail)
+    n = lambda s: len(re.findall(r"\w+", s))
+    return 0 <= a and a + len(head) <= b and not n(body[:a]) and not n(body[b + len(tail):]) \
+        and n(body[a + len(head):b]) <= MAX_DD_GAP
+
+
+#: How a word sounds, roughly: spellings of one sound made one (PH, F; a soft
+#: C, S), letters not heard dropped (the GH of NIGHT, a KN's K, an R before a
+#: consonant, as British setters hear it), and then the vowels, which is how
+#: homophones differ most: TUN, TON; COUNCIL, COUNSEL; MONICA, MONIKER.
+SOUND_RULES = [(r"PH", "F"), (r"GH(?![AEIOU])", ""), (r"^KN|^GN|^PN", "N"), (r"^WR", "R"), (r"^PS", "S"),
+               (r"MB$", "M"), (r"CK", "K"), (r"SC(?=[EIY])", "S"), (r"C(?=[EIY])", "S"), (r"SCH", "SH"),
+               (r"C", "K"), (r"Q", "K"), (r"X", "KS"), (r"Z", "S"), (r"DG", "J"), (r"TCH", "CH"), (r"WH", "W"),
+               (r"(?<=[AEIOUY])R(?=E?(?:[^AEIOUY]|$))", ""), (r"(?<=[AEIOUY])[WYH]", ""), (r"^H", ""),
+               (r"(.)\1+", r"\1")]
+#: Nor is a word heard as one this much shorter or longer: EYESORE is no I SAW.
+MIN_HEARD_SHARE = 0.6
+
+
+def _az(s):
+    return "".join(f for f in map(fold, s or "") if "A" <= f.upper() <= "Z").upper()
+
+
+def _sounded(s):
+    s = _az(s)
+    for a, b in SOUND_RULES:
+        s = re.sub(a, b, s)
+    return s
+
+
+def sounds_alike(heard, answer):
+    """Whether `heard` is said as `answer` is, roughly (SOUND_RULES): the same
+    consonants, both or neither opening on a vowel, and about as long."""
+    a, b = _sounded(heard), _sounded(answer)
+    key = lambda s: re.sub("[AEIOUY]", "", s)  # ARSE is no ARSIS: a vowel between keeps two S's
+    x, y = len(_az(heard)), len(_az(answer))
+    return bool(key(a)) and key(a) == key(b) and (a[0] in "AEIOUY") == (b[0] in "AEIOUY") \
+        and min(x, y) >= MIN_HEARD_SHARE * max(x, y)
+
+
+def spooned(heard):
+    """The two words `heard` with their opening consonants swapped, as
+    Spooner says them: COOK BASES, [BOOK, CASES]; None unless two words."""
+    ws = [w for w in map(_az, heard.split()) if w]
+    if len(ws) != 2:
+        return None
+    (o1, r1), (o2, r2) = (re.match(r"(QU|[^AEIOU]*)(.*)", w).groups() for w in ws)
+    return [o2 + r1, o1 + r2]
+
+
+def _heard_from(heard, src, body):
+    """`src` with the word of the clue `body` just before it, where that is the
+    first word heard: "A SALT (seaman)" is heard in "A seaman", not "seaman"."""
+    first = _az(heard.split()[0]) if " " in heard.strip() else ""
+    at = re.search(r"(?<![\w'’\-])" + re.escape(src) + r"(?!\w)", body, re.IGNORECASE) if first else None
+    word = at and re.search(r"([\w'’\-]+)[^\w'’\-]*$", body[:at.start()])
+    if word and _az(word.group(1)) == first != _az(src.split()[0]):
+        return body[word.start(1):at.end()]
+    return src
+
+
+def heard_blocks(t, blocks, answer, body="", alike=sounds_alike):
+    """A homophone's or a spoonerism's blocks as the app holds them, where the
+    write-up gives the words heard in place of the answer's letters: [(the
+    letters, clue words, {"soundsLike": the words heard})]. A homophone's one
+    block must sound like the whole answer (`alike`, by default sounds_alike);
+    a spoonerism's words, swapped (see spooned), like the answer, and where it
+    is two blocks, each like the one part of the answer it gives. Else
+    `blocks` as they were. A word heard as itself is one of the clue words
+    (see _heard_from)."""
+    answer = _az(answer)
+    if t not in (["homophone"], ["spoonerism"]) or not blocks or any(len(b) != 2 for b in blocks) \
+            or _az("".join(b[0] for b in blocks)) == answer:
+        return blocks
+    heard = [b[0] for b in blocks]
+    as_heard = lambda gives, b: [gives, _heard_from(b[0], b[1], body), {"soundsLike": b[0]}]
+    if t == ["homophone"]:
+        ok = len(blocks) == 1 and alike(heard[0], answer)
+        return [as_heard(answer, blocks[0])] if ok else blocks
+    said = spooned(" ".join(heard))
+    if not said or not alike(" ".join(said), answer) or len(blocks) > 2:
+        return blocks
+    if len(blocks) == 1:
+        return [as_heard(answer, blocks[0])]
+    cuts = [k for k in range(1, len(answer))
+            if alike(said[0], answer[:k]) and alike(said[1], answer[k:])]
+    if len(cuts) != 1:
+        return blocks
+    k = cuts[0]
+    return [as_heard(answer[:k], blocks[0]), as_heard(answer[k:], blocks[1])]
+
+
+def publishable(fact):
+    """The facts of one clue that ship: what was found, minus the bookkeeping.
+
+    More than one underlined span is a definition only as the two halves of a
+    double definition; otherwise it is a split definition or a blogger's
+    emphasis, and the site has no sentence that states it truthfully."""
+    out = {k: fact[k] for k in ("definition", "type", "indicators") if k in fact}
+    if fact.get("blocks"):
+        out["blocks"] = [list(b) for b in fact["blocks"]]
+    defs = out.get("definition", [])
+    if len(defs) > 1 and not (len(defs) == 2 and out.get("type") == ["double_definition"]):
+        del out["definition"]
+    return out
+
+
+#: A block's marks while parsing, [letters, clue words, *marks], and the key
+#: each is written as: fodder an anagram shuffles, and a piece letter_facts.py
+#: split the answer into rather than one the blogger named.
+ANAGRAMMED, INFERRED = "anagrammed", "inferred"
+#: A clue's fields as they are held while parsing -> as the files name them.
+FILE_FIELDS = {"definition": "definitions", "type": "type", "typeCore": "typeCore",
+               "indicators": "indicators", "blocks": "blocks", "inferred": "inferred"}
+
+
+def block_json(b):
+    """A block [letters, clue words, *marks] as the files hold it: the
+    annotation's block object, {clueFragment, gives}, with anagramOf for
+    anagram fodder, soundsLike for the word a homophone's clue words are
+    heard as, and inferred for a piece letter_facts.py read off the letters."""
+    gives, frag, *how = b
+    heard = next((h["soundsLike"] for h in how if isinstance(h, dict)), None)
+    return {"clueFragment": frag, "gives": gives, **({"anagramOf": True} if ANAGRAMMED in how else {}),
+            **({"soundsLike": heard} if heard else {}), **({"inferred": True} if INFERRED in how else {})}
+
+
+def block_list(b):
+    """block_json's inverse: a file's block object as [letters, clue words, *marks]."""
+    return [b["gives"], b["clueFragment"], *([INFERRED] if b.get("inferred") else []),
+            *([ANAGRAMMED] if b.get("anagramOf") else []),
+            *([{"soundsLike": b["soundsLike"]}] if b.get("soundsLike") else [])]
+
+
+def fact_json(fact, clue):
+    """One clue's facts as tools/data/blog_facts/ holds them, in the
+    annotation's shape: `definitions` [{text, at}] placed in `clue` by
+    tools/definitions.py, `blocks` block objects, and `inferred` naming those
+    fields. A definition place() cannot put in one spot is left out, and so is
+    a field this does not know."""
+    out = {FILE_FIELDS[k]: v for k, v in fact.items() if k in FILE_FIELDS and k not in ("definition", "blocks")}
+    if fact.get("blocks"):
+        out["blocks"] = [block_json(b) for b in fact["blocks"]]
+    if fact.get("definition"):
+        try:
+            out["definitions"] = place([{"text": t} for t in fact["definition"]], clue or "")
+        except ValueError:
+            pass
+    inferred = sorted(FILE_FIELDS[k] for k in fact.get("inferred", ()) if FILE_FIELDS[k] in out)
+    if inferred:
+        out["inferred"] = inferred
+    else:
+        out.pop("inferred", None)
+    return out
+
+
+def row_line(pid, row):
+    """One puzzle's line of a facts file, without its separating comma: its
+    clues in id order, every object's keys in the schema's order."""
+    return json.dumps(pid) + ": " + json.dumps(
+        order({**row, "entries": dict(sorted(row["entries"].items()))}, "#/$defs/blogFacts"),
+        ensure_ascii=False)
+
+
+def fact_from_json(entry):
+    """fact_json's inverse: a clue's facts off a file, as they are held while parsing."""
+    names = {v: k for k, v in FILE_FIELDS.items()}
+    out = {names[k]: v for k, v in entry.items() if k not in ("definitions", "blocks", "inferred")}
+    if entry.get("definitions"):
+        out["definition"] = [d["text"] for d in entry["definitions"]]
+    if entry.get("blocks"):
+        out["blocks"] = [block_list(b) for b in entry["blocks"]]
+    if entry.get("inferred"):
+        out["inferred"] = sorted(names[k] for k in entry["inferred"])
+    return out
+
+
+def clues_of(pid):
+    """{entry id: clue} of puzzle `pid`, {} where we hold no such puzzle."""
+    from puzzle_paths import find
+    path = find(pid)
+    return {entry_id(e): e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
+
+
+STARTED = time.monotonic()
+
+#: Where the day of the last letter pass (letter_facts.write) is kept; CT_LETTER_STAMP moves it.
+LETTER_STAMP = Path(os.environ.get("CT_LETTER_STAMP") or Path.home() / ".cache" / "cryptic-letter-pass-day")
+
+
+def letter_pass_due(today=None):
+    """Whether the letter pass has not run today: it is the job's costly part (the
+    corpus-wide lexicons), and a day's new posts change what it infers little."""
+    try:
+        return LETTER_STAMP.read_text().strip() != (today or time.strftime("%Y-%m-%d"))
+    except FileNotFoundError:
+        return True
+
+
+def _same_blocks(a, b):
+    """Whether two block lists are one blog's, a fragment the letter pass widened or
+    trimmed ("a holy book", "holy book") counting as the same."""
+    if len(a) != len(b):
+        return False
+    for x, y in zip(a, b):
+        fx, fy = (x[1] if len(x) > 1 else "").lower(), (y[1] if len(y) > 1 else "").lower()
+        if x[:1] != y[:1] or not (fx.endswith(fy) or fy.endswith(fx)):
+            return False
+    return True
+
+
+def _inferred_over(held, got):
+    """Whether the clue facts `held` (an entry of the sidecar the letter pass wrote) are
+    `got`, what the blog states, plus only what the pass inferred. A type the blog gave
+    and the pass widened (hidden_word to hidden_word, reversal) is that."""
+    from letter_facts import stated
+    a, b = stated(held), dict(got)
+    if "type" in held.get("inferred", ()) and b.get("type") and held.get("type", [])[:len(b["type"])] == b["type"]:
+        a = {**a, "type": b["type"]}
+    if a == b:
+        return True
+    ba, bb = a.pop("blocks", []), b.pop("blocks", [])
+    return a == b and _same_blocks(ba, bb)
+
+
+def regrafted(rec, old):
+    """`rec`, a puzzle's sidecar as the blogs alone give it, with the inferred layer of
+    `old`, the sidecar already there (the letter pass, letter_facts.stated), put back on
+    each clue whose blog side is as it was; a clue that moved, or is new, is `rec`'s,
+    left to the next pass. `old` itself where nothing moved."""
+    if not old or old.get("entries") is None:
+        return rec
+    new, held = rec["entries"], old["entries"]
+    if {k: v for k, v in rec.items() if k != "entries"} != {k: v for k, v in old.items() if k != "entries"}:
+        return rec
+    entries = {}
+    for eid in sorted({*new, *held}):
+        if eid in held and _inferred_over(fact_from_json(held[eid]), fact_from_json(new[eid]) if eid in new else {}):
+            entries[eid] = held[eid]
+        elif eid in new:
+            entries[eid] = new[eid]
+    if entries == held:
+        return old
+    return {**rec, "entries": entries}
+
+
+def _regraft(body, data):
+    """What write() makes a held puzzle's sidecar: its line's `body` (the
+    blogs' side) regrafted onto `data`, the bytes of the sidecar there."""
+    import blog_store
+    rec = json.loads(body)
+    got = regrafted(rec, json.loads(data.decode("utf-8")))
+    return body if got is rec else blog_store.encode(got)
+
+
+class _Regrafts:
+    """_regraft, done only where its inputs moved: a puzzle whose line and
+    sidecar bytes are those an earlier write regrafted to one of them is
+    given that one unread. Kept in INDEX under a key of the inputs and of
+    the code and schema _regraft reaches."""
+
+    def __init__(self):
+        import code_reach
+        import puzzle_schema
+        self.index = Index()
+        self.held = self.index.regrafts()
+        self.code = "\0".join([code_reach.key("blog_facts", {"_regraft"}),
+                               code_reach.key("letter_facts", {"stated"}),
+                               hashlib.sha1(puzzle_schema.SCHEMA_PATH.read_bytes()).hexdigest()]).encode()
+        self.done = 0
+
+    def __call__(self, pid, body, path):
+        data = Path(path).read_bytes()
+        h = hashlib.sha1(self.code)
+        for part in (pid.encode(), body.encode("utf-8"), data):
+            h.update(len(part).to_bytes(8, "big"))
+            h.update(part)
+        key = h.hexdigest()
+        k, kept = self.held.get(pid, (None, None))
+        if k == key:
+            return data.decode("utf-8") if kept == "old" else body
+        self.done += 1
+        out = _regraft(body, data)
+        kept = "body" if out == body else "old" if out.encode("utf-8") == data else None
+        if kept:
+            self.index.put_regraft(pid, key, kept)
+        return out
+
+    def close(self):
+        self.index.close()
+
+
+def write(best, series, spool, previous=None):
+    """Lay out the published lines `spool` holds for `best`, extract's joins:
+    one sidecar a puzzle (tools/blog_store.py; only those whose bytes moved are
+    rewritten, those that lost their facts deleted), and the leads file.
+    `previous`: a puzzle keeps the inferred fields of the sidecar it has (regrafted)
+    where the blogs' side is unchanged. Always passed: a letter pass that is put off,
+    out of memory or killed (rc 75, 137) leaves these files as this write made them, and
+    the next unit's commit takes them, so a blogs-only write would commit every
+    inferred type, block and definition away (11-03: 59042892, smoke_test red)."""
+    import blog_store
+    OUT.mkdir(parents=True, exist_ok=True)
+    held = blog_store.files() if previous else {}
+    # One puzzle a line, so letter_facts.Leads can parse a puzzle's only when it is asked for.
+    _write_lines(LEADS, (r["leads"] for _, r in sorted(best.items()) if r["leads"]), spool)
+    n = 0
+    regraft = _Regrafts() if previous else None
+
+    def bodies():
+        nonlocal n
+        for pid, r in sorted(best.items()):
+            if r["line"]:
+                n += 1
+                body = blog_store.body_of_line(spool.get(r["line"]))
+                if previous and pid in held:
+                    body = regraft(pid, body, held[pid])
+                yield pid, body
+
+    written, deleted, unfiled = blog_store.sync(bodies())
+    if regraft:
+        regraft.close()
+        print(f"blog facts: {regraft.done} sidecars regrafted, the rest as an earlier run left them", file=sys.stderr)
+    print(f"blog facts: {written} sidecars written, {deleted} deleted, {unfiled} for puzzles not held", file=sys.stderr)
+    return n
+
+
+def _write_lines(path, keys, spool):
+    """Write the spooled lines `keys` to `path` as one JSON object, a line each."""
+    tmp = path.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        f.write("{\n")
+        for i, key in enumerate(keys):
+            f.write((",\n" if i else "") + spool.get(key))
+        f.write("\n}\n")
+    tmp.replace(path)
+
+
+def measure(best, series):
+    rows = collections.defaultdict(collections.Counter)
+    for pid, r in best.items():
+        c = rows[(r["blog"], series[pid])]
+        c["puzzles"] += 1
+        c["clues"] += r["clues"]
+        for f in r["facts"].values():
+            c["found"] += 1
+            c["definition"] += "definition" in f
+            c["badSpan"] += "badSpan" in f
+            c["type"] += "type" in f
+            c["indicators"] += "indicators" in f
+            c["blocks"] += "blocks" in f
+    print("Percentages are of every clue in the joined puzzles.")
+    print(f"{'blog':17} {'series':16} {'puzzles':>7} {'clues':>7} {'found%':>6} {'def%':>6} {'type%':>6} {'ind%':>6} {'blk%':>6} {'bad%':>5}")
+    for (blog, s), c in sorted(rows.items(), key=lambda kv: (kv[0][0], str(kv[0][1]))):
+        n = max(1, c["clues"])
+        print(f"{blog:17} {s!s:16} {c['puzzles']:7} {c['clues']:7} {100 * c['found'] / n:6.1f} {100 * c['definition'] / n:6.1f} "
+              f"{100 * c['type'] / n:6.1f} {100 * c['indicators'] / n:6.1f} {100 * c['blocks'] / n:6.1f} {100 * c['badSpan'] / n:5.1f}")
+
+
+#: Hand-read truth for a spread of clues per blog and era: what each post
+#: says the definition, blocks, indicators and type are. Scored by --score;
+#: the parser was tuned on the dev rows, and the held-out rows say how well
+#: that generalises. Posts the blogger wrote as prose count against recall.
+GOLD = ROOT / "tools" / "blog_facts_gold.jsonl"
+
+
+def _items(field, value):
+    """A field of the facts as the set of things scored: spans, blocks as
+    (letters, clue words), indicator words, the type's parts."""
+    norm = lambda t: t.lower().replace("’", "'").strip()
+    if field == "definition":
+        return {norm(d) for d in value or ()}
+    if field == "blocks":  # a block letter_facts.py read off the letters is not the post's; a heard one is its words
+        # The gold lists the pieces the wordplay builds, not the fodder an anagram shuffles.
+        heard = lambda l, how: next((h["soundsLike"] for h in how if isinstance(h, dict) and "soundsLike" in h), l)
+        return {(atom_letters(heard(l, how).upper()), norm(src)) for l, src, *how in value or ()
+                if "inferred" not in how and "anagrammed" not in how}
+    if field == "indicators":
+        return {w for i in value or () for w in re.findall(r"[\w'’]+", norm(i))}
+    return {frozenset(value)} if value else set()
+
+
+def score(path=GOLD):
+    """Precision and recall per blog and field against the hand-read truth."""
+    from letter_facts import stated
+    rows = [json.loads(l) for l in Path(path).read_text(encoding="utf-8").splitlines() if l.strip()]
+    by_number, _ = load_puzzles(bigdave_records())
+    sources = {pid: src for lst in by_number.values() for pid, src, _ in lst}
+    tally = collections.defaultdict(collections.Counter)
+    misses = []
+    for r in rows:
+        post = load_post(BLOGS[r["blog"]][0] / "posts" / r["post"])
+        got = publishable(facts_for_post(r["blog"], entries_of(sources[r["puzzle"]]), post).get(r["entry"], {}))
+        got = stated(got)  # what letter_facts.py read off the letters is not the post's
+        if got.get("indicators"):
+            got["indicators"] = [i["text"] for i in got["indicators"]]
+        for field in ("definition", "blocks", "indicators", "type"):
+            g, p = _items(field, r["gold"].get(field)), _items(field, got.get(field))
+            c = tally[(r.get("split", "dev"), r["blog"], field)]
+            c["tp"] += len(g & p)
+            c["fp"] += len(p - g)
+            c["fn"] += len(g - p)
+            if p - g:
+                misses.append(f"FP {r['blog']} {r['puzzle']} {r['entry']} {field}: {sorted(map(str, p - g))}")
+            if g - p:
+                misses.append(f"FN {r['blog']} {r['puzzle']} {r['entry']} {field}: {sorted(map(str, g - p))}")
+    print(f"{'split':9} {'blog':17} {'field':11} {'P':>6} {'R':>6} {'tp':>4} {'fp':>4} {'fn':>4}")
+    for (split, blog, field), c in sorted(tally.items()):
+        pr = c["tp"] / (c["tp"] + c["fp"]) if c["tp"] + c["fp"] else float("nan")
+        rc = c["tp"] / (c["tp"] + c["fn"]) if c["tp"] + c["fn"] else float("nan")
+        print(f"{split:9} {blog:17} {field:11} {pr:6.2f} {rc:6.2f} {c['tp']:4} {c['fp']:4} {c['fn']:4}")
+    return misses
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--blog", action="append", choices=sorted(BLOGS))
+    ap.add_argument("--measure", action="store_true", help="print coverage per blog and series")
+    ap.add_argument("--sample", type=int, help="print N random extractions to check by hand")
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--dump", help="also write every joined record, bookkeeping included, as JSON lines")
+    ap.add_argument("--from-dump", help="read the joins from an earlier --dump instead of the caches")
+    ap.add_argument("--jobs", type=int, default=2,
+                    help="worker processes (default %(default)s); 1 parses in this process")
+    ap.add_argument("--if-changed", action="store_true",
+                    help="exit without parsing when no input has changed since the last write")
+    ap.add_argument("--letter-pass", action="store_true",
+                    help="run letter_facts' lexicon pass even if it already ran today")
+    ap.add_argument("--reparse", nargs="*", choices=sorted(BLOGS), metavar="BLOG",
+                    help="parse the posts of these blogs (all when none is named) even where a join is "
+                         "cached: the one-off run after a change to the parser")
+    ap.add_argument("--score", nargs="?", const=str(GOLD), metavar="GOLD",
+                    help="score the parser against hand-read truth and exit (default %(const)s)")
+    args = ap.parse_args()
+    if args.score:
+        print("\n".join(score(args.score)))
+        return
+    import fcntl  # not at the top: letter_facts imports this module on the desktop, and Windows has no fcntl
+
+    # A full parse at nice 0 in every copy of this repo at once starves the bridge
+    # sharing this machine. So it runs at NICE, and one at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
+    # second clone kept for an old-vs-new comparison waits its turn too.
+    renice(NICE)
+    # Out of time under the unit's deadline (tools/budget.py), a pass stops
+    # with its slices stored; tools/data/blog_facts/ is half-written by then,
+    # so the exit is DEFERRED_RC, which daily_update.sh commits nothing for.
+    import budget
+    budget.STOP_RC = DEFERRED_RC
+    lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # held until exit: the lock lasts the run
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        print("another blog_facts.py is running; waiting for it to finish", file=sys.stderr)
+        fcntl.flock(lock, fcntl.LOCK_EX)
+    print(f"{time.strftime('%H:%M:%S')} blog_facts: reading the puzzles' rows for the inputs digest", file=sys.stderr, flush=True)
+    digest = inputs_digest()
+    print(f"{time.strftime('%H:%M:%S')} blog_facts: inputs digest done", file=sys.stderr, flush=True)
+    if args.reparse is not None:
+        args.reparse = args.reparse or sorted(BLOGS)
+    if args.if_changed and args.reparse is None and STAMP.exists() and STAMP.read_text().strip() == digest:
+        print(f"blog facts are current: no post or clue change since {STAMP.relative_to(ROOT)} was written")
+        return
+    if not (args.blog or args.from_dump):
+        why = desktop_wait()
+        if why:
+            print(f"the desktop is busy ({why}): not run here, tried again later")
+            sys.exit(DEFERRED_RC)
+    # The lexicon pass alone grew past 5 GB on a host with swap full and was
+    # OOM-killed (rc 137, 11-03), which alerts as a failure: with no room to
+    # begin, put it off as the busy desktop does. Its stored chunks carry over.
+    import mem_gate
+    if why := mem_gate.short():
+        print(f"no memory to begin ({why}): not run, tried again later")
+        sys.exit(DEFERRED_RC)
+    # The letter pass (lexicons over the whole corpus) runs once a day; the other
+    # runs keep each puzzle's inferred fields as they stand. A run limited to some
+    # blogs, or from a dump, is not the nightly and never stamps the day.
+    nightly = not (args.blog or args.from_dump)
+    skip_letters = nightly and not args.letter_pass and not letter_pass_due()
+
+    def joined_and_written():
+        if args.from_dump:
+            lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
+            best, spool = {}, Spool()
+            for r in map(json.loads, lines):
+                r["line"], r["leads"] = published(r["id"], r["blog"], r["url"], r["facts"])
+                keep(best, r, spool)
+            series = load_puzzles(bigdave_records())[1]
+        else:
+            best, series, spool = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs,
+                                          keep_facts=bool(args.dump or args.measure or args.sample),
+                                          reparse=args.reparse or ())
+        if args.dump:
+            with open(args.dump, "w", encoding="utf-8") as f:
+                f.writelines(json.dumps({k: v for k, v in r.items() if k not in ("line", "leads")}, ensure_ascii=False)
+                             + "\n" for r in best.values())
+        if args.measure:
+            measure(best, series)
+        if args.sample:
+            rng = random.Random(args.seed)
+            pool = [(r, eid, publishable(f)) for r in best.values() for eid, f in r["facts"].items()]
+            pool = [p for p in pool if p[2]]
+            for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
+                print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
+        print(f"wrote blog facts for {write(best, series, spool, previous=True)} puzzles to {OUT.relative_to(ROOT)}")
+
+    # Before the letter pass the joins are parsed and written in a child of
+    # their own: what they freed stayed in this process's heap (~400MB, with
+    # the lexicons on top the run passed 1.5GB), where a child's goes back
+    # whole when it exits.
+    if skip_letters:
+        joined_and_written()
+    else:
+        in_child(joined_and_written)
+    if skip_letters:
+        print(f"letter pass already ran today ({LETTER_STAMP}): inferred fields kept")
+        # The same wall and CPU figures a full run's steps print (letter_facts.timed), so the saving can be measured.
+        cpu = time.process_time() + sum(os.times()[2:4])
+        print(f"{time.strftime('%H:%M:%S')} blog_facts (letter pass skipped): done {time.monotonic() - STARTED:.0f}s wall, "
+              f"{cpu:.0f}s CPU", file=sys.stderr, flush=True)
+        STAMP.write_text(digest + "\n")
+        return
+    import letter_facts
+    with letter_facts.timed("leads read"):
+        said = letter_facts.read_leads(required=True)
+    with letter_facts.timed("corpus packed"):
+        pack_store = letter_facts.open_pack_store()
+        corpus = letter_facts.packed_rows(pack_store)
+        if pack_store is not None:
+            pack_store.close()
+    with letter_facts.timed("indicator votes"):
+        votes = letter_facts.indicator_votes(corpus)
+    n = letter_facts.write(corpus, votes, said)
+    print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
+          f"left untyped, blocks for {n['blocks']} whose blocks they left out, a definition for "
+          f"{n['definition']} with none underlined, indicators for {n['indicators']} whose indicators they left out")
+    if nightly:
+        LETTER_STAMP.parent.mkdir(parents=True, exist_ok=True)
+        LETTER_STAMP.write_text(time.strftime("%Y-%m-%d") + "\n")
+        STAMP.write_text(digest + "\n")
+
+
+#: While the desktop is busy, a full run (its letter_facts pass reads here
+#: then, slowly, in letter_facts.FALLBACK_JOBS processes) waits for it,
+#: exiting DEFERRED_RC: daily_update.sh's exit for a unit that never began (no
+#: commit, no alert, retried). Once runs have been put off for DEFER_HOURS
+#: (since the DEFERRED file's time) one runs here.
+DEFERRED_RC = 75
+DEFER_HOURS = 6
+DEFERRED = Path.home() / ".cache" / "cryptic-blog-facts.deferred"
+
+
+def desktop_wait(now=None):
+    """Why this run waits for the desktop, or None: it is busy and runs have
+    been put off for under DEFER_HOURS."""
+    import desktop_busy
+    import letter_facts
+    why = desktop_busy.busy([h for h in os.environ.get("OCR_REMOTE", letter_facts.DESKTOPS).split(",") if h])
+    now = time.time() if now is None else now
+    if why and not DEFERRED.exists():
+        DEFERRED.parent.mkdir(parents=True, exist_ok=True)
+        DEFERRED.write_text("")
+        os.utime(DEFERRED, (now, now))
+    if not why or now - DEFERRED.stat().st_mtime >= DEFER_HOURS * 3600:
+        if why:
+            print(f"the desktop is busy ({why}), but runs have been put off for {DEFER_HOURS}h: running here",
+                  file=sys.stderr)
+        DEFERRED.unlink(missing_ok=True)
+        return None
+    return why
+
+
+#: The niceness this runs at: under the bridge (0), which must stay responsive,
+#: and over the OCR backfill clients (19, tools/ocr_full_pass.sh), which have
+#: no deadline while this one has its unit's limit.
+NICE = 10
+
+
+def renice(level):
+    """Run at niceness `level`, or the current one if that is already higher."""
+    os.nice(max(0, level - os.nice(0)))
+
+
+if __name__ == "__main__":
+    main()

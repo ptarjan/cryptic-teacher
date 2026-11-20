@@ -1,0 +1,300 @@
+#!/bin/bash
+# Read every archive.org edition, Gale page and Trove article the scan
+# filers find due, to the end: never read, inputs changed, read without the
+# VLM that now answers, or read before REREAD_BEFORE (each filer's
+# due_reason), and the sources annotation asked to be read again; and,
+# beside the reads from the start, fetch what is missing from archive.org
+# and Trove, for the reads to take up.
+#
+# All of it is one queue of small units (tools/edition_queue.py): an
+# edition's scan, an edition's or a Trove article's read and filing, an
+# archive.org edition's or a Trove article's (or its clue zones') fetch,
+# each with its own time limit and lock and its own ledger row, in pools of
+# their own, the most urgent first (an edition just laid out, a Gale page
+# Paul saved or an archive.org fetch, then the never-read newest first,
+# then the targeted re-reads, then the whole-corpus ones) and planned again
+# every minute, the editions just laid out looked for apart from the plan
+# (edition_queue.fresh), so new input is read within minutes, not behind
+# hours of re-reads, and a slow unit holds up only its own slot. A fetch
+# never waits on a read nor a read on it.
+#
+#     (started by: python3 tools/corpus_queue.py tick, hourly, whenever no
+#     corpus job runs, and by tools/gale_inbox.py sync (kick) within minutes
+#     of a Gale page laid out while none runs; `corpus_queue.py adopt PID`
+#     claims one started by hand)
+#
+# This is the one standing corpus job and the only OCR runner: a held pass
+# (corpus_queue.py stop) holds the fresh pages' reads too. It takes no edition list: the filers
+# decide what is due, so running it again is always safe and a pass with
+# nothing due ends in minutes. A source read while the VLM was down is read
+# again by the first pass after it answers.
+#
+# A code change makes nothing due by itself: whoever makes one that should
+# change past readings sets REREAD_BEFORE to the time it landed, and the next
+# pass reads again every source last read before then (each filer's
+# --reread). Rows read after it are done, so slices and reruns resume, not
+# restart. A Canberra Times reprint downloaded or read after its London
+# edition makes that edition due by itself: the reprint's cached texts are
+# among the edition's inputs (file_archive_org_puzzles.inputs_of). So does a
+# puzzle filed off an edition holding a clue ocr_clues.stray flags (a
+# doubled word, a stray letter): the read mends or blanks it (mend_held),
+# and the same for a Trove article (file_trove_puzzles.inputs_of).
+#
+# The fetches are units of the same queue (--fetch): an archive.org
+# edition not in done.tsv at the current DETECTOR_VERSION, so bumping it
+# makes the editions due by itself (fetch_archive_org_editions.fetch_unit);
+# the clue zones of a Trove article the filer left pending, then a listed
+# Trove article not yet cached (fetch_trove.fetch_unit, every unit pacing
+# Trove to one request a second between them). What a fetch lands is
+# scanned and read from the next plan, a minute later. The filers only read
+# caches. A pass that ends having fetched something starts the next
+# one at once (tools/corpus_queue.py chain), which reads what it fetched, so
+# a backlog does not wait for the hourly tick.
+# Resumable: each unit appends its own ledger row as it ends (filed.jsonl,
+# filed-gale.jsonl in tools/downloads.py's ARCHIVE_ORG, the Trove filer's
+# filed.jsonl, archive.org's done.tsv), and a rerun picks up where a killed
+# one stopped.
+# A ledger row marks its source read, so the puzzles it filed must reach git
+# or they are never filed again: each filer runs under tools/durable.sh,
+# which commits and pushes them every DURABLE_EVERY seconds while it reads,
+# and on a stop (SIGTERM: corpus_queue.py stop) ends the filer and commits
+# before exiting; what a SIGKILL or reboot leaves in the tree the next start
+# salvages (CT_SALVAGE_PATHS). The queue runs in OCR_FULL_PASS_CHUNK-second
+# slices, each under a hard `timeout`, the tree moved to origin/master
+# between them while the units a slice handed over still run (no pause),
+# and within them after each checkpoint (DURABLE_RESYNC): every unit starts
+# as a fresh process off the tree, and the queue re-execs itself when its own
+# code moves, so a fix pushed to master reaches the next unit started; this
+# script re-execs itself between slices when its own shell code moves.
+#
+# Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
+# All of puzzles/, not the series it files: a write that moves a file between
+# folders (fetch_puzzle.write_puzzle_file unlinks the old path) is one change.
+# shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
+CT_SALVAGE_PATHS="puzzles"
+# It files puzzles and stamps no page: it reads no generated file
+# (puzzles/index.*, abbreviations.js), so none is rebuilt for it.
+# shellcheck disable=SC2034
+CT_GENERATED=none
+# The whole pass yields to the bridge.
+# A setsid'd job is its own autogroup, which the CPU is shared between by the
+# group's nice: renice alone only ranks it inside the group, so lower both.
+/app/tools/deprioritize.sh -q 19 $$ 2>/dev/null || renice -n 19 $$ >/dev/null
+. "$(dirname "$0")/nightly_worktree.sh"
+cd "$(dirname "$0")/.." || exit 1
+# shellcheck disable=SC2034  # read by the sourced durable.sh
+# The filer records book twins and renames (fetch_puzzle.check_not_copy,
+# unsolved_book_yields) beside what it files. Left uncommitted, the changed
+# file blocked every rebase: 11-12 20:18 the tree stuck 640 commits behind
+# and the queue reloaded every poll for 4.5 h, starting almost nothing.
+# Its corroboration rows (corroborate.LEDGER) did the same 11-14 ~15:00.
+DURABLE_PATHS=(puzzles tools/data/book_twins.json tools/data/renamed_ids.json tools/data/corroboration_ledger.json)
+DURABLE_RESYNC=1
+. tools/durable.sh
+
+# Every line reaches the log as it is printed, never at a slice's end.
+export PYTHONUNBUFFERED=1
+CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
+# A slice starts no source after CHUNK seconds; one still reading this long
+# after is stuck, and the slice ends there (the pass resumes next tick).
+GRACE=1800
+# Each archive.org edition is read on the desktop, the vote and all
+# (tools/ocr_remote.py; OCR_REMOTE= to read here), and so are the clue OCR,
+# an image PDF's page search in the fetch and the Trove filer's grid search,
+# so most of each worker's time is a wait on it: this host keeps the scans'
+# headings, the Trove filer's parsing and the filing, at nice 19, one OCR
+# thread a worker. Whatever is read here (the desktop off or gaming) holds
+# one of ocr_remote's LOCAL_SLOTS (a third of the cores) host-wide, so the 25 workers
+# never put 20 reads on this 4-core host.
+export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}"
+export OCR_THREADS="${OCR_THREADS:-1}"
+WORKERS="${OCR_FULL_PASS_WORKERS:-25}"
+# The last change to the scan filers that should alter past readings: a
+# column ends at a solution heading whose opening is misread ("cotution of
+# Puzzle No 13.682"), and the vote puts back a "(" one reading prints
+# where it kept the ")" (1970s Times blanks). Before it (2026-10-13T19:09:41):
+# a count clue_repair takes from another reading keeps its parts.
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-17T18:55:00+00:00}"
+
+publish() {  # publish <what>: commit and push the puzzles filed so far
+  durable_checkpoint "OCR" || return 1
+  durable_resync || true
+}
+
+# The units still running when a slice ends are handed to the next slice
+# (edition_queue.py --handoff), not waited for: the tree moves to
+# origin/master between slices while they run, and the next slice starts
+# its units from the new tree at once, the handed-over ones counted in its
+# pools. A unit reads a held file only as it writes it, so a move between
+# its start and its write loses nothing; one that leaves a tracked file
+# changed makes the move fail, and it is tried again (resync).
+HANDOFF="$(git rev-parse --git-dir)/edition-queue-handoff.json"
+# The queue touches this as the desktop starts a game (CT_YIELD_HOSTS), and durable_run commits
+# what is filed within seconds, before the units are stopped.
+DURABLE_NOW="$(git rev-parse --absolute-git-dir)/durable-now"
+export DURABLE_NOW
+rm -f "$DURABLE_NOW"
+# A re-exec (below) keeps what the slice before it handed over.
+[ -n "${CT_FULL_PASS_REEXEC:-}" ] || rm -f "$HANDOFF"
+unset CT_FULL_PASS_REEXEC
+handed_over() {  # the pids a slice handed over, one a line
+  [ -f "$HANDOFF" ] && python3 -c 'import json, sys; [print(r["pid"]) for r in json.load(open(sys.argv[1]))]' "$HANDOFF"
+}
+stop_handed_over() {  # a stop between slices: TERM the units no slice holds
+  local pid
+  for pid in $(handed_over); do kill -TERM -- "-$pid" 2>/dev/null; done
+}
+trap 'stop_handed_over; _durable_stop' TERM INT HUP
+
+# Bash keeps the code it parsed at the start, so when a resync moves this
+# script or what it sources, the pass re-execs itself between slices: the same
+# pid (corpus_queue's), the tree's lease on fd 9 and the units the last slice
+# handed over all stay, and the next slice adopts those as before.
+SHELL_FILES=(tools/ocr_full_pass.sh tools/durable.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh)
+shell_sum() {
+  cat "${SHELL_FILES[@]}" 2>/dev/null </dev/null | cksum
+}
+SHELL_SUM=$(shell_sum)
+reexec_if_moved() {
+  local err
+  [ "$(shell_sum)" != "$SHELL_SUM" ] || return 0
+  # The last slice's move may still be writing these files, and an exec
+  # would orphan it: the re-exec waits for it (the mid-slice moves catch
+  # most code changes before a slice ends, so this wait is rare).
+  durable_wait
+  [ "$(shell_sum)" != "$SHELL_SUM" ] || return 0
+  # New code that does not parse would end the pass; it keeps the old.
+  if ! err=$(bash -n tools/ocr_full_pass.sh 2>&1); then
+    echo "the tree's tools/ocr_full_pass.sh does not parse, so the pass keeps its old code: $err"
+    SHELL_SUM=$(shell_sum)
+    return 0
+  fi
+  echo "=== shell code moved: re-execing onto $(git rev-parse --short HEAD) ==="
+  export CT_FULL_PASS_REEXEC=1
+  exec "$BASH" -c '. "$0"' "$PWD/tools/ocr_full_pass.sh"
+}
+
+resync() {  # move the tree to origin/master, again while a handed-over unit keeps it changed
+  local n
+  for n in 1 2 3; do
+    durable_checkpoint "OCR" || echo "durable: checkpoint failed before the move"
+    durable_resync && return 0
+    sleep 20
+  done
+  echo "the tree stays where it is until the next slice's end"
+}
+
+RELOAD_RC=75  # tools/hot_reload.py's RELOAD_RC: the queue ended to be reloaded
+reload_resync() {  # the move, three tries, without the long wait resync gives up after
+  local n
+  for n in 1 2 3; do
+    durable_checkpoint "OCR" || echo "durable: checkpoint failed before the move"
+    durable_resync && return 0
+    sleep 5
+  done
+  return 1
+}
+
+slices() {  # slices <what> <filer command...>: run the filer until nothing is left
+  local what="$1" out rc pids before
+  shift
+  while :; do
+    echo "=== $what: slice from $(date '+%F %T') ==="
+    # Streamed as it goes (a line per source read), so the log shows what it
+    # is doing now; the copy in $out is read for the slice's tally. A slice's
+    # own file: units it hands over still write to it, and it is followed
+    # until they end.
+    out=$(mktemp) || return 1
+    DURABLE_END=later DURABLE_TEE="$out" durable_run "OCR" \
+      timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait --handoff "$HANDOFF"
+    rc=$?
+    pids=$(handed_over | tr '\n' ' ')
+    if [ -n "$pids" ]; then
+      (
+        while :; do
+          up=""
+          for p in $pids; do kill -0 "$p" 2>/dev/null && up=1; done
+          [ -n "$up" ] || exit 0
+          sleep 5
+        done
+      ) &
+      tail -c "+$(($(stat -c %s "$out") + 1))" -f --pid=$! "$out" &
+    fi
+    if [ "$rc" -eq "$RELOAD_RC" ]; then
+      # A reload (kill -HUP the queue's python, or origin/master's tools/ code
+      # moved; tools/hot_reload.py): the units running were handed over, so
+      # move the tree to origin/master now, before the next slice, which then
+      # starts the new code at once instead of after the cycle's end. A move
+      # that did not happen (a tracked file changed, code.lock busy) is not
+      # started over at once: the queue would ask again within seconds.
+      echo "=== $what: reload asked; moving the tree to origin/master ==="
+      before=$(git rev-parse HEAD)
+      durable_wait
+      reload_resync
+      if [ "$(git rev-parse HEAD)" = "$before" ] && ! git merge-base --is-ancestor origin/master HEAD; then
+        echo "the tree did not move; the next slice starts in 60s"
+        sleep 60
+      fi
+      reexec_if_moved
+      continue
+    fi
+    if [ "$rc" -ne 0 ] || ! grep -q "left for the next run" "$out"; then
+      resync
+      [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; return 1; }
+      return 0
+    fi
+    # The next slice starts at once and this one's commit, pushes and move
+    # run beside it (durable_background): done in turn they left the desktop
+    # idle for 1-3 minutes an hour (10-13). The next slice's checkpoints, a
+    # stop's commit and a re-exec wait for them.
+    durable_background resync
+    reexec_if_moved
+  done
+}
+
+mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
+# Refresh the Times progress page before the pass
+# (tools/gale_inbox.py sync; tools/gale_fetch.py lays the Gale editions out
+# itself). The cryptic-gale-inbox plugin does the same every minute.
+# OCR_FULL_PASS_NO_SYNC=1 skips it on a host that cannot reach the Mac
+# folder (the desktop): the plugin there publishes the same page.
+if [ -z "${OCR_FULL_PASS_NO_SYNC:-}" ]; then
+  python3 tools/gale_inbox.py sync ||
+    echo "gale_inbox sync failed (rc=$?); the progress page is not refreshed"
+fi
+finish() {  # finish <rc>: say so and exit
+  echo "=== full pass done $(date '+%F %T') (rc=$1) ==="
+  exit "$1"
+}
+# Every edition, Trove article and Listener page, one unit each
+# (tools/edition_queue.py; the Listener pages tools/gale_fetch.py
+# downloads from Gale's Listener Historical Archive, each read and filed
+# where grid and clues agree):
+# an edition's scan, an edition's or article's read and filing, or a fetch,
+# each in a process of its own with its own time limit and lock, adding its
+# own ledger row, the most urgent first: the editions just laid out, then
+# the Gale Listener pages, then
+# the never-read and the re-reads annotation asked for, then those whose
+# inputs moved, then the re-reads REREAD_BEFORE makes due. The queue is
+# planned again every minute, so a source that lands mid-slice is read
+# within minutes, and a read waits only on the scans its solution needs.
+# Each slice starts nothing after CHUNK seconds, lets its units finish, and
+# the tree moves to origin/master before the next.
+# TROVE_WORKERS is the Trove pool's ceiling: its units (and the Listener's)
+# work on this host's CPU, so each starts only while a core is idle
+# (edition_queue.local_cpu, mem_gate.idle_room); the burn keeps the rest.
+TROVE_WORKERS="${OCR_FULL_PASS_TROVE_WORKERS:-6}"
+slices "editions off archive.org and Gale, Trove articles, Listener pages, and their fetches" python3 tools/edition_queue.py run \
+  --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" --trove-workers "$TROVE_WORKERS" \
+  --fetch archive.org --fetch trove || finish 1
+# Fill the canberra files' empty answers from solution grids fetched since
+# they were filed (a puzzle's solution prints in a later article).
+nice -n 19 python3 tools/trove_solution_ocr.py --fill ||
+  echo "trove_solution_ocr --fill failed (rc=$?); the answers read before stand"
+# Name the London Times puzzle each canberra file reprints (source.reprintOf).
+# The Times reads match too, but before this pass's canberra files exist.
+nice -n 19 python3 tools/file_archive_org_puzzles.py --match-canberra ||
+  echo "file_archive_org_puzzles --match-canberra failed (rc=$?); canberra files keep the reprintOf they had"
+publish "Canberra reprints named" || echo "commit failed for the Canberra reprints"
+
+finish 0

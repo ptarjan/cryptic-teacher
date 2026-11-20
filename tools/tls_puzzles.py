@@ -1,0 +1,904 @@
+#!/usr/bin/env python3
+"""File the newest Times Literary Supplement crossword off the TLS's own page image.
+
+    python3 tools/tls_puzzles.py --latest      # daily_update.sh: file the newest issue (exit 3: held)
+    python3 tools/tls_puzzles.py --backfill    # file every free back issue, a commit each (resumes)
+
+The TLS crossword is fortnightly. the-tls.com publishes each as a WordPress
+article (category 95, "Crossword 1620") whose body is one picture of the
+printed page: the title and setter ("TLS Crossword 1620 by Agenor") over the
+15x15 blocked grid on the left, the Across and Down clues set in columns
+below and beside it (a clue may run on into the next column), and at bottom
+right the previous puzzle's filled solution grid and the prize small print;
+the print issue's date is in the page's footer. The WordPress JSON listing
+(LISTING) needs no login, newest first.
+
+The picture is read deterministically: the grid is the region the long ruled
+lines bound (grid_box), its cells sampled by tools/genius_puzzles.py's
+grid_of_images; the text columns are the bands below and right of the grid,
+split at their printed vertical rules, the right-hand column cut above the
+solution grid, each read by tools/ocr_clues.py's English PP-OCRv5 reader
+("en5") and parsed by genius_puzzles.parse_text. A puzzle is filed only when
+the grid's lights are the clue list's, every enumeration the length of its
+light (ft_pdf_puzzles.grid_matches); it is filed unsolved, with no answers,
+as genius_puzzles.unsolved files one, until timesforthetimes blogs it
+(tools/file_times_puzzles.py). The id and date follow file_times_puzzles':
+tls-<number>, dated by the print issue (a Friday).
+"""
+import argparse
+import datetime
+import html
+import itertools
+import json
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+import clue_text
+import downloads
+import file_blog_puzzles
+import ft_pdf_puzzles as fpp
+import genius_puzzles
+import ocr_clues
+import reconstruct_grid as rg
+import series as series_meta
+from fetch_puzzle import puzzle_path, write_puzzle_file
+
+SERIES = "tls"
+CATEGORY = "TLS Crossword"
+CACHE = downloads.ROOT / "tls"
+GENERATOR = "tools/tls_puzzles.py"
+UA = {"User-Agent": "Mozilla/5.0"}
+LISTING = ("https://www.the-tls.com/wp-json/wp/v2/tls_articles?article_category=95&per_page=3"
+           "&_fields=id,date,link,title,content")
+TITLE = re.compile(r"Crossword\s+(\d{3,5})\b")
+#: The article's one picture, whatever its file is called: 1621 was "Crossword-1621.png",
+#: 1622 "TLS.047.1GM.30oct_..._cropped_page-0001.jpg".
+IMAGE = re.compile(r'<img[^>]+src="([^"?]+/wp-content/uploads/[^"?]+\.(?:jpe?g|png))', re.IGNORECASE)
+#: The clue reader: English PP-OCRv5 keeps the spaces RapidOCR's "ch" loses here.
+PAGE_WIDTH = 2166
+READER = "en5"
+#: "TLS Crossword 1603 by Praxiteles" (the reader may give a zero as a letter O), or with a subtitle between ("1309 - Birthdays in 2020\nby Praxiteles").
+#: The first clue's bold "1" often goes unread: "ACROSS Antonia's.." gets its 1 back (grid_matches guards a wrong guess).
+LOST_ONE = re.compile(r"\b(ACROSS|DOWN)\s+(?:[^\w\s]+\s*)?(?!(?:ACROSS|DOWN)\b)(?=[^\W\d_])")
+#: The bold 9 at a clue's head, unread, comes through the flattened text as a question mark: "(6, 6)
+#: ? Hero of ..." (1399's 9 across). A wrong guess is refused by grid_matches, as the "?" would be.
+LOST_NINE = re.compile(r"(?<=\)) \?(?= [A-Z‘“\"'])")
+BYLINE = re.compile(r"Crossword\s*([\dOo]{3,5})\b[^\n]{0,60}?\s*\n?\s*\bby\s*([A-Z][A-Za-z]+)", re.IGNORECASE)
+FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                         r"\s+(\d{1,2}),?\s+(\d{4})")
+MONTHS = {m: i for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July",
+                                      "August", "September", "October", "November", "December"], 1)}
+
+
+def get(url, timeout=60):
+    return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout).read()
+
+
+def runs(mask):
+    """[(start, end)] of the True runs in a 1-d boolean array, end exclusive."""
+    out, start = [], None
+    for i, v in enumerate(list(mask) + [False]):
+        if v and start is None:
+            start = i
+        elif not v and start is not None:
+            out.append((start, i))
+            start = None
+    return out
+
+
+def lattice(centres, tol=0.06):
+    """The longest run of evenly spaced lines among `centres` (sorted), as
+    (first, last), or None: the grid's rulings, not a column rule or the
+    title's underline that stands near them."""
+    best = None
+    for i, c in enumerate(centres):
+        for d in centres[i + 1:]:
+            pitch = d - c
+            if pitch < 15:
+                continue
+            chain, at = [c], c
+            for e in centres:
+                # A whole number of pitches on: a line lost in a black cell's run is skipped.
+                k = round((e - at) / pitch)
+                if e > at and 1 <= k <= 8 and abs(e - at - k * pitch) <= max(2, pitch * tol):
+                    chain.append(e)
+                    at = e
+            if len(chain) >= 5 and (best is None or len(chain) > len(best)):
+                best = chain
+    return best and (best[0], best[-1])
+
+
+def grid_box(a, across=0.6, band=None, need=0.9, tol=0.06):
+    """(x0, y0, x1, y1) of the grid in the grey array `a` (0 ink, 1 paper):
+    the outermost of its evenly spaced ruled lines in the page's left part
+    (`across` of its width), each vertical one ruling at least half the
+    page's height, or of its top `band` rows (the early issues' grid spans the page's width)."""
+    h, w = a.shape
+    ink = a < 0.8
+    top = ink[:band] if band else ink
+    # A rule is a thin run; wider ones are columns of black cells.
+    cols = [(s, e) for s, e in runs(top[:, : int(w * across)].sum(axis=0) > 0.5 * len(top)) if e - s <= 8]
+    xs = lattice([(s + e - 1) / 2 for s, e in cols], tol)
+    if not xs:
+        return None
+    x0, x1 = int(xs[0]), int(round(xs[1]))
+    rows = runs(ink[:, x0:x1 + 1].sum(axis=1) > need * (x1 - x0))
+    ys = lattice([(s + e - 1) / 2 for s, e in rows], tol)
+    if not ys:
+        return None
+    y0, y1 = int(ys[0]), int(round(ys[1]))
+    if abs((x1 - x0) - (y1 - y0)) > 0.05 * (x1 - x0):
+        # A faint right border (1623's, in a small image scaled up) is too light for the
+        # columns' test: the grid is square, so take it where the rows' span puts it, if a
+        # ruling stands there.
+        x1 = x0 + (y1 - y0)
+        if x1 >= w:  # past the page's edge (1386's): no ruling can stand there
+            return None
+        edge = a[y0:y1 + 1, max(x1 - 3, 0):x1 + 4].min(axis=1)
+        if (edge < 0.9).mean() < 0.7:
+            return None
+    return x0, y0, x1, y1
+
+
+def find_grid(a):
+    """(box, "side" | "top"): grid_box with the clues beside and below the grid (1620 on), or
+    the page-wide grid at the top and the clues in two columns under it (1396's); None when neither."""
+    box = grid_box(a)
+    # A side grid ends within the left 60% of the page it was looked for in; one that runs past
+    # is a page-wide grid whose bottom rows or right column the rulings test lost (1315's 14 of 15).
+    if box and box[2] <= 0.62 * a.shape[1]:
+        return box, "side"
+    box = grid_box(a, 1.0, int(a.shape[1] * 1.25), 0.75, 0.1)
+    return (open_edges(a, box), "top") if box else None
+
+
+def open_edges(a, box):
+    """`box` with the last column and row put back when the page prints no ruling on the grid's
+    right and bottom edges (1306's: 14 of its 15 cells' width found), seen as one more cell's
+    strip of black squares or numbers beyond the last ruling, on both sides."""
+    h, w = a.shape
+    x0, y0, x1, y1 = box
+    top = a[:int(w * 1.25)] < 0.8
+    cols = [(s + e - 1) / 2 for s, e in runs(top.sum(axis=0) > 0.5 * len(top)) if e - s <= 8 and x0 - 3 <= s <= x1 + 3]
+    gaps = sorted(d - c for c, d in itertools.pairwise(cols) if d - c > 15)
+    if not gaps:
+        return box
+    pitch = round(gaps[len(gaps) // 2])
+    if x1 + pitch >= w or y1 + pitch >= h or abs((x1 - x0) / pitch - round((x1 - x0) / pitch)) > 0.2:
+        return box
+    right = (a[y0:y1 + 1, x1 + 4:x1 + pitch - 2] < 0.5).mean()
+    below = (a[y1 + 4:y1 + pitch - 2, x0:x1 + 1] < 0.5).mean()
+    if right > 0.03 and below > 0.03:
+        return x0, y0, x1 + pitch, y1 + pitch
+    return box
+
+
+def under_columns(a, box):
+    """The two clue columns under a page-wide grid, as boxes: split at the widest blank
+    run near the page's middle, the bottom cut above the previous solution's grid."""
+    import numpy as np
+    h, w = a.shape
+    x0, y0, x1, y1 = box
+    top, bottom = y1 + 6, h
+    # The clue text runs through the region's first three quarters; the gutter between
+    # the columns is where its ink is thinnest, near the middle.
+    ink = (a[top:top + int((bottom - top) * 0.75), x0:x1] < 0.9).sum(axis=0)
+    lo, hi = int(len(ink) * 0.4), int(len(ink) * 0.6)
+    cut = x0 + lo + int(np.argmin(ink[lo:hi]))
+    # The solution's grid is the first fully ruled row of the page's left half.
+    sol = solution_top(a, x0, top, cut, bottom)
+    return [[x0, top, cut, sol - 2], [cut, top, x1 + 6, sol - 2]]
+
+
+def rules(a, x0, y0, x1, y1, need=0.6):
+    """The x of each printed vertical rule in the band: a column nearly all
+    of whose pixels in the band (`need` of them) are ink-ish, away from the band's edges."""
+    import numpy as np
+    band = a[y0:y1, x0:x1] < 0.9
+    frac = band.mean(axis=0)
+    out = []
+    for s, e in runs(frac > need):
+        x = x0 + (s + e) // 2
+        if x - x0 > 40 and x1 - x > 40:
+            out.append(x)
+    return out
+
+
+def solution_top(a, x0, y0, x1, y1):
+    """The y where the previous solution's grid starts in a column: the first
+    row more than 0.72 of whose width is ink, else y1: the grid's lines reach 0.78,
+    where the text rows of 1623's small image, scaled up, reach 0.66."""
+    band = a[y0:y1, x0:x1] < 0.8
+    for i, frac in enumerate(band.mean(axis=1)):
+        if frac > 0.72:
+            return y0 + i
+    return y1
+
+
+#: This typeface's own slips: a minus sign for the en dash ("(–, Jane
+#: Austen)") and an underscore for a printed blank (24 down's "“__ brillig").
+#: The generic ones (space lost after a number or before a bracket) live in clue_text.
+TIDY = [(re.compile("\u2212"), "\u2013"),
+        (re.compile(r"\bSee (\d{1,2}) ?D\b"), r"See \1 down"),
+        # "19 See 1 Down 21 Unwise ..." (1454's): in lower case, so the parser does not take it
+        # for the Down heading and read 21 across on as 21 down.
+        (re.compile(r"\bSee (\d{1,2}) Down\b"), r"See \1 down"),
+        # A linked clue's head: "3 & 21: Behan's ..." (1401's), "8 & 9A: He served ..." (1419's),
+        # "7 & 8D Epic ..." (1413's) is "3 & 21 ...", "8 & 9 across ...", "7 & 8 down ...".
+        (re.compile(r"(?<![\w(,.&/])\d{1,2}[AD]?(?: ?& ?\d{1,2}[AD]?)+(?::|(?<=[AD]))(?=\s)"),
+         lambda m: re.sub(r"(\d)([AD])", lambda d: d.group(1) + (" across" if d.group(2) == "A" else " down"),
+                          m.group(0).rstrip(":"))),
+        (re.compile(r"\bSee (\d{1,2}) ?A\b"), r"See \1 across"),
+        (re.compile(r"_+\s*"), ocr_clues.BLANK + " ")]
+
+
+def printed_lines(words):
+    """[(x0, y0, x1, y1)] of each printed row of `words`, as lines_of rows them."""
+    rows, row, top, height = [], [], None, 0
+    for w in sorted(words, key=lambda w: (w[1], w[0])):
+        if row and w[1] > top + height / 2:
+            rows.append(row)
+            row = []
+        if not row:
+            top, height = w[1], w[3] - w[1]
+        row.append(w)
+    if row:
+        rows.append(row)
+    return [(min(w[0] for w in r), min(w[1] for w in r), max(w[2] for w in r), max(w[3] for w in r)) for r in rows]
+
+
+def text_of(img, box):
+    """The text READER reads in `box` of the page, row by row, each printed
+    blank (24 down's "__ brillig") put in as ocr_clues.BLANK."""
+    crop = img.crop(box)
+    words = ocr_clues.read_words(crop, READER)
+    heights = sorted(w[3] - w[1] for w in words if re.fullmatch(r"[A-Za-z]{2,12}\W?", w[4]))
+    if words and heights:
+        blanks = ocr_clues.blank_strokes(crop, printed_lines(words), words, heights[len(heights) // 2])
+        words = ocr_clues.with_blanks(words, blanks)
+    text = ocr_clues.lines_of(words)
+    for rx, to in TIDY:
+        text = rx.sub(to, text)
+    return clue_text.tidy_ocr_clues(text, scope="column")
+
+
+def stacked(a, img, gy1):
+    """(title, [clue box]) for the page whose clues run in one full-width column under the grid
+    and the previous solution (1500's, 1590's), with a centred "TLS CROSSWORD n BY setter" line
+    between them; None when the last two ink bands under the grid are not that title and the clues."""
+    h, w = a.shape
+    rows = (a[gy1 + 6:, :] < 0.5).sum(axis=1) > 2
+    bands = []
+    for s0, e0 in runs(rows):
+        # Lines of one block are close; the gaps between blocks are wide (45 px at this scale).
+        if bands and s0 - bands[-1][1] < 45:
+            bands[-1][1] = e0
+        else:
+            bands.append([s0, e0])
+    if len(bands) < 2:
+        return None
+    # The title is the last short band with the byline in it; everything under it is clues (1408's
+    # Across and Down are two bands, 1500's one).
+    for i in range(len(bands) - 2, -1, -1):
+        (t0, t1), (c0, c1) = bands[i], (bands[i + 1][0], bands[-1][1])
+        if t1 - t0 > 0.05 * w or c1 - c0 < 0.1 * w:
+            continue
+        title = text_of(img, (0, gy1 + 6 + t0 - 4, w, gy1 + 6 + t1 + 4))
+        if BYLINE.search(title):
+            break
+    else:
+        # No heading at all (1443's page is cropped below it): the clues are the last band, which
+        # opens on "ACROSS" and has a "DOWN" in it, and the title is empty.
+        c0, c1 = bands[-1]
+        if c1 - c0 < 0.1 * w:
+            return None
+        box = [0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]
+        text = text_of(img, tuple(box))
+        if not (text.lstrip().upper().startswith("ACROSS") and re.search(r"^DOWN\b", text, re.MULTILINE | re.IGNORECASE)):
+            return None
+        return "", [box]
+    return title, [[0, gy1 + 6 + c0 - 4, w, min(gy1 + 6 + c1 + 4, h)]]
+
+
+def read_image(img, web_date, headline=""):
+    """{number, setter, date, clues, grid, preamble, origin} off the page image,
+    or raises ValueError saying what could not be read."""
+    import numpy as np
+    from PIL import Image
+    # The thresholds are tuned for the 2166-wide page; 1622's was cropped at 1617.
+    if img.width != PAGE_WIDTH:
+        img = img.convert("RGB").resize((PAGE_WIDTH, round(img.height * PAGE_WIDTH / img.width)), Image.LANCZOS)
+    a = np.asarray(img.convert("L"), dtype=np.float32) / 255
+    h, w = a.shape
+    found = find_grid(a)
+    if not found:
+        raise ValueError(f"no ruled square grid found in the page image ({img.width}x{img.height})")
+    box, layout = found
+    gx0, gy0, gx1, gy1 = box
+    pad = 6
+    stack = stacked(a, img, gy1)
+    if stack:
+        title, columns = stack
+        footer = ""
+    else:
+        # The columns below the grid (to its right edge) and right of it (to the
+        # page's ruled title line), each split at the printed rules between them.
+        below = (gx0 - pad, gy1 + pad, gx1 + pad, h)
+        # A right-hand column may start above the grid's top (1623's), just under the title's rule.
+        # The rule may be level with the grid's top line (1617's), so it is looked for to just below it.
+        title_rule = runs((a[:gy0 + pad, gx1:] < 0.9).mean(axis=1) > 0.8)
+        # A rule that runs over the grid only (1618's) has the right-hand columns' first line
+        # level with it: they start at its top.
+        grid_rule = runs((a[:max(gy0 - pad, 0), gx0:gx1] < 0.9).mean(axis=1) > 0.8)
+        top = title_rule[-1][1] + 4 if title_rule else grid_rule[-1][0] - 4 if grid_rule else gy0 - pad
+        right = (gx1 + pad, top, w, h)
+        # The footer line (date, title, page) is below every column: stop above it.
+        # A page cropped with no footer (1622) ends in a clue row, set close under the one above.
+        foot = h
+        bands = runs((a[gy1:, :] < 0.5).any(axis=1))
+        if len(bands) > 1 and bands[-1][0] - bands[-2][1] > bands[-1][1] - bands[-1][0]:
+            foot = gy1 + bands[-1][0]
+        columns = under_columns(a, box) if layout == "top" else []
+        # The right band holds the solution grid, whose own lines run a good part of its height
+        # (0.6-0.7 once 1623's small image is scaled up) where the printed rules run all of it (0.95).
+        for (bx0, by0, bx1, by1), need in (() if layout == "top" else ((below, 0.6), (right, 0.85))):
+            cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot), need) + [bx1]
+            for cx0, cx1 in zip(cuts, cuts[1:]):
+                if cx1 - cx0 > 80:
+                    columns.append([cx0 + 2, by0, cx1 - 2, min(by1, foot) - 2])
+        if len(columns) < 2:
+            raise ValueError("could not find the clue columns")
+        # The last column carries the previous puzzle's solution under its clues.
+        last = columns[-1]
+        if layout == "side":
+            last[3] = solution_top(a, *last) - 2
+        title = text_of(img, (0, 0, w, max(gy0 - 2, 10)))
+        # The early issues' page has no footer line (its prize text names other dates).
+        footer = "" if layout == "top" else text_of(img, (0, foot - 4, w, h))
+    text = "\n".join(text_of(img, tuple(c)) for c in columns)
+    flat = lost_tens(LOST_NINE.sub(" 9", LOST_ONE.sub(r"\1 1 ", genius_puzzles.flat(text))))
+    # A clue opening on "Down"/"Across" ("29 Down at heart ...", 1353's) is not a "29 down" light:
+    # a word-joiner keeps the parser from reading the number's direction off it.
+    # A linked head's direction letter run into its first word ("7/4DHe wrote", 1370's).
+    flat = re.sub(r"(\d{1,2}\s?[/&,]\s?\d{1,2})([AD])(?=[A-Z])", lambda m: m.group(1) + (" down " if m.group(2) == "D" else " across "), flat)
+    flat = re.sub(r"(?<=\s)(\d{1,2}) (Down|Across) (?=[a-z])", "\\1 \u2060\\2 ", flat)
+    # A bold count's digit read as "?" ("(7)" of 1307's 24 across): held as "(1)" until the grid
+    # gives the light's length.
+    unread = [m.group(1) for m in re.finditer(r"(\S+ \S+) \(\?\)", flat)]
+    flat = flat.replace("(?)", "(1)")
+    out = genius_puzzles.parse_text(flat)
+    # The page's own heading, else (a page cropped below it) the article's headline.
+    m = BYLINE.search(title) or BYLINE.search(headline)
+    if m:
+        out["number"], out["setter"] = int(clue_text.zeros_read(m.group(1))), m.group(2).capitalize()
+    else:
+        # A page cropped below its heading (1443's) names no setter; the article's headline gives
+        # the number, as the Times Cryptic is filed with no setter. No headline number: unreadable.
+        hm = TITLE.search(headline)
+        if not hm:
+            raise ValueError(f"no byline in the title {title!r} or headline {headline!r}")
+        out["number"], out["setter"] = int(hm.group(1)), None
+    d = FOOTER_DATE.search(footer)
+    if d:
+        out["date"] = datetime.date(int(d.group(3)), MONTHS[d.group(1)], int(d.group(2))).isoformat()
+    else:
+        # The print issue is the Friday on or after the web posting.
+        day = datetime.date.fromisoformat(web_date[:10])
+        out["date"] = (day + datetime.timedelta(days=(4 - day.weekday()) % 7)).isoformat()
+    out["preamble"] = None
+    genius_puzzles.see_links(out["clues"])
+    grid = genius_puzzles.grid_of_images([img.crop((gx0, gy0, gx1 + 1, gy1 + 1))], out["clues"])
+    if not grid:
+        raise ValueError("could not read the grid's cells")
+    lights = rg.light_cells(grid)
+    if {l for c in out["clues"] for l in c["lights"]} != set(lights):
+        fixed = renumbered(flat, lights)
+        again = genius_puzzles.parse_text(fixed) if fixed != flat else None
+        if again:
+            genius_puzzles.see_links(again["clues"])
+            if {l for c in again["clues"] for l in c["lights"]} == set(lights):
+                out["clues"], flat = again["clues"], fixed
+    for c in out["clues"]:
+        if len(c["lights"]) == 1 and c["enumeration"] == "1" and len(lights.get(c["lights"][0], "")) > 1 \
+                and any(c["clue"].endswith(u + " (1)") for u in unread):
+            c["enumeration"] = str(len(lights[c["lights"][0]]))
+            c["clue"] = c["clue"][:-3] + f"({c['enumeration']})"
+    genius_puzzles.turn_links(out["clues"], set(rg.light_cells(grid)))
+    out["grid"] = grid
+    linked_counts(out["clues"], flat, rg.light_cells(grid))
+    for c in out["clues"]:
+        c["clue"] = c["clue"].replace("\u2060", "")
+    flat = flat.replace("\u2060", "")
+    out["origin"] = "the TLS's page image"
+    out["text"] = flat
+    return out
+
+
+def renumbered(text, lights):
+    """The flattened text with each section's clue heads numbered as the grid's lights, when the
+    section holds as many heads as the grid has lights that way (a misread digit: 1339's "7"
+    read as a second "9"); the text unchanged when it does not."""
+    head = re.compile(r"(?:(?<=\))|(?<=ACROSS)|(?<=DOWN)) (\d{1,2}) (?=[\u2060A-Z\u2018\u201c\"'])")
+    parts = re.split(r"(?<=\)) (?=DOWN\b)", text)
+    if len(parts) != 2:
+        return text
+    out = []
+    for sect, way in zip(parts, ("across", "down")):
+        want = sorted(n for n, d in lights if d == way)
+        marks = list(head.finditer(sect))
+        if len(marks) != len(want):
+            return text
+        pieces, last = [], 0
+        for m, n in zip(marks, want):
+            pieces.append(sect[last:m.start(1)] + str(n))
+            last = m.end(1)
+        out.append("".join(pieces) + sect[last:])
+    return " ".join(out)
+
+
+def lost_tens(text):
+    """The flattened text with a clue head whose tens digit went unread put back: clue numbers run
+    upward through a section, so a head ("2 Divine Greek lady ..." after 11, 1307's, "4 Spanish
+    sailor" after it) that does not rise is read as 10 or 20 more when that rises, and falls
+    short of the head that follows. grid_matches refuses a wrong guess."""
+    head = re.compile(r"(?:(?<=\))|(?<=ACROSS)|(?<=DOWN)) (\d{1,2}) (?=[\u2060A-Z\u2018\u201c\"'])")
+    out = []
+    for sect in re.split(r"(?<=\)) (?=DOWN\b)", text):
+        marks = list(head.finditer(sect))
+        nums, prev = [int(m.group(1)) for m in marks], 0
+        for i, m in enumerate(marks):
+            n = nums[i]
+            if n <= prev:
+                nxt = next((x for x in nums[i + 1:] if x > prev), 999)
+                fit = [k for k in (n + 10, n + 20) if prev < k < nxt]
+                if fit:
+                    n = nums[i] = fit[0]
+            prev = n
+        # Rebuild with the repaired numbers (the original spans are kept in order).
+        pieces, last = [], 0
+        for m, n in zip(marks, nums):
+            pieces.append(sect[last:m.start(1)] + str(n))
+            last = m.end(1)
+        out.append("".join(pieces) + sect[last:])
+    return " ".join(out)
+
+
+def linked_counts(clues, text, lights):
+    """A linked clue counts its first light alone, each later part's count printed on that part's
+    "See" entry ("3 & 21 Behan's ... (8)", then "21 See 3 (6)": 1401's): the parts' counts are
+    put on the clue, "(8, 6)", when that makes its total its lights'. Changes `clues` in place."""
+    for c in clues:
+        if len(c["lights"]) < 2 or not c["enumeration"] or any(l not in lights for l in c["lights"]):
+            continue
+        n, parts = c["lights"][0][0], [c["enumeration"]]
+        for k, _ in c["lights"][1:]:
+            m = re.search(rf"(?<![\d(,]){k} See {n}\b(?: (?:across|down))?\s*\((\d[^()]*)\)", text, re.IGNORECASE)
+            if not m:
+                break
+            parts.append(m.group(1).strip())
+        want = sum(len(lights[l]) for l in c["lights"])
+        if len(parts) == len(c["lights"]) and clue_text.count_total(c["enumeration"]) != want \
+                and sum(clue_text.count_total(p) for p in parts) == want:
+            joined = ", ".join(parts)
+            c["clue"] = c["clue"][:c["clue"].rindex("(") + 1] + joined + ")" if c["clue"].endswith(")") else c["clue"]
+            c["enumeration"] = joined
+
+
+def unsolved(number, page, url):
+    """(puzzle, None) or (None, why not): the grid and clues with no answers."""
+    entries = fpp.entries_of(page, None, page["grid"])
+    if entries is None:
+        return None, "a light has no clue"
+    rec = {"post_id": None, "link": url, "date": None, "series": CATEGORY, "number": number,
+           "setter": page["setter"], "entries": entries}
+    row = {"grid": page["grid"], "number": number, "how": page["origin"]}
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, datetime.date.fromisoformat(page["date"]), page["setter"])
+    if why:
+        return None, why
+    puzzle["source"] = {"url": url, "gridOrigin": "published"}
+    return puzzle, None
+
+
+def latest(log=print):
+    """The newest TLS crossword: one listing request, its image, and file it
+    unsolved. 3 when it is already held, else 0 and tools/fetch_puzzle.py
+    reindex(); 1 when it could not be read or filed. A bot
+    challenge page in place of the listing is a soft skip (3)."""
+    from PIL import Image
+    rows = None
+    for wait in (0, 10):
+        time.sleep(wait)
+        try:
+            rows = json.loads(get(LISTING))
+            break
+        except ValueError:
+            # the-tls.com sometimes answers with an HTML challenge page.
+            continue
+    if rows is None:
+        # Weather, not a fault: exit 3 like "nothing new", so the unit does
+        # not fail and back off. A challenge that never lifts shows as a
+        # silent series: series_health.py STALE_AFTER_DAYS["tls"] alerts.
+        log("the TLS listing answered with no JSON (a bot challenge page?); skipped")
+        return 3
+    if not rows:
+        log("the TLS crossword listing is empty")
+        return 1
+    row = rows[0]
+    m = TITLE.search(html.unescape(row["title"]["rendered"]))
+    if not m:
+        log(f"no crossword number in the newest title {row['title']['rendered']!r}")
+        return 1
+    n = int(m.group(1))
+    if puzzle_path(SERIES, n).exists():
+        log(f"up-to-date {series_meta.puzzle_id(SERIES, n)}")
+        return 3
+    im = IMAGE.search(row["content"]["rendered"])
+    if not im:
+        log(f"TLS {n}: no crossword image in the article")
+        return 1
+    path = CACHE / "image" / f"{n}{'.png' if im.group(1).lower().endswith('.png') else '.jpg'}"
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(".part")
+        tmp.write_bytes(get(im.group(1)))
+        tmp.replace(path)
+    try:
+        page = read_image(Image.open(path), row["date"])
+    except ValueError as e:
+        log(f"TLS {n} not filed: {e}")
+        return 1
+    if page["number"] != n:
+        log(f"TLS {n} not filed: the image is headed No {page['number']}")
+        return 1
+    why = fpp.grid_matches(page["grid"], page["clues"]) if page["clues"] else "no clues read"
+    if why:
+        log(f"TLS {n} not filed: {why}")
+        return 1
+    puzzle, why = unsolved(n, page, row["link"])
+    if why:
+        log(f"TLS {n} not filed: {why}")
+        return 1
+    write_puzzle_file(puzzle_path(SERIES, n), puzzle, generator=GENERATOR)
+    # No reindex here: recording one puzzle must not cost a whole-corpus pass
+    # (it ran a daily unit past its limit). The filers do not reindex; the index
+    # is untracked and rebuilt when the next unit's tree starts (ct_generated).
+    print(puzzle["id"])
+    return 0
+
+
+#: The free back issues: the listing's pages of 100, and the pause between requests.
+BACKFILL_LISTING = ("https://www.the-tls.com/wp-json/wp/v2/tls_articles?article_category=95&per_page=100"
+                    "&page={page}&_fields=id,date,link,title,content")
+BACKFILL_PAGES = 6
+PAUSE = 1.0
+#: The printed page gives the solution of the issue this many numbers back.
+SOLUTION_LAG = 4
+STATE = CACHE / "backfill_state.json"
+
+
+def full_image(content):
+    """The article's full-size picture: the srcset entry with no query, else IMAGE's."""
+    for m in re.finditer(r'srcset="([^"]+)"', content):
+        for item in m.group(1).split(","):
+            url = item.split()[0] if item.split() else ""
+            if url and "?" not in url and "/wp-content/uploads/" in url:
+                return url
+    m = IMAGE.search(content)
+    return m and m.group(1)
+
+
+def pdf_link(content):
+    """The article's PDF of the page (a vector "..._cropped.pdf" the site hosts, 2025-26 seen: the
+    puzzle and the solution grid of an earlier puzzle as live text, so no OCR), or None. The
+    uploads are served without the site's bot challenge, the pages and wp-json are not."""
+    m = re.search(r'https?://[^"\'\s<>?]+/wp-content/uploads/[^"\'\s<>?]+\.pdf', content or "", re.IGNORECASE)
+    # The article names "/uploads/sites/7/2025/01/x.pdf", which 404s; the file is served at "/uploads/2025/01/x.pdf"
+    # (the same prefix full_image's srcset entries lack).
+    return m and m.group(0).replace("/uploads/sites/7/", "/uploads/")
+
+
+def fetch_pages(numbers, log=print):
+    """Save the page of each listed issue in `numbers` for reading the solution it prints (of the issue
+    SOLUTION_LAG back): the picture to CACHE/image/<n>.<ext> and, where the article hosts one, the vector
+    PDF to CACHE/pdf/<n>.pdf. What is held is kept. Returns {n: [what was saved or why not]}."""
+    rows = listed()
+    out = {}
+    for n in sorted(numbers):
+        out[n] = got = []
+        row = rows.get(n)
+        if row is None:
+            got.append("not on the free listing")
+            continue
+        content = row["content"]["rendered"]
+        url, pdf = full_image(content), pdf_link(content)
+        have = list((CACHE / "image").glob(f"{n}.*"))
+        for kind, link, path in (("image", url, have[0] if have else None), ("pdf", pdf, CACHE / "pdf" / f"{n}.pdf")):
+            if not link:
+                got.append(f"no {kind} in the article")
+                continue
+            if path is None:
+                path = CACHE / "image" / f"{n}{'.png' if link.lower().endswith('.png') else '.jpg'}"
+            if path.exists():
+                continue
+            time.sleep(PAUSE)
+            try:
+                data = get(link)
+            except OSError as e:
+                data = archived(link) if kind == "image" else None
+                if not data:
+                    got.append(f"{kind}: {e}")
+                    continue
+            if kind == "pdf" and not data.startswith(b"%PDF"):
+                got.append("pdf: not a PDF (a bot page?)")
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_suffix(".part")
+            tmp.write_bytes(data)
+            tmp.replace(path)
+            got.append(f"saved {kind}")
+        log(f"{n}: {'; '.join(got) or 'held'}")
+    return out
+
+
+def archived(url):
+    """The Wayback Machine's copy of an image the site no longer serves, or None."""
+    query = urllib.parse.urlencode({"url": url, "output": "json", "filter": "statuscode:200",
+                                    "fl": "timestamp", "limit": "-1"})
+    try:
+        rows = json.loads(get("https://web.archive.org/cdx/search/cdx?" + query))
+        if len(rows) < 2:
+            return None
+        return get(f"https://web.archive.org/web/{rows[-1][0]}id_/{url}", timeout=120)
+    except (OSError, ValueError):
+        return None
+
+
+def listed():
+    """{number: row} of the numbered articles on the free listing, its pages kept
+    under CACHE/listing so a resumed run asks again only for what is missing."""
+    named = {}
+    for page in range(1, BACKFILL_PAGES + 1):
+        path = CACHE / "listing" / f"p{page}.json"
+        if not path.exists():
+            time.sleep(PAUSE)
+            data = get(BACKFILL_LISTING.format(page=page))
+            json.loads(data)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+        for row in json.loads(path.read_bytes()):
+            m = TITLE.search(html.unescape(row["title"]["rendered"]))
+            if m:
+                named.setdefault(int(m.group(1)), []).append(row)
+    out = {n: rows[0] for n, rows in named.items() if len(rows) == 1}
+    # Two articles titled with one number (1552's posted as "Crossword 1522", seven months on):
+    # the number's own is the one whose date fits the issues around it. The other is filed
+    # under the number its image file is named for ("1552x.jpg"), when that is unlisted and
+    # fits its date too; the page's own heading is checked against it before filing.
+    for n, rows in sorted(named.items()):
+        if len(rows) == 1:
+            continue
+        rows = sorted(rows, key=lambda r: abs(weeks_off(out, n, r["date"])))
+        out[n] = rows[0]
+        for row in rows[1:]:
+            fm = re.match(r"(\d{3,5})(?!\d)", (full_image(row["content"]["rendered"]) or "").rsplit("/", 1)[-1])
+            k = fm and int(fm.group(1))
+            if k and k not in named and abs(weeks_off(out, k, row["date"])) <= 3:
+                out[k] = row
+    return out
+
+
+def weeks_off(held, n, date):
+    """How many weeks `date` is from where issue `n` falls among the dated issues `held`
+    ({number: row}): the date between its nearest neighbours', else a week an issue from the one."""
+    day = datetime.date.fromisoformat(date[:10])
+    when = lambda k: datetime.date.fromisoformat(held[k]["date"][:10])
+    lo = max((k for k in held if k < n), default=None)
+    hi = min((k for k in held if k > n), default=None)
+    if lo is None and hi is None:
+        return 0
+    if lo is None or hi is None:
+        k = lo if hi is None else hi
+        expect = when(k) + datetime.timedelta(weeks=n - k)
+    else:
+        expect = when(lo) + (when(hi) - when(lo)) * (n - lo) / (hi - lo)
+    return (day - expect).days / 7
+
+
+def solution_crop(img):
+    """The previous puzzle's filled grid cut from the page image (scaled to
+    PAGE_WIDTH like read_image), or None: the largest square patch of ink below the puzzle's grid."""
+    import numpy as np
+    import trove_grid
+    from PIL import Image
+    if img.width != PAGE_WIDTH:
+        img = img.convert("RGB").resize((PAGE_WIDTH, round(img.height * PAGE_WIDTH / img.width)), Image.LANCZOS)
+    a = np.asarray(img.convert("L"), dtype=np.float32) / 255
+    found = find_grid(a)
+    if not found:
+        return None
+    box = found[0]
+    step = 4
+    ink = trove_grid.pooled(a < 0.8, step)
+    best = None
+    for _, cy, cx, h, w, *_ in trove_grid.components(ink):
+        x0, y0 = int((cx - w / 2) * step), int((cy - h / 2) * step)
+        if (0.1 * PAGE_WIDTH <= w * step <= 0.6 * PAGE_WIDTH and 0.9 <= w / max(h, 1) <= 1.1
+                and y0 > box[3] and (best is None or w > best[0])):
+            best = (w, (x0, y0, int((cx + w / 2) * step), int((cy + h / 2) * step)))
+    return best and img.crop(best[1])
+
+
+def answers_from(path, number, sol):
+    """The held puzzle's answers read off `sol` (its solution image) as {"n-direction": word}
+    when every light is read and every crossing agrees, else (None, why)."""
+    import apply_solution
+    import trove_solution_ocr as tso
+    from fetch_puzzle import read_puzzle_file
+    puzzle = read_puzzle_file(path)
+    (CACHE / "solution").mkdir(parents=True, exist_ok=True)
+    sol.save(CACHE / "solution" / f"{number}.png")
+    read, _ = tso.read_answers(CACHE / "solution" / f"{number}.png", tso.puzzle_grid(puzzle), tight=True)
+    fill = {f"{n}-{d}": w for (n, d), w in read.items()}
+    left = [e for e in puzzle["entries"] if f"{e['number']}-{e['direction']}" not in fill]
+    if left:
+        return None, f"{len(left)} of {len(puzzle['entries'])} lights unread"
+    _, _, problems = apply_solution.check_fill(puzzle, {apply_solution.entry_id(e): fill[f"{e['number']}-{e['direction']}"]
+                                                        for e in puzzle["entries"]})
+    if problems:
+        return None, problems[0]
+    return fill, None
+
+
+def commit(path):
+    """git add + one commit for `path` through the shared committer (subject
+    "File <id>" or "Update <id>"), then publish it in push_puzzle_commit.sh's batches."""
+    import subprocess
+    here = Path(__file__).resolve().parent
+    root = str(here.parent)   # the committer's pathspecs are relative to the repo's top
+    subprocess.run(["git", "add", str(path)], check=True, cwd=root)
+    subprocess.run(["bash", "-c", f". {here}/commit_puzzles.sh; ct_commit_puzzles tls-backfill"], check=True, cwd=root)
+    subprocess.run([str(here / "push_puzzle_commit.sh")], check=False, cwd=root)
+
+
+def backfill(log=print, only=None, retry_failed=False):
+    """File every listed TLS issue not held, oldest first, each as its own commit; and fill the answers
+    the page prints for the issue SOLUTION_LAG back. Skips what STATE says 404ed or failed
+    (retry_failed: the failures again); `only` limits to those numbers. Prints the counts."""
+    from fetch_puzzle import read_puzzle_file
+    from PIL import Image
+    state = json.loads(STATE.read_text()) if STATE.exists() else {}
+    state = {"404": state.get("404", []), "failed": state.get("failed", {}), "answered": state.get("answered", []),
+             "answer_failed": state.get("answer_failed", {})}
+    if retry_failed:
+        state["failed"] = {}
+        state["answer_failed"] = {}
+        state["404"] = []  # the Wayback fallback may now hold what the site lost
+    counts = {"filed": 0, "with_answers": 0, "404": 0, "failed": 0}
+
+    def save():
+        STATE.parent.mkdir(parents=True, exist_ok=True)
+        STATE.write_text(json.dumps(state))
+
+    rows = listed()
+    for n in sorted(rows):
+        if only and n not in only:
+            continue
+        row = rows[n]
+        todo_file = not puzzle_path(SERIES, n).exists() and str(n) not in state["failed"]
+        prior = puzzle_path(SERIES, n - SOLUTION_LAG)
+        todo_ans = (prior.exists() and not all(e.get("solution") for e in read_puzzle_file(prior)["entries"])
+                    and n not in state["answered"] and str(n) not in state["answer_failed"])
+        if n in state["404"] or not (todo_file or todo_ans):
+            continue
+        url = full_image(row["content"]["rendered"])
+        if not url:
+            state["failed"][str(n)] = "no crossword image in the article"
+            counts["failed"] += 1
+            save()
+            continue
+        path = CACHE / "image" / f"{n}{'.png' if url.lower().endswith('.png') else '.jpg'}"
+        if not path.exists():
+            time.sleep(PAUSE)
+            try:
+                data = get(url)
+            except urllib.error.HTTPError as e:
+                data = archived(url) if e.code == 404 else None
+                if data:
+                    log(f"TLS {n}: image from the Wayback Machine")
+                elif e.code == 404:
+                    state["404"].append(n)
+                    counts["404"] += 1
+                    save()
+                    continue
+                else:
+                    state["failed"][str(n)] = f"HTTP {e.code} fetching the image"
+                    counts["failed"] += 1
+                    save()
+                    continue
+            except OSError as e:
+                state["failed"][str(n)] = f"fetching the image: {e}"
+                counts["failed"] += 1
+                save()
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_suffix(".part")
+            tmp.write_bytes(data)
+            tmp.replace(path)
+        try:
+            img = Image.open(path)
+            img.load()
+        except OSError as e:
+            state["failed"][str(n)] = f"the image does not open: {e}"
+            counts["failed"] += 1
+            save()
+            continue
+        if todo_ans:
+            # Only the page's own number may answer: a held issue is read off the page `n`.
+            sol = solution_crop(img)
+            fill, why = (None, "no solution grid found on the page") if sol is None else answers_from(prior, n, sol)
+            if fill:
+                from trove_solution_ocr import fill as put
+                p = read_puzzle_file(prior)
+                put(p, fill)
+                write_puzzle_file(prior, p, generator=GENERATOR)
+                commit(prior)
+                counts["with_answers"] += 1
+                log(f"answers for tls-{n - SOLUTION_LAG} from page {n}")
+                state["answered"].append(n)
+            else:
+                state["answer_failed"][str(n)] = why
+                log(f"no answers for tls-{n - SOLUTION_LAG} from page {n}: {why}")
+            save()
+        if not todo_file:
+            continue
+        try:
+            page = read_image(img, row["date"], html.unescape(row["title"]["rendered"]))
+            if page["number"] != n:
+                raise ValueError(f"the image is headed No {page['number']}")
+            why = fpp.grid_matches(page["grid"], page["clues"]) if page["clues"] else "no clues read"
+            if why:
+                raise ValueError(why)
+            puzzle, why = unsolved(n, page, row["link"])
+            if why:
+                raise ValueError(why)
+        except (ValueError, OSError, KeyError, IndexError, TypeError) as e:
+            state["failed"][str(n)] = f"{type(e).__name__}: {e}"[:300]
+            counts["failed"] += 1
+            log(f"TLS {n} not filed: {state['failed'][str(n)]}")
+            save()
+            continue
+        write_puzzle_file(puzzle_path(SERIES, n), puzzle, generator=GENERATOR)
+        commit(puzzle_path(SERIES, n))
+        counts["filed"] += 1
+        log(f"filed {puzzle['id']}")
+    counts["404_total"] = len(state["404"])
+    log("backfill " + json.dumps(counts))
+    return 0
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--latest", action="store_true", help="file the newest issue (exit 3 when held)")
+    ap.add_argument("--backfill", action="store_true", help="file the free back issues, a commit each (resumes)")
+    ap.add_argument("--only", type=int, nargs="*", help="with --backfill: just these numbers")
+    ap.add_argument("--pages", type=int, nargs="*", help="save the page picture and PDF of these issue numbers (solution reading)")
+    ap.add_argument("--retry-failed", action="store_true", help="with --backfill: try earlier failures again")
+    args = ap.parse_args(argv)
+    if args.pages:
+        fetch_pages(args.pages)
+        return 0
+    if args.backfill:
+        return backfill(only=set(args.only or ()), retry_failed=args.retry_failed)
+    if not args.latest:
+        ap.print_help()
+        return 2
+    return latest()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

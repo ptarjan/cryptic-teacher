@@ -1,0 +1,35 @@
+/* Google Analytics, in one file because every page loads it.
+
+   index.html and the pages tools/build_seo_pages.py writes all point at
+   this, so there is exactly one measurement id on the site. A second copy of a
+   gtag snippet drifts silently: the page with the stale id keeps reporting, to
+   a property nobody reads.
+
+   On its own this would measure arrivals and nothing after them, because the
+   solve happens in localStorage and never leaves the browser. So app.js reports
+   the same milestones it sends to sync/worker.js through gtag as well — one
+   story in one place, with the hyphens in sync/events.js turned into the
+   underscores GA4 accepts. The counters in KV stay: they are the copy that
+   survives a blocker, and the copy with nothing in it but a name.
+
+   Which clue, which puzzle and which answer are not sent to either.
+
+   Fails silently from file:// and behind a blocker, like every other thing on
+   this page that is not the crossword.
+
+   Not loaded at all in the site owner's own browsers: app.js sets
+   localStorage "ct-internal" when the sync server says the code is his (see
+   sync/worker.js), so his visits never reach GA and no GA filter is needed. */
+(function () {
+  "use strict";
+  try { if (localStorage.getItem("ct-internal")) return; } catch (e) { /* counted */ }
+  var ID = "G-JX21DWG8J5";
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", ID);
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+  document.head.appendChild(s);
+})();

@@ -1,0 +1,128 @@
+// Build blind solve-packets: a clue, then its hint rungs one at a time, answer removed.
+//
+//   node tools/make_hint_packets.js cryptic-30078 > /tmp/packets.json
+//   node tools/make_hint_packets.js cryptic-30078 --key /tmp/key.json
+//
+// WHY A SOLVER AND NOT A RUBRIC
+//
+// The validators check ~30 mechanical properties and every one of them can pass on
+// an annotation that teaches nothing, such as a walkthrough that merely redraws the
+// building blocks. The gap is judgement, and the temptation is to bolt on a grader that scores hints 1-5 for
+// "clarity". That is a fitted number standing in for a fact we can just query:
+// does the hint get a solver from stuck to solved? So the grader is a SOLVER. Hand a
+// model the clue with no answer, feed it rungs one at a time, and record the rung it
+// cracks on. Right or wrong at rung k is computable; "clarity: 4" is an opinion with
+// a decimal point on it.
+//
+// The curve names the defect, which a score never does:
+//   * never solves, even at the last teaching rung -> the parse or the prose is broken
+//   * two adjacent rungs with the same outcome across many clues -> the upper rung is
+//     not earning its place in the ladder
+//   * solves cold, before any rung -> nothing is being measured; drop the clue
+//
+// THE CONTROL IS NOT OPTIONAL. rungs[0] is the clue alone. A grader weaker than the
+// annotator will fail clues that are fine, so the hint's value is the DELTA between
+// cold and rung k, never the raw solve rate. (Sonnet under-solves and Haiku
+// fabricates answers that fit the enumeration. Neither is disqualified as a
+// judge — but both need their cold baseline subtracted.)
+//
+// The judge must not be the model that wrote the hints: a model grading its own
+// hints shares their blind spot.
+//
+// The rungs come from booting the real app.js over tools/fake_dom.js and clicking
+// the real buttons, not from re-deriving the ladder here. ladderSteps() builds a
+// different ladder per clue — no indicators rung when there are no indicators, two
+// definitions for a double — and a packet that guessed at that would be grading a
+// screen no learner ever sees.
+"use strict";
+const fs = require("fs");
+const path = require("path");
+const { boot, ROOT } = require("./fake_dom.js");
+// An entry's id, "<number>-<direction>": the puzzle file stores none.
+const entryId = (e) => e.number + "-" + e.direction;
+
+const args = process.argv.slice(2);
+const keyPath = (() => { const i = args.indexOf("--key"); return i >= 0 ? args[i + 1] : null; })();
+const puzzleId = args.find((a, i) => !a.startsWith("--") && args[i - 1] !== "--key");
+if (!puzzleId) {
+  console.error("usage: node tools/make_hint_packets.js <puzzle-id> [--key out.json]");
+  process.exit(2);
+}
+
+const dom = boot({ query: "?p=" + puzzleId });
+const { registry } = dom;
+const puz = (global.window.CRYPTIC_PUZZLES || {})[puzzleId];
+if (!puz) { console.error("no such puzzle: " + puzzleId); process.exit(2); }
+
+const text = (html) => String(html)
+  .replace(/<[^>]*>/g, " ")
+  .replace(/&nbsp;/g, " ").replace(/&lt;/g, "<")
+  .replace(/&gt;/g, ">").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&")
+  .replace(/\s+/g, " ").trim();
+
+// Some rungs hand over the answer by construction, and that is not a bug in the
+// annotation. A hidden word is one block, so "drunk now nobody" -> UNKNOWN IS the
+// building-blocks rung. Redacting keeps the judge honest — a solve at that rung has to be a solve,
+// not a copy — but the rung is also marked givesAnswer, because a clue solved there
+// measures nothing and scoring must drop it rather than bank it as a win.
+const redact = (s, answer) => {
+  const bare = String(answer || "").replace(/[^A-Za-z]/g, "");
+  if (bare.length < 3) return s;
+  const spaced = bare.split("").join("[\\s-]?");
+  return s.replace(new RegExp(`\\b${spaced}\\b`, "gi"), "█".repeat(bare.length));
+};
+
+const packets = [];
+const key = [];
+let leaked = 0;
+
+for (const e of puz.entries) {
+  if (!e.annotation) continue;
+  const row = registry["clue-" + entryId(e)];
+  if (!row || !row.listeners.click) continue;
+  row.listeners.click[0]();
+
+  const answer = e.solution || (e.annotation && e.annotation.answer) || "";
+  const rungs = [];
+  // rung 0 is the control: the clue on its own, exactly as the grid presents it.
+  rungs.push({ n: 0, label: "no hints", text: "" });
+
+  for (let guard = 0; guard < 10; guard++) {
+    const btn = registry["hint-next"].children[0];
+    if (!btn || !btn.onclick || btn.disabled) break;
+    // Rungs are "N · label", and the blocks rung comes out as "Next building
+    // block · ..." buttons; anything else ("Fill in answer") ends the ladder.
+    const label = btn.textContent || "";
+    if (!/^\d+ · |^Next building block · /.test(label)) break;
+    btn.onclick();
+    // A rung that asks the solver to point at the words first: take "Just tell me".
+    if (registry["hint-body"].innerHTML.includes('class="hint-step guess"')) registry["guess-tell"].onclick();
+    const body = text(registry["hint-body"].innerHTML);
+    if (/\bAnswer:/.test(body)) break; // the reveal rung is not a teaching rung
+    const after = redact(body, answer);
+    const givesAnswer = after !== body;
+    if (givesAnswer) leaked++;
+    rungs.push({ n: rungs.length, label, text: after, givesAnswer });
+  }
+
+  packets.push({
+    puzzle: puzzleId,
+    id: entryId(e),
+    number: e.number,
+    direction: e.direction,
+    // The line as printed: the words, then the enumeration "(8)".
+    clue: (e.clue.text || "") + (e.clue.enumeration ? `${e.clue.text ? " " : ""}(${e.clue.enumeration})` : ""),
+    rungs
+  });
+  key.push({ puzzle: puzzleId, id: entryId(e), answer });
+}
+
+if (leaked) {
+  console.error(`note: ${leaked} rung(s) spell the answer out (hidden words). ` +
+    "Redacted, and marked givesAnswer — score them as unmeasurable, not as solves.");
+}
+if (keyPath) {
+  fs.writeFileSync(keyPath, JSON.stringify(key, null, 2) + "\n");
+  console.error(`key for ${key.length} clues -> ${keyPath} (never show this to the judge)`);
+}
+process.stdout.write(JSON.stringify({ puzzle: puzzleId, builtFrom: path.relative(ROOT, __filename), packets }, null, 2) + "\n");

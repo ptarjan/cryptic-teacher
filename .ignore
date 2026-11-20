@@ -1,0 +1,21 @@
+# Read by rg, ugrep and fd (not git): build output under puzzles/ that no
+# search wants. The puzzles themselves stay searchable at
+# puzzles/<series>/<year>/<id>.json.
+#
+# .gitignore already lists these files, but it ignores puzzles/<id>/index.html
+# file by file, so rg still opens all ~66k puzzles/<id>/ directories to find
+# out each holds nothing else. Ignoring the directories skips that walk. A
+# series folder never starts with a digit or has a -<digit> in its name, so
+# these two patterns only match per-puzzle page folders.
+
+# One crawlable page per puzzle (tools/build_seo_pages.py): puzzles/<id>/index.html
+/puzzles/*-[0-9]*/
+/puzzles/[0-9]*/
+/puzzles/*/index.html
+/puzzles/index.html
+/puzzles/series/
+
+# The per-puzzle script shims and their gzipped forms (fetch_puzzle.py --reindex,
+# tools/stage_site.py).
+/puzzles/*.js
+/puzzles/*.js.gz

@@ -1,0 +1,195 @@
+# The rest of the blog:times and blog:telegraph units, moved off the home server after their
+# fetches (blog-fetch.yml) (Paul 2026-11-15: "Check every single thing we run regularly and
+# move them to ci if possible"): the parse, the grid rebuild and the filing into puzzles/.
+#   times:     fetch_times_listing.py (the Wayback copies of the Times listing, which date the
+#              prize puzzles), parse_timesforthetimes.py, times_grids.py, file_times_puzzles.py
+#   telegraph: parse_bigdave44.py, times_grids.py --blog bigdave44, file_telegraph_puzzles.py
+#
+# What each step reads, none of it on a media disk here:
+#   * the blog's post cache: restored from blog-fetch.yml's actions/cache saves
+#     (blog-<blog>-*), the posts manifest built from the files as the fetchers do;
+#   * the chain's own derivatives, which only this job writes now: parsed.jsonl, grids.jsonl,
+#     attempts.jsonl, filings.jsonl (and categories.json, bigdave44's posts_read.jsonl, and
+#     the Times listing captures, times-listing/). About 50 MB packed; one actions/cache
+#     entry per paper (blogchain-<paper>-*), seeded once from the draft release asset
+#     <paper>-chain-seed.tgz of ci-cache-seeds (made from the media copy);
+#   * the Telegraph's calendar, restored from telegraph-bucket.yml's telegraph-source cache;
+#   * puzzles/ and tools/data/, which are the checkout.
+# Filed puzzles are committed one per puzzle (tools/commit_puzzles.sh) and pushed as
+# daily-units.yml does, rebased when master moved. The grid search is bounded by wall clock
+# (--budget-seconds): newest due first, the rest stay due for the next run.
+name: Blog chain
+
+on:
+  workflow_run:
+    workflows: ["Blog fetch"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      push:
+        description: Commit and push the result
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  chain:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - paper: times
+            blog: timesforthetimes
+          - paper: telegraph
+            blog: bigdave44
+    concurrency:
+      group: blog-chain-${{ matrix.paper }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      CT_DOWNLOADS: /tmp/cryptic-downloads
+      OCR_REMOTE: ""
+      PYTHONUNBUFFERED: "1"
+      GH_TOKEN: ${{ github.token }}
+      PAPER: ${{ matrix.paper }}
+      BLOG: ${{ matrix.blog }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.PUSH_TOKEN || github.token }}
+      - uses: ./.github/actions/setup
+        with:
+          pip: numpy pillow
+      - name: Restore the blog's post cache
+        uses: actions/cache/restore@v5
+        with:
+          path: /tmp/cryptic-downloads/${{ matrix.blog }}
+          key: blog-${{ matrix.blog }}-${{ github.run_id }}
+          restore-keys: blog-${{ matrix.blog }}-
+      - name: Restore the Telegraph's calendar
+        if: matrix.paper == 'telegraph'
+        uses: actions/cache/restore@v5
+        with:
+          path: /tmp/cryptic-downloads/telegraph-source
+          key: telegraph-source-${{ github.run_id }}
+          restore-keys: telegraph-source-
+      - name: Restore the chain's state
+        id: state
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/${{ matrix.blog }}/parsed.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/grids.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/attempts.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/filings.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/categories.json
+            /tmp/cryptic-downloads/${{ matrix.blog }}/posts_read.jsonl
+            /tmp/cryptic-downloads/times-listing
+          key: blogchain-${{ matrix.paper }}-${{ github.run_id }}
+          restore-keys: blogchain-${{ matrix.paper }}-
+      - name: Seed an empty state from the draft release asset
+        id: seed
+        if: steps.state.outputs.cache-matched-key == ''
+        shell: bash
+        run: |
+          id=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq \
+            "[.[] | select(.tag_name==\"ci-cache-seeds\")][0].assets[] | select(.name==\"$PAPER-chain-seed.tgz\") | .id")
+          [ -n "$id" ] || { echo "::error::no chain seed asset for $PAPER"; exit 1; }
+          gh api -H "Accept: application/octet-stream" "repos/$GITHUB_REPOSITORY/releases/assets/$id" > /tmp/seed.tgz
+          tar -xzf /tmp/seed.tgz -C "$CT_DOWNLOADS"
+          rm /tmp/seed.tgz
+          echo "seeded=1" >> "$GITHUB_OUTPUT"
+      - name: Build the manifests
+        shell: bash
+        run: |
+          [ -d "$CT_DOWNLOADS/$BLOG/posts" ] || { echo "::error::no post cache for $BLOG"; exit 1; }
+          ls "$CT_DOWNLOADS/$BLOG/posts" | wc -l
+          python3 tools/media_manifest.py build "posts-$BLOG"
+          if [ "$PAPER" = times ]; then python3 tools/fetch_times_listing.py --build-manifest; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Run the chain
+        shell: bash
+        run: |
+          run() {  # a step that fails ends the chain, as blog_chain did, except the listing fetch
+            local step=$1 rc=0 start=$SECONDS
+            echo "=== $step ==="
+            # shellcheck disable=SC2086
+            python3 tools/$step || rc=$?
+            echo "$step: rc=$rc in $((SECONDS - start))s"
+            case "$step" in
+              fetch_*) [ "$rc" = 0 ] || echo "::warning::$step failed (rc=$rc); filing from what is cached" ;;
+              *) [ "$rc" = 0 ] || { echo "::error::$step failed (rc=$rc)"; exit "$rc"; } ;;
+            esac
+          }
+          if [ "$PAPER" = times ]; then
+            run fetch_times_listing.py
+            run parse_timesforthetimes.py
+            run "times_grids.py --budget-seconds 3000"
+            run file_times_puzzles.py
+          else
+            run parse_bigdave44.py
+            run "times_grids.py --blog bigdave44 --budget-seconds 3000"
+            run file_telegraph_puzzles.py
+          fi
+      - name: Commit
+        if: "!cancelled()"
+        shell: bash
+        run: |
+          git add -A
+          python3 tools/renamed_ids.py --stage
+          tools/commit_puzzles.sh "daily blog $PAPER"
+          if ! git diff --cached --quiet; then
+            git commit -q -m "$(printf 'Daily %s blog\n\n%s' "$PAPER" "$(python3 tools/provenance.py trailer)")"
+          fi
+          git status --porcelain | head -5
+          git log --format='%h %s' origin/master..HEAD | head -20
+      - name: Save the chain's state
+        if: "!cancelled()"
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/${{ matrix.blog }}/parsed.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/grids.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/attempts.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/filings.jsonl
+            /tmp/cryptic-downloads/${{ matrix.blog }}/categories.json
+            /tmp/cryptic-downloads/${{ matrix.blog }}/posts_read.jsonl
+            /tmp/cryptic-downloads/times-listing
+          key: blogchain-${{ matrix.paper }}-${{ github.run_id }}
+      - name: Delete the older saves of the state
+        if: "!cancelled()"
+        shell: bash
+        run: |
+          gh cache list -R "$GITHUB_REPOSITORY" --key "blogchain-$PAPER-" --sort created_at --order desc \
+            --limit 100 --json id -q '.[1:][] | .id' | while read -r id; do
+            gh cache delete "$id" -R "$GITHUB_REPOSITORY" || true
+          done
+      - name: Push, rebasing when master moved
+        if: "!cancelled() && !(github.event_name == 'workflow_dispatch' && !inputs.push)"
+        shell: bash
+        run: |
+          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
+          if [ "$ahead" = 0 ]; then echo "blog-chain: nothing to push"; exit 0; fi
+          for n in $(seq 1 8); do
+            if git push -q origin HEAD:refs/heads/master; then
+              echo "blog-chain: pushed $(git rev-parse --short HEAD)"
+              exit 0
+            fi
+            echo "blog-chain: push $n lost the race; rebasing on the new tip"
+            git fetch -q origin master || { sleep 5; continue; }
+            if ! git rebase -q origin/master; then
+              git rebase --abort
+              echo "::error::rebase conflicted"
+              break
+            fi
+            sleep $((RANDOM % 5 + 1))
+          done
+          echo "::error::could not push"
+          exit 1

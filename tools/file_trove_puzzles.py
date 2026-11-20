@@ -1,0 +1,1798 @@
+#!/usr/bin/env python3
+"""File the Canberra Times crosswords fetched from Trove into puzzles/canberra/.
+
+    python3 tools/file_trove_puzzles.py              # file what is new on disk
+    python3 tools/file_trove_puzzles.py --dry-run    # count, write nothing
+    python3 tools/file_trove_puzzles.py --cache DIR  # another fetch cache
+
+Reads what tools/fetch_trove.py leaves in downloads.TROVE/<article id>/
+(meta.json, ocr.txt, grid.jpg) and files every cryptic whose clues parse.
+Only the clues are mandatory:
+
+  - The clues come from ocr.txt: the ACROSS and DOWN lists, wrapped lines
+    rejoined (a word the paper hyphenated over a line end is rejoined when
+    the joined word is in tools/data/cmudict.txt.gz and its halves are not).
+  - A clue the OCR lost or garbled (a number read as junk, a bracket broken,
+    "(S)") is repaired (tools/clue_repair.py) from the readings of the
+    page's clue columns that also vote on its words (below), when
+    tools/fetch_trove.py has cached the columns beside the cache
+    (downloads.TROVE_CLUES), anchored on text both readings share.
+  - The grid comes from grid.jpg (tools/trove_grid.py), and is used only when
+    it is 180-degree symmetric and every clue the OCR kept agrees with it:
+    each clue number names one of its lights, and each enumeration counts that
+    light (or the group a linked clue names). OCR slips in numbers (S for 5 or
+    8, I or l for 1, O for 0) are repaired only where the grid's light decides
+    the reading; a number its list's order refuses ("10" between 19 and 21)
+    is left for the grid to place (renumber()), as is one OCR lost or read
+    as a speck after the previous clue's count ("(5). He"), and a one-number count read
+    as a nearby digit takes the light's (DIGIT_SLIPS). A disagreement means the picture is not used, never that it
+    is forced to fit: the grid is then rebuilt from the clue list by
+    tools/reconstruct_grid.py, and filed only when that rebuild is unique.
+  - Every clue's words are then put to our own readings of the page's clue
+    zones (tools/ocr_clues.py's READERS, cached as read.<reader>.txt beside
+    the zones), Trove's text one voter among them: each word takes the
+    spelling the readings share, else the one lexicon spelling, as the
+    archive.org scans' filer does; the desktop's VLM (tools/vlm_reader.py),
+    when it answers, is one more reading and reads each clue the vote
+    leaves blank. (Trove's text is its current one, with
+    any correction its users made.) A puzzle files only when every light
+    has a clue, every clue's vote is won and ocr_clues.suspect() finds no
+    word OCR made up ("trom", "know7", "bacK"); else it waits.
+  - The answers are read off the paper's printed solution grid by
+    tools/trove_solution_ocr.py, a light only when every letter is read
+    surely and no crossing disagrees; the rest stay None for the nightly
+    cold solve (tools/daily_update.sh, step 3a). A puzzle filed before its
+    solution was fetched gets its answers on a later run.
+
+Series and numbers: one series, `canberra`, numbered by print date as YYMMDD
+(No 720601 is Thursday 1 June 1972). The London Times number is printed once
+in seventeen years of OCR and the Guardian reprints carry the Canberra
+Times's own "English cryptic 715C", so neither paper's sequence can number
+them; a date number is stable however much of the fetch has arrived, and it
+never meets a times-* or cryptic-* id. The paper's own label ("English
+cryptic 715C", a setter's byline) goes in the name and the setter. A Guardian
+reprint whose clues match a held cryptic-* puzzle is not filed again.
+
+Resumable and idempotent: the SSD ledger (media_manifest.trove_ledger) records each article's
+verdict against its inputs (its files' sizes and times, its clue zones, and
+whether the VLM read it), so a rerun reads only articles that are new or
+changed, the never-read first and
+then the stale by when they were read (tools/scan_queue.py), the ledger saved
+after each. The standing pass does not run this as a batch:
+tools/edition_queue.py reads each due article (plan()) as a unit of its
+own (read_unit: its own lock, one row appended, the last row an article
+standing); a batch run holds the ledger throughout, and the units wait. --seconds N stops starting new reads once N seconds have passed
+(a page-image read is 15-100 s); what is left keeps its old ledger row, so it
+stays pending for the next run. --workers N reads N articles at once.
+
+A held file is rewritten only as the archive.org filer rewrites one
+(file_archive_org_puzzles.mend_held, improves): a clue it shares with
+another light, or one with a doubled word or a stray letter
+(ocr_clues.stray), takes the clue the read votes for its light, or goes
+blank (one ocr_clues.fault refuses takes it, or stands); a filing read that adds clues or answers and loses none replaces it.
+A file holding a stray clue makes its article due by itself (inputs_of).
+
+A change to this code or the VLM model makes nothing due: whoever makes it
+runs the re-read once, `--reread [BEFORE]` (every article last read before
+BEFORE, an ISO time, default now; slices of one re-read share a BEFORE), or,
+for a change that cures one cause, dates it in REREAD_CAUSES, which makes
+due only the articles waiting on that cause.
+"""
+import argparse
+import datetime
+import gzip
+import hashlib
+import json
+import os
+import re
+import sys
+import time
+from pathlib import Path
+import canberra_london_numbers
+import dir_cache
+import downloads
+import edition_commit
+import enumeration
+import media_manifest
+import clue_repair
+import clue_text
+import ocr_clues
+import reconstruct_grid as rg
+import scan_queue
+import series as series_meta
+import trove_grid
+import trove_solution_ocr
+import vlm_reader as vlm
+from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
+from file_penguin_puzzle import separators
+from groups import entry_id
+from clue_text import SEE_RE, see_number
+import puzzle_paths
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parent
+
+SERIES = "canberra"
+CACHE = downloads.TROVE
+TOOL = "tools/file_trove_puzzles.py"
+ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
+#: Articles read at once: the desktop VLM serves one request at a time, so a
+#: second one's OCR fills the first one's wait; more contend for the host's
+#: four cores.
+WORKERS = 2
+#: How hard reconstruct_grid may try before a clue list counts as not pinning
+#: its grid down: its own cap, ~10s on a 15x15.
+REBUILD_NODES = rg.DEFAULT_MAX_NODES
+
+#: Why an article waits or is refused: (cause, outcome, what it means, the
+#: fix, recoverable, the module that owns the fix). A `pending` or `refused`
+#: verdict carries its `cause` (wait(), refuse()), which tools/coverage.py
+#: buckets by; the prose beside it is the detail for a person.
+CAUSES = [
+    ("zones-not-fetched", "pending", "the page's clue columns are not cached, so no reading votes",
+     "fetch_trove.py zones (download only)", True, "tools/fetch_trove.py"),
+    ("no-grid", "pending", "the scan's grid is unread or disagrees, and the clues rebuild no unique grid",
+     ("the scan's grid mostly reads, symmetric, and clue counts or numbers disagree with it; counts_off "
+      "drops up to two counts it refuses: more of them, or the next day's solution grid, then --reread"), True, "tools/file_trove_puzzles.py"),
+    ("rebuilt-grid-disagrees", "pending", "the grid rebuilt from the clues disagrees with them",
+     "the clue parse, then --reread", True, "tools/file_trove_puzzles.py"),
+    ("lights-without-clue", "pending", "a light of the grid has no clue in the OCR",
+     "the clue repair (tools/clue_repair.py), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("clues-unread", "pending", "the readings' vote leaves a clue blank",
+     "the VLM: an article read while it was down is due once it answers (due_reason)", True, "tools/ocr_clues.py"),
+    ("suspect-words", "pending", "a voted clue holds a word OCR made up (ocr_clues.suspect)",
+     "better readers or the VLM: the standing full pass re-reads", True, "tools/ocr_clues.py"),
+    ("no-print-date", "refused", "the OCR's first line gives no print date",
+     "header(), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("no-clue-lists", "refused", "the OCR has no ACROSS and DOWN lists",
+     "sections(), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("clues-dont-parse", "refused", "a clue list does not parse",
+     ("clues() (list_start drops what OCR read before a list's first number); "
+      "what is left breaks mid-list, then --reread"), True, "tools/file_trove_puzzles.py"),
+    ("id-taken", "refused", "another article of the same day holds the puzzle id",
+     "none: the day's other article is filed", False, "tools/file_trove_puzzles.py"),
+    ("crashed", "refused", "the reader raised on this article",
+     "the traceback in the ledger's refused", True, "tools/file_trove_puzzles.py"),
+]
+_OUTCOME = {key: outcome for key, outcome, *_ in CAUSES}
+
+
+def wait(verdict, cause, why):
+    """`verdict` pending for `cause` (a "pending" key of CAUSES), `why` the detail."""
+    return _stamp(verdict, "pending", cause, why)
+
+
+def refuse(verdict, cause, why):
+    """`verdict` refused for `cause` (a "refused" key of CAUSES), `why` the detail."""
+    return _stamp(verdict, "refused", cause, why)
+
+
+def _stamp(verdict, outcome, cause, why):
+    if _OUTCOME.get(cause) != outcome:
+        raise ValueError(f"{outcome} cause {cause!r} is not one of CAUSES' {outcome} keys")
+    verdict[outcome], verdict["cause"] = why, cause
+    return verdict
+
+
+def ledger_row(aid, inputs, verdict):
+    """The ledger row of one read: a pending or refused verdict without its
+    CAUSES cause is refused, so no prose-only row is written."""
+    for outcome in ("pending", "refused"):
+        if verdict.get(outcome) and _OUTCOME.get(verdict.get("cause")) != outcome:
+            raise ValueError(f"article {aid}: {outcome} without a cause from CAUSES: {verdict}")
+    return {"article": aid, "inputs": inputs, **verdict, "readAt": scan_queue.now()}
+
+
+def stamp_cause(row, zones):
+    """Give a ledger row read before causes were recorded the cause its
+    structure shows: a read that reached the vote (it holds a `grid`) with no
+    clue columns cached is zones-not-fetched. Any other such row is made due
+    (its inputs cleared), so the next read records its cause. True when the
+    row is due."""
+    if row.get("cause") or not (row.get("pending") or row.get("refused")):
+        return False
+    if row.get("pending") and "grid" in row and not zones_held(row["article"], zones):
+        row["cause"] = "zones-not-fetched"
+        return False
+    row["inputs"] = ""
+    return True
+
+# A character OCR reads for a digit, and the digits it can stand for.
+SLIPS = {"S": "58", "s": "58", "I": "1", "l": "1", "i": "1", "J": "1", "j": "1",
+         "!": "1", "|": "1", "X": "1", "O": "0", "o": "0", "B": "8", "Z": "2",
+         "z": "2", "b": "6", "G": "6", "g": "9", "q": "9", "A": "4", "T": "7"}
+DIGITISH = "0-9" + re.escape("".join(SLIPS))
+NUM = rf"[{DIGITISH}]{{1,2}}"
+#: A clue number OCR turned to junk ("f About to surround"): it is placed by
+#: the grid alone, in the one slot its neighbours leave; so is one whose
+#: digit it read as a dash ("1- Ask" for 12).
+#: The later numbers of a "See" clue naming a linked answer ("14 See 4 across, 9 (4).", "3 See 27
+#: and 28 (4, 5)": the 1945-52 Times), taken only when a count follows them: the list stopped at
+#: the comma (Gale 1945-02-03, 1946-08-12, 1947-12-11, 1951-05-12, refused "no reading parses").
+SEE_LINKED = r"(?:(?:\s*(?:,|;|&|and)\s*\d{1,2}(?:\s*(?:across|down|ac|dn)\b)?)+(?=\s*\(\d))?"
+#: A linked clue's lead numbers read as one word: "5,20", "4&22".
+LINKED_HEAD = re.compile(r"\d{1,2}[AD]?(?:[,&/]\d{1,2}[AD]?)+")
+JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
+BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
+                     r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1([1-9])\)\s*\.?"
+                     r"|(?<=\s)(\d{1,2}(?:,\s?\d{1,2}|-\d{1,2})*)\)\s*\.?"
+                     # A linked head's whole count, longer than 12 characters:
+                     # "(3,4,2,3,5,3,4,2,3,4)" over five lights (Cyclops 103).
+                     r"|\((\d{1,2}(?:\s*[,\-]\s*\d{1,2}){5,})\)\s*\.?")
+
+
+# ------------------------------------------------------------ the article
+
+def header(ocr):
+    """(date, the article's head: its lines before ACROSS, lowercased)."""
+    lines = ocr.splitlines()
+    m = re.search(r"\w+day (\d{1,2} \w+ \d{4})", lines[0] if lines else "")
+    day = datetime.date(*time.strptime(m.group(1), "%d %B %Y")[:3]) if m else None
+    head = []
+    for line in lines[1:]:
+        if re.match(r"\s*(clues\s+)?across\b", line, re.IGNORECASE):
+            break
+        head.append(line)
+    return day, " ".join(head)
+
+
+#: What kind() skips an article as: decided from ocr.txt alone.
+KIND_SKIPS = ("a solution grid", "not a crossword", "not a cryptic", "an Australian cryptic")
+
+#: Causes reached before the VLM is asked (consider() up to vote()'s votes):
+#: the VLM's stamp changes none of them, so an article stopped for one is not
+#: due for lacking it (due_reason).
+PRE_VLM_CAUSES = ("zones-not-fetched", "no-grid", "rebuilt-grid-disagrees", "lights-without-clue",
+                  "no-print-date", "no-clue-lists", "clues-dont-parse")
+
+
+def decided_before_vlm(row):
+    """Whether ledger `row`'s verdict came before the VLM was asked."""
+    return row.get("skip") in KIND_SKIPS or row.get("cause") in PRE_VLM_CAUSES
+
+
+def kind(ocr, title):
+    """What the article is: "cryptic", or why it is skipped (KIND_SKIPS)."""
+    _, head = header(ocr)
+    low = (title + " " + head).lower()
+    has_lists = re.search(r"^\s*(clues\s+)?across\b", ocr, re.IGNORECASE | re.MULTILINE) and \
+        re.search(r"^\s*(clues\s+)?down\b", ocr, re.IGNORECASE | re.MULTILINE)
+    if "solution" in low.split("crossword")[0] and not has_lists:
+        return "a solution grid"
+    if not has_lists:
+        return "not a crossword"
+    if "quick" in low or "holiday crossword" in low:
+        return "not a cryptic"
+    if "australian" in low:
+        return "an Australian cryptic"
+    if "cryptic" in low or "times crossword" in low:
+        return "cryptic"
+    return "not a cryptic"
+
+
+def label(ocr):
+    """(the paper's own label, setter) off the article head: "English cryptic
+    715C" and its byline, "The Times Crossword No 15,038", or ("", None)."""
+    _, head = header(ocr)
+    m = re.search(r"english cryptic\s*(\d+\s*\(?c\)?)?(?:\s*by\s+([A-Z][A-Za-z' ]+))?", head, re.IGNORECASE)
+    if m:
+        number = re.sub(r"\W", "", m.group(1) or "").upper()
+        setter = (m.group(2) or "").strip().title() or None
+        return (f"English cryptic {number}" if number else "English cryptic"), setter
+    m = re.search(r"times crossword(?: puzzle)?\s+no\.?\s*([\d,]+)", head, re.IGNORECASE)
+    if m:
+        return f"The Times Crossword No {m.group(1)}", None
+    return "", None
+
+
+# ------------------------------------------------------------ the clues
+
+_WORDS = None
+
+
+def words():
+    """(every spelling cmudict knows, WordNet's words): the first decides
+    whether a rejoined word exists, the second whether a half is a word."""
+    global _WORDS
+    if _WORDS is None:
+        with gzip.open(TOOLS / "data" / "cmudict.txt.gz", "rt", encoding="latin-1") as f:
+            spellings = {line.split()[0].lower() for line in f
+                         if line[:1].isalpha() and line.split()}
+        with gzip.open(TOOLS / "data" / "wordnet.json.gz", "rt", encoding="utf-8") as f:
+            wordnet = set(json.load(f)["words"])
+        _WORDS = (spellings | wordnet, wordnet)
+    return _WORDS
+
+
+def rejoin(lines):
+    """One string from wrapped lines. The paper hyphenates over a line end and
+    the OCR drops the hyphen: "archi" + "tecture" is one word when the whole
+    is a word and a half is not ("un" + "hinged" stays two)."""
+    known, wordnet = words()
+    out = ""
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        if out:
+            a = re.search(r"([A-Za-z]+)-?$", out)
+            b = re.match(r"([a-z]+)", line)
+            if a and b and (a.group(1) + b.group(1)).lower() in known \
+                    and not (a.group(1).lower() in wordnet and b.group(1) in wordnet):
+                out = out.rstrip("-") + line
+                continue
+            out += " "
+        out += line
+    return out
+
+
+HEADING_RE = clue_text.LEADING_HEADING
+#: A line led by a clue's number: "12 Forcing", "I1 If he's", "S What"; or a linked clue's
+#: numbers, its text maybe opening on a figure: "26, 9 If you", "1, 10 8 sailors hate" (Gale
+#: 1954-07-05 printed no ACROSS: its first clue, linked, was left out of the across list).
+LEAD = re.compile(rf"\s*({NUM})(?:[.,]?\s+|(?:\s*[,&]\s*\d{{1,2}})+\s+(?:\d{{1,2}}\s+)?)[^\W\d_]")
+#: The fewest clues a list put back without its heading must number in order.
+HEADLESS_RUN = 3
+
+
+def rising(leads):
+    """The most of `leads` (each a set of number readings, in order) that can
+    read as a strictly increasing run."""
+    best = {}  # last number of a run -> its length
+    for opts in leads:
+        step = {n: 1 + max([v for m, v in best.items() if m < n], default=0) for n in opts}
+        for n, v in step.items():
+            best[n] = max(best.get(n, 0), v)
+    return max(best.values(), default=0)
+
+
+def heads(lines):
+    """`lines` with a lost ACROSS or DOWN heading put back. The lists are
+    numbered runs: the down list starts where the clue numbers start rising
+    again (the split leaving the longest rising run on each side), and the
+    across list at the first numbered line before it. Nothing is put back
+    unless each side numbers HEADLESS_RUN clues in order."""
+    def mark(word):
+        return next((i for i, line in enumerate(lines)
+                     if (m := HEADING_RE.match(line)) and clue_text.direction(m.group(2)) == word), None)
+    across, down = mark("across"), mark("down")
+    if across is not None and down is not None:
+        return lines
+    leads = [(i, readings(m.group(1))) for i, line in enumerate(lines)
+             if (m := LEAD.match(line)) and (across is None or i > across)]
+    leads = [(i, {n for n in r if n <= 99}) for i, r in leads if any(n <= 99 for n in r)]
+    if down is None:
+        best = None
+        for s in range(HEADLESS_RUN, len(leads) - HEADLESS_RUN + 1):
+            a, b = rising([r for _, r in leads[:s]]), rising([r for _, r in leads[s:]])
+            if a < HEADLESS_RUN or b < HEADLESS_RUN or min(leads[s][1]) >= max(leads[s - 1][1]):
+                continue
+            score = (a + b, -min(leads[s][1]))
+            if best is None or score > best[0]:
+                best = (score, s)
+        if best is None or best[0][0] - rising([r for _, r in leads]) < HEADLESS_RUN:
+            return lines
+        down = leads[best[1]][0]
+        lines = lines[:down] + ["DOWN"] + lines[down:]
+    if across is None:
+        first = next((i for i, _ in leads if i < down), None)
+        if first is None or rising([r for i, r in leads if i < down]) < HEADLESS_RUN:
+            return lines
+        lines = lines[:first] + ["ACROSS"] + lines[first:]
+    return lines
+
+
+def sections(ocr):
+    """{"across": text, "down": text}, or None when either list is missing
+    and cannot be put back from the clue numbers (heads())."""
+    lines = heads(ocr.splitlines())
+    marks = {}
+    for i, line in enumerate(lines):
+        m = HEADING_RE.match(line)
+        if m and clue_text.direction(m.group(2)) not in marks:
+            marks[clue_text.direction(m.group(2))] = (i, line[m.end():])
+    if set(marks) != {"across", "down"} or marks["across"][0] > marks["down"][0]:
+        return None
+    (a, a_rest), (d, d_rest) = marks["across"], marks["down"]
+    end = len(lines)
+    for i in range(d + 1, len(lines)):
+        if re.match(r"\s*[(.]*\s*(solution|yesterday|today's solution)", lines[i], re.IGNORECASE):
+            # A lower-case "solution in Cluedo mystery" under a clue with no
+            # count yet, its count on it or on a next line opening no clue of
+            # its own ("(1,5,2,7)"), is
+            # that clue's next line, not the solution's heading; a lower-case
+            # "solution to yesterday's Cryptic" or "solution tomorrow" no
+            # count closes still ends the list, as does one it or the next line
+            # names a puzzle on ("solution 24,933", "solution of / Saturday's
+            # Prize Puzzle"), one a line's "The" opens ("The / solution to
+            # Saturday's"), or one opening a note ("yesterday: Highest day temp").
+            if (re.match(r"\s*[a-z]", lines[i]) and i > d + 1
+                    and not re.search(r"\)\W*$|\bThe\W*$", lines[i - 1])
+                    and not re.search(r"^\W*\w+:", lines[i])
+                    and not any(re.search(r"\d[,.]\d{3}|puzzle|crossword|prize", t, re.IGNORECASE)
+                                for t in lines[i:i + 2])
+                    and any(re.search(r"\(\s*\d[\d\s,.'-]*\)", t) for t in lines[i:i + 2]
+                            if t is lines[i] or not re.match(r"\s*\d", t))):
+                continue
+            end = i
+            break
+    # What follows the heading on its line is a clue only when it starts
+    # with a digit: "ACROSS II" is a rule the OCR read, not clue 11.
+    def rest(text):
+        return text if re.match(r"\s*\d", text) else ""
+    # The paper's "(Solution Monday)" after the last clue is not its text,
+    # nor is what follows it on the page (the next puzzle's lists).
+    down = re.sub(r"(?<=[).])\s*\(\s*solution\b[^()]{0,25}\)[\s\S]*$", "",
+                  rejoin([rest(d_rest)] + lines[d + 1:end]), flags=re.IGNORECASE)
+    down = re.sub(r"(?<=[).])\s*\(?\.?\s*solution\b[^()]{0,25}\)?[.*]?\s*$", "", down, flags=re.IGNORECASE)
+    return {"across": rejoin([rest(a_rest)] + lines[a + 1:d]), "down": down}
+
+
+def readings(token):
+    """Every number an OCR'd clue-number token can be: "I5" -> {15}."""
+    opts = [""]
+    for ch in token:
+        if ch.isdecimal() and ch.isascii():  # not isdigit(): "③" is one, and int("③") raises
+            opts = [o + ch for o in opts]
+        elif ch in SLIPS:
+            opts = [o + d for o in opts for d in SLIPS[ch]]
+        else:
+            return set()
+    return {int(o) for o in opts if o and o[0] != "0"}
+
+
+def enum_readings(raw):
+    """Every enumeration an OCR'd bracket can be, as printed strings: "S, 4"
+    -> {"5,4", "8,4"}. Periods read as commas; spaces between counts too.
+    A count of one is no light's: "(X)" read for (8) is a count lost."""
+    raw = re.sub(r"\s*([,.\-'])\s*", r"\1", raw.strip()).replace(".", ",")
+    raw = re.sub(r"\s+", ",", raw)
+    opts = [""]
+    for ch in raw:
+        if (ch.isdecimal() and ch.isascii()) or ch in ",-'":
+            opts = [o + ch for o in opts]
+        elif ch in SLIPS:
+            opts = [o + d for o in opts for d in SLIPS[ch]]
+        else:
+            return set()
+    return {o for o in opts if re.fullmatch(r"\d+(?:[,\-']\d+)*", o)
+            and all(0 < int(n) <= 23 for n in re.findall(r"\d+", o)) and count(o) > 1}
+
+
+#: What OCR reads before a list's first clue number: specks, rules, a
+#: bracket, a repeated heading ("DOWN 1 City").
+SPECKS = r".,:;'’\"`<>«»■_|*•~^#=+\-—/\\\[\]()"
+LIST_JUNK = r"(?:\s|(?i:across|down)\b|[{}])*"
+
+
+def list_start(text, start):
+    """A list's text from its first clue number (`start` matches one): the
+    junk OCR read before it dropped (". 1 Old", "■ 2 Inform", "DOWN 1
+    City", ": I Virgil's"), a number glued to its clue parted ("1.Religion",
+    "1-Chinese"), and a list led by words, its first number lost ("Tend to
+    turn", "') Seeing"), led by "#" for the grid to place."""
+    m = re.match(LIST_JUNK.format(SPECKS) + r"(?=\d|[IlJjt|!]\s+[\"']?[A-Z])", text)
+    if m:
+        return clue_text.mend_list_start(text[m.end():])
+    if start.match(text):
+        return text
+    # The least junk: a quote may open the first clue.
+    m = re.match(LIST_JUNK.format(SPECKS) + r"?(?=[\"']?[A-Z][a-z])", text)
+    return "# " + text[m.end():] if m else text
+
+
+#: The most characters a clue's tail may run, number and opening lost, to be taken as that clue.
+LOST_OPENING = 60
+
+
+def lost_opening(text, pos, start, spaced=False):
+    """(clue, end) for the clue tail at `pos` (lower case words, then its count, then the
+    next clue's number or the list's end), or None: a clue whose number and first line the
+    OCR dropped ("way (3, 2)" for "1 Nominate a candidate, any way (3, 2)"). It takes the
+    place of its light with no number (the "#" of list_start) and the words it has, so the
+    other clues of the reading stand; its lower case opening has the vote call it
+    "starts mid-clue", never filed as it is.
+
+    `spaced` (the list mended, clues' `tails`): a tail after the space the clue before it left, mid-list
+    ("15 Counsel (4). paniment (7). 19 Half changed", Gale 1937-12-30: the 1936-40 Times prints four clue
+    columns, read as two, so a clue's second line sits in the row of the other column's next clue). A
+    count closed by a stop ("(4).") leaves the space before the tail (BRACKET takes only the space before
+    the stop), and lost_opening wanted the tail at `pos`: every such page stopped "cannot find a clue
+    number at: ' paniment (7) 19 Half changed yct 29Hcr '" (1,018 readings of 854 Gale 1936-40 pages,
+    10-31 census)."""
+    if spaced:
+        pos += len(text[pos:]) - len(text[pos:].lstrip())
+    if not re.match(r"[a-z]", text[pos:pos + 1]):
+        return None
+    for e in BRACKET.finditer(text, pos, pos + LOST_OPENING + 14):
+        body = text[pos:e.start()].strip()
+        raw = next(g for g in e.groups() if g is not None)
+        if len(body) > LOST_OPENING or not enum_readings(raw):
+            continue
+        if re.search(r"\s\d{1,2}\s+[A-Z]", body):
+            return None
+        if text[e.end():].strip() and not start.match(text, e.end()):
+            return None
+        return {"tokens": [set()], "text": body, "enums": enum_readings(raw), "see": None}, e.end()
+    return None
+
+
+#: The words a "See N" clue's own text runs on from N with: a preposition or conjunction joining the clue it
+#: names to the rest of its wordplay ("See 16 about", "See 10 with", "See 5 for"). A content word after a bare
+#: "See 5" is a neighbour column's tail the reader set beside it ("28 See 5 / purple damask (4)", Times 1944-12-15).
+SEE_RUN_WORDS = ("about|above|after|against|along|among|and|around|as|at|before|behind|below|beside|between|beyond|but|"
+                 "by|for|from|if|in|inside|into|less|like|minus|near|nor|of|off|on|or|out|over|perhaps|plus|round|so|"
+                 "than|then|through|to|too|under|until|up|upon|with|within|without|yet")
+#: Words a "See N" clue's own text runs on in ("19 See 16 about covering Australian port (9).", "16 See 10
+#: with reference to current affairs (9)."): a SEE_RUN_WORDS word, at least one more word, no figure, its count.
+SEE_RUN_ON = re.compile(rf"\s+(?:{SEE_RUN_WORDS})\b[.,;:]?(?:\s+[.,;:]?[A-Za-z][a-z'\-]*[.,;:!?]?){{1,12}}"
+                        r"\s*\(\d{1,2}(?:[,\-]\s?\d{1,2})*\)")
+#: A text holding such a clue: "See N" (no stop after it), then SEE_RUN_ON.
+SEE_RUN_TEXT = re.compile(r"\b[Ss][ec]e\s+\d{1,2}(?:\s*(?:across|down|ac|dn)\b)?" + SEE_RUN_ON.pattern)
+
+
+def see_runs_on(rest, tail):
+    """Whether the "See N" `tail` opening a clue's `rest` is the start of that clue's own text, not a bare
+    continuation: printed with no stop after its number, it runs on with a joining word and more words to
+    a count (SEE_RUN_ON). Failure shapes r14, 10-28: "19 See 16 about covering Australian port (9)" was
+    closed at "See 16", and the list stopped parsing at "about" (Times 1983-11-05, 1974-12-12)."""
+    if not tail or tail.group(0).endswith("."):
+        return False
+    return bool(SEE_RUN_ON.match(rest, tail.end()))
+
+
+def clues(text, see=True, tails=False):
+    """The clues of one list in printed order: [{"tokens": [number readings
+    of each light it names], "text", "enums": {readings}, "see": n}].
+
+    A clue starts at a number token at the start of the list or after the
+    previous clue's enumeration; its text runs to its own enumeration. A
+    "See N" continuation carries no enumeration and ends where the next
+    number starts; one its words run on from is the clue's own text
+    (see_runs_on), but with `see` False (the list as read: the vote's ranking). `tails` True reads a clue
+    tail after a clue mid-list (lost_opening's `spaced`): a mend, as `see`, the archive.org reader's."""
+    # The Independent prints a linked clue's numbers with slashes and a direction letter ("1/9", "17/5A/15":
+    # INDY_LINKS), a slash glued to the numbers either side.
+    start = re.compile(rf"\s*((?:{NUM}(?:(?-i:[AD])(?=/))?|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))"
+                       rf"(?:(?:\s*(?:,|&|and)\s*|/)\d{{1,2}}(?:(?-i:[AD])\b|\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
+                       re.IGNORECASE)
+    text = clue_text.mend_between_clues(text)
+    # A count before a capitalised word, at most a speck between ("(5). He",
+    # "(6). '• He", "(4). 'lO \"Fear"), ends a clue: the next one's number
+    # is what the speck reads as, else lost ("#"), for the grid to place.
+    def lost_number(m):
+        # A linked clue's head printed without a space ("(8). 5,20 How",
+        # "(6). 4&22 Who") is the next clue's numbers, not a speck: read
+        # as "#" its first light was lost (Gale 1981-09-09, 1993-10-29).
+        if not enum_readings(m[1]) or readings(m[2]) or LINKED_HEAD.fullmatch(m[2]):
+            return m[0]
+        core = m[2].split()[-1].strip(".,;:'\")") if m[2].strip() else ""
+        return f"({m[1]}) {core if readings(core) else '#'} "
+    text = re.sub(r"\(([^()]{1,8})\)\.?\s*((?:[^\w\s()]{1,3}\s+){0,3}?[^\s(]{0,4}?)\s+(?=[A-Z][a-z']|[A-Z]\s|[\"'][A-Z])",
+                  lost_number, text)
+    text = list_start(text, start)
+    out, pos = [], 0
+    while pos < len(text):
+        m = start.match(text, pos)
+        if not m:
+            lost = lost_opening(text, pos, start, spaced=tails)
+            if lost is None:
+                # A number run into its first word ("1.5Carolyn", "1,7Breach"): the next number in order, split.
+                prev = max(out[-1]["tokens"][0], default=0) if out and out[-1]["tokens"] else 0
+                glued = clue_text.glued_number(text[pos:], prev)
+                if glued:
+                    text = text[:pos] + f" {glued[0]} " + text[pos + glued[1]:]
+                    continue
+                return None, f"cannot find a clue number at: {text[pos:pos + 40]!r}"
+            out.append(lost[0])
+            pos = lost[1]
+            continue
+        body_from = m.end()
+        # Only the lead number may be junk; the ones it links ("1,4",
+        # "10,9dn") are numbers, and the commas and "dn" between are not.
+        head = re.sub(r"^(\d{1,2})[AD](?=/)", r"\1", m.group(1))
+        lead = re.match(rf"{NUM}(?![\-~^*{DIGITISH}])|{JUNK_NUM}", head)
+        links = re.sub(r"(?:across|down|and|ac|dn)\b", " ", head[lead.end():], flags=re.IGNORECASE)
+        links = re.sub(r"(?<=\d)[AD]\b", " ", links)  # a direction letter after a slashed number ("5A"), not a digit slip
+        tokens = [readings(lead.group(0))] + [readings(t) for t in re.findall(NUM, links)]
+        rest = text[body_from:]
+        see_ref = SEE_RE.match(rest)
+        tail = see_ref and re.match(r"s[ec]e\s+(?:[lI]\d|\d[lI]|\d+)(?:\s*(?:across|down|ac|dn)\b)?" + SEE_LINKED + r"\.?",
+                                rest, re.IGNORECASE)
+        if see_ref and not (see and see_runs_on(rest, tail)):
+            # "See 12" (and maybe "Across."), then the next clue's number.
+            out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
+                        "enums": set(), "see": see_number(see_ref.group(1))})
+            pos = body_from + tail.end()
+            # The 1950s Times prints a count after its See ("3 See 27 (4)."): not the
+            # next clue's number, so it is passed over (the list then stopped there).
+            count = re.compile(r"\s*\(\d{1,2}(?:[,\-]\s?\d{1,2})*\)\s*\.?(?=\s|$)").match(text, pos)
+            if count:
+                pos = count.end()
+            continue
+        # "See Preamble" prints no count and names no number (Cyclops 199's
+        # 1/29/40/78/58/60): it ends where the next clue's number starts, as
+        # a "See N" does, not at the next clue's bracket.
+        pre = re.match(r"see\s+preamble\b\.?", rest, re.IGNORECASE)
+        if pre:
+            out.append({"tokens": tokens, "text": pre.group(0).rstrip("."), "enums": set(), "see": None})
+            pos = body_from + pre.end()
+            continue
+        # The clue ends at the first bracket that is followed by the next
+        # clue's number or the list's end. Its content is the count, read
+        # with the slips; ")" itself is often read as "1", and "(?)" is a
+        # count lost, which still ends the clue.
+        end = None
+        for e in BRACKET.finditer(rest):
+            after = rest[e.end():]
+            # A bracket that reads as no count ends the clue only before a
+            # number with a digit in it: "(laugh!) is beginning" is not
+            # clue 15's start.
+            lost = not enum_readings(next(g for g in e.groups() if g is not None))
+            if not after.strip() or (start.match(rest, e.end())
+                                     and not (lost and not re.match(r"\s*\S?\d", after))) \
+                    or (not lost and lost_opening(rest, e.end() + len(after) - len(after.lstrip()), start)):
+                end = e
+                break
+        if end is None:
+            out.append({"tokens": tokens, "text": rest.strip(), "enums": set(), "see": None})
+            break
+        raw = next(g for g in end.groups() if g is not None)
+        enums = enum_readings(raw)
+        if end.group(2) and re.search(r"[1lI]$", raw):
+            enums |= enum_readings(raw[:-1])
+        out.append({"tokens": tokens, "text": rest[:end.start()].strip(),
+                    "enums": enums, "see": None})
+        pos = body_from + end.end()
+    return out, None
+
+
+# ------------------------------------------------------------ the numbering
+
+#: Above the highest clue number a 15x15 here prints (32, over the Guardian
+#: and Canberra 15x15s we hold): a list may have lost clues, so its length
+#: does not bound its numbers.
+TOP_NUMBER = 36
+
+
+def _kept(options, top):
+    """(most, fwd, bwd) for one list's lead-number `options` (a set of
+    readings per clue, in print order): the most clues whose numbers can
+    stand at once, and per (clue, reading) the best count of a standing run
+    ending (fwd) and starting (bwd) there. A list's numbers rise, so the
+    k-th of n clues reads at least k and at most `top` - (n - k); two that
+    stand k clues apart differ by at least k, the clues between needing
+    numbers of their own."""
+    n = len(options)
+    ok = [{v for v in opts if i + 1 <= v <= top - (n - 1 - i)} for i, opts in enumerate(options)]
+    fwd, bwd = {}, {}
+    for i in range(n):
+        for v in ok[i]:
+            fwd[i, v] = 1 + max((c for (j, u), c in fwd.items() if j < i and v - u >= i - j), default=0)
+    for i in reversed(range(n)):
+        for v in ok[i]:
+            bwd[i, v] = 1 + max((c for (j, u), c in bwd.items() if j > i and u - v >= j - i), default=0)
+    return max(fwd.values(), default=0), fwd, bwd
+
+
+def numbering(options, top):
+    """Each clue's lead-number readings narrowed to the ones its list's order
+    allows: the readings it takes in every reading of the list that keeps the
+    most numbers standing, else set() (a number OCR misread past its slips,
+    "10" for 20, "75" for 25, left for the grid to place)."""
+    most, fwd, bwd = _kept(options, top)
+    out = []
+    for i in range(len(options)):
+        best = {v for (j, v), c in fwd.items() if j == i and c + bwd[i, v] - 1 == most}
+        drop = options[:i] + [set()] + options[i + 1:]
+        out.append(best if best and _kept(drop, top)[0] < most else set())
+    return out
+
+
+def renumber(parsed):
+    """`parsed` with its lists' clue numbers put in order (numbering()), and
+    a list that runs on into the other's heading put back: the down list's
+    "12 ... 29, 2, 3" is across 12 to 29 read under a DOWN heading printed
+    too early, and an across list's "... 28, 1, 2" the down list's head. The
+    split moves only when it stands at least HEADLESS_RUN more numbers."""
+    parsed, _ = clue_repair.split_run_on(parsed)
+    across, down = parsed["across"], parsed["down"]
+    every = across + down
+    top = max(TOP_NUMBER, len(every))
+    leads = [{n for n in c["tokens"][0] if n <= 99} for c in every]
+
+    def standing(s):
+        return _kept(leads[:s], top)[0] + _kept(leads[s:], top)[0]
+    here = len(across)
+    split = max(range(1, top), key=lambda s: (standing(s), s == here), default=here)
+    if standing(split) - standing(here) < HEADLESS_RUN:
+        split = here
+    out = {}
+    for direction, part, opts in (("across", every[:split], leads[:split]),
+                                  ("down", every[split:], leads[split:])):
+        out[direction] = [{**c, "tokens": [n] + c["tokens"][1:]}
+                          for c, n in zip(part, numbering(opts, top))]
+    return out, split != here
+
+
+# ------------------------------------------------------------ the cross-check
+
+count = clue_text.count_total
+
+
+#: Stays here: the slip tables are calibrated on Trove's engine and each reading is confirmed by the grid.
+#: A printed count and the ones OCR reads it as past SLIPS' letters, as
+#: counted over the scans whose grid disagreed with one count: a thin 7 and
+#: a 1, the loops of 3, 5, 6, 8 and 9. A count of several words slips only
+#: between 1 and 7: "(5, J)" over a ten is (5,5) lost, not (9,1).
+DIGIT_SLIPS = {"1": "7", "3": "58", "5": "36789", "6": "78", "7": "159", "8": "3569", "9": "57"}
+PART_SLIPS = {"1": "7", "7": "1"}
+#: The most counts one puzzle may have read through DIGIT_SLIPS: a grid
+#: misread by one square changes four lights, so a few slips are the
+#: clues' and many are the grid's.
+MOST_DIGIT_SLIPS = 2
+
+
+def digit_slips(enum):
+    """The readings with one digit read as another (DIGIT_SLIPS, PART_SLIPS)."""
+    slips = DIGIT_SLIPS if enum.isdecimal() and enum.isascii() else PART_SLIPS
+    return {enum[:k] + to + enum[k + 1:]
+            for k, ch in enumerate(enum) for to in slips.get(ch, "")}
+
+
+def match(parsed, grid):
+    """Lay the parsed clues on the grid's lights. Returns ({light id:
+    (clue text, enumeration or None, group or None)}, None) when every clue
+    the OCR kept agrees with the grid, else (None, the first disagreement).
+    A light the OCR lost is absent from the map."""
+    lights = rg.light_cells(grid)
+    length = {f"{n}-{d}": len(c) for (n, d), c in lights.items()}
+    out, slipped = {}, []
+    for direction in ("across", "down"):
+        expected = [n for (n, d) in lights if d == direction]
+        i = 0
+        clues_here = parsed[direction]
+        for ci, clue in enumerate(clues_here):
+            # The first light still to come whose number the token can read as.
+            first = clue["tokens"][0]
+            j = next((k for k in range(i, len(expected)) if expected[k] in first), None)
+            if j is None and i < len(expected):
+                # A number misread past every slip ("11" for 21, "f" for 6) is
+                # placed only when the next clue with a number left, or the
+                # list's end, leaves it exactly one light, and its count must
+                # still fit that light.
+                k = next((k for k in range(1, len(clues_here) - ci)
+                          if clues_here[ci + k]["tokens"][0]), None)
+                if (k is None and len(clues_here) - ci == len(expected) - i) or \
+                        (k is not None and i + k < len(expected)
+                         and expected[i + k] in clues_here[ci + k]["tokens"][0]):
+                    j = i
+                elif clue["enums"] and len(clue["tokens"]) == 1:
+                    # A clue lost before it: the one light its count fits
+                    # among those the clues around it leave.
+                    last = (len(expected) - (len(clues_here) - ci) if k is None else
+                            next((m for m in range(i + k, len(expected))
+                                  if expected[m] in clues_here[ci + k]["tokens"][0]), len(expected)) - k)
+                    fit = [m for m in range(i, last + 1)
+                           if any(count(e) == length[f"{expected[m]}-{direction}"] for e in clue["enums"])]
+                    j = fit[0] if len(fit) == 1 else None
+            if j is None:
+                # A clue whose number was lost ("[]") belongs on the light the grid numbers next:
+                # named, so the readers ask only the columns holding it (an unnamed disagreement
+                # asks every column: FT 1983-08-16, 6 of 192 asks).
+                nxt = f" (the next is {expected[i]}-{direction})" if not first and i < len(expected) else ""
+                return None, (f"{direction} clue {sorted(first)} names no light the grid "
+                              f"numbers after {expected[i - 1] if i else 'the start'}{nxt}")
+            n = expected[j]
+            i = j + 1
+            lid = f"{n}-{direction}"
+            group = [lid]
+            for t in clue["tokens"][1:]:
+                if len(t) != 1:
+                    return None, f"{lid}: unreadable linked number"
+                m = next(iter(t))
+                other = [f"{m}-{d}" for d in ("across", "down") if f"{m}-{d}" in length]
+                if not other:
+                    return None, f"{lid} links to {m}, which the grid does not number"
+                group.append(other[0] if len(other) == 1 else
+                             (f"{m}-{direction}" if f"{m}-{direction}" in other else other[0]))
+            if clue["see"] is not None:
+                if not any(f"{clue['see']}-{d}" in length for d in ("across", "down")):
+                    return None, f"{lid} says see {clue['see']}, which the grid does not number"
+                out[lid] = (clue["text"], None, None)
+                continue
+            total = sum(length[g] for g in group)
+            fits = sorted(e for e in clue["enums"] if count(e) == total)
+            if clue["enums"] and not fits:
+                # A 7 printed thin reads as 1, a 5 as 3: only the light decides.
+                fits = sorted({s for e in clue["enums"] for s in digit_slips(e)
+                               if count(s) == total})
+                slipped.append(lid)
+            if clue["enums"] and len(fits) != 1:
+                return None, (f"{lid}: the enumeration reads as {sorted(clue['enums'])}, "
+                              f"the grid holds {total} letters")
+            enum = fits[0] if fits else None
+            out[lid] = (clue["text"], enum, group if len(group) > 1 else None)
+    if len(slipped) > MOST_DIGIT_SLIPS:
+        return None, f"the counts of {', '.join(slipped)} fit the grid only read as other digits"
+    return out, None
+
+
+#: The Canberra Times grid's side, which a rebuild searches unless the scan
+#: reads as one of SIDES (some 1983 Sundays print a 13x13).
+SIDE = 15
+SIDES = (13, 15)
+#: The most cells a scanned grid may misread and still pick one of several
+#: grids the clue list allows: OCR's grid reader loses a square or two, not a
+#: pattern.
+IMAGE_SLACK = 6
+
+
+def closest(image):
+    """reconstruct_grid.unique_grid's `pick`: the one grid nearest the scan,
+    when it is clearly nearest and near; None without a scan."""
+    if not image:
+        return None
+
+    def pick(grids):
+        def off(g):
+            if len(g) != len(image) or len(g[0]) != len(image[0]):
+                return len(g) * len(g[0])
+            return sum(a != b for ra, rb in zip(g, image) for a, b in zip(ra, rb))
+        ranked = sorted(grids, key=off)
+        best = off(ranked[0])
+        if best <= IMAGE_SLACK and (len(ranked) == 1 or off(ranked[1]) > best):
+            return ranked[0]
+        return None
+    return pick
+
+
+def mirrored(options):
+    """The across lights' lengths, each read off its `options` (the counts
+    its clue's enumeration can be; None for no count) and its mirror's: a
+    symmetric grid's k-th across light from the start is as long as the k-th
+    from the end. A pair that disagrees is a count misread, and both go
+    unknown; past MOST_DIGIT_SLIPS such pairs the list has lost a clue and
+    stands as read."""
+    out = [next(iter(o)) if o and len(o) == 1 else None for o in options]
+    broken = 0
+    for i in range(len(options) // 2):
+        j = len(options) - 1 - i
+        a, b = options[i], options[j]
+        both = a & b if a and b else a or b
+        if a and b and not both:
+            broken += 1
+        out[i] = out[j] = next(iter(both)) if both and len(both) == 1 else None
+    if broken > MOST_DIGIT_SLIPS:
+        return [next(iter(o)) if o and len(o) == 1 else None for o in options]
+    return out
+
+
+def rebuild(parsed, image=None):
+    """The one grid the clue list's numbers and lengths allow, or (None, why).
+    What the OCR leaves uncertain goes in unknown: a number read several
+    ways, an enumeration read several ways, and each light of a linked clue,
+    whose count is their sum. The across lengths are read with their mirrors
+    (mirrored()). The grid is the scan's side (SIDES), else SIDE. Several
+    grids are settled by the scan (`image`, the grid read off it even where
+    it disagrees with the clues)."""
+    spec = []
+    for direction in ("across", "down"):
+        options = [{count(e) for e in clue["enums"]} or None
+                   if len(clue["tokens"]) == 1 and clue["see"] is None else None
+                   for clue in parsed[direction]]
+        lengths = mirrored(options) if direction == "across" else \
+            [next(iter(o)) if o and len(o) == 1 else None for o in options]
+        for clue, length in zip(parsed[direction], lengths):
+            tokens = clue["tokens"][0]
+            spec.append((next(iter(tokens)) if len(tokens) == 1 else None, direction, length))
+    side = len(image) if image and len(image) == len(image[0]) and len(image) in SIDES else SIDE
+    import ocr_remote  # the search, on the desktop when it answers
+    return rg.unique_grid(spec, cols=side, rows=side, max_nodes=REBUILD_NODES,
+                          pick=closest(image), search=ocr_remote.reconstruct)
+
+
+def counts_off(parsed, image):
+    """(`parsed` with the counts the scan's grid refuses dropped, those
+    lights) when the scan reads as a symmetric grid and at most
+    MOST_DIGIT_SLIPS clue counts disagree with the light their number names
+    there ("(2)" over a six), else (parsed, []): a count misread past
+    DIGIT_SLIPS. The rebuild then takes those lights' lengths from the
+    others, and only a unique grid stands."""
+    if not image or any(image[r][c] != image[-1 - r][-1 - c]
+                        for r in range(len(image)) for c in range(len(image[r]))):
+        return parsed, []
+    lights = rg.light_cells(image)
+    out, off = {}, []
+    for direction in ("across", "down"):
+        length = {n: len(c) for (n, d), c in lights.items() if d == direction}
+        out[direction] = []
+        for clue in parsed[direction]:
+            named = [n for n in clue["tokens"][0] if n in length] if len(clue["tokens"]) == 1 else []
+            if clue["see"] is None and len(named) == 1 and clue["enums"] \
+                    and not any(count(e) == length[named[0]] for e in clue["enums"]):
+                off.append(f"{named[0]}-{direction}")
+                clue = {**clue, "enums": set()}
+            out[direction].append(clue)
+    return (out, off) if len(off) <= MOST_DIGIT_SLIPS else (parsed, [])
+
+
+# ------------------------------------------------------------ the vote
+
+def page_readings(d, zones=None):
+    """{reader: its text of the article's clue zones} for every
+    ocr_clues.READERS reader, each cached beside the zones as
+    read.<reader>.txt (the cache alone serves, without the zones); {} when
+    neither is there."""
+    if not has_readings(d.name, zones or clue_zones(d)):
+        return {}
+    cached = readings_cached(d.name, zones or clue_zones(d))
+    images = zone_images(d.name, zones or clue_zones(d))
+    from PIL import Image
+    out = {}
+    for which, cache in cached.items():
+        if not cache.exists():
+            text = "\n".join(ocr_clues.lines_of(ocr_clues.read_words(Image.open(p), which))
+                             for p in images)
+            cache.write_text(text, encoding="utf-8")
+        out[which] = cache.read_text(encoding="utf-8")
+    return out
+
+
+def vlm_reading(d, zones=None):
+    """{"vlm": the desktop VLM's text of the article's clue zones} when it
+    answers (its replies cached by tools/vlm_reader.py), else {}."""
+    from PIL import Image
+    images = zone_images(d.name, zones or clue_zones(d))
+    if not images or not vlm.wanted():
+        return {}
+    try:
+        return {"vlm": "\n".join(vlm.read(vlm.crop(im, (0, 0, im.width, im.height)))
+                                 for im in map(Image.open, images))}
+    except RuntimeError:
+        return {}  # gone mid-run: read as without it
+
+
+def zone_images(aid, zones):
+    """Article `aid`'s clue zone images (fetch_trove.py zones), in print order."""
+    return sorted((zones / str(aid)).glob("zone*.png"), key=lambda p: int(p.stem[4:]))
+
+
+def readings_cached(aid, zones):
+    """{reader: where page_readings caches its text of article `aid`'s zones}."""
+    return {which: zones / str(aid) / f"read.{ocr_clues.reader_key(which)}.txt" for which in ocr_clues.READERS}
+
+
+def has_readings(aid, zones):
+    """Whether page_readings has anything to read for article `aid`: its zone
+    images, or every reader's cached text of them."""
+    return bool(zone_images(aid, zones)) or all(
+        p.exists() for p in readings_cached(aid, zones).values())
+
+
+#: {article id: has_readings} off the trove-zones manifest, loaded once a process.
+_ZONES = {}
+
+
+def zones_held(aid, zones):
+    """has_readings(aid, zones), off the trove-zones manifest once `build
+    trove-zones` has completed it (fetch_trove.fetch_zones appends to it):
+    stamp_cause asks it of every old ledger row, so it lists no zone dir."""
+    if media_manifest.on_media(zones) and media_manifest.complete(media_manifest.TROVE_ZONES):
+        if not _ZONES:
+            _ZONES.update(media_manifest.memo(media_manifest.TROVE_ZONES, "article", "readings"))
+            _ZONES.setdefault("", False)  # loaded, even when empty
+        return bool(_ZONES.get(str(aid)))
+    return has_readings(aid, zones)
+
+
+def stacked(images):
+    """The zone images one under another, as the article prints them."""
+    from PIL import Image
+    out = Image.new("RGB", (max(im.width for im in images), sum(im.height for im in images)), "white")
+    y = 0
+    for im in images:
+        out.paste(im.convert("RGB"), (0, y))
+        y += im.height
+    return out
+
+
+def parse_reading(text):
+    """({"across": clues, "down": clues}, None) for one reading of the
+    zones, or (None, why)."""
+    secs = sections(text)
+    if secs is None:
+        return None, "no ACROSS and DOWN lists"
+    parsed = {}
+    for direction, t in secs.items():
+        parsed[direction], why = clues(t)
+        if why:
+            return None, why
+    return parsed, None
+
+
+def reconcile_texts(laid, texts, lengths):
+    """(laid, blank) of ocr_clues.reconcile with every reading's text put to
+    each clue: the vote's first half, a pure function of its arguments."""
+    return ocr_clues.reconcile(laid, texts, lengths, keep_known=True)
+
+
+def finish_vote(laid, blank, before, texts, ocr, lengths):
+    """(laid, blank, bad) once the readings are reconciled (and the VLM has
+    picked among the blanks): each clue as the readings print it, the
+    suspect words, a pure function of its arguments. `before` is the clues
+    as Trove's text laid them, `texts` {reader: text}, `ocr` Trove's own."""
+    # The vote settles words only: a count reconcile() took from the light
+    # stands in for one Trove read in parts it could not print ("(6,4)").
+    laid = {k: (t, before[k][1] if k in before else e, g) for k, (t, e, g) in laid.items()}
+    # Each filed clue as the readings print it, Trove's text among them: its
+    # count's shape, each word's capital, hyphen and spelling.
+    laid, blank = ocr_clues.as_printed({**texts, "trove": ocr}, laid, blank, parse_reading, lengths)
+    laid, blank = ocr_clues.one_light_each(laid, blank, {
+        lid for lid, (_, enum, group) in before.items() if enum and not group and count(enum) == lengths.get(lid)})
+    shared = None
+    for t in texts.values():
+        got = {w.lower() for w in ocr_clues.marked(ocr_clues.clean(t))}
+        shared = got if shared is None else shared & got
+    bad = {k: ocr_clues.suspect(t, shared) + [
+        d for d in ocr_clues.doubled(t) if d not in ocr_clues.doubled(before[k][0])]
+        for k, (t, _, _) in laid.items() if k not in blank}
+    bad = {k: v for k, v in bad.items() if v}
+    laid = {k: ("", e, g) if k in blank or k in bad else (t, e, g) for k, (t, e, g) in laid.items()}
+    return laid, blank, bad
+
+
+#: The vote's two pure halves by the name vote_anywhere is given.
+VOTE_STAGES = {"reconcile": reconcile_texts, "finish": finish_vote}
+
+
+def vote_anywhere(stage, *args):
+    """VOTE_STAGES[stage](*args) run on the desktop when tools/ocr_remote.py
+    can (the clue language model, alignment and spelling checks are ~8 s of
+    pure Python a clue page, a function of the readings alone), else here in
+    a local_slot(). The arguments and the result travel pickled, so the
+    values come back as the same types."""
+    import ocr_remote
+    import pickle
+    got = ocr_remote.call("clue_vote", stage, data=pickle.dumps(args, protocol=4))
+    if got is None or not got[1]:
+        with ocr_remote.local_slot():
+            return VOTE_STAGES[stage](*args)
+    return pickle.loads(got[1])
+
+
+def vote_there(data, stage):
+    """({}, the pickled VOTE_STAGES[stage](*the pickled arguments in `data`))
+    run on the desktop (CALLS)."""
+    import pickle
+    return {}, pickle.dumps(VOTE_STAGES[stage](*pickle.loads(data)), protocol=4)
+
+
+def vote(d, laid, grid, zones=None):
+    """(laid, why) with every clue's words put to our own readings of the
+    page (ocr_clues.reconcile, Trove's text one voter among them). `why` is
+    None, or (its CAUSES cause, the detail): no reading to vote with, or
+    the detail names each light with no clue, a clue no spelling wins, or a
+    word ocr_clues.suspect() refuses: only a puzzle whose every clue reads
+    true is filed. Those lights are blank in `laid` (None when no reading
+    or a lost light leaves nothing voted), which mends a held file's clue
+    (_run) even while the puzzle waits."""
+    from PIL import Image
+    texts = page_readings(d, zones)
+    if not texts:
+        return None, ("zones-not-fetched", "no reading of the page's clues to vote with (fetch_trove.py zones)")
+    lengths = {f"{n}-{dr}": len(c) for (n, dr), c in rg.light_cells(grid).items()}
+    lost = sorted(set(lengths) - set(laid), key=lambda k: (k.split("-")[1], int(k.split("-")[0])))
+    if lost:
+        return None, ("lights-without-clue", f"no clue for {', '.join(lost)}")
+    images = [Image.open(p) for p in zone_images(d.name, zones or clue_zones(d))]
+    # The desktop's VLM, when it answers, is one more reading, and reads
+    # each clue the vote leaves blank shown every reading's text for it.
+    texts.update(vlm_reading(d, zones))
+    before = dict(laid)
+    laid, blank = vote_anywhere("reconcile", laid, list(texts.values()), lengths)
+    if blank and "vlm" in texts and vlm.wanted():
+        page = stacked(images)
+        try:
+            laid, blank = ocr_clues.vlm_pick(
+                texts, laid, blank, parse_reading,
+                lambda lid, cands: vlm.pick_in(vlm.crop(page, (0, 0, page.width, page.height)), lid, cands))
+        except RuntimeError:
+            pass
+    ocr = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace") if (d / "ocr.txt").exists() else ""
+    laid, blank, bad = vote_anywhere("finish", laid, blank, before, texts, ocr, lengths)
+    if blank:
+        return laid, ("clues-unread", "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items())))
+    if bad:
+        return laid, ("suspect-words", "suspect words: " + "; ".join(
+            f"{k} " + ", ".join(f"{w!r} ({why})" for w, why in v) for k, v in sorted(bad.items())))
+    return laid, None
+
+
+# ------------------------------------------------------------ the puzzle
+
+def build(aid, meta, ocr, grid, how, laid, day):
+    """The puzzle dict for a grid and the clues laid on it."""
+    lights = rg.light_cells(grid)
+    by_id = {}
+    entries = []
+    for (n, d), cells in lights.items():
+        e = {"number": n, "direction": d, "position": {"x": cells[0][1], "y": cells[0][0]},
+             "length": len(cells)}
+        entries.append(e)
+        by_id[entry_id(e)] = e
+    seps, groups = {}, {}
+    for lid, (text, enum, group) in list(laid.items()):
+        # A ";" between counts that fill the light is a misread ",".
+        enum = enumeration.comma_misread(enum, sum(by_id[i]["length"] for i in group or [lid] if i in by_id))
+        laid[lid] = (text, enum, group)
+        if enum:
+            try:
+                seps.update(separators(group or [lid], by_id, enum))
+            except SystemExit:
+                laid[lid] = (text, None, None)
+                continue
+            if group:
+                groups[lid] = group
+    numbers = {e["number"] for e in entries}
+    for e in entries:
+        lid = entry_id(e)
+        text = source_clue(series_meta.puzzle_id(SERIES, int(day.strftime("%y%m%d"))), lid,
+                           laid.get(lid, ("", None, None))[0])
+        # Its count read after its last word, the brackets lost ("looks? 5",
+        # "legislation? 16.4"), goes when it fills the light (the pipeline's cells).
+        text = clue_text.tidy_ocr_clues(text, scope="clue", cells=e["length"], lights=numbers)
+        enum = laid.get(lid, ("", None, None))[1]
+        line = f"{text} ({enum})" if enum else text
+        e["clue"] = enumeration.clue(line, separators=seps.get(lid),
+                                     missing=not text.strip())
+        if lid in groups:
+            e["group"] = groups[lid]
+        e["solution"] = None
+    paper, setter = label(ocr)
+    number = int(day.strftime("%y%m%d"))
+    name = f"Canberra Times cryptic crossword, {day.strftime('%A')} {day.day} {day.strftime('%B %Y')}"
+    if paper:
+        name += f" ({paper})"
+    return {
+        "id": series_meta.puzzle_id(SERIES, number),
+        "number": number,
+        "series": SERIES,
+        "name": name,
+        "setter": setter,
+        "date": day.isoformat(),
+        "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
+        "source": {"url": ARTICLE.format(aid),
+                   "gridOrigin": "published" if how == "image" else "reconstructed",
+                   **reprint_of(aid)},
+        "entries": entries,
+    }
+
+
+#: The cache whose london_numbers.json reprint_of reads; main sets --cache.
+LONDON_CACHE = CACHE
+_LONDON = None
+
+
+def reprint_of(aid):
+    """{"reprintOf": "times-N"} when tools/canberra_london_numbers.py's map
+    in LONDON_CACHE names the London puzzle article `aid` reprints, else {}."""
+    global _LONDON
+    if _LONDON is None:
+        _LONDON = canberra_london_numbers.load(LONDON_CACHE / "london_numbers.json")
+    n = (_LONDON.get(str(aid)) or {}).get("number")
+    return {"reprintOf": f"times-{n}"} if n else {}
+
+
+_HELD = None
+
+
+def held_clues():
+    """{normalised clue text: puzzle id} over the Guardian puzzles we hold
+    from before 2000, the years a Trove reprint could repeat."""
+    global _HELD
+    if _HELD is None:
+        _HELD = {}
+        for path in sorted((ROOT / "puzzles" / "cryptic").glob("19*/*.json")):
+            p = json.loads(path.read_text(encoding="utf-8"))
+            for e in p.get("entries", ()):
+                t = norm((e.get("clue") or {}).get("text", ""))
+                if len(t) > 12:
+                    _HELD[t] = p["id"]
+    return _HELD
+
+
+def norm(text):
+    return re.sub(r"[^a-z]", "", text.lower())
+
+
+def already_held(laid):
+    """The held puzzle id at least half of these clues repeat, or None."""
+    hits = {}
+    texts = [norm(t) for t, _, _ in laid.values() if len(norm(t)) > 12]
+    for t in texts:
+        pid = held_clues().get(t)
+        if pid:
+            hits[pid] = hits.get(pid, 0) + 1
+    best = max(hits, key=hits.get, default=None)
+    return best if best and hits[best] * 2 >= len(texts) else None
+
+
+# ------------------------------------------------------------ the run
+
+def clue_zones(d):
+    """Where tools/fetch_trove.py caches the clue columns of the articles
+    in d's cache (zones_of)."""
+    return zones_of(d.parent)
+
+
+def zones_of(cache):
+    """Where tools/fetch_trove.py caches the clue columns of the articles
+    in `cache`: trove-clues beside trove, as downloads.TROVE_CLUES beside downloads.TROVE."""
+    cache = Path(cache)
+    return cache.parent / f"{cache.name}-clues"
+
+
+def input_hash(d):
+    """The article's files by size and whole-second modification time
+    (media_manifest.trove_files) and its clue zone images by name
+    (trove_zone_names): a rerun reads only the articles whose hash moved.
+    Inputs only: our own readings cached beside the zones are the read's
+    output. On the media disk both come from the trove-inputs manifest on
+    the SSD, which tools/fetch_trove.py appends to as it writes them, so a
+    rerun stats no article; one missing there is taken off the disk once
+    and appended (_inputs_off_disk)."""
+    held = trove_inputs().get(d.name, {}) if media_manifest.on_media(d) else {}
+    if "files" not in held or "zones" not in held:
+        held = _inputs_off_disk(d, held)
+    h = hashlib.sha256()
+    h.update(held["files"].encode())
+    h.update(held["zones"].encode())
+    return h.hexdigest()[:16]
+
+
+def _fold_input(acc, line):
+    """Fold one trove-inputs row into {article: {"files", "zones"}}, a later row's field standing."""
+    try:
+        row = json.loads(line)
+        held = acc.setdefault(str(row["article"]), {})
+    except (ValueError, KeyError, TypeError):
+        return  # a torn last line
+    held.update({k: row[k] for k in ("files", "zones") if k in row})
+
+
+def trove_inputs():
+    """{article id: {"files", "zones"}} off the trove-inputs manifest, folding
+    only the rows appended since the last call."""
+    return dir_cache.appended(media_manifest.path(media_manifest.TROVE_INPUTS), dict, _fold_input)
+
+
+def _inputs_off_disk(d, held):
+    """input_hash's inputs of article dir `d`, those `held` lacks taken off
+    the disk and, when `d` is on the media disk, appended to trove-inputs."""
+    new = {}
+    if "files" not in held:
+        new["files"] = media_manifest.trove_files(d)
+    if "zones" not in held:
+        new["zones"] = media_manifest.trove_zone_names(clue_zones(d) / d.name)
+    if media_manifest.on_media(d):
+        media_manifest.record(media_manifest.TROVE_INPUTS, d, article=d.name, **new)
+    return {**held, **new}
+
+
+def file_mtimes(files):
+    """{name: whole-second mtime} of the files media_manifest.trove_files
+    string `files` found (a "<name>:-" is absent)."""
+    return {m.group(1): int(m.group(2)) for m in
+            re.finditer(r"(meta\.json|ocr\.txt|grid\.jpg):(?:\d+:(\d+))", files)}
+
+
+def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
+    """Re-key to inputs_of() the rows of `ledger` whose article's files (and
+    clue zone images) are all older than its read, so are what it read (the
+    files' times from the trove-inputs manifest, no article stat; the zone
+    images are held by name there, so a rewrite in place is not seen): a
+    copy that dropped their mtimes' nanoseconds, or a change of
+    input_hash's form, is no reason to read it again. A zones-not-fetched
+    row whose clue columns are cached now is left alone, so it is due
+    ("inputs changed") and read with them. Unless a run holds
+    the ledger; how many."""
+    import fcntl
+    if not ledger.exists():
+        return 0
+    known = scan_queue.ledger_rows(ledger, "article")
+    files = held_files(puzzles)
+    new = {}
+    for a, row in known.items():
+        d = cache / a
+        if "inputs" not in row or not row.get("readAt"):
+            continue
+        if row.get("cause") == "zones-not-fetched" and zones_held(a, zones_of(cache)):
+            continue  # its clue columns arrived since: it is read again ("inputs changed")
+        held = trove_inputs().get(a, {}) if media_manifest.on_media(d) else {}
+        if "files" not in held:
+            held = _inputs_off_disk(d, held)
+        mtimes = file_mtimes(held["files"])
+        if "meta.json" not in mtimes:
+            continue
+        h = inputs_of(d, files.get(a))
+        if h == row["inputs"] or h.endswith("+strayed") != row["inputs"].endswith("+strayed"):
+            continue
+        read = scan_queue.when(row["readAt"]).timestamp()
+        if all(m <= read for m in mtimes.values()):
+            new[a] = h
+    if not new:
+        return 0
+    with open(ledger.with_suffix(".lock"), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return 0
+        now = scan_queue.ledger_rows(ledger, "article")
+        rows = [{**now[a], "inputs": h} for a, h in sorted(new.items()) if now.get(a) == known[a]]
+        with open(ledger, "a", encoding="utf-8") as out:
+            out.write("".join(json.dumps(r) + "\n" for r in rows))
+        return len(rows)
+
+
+def held_files(puzzles=None):
+    """{article id: path} of each file this tool filed, by its source url:
+    a ledger row whose read now waits names no puzzle."""
+    paths = Path(puzzles).glob("*.json") if puzzles else puzzle_paths.puzzle_files(SERIES)
+    out = {}
+    for path in paths:
+        by, url = dir_cache.derived(path, acquired_from)
+        if by == TOOL and url:
+            out[url.rsplit("/", 1)[1]] = path
+    return out
+
+
+def acquired_from(puzzle):
+    src = puzzle.get("source") or {}
+    return src.get("acquiredBy"), src.get("url")
+
+
+def inputs_of(d, held=None):
+    """An article's inputs: its input_hash, and whether `held`, the file it
+    filed, holds a clue ocr_clues.stray flags (a doubled word, a stray
+    letter), which a read mends or blanks (file_archive_org_puzzles.mend_held).
+    _run keys the ledger by the inputs after its write, so an article is
+    read once for it."""
+    h = input_hash(d)
+    if held and held.exists() and dir_cache.derived(held, edition_commit.any_strayed):
+        h += "+strayed"
+    return h
+
+
+#: A cause a code change may have cured, and when it landed: an article
+#: waiting or refused for it, last read before then, is due (due_reason),
+#: so the standing full pass re-reads it and nothing else.
+REREAD_CAUSES = {"clues-dont-parse": "2026-10-06T13:33:44+00:00",
+                 # The clue repair reads the readers that vote (clue_repair).
+                 **{cause: "2026-10-12T05:58:49+00:00"
+                    for cause in ("no-grid", "rebuilt-grid-disagrees", "lights-without-clue")}}
+
+
+#: When rekey_unchanged stopped re-keying zones-not-fetched rows whose clue
+#: columns had arrived: such a row read before then, its zones cached now, is
+#: due (ZONES_ARRIVED), once.
+ZONES_FETCHED_FIX = "2026-11-15T12:00:00+00:00"
+ZONES_ARRIVED = "zones-not-fetched cured since"
+
+
+def due_reason(row, inputs, vlm_up, reread=None, zones=None):
+    """Why an article's ledger `row` is read again, or None: never read, its
+    `inputs` (input_hash) moved, read refused zones-not-fetched before
+    ZONES_FETCHED_FIX with the clue columns (`zones`, zones_of(cache)) cached
+    since, read without the VLM that now answers (unless its verdict came before the VLM, decided_before_vlm), its
+    cause cured since it was read (REREAD_CAUSES), or last read before
+    `reread` (a datetime: the explicit --reread)."""
+    if not row or "inputs" not in row:
+        return "never read"
+    if row["inputs"] != inputs:
+        return "inputs changed"
+    if (zones is not None and row.get("cause") == "zones-not-fetched"
+            and scan_queue.read_before(row, scan_queue.when(ZONES_FETCHED_FIX))
+            and zones_held(row.get("article"), zones)):
+        return ZONES_ARRIVED
+    if vlm_up and not row.get("vlm") and not decided_before_vlm(row):
+        return "read without the VLM"
+    if row.get("cause") in REREAD_CAUSES and scan_queue.read_before(
+            row, scan_queue.when(REREAD_CAUSES[row["cause"]])):
+        return f"{row['cause']} cured since"
+    if reread and scan_queue.read_before(row, reread):
+        return "--reread"
+    return None
+
+
+def consider(d, taken):
+    """(verdict, puzzle or None, voted or None) for one article directory:
+    the puzzle when it files, and the puzzle as voted, every light the vote
+    left unread blank, which mends this article's held file (_run)."""
+    meta = json.loads((d / "meta.json").read_text())
+    ocr = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace")
+    what = kind(ocr, meta.get("title", ""))
+    if what != "cryptic":
+        return {"skip": what}, None, None
+    day, _ = header(ocr)
+    if day is None:
+        return refuse({}, "no-print-date", "no print date in the OCR's first line"), None, None
+    secs = sections(ocr)
+    if secs is None:
+        return refuse({}, "no-clue-lists", "no ACROSS and DOWN lists in the OCR"), None, None
+    parsed = {}
+    for direction, text in secs.items():
+        parsed[direction], why = clues(text)
+        if why:
+            return refuse({}, "clues-dont-parse", f"{direction} clues do not parse: {why}"), None, None
+    repairs = []
+    if not clue_repair.complete(parsed):
+        texts = page_readings(d)
+        if texts:
+            texts.update(vlm_reading(d))
+        parsed, repairs = clue_repair.repaired(parsed, texts.values())
+    parsed, moved = renumber(parsed)
+    verdict = {"clues": sum(len(v) for v in parsed.values())}
+    if repairs:
+        verdict["clueRepairs"] = repairs
+    if moved:
+        verdict["listsSplit"] = len(parsed["across"])
+    grid, laid, how, image = None, None, None, None
+    if (d / "grid.jpg").exists():
+        g, why = trove_grid.read_grid(d / "grid.jpg")
+        image = g
+        if g:
+            laid, why = match(parsed, g)
+            if laid is not None:
+                grid, how = g, "image"
+            else:
+                verdict["imageDisagrees"] = why
+        else:
+            verdict["imageUnread"] = why
+    else:
+        verdict["imageUnread"] = "no grid image"
+    if grid is None:
+        g, why = rebuild(parsed, image)
+        loose, off = counts_off(parsed, image)
+        if g is None and off:
+            g, _ = rebuild(loose, image)
+            if g is not None:
+                parsed = loose
+                verdict["countsFromScan"] = off
+        if g is None:
+            wait(verdict, "no-grid", f"no grid: {why}")
+            return verdict, None, None
+        laid, why = match(parsed, g)
+        if laid is None:
+            wait(verdict, "rebuilt-grid-disagrees", f"rebuilt grid disagrees: {why}")
+            return verdict, None, None
+        grid, how = g, "rebuilt"
+    verdict["grid"] = how
+    verdict["laid"] = len(laid)
+    verdict["lights"] = len(rg.light_cells(grid))
+    laid, why = vote(d, laid, grid)
+    if why:
+        wait(verdict, *why)
+        return verdict, None, laid and build(meta["id"], meta, ocr, grid, how, laid, day)
+    held = already_held(laid)
+    if held:
+        verdict["skip"] = f"already held as {held}"
+        return verdict, None, None
+    puzzle = build(meta["id"], meta, ocr, grid, how, laid, day)
+    answers, info = trove_solution_ocr.answers_for(d, grid, day, d.parent)
+    verdict["answersRead"] = trove_solution_ocr.fill(puzzle, answers)
+    verdict["answersFrom"] = info.get("ocr")
+    if puzzle["id"] in taken and taken[puzzle["id"]] != meta["id"]:
+        refuse(verdict, "id-taken", f"{puzzle['id']} is article {taken[puzzle['id']]}'s")
+        return verdict, None, None
+    verdict["id"] = puzzle["id"]
+    return verdict, puzzle, puzzle
+
+
+def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None, workers=1,
+        wait=False, reread=None, articles=None):
+    """File what is new under `cache`; `puzzles` is a directory to write to
+    instead of the corpus (tests). No article is started once `seconds` have
+    passed; `workers` are read at once (scan_queue). Returns the tally it
+    prints; None when another run holds the ledger and `wait` is not set.
+    `reread` (a datetime) reads again every article last read before it;
+    `articles` (ids) reads those again, and no other."""
+    deadline = None if seconds is None else time.monotonic() + seconds
+    ledger = Path(ledger or media_manifest.trove_ledger(cache))
+    with scan_queue.lock(ledger, wait) as mine:
+        if not mine:
+            print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
+            return None
+        return _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles)
+
+
+def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles=None):
+    os.environ.setdefault("OCR_THREADS", str(max(1, (os.cpu_count() or 1) // max(1, workers))))
+    known = {}
+    if ledger.exists():
+        for line in ledger.read_text().splitlines():
+            row = json.loads(line)
+            known[row["article"]] = row
+    for row in known.values():
+        stamp_cause(row, zones_of(cache))
+    before = _dump(known)
+    files = held_files(puzzles)
+    taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
+    # The VLM's readings are an input: an article read without it is read
+    # again once it answers, and one read with it stands while it is down.
+    seen_by = vlm.version() if vlm.reachable() else None
+    dirs = article_dirs(cache)
+    due = {}
+    for d in dirs:
+        row = known.get(d.name)
+        h = inputs_of(d, files.get(d.name))
+        if (d.name in articles) if articles else due_reason(row, h, seen_by, reread, zones_of(cache)):
+            due[d] = h
+    queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
+                             lambda row: row is None or "inputs" not in row)
+    # A line every few minutes, so a watcher sees a long slice move.
+    reported = time.monotonic()
+    for done, ((d,), got) in enumerate(scan_queue.parallel(
+            [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,),
+            failed=lambda item, error: (refuse({}, "crashed", f"crashed: {error}"), None, None, False)), 1):
+        aid = d.name
+        if time.monotonic() - reported >= 300:
+            reported = time.monotonic()
+            print(f"  {done} of {len(queue)} read", file=out, flush=True)
+        row, puzzle = settle(d, got, taken, files, write, puzzles, seen_by)
+        if write or not puzzle:
+            known[aid] = row
+        if write:
+            save(ledger, known)
+        del due[d]
+    tally = {}
+    for d in dirs:
+        row = known.get(d.name)
+        if d in due:
+            tally["left for the next run"] = tally.get("left for the next run", 0) + 1
+            continue
+        if row is None:  # cached, never read, and not asked for in this run (--article)
+            tally["not read"] = tally.get("not read", 0) + 1
+            continue
+        key = ("filed" if row.get("id") else
+               f"skipped: {row['skip']}" if row.get("skip") else
+               f"pending: {row.get('cause') or 'no cause'}" if row.get("pending") else
+               f"refused: {row.get('cause') or 'no cause'}")
+        tally[key] = tally.get(key, 0) + 1
+        if row.get("id"):
+            g = f"grid {row['grid']}"
+            tally[g] = tally.get(g, 0) + 1
+        if row.get("imageDisagrees"):
+            tally["image read but disagrees"] = tally.get("image read but disagrees", 0) + 1
+    if write and _dump(known) != before:  # nothing changed: the ledger is not rewritten
+        save(ledger, known)
+    print(f"{len(dirs)} articles in {cache}", file=out)
+    for k in sorted(tally):
+        print(f"  {tally[k]:5d}  {k}", file=out)
+    return tally
+
+
+def settle(d, got, taken, files, write, puzzles, seen_by):
+    """File what article `d`'s read (consider_article's `got`) found, as
+    `taken` ({puzzle id: article}, updated) and `files` (held_files) allow,
+    and return (its ledger row, the puzzle written or None)."""
+    aid = d.name
+    verdict, puzzle, voted, vlm_ok = got
+    if puzzle is not None and puzzle["id"] in taken and taken[puzzle["id"]] != aid:
+        # Another worker filed this id while this one read.
+        verdict, puzzle = refuse(dict(verdict), "id-taken", f"{puzzle['id']} is article {taken[puzzle['id']]}'s"), None
+        verdict.pop("id", None)
+    held = files.get(aid)
+    if voted is not None and held and held.stem == voted["id"] and taken.get(voted["id"]) == aid:
+        puzzle = held_read(voted, puzzle, held, verdict, write)
+    elif puzzle is not None and write:
+        path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
+                else puzzle_path(SERIES, puzzle["number"]))
+        if not path.exists() and not scan_queue.file_puzzle(write_puzzle_file, TOOL, path,
+                                                             puzzle, verdict):
+            puzzle = None
+    # Keyed by the inputs after this read's writes: a stray clue it
+    # mended no longer makes the article due.
+    row = ledger_row(aid, inputs_of(d, held), verdict)
+    if seen_by and vlm_ok:
+        row["vlm"] = seen_by
+    if puzzle is not None:
+        taken[puzzle["id"]] = aid
+    print(f"{time.strftime('%H:%M:%S')} read {aid}: "
+          + ("wrote " + row["id"] if row.get("wrote") else
+             str(row.get("id") or row.get("skip") or row.get("pending") or row.get("refused") or "read"))[:80],
+          file=sys.stderr, flush=True)
+    return row, puzzle
+
+
+#: How urgent each reason to read an article is (tools/edition_queue.py's
+#: ranks, file_archive_org_puzzles.RANKS): never read and annotation's asks,
+#: then a re-read that can change what it filed, then --reread's whole-corpus
+#: one. Every reason due_reason gives is named here.
+RANKS = {"never read": 1, "annotation asked": 1, "inputs changed": 2, "read without the VLM": 2,
+         **{f"{c} cured since": 2 for c in REREAD_CAUSES}, ZONES_ARRIVED: 2, "--reread": 3}
+_DATES = {}
+#: {article id: its meta.json title} from the SSD manifest, loaded once a process.
+_TITLES = {}
+
+
+def article_date(d):
+    """Article dir `d`'s print day as ISO text from its meta.json title
+    ("01 Jan 1972 - ..."), "" when it has none. The title comes from the
+    trove-titles manifest on the SSD; one missing there is read off the
+    media disk once and appended, so a plan killed midway keeps what it read."""
+    if d.name not in _DATES:
+        if not _TITLES:
+            _TITLES.update(media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title"))
+            _TITLES.setdefault("", "")  # loaded, even when empty
+        try:
+            title = _TITLES.get(d.name)
+            if title is None:
+                title = json.loads((d / "meta.json").read_text()).get("title", "")
+                _TITLES[d.name] = title
+                media_manifest.record(media_manifest.TROVE_TITLES, d, article=d.name, title=title)
+            day = datetime.date(*time.strptime(title.split(" - ", 1)[0].strip(), "%d %b %Y")[:3]).isoformat()
+        except (OSError, ValueError, AttributeError):
+            day = ""
+        _DATES[d.name] = day
+    return _DATES[d.name]
+
+
+def article_dirs(cache):
+    """The article dirs in `cache` holding meta.json, by name: off the
+    trove-titles manifest (fetch_trove appends to it) once `build
+    trove-titles` has completed it, so a plan lists no Trove dir."""
+    if media_manifest.on_media(cache) and media_manifest.complete(media_manifest.TROVE_TITLES):
+        return [cache / a for a in sorted(media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title")) if a]
+    return _article_dirs_listed(cache)
+
+
+def _article_dirs_listed(cache):
+    """article_dirs by listing `cache` (before trove-titles is complete, or off the media disk)."""
+    return sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
+
+
+def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
+    """The article reads due, one unit each ({"rel": article id, "rank",
+    "reason", "force", "date"}), the most urgent first (RANKS), each rank
+    the newest article first (article_date)."""
+    ledger = Path(ledger or media_manifest.trove_ledger(cache))
+    known = scan_queue.ledger_rows(ledger, "article")
+    files = held_files(puzzles)
+    seen_by = vlm.version() if vlm.reachable() else None
+    asked = set(asked)
+    due = {}
+    for d in article_dirs(cache):
+        why = "annotation asked" if d.name in asked else due_reason(known.get(d.name), inputs_of(d, files.get(d.name)),
+                                                                     seen_by, reread, zones_of(cache))
+        if why:
+            due[d] = why
+    queue = sorted(sorted(due, key=article_date, reverse=True), key=lambda d: RANKS[due[d]])
+    return [{"rel": d.name, "reason": due[d], "rank": RANKS[due[d]], "force": due[d] == "annotation asked",
+             **({"detail": f"last read refused as {known[d.name].get('cause')}"} if due[d].endswith(" cured since") else {}),
+             "date": article_date(d), "needs": []} for d in queue]
+
+
+def read_unit(aid, cache=CACHE, puzzles=None, reread=None, force=False, ledger=None):
+    """Read and file one article (tools/edition_queue.py's unit), under its
+    own lock, adding its own ledger row. Returns "read", "current" (no
+    longer due, unless `force`), "busy" (another unit has it) or "held" (a
+    batch run holds the ledger)."""
+    ledger = Path(ledger or media_manifest.trove_ledger(cache))
+    if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
+        return "held"
+    with scan_queue.source_lock(ledger, aid) as mine:
+        if not mine:
+            return "busy"
+        d = Path(cache) / aid
+        known = scan_queue.ledger_rows(ledger, "article")
+        files = held_files(puzzles)
+        seen_by = vlm.version() if vlm.reachable() else None
+        if not force and not due_reason(known.get(aid), inputs_of(d, files.get(aid)), seen_by, reread, zones_of(Path(cache))):
+            print(f"{time.strftime('%H:%M:%S')} {aid}: not due any more", file=sys.stderr, flush=True)
+            return "current"
+        taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
+        set_taken(taken)
+        got = consider_article(d)
+        puzzle = got[1]
+        # Two units filing one puzzle id: the second sees the first's row.
+        with scan_queue.source_lock(ledger, f"id:{puzzle['id']}" if puzzle else f"none:{aid}") as free:
+            if puzzle is not None:
+                fresh = scan_queue.ledger_rows(ledger, "article")
+                taken |= {row["id"]: a for a, row in fresh.items() if row.get("id")}
+                if not free:
+                    taken.setdefault(puzzle["id"], "another unit's")
+            row, _ = settle(d, got, taken, files, True, puzzles, seen_by)
+            scan_queue.append(ledger, [row])
+        return "read"
+
+
+def held_read(voted, puzzle, path, verdict, write):
+    """A read of the article whose file is at `path`, as the archive.org
+    filer treats a held edition: a clue the file shares with another light,
+    one ocr_clues.fault refuses or one with a doubled word or a stray letter
+    takes the clue this read voted for its light, or goes blank
+    (file_archive_org_puzzles.mend_held); else a filing `puzzle` that adds
+    clues or answers and loses none replaces it (improves). The file stays
+    this article's while its read waits. Returns the puzzle written, or
+    None."""
+    import file_archive_org_puzzles as fa  # it imports this module
+    verdict["id"] = voted["id"]
+    mended = fa.mend_held(voted, path, TOOL)
+    if mended is not None:
+        verdict["mended"] = mended[1]
+        puzzle = mended[0]
+    elif puzzle is None or not fa.improves(puzzle, path, TOOL):
+        return None
+    return puzzle if write and scan_queue.file_puzzle(write_puzzle_file, TOOL, path, puzzle, verdict) else None
+
+
+def _dump(known):
+    return "".join(json.dumps(r) + "\n" for r in known.values())
+
+
+def save(ledger, known):
+    ledger.parent.mkdir(parents=True, exist_ok=True)
+    tmp = ledger.with_suffix(".tmp")
+    tmp.write_text(_dump(known))
+    tmp.replace(ledger)
+
+
+_TAKEN = {}
+
+
+def set_taken(taken):
+    """Each process's {puzzle id: article} (consider_article's)."""
+    _TAKEN.clear()
+    _TAKEN.update(taken)
+
+
+def consider_article(d):
+    """(consider()'s verdict, puzzle and voted, whether the VLM still answers
+    after it)."""
+    try:
+        verdict, puzzle, voted = consider(d, _TAKEN)
+    except vlm.Down:
+        raise  # the VLM down: the article waits for it (vlm_reader.wanted)
+    except Exception as e:  # any raise: one bad article is a verdict, not a crash
+        verdict, puzzle, voted = refuse({}, "crashed", f"crashed: {type(e).__name__}: {e}"), None, None
+    return verdict, puzzle, voted, vlm.reachable()
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--cache", type=Path, default=CACHE)
+    ap.add_argument("--ledger", type=Path, help="default media_manifest.trove_ledger(cache)")
+    ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
+    ap.add_argument("--seconds", type=float,
+                    help="start no new article read after N seconds; the rest wait for the next run")
+    ap.add_argument("--workers", type=int, default=WORKERS,
+                    help=f"articles read at once (default {WORKERS}): one's VLM wait overlaps another's OCR")
+    ap.add_argument("--wait", action="store_true",
+                    help="wait for another run's hold on the ledger instead of reading nothing")
+    ap.add_argument("--reread", nargs="?", const="now", metavar="BEFORE",
+                    help="read again every article last read before BEFORE (an ISO time; default now): "
+                         "the one-off after a change to this code or the VLM model, which alone makes nothing due")
+    ap.add_argument("--article", action="append", metavar="ID",
+                    help="read this article again, and no other (repeatable)")
+    ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
+    ap.add_argument("--show", metavar="ID", help="print one article's verdict and grid")
+    args = ap.parse_args(argv)
+    global LONDON_CACHE
+    LONDON_CACHE = args.cache
+    if args.show:
+        verdict, puzzle, _ = consider(args.cache / args.show, {})
+        print(json.dumps(verdict, indent=1))
+        if puzzle:
+            print(json.dumps(puzzle, indent=1)[:4000])
+        return 0
+    run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
+        seconds=args.seconds, workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread),
+        articles=args.article)
+    if not args.out:
+        trove_solution_ocr.fill_corpus(args.cache, write=not args.dry_run)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

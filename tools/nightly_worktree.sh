@@ -1,0 +1,521 @@
+#!/bin/bash
+# Move a scheduled job into a checkout of its own, then hand control back.
+#
+# Sourced as the FIRST thing a scheduled script does. It re-execs that script
+# from a private git worktree pinned to origin/master, so a job that runs for
+# two hours never shares a working tree with a person editing the repo.
+#
+# WHY. The main checkout has other writers: people, agents and the other
+# jobs. A job running there would make every one of these true at once:
+#
+#   * A half-written feature sitting unstaged looks, to the job, exactly like
+#     something the job changed, and gets swallowed into the job's commit.
+#   * The reverse: while the job is mid-run, its half-fetched puzzle
+#     files are in the tree, so a person cannot commit their own work
+#     either. The asset stamps span both sets of files, so a partial commit
+#     ships an index.html pointing at puzzles/idx files that aren't there.
+#   * `git pull --rebase --autostash` before a push stashes whatever the other
+#     writer has in flight, out from under them.
+#
+# None of that is a bug in the checks. It is one working tree with two writers,
+# and the fix is two working trees. A worktree shares the object store, so this
+# costs no extra clone and no extra fetch — and because every run starts at
+# `reset --hard origin/master`, a run that died halfway leaves nothing for the
+# next one to trip over.
+#
+# What the job gets: a tree containing exactly what it changes, so it can stage
+# with `git add -A` rather than keep a list of the files it touched.
+#
+# Untracked state is deliberately NOT copied. It is symlinked back to the main
+# checkout, so the usage cache, the alert dedupe and the CLI's settings stay one
+# thing across every tree — otherwise the same alert fires from each job and
+# the quota reading is measured once per tree.
+#
+# Logs do not move: the scheduler owns the redirect (each plugin manifest's
+# `log`, under household-plugins/), and it names a file in the main checkout.
+# Where the script ran from does not change where its output lands — which is
+# why they are also trimmed from here.
+#
+# There is no fallback. If the worktree cannot be had the job stops and says so,
+# because the only other tree is the one all of this exists to stay out of.
+#
+# Set CT_NO_WORKTREE=1 to run in place — for testing a change to one of these
+# scripts before it is pushed, since the worktree only ever runs committed code.
+
+# The tree is leased to one run of a job at a time, however the run was
+# started: the reset below discards whatever a live run has not committed yet,
+# and a run started inside the worktree (CT_IN_WORKTREE=1) or in place
+# (CT_NO_WORKTREE=1) writes there just the same. The lock file lives in the main
+# checkout, found through the shared .git from any tree. fd 9 survives the exec,
+# so a run that inherits it already holds the lease and keeps it until the run
+# and every child it started have exited.
+# CT_JOB names the tree instead of the script: tools/unit_queue.py runs each
+# unit of a queue in one of its trees (<job>-1, <job>-2 ...), holding that
+# tree's lease on fd 9 when it starts the unit. Read here and again after the
+# re-exec below, then kept from the job's children, which choose their own.
+_ct_job="${CT_JOB:-$(basename "$0" .sh)}"
+_ct_lease="$(cd "$(dirname "${BASH_SOURCE[0]}")" &&
+  dirname "$(git rev-parse --path-format=absolute --git-common-dir)")/.$_ct_job.tree.lock"
+if [ "$(readlink "/proc/$$/fd/9" 2>/dev/null)" != "$_ct_lease" ]; then
+  exec 9>"$_ct_lease"
+fi
+if ! flock -n 9; then
+  # Said once per busy stretch: every hourly fire used to repeat it.
+  [ -e "$_ct_lease.said" ] || { echo "$(date '+%F %H:%M') another $_ct_job run holds its tree — leaving it alone"; : >"$_ct_lease.said"; }
+  exit "${CT_LEASE_BUSY_RC:-0}"
+fi
+rm -f "$_ct_lease.said"
+if [ "${CT_IN_WORKTREE:-0}" = 1 ]; then export -n CT_JOB CT_LEASE_BUSY_RC; fi
+
+# Memory pressure gate (as tools/prereset_backfill.sh pool_launch): while the
+# machine is refaulting file cache (PSI some avg10 above 1) a new tree reset and
+# its job only deepen it, so hold the start, bounded (CT_PSI_MAX_SECS, 120). Not
+# for the daily_update tick itself, which must return in seconds, and once only
+# (the re-exec into the worktree has CT_IN_WORKTREE=1 and skips it).
+if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "$_ct_job" != daily_update ]; then
+  _ct_psi_waited=0
+  while [ "$_ct_psi_waited" -lt "${CT_PSI_MAX_SECS:-120}" ] &&
+    awk -v max="${CT_PSI_HOLD:-1}" '/^some/ { split($2, a, "="); exit !(a[2] > max) }' /proc/pressure/memory 2>/dev/null; do
+    sleep 10
+    _ct_psi_waited=$((_ct_psi_waited + 10))
+  done
+fi
+
+# The merge driver and clean filter .gitattributes names for the keyed JSON
+# data files. Repo config is shared by every worktree of the checkout, so
+# registering them on each run covers the jobs, the people and the agents
+# rebasing and committing alongside them.
+# Written only when the value differs: git takes .git/config.lock for every
+# write, and two jobs starting together collide on it ("could not lock config
+# file") although the value is already right.
+# A network git call (fetch, push) cut off after CT_NET_TIMEOUT seconds (120): after a network
+# blip the ssh to github.com can stall with no end (10-23 12:46: a relaunch's fetch hung 4.5 min).
+# A timeout is that call failing (status 124), and each caller carries on as from a failed one.
+_ct_net() {  # _ct_net <command...>
+  if command -v timeout >/dev/null 2>&1; then timeout "${CT_NET_TIMEOUT:-120}" "$@"; else "$@"; fi
+}
+_ct_cfg() {  # _ct_cfg <key> <value>
+  local d; d="$(dirname "${BASH_SOURCE[0]}")"
+  [ "$(git -C "$d" config --get "$1")" = "$2" ] || git -C "$d" config "$1" "$2"
+}
+_ct_cfg merge.json-keys.name "per-key JSON merge (tools/json_merge.py)"
+_ct_cfg merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
+_ct_cfg filter.json-keys.clean "python3 tools/json_merge.py --clean"
+_ct_cfg merge.puzzle-json.name "per-entry puzzle merge (tools/json_merge.py --puzzle)"
+_ct_cfg merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
+
+# The main checkout is nobody's editor window: the plugin manifests and the
+# entry points the scheduler names are read from it, so it follows origin/master
+# at every job start, whichever tree the job was started from. Its tracked files
+# change only by this fast-forward. Two kinds of local edit are provably nothing
+# and are put back so they cannot block it: a file already holding
+# origin/master's content (a manifest edited live, then committed), and an
+# index.html that differs from HEAD only by asset stamps (stamping is the deploy
+# workflow's build step). Anything else — another edit, a branch, a local commit
+# — leaves it behind, and that wakes the room: every job reading it runs old
+# code until it moves. The alert text names no count, so it repeats only on
+# alert.sh's schedule while the cause is unchanged.
+_ct_follow_origin() {
+  local common home path cur edits why clobber target
+  common="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute --git-common-dir)"
+  home="$(dirname "$common")"
+  # One job at a time; a job that finds another mid-update leaves it to that one.
+  exec 7>"$common/ct-follow-origin.lock"
+  flock -w 60 7 || { exec 7>&-; return 0; }
+  if [ "$(git -C "$home" symbolic-ref -q --short HEAD)" = master ]; then
+    while IFS= read -r path; do
+      [ -n "$path" ] && [ -f "$home/$path" ] || continue
+      cur="$(git -C "$home" hash-object -- "$path")"
+      if [ "$cur" = "$(git -C "$home" rev-parse -q --verify "origin/master:$path")" ] ||
+         { [ "$path" = index.html ] &&
+           [ "$(cd "$home" && python3 -c 'import sys; sys.path.insert(0, "tools"); import stamp_assets as s
+sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).encode("utf-8"))' 2>/dev/null |
+                git -C "$home" hash-object --path index.html --stdin)" = \
+             "$(git -C "$home" rev-parse -q --verify HEAD:index.html)" ]; }; then
+        git -C "$home" checkout -q -- "$path" &&
+          echo "WORKTREE: put back $path in $home — its edit was already on origin/master or only asset stamps" >&2
+      fi
+    done < <(git -C "$home" diff --name-only HEAD --)
+    # A commit, fetch or push holds index.lock, HEAD.lock or a ref lock for a
+    # moment; wait any of them out, and keep git's own words for the alert.
+    # Every worktree's push moves origin/master in this shared repo, so aim at
+    # one commit: a push landing after the merge is no failure to move.
+    target="$(git -C "$home" rev-parse -q --verify origin/master)"
+    ff_err=""
+    for _ in 1 2 3 4 5 6; do
+      git -C "$home" merge-base --is-ancestor "$target" HEAD && break
+      ff_err="$(git -C "$home" merge -q --ff-only "$target" 2>&1)" && break
+      compgen -G "$common/index.lock" >/dev/null || compgen -G "$common/HEAD.lock" >/dev/null ||
+        compgen -G "$common/refs/heads/master.lock" >/dev/null ||
+        grep -qi "lock" <<<"$ff_err" || break
+      sleep 5
+    done
+  fi
+  if ! git -C "$home" merge-base --is-ancestor "${target:-origin/master}" HEAD; then
+    edits="$(git -C "$home" diff --name-only HEAD -- | head -8 | tr '\n' ' ')"
+    clobber="$(comm -12 <(git -C "$home" ls-files --others --exclude-standard | sort) \
+                        <(git -C "$home" diff --name-only --diff-filter=A HEAD origin/master | sort) | head -8 | tr '\n' ' ')"
+    if [ "$(git -C "$home" symbolic-ref -q --short HEAD)" != master ]; then
+      why="HEAD is $(git -C "$home" symbolic-ref -q --short HEAD || echo detached), not master"
+    elif ! git -C "$home" merge-base --is-ancestor HEAD origin/master; then
+      why="master has local commits origin/master does not"
+    elif [ -n "$edits" ]; then
+      why="uncommitted edits to tracked files: $edits"
+    elif [ -n "$clobber" ]; then
+      why="untracked files origin/master would overwrite: $clobber"
+    else
+      why="git merge --ff-only failed: $(tail -1 <<<"${ff_err:-no output}")"
+    fi
+    echo "WORKTREE: $home cannot fast-forward to origin/master: $why" >&2
+    . "$home/tools/alert.sh" 2>/dev/null &&
+      alert "the main checkout $home is behind origin/master and a job start could not fast-forward it — $why. Every scheduled job reads its manifest and entry script from there, so they run old code until it moves. Commit those changes from a worktree and put the checkout back (\`git -C $home checkout -- <file>\`); the next job start fast-forwards it."
+  fi
+  exec 7>&-
+}
+
+[ -f "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh" ] && . "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
+. "$(dirname "${BASH_SOURCE[0]}")/unstage_unparsable.sh"
+. "$(dirname "${BASH_SOURCE[0]}")/commit_puzzles.sh"
+
+# _ct_salvage <tree> <job>: commit what a dropped run left under
+# CT_SALVAGE_PATHS (a .json that does not parse, a write cut off, is left
+# out), then push every commit the tree has that origin/master lacks with
+# tools/push_puzzle_commit.sh. One that conflicts with origin/master and
+# whose puzzles all ask a re-read (scan_queue.py conflicted, as
+# tools/durable.sh does) is dropped, and so is one origin's pre-push
+# refuses whose puzzles all ask a re-read (kept under refs/durable/refused/);
+# any other commit that will not push is
+# kept on the branch salvage/<job>-<time> and the room is told; the reset then
+# goes ahead.
+_ct_salvage() {
+  local tree="$1" job="$2" c failed=0 msg lock out tools
+  tools="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  # A run killed mid-git leaves its lock, and mid-rebase its rebase: the
+  # lease says no run of this job is live, so one older than a minute is dead.
+  lock="$(git -C "$tree" rev-parse --git-dir)/index.lock"
+  [ -f "$lock" ] && [ -z "$(find "$lock" -mmin -1)" ] && rm -f "$lock"
+  git -C "$tree" rebase --abort >/dev/null 2>&1
+  for c in $CT_SALVAGE_PATHS; do
+    [ -e "$tree/$c" ] || continue
+    git -C "$tree" add -- "$c" || return 1
+  done
+  ct_unstage_unparsable "$tree"
+  ct_unstage_refused "$tree"
+  if ! git -C "$tree" diff --cached --quiet; then
+    (cd "$tree" && ct_commit_puzzles "$job: salvaged from a run that was dropped") || return 1
+  fi
+  if ! git -C "$tree" diff --cached --quiet; then
+    git -C "$tree" commit -q -m "$job: salvaged from a run that was dropped" || return 1
+  fi
+  # Oldest first; one origin/master already holds as the same patch (pushed
+  # by tools/push_puzzle_commit.sh, which leaves the local commit) is skipped.
+  for c in $(git -C "$tree" cherry origin/master HEAD | sed -n 's/^+ //p'); do
+    msg=$(git -C "$tree" log -1 --format=%s "$c")
+    # This start's code, not the dropped tree's: a fix to the push lands
+    # on the run it is for.
+    (cd "$tree" && bash "$tools/push_puzzle_commit.sh" "$c" >/dev/null 2>&1)
+    case $? in
+      0) echo "WORKTREE: salvaged and pushed: $msg" >&2 ;;
+      3) if out=$(cd "$tree" && python3 "$tools/scan_queue.py" conflicted "$c" 2>&1); then
+           echo "WORKTREE: $msg conflicts with origin/master; origin's version stands and the source is read again: $out" >&2
+         else
+           failed=1
+         fi ;;
+      # Refused by origin's pre-push (made by older code: durable.sh's
+      # durable_refused): kept under refs/durable/refused/, read again with
+      # the code the tree resets onto.
+      4) git -C "$tree" update-ref "refs/durable/refused/$c" "$c"
+         if out=$(cd "$tree" && python3 "$tools/scan_queue.py" conflicted "$c" pushRefused 2>&1); then
+           echo "WORKTREE: origin's pre-push refuses $msg; kept as refs/durable/refused/$c and the source is read again: $out" >&2
+         else
+           failed=1
+         fi ;;
+      *) failed=1 ;;
+    esac
+  done
+  # Nothing is lost when origin/master already holds every file those commits
+  # touched as HEAD has it (pushed by another path as different commits).
+  if [ "$failed" = 1 ] && git -C "$tree" diff --quiet origin/master HEAD -- \
+      $(git -C "$tree" log --format= --name-only origin/master..HEAD | sort -u); then
+    echo "WORKTREE: a dropped run's commits are already on origin/master" >&2
+    failed=0
+  fi
+  if [ "$failed" = 1 ]; then
+    c="salvage/$job-$(date +%Y%m%d-%H%M%S)"
+    git -C "$tree" branch -q "$c" HEAD || return 1
+    echo "WORKTREE: a dropped run's commit would not push; kept on branch $c" >&2
+    . "$(dirname "${BASH_SOURCE[0]}")/alert.sh" 2>/dev/null &&
+      alert "$job: a dropped run left commits that would not push onto origin/master (a conflict?). They are kept on local branch $c; cherry-pick them from a worktree."
+  fi
+  return 0
+}
+
+# ct_generated <tree>: rebuild the tree's generated files (puzzles/index.*,
+# the puzzle shims, abbreviations.js) unless HEAD is where the last fully
+# successful rebuild stamped them. A full rebuild reads every puzzle (63k
+# files), ~2000 CPU-s whenever the code a row reaches moved, so it starts
+# from the index the deploy built (--reindex-from-deploy: CI's rows, only
+# the puzzles changed since made here) and falls back to --reindex-changed.
+# Untracked files survive a reset, so a stamp at HEAD means they are current.
+ct_generated() {
+  local tree="$1" head stamp ok=1
+  head="$(git -C "$tree" rev-parse HEAD)"
+  stamp="$(git -C "$tree" rev-parse --absolute-git-dir)/generated.stamp"
+  [ "$(cat "$stamp" 2>/dev/null)" = "$head" ] && [ -e "$tree/puzzles/index.json" ] && return 0
+  # One rebuild at a time across every tree: each reads the whole corpus
+  # into memory in several processes, and the unit queues start several
+  # trees at once. Nice 19 on two cores (tools/low_cpu.sh: plain nice does
+  # nothing in the container), so it never outruns the OCR units and the burn.
+  exec 6>"$(git -C "$tree" rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock"
+  flock 6
+  rm -f "$stamp"
+  (cd "$tree" && CT_JOBS=2 tools/low_cpu.sh python3 tools/fetch_puzzle.py --reindex-from-deploy >/dev/null) ||
+    { ok=0; echo "WORKTREE: could not rebuild puzzles/index.* in $tree — the job will read a stale or missing manifest" >&2; }
+  (cd "$tree" && nice -n 19 python3 tools/build_abbreviations.py >/dev/null) ||
+    { ok=0; echo "WORKTREE: could not rebuild abbreviations.js in $tree — every tool that stamps a page referencing it will stop" >&2; }
+  [ "$ok" = 1 ] && printf '%s\n' "$head" >"$stamp"
+  exec 6>&-
+  return 0
+}
+
+if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
+  _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+  # A job started from another job's worktree (corpus_queue.py launches the
+  # full pass from its own tree) sources this from that tree, which is not the
+  # main checkout: git's common dir names the real one. Taking the tree for it
+  # pointed the pass's CT_MAIN_CHECKOUT at ~/.cryptic-teacher/corpus_queue,
+  # where the burn's plan (.prereset.width) never is, so the burn-first gate
+  # never held a unit back however starved the burn was (2026-10-14).
+  _ct_common="$(git -C "$_ct_main" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"
+  case "$_ct_common" in */.git) [ -d "${_ct_common%/.git}" ] && _ct_main="${_ct_common%/.git}" ;; esac
+  _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
+
+  # Trim the jobs' logs before the run writes to them. They all live in the
+  # main checkout whichever tree the job runs from, so they are trimmed together
+  # here, at the one point every scheduled job passes through.
+  #
+  # Truncating in place is the rotation that works: the scheduler holds the log open
+  # in append mode for the whole run, so renaming it sends tonight's output to
+  # the renamed file, while an append write after a truncate lands at the new
+  # end. A log is read when something failed, and what failed is recent.
+  for _ct_log in "$_ct_main"/.*.log; do
+    [ -f "$_ct_log" ] || continue
+    [ "$(wc -c <"$_ct_log")" -gt "${CT_LOG_MAX_BYTES:-2000000}" ] || continue
+    if tail -c "${CT_LOG_KEEP_BYTES:-1000000}" "$_ct_log" >"$_ct_log.trim"; then
+      cat "$_ct_log.trim" >"$_ct_log"
+      echo "=== trimmed $(basename "$_ct_log") to its last $(wc -c <"$_ct_log" | tr -d ' ') bytes ==="
+    fi
+    rm -f "$_ct_log.trim"
+  done
+
+  if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
+    # Quiet: the first run checks out 45k files and the progress meter writes a
+    # line per percent into a log somebody has to read a failure out of.
+    # A sparse job (CT_SPARSE set) is made without a checkout and narrowed below,
+    # so its first run never writes the 97k puzzle files it will not read.
+    git -C "$_ct_main" worktree add -q --detach ${CT_SPARSE:+--no-checkout} "$_ct_tree" origin/master || {
+      echo "WORKTREE: cannot create $_ct_tree" >&2
+      _ct_tree=""
+    }
+  fi
+
+  # A sparse tree holds only the directories the job reads. A job names them in
+  # CT_SPARSE (space-separated, cone mode; the repo root's files always stay) before
+  # sourcing this; most of the repo's 1.5 GB is puzzles/, which the small jobs
+  # never open. An existing full tree converts in place on its next run, and a
+  # job that drops CT_SPARSE gets its full tree back. A job whose reads cannot be
+  # pinned down leaves CT_SPARSE unset: a full checkout is the safe default.
+  # sparse-checkout keeps its settings in the tree's own config.worktree, so the
+  # main checkout and the other trees are not narrowed.
+  # Puzzles and the raw fetch caches are untracked or live in puzzles/, and a
+  # sparse set never deletes an untracked file: nothing fetched is lost.
+  if [ -n "$_ct_tree" ]; then
+    if [ -n "${CT_SPARSE:-}" ]; then
+      # shellcheck disable=SC2086  # CT_SPARSE is a word list
+      git -C "$_ct_tree" sparse-checkout set --cone $CT_SPARSE >/dev/null 2>&1 ||
+        echo "WORKTREE: sparse-checkout set failed in $_ct_tree — it stays as it is" >&2
+    elif [ "$(git -C "$_ct_tree" config --worktree --get core.sparseCheckout 2>/dev/null)" = true ]; then
+      git -C "$_ct_tree" sparse-checkout disable >/dev/null 2>&1 || true
+    fi
+  fi
+
+  if [ -n "$_ct_tree" ]; then
+    # Objects come through the main checkout because that is where the remote
+    # is configured; the worktree shares the store, so the fetch is one fetch.
+    _ct_net git -C "$_ct_main" fetch -q origin master || {
+      echo "WORKTREE: fetch failed or timed out — working from whatever origin/master was last known" >&2
+    }
+    _ct_follow_origin
+    # A run the reset below would rob of its edits, stopped by a restart or its
+    # unit's time limit, has them set aside beside its record first, for the
+    # next launch of its puzzle to put back (tools/puzzle_worker.sh).
+    ( . "$_ct_main/tools/puzzle_worker.sh" && worker_set_aside_tree "$_ct_tree" )
+    # A job that files into git as it goes (tools/durable.sh) sets
+    # CT_SALVAGE_PATHS: any local commit a dropped run (SIGKILL, OOM, reboot,
+    # a failed push) left, and what it filed under those paths uncommitted
+    # (none when set empty), is pushed here before the reset below discards it.
+    if [ -n "${CT_SALVAGE_PATHS+set}" ]; then
+      _ct_salvage "$_ct_tree" "$_ct_job" || {
+        echo "WORKTREE: cannot salvage $_ct_tree — the dropped run's work is parked, not reset" >&2
+        _ct_tree=""
+      }
+    fi
+    # Tracked files back to the branch, untracked state left alone. A leftover
+    # from a crashed run is discarded here rather than committed tonight.
+    # Already there and clean (the common case on a relaunch) is left alone:
+    # the reset rewrites the index of a 57k-file tree, ~55 MB/min of reads.
+    if [ "$(git --no-optional-locks -C "$_ct_tree" rev-parse HEAD)" = "$(git --no-optional-locks -C "$_ct_tree" rev-parse origin/master)" ] &&
+      git --no-optional-locks -C "$_ct_tree" diff-index --quiet HEAD -- 2>/dev/null; then
+      :
+    elif ! git -C "$_ct_tree" reset -q --hard origin/master; then
+      # git holds an index.lock for the length of one command, so one still
+      # there minutes later belongs to a process that is gone. Nothing will
+      # ever clear it on its own, and while it sits there every run of this job
+      # fails the same way, so it is taken over rather than waited on.
+      _ct_lock="$(git -C "$_ct_tree" rev-parse --git-dir)/index.lock"
+      if [ -f "$_ct_lock" ] && [ -z "$(find "$_ct_lock" -mmin -10)" ]; then
+        echo "WORKTREE: clearing an index.lock from $(date -r "$_ct_lock" '+%H:%M') with no live git behind it" >&2
+        rm -f "$_ct_lock"
+      fi
+      git -C "$_ct_tree" reset -q --hard origin/master || {
+        echo "WORKTREE: cannot reset $_ct_tree" >&2
+        _ct_tree=""
+      }
+    fi
+  fi
+
+  if [ -n "$_ct_tree" ]; then
+    # A split index: the 10 MB index (45k files) was rewritten whole by every
+    # git add, reset, commit and checkout of every puzzle, ~1 GB an hour of SSD
+    # writes from the burn alone. Split, a change writes only the few entries
+    # that differ from a shared base file. Idempotent; best effort.
+    git -C "$_ct_tree" update-index --split-index >/dev/null 2>&1 || true
+    # Git keeps a replaced shared base file two weeks by default; one ~10 MB
+    # base is made every few minutes per busy tree (2+ GB a day under .git/
+    # worktrees/). Drop the unreferenced ones after an hour. "now" raced: one git
+    # process wrote a new base and deleted the old one while another still read
+    # an index naming it ("sharedindex.<sha>: index file open failed"). An hour
+    # outlasts any git process and still stops the leak (a new base is rare, see
+    # maxPercentChange below).
+    git -C "$_ct_tree" config splitIndex.sharedIndexExpire 1.hour.ago >/dev/null 2>&1 || true
+    # The split index's delta holds every entry changed since its base and is
+    # written whole by each git add/commit/reset, so at git's default of 20% it
+    # grows large; at 2% it stays small and a new 10 MB base is made only every
+    # ~90 puzzle commits, ~15x less written. (The ~3 MB index measured 10-25 was
+    # mostly the untracked cache, not this delta: see untrackedCache below.)
+    git -C "$_ct_tree" config splitIndex.maxPercentChange 2 >/dev/null 2>&1 || true
+    # The index also carries the untracked cache (UNTR extension) when the shared
+    # config has core.untrackedCache=true. Measured 10-25 on the burn tree: a
+    # 2.77 MB index was 2.61 MB UNTR and only ~0.13 MB split delta, rewritten
+    # whole ~83 times per 10 min, ~1.4 GB/h. "keep" leaves the main checkout's
+    # own cache alone (shared config) and drops it here: the index fell to 156 KB.
+    git -C "$_ct_tree" config core.untrackedCache keep >/dev/null 2>&1 || true
+    git -C "$_ct_tree" update-index --no-untracked-cache >/dev/null 2>&1 || true
+    # The generated files are not tracked, so a tree just reset to origin/master
+    # has either none of them (a tree made tonight) or the ones the last run
+    # left, describing files the reset has since changed. A job that reads
+    # them — and every page in the tree names them by content hash — does so
+    # long before its own build step, so they are rebuilt once, here, where
+    # the tree changed. A script that reads none of them sets
+    # CT_GENERATED=none (unexported) before sourcing this and gets no rebuild;
+    # one that needs them only on some path calls ct_generated there.
+    [ "${CT_GENERATED:-}" = none ] || ct_generated "$_ct_tree"
+    # One copy of each, in the main checkout, reached from everywhere.
+    # tools/data/minutecryptic/ is the Minute Cryptic archive: its daily
+    # clue is offered only on the day, so every tree a daily unit runs in
+    # must write to the one copy.
+    for _ct_share in .claude .alert-state .usage_cache.json tools/data/minutecryptic; do
+      { [ -e "$_ct_tree/$_ct_share" ] || [ -L "$_ct_tree/$_ct_share" ]; } && continue
+      [ -e "$_ct_main/$_ct_share" ] || continue
+      ln -s "$_ct_main/$_ct_share" "$_ct_tree/$_ct_share"
+    done
+    export CT_IN_WORKTREE=1
+    export CT_MAIN_CHECKOUT="$_ct_main"
+    echo "=== running in $_ct_tree @ $(git -C "$_ct_tree" rev-parse --short HEAD) ==="
+    # Sourced, not run: bash reads a script FILE as it goes, and the job's own
+    # publish rebases this tree, so a rebase that rewrites the script would
+    # resume the new file at the old byte offset. `.` reads the whole file
+    # before running any of it. $0 stays the tree's path for dirname "$0".
+    if [ "${CT_REMOVE_TREE:-0}" != 1 ]; then
+      exec /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@"
+    fi
+    # A job that sets CT_REMOVE_TREE=1 has a tree that rebuilds in seconds (a
+    # sparse one), so it is not kept between runs: the job runs as a child,
+    # not exec'd, and the tree goes when it ends. Only when nothing is left in
+    # it that the next run's reset would have saved: no commit origin/master
+    # lacks, and no edit to a tracked file. `git worktree prune` then drops the
+    # record, or the next `worktree add` fails "could not get its own worktree".
+    _ct_rc=0
+    /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@" || _ct_rc=$?
+    if [ -z "$(git -C "$_ct_tree" cherry origin/master HEAD 2>/dev/null)" ] &&
+       [ -z "$(git -C "$_ct_tree" status --porcelain --untracked-files=no 2>/dev/null)" ]; then
+      rm -rf "$_ct_tree"
+      git -C "$_ct_main" worktree prune >/dev/null 2>&1 || true
+    fi
+    exit "$_ct_rc"
+  fi
+
+  # No worktree, no run. The main checkout is not a fallback: it has other
+  # writers, and "clean and at origin/master" is a snapshot, not a lease —
+  # it says nothing about the edit that lands a minute later. A job that rebases
+  # over one wedges that tree with a conflict it cannot resolve and throws away
+  # the annotation it just paid for. Stopping costs one window; the next run
+  # clears whatever was stuck and gets its worktree back.
+  echo "WORKTREE: no worktree for $_ct_job under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher} — stopping without running." >&2
+  . "$_ct_main/tools/alert.sh" 2>/dev/null &&
+    alert "$_ct_job could not get its own worktree and will not run in the main checkout. Nothing ran and nothing was spent. Fix the worktree under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}."
+  exit 1
+fi
+
+# Retry one fetch+rebase+push attempt through the ref-lock race two worktrees
+# of the SAME repo can hit on refs/remotes/origin/master: this job and its
+# sibling (daily_update.sh's nightly run and prereset_backfill.sh's burn, or
+# two runs of the same job) each keep their own worktree but share one
+# .git, and so one refs/remotes/origin/master. A fetch or push that lands
+# while the other is mid-fetch/push fails with "cannot lock ref
+# 'refs/remotes/origin/master': is at X but expected Y" — the ref moved
+# under us, not a real disagreement, so redoing the whole attempt against
+# wherever it landed clears it.
+#
+# $1 names a function that performs one whole attempt (fetch, rebase, any
+# conflict handling, push) and returns its exit status; everything it writes
+# to stdout/stderr is preserved either way. The attempt returns
+# PUSH_RACED (75) when its push was refused because origin moved after its
+# fetch (push_or_raced below): another worktree published in between, so the
+# attempt is redone against the new tip too. Any other failure returns
+# immediately — retrying a real conflict would only spin.
+PUSH_RACED=75
+# git push origin HEAD:master, returning PUSH_RACED when the only refusal is
+# that origin is no longer an ancestor of HEAD (another push landed since this
+# attempt's fetch). Read from --porcelain, git's machine-readable push report.
+push_or_raced() {
+  local out rc
+  # Never push a big file outside puzzles/ that is not allowlisted (tools/check_file_sizes.py).
+  out=$(python3 tools/check_file_sizes.py --range origin/master HEAD 2>&1) && rc=0 || rc=$?
+  [ "$rc" -eq 1 ] && { printf '%s\npush refused: file over the size limit\n' "$out" >&2; return 1; }
+  # Inline, not tools/same_history.sh: tests source this file from trees without it.
+  git merge-base HEAD origin/master >/dev/null 2>&1 \
+    || { echo "HEAD shares no history with origin/master — this tree predates the history squash; hard-reset it to origin/master and redo the work" >&2; return 1; }
+  out=$(git push --porcelain -q origin HEAD:master 2>&1)
+  rc=$?
+  [ "$rc" -eq 0 ] && return 0
+  printf '%s\n' "$out" >&2
+  printf '%s\n' "$out" | grep -qE '^!	[^	]*	\[rejected\] \((fetch first|non-fast-forward)\)$' && return "$PUSH_RACED"
+  return "$rc"
+}
+
+push_race_retry() {
+  local fn="$1" attempt out rc
+  # 12 attempts, jittered: the burn and the filers push every few seconds, and
+  # five fixed-step tries lost that race (blog-facts, 10-11).
+  for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+    out=$("$fn" 2>&1)
+    rc=$?
+    [ -n "$out" ] && printf '%s\n' "$out" >&2
+    [ "$rc" -eq 0 ] && return 0
+    [ "$rc" -eq "$PUSH_RACED" ] || printf '%s' "$out" | grep -q "cannot lock ref" || return "$rc"
+    echo "push race: origin/master moved under us (attempt $attempt) — retrying" >&2
+    sleep "$(( (attempt < 4 ? attempt : 4) + RANDOM % 3 ))"
+  done
+  return "$rc"
+}

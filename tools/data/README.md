@@ -1,0 +1,69 @@
+# tools/data
+
+What is committed here, and what is fetched.
+
+## Committed
+
+| file | what |
+| --- | --- |
+| `lexicons/abbreviations.json` | Clue word -> the letters it abbreviates to, for every abbreviation, initialism, acronym, contraction and symbol English Wiktionary lists (English and Translingual entries, and the untagged senses of every English entry spelled with a final period, such as A.'s American), and every reading on Wikipedia's [Crossword abbreviations](https://en.wikipedia.org/wiki/Crossword_abbreviations) article (son S, old O, love O, sailor AB: setters' conventions Wiktionary has no sense for), at the revision `LIST_REVISION` pins, less the synonyms it mentions. Written by `tools/fetch_abbreviations.py` from kaikki.org's wiktextract extract and the article's wikitext; a sense is in when either source lists it; `tools/build_abbreviations.py`'s `table()` holds the senses a clue in `lexicons/blocks.json` uses. Wiktionary text is CC BY-SA 4.0 and GFDL, and Wikipedia text CC BY-SA 4.0; the attribution is Wiktionary's contributors, via kaikki.org, and the Crossword abbreviations article's contributors. 1.4 MB. |
+| `lexicons/abbreviations_corpus.json` | Letters -> clue word -> `{puzzles, series, setters, noted, leaves}`: every abbreviation our own annotations attest (a leaf whose note calls it one) in at least 10 puzzles from 4 series and 5 setters, with its counts as provenance. Written by `tools/build_corpus_abbreviations.py` from `puzzles/`; `tools/build_abbreviations.py`'s `table()` holds every pair, beside the dictionary's. Catches the conventions no dictionary lists (US american, N name, H hot, D deserted). 67 KB. |
+| `unclueable.json` | Words a setter rejected as answers, with the reason. `tools/grid_fill.py` vetoes them. |
+| `sample_fill_11.json` | The worked 11x11 fill (see `tools/AUTHORING.md`). |
+| `penguin_partial_fills/` | Answers from a Penguin-book solve that was stopped before it finished. The puzzle itself is filed UNSOLVED — `tools/daily_update.sh`'s cold solve (an `annotate:<id> solve` unit) owns it — because `tools/apply_solution.py` refuses to write over a puzzle that already holds answers and no solution detail (`tools/provenance.solution_detail`), so a half-filled puzzle file would turn away the job meant to finish it. These sit here instead, so the work is not bought twice. Nothing reads them automatically; they are for a person finishing one by hand. |
+| `books.json` | The shelf: one row per physical book, carrying its archive.org identifier, the volume number its own cover prints, the shelf label a reader sees, the publisher, the printed title and a `book_index` that is never reused. `tools/series.py` reads it and `tools/fetch_puzzle.py --reindex` copies the browser's half into `puzzles/index.json` for `app.js`; neither holds a copy of a row. See the `README` inside it. |
+| `book_candidates.json` | Which archive.org crossword books are worth acquiring in full, with the reason behind every refusal — see [Book candidates](#book-candidates) below. |
+| `lexicon.tsv` | 192,738 British-cryptic words with a frequency rank, derived from the Lufz and Exet lexicons by `tools/build_lexicon.js` (MIT — see below). Committed, unlike the blobs it comes from, because `tools/difficulty.py` reads it for the obscurity component of every rating and those ratings are committed in `puzzles/index.json`: fetched, the score a puzzle got would depend on whether the machine running `--reindex` happened to have the file. 4.9 MB. |
+| `reread_unfixable.json` | Puzzles an OCR reread could not mend, `{"puzzle id": [why]}`: `tools/clue_cutoff.py` holds them out of the burn and `scan_queue.request_reread` files no more rereads for them. Delete a row to lift the hold (do so when the OCR reader code changes). |
+| `wordnet.json.gz` | The part of WordNet 3.0 that `tools/difficulty.py`'s `definition_unrelated` component reads: the synsets of every lexicon and corpus word, and their hypernyms, neighbours and gloss words. Written by `tools/build_wordnet.py`, the only thing that needs nltk; committed for the same reason as `lexicon.tsv`, so a rating never depends on whether the scoring machine has WordNet. WordNet is Princeton's, under its own licence, which allows redistribution with the notice. 3.6 MB. |
+| `blog_facts/` | Per series, what each puzzle's blog write-up (timesforthetimes, fifteensquared, bigdave44) marks about its clues: the underlined definition, a clue type the blogger named, marked indicators, building blocks, and the post's URL, each clue in the annotation's own keys and shapes (`$defs/blogFacts` in `puzzle.schema.json`). Words of the clues themselves, never the blog's prose. Written by `tools/blog_facts.py` from the local caches, which CI does not have, so it is committed; the shims merge it in (see docs/APP.md, "Hints read off a blog"). |
+
+## Book candidates
+
+`book_candidates.json` — which archive.org crossword books are worth acquiring
+in full, and why every refusal is a refusal. Written by
+`tools/rank_book_candidates.py`, which borrows each candidate through
+`tools/fetch_ia_book.borrowed()` (one loan at a time, always returned), reads
+**leaves 6-39 only**, and judges the sample with `tools/grid_verdict.py`'s own
+thresholds rather than any of its own. One row per candidate, carrying the
+identifier, title, estimated puzzle count, median lights per puzzle,
+clue-number survival, the verdict, and for every refusal a reason that says
+which KIND it is:
+
+| verdict | means |
+| --- | --- |
+| `acquire` | the sample reconstructs; worth the full borrow. |
+| `reject` / rejected-on-form | read fine, wrong shape — grids that are not 15x15, barred thematic grids, or prose that prints no clue lists. Permanent. |
+| `reject` / rejected-on-availability | archive.org has no such item, or lends no copy this account can read. About access, not about the book. |
+| `undetermined` | nothing about the book was established — archive.org would not say which refusal a refused loan was, or this repo's parser could not read the book's layout. Never collapsed into a rejection, because a readable book filed under "wrong shape" is a false statement nobody would re-check. |
+
+Committed, so the measurement survives the machine that took it. It is a
+MEASUREMENT AND IT GOES STALE:
+items get taken down, loan pools shrink and a rescan changes the OCR under the
+numbers. Re-run the tool rather than trusting the figures past the `derived`
+date inside the file — `--reuse-samples` re-judges cached samples without
+spending another loan on every book.
+
+## Fetched, never committed
+
+`bash tools/fetch_lexicon.sh` downloads about 26 MB of JavaScript and derives
+the word lists from it. These blobs are gitignored; `lexicon.tsv`, derived from
+them, is not — see above.
+
+| file | source | licence |
+| --- | --- | --- |
+| `lufz-en-lexicon.js`, `lufz-en-lexicon-stems.js` | [viresh-ratnakar/lufz](https://github.com/viresh-ratnakar/lufz) | MIT |
+| `exet-lexicon.js` | [viresh-ratnakar/exet](https://github.com/viresh-ratnakar/exet) | MIT |
+| `clueability.tsv` | derived by `tools/clueability.py --build` | derived from the above |
+
+The Lufz lexicon is UKACD18 — J Ross Beresford's UK Advanced Cryptics
+Dictionary, the classic British cryptic word list — cleaned up and augmented
+with Wikipedia-derived importance ordering, CMUdict pronunciations and Porter2
+stems. That combination (British vocabulary + a real score column + a clear
+licence) is why it is used here rather than `/usr/share/dict/words`, which has
+no scores and so cannot support a fairness floor at all.
+
+The derived files are gitignored on purpose: they are reproducible in under a
+minute, and a stale committed copy that disagreed with the scorer would be worse
+than no copy. The filler rebuilds `clueability.tsv` automatically when its
+`CACHE_VERSION` changes.

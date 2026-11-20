@@ -1,0 +1,429 @@
+"""A clue's printed enumeration: the letter counts in brackets after its words.
+
+The clue object keeps the two apart: `text` is the words, `enumeration` the
+bracket's content in one spelling, "5,4" or "2-3,4" or "6 and 5". split() is
+the one place a printed clue string is cut into the two; every writer calls it
+when it builds a clue. printed() joins them back into the line a solver reads.
+
+The enumeration is stored rather than rebuilt from `separators` and the
+light's length: a linked answer's leader prints the whole group's count, a
+Private Eye continuation prints its own, and some prints ("6 and 5", "1 4",
+"(8) (8)") carry what separators cannot say."""
+
+import re
+
+# Digit runs joined by one mark each, as printed: "5,4", "2-3", "4'1", "3/5",
+# "6 and 5", "1 4" (a space alone as the break), "6.6".
+_MARK = r"(?:[,\-–—\u2011.;:/'’′]|\band\b)"
+_PRINTED = r"\d+(?:(?:\s*" + _MARK + r"){0,2}\s*\d+)*"
+
+# The trailing bracket: an enumeration, or "()" where a feed lost it. A stray
+# trailing comma inside ("(9,)") is a misprint of the same count, and a closing
+# quote or mark after it ("(4)’", "(4))", "(7)!", "(5)>": a blog's
+# markup or a feed's punctuation leaking) is no part of the clue.
+_JUNK = r"[\s’”\"'()\[\]<>;.!?:,\-–—…|]*"
+_TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)(" + _JUNK + r")$")
+
+#: The largest total a tail's junk is trusted behind: a bracket of bigger
+#: numbers followed by a mark is a year or a quantity in the clue's own words
+#: ("... Wall Street share prices (1929)?").
+JUNK_LIMIT = 60
+
+#: The stored form (the schema's `enumeration` pattern): marks unspaced,
+#: dashes as "-", apostrophes as "'", a lone space or " and " between counts.
+FORM = re.compile(r"\d+(?:(?:[,\-.;:/']| | and )\d+)*")
+
+
+#: A count that says the answer breaks without saying where, after the
+#: total: the Mephisto's and Genius 204's ", two words", Genius 204's
+#: ", hyphenated", and Genius 236's "*" (its preamble asterisks the counts of
+#: multi-word and hyphenated answers). ft_pdf_puzzles reads it as a clue's
+#: closing count.
+SPLIT_UNSAID = r"(?:\s*\*|\s*,\s*(?:(?:two|three|four|five|six|seven|eight)\s+words|hyphenated))"
+#: Such a count at a clue's end, "(11, two words)", "(8, hyphenated)",
+#: "(11*)". It stays in the clue's text as printed, since `enumeration` holds
+#: counts and marks alone; the breaks come from the answer when one is known
+#: (file_blog_puzzles.worded).
+WORDED = re.compile(r"\(\s*(\d{1,2})(?:\s*\*|\s*,\s*(?:(two|three|four|five|six|seven|eight)\s+words|(hyphenated)))"
+                    r"\s*\)\s*$", re.IGNORECASE)
+NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8}
+
+
+def worded(text):
+    """(total, words) for a text ending in a count that withholds its breaks,
+    else None. `words` is how many words "(11, two words)" says, "-" for
+    "(8, hyphenated)" (one hyphenated word, its pieces uncounted), None for
+    "(11*)" (more than one word or hyphenated, nothing more said)."""
+    m = WORDED.search(text or "")
+    if not m:
+        return None
+    if m.group(2):
+        return int(m.group(1)), NUMBER_WORDS[m.group(2).lower()]
+    return int(m.group(1)), ("-" if m.group(3) else None)
+
+
+def fits_worded(said, parts):
+    """Whether an answer's enumeration parts [(count, mark after), ...] fit
+    what worded() read (`said`): the same total in more than one piece, and
+    as many words, or only hyphens between the pieces, or (for "*") any
+    breaks."""
+    total, words = said
+    if sum(n for n, _ in parts) != total or len(parts) < 2:
+        return False
+    if words == "-":
+        return all(mark == "-" for _, mark in parts[:-1])
+    return words is None or len(parts) == words
+
+
+def _spelling(printed):
+    s = (printed.replace("–", "-").replace("—", "-").replace("\u2011", "-")
+         .replace("’", "'").replace("′", "'"))
+    s = re.sub(r"\s*([,\-.;:/'])\s*", r"\1", s)
+    s = re.sub(r"'[,\-.;:/]", "'", s)    # "3-1'-4-5": the apostrophe is the break
+    s = re.sub(r"\s*\band\b\s*", " and ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _tail(printed):
+    """The trailing count bracket of a printed line, or None. Marks after the
+    bracket belong to it only behind a count small enough to be one."""
+    m = _TAIL.search(printed)
+    if m and m.group(2).strip() and m.group(1) and sum(counts(m.group(1))) > JUNK_LIMIT:
+        return None
+    return m
+
+
+def echoed(printed):
+    """True when a printed line closes on two counts of one total, "(4,3)
+    (7)", which split() reads as a count and its echo unless told the
+    source prints both (`paired`)."""
+    text, enum = split(printed, paired=True)
+    e = _tail(text or "")
+    return bool(enum and e and e.group(1) and not _paired(e)
+                and sum(counts(e.group(1))) == sum(counts(enum)))
+
+
+def two_counts(clue):
+    """True when the clue's text closes on the first of two counts the source
+    printed, the second being `enumeration`: "Mother's cross raised (3); (4)"
+    is text "... (3);" over "4", Big Dave's "Platform from up on high? (5) (7)"
+    is text "... (5)" over "7", and "(6;6)" holds both in one bracket. The
+    first is the paper's own: a preamble's second count, a theme's count of
+    the letters the wordplay makes, a cross-reference to other clues, or a
+    misprint the blog corrected after it."""
+    m = _tail(clue.get("text") or "")
+    if not (m and m.group(1)):
+        return False
+    return _paired(m) or (not m.group(2).strip() and "enumeration" in clue)
+
+
+def _paired(m):
+    """A tail written as the first of two counts with ";" after or inside it:
+    the two counts may share a total (Cyclops 537's "(6,5); (4,7)"), so this
+    is never an echo to cut."""
+    return ";" in m.group(1) or m.group(2).strip() == ";"
+
+
+def _own(clue, totals):
+    stored = clue.get("enumeration")
+    return {*totals, *((sum(counts(stored)),) if stored else ())}
+
+
+def stray(clue, totals=()):
+    """True when a clue's text ends in its own count with marks after it
+    ("... (4))", "... (7)!"): a copy of the count the light, its group or the
+    stored enumeration (`totals`) already says, behind a feed's or a blog's
+    markup, which split() cuts (the write gate refuses these). A count that
+    says anything else is no copy; disagrees() names it."""
+    m = _tail(clue.get("text") or "")
+    if not (m and m.group(1) and m.group(2).strip()) or two_counts(clue):
+        return False
+    return sum(counts(m.group(1))) in _own(clue, totals)
+
+
+def disagrees(clue, totals=()):
+    """The count closing a clue's text, as printed, when marks follow it and
+    it names neither the light, its group nor the stored enumeration
+    (`totals`), else None: "... (7.8) ' -" read off a scan's "(7,6)". It is
+    no copy for split() to cut and no second count (two_counts()), so the
+    text is another entry's or the count was misread, and cutting it would
+    hide which; the write gate refuses it. A year or quantity above
+    JUNK_LIMIT is the clue's own words."""
+    m = _tail(clue.get("text") or "")
+    if not (m and m.group(1) and m.group(2).strip()) or two_counts(clue):
+        return None
+    total = sum(counts(m.group(1)))
+    if total > JUNK_LIMIT or total in _own(clue, totals):
+        return None
+    return m.group(1)
+
+
+def split(printed, paired=False):
+    """A printed clue line -> (text or None, enumeration or None).
+
+    `paired`: the source prints two counts by design (the Genius's "(4,3)
+    (7)", the answer's then the entry's), so a first count with the same
+    total is no echo and stays on the text; the clue carries `pairedCount`.
+
+    Only a bracket at the very end that holds counts is an enumeration; "See 5"
+    and "(see 3dn.)" stay text. An empty "()" is dropped as a lost enumeration.
+    text is None when the line held nothing but the enumeration."""
+    printed = printed or ""
+    m = _tail(printed)
+    if not m:
+        return (printed.rstrip() or None), None
+    text = printed[:m.start()].rstrip()
+    enum = _spelling(m.group(1)) if m.group(1) else None
+    # A source that prints the count itself and has one appended after it
+    # ("Set meal (5,1'4) (5,5)") leaves the same total twice; the echo is cut
+    # with the count it repeats.
+    while enum and not paired and (e := _tail(text)) and e.group(1) and counts(e.group(1)) \
+            and not _paired(e) and sum(counts(e.group(1))) == sum(counts(enum)):
+        text = text[:e.start()].rstrip()
+    return (text or None), enum
+
+
+def _space_map(text):
+    """(text with each run of plain spaces cut to one, [new offset of each
+    old offset 0..len(text)])."""
+    at, out = [], []
+    for i, ch in enumerate(text):
+        at.append(len(out))
+        if not (ch == " " and i and text[i - 1] == " "):
+            out.append(ch)
+    at.append(len(out))
+    return "".join(out), at
+
+
+def translated(table):
+    """A rewrite_entry mapper that puts the text through `table` (a
+    str.maketrans table: one character to a string of any length, "ﬁ"
+    -> "fi"), with the offset map that keeps every `at` on its letter."""
+    def mapper(text):
+        at, out = [], []
+        for ch in text:
+            at.append(len(out))
+            rep = table.get(ord(ch), ch)
+            out.extend(chr(rep) if isinstance(rep, int) else ("" if rep is None else rep))
+        at.append(len(out))
+        return "".join(out), at
+    return mapper
+
+
+def collapse_spaces(text, italics=()):
+    """`text` with each run of plain spaces inside it ("Toe  so") cut to
+    one, and its italic spans moved to match: (text, italics). Only U+0020:
+    a typeset space (en, em, thin) is the setter's (cryptic-30059's 14-down
+    is five en spaces). A run of spaces is a feed's or a reader's join,
+    never the print's."""
+    italics = list(italics or ())
+    if not text or "  " not in text:
+        return text, italics
+    text_now, at = _space_map(text)
+    def to(i):
+        return at[max(0, min(i, len(text)))]
+    moved = [{**r, "at": to(r["at"]), "length": to(r["at"] + r["length"]) - to(r["at"])} for r in italics]
+    return text_now, [r for r in moved if r["length"] > 0]
+
+
+def _quoted_strings(entry):
+    """(holder, key) of each annotation string that quotes `entry`'s clue
+    word for word: definitions, indicators, link words, block fragments, the
+    misdirected word and an anagram's fodder (quotes._clue_strings)."""
+    import quotes
+    return quotes._clue_strings(entry)[1:]
+
+
+def find_words(text, phrase):
+    """Where `phrase` stands in `text` as whole words or marks (words_at),
+    else where it first appears at all, else -1. A link word "-" is the
+    spaced dash in "Non-U eats - they", not the hyphen inside "Non-U"."""
+    if not phrase:
+        return -1
+    i = text.find(phrase)
+    while i >= 0:
+        if words_at(text, phrase, i):
+            return i
+        i = text.find(phrase, i + 1)
+    return text.find(phrase)
+
+
+def words_at(text, phrase, i):
+    """Whether `phrase` is text[i:] as whole words or marks: no letter or
+    digit runs on to an end of it that is not a space."""
+    n = len(phrase)
+    if not phrase or text[i:i + n] != phrase:
+        return False
+    return not ((i and not phrase[0].isspace() and text[i - 1].isalnum())
+                or (i + n < len(text) and not phrase[-1].isspace() and text[i + n].isalnum()))
+
+
+def rewrite_entry(entry, mapper):
+    """THE way to rewrite a filed clue's text (quotes, ligatures, dashes,
+    spaces, a leading quote, punctuation): never assign clue["text"] and its
+    annotation's strings separately, or the definition `at`s go stale and
+    validate_annotations fails the deploy (18bf10d65a, 8cb5a7e0b2).
+
+    Rewrite `entry`'s clue text in place through `mapper` (text -> (new
+    text, [new offset of each old offset 0..len(text)]); translated() makes
+    one from a character table) and move everything
+    that points into the text with it: italics, its annotation's definition
+    offsets and hiddenLetter, and each phrase the annotation quotes, which
+    becomes the new clue's own words where the old clue held it, else that
+    phrase put through `mapper` alone. Whether anything changed."""
+    clue = entry.get("clue") if isinstance(entry.get("clue"), dict) else None
+    text = (clue or {}).get("text")
+    if not isinstance(text, str) or not text:
+        return False
+    new, at = mapper(text)
+    if new == text:
+        return False
+    def to(i):
+        return at[max(0, min(i, len(text)))]
+    holders = _quoted_strings(entry)
+    clue["text"] = new
+    if clue.get("italics"):
+        moved = [{**r, "at": to(r["at"]), "length": to(r["at"] + r["length"]) - to(r["at"])}
+                 for r in clue["italics"]]
+        clue["italics"] = [r for r in moved if r["length"] > 0]
+        if not clue["italics"]:
+            del clue["italics"]
+    if clue.get("asPrinted"):
+        tokens = set(new.split())
+        printed = [t for p in clue["asPrinted"] for t in mapper(p)[0].split()
+                   if t in tokens and any(c.isalnum() for c in t)]
+        clue["asPrinted"] = list(dict.fromkeys(printed))
+        if not clue["asPrinted"]:
+            del clue["asPrinted"]
+    note = entry.get("annotation") if isinstance(entry.get("annotation"), dict) else None
+    if not note:
+        return True
+    for holder, key in holders:
+        phrase = holder[key]
+        start = holder.get("at") if isinstance(holder, dict) and isinstance(holder.get("at"), int) else None
+        if start is None or text[start:start + len(phrase)] != phrase:
+            start = find_words(text, phrase)
+        if start < 0:
+            holder[key] = mapper(phrase)[0]
+            continue
+        holder[key] = new[to(start):to(start + len(phrase))]
+        if isinstance(holder, dict) and isinstance(holder.get("at"), int):
+            holder["at"] = to(start)
+    hidden = note.get("hiddenLetter")
+    if isinstance(hidden, dict) and isinstance(hidden.get("at"), int):
+        hidden["at"] = to(hidden["at"])
+    return True
+
+
+def collapse_entry_spaces(entry):
+    """Cut each run of spaces in `entry`'s clue text to one, in place, and
+    move what points into the text with it (rewrite_entry). Whether
+    anything changed."""
+    text = ((entry.get("clue") if isinstance(entry.get("clue"), dict) else None) or {}).get("text")
+    if not isinstance(text, str) or "  " not in text:
+        return False
+    return rewrite_entry(entry, _space_map)
+
+
+def clue(printed, **keys):
+    """A clue object from a printed line plus its other keys (separators,
+    italics, missing, ...); empty values are left out. A run of spaces in
+    the words is cut to one (collapse_spaces)."""
+    text, enumeration = split(printed, paired=bool(keys.get("pairedCount")))
+    text, italics = collapse_spaces(text, keys.get("italics"))
+    if "italics" in keys:
+        keys = {**keys, "italics": italics}
+    out = {"text": text, "enumeration": enumeration, **keys}
+    out["italics"] = clip_italics(out.get("italics"), text)
+    return {k: v for k, v in out.items() if v not in (None, "", [], {}, False)}
+
+
+def clip_italics(italics, text):
+    """Italic spans cut to the words: a span the paper ran over the space
+    before the enumeration ends where the words do."""
+    n, out = len(text or ""), []
+    for r in italics or ():
+        end = min(r["at"] + r["length"], n)
+        if end > r["at"]:
+            out.append({"at": r["at"], "length": end - r["at"]})
+    return out
+
+
+def comma_misread(enum, cells):
+    """`enum` with each ";" read as the "," it is when its counts fill
+    `cells` (the light's, or its linked lights' together): a scan's comma
+    with a speck under it ("6;3" over YELLOW SEA's nine squares). A ";"
+    whose counts do not fill the light is the paper's own, two answers'
+    counts in one bracket (the Guardian's "7;8" over a 7-letter light when
+    each clue leads to two solutions), and stays."""
+    if enum and ";" in enum and cells and sum(counts(enum)) == cells:
+        return enum.replace(";", ",")
+    return enum
+
+
+def semicolon_misread(clue, cells):
+    """The enumeration of `clue` when it holds a ";" that comma_misread()
+    reads as a comma, else None: the write gate refuses it, as no word
+    break is drawn for a ";" (separators)."""
+    enum = clue.get("enumeration")
+    return enum if comma_misread(enum, cells) != enum else None
+
+
+def printed(clue):
+    """The clue as a solver reads it: its words, then "(enumeration)"."""
+    text, enumeration = clue.get("text", ""), clue.get("enumeration")
+    if not enumeration:
+        return text
+    return f"{text} ({enumeration})" if text else f"({enumeration})"
+
+
+def counts(enumeration):
+    """The letter counts an enumeration prints: "2-3,4" -> [2, 3, 4]."""
+    return [int(n) for n in re.findall(r"\d+", enumeration or "")]
+
+
+def structure_lost(was, now):
+    """Whether the enumeration `now` is the held `was` with word breaks
+    lost: the same letters in fewer parts ("4-4" to "8", "2,3,2,3,2" to
+    "5,7"). A lone count over breaks is most often the print's over the
+    corpus's guessed breaks (CATCHUP "(7)"); other breaks, a neighbour's
+    count (tools/audit_updates.py's g:enum-structure)."""
+    a, b = counts(was), counts(now)
+    return bool(a and b) and sum(a) == sum(b) and len(b) < len(a)
+
+
+def answer_breaks(enum, answer, is_word):
+    """Whether the answer bears out `enum`'s word breaks: cut at its counts,
+    each piece is a word `is_word` knows, and the whole run together is not
+    ("6,4" over SHANTYTOWN would need "shantytown" unknown). A reread's count
+    that drops breaks the answer bears out is the reread's slip; one that
+    drops breaks it does not ("4,3" over ASKANCE) may be the fix."""
+    letters = re.sub(r"[^a-z]", "", (answer or "").lower())
+    parts = counts(enum)
+    if not letters or len(parts) < 2 or sum(parts) != len(letters):
+        return False
+    pieces, at = [], 0
+    for n in parts:
+        pieces.append(letters[at:at + n])
+        at += n
+    return all(is_word(p) for p in pieces) and not is_word(letters)
+
+
+def unsplit(clue, totals=()):
+    """True when a clue's text still ends in an enumeration it should have
+    handed to `enumeration` (the write gate refuses these).
+
+    With no enumeration key, any trailing count is one. With one, the text
+    holds a second copy of it, recognised by a total that is the light's, its
+    linked group's, or the stored enumeration's (`totals`): "Set meal (5,1'4)"
+    over "5,5". A bracket whose numbers are no such total is the clue's own
+    words ("... (1917)", "... (500)") and stays."""
+    m = _tail(clue.get("text") or "")
+    if m and m.group(1) and (_paired(m) or clue.get("pairedCount")) and "enumeration" in clue:
+        return False
+    enum = split(clue.get("text", ""))[1]
+    if enum is None:
+        return False
+    if "enumeration" not in clue:
+        return True
+    return sum(counts(enum)) in {*totals, sum(counts(clue["enumeration"]))}

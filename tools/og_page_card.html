@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Source for og/page/<slug>.png, the social card of every generated page that
+     is not a puzzle. Rendered by tools/make_og.sh --pages with headless Chrome
+     at 1200x630. tools/page_card.py fills the three slots from the page's own
+     <title> and description, so a card always says what its page says.
+
+     The frame (bar, brand, colours, type) is og_card.html's, so a page card and
+     a clue card read as one site. -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 1200px; height: 630px; }
+  :root { --ink: #14171a; --muted: #6b6b6b; --line: #ddd8ce; --accent: #0f5c86;
+          --def-bg: #cdeccd; }
+  body {
+    background: #faf8f4; color: var(--ink); box-sizing: border-box;
+    padding: 54px 72px 0; border-top: 10px solid var(--accent);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex; flex-direction: column;
+  }
+  header { display: flex; align-items: baseline; justify-content: space-between; }
+  .brand { font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
+  h1 { font-size: 64px; line-height: 1.15; font-weight: 400; margin: 44px 0 0;
+       letter-spacing: -.5px;
+       display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+       overflow: hidden; }
+  h1.long { font-size: 54px; }
+  h1.small { font-size: 46px; }
+  p { font-size: 29px; line-height: 1.4; color: var(--muted); margin: 26px 0 0;
+      display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;
+      overflow: hidden; }
+  footer {
+    border-top: 2px solid var(--line); margin-top: auto; padding: 20px 0 24px;
+    font: 600 22px/1 -apple-system, Helvetica, sans-serif;
+    letter-spacing: .4px; color: var(--accent);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand">Cryptic Teacher</div>
+  </header>
+  <h1 class="<!--SIZE-->"><!--TITLE--></h1>
+  <p><!--DESCRIPTION--></p>
+  <footer><!--URL--></footer>
+</body>
+</html>

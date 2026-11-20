@@ -1,0 +1,10500 @@
+#!/usr/bin/env python3
+# Does tools/file_archive_org_puzzles.py find the Times cryptic's title and
+# not its neighbours', read the clue columns in order, keep only the clues
+# both readings agree on, and match a Canberra reprint only when it is one?
+#
+#     python3 tests/test_file_archive_org_puzzles.py
+#
+# Pure functions on made-up words and puzzles, nothing written outside a
+# temp dir; one solution grid fixture is read by RapidOCR where installed.
+import atexit
+import contextlib
+import io
+import os
+os.environ.setdefault("CT_VLM_BLIP_SECONDS", "0")  # no link-blip waits on a fake unreachable VLM
+import shutil
+import sys
+import tempfile
+import types
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parent.parent / "tools"
+os.chdir(TOOLS)
+import _path  # puts tools/ on sys.path
+os.environ["TMP"] = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, os.environ["TMP"], True)
+
+_buf = io.StringIO()
+_stdout, sys.stdout = sys.stdout, _buf
+import json, os
+from pathlib import Path
+import file_archive_org_puzzles as f
+f.HELD_SERIES_CACHE = None  # no on-disk snapshot leaking in from ~/.cache; the snapshot case sets its own
+f.trove_solution_ocr.filed_words = lambda: frozenset()  # no repo answer vouches for a test's reply; filed_word's cases set their own
+import grid_ocr_cache as _goc
+_goc.FRAMED_CACHE = Path(os.environ["TMP"]) / "framed"  # crop framings kept by tests' crops stay in TMP
+import ocr_clues
+import clue_repair
+
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+
+def line(text, x=100, y=100):
+    words, out = text.split(), []
+    for w in words:
+        out.append((x, y, x + 10 * len(w), y + 16, w))
+        x += 10 * len(w) + 8
+    return out
+
+# A blank light no reading has any text for is never asked, so the picks for the page's other
+# blanks cannot make it whole: skipped, unless the window is poor (another is read) or only
+# one clue is blank.
+_t = {"vlm": "ACROSS\n1 Old fashioned dance (5)\n3 Wet weather in town (4)\nDOWN\n4 Quiet place to rest (6)\n"}
+check("two blanks, one no reading has: no pick asked", True, f.unpickable(_t, {"2-down": "x", "1-across": "y"}, 30))
+check("both blanks have readings: picked", False, f.unpickable(_t, {"4-down": "x", "1-across": "y"}, 30))
+check("one blank no reading has: nothing was asked anyway", False, f.unpickable(_t, {"2-down": "x"}, 30))
+# A bare light the readers agree on is laid before the pick; one with a lost space after a stop is still asked.
+check("a sentence end glued to the next word is left to the pick", True,
+      bool(f.SENTENCE_GLUED.search("Sign of what happened.A small quantity")))
+check("a clue with its spaces is laid early", False,
+      bool(f.SENTENCE_GLUED.search("Sign of what happened. A small quantity")))
+check("a stop inside an abbreviation is not a glue", False, bool(f.SENTENCE_GLUED.search("Exam, e.g. in Paris")))
+
+check("disagreeing: none named in the verdict", set(), f.disagreeing({}))
+check("disagreeing: the lights the verdict names", {"13-across", "8-down"},
+      f.disagreeing({"imageDisagrees": "13-across: the enumeration reads as ['5,8,2'], the grid holds 10 letters; 8-down: x"}))
+check("disagreeing: a disagreement naming no light is None (every column)", None,
+      f.disagreeing({"imageDisagrees": "the grids differ"}))
+check("disagreeing: a clue that lost its number names the next light", {"7-down"},
+      f.disagreeing({"imageDisagrees": "down clue [] names no light the grid numbers after 6 (the next is 7-down)"}))
+
+
+def _entry(n, d, text, enum="4", length=4, group=None):
+    return {"number": n, "direction": d, "length": length,
+            "clue": {"text": text, "enumeration": enum}, **({"group": group} if group else {})}
+
+
+_mine = {"grid": ["g"], "entries": [_entry(1, "across", "ocr one"), _entry(2, "down", "ocr two"),
+                                    _entry(3, "down", ""), _entry(4, "down", "ocr four", enum=None)]}
+_theirs = {"grid": ["g"], "entries": [_entry(1, "across", "vlm one"), _entry(2, "down", "vlm two"),
+                                      _entry(3, "down", "vlm three"), _entry(4, "down", "vlm four")]}
+_v, _p = f.merged_read({"blank": {"3-down": "no reading"}}, _mine, {"agreed": 4}, _theirs, {"2-down"})
+check("merged_read: asked, blank and countless lights come from the VLM, the rest stay",
+      ["ocr one", "vlm two", "vlm three", "vlm four"],
+      [e["clue"]["text"] for e in _p["entries"]])
+check("merged_read: the blank taken from the VLM is no longer blank", None, _v.get("blank"))
+check("merged_read: names what it took", ["2-down", "3-down", "4-down"], _v["vlmMerged"])
+_v, _p = f.merged_read({}, _mine, {"agreed": 4}, {"grid": ["g"], "entries": _theirs["entries"][:2]}, {"2-down"})
+check("merged_read: another set of lights: the VLM pass stands", 2, len(_p["entries"]))
+check("a poor window is read again, picks and all", False, f.unpickable(_t, {"2-down": "x", "5-down": "y", "6-down": "z", "7-down": "w", "8-down": "v"}, 30))
+
+# A short clue the Times printed on an across and a down of other numbers and lengths is no shared clue
+# (times-3720, 9924: mend_held blanked it, each reread filled it); one number's across and down is.
+import fetch_puzzle as _fpp
+_pair = [_entry(12, "across", '" Woman in White"', length=5), _entry(16, "down", '" Woman in White"', length=9)]
+_same = [_entry(26, "across", "An extraordinary production", length=5), _entry(26, "down", "An extraordinary production", length=5)]
+check("duplicated_clues: a printed Times pair stands", ([["12-across", "16-down"]], []),
+      (_fpp.duplicated_clues(_pair), _fpp.duplicated_clues(_pair, times=True)))
+check("duplicated_clues: one number's across and down is still shared", [["26-across", "26-down"]],
+      _fpp.duplicated_clues(_same, times=True))
+
+# The readers' own list for a new puzzle that repeats a held puzzle's clues is refused as a copy
+# at the write, so the VLM is not asked about it (held_copy).
+import fetch_puzzle as _fp
+from clue_index import ClueIndex as _CI
+from pathlib import Path as _P
+_idx = _CI()
+_clues = [f"Clue number {i} for the held book puzzle (5)" for i in range(10)]
+_ent = lambda cs: [{"clue": {"text": c}} for c in cs]
+_idx.add("book-1", {"entries": _ent(_clues)})
+_old = (_fp.clue_index, f.held_dates)
+_fp.clue_index = lambda: _idx
+f.held_dates = lambda series: set()
+try:
+    _d = _P("GaleTimes2013UKEnglish/2013-11-23")
+    check("a list that is a held book's: a copy", "book-1", f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
+    check("one that is not: asked", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues[:3] + [f"Other {i} clue (4)" for i in range(7)])}))
+    check("a blank-heavy list: asked", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues[:7] + [""] * 23)}))
+    _ten = _clues + [f"Clue number {i} for the held book puzzle (5)" for i in range(10, 20)]
+    _idx.add("book-2", {"entries": _ent(_ten)})
+    check("a few blank, the printed clues are a held book's: a copy",
+          "book-2", f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_ten[:17] + [""] * 3)}))
+    check("a few blank, the printed clues half another puzzle's: asked", None,
+          f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_ten[:10] + [f"Other {i} clue (4)" for i in range(7)] + [""] * 3)}))
+    f.held_dates = lambda series: {25640}
+    check("a number already held: asked as before", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
+finally:
+    f.held_dates = _old[1]
+    # Hermetic for the rest of the file: later read_puzzle cases reach held_copy -> clue_index(), which would
+    # otherwise index the real puzzles/ corpus (54k files, a 193 MB sqlite under ~/.cache, ~50 s, 1.1 GB).
+    _empty_idx = _CI()
+    _fp.clue_index = lambda: _empty_idx
+
+# A grid whose grey blocks are stippled thresholds to specks: grids_on still
+# finds it, so ocr_titles reads its title (1980-04-16, No 15,200: 13% ink).
+from PIL import Image, ImageDraw
+pg = Image.new("L", (3296, 4672), 240)
+dr = ImageDraw.Draw(pg)
+dr.rectangle([2000, 3500, 3000, 4500], fill=120)
+x0, y0, cell = 300, 2900, 40
+for k in range(16):
+    dr.line([(x0 + k * cell, y0), (x0 + k * cell, y0 + 15 * cell)], fill=0, width=1)
+    dr.line([(x0, y0 + k * cell), (x0 + 15 * cell, y0 + k * cell)], fill=0, width=1)
+for r in range(15):
+    for c in range(15):
+        if (r * 7 + c * 3) % 5 == 0:
+            for yy in range(0, cell, 6):
+                for xx in range(0, cell, 6):
+                    dr.point((x0 + c * cell + xx + 3, y0 + r * cell + yy + 3), fill=0)
+check("a stippled-block grid is a grid to read a title by", 1, len(f.grids_on(pg)))
+dr.rectangle([1500, 500, 2300, 1300], outline=0, width=3)
+check("a frame round a panel is not", 1, len(f.grids_on(pg)))
+
+# The title: the daily cryptic's, its number, a box ending at the number.
+hits = f.headings([line("THE TIMES CROSSWORD NO 19,742 1 1 times weathercall")], f.TITLE)
+check("1990s title read, junk after the number left out", (19742, 100 + 10*3+8 + 10*5+8 + 10*9+8 + 10*2+8 + 10*6),
+      (hits[0][0], hits[0][1][2]))
+check("1970s title read", [13677], [n for n, _ in f.headings([line("The Times Crossword Puzzle No 13,677")], f.TITLE)])
+# A 2004 Monday's Saturday prize solution, "Solution to Crossword 22,845" (no "Prize" word): read clean
+# as one of the prize numbers only, never a misread or another number.
+check("a Monday's prize heading with no Prize word", [22845],
+      [n for n, _ in f.prize_headings([line("Solution to Crossword 22,845")], {22845})])
+check("... not a number off the prize's", [], [n for n, _ in f.prize_headings([line("Solution to Crossword 22,846")], {22845})])
+check("... not a misread one", [], [n for n, _ in f.prize_headings([line("Solution to Crossword 22,84S")], {22845})])
+# A host's misread "Solution" words (solutions_only, host_heading_lines): the 1945-46 Gale Times's
+# small-type "SoL.UTION oF PvzzLe", a word run on from the clue column, a glued "SolutiontoCrossword",
+# "The Solution of" over "Puzzle No 13,313" (1973); not "evolution" or "resolution".
+check("misread Solution words are solution_like", [True] * 5 + [False] * 4,
+      [f.solution_like(w) for w in ("SoL.UTION", "SoLuTinN", "sSolution", "SLuTIoN", "SolutiontoCrossword",
+                                    "evolution", "resolution", "Solitaire", "Saturday's")])
+check("... and start a solution band", "Solution oF", f.marked_solution("SoLuTinN oF"))
+
+
+def host_reads(lines, near):
+    lines = f.host_heading_lines(lines)
+    lines += [ln[k:] for ln in lines for k in range(1, len(ln))
+              if f.HEADING_START.match(ln[k][4]) or f.solution_like(ln[k][4])]
+    return sorted({n for n, _ in f.GALE.headings(lines, list(range(near - 300, near + 300)))[1]})
+
+
+check("a misread host heading reads", [4931], host_reads([line("SoL.UTION oF PvzzLe No. 4,931")], 4931))
+check("... run on from the clue column", [13418],
+      host_reads([line("26 Responsehough fruitful sSolution of Puzle No 13.418")], 13418))
+check("... glued to its connective", [21584], host_reads([line("SolutiontoCrossword 21,584 Imaginative.no")], 21584))
+check("... 'The Solution of' over its number", [13313],
+      host_reads([line("The Solution of"), line("Puzzle No 13,313", y=120)], 13313))
+check("... its number a line under (1980-08-07)", [15294],
+      host_reads([line("k. Solution of Puzzle No"), line("15,294", y=120)], 15294))
+check("... three RapidOCR phrases, a clue beside (1973-02-24)", [13313],
+      host_reads([[(634, 4769, 849, 4820, "The Solution of")], [(667, 4820, 818, 4868, "Puzzle No.")],
+                  [(705, 4875, 791, 4910, "13,313")], [(224, 4787, 560, 4835, "Wildly with a bad road (9).")]], 13313))
+check("... its dot leader glued to its number, the next column run on (1962-07-28)", [10052],
+      host_reads([line("Does the little pet stir ? (5). SE SOLUTION OF PUZZLE No. 10,052.... Era")], 10053))
+check("... a speck before its number (1964-02-12, 1965-02-18), a dash and dots glued on (1963-05-27)",
+      [[10530], [10846], [10308]],
+      [host_reads([line("Solution of Puzzle No. 1 10,530 Unriva")], 10531),
+       host_reads([line("Solution OF.PUZZLE No..1 10,846")], 10847),
+       host_reads([line("Solution OF PUZZLE.No.-10,308..- Trustees' Sale")], 10309)])
+check("... its 'Puzzt' not read as a number (u 0, z 2, t 1: 10221) before the number it prints (1964-02-12)",
+      [10530], host_reads([line("SoL.uTioN OF Puzzt No. 10,530 Unrive")], 10531))
+check("... a mark glued between 'Crossword' and its number (2001-03-17)", [[21677], [21677]],
+      [host_reads([line("Solution to Crossword.21,677")], 21678), host_reads([line("Solution to Crossword. 21,677")], 21678)])
+check("... the Monday's 'Competition Solution' of the Saturday prize (2006-11-27), not prose's 'competition'",
+      [[23450], [], []], [host_reads([line("callywag Competition Solution 23,450")], 23457),
+                          host_reads([line("the competition dissolution 23 times")], 23457),
+                          # one reader's "23, 530" of 23,539 (2007-03-12): read clean or not at all
+                          host_reads([line("Competition Solution 23, 530")], 23546)])
+_day = [line("Solution to yesterday's", x=1480, y=3970) + line("Solution to last Saturday's", x=1714, y=3970),
+        line("Crossword 22,204", x=1480, y=3990) + line("Crossword 22,199", x=1714, y=3990)]
+check("'Solution to yesterday's' and 'Solution to last Saturday's' side by side over 'Crossword 22,204' and "
+      "'Crossword 22,199' (2002-11-23): each the number under its own words", (22204, 22199),
+      tuple(n for n, _ in f.day_headings(_day, _day, set(range(22190, 22210)))))
+_day2 = [line("Solution to yesterday's", x=1520, y=3986), line("Crossword 22,204", x=1520, y=4000)]
+check("... its 'Crossword' line opening above the heading's foot (the apostrophe's tall box, 2002-11-23)", [22204],
+      [n for n, _ in f.day_headings(_day2, _day2, {22204})])
+_prose = [line("a solution to yesterday's crisis", y=3970), line("Crossword 22,204", y=3990)]
+check("... not prose's lowercase 'solution', nor 2012's 'The Solution to yesterday's' over a clue, no number",
+      [[], []], [f.day_headings(_prose, _prose, {22204}),
+                 f.day_headings([line("he Solution to yesterday's this with husband away (9")], [], {25116})])
+check("... a title line alone is none", [], host_reads([line("Puzzle No 13,313")], 13313))
+check("... nor an article's 'solution' over one", [],
+      host_reads([line("a solution to the crisis"), line("Puzzle No 13,313", y=120)], 13313))
+# HOST_RESCAN: a Gale host's solutions-only read made before REREAD_HOST_HEADINGS is due once more.
+check("a Gale host with no solutions-only read since the fix is due", True, f.host_rescan_due(f.GALE, {"scan": {}}))
+check("... not once read since", False, f.host_rescan_due(f.GALE, {"solOnly": {"at": "2099-01-01T00:00:00+00:00"}}))
+check("... nor an archive.org Times edition", False, f.host_rescan_due(f.TIMES, {"scan": {}}))
+# HOST_GRID_RESCAN: one read since REREAD_HOST_HEADINGS, before REREAD_HOST_GRIDS (loose_bands), is due once more
+# under its own reason; one older still is a HOST_RESCAN.
+_between = {"solOnly": {"at": f.REREAD_HOST_HEADINGS.replace("22:30", "23:30")}}
+check("a host read since the headings fix, before loose_bands, is due as HOST_GRID_RESCAN",
+      (True, f.HOST_GRID_RESCAN), (f.host_rescan_due(f.GALE, _between), f.host_rescan_reason(_between)))
+check("... one never read so, as HOST_RESCAN; both ranked and host reads", (f.HOST_RESCAN, True, True),
+      (f.host_rescan_reason({"scan": {}}), f.HOST_GRID_RESCAN in f.RANKS, f.HOST_GRID_RESCAN in f.HOST_REASONS))
+# HOST_COLUMN_RESCAN: one read since REREAD_HOST_GRIDS, before REREAD_HOST_COLUMNS (column_headings), is due once more.
+_after = {"solOnly": {"at": f.REREAD_HOST_GRIDS.replace("07:45", "08:00")}}
+check("a host read since loose_bands, before column_headings, is due as HOST_COLUMN_RESCAN, ranked and a host read",
+      (True, f.HOST_COLUMN_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _after), f.host_rescan_reason(_after), f.HOST_COLUMN_RESCAN in f.RANKS,
+       f.HOST_COLUMN_RESCAN in f.HOST_REASONS))
+
+
+def _cols(lines, pool=None, expected=range(6000, 26000)):
+    deferred = set()
+    return sorted({n for n, _ in f.column_headings(lines, lines if pool is None else pool, set(expected), deferred)}), \
+        sorted(deferred)
+
+
+# column_headings: a heading set in a narrow column, the band's line run on into the column beside it, its
+# number on the row under it (1950-03-13: "SOLUTION OF PUZZLE" over "No. 6,235." beside an advertisement).
+_1950 = [line("Solution OF PUZZLE", x=935, y=4953) + line("DORKING-REIGATE, in pleasant, 2 miles", x=1277, y=4945),
+         line("No. 6,235.", x=997, y=4990) + line("of Boxhill and countryside :3 bed", x=1277, y=4990)]
+check("column_headings: a narrow column's heading over its number, the next column's words beside both",
+      ([6235], []), _cols(_1950))
+_1970 = [line("The Solution to Crossword", x=636, y=4305) + line("sive jet flight 44", x=979, y=4307),
+         line("12,475, the fourth entry", x=640, y=4340) + line("sailing/motor boat/car:", x=978, y=4336)]
+check("... 1970's 'The Solution to Crossword' over '12,475, the fourth entry'", ([12475], []), _cols(_1970))
+_1976 = [line("to Solution of Puzzle No", x=588, y=4833)]
+check("... its number on its own row in a line of its own (a band split the row, 1976-06-09)", ([14322], []),
+      _cols(_1976, _1976 + [line("14,322", x=836, y=4835)]))
+_1971 = [line("Solution of Puzzle", x=657, y=4838), line("No. 12,747", x=702, y=4866),
+         line("will appear on", x=682, y=4892), line("Wednesday, April 21", x=640, y=4918)]
+check("... none for a deferral ('will appear on Wednesday', 1971-04-19: no grid), its number deferred",
+      ([], [12747]), _cols(_1971))
+check("... nor its number with 'will appear' after it on its row (1981-01-10)", ([], [15419]),
+      _cols([line("The solution of Puzzle No 15.419 will appear", x=624, y=4831)]))
+check("... nor one read 'will annear' as '1 Bnnear'", ([], [12747]),
+      _cols(_1971[:2] + [line("1 Bnnear", x=705, y=4892)]))
+check("... nor a misread number with a speck under it read on ('3.24' over '7' is no 3,747: 1942-06-01)", ([], []),
+      _cols([line("Solution OF Puzzte No. 3.24", x=1113, y=4296), line("7", x=1300, y=4318)], expected=range(3500, 4100)))
+check("... nor a cut number read on into the next column's clue number ('4,14' then '5 A wooden-headed', 1943-06-09)",
+      ([], []), _cols([line("Solution of Puzzle No. 4,14", x=1103, y=4397) + line("5 A wooden-headed fellow", x=1381, y=4397)],
+                      expected=range(4000, 4200)))
+check("... nor junk after a 'Solution' word solution_at would repair ('Solution gto 4, (6' over '6', 1943-05-01)",
+      ([], []), _cols([line("Solution gto 4, (6", x=1067, y=4312), line("6", x=1200, y=4334)], expected=range(3900, 4200)))
+check("... nor a clue's words under a 'Solution' with no number in its column", ([], []),
+      _cols([line("the Solution (5).", x=332, y=4568), line("cuts a blunder ? Not 23 Sailor", x=333, y=4600)]))
+# named_day_headings: the 2007-14 "Monday's Solution 23,792" (2007-12-26), cut ("ay's") or glued.
+check("named_day_headings: a heading naming its day, cut or glued, its number read clean",
+      [[23792], [24105], [25814], [23775], [], []],
+      [[n for n, _ in f.named_day_headings([line(t)], set(range(23000, 26000)))]
+       for t in ("Monday's Solution 23,792", "ay's Solution 24,105 19 Radio PC lost", "Yesterday'ssolution25,814",
+                 "terday's solutlon 23,775", "Monday's Solution 23,79Z", "Monday's resolution 23,792")])
+
+
+def _lattice(img, x0, y0, w, h, step=24):
+    from PIL import ImageDraw
+    dr = ImageDraw.Draw(img)
+    for x in range(x0, x0 + w + 1, step):
+        dr.line([(x, y0), (x, y0 + h)], fill=0, width=3)
+    for y in range(y0, y0 + h + 1, step):
+        dr.line([(x0, y), (x0 + w, y)], fill=0, width=3)
+
+
+# The 1940s Times's solution grid (1942-01-27: its box 0.74 wide for its height, the heading's ink run into its top;
+# 1942-06-09: 1.26, its foot rows broken off) gets a band over it; a puzzle-sized grid and a square one
+# solution_bands already covers do not get another.
+_page = Image.new("L", (f.SCAN_WIDTH, 2000), 255)
+_lattice(_page, 1100, 400, 240, 324)   # 0.74, the heading run into its top
+_lattice(_page, 2000, 400, 300, 238)   # 1.26
+_lattice(_page, 300, 1000, 700, 700)   # the puzzle's own grid: too wide
+_lattice(_page, 2000, 1200, 300, 300)  # solution_shaped: solution_bands' own
+_have = f.solution_bands(_page, [])
+_loose = sorted(f.loose_bands(_page, _have)[len(_have):])
+_want = [(1100 - 30, 400 - 70, 1100 + 560, 400 + 84 + 5), (2000 - 30, 400 - 70, 2000 + 560, 400 + 5)]
+check("loose_bands: one band over each near-square solution-sized grid solution_shaped refuses, from over its top "
+      "down by its excess height", (1, 2, True),
+      (len(_have), len(_loose), all(abs(a - b) <= 6 for g, w in zip(_loose, _want) for a, b in zip(g, w))))
+check("Concise, Times Two and Jumbo titles are not the cryptic's", [],
+      f.headings([line("CONCISE CROSSWORD NO 2065"), line("Times Two Crossword, page 32"),
+                  line("Times Jumbo Crossword No 812")], f.TITLE))
+# Real misread titles from scans the pass found no title on (1977-03-31,
+# 1975-06-05, 1992-03-10, 1999-03-31).
+check("misread titles read: first word, a mark before Crossword, a split number, a comma read as *",
+      [14564, 14012, 18862, 21065],
+      [n for t in ("Hie Times Crossword Puzzle No 14,564", "The Times 'Crossword Puzzle No 14,012",
+                   "THE TIMES CROSSWORD PUZZLE NO 1 8,862", "THE TIMES CROSSWORD NO 21*065")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+# The Gale Times from 2000-03-13: "NO 21,362" on its own row under the title.
+check("a bare NO row joins the THE TIMES CROSSWORD row over it", [21362],
+      [n for n, _, _ in f.times_headings([line("THE TIMES CROSSWORD", 277, 3051), line("NO 21,362", 274, 3070)])[0]])
+check("the words after CROSSWORD on the title's row are left out of the join", [21362],
+      [n for n, _, _ in f.times_headings([line("THE TIMES Crossword wrong word to describe how", 274, 3046),
+                                          line("NO 21,362", 274, 3068)])[0]])
+check("a bare NO row far under the title does not join it", [],
+      f.times_headings([line("THE TIMES CROSSWORD", 277, 3051), line("NO 21,362", 274, 3300)])[0])
+check("a bare NO row under another line does not join it", [],
+      f.times_headings([line("Schumacher cedes them all", 277, 3051), line("NO 21,362", 274, 3070)])[0])
+# A scan cached by older heading code is made again, and a title it finds
+# that no verdict covers makes the edition due.
+import code_reach
+reached = {d for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROOTS)
+           if m == "file_archive_org_puzzles"}
+check("the scan key follows every name scan() reaches: the title pattern, the title OCR, the Gale page's "
+      "headings and their band re-reads, the 1930 headings, the Paper method scan calls", set(),
+      {"TITLE", "SOLUTION", "ocr_titles", "ocr_headings", "mend_misreads", "solution_bands", "band_solutions", "SOLUTION_BAND",
+       "hint_strips", "HEADING_HINT", "PAGE_READERS", "HINT_PAD",
+       "times1930_headings", "Paper.headings"} - reached)
+check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & reached)
+# A band cache a killed read left empty or cut short is a miss: read again,
+# rewritten whole, no temp file left.
+_reads = []
+_real_read_words = f.read_words
+f.read_words = lambda im, which: _reads.append(which) or [(1, 2, 3, 4, "word")]
+_band_dir = Path(os.environ["TMP"]) / "bands"
+_band_dir.mkdir()
+_band_img = Image.new("L", (50, 50), 255)
+for _bad in ("", '{"box": [0, 0, 5'):
+    _bad_path = _band_dir / "b.json"
+    _bad_path.write_text(_bad)
+    _reads.clear()
+    check(f"an unreadable band cache {_bad!r} is read again", [(1 + 5, 2 + 6, 3 + 5, 4 + 6, "word")],
+          f.band_words(_band_img, (5, 6, 20, 30), "ch", _bad_path))
+    check("and rewritten whole", {"box": [5, 6, 20, 30], "words": [[6, 8, 8, 10, "word"]]}, json.loads(_bad_path.read_text()))
+    check("with no temp file left", ["b.json"], [p.name for p in _band_dir.iterdir()])
+    f.band_words(_band_img, (5, 6, 20, 30), "ch", _bad_path)
+    check("a readable cache is not read again", 1, len(_reads))
+f.read_words = _real_read_words
+# The mirror: the key moves with code scan() runs and stays with code it
+# does not, here and in another module.
+base = {"m": "import n\nclass P:\n    def __init__(self):\n        self.k = K\n    def used(self, x):\n"
+             "        return n.helper(x)\n    def unused(self):\n        return 1\nK = 1\n"
+             "def scan():\n    \"\"\"Doc.\"\"\"\n    page = P().used(2)  # a local named like a def\n    return page\n"
+             "def page():\n    return 9\ndef other():\n    return 3\n",
+        "n": "def helper(x):\n    return x + 1\ndef spare():\n    return 0\n"}
+def key_of(**edits):
+    texts = dict(base)
+    for mod, (old, new) in edits.items():
+        assert old in texts[mod], old
+        texts[mod] = texts[mod].replace(old, new)
+    return code_reach.key("m", {"scan"}, texts=texts)
+k0 = key_of()
+check("an edit scan() runs moves the key: a called method, a class constant, another module's helper",
+      [True, True, True],
+      [key_of(m=("return n.helper(x)", "return n.helper(x) * 2")) != k0, key_of(m=("K = 1", "K = 2")) != k0,
+       key_of(n=("return x + 1", "return x + 2")) != k0])
+check("an edit it never runs leaves it: an uncalled method, another function, another module's spare, "
+      "a docstring, a comment, a def named like a local",
+      [k0] * 6,
+      [key_of(m=("return 1", "return 7")), key_of(m=("return 3", "return 4")), key_of(n=("return 0", "return 5")),
+       key_of(m=("Doc.", "Other doc.")), key_of(m=("# a local", "# the local")), key_of(m=("return 9", "return 8"))])
+helper_out = code_reach.TRANSPORT + ("n.helper",)
+check("a definition named opaque (code_reach.SIZING's form) leaves the key: its edit moves nothing",
+      [code_reach.key("m", {"scan"}, texts=base, opaque=helper_out), False],
+      [code_reach.key("m", {"scan"}, texts={**base, "n": base["n"].replace("return x + 1", "return x + 2")},
+                      opaque=helper_out), code_reach.key("m", {"scan"}, texts=base, opaque=helper_out) == k0])
+sized = {f"{m}.{d}" for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROOTS)}
+narrow = {f"{m}.{d}" for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROOTS,
+                                                  opaque=code_reach.TRANSPORT + code_reach.SIZING)}
+check("scan() reaches each thread-pool sizing definition, and its key leaves them out: a thread cap rescans nothing",
+      (set(code_reach.SIZING), set(), True),
+      (set(code_reach.SIZING) & sized, set(code_reach.SIZING) & narrow, f.sized_scan_key() != f.scan_key()))
+# Each paper's scan key covers the shared scan code and its own definition
+# only: adding a paper (and listing it in the tables) or changing one moves
+# that paper's key and no other, so it never re-scans the corpus; a change
+# to the shared scan code moves every key.
+src = Path("file_archive_org_puzzles.py").read_text()
+opaque = code_reach.TRANSPORT + code_reach.SIZING
+keys = f.scan_keys(opaque)
+added = src.replace('''TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\\d\\d)UKEnglish$"),
+                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, telegraph_headings, margin=15,''',
+                    '''TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\\d\\d)UKEnglish$"),
+                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, telegraph_headings, margin=16,''')
+added = added.replace("FILERS = {**PAPERS, ", "NEWP = Paper('newp', 'newp', re.compile('NewP$'), "
+                      "'New No {:,}', expected_number, ft_headings)\nFILERS = {**PAPERS, NEWP.key: NEWP, ")
+moved = f.scan_keys(opaque, {"file_archive_org_puzzles": added})
+shared = f.scan_keys(opaque, {"file_archive_org_puzzles": src.replace(
+    "    if paper is TIMES and not found[\"puzzles\"]:", "    if paper is TIMES and not found[\"puzzles\"] and leaves:")})
+check("adding a paper and changing another moves only the changed one's scan key; the new one gets its own",
+      (added != src, {"TELEGRAPH"}, True),
+      (added.count("NEWP") == 3, {k for k in keys if moved[k] != keys[k]}, "NEWP" in moved and moved["NEWP"] not in keys.values()))
+check("(mirror) a change to the shared scan code moves every paper's scan key",
+      set(keys), {k for k in keys if shared[k] != keys[k]})
+check("a paper's scan key is its own: no two papers share one; scan_key() is the Times's",
+      (len(keys), keys["TIMES"], keys["GALE_TELEGRAPH"]),
+      (len(set(keys.values())), f.scan_key(), f.scan_key(f.GALE_TELEGRAPH)))
+old_key = next(iter(f.CORPUS_KEYS))
+f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": f.scan_key()}  # the Times code as it stands
+rk = Path(os.environ["TMP"]) / "rekey.jsonl"
+rk.write_text("".join(json.dumps(r) + "\n" for r in (
+    {"edition": "NewsUK1990UKEnglish/1990-01-01_1", "scanKey": old_key, "filesHash": "h", "scan": {}},
+    {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": old_key, "filesHash": "h", "scan": {}})))
+stood = [f.scan_current(r, "h") for r in f.scan_queue.jsonl_rows(rk)]
+check("a scan under the old corpus-wide key stands for a paper it names, and is re-keyed to that paper's; "
+      "a paper it never named (a new one) is due",
+      ([True, False], 1, [f.scan_key(), old_key], 0),
+      (stood, f.rekey_scans(rk), [r["scanKey"] for r in f.scan_queue.jsonl_rows(rk)], f.rekey_scans(rk)))
+f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": "moved"}
+check("(mirror) once that paper's key moves, a scan under the corpus-wide key is stale",
+      False, f.scan_current({"edition": "NewsUK1990UKEnglish/x", "scanKey": old_key, "filesHash": "h", "scan": {}}, "h"))
+f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": f.scan_key()}
+# The queue asks scan_current of every queued scan each pass: _paper_name,
+# current_keys and the edition's paper are cached, answering as the
+# uncached walk does, and a name re-bound is looked up again.
+walk = lambda p: next(k for k, v in vars(f).items() if v is p and k.isupper())
+fake_paper = object()
+f.ZZ_CACHED = fake_paper
+first = f._paper_name(fake_paper)
+f.ZZ_CACHED = None
+f.ZZ_MOVED = fake_paper
+moved_to = f._paper_name(fake_paper)
+del f.ZZ_CACHED, f.ZZ_MOVED
+gt = f.GALE_TELEGRAPH
+row = {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": f.scan_key(gt), "filesHash": "h", "scan": {}}
+check("scan_current's caches: a paper's name as the globals walk finds it, again after a re-bind; one key set "
+      "shared by every ask; an edition named by string read as paper_of's (asked twice, by rel and by row)",
+      (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2],
+                                                                      *f._LINES_FIX[gt.key][:2],
+                                                                      *f._WORDS_CACHE_FIX[gt.key][:2],
+                                                                      *f._SOLUTION_HEADINGS_FIX[gt.key][:2],
+                                                                      *f._PRIZE_HEADINGS_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_SOLUTION_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_PRIZE_FIX[gt.key][:2],
+                                                                      *f._BAND_WIDTH_FIX[gt.key][:2],
+                                                                      *f._GRID_CAP_FIX[gt.key][:2],
+                                                                      *f._NEG_EXPECTED_FIX[gt.key][:2],
+                                                                      *f._DOT_LEADER_FIX[gt.key][:2],
+                                                                      *f._DAY_HEADING_FIX[gt.key][:2],
+                                                                      *f._CHAMPIONSHIP_FIX[gt.key][:2],
+                                                                      *f._INSET_GRID_FIX[gt.key][:2],
+                                                                      *f._LONE_TITLE_FIX[gt.key][:2],
+                                                                      *f._JOINED_TITLE_FIX[gt.key][:2],
+                                                                      *f._SPECIAL_TITLE_FIX[gt.key][:2],
+                                                                      *f._WINNERS_BAND_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_SATURDAY_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_PRIZE_OF_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_TITLE_FIX[gt.key][:2],
+                                                                      *f._TELEGRAPH_PRIZE_MEND_FIX[gt.key][:2],
+                                                                      *f._GUARDIAN_DATED_FIX[gt.key][:2],
+                                                                      *f._WINNERS_NUMBER_FIX[gt.key][:2],
+                                                                      *f._TELEQUICK_FIX[gt.key][:2],
+                                                                      *f._WINNERS_1996_FIX[gt.key][:2],
+                                                                      *f._SUNDAY_WEEKLY_FIX[gt.key][:2],
+                                                                      *f._FT_SMALL_FIX[gt.key][:2],
+                                                                      *f._TELEPAIR_FIX[gt.key][:2],
+                                                                      *f._TELEPRIZE_FIX[gt.key][:2],
+                                                                      *f._SUNTEL_BARE_FIX[gt.key][:2],
+                                                                      *f._FT_TITLE_FIX.get(gt.key, ())[:2],
+                                                                      *f._FT_PROSE_FIX.get(gt.key, ())[:2],
+                                                                      *f._FT_NOISY_FIX.get(gt.key, ())[:2]},
+       [True, True, True, False]),
+      (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
+       f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
+       [f.scan_current(row, "h"), f.scan_current(row, "h"), f.scan_current(row, "h", row["edition"]),
+        f.scan_current(row, "h", "NewsUK1990UKEnglish/1990-01-01_1")]))
+# scan_stands keeps each (cache, rel)'s path facts (_STAND_DIRS), never its
+# hash: off the media disk it lists the dir as input_hash does, a file added
+# moving it; on it, it reads the manifest row afresh, a later row standing.
+mm = f.media_manifest
+sc = Path(os.environ["TMP"]) / "standcache"
+(sc / "Item" / "e1").mkdir(parents=True)
+(sc / "Item" / "e1" / "pages.json").write_text("[]")
+off = [f._stand_hash(sc, "Item/e1"), f.input_hash(sc / "Item" / "e1")]
+(sc / "Item" / "e1" / "p1.jpg").write_text("x")
+off += [f._stand_hash(sc, "Item/e1"), f.input_hash(sc / "Item" / "e1")]
+saved_root, saved_rows = mm.downloads.ROOT, mm.edition_rows
+media = Path(os.environ["TMP"]) / "media"
+manifest = {"Item/e2": {"files": "abc"}}
+mm.downloads.ROOT, mm.edition_rows = media, lambda: manifest
+on = [f._stand_hash(media, "Item/e2"), f.input_hash(media / "Item" / "e2")]
+manifest["Item/e2"] = {"files": "def"}
+on += [f._stand_hash(media, "Item/e2"), f.input_hash(media / "Item" / "e2")]
+held = f._STAND_DIRS[(str(media), "Item/e2")]
+mm.downloads.ROOT, mm.edition_rows = saved_root, saved_rows
+check("scan_stands' input hash: input_hash's own off the media disk (moved by a new file) and on it "
+      "(the manifest's latest row), its dir's path facts kept",
+      (True, True, False, ["abc", "abc", "def", "def"], (media / "Item" / "e2", True, "Item/e2")),
+      (off[0] == off[1], off[2] == off[3], off[0] == off[2], on, held))
+
+# The other papers' Gale pages: each item is a paper of its own, filed as
+# its series; the Telegraph's and FT's read in those runs.
+check("each Gale item is its paper's, filed as its series, read by its run",
+      [("galetelegraph", "telegraph", "telegraph"), ("galeft", "ftcryptic", "ft"),
+       ("galeindependent", "independent", "galeindependent"), ("galesundaytimes", "sundaytimes", "galesundaytimes")],
+      [(f.paper_of(f"x/{i}/d").key, f.paper_of(f"x/{i}/d").series, f.filer_of(f"{i}/d").key)
+       for i in ("GaleTelegraph1975UKEnglish", "GaleFT1980UKEnglish", "GaleIndependent1990UKEnglish",
+                 "GaleSundayTimes1950UKEnglish")])
+check("a Gale Telegraph title: the ~1990 banner over the clues, the old 'No. N ACROSS', the solution heading",
+      ([21502, 15301], [21501], []),
+      ([n for t in ("CROSSWORD / 21,502", "No. 15,301 ACROSS") for n, _, _ in f.GALE_TELEGRAPH.headings([line(t)])[0]],
+       [n for n, _ in f.GALE_TELEGRAPH.headings([line("SOLUTION No. 21,501")])[1]],
+       f.GALE_TELEGRAPH.headings([line("QUICK CROSSWORD")])[0]))
+check("an Independent title with its setter, and its solution headings; never the Quick or Concise",
+      ([(1234, "Quixote"), (5678, None), (9101, None)], [1233, 1233], []),
+      ([(n, s) for t in ("THE INDEPENDENT CROSSWORD No 1,234 Set by Quixote", "Saturday Crossword No. 5,678",
+                         "Cryptic crossword #9,101") for n, _, s in f.GALE_INDEPENDENT.headings([line(t)])[0]],
+       [n for t in ("Solution to No 1,233", "Yesterday's solution No. 1,233")
+        for n, _ in f.GALE_INDEPENDENT.headings([line(t)])[1]],
+       [h for t in ("QUICK CROSSWORD No 1,234", "Concise crossword No 12") for h in f.GALE_INDEPENDENT.headings([line(t)])[0]]))
+check("a Sunday Times title from No 1 on, and its solution headings; never Mephisto",
+      ([1, 2345, 3456], [1, 2344], []),
+      ([n for t in ("Cross-word Puzzle—No. 1", "THE SUNDAY TIMES CROSSWORD No 2,345", "Prize Crossword No. 3,456")
+        for n, _, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[0]],
+       [n for t in ("Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344")
+        for n, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[1]],
+       f.GALE_SUNDAY_TIMES.headings([line("Mephisto No 1,234")])[0]))
+check("a Sunday Times winners entry is no title: 'Crossword No. 3530: Ross Bryant' on the page of No 3532",
+      [],
+      f.GALE_SUNDAY_TIMES.headings([line("Crossword No. 3530: Ross Bryant, Barking,")])[0])
+check("a TLS title and its solution heading; never its entry address or winner line; its own run",
+      ([835], [831], [], [], "galetls"),
+      ([n for n, _, _ in f.GALE_TLS.headings([line("TLS CROSSWORD 835")])[0]],
+       [n for n, _ in f.GALE_TLS.headings([line("SOLUTION TO CROSSWORD 831")])[1]],
+       f.GALE_TLS.headings([line("TLS Crossword 835,")])[0], f.GALE_TLS.headings([line("The winner of Crossword 831 is")])[0],
+       f.filer_of("GaleTLS2010UKEnglish/d").key))
+import datetime as _d
+check("the TLS numbers its dates imply run on into our tls files", (835, 1118, 1183),
+      tuple(f.tls_expected_number(_d.date.fromisoformat(d)) for d in ("2010-06-04", "2016-03-25", "2017-07-07")))
+_tm = {"edition": "GaleTLS1983UKEnglish/1983-03-18", "inputs": "h", "readAt": "2026-11-02T08:17:26+00:00",
+       "verdicts": [{"number": 6, "leaf": 0, "cause": "number-date-mismatch",
+                     "refused": "No 6 is not near the -379 the date 1983-03-18 implies: the item's date is wrong"}]}
+check("the TLS ran monthly 1982-91 (No 6 on 1983-03-18, 82 on 1990-07-27), so a page of it refused number-date-mismatch "
+      "is due TLS_MONTHLY once; a 1992 page, a later read and another paper's stand",
+      ((6, 82), True, False, False, False),
+      ((f.tls_expected_number(_d.date(1983, 3, 18)), f.tls_expected_number(_d.date(1990, 7, 27))), f.tls_monthly_due(_tm),
+       f.tls_monthly_due({**_tm, "edition": "GaleTLS1993UKEnglish/1993-03-19"}),
+       f.tls_monthly_due({**_tm, "readAt": "2026-11-16T00:00:00+00:00"}),
+       f.tls_monthly_due({**_tm, "edition": "GaleFT1983UKEnglish/1983-03-18"})))
+check("the Independent and Sunday Times numbers their dates imply run on into our independent and sundaytimes files",
+      (1, 7566, 1, 4589, 5000),
+      (f.independent_expected_number(_d.date(1986, 10, 7)), f.independent_expected_number(_d.date(2011, 1, 15)),
+       f.sunday_times_expected_number(_d.date(1925, 1, 11)), f.sunday_times_expected_number(_d.date(2014, 5, 11)),
+       f.sunday_times_expected_number(_d.date(2022, 3, 27))))
+check("a title no verdict covers makes the edition due", "titles changed",
+      f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
+                    "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+# A read by another VLM version (a model change) is due, at the whole-corpus
+# rank: behind never-read and every fix-driven reason, never jumping them.
+by_old = {"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "old", "scan": {"puzzles": []}}
+check("a read by another VLM version is due at the whole-corpus rank; the same version, or no VLM up, is not",
+      ("read by another VLM", 3, None, None, True),
+      (f.due_reason(by_old, "h", [], "new"), f.RANKS["read by another VLM"], f.due_reason(by_old, "h", [], "old"),
+       f.due_reason(by_old, "h", [], None),
+       f.RANKS["read by another VLM"] > max(r for k, r in f.RANKS.items() if k != "read by another VLM" and r < 3)))
+# Gale 1991-04-13 read No 18,579's answers off 1991-04-03, a page the
+# solution pairing no longer links: due once, and not again once read off
+# the page it now links from.
+moved = {"inputs": "h", "solutionsSeen": [18579], "vlm": "v", "scan": {"puzzles": [{"number": 18579}]},
+         "verdicts": [{"number": 18579, "solutionFrom": "1991-04-03 leaf 0"}]}
+check("a solution read off a page that no longer links it is due; one off any page that does is not",
+      ["solution moved", None, None],
+      [f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}}),
+       f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0", "1991-04-03 leaf 0"}}),
+       f.due_reason({**moved, "verdicts": [{"number": 18579}]}, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}})])
+check("a fix's re-read ranks before the whole-corpus ones (scan code, --reread)", [2, 2, 2, 3, 3],
+      [f.rank_of_reason("short Times page, its third clue column read since"), f.rank_of_reason("refused not-a-grid before its fix"), f.rank_of_reason("solution moved"),
+       f.rank_of_reason("scan stale"), f.rank_of_reason("--reread")])
+check("every refusal cause's fix has its rank", True,
+      all(f"refused {c} before its fix" in f.RANKS for c in f.REFUSALS))
+refused = lambda cause, at: {"inputs": "h", "solutionsSeen": [], "vlm": "v", "readAt": at,
+                             "scan": {"puzzles": [{"number": 1}]}, "verdicts": [{"number": 1, "cause": cause}]}
+check("a title filed as another number than it read is not due again", None,
+      f.due_reason({"inputs": "h", "solutionsSeen": [], "vlm": "v", "scan": {"puzzles": [{"number": 19453}]},
+                    "verdicts": [{"number": 19458, "read_as": 19453}]}, "h", [], "v"))
+# 1930-07-30's title read "158", filed times-153 (read_as): 153's heading linked since makes it due (answers_only
+# reads it off 153's heading); titles alone never did. A row read so stands; one with no mended title is as before.
+misread = {"inputs": "h", "solutionsSeen": [], "vlm": "v", "scan": {"puzzles": [{"number": 158, "leaf": 4}]},
+           "verdicts": [{"number": 153, "read_as": 158, "id": "times-153"}]}
+seen = lambda row, sols, series=f.SERIES: f.seen_solutions(misread["scan"], row, sols, series)
+answered = {**misread, "verdicts": [{**misread["verdicts"][0], "solutionFrom": "x leaf 0"}]}
+check("a heading of a misread title's filed number is seen; its title's too; a plain title as before",
+      [[153], [158, 153], [], [158]],
+      [seen(misread, {153: {}}), seen(misread, {153: {}, 158: {}}), seen(misread, {}),
+       seen({"verdicts": [{"number": 158}]}, {153: {}, 158: {}})])
+check("not one whose answers were read off it (until seen so), nor another paper's (1984 FT read_as 5556 -> 5356)",
+      [[], [153], []], [seen(answered, {153: {}}), seen({**answered, "solutionsSeen": [153]}, {153: {}}),
+                        seen(misread, {153: {}}, "ftcryptic")])
+check("so a misread title's filed number linked since makes the edition due, once", [True, None],
+      [f.due_reason(misread, "h", seen(misread, {153: {}}), "v") is not None,
+       f.due_reason({**misread, "solutionsSeen": [153]}, "h", [153], "v")])
+# solution_title(): real headings on title-lost pages (1980-06-30 one-sided,
+# 1994-02-05 Saturday prize +6, 1977-05-02 "14,539" for 14,589), and the
+# mirror: a heading the neighbours' count does not fit is refused.
+D = lambda s: __import__("datetime").date.fromisoformat(s)
+check("solution headings take the number the filed neighbours give",
+      [15262, 19458, 14590, None, None],
+      [f.solution_title(D("1980-06-30"), [15261], {15259: D("1980-06-26"), 15310: D("1980-09-01")})[0],
+       f.solution_title(D("1994-02-05"), [19452], {19456: D("1994-02-03"), 19459: D("1994-02-07")})[0],
+       f.solution_title(D("1977-05-02"), [14539], {14587: D("1977-04-28"), 14591: D("1977-05-03")})[0],
+       f.solution_title(D("1994-02-05"), [19440], {19456: D("1994-02-03"), 19459: D("1994-02-07")})[0],
+       f.solution_title(D("1994-02-05"), [19452], {})[0]])
+# linked_solutions(): 1997-09-09's leaf read no title from the text, so
+# "20379" (20,579's heading) came through SOLUTION exact; the OCR title, or
+# the filed neighbours' count, mends it, and the mirror drops one nothing fits.
+edition = lambda date, titles, sols: {"date": date, "puzzles": [{"number": n, "leaf": 23} for n in titles],
+                                      "solutions": [{"number": n, "leaf": 23} for n in sols]}
+link = lambda found, held={}, paper=f.TIMES: [s["number"] for s in f.linked_solutions(paper, found, held)]
+check("a heading read where no title was links only as a number the title or neighbours fit",
+      [[20579], [20579], [], [], [16364], [16567], [], [20379]],
+      [link(edition("1997-09-09", [20580], [20379])),
+       link(edition("1997-09-09", [], [20379]), {20579: D("1997-09-08"), 20581: D("1997-09-10")}),
+       link(edition("1997-09-09", [], [20379])),
+       link(edition("1997-09-09", [], [20379]), {20400: D("1997-09-08")}),
+       # 1984-03-03: a strike broke the run, so the prize is 16,364 at lag 5
+       link(edition("1984-03-03", [], [16364]), {16364: D("1984-02-25"), 16368: D("1984-03-02"), 16370: D("1984-03-05")}),
+       link(edition("1984-10-25", [16568], [10567])),
+       # 1981-03-05: "13485" mends to a title printed in the edition itself
+       link(edition("1981-03-05", [15465, 15466], [13485])),
+       link(edition("1997-09-09", [], [20379]), {}, f.FT)])
+# heading_titles(): 2003-02-08's scan read its two solution headings ("Crossword 22,269", "22,264") as its
+# titles, its own 22,270 unread; its solutions_only read found them in the same boxes. A title read
+# off a heading's print is no title, so both link; a real title elsewhere still keeps its number out.
+sat = {"date": "2003-02-08",
+       "puzzles": [{"number": 22269, "leaf": 0, "box": [1534, 3829, 1760, 3868]},
+                   {"number": 22264, "leaf": 0, "box": [1910, 3827, 2138, 3872]}],
+       "solutions": [{"number": 22269, "leaf": 0, "box": [1509, 3805, 1786, 3863]},
+                     {"number": 22264, "leaf": 0, "box": [1865, 3809, 2183, 3864]}]}
+sat_far = {**sat, "puzzles": [{**sat["puzzles"][0], "box": [288, 2461, 1000, 2514]}, sat["puzzles"][1]]}
+held_sat = {22263: D("2003-01-31"), 22264: D("2003-02-01"), 22269: D("2003-02-07")}
+check("a title read off a solution heading's own print does not keep the heading from linking",
+      [{22264, 22269}, [22264, 22269], {22264}, [22264], set()],
+      [f.heading_titles(sat), sorted(link(sat, held_sat, f.GALE)), f.heading_titles(sat_far),
+       sorted(link(sat_far, held_sat, f.GALE)), f.heading_titles(edition("2003-02-08", [22269], [22269]))])
+# christmas_prize_monday(): 2007-01-01 printed 23,474 (2006-12-16's prize) under its 23,486, 2007-12-31 23,785
+# under 23,797, 2008-01-07 23,791 under 23,803: a week late, twelve titles back. A Monday of 27 Dec-10 Jan
+# links it; the usual nine days' still links; any other Monday's twelve-back heading is a stranger.
+check("a Christmas prize Monday links the prize of the Saturday sixteen days before, no other Monday",
+      [[23474], [23785], [23791], [23480], [], [True, True, True, False, False]],
+      [link(edition("2007-01-01", [23486], [23474]), {}, f.GALE),
+       link(edition("2007-12-31", [23797], [23785]), {}, f.GALE),
+       link(edition("2008-01-07", [23803], [23791]), {}, f.GALE),
+       link(edition("2007-01-08", [23492], [23480]), {}, f.GALE),
+       link(edition("2007-01-15", [23498], [23486]), {}, f.GALE),
+       [f.christmas_prize_monday(D(s)) for s in ("2007-12-31", "2008-01-07", "2001-12-31", "2007-12-24", "2008-01-14")]])
+# WEEK_ON_SOLUTIONS, championship_number(): a championship eliminator's or qualifier's solution prints a week or
+# more on (1987-02-26 "Solution to puzzle No 17,284" of 02-19; 1989-01-23 "Solution to Qualifier Puzzle No 17,877"
+# of 01-12; 2012-03-29 "1st Qualifier 25,116" of 03-21). Those hosts link it; another day's lag-6 stranger and
+# the next day's deferral notice link nothing; a plain lag-7 heading reads clean on its week-on host.
+champ_words = lambda s: [[(0, 0, 10, 10, x) for x in s.split()]]
+check("a championship puzzle's week-later host links its solution; its heading forms read; no other day's",
+      [[17284], [17877], [25116], [], [], [D("1988-01-15"), D("1988-01-25")],
+       [17907, 17877, 23357, 25116, 25786, 17565, None, None, None, None], [17907, 25451]],
+      [link(edition("1987-02-26", [17290], [17284]), {17284: D("1987-02-19")}, f.GALE),
+       link(edition("1989-01-23", [17886], [17877]), {17877: D("1989-01-12")}, f.GALE),
+       link(edition("2012-03-29", [25123], [25116]), {25116: D("2012-03-21")}, f.GALE),
+       link(edition("1987-02-27", [17291], [17285]), {17285: D("1987-02-20")}, f.GALE),
+       link(edition("1989-01-24", [17887], [17878]), {17878: D("1989-01-13")}, f.GALE),
+       f.host_days(D("1988-01-14")),
+       [f.championship_number(t, {n}) for t, n in (
+           ("Solution to Eliminator a Puzzle INO 17,907", 17907), ("Solution t to Qualifier Puzzle No 17,877", 17877),
+           ("Solution toQualifyingPuzzle23,357", 23357), ("1st Qualifier 25,116", 25116),
+           ("Solution to Second Qualifying puzzle 25,786", 25786),
+           ("Solation to The Times Collins Dictioriaries. Crossword Caamp lonship Qualifying Puzzle No 17,565", 17565),
+           ("The solution to yesterday's eliminator puzzle 17,595", 17595), ("Qualifying Puzzle No 17,565", 17565),
+           ("lonship Qualifying Puzzle No 17,565", 17565),
+           ("Solution to Crossword 23,352", 23352))],
+       [n for (n, _), in (f.solution_headings(champ_words("Solution to Eliminator Puzzle No 17,907"), [17913]),
+                          f.solution_headings(champ_words("Solution to 25,451"), [25458]))]])
+_week_on = lambda day: {"edition": f"GaleTimes1989UKEnglish/{day}", "solOnly": {"at": "2026-10-26T09:00:00+00:00"}}
+# (1989 is also an ERA_HEADINGS year, so another day of it is due, but as HOST_ERA_RESCAN, not week-on.)
+check("a week-on host read before its championship heading is due once as HOST_WEEK_ON_RESCAN, ranked; another day is not",
+      (True, f.HOST_ERA_RESCAN, f.HOST_WEEK_ON_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _week_on("1989-02-23")), f.host_rescan_reason(_week_on("1989-02-22")),
+       f.host_rescan_reason(_week_on("1989-02-23")), f.HOST_WEEK_ON_RESCAN in f.RANKS, f.HOST_WEEK_ON_RESCAN in f.HOST_REASONS))
+# HOST_LAYOUT_RESCAN: a host of a TITLE_HEADINGS era read before era_bands is due once more, ranked, a host read.
+_lay = lambda day, at="2026-10-26T10:00:00+00:00": {"edition": f"GaleTimes1942UKEnglish/{day}", "solOnly": {"at": at}}
+check("a 1942 host read before era_bands is due as HOST_LAYOUT_RESCAN, once; a 2005 one (no layout) and a read one are not",
+      (True, f.HOST_LAYOUT_RESCAN, False, False, True, True),
+      (f.host_rescan_due(f.GALE, _lay("1942-04-29")), f.host_rescan_reason(_lay("1942-04-29")),
+       f.host_rescan_due(f.GALE, {**_lay("2005-04-29"), "edition": "GaleTimes2005UKEnglish/2005-04-29"}),
+       f.host_rescan_due(f.GALE, _lay("1942-04-29", "2099-01-01T00:00:00+00:00")),
+       f.HOST_LAYOUT_RESCAN in f.RANKS, f.HOST_LAYOUT_RESCAN in f.HOST_REASONS))
+# HOST_ERA_RESCAN: a host of 1947-50 or 1987-2002 (ERA_HEADINGS) read before REREAD_HOST_ERAS is due once as that, whatever
+# its older read's reason; a 1942 one (TITLE_HEADINGS) keeps its own, and a read since is not due.
+_era = lambda year, at="2026-10-29T07:00:00+00:00": {"edition": f"GaleTimes{year}UKEnglish/{year}-04-29", "solOnly": {"at": at}}
+check("a 1948 and a 1995 host read before the eras' bands are due as HOST_ERA_RESCAN, once; a 1942 one is HOST_LAYOUT_RESCAN",
+      (True, f.HOST_ERA_RESCAN, True, f.HOST_ERA_RESCAN, f.HOST_ERA_RESCAN, False, False, f.HOST_LAYOUT_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _era(1948)), f.host_rescan_reason(_era(1948)),
+       f.host_rescan_due(f.GALE, _era(1995)), f.host_rescan_reason(_era(1995)),
+       f.host_rescan_reason(_era(1995, "2026-10-20T00:00:00+00:00")),
+       f.host_rescan_due(f.GALE, _era(1995, "2099-01-01T00:00:00+00:00")),
+       f.host_rescan_due(f.GALE, {**_era(2005), "edition": "GaleTimes2005UKEnglish/2005-04-29"}),
+       f.host_rescan_reason(_era(1942, "2026-10-26T10:00:00+00:00")),
+       f.HOST_ERA_RESCAN in f.RANKS, f.HOST_ERA_RESCAN in f.HOST_REASONS))
+# era_bands: 1942-04-29's title box (1397, 3890) puts the heading band at x 1057..1597, y 4320..4520 (the heading
+# sat at 1143, 4385), cut in 170 px slices 110 apart; a year with no layout, and a band past the page, get none.
+_tp = Image.new("L", (3487, 4814), 255)
+check("era_bands: slices under the title box where the era prints its heading",
+      [(1057, 4320, 1597, 4490), (1057, 4430, 1597, 4520)], f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1942))
+check("era_bands: none for 2005 (no layout), none past the page, the 1951-66 layout right of the title",
+      ([], [], [(727, 4740, 1427, 4814)]),
+      (f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 2005), f.era_bands(_tp, [(1397, 4800, 2269, 4814)], 1942),
+       f.era_bands(_tp, [(327, 3890, 1100, 3947)], 1960)[-1:]))
+# ERA_HEADINGS: 1948-49 print the heading a line 47-64 px under the title and 60-110 left of it; 1995 1190-1460 under it.
+check("era_bands: the 1948 line under the title, the 1995 slices 1130-1520 under it, 1947 both its layouts",
+      ([(1227, 3900, 1737, 4050), (1227, 4010, 1737, 4050)],
+       [(167, 3830, 747, 4000), (167, 3940, 747, 4110), (167, 4050, 747, 4220), (167, 4160, 747, 4220)],
+       True),
+      (f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1948), f.era_bands(_tp, [(327, 2700, 900, 2750)], 1995),
+       (1057, 4320, 1597, 4490) in f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1947)
+       and (1227, 3900, 1737, 4050) in f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1947)))
+check("title_boxes: the scan's box first, a read title within 40 px of it not twice",
+      [(1397, 3890, 2269, 3947)], f.title_boxes(f.GALE, [], 3797, [(1397, 3890, 2269, 3947)]))
+# hosted(): a solution prints in the next issue, a Saturday prize's also in
+# the next Saturday's (the 1970s Monday's); "19233" on a Tuesday (19,238's
+# heading) and a heading a week after a puzzle whose next issue is missing
+# link nothing.
+check("a heading links only to a puzzle its edition hosts, never a week-later stranger",
+      [[], [19237], [13996], [], [13687], [], [16364]],
+      [link(edition("1993-05-25", [19239], [19233])),
+       link(edition("1993-05-29", [19243], [19237])),
+       link(edition("1975-05-19", [13997], [13996])),
+       link(edition("1974-05-22", [], [13687]), {13687: D("1974-05-15")}),
+       link(edition("1974-05-16", [], [13687]), {13687: D("1974-05-15")}),
+       link(edition("1994-02-24", [19474], [19468]), {}, f.GALE),
+       link(edition("1984-03-03", [16370], [16364]), {16364: D("1984-02-25")}, f.GALE)])
+check("a 0 read as two marks costs one misread; marks that are not a 0's sides do not",
+      [20443, 20287, None, 21443],
+      [f.solution_number("211443", {20443, 20438}), f.solution_number("2IL287", {20287, 20282}),
+       f.solution_number("277443", {20443, 20438}), f.solution_number("211443", {21443, 21438})])
+check("Crossword split by the OCR reads", 15795, f.TITLE.search("The Times Or ossword Puzzle No 15,795") and
+      int(f.TITLE.search("The Times Or ossword Puzzle No 15,795")[1].replace(",", "")))
+check("a refusal read before its cause's fix is due; after it, or another cause, is not",
+      ["refused not-a-grid before its fix", None, None, "refused crashed before its fix", None],
+      [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("unlisted", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("crashed", "2099-01-01T00:00:00+00:00"), "h", [], "v")])
+failed_write = lambda msg, at: {**refused(None, at), "verdicts": [{"number": 1, "writeFailed": msg}]}
+check("a write that raised KeyError 'text' before its fix is due, ranked with the refusals; another message, or a later read, is not",
+      ["refused writeFailed before its fix", None, None, 2],
+      [f.due_reason(failed_write("KeyError: 'text'", "2026-10-11T13:41:23+00:00"), "h", [], "v"),
+       f.due_reason(failed_write("KeyError: 'text'", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(failed_write("OSError: disk full", "2026-10-11T13:41:23+00:00"), "h", [], "v"),
+       f.rank_of_reason("refused writeFailed before its fix")])
+part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
+    {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
+    **({"solutionKey": key} if key else {})}
+short, unclassified = "solution short, read by other code", "solution short, its cells unclassified"
+check("a solution read in part or refused by other solution code, or no key, is due; whole, or this code's, is not",
+      [unclassified, short, unclassified, None, None, None],
+      [f.due_reason(part(20, None, "other"), "h", [], "v"),
+       f.due_reason(part(0, "its blocks are not the puzzle's", "other"), "h", [], "v"),
+       f.due_reason(part(20, None, None), "h", [], "v"),
+       f.due_reason(part(30, None, "other"), "h", [], "v"),
+       f.due_reason(part(30, None, None), "h", [], "v"),
+       f.due_reason(part(20, None, f.solution_key()), "h", [], "v")])
+check("a grid refused unmatched is a rank 2 answers-only reread, once: a read after REREAD_REFUSED_GRID is not due",
+      (2, True, False), (f.RANKS[f.REFUSED_GRID], f.REFUSED_GRID in f.SOLUTION_FIXES,
+                         f.refused_grid({**part(0, "its blocks are not the puzzle's", None),
+                                         "edition": "NewsUK1984UKEnglish/1984-05-01_61715"})))
+check("a grid refused for its blocks after matched_box is a rank 2 answers-only reread, once (MATCHED_GRID): "
+      "a read after REREAD_MATCHED_GRID is not due; an ink-size refusal is not its",
+      (2, True, True, False, False),
+      (f.RANKS[f.MATCHED_GRID], f.MATCHED_GRID in f.SOLUTION_FIXES,
+       f.REREAD_MATCHED_GRID > f.REREAD_REFUSED_GRID,
+       f.refused_grid({**part(0, "its blocks are not the puzzle's", None), "edition": "NewsUK1984UKEnglish/1984-05-01_61715"},
+                      f.REREAD_MATCHED_GRID, f.GRID_REFUSALS[:1]),
+       f.refused_grid({**refused(None, "2026-10-25T01:00:00+00:00"), "edition": "NewsUK1984UKEnglish/1984-05-01_61715",
+                       "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "x leaf 1",
+                                     "solution": {"refused": "the ink under the heading is 88x30"}}]},
+                      f.REREAD_MATCHED_GRID, f.GRID_REFUSALS[:1])))
+_g3 = ["...", "...", "..."]  # 6 lights
+check("a Times grid read just under SOLUTION_BLOCKS stands with half its lights or more accepted (near_read); "
+      "not under NEAR_BLOCKS, with fewer, or for a paper not classified",
+      (True, False, False, False),
+      (f.near_read({1: "A", 2: "B", 3: "C"}, {"blocks": 0.849}, _g3, True),
+       f.near_read({1: "A", 2: "B", 3: "C"}, {"blocks": f.NEAR_BLOCKS - 0.01}, _g3, True),
+       f.near_read({1: "A", 2: "B"}, {"blocks": 0.849}, _g3, True),
+       f.near_read({1: "A", 2: "B", 3: "C"}, {"blocks": 0.849}, _g3, False)))
+_near = lambda blocks, acc, at="2026-10-25T01:00:00+00:00": {
+    **refused(None, at), "edition": "NewsUK1984UKEnglish/1984-05-01_61715",
+    "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "x leaf 1",
+                  "solution": {"refused": "its blocks are not the puzzle's", "blocks": blocks, "accepted": acc, "lights": 30}}]}
+_filed_state = f.filed_state
+f.filed_state = lambda series, number: (False,)
+try:
+    check("a grid refused just under the blocks bar with half its lights read is a rank 2 answers-only reread, once "
+          "(NEAR_GRID): not one read after REREAD_NEAR_GRID, further under the bar, or with fewer lights read",
+          (2, True, True, False, False, False, f.NEAR_GRID),
+          (f.RANKS[f.NEAR_GRID], f.NEAR_GRID in f.SOLUTION_FIXES, f.near_refused(_near(0.849, 26)),
+           f.near_refused(_near(0.849, 26, "2099-01-01T00:00:00+00:00")), f.near_refused(_near(0.7, 26)),
+           f.near_refused(_near(0.849, 10)), f.due_reason(_near(0.849, 26), "h", [], "v")))
+finally:
+    f.filed_state = _filed_state
+classified_part ={**part(20, None, "other"), "verdicts": [
+    {"number": 1, "solution": {"accepted": 20, "lights": 30, "classified": 3}}]}
+ft_part = lambda key: {**part(20, None, key), "edition": "FinancialTimes1985UKEnglish/1985-01-02"}
+check("a Times solution read short before the cell classifier is due as such, ranked 2; one it read, by other code; "
+      "another paper's under a key before it stands, under any other is due",
+      [unclassified, 2, short, None, short],
+      [f.fix_reason(part(20, None, "other")), f.rank_of_reason(unclassified), f.fix_reason(classified_part),
+       f.fix_reason(ft_part(next(iter(f.SOLUTION_UNCLASSIFIED)))), f.fix_reason(ft_part("other"))])
+check("the cell classifier reads the Times papers' grids only", ("times", "gale"), f.CELLS_CLASSIFIED)
+# A grid older code read short, its cells unclassified, under SURE_BLOCKS (short_again passes over it) for a
+# puzzle held with every clue and not every answer is UNCLASSIFIED_HELD: an answers-only reread (10-24).
+uh_row = {**part(20, None, "other"), "edition": "NewsUK1984UKEnglish/1984-05-01_61715", "verdicts": [
+    {"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+     "solution": {"accepted": 20, "lights": 30, "blocks": 0.9}}]}
+real_fs = f.filed_state
+f.filed_state = lambda series, n: (False, True)
+uh_short = f.fix_reason(uh_row)
+f.filed_state = lambda series, n: (True, True)
+uh_whole = f.fix_reason(uh_row)
+f.filed_state = lambda series, n: None
+uh_none = f.fix_reason(uh_row)
+f.filed_state = real_fs
+check("a grid read short unclassified for a puzzle held short is UNCLASSIFIED_HELD (rank 2, answers-only, once by key); "
+      "held whole or not held, the plain reason",
+      [f.UNCLASSIFIED_HELD, unclassified, unclassified, 2, True, None],
+      [uh_short, uh_whole, uh_none, f.RANKS[f.UNCLASSIFIED_HELD], f.UNCLASSIFIED_HELD in f.SOLUTION_FIXES,
+       f.fix_reason({**uh_row, "solutionKey": f.solution_key()})])
+# A grid read short at blocks just under SURE_BLOCKS (a heavy print's letters read as blocks) for a puzzle
+# held short is HEAVY_PRINT (10-25: read_framed classifies such a grid since, blocks_sure); once.
+def heavy_row(blocks, at="2026-10-25T06:00:00+00:00"):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "solutionKey": f.solution_key(),
+            "verdicts": [{"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+                          "solution": {"accepted": 20, "lights": 30, "blocks": blocks}}]}
+f.filed_state = lambda series, n: (False, True)
+hv = [f.fix_reason(heavy_row(0.96)), f.heavy_short(heavy_row(0.9)), f.heavy_short(heavy_row(0.98)),
+      f.heavy_short(heavy_row(0.96, "2026-10-26T00:00:00+00:00"))]
+f.filed_state = lambda series, n: (True, True)
+hv.append(f.heavy_short(heavy_row(0.96)))
+f.filed_state = real_fs
+check("a grid read short at 0.946-0.97 blocks for a puzzle held short is HEAVY_PRINT (rank 2, answers-only); "
+      "not under the floor, at SURE_BLOCKS, read since, or held whole",
+      [f.HEAVY_PRINT, False, False, False, False, 2, True],
+      hv + [f.RANKS[f.HEAVY_PRINT], f.HEAVY_PRINT in f.SOLUTION_FIXES])
+# The same read since REREAD_HEAVY, no cell classified at SOLUTION_BLOCKS-SURE_BLOCKS, is SURE_FRAMING (10-25
+# evening: read_framed classifies on the best sure framing and very heavy prints since); once. A grid whose
+# cells were classified (even none decoded) is not, nor one under SOLUTION_BLOCKS or held whole.
+f.filed_state = lambda series, n: (False, True)
+sf_after = "2026-10-25T14:00:00+00:00"
+sf_cls = heavy_row(0.93, sf_after)
+sf_cls["verdicts"][0]["solution"]["classified"] = 0
+sf = [f.fix_reason(heavy_row(0.93, sf_after)), f.fix_reason(heavy_row(0.96, sf_after)), f.unsure_short(sf_cls),
+      f.unsure_short(heavy_row(0.8, sf_after)), f.unsure_short(heavy_row(0.98, sf_after)),
+      f.unsure_short(heavy_row(0.93, "2026-10-26T00:00:00+00:00"))]
+f.filed_state = lambda series, n: (True, True)
+sf.append(f.unsure_short(heavy_row(0.93, sf_after)))
+f.filed_state = real_fs
+check("a grid read short unclassified under SURE_BLOCKS since REREAD_HEAVY for a puzzle held short is SURE_FRAMING "
+      "(rank 2, answers-only); not classified, under SOLUTION_BLOCKS, at SURE_BLOCKS, read since, or held whole",
+      [f.SURE_FRAMING, f.SURE_FRAMING, False, False, False, False, False, 2, True],
+      sf + [f.RANKS[f.SURE_FRAMING], f.SURE_FRAMING in f.SOLUTION_FIXES])
+# The same band read since REREAD_SURE_FRAMING, before REREAD_OTHER_GRID, is OTHER_GRID_SHORT (10-26: its crop
+# read for another puzzle's grid, printed_grid / swapped_heading); once. Not read since, refused, or classified.
+f.filed_state = lambda series, n: (False, True)
+og_after = "2026-10-25T22:00:00+00:00"
+og_cls = heavy_row(0.93, og_after)
+og_cls["verdicts"][0]["solution"]["classified"] = 0
+og_ref = heavy_row(0.93, og_after)
+og_ref["verdicts"][0]["solution"]["refused"] = "its blocks are not the puzzle's"
+og = [f.fix_reason(heavy_row(0.93, og_after)), f.other_grid_short(og_cls), f.other_grid_short(og_ref),
+      f.other_grid_short(heavy_row(0.98, og_after)), f.other_grid_short(heavy_row(0.93, "2026-10-26T04:00:00+00:00"))]
+f.filed_state = real_fs
+check("a grid read short unclassified under SURE_BLOCKS since REREAD_SURE_FRAMING is OTHER_GRID_SHORT (rank 2, "
+      "answers-only, a LOW prefix); not classified, refused, at SURE_BLOCKS or read since",
+      [f.OTHER_GRID_SHORT, False, False, False, False, 2, True, True],
+      og + [f.RANKS[f.OTHER_GRID_SHORT], f.OTHER_GRID_SHORT in f.SOLUTION_FIXES,
+            f.OTHER_GRID_SHORT.startswith("solution short")])
+# printed_grid: a crop whose blocks read whole as another symmetric grid (two blocks moved: times-18089's page
+# printed 18,094's grid under its heading) is that grid's mask; the puzzle's own grid, or no crop, is None.
+from PIL import Image as _OgImage, ImageDraw as _OgDraw
+og_a = ["".join("#" if r % 2 and c % 2 else "." for c in range(15)) for r in range(15)]
+og_b = [list(row) for row in og_a]
+og_b[1][1] = og_b[13][13] = "."
+og_b[0][4] = og_b[14][10] = "#"
+og_b = ["".join(row) for row in og_b]
+
+
+def og_png(grid, path, pitch=30, pad=20):
+    n = len(grid)
+    im = _OgImage.new("L", (n * pitch + 2 * pad, n * pitch + 2 * pad), 255)
+    dr = _OgDraw.Draw(im)
+    for r, row in enumerate(grid):
+        for c, ch in enumerate(row):
+            if ch == "#":
+                dr.rectangle([pad + c * pitch, pad + r * pitch, pad + (c + 1) * pitch, pad + (r + 1) * pitch], fill=0)
+    for i in range(n + 1):
+        dr.line([pad, pad + i * pitch, pad + n * pitch, pad + i * pitch], fill=0, width=2)
+        dr.line([pad + i * pitch, pad, pad + i * pitch, pad + n * pitch], fill=0, width=2)
+    im.resize((im.width * 3, im.height * 3)).save(path)
+
+
+og_dir = Path(tempfile.mkdtemp())
+og_png(og_b, og_dir / "b.png")
+og_png(og_a, og_dir / "a.png")
+check("printed_grid reads a crop of another symmetric grid as its blocks; the puzzle's own grid, or no crop, None",
+      [True, None, None],
+      [f.printed_grid(og_dir / "b.png", og_a) == f.blocks_of(og_b), f.printed_grid(og_dir / "a.png", og_a),
+       f.printed_grid(og_dir / "missing.png", og_a)])
+shutil.rmtree(og_dir)
+# A grid that gave answers for a puzzle held with a suspect clue (complete() refuses it) is SUSPECT_HELD, once:
+# decide() sent its answers-only reading to --out before REREAD_SUSPECT (10-25).
+def sh_row(at="2026-10-25T06:00:00+00:00", accepted=30):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "solutionKey": f.solution_key(),
+            "verdicts": [{"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+                          "answersOnly": True, "solution": {"accepted": accepted, "lights": 30, "blocks": 1.0}}]}
+real_shf = f.suspect_held_file
+f.filed_state = lambda series, n: (False, True)
+f.suspect_held_file = lambda series, n: True
+sh = [f.fix_reason(sh_row()), f.suspect_held(sh_row("2026-10-26T00:00:00+00:00")), f.suspect_held(sh_row(accepted=0))]
+f.suspect_held_file = lambda series, n: False
+sh.append(f.suspect_held(sh_row()))
+f.suspect_held_file = real_shf
+f.filed_state = real_fs
+check("a grid read for a puzzle held with a suspect clue is SUSPECT_HELD (rank 2, answers-only, a LOW prefix); "
+      "not read since, with no answer read, or held complete",
+      [f.SUSPECT_HELD, False, False, False, 2, True, True],
+      sh + [f.RANKS[f.SUSPECT_HELD], f.SUSPECT_HELD in f.SOLUTION_FIXES, f.SUSPECT_HELD.startswith("solution short")])
+# A full read whose answers went to --out over a puzzle held with every clue (its copy answering a light the held file
+# leaves blank), or whose write the gate refused over a mended held clue, is UNFILED_HELD, once (10-25).
+def uh_row(at="2026-10-25T06:00:00+00:00", accepted=30, **v):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "solutionKey": f.solution_key(),
+            "verdicts": [{"number": 99999992, "id": "times-99999992", "solutionFrom": "1984-05-02 leaf 3",
+                          "solution": {"accepted": accepted, "lights": 30, "blocks": 1.0}, **v}]}
+real_ug = f.unfiled_gain
+f.filed_state = lambda series, n: (False, True)
+f.unfiled_gain = lambda series, n, pid: True
+gate = "refusing to write times-99999992: SHAPE 14-across: clue 'one , owner' holds a space before a comma: x (punctuation.faults)"
+uh = [f.fix_reason(uh_row(unfiled=2)), f.unfiled_held(uh_row(refusedWrite=gate)),
+      f.unfiled_held(uh_row("2026-10-26T00:00:00+00:00", unfiled=2)), f.unfiled_held(uh_row(accepted=0, unfiled=2)),
+      f.unfiled_held(uh_row(unfiled=2, answersOnly=True)), f.unfiled_held(uh_row(refusedWrite="refusing: CROSS cell (6, 6)"))]
+f.filed_state = lambda series, n: (False, False)
+uh.append(f.unfiled_held(uh_row(unfiled=2)))
+f.filed_state = lambda series, n: (False, True)
+f.unfiled_gain = lambda series, n, pid: False
+uh.append(f.unfiled_held(uh_row(unfiled=2)))
+f.unfiled_gain = real_ug
+f.filed_state = real_fs
+check("a full read filed to --out over a puzzle held with every clue, or refused over a mended clue, is UNFILED_HELD "
+      "(rank 2, answers-only first, a LOW prefix); not read since, with no answer read, answers-only, another refusal, "
+      "held with a clue blank, or its copy adding nothing",
+      [f.UNFILED_HELD, True, False, False, False, False, False, False, 2, True, True],
+      uh + [f.RANKS[f.UNFILED_HELD], f.UNFILED_HELD in f.SOLUTION_FIXES, f.UNFILED_HELD.startswith("solution short")])# A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
+# REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
+def vu_row(at, gap=1, ao=False):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "verdicts": [
+        {"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+         "solution": {"accepted": 30 - gap, "lights": 30, "blocks": 1.0}, **({"answersOnly": True} if ao else {})}]}
+f.filed_state = lambda series, n: (False, True)
+vu = [f.short_again(vu_row("2026-10-24T12:00:00+00:00")), f.short_again(vu_row("2026-10-25T06:00:00+00:00")),
+      f.short_again(vu_row("2026-10-25T06:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00"))]
+real_sb = f.strip_blank
+f.strip_blank = lambda series, n, sol_dir: True
+vu += [f.short_again(vu_row("2026-10-25T15:00:00+00:00")), f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4))]
+f.strip_blank = lambda series, n, sol_dir: False
+vu.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00")))
+f.strip_blank = real_sb
+f.filed_state = real_fs
+check("a grid read 1-2 short: UNLISTED before REREAD_UNLISTED, VLM_UNLISTED since (not 3+ short), then nothing; "
+      "rank 2, answers-only",
+      [f.UNLISTED, f.VLM_UNLISTED, None, None, 2, True],
+      vu[:4] + [f.RANKS[f.VLM_UNLISTED], f.VLM_UNLISTED in f.SOLUTION_FIXES])
+check("read since REREAD_VLM_UNLISTED, before REREAD_VLM_FLOOR, 1-2 short with a strip of a light the held file leaves "
+      "blank: VLM_FLOOR_SHORT (rank 2, answers-only, a LOW prefix); not 3+ short, nor with no such strip",
+      [f.VLM_FLOOR_SHORT, None, None, 2, True, True],
+      vu[4:] + [f.RANKS[f.VLM_FLOOR_SHORT], f.VLM_FLOOR_SHORT in f.SOLUTION_FIXES,
+                f.VLM_FLOOR_SHORT.startswith("solution short")])
+# A held file 1-2 answers short, a blank light of it with no strip in its reading (strip_missing): read
+# since REREAD_VLM_UNLISTED, before REREAD_LATE_STRIPS, LATE_STRIPS (VLM_FLOOR_SHORT first where due).
+f.filed_state = lambda series, n: (False, True)
+real_sm, real_sb = f.strip_missing, f.strip_blank
+f.strip_blank = lambda series, n, sol_dir: False
+f.strip_missing = lambda series, n, sol_dir, most=None: most is None
+ls = [f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-25T19:50:00+00:00", gap=0)),
+      f.short_again(vu_row("2026-10-26T00:00:00+00:00"))]
+f.strip_blank = lambda series, n, sol_dir: True
+ls.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00")))
+f.strip_blank = lambda series, n, sol_dir: False
+f.strip_missing = lambda series, n, sol_dir, most=None: False
+ls.append(f.short_again(vu_row("2026-10-25T19:50:00+00:00")))
+# Held 3-5 blank (strip_missing only up to LATE_MAX): read since REREAD_UNLISTED, before REREAD_WIDE_STRIPS, WIDE_STRIPS;
+# 1-2 blank ones stay LATE_STRIPS; read before REREAD_UNLISTED (SHORT_WIDE) or since REREAD_WIDE_STRIPS, not so.
+f.strip_missing = lambda series, n, sol_dir, most=None: most == f.LATE_MAX
+ws = [f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-25T19:50:00+00:00", gap=4)),
+      f.short_again(vu_row("2026-10-24T12:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00", gap=4))]
+f.strip_missing = lambda series, n, sol_dir, most=None: True
+ws.append(f.short_again(vu_row("2026-10-25T15:00:00+00:00", gap=1)))
+f.strip_missing, f.strip_blank = real_sm, real_sb
+f.filed_state = real_fs
+check("a held file 3-5 short with a blank light no strip was cut for, read since REREAD_UNLISTED: WIDE_STRIPS until "
+      "REREAD_WIDE_STRIPS (rank 2, answers-only, a LOW prefix); SHORT_WIDE before REREAD_UNLISTED; LATE_STRIPS first "
+      "where that is due",
+      [f.WIDE_STRIPS, f.WIDE_STRIPS, f.SHORT_WIDE, None, f.LATE_STRIPS, 2, True, True, 5],
+      ws + [f.RANKS[f.WIDE_STRIPS], f.WIDE_STRIPS in f.SOLUTION_FIXES, f.WIDE_STRIPS.startswith("solution short"),
+            f.LATE_MAX])
+# A Times row whose solutionsSeen (or stored titles) moved is due its answers-only fix, not the blanket reason
+# only_evidence drops; another paper's keeps the blanket one (10-25: 251 SHORT_WIDE Times puzzles never planned).
+real_fr = f.fix_reason
+f.fix_reason = lambda row: f.SHORT_WIDE
+bf = [f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"),
+      f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09"}, "titles changed"),
+      f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"),
+      f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": [{"number": 8203}]},
+                        "verdicts": [{"number": 8203}]}, "inputs changed"),
+      f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": []},
+                        "verdicts": [{"number": 8203}]}, "titles changed")]
+# ... unless the lost title is its held puzzle's (held_titles): HELD_TITLE reads it under that number.
+real_ht = f.held_titles
+f.held_titles = lambda row, cache=None: [{"number": 8203, "leaf": 0, "box": None, "heldTitle": True}]
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1956UKEnglish/1956-08-09", "scan": {"puzzles": []},
+                            "verdicts": [{"number": 8203}]}, "inputs changed"))
+f.held_titles = real_ht
+f.fix_reason = lambda row: "refused unparsed before its fix"
+bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
+f.fix_reason = lambda row: None
+bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
+# A lost write stands over the blanket reason too (10-27: 817 Gale Times pages planned blanket, never read again).
+f.fix_reason = lambda row: f.LOST_WRITE
+bf.append(f.blanket_or_fix({"edition": "GaleTimes2007UKEnglish/2007-01-03"}, "scan stale, answers missing"))
+bf.append(f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"))
+# So does a page written unfiled for a cause a reader fix since reads (10-28: 181 Times rows planned blanket so).
+f.fix_reason = lambda row: f.LEAD_RETRY
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1946UKEnglish/1946-07-25"}, "inputs changed"))
+f.fix_reason = lambda row: "unfiled before its fix"
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1946UKEnglish/1946-07-25"}, "scan stale, answers missing"))
+# A Times refusal reread and the r14 full rereads stand too (10-28 r14: ~215 rows masked); another paper's refusal
+# keeps the blanket reason. A full reread's lost title holds it only when its scan holds no title at all.
+f.fix_reason = lambda row: "refused no-reading-parses before its fix"
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1955UKEnglish/1955-05-09"}, "inputs changed"))
+bf.append(f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"))
+bf.append(f.blanket_or_fix({"edition": "GaleTimes2002UKEnglish/2002-06-17", "scan": {"puzzles": [{"number": 22068}]},
+                            "verdicts": [{"number": 22068, "read_as": 22067}]}, "inputs changed"))
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1955UKEnglish/1955-05-09", "scan": {"puzzles": []},
+                            "verdicts": [{"number": 7813}]}, "inputs changed"))
+f.fix_reason = lambda row: f.RIGHT_FOREIGN_READ
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1990UKEnglish/1990-01-02"}, "inputs changed"))
+f.fix_reason = lambda row: f.SHORT_WIDE
+bf.append(f.blanket_or_fix({"edition": "GaleTimes2002UKEnglish/2002-06-17", "scan": {"puzzles": [{"number": 22068}]},
+                            "verdicts": [{"number": 22068, "read_as": 22067}]}, "inputs changed"))
+f.fix_reason = real_fr
+check("blanket_or_fix: a Times row's answers-only fix, lost write, unfiled page's fix or refusal stands over "
+      "inputs/titles changed; another paper's row, a row whose scan lost a verdict's title (not its held puzzle's; "
+      "for a full reread, its scan holding no title), another fix, or none keeps the blanket reason",
+      [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", f.SHORT_WIDE,
+       "refused unparsed before its fix", "inputs changed", f.LOST_WRITE, "inputs changed", f.LEAD_RETRY,
+       "unfiled before its fix", "refused no-reading-parses before its fix", "inputs changed",
+       "refused no-reading-parses before its fix", "inputs changed", f.RIGHT_FOREIGN_READ, "inputs changed"],
+      bf)
+_er = {"filesHash": "old", "inputs": "old", "scan": {"puzzles": []}, "verdicts": []}
+check("emptied: an edition refetched after a read that found no puzzle is as good as never read (11-07: Gale "
+      "Telegraph 21,053 saved a promo article); one whose files stand, or that held a puzzle or verdict, is not",
+      [True, False, False, False],
+      [f.emptied(_er, "new"), f.emptied(_er, "old"),
+       f.emptied({**_er, "scan": {"puzzles": [{"number": 1}]}}, "new"),
+       f.emptied({**_er, "verdicts": [{"number": 1}]}, "new")])
+import edition_queue as _eq_bp
+# blanket_or_fix lets a reason stand past a blanket one when it is in SOLUTION_FIXES (answers-only: VOUCHED_FIT,
+# CLUE_REPEATED, LATE_LINKED), in BLANKET_PASSES, or a refusal reread (refusal_passes: NUMBER_DATE_REFUSED).
+check("every reason edition_queue.UNFILED_FIRST orders first passes blanket_or_fix (BLANKET_PASSES)",
+      set(), {w for w in _eq_bp.UNFILED_FIRST
+              if w not in f.BLANKET_PASSES and w not in f.SOLUTION_FIXES and not f.refusal_passes(w)})
+check("a held file 1-2 short with a blank light no strip was cut for, read since REREAD_VLM_UNLISTED (its reading "
+      "3+ short or whole): LATE_STRIPS (rank 2, answers-only, a LOW prefix); not read since REREAD_LATE_STRIPS, "
+      "VLM_FLOOR_SHORT where that is due, nothing with every blank light's strip cut",
+      [f.LATE_STRIPS, f.LATE_STRIPS, None, f.VLM_FLOOR_SHORT, None, 2, True, True],
+      ls + [f.RANKS[f.LATE_STRIPS], f.LATE_STRIPS in f.SOLUTION_FIXES, f.LATE_STRIPS.startswith("solution short")])
+# late_strips cuts and asks only for 1 to LATE_MAX blank lights, one at least never stripped.
+ls_es = [{"number": n, "direction": "across", "solution": None} for n in (1, 3, 5, 7, 9, 11)]
+ls_cut = []
+real_cs = f.trove_solution_ocr.crop_strips
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: ls_cut.append(keys) or {}
+ls_out = [f.late_strips(ls_es, {}, {"a": 1}, {}, [], {}, Path(__file__)),
+          f.late_strips(ls_es, {"1-across": "ABC"}, {"a": 1}, {f"{n}-across": {} for n in (3, 5, 7, 9, 11)}, [], {},
+                        Path(__file__))]
+f.trove_solution_ocr.crop_strips = real_cs
+check("late_strips: 6 blank lights (over LATE_MAX), or every blank one's strip cut already, cuts nothing and keeps "
+      "the reading", [({}, {"a": 1}), ({"1-across": "ABC"}, {"a": 1}), []], ls_out + [ls_cut])
+# late_strips `apart` (FINAL_STRIPS): the clue-solved lights count answered (6 lights, 5 blank, one clue-solved: asked),
+# their letters are left out of the ask, and a VLM word that differs from one of them where they cross is dropped.
+fs_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 2, "direction": "down", "solution": None, "clue": {"text": "Mark", "enumeration": "2"}}] + [
+    {"number": n, "direction": "across", "solution": None, "clue": {"text": "x", "enumeration": "3"}} for n in (5, 7, 9, 11)]
+fs_real = (f.trove_solution_ocr.crop_strips, f.trove_solution_ocr.lights, f.vlm_lights, f.checked_answers, f.vlm_named,
+           f.vlm.wanted)
+fs_known = []
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {"1-across": {"png": "", "p": []}}
+f.trove_solution_ocr.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2)], (2, "down"): [(0, 1), (1, 1)]}
+f.vlm_lights = lambda answers, strips, grid, enums, asked=None, clues=None, paired=None, groups=None: (
+    fs_known.append(dict(answers)) or ({}, {"1-across": fs_word[0]}))
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.vlm_named = lambda *a, **k: set()
+f.vlm.wanted = lambda: True
+fs_out = []
+for fs_word in (["CAT"], ["CBT"]):
+    fs_out.append(f.late_strips(fs_es, {"2-down": "AX", "5-across": "AAA", "7-across": "BBB", "9-across": "CCC",
+                                        "11-across": "DDD"}, {"clueSolved": {"2-down": "AX"}}, {}, [], {},
+                                Path(__file__), apart={"2-down"}))
+    fs_out.append(f.late_strips(fs_es, {"2-down": "AX", "5-across": "AAA", "7-across": "BBB", "9-across": "CCC",
+                                        "11-across": "DDD"}, {}, {}, [], {}, Path(__file__)))
+(f.trove_solution_ocr.crop_strips, f.trove_solution_ocr.lights, f.vlm_lights, f.checked_answers, f.vlm_named,
+ f.vlm.wanted) = fs_real
+check("late_strips apart: a clue-solved light's letters are left out of the ask and a word clashing with one is "
+      "dropped (CAT agrees with 2-down AX at A, CBT does not); without apart both words stand",
+      ["1-across" in fs_out[0][0], "1-across" in fs_out[1][0], "1-across" in fs_out[2][0], "lateStrips" in fs_out[2][1],
+       "1-across" in fs_out[3][0], "2-down" in fs_known[0], "2-down" in fs_known[1]],
+      [True, True, False, True, True, False, True])
+check("FINAL_STRIPS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, apart from the "
+      "other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.FINAL_STRIPS], f.FINAL_STRIPS in f.SOLUTION_FIXES, f.FINAL_STRIPS.startswith("solution short"),
+       f.FINAL_STRIPS in __import__("edition_queue").LOW_ASK, f.FINAL_STRIPS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.FINAL_STRIPS), f.FINAL_STRIPS in __import__("edition_queue").UNFILED_FIRST,
+       f.FINAL_STRIPS not in (f.ONE_BLANK_FIT, f.LATE_UNASKED, f.CLUE_SOLVED)))
+check("final_unasked: a row read since REREAD_FINAL_STRIPS, no Times paper's, one with no clue-solved fill, a late strip "
+      "cut, or a refused grid is not due", [False] * 5,
+      [f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00", "verdicts": []}),
+       f.final_unasked({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"accepted": 2, "lights": 30}}]}),
+       f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"clueSolved": {"1-across": "A"}, "lateStrips": ["2-down"]}}]}),
+       f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"refused": "x", "clueSolved": {"1-across": "A"}}}]})])
+check("BLIND_STRIPS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first, apart from "
+      "the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.BLIND_STRIPS], f.BLIND_STRIPS in f.SOLUTION_FIXES, f.BLIND_STRIPS.startswith("solution short"),
+       f.BLIND_STRIPS in __import__("edition_queue").LOW_ASK, f.BLIND_STRIPS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.BLIND_STRIPS),
+       __import__("edition_queue").UNFILED_FIRST.index(f.BLIND_STRIPS) > __import__("edition_queue").UNFILED_FIRST.index(f.FINAL_STRIPS),
+       f.BLIND_STRIPS not in (f.WIDE_AGREED, f.FINAL_STRIPS, f.LATE_UNASKED)))
+check("blind_unasked: a row read since REREAD_BLIND_STRIPS, a non-Times paper's, one with no answers-only verdict or a "
+      "refused grid is not due", [False] * 4,
+      [f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00", "verdicts": []}),
+       f.blind_unasked({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]}),
+       f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"refused": "x"}}]})])
+# PRINTED_CELLS (PRINT_CLASSIFIED): a TIMES_1930 solution grid's cells are classified; the rest of read_solution's
+# CELLS_CLASSIFIED rules stand.
+_pc_ed = "GaleTimes1941UKEnglish/1941-01-10"
+_pc_sol = "per_times_the-times_1930-05-14_45512 leaf 6"
+_pc_dir = Path("/x/per_times_the-times_1930-05-14_45512/per_times_the-times_1930-05-14_45512")
+_pc_row = {"edition": _pc_ed, "readAt": "2000-01-01T00:00:00+00:00",
+           "verdicts": [{"id": "times-1", "solutionFrom": _pc_sol, "number": 1, "leaf": 0,
+                         "solution": {"accepted": 2, "lights": 30}}]}
+f.filed_state = lambda series, n: (False, True)
+_pc_due = [f.printed_short(_pc_row),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "answersOnly": True}]})]
+_pc_not = [f.printed_short({**_pc_row, "readAt": "2099-01-01T00:00:00+00:00"}),
+           f.printed_short({**_pc_row, "edition": "GaleTelegraph1993UKEnglish/1993-04-17"}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solutionFrom": "GaleTimes1941 leaf 3"}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solution": {"accepted": 2, "lights": 30,
+                                                                                            "classified": 0}}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solution": {"accepted": 30, "lights": 30}}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solution": {"refused": "x"}}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "heldTitle": True}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "wrongGrid": "x"}]})]
+f.filed_state = lambda series, n: (False, False)
+_pc_not.append(f.printed_short(_pc_row))
+f.filed_state = real_fs
+check("printed_short: a row read before REREAD_PRINTED_CELLS whose solution grid is a TIMES_1930 page read short with no "
+      "cell classified is due (answers-only or full read); a later read, another grid's paper, a classified, whole or "
+      "refused reading, a held title, a wrong grid or a held file short of clues is not",
+      ([True, True], [False] * 9), (_pc_due, _pc_not))
+check("PRINT_CLASSIFIED is CELLS_CLASSIFIED, the TIMES_1930 print and Gale's Telegraph, no other paper",
+      (True, ("times", "gale", "times1930", "galetelegraph")),
+      (set(f.CELLS_CLASSIFIED) < set(f.PRINT_CLASSIFIED), f.PRINT_CLASSIFIED))
+# TELEGRAPH_CELLS (PRINT_CLASSIFIED's galetelegraph): a Telegraph solution grid's cells are classified.
+_tc_row = {"edition": "GaleTelegraph1993UKEnglish/1993-04-17", "readAt": "2000-01-01T00:00:00+00:00",
+           "verdicts": [{"id": "tel-1", "solutionFrom": "GaleTelegraph1993 leaf 3", "number": 1, "leaf": 0,
+                         "solution": {"accepted": 2, "lights": 30}}]}
+_tc_sol = lambda **kw: {**_tc_row, "verdicts": [{**_tc_row["verdicts"][0], **kw}]}
+check("telegraph_cells_due: a Telegraph row read before REREAD_TELEGRAPH_CELLS whose solution read short with no cell "
+      "classified is due; a later read, a Times row, a classified, whole or refused reading, a held title or wrong grid is not",
+      ([True], [False] * 8),
+      ([f.telegraph_cells_due(_tc_row)],
+       [f.telegraph_cells_due({**_tc_row, "readAt": "2099-01-01T00:00:00+00:00"}),
+        f.telegraph_cells_due({**_tc_row, "edition": "GaleTimes1993UKEnglish/1993-04-17"}),
+        f.telegraph_cells_due(_tc_sol(solution={"accepted": 2, "lights": 30, "classified": 4})),
+        f.telegraph_cells_due(_tc_sol(solution={"accepted": 30, "lights": 30})),
+        f.telegraph_cells_due(_tc_sol(solution={"refused": "x"})),
+        f.telegraph_cells_due(_tc_sol(heldTitle=True)), f.telegraph_cells_due(_tc_sol(wrongGrid="x")),
+        f.telegraph_cells_due(_tc_sol(solutionFrom=None))]))
+check("printed_stale: an unclassified short Telegraph reading is read again until marked telegraph (printed alone does not)",
+      [True, True, False, False],
+      [f.printed_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/GaleTelegraph1993UKEnglish/1993-04-17")),
+       f.printed_stale({"printed": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/GaleTelegraph1993UKEnglish/1993-04-17")),
+       f.printed_stale({"printed": True, "telegraph": True, "stats": {"accepted": 1, "lights": 30}},
+                       Path("/x/GaleTelegraph1993UKEnglish/1993-04-17")),
+       f.printed_stale({"printed": True, "stats": {"accepted": 30, "lights": 30}}, Path("/x/GaleTelegraph1993UKEnglish/1993-04-17"))])
+_tv = f.linked_solutions(f.GALE_TELEGRAPH, {"puzzles": [{"number": 22696, "leaf": 0}],
+                                            "solutions": [{"number": 22996, "leaf": 0}, {"number": 22695, "leaf": 0},
+                                                          {"number": 22696, "leaf": 1}, {"number": 22101, "leaf": 1},
+                                                          {"number": "no.x", "leaf": 2}]}, {})
+check("linked_solutions vets a Gale Telegraph heading: a number within a dozen issues of a title stands, a far misread "
+      "mends onto that window or drops (22996 mends to the 22695 another heading holds: dropped), a non-number stands",
+      [22695, 22696, "no.x"], [s["number"] for s in _tv])
+check("TELEGRAPH_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, due from a "
+      "blanket reason, the solution key pinned",
+      (2, True, True, True, True, True, f.TELEGRAPH_CELLS, "432a5818529a9b11"),
+      (f.RANKS[f.TELEGRAPH_CELLS], f.TELEGRAPH_CELLS in f.SOLUTION_FIXES,
+       f.TELEGRAPH_CELLS in __import__("edition_queue").LOW_ASK, f.TELEGRAPH_CELLS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.TELEGRAPH_CELLS),
+       f.TELEGRAPH_CELLS in __import__("edition_queue").UNFILED_FIRST,
+       f.blanket_or_fix(_tc_row, "inputs changed"), f._SOLUTION_PINS["50b55099851b3f47"]))
+check("printed_stale: an unmarked short unclassified TIMES_1930 reading is read again; marked, classified, whole, "
+      "refused or another paper's is not",
+      [True, False, False, False, False, False],
+      [f.printed_stale({"stats": {"accepted": 1, "lights": 30}}, _pc_dir),
+       f.printed_stale({"printed": True, "stats": {"accepted": 1, "lights": 30}}, _pc_dir),
+       f.printed_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, _pc_dir),
+       f.printed_stale({"stats": {"accepted": 30, "lights": 30}}, _pc_dir),
+       f.printed_stale({"stats": {"refused": "x"}}, _pc_dir),
+       f.printed_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"))])
+check("PRINTED_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first, apart from "
+      "the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.PRINTED_CELLS], f.PRINTED_CELLS in f.SOLUTION_FIXES, f.PRINTED_CELLS.startswith("solution short"),
+       f.PRINTED_CELLS in __import__("edition_queue").LOW_ASK, f.PRINTED_CELLS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.PRINTED_CELLS),
+       __import__("edition_queue").UNFILED_FIRST.index(f.PRINTED_CELLS) > __import__("edition_queue").UNFILED_FIRST.index(f.BLIND_STRIPS),
+       f.PRINTED_CELLS not in (f.BLIND_STRIPS, f.FINAL_STRIPS, f.LETTERED_BLOCKS)))
+check("PREPPED_STRIPS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, apart from "
+      "the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.PREPPED_STRIPS], f.PREPPED_STRIPS in f.SOLUTION_FIXES, f.PREPPED_STRIPS.startswith("solution short"),
+       f.PREPPED_STRIPS in __import__("edition_queue").LOW_ASK, f.PREPPED_STRIPS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.PREPPED_STRIPS),
+       f.PREPPED_STRIPS in __import__("edition_queue").UNFILED_FIRST,
+       f.PREPPED_STRIPS not in (f.BLIND_STRIPS, f.FINAL_STRIPS, f.PRINTED_CELLS)))
+_pp_ed = "GaleTimes1941UKEnglish/1941-01-10"
+_pp_v = {"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True, "solution": {"accepted": 2, "lights": 30}}
+check("prepped_unasked: a row read since REREAD_PREPPED_STRIPS, another paper's, one with no answers-only verdict, a "
+      "refused grid, a prepped ask already made or a held title is not due", [False] * 7,
+      [f.prepped_unasked({"edition": _pp_ed, "readAt": "2099-01-01T00:00:00+00:00", "verdicts": [_pp_v]}),
+       f.prepped_unasked({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": [_pp_v]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{**_pp_v, "answersOnly": False}]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{**_pp_v, "solution": {"refused": "x"}}]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{**_pp_v, "solution": {"preppedStrips": ["1-across"]}}]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "scan": {"puzzles": [{"heldTitle": True}]}, "verdicts": [_pp_v]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []})])
+# prepped_strip doubles the strip, keeps it gray and stretches a faint one over the range.
+import base64 as _pp_b64
+import io as _pp_io
+from PIL import Image as _PpImage
+_pp_img = _PpImage.new("L", (30, 10), 120)
+_pp_img.paste(140, (10, 2, 20, 8))
+_pp_buf = _pp_io.BytesIO()
+_pp_img.save(_pp_buf, format="PNG")
+_pp_out = _PpImage.open(_pp_io.BytesIO(_pp_b64.b64decode(f.prepped_strip(_pp_b64.b64encode(_pp_buf.getvalue()).decode()))))
+_pp_lo, _pp_hi = _pp_out.getextrema()
+check("prepped_strip: twice the size, gray, a faint strip's range widened", (True, "L", True),
+      (_pp_out.size == (60, 20), _pp_out.mode, _pp_hi - _pp_lo > 140 - 120))
+# late_strips `prep`: only the lights whose plain ask was answered are asked, as prepared strips, recorded as
+# preppedStrips; a plain pass fills `replied`.
+pp_es = [{"number": n, "direction": "across", "solution": None, "clue": {"text": "x", "enumeration": "3"}} for n in (1, 3)]
+pp_real = (f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted,
+           f.trove_solution_ocr.lights)
+pp_cut = []
+pp_sizes = []
+pp_png = _pp_b64.b64encode(_pp_buf.getvalue()).decode()
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: pp_cut.append(list(keys)) or {
+    f"{k[0]}-{k[1]}": {"png": pp_png, "p": []} for k in keys}
+
+
+def pp_lights(answers, strips, grid, enums, asked=None, clues=None, paired=None, groups=None):
+    pp_sizes.extend(_PpImage.open(_pp_io.BytesIO(_pp_b64.b64decode(s["png"]))).size for s in strips.values())
+    if asked is not None:
+        asked.update({k: "?" for k in strips})
+    return {}, {}
+
+
+f.vlm_lights = pp_lights
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.vlm_named = lambda *a, **k: set()
+f.vlm.wanted = lambda: True
+# The test's grid is empty ([]): late_strips maps the replies' lights onto it, so it gets no lights.
+f.trove_solution_ocr.lights = lambda grid: {}
+pp_replied = set()
+pp_plain = f.late_strips(pp_es, {}, {}, {}, [], {}, Path(__file__), replied=pp_replied)
+pp_prep = f.late_strips(pp_es, {}, {}, {}, [], {}, Path(__file__), prep={"3-across"})
+(f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted,
+ f.trove_solution_ocr.lights) = pp_real
+check("late_strips prep: a plain pass records lateStrips and the lights answered; a prepped one asks only the lights "
+      "named, their strips doubled, and records preppedStrips", ([[ (1, "across"), (3, "across")], [(3, "across")]],
+                                                                  {"1-across", "3-across"}, ["lateStrips"], ["preppedStrips"],
+                                                                  [(30, 10), (30, 10), (60, 20)]),
+      (pp_cut, pp_replied, [k for k in pp_plain[1]], [k for k in pp_prep[1]], pp_sizes))
+# cell_probs and crop_strips frame one crop once (_crop_framed: by its path, size, time and grid); a crop
+# written again, or another grid, is framed again.
+import tempfile as _cf_tmp
+from PIL import Image as _CfImage
+_cf_png = Path(_cf_tmp.mkdtemp()) / "crop.png"
+_CfImage.new("L", (40, 40), 255).save(_cf_png)
+_cf_calls = []
+_cf_real = f.trove_solution_ocr.framings
+f.trove_solution_ocr.framings = lambda gray, grid: _cf_calls.append(tuple(grid)) or []
+_cf_out = [f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), f.trove_solution_ocr.crop_strips(_cf_png, ["..", ".."], [(1, "across")]),
+           f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_calls),
+           f.trove_solution_ocr.cell_probs(_cf_png, ["...", "...", "..."]), len(_cf_calls)]
+_CfImage.new("L", (41, 40), 255).save(_cf_png)
+_cf_out += [f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_calls)]
+f.trove_solution_ocr.framings = _cf_real
+check("_crop_framed: one crop and grid framed once for cell_probs and crop_strips; another grid or the crop "
+      "written again framed anew", [None, {}, None, 1, None, 2, None, 3], _cf_out)
+# rendered_cell renders a cell's pixels once a rendering (a view and a copy of them alike); cell_probs takes
+# the probabilities read_framed classified on the crop as it is (_CELL_PROBS_SEEN), framing nothing.
+_rc_np = f.trove_solution_ocr.np
+_rc_calls, _rc_kept = [], {}
+_rc_a = _rc_np.arange(16, dtype=_rc_np.uint8).reshape(4, 4)
+_rc_out = [f.trove_solution_ocr.rendered_cell(_rc_kept, vi, lambda a: _rc_calls.append(1) or a + 1, x).tolist()
+           for vi, x in ((0, _rc_a[:2]), (0, _rc_a[:2].copy()), (0, _rc_a[2:]), (1, _rc_a[:2]))]
+f.trove_solution_ocr._CELL_PROBS_SEEN["last"] = ((f.trove_solution_ocr._crop_key(_cf_png, ["..", ".."]), {(0, 0): "p"}),)
+f.trove_solution_ocr.framings = lambda gray, grid: _cf_calls.append(tuple(grid)) or []
+_rc_out += [len(_rc_calls), f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_calls)]
+f.trove_solution_ocr.framings = _cf_real
+f.trove_solution_ocr._CELL_PROBS_SEEN.clear()
+check("rendered_cell: each cell's pixels rendered once a rendering; cell_probs: read_framed's probabilities of the "
+      "crop taken, nothing framed", [[[1, 2, 3, 4], [5, 6, 7, 8]], [[1, 2, 3, 4], [5, 6, 7, 8]],
+                                     [[9, 10, 11, 12], [13, 14, 15, 16]], [[1, 2, 3, 4], [5, 6, 7, 8]],
+                                     3, {(0, 0): "p"}, 3], _rc_out)
+# _crop_framed's framing and cell_probs' probabilities are kept on disk too (grid_ocr_cache.keep_framing,
+# keep_probs) by the crop's bytes, grid and framed_version: a unit whose reading solved() kept (memory empty)
+# frames and classifies nothing, and gets the same arrays and rule types back (Python and numpy scalars, a
+# straightened patch's gray kept, the crop's own read again). An unreadable file is none kept. 10-26: such
+# units paid 22-48 s of "checked".
+import numpy as _fd_np
+_fd_tso = f.trove_solution_ocr
+_fd_png = Path(_cf_tmp.mkdtemp()) / "crop.png"
+_CfImage.new("L", (30, 30), 255).save(_fd_png)
+_fd_patch = _fd_np.arange(16, dtype=_fd_np.uint8).reshape(4, 4)
+_fd_calls, _fd_at = [], [0]
+_fd_real = (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph)
+
+
+def _fd_framings(gray, grid):
+    _fd_calls.append("framed")
+    return [(gray, [0, 10, 20], [0.5, 10.5, _fd_np.float64(20.5)]),
+            (_fd_patch, _fd_np.array([0, 2, 4]), [0, 2, _fd_np.int64(4)])]
+
+
+def _fd_forget():
+    _fd_tso._CROP_FRAMED.clear()
+    _fd_tso._CELL_PROBS_SEEN.clear()
+
+
+_fd_tso.framings = _fd_framings
+_fd_tso.sure_framing = lambda framed, grid, fits: _fd_at[0]
+_fd_tso.block_agreement = lambda g, grid, lat: 1.0
+_fd_tso.glyph = lambda g, ys, xs, r, c: (r, c)
+_fd_tso.classified = lambda glyphs: _fd_calls.append("classified") or {
+    k: _fd_np.array([0.1 * k[0], 1 / 3 + k[1]], _fd_np.float32) for k in glyphs}
+try:
+    _fd_forget()
+    _fd_first = _fd_tso.cell_probs(_fd_png, ["..", ".."])
+    _fd_forget()
+    _fd_own = _fd_tso._crop_framed(_fd_png, ["..", ".."])
+    _fd_again = _fd_tso.cell_probs(_fd_png, ["..", ".."])
+    _fd_at[0] = 1
+    _fd_forget()
+    _fd_tso._crop_framed(_fd_png, ["...", "...", "..."])
+    _fd_forget()
+    _fd_kept = _fd_tso._crop_framed(_fd_png, ["...", "...", "..."])
+    _fd_paths = _fd_tso.grid_ocr_cache.framed_paths(_fd_png, ["..", ".."])
+    _fd_paths[1].write_bytes(b"torn")
+    _fd_forget()
+    _fd_torn = _fd_tso.cell_probs(_fd_png, ["..", ".."])
+finally:
+    (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph) = _fd_real
+    _fd_forget()
+
+
+def _fd_same(a, b):
+    return list(a) == list(b) and all(a[k].dtype == b[k].dtype and a[k].tobytes() == b[k].tobytes() for k in a)
+
+
+check("cell_probs and _crop_framed kept on disk: framed and classified once a crop and grid, the same probabilities, "
+      "rules and grays back; a torn file classified again",
+      [["framed", "classified", "framed", "classified"], True, True,
+       [int, int, int], [float, float, _fd_np.float64], True, True, [0, 2, 4], [int, int, _fd_np.int64], True],
+      [_fd_calls, _fd_same(_fd_first, _fd_again), _fd_same(_fd_first, _fd_torn),
+       [type(x) for x in _fd_own[1]], [type(x) for x in _fd_own[2]],
+       _fd_own[0].tobytes() == _fd_np.asarray(_CfImage.open(_fd_png).convert("L")).tobytes(),
+       _fd_kept[0].tobytes() == _fd_patch.tobytes() and _fd_kept[0].shape == (4, 4),
+       _fd_kept[1].tolist(), [type(x) for x in _fd_kept[2]], isinstance(_fd_kept[1], _fd_np.ndarray)])
+# crop_strips' own classifier batch is kept too (_strip_probs: memory, then grid_ocr_cache.strips_paths on
+# disk), as the batch it was: the classifier's rows move with their batch, so cell_probs' rows are not
+# taken. The same lights' strips asked again (late_strips, candidate_reads, clash_reads, a later reread)
+# classify nothing and come back alike; other lights are a batch of their own; a torn file is read again.
+_sp_png = Path(_cf_tmp.mkdtemp()) / "crop.png"
+_CfImage.new("L", (40, 40), 255).save(_sp_png)
+_sp_grid = ["...", "...", "..."]
+_sp_batches = []
+_sp_real = (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph,
+            _fd_tso.light_strip)
+
+
+def _sp_forget():
+    _fd_forget()
+    _fd_tso._STRIP_PROBS.clear()
+
+
+_fd_tso.framings = lambda gray, grid: [(gray, [0, 10, 20, 30], [0, 10, 20, 30])]
+_fd_tso.sure_framing = lambda framed, grid, fits: 0
+_fd_tso.block_agreement = lambda g, grid, lat: 1.0
+_fd_tso.glyph = lambda g, ys, xs, r, c: (r, c)
+_fd_tso.classified = lambda glyphs: _sp_batches.append(list(glyphs)) or {
+    k: _fd_np.array([0.1 * k[0] + 1e-7 * len(glyphs), 1 / 3 + k[1]], _fd_np.float32) for k in glyphs}
+_fd_tso.light_strip = lambda g, ys, xs, cells: "png"
+# The disk cache is keyed by the crop's bytes: this blank 40x40 crop is _cf_png's, whose "no framing" for a
+# 3x3 grid the _crop_framed check above kept. A cache of its own, so no earlier check's file is read.
+_sp_cache, _goc.FRAMED_CACHE = _goc.FRAMED_CACHE, Path(_cf_tmp.mkdtemp()) / "framed"
+try:
+    _sp_forget()
+    _sp_keys = list(_fd_tso.lights(_sp_grid))
+    _sp_first = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+    _sp_mem = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+    _sp_forget()
+    _sp_disk = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+    _sp_other = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[2:3])
+    _sp_cells = list(dict.fromkeys(rc for k in _sp_keys[:2] for rc in _fd_tso.lights(_sp_grid)[k]))
+    _goc.strips_paths(_goc.framed_paths(_sp_png, _sp_grid), _sp_cells)[1].write_bytes(b"torn")
+    _sp_forget()
+    _sp_torn = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+finally:
+    (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph,
+     _fd_tso.light_strip) = _sp_real
+    _goc.FRAMED_CACHE = _sp_cache
+    _sp_forget()
+_sp_lts = _fd_tso.lights(_sp_grid)
+check("crop_strips: a strip batch classified once, kept in memory and on disk alike; other lights their own "
+      "batch; a torn file classified again",
+      [[_sp_cells, [rc for rc in _sp_lts[_sp_keys[2]]], _sp_cells], True, True, True, True],
+      [_sp_batches, _sp_first == _sp_mem, _sp_first == _sp_disk, _sp_first == _sp_torn,
+       sorted(_sp_first) == sorted(f"{k[0]}-{k[1]}" for k in _sp_keys[:2])])
+# strip_near's image work is kept between plans (NEAR_CACHE): a strip's VLM ask bytes (_strip_png) are its PNG
+# itself where png() makes it again byte for byte (kept by sha1, so no plan encodes it again), else png() of it;
+# a late strip cut off a crop (_cut_strips) is cut once for the same crop, grid and lights.
+_nc_real = (f.NEAR_CACHE, f.trove_solution_ocr.crop_strips)
+f.NEAR_CACHE = Path(_cf_tmp.mkdtemp()) / "near"
+f._SAME_PNGS.clear()
+f._OTHER_PNGS.clear()
+_nc_img = _CfImage.new("L", (30, 12), 200)
+_nc_own = f.vlm.png(_nc_img)
+_nc_buf = __import__("io").BytesIO()
+_nc_info = __import__("PIL.PngImagePlugin").PngImagePlugin.PngInfo()
+_nc_info.add_text("by", "another encoder")  # png() writes no text chunk: other bytes, the same pixels
+_nc_img.save(_nc_buf, "PNG", pnginfo=_nc_info)
+_nc_b64 = __import__("base64").b64encode
+_nc_cuts = []
+try:
+    _nc_got = [f._strip_png(_nc_b64(_nc_own).decode()) == _nc_own,
+               f._strip_png(_nc_b64(_nc_buf.getvalue()).decode()) == _nc_own != _nc_buf.getvalue()]
+    _nc_kept = (f.NEAR_CACHE / f"same.{f._slug(f._near_encoder())}.txt").read_text().split()
+    f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: _nc_cuts.append(keys) or {"1-across": {"png": "x", "p": [[0.5]]}}
+    _nc_strips = [f._cut_strips(_sp_png, _sp_grid, [(1, "across")]), f._cut_strips(_sp_png, _sp_grid, [(1, "across")]),
+                  f._cut_strips(_sp_png, _sp_grid, [(4, "across")])]
+finally:
+    f.NEAR_CACHE, f.trove_solution_ocr.crop_strips = _nc_real
+    f._SAME_PNGS.clear()
+check("strip_near's image work kept: a strip png() remakes alike is its own ask bytes, kept by sha1; another "
+      "encoding is png()'s; the same late strips cut once off a crop, other lights cut again",
+      [True, True, [__import__("hashlib").sha1(_nc_own).hexdigest()], [[(1, "across")], [(4, "across")]], True],
+      _nc_got + [_nc_kept, _nc_cuts, _nc_strips[0] == _nc_strips[1] == {"1-across": {"png": "x", "p": [[0.5]]}}])
+# A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
+# until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
+f.filed_state = lambda series, n: (False, True)
+real_sm, real_sb = f.strip_missing, f.strip_blank
+f.strip_missing = lambda series, n, sol_dir, most=None: False
+f.strip_blank = lambda series, n, sol_dir: True
+vr = [f.short_again(vu_row("2026-10-25T21:00:00+00:00")), f.short_again(vu_row("2026-10-25T21:00:00+00:00", gap=4)),
+      f.short_again(vu_row("2026-10-26T00:00:00+00:00")), f.short_again(vu_row("2026-10-25T15:00:00+00:00"))]
+f.strip_blank = lambda series, n, sol_dir: False
+vr.append(f.short_again(vu_row("2026-10-25T21:00:00+00:00")))
+f.strip_missing, f.strip_blank = real_sm, real_sb
+f.filed_state = real_fs
+check("a held file 1-2 short with a blank light's strip kept, read since REREAD_LATE_STRIPS: VLM_REJUDGED until "
+      "REREAD_VLM_REJUDGED (rank 2, answers-only, a LOW prefix); VLM_FLOOR_SHORT "
+      "where that is due; not 3+ short, nor with no such strip",
+      [f.VLM_REJUDGED, None, None, f.VLM_FLOOR_SHORT, None, 2, True, True],
+      vr + [f.RANKS[f.VLM_REJUDGED], f.VLM_REJUDGED in f.SOLUTION_FIXES, f.VLM_REJUDGED.startswith("solution short")])
+# rejudged: a VLM word vlm_lights threw away on the reading's misread crossing stands on the checked one.
+real_ca, real_lts = f.checked_answers, f.trove_solution_ocr.lights
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+f.trove_solution_ocr.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2)],
+                                            (1, "down"): [(0, 0), (1, 0), (2, 0)]}
+rj_es = [{"number": 1, "direction": "across", "solution": "DOE"}, {"number": 1, "direction": "down", "solution": None}]
+rj_strips = {"1-down": {"p": [[0.9 if c == ch else 0.1 / 25 for c in f.trove_solution_ocr.AZ] for ch in "DAD"]}}
+rj = [f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "DAD"}, rj_strips, None, {(1, "down"): "3"}, None),
+      f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "BAD"}, rj_strips, None, {(1, "down"): "3"}, None),
+      f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "BUG"}, rj_strips, None, {(1, "down"): "3"}, None)]
+f.checked_answers, f.trove_solution_ocr.lights = real_ca, real_lts
+# A reply against a crossing one swap off the one listed word the classifier reads in every open cell is
+# mended to it (swap_word, SWAP_WORD: BAD on D?? read DAD); one whose mend the classifier reads otherwise is not.
+check("rejudged: the VLM's word stands on the checked crossings (DAD on D??), its light named; one against them "
+      "the classifier mends (BAD) stands mended; one it does not (BUG: DUG's U read A) keeps the reading",
+      [({"1-across": "DOE", "1-down": "DAD"}, {"accepted": 2, "vlmLights": ["1-down"], "rejudged": ["1-down"]}),
+       ({"1-across": "DOE", "1-down": "DAD"}, {"accepted": 2, "vlmLights": ["1-down"], "rejudged": ["1-down"]}),
+       ({"1-across": "DOE"}, {"accepted": 1})], rj)
+# A held file 6+ short on a classified grid, read before REREAD_CANDIDATES (due nothing else): CANDIDATE_READS;
+# read since, or not so short, nothing.
+f.filed_state = lambda series, n: (False, True)
+real_mb = f.many_blank
+f.many_blank = lambda series, n, sol_dir: True
+cr_due = [f.short_again(vu_row("2026-10-26T02:00:00+00:00", gap=8)), f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=8))]
+f.many_blank = lambda series, n, sol_dir: False
+cr_due.append(f.short_again(vu_row("2026-10-26T02:00:00+00:00", gap=8)))
+f.many_blank = real_mb
+f.filed_state = real_fs
+check("a held file 6+ short on a classified grid, read before REREAD_CANDIDATES: CANDIDATE_READS (rank 2, "
+      "answers-only, a LOW prefix); read since, before REREAD_WIDE_AGREED, WIDE_AGREED; not 6+ short, nothing",
+      [f.CANDIDATE_READS, f.WIDE_AGREED, None, 2, True, True],
+      cr_due + [f.RANKS[f.CANDIDATE_READS], f.CANDIDATE_READS in f.SOLUTION_FIXES, f.CANDIDATE_READS.startswith("solution short")])
+# A held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT (due nothing else): CLUE_SHORT;
+# read since, or 3+ short, nothing.
+f.filed_state = lambda series, n: (False, True)
+real_hb = f.held_blanks
+f.held_blanks = lambda series, n, sol_dir: 2
+cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2, ao=True))]
+# Read since REREAD_CLUE_SHORT, before REREAD_CLASH_SHORT: CLASH_SHORT.
+cs_due.append(f.short_again(vu_row(f.REREAD_CLUE_SHORT, gap=2)))
+f.held_blanks = lambda series, n, sol_dir: 3
+cs_due.append(f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2, ao=True)))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT: CLUE_SHORT (rank 2, "
+      "answers-only, a LOW prefix); read since, before REREAD_CLASH_SHORT, CLASH_SHORT (the same); read since "
+      "both, or 3+ blank read since, nothing",
+      [f.CLUE_SHORT, None, f.CLASH_SHORT, None, 2, True, True, 2, True, True, True, True],
+      cs_due + [f.RANKS[f.CLUE_SHORT], f.CLUE_SHORT in f.SOLUTION_FIXES, f.CLUE_SHORT.startswith("solution short"),
+                f.RANKS[f.CLASH_SHORT], f.CLASH_SHORT in f.SOLUTION_FIXES, f.CLASH_SHORT.startswith("solution short"),
+                f.REREAD_CLUE_SHORT < f.REREAD_CLASH_SHORT, f.CLASH_SHORT in __import__("edition_queue").LOW_ASK])
+# A held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE (due nothing else): CLUE_WIDE; read
+# since, or 1-2 / 6+ short read after those reasons' stamps, nothing.
+f.filed_state = lambda series, n: (False, True)
+cw_due = []
+for cw_n, cw_at in ((3, "2026-10-26T05:00:00+00:00"), (5, "2026-10-26T05:00:00+00:00"), (4, "2026-10-27T12:00:00+00:00"),
+                    (2, "2026-10-27T12:00:00+00:00"), (6, "2026-10-26T05:00:00+00:00")):
+    f.held_blanks = lambda series, n, sol_dir, b=cw_n: b
+    # Read since the stamps by answers_only (a full read since is FULL_SHORT's).
+    cw_due.append(f.short_again(vu_row(cw_at, gap=cw_n, ao=len(cw_due) >= 2)))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE: CLUE_WIDE (rank 2, answers-only, "
+      "evidence, a LOW prefix, a fix landed); read since, 2 short read since CLASH_SHORT, nothing; 6 short since "
+      "CANDIDATE_READS, before REREAD_WIDE_AGREED, WIDE_AGREED",
+      [f.CLUE_WIDE, f.CLUE_WIDE, None, None, f.WIDE_AGREED, 2, True, True, True, True, True],
+      cw_due + [f.RANKS[f.CLUE_WIDE], f.CLUE_WIDE in f.SOLUTION_FIXES, f.CLUE_WIDE.startswith("solution short"),
+                f.CLUE_WIDE in __import__("edition_queue").LOW_ASK, f.CLUE_WIDE in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.CLUE_WIDE)])
+# OTHER_COPY: a held file short whose solution the same day's other scan (Gale / archive.org) links too, read
+# before REREAD_OTHER_COPY: due; no other copy, another day's, read since, or none blank: not.
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 1
+oc_two = {99999991: {"1984-05-02 leaf 3", "1984-05-02_61716 leaf 12"}}
+oc_row = vu_row("2026-10-26T09:00:00+00:00", ao=True)
+oc_row["verdicts"][0]["solution"].update(classified=3)
+oc_due = [f.due_reason({**oc_row, "inputs": "h", "solutionsSeen": [], "vlm": "v", "solutionKey": f.solution_key(),
+                        "scan": {"puzzles": [{"number": 99999991}]}}, "h", [], "v", None, oc_two),
+          f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), oc_two),
+          f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), {99999991: {"1984-05-02 leaf 3"}}),
+          f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), {99999991: {"1984-05-02 leaf 3", "1984-05-09 leaf 2"}}),
+          f.other_copy_short(vu_row("2026-10-27T12:00:00+00:00"), oc_two)]
+f.held_blanks = lambda series, n, sol_dir: 0
+oc_due.append(f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), oc_two))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short whose solution the same day's other scan links too, read before REREAD_OTHER_COPY: "
+      "OTHER_COPY (rank 2, answers-only, evidence, LOW, a fix landed); one copy, another day's, read since, none "
+      "blank: not",
+      [f.OTHER_COPY, True, False, False, False, False, 2, True, True, True, True, True],
+      oc_due + [f.RANKS[f.OTHER_COPY], f.OTHER_COPY in f.SOLUTION_FIXES, f.OTHER_COPY.startswith("solution short"),
+                f.OTHER_COPY in __import__("edition_queue").LOW_ASK, f.OTHER_COPY in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.OTHER_COPY)])
+# NEAR_WORD: a held file short whose blank light's cached VLM reply near_word mends (strip_near), read before
+# REREAD_NEAR_WORD and due nothing else: due; read since, or no reply mends: not.
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 0
+real_sn = f.strip_near
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False, **kw: True
+nw_due = [f.short_again(vu_row("2026-10-26T11:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False, **kw: False
+nw_due.append(f.short_again(vu_row("2026-10-26T11:30:00+00:00")))
+f.strip_near = real_sn
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply mends to one listed word, read before "
+      "REREAD_NEAR_WORD: NEAR_WORD (rank 2, answers-only, evidence, LOW, a fix landed); read since, or no reply "
+      "mends: not",
+      [f.NEAR_WORD, None, None, 2, True, True, True, True, True],
+      nw_due + [f.RANKS[f.NEAR_WORD], f.NEAR_WORD in f.SOLUTION_FIXES, f.NEAR_WORD.startswith("solution short"),
+                f.NEAR_WORD in __import__("edition_queue").LOW_ASK, f.NEAR_WORD in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.NEAR_WORD)])
+# WORDPLAY_SHORT: a held file short whose blank light's clue's wordplay spells one word on the held crossings
+# (held_wordplay), read before REREAD_WORDPLAY and due nothing else: due; read since, or no such light: not.
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 0
+real_sn, real_hw = f.strip_near, f.held_wordplay
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False, **kw: False
+f.held_wordplay = lambda series, n, sol_dir, defined=False: True
+wp_due = [f.short_again(vu_row("2026-10-26T12:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
+f.held_wordplay = lambda series, n, sol_dir, defined=False: False
+wp_due.append(f.short_again(vu_row("2026-10-26T12:30:00+00:00")))
+# CLUE_SOLVED: the wordplay word also linked to its clue's definition (held_wordplay defined), read before
+# REREAD_CLUE_SOLVED and due nothing else: due; read since: not.
+f.held_wordplay = lambda series, n, sol_dir, defined=False: defined
+cs_due = [f.short_again(vu_row("2026-10-26T13:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
+f.strip_near, f.held_wordplay = real_sn, real_hw
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short whose blank light's clue's anagram or hidden word fits its held crossings, read before "
+      "REREAD_WORDPLAY: WORDPLAY_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); read since, or no "
+      "such light: not",
+      [f.WORDPLAY_SHORT, None, None, 2, True, True, True, True, True],
+      wp_due + [f.RANKS[f.WORDPLAY_SHORT], f.WORDPLAY_SHORT in f.SOLUTION_FIXES, f.WORDPLAY_SHORT.startswith("solution short"),
+                f.WORDPLAY_SHORT in __import__("edition_queue").LOW_ASK, f.WORDPLAY_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.WORDPLAY_SHORT)])
+check("a held file short whose blank light's wordplay word WordNet links to its clue's definition, read before "
+      "REREAD_CLUE_SOLVED: CLUE_SOLVED (rank 2, answers-only, evidence, LOW, a fix landed); read since: not",
+      [f.CLUE_SOLVED, None, 2, True, True, True, True, True],
+      cs_due + [f.RANKS[f.CLUE_SOLVED], f.CLUE_SOLVED in f.SOLUTION_FIXES, f.CLUE_SOLVED.startswith("solution short"),
+                f.CLUE_SOLVED in __import__("edition_queue").LOW_ASK, f.CLUE_SOLVED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.CLUE_SOLVED)])
+# FULL_SHORT: a held file short last read by a full read (after every REREAD_ stamp), due nothing else: due, at
+# any time; read answers-only since, a full read answers_only fell to ("answersTried"), or none blank: not.
+f.filed_state = lambda series, n: (False, True)
+fs_tried = vu_row("2027-01-01T00:00:00+00:00", gap=3)
+fs_tried["verdicts"][0]["answersTried"] = True
+f.held_blanks = lambda series, n, sol_dir: 3
+fs_due = [f.short_again(vu_row("2027-01-01T00:00:00+00:00", gap=3)), f.short_again(vu_row("2026-10-26T18:00:00+00:00", gap=8)),
+          f.short_again(vu_row("2027-01-01T00:00:00+00:00", gap=3, ao=True)), f.short_again(fs_tried)]
+f.held_blanks = lambda series, n, sol_dir: 0
+fs_due.append(f.short_again(vu_row("2027-01-01T00:00:00+00:00", gap=3)))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short last read by a full read: FULL_SHORT at any time (rank 2, answers-only, evidence, LOW, a "
+      "fix landed); read answers-only since, a full read after answers_only tried, or none blank: not",
+      [f.FULL_SHORT, f.FULL_SHORT, None, None, None, 2, True, True, True, True, True],
+      fs_due + [f.RANKS[f.FULL_SHORT], f.FULL_SHORT in f.SOLUTION_FIXES, f.FULL_SHORT.startswith("solution short"),
+                f.FULL_SHORT in __import__("edition_queue").LOW_ASK, f.FULL_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.FULL_SHORT)])
+# MISREAD_STRIPS: an answers-only row whose checks dropped a held answer still blank (misread_short), read before
+# REREAD_MISREAD_STRIPS and due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ms = f.misread_short
+f.misread_short = lambda row, paper: True
+ms_due = [f.short_again(vu_row("2026-10-26T19:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.misread_short = lambda row, paper: False
+ms_due.append(f.short_again(vu_row("2026-10-26T19:50:00+00:00", ao=True)))
+f.misread_short = real_ms
+f.filed_state = real_fs
+check("a held file short whose answers-only checks dropped a held answer still blank, read before "
+      "REREAD_MISREAD_STRIPS: MISREAD_STRIPS (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none "
+      "so: not",
+      [f.MISREAD_STRIPS, None, None, 2, True, True, True, True, True],
+      ms_due + [f.RANKS[f.MISREAD_STRIPS], f.MISREAD_STRIPS in f.SOLUTION_FIXES, f.MISREAD_STRIPS.startswith("solution short"),
+                f.MISREAD_STRIPS in __import__("edition_queue").LOW_ASK, f.MISREAD_STRIPS in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.MISREAD_STRIPS)])
+# misread_short: the verdict's heldMisread light blank in the held file (from this page, 1-5 blank): due; the held
+# file holding it, no heldMisread, or a full read's verdict: not.
+ms_row = vu_row("2026-10-26T19:50:00+00:00", ao=True)
+ms_row["scan"] = {}
+ms_row["verdicts"][0].update(leaf=3, solution={**ms_row["verdicts"][0]["solution"], "heldMisread": ["1-across"]})
+ms_paper = f.paper_of(ms_row["edition"])
+ms_path = Path(_cf_tmp.mkdtemp()) / "held.json"
+ms_saved = (f.filed_state, f.held_blanks, f.page_url, f._HELD_PATH.get((ms_paper.series, 99999991)))
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 1
+f.page_url = lambda d, scan, leaf: "u"
+f._HELD_PATH[ms_paper.series, 99999991] = ms_path
+ms_out = []
+for ms_sol in (None, "ARCHIMAGE"):
+    ms_path.write_text(json.dumps({"source": {"url": "u"}, "entries": [
+        {"number": 1, "direction": "across", "solution": ms_sol}, {"number": 2, "direction": "down", "solution": "AB"}]}))
+    ms_out.append(f.misread_short(ms_row, ms_paper))
+ms_path.write_text(json.dumps({"source": {"url": "u"}, "entries": [{"number": 1, "direction": "across", "solution": None}]}))
+ms_plain = json.loads(json.dumps(ms_row))
+del ms_plain["verdicts"][0]["solution"]["heldMisread"]
+ms_full = json.loads(json.dumps(ms_row))
+del ms_full["verdicts"][0]["answersOnly"]
+ms_out += [f.misread_short(ms_plain, ms_paper), f.misread_short(ms_full, ms_paper)]
+f.filed_state, f.held_blanks, f.page_url = ms_saved[:3]
+if ms_saved[3] is None:
+    del f._HELD_PATH[ms_paper.series, 99999991]
+else:
+    f._HELD_PATH[ms_paper.series, 99999991] = ms_saved[3]
+check("misread_short: a dropped held answer still blank in the held file: due; held again, no heldMisread, a full read: not",
+      [True, False, False, False], ms_out)
+# late_strips counts a held answer the checks dropped (heldMisread) blank: its strip is cut; held, nothing is.
+ms_cut = []
+real_cs, real_want = f.trove_solution_ocr.crop_strips, f.vlm.wanted
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: ms_cut.append(keys) or {}
+f.vlm.wanted = lambda: True
+ms_es = [{"number": 1, "direction": "across", "solution": "ABC"}, {"number": 3, "direction": "across", "solution": "DEF"}]
+ms_late = [f.late_strips(ms_es, {}, {"heldMisread": ["1-across"]}, {}, [], {}, Path(__file__)),
+           f.late_strips(ms_es, {}, {}, {}, [], {}, Path(__file__))]
+f.trove_solution_ocr.crop_strips, f.vlm.wanted = real_cs, real_want
+check("late_strips: a held answer the checks dropped (heldMisread) is cut a strip; every light held, none is",
+      [[[(1, "across")]], ({}, {"heldMisread": ["1-across"]}), ({}, {})], [ms_cut] + ms_late)
+
+
+# agreed_held: a misread-dropped word the VLM's strip reply spells letter for letter stands; a reply that differs,
+# a phrase piece no listed word, an open cell the classifier reads otherwise, or a held crossing whose letter swapped
+# makes a corpus answer (BUSK: DUSK, so DOPED) does not.
+def ah_probs(word, other=None):
+    out = []
+    for i, ch in enumerate(word):
+        p = [0.0] * 26
+        p[f.trove_solution_ocr.AZ.index(ch if other is None or i not in other else other[i])] = 0.9
+        out.append(p)
+    return out
+
+
+check("agreed_held: the reading's dropped word spelled alike by the VLM stands; a reply that differs, a phrase "
+      "piece unlisted, the classifier reading an open cell otherwise, a crossing's corpus swap: not",
+      ["CARIBS", None, None, None, None],
+      [f.agreed_held("CARIBS\n", "CARIBS", "C?R?B?", [6], ah_probs("CARIBS"), {}),
+       f.agreed_held("CAROBS", "CARIBS", "C?R?B?", [6], ah_probs("CARIBS"), {}),
+       f.agreed_held("BEAGREEN", "BEAGREEN", "?E?G?E?N", [3, 5], ah_probs("BEAGREEN"), {}),
+       f.agreed_held("CARIBS", "CARIBS", "C?R?B?", [6], ah_probs("CARIBS", {3: "O"}), {}),
+       f.agreed_held("BOPED", "BOPED", "B?P?D", [5], ah_probs("BOPED"), {0: ("BUSK", 0)})])
+# AGREED_HELD: a row read before REREAD_AGREED_HELD whose cached strip reply spells a misread-dropped word
+# (agreed_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_as, real_ms = f.agreed_short, f.misread_short
+f.misread_short = lambda row, paper: False
+f.agreed_short = lambda row, paper: True
+ah_due = [f.short_again(vu_row("2026-10-26T20:20:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.agreed_short = lambda row, paper: False
+ah_due.append(f.short_again(vu_row("2026-10-26T20:20:00+00:00", ao=True)))
+f.agreed_short, f.misread_short = real_as, real_ms
+f.filed_state = real_fs
+check("a held file short whose cached strip reply spells a misread-dropped word, read before REREAD_AGREED_HELD: "
+      "AGREED_HELD (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.AGREED_HELD, None, None, 2, True, True, True, True, True],
+      ah_due + [f.RANKS[f.AGREED_HELD], f.AGREED_HELD in f.SOLUTION_FIXES, f.AGREED_HELD.startswith("solution short"),
+                f.AGREED_HELD in __import__("edition_queue").LOW_ASK, f.AGREED_HELD in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.AGREED_HELD)])
+# vlm_named: a VLM name misread_word would drop (DEDLOCK, WEDLOCK one letter off) stands where that letter's cell is
+# crossed and the crossing word with WEDLOCK's letter is no corpus answer (DUO: WUO); a crossing that so becomes one
+# (DOE: WOE, the held crossing the misread the VLM copied), an open cell there, or a listed word: not.
+vn_grid = ["DEDLOCK", ".######", ".######"]
+vn_en = {(1, "across"): "7", (1, "down"): "3"}
+check("vlm_named: a name one crossed letter off a listed word stands; that crossing a corpus answer swapped, the "
+      "letter on an open cell, a listed word: not; held_agreed joins agreedHeld and vlmNamed",
+      [{"1-across"}, set(), set(), set(), {"1-down", "2-across"}],
+      [f.vlm_named({"1-across": "DEDLOCK"}, {"1-down": "DUO"}, vn_grid, vn_en),
+       f.vlm_named({"1-across": "DEDLOCK"}, {"1-down": "DOE"}, vn_grid, vn_en),
+       f.vlm_named({"1-across": "DEDLOCK"}, {}, vn_grid, vn_en),
+       f.vlm_named({"1-across": "WEDLOCK"}, {"1-down": "WUO"}, vn_grid, vn_en),
+       f.held_agreed({"agreedHeld": ["1-down"], "vlmNamed": ["2-across"]})])
+# checked_answers spares a vlm_named light from misread_word (agreed); without it the name goes as a misread.
+vn_es = [{"number": 1, "direction": "across", "solution": None}, {"number": 1, "direction": "down", "solution": "DUO"}]
+vn_kept = f.checked_answers(vn_es, {"1-across": "DEDLOCK", "1-down": "DUO"}, vn_grid, vn_en, {}, crossed=False,
+                            agreed={"1-across"})[0]
+vn_gone = f.checked_answers(vn_es, {"1-across": "DEDLOCK", "1-down": "DUO"}, vn_grid, vn_en, {}, crossed=False)[0]
+check("checked_answers keeps a vlm_named name (agreed), drops it otherwise", ["DEDLOCK", None],
+      [vn_kept.get("1-across"), vn_gone.get("1-across")])
+# VLM_NAMED: a row read before REREAD_VLM_NAMED whose verdict took a VLM word then dropped it as a misread, the light
+# still blank (named_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms = f.named_short, f.agreed_short, f.misread_short
+f.misread_short = lambda row, paper: False
+f.agreed_short = lambda row, paper: False
+f.named_short = lambda row, paper: True
+vn_due = [f.short_again(vu_row("2026-10-26T23:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.named_short = lambda row, paper: False
+vn_due.append(f.short_again(vu_row("2026-10-26T23:00:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short = real_ns, real_as, real_ms
+f.filed_state = real_fs
+check("a held file short whose VLM name its checks dropped as a misread, read before REREAD_VLM_NAMED: VLM_NAMED "
+      "(rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.VLM_NAMED, None, None, 2, True, True, True, True, True],
+      vn_due + [f.RANKS[f.VLM_NAMED], f.VLM_NAMED in f.SOLUTION_FIXES, f.VLM_NAMED.startswith("solution short"),
+                f.VLM_NAMED in __import__("edition_queue").LOW_ASK, f.VLM_NAMED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.VLM_NAMED)])
+# NAME_RIVALS: a row read before REREAD_NAME_RIVALS whose blank light's cached VLM name a surname alone lies one letter
+# off (near_short with named), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: named
+nr_due = [f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+nr_due.append(f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM name a surname alone lies one letter off, read before "
+      "REREAD_NAME_RIVALS: NAME_RIVALS (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.NAME_RIVALS, None, None, 2, True, True, True, True, True],
+      nr_due + [f.RANKS[f.NAME_RIVALS], f.NAME_RIVALS in f.SOLUTION_FIXES, f.NAME_RIVALS.startswith("solution short"),
+                f.NAME_RIVALS in __import__("edition_queue").LOW_ASK, f.NAME_RIVALS in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.NAME_RIVALS)])
+# ARGMAX_SHORT: a row read before REREAD_ARGMAX_SHORT whose blank light's cached VLM reply argmax_word alone takes
+# (near_short with argmax), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: argmax
+am_due = [f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+am_due.append(f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply is one letter under the floor off the classifier's sure "
+      "word, read before REREAD_ARGMAX_SHORT: ARGMAX_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); read "
+      "since, or none so: not",
+      [f.ARGMAX_SHORT, None, None, 2, True, True, True, True, True],
+      am_due + [f.RANKS[f.ARGMAX_SHORT], f.ARGMAX_SHORT in f.SOLUTION_FIXES, f.ARGMAX_SHORT.startswith("solution short"),
+                f.ARGMAX_SHORT in __import__("edition_queue").LOW_ASK, f.ARGMAX_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.ARGMAX_SHORT)])
+# PAIRED_SHORT: a row read before REREAD_PAIRED_SHORT whose blank light's cached VLM reply paired_word alone takes
+# (near_short with paired), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: paired
+pw_due = [f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+pw_due.append(f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply is one letter off the classifier's word the clue "
+      "settles, read before REREAD_PAIRED_SHORT: PAIRED_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); "
+      "read since, or none so: not",
+      [f.PAIRED_SHORT, None, None, 2, True, True, True, True, True],
+      pw_due + [f.RANKS[f.PAIRED_SHORT], f.PAIRED_SHORT in f.SOLUTION_FIXES, f.PAIRED_SHORT.startswith("solution short"),
+                f.PAIRED_SHORT in __import__("edition_queue").LOW_ASK, f.PAIRED_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.PAIRED_SHORT)])
+# SPELT_SHORT: a row read before REREAD_SPELT_SHORT whose blank light's cached VLM reply the clue's wordplay alone
+# spells (near_short with spelt), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: spelt
+sp_due = [f.short_again(vu_row("2026-10-27T06:20:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+sp_due.append(f.short_again(vu_row("2026-10-27T06:20:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply the clue's wordplay spells, read before "
+      "REREAD_SPELT_SHORT: SPELT_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.SPELT_SHORT, None, None, 2, True, True, True, True, True],
+      sp_due + [f.RANKS[f.SPELT_SHORT], f.SPELT_SHORT in f.SOLUTION_FIXES, f.SPELT_SHORT.startswith("solution short"),
+                f.SPELT_SHORT in __import__("edition_queue").LOW_ASK, f.SPELT_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.SPELT_SHORT)])
+# spelt_word: the reply as read where the clue's anagram or hidden word spells it, fitting every crossing; not a
+# reply the clue does not spell, one off a crossing, one with a "?", nor one whose open letter the classifier
+# reads under the floor (SEWIAL, "Eli was" by chance, read BELIAL).
+sp_p = lambda w: [[1.0 if c == ch else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for ch in w]
+check("spelt_word takes a reply the clue's anagram (ZAMBESI) or hidden word (THOTH) spells; not FLAA, nor a reply "
+      "against a crossing, nor one with a '?', nor one the classifier reads otherwise",
+      ["ZAMBESI", "THOTH", None, None, None, None],
+      [f.spelt_word("ZAMBESI\n", "Z?M?E?I", sp_p("ZAMBESI"), "7", "Current size Mab adjusted"),
+       f.spelt_word("THOTH", "T?O?H", sp_p("THOTH"), "5", "The god that helped Otho the Emperor"),
+       f.spelt_word("FLAA", "?L?A", sp_p("FLAA"), "4", "Run, we hear, for noted high-jumper"),
+       f.spelt_word("ZAMBESI", "Z?M?E?A", sp_p("ZAMBESI"), "7", "Current size Mab adjusted"),
+       f.spelt_word("ZAMBES?", "Z?M?E??", sp_p("ZAMBESI"), "7", "Current size Mab adjusted"),
+       f.spelt_word("SEWIAL", "?E?I?L", sp_p("BELIAL"), "6", "Eli was father to his sons")])
+# FILED_NAME: a row read before REREAD_FILED_NAME whose blank light's cached VLM reply another puzzle's filed answer
+# alone vouches for (near_short with filed), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: filed
+fn_due = [f.short_again(vu_row("2026-10-27T06:40:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+fn_due.append(f.short_again(vu_row("2026-10-27T06:40:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply another puzzle's filed answer spells, read before "
+      "REREAD_FILED_NAME: FILED_NAME (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.FILED_NAME, None, None, 2, True, True, True, True, True],
+      fn_due + [f.RANKS[f.FILED_NAME], f.FILED_NAME in f.SOLUTION_FIXES, f.FILED_NAME.startswith("solution short"),
+                f.FILED_NAME in __import__("edition_queue").LOW_ASK, f.FILED_NAME in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.FILED_NAME)])
+# LATE_JUDGED: a row read before REREAD_LATE_JUDGED whose blank light's late strip (none kept by the reading) has a
+# cached VLM reply vlm_word takes now (near_short with late), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: late
+lj_due = [f.short_again(vu_row("2026-10-27T06:55:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+lj_due.append(f.short_again(vu_row("2026-10-27T06:55:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file 1-2 short whose late strip's cached VLM reply vlm_word takes now, read before REREAD_LATE_JUDGED: "
+      "LATE_JUDGED (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LATE_JUDGED, None, None, 2, True, True, True, True, True],
+      lj_due + [f.RANKS[f.LATE_JUDGED], f.LATE_JUDGED in f.SOLUTION_FIXES, f.LATE_JUDGED.startswith("solution short"),
+                f.LATE_JUDGED in __import__("edition_queue").LOW_ASK, f.LATE_JUDGED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LATE_JUDGED)])
+# VLM_RIVALED: a row read before REREAD_VLM_RIVALED whose blank light's cached VLM word a classifier rival dropped and
+# vlm_stands keeps (near_short with rivaled), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: rivaled
+vr_due = [f.short_again(vu_row("2026-10-27T08:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False, shifted=False: False
+vr_due.append(f.short_again(vu_row("2026-10-27T08:25:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM word a classifier rival dropped and vlm_stands keeps, read "
+      "before REREAD_VLM_RIVALED: VLM_RIVALED (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.VLM_RIVALED, None, None, 2, True, True, True, True, True],
+      vr_due + [f.RANKS[f.VLM_RIVALED], f.VLM_RIVALED in f.SOLUTION_FIXES, f.VLM_RIVALED.startswith("solution short"),
+                f.VLM_RIVALED in __import__("edition_queue").LOW_ASK, f.VLM_RIVALED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.VLM_RIVALED)])
+# FAR_DEFINED: a row read before REREAD_FAR_DEFINED whose blank light's cached VLM reply vlm_word now mends to the
+# word its clue defines two open letters off (near_short with far), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us = f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: bool(kw.get("far"))
+fd_due = [f.short_again(vu_row("2026-10-27T08:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, **kw: False
+fd_due.append(f.short_again(vu_row("2026-10-27T08:50:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short = real_ns, real_as, real_ms, real_near, real_us
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply vlm_word mends to the word its clue defines two letters "
+      "off, read before REREAD_FAR_DEFINED: FAR_DEFINED (rank 2, answers-only, evidence, LOW, a fix landed); read "
+      "since, or none so: not",
+      [f.FAR_DEFINED, None, None, 2, True, True, True, True, True],
+      fd_due + [f.RANKS[f.FAR_DEFINED], f.FAR_DEFINED in f.SOLUTION_FIXES, f.FAR_DEFINED.startswith("solution short"),
+                f.FAR_DEFINED in __import__("edition_queue").LOW_ASK, f.FAR_DEFINED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.FAR_DEFINED)])
+# far_word: the one word within FAR_SWAPS open letters of the VLM's reply that the clue defines, the classifier's
+# likeliest such word, a vouched answer (PAPERNP for PARSNIP); not two the clue defines (CIDER, CYDER), not where the
+# classifier reads another near word likelier, not with no clue, nor over a vouched reply that fits (MURAT).
+fd_filed = f.trove_solution_ocr.filed_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"PARSNIP", "CHEER", "CIDER", "CYDER", "MURAT", "MERIT"})
+fd_p = lambda w: [[1.0 if c == ch else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for ch in w]
+check("far_word mends a reply two open letters off the one word its clue defines (PAPERNP: PARSNIP), vlm_word too; "
+      "not CUTER (CIDER and CYDER both defined), nor CHEAR where the classifier reads CLEAR, nor with no clue, nor "
+      "MURAT read right",
+      ["PARSNIP", "PARSNIP", None, "CHEER", None, None, None],
+      [f.far_word("PAPERNP", "P?R?N?P", [7], "Old man right to bargain for vegetable", "7", fd_p("PARSNIP")),
+       f.vlm_word("PAPERNP", "P?R?N?P", [7], fd_p("PARSNIP"), "7", "Old man right to bargain for vegetable"),
+       f.far_word("CUTER", "C???R", [5], "Sleuths about to knock back drink", "5", fd_p("CIDER")),
+       f.far_word("CHEAR", "C?E?R", [5], "Church always offering encouragement", "5", fd_p("CHEER")),
+       f.far_word("CHEAR", "C?E?R", [5], "Church always offering encouragement", "5", fd_p("CLEAR")),
+       f.far_word("PAPERNP", "P?R?N?P", [7], None, "7", fd_p("PARSNIP")),
+       f.far_word("MURAT", "M?R?T", [5], "A king's spirit turns at last", "5", fd_p("MERIT"))])
+f.trove_solution_ocr.filed_words = fd_filed
+# TIED_DEFINED: a row read before REREAD_TIED_DEFINED whose blank light's cached VLM reply vlm_word now mends to the
+# classifier's likeliest of the near words its clue defines (near_short with tied), due nothing else: due; read
+# since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us = f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: bool(kw.get("tied"))
+td_due = [f.short_again(vu_row("2026-10-27T09:05:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, **kw: False
+td_due.append(f.short_again(vu_row("2026-10-27T09:05:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short = real_ns, real_as, real_ms, real_near, real_us
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply vlm_word mends to the classifier's likeliest of the "
+      "words its clue defines, read before REREAD_TIED_DEFINED: TIED_DEFINED (rank 2, answers-only, evidence, LOW, a "
+      "fix landed); read since, or none so: not",
+      [f.TIED_DEFINED, None, None, 2, True, True, True, True, True],
+      td_due + [f.RANKS[f.TIED_DEFINED], f.TIED_DEFINED in f.SOLUTION_FIXES, f.TIED_DEFINED.startswith("solution short"),
+                f.TIED_DEFINED in __import__("edition_queue").LOW_ASK, f.TIED_DEFINED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.TIED_DEFINED)])
+# tied_word: of the near words the clue defines (CIDER and CYDER for CUTER), the classifier's likeliest by TIE_MARGIN;
+# not on a coin flip (HEARTH, DEARTH), not over a reply that fits and the clue defines too (AMEND, not EMEND), not with
+# no clue.
+td_filed = f.trove_solution_ocr.filed_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"CIDER", "CYDER", "AMEND", "EMEND", "HEARTH", "DEARTH"})
+td_p = lambda w, half=None: [[0.5 if half and i == 0 and c in half else 1.0 if c == ch and not (half and i == 0) else 0.0
+                              for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for i, ch in enumerate(w)]
+check("tied_word mends CUTER to CIDER (CYDER defined too, the classifier reads I), vlm_word too; not HEARTH on a coin "
+      "flip with DEARTH, nor EMEND over AMEND read right, nor with no clue",
+      ["CIDER", "CIDER", None, None, None],
+      [f.tied_word("CUTER", "C???R", [5], "Sleuths about to knock back drink", "5", td_p("CIDER")),
+       f.vlm_word("CUTER", "C???R", [5], td_p("CIDER"), "5", "Sleuths about to knock back drink"),
+       f.tied_word("VERBTH", "?E?R?H", [6], "Scarcity for many connected with the land", "6", td_p("HEARTH", "HD")),
+       f.tied_word("AMEND", "??E?D", [5], "So let it be a copper to put matters right", "5", td_p("EMEND")),
+       f.tied_word("CUTER", "C???R", [5], None, "5", td_p("CIDER"))])
+f.trove_solution_ocr.filed_words = td_filed
+# LONG_FLOOR: a row read before REREAD_LONG_FLOOR whose blank light's cached long VLM reply every other mend refuses
+# and long_word takes (near_short with lengthy), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us = f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: bool(kw.get("lengthy"))
+lf_due = [f.short_again(vu_row("2026-10-27T09:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, **kw: False
+lf_due.append(f.short_again(vu_row("2026-10-27T09:25:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short = real_ns, real_as, real_ms, real_near, real_us
+f.filed_state = real_fs
+check("a held file short whose blank light's cached long VLM reply long_word takes, read before REREAD_LONG_FLOOR: "
+      "LONG_FLOOR (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LONG_FLOOR, None, None, 2, True, True, True, True, True],
+      lf_due + [f.RANKS[f.LONG_FLOOR], f.LONG_FLOOR in f.SOLUTION_FIXES, f.LONG_FLOOR.startswith("solution short"),
+                f.LONG_FLOOR in __import__("edition_queue").LOW_ASK, f.LONG_FLOOR in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LONG_FLOOR)])
+# long_word: a long listed reply fitting every crossing, vouched for, that the classifier ranks first of the light's
+# listed words by LONG_MARGIN though it reads one letter under the floor (CAPTIOUS, its T at 0.005); not a short light
+# (LUNAR), not a coin flip between two listed words (DETECTABLE, DELECTABLE), not one no print vouches for.
+lf_filed, lf_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"CAPTIOUS", "LUNAR", "DETECTABLE", "DELECTABLE"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset()
+lf_p = lambda w, at=None, alt=None, odds=(0.005, 0.995): [
+    [(odds[0] if c == ch else odds[1] if c == alt else 0.0) if i == at else 1.0 if c == ch else 0.0
+     for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for i, ch in enumerate(w)]
+lf_got = [f.long_word("CAPTIOUS", "?A???O?S", [8], lf_p("CAPTIOUS", 3, "R")),
+          f.vlm_word("CAPTIOUS", "?A???O?S", [8], lf_p("CAPTIOUS", 3, "R"), "8", "Skipper, having debts, is touchy"),
+          f.long_word("LUNAR", "L?N?R", [5], lf_p("LUNAR", 1, "O")),
+          f.long_word("DETECTABLE", "DE?E?T?B?E", [10], lf_p("DETECTABLE", 2, "L", (0.5, 0.5)))]
+f.trove_solution_ocr.filed_words = lambda: frozenset()
+lf_got.append(f.long_word("CAPTIOUS", "?A???O?S", [8], lf_p("CAPTIOUS", 3, "R")))
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = lf_filed, lf_corpus
+check("long_word takes CAPTIOUS (its T under the floor, the classifier's likeliest listed word), vlm_word too; not "
+      "LUNAR (short), DETECTABLE (DELECTABLE as likely), nor CAPTIOUS unvouched",
+      ["CAPTIOUS", "CAPTIOUS", None, None, None], lf_got)
+# SHIFTED_WORD: a row read before REREAD_SHIFTED_WORD whose blank light's cached VLM reply a letter long or short
+# every other mend refuses and shifted_word mends (near_short with shifted), due nothing else: due; read since, or
+# none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us = f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: bool(kw.get("shifted"))
+sw_due = [f.short_again(vu_row("2026-10-27T11:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, **kw: False
+sw_due.append(f.short_again(vu_row("2026-10-27T11:25:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short = real_ns, real_as, real_ms, real_near, real_us
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply a letter long or short shifted_word mends, read before "
+      "REREAD_SHIFTED_WORD: SHIFTED_WORD (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.SHIFTED_WORD, None, None, 2, True, True, True, True, True],
+      sw_due + [f.RANKS[f.SHIFTED_WORD], f.SHIFTED_WORD in f.SOLUTION_FIXES, f.SHIFTED_WORD.startswith("solution short"),
+                f.SHIFTED_WORD in __import__("edition_queue").LOW_ASK, f.SHIFTED_WORD in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.SHIFTED_WORD)])
+# shifted_word: a phrase reply a letter short mended to the classifier's reading (BOTAILNAG, BOBTAIL NAG), vlm_word
+# too; a one-piece word a letter long only where a print vouches for it (LOTUS, LOTS); never where the classifier
+# reads a letter of the VLM's own otherwise (ANS for ONUS: not ANUS).
+sw_filed, sw_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"LOTS"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset()
+sw_p = lambda w: [[1.0 if c == ch else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for ch in w]
+sw_got = [f.shifted_word("BOTAILNAG", "?O?T?I?N?G", [3, 4, 3], sw_p("BOBTAILNAG")),
+          f.vlm_word("BOTAILNAG", "?O?T?I?N?G", [3, 4, 3], sw_p("BOBTAILNAG"), "3-4,3", "It carries my money on the five-mile race-track"),
+          f.shifted_word("LOTUS", "L?T?", [4], sw_p("LOTS")),
+          f.shifted_word("ANS", "?N?S", [4], sw_p("ONUS"))]
+f.trove_solution_ocr.filed_words = lambda: frozenset()
+sw_got.append(f.shifted_word("LOTUS", "L?T?", [4], sw_p("LOTS")))
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = sw_filed, sw_corpus
+check("shifted_word mends BOTAILNAG to BOBTAIL NAG, vlm_word too; LOTUS to LOTS vouched; not ANS to ANUS (the "
+      "classifier reads O), nor LOTS unvouched",
+      ["BOBTAILNAG", "BOBTAILNAG", "LOTS", None, None], sw_got)
+# LINKED_ANSWER: a row read before REREAD_LINKED_ANSWER whose held file's 1-2 blank lights are each a light of a
+# linked answer (linked_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us, real_ls = (f.named_short, f.agreed_short, f.misread_short, f.near_short,
+                                                         f.unasked_short, f.linked_short)
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: False
+f.linked_short = lambda row, paper: True
+la_due = [f.short_again(vu_row("2026-10-28T18:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.linked_short = lambda row, paper: False
+la_due.append(f.short_again(vu_row("2026-10-28T18:25:00+00:00", ao=True)))
+(f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short, f.linked_short) = (
+    real_ns, real_as, real_ms, real_near, real_us, real_ls)
+f.filed_state = real_fs
+check("a held file whose blank lights are a linked answer's, read before REREAD_LINKED_ANSWER: LINKED_ANSWER (rank 2, "
+      "answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LINKED_ANSWER, None, None, 2, True, True, True, True, True],
+      la_due + [f.RANKS[f.LINKED_ANSWER], f.LINKED_ANSWER in f.SOLUTION_FIXES, f.LINKED_ANSWER.startswith("solution short"),
+                f.LINKED_ANSWER in __import__("edition_queue").LOW_ASK, f.LINKED_ANSWER in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LINKED_ANSWER)])
+# linked_reads: replies vlm_word refused on a linked answer's lights stand where the group's whole answer splits by its
+# enumeration into listed words (EXASP + ERATE, "Anger (10)" / "See 11"; held PRISON + WITHOUTBARS, 6,7,4); not
+# where an open letter is under the classifier's floor, nor where the whole is no word (EXASP + ERATX).
+la_p = lambda w, low=None: [[(0.001 if i == low else 1.0) if c == ch else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+                            for i, ch in enumerate(w)]
+la_g = [(["11-across", "12-across"], "10", {})]
+la_got = [f.linked_reads(la_g, {}, {"11-across": ("EXASP", "E?A?P", la_p("EXASP")),
+                                    "12-across": ("ERATE", "E?A?E", la_p("ERATE"))}, {}),
+          f.linked_reads([(["1-across", "9-across"], "6,7,4", {"1-across": "PRISON"})], {},
+                         {"9-across": ("WITHOUTBARS", "W?T?O?T?A?S", la_p("WITHOUTBARS"))}, {}),
+          f.linked_reads(la_g, {}, {"11-across": ("EXASP", "E?A?P", la_p("EXASP", low=1)),
+                                    "12-across": ("ERATE", "E?A?E", la_p("ERATE"))}, {}),
+          f.linked_reads(la_g, {}, {"11-across": ("EXASP", "E?A?P", la_p("EXASP")),
+                                    "12-across": ("ERATX", "E?A??", la_p("ERATX"))}, {}),
+          f.linked_groups([{"number": 11, "direction": "across", "clue": {"text": "Anger", "enumeration": "10"},
+                            "group": ["11-across", "12-across"], "solution": "EXASP"},
+                           {"number": 12, "direction": "across", "clue": {"text": "See 11"}}])]
+check("linked_reads takes EXASP + ERATE (EXASPERATE) and WITHOUTBARS after a held PRISON; not a reply under the floor, "
+      "nor EXASP + ERATX; linked_groups names the group, its enumeration and held answers",
+      [{"11-across": "EXASP", "12-across": "ERATE"}, {"9-across": "WITHOUTBARS"}, {}, {},
+       [(["11-across", "12-across"], "10", {"11-across": "EXASP"})]], la_got)
+# linked_name: a linked answer's piece no list holds stands as a name both readers spell (held OMNIUM + GATHERUM, 6,8);
+# not one a listed word, a surname too, lies one letter off on a held answer's cell (held KEL + YIN, KELVIN), nor
+# where the classifier reads a fragment letter otherwise.
+ln_g = [(["3-down", "18-down"], "6,8", {"3-down": "OMNIUM"})]
+ln_got = [f.linked_reads(ln_g, {}, {"18-down": ("GATHERUM", "?A?H?R?M", la_p("GATHERUM"))}, {}),
+          f.linked_reads([(["4-down", "9-down"], "6", {"4-down": "KEL"})], {}, {"9-down": ("YIN", "?I?", la_p("YIN"))}, {}),
+          f.linked_reads(ln_g, {}, {"18-down": ("GATHERUM", "?A?H?R?M", la_p("GATHERUM", low=0))}, {}),
+          f.linked_reads([(["9-across", "10-across"], "4,3,7", {"10-across": "BOWLING"})], {},
+                         {"9-across": ("PORTOM", "P?O?T?M", la_p("POORTOM"))}, {}),
+          f.linked_reads([(["9-across", "10-across"], "4,3,7", {"10-across": "BOWLING"})], {},
+                         {"9-across": ("PORTOX", "P?O?T?M", la_p("POORTOM"))}, {})]
+check("linked_reads takes GATHERUM after a held OMNIUM (linked_name); not YIN after KEL (KELVIN), nor a fragment "
+      "letter the classifier reads otherwise; PORTOM a letter short as the classifier's POORTOM (linked_shifted), "
+      "not PORTOX",
+      [{"18-down": "GATHERUM"}, {}, {}, {"9-across": "POORTOM"}, {}], ln_got)
+# LINKED_NAME: a row read before REREAD_LINKED_NAME (after REREAD_LINKED_ANSWER) whose held file's blank lights are a
+# linked answer's (linked_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us, real_ls = (f.named_short, f.agreed_short, f.misread_short, f.near_short,
+                                                         f.unasked_short, f.linked_short)
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: False
+f.linked_short = lambda row, paper: True
+ln_due = [f.short_again(vu_row("2026-10-28T18:45:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.linked_short = lambda row, paper: False
+ln_due.append(f.short_again(vu_row("2026-10-28T18:45:00+00:00", ao=True)))
+(f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short, f.linked_short) = (
+    real_ns, real_as, real_ms, real_near, real_us, real_ls)
+f.filed_state = real_fs
+check("a held file whose blank lights are a linked answer's, read after REREAD_LINKED_ANSWER and before "
+      "REREAD_LINKED_NAME: LINKED_NAME (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LINKED_NAME, None, None, 2, True, True, True, True, True],
+      ln_due + [f.RANKS[f.LINKED_NAME], f.LINKED_NAME in f.SOLUTION_FIXES, f.LINKED_NAME.startswith("solution short"),
+                f.LINKED_NAME in __import__("edition_queue").LOW_ASK, f.LINKED_NAME in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LINKED_NAME)])
+# READ_CROSSED: a row read before REREAD_READ_CROSSED (after every older cutoff) whose blank light's cached reply to
+# answers_only's first ask on the reading's own crossings vlm_word takes now (crossed_short), due nothing else: due;
+# read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_fsh, real_cs = f.full_short, f.crossed_short
+f.full_short = lambda row, paper: False
+f.crossed_short = lambda row, paper: True
+rc_due = [f.short_again(vu_row("2026-10-28T19:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.crossed_short = lambda row, paper: False
+rc_due.append(f.short_again(vu_row("2026-10-28T19:00:00+00:00", ao=True)))
+f.full_short, f.crossed_short = real_fsh, real_cs
+f.filed_state = real_fs
+check("a held file whose blank light's first-ask reply on the reading's crossings vlm_word takes now, read before "
+      "REREAD_READ_CROSSED: READ_CROSSED (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.READ_CROSSED, None, None, 2, True, True, True, True, True],
+      rc_due + [f.RANKS[f.READ_CROSSED], f.READ_CROSSED in f.SOLUTION_FIXES, f.READ_CROSSED.startswith("solution short"),
+                f.READ_CROSSED in __import__("edition_queue").LOW_ASK, f.READ_CROSSED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.READ_CROSSED)])
+# LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
+# short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
+# (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
+# FULL_SHORT reaches a TIMES_1930 page's full read too.
+lu_dir = Path(__import__("tempfile").mkdtemp())
+lu_held = lu_dir / "times-99999991.json"
+lu_held.write_text(json.dumps({"source": {"url": "u"}, "entries": [
+    {"number": 1, "direction": "across", "solution": None}, {"number": 2, "direction": "down", "solution": None},
+    {"number": 3, "direction": "across", "solution": "ABC"}]}))
+(lu_dir / "solution_reads").mkdir()
+lu_read = lu_dir / "solution_reads" / "1984-05-02_99999991.json"
+lu_read.write_text(json.dumps({"stats": {"strips": {"1-across": {}}}}))
+real_hp, real_pu, real_ar, real_hb, real_crops = dict(f._HELD_PATH), f.page_url, f.ask_replies, f.held_blanks, f.CROPS
+f.CROPS = lu_dir
+f._HELD_PATH[("times", 99999991)] = lu_held
+f.page_url = lambda d, found, leaf: "u"
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 2
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: False
+
+
+def lu_row(at, late=False, edition="NewsUK1984UKEnglish/1984-05-01_61715", ao=True):
+    row = {**vu_row(at, gap=2, ao=ao), "edition": edition, "scan": {"puzzles": [{"number": 99999991}]}}
+    row["verdicts"][0]["leaf"] = 3
+    if late:
+        row["verdicts"][0]["solution"]["lateStrips"] = ["1-across"]
+    return row
+
+
+f.ask_replies = lambda: {"NewsUK1984UKEnglish/1984-05-01_61715": {"1-across": ["k1"]}}
+lu_due = [f.short_again(lu_row("2026-10-27T07:00:00+00:00")), f.short_again(lu_row("2027-01-01T00:00:00+00:00")),
+          f.short_again(lu_row("2026-10-27T07:00:00+00:00", late=True))]
+f.ask_replies = lambda: {"NewsUK1984UKEnglish/1984-05-01_61715": {"2-down": ["k2"]}}
+lu_due.append(f.short_again(lu_row("2026-10-27T07:00:00+00:00")))
+lu_due.append(f.short_again(lu_row("2027-01-01T00:00:00+00:00", ao=False,
+                                   edition="per_times_the-times_1930-02-19_45441/per_times_the-times_1930-02-19_45441")))
+f._HELD_PATH.clear()
+f._HELD_PATH.update(real_hp)
+f.page_url, f.ask_replies, f.held_blanks, f.CROPS = real_pu, real_ar, real_hb, real_crops
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("an answers-only held file 1-5 short with no late strip and a blank light never asked, read before "
+      "REREAD_LATE_UNASKED: LATE_UNASKED (rank 2, answers-only, evidence, LOW, a fix landed); read since, a late "
+      "strip cut, or every blank asked: not; a TIMES_1930 page's full read: FULL_SHORT",
+      [f.LATE_UNASKED, None, None, None, f.FULL_SHORT, 2, True, True, True, True, True],
+      lu_due + [f.RANKS[f.LATE_UNASKED], f.LATE_UNASKED in f.SOLUTION_FIXES, f.LATE_UNASKED.startswith("solution short"),
+                f.LATE_UNASKED in __import__("edition_queue").LOW_ASK, f.LATE_UNASKED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LATE_UNASKED)])
+# filed_word: an unlisted reply as read where another puzzle's filed answer spells it, fitting every crossing, the
+# classifier reading every open letter at the floor; not one no puzzle filed (TINEE), a listed reply, one under
+# FILED_MIN letters, one with a "?", nor one whose open letter the classifier reads under the floor.
+fn_real = f.trove_solution_ocr.filed_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"ANNAM", "QUILP", "TINGE", "IRU", "HERTFORD"})
+check("filed_word takes an unlisted reply another puzzle filed (ANNAM, QUILP) and vlm_word with it, misread_word "
+      "sparing it (paired_name); not TINEE, a listed TINGE, IRU, a '?', nor a letter under the floor",
+      ["ANNAM", "QUILP", "ANNAM", True, None, None, None, None, None],
+      [f.filed_word("ANNAM\n", "A?N?M", [5], sp_p("ANNAM")),
+       f.filed_word("QUILP", "Q?I?P", [5], sp_p("QUILP")),
+       f.vlm_word("ANNAM", "A?N?M", [5], sp_p("ANNAM"), "5"),
+       f.paired_name("ANNAM", "ANNAM", "A?N?M", [5], sp_p("ANNAM"), "5"),
+       f.filed_word("TINEE", "T?N?E", [5], sp_p("TINEE")),
+       f.filed_word("TINGE", "T?N?E", [5], sp_p("TINGE")),
+       f.filed_word("IRU", "I??", [3], sp_p("IRU")),
+       f.filed_word("QUIL?", "Q?I??", [5], sp_p("QUILP")),
+       f.filed_word("HERTFORD", "?E?T?O?D", [8], sp_p("HERTEORD"))])
+f.trove_solution_ocr.filed_words = fn_real
+# read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
+# never got that far (no held file) is not, nor an answers-only verdict.
+real_rp_inner = f._read_puzzle
+def fs_inner(held, verdict):
+    def go(d, found, hit, solutions, ocr_first=True):
+        if held:
+            f._ANSWERS_TRIED["held"] = True
+        return dict(verdict), None
+    return go
+fs_marks = []
+for fs_held, fs_v in ((True, {"number": 1}), (False, {"number": 1}), (True, {"number": 1, "answersOnly": True})):
+    f._read_puzzle = fs_inner(fs_held, fs_v)
+    fs_marks.append(f.read_puzzle(None, None, None, None)[0].get("answersTried"))
+f._read_puzzle = real_rp_inner
+check("read_puzzle marks a full read answers_only fell to after holding the held file 'answersTried'; not one with "
+      "no held file, nor an answers-only verdict", [True, None, None], fs_marks)
+# solution_sources: a heading the same day's other scan prints too carries it (SOLUTION_COPIES); another day's not.
+oc_g, oc_n = f.Path("/x/GaleTimes1984UKEnglish/1984-05-02"), f.Path("/y/NewsUK1984UKEnglish/1984-05-02_61716")
+oc_o = f.Path("/x/GaleTimes1984UKEnglish/1984-05-09")
+real_linked = f._linked
+f._linked = lambda d, scan, held: [{"number": 7, "leaf": 1, "box": (0, 0, 1, 1)}] if d != oc_o else \
+    [{"number": 8, "leaf": 2, "box": (0, 0, 1, 1)}]
+oc_sols, oc_every = f.solution_sources([oc_g, oc_o], {"g": {}, "o": {}}, {oc_g: "g", oc_o: "o"}, {},
+                                       {7: {"number": 7, "leaf": 12, "dir": oc_n}, 8: {"number": 8, "leaf": 4, "dir": oc_n}})
+f._linked = real_linked
+check("a linked heading the same day's other scan prints too carries that copy; one whose copy is another day's not",
+      [oc_g, [oc_n], oc_o, None, {"1984-05-02 leaf 1", "1984-05-02_61716 leaf 12"}],
+      [oc_sols[7]["dir"], [c["dir"] for c in oc_sols[7][f.SOLUTION_COPIES]], oc_sols[8]["dir"],
+       oc_sols[8].get(f.SOLUTION_COPIES), oc_every[7]])
+# answers_only: the other copy's grid read (no VLM) where the linked one leaves a light blank; the reading leaving
+# fewer blank taken, the linked one on a tie or when it leaves none.
+real_ao, real_hf = f._answers_only, f.held_file
+oc_es = lambda *a: [{"number": i + 1, "direction": "across", "solution": a[i]} for i in range(len(a))]
+oc_reads = {"own": oc_es("A", None, None), "copy": oc_es("A", "B", None), "tie": oc_es(None, "B", None),
+            "unsure": oc_es("A", "B", None)}
+oc_asked = []
+def oc_fake(d, found, hit, sols, ask_vlm=True, crossed=True):
+    k = sols[7]["k"]
+    oc_asked.append((k, ask_vlm))
+    return ({"number": 7, "solutionFrom": k, "solution": {"cells": 100, "cellsSure": 80 if k == "unsure" else 90}},
+            {"entries": oc_reads[k]})
+f._answers_only = oc_fake
+f.held_file = lambda series, n: {"entries": oc_es(None, None, "C")}
+oc_d = f.Path("/x/GaleTimes1984UKEnglish/1984-05-01")
+oc_pick = [f.answers_only(oc_d, {}, {}, {7: {"k": "own", f.SOLUTION_COPIES: ({"k": "tie"}, {"k": "copy"})}}),
+           f.answers_only(oc_d, {}, {}, {7: {"k": "own", f.SOLUTION_COPIES: ({"k": "tie"},)}}),
+           f.answers_only(oc_d, {}, {}, {7: {"k": "copy", f.SOLUTION_COPIES: ({"k": "own"},)}}),
+           f.answers_only(oc_d, {}, {}, {7: {"k": "own", f.SOLUTION_COPIES: ({"k": "unsure"},)}})]
+f._answers_only, f.held_file = real_ao, real_hf
+check("answers_only reads the other copy's grid without the VLM where its own leaves a light blank and takes "
+      "the reading leaving fewer; the linked one on a tie, or when the copy's reads under COPY_SURE of its cells sure",
+      [("copy", "own"), ("own", None), ("copy", None), ("own", None),
+       [("own", True), ("tie", False), ("copy", False), ("own", True), ("tie", False), ("copy", True),
+        ("own", True), ("unsure", False)]],
+      [(p[0]["solutionFrom"], p[0]["solution"].get("otherCopy")) for p in oc_pick] + [oc_asked])
+# held_recrossed: a blank light's VLM word against a held crossing stands, the crossing read again with its letter,
+# where that makes a listed word and the clue read with the crossing open gives the VLM word too.
+import numpy as np
+hr_cell = lambda top, p=0.9, second=None, q=0.0: np.array(
+    [p if c == top else (q if c == second else (1 - p - q) / (24 if second else 25)) for c in f.trove_solution_ocr.AZ])
+hr_lts = {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (1, "down"): [(0, 0), (1, 0), (2, 0), (3, 0)]}
+hr_probs = {(0, 0): hr_cell("F", 0.6, "P", 0.3), (0, 1): hr_cell("O"), (0, 2): hr_cell("U"), (0, 3): hr_cell("R"),
+            (1, 0): hr_cell("L"), (2, 0): hr_cell("A"), (3, 0): hr_cell("T")}
+hr_enums = {(1, "across"): "4", (1, "down"): "4"}
+check("held_recrossed: FOUR against a held PLAT re-reads it FLAT; YOUR (YLAT no word), a crossing not held, or one "
+      "agreeing (FLAT) re-reads nothing",
+      [{(1, "down"): "FLAT"}, None, None, None],
+      [f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, {(1, "down")}, hr_probs, hr_enums),
+       f.held_recrossed("YOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, {(1, "down")}, hr_probs, hr_enums),
+       f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, set(), hr_probs, hr_enums),
+       f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "FLAT"}, {(1, "down")}, hr_probs, hr_enums)])
+# agreed_word: an unlisted VLM name stands under VLM_UNLISTED_TOP when every cell's likeliest letter is its own.
+ag = lambda word, faint: [[(faint if i in (2,) else 0.95) if c == ch else (1 - (faint if i in (2,) else 0.95)) / 25
+                           for c in f.trove_solution_ocr.AZ] for i, ch in enumerate(word)]
+ag_low = ag("PALGRAVE", 0.5)
+ag_off = ag("PALGRAVE", 0.5)
+ag_off[2] = [0.3 if c == "L" else (0.6 if c == "T" else 0.1 / 24) for c in f.trove_solution_ocr.AZ]
+check("agreed_word: PALGRAVE with its L at 0.5, every letter the classifier's likeliest, stands; at 0.3 under "
+      "AGREED_TOP, or its L read likelier as T, it does not",
+      [True, False, False],
+      [f.agreed_word("PALGRAVE", ag_low), f.agreed_word("PALGRAVE", ag("PALGRAVE", 0.3)), f.agreed_word("PALGRAVE", ag_off)])
+# candidate_pick: the pick stands only as the plain strip read's word too, a word, read by the classifier as no other.
+import numpy as np
+cp_cells = [(0, i) for i in range(5)]
+cp_probs = {rc: np.full(26, 1 / 26) for rc in cp_cells}
+cp_sure = dict(cp_probs)
+cp_sure[(0, 4)] = np.array([0.95 if c == "M" else 0.05 / 25 for c in f.trove_solution_ocr.AZ])
+cp_offer = ["STEAD", "STEAL", "STEAM"]
+check("candidate_pick: STEAL picked and read plain stands; read plain STEAM, picked off the list, or its L read "
+      "surely as M, it does not",
+      ["STEAL", None, None, None],
+      [f.candidate_pick("STEAL", "STEAL", cp_offer, cp_cells, cp_probs, {}, "5"),
+       f.candidate_pick("STEAM", "STEAL", cp_offer, cp_cells, cp_probs, {}, "5"),
+       f.candidate_pick("STEAK", "STEAK", cp_offer, cp_cells, cp_probs, {}, "5"),
+       f.candidate_pick("STEAL", "STEAL", cp_offer, cp_cells, cp_sure, {}, "5")])
+# clue_reads: a light whose cells read STEAL surely is taken; the classifier reading nothing, no light is.
+cr_lts = {(1, "across"): cp_cells}
+cr_steal = {rc: np.array([0.99 if c == ch else 0.01 / 25 for c in f.trove_solution_ocr.AZ]) for rc, ch in zip(cp_cells, "STEAL")}
+check("clue_reads: STEAL read surely is taken; uniform cells leave the light open with its candidates",
+      [{(1, "across"): "STEAL"}, {}, True],
+      [f.trove_solution_ocr.clue_reads(cr_lts, {}, cr_steal, {(1, "across"): "5"})[0],
+       f.trove_solution_ocr.clue_reads(cr_lts, {}, cp_probs, {(1, "across"): "5"})[0],
+       len(f.trove_solution_ocr.clue_reads(cr_lts, {}, cp_probs, {(1, "across"): "5"})[1][(1, "across")]) >= 2])
+# candidate_reads: asks only when every blank light but CANDIDATE_SLACK has 2+ candidates.
+import base64 as _b64
+import io as _io
+from PIL import Image as _Image
+_png_buf = _io.BytesIO()
+_Image.new("L", (4, 4), 255).save(_png_buf, "PNG")
+cd_png = _b64.b64encode(_png_buf.getvalue()).decode()
+cd_es = [{"number": n, "direction": "across", "solution": None, "clue": {"text": "Feline", "enumeration": "3"}}
+         for n in (1, 3, 5, 7, 9, 11)]
+cd_lts = {(n, "across"): [(i, 0), (i, 1), (i, 2)] for i, n in enumerate((1, 3, 5, 7, 9, 11))}
+real = (f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+        f.vlm.ask, f.vlm.wanted, f.checked_answers)
+f.crop_cell_probs = lambda crop, grid: {rc: np.full(26, 1 / 26) for cells in cd_lts.values() for rc in cells}
+f.trove_solution_ocr.lights = lambda grid: cd_lts
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {f"{n}-{d}": {"png": cd_png} for n, d in keys}
+f.vlm.wanted = lambda: True
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+cd_asked = []
+f.vlm.ask = lambda img, prompt, max_tokens=1500: cd_asked.append(prompt) or "CAT"
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {(1, "across"): "DOG"} if (1, "across") not in acc else {},
+    {k: ([("CAT", 0.0), ("COT", -1.0)] if k[0] in (3, 5) else []) for k in lts if k not in acc})
+cd_far = f.candidate_reads(cd_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+cd_far_asks = len(cd_asked)
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {}, {k: [("CAT", 0.0), ("COT", -1.0)] for k in lts if k not in acc})
+cd_near = f.candidate_reads(cd_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+(f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+ f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+# e0db3520a40 (BLIND_STRIPS): the 3 lights with no candidate are now asked their plain strip too (2 + 3 = 5 asks).
+check("candidate_reads: 3 lights with no candidate left (over CANDIDATE_SLACK) asks no pick, only the 2 lights with "
+      "candidates their plain strip (WIDE_AGREED; CAT on unread cells is the VLM's alone: refused), the clue read's DOG "
+      "stands; 2 candidates for every light asks each plainly and to pick (12 asks), CAT standing in all six",
+      [({"1-across": "DOG"}, 5), ({f"{n}-across": "CAT" for n in (1, 3, 5, 7, 9, 11)}, 12, 12,
+                                  [f"{n}-across" for n in (1, 11, 3, 5, 7, 9)])],
+      [(cd_far[0], cd_far_asks),
+       (cd_near[0], cd_near[1]["candidateAsks"], len(cd_asked) - cd_far_asks, cd_near[1]["vlmLights"])])
+# CLUE_WIDE: a grid left 3-5 short is asked only once its clue read leaves at most CANDIDATE_SLACK lights open.
+cw_es, cw_lts = cd_es[:4], {k: v for k, v in list(cd_lts.items())[:4]}
+cw_dog = lambda rc: np.array([0.9 if c == "DOG"[rc[1]] else 0.1 / 25 for c in f.trove_solution_ocr.AZ])
+f.crop_cell_probs = lambda crop, grid: {rc: (cw_dog(rc) if rc[0] < 2 else np.full(26, 1 / 26))
+                                         for cells in cw_lts.values() for rc in cells}
+f.trove_solution_ocr.lights = lambda grid: cw_lts
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {f"{n}-{d}": {"png": cd_png} for n, d in keys}
+f.vlm.wanted = lambda: True
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+cw_asked = []
+f.vlm.ask = lambda img, prompt, max_tokens=1500: cw_asked.append(prompt) or "CAT"
+cw_cands = lambda lts, acc: {k: [("CAT", 0.0), ("COT", -1.0)] for k in lts if k not in acc}
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {(1, "across"): "DOG"} if (1, "across") not in acc else {}, cw_cands(lts, {**acc, (1, "across"): "DOG"}))
+cw_far = f.candidate_reads(cw_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+cw_far_asks = len(cw_asked)
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {k: "DOG" for k in ((1, "across"), (3, "across")) if k not in acc},
+    cw_cands(lts, {**acc, (1, "across"): "DOG", (3, "across"): "DOG"}))
+cw_near = f.candidate_reads(cw_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+(f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+ f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+check("candidate_reads, 4 short: the clue read leaving 3 open asks nothing (DOG stands); leaving 2 open asks each "
+      "plainly and to pick (4 asks), the puzzle whole",
+      [({"1-across": "DOG"}, 0), ({"1-across": "DOG", "3-across": "DOG", "5-across": "CAT", "7-across": "CAT"}, 4)],
+      [(cw_far[0], cw_far_asks), (cw_near[0], len(cw_asked) - cw_far_asks)])
+# wide_pick: a plain strip read of a 6+ short grid's light stands where a second reader names the same word.
+wp = lambda word, p=0.6: [[p if c == ch else (1 - p) / 25 for c in f.trove_solution_ocr.AZ] for ch in word]
+check("wide_pick: CAT the clue read's top candidate stands; COT neither the top candidate nor the classifier's "
+      "letters does not; COT the classifier reads in every open cell stands; CAT on cells the classifier reads "
+      "nothing of (the VLM alone) does not",
+      ["CAT", None, "COT", None],
+      [f.wide_pick("CAT\n", "CAT", "C??", [3], wp("CAT")),
+       f.wide_pick("COT", "CAT", "C??", [3], wp("CAT")),
+       f.wide_pick("COT", None, "C??", [3], wp("COT")),
+       f.wide_pick("CAT", "CAT", "???", [3], [[1 / 26] * 26 for _ in range(3)])])
+# WIDE_AGREED: candidate_reads on a grid 6 short, one light with a candidate: its plain strip asked, the word the top
+# candidate and the VLM agree on taken, its letters the next pass's crossings; no light with a candidate: no ask.
+wa_es = [dict(e, clue={"text": "Xq zv", "enumeration": "3"}) for e in cd_es]
+wa_cat = {rc: np.array(wp("CAT")[rc[1]]) for rc in cd_lts[(1, "across")]}
+f.crop_cell_probs = lambda crop, grid: {rc: wa_cat.get(rc, np.full(26, 1 / 26)) for cells in cd_lts.values() for rc in cells}
+f.trove_solution_ocr.lights = lambda grid: cd_lts
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {f"{n}-{d}": {"png": cd_png} for n, d in keys}
+f.vlm.wanted = lambda: True
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+wa_asked, wa_seen = [], []
+f.vlm.ask = lambda img, prompt, max_tokens=1500: wa_asked.append(prompt) or "CAT"
+def wa_reads(lts, acc, probs, enums):
+    wa_seen.append(sorted(acc))
+    return {}, ({(1, "across"): [("CAT", 0.0), ("COT", -1.0)]} if (1, "across") not in acc else {})
+f.trove_solution_ocr.clue_reads = wa_reads
+wa = f.candidate_reads(wa_es, {}, {"accepted": 0}, [], {(1, "across"): "3"}, Path(__file__))
+wa_n = len(wa_asked)
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: ({}, {})
+wa_none = f.candidate_reads(wa_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+(f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+ f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+check("candidate_reads, 6 short (WIDE_AGREED): the one light with a candidate asked its plain strip once, CAT (the top "
+      "candidate, read so) taken and lent to the next clue read; with no candidate anywhere nothing is asked",
+      # e0db3520a40 (BLIND_STRIPS): a 6-blank grid asks every light, candidate or not (6 asks, not 1); with no
+      # candidate anywhere the 6 are asked again (12 in all) and 1-across, its cells' likeliest letters CAT, stands.
+      [{"1-across": "CAT"}, ["1-across"], 6, 6, True, ({"1-across": "CAT"}, 12)],
+      [wa[0], wa[1].get("wideAgreed"), wa[1]["candidateAsks"], wa_n, [(1, "across")] in wa_seen,
+       (wa_none[0], len(wa_asked))])
+# WIDE_AGREED's due reason: a row read before REREAD_WIDE_AGREED whose held file is more than LATE_MAX short
+# (many_short), due nothing else: due; read since, or not so short: not.
+f.filed_state = lambda series, n: (False, True)
+real_mny = f.many_short
+f.many_short = lambda row, paper, few=False, wide=False: not few and not wide
+wd_due = [f.short_again(vu_row("2026-10-26T21:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.many_short = lambda row, paper, few=False, wide=False: False
+wd_due.append(f.short_again(vu_row("2026-10-26T21:00:00+00:00", ao=True)))
+# A row read under a key _SOLUTION_SAME reads alike (8417cfb08f3a9706, before c69c4949fce's lint edit moved the
+# key unpinned) is this code's: fix_reason gives WIDE_AGREED, not the blanket "read by other code" only_evidence
+# drops (10-26: 404 of 408 such rows never planned); another key is not this code's.
+f.many_short = lambda row, paper, few=False, wide=False: not few and not wide
+same_key = [f.solution_current({"solutionKey": f.solution_key()}),
+            f.solution_current({"solutionKey": "other"}), f.solution_current({}),
+            f.fix_reason({**vu_row("2026-10-26T21:00:00+00:00", ao=True), "solutionKey": f.solution_key()}),
+            f.fix_reason({**vu_row("2026-10-26T21:00:00+00:00", ao=True), "solutionKey": "other"}) == f.WIDE_AGREED]
+same_key += [f.fix_reason({**vu_row("2026-10-26T21:00:00+00:00", ao=True), "solutionKey": k}) == f.WIDE_AGREED
+             for k, v in f._SOLUTION_SAME.items() if v == f.solution_key()]
+f.many_short = real_mny
+f.filed_state = real_fs
+check("a row read under a key _SOLUTION_SAME reads as the current one is this code's (WIDE_AGREED due); "
+      "another key, or none, is not",
+      [True, False, False, f.WIDE_AGREED, False] + [True] * (len(same_key) - 5), same_key)
+check("a held file more than LATE_MAX short read before REREAD_WIDE_AGREED: WIDE_AGREED (rank 2, answers-only, "
+      "evidence, LOW, a fix landed); read since, or not so short: not",
+      [f.WIDE_AGREED, None, None, 2, True, True, True, True, True],
+      wd_due + [f.RANKS[f.WIDE_AGREED], f.WIDE_AGREED in f.SOLUTION_FIXES, f.WIDE_AGREED.startswith("solution short"),
+                f.WIDE_AGREED in __import__("edition_queue").LOW_ASK, f.WIDE_AGREED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.WIDE_AGREED)])
+check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
+      "a word, a listed name (William RUFUS), and words by their enumeration stand",
+      [True, False, False, False, False, (12, "down")],
+      [f.misread_word("ADORESS", "7"), f.misread_word("ADDRESS", "7"), f.misread_word("BULGARIA", "8"),
+       f.misread_word("RUFUS", "5"), f.misread_word("KINGCOLE", "4,4"), f._light_key("12-down")])
+check("the solution key is the solution reader's code, not the scan's", True,
+      len(f.solution_key()) == 16 and f.solution_key() != f.scan_key())
+import scan_queue
+# A reread time is when its fix landed: one still ahead re-reads every row
+# the pass reads until then, over and over.
+check("no reread time is in the future", [],
+      [t for t in (*f.REREAD_REFUSED.values(), *f.REREAD_WRITE_FAILED.values())
+       if scan_queue.when(t) > scan_queue.when("now")])
+# Real titles the pass found no title on (no-crossword-found):
+# "Times" garbled past one word, a mark after Crossword, "No" run on or
+# dropped, a space in the number, its 1 read as i.
+check("garbled titles read",
+      [13831, 14887, 15548, 16404, 16587, 16268, 17111, 15543, 19102, 19350],
+      [n for t in ("TThe Times Crossword Puzzle No 13,831", "Tfee Th:es Crossword Puzzle No 14,887",
+                   "The Times Crossword . No. 15,548", "I he l imes Crossword Puzzle No 16,404",
+                   "The Tiroes Crossword PuzzleNo 16,587", "The Times Crossword Puzzle 16,268",
+                   "The Times Crossword Puzzle No 17,1 11", "The Times Crossword Puzzle No i.5,543",
+                   "THE TIMES CROSSWORDNO 19,102", "THE TI MES CROSSWORD NO 19,350")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("a garbled \"Puzzle\" before \"No\" is read (1986-05-10, 1984-04-14, 1978-10-03, 1977-06-24)",
+      [17042, 16405, 15020, 14636],
+      [n for t in ("Times Crossword Pnzzle No 17,042", "Times Crossword Pu/zle No 16,405",
+                   "Times Crossword PozzleNo 15,020", "Times Crossword Ficzzle No 14,636")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("(mirror) a word after Crossword with no \"No\" before the number is no title", [],
+      [n for t in ("Concise Crossword page 12,345", "Times Crossword Competition 12,345")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("a garbled Concise, solution, Listener or index line is no title", [],
+      [n for t in ("CONCfSE CROSSWORD NO 20,991", "SOLUTION TO CROSSWORD NO 19,055", "USTENER CROSSWORD No 13,430",
+                   "Crossword 32.", "Times Two Crossword No 10,747")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("a title run together with its \"The\" is read (1995-04-12)", [19827],
+      [n for n, _ in f.headings([line("THETIMES CROSSWORD NO 19,827")], f.TITLE)])
+check("a title with \"Times\" run into \"Crossword\" is read (Gale 1987-01-19, ch)", [17257, 17242],
+      [n for t in ("The TimesCrosswordPuzzleNo 17,257", "TheTimesCrosswordPuzzleNo17,242")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("(mirror) a Concise run into \"Crossword\" is still no title", [],
+      [n for t in ("ConciseCrossword No 1154", "The ConciseCrosswordNo 1,154") for n, _ in f.headings([line(t)], f.TITLE)])
+words = [(2108, 2835, 2214, 2853, "Horthern Bank Ltd"), (2504, 2828, 2845, 2869, "CROSSWORD"),
+         (2262, 2729, 2293, 2947, "*922393s93s"), (2108, 2896, 2183, 2914, "Rea Brothers"),
+         (2468, 2892, 2882, 2924, "No.7,869 Set by CINEPHILE")]
+got = [" ".join(w[4] for w in l) for l in f.printed_lines(words)]
+check("OCR words make printed lines: a column apart is its own line, a column rule read as a word "
+      "(FT 1992-06-10) does not join the title to its number line",
+      (True, True, True), ("CROSSWORD" in got, "No.7,869 Set by CINEPHILE" in got, "Rea Brothers" in got))
+# Gale 2006-11-09 (ch): the grid's clue numbers open the title's row, and the
+# title's number, its middle under theirs, still joins the title.
+words = [(411, 4151, 447, 4191, "2"), (1616, 4154, 1650, 4191, "8"),
+         (1774, 4140, 3030, 4236, "The TImES CROSSWOrD"), (3069, 4157, 3340, 4236, "23,442"),
+         (3792, 4182, 4360, 4230, "Solution toCrossword 23,44l")]
+check("a title's number joins the title's row a grid's clue numbers opened (Gale 2006-11-09)", [23442],
+      [n for n, _, _ in f.TIMES.headings(f.printed_lines(words))[0]])
+# (mirror) Gale 2008-05-21 (ch): a title beside a body line a fragment opened,
+# the title a fifth taller, is no part of that line.
+words = [(208, 1235, 251, 1247, "alou"), (518, 1231, 865, 1261, "and'theresilience thatwas on display"),
+         (892, 1229, 1287, 1266, "Times Crossword 23,919")]
+check("(mirror) a title does not join a body line's row a fragment opened (Gale 2008-05-21)", [23919],
+      [n for n, _, _ in f.TIMES.headings(f.printed_lines(words))[0]])
+check("the Sunday Times's title is not the daily's", [], f.headings([line("The Sunday Times Crossword No 2,345")], f.TITLE))
+check("the cryptic's solution heading read", [18179],
+      [n for n, _ in f.headings([line("Solution to Puzzle No 18,179"), line("SOLUTION TO NO 2064")], f.SOLUTION)])
+check("1970s solution heading read", [13676],
+      [n for n, _ in f.headings([line("Solution of Puzzle No 13,676 B.A. &so.")], f.SOLUTION)])
+# A misread solution heading is found by the number one before (or, a
+# Saturday's prize, six before) the page's title, its digits read loosely.
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,646"), line("Solution of Push No. 15,645")])
+check("a misread 'Puzzle' heading anchored on the title", [15645], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,428"),
+                            line("25 »2?E? one 01 Pan s Solution of Puzzle No 15,427")])
+check("a heading run on from the clue column", [15427], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,139"), line("Solution to Tuzzle No I5.13S")])
+check("a garbled number repaired to the one before the title", [15138], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 13,989"), line("Solution of Puzzle No 33,988")])
+check("a misread digit repaired", [13988], [n for n, _ in sols])
+check("a misread 'No' and a number read in pieces", [[15696], [15040], [15751], [19711]],
+      [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]]
+       for t, h in (("15,697", "Solution of Puzzle N©. 15^96"), ("15,041", "- Solution 01 Pom. Mo 15.040"),
+                    ("15,752", "Solution of Puzzle No 15 ,751"), ("19,712", "Solution to Puzzle No 19,7 1 1"))])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,220", y=50), line("The Solution", 400, 900),
+                            line("No. 16,219", 410, 920)])
+check("'The Solution' over its number, the two lines one heading", [16219], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,220", y=50), line("The Solution", 400, 900),
+                            line("No. 16,219", 1400, 920)])
+check("(mirror) a number in another column is not its", [], sols)
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,688"), line("Solution of Puzzle No 15,682"),
+                            line("Solution of Puzzle No 15,687")])
+check("a Saturday's two headings, each its own", [15682, 15687], sorted(n for n, _ in sols))
+# 15,682's solution printed under 15,683 and read "15,683": neither its own
+# title's number nor one confusable with the day before's is guessed at.
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,683"), line("Solution of Puzzle No 15,683")])
+check("a heading read as its own title's number is dropped", [], sols)
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,684"), line("Solution of Puzzle No 15,682")])
+check("a clean heading near the title but not before it is dropped", [], sols)
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,646"), line("Solution of Push No. 12,345"),
+                            line("Paste on a card 4 No 15,645")])
+check("a heading whose number is not the one expected, or whose words are not one, is no heading", [], sols)
+check("with no title on the leaf, only an exact heading", [[18179], []],
+      [[n for n, _ in f.TIMES.headings([line(t)])[1]] for t in ("Solution to Puzzle No 18,179", "Solution of Push No 18,179")])
+check("two headings run into one line, each read", [[19243, 19248], [14503, 14508]],
+      [sorted(n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1])
+       for t, h in (("19,249", "Solution to Puzzle No 19,243 Solution to Punk No 19.248"),
+                    ("14,509", "Solution of Puzzle No 14,503 Solution of Puzzle No 14J50&"))])
+check("(mirror) a second heading on the line numbered neither lag is no heading", [19243],
+      [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 19,249"),
+                                       line("Solution to Puzzle No 19,243 Solution to Puzzle No 19,312")])[1]])
+check("a number read in short pieces", [[19037], [15244]],
+      [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]]
+       for t, h in (("19,038", "Solution to Puzzle No 1 9.037"), ("15,245", "Solution of Puzzle No . 15, 244"))])
+check("1986's 'Solution to No' heading, no 'Puzzle' word", [16983],
+      [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Solution to No 16,983")])[1]])
+# A speck read as a word, or a mark the OCR glued between the heading's
+# words (Gale 1976-1989 bands), is no part of it.
+check("a speck or glued mark between a heading's words", [[14277], [14276], [17559], [17581], [16725], [17997]],
+      [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), ws])[1]]
+       for t, ws in (("14,278", [(100, 100, 196, 123, "Solution"), (185, 100, 436, 129, "n of Puzzle No 14,277")]),
+                     ("14,277", line("Solution of Puzzle No : 14,276")), ("17,560", line("Solution to.Puzzle No 17,559")),
+                     ("17,582", line("Solution 1 to Puzzle No 17,581")), ("16,726", line("Solution of Puzzle:No.16,725")),
+                     ("17,998", line("Solution to Puzzle-No 17,997")))])
+check("(mirror) unspecked, a heading still needs its lag's number and a 'Solution' or 'Puzzle' word", [[], [], []],
+      [f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]
+       for t, h in (("17,582", "Solution 1 to Puzzle No 17,590"), ("16,984", "Paste-on No 16,983"),
+                    ("16,984", "Paste i on No 16,983"))])
+check("(mirror) with no middle word the first must read 'Solution'", [],
+      f.TIMES.headings([line("The Times Crossword Puzzle No 16,984"), line("Paste on No 16,983")])[1])
+# The OCR ran the connective into "Puzzle" (1983-06-11's Saturday prize).
+check("a connective run into 'Puzzle' still reads, the prize six before the title", [[16147, 16152], [20105]],
+      [sorted(n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,153"),
+                                              line("Solution oTPnzzle No 16.147 Solution ofPitaie No 16,152")])[1]),
+       [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 20,111"), line("Solution tnPuzzlc No 20.105")])[1]]])
+check("(mirror) a run-in heading whose number is no lag's, or both lags' alike, is no heading", [[], []],
+      [f.TIMES.headings([line("The Times Crossword Puzzle No 16,153"), line("Solution oTPnzzle No 16.150")])[1],
+       f.TIMES.headings([line("The Times Crossword Puzzle No 14,060"), line("Solution ofPuzzle No 14, OSS")])[1]])
+# Christmas took an issue: 16,618 (Saturday 1984-12-22) under 16,622, four
+# before. A clean read four or five before passes the scan; the filed dates
+# decide its link, so in a full week it links nothing.
+xmas = [n for n, _ in f.TIMES.headings([line("The Times Crossword Puzzle No 16,622"), line("Solution of Pnzzk No 16,618")])[1]]
+check("a holiday week's prize read clean links by the filed dates, a full week's not at all", [[16618], [16618], []],
+      [xmas, link(edition("1984-12-29", [16622], xmas), {16618: D("1984-12-22"), 16621: D("1984-12-28")}),
+       link(edition("1984-12-29", [16622], xmas), {16616: D("1984-12-22"), 16621: D("1984-12-28")})])
+check("(mirror) a garbled read four or five before is no heading", [],
+      f.TIMES.headings([line("The Times Crossword Puzzle No 16,323"), line("Sohtian of Puzzle No 16J18")])[1])
+check("(mirror) pieces costing alike to both lags are no heading", [],
+      f.TIMES.headings([line("The Times Crossword Puzzle No 14,060"), line("Solution of Puzzle No 14, OSS")])[1])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,577", y=50), line("The Solution", 400, 900),
+                            line("Prize Puzzle", 405, 925), line("No 16,576", 420, 950)])
+check("'The Solution' over 'Prize Puzzle' over its number", [16576], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,577", y=50), line("The Solution", 400, 900),
+                            line("Puzzle closes", 405, 925), line("No 16,576", 420, 950)])
+check("(mirror) any other line between them is not skipped", [], sols)
+
+# The columns: left then right, a number read apart joined to its row, a
+# second copy of words dropped, cut at the solution heading.
+grid = (100, 100, 800, 800)
+lines = [line("ACROSS", 100, 820), [(100, 842, 118, 858, "1")], line("Nymph with broken heart (8)", 130, 840),
+         line("DOWN", 470, 820), line("2 Hermit is strangely secure (7)", 470, 840),
+         line("2 Hermit is strangely secure (7)", 470, 841),
+         line("Solution to Puzzle No 13,676", 100, 870), line("rubbish (3)", 100, 890)]
+check("columns read left then right, a row joined, a copy dropped, cut at the solution",
+      "ACROSS\n1 Nymph with broken heart (8)\nDOWN\n2 Hermit is strangely secure (7)",
+      f.column_text(f.columns(lines, grid)))
+far = [line("ACROSS", 100, 820), line("1 Nymph (8)", 100, 840), line("9 Gap (5)", 100, 840 + f.GAP + 40)]
+check("a gap ends a column", "ACROSS\n1 Nymph (8)", f.column_text(f.columns(far, grid)))
+# The 1981-86 Times' DOWN heading alone at the foot of the across column, 81-87 px under the last across
+# clue, its first down clues under it (1983-03-02's 1-3 down, lost to the gap): the column goes on to it.
+low = 840 + 16 + f.GAP + 5
+foot = [line("ACROSS", 100, 820), line("29 Sailor red or white (7).", 100, 840), line("DOWN", 100, low),
+        line("1 Display reorganized (5-4).", 100, low + 30), line("2 Many in Bucks (7).", 100, low + 50)]
+check("a DOWN heading set low in the across column, past a gap, goes on the column",
+      "ACROSS\n29 Sailor red or white (7).\nDOWN\n1 Display reorganized (5-4).\n2 Many in Bucks (7).",
+      f.column_text(f.columns(foot, grid)))
+check("(mirror) not past a wider gap, nor with a second DOWN heading, nor in a column opened by no ACROSS",
+      ["ACROSS\n29 Sailor red or white (7).", "ACROSS\n29 Sailor red or white (7).",
+       "28 Such a girl (7).\n29 Sailor red or white (7)."],
+      [f.column_text(f.columns([foot[0], foot[1]] + [[(w[0], w[1] + 45, w[2], w[3] + 45, w[4]) for w in ws]
+                                                     for ws in foot[2:]], grid)),
+       f.column_text(f.columns(foot + [line("DOWN", 470, 820), line("4 Hairy type (4).", 470, 840)], grid)[:1]),
+       f.column_text(f.columns([line("28 Such a girl (7).", 100, 800)] + foot[1:], grid)[:1])])
+# A clue's run-on line that opens on a STOP word ends nothing; the notice does.
+run_on = [line("DOWN", 100, 820), line("1 See last stages of Le Mans", 100, 840),
+          line("championship, possibly (4).", 130, 860), line("2 Impressive maiden (7).", 100, 880),
+          line("Championship final tomorrow", 100, 900), line("3 Not a clue (5)", 100, 920)]
+check("a run-on line opening on a STOP word is the clue's, a notice ends the column",
+      "DOWN\n1 See last stages of Le Mans\nchampionship, possibly (4).\n2 Impressive maiden (7).",
+      f.column_text(f.columns(run_on, grid)))
+# The solution heading with its opening misread (times-13683, 1974) still
+# ends the column: else 22 down's count is no longer its clue's end.
+for head in ("cotution of Puzzle No 13.682", "^j^on D f Puzzle No 13,682"):
+    col = [line("DOWN", 470, 820), line("22 Bird dives back into the", 470, 840), line("iceberg (5).", 470, 860),
+           line(head, 470, 880)]
+    check(f"a misread solution heading ends the column: {head}",
+          "DOWN\n22 Bird dives back into the\niceberg (5).", f.column_text(f.columns(col, grid)))
+check("a clue ending on a number is no solution heading",
+      [False, False], [f.stops(t) for t in ("puzzle no 1 (5).", "a business combine (8).")])
+check("a clue's last line opening on a STOP word, closed by its count, is no notice (Gale 1982-12-15's 5 down); "
+      "the notices still stop",
+      [False, False, True, True, True],
+      [f.stops(t) for t in ("Jumbo?(6.3.6).", "Solution? (8)", "Jumbo crossword", "Concise crossword, page 11",
+                            "Solution to Puzzle No 17,503")])
+
+# tidy(): OCR's slips in the print's shape.
+check("braces and square brackets read as round ones", "1 Poet's way (5)\n2 Talks (3,2)",
+      f.tidy("1 Poet's way {5}\n2 Talks [3,2]"))
+check("a number run into its word split off", "1 Mythical king (9)", f.tidy("1Mythical king (9)"))
+check("a number lost after a count marked for the grid", "10 Nurse (7)\n? Holds fast (5)",
+      f.tidy("10 Nurse (7)\nHolds fast (5)"))
+check("a number lost after the heading marked", "ACROSS\n? Nymph (8)", f.tidy("ACROSS\nNymph (8)"))
+check("a wrapped line is not marked", "10 Nurse holding\nNote (7)", f.tidy("10 Nurse holding\nNote (7)"))
+check("a count with a broken close read as one", "19 Stole pig (3)", f.tidy("19 Stole pig off3j".replace(" off", "")))
+# A count's 1 read as i (Times 1974-12-07's "gatherer (i1)."): read, so the clue after it, its number lost, opens.
+_ll_text = "ACROSS\n5 Suspense of the samphire-\ngatherer (i1).\nSign of grace (5)"
+check("a count's 1 read as i read as a count, the next line marked", "gatherer (11)\n? Sign of grace (5)",
+      "\n".join(f.tidy(_ll_text).splitlines()[2:]))
+check("left as read with ones off", _ll_text, f.tidy(_ll_text, ones=False))
+# led_list ranks a reading as read: the mend only lays again a list that lay so (Times 1977-06-07, mended, a
+# noisier reading led and blanked 19 across and 15 down).
+_ll_was = f.parse, f.clue_repair.repaired, f.ftp.renumber, f.ftp.match
+f.parse = lambda text, ones=True: ({"across": [], "down": [], "mended": ones}, None)
+f.clue_repair.repaired = lambda parsed, others: (parsed, [])
+f.ftp.renumber = lambda parsed: (parsed, [])
+f.ftp.match = lambda parsed, g: ({"1-across": ("x", "4", None)}, None)
+check("a list laid as read is laid mended", True, f.led_list(_ll_text, [], "g")[0]["mended"])
+check("nor mended where the mend changes nothing", False, f.led_list("ACROSS\n1 Fish (4)", [], "g")[0]["mended"])
+f.ftp.match = lambda parsed, g: (None, "mended refused") if parsed["mended"] else ({"1-across": ("x", "4", None)}, None)
+check("its read laid when the mended list does not lie", False, f.led_list(_ll_text, [], "g")[0]["mended"])
+f.ftp.match = lambda parsed, g: ({"1-across": ("x", "4", None)}, None) if parsed["mended"] else (None, "as read")
+check("a list only its mend lays is not laid: it never leads", [None, "as read"], list(f.led_list(_ll_text, [], "g")[1:]))
+f.parse, f.clue_repair.repaired, f.ftp.renumber, f.ftp.match = _ll_was
+# loose_lists: every reading as read first; a reading the mend reads otherwise again after them, mended, so it only
+# fills the lights they left free (Times 1976-10-27's 4 down, taken by a reading parsed only once mended).
+_ll_lists = f.loose_lists([], {"ch": _ll_text + "\nDOWN\n1 Beginning (6)", "en5": "ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)"})
+check("loose lists as read, then the mended apart", [[("ch",), ("en5",)], [("ch",)]],
+      [[o for o, _ in group] for group in _ll_lists])
+# A See clue's run-on words (ftp.see_runs_on) are a mend too: as read the list stops at "about" (Times 1983-11-05),
+# so a reading parsed only so never leads over one that parses as read (Times 1946-08-14's stray quotes).
+_sr_text = "ACROSS\n18 Medicine I needed (5)\n19 See 16 about covering Australian port (9)\nDOWN\n1 Fish (4)"
+check("a See clue run on parses mended only, and reads mended; a plain list does not",
+      [False, True, True, False],
+      [f.parse(_sr_text, ones=False)[0] is not None, f.parse(_sr_text)[0] is not None, f.reads_mended(_sr_text),
+       f.reads_mended("ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)")])
+
+# Page text after the list's last count: a speck after the count ("(5). _")
+# is no text, so the footer after it is dropped, not read as a clue.
+check("a speck after a count is dropped and the footer with it",
+      "DOWN\n24 Realism is the beauty of Keats\n(5)",
+      f.tidy("DOWN\n24 Realism is the beauty of Keats\n(5). _\nConte crossword, base 22"))
+check("a pointer to another page's puzzle ends the column",
+      [True, True, True, False, False],
+      [bool(f.STOP.match(t)) for t in ("Conte crossword, base 22", "Coacise crosswurd, page 22",
+                                       "The solution to the Collins Competition", "Cross words about 22",
+                                       "Crossed words, quite 2")])
+# The list's last clue holding the next one (its count lost) is split.
+p, _ = f.parse("ACROSS\n1 Walpole nominated as poet (6)\nDOWN\n22 No good having female in group\n"
+               "24 Realism is the beauty of Keats\n(5)")
+check("the last clue's run-on clue is split off",
+      [({22}, "No good having female in group", set()), ({24}, "Realism is the beauty of Keats", {"5"})],
+      [(c["tokens"][0], c["text"], c["enums"]) for c in p["down"]])
+p, _ = f.parse("ACROSS\n1 Walpole nominated as poet (6)\nDOWN\n22 Rest at 2 Downing Street (5)")
+check("a reference in the last clue is not split", ["Rest at 2 Downing Street"], [c["text"] for c in p["down"]])
+# The columns under the grid split at their gutter, not the grid's middle:
+# a right-hand clue whose number starts left of the middle is the right
+# column's, never run into the left column's row (ftcryptic-9091).
+grid = (2270, 3000, 2905, 3400)
+words = [[(2253, 3462, 2565, 3486, "28 Take part of case for leisure")],
+         [(2577, 3462, 2886, 3484, "22 Affected by American univer-")],
+         [(2581, 3419, 2889, 3442, "20 Corrects sexually innocent")],
+         [(2270, 3415, 2569, 3435, "1 Graduate teachers object to")]]
+split = f.under_gutter(words, grid)
+cols = f.columns(words, grid, split=split)
+check("the gutter lies between the columns", True, 2569 < split < 2577)
+check("a right-hand clue left of the grid's middle stays in its column",
+      ["1 Graduate teachers object to", "28 Take part of case for leisure"], [l[4] for l in cols[0]])
+# Gale 1963-10-07: the second column under the grid opens at ~777 px, left of the grid's middle fifth
+# (785-929) where the gutter was sought (856): its lines fell in the first column's window, and a line
+# read across both ("of the Alpine shep-  26 Is about ...", "26" past SPLIT_SLACK) ended it as a notice.
+# The gutter is sought where the second column's clue lines open (opening_gutter()).
+_og_grid = (508, 3998, 1226, 4718)
+_og_ch = [(508, 4727, 1136, 4761, "6 Beetle that : 23 Mechanical astronaut ? (6)."),
+          (534, 4755, 760, 4777, "answers the call"),
+          (528, 4770, 1227, 4808, "of the Alpine shep-  26 Is about to study good pictures (5)."),
+          (531, 4799, 680, 4827, "herd ? (8)."), (776, 4813, 1231, 4851, "27 The Archbishop's upset in the river."),
+          (505, 4838, 760, 4871, "7 This was what a"), (532, 4865, 758, 4891, "spinner did to in-"),
+          (532, 4891, 669, 4916, "spire a royal"), (531, 4913, 674, 4940, "observer (9)."),
+          (506, 4952, 760, 4983, "8 Poshed up in these"), (533, 4979, 680, 5006, "surplices (6)."),
+          (533, 5017, 758, 5042, "9 Stop a hole ? The"), (535, 5040, 764, 5067, "biggest, we are told!"),
+          (519, 5061, 575, 5091, "(9)."), (495, 5098, 760, 5130, "14 An agreeable noise"),
+          (533, 5124, 573, 5151, "(9)."), (495, 5159, 755, 5188, "16 Alias Candida ? (4-5).")]
+_og_en5 = [(779, 4773, 1224, 4808, "26 Is about to study good pictures (5)."),
+            (777, 4814, 1231, 4851, "27 The Archbishop's upset in the river.")]
+_og_split = f.under_gutter([[w] for w in _og_ch + _og_en5], _og_grid)
+_og_cols = f.columns([[w] for w in _og_ch], _og_grid, split=_og_split)
+check("the gutter is sought where the second column's clue lines open, left of the grid's middle fifth",
+      True, 760 < _og_split < 777)
+check("so the line read across both columns is cut at its clue, and neither column ends there",
+      [["6 Beetle that :", "16 Alias Candida ? (4-5)."],
+       ["23 Mechanical astronaut ? (6).", "26 Is about to study good pictures (5).",
+        "27 The Archbishop's upset in the river."]],
+      [[_og_cols[0][0][4], _og_cols[0][-1][4]], [l[4] for l in _og_cols[1]]])
+check("a second column start further right (four columns, a grid guessed wrong) keeps the gutter", None,
+      f.column_start([[w] for w in _og_ch + _og_en5 + [(1100, 4900, 1200, 4930, "12 Other column")]],
+                     508 + 0.2 * 718, 508 + 0.8 * 718, 4718, 6010, 1226))
+check("one row of openings is no column start", None,
+      f.column_start([[w] for w in _og_ch], 508 + 0.2 * 718, 508 + 0.8 * 718, 4718, 6010, 1226))
+
+# A list's last clue read on past its count into the print under it (ftp.clues ends a clue only at a bracket
+# before the next clue's number or the list's end), laid with no count, was blanked by the vote on the noise:
+# tail_cut() cuts it at the count that fills its light (Gale 1946-03-22's 25 down, 1972-05-08's 24 down).
+_rt_len = {"25-down": 5, "24-down": 5, "18-across": 7, "9-across": 7, "3-down": 9}
+_rt = f.tail_cut({"25-down": ("One need not fear being a taken in by them (5). ir th tb ca f o c ast", None, None),
+                  "24-down": ("No player has the advantage with this card (5) 01-6064954 AFRICA EVE", None, None),
+                  "18-across": ("Anag. of (7) tb ca", None, None),
+                  "9-across": ("A clue read into the next (7) Another clue (5)", None, None),
+                  "3-down": ("Put pints on points (9)", "9", None)}, _rt_len)
+check("a clue run on past its count is cut at the count that fills its light",
+      [("One need not fear being a taken in by them", "5", None),
+       ("No player has the advantage with this card", "5", None)], [_rt["25-down"], _rt["24-down"]])
+check("not at a bracket its words lead into, nor before another count, nor a clue laid with its count",
+      [("Anag. of (7) tb ca", None, None), ("A clue read into the next (7) Another clue (5)", None, None),
+       ("Put pints on points (9)", "9", None)], [_rt["18-across"], _rt["9-across"], _rt["3-down"]])
+check("nor at a count that does not fill the light, nor leaving a clue that ends on a light's number",
+      [("Taken in by them (6). ir th", None, None), ("City homophone of 24 (5) SOLUTIONOFPUZZLE", None, None)],
+      [f.tail_cut({"25-down": ("Taken in by them (6). ir th", None, None)}, _rt_len)["25-down"],
+       f.tail_cut({"24-down": ("City homophone of 24 (5) SOLUTIONOFPUZZLE", None, None)}, _rt_len)["24-down"]])
+check("the vote's blank reasons name the words it refused",
+      [{"th"}, {"PUZZLENO"}, {"OZRSB", "ONRAIB"}, set()],
+      [f.vote_words("no other reading has 'th'"), f.vote_words("both read 'PUZZLENO', not a word"),
+       f.vote_words("readings differ: OZRSB / ONRAIB"), f.vote_words("no reading laid a clue on it")])
+
+# The 2014 Times (Gale): the grid at the page's foot, the two clue columns right
+# of it, "Yesterday's solution" under the first; the third column is not read.
+from PIL import Image, ImageDraw
+page = Image.new("L", (3296, 2849), 255)
+ImageDraw.Draw(page).rectangle((1000, 2000, 1500, 2400), fill=0)  # clue-column text, as ink
+check("clues right of a grid at the page's foot are found", (1675, 2531),
+      f.right_columns(page, (196, 1598, 916, 2316)))
+check("a grid with room under it for clues has none right of it", None, f.right_columns(page, (196, 500, 916, 1218)))
+_gale = types.SimpleNamespace(key="gale")
+check("a 1947 Gale page's clues are not read right of the grid", False, f.clues_may_be_right(_gale, Path("GaleTimes1947UKEnglish/1947-05-17")))
+check("a 2014 Gale page's clues may be right of the grid", True, f.clues_may_be_right(_gale, Path("GaleTimes2014UKEnglish/2014-03-01")))
+# The 2009-13 Saturday prize page: the grid at the spread's foot, the clue columns right of it
+# (2009-10-24, No 24,365, refused "no reading parses" when the blurb under it was read as clues).
+check("a 2009 Gale Saturday's clues may be right of the grid", True, f.clues_may_be_right(_gale, Path("GaleTimes2009UKEnglish/2009-10-24")))
+check("a 2009 Gale weekday's are not", False, f.clues_may_be_right(_gale, Path("GaleTimes2009UKEnglish/2009-10-23")))
+check("nor a 2003 Gale Saturday's", False, f.clues_may_be_right(_gale, Path("GaleTimes2003UKEnglish/2003-05-03")))
+_sat = {"scan": {"item": "GaleTimes2009UKEnglish", "date": "2009-10-24"}, "readAt": "2026-10-25T08:17:27+00:00",
+        "verdicts": [{"number": 24365, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a 2009 Saturday refused no reading parses before the fix is due again", True, f.parses_era_due(_sat))
+check("as that refusal's fix", "refused no-reading-parses before its fix", f.fix_reason(_sat))
+check("not once read since", False, f.parses_era_due({**_sat, "readAt": "2026-10-29T00:00:00+00:00"}))
+check("nor a weekday's", False, f.parses_era_due({**_sat, "scan": {"item": "GaleTimes2009UKEnglish", "date": "2009-10-23"}}))
+check("nor the Sunday Times'", False, f.parses_era_due({**_sat, "scan": {"item": "GaleSundayTimes2009UKEnglish", "date": "2009-10-24"}}))
+check("a blank strip right of the grid holds no clues", None,
+      f.right_columns(Image.new("L", (3296, 2849), 255), (196, 1598, 916, 2316)))
+page2 = Image.new("L", (3296, 2849), 255)
+ImageDraw.Draw(page2).rectangle((1000, 2000, 1900, 2400), fill=0)  # clues out to 1.35 grids' widths
+check("the 2005 Times' clues run out further right of the grid than the 2014's", (1960, 2531),
+      f.right_columns(page2, (196, 1598, 916, 2316), f.RIGHT_SPAN_LEFT))
+rwords = [[(960, 1620, 1250, 1645, "Across")], [(1330, 1620, 1620, 1645, "build-up? (5,5)")],
+          [(960, 1650, 1250, 1675, "25 Drag performer by bar getting big")],
+          [(960, 2330, 1250, 2355, "Yesterday's solution 25,732")],
+          [(1330, 1650, 1640, 1675, "Down")], [(1330, 1680, 1640, 1705, "1 Man in the street (3,6)")]]
+rgrid = (196, 1598, 916, 2316)
+right = f.right_gutter(rwords, rgrid, (1675, 2531))
+rcols = f.columns(rwords, rgrid, right=right)
+check("the gutter lies between the right-hand columns", True, 1250 < right[1] < 1330)
+check("the two columns right of the grid read in order, the solution's heading ending the first",
+      [["Across", "25 Drag performer by bar getting big"], ["build-up? (5,5)", "Down", "1 Man in the street (3,6)"]],
+      [[l[4] for l in col] for col in rcols])
+check("a line headed Yesterday's solution stops a column", True, f.stops("Yesterday's solution 25,732"))
+# The Feb to May 2014 pages: the solution box under the grid is inked like a third column.
+ImageDraw.Draw(page).rectangle((1000, 2400, 1100, 2700), fill=0)
+check("that box alone reads as a third column under the grid", True, f.overhang(page, (196, 1598, 916, 2316)) is not None)
+check("clues right of the grid win over a third column read from that box", ((1675, 2531), None),
+      f.right_or_over(page, (196, 1598, 916, 2316)))
+
+# A reader cache a killed read left empty is read again, not fatal; a write leaves no half file.
+import tempfile
+from pathlib import Path
+with tempfile.TemporaryDirectory() as tmpd:
+    cp = Path(tmpd) / "sub" / "x.json"
+    check("a missing cache reads as None", None, f.read_cache(cp))
+    f.write_cache(cp, {"box": [1, 2, 3, 4], "words": []})
+    check("a written cache reads back", {"box": [1, 2, 3, 4], "words": []}, f.read_cache(cp))
+    check("no temporary file is left", ["x.json"], [p.name for p in cp.parent.iterdir()])
+    cp.write_text("")
+    check("an empty cache reads as None", None, f.read_cache(cp))
+    cp.write_text('{"box": [1, 2')
+    check("a half-written cache reads as None", None, f.read_cache(cp))
+
+# The 2006-13 Times (Gale): a grid mid-page with three clue columns under it,
+# the third overhanging the grid's right edge (2007-03-14, No 23,548).
+ogrid = (1150, 1287, 1870, 1999)
+opage = Image.new("L", (3296, 2955), 255)
+ImageDraw.Draw(opage).rectangle((1900, 2050, 2121, 2600), fill=0)  # the third column's text, as ink
+oend = f.overhang(opage, ogrid)
+check("a third clue column under the grid, overhanging it, ends where its ink does (within the window)", True,
+      oend is not None and 2121 <= oend <= 2121 + f.OVER_WINDOW)
+check("a blank page under the grid has no third column", None, f.overhang(Image.new("L", (3296, 2955), 255), ogrid))
+speck = Image.new("L", (3296, 2955), 255)
+ImageDraw.Draw(speck).rectangle((2000, 2100, 2010, 2110), fill=0)
+check("a speck in the margin is no third column", None, f.overhang(speck, ogrid))
+check("a grid with no room under it has no third column", None, f.overhang(opage, (1150, 2500, 1870, 3200)))
+check("a page with room under the grid keeps its third column", (None, oend), f.right_or_over(opage, ogrid))
+check("a 2010 Gale page keeps its overhang path with the right columns off", (None, oend), f.right_or_over(opage, ogrid, f.clues_may_be_right(_gale, Path("GaleTimes2010UKEnglish/2010-03-01"))))
+owords = [[(1110, 2050, 1420, 2072, "1 Nag CAMRA to move into")], [(1110, 2080, 1420, 2102, "stronger drink (8)")],
+          [(1480, 2050, 1780, 2072, "23 Tough punishment suspending")], [(1480, 2080, 1780, 2102, "paratrooper (4,4)")],
+          [(1805, 2050, 2105, 2072, "7 Sweet air must flow over one")], [(1805, 2080, 2105, 2102, "(8)")]]
+og = f.over_gutters(owords, ogrid, 2121)
+check("the gutters lie between the three columns, the last one ending where it was found", True,
+      1420 < og[0] < 1480 and 1780 < og[1] < 1805 and og[2] == 2121)
+ocols = f.columns(owords, ogrid, split=og)
+check("three columns under the grid read in order, the third past the grid's edge",
+      [["1 Nag CAMRA to move into", "stronger drink (8)"], ["23 Tough punishment suspending", "paratrooper (4,4)"],
+       ["7 Sweet air must flow over one", "(8)"]], [[l[4] for l in col] for col in ocols])
+check("the three windows start at the grid's outdented edge and end at the third's end",
+      (1110, 2121), (f.windows(ogrid, split=og)[0][0], f.windows(ogrid, split=og)[2][1]))
+# A held Times page short of clues, read before the third column was, is due again.
+held = {"scan": {"item": "GaleTimes2007UKEnglish", "date": "2007-03-14"}, "readAt": "2026-10-12T19:37:42+00:00",
+        "verdicts": [{"number": 23548, "clues": 22, "lights": 28, "complete": False}]}
+check("a held Gale Times 2007 page short of clues is read again", "short Times page, its third clue column read since",
+      f.fix_reason(held))
+check("a whole one, a refused one, another paper's, a 2014 page, or one read since is not", [None] * 5,
+      [f.fix_reason({**held, "verdicts": [{"clues": 28, "lights": 28, "complete": True}]}),
+       f.fix_reason({**held, "verdicts": [{"refused": "x", "cause": "unlisted"}]}),
+       f.fix_reason({**held, "scan": {"item": "GaleTelegraph2007UKEnglish", "date": "2007-03-14"}}),
+       f.fix_reason({**held, "scan": {"item": "GaleTimes2014UKEnglish", "date": "2014-09-17"}}),
+       f.fix_reason({**held, "readAt": "2099-01-01T00:00:00+00:00"})])
+check("a short 2007 page read before the third column leads the stale-scan reasons; a 2009 or a whole one does not",
+      [True, False, False],
+      [f.third_column_first(held), f.third_column_first({**held, "scan": {**held["scan"], "date": "2009-03-14"}}),
+       f.third_column_first({**held, "verdicts": [{"clues": 28, "lights": 28, "complete": True}]})])
+# A Gale Times 2000-14 page read with no title found, by other scan code, is scanned and read again.
+none = {"edition": "GaleTimes2000UKEnglish/2000-03-14", "inputs": "h", "scanKey": "old", "verdicts": [],
+        "scan": {"item": "GaleTimes2000UKEnglish", "date": "2000-03-14", "puzzles": [], "solutions": []},
+        "readAt": "2026-10-13T05:00:00+00:00"}
+check("a Gale 2000 page no title was found on by older scan code is due; by the current code, with a title, "
+      "read or of another paper is not; one failed to scan is due FAILED_SCAN; one of 1999 is due LONE_TITLE instead",
+      [f.NO_TITLE_RESCAN] + [None] * 3 + [f.FAILED_SCAN, f.LONE_TITLE, None],
+      [f.fix_reason(none), f.fix_reason({**none, "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2000UKEnglish/2000-03-14"))),
+                                         "scan": {**none["scan"], f.WHOLE_UNTITLED: True}}),
+       f.fix_reason({**none, "scan": {**none["scan"], "puzzles": [{"number": 21363}]}}),
+       f.fix_reason({**none, "verdicts": [{"number": 1, "complete": True}]}),
+       f.fix_reason({**none, "scan": {**none["scan"], "failed": "x"}}),
+       f.fix_reason({**none, "scan": {**none["scan"], "date": "1999-12-31", "item": "GaleTimes1999UKEnglish"}}),
+       f.fix_reason({**none, "scan": {**none["scan"], "item": "NewsUK2000UKEnglish"}})])
+# A page whose scan raised (10-28 r19: 8 Gale Times 2014 pages, "JSONDecodeError") is scanned once again.
+failed = {"edition": "GaleTimes2014UKEnglish/2014-03-05", "inputs": "h", "filesHash": "h",
+          "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2014UKEnglish/2014-03-05"))), "verdicts": [],
+          "scan": {"puzzles": [], "solutions": [], "failed": "JSONDecodeError: Expecting value"},
+          "readAt": "2026-10-18T03:07:34+00:00"}
+check("a failed scan read before REREAD_FAILED_SCAN is due FAILED_SCAN and stale; read since, with a verdict, "
+      "or not failed it is not",
+      [f.FAILED_SCAN, False, False, False, True],
+      [f.fix_reason(failed), f.scan_current(failed, "h"),
+       f.failed_rescan({**failed, "readAt": "2099-01-01T00:00:00+00:00"}),
+       f.failed_rescan({**failed, "verdicts": [{"number": 1, "refused": "x"}]}),
+       f.scan_current({**failed, "readAt": "2099-01-01T00:00:00+00:00"}, "h")])
+check("a failed scan's reason passes a blanket one and ranks 2", (f.FAILED_SCAN, 2),
+      (f.blanket_or_fix(failed, "inputs changed"), f.RANKS[f.FAILED_SCAN]))
+check("the failed-scan reread time is not in the future", True,
+      scan_queue.when(f.REREAD_FAILED_SCAN) <= scan_queue.when("now"))
+old = {**none, "edition": "GaleTimes1958UKEnglish/1958-12-31",
+       "scan": {**none["scan"], "item": "GaleTimes1958UKEnglish", "date": "1958-12-31"}}
+check("a Gale 1957-62 page no title was found on by older scan code is due too; one of 1956 or 1963 is due "
+      "INSET_GRID instead",
+      [f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, f.INSET_GRID, f.INSET_GRID],
+      [f.fix_reason(old),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1957UKEnglish", "date": "1957-01-02"}}),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1962UKEnglish", "date": "1962-12-31"}}),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1956UKEnglish", "date": "1956-12-31"}}),
+       f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1963UKEnglish", "date": "1963-01-02"}})])
+check("the third-column reread time is not in the future", True,
+      scan_queue.when(f.REREAD_THREE_COLUMNS[2]) <= scan_queue.when("now"))
+# A held 2005-06 Gale Times page, read before right_foreign() cut its clue window at the gutter, is due again.
+beside = {"edition": "GaleTimes2005UKEnglish/2005-11-26", "inputs": "h",
+          "scan": {"item": "GaleTimes2005UKEnglish", "date": "2005-11-26", "puzzles": [{"number": 99923144}]},
+          "readAt": "2026-10-22T18:25:48+00:00",
+          "verdicts": [{"number": 99923144, "id": "times-99923144", "clues": 29, "lights": 30, "complete": False,
+                        "blank": {"24-down": "no reading laid a clue on it"}}]}
+check("a held 2005 Gale Times page read before its window was cut at the gutter is read again, as evidence",
+      [f.RIGHT_FOREIGN_READ, 2, True],
+      [f.fix_reason(beside), f.RANKS[f.RIGHT_FOREIGN_READ], __import__("edition_queue").evidence_reason(f.RIGHT_FOREIGN_READ)])
+check("a whole one, a refused one or write, a 2006-11 or 2004 page, another paper's, or one read since is not", [False] * 7,
+      [f.right_foreign_held({**beside, "verdicts": [{"id": "times-99923144", "clues": 30, "lights": 30, "complete": True}]}),
+       f.right_foreign_held({**beside, "verdicts": [{**beside["verdicts"][0], "refusedWrite": "a book's copy"}]}),
+       f.right_foreign_held({**beside, "verdicts": [{"id": "times-99923144", "refused": "x", "cause": "unlisted"}]}),
+       f.right_foreign_held({**beside, "scan": {**beside["scan"], "item": "GaleTimes2006UKEnglish", "date": "2006-11-02"}}),
+       f.right_foreign_held({**beside, "scan": {**beside["scan"], "item": "GaleTimes2004UKEnglish", "date": "2004-11-26"}}),
+       f.right_foreign_held({**beside, "scan": {**beside["scan"], "item": "GaleTelegraph2005UKEnglish"}}),
+       f.right_foreign_held({**beside, "readAt": "2099-01-01T00:00:00+00:00"})])
+check("the right-window reread time is not in the future", True,
+      scan_queue.when(f.REREAD_RIGHT_FOREIGN[2]) <= scan_queue.when("now"))
+# right_foreign(): the window pulled in to the gutter before the advert, its boxes dropped from every reading.
+rgrid = (150, 1811, 870, 2510)
+rap = {"ch": [[(1356, 2409, 1719, 2435, "20 Raise sympathy with attitude (6)")],
+              [(1355, 2480, 1690, 2508, "24 Thick cushion for nestling (5)")],
+              [(1824, 2396, 1913, 2419, "Books Fi")], [(1824, 2468, 1913, 2492, "Times re")]],
+       "en5": [[(1356, 2409, 1719, 2435, "20 Raise sympathy with attitude (6)")]]}
+rr, rk = f.right_foreign(rap, rgrid, (1914, 2726))
+check("the 2005 window ends in the gutter, the advert's line ends dropped",
+      [True, 2726, ["20 Raise sympathy with attitude (6)", "24 Thick cushion for nestling (5)"], 1],
+      [1719 < rr[0] < 1824, rr[1], [ws[0][4] for ws in rk["ch"]], len(rk["en5"])])
+check("a window cutting into no print stands", ((1914, 2726), rap["en5"]),
+      (lambda r: (r[0], r[1]["en5"]))(f.right_foreign({"en5": rap["en5"]}, rgrid, (1914, 2726))))
+
+# fault(): what the filer refuses to file, and what the print really has.
+for text, enum, cells, want in [
+        ("Corrects sexually innocent Poles 22 Affected by American", "8", 8, "holds a clue number"),
+        ("The solution of Saturday's Prize Puzzle No 18,178 will appear next Saturday 26 The point is", "9", 9,
+         "holds a clue number"),
+        ("Conte crossword, page 22", "5", 5, "holds the page's text"),
+        ("Untie reef knots (41. Times Two Crossword, page 44", "4", 4, "holds the page's text"),
+        ("The solution to the Collins Competition will now Qualifier puzzle", "4", 4, "holds the page's text"),
+        ("None", "5", 5, "the text is the word None"),
+        ("Fine island, jolly compact", "5", 4, "its count"),
+        # ftcryptic-7261 8-down: the scan prints (7,6), one reading "(7.8) ' -".
+        ("Advice note can change ' prior announcement (7.8) ' -", "7,6", 13, "its words end in a count"),
+        ("Mother's cross raised (3);", "4", 4, None),
+        ("Laugh immoderately as Jack gets into quarrel", "4,5", 9, None),
+        ("3 3 on the watch", "5", 5, None),
+        ("under twenty-one", "5", 5, None),
+        ("Clumsy and old-fashioned in hack work", "11", 11, None),
+        ("Mournful supporter in English lac", "7", 7, None),
+        ("Basic material for 9 or Junius?", "9", 9, None),
+        ("Making notes to phone about the 18", "9", 9, None),
+        ("Removal of 25 I notice in distress outside", "8", 8, None),
+        ("See 9 Across", None, 5, None),
+        ("Market town supplying meat on 24 and 31 December?", "5", 5, None),
+        ('"Hollow pamper\'d Jades of - (2 Hen. IV)', "4", 4, None),
+        ('Thomas Huxley\'s 73 "organized common sense', "7", 7, None)]:
+    got = ocr_clues.fault(text, enum, cells)
+    check(f"fault {text[:30]!r}", want, got and got[:len(want)] if want else got)
+laid, blank = f.unfit_blanked({"22-down": ("Poles 22 Affected by it", "6", None), "1-across": ("Fine", "6", None),
+                               "3-across": ("Too long", "9", None)}, {}, {"22-down": 6, "1-across": 6, "3-across": 6})
+check("an unfit clue is filed blank, its count kept when it fills the light",
+      ({"22-down": ("", "6", None), "1-across": ("Fine", "6", None), "3-across": ("", None, None)},
+       ["22-down", "3-across"]), (laid, sorted(blank)))
+laid, blank = f.unfit_blanked({"1-across": ("Stop to0 late", "6", None), "2-down": ("Long", "4,3", ["2-down", "3-down"])},
+                               {}, {"1-across": 6, "2-down": 4, "3-down": 3, "4-down": 5})
+check("a suspect word, or a light no reading laid, is filed blank, a linked tail is not",
+      ({"1-across": ("", "6", None), "2-down": ("Long", "4,3", ["2-down", "3-down"]), "4-down": ("", None, None)},
+       ["1-across", "4-down"]), (laid, sorted(blank)))
+laid, blank = f.unfit_blanked({"1-across": ("Like ignis fatuus", "6", None), "3-across": ("Like ignis", "6", None)},
+                               {}, {"1-across": 6, "3-across": 6}, {"1-across": ["ignis", "fatuus"]})
+check("a word the clue's asPrinted keeps is filed; the same word unvouched is not (mirror)",
+      ({"1-across": ("Like ignis fatuus", "6", None), "3-across": ("", "6", None)}, ["3-across"]),
+      (laid, sorted(blank)))
+# A clue refused only for a stray mark or a no-word slip the mends clear is laid mended, not blanked first and so
+# never mended (Gale 1941-06-16's 25 down "Ne'er saw I,never felt,a"; Gale 1943-01-01's 21 down).
+laid, blank = f.unfit_blanked({"25-down": ("Ne'er saw I,never felt,a calm", "6", None),
+                               "21-down": ('"And a saint provoke"(Pope)', "6", None),
+                               "1-across": ("Lingua linguae", "6", None), "3-across": ("Stop to0 late", "6", None)},
+                              {}, {"25-down": 6, "21-down": 6, "1-across": 6, "3-across": 6})
+check("a glued comma or quote is laid mended; a foreign word or a digit inside a word is still blank",
+      ({"25-down": ("Ne'er saw I, never felt, a calm", "6", None), "21-down": ('"And a saint provoke" (Pope)', "6", None),
+        "1-across": ("", "6", None), "3-across": ("", "6", None)}, ["1-across", "3-across"]),
+      (laid, sorted(blank)))
+check("a dash or comma run into the words either side is spaced",
+      ["Hang play \u2014 change", "Two elements \u2014 somewhat", "now \u2014 then", "Good rum, as do, too",
+       "usage: acceptable", "1,000 men", "self-made", "Why? Yes!"],
+      [ocr_clues.clean(t) for t in ("Hang play--change", "Two elements\u2014somewhat", "now -- then",
+                                    "Good rum,as do,too", "usage:acceptable", "1,000 men", "self-made",
+                                    "Why\uff1f Yes\uff01")])
+check("a non-Latin character or a full stop inside a word is suspect", [True, True, False, False, False],
+      [bool(ocr_clues.suspect(t)) for t in ("\u738b4 Hang play", "Mutilate many.fish", "Caf\u00e9 \u2014 \u2018so\u2019 \u00a35",
+                                            "Oval . . . the C.I.D. man", "e.g. a dog")])
+check("a clue spaced by clean() is no longer suspect", [], ocr_clues.suspect(ocr_clues.clean("Agreed\u2014an unruly sort,as")))
+puz = {"entries": [{"number": 1, "direction": "across", "length": 6, "clue": {"text": "Fine", "enumeration": "6"}},
+                   {"number": 2, "direction": "down", "length": 4, "group": ["2-down", "3-down"],
+                    "clue": {"text": "Long 2 Joined", "enumeration": "4,3"}},
+                   {"number": 3, "direction": "down", "length": 3, "clue": {"text": "See 2"}}]}
+check("faults() counts a linked clue's lights together", ["2-down"], sorted(f.faults(puz)))
+check("a puzzle with a fault is not complete", False, f.complete(puz))
+
+# A word two other readings share that is no word goes in mended.
+others = [ocr_clues.tokens("This lener may be umsigned it should be remembered"),
+          ocr_clues.tokens("This ietter may be umsigned it should be remnembered"),
+          ocr_clues.tokens("This letter be 14")]
+check("a word lost from this reading goes in as the known word the others misread",
+      "This letter may be unsigned it should be remembered",
+      ocr_clues.agree("This letter may be it should be remembered", others)[0])
+
+# agree(): only what both readings say, or what the dictionary settles.
+stream = ocr_clues.tokens("8 Hope created this exalted 9 Bottom of a ship (3) 10 Nurse hoiding note (7) 11 Prinz Ahdk (5)")
+check("both readings agree", ("Bottom of a ship", "agree"), ocr_clues.agree("Bottom of a ship", stream))
+check("a misread settled by the other reading's dictionary word",
+      ("Nurse holding note", "settled by the dictionary"), ocr_clues.agree("Nurse holding note", stream))
+check("the clue's misread replaced by the other reading's word",
+      ("Hope created this exalted", "settled by the dictionary"), ocr_clues.agree("Hope crealed this exalted", stream))
+check("two non-words are a disagreement", None, ocr_clues.agree("Prinz Ahdq", stream)[0])
+check("a word the other reading lacks is a disagreement", None, ocr_clues.agree("Bottom of a big ship", stream)[0])
+check("both readers' one non-word mended to the known word a letter off", "Nurse holding note",
+      ocr_clues.agree("Nurse hoiding note", stream)[0])
+
+check("a capital only one reader saw inside the clue dropped", ("What is stated", "settled by the dictionary"),
+      ocr_clues.agree("What Is stated", ocr_clues.tokens("27 What is stated (9)")))
+got, _ = ocr_clues.reconcile({"25-across": ("As worn by agitator in back- street", "8", None)},
+                     "25 As worn by agitator in back-\nstreet (8)")
+check("a word hyphenated over a line end is joined as the corpus prints it", "As worn by agitator in backstreet",
+      got["25-across"][0])
+check("the clue's first word keeps its capital", ("Bottom of a ship", "agree"),
+      ocr_clues.agree("Bottom of a ship", ocr_clues.tokens("bottom of a ship")))
+
+# Three readings: a word the other two share outvotes mine; a mark no other
+# reading has is dropped; a non-word all three read is kept.
+two = [ocr_clues.marked("8 Wisdom shown by school-head when dress is questionable (10)"),
+       ocr_clues.marked("8 Wisdom shown by school-head when dress is questionabie (10)")]
+check("a lone comma no other reading has dropped",
+      "Wisdom shown by school-head when dress is questionable",
+      ocr_clues.agree("Wisdom shown by, school-head when dress is questionable", two)[0])
+check("a comma two readings have kept", "Talk, about a fellow",
+      ocr_clues.agree("Talk, about a fellow", [ocr_clues.marked("Talk, about a fellow"), ocr_clues.marked("Talk about a fellow")])[0])
+check("the spelling the other two readings share outvotes mine (dictionary words both)",
+      "Cashing in on Nigel's air", ocr_clues.agree("Cashing in on Nigel's ail",
+                                           [ocr_clues.marked("Cashing in on Nigel's air")] * 2)[0])
+check("a word one of two other readings has stands", "Sun god's not out",
+      ocr_clues.agree("Sun god's not out", [ocr_clues.marked("Son god's not out"), ocr_clues.marked("Sun gods not out")])[0])
+check("a non-word all three readings have, no letter from a word, kept", "Get production up qzxvbn",
+      ocr_clues.agree("Get production up qzxvbn", [ocr_clues.marked("Get production up qzxvbn")] * 2)[0])
+check("a name the corpus's clues know is a word", "Captain Hornblower at sea",
+      ocr_clues.agree("Captain Hornblower at sea", [ocr_clues.marked("3 Captain Hornblower at sea (7)", breaks=True)] * 2)[0])
+check("a lone letter no other reading has is a speck", "Annual production",
+      ocr_clues.agree("Annual l production", [ocr_clues.marked("4 Annual production (5)", breaks=True)] * 2)[0])
+got, blank = ocr_clues.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)},
+                         ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
+check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
+# The vote counts no brackets: one reading's "(" put back where the rest read
+# "i", "I" glued on or nothing (times-14500 1 across, real readings).
+got, blank = ocr_clues.reconcile({"1-across": ("Washing part of old Somerset Inew Aron) House ?", "8", None)},
+                                 ["1 Washing part of old Somer-\nset i new Avon) House ? (8).",
+                                  "1 Washing part of old Somer-\nset (new Aron) House ? (8).",
+                                  "1 Washing part of old Somer\nset new Aron) House ? (8)."], {"1-across": 8})
+check("a bracket the vote lost is put back where a reading prints it",
+      ("Washing part of old Somerset (new Avon) House?", {}), (got["1-across"][0], blank))
+check("a bracket two readings open at different words is not put back", None,
+      ocr_clues.bracket_reopened("A b c) d", ["A b (c) d", "A (b c) d"]))
+check("a bracket no reading opens is not put back", None, ocr_clues.bracket_reopened("A b c) d", ["A b c d"]))
+
+# A real word misread as another (real readings off the gold editions).
+def vote(clue, *readings):
+    return ocr_clues.agree(clue, [ocr_clues.marked(t, breaks=True) for t in readings])[0]
+check("a number standing for a word it looks like takes the word: \"10\" for \"to\" (Times 18,180 12A)",
+      "When in quarters, be agreeable to forming a unit",
+      vote("When in quarters, be agreeabie 10 forming a unit",
+           "1 When in quartets , be agreeable to forming a unit 1",
+           "1 When in quarters , be agreeable Io forming a unit 1",
+           "yt be tempted by partnership 1 Smoothed an upset in"))
+check("\"3\" for \"a\" where the other readings read \"a\" (Times 13,678 19A)", "A boy is backward, and not a girl",
+      vote("A bny is backward, and not 3 girl", "1 A boy Is backward , and not a girl 1",
+           "1 A bny is backward , and not a gir 1", "1 A boy is backward , and pot a girl 1"))
+check("a number the other readings print as a number stays", "Like a don in trouble with Homer in 3",
+      vote("Like a don in trouble with Homer in 3", "15 Like a don in trouble with Homer in 3 (5)",
+           "15 Like a don in trouble with Homer in 3 (5)"))
+check("a word one confused letter from a commoner one a reader has that fits far better (Times 16,786 20D)",
+      "Innovator of single element in breakwater",
+      vote("Innovator of single clement in breakwater", "1 Innovalor of singic clement in brcakwaleri 1",
+           "1 Innovator of singie element in breakwaler 1", "1 Innovator of single clement in reakwater 1"))
+check("\"ad\" for \"an\", one reader reading \"an\" (Times 13,682 23A)", "Its rate is adjusted for an entertainer",
+      vote("Its rate is Jdijusted for ad entertainer", "1 Its rare is adjusted for ad entertainer f",
+           "1 Irs rate is aujusted for ad cntertainer f", "1 tts rate is adjusted for an 1"))
+check("a non-word every reader shares, one confused letter from a word (Times 13,682 13A)",
+      "In its turn it does us a power of good",
+      vote("In its turn it does us a power ot good", "1 In its turn it does us a power ot good f",
+           "1 In its turn it does usa power ot good 1", "1 In its turn it does us a power ot good 1"))
+check("two readings' \"al\" gives way to \"at\" (Times 18,179 22D)", "In the Orient reeds are served at dinner",
+      vote("In the Orient reeds are served at dinner", "1 In the Orient reeds are served al dinner 1",
+           "1 In the Orient reeds are served al dinner 1", "wros they or reckon are following the"))
+check("a word three readings share is no slip of a commoner one that fits no better (Times 19,742 28A)",
+      "Result may be tame but filling food",
+      vote("Resull may be tame but filling food", "Times Two Crossword ,",
+           "1 Result may be tame but filling food 1", "1 Result may be tame but hifing food 1"))
+for clue in ("Chance it perhaps if over 50", "Lace it tight round top of stocking",
+             "Excellent worker in firm, one co-opted originally", "Disturbed when riding on 19ac"):
+    check(f"a word every reading has stays, however a confused letter would fit: {clue!r}", clue,
+          vote(clue, f"4 {clue} (5)", f"4 {clue} (5)", f"4 {clue} (5)"))
+
+# Words and marks this reading lost, and the print's commonest mark slips.
+three = [ocr_clues.marked(t, breaks=True) for t in ("9 Hurtful stuff, nicer as a cocktail? (7)",
+                                            "9 Hurtful stuff, nicer as a cocktail? (7)",
+                                            "9 Hurtfui stuff nicer as a cocktail (7)")]
+check("a comma most other readings have put in", "Hurtful stuff, nicer as a cocktail?",
+      ocr_clues.agree("Hurtful stuff nicer as a cocktail?", three)[0])
+lost = [ocr_clues.marked(t, breaks=True) for t in ("18 It's no go when caught (8)", "18 It's no go when caught (8)",
+                                           "18 Its no go when caught (8)")]
+check("lost opening words most readings have put in, with the capital", "It's no go when caught",
+      ocr_clues.agree("Go when caught", lost)[0])
+check("lost opening words the readings differ on blank the clue", None,
+      ocr_clues.agree("Go when caught", [ocr_clues.marked(t, breaks=True) for t in
+                                 ("18 It's no go when caught (8)", "18 Is so go when caught (8)")])[0])
+check("lost closing words most readings have put in", "Girls were well sustained by it",
+      ocr_clues.agree("Girls were well sustained by", [ocr_clues.marked("19 Girls were well sustained by it (7)", breaks=True)] * 2)[0])
+check("a dictionary tie goes to the word the corpus's clues put there", "A boy is backward",
+      ocr_clues.agree("A bny is backward", [ocr_clues.marked("19 A boy is backward (4)", breaks=True),
+                                    ocr_clues.marked("19 A bay is backward (4)", breaks=True)])[0])
+check("a dictionary tie no neighbour settles blanks the word", None,
+      ocr_clues.agree("Qxv bny qxv", [ocr_clues.marked("1 Qxv boy qxv (3)", breaks=True),
+                              ocr_clues.marked("1 Qxv bay qxv (3)", breaks=True)])[0])
+check("one reading's far shorter dictionary word is no rival", "Chucked one in",
+      ocr_clues.agree("Chucked one in", [ocr_clues.marked("24 Chuckeu one in (5)", breaks=True),
+                                 ocr_clues.marked("24 Che one in (5)", breaks=True)])[0])
+check("a rare word one ink slip from a far commoner one takes the commoner", "Bob hangs on to this",
+      ocr_clues.agree("Bob hangs ou to this", [ocr_clues.marked("3 Bob hangs ou to this (5)", breaks=True)] * 3)[0])
+check("the next clue run on is cut off, the count from the grid",
+      ({"5-down": ("Twists ends of osier into knot", "7", None)}, {}),
+      ocr_clues.reconcile({"5-down": ("Twists ends of osier into knot (7k 6 Protection for working", None, None)},
+                  ["5 Twists ends of osier into knot (7) 6 Protection for working"], {"5-down": 7, "6-down": 3}))
+check("a lone letter after the clue is its misread count, the count from the grid",
+      ({"2-down": ("A bit of nice dark wood", "5", None)}, {}),
+      ocr_clues.reconcile({"2-down": ("A bit of nice dark wood", None, None)},
+                  ["2 A bit of nice dark wood s 3 Next", "2 A bit of nice dark wood a 3 Next"], {"2-down": 5}))
+check("a mark dropped between two words leaves their space", "Lack of spirit after a storm",
+      ocr_clues.agree("Lack of spirit:after a storm", [ocr_clues.marked("1 Lack of spirit after a storm (4)", breaks=True)] * 2)[0])
+check("a misread clue number before the capital dropped", "Not small horse-pistols",
+      ocr_clues.agree("I Not small horse-pistols", [ocr_clues.marked(t, breaks=True) for t in
+                                            ("21 Not small horse-pistols (5)", "21 Not smal horse-pistols (5)")])[0])
+check("a full stop before a lower-case word is a comma", "Let nine go loose, being merciful",
+      ocr_clues.clean("Let nine go loose. being merciful"))
+check("an ellipsis and an abbreviation keep their stops", "Oval . . . the C.I.D. man",
+      ocr_clues.clean("Oval . . . the C.I.D. man"))
+check("a stop read twice after a word is one; an ellipsis stands (No 3's 52A, mirror)",
+      ["heard in 1857.", "for many years.", "Oval ... end..."],
+      [ocr_clues.clean(t) for t in ("heard in 1857..", "for many years..", "Oval ... end...")])
+check("a speck read as a hyphen after a lone A or to is a space (No 3's 5A, 26A)",
+      ["A town in the Punjab", "applied to part of India"],
+      [ocr_clues.clean(t) for t in ("A-town in the Punjab", "applied to-part of India")])
+check("the hyphens clues print after A or to stand (mirror)", ["to-day and to-morrow", "an A-bomb", "a-hunting we go"],
+      [ocr_clues.clean(t) for t in ("to-day and to-morrow", "an A-bomb", "a-hunting we go")])
+check("a misread clue number dropped takes its stop (No 3's 52D)", "Frontier cantonment.",
+      ocr_clues.agree("A. Frontier cantonment.", [ocr_clues.marked(t, breaks=True) for t in
+                                              ("52 Frontier cantonment. 53 Next", "52 Frontier cantoment. 53 Next")])[0])
+check("an I last before the count is an exclamation mark", "Flirted outrageously! (7)",
+      ocr_clues.clean("Flirted outrageously I (7)"))
+check("a word broken over a line end is joined", "Almost admire a lieutenant unknown",
+      ocr_clues.clean("Almost admire a lieutenant un-\nknown"))
+check("a line-end hyphen the corpus's clues print closed is the line break's", "agitator in backstreet",
+      ocr_clues.clean("agitator in back-\nstreet"))
+check("a line-end hyphen the corpus's clues print hyphenated is the compound's", "start is short-lived",
+      ocr_clues.clean("start is short-\nlived"))
+check("a name hyphenated over a line end is joined", "resembling Palgrave's Treasury",
+      ocr_clues.clean("resembling Pal-\ngrave's Treasury"))
+check("a compound the corpus never prints keeps its hyphen", "Wisdom shown by school-head",
+      ocr_clues.clean("Wisdom shown by school-\nhead"))
+check("a hyphen inside a line breaking a lexicon word is joined",
+      ["Kohoutek's brilliant predecessor", "Becoming a supporter with obvious hesitation", "to do housework"],
+      [ocr_clues.unhyphen(t) for t in ("Kohoutek's brilliant pre-decessor",
+                                       "Becoming a supporter with ob-vious hesitation", "to do house-work")])
+check("a hyphen inside a line stands where the corpus's clues print that form",
+      ["in back-street", "Sea-bird", "It's breath-taking", "to co-operate", "is short-lived", "by school-head",
+       "an Anglo-Saxon", "a well-to-do man"],
+      [ocr_clues.unhyphen(t) for t in ("in back-street", "Sea-bird", "It's breath-taking", "to co-operate",
+                                       "is short-lived", "by school-head", "an Anglo-Saxon", "a well-to-do man")])
+import vlm_reader
+_ask = vlm_reader.ask
+vlm_reader.ask = lambda image, prompt, max_tokens=0: "14 Kohoutek's brilliant pre-decessor (7, 5)"
+check("the VLM's column and pick readings have a line end's hyphen joined",
+      ["14 Kohoutek's brilliant predecessor (7, 5)", "14 Kohoutek's brilliant predecessor (7, 5)"],
+      [vlm_reader.read(None), vlm_reader.pick_in(None, "14-across", [])])
+vlm_reader.ask = _ask
+class _Page:
+    width, height = 2000, 3000
+_junk = [(500, 536, 100, 133)]    # lines (y0, y1, x0, x1): a stray 33x36 px crop (FT 1987-02-07)
+_column = [(500, 1500, 100, 480)]  # a clue column: 380x1000 px
+_short = [(500, 780, 100, 480)]    # a column of a few clues: 380x280 px
+_skipped = len(vlm_reader.SKIPPED_SMALL)
+check("a crop too small to hold a clue column gets no VLM ask; real columns keep theirs",
+      [None, True, True],
+      [vlm_reader.boxes(_Page, [0], [[_junk]])[0]]
+      + [vlm_reader.boxes(_Page, [0], [[c]])[0] is not None for c in (_column, _short)])
+check("the skipped crop is noted", _skipped + 1, len(vlm_reader.SKIPPED_SMALL))
+got, _ = ocr_clues.reconcile({"8-down": ("Odd minorities can with right bring counter-charges", "14", None)},
+                             ["8 Odd minorities can with right bring counter-charges\n(14)"] * 2)
+check("an OCR reading's hyphen inside a line is the print's own", "Odd minorities can with right bring counter-charges",
+      got["8-down"][0])
+check("a 1 standing as a word inside a clue is an I", "in letter I posted (4)", ocr_clues.clean("in letter 1 posted (4)"))
+check("a 1 naming a light stays", ["see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film"],
+      [ocr_clues.clean(t) for t in ("see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film")])
+check("a lone I some reading lacks is a speck", ["Turn on at length an item", "Turn on at length an item"],
+      [ocr_clues.agree("Turn on at length an item", [ocr_clues.marked(t, breaks=True) for t in (
+           "8 Turn on at length 1 an item (6)", "8 Turn on at length 1 an item (6)", "8 Turn on at length an item (6)")])[0],
+       ocr_clues.agree("Turn on at length I an item", [ocr_clues.marked(t, breaks=True) for t in (
+           "8 Turn on at length an item (6)", "8 Turn on at length an item (6)", "8 Turn on at length I an item (6)")])[0]])
+check("a lone I every reading has stands", "in letter I posted",
+      ocr_clues.agree("in letter I posted", [ocr_clues.marked(ocr_clues.clean("8 in letter 1 posted (6)"), breaks=True)] * 3)[0])
+got, blank = ocr_clues.reconcile({"1-down": ("Unusual way over the mountains", "7", None)},
+                         ["25 Vanquished (8)\nDOWN\nI Unusual way over the mountains (7)"] * 2)
+check("the DOWN heading over 1 down is no lost word of it", "Unusual way over the mountains", got["1-down"][0])
+check("a heading read badly is still the heading; a stray capital word is not",
+      ["DOWN", "DOWN", "ACROSS", None, None],
+      [f.heading_of(t) for t in ("DOW'N", "DOIN", "AROSS", "Down in", "SOLUTION")])
+check("a line starting a lower-case down carries on the line before", "9 Engineer tbe break down (8)\n10 Next (4)",
+      f.tidy("9 Engineer tbe break\ndown (8).\n10 Next (4)"))
+check("a possessive of a dictionary word is a word", True, ocr_clues.is_word("Lear's") and ocr_clues.is_word("bookie's"))
+
+# The solution grid's blocks: a heavy print's block flecked with paper is a
+# block; a light whose letter is fat is not.
+import numpy as np, trove_solution_ocr as tso
+rng = np.random.default_rng(1)
+gray = np.full((300, 300), 255, np.uint8)
+for k in range(6):
+    gray[k * 60:k * 60 + 6, :] = 0
+    gray[:, k * 60:k * 60 + 6] = 0
+gray[60:120, 60:120] = 0
+fleck = rng.random((60, 60)) < 0.15
+gray[60:120, 60:120][fleck] = 255           # the block: 15% white flecks
+gray[130:170, 140:160] = 0                  # a fat letter in the light at (2, 2)
+gray[130:150, 125:175] = 0
+gray = np.where(gray == 0, rng.integers(0, 40, gray.shape), rng.integers(200, 256, gray.shape)).astype(np.uint8)
+grid5 = [".....", ".#...", ".....", ".....", "....."]
+check("a flecked block read as a block, a fat letter's light as a light", 1.0,
+      tso.block_agreement(gray, grid5, (0, 0, 60, 60)))
+# blocks_sure / sure_framing: a framing that finds every block, a few inked lights read as blocks too, is
+# sure (a heavy print); one that misses a block is not, however well it fits; the classifier reads the
+# best-fitting sure framing (times-20419: two framings at 0.969, the first missed a block).
+rules5 = ([k * 60 for k in range(6)], [k * 60 for k in range(6)])
+inked = gray.copy()
+for r, c in [(0, 0), (3, 1), (4, 4)]:
+    inked[r * 60 + 6:(r + 1) * 60, c * 60 + 6:(c + 1) * 60] = 10
+lost = gray.copy()
+lost[66:120, 66:120] = 240
+fits5 = [round(tso.block_agreement(g, grid5, rules5), 3) for g in (lost, inked)]
+check("an inked print with every block found is sure, a framing missing a block is not; the sure one is read",
+      [[0.96, 0.88], True, False, 1, None],
+      [fits5, tso.blocks_sure(inked, grid5, rules5, fits5[1]), tso.blocks_sure(lost, grid5, rules5, fits5[0]),
+       tso.sure_framing([(lost, *rules5), (inked, *rules5)], grid5, fits5),
+       tso.sure_framing([(lost, *rules5)], grid5, fits5[:1])])
+# blocks_ranked: a grey print's block (its ink a coarse mesh, paper over BLOCK_PAPER) is read a light, but it
+# holds less paper than every light: the framing is sure; for a grid with the block elsewhere it is not.
+grey5 = gray.copy()
+for y in range(66, 120, 12):
+    grey5[y:y + 5, 66:120] = 230
+grey5[129:171, 129:171] = np.where(grey5[129:171, 129:171] < 100, 230, grey5[129:171, 129:171])
+check("a grey block read as a light, yet the least paper of all cells, is a sure framing; not for another grid",
+      [False, True, True, False],
+      [tso.blocks_read(grey5, rules5, 5)[(1, 1)], tso.blocks_ranked(grey5, grid5, rules5), tso.blocks_sure(grey5, grid5, rules5),
+       tso.blocks_ranked(grey5, [".....", "...#.", ".....", ".....", "....."], rules5)])
+# blurred_framing: a dot-screened block blurred to a tone is darker than every light, lettered or not: the
+# framing is read; not for a grid with its blocks elsewhere, nor a stub framing's (tests' string grays).
+screen = np.full((300, 300), 250, np.uint8)
+for k in range(6):
+    screen[k * 60:k * 60 + 6, :] = 0
+    screen[:, k * 60:k * 60 + 6] = 0
+screen[66:120, 66:120] = np.where((np.add.outer(np.arange(54), np.arange(54)) % 2) == 0, 0, 250)
+for r, c in [(0, 2), (2, 2), (3, 4)]:
+    screen[r * 60 + 20:r * 60 + 46, c * 60 + 30:c * 60 + 36] = 0   # a letter's stroke
+other5 = ["#...#", ".....", "..#..", ".....", "#...#"]
+check("a dot-screened block blurred is the darkest cell: its framing read; another grid's or a stub's is not",
+      [0, True, 1, None, None],
+      [tso.blurred_misses(screen, grid5, rules5), tso.blurred_misses(screen, other5, rules5) > tso.BLURRED_MISS,
+       tso.blurred_framing([("stub", *rules5), (screen, *rules5)], grid5, [0.9, 0.9]),
+       tso.blurred_framing([(screen, *rules5)], other5, [0.9]), tso.blurred_framing([("stub", *rules5)], grid5, [0.9])])
+# lettered_framing: of framings no block test judges, the one whose classifier letters are the reading's own
+# (LETTERED_AGREE of LETTERED_MIN or more) is read; one cut a half cell off (other letters), a stub framing's, or a
+# reading of too few letters is not. Stub classifier: a framing of ones reads the reading's letters, zeros "Z".
+grid7 = ["." * 7] * 7
+_lt_letters = {(r, c): "ABCDEFG"[c] for r in range(7) for c in range(7)}
+_lt_real = tso.classified, tso.glyph
+tso.glyph = lambda g, ys, xs, r, c: (int(g[0, 0]), r, c)
+tso.classified = lambda glyphs: {rc: np.eye(26)[tso.AZ.index(_lt_letters[rc] if v[0] else "Z")] for rc, v in glyphs.items()}
+try:
+    _lt_on, _lt_off, _lt_lat = np.ones((2, 2), int), np.zeros((2, 2), int), (list(range(8)), list(range(8)))
+    _lt_got = [tso.lettered_framing([("stub", *_lt_lat), (_lt_off, *_lt_lat), (_lt_on, *_lt_lat)], grid7, _lt_letters),
+               tso.lettered_framing([(_lt_off, *_lt_lat)], grid7, _lt_letters),
+               tso.lettered_framing([(_lt_on, *_lt_lat)], grid7, dict(list(_lt_letters.items())[:tso.LETTERED_MIN - 1])),
+               tso.lettered_framing([("stub", *_lt_lat)], grid7, _lt_letters)]
+finally:
+    tso.classified, tso.glyph = _lt_real
+check("lettered_framing: the framing reading the reading's letters is read; another's, a stub's or a thin reading's not",
+      [2, None, None, None], [_lt_got[0] and _lt_got[0][0], *_lt_got[1:]])
+
+# improves(): a reading replaces a file this tool filed when it beats it.
+pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()
+def p3(texts, acq=f.TOOL):
+    return {"source": {"acquiredBy": acq}, "dimensions": {"cols": 3, "rows": len(texts)},
+            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": 3,
+                         "clue": {"text": t}, "solution": None} for i, t in enumerate(texts)]}
+(pz / "own.json").write_text(json.dumps(p3([""])))
+(pz / "theirs.json").write_text(json.dumps(p3([""], "tools/acquire_book.py")))
+(pz / "two.json").write_text(json.dumps(p3(["Top", "", ""])))
+check("a fuller reading that blanks a clue the file has does not replace it", False,
+      f.improves(p3(["", "Low", "Mid"]), pz / "two.json"))
+check("a fuller reading replaces this tool's file, never another tool's or an equal one",
+      [True, False, False], [f.improves(p3(["Top"]), pz / "own.json"),
+                             f.improves(p3(["Top"]), pz / "theirs.json"),
+                             f.improves(p3([""]), pz / "own.json")])
+
+# keep_held_clues(): a reading that improves() the file keeps the held clues it only spoils with
+# the neighbouring print's words (times-18379), and takes a held blank and a real correction.
+(pz / "held.json").write_text(json.dumps(p3(["Bow's used the wrong way by fiddler",
+                                             "Get cross, having seen some petrol spilt", "", "Fudqe the dish"])))
+spoiled = p3(["Bow's used the wrong way by For the fiddler", "Get cross, having seen some pet-code, rol spilt",
+              "Blanket it provides protection", "Fudge the dish"])
+check("a held clue the reread only spoils with stray words stays, a blank and a mend are taken",
+      [[1, 2], ["Bow's used the wrong way by fiddler", "Get cross, having seen some petrol spilt",
+                "Blanket it provides protection", "Fudge the dish"]],
+      [sorted(int(i.split("-")[0]) for i in f.keep_held_clues(spoiled, json.loads((pz / "held.json").read_text()))),
+       [e["clue"]["text"] for e in spoiled["entries"]]])
+
+# expected_number(): a misdated item is caught, a dated one passes.
+import datetime
+check("numbers the dates imply, either side of the shutdown",
+      [True, True, True, True, False],
+      [abs(n - f.expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
+       for d, n in [("1974-05-02", 13677), ("1985-07-11", 16786), ("1995-01-03", 19742),
+                    ("1998-07-25", 20853), ("1965-07-05", 20212)]])
+
+# placed(): the edition's date fixes a misread number when its filed
+# neighbours run unbroken, and refuses one out of date order (times-18873
+# was read as 18879 between 18872 on Saturday and 18874 on Tuesday).
+D = datetime.date.fromisoformat
+held = {18872: D("1992-03-21"), 18874: D("1992-03-24")}
+check("a number misread between unbroken neighbours files as the one its date fixes",
+      (18873, None), f.placed(18879, D("1992-03-23"), held))
+gap = {18872: D("1992-03-21"), 18880: D("1992-04-02")}
+check("across a gap, a number out of date order is refused and one in order kept",
+      [None, 18875], [f.placed(18890, D("1992-03-25"), gap)[0], f.placed(18875, D("1992-03-25"), gap)[0]])
+check("a number filed for another day is refused",
+      None, f.placed(18880, D("1992-03-25"), {18880: D("1992-04-02")})[0])
+# mended_digit(): the 1983 FT's "1" read as "4" ("5,401" on 1983-02-18, when
+# the date implies 5,099) is mended by the number its filed neighbours imply,
+# or with none, by the one digit worth 100 or more that brings it near the
+# date's number. Anything else stays refused.
+check("a number one digit off what its unbroken neighbours imply is theirs",
+      5101, f.mended_digit(5401, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
+check("a number one digit short of what its unbroken neighbours imply is theirs (1930's 8 for 88)",
+      88, f.mended_digit(8, D("1930-05-15"), 88, {87: D("1930-05-14"), 89: D("1930-05-16")}))
+check("(mirror) a number one digit short of nothing its neighbours imply mends nothing",
+      None, f.mended_digit(9, D("1930-05-15"), 88, {87: D("1930-05-14"), 89: D("1930-05-16")}))
+check("(mirror) neighbours implying a number two digits off mend nothing",
+      None, f.mended_digit(5421, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
+check("with no neighbours, the hundreds digit that brings it near the date's number is mended",
+      5101, f.mended_digit(5401, D("1983-02-18"), 5099, {}))
+check("an FT title with a digit lost is mended to the one insertion near the date's number",
+      [11738, 12115, None], [f.mended_digit(1738, D("2005-01-15"), 11744, {}, lost=True),
+                             f.mended_digit(2115, D("2006-04-04"), 12119, {}, lost=True),
+                             f.mended_digit(1738, D("2005-01-15"), 11744, {})])
+# issue_dated(): an FT item title's date is weighed against the editions
+# numbered either side of its issue. #26722, titled Jul 16 1975 between #26721
+# (Fri Jul 18) and #26723 (Mon Jul 21), is Saturday Jul 19 (ftcryptic-2833).
+ft75 = ["1975-04-30_26654", "1975-05-01_26664", "1975-05-02_26656", "1975-05-10_26663", "1975-05-12_26664",
+        "1975-05-13_26665", "1975-07-15_26718", "1975-07-16_26719", "1975-07-16_26722", "1975-07-17_26720",
+        "1975-07-18_26721", "1975-07-21_26723"]
+check("a title date out of order with its issue neighbours is the day both count to",
+      (D("1975-07-19"), None, True), f.issue_dated("1975-07-16_26722", D("1975-07-16"), ft75))
+check("(mirror) a title date its issue neighbours bracket stands, vouched for",
+      (D("1975-07-16"), None, True), f.issue_dated("1975-07-16_26719", D("1975-07-16"), ft75))
+check("a misread issue number (#26664 for #26655) counting to another edition's date leaves the title's",
+      (D("1975-05-01"), None, False), f.issue_dated("1975-05-01_26664", D("1975-05-01"), ft75))
+check("(mirror) the edition its shared issue number is right for stands, vouched for",
+      (D("1975-05-12"), None, True), f.issue_dated("1975-05-12_26664", D("1975-05-12"), ft75))
+ft89 = ["1989-01-20_30748", "1989-01-22_30749", "1989-01-23_30750", "1989-04-28_30830", "1989-04-30_30831",
+        "1989-05-02_30832"]
+check("an FT edition titled on a Sunday is the Saturday its issue neighbours count to",
+      (D("1989-01-21"), None, True), f.issue_dated("1989-01-22_30749", D("1989-01-22"), ft89))
+check("(mirror) a Sunday its issue neighbours do not settle is refused",
+      (None, True), (lambda r: (r[0], bool(r[1])))(f.issue_dated("1989-04-30_30831", D("1989-04-30"), ft89)))
+check("issue_step skips Sundays both ways", [D("1975-07-21"), D("1975-07-19"), D("1975-07-19")],
+      [f.issue_step(D("1975-07-19"), 1), f.issue_step(D("1975-07-21"), -1), f.issue_step(D("1975-07-18"), 1)])
+# ft_dated(): a date another number is filed for, or out of order with the
+# puzzles numbered either side, moves to the day those count to.
+# ftcryptic-2262, from #26148 titled Aug 30 1973 (a date its issue
+# neighbours vouch for), is Aug 31: 2261 is filed for Aug 30, 2264 for Sep 3.
+held73 = {2259: D("1973-08-28"), 2260: D("1973-08-29"), 2261: D("1973-08-30"), 2264: D("1973-09-03")}
+check("a date another FT number is filed for moves to the day its numbered neighbours count to",
+      (D("1973-08-31"), None), f.ft_dated(2262, D("1973-08-30"), held73, True))
+check("... and placed() keeps its number there", (2262, None), f.placed(2262, D("1973-08-31"), held73))
+held75 = {2829: D("1975-07-15"), 2832: D("1975-07-18"), 2834: D("1975-07-21")}
+check("a date out of number order, not vouched for by issue, moves",
+      (D("1975-07-19"), None), f.ft_dated(2833, D("1975-07-16"), held75, False))
+check("(mirror) one vouched for by issue and filed for no other number stays: the number is the misread",
+      (D("1975-07-16"), None), f.ft_dated(2833, D("1975-07-16"), held75, True))
+check("(mirror) a date in number order stays", (D("1975-07-19"), None), f.ft_dated(2833, D("1975-07-19"), held75, True))
+check("a taken date its numbered neighbours do not settle is refused",
+      (None, True), (lambda r: (r[0], bool(r[1])))(f.ft_dated(2262, D("1973-08-30"),
+                                                              {2261: D("1973-08-30"), 2264: D("1973-09-08")}, True)))
+check("(mirror) a number two digits from the date's, or only its units digit, is not mended",
+      [None, None, None], [f.mended_digit(5481, D("1983-02-18"), 5099, {}),
+                           f.mended_digit(20212, D("1965-07-05"), 10914, {}),
+                           f.mended_digit(200, D("1930-10-03"), 209, {})])
+check("six issues a week, none on Sunday", [1, 6, 7], [f.issues_between(D("1992-03-21"), D("1992-03-23")),
+      f.issues_between(D("1992-03-21"), D("1992-03-28")), f.issues_between(D("1992-03-21"), D("1992-03-30"))])
+
+# same_scan(): a scan page already filed under another number for that day
+# is refused (times-19130 was times-19129 misread); a refile of the same
+# number, or the page on another day, is not.
+scan_root = Path(os.environ["TMP"]) / "scan_root"
+(scan_root / "puzzles" / "times" / "1993").mkdir(parents=True)
+edition_dir = Path(os.environ["TMP"]) / "NewsUK1993UKEnglish" / "1993-01-16_64544"
+edition_dir.mkdir(parents=True)
+(edition_dir / "pages.json").write_text(json.dumps(
+    {"item": "NewsUK1993UKEnglish", "edition": "Jan 16 1993, The Times, #64544, UK (en)"}))
+url = f.PAGE_URL.format(edition=f.edition_of(edition_dir, {"item": "NewsUK1993UKEnglish"}), leaf=17)
+check("the scan url names the edition's file inside the item, not the item alone",
+      "https://archive.org/details/NewsUK1993UKEnglish/Jan%2016%201993%2C%20The%20Times%2C%20%2364544%2C%20UK%20%28en%29"
+      "/page/n17/mode/1up", url)
+check("a second edition of the item has a different url",
+      True, url != f.PAGE_URL.format(edition="NewsUK1993UKEnglish/Jan%2018%201993%2C%20The%20Times%2C%20%2364545%2C%20UK%20%28en%29", leaf=17))
+(scan_root / "puzzles" / "times" / "1993" / "times-19129.json").write_text(
+    json.dumps({"date": "1993-01-16", "source": {"url": url}}))
+real_root, f.ROOT = f.ROOT, scan_root
+check("a scan page held under another number that day is refused, naming both",
+      True, "19130" in (f.same_scan(19130, url, D("1993-01-16"), "times") or "")
+      and "19129" in f.same_scan(19130, url, D("1993-01-16"), "times"))
+check("a refile of the number holding the page, and the page on another day, are not",
+      [None, None], [f.same_scan(19129, url, D("1993-01-16"), "times"),
+                     f.same_scan(19130, url, D("1993-01-18"), "times")])
+
+# held_dates() and held_scans() share one parse per file (held_files): a
+# read unit forked after plan() warmed it parses no file of the series,
+# and a file that changes is parsed again.
+(scan_root / "puzzles" / "times" / "1993" / "times-19131.json").write_text(json.dumps({"date": "1993-01-18"}))
+parsed, real_loads = [], f.json.loads
+f.json.loads = lambda text, *a, **k: parsed.append(text) or real_loads(text, *a, **k)
+f._HELD.clear()
+f._HELD_LISTED.clear()  # a new process
+f.held_dates("times")
+check("held_scans after held_dates parses no file again", [{(url, "1993-01-16"): [19129]}, 2],
+      [f.held_scans("times"), len(parsed)])
+os.utime(scan_root / "puzzles" / "times" / "1993" / "times-19131.json", ns=(1, 1))
+f._HELD_LISTED.clear()  # an in-place change: seen once the listing is HELD_FRESH old
+check("a file whose stat moved is parsed again, the other not",
+      [{19129: D("1993-01-16"), 19131: D("1993-01-18")}, 3], [f.held_dates("times"), len(parsed)])
+f.json.loads = real_loads
+# held_dates and held_scans stand per listing version: a re-list finding
+# what the last one did keeps the same Held, and a brief inside held_once
+# on the listing before neither evicts nor is served the newer one.
+kept = f.held_dates("times")
+os.utime(scan_root / "puzzles" / "times" / "1993" / "times-19131.json", ns=(2, 2))
+f._HELD_LISTED[("times")] = (float("-inf"), *f._HELD_LISTED["times"][1:])  # HELD_FRESH old
+check("a re-list finding the same puzzles keeps the same Held", True, f.held_dates("times") is kept)
+with f.held_once():
+    inside = f.held_dates("times")
+    (scan_root / "puzzles" / "times" / "1993" / "times-19132.json").write_text(json.dumps({"date": "1993-01-19"}))
+    f._HELD_LISTED["times"] = (float("-inf"), *f._HELD_LISTED["times"][1:])
+    now = f.held_dates("times")
+    check("held_once keeps its listing's Held while another thread lists afresh", [True, False],
+          [now is inside, 19132 in now])
+fresh = f.held_dates("times")
+check("outside held_once the new listing stands, and stays one object",
+      [D("1993-01-19"), True, True], [fresh[19132], f.held_dates("times") is fresh, fresh is not inside])
+(scan_root / "puzzles" / "times" / "1993" / "times-19132.json").unlink()
+f._HELD_LISTED.clear()
+f.ROOT = real_root
+
+# solution_sources links an edition again only when the filed puzzles in its
+# hosted_window differ: one filed months away reuses the last link, one the
+# day before links afresh, and each equals linked_solutions of that held.
+found = {"date": "1993-01-18", "puzzles": [{"number": 19131, "leaf": 3}],
+         "solutions": [{"number": 19130, "leaf": 3}]}
+d = Path("/nowhere/NewsUK1993UKEnglish/1993-01-18")
+base = {19129: D("1993-01-16"), 19000: D("1992-08-17")}
+k = (os.fspath(d), f.paper_of(d))
+f._LINKED.pop(k, None)
+first = f._linked(d, found, f.Held(base))
+far = f.Held({**base, 18990: D("1992-08-05")})
+again = f._linked(d, found, far)
+near = f.Held({**base, 19130: D("1993-01-17")})
+check("a puzzle filed far away reuses the link; one in the window relinks",
+      [True, f.linked_solutions(f.TIMES, found, far), f.linked_solutions(f.TIMES, found, near), True],
+      [again is first, again, f._linked(d, found, near), f._LINKED[k][3] == f.held_between(near, f._LINKED[k][2])])
+# Another thread's fold of the ledger holds an equal scan, not the same object.
+copy = json.loads(json.dumps(found))
+check("an equal scan from another thread's rows reuses the link; a changed one relinks",
+      [True, True, f.linked_solutions(f.TIMES, {**copy, "solutions": []}, near)],
+      [f._linked(d, copy, near) is f._LINKED[k][4], f._LINKED[k][0] is copy,
+       f._linked(d, {**copy, "solutions": []}, near)])
+check("hosted_window spans SOLUTION_DAYS after and HOST_REACH days before", (D("1993-01-07"), D("1993-01-25")),
+      f.hosted_window(f.TIMES, found))
+check("an edition with no headings reads no held", None, f.hosted_window(f.TIMES, {**found, "solutions": []}))
+# A 2000s Gale Monday prints the Saturday prize nine days before it ("Solution to Prize Crossword
+# 23,420" under 2006-10-23's 23,427): hosted names it, hosted_window reaches it, host_days looks there.
+pz = {"date": "2006-10-23", "item": "GaleTimes2006UKEnglish", "puzzles": [{"number": 23427, "leaf": 0}],
+      "solutions": [{"number": 23420, "leaf": 0}]}
+prize_held = {23420: D("2006-10-14"), 23426: D("2006-10-21")}
+check("a Monday of the 2000s hosts the prize of the Saturday nine days before, a 1993 one does not; "
+      "hosted_window reaches it", ({23426, 23420}, {23426}, (D("2006-10-12"), D("2006-10-30")), [True, False]),
+      (f.hosted(pz, prize_held) & {23426, 23420}, f.hosted({**pz, "date": "1993-01-18"}, prize_held) & {23426, 23420},
+       f.hosted_window(f.GALE, pz), [f.prize_monday(D("2006-10-23")), f.prize_monday(D("2006-10-24"))]))
+check("a Saturday of 2000 on has the Monday week after as a second host; a weekday has one",
+      ([D("2006-10-21"), D("2006-10-23")], [D("2006-10-18")]), (f.host_days(D("2006-10-14")), f.host_days(D("2006-10-17"))))
+# Before 1981-07-04 a Saturday's solution prints on the Monday after (1970-05-11 holds 12,463 of 05-09),
+# from it a week on (1981-07-11 holds 15,569 of 07-04); hosted reads the Monday's as its title's issue before.
+check("a Saturday before 1981-07-04 is hosted by the Monday after, one from it by the Saturday after; "
+      "the Monday hosts the Saturday's number",
+      ([D("1970-05-11")], [D("1981-06-29")], [D("1981-07-11")], True),
+      (f.host_days(D("1970-05-09")), f.host_days(D("1981-06-27")), f.host_days(D("1981-07-04")),
+       12463 in f.hosted({"date": "1970-05-11", "item": "GaleTimes1970UKEnglish", "puzzles": [{"number": 12464, "leaf": 0}],
+                          "solutions": [{"number": 12463, "leaf": 0}]}, {12463: D("1970-05-09")})))
+# No Times on 25 Dec (none in the archive): its solutions print in the next issue; 26 Dec and Good
+# Friday only some years, so a host there not on disk has the next issue too.
+check("a solution due on 25 Dec or a Sunday prints in the next issue; 26 Dec off disk gives way to the next; "
+      "the 27 Dec Monday hosts the 18 Dec Saturday's prize",
+      ([D("2007-12-26"), D("2007-12-27")], [D("1993-12-27")], [D("2006-12-23"), D("2006-12-26")], [D("1990-12-26"), D("1990-12-27")],
+       [D("2008-12-26")], [D("1974-04-12"), D("1974-04-13")], D("1974-04-11"), True, [D("1993-12-18")]),
+      (f.host_days(D("2007-12-24")), f.host_days(D("1993-12-18")), f.host_days(D("2006-12-16"), {D("2006-12-26")}),
+       f.host_days(D("1990-12-24"), {D("1990-12-27")}), f.host_days(D("2008-12-24"), {D("2008-12-26")}),
+       f.host_days(D("1974-04-11")), f.good_friday(1974) - datetime.timedelta(days=1),
+       19417 in f.hosted({"date": "1993-12-27", "item": "GaleTimes1993UKEnglish", "puzzles": [{"number": 19423, "leaf": 0}],
+                          "solutions": [{"number": 19417, "leaf": 0}]}, {19417: D("1993-12-18"), 19422: D("1993-12-24")}),
+       f.hosts_of(D("1993-12-27"))[-1:]))
+
+
+def _final(paper):
+    """The scan key a pinned key of `paper` (a key of its key) stands in for: the joined-title fix's where it moved
+    the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
+    special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
+    the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._FT_NOISY_FIX:
+        return f._FT_NOISY_FIX[paper][2]
+    if paper in f._FT_PROSE_FIX:
+        return f._FT_PROSE_FIX[paper][2]
+    if paper in f._FT_TITLE_FIX:
+        return f._FT_TITLE_FIX[paper][2]
+    if paper in f._SUNTEL_BARE_FIX:
+        return f._SUNTEL_BARE_FIX[paper][2]
+    if paper in f._TELEPRIZE_FIX:
+        return f._TELEPRIZE_FIX[paper][2]
+    if paper in f._TELEPAIR_FIX:
+        return f._TELEPAIR_FIX[paper][2]
+    if paper in f._SUNTEL_BY_FIX:
+        return f._SUNTEL_BY_FIX[paper][2]
+    if paper in f._IOS_ENTRY_LINES_FIX:
+        return f._IOS_ENTRY_LINES_FIX[paper][2]
+    if paper in f._FT_SMALL_FIX:
+        return f._FT_SMALL_FIX[paper][2]
+    if paper in f._WINNERS_1996_FIX:
+        return f._WINNERS_1996_FIX[paper][2]
+    if paper in f._TELEQUICK_FIX:
+        return f._TELEQUICK_FIX[paper][2]
+    if paper in f._WINNERS_NUMBER_FIX:
+        return f._WINNERS_NUMBER_FIX[paper][2]
+    if paper in f._TLS_MONTHLY_FIX:
+        return f._TLS_MONTHLY_FIX[paper][2]
+    if paper in f._GUARDIAN_DATED_FIX:
+        return f._GUARDIAN_DATED_FIX[paper][2]
+    if paper in f._TELEGRAPH_PRIZE_MEND_FIX:
+        return f._TELEGRAPH_PRIZE_MEND_FIX[paper][2]
+    if paper in f._INDY_ENTRIES_FIX:
+        return f._INDY_ENTRIES_FIX[paper][2]
+    if paper in f._TELEGRAPH_TITLE_FIX:
+        return f._TELEGRAPH_TITLE_FIX[paper][2]
+    if paper in f._TELEGRAPH_PRIZE_OF_FIX:
+        return f._TELEGRAPH_PRIZE_OF_FIX[paper][2]
+    if paper in f._TELEGRAPH_SATURDAY_FIX:
+        return f._TELEGRAPH_SATURDAY_FIX[paper][2]
+    if paper in f._SUNDAY_DEDUP_FIX:
+        return f._SUNDAY_DEDUP_FIX[paper][2]
+    if paper in f._SUNDAY_TITLE_FIX:
+        return f._SUNDAY_TITLE_FIX[paper][2]
+    if paper in f._SUNDAY_NUMBER_FIX:
+        return f._SUNDAY_NUMBER_FIX[paper][2]
+    if paper in f._FT_HEADINGS_FIX:
+        return f._FT_HEADINGS_FIX[paper][2]
+    if paper in f._INDEPENDENT_DEDUP_FIX:
+        return f._INDEPENDENT_DEDUP_FIX[paper][2]
+    if paper in f._INDEPENDENT_HEADINGS_FIX:
+        return f._INDEPENDENT_HEADINGS_FIX[paper][2]
+    if paper in f._TELEGRAPH_PRIZE_FIX:
+        return f._TELEGRAPH_PRIZE_FIX[paper][2]
+    if paper in f._TELEGRAPH_SOLUTION_FIX:
+        return f._TELEGRAPH_SOLUTION_FIX[paper][2]
+    if paper in f._WINNERS_BAND_FIX:
+        return f._WINNERS_BAND_FIX[paper][2]
+    return f._SPECIAL_TITLE_FIX[paper][2] if paper in f._SPECIAL_TITLE_FIX else f._LONE_TITLE_FIX[paper][2]
+
+
+_ln = lambda *rows: [[[0, 10 * k, 600, 10 * k + 9, t]] for k, t in enumerate(rows)]
+check("an Independent line ending a clue's bracketed count is no title, and a short Beelzebub title takes its number "
+      "from the entry line; an old-key refused row is scanned again",
+      [[8590], [697], True, False],
+      [[p[0] for p in f.independent_headings(_ln("crossword puzzle (10)", "Prize cryptic crossword #8590"))[0]],
+       [p[0] for p in f.indy_sunday_headings(_ln("Beelzebub Prize Crossword No 6", "Mark entries Beelzebub 697 and send"))[0]],
+       f.ios_title_rescan({"edition": "GaleIndependentSunday2003UKEnglish/2003-06-15", "scanKey": "43cf7f1ff66014f2",
+                           "verdicts": [{"number": 6, "cause": "number-date-mismatch"}]}),
+       f.ios_title_rescan({"edition": "GaleIndependentSunday2003UKEnglish/2003-06-15", "scanKey": f.scan_key(f.GALE_INDY_SUNDAY),
+                           "verdicts": [{"number": 6, "cause": "number-date-mismatch"}]})])
+_ir = {"edition": "GaleIndependent2015UKEnglish/2015-08-22", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+       "verdicts": [{"number": 9003, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+                     "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
+check("a Gale Independent page refused for no clue lists is due INDEPENDENT_RIGHT; a Times page is not; the reason is ranked",
+      [True, False, True],
+      [f.indy_right_due(_ir), f.indy_right_due({**_ir, "edition": "GaleTimes2015UKEnglish/2015-08-22"}),
+       f.INDEPENDENT_RIGHT in f.RANKS])
+check("a stale-scan Independent row due a fix reason is planned under it, not the blanket reason (r80: 79 pages)",
+      [True, "inputs changed"],
+      [f.blanket_or_fix(_ir, "inputs changed") == f.fix_reason(_ir) != "inputs changed",
+       f.blanket_or_fix({**_ir, "verdicts": []}, "inputs changed")])
+_ib = {"edition": "GaleIndependentSunday1996UKEnglish/1996-03-10", "inputs": "x", "readAt": "2026-11-12T15:10:15+00:00",
+       "verdicts": [{"number": 318, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+                     "imageUnread": "the white cells span 12 rows and 12 columns",
+                     "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
+check("an Independent on Sunday 1990s page with its 12x12 grid unread is due INDY_BARRED; a 2005 page and a Times page are not; "
+      "the reason is ranked; a bar and its mirror are symmetric, a lone bar is not",
+      [True, False, False, True, 1.0, True],
+      [f.indy_barred_due(_ib), f.indy_barred_due({**_ib, "edition": "GaleIndependentSunday2005UKEnglish/2005-07-10"}),
+       f.indy_barred_due({**_ib, "edition": "GaleTimes1996UKEnglish/1996-03-10"}), f.INDY_BARRED in f.RANKS,
+       __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 9 + ["." * 11 + "b"] + ["." * 12]),
+       __import__("ios_barred").symmetry(["b" + "." * 11] + ["." * 12] * 11) < 0.8])
+_il = {"edition": "GaleIndependentSunday2002UKEnglish/2002-06-30", "inputs": "x", "readAt": "2026-11-11T18:40:39+00:00",
+       "verdicts": [{"number": 99647, "leaf": 0, "imageUnread": "the white cells span 12 rows and 12 columns",
+                     "readings": ["ch", "en5"], "clues": 31, "complete": False, "pending": "no grid: the search found no grid"}]}
+check("an Independent on Sunday 2001-15 page left pending with its 12x12 grid unread is due INDY_BARRED_LATE; a 1996 page, "
+      "a Times page and one read since are not; the reason is ranked",
+      [True, False, False, False, True],
+      [f.indy_barred_late_due(_il), f.indy_barred_late_due({**_il, "edition": "GaleIndependentSunday1996UKEnglish/1996-03-10"}),
+       f.indy_barred_late_due({**_il, "edition": "GaleTimes2002UKEnglish/2002-06-30"}),
+       f.indy_barred_late_due({**_il, "readAt": "2026-11-14T00:00:00+00:00"}), f.INDY_BARRED_LATE in f.RANKS])
+_iln = {"edition": "GaleIndependent2013UKEnglish/2013-06-20", "inputs": "x", "readAt": "2026-11-07T01:09:10+00:00",
+        "verdicts": [{"number": 99325, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+                      "unparsed": {"en5": "down clues do not parse: cannot find a clue number at: '1/9 Suspends car driver about 500 times '"}}]}
+check("an Independent page whose list stopped at a slashed linked head is due INDY_LINKS; a Times page and a plain stop are not; "
+      "a slashed head parses as one clue linking its lights",
+      [True, False, False, True, [[1, 9], [17, 5, 15]]],
+      [f.indy_links_due(_iln), f.indy_links_due({**_iln, "edition": "GaleTimes2013UKEnglish/2013-06-20"}),
+       f.indy_links_due({**_iln, "verdicts": [{**_iln["verdicts"][0], "unparsed": {"en5": "cannot find a clue number at: ' course (4,4) 27 Pa'"}}]}),
+       f.INDY_LINKS in f.RANKS,
+       [[min(t) for t in c["tokens"]] for c in __import__("file_trove_puzzles").clues(
+           "1/9 Suspends car driver (5,2,3) 17/5A/15 Barman quick (6)")[0]]])
+_ic = [[(x, 2400 + 60 * k, x + 250, 2430 + 60 * k, f"{k + 1} Clue words")] for x in (957, 1311, 1667) for k in range(5)]
+_ic2 = [ws for ws in _ic if ws[0][0] < 1500]
+_icr = (2004, 1303, 3024)
+_icg = (191, 2310, 911, 3029)
+_icd = {"edition": "GaleIndependent2011UKEnglish/2011-12-09", "inputs": "x", "readAt": "2026-11-13T12:00:00+00:00",
+        "verdicts": [{"number": 99326, "leaf": 0, "clues": 26, "complete": False, "imageDisagrees": "across clue [] names no light the grid numbers after 26"}]}
+check("an Independent page whose clue numbers stand in three print columns right of the grid gets a third window (the "
+      "gutters between the columns, the old edge the third's); two columns stay two; a page left incomplete with a lost-number "
+      "clue is due INDY_COLUMNS, a Times page and one read since are not",
+      [(1611, 1256, 3024), 2004, (2004, 1303, 3024), [True, False, True, True]],
+      [tuple(f.indy_columns(_ic, _icg, _icr)[:3]),
+       f.third_of(f.indy_columns(_ic, _icg, _icr)), f.indy_columns(_ic2, _icg, _icr),
+       [f.indy_columns_due(_icd), f.indy_columns_due({**_icd, "edition": "GaleTimes2011UKEnglish/2011-12-09"}),
+        f.indy_columns_due({**_icd, "readAt": "2026-11-14T04:00:00+00:00"}), f.INDY_COLUMNS in f.RANKS]])
+_i2 = [[(x, 2000 + 60 * k, x + 250, 2030 + 60 * k, f"{k + 1} Clue words")] for x in (2824, 3133) for k in range(5)]
+_i2g = (2078, 1495, 2800, 2215)
+_i2d = {**_icd, "edition": "GaleIndependent2013UKEnglish/2013-07-10", "readAt": "2026-11-16T06:45:00+00:00",
+        "verdicts": [{"number": 8342, "leaf": 0, "wrote": True, "unfiled": 1, "blank": {"2-down": "no reading laid a clue on it"}}]}
+_i2r = f.indy_columns(_i2, _i2g, (3955, 3447, 2611))
+check("an Independent page with two clue print columns and the gutter beyond both gets its gutter between them and "
+      "its far edge at the old gutter; the gutter between them stays; a 2010-15 page written unfiled with a light no "
+      "reading laid is due INDY_COLUMNS, a 2008 one is not",
+      [3447, True, None, [True, False]],
+      [_i2r[0], 2824 < _i2r[1] < 3133, f.indy_two_columns(_i2, _i2g, (3955, 3000, 2611), [2824, 3133]),
+       [f.indy_columns_due(_i2d), f.indy_columns_due({**_i2d, "edition": "GaleIndependent2008UKEnglish/2008-07-10"})]])
+_sf = {"edition": "GaleSundayTelegraph1993UKEnglish/1993-01-31", "inputs": "x", "readAt": "2026-11-10T12:00:00+00:00",
+       "verdicts": [{"number": 1652, "leaf": 0, "imageUnread": "the white cells span 14 rows and 15 columns", "refused": "no reading parses"}]}
+check("a Gale Sunday Telegraph 1991-95 page whose grid was unread a row short is due SUNDAY_FOOT (ranked); a 1997 page, "
+      "a Telegraph page and one read since are not",
+      [True, False, False, False, True],
+      [f.sunday_foot_due(_sf), f.sunday_foot_due({**_sf, "edition": "GaleSundayTelegraph1997UKEnglish/1997-11-16"}),
+       f.sunday_foot_due({**_sf, "edition": "GaleTelegraph1993UKEnglish/1993-01-31"}),
+       f.sunday_foot_due({**_sf, "readAt": "2026-11-14T06:00:00+00:00"}), f.SUNDAY_FOOT in f.RANKS])
+_st = {"edition": "GaleSundayTimes1985UKEnglish/1985-05-26", "inputs": "x", "readAt": "2026-11-14T12:13:16+00:00",
+       "verdicts": [{"number": 3081, "leaf": 0, "imageUnread": "the white cells span 14 rows and 15 columns"}]}
+check("a Gale Sunday Times 1985-89 page whose grid was unread a row short is due SUNDAY_TALL (ranked); a 1992 page, "
+      "a Sunday Telegraph page, a 14-column one and one read since are not",
+      [True, False, False, False, False, True],
+      [f.sunday_tall_due(_st), f.sunday_tall_due({**_st, "edition": "GaleSundayTimes1992UKEnglish/1992-05-24"}),
+       f.sunday_tall_due({**_st, "edition": "GaleSundayTelegraph1985UKEnglish/1985-05-26"}),
+       f.sunday_tall_due({**_st, "verdicts": [{"imageUnread": "the white cells span 14 rows and 14 columns"}]}),
+       f.sunday_tall_due({**_st, "readAt": "2026-11-17T20:00:00+00:00"}), f.SUNDAY_TALL in f.RANKS])
+_iad = {"edition": "GaleIndependent2010UKEnglish/2010-03-05", "inputs": "x", "readAt": "2026-11-09T09:19:02+00:00",
+        "verdicts": [{"number": 99327, "leaf": 0, "imageUnread": "too few neighbouring white cells to measure the lattice",
+                      "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("an Independent page whose grid image was unread for a lattice it could not measure is due INDY_ABOVE, a Times page, "
+      "a page whose grid read and one read since are not",
+      [True, False, False, False, True],
+      [f.indy_above_due(_iad), f.indy_above_due({**_iad, "edition": "GaleTimes2010UKEnglish/2010-03-05"}),
+       f.indy_above_due({**_iad, "verdicts": [{"number": 99327, "leaf": 0, "complete": True}]}),
+       f.indy_above_due({**_iad, "readAt": "2026-11-14T07:00:00+00:00"}), f.INDY_ABOVE in f.RANKS])
+_iw = {"edition": "GaleIndependent2012UKEnglish/2012-04-06", "inputs": "x", "readAt": "2026-11-07T06:48:38+00:00",
+       "verdicts": [{"number": 99999, "leaf": 0, "imageUnread": "the white cells span 15 rows and 13 columns",
+                     "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("an Independent page whose grid image spanned 15 rows and 13 columns is due INDY_WIDE, a Times page, a "
+      "12x12 span and one read since are not",
+      [True, False, False, False, True],
+      [f.indy_wide_due(_iw), f.indy_wide_due({**_iw, "edition": "GaleTimes2012UKEnglish/2012-04-06"}),
+       f.indy_wide_due({**_iw, "verdicts": [{**_iw["verdicts"][0], "imageUnread": "the white cells span 27 rows and 30 columns"}]}),
+       f.indy_wide_due({**_iw, "readAt": "2026-11-14T13:00:00+00:00"}), f.INDY_WIDE in f.RANKS])
+_idr = {"edition": "GaleIndependent2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2026-11-10T13:37:56+00:00",
+        "verdicts": [{"number": 99998, "leaf": 0, "dropped": {"times": "0 of 13 counted clues lie on the grid"},
+                      "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("an Independent page refused with every reading dropped is due INDY_DROPPED, a Times page, one with an unparsed "
+      "reading and one read since are not",
+      [True, False, False, False, True],
+      [f.indy_dropped_due(_idr), f.indy_dropped_due({**_idr, "edition": "GaleTimes2008UKEnglish/2008-01-19"}),
+       f.indy_dropped_due({**_idr, "verdicts": [{**_idr["verdicts"][0], "unparsed": {"ch": "x"}}]}),
+       f.indy_dropped_due({**_idr, "readAt": "2026-11-14T11:00:00+00:00"}), f.INDY_DROPPED in f.RANKS])
+_ios_t = lambda t: f.indy_sunday_headings([[(0, 0, 900, 30, t)]])[0]
+_ios_r = {"edition": "GaleIndependentSunday2004UKEnglish/2004-08-29", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "verdicts": [{"number": 76, "leaf": 0, "refused": "No 76 is not near the 759", "cause": "number-date-mismatch"}]}
+check("an Independent on Sunday title run together or with a digit read as a letter is the Beelzebub's whole number; a "
+      "1993-2008 page refused for a mismatched number is due IOS_TITLES, a 2016 page, a Times page and one read since are not",
+      [[760], [410], [954], [True, False, False, False, True]],
+      [[p[0] for p in _ios_t("BeelzebubPrizeCrossword No760")], [p[0] for p in _ios_t("Beelzebub Prize Crossword NO 4I0")],
+       [p[0] for p in _ios_t("Beelzebub Prize Crossword No 954")],
+       [bool(f.ios_title_due(_ios_r)), bool(f.ios_title_due({**_ios_r, "edition": "GaleIndependentSunday2016UKEnglish/2016-03-18"})),
+        bool(f.ios_title_due({**_ios_r, "edition": "GaleTimes2004UKEnglish/2004-08-29"})),
+        bool(f.ios_title_due({**_ios_r, "readAt": "2026-11-14T09:00:00+00:00"})), f.IOS_TITLES in f.RANKS]])
+_ios_e = lambda *rows: [p[0] for p in f.indy_sunday_headings(
+    [[(0, 100 * k, 900, 100 * k + 30, t)] for k, t in enumerate(rows)])[0]]
+_ios_er = {"edition": "GaleIndependentSunday2000UKEnglish/2000-03-05", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+           "scan": {"puzzles": []}}
+check("an Independent on Sunday Beelzebub title with no number takes it from the entry instruction split over two lines "
+      "('Mark entries' / 'Beelzebub 526 and send'); a 2000 page with no puzzle found, read before the fix, is due "
+      "IOS_ENTRY_LINES, one with a puzzle, a Times page and one read since are not",
+      [[526], [526], [True, False, False, False, True]],
+      [_ios_e("Beelzebub Prize Crossword", "Mark entries", "Beelzebub 526 and send"),
+       _ios_e("Beelzebub Prize Crossword", "Mark", "entries Beelzebub 526 and send"),
+       [bool(f.ios_entry_lines_due(_ios_er)), bool(f.ios_entry_lines_due({**_ios_er, "scan": {"puzzles": [{"number": 526}]}})),
+        bool(f.ios_entry_lines_due({**_ios_er, "edition": "GaleTimes2000UKEnglish/2000-03-05"})),
+        bool(f.ios_entry_lines_due({**_ios_er, "readAt": "2026-11-16T13:00:00+00:00"})), f.IOS_ENTRY_LINES in f.RANKS]])
+_stb = lambda *rows: [p[0] for p in f.sunday_tel_headings([[(0, 100 * k, 900, 100 * k + 30, t)] for k, t in enumerate(rows)])[0]]
+_stb_r = {"edition": "GaleSundayTelegraph1994UKEnglish/1994-09-18", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "scan": {"puzzles": []}}
+check("a Sunday Telegraph 1991-94 title line 'Puzzle No.1736 by Nuala Considine' read 'Puzzie', 'Priee Puzzie' or 'ze Puzzle' "
+      "gives its number, a run-together 'PRIZEPUZZLENo1495' too; a 1990-94 page with no puzzle found, read before the fix, is due "
+      "SUNTEL_BY, one with a puzzle, a 1995 page and one read since are not",
+      [[1736], [1649], [1721], [1495], [], [True, False, False, False, True]],
+      [_stb("Puzzie No.1736 by Nuala Considine"), _stb("Priee Puzzie No.1649 by Nuale Con"), _stb("ze Puzzle No.1721 by Nuala Considine"),
+       _stb("PRIZEPUZZLENo1495"), _stb("Puzzle No. 1736 Nuala Considine"),
+       [bool(f.suntel_by_due(_stb_r)), bool(f.suntel_by_due({**_stb_r, "scan": {"puzzles": [{"number": 1736}]}})),
+        bool(f.suntel_by_due({**_stb_r, "edition": "GaleSundayTelegraph1995UKEnglish/1995-09-17"})),
+        bool(f.suntel_by_due({**_stb_r, "readAt": "2026-11-17T00:00:00+00:00"})), f.SUNTEL_BY in f.RANKS]])
+_sbl = lambda rows, titles=(): [s[0] for s in f.sunday_tel_headings([[(0, 100 * k, 900, 100 * k + 30, t)] for k, t in enumerate(rows)], titles)[1]]
+_sbl_r = {"edition": "GaleSundayTelegraph1991UKEnglish/1991-01-27", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "scan": {"puzzles": [{"number": 1547}], "solutions": []}}
+check("a Sunday Telegraph 1990-92 page's bare 'COMPETITION No 1546' (or 'COMPETITIONNO1516', a Quickie number after) is the solution "
+      "heading of the puzzle a week back (a title one over), not the entry notice 'COMPETITION No 1547: Three book tokens' nor a "
+      "number with no title beside it; a 1990-92 page with a puzzle and no solution read before the fix is due SUNTEL_BARE, one "
+      "with a solution, a 1993 page and one read since are not",
+      [[1546], [1516], [1604], [], [], [True, False, False, False, True]],
+      [_sbl(["Prize Puzzle No.1547 by Colin Parsons", "COMPETITION No 1546"]),
+       _sbl(["PRIZE PUZZLE No 1517", "COMPETITIONNO1516"]),
+       _sbl(["Prize Puzzle No.1605 by Colin Parsons", "COMPETITION No.1604 QUICKIE No.1326"]),
+       _sbl(["Prize Puzzle No.1547 by Colin Parsons", "COMPETITION No 1547: Three book tokens"]),
+       _sbl(["COMPETITION No 1546"]),
+       [bool(f.suntel_bare_due(_sbl_r)), bool(f.suntel_bare_due({**_sbl_r, "scan": {"puzzles": [{"number": 1547}], "solutions": [{"number": 1546}]}})),
+        bool(f.suntel_bare_due({**_sbl_r, "edition": "GaleSundayTelegraph1993UKEnglish/1993-01-24"})),
+        bool(f.suntel_bare_due({**_sbl_r, "readAt": "2026-11-17T07:00:00+00:00"})), f.SUNTEL_BARE in f.RANKS]])
+_ct = __import__("clue_text")
+_ocr = __import__("ocr_clues")
+_tr = {"edition": "GaleTelegraph1997UKEnglish/1997-11-08", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+       "verdicts": [{"number": 22336, "blank": {"25-across": "starts mid-clue"}, "unfiled": 1}]}
+check("a clue laid with the clue before's torn tail and its own number glued or misread is mended (251 for 25 'I', 30 for "
+      "3 'O', 'll' for 11, '24hours' a figure word); a Telegraph row with a mid-clue blank read before the cutoff is due "
+      "TELEGRAPH_OWN, a Times row, a row read since and one with no such blank are not",
+      ["I hurried with one", "Opposed to contents", "Arrangement for", "f (7) 25 Come", "24hours from today", True,
+       [True, False, False, False, True]],
+      [_ct.own_number_mended("f (7) 251 hurried with one", 25), _ct.own_number_mended("h (7) 30pposed to contents", 3),
+       _ct.own_number_mended("llArrangement for", 11), _ct.own_number_mended("f (7) 25 Come", 25),
+       "24hours from today", bool(_ct.FIGURE_WORD.match("24hours from today")),
+       [bool(f.telegraph_own_due(_tr)), bool(f.telegraph_own_due({**_tr, "edition": "GaleTimes1997UKEnglish/1997-11-08"})),
+        bool(f.telegraph_own_due({**_tr, "readAt": "2026-11-14T13:00:00+00:00"})),
+        bool(f.telegraph_own_due({**_tr, "verdicts": [{"number": 1, "blank": {"1-down": "not a word"}}]})),
+        f.TELEGRAPH_OWN in f.RANKS]])
+_tf = {"edition": "GaleTelegraph1988UKEnglish/1988-03-11", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+       "verdicts": [{"number": 19326, "blank": {"1-down": "'24down': a digit inside a word"}, "unfiled": 1}]}
+check("a glued cross-reference and a figure a dash joins to a word are no digit inside a word, and the reference is spaced; "
+      "a Telegraph row with such a blank read before the cutoff is due TELEGRAPH_FIGURE, a row blank over 'Rad1o' and one read since are not",
+      [[], [], "see 24 down", True, [True, False, False, True]],
+      [[w for w, _ in _ocr.suspect("see 24down and 500—and")], [w for w, _ in _ocr.suspect("time—1.50? 51—a")],
+       _ct.xrefs_spaced("see 24down"), _ct.figure_dashed("500—and"),
+       [bool(f.telegraph_figure_due(_tf)),
+        bool(f.telegraph_figure_due({**_tf, "verdicts": [{"number": 1, "blank": {"1-down": "'Rad1o': a digit inside a word"}}]})),
+        bool(f.telegraph_figure_due({**_tf, "readAt": "2026-11-14T13:00:00+00:00"})), f.TELEGRAPH_FIGURE in f.RANKS]])
+_tl = {"edition": "GaleTelegraph1953UKEnglish/1953-05-14", "inputs": "x", "readAt": "2026-11-11T09:38:15+00:00",
+       "verdicts": [{"number": 8574, "blank": {"33-across": "no reading laid a clue on it"}, "unfiled": 1}]}
+check("a clue number with one stray letter before its two digits ('l33 If', 'a16 It') is read as the number, and starts a "
+      "clue inside a line (NEXT_CLUE); a Telegraph 1949-58 row with a clue no reading laid, read before the cutoff, is due "
+      "TELEGRAPH_LEAD_NUMBER, a 1960 row and one read since are not",
+      ["33 If the use (7)", "16 It is quite", [4], [True, False, False, True]],
+      [_ct.clue_number_opening("l33 If the use (7)"), _ct.clue_number_opening("a16 It is quite"),
+       [m.start() for m in f.NEXT_CLUE.finditer("(7) l33 If the use (5)")],
+       [bool(f.telegraph_lead_number_due(_tl)),
+        bool(f.telegraph_lead_number_due({**_tl, "edition": "GaleTelegraph1960UKEnglish/1960-05-14"})),
+        bool(f.telegraph_lead_number_due({**_tl, "readAt": "2026-11-14T19:00:00+00:00"})),
+        f.TELEGRAPH_LEAD_NUMBER in f.RANKS]])
+_ts = {"edition": "GaleTelegraph1993UKEnglish/1993-05-21", "inputs": "x", "readAt": "2026-11-11T09:38:15+00:00",
+       "verdicts": [{"number": 20943, "blank": {"18-across": "'faces.It': a stray mark inside a word"}}]}
+check("a sentence's stop run into the capitalised word after it ('faces.It') is parted where both are words ('mid.December', "
+      "'Dr.Who' are not), and a Gale Telegraph row with a clue blank over one, read before the cutoff, is due TELEGRAPH_STOP; "
+      "a blank over a lowercase run-on and a row read since are not",
+      ["Hides from the faces. It is (5)", "Hot in mid.December (4)", "Dr.Who is odd (3)", [True, False, False, True]],
+      [_ocr.parted("Hides from the faces.It is (5)", []), _ocr.parted("Hot in mid.December (4)", []),
+       _ocr.parted("Dr.Who is odd (3)", []),
+       [bool(f.telegraph_stop_due(_ts)),
+        bool(f.telegraph_stop_due({**_ts, "verdicts": [{"number": 1, "blank": {"1-down": "'long.lanky': a stray mark inside a word"}}]})),
+        bool(f.telegraph_stop_due({**_ts, "readAt": "2026-11-14T19:00:00+00:00"})), f.TELEGRAPH_STOP in f.RANKS]])
+_tf = {"edition": "GaleTelegraph1991UKEnglish/1991-09-12", "inputs": "x", "readAt": "2026-11-13T20:00:00+00:00",
+       "verdicts": [{"number": 20418, "id": "telegraph-20418", "solutionFrom": "1991-09-13 leaf 0",
+                     "solution": {"lights": 32, "accepted": 31, "classified": 2}}]}
+_tf_v = lambda **kw: {**_tf, "verdicts": [{**_tf["verdicts"][0], **kw}]}
+_tf_e = f.telegraph_enums(f.GALE_TELEGRAPH, {"entries": [{"number": 1, "direction": "across", "clue": {"enumeration": "7,6"}},
+                                                          {"number": 2, "direction": "down", "clue": None}]})
+check("telegraph_fitted_due: a Gale Telegraph row read before the cutoff with a short, classified solution is due; a later "
+      "read, a whole or refused reading, answers-only, a Times row is not; telegraph_enums gives a Telegraph full read its "
+      "counts and no other paper any; TELEGRAPH_FITTED is among UNFILED_FIRST (newer fixes push it off the tail), a rank 2 solution fix, fix reason",
+      ([True, False, False, False, False, False], {(1, "across"): "7,6", (2, "down"): None}, None, True, True, True, True, True),
+      ([bool(f.telegraph_fitted_due(_tf)), bool(f.telegraph_fitted_due({**_tf, "readAt": "2026-11-14T19:00:00+00:00"})),
+        bool(f.telegraph_fitted_due(_tf_v(solution={"lights": 32, "accepted": 32}))),
+        bool(f.telegraph_fitted_due(_tf_v(solution={"refused": "x", "lights": 32, "accepted": 0}))),
+        bool(f.telegraph_fitted_due(_tf_v(answersOnly=True))),
+        bool(f.telegraph_fitted_due({**_tf, "edition": "GaleTimes1991UKEnglish/1991-09-12"}))],
+       _tf_e, f.telegraph_enums(f.paper_of("GaleTimes1991UKEnglish/1991-09-12"), {"entries": []}),
+       f.RANKS[f.TELEGRAPH_FITTED] == 2, f.TELEGRAPH_FITTED in f.SOLUTION_FIXES,
+       f.TELEGRAPH_FITTED in __import__("edition_queue").UNFILED_FIRST, f.fix_reason(_tf) == f.TELEGRAPH_FITTED,
+       f.blanket_or_fix(_tf, "inputs changed") == f.TELEGRAPH_FITTED))
+_ir = {"edition": "GaleIndependent2015UKEnglish/2015-07-17", "inputs": "x", "readAt": "2026-11-06T19:10:23+00:00",
+       "scan": {"date": "2015-07-17", "puzzles": [{"number": 8972}]},
+       "verdicts": [{"number": 8972, "cause": "number-date-mismatch", "refused": "No 8972 is already filed for 2015-07-18, not 2015-07-17"}]}
+_held = f.Held({8972: _d.date(2015, 7, 17), 8971: _d.date(2015, 7, 16)})
+_held_dates, f.held_dates = f.held_dates, lambda series: _held
+try:
+    check("an Independent page refused for a number held on another date, the number now held on its day, is due INDY_REDATED; "
+          "one read since, a number held elsewhere and a title a verdict read are not",
+          [True, False, False, False, True],
+          [bool(f.indy_redated_due(_ir)), bool(f.indy_redated_due({**_ir, "readAt": "2026-11-18T00:00:00+00:00"})),
+           bool(f.indy_redated_due({**_ir, "scan": {"date": "2015-07-18", "puzzles": [{"number": 8972}]}})),
+           bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8972}]})),
+           bool(f.indy_redated_due({**_ir, "verdicts": [{"number": 8973, "read_as": 8973}]})) and f.INDY_REDATED in f.RANKS])
+finally:
+    f.held_dates = _held_dates
+_ip = {"edition": "GaleIndependentSunday2005UKEnglish/2005-01-30", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 782, "imageUnread": "the white cells span 12 rows and 12 columns", "pending": "no grid"}]}
+check("an Independent on Sunday page left with its 12x12 barred grid unread is due INDY_PAIRED; one read since, a filed-whole "
+      "verdict and another paper's are not",
+      [True, False, False, False],
+      [bool(f.indy_paired_due(_ip)), bool(f.indy_paired_due({**_ip, "readAt": "2026-11-16T00:00:00+00:00"})),
+       bool(f.indy_paired_due({**_ip, "verdicts": [{**_ip["verdicts"][0], "wrote": True}]})),
+       bool(f.indy_paired_due({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"})) or f.INDY_PAIRED not in f.RANKS])
+check("a row due INDY_PAIRED keeps it past the blanket scan-stale reason (blanket_or_fix), one not due keeps the blanket",
+      [True, True, True],
+      [bool(f.indy_paired_due(_ip)) == (f.blanket_or_fix(_ip, "scan stale, answers missing") == f.INDY_PAIRED),
+       f.blanket_or_fix({**_ip, "readAt": "2026-11-16T00:00:00+00:00"}, "scan stale, answers missing") != f.INDY_PAIRED,
+       f.blanket_or_fix({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"}, "x") != f.INDY_PAIRED])
+_ie = {"edition": "GaleIndependentSunday1997UKEnglish/1997-03-23", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 372, "imageUnread": "the white cells span 11 rows and 12 columns", "pending": "no grid"}]}
+check("an Independent on Sunday page whose barred grid's lattice was counted 11x12 is due IOS_EVEN, not one read since, filed, "
+      "counted without a 12, or another paper's; it keeps the reason past the blanket (blanket_or_fix)",
+      [True, False, False, False, False, True],
+      [bool(f.ios_even_due(_ie)), bool(f.ios_even_due({**_ie, "readAt": "2026-11-16T02:00:00+00:00"})),
+       bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "wrote": True}]})),
+       bool(f.ios_even_due({**_ie, "verdicts": [{**_ie["verdicts"][0], "imageUnread": "the white cells span 10 rows and 11 columns"}]})),
+       bool(f.ios_even_due({**_ie, "edition": "GaleIndependent2005UKEnglish/2005-01-30"})) or f.IOS_EVEN not in f.RANKS,
+       f.blanket_or_fix(_ie, "scan stale, answers missing") == f.IOS_EVEN])
+_ia = {"edition": "GaleIndependentSunday2006UKEnglish/2006-09-03", "readAt": "2026-11-16T22:14:29+00:00", "inputs": "x",
+       "verdicts": [{"number": 864, "id": "indysunday-864",
+                     "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11, 12, 13)}}]}
+check("an Independent on Sunday 2001-09 page with 4+ across lights blank is due IOS_ACROSS, not one with 3, a down blank, "
+      "a 1997 page, one read since or filed; it keeps the reason past the blanket",
+      [True, False, False, False, False, True],
+      [bool(f.ios_across_due(_ia)),
+       bool(f.ios_across_due({**_ia, "verdicts": [{**_ia["verdicts"][0], "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11)}}]})),
+       bool(f.ios_across_due({**_ia, "verdicts": [{**_ia["verdicts"][0], "blank": {**_ia["verdicts"][0]["blank"], "3-down": "no reading laid a clue on it"}}]})),
+       bool(f.ios_across_due({**_ia, "edition": "GaleIndependentSunday1997UKEnglish/1997-03-23"})),
+       bool(f.ios_across_due({**_ia, "readAt": "2026-11-19T00:00:00+00:00"})),
+       f.blanket_or_fix(_ia, "scan stale, answers missing") == f.IOS_ACROSS])
+_il = {**_ia, "readAt": "2026-11-18T08:31:37+00:00", "verdicts": [{**_ia["verdicts"][0], "unfiled": 5}]}
+check("an Independent on Sunday 2001-09 page read after IOS_ACROSS with 4+ across lights still blank is due IOS_LEAD, not "
+      "one with 3, a 1997 page or one read since; it keeps the reason past the blanket",
+      [True, False, False, False, True],
+      [bool(f.ios_lead_due(_il)),
+       bool(f.ios_lead_due({**_il, "verdicts": [{**_il["verdicts"][0], "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11)}}]})),
+       bool(f.ios_lead_due({**_il, "edition": "GaleIndependentSunday1997UKEnglish/1997-03-23"})),
+       bool(f.ios_lead_due({**_il, "readAt": "2026-11-19T00:00:00+00:00"})),
+       f.blanket_or_fix(_il, "scan stale, answers missing") == f.IOS_LEAD])
+_if = {"edition": "GaleIndependentSunday2002UKEnglish/2002-06-30", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 647, "id": "indysunday-647", "blank": {"29-across": "no reading laid a clue on it"}}]}
+check("an Independent on Sunday 2001-04 page left with a light blank 'no reading laid a clue' is due IOS_FOOT, not one read "
+      "since, a 1997 page, a page with no such blank or another paper's; it keeps the reason past the blanket",
+      [True, False, False, False, False, True],
+      [bool(f.ios_foot_due(_if)), bool(f.ios_foot_due({**_if, "readAt": "2026-11-17T00:00:00+00:00"})),
+       bool(f.ios_foot_due({**_if, "edition": "GaleIndependentSunday1997UKEnglish/1997-03-23"})),
+       bool(f.ios_foot_due({**_if, "verdicts": [{**_if["verdicts"][0], "blank": {"29-across": "a stray mark inside a word"}}]})),
+       bool(f.ios_foot_due({**_if, "edition": "GaleIndependent2002UKEnglish/2002-06-30"})) or f.IOS_FOOT not in f.RANKS,
+       f.blanket_or_fix(_if, "scan stale, answers missing") == f.IOS_FOOT])
+_sf = {"edition": "GaleSundayTelegraph1999UKEnglish/1999-09-05", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "verdicts": [{"number": 1993, "id": "sundaytel-1993", "blank": {"26-down": "no reading laid a clue on it"}}]}
+check("a Gale Sunday Telegraph 1995-2000 page left with a light blank 'no reading laid a clue' is due SUNTEL_FOOT, not one read "
+      "since, a 1990 page, a page with no such blank or another paper's; it keeps the reason past the blanket",
+      [True, False, False, False, False, True],
+      [bool(f.suntel_foot_due(_sf)), bool(f.suntel_foot_due({**_sf, "readAt": "2026-11-18T00:00:00+00:00"})),
+       bool(f.suntel_foot_due({**_sf, "edition": "GaleSundayTelegraph1990UKEnglish/1990-03-04"})),
+       bool(f.suntel_foot_due({**_sf, "verdicts": [{**_sf["verdicts"][0], "blank": {"26-down": "a stray mark inside a word"}}]})),
+       bool(f.suntel_foot_due({**_sf, "edition": "GaleTelegraph1999UKEnglish/1999-09-05"})) or f.SUNTEL_FOOT not in f.RANKS,
+       f.blanket_or_fix(_sf, "scan stale, answers missing") == f.SUNTEL_FOOT])
+_pr = {"edition": "GaleTimes1941UKEnglish/1941-07-03", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
+       "scan": {"date": "1941-07-03", "item": "GaleTimes1941UKEnglish"},
+       "verdicts": [{"number": 9999977, "imageUnread": "only 14 white cells found", "refused": "no reading parses"}]}
+check("a 1941 Gale Times page refused for too few white cells is due PALE_RULES, not one read since, filed, refused for "
+      "another cause, or of 1950; pale_whys names the lattice refusals",
+      [True, False, False, False, False, True],
+      [bool(f.pale_rules_due(_pr)), bool(f.pale_rules_due({**_pr, "readAt": "2026-11-17T00:00:00+00:00"})),
+       bool(f.pale_rules_due({**_pr, "verdicts": [{**_pr["verdicts"][0], "wrote": True}]})),
+       bool(f.pale_rules_due({**_pr, "verdicts": [{**_pr["verdicts"][0], "imageUnread": "the white cells span 12 rows and 12 columns"}]})),
+       bool(f.pale_rules_due({**_pr, "scan": {"date": "1950-07-03", "item": "GaleTimes1950UKEnglish"}})) or f.PALE_RULES not in f.RANKS,
+       f.pale_grid.pale_whys("too few neighbouring white cells to measure the lattice")])
+_icol = __import__("ios_columns")
+_row = lambda x0, x1, y, t: (x0, y, x1, y + 30, t)
+# 1994-08-14: four columns left of the grid (212-556, 594-939, 975-1320, 1356-1702), ACROSS and DOWN over columns 1 and 3.
+_words4 = [_row(212, 358, 2883, "ACROSS"), _row(977, 1097, 2883, "DOWN")] + \
+    [_row(x, x + 340, 2920 + 33 * k, "%d Clue text here" % k) for x in (212, 594, 975, 1356) for k in range(20)] + \
+    [_row(30, 100, 3000, "advert"), _row(1006, 1672, 2820, "BEELZEBUB PRIZE CROSSWORD NO 237")]
+# 1992-04-19: the grid at 278-998, two columns right of it, the bridge column from 2217.
+_words2 = [_row(1230, 1385, 2335, "ACROSS"), _row(1819, 1948, 2335, "DOWN")] + \
+    [_row(x, x + 540, 2400 + 33 * k, "%d Clue text here down" % k) for x in (1036, 1610) for k in range(20)] + \
+    [_row(2217, 2798, 2336, "West"), *[_row(2217, 2798, 2400 + 33 * k, "bridge text") for k in range(20)]]
+check("a pre-1995 Beelzebub's clue columns are fitted to its words: four left of the grid up to ACROSS's, two right of it "
+      "up to DOWN's (a clue's last word 'down' is no heading, the bridge column after them is not one), a 1996 page is not one",
+      ["left", "right", None, [204, 573, 954, 1335, 1736], [1003, 1593, 2158], None],
+      [_icol.four_layout("galeindysunday", "1994-08-14", "below", (1741, 2886, 2461, 3666), 3296),
+       _icol.four_layout("galeindysunday", "1992-04-19", "left", (278, 2275, 998, 2990), 3296),
+       _icol.four_layout("galeindysunday", "1996-03-10", "below", (985, 2062, 1705, 2781), 3296),
+       _icol.fit(_words4, "left", (1741, 2886, 2461, 3666), 2850, 3936, 3296),
+       _icol.fit(_words2, "right", (278, 2275, 998, 2990), 2316, 3785, 3296),
+       _icol.fit([_row(1036, 1575, 2400, "1 text")], "right", (278, 2275, 998, 2990), 2316, 3785, 3296)])
+# 1994-06-12: the grid at 607-1329 (2266-2990), ACROSS left of it, two columns under it, the fourth right of it.
+_wgrid = (607, 2266, 1329, 2990)
+_wwords = [_row(225, 400, 2264, "ACROSS"), _row(1368, 1700, 2264, "in primitive man (7)")] + \
+    [_row(x, x + 340, y, "%d Clue text here" % k) for x in (225, 1368) for k, y in enumerate(range(2300, 3800, 33))] + \
+    [_row(x, x + 340, y, "%d Clue text here" % k) for x in (605, 985) for k, y in enumerate(range(3040, 3800, 33))]
+check("a pre-1995 Beelzebub whose grid stands 0.7+ of its width in is a wrap page: the ACROSS column left of it, two under, "
+      "one right, fitted from the words (IOS_WRAP); one with no ACROSS heading left of the grid is none",
+      ["wrap", "right", [217, 602, 965, 1334, 1716], None, True],
+      [_icol.four_layout("galeindysunday", "1994-06-12", "below", _wgrid, 3296),
+       _icol.four_layout("galeindysunday", "1990-12-23", "below", (402, 2381, 1120, 3099), 3296),
+       _icol.fit(_wwords, "wrap", _wgrid, 2230, 3870, 3296),
+       _icol.fit(_wwords[1:], "wrap", _wgrid, 2230, 3870, 3296),
+       f.IOS_WRAP in f.RANKS])
+_lone = [[(210, 430, 230, 460, "1")], [(210, 640, 400, 670, "ACROSS")], [(210, 690, 590, 720, "1 Foo bar (4)")],
+         [(610, 440, 630, 470, "3")], [(610, 640, 700, 670, "DOWN")], [(610, 690, 990, 720, "2 Baz (3)")]]
+_lone_cols = f.columns(_lone, (1000, 500, 1400, 900), None, 40, None, (200, 600, 2000))
+check("a lone number over a column's ACROSS or DOWN heading is no clue and does not end the column there",
+      [["ACROSS", "1 Foo bar (4)"], ["DOWN", "2 Baz (3)"]],
+      [[line[4] for line in col] for col in _lone_cols])
+check("the Independent on Sunday's winners notice is read with its setter and competition before 1995 too, as run together",
+      ["315", "234", "114", "114"],
+      [(f.IOS_WINNERS.search(t) or [None, None])[1] for t in
+       ("Winners of 315: J E Pert", "Winners of Beelzebub 234: M H Miller", "The winners of Beelzebub competition number 114 are:",
+        "The winnersofBeeizebub competitionnumber114are:")])
+def _ios_found(thick, thin_sides=()):
+    """A listener_grid-like 12x12 grid: `thick` sides 4 thin rules wide, the rest 1 (the thin rule 1)."""
+    _s = {(r, c, "r"): 1.0 for r in range(12) for c in range(11)}
+    _s.update({(r, c, "b"): 1.0 for r in range(11) for c in range(12)})
+    _s.update({k: 4.0 for k in thick})
+    return {"rows": ["." * 12] * 12, "sides": _s, "thin": 1.0}
+
+
+_io = __import__("ios_barred")
+_pair = (2, 3, "r")
+_stray = (7, 1, "b")
+_fit = _io.fit_rows(_ios_found({_pair, _io.mirror_of(_pair), _stray}))
+_ug = (985, 2062, 1705, 2781)
+_wins = f.windows(_ug, None, 40, None, f.with_under((205, 589, 100), _ug, 3743))
+check("a Beelzebub's bars are mirror pairs (a bar thick on one side only is none), the clue lists decide the unsure "
+      "pairs, its lists run on in a third window under the grid to the page's foot, and a digit's \"(12, 2 words)\" is \"(12)\"",
+      [True, True, [(980, 1345, 1345, 2776)], 3743, "(12) x (9)", [(1, "across", 6)]],
+      [_fit[2][3] == "r" and _fit[9][7] == "r", _fit[7][1] == ".", _wins[2:], f.with_under((205, 589, 100), _ug, 3743)[2],
+       f.IOS_WORDS_COUNT.sub(r"(\1)", "(12, 2 words) x (9, 2 words)").replace("(9)", "(9)"),
+       [(1, "across", 6)] if _io.wanted_of({"across": [{"tokens": [{1}], "enums": {"3,3"}}]}) == [(frozenset({1}), "across", 6)] else None])
+_ev_gray = np.full((500, 500), 255, dtype=np.uint8)
+_ev_gray[100:400, 100:400] = 0
+try:
+    _ev = [_io.evened(_ev_gray, {"lattice": ([100.4, 399.6], [100.4, 399.6])}),
+           _io.evened(_ev_gray, {"box": (100.4, 100.4, 399.6, 399.6)})]
+    _ev_ok = [True, True]
+except TypeError:
+    _ev_ok = [False, False]
+check("an Independent on Sunday grid's lattice or box of float edges is cut on whole pixels, no slice TypeError",
+      [True, True], _ev_ok)
+_wl = [[(1350, 2937, 1698, 2967, "E14 5DL by 24 March. Winners of"), (1800, 2937, 2300, 2967, "Edwina breezed")],
+       [(1348, 2963, 1693, 2993, "315:J E Pert, Bromley;"), (1802, 2984, 2309, 3019, "breezed in and said")]]
+_wb = (1350, 2937, 1698, 2967)
+check("an Independent on Sunday page's \"Winners of N\" notice (its number on the line under) is the solution heading of N, "
+      "the page's own title 1 to IOS_WINNERS_LAG on; a title too far on drops it; a barred solution grid reads only against "
+      "the puzzle's bars",
+      [[(315, _wb)], [(315, _wb)], [], [(316, (0, 0, 9, 9))], {}],
+      [f.ios_winners(_wl), f.indy_sunday_headings(_wl, [318])[1], f.ios_winners(_wl, [330]),
+       f.ios_winners([[(0, 0, 9, 9, "Winners of 316: A B")]], [318]),
+       _io.solution_reads(__import__("PIL.Image", fromlist=["Image"]).new("L", (500, 500), 255), ["." * 12] * 12)[0]])
+_gk = f._PRIZE_HEADINGS_FIX["gale"]
+_mon ={"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
+_tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
+check("a Gale Monday of the 2000s scanned before the prize headings is due again; its Tuesday, and a scan "
+      "by the new code, stand", [False, True, True],
+      [f.scan_current(_mon, "h"), f.scan_current(_tue, "h"), f.scan_current({**_mon, "scanKey": f.scan_key(f.GALE)}, "h")])
+_bk = f._BAND_WIDTH_FIX["gale"]
+_wide = {"edition": "GaleTimes2005UKEnglish/2005-09-05", "scanKey": _bk[0], "filesHash": "h", "scan": {}}
+check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTION_BAND is due again, "
+      "one of 2004 or 2007 and a scan by the new code stand; every pinned paper keeps its old scans",
+      [False, True, True, True, True],
+      [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
+       f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
+       f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
+       all(f.CORPUS_KEYS[v[0]] == {p: _final(p)} for p, v in f._GRID_CAP_FIX.items())])
+_gk2 = f._GRID_CAP_FIX["gale"]
+_wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
+check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
+      "again (the wider band's scan too); one of 2004 or 2007 and a scan by the new code stand",
+      [False, False, True, True, True],
+      [f.scan_current(_wide2, "h"), f.scan_current({**_wide2, "scanKey": f._BAND_WIDTH_FIX["gale"][0]}, "h"),
+       f.scan_current({**_wide2, "edition": "GaleTimes2004UKEnglish/2004-11-02"}, "h"),
+       f.scan_current({**_wide2, "edition": "GaleTimes2007UKEnglish/2007-03-16"}, "h"),
+       f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
+check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
+      "pins over, its pinned key the one the dot-leader fix pins over, its the one the day-heading fix pins "
+      "over, its the one the championship fix pins over, its the one the inset-grid fix pins over, its the one "
+      "the lone-title fix pins over, whose pinned key is its real scan key, and the seven fixes' old keys stand "
+      "under it",
+      [True, True, True, True, True, True, True, True],
+      [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
+       all(v[2] == f._DOT_LEADER_FIX[k][0] for k, v in f._NEG_EXPECTED_FIX.items()),
+       all(v[2] == f._DAY_HEADING_FIX[k][0] for k, v in f._DOT_LEADER_FIX.items()),
+       all(v[2] == f._CHAMPIONSHIP_FIX[k][0] for k, v in f._DAY_HEADING_FIX.items()),
+       all(v[2] == f._INSET_GRID_FIX[k][0] for k, v in f._CHAMPIONSHIP_FIX.items()),
+       all(v[2] == f._LONE_TITLE_FIX[k][0] for k, v in f._INSET_GRID_FIX.items()),
+       all(v[2] == (f._WINNERS_TITLE_FIX[k][0] if k in f._WINNERS_TITLE_FIX else f._JOINED_TITLE_FIX[k][0] if k in f._JOINED_TITLE_FIX else
+                    f._SPECIAL_TITLE_FIX[k][0])
+           for k, v in f._LONE_TITLE_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: _final(k)}
+           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX,
+                     f._INSET_GRID_FIX, f._LONE_TITLE_FIX)
+           for k, v in t.items() for o in v[:2])])
+check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sunday Times over the lone-title key, "
+      "each pinned key its real scan key's; no other paper's key moved; their old keys stand under it",
+      [True, True, True, True],
+      [all(v[0] == (f._WINNERS_TITLE_FIX[k][2] if k in f._WINNERS_TITLE_FIX else f._LONE_TITLE_FIX[k][2])
+            for k, v in f._JOINED_TITLE_FIX.items()),
+       all(v[2] == f._SPECIAL_TITLE_FIX[k][0] for k, v in f._JOINED_TITLE_FIX.items()),
+       sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
+       all(f.CORPUS_KEYS[o] == {k: _final(k)} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
+check("the special-title fix pins every paper but the Gale Sunday Telegraph over the key before it, each pinned key "
+      "its real scan key's, their old keys standing under it; the Sunday Telegraph's moves, so its scans are made again",
+      [True, True, True, True, True, True],
+      [all(f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
+           == _final(k) and f._WINNERS_BAND_FIX[k][0] == v[2]
+           for k, v in f._SPECIAL_TITLE_FIX.items()),
+       f.scan_key(f.GALE_INDY_SUNDAY) == _final("galeindysunday") != f._WINNERS_BAND_FIX["galeindysunday"][2],  # moved on, then pinned (_INDY_ENTRIES_FIX)
+       all(f.CORPUS_KEYS[o] == {k: _final(k) if k != "galeindysunday" else f._WINNERS_BAND_FIX[k][2]}  # its pre-barred scans stay stale on purpose
+           for k, v in f._SPECIAL_TITLE_FIX.items() for o in v[:2]),
+       sorted(set(f.FILERS) - set(f._SPECIAL_TITLE_FIX)) == ["galesundaytelegraph"],
+       not f.scan_current({"edition": "GaleSundayTelegraph2000UKEnglish/2000-12-31", "scanKey": "298202f644768e5f",
+                           "filesHash": "h", "scan": {}}, "h"),
+       f.solution_key() == "432a5818529a9b11"])
+check("the Sunday Telegraph's title reads 'Prize Puzzle No 2,061' and 'Two-into-One Crossword No 1,234'; its holiday "
+      "specials are numberless titles (SUNDAY_TEL_SPECIAL), 'Cryplic' misread included, never a news line",
+      [2061, 1234, True, True, True, False, False],
+      [int(f.SUNDAY_TEL_TITLE.match("Prize Puzzle No. 2,061").group(1).replace(",", "")),
+       int(f.SUNDAY_TEL_TITLE.match("Two-into-One Crossword No 1,234").group(1).replace(",", "")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Sunday Telegraph Prize Cryptic Crossword for Easter")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Sunday Telegraph New Year Cryplic Crossword")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Sunday Telegraph Bank Holiday Cryptic Crossword")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("Classics master tackles the Cross word")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Winner of our Easter Cryptic Crossword is Fiona"))])
+check("the Sunday Times's winners-entry refusal (SUNDAY_TIMES_TITLE) chains the lone-title key through the joined-title one "
+      "to its real key (its old and sized keys stand), its solution and solved keys pinned to the ones before; the Independent's scan, sized and solution keys from before clue_text.zeros_read chain to the current ones, "
+      "so nothing is scanned or read again",
+      [True, True, True, True, True, True],
+      [all(f.CORPUS_KEYS[o] == {"galesundaytimes": f.scan_key(f.GALE_SUNDAY_TIMES)} for o in f._WINNERS_TITLE_FIX["galesundaytimes"][:2]),
+       all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)} for o in f._ZEROS_OLD),
+       f._SOLUTION_PINS["8e4b770296908774"] == "432a5818529a9b11",
+       f._SOLUTION_PINS["e8b1229ab48f7223"] == "432a5818529a9b11" and f._SOLVED_PINS["5310567b45418049"] == "050e93ff674ff62c",
+       f._SOLVED_PINS["113156e3aaee30b5"] == "050e93ff674ff62c"
+       and f._SOLUTION_PINS["c85fd409ea8aa6cf"] == "432a5818529a9b11" and f._SOLVED_PINS["7b24786d7044bf06"] == "9b3500cb5488df7c"
+       and f._SOLUTION_PINS["c828441d2ef9ccdb"] == "432a5818529a9b11" and f._SOLVED_PINS["e65970428db1f6f5"] == "9b3500cb5488df7c",
+       f.zeros_read("#701o") == "#7010" if hasattr(f, "zeros_read") else __import__("clue_text").zeros_read("#701O") == "#7010"])
+# An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
+# one with a title, a verdict, or scanned by the new code stands; a 1975 one is not INSET_GRID's (LONE_TITLE's).
+_ik = f._INSET_GRID_FIX["gale"]
+_inset = {"edition": "GaleTimes1941UKEnglish/1941-01-27", "scanKey": _ik[0], "filesHash": "h", "inputs": "h",
+          "verdicts": [], "scan": {"date": "1941-01-27", "item": "GaleTimes1941UKEnglish", "puzzles": [], "solutions": []}}
+_i1975 = {**_inset, "edition": "GaleTimes1975UKEnglish/1975-01-27",
+          "scan": {**_inset["scan"], "date": "1975-01-27", "item": "GaleTimes1975UKEnglish"}}
+check("an untitled 1941 Gale Times scan made before inset_grid is due again (INSET_GRID, its scan stale); a titled "
+      "one, one with a verdict and a scan by the new code stand; a 1975 one is due LONE_TITLE, not INSET_GRID",
+      [False, f.INSET_GRID, True, True, False, f.LONE_TITLE, True, None],
+      [f.scan_current(_inset, "h"), f.fix_reason(_inset),
+       f.scan_current({**_inset, "scan": {**_inset["scan"], "puzzles": [{"number": 3409, "leaf": 0}]}}, "h"),
+       f.scan_current({**_inset, "verdicts": [{"number": 3409}]}, "h"),
+       f.inset_rescan(_i1975), f.fix_reason(_i1975),
+       f.scan_current({**_inset, "scanKey": f.scan_key(f.GALE), "scan": {**_inset["scan"], f.WHOLE_UNTITLED: True}}, "h"),
+       f.fix_reason({**_inset, "scanKey": f.scan_key(f.GALE), "scan": {**_inset["scan"], f.WHOLE_UNTITLED: True}})])
+# An untitled Gale Times page scanned before paired_titles (the key the lone-title fix pins over, of any year
+# 1930-2014): its scan stale, due LONE_TITLE once (an INSET_YEARS one under a pre-inset key stays INSET_GRID's);
+# a titled one, one with a verdict, a Gale Telegraph one and a scan by the new code stand; rekey_scans leaves it.
+_lk = f._LONE_TITLE_FIX["gale"]
+_lone = {"edition": "GaleTimes1982UKEnglish/1982-07-21", "scanKey": _lk[0], "filesHash": "h", "inputs": "h",
+         "verdicts": [], "scan": {"date": "1982-07-21", "item": "GaleTimes1982UKEnglish", "puzzles": [],
+                                  "solutions": [{"number": 15886, "leaf": 0}]}}
+_l1940 = {**_lone, "edition": "GaleTimes1940UKEnglish/1940-03-08",
+          "scan": {**_lone["scan"], "date": "1940-03-08", "item": "GaleTimes1940UKEnglish"}}
+check("an untitled 1982 or 1940 Gale Times scan made before paired_titles is due LONE_TITLE (its scan stale); a "
+      "titled one, one with a verdict, a Gale Telegraph one and a scan by the new code stand",
+      [False, f.LONE_TITLE, False, f.LONE_TITLE, True, True, False, True, None, 2],
+      [f.scan_current(_lone, "h"), f.fix_reason(_lone), f.scan_current(_l1940, "h"), f.fix_reason(_l1940),
+       f.scan_current({**_lone, "scan": {**_lone["scan"], "puzzles": [{"number": 15887, "leaf": 0}]}}, "h"),
+       f.scan_current({**_lone, "verdicts": [{"number": 15887}]}, "h"),
+       f.lone_rescan({**_lone, "edition": "GaleTelegraph1982UKEnglish/1982-07-21",
+                      "scan": {**_lone["scan"], "item": "GaleTelegraph1982UKEnglish"}}),
+       f.scan_current({**_lone, "scanKey": f.scan_key(f.GALE), "scan": {**_lone["scan"], f.WHOLE_UNTITLED: True}}, "h"),
+       f.fix_reason({**_lone, "scanKey": f.scan_key(f.GALE), "scan": {**_lone["scan"], f.WHOLE_UNTITLED: True}}),
+       f.RANKS[f.LONE_TITLE]])
+# An untitled Gale Times page with no verdict scanned by this scan code before REREAD_GF_UNREAD and not read whole
+# (a grid-first scan's windows only): its scan stale, due GF_UNREAD once, past blanket_or_fix; one read whole
+# (WHOLE_UNTITLED), titled, read since, with a verdict (gf_rescan's), failed, or under a pinned key stands.
+_gu = {**_lone, "edition": "GaleTimes1944UKEnglish/1944-06-06", "scanKey": f.scan_key(f.GALE),
+       "readAt": "2026-10-25T13:24:00+00:00",
+       "scan": {"date": "1944-06-06", "item": "GaleTimes1944UKEnglish", "puzzles": [], "solutions": []}}
+check("an untitled verdict-less Gale Times page scanned by this scan code before REREAD_GF_UNREAD is due GF_UNREAD "
+      "(its scan stale); read whole, titled, read since, with a verdict, failed or under a pinned key it is not",
+      [True, False, f.GF_UNREAD, f.GF_UNREAD, False, False, False, False, False, False, 2],
+      [f.gf_unread(_gu), f.scan_current(_gu, "h"), f.fix_reason(_gu), f.blanket_or_fix(_gu, "inputs changed"),
+       f.gf_unread({**_gu, "scan": {**_gu["scan"], f.WHOLE_UNTITLED: True}}),
+       f.gf_unread({**_gu, "scan": {**_gu["scan"], "puzzles": [{"number": 4450, "leaf": 0}]}}),
+       f.gf_unread({**_gu, "readAt": "2026-10-29T00:00:00+00:00"}),
+       f.gf_unread({**_gu, "verdicts": [{"number": 4450, "id": "times-4450"}]}),
+       f.gf_unread({**_gu, "scan": {**_gu["scan"], "failed": "x"}}),
+       f.gf_unread({**_gu, "scanKey": _lk[0]}), f.RANKS[f.GF_UNREAD]])
+check("the GF_UNREAD reread time is not in the future", True,
+      scan_queue.when(f.REREAD_GF_UNREAD) <= scan_queue.when("now"))
+# A Gale Times page a grid-first rescan by this scan code left untitled while its row holds a verdict, read before
+# REREAD_GF_TITLE: its scan stale, due GF_TITLE once, past blanket_or_fix's lost-title guard; one read whole since
+# (WHOLE_UNTITLED), titled, read after the cutoff, with no verdict, under a pinned key, or a Gale Telegraph one stands.
+_gf = {"edition": "GaleTimes1955UKEnglish/1955-07-20", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "readAt": "2026-10-16T18:48:27+00:00", "verdicts": [{"number": 7875, "id": "times-7875"}],
+       "scan": {"date": "1955-07-20", "item": "GaleTimes1955UKEnglish", "puzzles": [], "solutions": []}}
+check("an untitled Gale Times page with a verdict, rescanned by this scan code before REREAD_GF_TITLE, is due "
+      "GF_TITLE (its scan stale, past the lost-title guard); one read whole, titled, read since, with no verdict, "
+      "under a pinned key or of the Gale Telegraph is not",
+      [True, False, f.GF_TITLE, f.GF_TITLE, f.GF_TITLE, False, False, False, False, False, False, 2],
+      [f.gf_rescan(_gf), f.scan_current(_gf, "h"), f.fix_reason(_gf), f.blanket_or_fix(_gf, "inputs changed"),
+       f.blanket_or_fix(_gf, "titles changed"),
+       f.gf_rescan({**_gf, "scan": {**_gf["scan"], f.WHOLE_UNTITLED: True}}),
+       f.gf_rescan({**_gf, "scan": {**_gf["scan"], "puzzles": [{"number": 7875, "leaf": 0}]}}),
+       f.gf_rescan({**_gf, "readAt": "2026-10-29T00:00:00+00:00"}), f.gf_rescan({**_gf, "verdicts": []}),
+       f.gf_rescan({**_gf, "scanKey": _lk[0]}),
+       f.gf_rescan({**_gf, "edition": "GaleTelegraph1955UKEnglish/1955-07-20",
+                    "scan": {**_gf["scan"], "item": "GaleTelegraph1955UKEnglish"}}),
+       f.RANKS[f.GF_TITLE]])
+
+
+# grid_first_scan reads a page whole when its windows read no title (or only a solution_titled one); a titled
+# grid-first scan stands. scan_anywhere marks an untitled scan WHOLE_UNTITLED.
+def _gf_scan_with(first):
+    calls = []
+
+    def fake(d):
+        calls.append(getattr(f._GRID_FIRST, "paper", None) is not None)
+        return {"date": "1955-07-20", "item": "GaleTimes1955UKEnglish",
+                "puzzles": first if len(calls) == 1 else [{"number": 7875, "leaf": 0, "box": [1, 2, 3, 4]}],
+                "solutions": []}
+    real = f._scan, f._grid_first_install
+    f._scan, f._grid_first_install = fake, lambda: None
+    try:
+        found = f.grid_first_scan(Path("GaleTimes1955UKEnglish/1955-07-20"))
+    finally:
+        f._scan, f._grid_first_install = real
+    return calls, [p["number"] for p in found["puzzles"]]
+
+
+_real_gfo, _real_gfs = f.grid_first_on, f.grid_first_scan
+f.grid_first_on = lambda: True
+f.grid_first_scan = lambda d: {"puzzles": [], "solutions": []}
+_untitled = f.scan_anywhere(Path("GaleTimes1955UKEnglish/1955-07-20"))
+f.grid_first_scan = lambda d: {"puzzles": [{"number": 7875, "leaf": 0}], "solutions": []}
+_titled = f.scan_anywhere(Path("GaleTimes1955UKEnglish/1955-07-20"))
+f.grid_first_on, f.grid_first_scan = _real_gfo, _real_gfs
+check("grid_first_scan reads an untitled page (or one titled only from its solutions) whole, a titled one not; "
+      "scan_anywhere marks an untitled scan read whole",
+      [([True, False], [7875]), ([True, False], [7875]), ([True], [5]), True, False],
+      [_gf_scan_with([]), _gf_scan_with([{"number": 7875, "leaf": 0, "fromSolutions": [7874]}]),
+       _gf_scan_with([{"number": 5, "leaf": 0, "box": [1, 2, 3, 4]}]),
+       _untitled.get(f.WHOLE_UNTITLED, False), _titled.get(f.WHOLE_UNTITLED, False)])
+# footer_titles (r30): a 1935-39 Gale Times page with no title read is titled by the number two of its prints agree
+# on: the footer's spelt number (N + 1), its figures on the next line (N), the solution heading (N - 1).
+check("spelt_ordinal reads a footer's misread spelt number: thousands, hundreds, last two digits (None unread)",
+      [(2, 6, 45), (None, 6, 46), (2, 6, 43), (2, 8, 1)],
+      [f.spelt_ordinal("Thc two thousand six hundred and fory-ffh crossword puzzlc in this series, together"),
+       f.spelt_ordinal("The w thousand six hundedandfory-sixth grswird puzzle in his series, together"),
+       f.spelt_ordinal("The two thosnd six laudred andfory-hird crosswopuzzle in his seris together"),
+       f.spelt_ordinal("The two thousand eight hundred and first crossword puzzle in this series")])
+check("spelt_agrees: the last two digits and the thousands or hundreds read, each the number's",
+      [True, True, False, False, False],
+      [f.spelt_agrees((2, 6, 46), 2646), f.spelt_agrees((None, 6, 46), 2646), f.spelt_agrees((None, None, 46), 2646),
+       f.spelt_agrees((2, 7, 46), 2646), f.spelt_agrees((2, 6, None), 2646)])
+# 1938-08-11 as read: no title over the grid, "SOLUTION OF PUZZLE No. 2,644", the footer spelling 2,646.
+_fnote = (3655, 5291, 4926, 5372, "NOTE,Figures in paremtheses denote the number of leters in the words required.")
+_ffoot = (3658, 6427, 4933, 6501, "The w thousand six hundedandfory-sixth grswird puzzle in his series, together")
+_fwords = [_fnote, (4354, 5696, 4920, 5761, "SOLUTION OF PUZZLE No. 2,644"), _ffoot,
+           (3738, 6461, 4853, 6532, "wih the soltion o puzleNo.2s, wilapearinThemes fo-morrw")]
+_fsol = [{"number": 2644, "leaf": 0, "box": [4354, 5696, 4920, 5761]}]
+# 1938-08-10 as read: the footer's figures "No. 2,644" read too, and read as a heading of its own.
+_f10 = [(3674, 5352, 4968, 5409, "NOTE.—Figures in parenitheses denote the number of Ietters in the words required."),
+        (3680, 6402, 4965, 6463, "Thc two thousand six hundred and fory-ffh crossword puzzlc in this series, together"),
+        (3700, 6440, 4900, 6500, "with the solution of puzzle No. 2,644, will appear in The Times to-morrow")]
+_f10sol = [{"number": 2643, "leaf": 0, "box": [4378, 5683, 4949, 5718]},
+           {"number": 2644, "leaf": 0, "box": [3878, 6444, 4331, 6484]}]
+check("footer_titles: the heading's next number the footer spells the one after, its box a title's line as wide as "
+      "the footer, 1.12 footer widths over the NOTE line; the footer's figures with its spelt number, the figures' "
+      "heading no title; none with a heading the footer disagrees with, nor with no NOTE line, nor no footer",
+      [[{"number": 2645, "leaf": 0, "box": (3658, 3789, 4933, 3863), "fromFooter": ["heading", "spelt"]}],
+       [{"number": 2644, "leaf": 0, "box": (3680, 3852, 4965, 3913), "fromFooter": ["figures", "heading", "spelt"]}],
+       [{"number": 2644, "leaf": 0, "box": (3680, 3852, 4965, 3913), "fromFooter": ["figures", "spelt"]}],
+       [], [], []],
+      [f.footer_titles(_fwords, _fsol, 0), f.footer_titles(_f10, _f10sol, 0), f.footer_titles(_f10, [], 0),
+       f.footer_titles(_fwords, [{**_fsol[0], "number": 2650}], 0), f.footer_titles(_fwords[1:], _fsol, 0),
+       f.footer_titles([_fnote], _fsol, 0)])
+# footer_titled: off the crop cache's page reads (cached_page_words, stubbed), the footer's heading dropped, stamped
+# FOOTER_READ; a titled scan, a failed one and a 1940 page stand as they are.
+_fdir = Path(tempfile.mkdtemp()) / "GaleTimes1938UKEnglish" / "1938-08-10"
+_fdir.mkdir(parents=True)
+(_fdir / "pages.json").write_text(json.dumps({"date": "1938-08-10", "crossword_pages": [{"leaf": 0}]}))
+_f40 = Path(tempfile.mkdtemp()) / "GaleTimes1940UKEnglish" / "1940-08-10"
+_f40.mkdir(parents=True)
+(_f40 / "pages.json").write_text(json.dumps({"date": "1940-08-10", "crossword_pages": [{"leaf": 0}]}))
+_fscan = {"date": "1938-08-10", "item": "GaleTimes1938UKEnglish", "puzzles": [], "solutions": _f10sol}
+_real_cpw = f.cached_page_words
+f.cached_page_words = lambda key: [_f10] if key == "GaleTimes1938UKEnglish_1938-08-10_0" else []
+try:
+    _ftd = f.footer_titled(_fdir, _fscan)
+    # 1938-08-12: no pages.json, no cached page read (the stub's []): looked over, titled none.
+    _fnone = f.footer_titled(_fdir.parent / "1938-08-12", {**_fscan, "date": "1938-08-12"})
+    check("footer_titled titles an untitled 1938 Gale Times scan from its cached page reads and drops the heading "
+          "its footer's figures were read as; stamps one it cannot title; leaves a titled, failed or 1940 scan",
+          [[2644], [2643], True, ([], True), [{"number": 2644, "leaf": 0}], False, False],
+          [[p["number"] for p in _ftd["puzzles"]], [s["number"] for s in _ftd["solutions"]], _ftd.get(f.FOOTER_READ),
+           (_fnone["puzzles"], _fnone.get(f.FOOTER_READ)),
+           f.footer_titled(_fdir, {**_fscan, "puzzles": [{"number": 2644, "leaf": 0}]})["puzzles"],
+           f.FOOTER_READ in f.footer_titled(_fdir, {**_fscan, "failed": "x"}),
+           f.FOOTER_READ in f.footer_titled(_f40, {**_fscan, "date": "1940-08-10", "item": "GaleTimes1940UKEnglish"})])
+finally:
+    f.cached_page_words = _real_cpw
+# footer_rescan: a 1935-39 Gale Times page read with no verdict, its scan under a current key untitled and never
+# looked over for its footer, is due FOOTER_TITLE once (its scan stale, past blanket_or_fix); stamped FOOTER_READ,
+# titled, with a verdict, failed, of 1940, of another paper or under a key no longer current it is not.
+_ft = {"edition": "GaleTimes1938UKEnglish/1938-08-11", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "verdicts": [], "readAt": "2026-10-28T23:00:00+00:00",
+       "scan": {"date": "1938-08-11", "item": "GaleTimes1938UKEnglish", "puzzles": [],
+                "solutions": [{"number": 2644, "leaf": 0}]}}
+check("an untitled verdict-less 1938 Gale Times page never looked over for its footer is due FOOTER_TITLE (its scan "
+      "stale); stamped, titled, with a verdict, failed, of 1940, a Gale Telegraph's or under an old key it is not",
+      [True, False, f.FOOTER_TITLE, f.FOOTER_TITLE, True, False, False, False, False, False, False, False, 2],
+      [f.footer_rescan(_ft), f.scan_current(_ft, "h"), f.fix_reason(_ft), f.blanket_or_fix(_ft, "inputs changed"),
+       f.scan_current({**_ft, "scan": {**_ft["scan"], f.FOOTER_READ: True}}, "h"),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], f.FOOTER_READ: True}}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "puzzles": [{"number": 2645, "leaf": 0}]}}),
+       f.footer_rescan({**_ft, "verdicts": [{"number": 2645, "id": "times-2645"}]}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "failed": "x"}}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "date": "1940-08-11", "item": "GaleTimes1940UKEnglish"}}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "item": "GaleTelegraph1938UKEnglish"}}),
+       f.footer_rescan({**_ft, "scanKey": "0000000000000000"}), f.RANKS[f.FOOTER_TITLE]])
+# telegraph_dated_rescan / telegraph_loose_heading: a 1985 archive.org Daily Telegraph edition read with no verdict and no
+# puzzle, never looked over loosely, is due TELEGRAPH_DATED once (its scan stale, past blanket_or_fix); garbled heading
+# lines with a DOWN line beside them are found, the Quick's pair under its caption is not.
+_td = {"edition": "TheDailyTelegraph1985UKEnglish/1985-01-23_40308", "scanKey": f.scan_key(f.TELEGRAPH), "filesHash": "h",
+       "inputs": "h", "verdicts": [], "readAt": "2026-11-10T00:00:00+00:00",
+       "scan": {"date": "1985-01-23", "item": "TheDailyTelegraph1985UKEnglish", "puzzles": [], "solutions": [],
+                "wholeUntitled": True}}
+_tw = lambda t, x, y: [(x + 60 * k, y, x + 60 * k + 50, y + 20, w) for k, w in enumerate(t.split())]
+_tl = [_tw(".No. 18.3 U ACROSS", 200, 2400), _tw("DOWN", 700, 2402), _tw("QUICK CROSSWORD", 200, 3900),
+       _tw("ACROSS", 200, 3960), _tw("DOWN", 700, 3962)]
+check("a garbled Telegraph heading with a DOWN line beside it, over the Quick caption, is found with its digits; "
+      "the Quick's own pair, a lone ACROSS and a long line are not",
+      [(200, 2400, 430, 2420), "183", (200, 2400, 430, 2420), "183", None, None],
+      [*f.telegraph_loose_heading(_tl)[0:2], *f.telegraph_loose_heading(_tl[:2]), f.telegraph_loose_heading(_tl[:1]),
+       f.telegraph_loose_heading([_tl[2], _tl[3], _tl[4]])])
+check("a verdict-less Telegraph edition with no puzzle is due TELEGRAPH_DATED once; stamped, titled, with a verdict, "
+      "failed or of another paper it is not",
+      [True, False, f.TELEGRAPH_DATED, f.TELEGRAPH_DATED, True, False, False, False, False, False, 1],
+      [f.telegraph_dated_rescan(_td), f.scan_current(_td, "h"), f.fix_reason(_td), f.blanket_or_fix(_td, "inputs changed"),
+       # stamped but read before REREAD_TELEGRAPH_DATED_LATE (its filed neighbours not yet held): due again once
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], f.TELEGRAPH_READ: True}}),
+       f.telegraph_dated_rescan({**_td, "readAt": "2026-11-19T00:00:00+00:00", "scan": {**_td["scan"], f.TELEGRAPH_READ: True}}),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "puzzles": [{"number": 18356, "leaf": 1}]}}),
+       f.telegraph_dated_rescan({**_td, "verdicts": [{"number": 18356}]}),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "failed": "x"}}),
+       f.telegraph_dated_rescan({**_td, "scan": {**_td["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
+       f.RANKS[f.TELEGRAPH_DATED]])
+# guardian_loose_titles / guardian_set_rescan: an archive.org Guardian weekday edition read with no puzzle is due
+# GUARDIAN_SET once; a title with a word glued on or split, or a "Set by" line over "Across", is found loosely.
+_gd = {"edition": "TheGuardian1997UKEnglish/1997-11-28_119", "scanKey": f.scan_key(f.GUARDIAN), "filesHash": "h",
+       "inputs": "h", "verdicts": [], "readAt": "2026-11-10T00:00:00+00:00",
+       "scan": {"date": "1997-11-28", "item": "TheGuardian1997UKEnglish", "puzzles": [], "solutions": [], "wholeUntitled": True}}
+_gl = lambda t, x, y: [(x + 60 * k, y, x + 60 * k + 50, y + 20, w) for k, w in enumerate(t.split())]
+check("a Guardian title with a word glued on, split, or a Set by line over Across is found; the Quick's and a "
+      "solution label are not",
+      [[((533, 3131, 703, 3151), "21133", None)], [((533, 3131, 1063, 3151), "21341", "Pasquale")],
+       [((1577, 3700, 2177, 3735), "", "Fidelio")], [], []],
+      [f.guardian_loose_titles([_gl("Guardian CrosswordTVio 21,133", 533, 3131)]),
+       f.guardian_loose_titles([_gl("Guardian C rosswor d No 21,341 Set by Pasquale", 533, 3131)]),
+       f.guardian_loose_titles([_gl("Set by Fidelio", 1577, 3745), _gl("Across", 1577, 3794)]),
+       f.guardian_loose_titles([_gl("Quick Crossword No. 8749", 533, 3131), _gl("CROSSWORD SOLUTION 21,448", 533, 3300)]),
+       f.guardian_loose_titles([_gl("Set by Fidelio", 1577, 3745), _gl("Across", 300, 3794)])])
+check("a verdict-less Guardian weekday edition with no puzzle is due GUARDIAN_SET once; a Sunday, stamped, titled, with a "
+      "verdict, failed or of another paper it is not",
+      [True, False, f.GUARDIAN_SET, f.GUARDIAN_SET, False, False, False, False, False, False, 1],
+      [f.guardian_set_rescan(_gd), f.scan_current(_gd, "h"), f.fix_reason(_gd), f.blanket_or_fix(_gd, "inputs changed"),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "date": "1997-11-30"}}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], f.GUARDIAN_READ: True}}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "puzzles": [{"number": 21133, "leaf": 14}]}}),
+       f.guardian_set_rescan({**_gd, "verdicts": [{"number": 21133}]}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "failed": "x"}}),
+       f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
+       f.RANKS[f.GUARDIAN_SET]])
+# ft_right_rescan (r253): an archive.org FT 1985-94 edition read with no puzzle and no verdict is due FT_RIGHT once (the band
+# right of its grid is read for the title, ft_right_titled); stamped, titled, with a verdict, failed, of 1995 or of Gale not.
+_fr = {"edition": "FinancialTimes1994UKEnglish/1994-08-15_15", "scanKey": f.scan_key(f.FT), "filesHash": "h",
+       "inputs": "h", "verdicts": [], "readAt": "2026-11-17T00:00:00+00:00",
+       "scan": {"date": "1994-08-15", "item": "FinancialTimes1994UKEnglish", "puzzles": [], "solutions": [], "wholeUntitled": True}}
+check("a verdict-less FT 1985-94 edition with no puzzle is due FT_RIGHT once; stamped, titled, with a verdict, failed, "
+      "of 1995 or of Gale it is not",
+      [True, False, f.FT_RIGHT, f.FT_RIGHT, False, False, False, False, False, False, 1],
+      [f.ft_right_rescan(_fr), f.scan_current(_fr, "h"), f.fix_reason(_fr), f.blanket_or_fix(_fr, "inputs changed"),
+       f.ft_right_rescan({**_fr, "scan": {**_fr["scan"], f.FT_RIGHT_READ: True}}),
+       f.ft_right_rescan({**_fr, "scan": {**_fr["scan"], "puzzles": [{"number": 8532, "leaf": 31}]}}),
+       f.ft_right_rescan({**_fr, "verdicts": [{"number": 8532}]}),
+       f.ft_right_rescan({**_fr, "scan": {**_fr["scan"], "failed": "x"}}),
+       f.ft_right_rescan({**_fr, "edition": "FinancialTimes1995UKEnglish/1995-08-15_15"}),
+       f.ft_right_rescan({**_fr, "edition": "GaleFT1994UKEnglish/1994-08-15"}),
+       f.RANKS[f.FT_RIGHT]])
+# small_titles (r42): the 1930-33 Gale Times prints puzzle numbers of 1-3 digits ("PUZZLE No. 357"); TITLE and
+# SOLUTION read four. 1931-03-27 as the two page readers read it (the date implies 358; Gale's pages skip a few more
+# closed days than TIMES_1930_CLOSED holds).
+_sday = _d.date(1931, 3, 27)
+_sch = [(2053, 2353, 2749, 2401, "THETIMESCROSSWORDPUZZLENo.357"), (2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE No. 356"),
+        (2042, 3739, 2753, 3794, "Solution of puzzle No. 357, will appear in The Times to-morrow.")]
+_sen = [(2053, 2353, 2749, 2401, "THE TIMES CROSSWORD PUZZLE No. 357"), (2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE NO. 350")]
+check("small_titles: a 1-3 digit title two reads give, the heading before it kept (the misread 350 not), its box the "
+      "title's line; a title one read gives beside a heading; one alone, or far from the date's number, none",
+      [([{"number": 357, "leaf": 0, "box": (2053, 2353, 2749, 2401)}], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
+       ([{"number": 357, "leaf": 0, "box": (2053, 2353, 2749, 2401)}], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
+       ([], []), ([], [])],
+      [f.small_titles([_sch, _sen], _sday, 0), f.small_titles([_sch[:2]], _sday, 0),
+       f.small_titles([_sch[:1]], _sday, 0), f.small_titles([_sch], _d.date(1932, 3, 27), 0)])
+# ... a title on two lines ("THE TIMES SCrossword" over "PUZZLE No.382"), its words apart; a heading two reads give
+# alone (the day before's, no footer naming another) is the heading of a title the grid boxes; a footer naming
+# another puzzle, or one read, none.
+_s2 = [(1500, 400, 1900, 450, "THE TIMES SCrossword"), (1500, 455, 1800, 505, "PUZZLE No.382")]
+_sh = [(2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE No. 356")]
+_sd = _d.date(1931, 4, 27)
+check("small_titles: a title set on two lines is one; the day before's heading alone read twice, or once within 8 under "
+      "(1 over) the date's number, gives it (SMALL_LONE); a footer naming another puzzle does not",
+      [([{"number": 382, "leaf": 0, "box": (1500, 400, 1900, 505)}], []), ([], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
+       ([], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]), ([], [])],
+      [f.small_titles([_s2, _s2], _sd, 0), f.small_titles([_sh, _sh], _sday, 0), f.small_titles([_sh], _sday, 0),
+       f.small_titles([_sh + [(2042, 3739, 2753, 3794, "Solution of puzzle No. 360, will appear in The Times to-morrow.")], _sh],
+                      _sday, 0)])
+# small_titled: off the crop cache's page reads (cached_page_words, stubbed); a heading-only page is boxed by
+# solution_titled (stubbed: it reads the page image); stamped SMALL_READ; a titled scan, a failed one and a 1934 page
+# stand as they are.
+_sdir = Path(tempfile.mkdtemp()) / "GaleTimes1931UKEnglish" / "1931-03-27"
+_sdir.mkdir(parents=True)
+(_sdir / "pages.json").write_text(json.dumps({"date": "1931-03-27", "crossword_pages": [{"leaf": 0}]}))
+_s34 = Path(tempfile.mkdtemp()) / "GaleTimes1934UKEnglish" / "1934-03-27"
+_s34.mkdir(parents=True)
+(_s34 / "pages.json").write_text(json.dumps({"date": "1934-03-27", "crossword_pages": [{"leaf": 0}]}))
+_sscan = {"date": "1931-03-27", "item": "GaleTimes1931UKEnglish", "puzzles": [], "solutions": []}
+_real_cpw, _real_st = f.cached_page_words, f.solution_titled
+f.cached_page_words = lambda key: [_sch, _sen] if key == "GaleTimes1931UKEnglish_1931-03-27_0" else []
+try:
+    _std = f.small_titled(_sdir, _sscan)
+    f.cached_page_words = lambda key: [_sh, _sh]
+    f.solution_titled = lambda d, sols: [{"number": max(s["number"] for s in sols) + 1, "leaf": 0, "box": (1, 2, 3, 4),
+                                          "fromSolutions": [s["number"] for s in sols]}]
+    _sbox = f.small_titled(_sdir, _sscan)
+    f.cached_page_words = lambda key: []
+    _snone = f.small_titled(_sdir, _sscan)
+    check("small_titled titles an untitled 1931 Gale Times scan from its cached page reads, boxes a heading-only "
+          "page by solution_titled, stamps one it cannot title, and leaves a titled, failed or 1934 scan",
+          [[357], [356], True, [357], [356], True, ([], True), [{"number": 357, "leaf": 0}], False, False],
+          [[p["number"] for p in _std["puzzles"]], [s["number"] for s in _std["solutions"]], _std.get(f.SMALL_READ),
+           [p["number"] for p in _sbox["puzzles"]], [s["number"] for s in _sbox["solutions"]], _sbox.get(f.SMALL_READ),
+           (_snone["puzzles"], _snone.get(f.SMALL_READ)),
+           f.small_titled(_sdir, {**_sscan, "puzzles": [{"number": 357, "leaf": 0}]})["puzzles"],
+           f.SMALL_READ in f.small_titled(_sdir, {**_sscan, "failed": "x"}),
+           f.SMALL_READ in f.small_titled(_s34, {**_sscan, "date": "1934-03-27", "item": "GaleTimes1934UKEnglish"})])
+finally:
+    f.cached_page_words, f.solution_titled = _real_cpw, _real_st
+# small_rescan: a 1930-33 Gale Times page read with no verdict, its scan under a current key untitled and never
+# looked over for a small title, is due SMALL_TITLE once (its scan stale, past blanket_or_fix); stamped SMALL_READ,
+# titled, with a verdict, failed, of 1934, of another paper or under a key no longer current it is not.
+_sr = {"edition": "GaleTimes1931UKEnglish/1931-03-27", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "verdicts": [], "readAt": "2026-11-02T01:00:00+00:00",
+       "scan": {"date": "1931-03-27", "item": "GaleTimes1931UKEnglish", "puzzles": [], "solutions": [], f.WHOLE_UNTITLED: True}}
+check("an untitled verdict-less 1931 Gale Times page never looked over for a small title is due SMALL_TITLE (its scan "
+      "stale); stamped, titled, with a verdict, failed, of 1934, a Gale Telegraph's or under an old key it is not",
+      [True, False, f.SMALL_TITLE, f.SMALL_TITLE, True, False, False, False, False, False, False, False, 2],
+      [f.small_rescan(_sr), f.scan_current(_sr, "h"), f.fix_reason(_sr), f.blanket_or_fix(_sr, "inputs changed"),
+       f.scan_current({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True, f.SMALL_FIGURES: True}}, "h"),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True, f.SMALL_FIGURES: True}}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "puzzles": [{"number": 357, "leaf": 0}]}}),
+       f.small_rescan({**_sr, "verdicts": [{"number": 357, "id": "times-357"}]}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "failed": "x"}}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "date": "1934-03-27", "item": "GaleTimes1934UKEnglish"}}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "item": "GaleTelegraph1931UKEnglish"}}),
+       f.small_rescan({**_sr, "scanKey": "0000000000000000"}), f.RANKS[f.SMALL_TITLE]])
+check("a page stamped SMALL_READ and SMALL_FRAG but not SMALL_FIGURES is due SMALL_TITLE again; heading_figures reads "
+      "'1S6' as 186 beside 187 and '5S3' as 583 beside 584 (not 553)",
+      [True, 186, 583],
+      [f.small_rescan({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True, f.SMALL_FRAG: True}}),
+       f.heading_figures("1S6", 187), f.heading_figures("5S3", 584)])
+# HELD_LINKED: a Times row a held-title read left answerless (no id, no solutionFrom) whose number a host's heading
+# links now (sol_seen holds it, its solutionsSeen did not) is due HELD_LINKED, not the blanket "inputs changed";
+# not one already linked, one that read its answers, one whose number is not linked, or another paper's.
+_hl = {"edition": "GaleTimes1957UKEnglish/1957-07-16", "inputs": "h", "filesHash": "h", "scanKey": f.scan_key(f.GALE),
+       "solutionsSeen": [], "readAt": "2026-10-26T01:37:00+00:00",
+       "scan": {"date": "1957-07-16", "item": "GaleTimes1957UKEnglish", "puzzles": [{"number": 8492, "leaf": 0, "heldTitle": True}],
+                "solutions": []},
+       "verdicts": [{"number": 8492, "leaf": 0, "heldTitle": True,
+                     "skip": "a held title read answers-only: no linked solution grid gave its answers"}]}
+check("a held-title Times row whose number a host's heading links since is due HELD_LINKED once, ranked 2; not "
+      "when already seen, answered, unlinked or of another paper",
+      [True, f.HELD_LINKED, False, False, False, False, False, 2, True],
+      [f.held_linked(_hl, [8492]), f.due_reason(_hl, "h", [8492], None), f.held_linked(_hl, []),
+       f.held_linked({**_hl, "solutionsSeen": [8492]}, [8492]),
+       f.held_linked({**_hl, "verdicts": [{**_hl["verdicts"][0], "solutionFrom": "1957-07-17 leaf 0"}]}, [8492]),
+       f.held_linked({**_hl, "verdicts": [{"number": 8492, "id": "times-8492"}]}, [8492]),
+       f.held_linked({**_hl, "edition": "FinancialTimes1957UKEnglish/1957-07-16"}, [8492]),
+       f.RANKS[f.HELD_LINKED], f.HELD_LINKED in f.SOLUTION_FIXES])
+# paired_titles: with no title voted, one reader's title stands by the solution heading of the puzzle before it,
+# near the date's number; a title with no such heading, or one far off the date's number, does not.
+_day = datetime.date(1940, 3, 8)
+_exp = f.GALE.expected(_day)
+check("paired_titles: a lone title stands by the heading of the puzzle before it, near the date's number; "
+      "one whose heading is another puzzle's, or far off the date's number, does not",
+      [{_exp}, set(), set(), {_exp + 900}],
+      [f.paired_titles({_exp: [("ch", None, None)]}, {_exp - 1: [("en5", None)]}, f.GALE, _day),
+       f.paired_titles({_exp: [("ch", None, None)]}, {_exp - 3: [("en5", None)]}, f.GALE, _day),
+       f.paired_titles({_exp + 900: [("ch", None, None)]}, {_exp + 899: [("en5", None)]}, f.GALE, _day),
+       f.paired_titles({_exp + 900: [("ch", None, None)]}, {_exp + 899: [("en5", None)]}, f.GALE, None)])
+check("TITLE reads the 1983 Times's triple-s \"Crosssword\", not a fourth s",
+      [16025, None],
+      [f.number_digits(f.TITLE.match("The Times Crosssword Puzzle No 16,025")[1]),
+       f.TITLE.match("The Times Crossssword Puzzle No 16,025")])
+# inset_grid: a frame whose inner rules and blocks stand apart is a grid when its box is ruled evenly both ways;
+# a frame round a photograph (no rules inside) or round a column of type is not.
+_grid = np.zeros((300, 300), np.uint8)
+_grid[[0, -1], :] = _grid[:, [0, -1]] = 1
+for _r in range(20, 300, 20):
+    _grid[_r, 3:-3] = 1
+    _grid[3:-3, _r] = 1
+_grid[44:56, 44:76] = 1
+_photo = np.zeros((300, 300), np.uint8)
+_photo[[0, -1], :] = _photo[:, [0, -1]] = 1
+_photo[40:260, 40:260] = 1
+_type = np.zeros((300, 300), np.uint8)
+_type[[0, -1], :] = _type[:, [0, -1]] = 1
+for _r in range(10, 290, 6):
+    _type[_r:_r + 3, 10:290:2] = 1
+check("inset_grid: an evenly ruled box is a grid; a framed photograph and a framed column of type are not",
+      [True, False, False],
+      [f.inset_grid((0, 0, 600, 600), _grid, 2), f.inset_grid((0, 0, 600, 600), _photo, 2),
+       f.inset_grid((0, 0, 600, 600), _type, 2)])
+_dk, _hk = f._DOT_LEADER_FIX["gale"], f._DAY_HEADING_FIX["gale"]
+check("a Gale Times scan made before the dot-leader fix or the day-heading fix stands, a BAND_RESCAN day's too",
+      [True, True, True, True],
+      [f.scan_current({"edition": "GaleTimes1962UKEnglish/1962-07-28", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h"),
+       f.scan_current({"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h"),
+       f.scan_current({"edition": "GaleTimes2002UKEnglish/2002-11-23", "scanKey": _hk[0], "filesHash": "h", "scan": {}}, "h"),
+       f.scan_current({"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _hk[0], "filesHash": "h", "scan": {}}, "h")])
+_wp, _np = Image.new("L", (4664, 10), 255), Image.new("L", (f.SCAN_WIDTH, 10), 255)
+check("a solution grid 510 wide at SCAN_WIDTH is shaped on a 4664 px page (the cap grows with it), not on a "
+      "3296 px page, and a puzzle's 1070 on neither", [True, False, False, False],
+      [f.solution_shaped(_wp)((0, 0, 720, 720)), f.solution_shaped(_np)((0, 0, 510, 510)),
+       f.solution_shaped(_wp)((0, 0, 1510, 1490)), f.solution_shaped(_np)((0, 0, 1070, 1060))])
+
+# lay_loose(): each clue alone on its own light; a misread count is not laid.
+g = ["...", ".#.", "..."]
+parsed = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                     {"tokens": [{3}], "text": "Bottom", "enums": {"5"}, "see": None}],
+          "down": [{"tokens": [{1}], "text": "Left", "enums": {"3"}, "see": None},
+                   {"tokens": [{2, 3}], "text": "Right", "enums": {"3"}, "see": None}]}
+loose, bad = f.lay_loose(parsed, g)
+check("clues laid on their own lights, a number read two ways on the one light it names; a wrong count not",
+      ({"1-across": "Top", "1-down": "Left", "2-down": "Right"}, ["3-across"]),
+      ({k: v[0] for k, v in loose.items()}, bad))
+
+# A clue whose number was lost takes the one light its neighbours leave free.
+g = ["...#...", ".......", "...#..."]
+lost = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                   {"tokens": [set()], "text": "Lost", "enums": {"3"}, "see": None},
+                   {"tokens": [{7}], "text": "Middle", "enums": {"7"}, "see": None},
+                   {"tokens": [{8}], "text": "Low", "enums": {"3"}, "see": None},
+                   {"tokens": [{9}], "text": "End", "enums": {"3"}, "see": None}],
+        "down": []}
+base = {"1-across": "Top", "7-across": "Middle", "8-across": "Low", "9-across": "End"}
+check("a lost number laid between its neighbours only on the second pass, with every reading's numbered lights known",
+      (base, {**base, "4-across": "Lost"}, {**base, "4-across": "Lost"}),
+      tuple({k: v[0] for k, v in f.lay_loose(lost, g, *t)[0].items()} for t in ((), (set(),), ({"4-across"},))))
+
+# NUMBERLESS_FIT: a numberless capital-opened clue out of order takes the one free light its count fills; a tail does not.
+g = ["...#...", ".......", "...#..."]
+off = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                  {"tokens": [{7}], "text": "Middle", "enums": {"7"}, "see": None},
+                  {"tokens": [{8}], "text": "Low", "enums": {"3"}, "see": None},
+                  {"tokens": [{9}], "text": "End", "enums": {"3"}, "see": None},
+                  {"tokens": [set()], "text": "Lost clue", "enums": {"3"}, "see": None}],
+       "down": []}
+off["across"].insert(0, {"tokens": [set()], "text": "tail of one", "enums": {"3"}, "see": None})
+_got = lambda *a, **k: sorted(k_ for k_ in f.lay_loose(off, g, *a, **k)[0])
+check("an out-of-order numberless clue takes the one free light of its length only with fits_alone, not a lower-case tail",
+      (["1-across", "7-across", "8-across", "9-across"], ["1-across", "4-across", "7-across", "8-across", "9-across"]),
+      (_got(set()), _got(set(), fits_alone=True)))
+
+# NUMBERLESS_EARLY: fits_alone serves the Gale Times pages of 1930-39; the 1930-34 rows read before its fix are due.
+_gt = lambda y, n: f.numberless_fit_on(f.paper_of(Path(f"GaleTimes{y}UKEnglish/{y}-{n}")), Path(f"GaleTimes{y}UKEnglish/{y}-{n}"))
+_row = lambda rel, at: {"edition": rel, "readAt": at, "verdicts": [{"id": "times-1", "number": 1, "unfiled": 3,
+                                                                    "blank": {"3-across": "no reading laid a clue on it"}}]}
+check("fits_alone's years run 1930-39 and the early reason is due for a 1930-34 Times row read before it, not 1935-39",
+      (True, True, False, True, False, False),
+      (_gt(1930, "12-15"), _gt(1939, "01-05"), _gt(1929, "01-05"),
+       f.numberless_early_due(_row("GaleTimes1932UKEnglish/1932-03-17", "2026-11-17T02:00:00+00:00")),
+       f.numberless_early_due(_row("GaleTimes1936UKEnglish/1936-03-17", "2026-11-17T02:00:00+00:00")),
+       f.numberless_early_due(_row("GaleTimes1932UKEnglish/1932-03-17", "2026-11-17T23:00:00+00:00"))))
+
+# Real readings whose list headings the OCR lost. The lists are put back
+# where the clue numbers start rising again (file_trove_puzzles.heads).
+# The Times, 1974-05-14, archive.org's reading: no ACROSS, and DOWN read
+# "DORVN" (left out here: no heading at all).
+times_13686 = """1 The sort of look to keEp a
+pet in iuhpense ? |7).
+5 Unconventionally mad sort
+ot hcreen success (7).
+9 No oao around for her (S).
+10 Here's a Up i9>.
+12 The poet has a donkey to gel
+around 1 5).
+15 Stress importance of tne
+Tube (9).
+25 Electrical effect of bringing
+in the new vicar (9).
+27 Unhappv Is the good man sei
+aback by their cruelty (7).
+2s Rose shade in ballet (7).
+1 Are they too sweet to be
+taken seriously? (?l-
+2 Only two ducks in the team
+of ISO It seems i4. 51-
+3 Dog calls for silence 1 51. _
+5 Fed np with getting dates
+wrong (5).
+6 Rare set-up for creating
+openings (9).
+14 Do they make for perfection
+in the Health Service ? f9>*
+16 Doctor Border's bed-clearing
+operations (9)."""
+p, why = f.parse(times_13686)
+check("both headings lost: across runs 1 to 28 (read '2s'), down from 1 to 16 (split from 14, whose count reads 'f9>*')",
+      ([{1}, {25, 28}], [{1}, {16}]),
+      p and ([p["across"][0]["tokens"][0], p["across"][-1]["tokens"][0]],
+             [p["down"][0]["tokens"][0], p["down"][-1]["tokens"][0]]) or why)
+# The Times, 1974-05-04, archive.org's reading: ACROSS kept, DOWN lost
+# along with 2-down's number. DOWN goes back before "3 Norfolk"; the
+# unnumbered lines stay with 27-across, for the vote to cut.
+import file_trove_puzzles as ftp
+times_13679 = """ACROSS
+1 Succeed In &«?mns apple, one
+over ten feet f4. 4i-
+24 Deceive lover with a torch
+(81-
+25 Article with two points gives
+penetration (6L
+27 However doctored tapes are
+. distinct (81-
+honoured "TOSeS
+• whh Russell, an old Greek
+(7J- .
+3 Norfolk town lo register as !
+nonconformist (91. I
+4 Smuggled Benedictine — J
+that’s Irregular <6i.
+S Etisineer MP’S recall iSI.
+7 After ten maybe drink makes
+one weave about f7j."""
+check("DOWN lost: put back where the numbers fall from 27 to 3",
+      "(7J- .\nDOWN\n3 Norfolk town lo register as !",
+      "\n".join(ftp.heads(times_13679.splitlines())[11:14]))
+# FT 1985-03-27: the DOWN list opens on "way (3, 2)" (1-down's number and first line lost) and
+# "scattered (3, 6)" (13-down's) stands between 10 and 15: the list parses, each tail a clue with no
+# number, instead of every light of the reading lost with it.
+ft_lost = ftp.clues("""way (3, 2)
+2 and 15: They deceive the
+pupils (7, 9)
+10 Ex-prime minister badly led
+by the clergy (9)
+scattered (3, 6)
+15 See 2 down
+17 Rude tot (7)""")
+check("a clue tail with its number lost parses as a clue of no number",
+      [(set(), "way"), ({2}, "and 15: They deceive the pupils"), ({10}, "Ex-prime minister badly led by the clergy"),
+       (set(), "scattered"), ({15}, "See 2 down"), ({17}, "Rude tot")],
+      [(c["tokens"][0], " ".join(c["text"].split())) for c in ft_lost[0]])
+# Gale 1945-02-03 (Times 4,656): a See clue naming a linked answer's two numbers, then a count
+# ("14 See 4 across, 9 (4)."): the list stopped at the comma, "no reading parses".
+see_linked = ftp.clues("13 He was locked up (7). 14 See 4 across, 9 (4). 16 The 17 was (4). 3 See 27 and 28 (4, 5) 4 Bar (5)")
+check("a See clue naming a linked answer's later numbers, a count after them, parses",
+      [({13}, "He was locked up"), ({14}, "See 4 across, 9"), ({16}, "The 17 was"), ({3}, "See 27 and 28"), ({4}, "Bar")],
+      [(c["tokens"][0], c["text"]) for c in see_linked[0]])
+check("a See N then a comma and a new clue (no count after it) keeps its own number only",
+      [({14}, "See 4"), ({9}, "Foo")], [(c["tokens"][0], c["text"]) for c in ftp.clues("14 See 4 9 Foo (5)")[0]])
+import re
+# Times 1983-11-05 (16,279): a clue whose own text opens on a cross-reference ("19 See 16 about covering
+# Australian port (9).") was closed at "See 16" and the list stopped at "about", in every reading alike.
+see_run = ftp.clues("18 Medicine I needed between centuries (5). 19 See 16 about covering Australian port (9). "
+                    "20 Transfer duke (6). 22 See 3. 23 Go home (4). 24 See 1 down 25 Bird (4).")
+check("a See N its words run on from is the clue's own text, to its count; a stopped or bare See N is not",
+      [({18}, "Medicine I needed between centuries", {"5"}, None), ({19}, "See 16 about covering Australian port", {"9"}, None),
+       ({20}, "Transfer duke", {"6"}, None), ({22}, "See 3", set(), 3), ({23}, "Go home", {"4"}, None),
+       ({24}, "See 1 down", set(), 1), ({25}, "Bird", {"4"}, None)],
+      [(c["tokens"][0], c["text"], c["enums"], c["see"]) for c in see_run[0]])
+# Times 1944-12-15: "28 See 5" with a neighbour column's "purple damask (4)" set after it is no run-on.
+check("a See N run on only by a joining word then more words to a count, not a neighbour column's tail",
+      [False, False, True],
+      [ftp.see_runs_on(r, re.match(r"See \d+", r))
+       for r in ("See 3 territory (5).", "See 5 purple damask (4).", "See 3 in the territory (5).")])
+# Gale Times 1936-40 (r38, 1937-12-30): four clue columns read as two put a clue's second line in the row of the
+# other column's next clue ("15 Counsel (4). paniment (7). 19 Half changed"); a count closed by a stop leaves the
+# space before the tail, which lost_opening did not skip: no reading parsed, the VLM read every column.
+_tail_s = "15 Counsel (4). paniment (7). 19 Half changed yet unchanged (4). 20 They should be (9)."
+check("a clue tail after a count and a stop parses only mended (tails): as read the list stops at it",
+      [True, [({15}, "Counsel"), (set(), "paniment"), ({19}, "Half changed yet unchanged"), ({20}, "They should be")]],
+      [ftp.clues(_tail_s)[0] is None,
+       [(c["tokens"][0], c["text"]) for c in ftp.clues(_tail_s, tails=True)[0]]])
+_tail_t = "ACROSS\n" + _tail_s.replace(" 19", "\n19") + "\nDOWN\n1 Old instrument (6).\n2 The stuff (9)."
+check("the column text with such a tail reads mended, not as read; a plain list does not",
+      [True, True, True, False],
+      [f.parse(_tail_t, ones=False)[0] is None, f.parse(_tail_t)[0] is not None, f.reads_mended(_tail_t),
+       f.reads_mended("ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)")])
+# 1940-41 Gale Times grids scanned at twice the others' size (crops 1,040-1,340px): trove_grid finds too few
+# white cells at full size; scaled_grid reads the crop shrunk to GRID_WIDTHS, never a crop that reads as is.
+_sg_dir = Path(tempfile.mkdtemp())
+_sg_seen = []
+
+
+def _sg_fake(src):
+    from PIL import Image as _SgImage
+    width = _SgImage.open(src).width
+    _sg_seen.append(width)
+    return (["." * 15] * 15, None) if width <= 720 else (None, "too few neighbouring white cells to measure the lattice")
+
+
+_sg_real = f.trove_grid.read_grid
+f.trove_grid.read_grid = _sg_fake
+try:
+    from PIL import Image as _SgImage
+    _SgImage.new("L", (1200, 1240), 255).save(_sg_dir / "big.png")
+    _SgImage.new("L", (700, 720), 255).save(_sg_dir / "small.png")
+    _sg_big = f.scaled_grid(_sg_dir / "big.png")
+    _sg_big_seen = list(_sg_seen)
+    _sg_seen.clear()
+    _sg_small = f.scaled_grid(_sg_dir / "small.png")
+    _sg_small_seen = list(_sg_seen)
+    f.trove_grid.read_grid = lambda src: (None, "only 9 white cells found")
+    _sg_none = f.scaled_grid(_sg_dir / "big.png")
+finally:
+    f.trove_grid.read_grid = _sg_real
+# Gale 1939-10-21 (wide scan, grid 3634-4952): four clue columns under the grid, split at three gutters
+# (under_quarters); three gutters' tuple windows stay as they were (over_gutters).
+_q_words = [[(3640 + 330 * k, 5700 + 40 * r, 3640 + 330 * k + 280, 5730 + 40 * r) for k in range(4)] for r in range(10)]
+_q = f.under_quarters(_q_words, (3634, 4241, 4952, 5619))
+check("four columns under a wide 1939 grid: three gutters in the words' gaps, four windows from the grid's margin",
+      [3, True, [(3594, _q[0], _q[0], 5614), (_q[0], _q[1], _q[1], 5614), (_q[1], _q[2], _q[2], 5614), (_q[2], 4967, 4967, 5614)],
+       [(60, 300, 300, 495), (300, 600, 600, 495), (600, 720, 720, 495)]],
+      [len(_q) - 1, all(3640 + 330 * k + 280 <= g <= 3640 + 330 * (k + 1) for k, g in enumerate(_q[:3])),
+       f.windows_of((3634, 4241, 4952, 5619), split=_q), f.windows_of((100, 100, 600, 500), split=(300, 600, 720))])
+# Gale 1940-03-13 (grid 930-1514 x 3140-3726, the page ending at 3997): two clue columns under the grid and two right of
+# it (beside_split), the right pair's tops the grid's, a Beside's windows cut from its own tops, a plain tuple's unchanged.
+_bs_words = [[(960 + 300 * k + 30 * (k // 2), 3760 + 40 * r, 960 + 300 * k + 30 * (k // 2) + 250, 3790 + 40 * r, f"{r} Clue")
+              for k in range(4)] for r in range(5)]
+_bs = f.beside_split(_bs_words, (930, 3140, 1514, 3726), (2130, 3997))
+check("four columns beside a 1940 grid: the gutters in the words' gaps, the right pair's tops the grid's",
+      [4, (1514 + 5, 2130), (3721, 3721, 3090, 3090), 4, [(890, _bs[0], _bs[0], 3721), (_bs[0], 1519, 1519, 3721),
+                                                         (1519, _bs[2], _bs[2], 3090), (_bs[2], 2130, 2130, 3090)],
+       [(60, 300, 300, 495), (300, 600, 600, 495), (600, 720, 720, 495)]],
+      [len(_bs), (_bs[1], _bs[3]), _bs.tops, len(f.windows_of((930, 3140, 1514, 3726), split=_bs)),
+       f.windows_of((930, 3140, 1514, 3726), split=_bs), f.windows_of((100, 100, 600, 500), split=(300, 600, 720))])
+check("a big grid crop unread as is reads shrunk to 720px; a crop that reads is read once; failing all, the full-size why",
+      [(15, None), [1200, 720], (15, None), [700], (None, "only 9 white cells found")],
+      [(len(_sg_big[0]), _sg_big[1]), _sg_big_seen, (len(_sg_small[0]), _sg_small[1]), _sg_small_seen, _sg_none])
+# 1984-01-02, RapidOCR: the grid's crop took ACROSS; DOWN is there.
+times_16324 = """1 Meaningless sounds occur in nis
+brig. perhaps (9).
+6 Sciled opinion of an intelligent
+judge (5).
+9 Miss Wickfield(5).
+10 Chichcsier. cg.or parts of
+Cathy's island (9).
+DOWN
+1 A changc. mabe, for this
+soldier?(9).
+2 Ecccnirc bom an unknown
+place (6)."""
+check("ACROSS lost: put back before the first numbered line", "ACROSS",
+      ftp.heads(times_16324.splitlines())[0])
+check("a lone run of numbers gets no heading made up", ["1 One (3)", "2 Two (3)", "3 Three (5)"],
+      ftp.heads(["1 One (3)", "2 Two (3)", "3 Three (5)"]))
+# A speck or star before the first number after a heading (1977-01-08,
+# 1985-01-02): the number still leads the clue.
+check("a speck or star before a clue's number is not text",
+      ["DOWN", "1 Miss Write's worried about everything (5)", "1 Land of Hope and—(7)"],
+      f.tidy("DOWN\n. 1 Miss Write's worried about everything (5)\nDOWN\n*1 Land of Hope and—(7)")
+      .splitlines()[:2] + f.tidy("DOWN\n*1 Land of Hope and—(7)").splitlines()[1:])
+
+# A misread number ("74" for 4) or the list's lost last number: the clue
+# takes the light its laid neighbours leave, when its count fills it; a
+# clue that ran into the next ("(7) 9 Two") never does.
+g = ["...#...", ".......", "...#..."]
+mis = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
+                  {"tokens": [{74}], "text": "Misread", "enums": {"3"}, "see": None},
+                  {"tokens": [{7}], "text": "Middle", "enums": {"7"}, "see": None},
+                  {"tokens": [{8}], "text": "Low", "enums": {"3"}, "see": None},
+                  {"tokens": [set()], "text": "End", "enums": {"3"}, "see": None}],
+       "down": []}
+check("a misread number and a lost last one laid by the grid's numbering",
+      {"1-across": "Top", "4-across": "Misread", "7-across": "Middle", "8-across": "Low", "9-across": "End"},
+      {k: v[0] for k, v in f.lay_loose(mis, g, set())[0].items()})
+mis["across"][1]["text"] = "Misread (7). 9 Two clues"
+check("a run-on clue is not laid by position", False,
+      "4-across" in f.lay_loose(mis, g, set())[0])
+
+# Short last line: "turn (6)" under a line whose box overhangs it is kept;
+# a second copy of the line is not.
+rows = f.merge_rows([(4264, 4302, 2279, 2590, "3 The friends got sea sick in"), (4286, 4315, 2303, 2382, "turn (6)"),
+                     (4266, 4300, 2280, 2588, "3 The friends got sea sick in"), (4270, 4290, 2250, 2270, "5")])
+check("a short line under an overhanging box kept, a copy dropped, a number beside joined",
+      ["5 3 The friends got sea sick in", "turn (6)"], [r[4] for r in rows])
+
+# ch's and en5's boxes off Listener No 3: the first box ends inside "this",
+# reading its "t" again, and the next box reads the whole word.
+rows = f.merge_rows([(1770, 1811, 1455, 1775, "45. Insert an A and t"), (1776, 1806, 1761, 2024, "this is what every")])
+check("a box's end cut through the next box's first word is dropped",
+      ["45. Insert an A and this is what every"], [r[4] for r in rows])
+rows = f.merge_rows([(1770, 1811, 1455, 1740, "45. Insert an A and t"), (1776, 1806, 1761, 2024, "this is what every")])
+check("a short word before a box it does not overlap stays",
+      ["45. Insert an A and t this is what every"], [r[4] for r in rows])
+
+# RapidOCR's boxes off 1975-06-06 (times-14013): "Am-" sits a little above
+# "understood", and both above "1 Fistorlan", all one printed row.
+rows = f.merge_rows([(4188, 4211, 232, 351, "understood"), (4188, 4205, 363, 409, "Am-"),
+                     (4192, 4221, 97, 217, "1 Fistorlan"), (4212, 4241, 119, 223, "erica (7)."),
+                     (4226, 4268, 96, 411, "2 Some well-endowed girl (5).")])
+check("a clue's number joins its row when the row's pieces sit at different heights",
+      ["1 Fistorlan understood Am-", "erica (7).", "2 Some well-endowed girl (5)."], [r[4] for r in rows])
+# A clue's first line with its number run into a speck or read as one
+# (real readings: 1977-10-05 ch, 1976-03-24 ch, 1978-09-27 djvu and ch,
+# 1980-10-07 ch, 1997-04-01 ch and en5, 1985-02-01 djvu, 1976 ch, 1979 en5).
+starts = ["1'Iathe direcdion ofthe -Netberlands ? (7)", "1.Aesociatc's cry of pain (6)",
+          "l^Floisiicd curl asainst the blower (6)", "1_Fiaishcd curl agzinst the blower (6)",
+          "1'Humphrey's artless look (8)", "JTool able to retract nails (4-3)",
+          ") With physical training, is able to see (6)", "IPheasant for instance (4,4)",
+          ". 1. Maltreat composer's daughter (7)", "-1--He said No, oddly enough (5)", "'Twas brillig (5)"]
+check("a list's first clue keeps its number through a speck; a number lost to specks is left for the grid",
+      ["1 Iathe", "1 Aesociatc's", "1 Floisiicd", "1 Fiaishcd", "1 Humphrey's", "1 Tool", "? With",
+       "1 Pheasant", "1 Maltreat", "1 He", "'Twas brillig"],
+      [" ".join(f.tidy("ACROSS\n" + t).splitlines()[1].split()[:2]) for t in starts])
+check("a count with both brackets torn: ( read as T, ) as j or l; 12l is 12 or 2, unsure",
+      ["9 Leggy beatera (10)", "12 Only about two penny pieces (6)", "19 Settle with a judge in vulgar money (6)",
+       "14 Fish 12l"],
+      f.counts_mended(["9 Leggy beatera T10", "12 Only about two penny pieces 16j",
+                       "19 Settle with a judge in vulgar money I6l", "14 Fish 12l", "15 End (4)"])[:4])
+# Tesseract's reading of 1974-05-07 (times-13681) loses a count's "(": the
+# count before the next clue's number still ends the clue.
+got, _ = f.parse("ACROSS\n5 Littlewood carries every-\nthing from the break-\ndown 8).\n"
+                 "9 Engineer takes part in flight\nwith bishop 10).\nDOWN\n1 Fish (4)")
+check("a count read without its opening bracket ends its clue",
+      [([5], ["8"]), ([9], ["10"])], [(sorted(c["tokens"][0]), sorted(c["enums"])) for c in got["across"]])
+# A comma one reading lacks costs less than a word: the words after it pair.
+others = [ocr_clues.marked(ocr_clues.clean(t), breaks=True) for t in ("27 Only. 28 A leisurely drink, doubtless, inside (8) 29 The",
+                                                      "28 A leisurely drink, doubtless, inslde (8) 29 The")]
+check("a lost comma put back, not the clue's end lost", "A leisurely drink, doubtless, inside",
+      ocr_clues.agree("A leisurely drink, doubtless inside", others)[0])
+check("a word split at a line end joined again; two words are not", (["people", "tastefully", "dressed"], ["lots", "of", "fish"]),
+      (ocr_clues.rejoin(["people", "taste", ",", "fully", "dressed"], ["tastefully"]),
+       ocr_clues.rejoin(["lots", "of", "fish"], ["offish"])))
+
+laid = {"1-across": ("Bottom of a ship", "3", None), "2-across": ("Bottom of a ship", None, None),
+        "3-across": ("Smoothed it 18 Warning of one", "7", None), "4-down": ("See 1", None, None),
+        "5-down": ("s about a ship", "3", None)}
+got, blank = ocr_clues.reconcile(laid, "Bottom of a ship (3)")
+check("a clue without a count, holding another clue's number, or starting mid-clue filed blank; See kept",
+      ({"1-across": "Bottom of a ship", "2-across": "", "3-across": "", "4-down": "See 1", "5-down": ""},
+       ["2-across", "3-across", "5-down"]),
+      ({k: v[0] for k, v in got.items()}, sorted(blank)))
+
+# A capital misread small is the print's opening when another reading has
+# the clue's number before the same two words (No 20,282, 24 across); a
+# first line lost (17 across) is still a clue starting mid-clue.
+got, blank = ocr_clues.reconcile({"24-across": ("fish enjqycd on board", "5", None),
+                                  "17-across": ("in judgment, as staged in 1934", "5,4", None)},
+                                 ["22 Pole steps on dangerous ground (9).\n24 Fish enjoyed on board (5).\n"
+                                  "17 When Cleopatra was green\nin judgment, as staged in 1934 (5, 4).\n26 Sherry"] * 2)
+check("a misread capital opens the clue the print has; a lost first line still blanks",
+      ({"24-across": "Fish enjoyed on board", "17-across": ""}, ["17-across"]),
+      ({k: v[0] for k, v in got.items()}, sorted(blank)))
+# A word split over a line end in the other readings ("hair.\nStyle") is
+# no word lost after the clue's end (No 16,205, 21 across); a clue whose
+# last word is lost is.
+stream = ["20 Painter (7).\n21 Vain display with a severe hair.\nStyle (9).\n23 Intransigent supporter"] * 2
+check("a word the other readings split over a line end is the clue's whole last word, not a lost end",
+      ("Vain display with a severe hairstyle", None),
+      (ocr_clues.reconcile({"21-across": ("Vain display with a severe hair¬ style", "9", None)}, stream)[0]["21-across"][0],
+       ocr_clues.reconcile({"21-across": ("Vain display with a severe hair¬ style", "9", None)}, stream)[1].get("21-across")))
+check("a clue whose last word the reading lost, the others disagreeing on it, still blanks", ["21-across"],
+      sorted(ocr_clues.reconcile({"21-across": ("Vain display with a severe hair", "9", None)},
+                                 [stream[0], stream[0].replace("Style", "Stylus")])[1]))
+# A list's heading is never a clue's text: a line of its own wherever the
+# column read it (times-16363 1D "Down i Beginning", times-18195 13A "on
+# the DOWN board"), and a clue still holding one is unfit.
+check("a heading read onto its first clue's line, after a count or inside a line is no clue's text",
+      ["ACROSS\n1 Fish dish (4)\n5 Sign on the board (5)\nDOWN\n1 Beginning to take a chance (6)\n2 Toast (4)"] * 2,
+      [f.tidy("ACROSS\n1 Fish dish (4)\n5 Sign on the DOWN board (5) DOWN\n1 Beginning to take a chance (6)\n2 Toast (4)"),
+       f.tidy("ACROSS\n1 Fish dish (4)\n5 Sign on the board (5)\nDown i Beginning to take a chance (6)\n2 Toast (4)")])
+check("a heading left in a clue's text is cut", ["Beginning to take a chance", "Bilingual agreement on the board",
+                                               "Down payment covering openers", "Flag is down, and safe"],
+      [ocr_clues.trimmed(t, lid) for t, lid in (("Down i Beginning to take a chance", "1-down"),
+                                                ("Bilingual agreement on the DOWN board", "13-across"),
+                                                ("Down payment covering openers", "3-down"),
+                                                ("Flag is down, and safe", "1-across"))])
+# A bracket a clue never pairs is a speck or a count torn open: cut where
+# it opens or closes the text, and unfit anywhere else.
+check("a torn count closing a clue, or a speck bracket opening it, is cut",
+      ["Wave provided by hair-dresser", "Try to get money from low land", "Headed paper?",
+       "During which Nature tried her hand on man (Burns)", "Wildly excited when it's put up in foreign currency",
+       "Order flowers on island", "Conflict with the law", "Looking back to Solomon's", "Taken from Henry (2 Hen. IV) on stage"],
+      [ocr_clues.trimmed(t, "5-down") for t in (
+          "Wave provided by hair-dresser (6", "Try to get money from low land (5.41.", "Headed paper? ( 8 .",
+          "During which Nature tried her hand on man (Burns) +).",
+          "Wildly excited when it's put up in foreign currency 1 7).", "( Order flowers on island",
+          ")Conflict with the law", "Looking back to Solomon's [9]", "Taken from Henry (2 Hen. IV) on stage")])
+check("a heading or an unpaired or square bracket is unfit; paired brackets and a lower-case down are not",
+      [True, True, True, True, True, False, False, False],
+      [bool(ocr_clues.fault(t, None, None)) for t in (
+          "Bilingual agreement on the DOWN board", "Down i Beginning to take a chance", "Just a Liberal) reformer beheaded!",
+          "A chance (out east) to) go wild", "Rum [sounding] idol", "Bottom (of a ship) here", "Flag is down, and safe",
+          "Across the border the outsiders exercise")])
+check("a bracket the clue never closes is a misread; a closed one stands",
+      ([("(this", "a bracket never closed or opened")], []),
+      (ocr_clues.suspect("Information influencing children initially is (this"),
+       ocr_clues.suspect("Bottom (of a ship) here")))
+
+# edition_dirs(): the years in turn, so a capped run reaches every decade.
+cache = Path(os.environ["TMP"]) / "cache"
+for item, eds in (("NewsUK1974UKEnglish", ["1974-05-01_1", "1974-05-02_2"]),
+                  ("NewsUK1990UKEnglish", ["1990-01-02_3"]), ("FinancialTimes1975UKEnglish", ["1975-01-01_4"])):
+    for e in eds:
+        (cache / item / e).mkdir(parents=True)
+        (cache / item / e / "pages.json").write_text("{}")
+check("editions taken a year at a time, the FT left out", ["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"],
+      [d.name for d in f.edition_dirs(cache)])
+check("the FT's editions are the FT phase's, and their paper is the FT",
+      (["1975-01-01_4"], "ftcryptic", "times"),
+      ([d.name for d in f.edition_dirs(cache, f.FT)], f.paper_of(cache / "FinancialTimes1975UKEnglish" / "x").series,
+       f.paper_of(cache / "NewsUK1990UKEnglish" / "x").series))
+# The Gale Times pages are a paper of their own: the Times runs never read
+# them, the Gale run reads them alone, and a re-read request goes to its run.
+(cache / "GaleTimes1987UKEnglish" / "1987-03-02").mkdir(parents=True)
+(cache / "GaleTimes1987UKEnglish" / "1987-03-02" / "pages.json").write_text("{}")
+check("a Gale page is the Gale run's, never the Times run's, and files as the Times",
+      (["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"], ["1987-03-02"], "gale", "times", "filed-gale.jsonl"),
+      ([d.name for d in f.edition_dirs(cache)], [d.name for d in f.edition_dirs(cache, f.GALE)],
+       f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.LEDGER_NAMES["gale"]))
+# edition_dirs() looks again at no edition found holding pages.json while
+# its item is unmoved; one removed whole, or new and yet to get its
+# pages.json, is still seen.
+import shutil, time
+wc = Path(os.environ["TMP"]) / "withpages"
+it = wc / "NewsUK1982UKEnglish"
+for e in ("1982-01-01_1", "1982-01-02_2"):
+    (it / e).mkdir(parents=True)
+    (it / e / "pages.json").write_text("{}")
+(it / "1982-01-03_3").mkdir()
+def settle_all():
+    for d in (*it.iterdir(), it, wc):
+        os.utime(d, (time.time() - 600, time.time() - 600))
+settle_all()
+names = lambda: [d.name for d in f.edition_dirs(wc)]
+first = names()
+looked = []
+real_listed = f.dir_cache.listed
+f.dir_cache.listed = lambda d: (looked.append(Path(d).name), real_listed(d))[1]
+again = names()
+f.dir_cache.listed = real_listed
+(it / "1982-01-03_3" / "pages.json").write_text("{}")
+grown = names()
+check("an edition holding pages.json in an unmoved item is not looked at again; one yet to hold it is",
+      (["1982-01-01_1", "1982-01-02_2"], first, ["1982-01-03_3"]),
+      (again, first, [n for n in looked if n != "withpages"]))
+check("a new pages.json in an unmoved item is seen", ["1982-01-01_1", "1982-01-02_2", "1982-01-03_3"], grown)
+shutil.rmtree(it / "1982-01-02_2")
+(it / "1982-01-02_2").mkdir()
+settle_all()
+check("an edition removed whole and laid out again without pages.json is gone (its item moved)",
+      ["1982-01-01_1", "1982-01-03_3"], names())
+# held_files: one brief() reads a series once, whoever asks; outside one, each call looks again.
+hp = Path(os.environ["TMP"]) / "heldroot"
+(hp / "puzzles" / "zz" / "1999").mkdir(parents=True)
+(hp / "puzzles" / "zz" / "1999" / "zz-1.json").write_text('{"date": "1999-01-01"}')
+real_root, f.ROOT = f.ROOT, hp
+f._HELD_NOW.files = {}
+before = f.held_files("zz")
+(hp / "puzzles" / "zz" / "1999" / "zz-2.json").write_text('{"date": "1999-01-02"}')
+inside = f.held_files("zz")
+f._HELD_NOW.files = None
+check("held_files within a brief is its first read; outside it a new file is seen",
+      ([1], [1], [1, 2]), ([n for n, _ in before], [n for n, _ in inside], sorted(n for n, _ in f.held_files("zz"))))
+# held_once nests (the outer read stands); save_held/load_held carry the parses to a
+# new process, and a file whose stat moved since is parsed again.
+with f.held_once():
+    first = f.held_files("zz")
+    (hp / "puzzles" / "zz" / "1999" / "zz-3.json").write_text('{"date": "1999-01-03"}')
+    with f.held_once():
+        nested = f.held_files("zz")
+check("held_once nested keeps the outer read", [1, 2], sorted(n for n, _ in nested))
+hc = hp / "held.pickle"
+f.held_files("zz")
+f.save_held(hc)
+f._HELD.clear()
+f._HELD_LISTED.clear()  # a new process
+f.load_held(hc)
+f._HELD_MOVED.clear()
+import time
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "1999" / "zz-1.json").write_text('{"date": "1999-02-01", "moved": 1}')
+loaded = dict(f.held_files("zz"))
+check("a loaded parse stands for an unmoved file; a moved one is read again",
+      (datetime.date(1999, 1, 2), datetime.date(1999, 2, 1), [hp / "puzzles" / "zz" / "1999" / "zz-1.json"]),
+      (loaded[2][0], loaded[1][0], f._HELD_MOVED))
+f.save_held(hc)
+check("save_held writes only after a parse", [], f._HELD_MOVED)
+# A series' snapshot carries its parses to a new process, keyed on each file's stat.
+f.HELD_SERIES_CACHE = str(hp / "series_cache")
+f._HELD_LISTED.clear(); f._HELD.clear(); f._HELD_SAVED.clear()
+f.held_files("zz")
+f._HELD.clear(); f._HELD_LISTED.clear()
+f._load_series_snapshot("zz")
+check("series snapshot holds the series' parses", True, any("/zz/" in k for k in f._HELD))
+f.HELD_SERIES_CACHE = None
+# Across briefs the last listing stands while no year folder moved and it
+# is under HELD_FRESH old: no file is stat'ed again. A file filed (its
+# folder moves) is seen at once; an in-place rewrite once HELD_FRESH passes.
+f._HELD_LISTED.clear()
+base = sorted(n for n, _ in f.held_files("zz"))
+real_stat, stats = Path.stat, []
+Path.stat = lambda self, *a, **k: stats.append(self) or real_stat(self, *a, **k)
+again = sorted(n for n, _ in f.held_files("zz"))
+Path.stat = real_stat
+check("held_files reuses its listing while no folder moved (no file stat'ed)", (base, []), (again, stats))
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "1999" / "zz-4.json").write_text('{"date": "1999-01-04"}')
+check("a new file moves its folder: held_files lists again at once", base + [4],
+      sorted(n for n, _ in f.held_files("zz")))
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "1999" / "zz-4.json").write_text('{"date": "1999-03-04", "x": 1}')
+stale = dict(f.held_files("zz"))[4][0]
+real_fresh, f.HELD_FRESH = f.HELD_FRESH, 0
+fresh = dict(f.held_files("zz"))[4][0]
+f.HELD_FRESH = real_fresh
+check("an in-place rewrite stands HELD_FRESH, then is read",
+      (datetime.date(1999, 1, 4), datetime.date(1999, 3, 4)), (stale, fresh))
+# Under HELD_FRESH, a folder that moved is listed again alone: the other
+# folders' files keep their entries, unstat'ed.
+(hp / "puzzles" / "zz" / "2000").mkdir()
+(hp / "puzzles" / "zz" / "2000" / "zz-5.json").write_text('{"date": "2000-01-05"}')
+f.held_files("zz")
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "2000" / "zz-6.json").write_text('{"date": "2000-01-06"}')
+listed, real_scandir = [], os.scandir  # files are stat'ed through scandir entries, so watch the folders listed
+def watch_scandir(path, *a, **k):
+    listed.append(Path(path).name)
+    return real_scandir(path, *a, **k)
+os.scandir = watch_scandir
+moved = dict(f.held_files("zz"))
+os.scandir = real_scandir
+check("a moved folder is listed again alone, the others' entries kept",
+      (base + [4, 5, 6], datetime.date(2000, 1, 6), ["2000"]),
+      (sorted(moved), moved[6][0], [n for n in listed if n != "zz"]))  # "zz" is the series folder's own listing
+f.ROOT = real_root
+# plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
+# a moved ledger row each make an edition due again; a fresh dir is not kept.
+import scan_queue, time
+f.vlm.reachable = lambda *a, **k: False
+# The real corpus holds Times puzzles of these 1981 days filed without every
+# answer, which would make the fixture's editions solution hosts (HOST_SCAN):
+# the plan below is of the fixture alone.
+real_answerless, f.answerless_puzzles = f.answerless_puzzles, lambda *a, **k: {}
+pc =Path(os.environ["TMP"]) / "plancache"
+def settle(*ds):
+    for d in ds:
+        os.utime(d, (time.time() - 600, time.time() - 600))
+e1 = pc / "NewsUK1981UKEnglish" / "1981-02-03_1"
+e1.mkdir(parents=True)
+(e1 / "pages.json").write_text("{}")
+(e1 / "leaf_0001.jpg").write_bytes(b"x")
+settle(e1, e1.parent, pc)
+def settled_row(d):
+    fh, found = f.input_hash(d), {"puzzles": [], "solutions": []}
+    return {"edition": f"{d.parent.name}/{d.name}", "filesHash": fh, "scanKey": f.scan_key(), "scan": found,
+            "inputs": f.inputs_of(fh, found, f.TIMES.series), "solutionsSeen": [], "verdicts": [],
+            "readAt": "2026-01-01T00:00:00+00:00"}
+pl = pc / "filed.jsonl"
+scan_queue.append(pl, [settled_row(e1)])
+settle(pc)
+# Every plan below is the paper's PaperPlan brought up to date row by row;
+# each is checked against the paper planned whole afresh (no memo kept).
+plan_diffs = []
+class _SidesImg:
+    width, height = 3298, 5181
+
+
+# A Gale Telegraph Saturday Prize page: the title on the grid's top (32px), the across column 355px left of the grid,
+# the down column right of it. A weekday page (clues above: 300px between, or the grid at the left margin) is none.
+_sg = (574, 2978, 1294, 3710)
+check("sides_columns: a Gale Telegraph title on its grid's top with a column's width left of it reads either side; "
+      "clues-above, a grid at the margin and other papers do not",
+      [(204, (1724,), 5006), None, None, None],
+      [f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.GALE_TELEGRAPH),
+       f.sides_columns(_SidesImg, _sg, (219, 2500, 744, 2540), 204, f.GALE_TELEGRAPH),
+       f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 500, f.GALE_TELEGRAPH),
+       f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.TELEGRAPH)])
+check("sides_due: a Gale Telegraph Saturday from 1998 refused no reading parses, read before the stamp, and a 2000 "
+      "weekday whose grid went unfound",
+      [True, False, True, True, True, False],
+      [f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses"}]}),
+       f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-29", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses"}]}),
+       f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-09-25", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses"}]}),
+       f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-14", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses",
+                                   "imageUnread": "the white cells span 11 rows and 13 columns"}]}),
+       f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-12-24", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"imageUnread": "the white cells span 13 rows and 15 columns"}]}),
+       f.sides_due({"edition": "GaleTelegraph1998UKEnglish/1998-09-24", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses",
+                                   "imageUnread": "the white cells span 11 rows and 13 columns"}]})])
+
+
+# A Gale Telegraph 2000 weekday page: the grid at the page's left edge 1250px under the title, the crop of the
+# clues-above span ending in it (2000-12-14), and a square ink nearer the title but off to its right (2000-10-14).
+_wk = Image.new("L", (f.SCAN_WIDTH, 6200), 255)
+_lattice(_wk, 200, 4670, 576, 576)
+_wk_box = f.grid_under_clues(_wk, (211, 3417, 662, 3477))
+_lattice(_wk, 700, 3800, 576, 576)
+_wk_near = f.grid_under_clues(_wk, (211, 3417, 662, 3477))
+check("grid_under_clues: a grid the span's foot cuts is taken whole; of two grids the one under the title's left edge",
+      (True, True), (_wk_box is not None and _wk_box[3] - _wk_box[1] >= 570,
+                     _wk_near is not None and _wk_near[0] < 260 and _wk_near[3] - _wk_near[1] >= 570))
+_ac = Image.new("L", (3296, 5000), 255)
+check("across_left: nothing for a paper that is not the Gale Telegraph, or a title far over the grid",
+      (None, None),
+      (f.across_left(_ac, (800, 3000, 1500, 3700), (800, 2900, 1500, 2950), f.TIMES, Path("/nonexistent/a.json")),
+       f.across_left(_ac, (800, 3000, 1500, 3700), (800, 2000, 1500, 2050), f.GALE_TELEGRAPH, Path("/nonexistent/a.json"))))
+
+
+def checked_plan(paper, cache):
+    kept = f.plan(paper, cache)
+    with f.held_once():
+        whole = f._plan_paper_fresh(paper, cache, None, None, (), None)
+    if list(kept) != list(whole):
+        plan_diffs.append((list(kept), list(whole)))
+    return kept
+due = lambda: [(u["kind"], u["rel"].split("/")[1], u["reason"]) for u in sum(checked_plan(f.TIMES, pc), [])]
+check("a settled edition whose row is current is due for nothing, and its listing is kept", ([], True),
+      (due(), e1 in f.dir_cache._SEEN))
+old = os.stat(e1).st_mtime_ns
+(e1 / "leaf_0001.tmp").write_bytes(b"xy")
+os.replace(e1 / "leaf_0001.tmp", e1 / "leaf_0001.jpg")
+os.utime(e1, ns=(old, old))
+# settled_row is an empty read (no puzzle, no verdict), so its files moving is "never read" (f.emptied), not blanket.
+check("a file replaced under an unmoved mtime makes it due again (the ctime moved)",
+      [("scan", "1981-02-03_1", "scan stale"), ("read", "1981-02-03_1", "never read")], due())
+scan_queue.append(pl, [settled_row(e1)])
+e2 = pc / "NewsUK1981UKEnglish" / "1981-05-06_2"
+e2.mkdir()
+(e2 / "pages.json").write_text("{}")
+check("a new edition in a listed item is planned", [("scan", "1981-05-06_2", "never scanned"),
+                                                    ("read", "1981-05-06_2", "never read")], due())
+scan_queue.append(pl, [settled_row(e2), {**settled_row(e1), "inputs": "moved"}])
+check("a moved ledger row makes its edition due again", [("read", "1981-02-03_1", "inputs changed")], due())
+scan_queue.compact(pl, "edition")
+check("a ledger replaced whole (compact) plans the same", [("read", "1981-02-03_1", "inputs changed")], due())
+# A stale scan's read ranks with the fixes when its titles follow a puzzle
+# read without answers: the issue printing that solution (a Saturday prize's
+# six on), whose heading the new scan code may read.
+stale = {**settled_row(e1), "scanKey": "old",
+         "scan": {"date": "1981-02-03", "puzzles": [{"number": 15436, "leaf": 1}], "solutions": []}}
+def e1_reason(day, verdict):
+    scan_queue.append(pl, [stale, {**settled_row(e2), "scan": {"date": day, "puzzles": [], "solutions": []},
+                                   "verdicts": [verdict]}])
+    return [(u["rank"], u["reason"]) for u in checked_plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
+check("a stale host of an answerless puzzle ranks 2; of a Saturday prize six on; else, refused or answered, 3",
+      [[(2, "scan stale, answers missing")], [(2, "scan stale, answers missing")], [(3, "scan stale")],
+       [(3, "scan stale")], [(3, "scan stale")]],
+      [e1_reason("1981-02-02", {"number": 15435}), e1_reason("1981-01-31", {"number": 15430}),
+       e1_reason("1981-01-31", {"number": 15435}), e1_reason("1981-02-02", {"number": 15435, "refused": True}),
+       e1_reason("1981-02-02", {"number": 15435, "solutionFrom": "1981-02-03 leaf 1"})])
+def stale_fixed(verdict):
+    scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
+    return [(u["rank"], u["reason"]) for u in checked_plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
+check("a stale scan's read a reader fix can change ranks with the fixes, not the whole corpus",
+      [[(2, "solution short, its cells unclassified")], [(2, "refused not-a-grid before its fix")],
+       [(3, "scan stale")]],
+      [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 20, "lights": 30}}),
+       stale_fixed({"number": 15436, "refused": True, "cause": "not-a-grid"}),
+       stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}})])
+# The answerless puzzle's own edition ranks 2 too, its read waiting on the
+# host's scan; not when no edition is dated within SOLUTION_DAYS after it
+# (e2 is three months on), as nothing it waits on can link a heading.
+check("a stale edition of its own answerless puzzle ranks 3 with no edition within SOLUTION_DAYS after it",
+      [(3, "scan stale")], stale_fixed({"number": 15436}))
+e4 = pc / "NewsUK1981UKEnglish" / "1981-02-04_4"
+e4.mkdir()
+(e4 / "pages.json").write_text("{}")
+settle(e4, e4.parent, pc)
+check("and 2 with one: the next issue, whose scan its read waits on",
+      [(2, "scan stale, answers missing")], stale_fixed({"number": 15436}))
+def asked_reason(verdict):
+    """e1's read units when the annotation asked to have it read again."""
+    scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
+    with f.held_once():
+        reads = f._plan_paper_fresh(f.TIMES, pc, None, None, (f"{e1.parent.name}/{e1.name}",), None)[1]
+    return [(u["rank"], u["reason"], u["force"]) for u in reads if u["rel"].endswith("_1")]
+# 10-28: 23 of 24 archive.org Times annotator requests never ran: their edition was planned under its other
+# reason ("scan stale, answers missing", rank 2) or skipped as already held whole.
+check("an edition the annotation asked for is read for that (rank 1, forced), not its other reason",
+      [(1, "annotation asked", True)], asked_reason({"number": 15436}))
+scan_queue.append(pl, [settled_row(e4)])
+check("an answered or refused one still ranks 3", [[(3, "scan stale")], [(3, "scan stale")]],
+      [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}),
+       stale_fixed({"number": 15436, "refused": True})])
+# A "scan stale" read unit_skip calls VLM-only (its puzzle held) is dropped, unless likely() has it
+# "answers linked" (a heading links now the puzzle filed with every clue and no answers): then it is
+# "scan stale, answers linked", answers_only's CPU read, not skipped before likely() runs.
+real_skip, real_row_likely = f.unit_skip, f._row_likely
+f.unit_skip = lambda *a, **k: "already held (VLM-only reason)"
+try:
+    answered = {"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}
+    check("a stale read held already is skipped as VLM-only", [], stale_fixed(answered))
+    check("... but not one the annotation asked for", [(1, "annotation asked", True)], asked_reason(answered))
+    f._row_likely = lambda st, series, rel, row, solutions: (
+        ({f.LIKELY[0]: 1}, ()) if rel.endswith("_1") else real_row_likely(st, series, rel, row, solutions))
+    check("... but not when its answers are linked now: it is read answers-only",
+          [(f.RANKS[f.STALE_SCAN[2]], f.STALE_SCAN[2])], stale_fixed(answered))
+finally:
+    f.unit_skip, f._row_likely = real_skip, real_row_likely
+scan_queue.append(pl, [settled_row(e1), settled_row(e2)])
+(e2 / "pages.json").write_text("{\"x\": 1}")
+check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "never read"),
+      (e2 in f.dir_cache._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
+# A Times puzzle's solution prints in the next issue, which may be a Gale page
+# alone (archive.org lacks that issue), and the reverse: each run sees the
+# other ledger's last headings, so a heading read there makes it due.
+e3 = pc / "NewsUK1981UKEnglish" / "1981-06-19_3"
+e3.mkdir()
+(e3 / "pages.json").write_text("{}")
+found3 = {"puzzles": [{"number": 15556, "leaf": 20}], "solutions": []}
+fh3 = f.input_hash(e3)
+scan_queue.append(pl, [settled_row(e2), settled_row(e1),
+                       {**settled_row(e3), "scan": found3, "inputs": f.inputs_of(fh3, found3, f.TIMES.series),
+                        "verdicts": [{"number": 15556}]}])
+settle(e3, e3.parent, pc)
+check("an archive.org puzzle with no solution heading anywhere is due for nothing", [], due())
+g3 = "GaleTimes1981UKEnglish/1981-06-20"
+scan_queue.append(pc / f.LEDGER_NAMES["gale"], [{"edition": g3, "scan": {"date": "1981-06-20", "puzzles": [{"number": 15557, "leaf": 0}],
+                                                                       "solutions": [{"number": 15556, "leaf": 0}]}}])
+check("its solution heading read in the Gale page of the next issue makes it due, the solution's dir that page",
+      ([("read", "1981-06-19_3", "inputs changed")], pc / g3, {}),
+      (due(), f.sister_solutions(pc, f.TIMES)[15556]["dir"], f.sister_solutions(pc, f.FT)))
+scan_queue.append(pl, [{**settled_row(e2), "scan": {"date": "1981-06-22", "puzzles": [],
+                                                      "solutions": [{"number": 15557, "leaf": 1}]}}])
+check("and a Gale run sees the archive.org scans' headings", {15557: pc / "NewsUK1981UKEnglish" / "1981-05-06_2"},
+      {n: s["dir"] for n, s in f.sister_solutions(pc, f.GALE).items()})
+due()
+kept_plan = f._PAPER_PLANS[(str(pc), f.TIMES.key, str(f.ledger_of(pc, f.TIMES)))]
+before = dict(kept_plan.reasons)
+scan_queue.append(pl, [{**settled_row(e1), "readAt": "2026-02-01T00:00:00+00:00"}])
+due()
+check("a ledger row landing works its own edition out again, no other", ["1981-02-03_1"],
+      sorted(rel.split("/")[1] for rel, hit in kept_plan.reasons.items() if before.get(rel) is not hit))
+check("each plan brought up to date row by row equals the paper planned whole", [], plan_diffs)
+f.answerless_puzzles = real_answerless
+# A read start links every sister edition's headings (sister_solutions):
+# kept until the sister ledger or the series' filed puzzles move.
+linked, real_linked, real_held_dates = [], f.linked_solutions, f.held_dates
+f.linked_solutions = lambda *a: (linked.append(a[0]), real_linked(*a))[1]
+try:
+    f.sister_solutions(pc, f.GALE)
+    linked.clear()
+    f.sister_solutions(pc, f.GALE)
+    check("an unmoved sister ledger and filed puzzles: no heading linked again", [], linked)
+    def cold():
+        """sister_solutions with every memo of it dropped."""
+        keep = dict(f._LINKED), dict(f._SISTER_LINKS)
+        f._LINKED.clear()
+        f._SISTER_LINKS.clear()
+        try:
+            return f.sister_solutions(pc, f.GALE)
+        finally:
+            f._LINKED.clear()
+            f._LINKED.update(keep[0])
+            f._SISTER_LINKS.clear()
+            f._SISTER_LINKS.update(keep[1])
+    scan_queue.append(pl, [settled_row(e1)])
+    got, again = f.sister_solutions(pc, f.GALE), list(linked)
+    check("the sister ledger appended to with unchanged scans: nothing linked again, the same links",
+          ([], cold()), (again, got))
+    linked.clear()
+    f.held_dates = lambda series: f.Held({**real_held_dates(series), 99999: datetime.date(1999, 1, 1)})
+    got, again = f.sister_solutions(pc, f.GALE), list(linked)
+    check("a puzzle filed outside every edition's hosted_window: nothing linked again, the same links",
+          ([], cold()), (again, got))
+    linked.clear()
+    f.held_dates = lambda series: f.Held({**real_held_dates(series), 15558: datetime.date(1981, 6, 21)})
+    got, again = f.sister_solutions(pc, f.GALE), list(linked)
+    check("one filed beside an edition with headings links it again, as a cold link does",
+          (True, cold()), (bool(again), got))
+finally:
+    f.linked_solutions, f.held_dates = real_linked, real_held_dates
+# filed.jsonl is every PAPERS run's ledger: a Guardian (or FT, Telegraph) row's heading under a Times number
+# is that paper's puzzle's, never linked as the Times's (times-6003 took 7 answers off the FT's "No 6003").
+real_linked_fn = f._linked
+f._linked = lambda d, scan, held, paper=None: (
+    [{"number": 424242, "leaf": 1}] if d.parent.name.startswith("TheGuardian") else real_linked_fn(d, scan, held, paper))
+try:
+    scan_queue.append(pl, [{"edition": "TheGuardian1981UKEnglish/1981-06-22_9",
+                            "scan": {"date": "1981-06-22", "puzzles": [], "solutions": [{"number": 424242, "leaf": 1}]}}])
+    check("a Guardian row in filed.jsonl links no heading as the Times's", False,
+          424242 in f.sister_solutions(pc, f.GALE))
+finally:
+    f._linked = real_linked_fn
+held = f.Held({15556: datetime.date(1981, 6, 19), 15557: datetime.date(1981, 6, 20), 15550: datetime.date(1981, 6, 12)})
+check("neighbours: the nearest filed either side, by bisecting the sorted dates",
+      ((datetime.date(1981, 6, 12), 15550), (datetime.date(1981, 6, 20), 15557)),
+      f.neighbours(datetime.date(1981, 6, 19), held))
+try:
+    held[1] = datetime.date(1981, 1, 1)
+    check("Held is read-only", "raised", "set")
+except TypeError:
+    check("Held is read-only", "raised", "raised")
+check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
+      ["gale", "times", "times", "ft", None],
+      [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",
+                                                       "per_times_the-times_1930-03-04_45452/x",
+                                                       "FinancialTimes1975UKEnglish/x", "Elsewhere/x")])
+
+# The FT: "CROSSWORD" over "No. 8,650 Set by DANTE" (1990s), one line in the
+# 1970s; "Solution 8,650", or "SOLUTION TO PUZZLE" over "No. 2,765".
+titles, sols = f.ft_headings([line("CROSSWORD", 2429, 2957), line("No. 8,650 Set by DANTE", 2417, 3017),
+                              line("Solution 8,649", 2691, 3958),
+                              line("Solution to Saturday's prize puzzle on Saturday January 14.", 2253, 4293),
+                              line("No. 1,234 reasons to buy", 900, 100)])
+check("1990s FT title over its number line, setter read, box the grid's width; prize-date line no heading",
+      ([(8650, "Dante", f.FT_GRID_SPAN)], [8649]),
+      ([(n, s, b[2] - b[0]) for n, b, s in titles], [n for n, _ in sols]))
+check("a byline our files or the dictionary know stands without a second reading", ["Dante", "Vixen", None],
+      [f.byline(None, {"setterRead": "Dante"}), f.byline(None, {"setterRead": "Vixen"}), f.byline(None, {})])
+titles, sols = f.ft_headings([line("F.T. CROSSWORD PUZZLE No. 2,766", 200, 2841),
+                              line("SOLUTION TO PUZZLE", 573, 4049), line("No. 2,765", 656, 4073)])
+check("1970s FT title on one line, solution number on the line under", ([2766], [2765]),
+      ([n for n, _, _ in titles], [n for n, _ in sols]))
+titles, _ = f.ft_headings([line("F.T. CROSSWORD", 1749, 3265), line("PUZZLE No. 5,094", 1750, 3301)])
+check("1980s FT title over \"PUZZLE No. N\" on the line under", [5094], [n for n, _, _ in titles])
+titles, _ = f.ft_headings([[(204, 2926, 469, 2970, "~nTupblfih“parkCtT-"), (470, 2928, 709, 2957, "CROSSWORD"),
+                            (710, 2928, 900, 2957, "PUZZLE"), (901, 2928, 990, 2957, "NO."),
+                            (991, 2928, 1100, 2957, "1,652")]])
+check("a title behind a word the OCR ran in from the next column; box from the title on",
+      [(1652, (470 + 1100) // 2)], [(n, (b[0] + b[2]) // 2) for n, b, _ in titles])
+check("a comma the OCR reads as ? or ^", [3034, 4780],
+      [n for t in ("F.T. CROSSWORD PUZZLE No. 3?034 r", "F.T. CROSSWORD PUZZLE No. 4^780")
+       for n, _, _ in f.ft_headings([line(t, 291, 2180)])[0]])
+check("1987 weekday title with WORD lost to the print", [6319],
+      [n for n, _, _ in f.ft_headings([line("FT  CROSS PUZZLE No. 6,319", 291, 2180)])[0]])
+check("a lone \"cross\" and a number is no title", [],
+      f.ft_headings([line("cross No. 6,319", 291, 2180)])[0])
+check("a no-crossword notice over the solution's number is no title", [],
+      f.ft_headings([line("No crossword appears in today's", 586, 3307), line("puzzle. No 5,355, will be pub-", 586, 3399)])[0])
+check("prose with a crossword in it and no number is no title", [],
+      f.ft_headings([line("the paper's crossword setter retired", 200, 300)])[0])
+check("FT_NOISY_TITLE: a stray letter, a glued prefix, a stray digit, a lost title word, a lost title word over a Set by line; "
+      "a solution notice's Puzzle No and a Set by with no number are none",
+      [[5704], [5938], [5725], [5696], [8379], [], []],
+      [[n for n, _, _ in f.ft_headings([line(t, 291, 2180)])[0]]
+       for t in ("F.T. CROSSWORD PUZZLE E No. 5.704", "F.T.CROSSWORD PUZZLE No. 5,938", "F.T. :CROSSWORD: PUZZLE'No. 5 5,725",
+                 "PUZZLE No. 5,696", "No.8,379 Set by CINEPHILE", "Solution to Puzzle No. 5,695 PO Box 4, Norwich",
+                 "Set by DANTE")])
+check("FT numbers the dates imply, and our first ftcryptic's", [True, True, True, False],
+      [abs(n - f.ft_expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
+       for d, n in [("1975-05-01", 2766), ("1992-06-11", 7870), ("2009-11-12", 13232), ("1995-01-03", 19742)]])
+
+# The FT from No 10,000 (Feb 1999): five-digit numbers ("No.10,116 Set by DANTE"); the Gale FT's title word and its
+# number's line standing tight (2008), a column apart (2004), or the word lost (2000): gale_ft_headings.
+check("an FT title and solution heading of five digits, as read ('No.10.116' for 10,116)", ([10116, 12654], [10115]),
+      ([n for n, _, _ in f.ft_headings([line("CROSSWORD", 2780, 3360), line("No.10.116 Set by DANTE", 2744, 3380)])[0]]
+       + [n for n, _, _ in f.ft_headings([line("Crossword", 542, 4406), line("No. 12,654 Set by DANTE", 442, 4430)])[0]],
+       [n for n, _ in f.ft_headings([line("Solution 10,115", 1438, 4843)])[1]]))
+_tight = [line("Crossword", 542, 4406), line("No. 12,654 Set by DANTE", 442, 4410)]
+_aside = [line("Crossword", 1300, 4443), line("No.11,416 Set by DOGBERRY", 1800, 4450)]
+_lost = [line("No.10,208 Set by CINEPHILE", 2717, 3308)]
+check("a Gale FT title word whose number's line starts over its foot (2008), stands a column right (2004) or is "
+      "the only line (2000): found by gale_ft_headings, not ft_headings; the setter read",
+      ([], [12654], [], [11416], [], [10208], ["Dante", "Dogberry", "Cinephile"]),
+      ([n for n, _, _ in f.ft_headings(_tight)[0]], [n for n, _, _ in f.gale_ft_headings(_tight)[0]],
+       [n for n, _, _ in f.ft_headings(_aside)[0]], [n for n, _, _ in f.gale_ft_headings(_aside)[0]],
+       [n for n, _, _ in f.ft_headings(_lost)[0]], [n for n, _, _ in f.gale_ft_headings(_lost)[0]],
+       [s for t in (_tight, _aside, _lost) for _, _, s in f.gale_ft_headings(t)[0]]))
+check("a Gale FT title read both ways is one title; a box over both its lines, the word's span; solutions kept",
+      ([10116], [10115], True),
+      ([n for n, _, _ in f.gale_ft_headings([line("CROSSWORD", 2780, 3360), line("No.10.116 Set by DANTE", 2744, 3380),
+                                             line("Solution 10,115", 1438, 4843)])[0]],
+       [n for n, _ in f.gale_ft_headings([line("CROSSWORD", 2780, 3360), line("No.10.116 Set by DANTE", 2744, 3380),
+                                          line("Solution 10,115", 1438, 4843)])[1]],
+       f.gale_ft_headings(_tight)[0][0][1][1] == 4406))
+check("a Gale FT Saturday's \"Crossword 12.675 SET BY CINCINNUS\" is the title of 12,675 by Cincinnus; the winners' "
+      "\"Crossword 12.664: Mrs M Malkin, Scotby\" is none",
+      ([(12675, "Cincinnus")], []),
+      ([(n, s) for n, _, s in f.gale_ft_headings([line("Crossword 12.675 SET BY CINCINNUS", 1985, 2649)])[0]],
+       f.gale_ft_headings([line("Crossword 12.664: Mrs M Malkin, Scotby, Cumbria", 141, 4826)])[0]))
+check("a number with no setter line, a setter line with no number, a number far from the word are no Gale FT title",
+      [[], [], []],
+      [[n for n, _, _ in f.gale_ft_headings(ls)[0]]
+       for ls in ([line("No. 12,654 reasons to buy", 442, 4430)], [line("Set by DANTE", 442, 4430)],
+                  [line("No. 5 Set by DANTE", 442, 4430)])])
+
+# The Gale Telegraph's title from 1990: "CROSSWORD" and its number a column apart (to ~Mar 1991), "PRIZE CROSSWORD /
+# 20,508" on Saturday, "Crossword No 23,246" from ~Sep 2000; never the Quick Crossword or a far-off number.
+_tg = [n for n, _, _ in f.gale_telegraph_headings([line("CROSSWORD", 211, 2616), line("20,238", 700, 2612)])[0]]
+check("a Gale Telegraph banner's number a column right of CROSSWORD on its row joins it; its box starts at the word",
+      ([20238], 211),
+      (_tg, f.gale_telegraph_headings([line("CROSSWORD", 211, 2616), line("20,238", 700, 2612)])[0][0][1][0]))
+check("a Gale Telegraph Saturday's PRIZE CROSSWORD banner, and the 2000 \"Crossword No 23,246\"",
+      [[20508], [21500], [23246], [23246]],
+      [[n for n, _, _ in f.gale_telegraph_headings([line(t, 483, 2605)])[0]]
+       for t in ("PRIZE CROSSWORD / 20,508", "PRIZE CROSSWORD /21,500", "Crossword No 23,246", "CROSSWORD NO. 23,246")])
+check("the Quick Crossword, a number past JOIN_REACH, a number over the word and the Telegraph's own prize heading "
+      "are no Gale Telegraph title",
+      [[], [], [], []],
+      [[n for n, _, _ in f.gale_telegraph_headings(ls)[0]]
+       for ls in ([line("QUICK CROSSWORD", 672, 4344), line("20,238", 1200, 4340)],
+                  [line("CROSSWORD", 100, 100), line("20,238", 3000, 100)],
+                  [line("CROSSWORD", 100, 100), line("20,238", 300, 60)],
+                  [line("TELEGRAPH prize crossword", 954, 4188), line("20,238", 1400, 4188)])])
+check("an old Telegraph \"No. 15,301 ACROSS\" title and a Saturday's PRIZE title read on one page stand together",
+      [15301, 20508],
+      sorted(n for n, _, _ in f.gale_telegraph_headings([line("No. 15,301 ACROSS", 237, 3247),
+                                                          line("PRIZE CROSSWORD / 20,508", 483, 2605)])[0]))
+
+# A Gale Telegraph next-day solution heading its OCR garbled ("Sohudon No.22,9e0") is read as the number the title
+# says it follows; with no title read only the strict heading stands.
+check("a garbled Gale Telegraph solution heading is linked once a title is read, as its number a lag before it",
+      [[22960], [22960], [], [22960]],
+      [[n for n, _ in f.gale_telegraph_headings([line("Sohudon No.22,9e0", 700, 2605)], [22961])[1]],
+       [n for n, _ in f.gale_telegraph_headings([line("Solutlom No. 22,900", 700, 2605)], [22961])[1]],
+       [n for n, _ in f.gale_telegraph_headings([line("Solutlom No. 22,900", 700, 2605)])[1]],
+       [n for n, _ in f.gale_telegraph_headings([line("SOLUTION No. 22,960", 700, 2605)], [22961])[1]]])
+_tgrow = {"edition": "GaleTelegraph1999UKEnglish/1999-11-11", "inputs": {}, "scanKey": next(iter(f._TELEGRAPH_OLD)),
+          "scan": {"puzzles": [{"number": 22961}], "solutions": []},
+          "verdicts": [{"number": 22960, "complete": False, "solution": None, "grid": "image"}]}
+check("the Gale Telegraph's old scans of a title and no heading are due again (a Mon-Fri puzzle's read too), pinned "
+      "to the new key; a Saturday puzzle, a 1979 page and a scan by the new code stand",
+      [True, True, False, False, False, False],
+      [f.telegraph_host(_tgrow), f.telegraph_next_due({**_tgrow, "read": "2000"}) or f.TELEGRAPH_NEXT_DAY in f.RANKS,
+       f.telegraph_next_due({**_tgrow, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"}),
+       f.telegraph_host({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-13"}),
+       f.telegraph_host({**_tgrow, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
+       f.telegraph_host({**_tgrow, "scan": {"puzzles": [{"number": 22961}], "solutions": [{"number": 22960}]}})])
+check("a Mon-Fri Gale Telegraph puzzle with no solution read is due TELEGRAPH_HOSTED (read before it, ranked), not a "
+      "Saturday's, a 1979 one or one read since",
+      [True, True, False, False, False],
+      [f.telegraph_hosted_due({**_tgrow, "readAt": "2026-11-13T16:00:00+00:00"}), f.TELEGRAPH_HOSTED in f.RANKS,
+       f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"}),
+       f.telegraph_hosted_due({**_tgrow, "edition": "GaleTelegraph1979UKEnglish/1979-11-12"}),
+       f.telegraph_hosted_due({**_tgrow, "readAt": "2026-11-14T16:00:00+00:00"})])
+_tgwhole = {**_tgrow, "readAt": "2026-11-13T16:00:00+00:00",
+            "verdicts": [{"complete": True, "grid": "image", "number": 22794}]}
+check("a Mon-Fri Gale Telegraph puzzle whose clues read complete with no solution read is due TELEGRAPH_WHOLE, once",
+      [True, True, False, False],
+      [f.telegraph_whole_due(_tgwhole), f.TELEGRAPH_WHOLE in f.RANKS,
+       f.telegraph_whole_due({**_tgwhole, "readAt": "2026-11-14T16:00:00+00:00"}),
+       f.telegraph_whole_due({**_tgwhole, "edition": "GaleTelegraph1999UKEnglish/1999-11-13"})])
+_sat = {**_tgrow, "edition": "GaleTelegraph1994UKEnglish/1994-12-10", "readAt": "2026-11-13T16:00:00+00:00"}
+_mon = {**_tgrow, "edition": "GaleTelegraph1994UKEnglish/1994-12-12"}
+check("a Gale Telegraph Saturday puzzle of 1987-2000 with no solution read is due TELEGRAPH_PRIZE_DAY (ranked), not a "
+      "Monday's, a 1979 one or one read since; the Monday's old scan of a title and no heading is due again",
+      [True, True, False, False, False, True, False, False],
+      [f.telegraph_prize_due(_sat), f.TELEGRAPH_PRIZE_DAY in f.RANKS,
+       f.telegraph_prize_due({**_sat, "edition": "GaleTelegraph1994UKEnglish/1994-12-12"}),
+       f.telegraph_prize_due({**_sat, "edition": "GaleTelegraph1979UKEnglish/1979-11-10"}),
+       f.telegraph_prize_due({**_sat, "readAt": "2026-11-14T16:00:00+00:00"}),
+       f.telegraph_host(_mon), f.telegraph_host({**_mon, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
+       f.telegraph_host({**_mon, "edition": "GaleTelegraph1985UKEnglish/1985-12-16", "scanKey": f.scan_key(f.GALE_TELEGRAPH)})])
+_prize = [line("PRIZE SOLUTION of", 1026, 3635), line("DECEMBER 3 3-No.21,423", 993, 3656)]
+check("a Monday's two-line prize heading ('PRIZE SOLUTION of' over 'DECEMBER 3-No.21,423') is the Saturday prize's number, "
+      "seven titles before its own, read clean only",
+      [[21423], [21423], [], []],
+      [[n for n, _ in f.gale_telegraph_headings(_prize, [21430])[1]], [n for n, _ in f.telegraph_prize_headings(_prize, [21429])],
+       [n for n, _ in f.telegraph_prize_headings(_prize, [21460])], [n for n, _ in f.gale_telegraph_headings(_prize)[1]]])
+_sols = [[(1320, 4366, 1494, 4409, "SolutionS")],
+         [(1430, 4441, 1546, 4475, "No.19,965"), (1716, 4435, 2013, 4478, "Yesterday's Quick Solution")]]
+_sols_found = f.gale_telegraph_headings(_sols, [19966])[1]
+check("a Gale Telegraph Saturday's 'SolutionS' over 'No.19,965' (the number's row shared with the Quick's heading) is the "
+      "Friday's solution heading, its box widened to the grid; with no title read, or another's number, none",
+      [[19965], 380, [], []],
+      [[n for n, _ in _sols_found], _sols_found[0][1][2] - _sols_found[0][1][0] if _sols_found else 0,
+       [n for n, _ in f.gale_telegraph_headings(_sols, [])[1]], [n for n, _ in f.gale_telegraph_headings(_sols, [19990])[1]]])
+check("a 'SolutionS' word starts a Gale Telegraph's solution band, the number's row under it inside; a plain 'solutions' "
+      "in the prize's text, or any word for another paper, none",
+      [1, 0, 0],
+      [len(f.solution_bands(__import__("PIL.Image").Image.new("RGB", (3296, 5060), "white"), [(1320, 4366, 1494, 4409, "SolutionS")], True)),
+       len(f.solution_bands(__import__("PIL.Image").Image.new("RGB", (3296, 5060), "white"), [(1320, 4366, 1494, 4409, "solutions must reach the Telegraph")], True)),
+       len(f.solution_bands(__import__("PIL.Image").Image.new("RGB", (3296, 5060), "white"), [(1320, 4366, 1494, 4409, "SolutionS")]))])
+check("a glued 'PRIZECROSSWORD' beside its number is a Gale Telegraph title",
+      [[19912]],
+      [[n for n, _, _ in f.gale_telegraph_headings([[(264, 2227, 654, 2260, "PRIZECROSSWORD"), (1153, 2223, 1281, 2263, "19,912")]])[0]]])
+_of = [[(1021, 3308, 1326, 3346, "of SEPTEMBER 6-No. 18,859"), (1087, 3282, 1261, 3316, "PRIZE SOLUTION")]]
+check("a 1986 Monday's 'PRIZE SOLUTION' with 'of SEPTEMBER 6-No. 18,859' joined in its row is the Saturday prize's heading",
+      [[18859], []],
+      [[n for n, _ in f.telegraph_prize_headings(_of, [18865])], [n for n, _ in f.telegraph_prize_headings(_of, [19000])]])
+_lost = [[(941, 3384, 1321, 3428, "SOLUTIONNo.19,190")], [(841, 4252, 941, 4291, "ACROSS"), (1400, 4252, 1500, 4291, "DOWN")]]
+check("a Gale Telegraph page with no title read, one glued 'SOLUTIONNo.19,190' heading and one ACROSS word is the puzzle "
+      "after it, its box the ACROSS word's; two ACROSS words, or a title read, none",
+      [[19191], [], [19000]],
+      [[n for n, _, _ in f.gale_telegraph_headings(_lost)[0]],
+       [n for n, _, _ in f.gale_telegraph_headings(_lost + [[(10, 4300, 90, 4330, "ACROSS")]])[0]],
+       [n for n, _, _ in f.gale_telegraph_headings(_lost + [[(300, 2400, 600, 2440, "CROSSWORD"), (1170, 2400, 1300, 2440, "19,000")]])[0]]])
+# 1985-10-01 (Gale, puzzle 18570): the scan took the Quick's "ACROSS" under its "QUICK CROSSWORD" caption for the cryptic's
+# title (its ink the Quick's 490x512 grid); the cryptic's clue block stands over, its heading lost.
+_qsol = [(722, 4334, 852, 4381, "SOLUTION"), (860, 4334, 960, 4381, "No."), (970, 4334, 1100, 4381, "18,569")]
+_qcap = [(254, 4344, 448, 4386, "QUICK"), (454, 4344, 640, 4386, "CROSSWORD")]
+_qlost = [_qsol, _qcap, [(293, 4376, 404, 4417, "ACROSS")]]
+_qcounts = [[(259, 2865 + 40 * k, 384, 2900 + 40 * k, "(4,3,4)")] for k in range(6)]
+_qhead = f.gale_telegraph_headings(_qlost + _qcounts)[0]
+check("a Gale Telegraph page whose one ACROSS stands under its QUICK CROSSWORD caption is titled by its clue block's top "
+      "(solution heading + 1, a box over the first clue line); with no clue block, or no caption, the old reading stands",
+      [[18570], True, [], [18570], [(293, 4376, 404, 4417)]],
+      [[n for n, _, _ in _qhead], bool(_qhead) and _qhead[0][1][3] < 2865 and _qhead[0][1][1] > 2600,
+       [n for n, _, _ in f.gale_telegraph_headings(_qlost)[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_qsol, [(293, 4376, 404, 4417, "ACROSS")]])[0]],
+       [b for _, b, _ in f.gale_telegraph_headings([_qsol, [(293, 4376, 404, 4417, "ACROSS")]])[0]]])
+_tq = {**_tgrow, "edition": "GaleTelegraph1985UKEnglish/1985-10-01", "inputs": {}, "readAt": "2026-11-13T16:00:00+00:00",
+       "verdicts": [{"number": 18570, "cause": "not-a-grid", "refused": "the ink under the title is 490x512, not a grid"}]}
+check("a Gale Telegraph 1985-87 page read before the rescan, refused not a grid for ink under 700 px, is due TELEQUICK, "
+      "rank 1; a larger ink, a 1988 page, a later read, another refusal stand",
+      [True, f.TELEQUICK, 1, False, False, False, False],
+      [f.telequick_rescan(_tq), f.fix_reason(_tq), f.RANKS[f.TELEQUICK],
+       f.telequick_rescan({**_tq, "verdicts": [{**_tq["verdicts"][0], "refused": "the ink under the title is 900x512, not a grid"}]}),
+       f.telequick_rescan({**_tq, "edition": "GaleTelegraph1988UKEnglish/1988-10-01"}),
+       f.telequick_rescan({**_tq, "readAt": "2026-11-16T07:00:00+00:00"}),
+       f.telequick_rescan({**_tq, "verdicts": [{"number": 18570, "refused": "no reading parses"}]})])
+# 1989-12-30 (Gale, puzzle 19888): the cryptic's ACROSS and the Quick's (under its caption) both stand on the page.
+_pcap = [(722, 4242, 900, 4290, "QUICK"), (910, 4242, 1100, 4290, "Crossword")]
+_pquick = [(805, 4332, 900, 4360, "ACROSS")]
+_pcrypt = [(312, 2433, 420, 2470, "ACROSS")]
+_ph = f.gale_telegraph_headings([_qsol, _pcap, _pquick, _pcrypt])[0]
+check("a Gale Telegraph page of two ACROSS words, the Quick's under its caption, is titled by the other (solution heading "
+      "+ 1, its box); two with no caption, or two both off the caption, stand untitled",
+      [[18570], [(312, 2433, 420, 2470)], [], []],
+      [[n for n, _, _ in _ph], [tuple(b) for _, b, _ in _ph],
+       [n for n, _, _ in f.gale_telegraph_headings([_qsol, _pquick, _pcrypt])[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_qsol, _pcap, _pcrypt, [(900, 2433, 1000, 2470, "ACROSS")]])[0]]])
+_tp = {**_tgrow, "edition": "GaleTelegraph1989UKEnglish/1989-12-30", "inputs": {}, "readAt": "2026-11-14T11:00:00+00:00", "verdicts": [], "scanKey": f.scan_key(f.GALE_TELEGRAPH),
+       "scan": {"puzzles": [], "solutions": [], "wholeUntitled": True}}
+check("a Gale Telegraph 1985-89 page read before the rescan with no puzzle found and no verdict is due TELEPAIR, rank 1; "
+      "one with a puzzle, a verdict, a later read, a 1990 page stands",
+      [True, f.TELEPAIR, 1, False, False, False, False],
+      [f.telepair_due(_tp), f.fix_reason(_tp), f.RANKS[f.TELEPAIR],
+       f.telepair_due({**_tp, "scan": {"puzzles": [{"number": 19888}], "wholeUntitled": True}}),
+       f.telepair_due({**_tp, "verdicts": [{"number": 1}]}),
+       f.telepair_due({**_tp, "readAt": "2026-11-17T07:00:00+00:00"}),
+       f.telepair_due({**_tp, "edition": "GaleTelegraph1990UKEnglish/1990-01-06"})])
+# 1990-08-20 (Gale, Monday, puzzle 20087): "WINNERS OF PRIZE Crossword No 20,080", its one ACROSS above; 1990-08-25 (Saturday,
+# 20092): "Today's Prize Crossword" with the cryptic's ACROSS over it and the Quick's far under.
+_pw = [(1439, 2791, 1881, 2828, "WINNERS"), (1439, 2791, 1500, 2828, "OF"), (1500, 2791, 1600, 2828, "PRIZE"),
+       (1600, 2791, 1700, 2828, "Crossword"), (1700, 2791, 1750, 2828, "No"), (1750, 2791, 1881, 2828, "20,080")]
+_pwa = [(316, 2576, 432, 2609, "ACROSS")]
+_pwq = [(779, 4300, 892, 4333, "ACROSS")]
+_pwd = datetime.date(1990, 8, 20)
+_pc = [(958, 3476, 1100, 3518, "Today's"), (1100, 3476, 1180, 3518, "Prize"), (1180, 3476, 1239, 3518, "Crossword")]
+_pca = [(303, 2594, 419, 2627, "ACROSS")]
+_pcq = [(768, 4317, 882, 4356, "ACROSS")]
+check("a Gale Telegraph Monday with no title is the winners line's number + 7 (its ACROSS's box; the date's number "
+      "within 12 of it, else none); a Saturday's numberless caption takes the dated number (the ACROSS over it, not the "
+      "Quick's under it), only with the day; Paper.headings passes the day on",
+      [[20087], [(316, 2576, 432, 2609)], [20087], [], [20092], [(303, 2594, 419, 2627)], [], [20092], [], []],
+      [[n for n, _, _ in f.gale_telegraph_headings([_pw, _pwa], day=_pwd)[0]],
+       [tuple(b) for _, b, _ in f.gale_telegraph_headings([_pw, _pwa], day=_pwd)[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pw, _pwa])[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pw, _pwa], day=datetime.date(1990, 10, 20))[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]],
+       [tuple(b) for _, b, _ in f.gale_telegraph_headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pc, _pca, _pcq])[0]],
+       [n for n, _, _ in f.GALE_TELEGRAPH.headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]],
+       [n for n, _, _ in f.gale_telegraph_headings([_pc, _pca, _pcq, [(300, 2900, 420, 2930, "ACROSS")]],
+                                                    day=datetime.date(1990, 8, 25))[0]],
+       [n for n, _, _ in f.TELEGRAPH.headings([_pc, _pca, _pcq], day=datetime.date(1990, 8, 25))[0]]])
+_tz = {**_tp, "edition": "GaleTelegraph1990UKEnglish/1990-08-20"}
+check("a Gale Telegraph 1990-94 page read before the rescan with no puzzle found and no verdict is due TELEPRIZE, rank 1; "
+      "one with a puzzle, a verdict, a later read, a 1989 page stands",
+      [True, f.TELEPRIZE, 1, False, False, False, False],
+      [f.teleprize_due(_tz), f.fix_reason(_tz), f.RANKS[f.TELEPRIZE],
+       f.teleprize_due({**_tz, "scan": {"puzzles": [{"number": 20087}], "wholeUntitled": True}}),
+       f.teleprize_due({**_tz, "verdicts": [{"number": 1}]}),
+       f.teleprize_due({**_tz, "readAt": "2026-11-18T07:00:00+00:00"}),
+       f.teleprize_due({**_tz, "edition": "GaleTelegraph1989UKEnglish/1989-12-30"})])
+_fri = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-30", "readAt": "2026-11-13T16:00:00+00:00"}
+_sat90 = {**_tgrow, "edition": "GaleTelegraph1990UKEnglish/1990-03-31", "scanKey": "3a96114ccf041759"}
+check("a Gale Telegraph Friday puzzle of 1980-2000 with no solution read is due TELEGRAPH_SATURDAY (ranked, kept), not a "
+      "Thursday's or one read since; its Saturday page scanned under the previous key is scanned again, the new key's not",
+      [True, True, False, False, True, False, True],
+      [f.telegraph_saturday_due(_fri), f.TELEGRAPH_SATURDAY in f.RANKS,
+       f.telegraph_saturday_due({**_fri, "edition": "GaleTelegraph1990UKEnglish/1990-03-29"}),
+       f.telegraph_saturday_due({**_fri, "readAt": "2026-11-14T16:00:00+00:00"}),
+       f.telegraph_saturday_host(_sat90), f.telegraph_saturday_host({**_sat90, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}),
+       f.telegraph_saturday_host({**_sat90, "scan": {"puzzles": [], "solutions": [], "wholeUntitled": True}})])
+
+# The Gale Independent's readers that run words together read its title glued, and its day-before solution is headed by
+# the weekday alone ("Wednesday's solution"), so the number is the title's less a lag.
+check("a glued Gale Independent title is read (setter, no setter, number first, 76O3), a Concise title and a "
+      "winners line are not; a weekday-only solution heading is the title before the page's, a Last <day>'s a week, "
+      "'solutions' none, and with no title none",
+      [[6134], [7868], True, [], [7300], [7297], [], []],
+      [[n for n, _, _ in f.independent_headings([line("TheWednesday Crossword byDac No 6134,14 June 2006", 196, 2047)])[0]],
+       [n for n, _, _ in f.independent_headings([line("CrypticCrossword#7868 ByRaich", 196, 2047)])[0]],
+       7603 in [n for n, _, _ in f.independent_headings([line("CRYPTIC Crossword 76O3 BY RADIAN", 196, 2047)])[0]],
+       [n for n, _, _ in f.independent_headings([line("Concise Crossword No 7301", 196, 2047)])[0]],
+       [n for n, _ in f.independent_headings([line("Wednesday'ssolution", 700, 2605)], [7301])[1]],
+       [n for n, _ in f.independent_headings([line("Last Saturday's solution", 700, 2605)], [7303])[1]],
+       [n for n, _ in f.independent_headings([line("Yesterday's solutions", 700, 2605)], [7301])[1]],
+       [n for n, _ in f.independent_headings([line("Wednesday's solution", 700, 2605)])[1]]])
+_irow = {"edition": "GaleIndependent2010UKEnglish/2010-03-11", "inputs": {}, "scanKey": next(iter(f._INDEPENDENT_OLD)),
+         "scan": {"puzzles": [{"number": 7301}], "solutions": []},
+         "verdicts": [{"number": 7300, "complete": True, "solution": None, "grid": "image", "wrote": True}]}
+check("the Gale Independent's old scans with no solution heading are due again, an untitled one with its read, a "
+      "puzzle with no solution read before REREAD_INDEPENDENT_HEADINGS; a Sunday page, a scan by the new code and "
+      "one with a solution stand, and the old keys are pinned to the new one",
+      [True, True, False, False, False, False, True],
+      [f.indy_host(_irow), f.indy_next_due({**_irow, "scan": {"puzzles": [], "solutions": []}, "verdicts": []})
+       and f.INDEPENDENT_HEADINGS in f.RANKS,
+       f.indy_host({**_irow, "edition": "GaleIndependentSunday2010UKEnglish/2010-03-14"}),
+       f.indy_host({**_irow, "scanKey": f.scan_key(f.GALE_INDEPENDENT)}),
+       f.indy_host({**_irow, "scan": {"puzzles": [{"number": 7301}], "solutions": [{"number": 7300}]}}),
+       f.indy_next_due({**_irow, "verdicts": [{**_irow["verdicts"][0], "solution": {}}]}),
+       all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)}
+           for o in f._INDEPENDENT_HEADINGS_FIX["galeindependent"][:2])])
+
+# The Gale FT's Chinese reader prints its title and solution heading glued ("CROSSWORDNo.11,738SetbyCINCINNUS").
+check("a glued Gale FT title is read (setter, weekday No/Set by line, Crossword12,675), a spaced one stands once, "
+      "prose is no title; a glued solution heading is read, and with a title read the generic one too",
+      [[(11738, "Cincinnus")], [10116], [12675], [(11738, "Cincinnus")], [], [11726], [11726]],
+      [[(n, s) for n, _, s in f.gale_ft_headings([line("CROSSWORDNo.11,738SetbyCINCINNUS", 1869, 2903)])[0]],
+       [n for n, _, _ in f.gale_ft_headings([line("No.10,116SetbyDANTE", 1869, 2903)])[0]],
+       [n for n, _, _ in f.gale_ft_headings([line("Crossword12,675SETBYCINCINNUS", 1869, 2903)])[0]],
+       [(n, s) for n, _, s in f.gale_ft_headings([line("CROSSWORD No.11,738 Set by CINCINNUS", 1869, 2903)])[0]],
+       [n for n, _, _ in f.gale_ft_headings([line("Crossword No crossword appears today", 1869, 2903)])[0]],
+       [n for n, _ in f.gale_ft_headings([line("Solution11,726", 2348, 4602)])[1]],
+       [n for n, _ in f.gale_ft_headings([line("Solution 11,726", 2348, 4602)], [11727])[1]]])
+_ftrow = {"edition": "GaleFT2005UKEnglish/2005-01-14", "inputs": {}, "scanKey": next(iter(f._GALE_FT_OLD)),
+          "scan": {"puzzles": [{"number": 11737}], "solutions": []},
+          "verdicts": [{"number": 11737, "complete": False, "solution": None, "grid": "image", "wrote": True}]}
+check("the Gale FT's old scans with no title or solution heading are due again, an untitled one with its read, a "
+      "puzzle with no solution or refused for its number before REREAD_FT_HEADINGS; a scan by the new code, one "
+      "with both headings, another paper's stand, and the old keys are pinned to the new one",
+      [True, True, True, False, False, False, False, True],
+      [f.ft_host(_ftrow), f.ft_next_due({**_ftrow, "scan": {"puzzles": [], "solutions": []}, "verdicts": []})
+       and f.FT_HEADINGS in f.RANKS,
+       f.ft_next_due({**_ftrow, "verdicts": [{"number": 1738, "refused": "x", "cause": "number-date-mismatch"}]}),
+       f.ft_host({**_ftrow, "scanKey": f.scan_key(f.GALE_FT)}),
+       f.ft_host({**_ftrow, "scan": {"puzzles": [{"number": 11737}], "solutions": [{"number": 11736}]}}),
+       f.ft_host({**_ftrow, "edition": "GaleTelegraph2005UKEnglish/2005-01-14"}),
+       f.ft_next_due({**_ftrow, "verdicts": [{**_ftrow["verdicts"][0], "solution": {}}]}),
+       all(f.CORPUS_KEYS[o] == {"galeft": f.scan_key(f.GALE_FT)} for o in f._FT_HEADINGS_FIX["galeft"][:2])])
+
+# FT_SPECK_WORDS: the neighbouring print's words in the gutter left of a clue's number no longer hide it.
+check("up to two short words well left of a clue's number are dropped from its row (a column's piece stays when it "
+      "is no word run or stands beside the number); FT_SPECK_WORDS is due for a read Gale FT page with a clue laid on no "
+      "light for its number once",
+      [["17 Help raised for people"], ["17 Help raised for people"], ["Short, 2x"], ["nder? Sweden (8)"] if False else ["Sweden (8)"],
+       [True, False, False]],
+      [[l[4] for l in f.merge_rows([(3946, 3977, 2060, 2400, "17 Help raised for people"), (3946, 3970, 1952, 2010, "ter of")])],
+       [l[4] for l in f.merge_rows([(3946, 3977, 2060, 2400, "17 Help raised for people"), (3946, 3970, 1952, 2010, "k has")])],
+       [l[4] for l in f.merge_rows([(3946, 3977, 2000, 2400, "2x"), (3946, 3970, 1952, 2010, "Short,")])],
+       [l[4] for l in f.merge_rows([(3576, 3600, 2091, 2300, "Sweden (8)"), (3576, 3600, 1952, 2010, "nder?")])],
+       [f.ft_speck_words_due({"edition": "GaleFT2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2026-11-15T00:00:00+00:00",
+                              "verdicts": [{"number": 1, "imageDisagrees": "down clue [] names no light the grid numbers after 24"}]}),
+        f.ft_speck_words_due({"edition": "GaleFT2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2027-01-01T00:00:00+00:00",
+                              "verdicts": [{"number": 1, "imageDisagrees": "down clue [] names no light the grid numbers after 24"}]}),
+        f.ft_speck_words_due({"edition": "GaleFT2008UKEnglish/2008-01-19", "inputs": "x", "readAt": "2026-11-15T00:00:00+00:00",
+                              "verdicts": [{"number": 1, "imageDisagrees": "down clue [19] names no light the grid numbers after 18"}]})]])
+
+# The Gale FT's clue columns right of its grid start at the title's line, over RIGHT_RISE.
+_ftgrid = (243, 4220, 973, 4907)
+_ftright = (1790, 5113, f.Rise(90))
+_ftwin = f.windows_of(_ftgrid, right=(1790, 1400, 5113, f.Rise(125)))
+check("a Gale FT's columns start over its title (the grid's top 65 under it, 60 more), every other paper's and a page "
+      "with no title RIGHT_RISE; the rise rides last in every form of `right` and moves the windows' top; a speck of "
+      "lower-case print before a clue's number is dropped from its row, a clue's own words stand; FT_CLUES is due "
+      "for a read page with a blank clue once",
+      [125, 50, 50, 90, 125, 4095, 4095, 50, ["1 Understood I'm parking"], ["ook 1x"], [True, False, False]],
+      [f.ft_rise(f.GALE_FT, _ftgrid, (151, 4155, 1111, 4210)), f.ft_rise(f.GALE, _ftgrid, (151, 4155, 1111, 4210)),
+       f.ft_rise(f.GALE_FT, _ftgrid, None), f.rise_of(_ftright), f.rise_of((1790, 1400, 5113, f.Rise(125))),
+       _ftwin[0][3], _ftwin[1][3], f.rise_of((1790, 5113)),
+       [l[4] for l in f.merge_rows([(4917, 4948, 1043, 1390, "1 Understood I'm parking"),
+                                    (4910, 4934, 978, 1016, "ook")])],
+       [l[4] for l in f.merge_rows([(4917, 4948, 1043, 1390, "1x"), (4910, 4934, 978, 1016, "ook")])],
+       [f.ft_clues_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"1-across": "x"}}]}),
+        f.ft_clues_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"1-across": "x"}}],
+                        "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.ft_clues_due({**_ftrow, "edition": "GaleTelegraph2005UKEnglish/2005-01-14",
+                        "verdicts": [{"number": 1, "blank": {"1-across": "x"}}]})]])
+
+# A clue's number run into its first word ("1.5Carolyn", "1,7Breach", "1lluminate") opens a list: split off when it is
+# the next number in order; a figure inside a clue, an ordinal or an out-of-order number is not.
+import clue_text
+_gl = lambda s: [([sorted(t) for t in c["tokens"]], c["text"][:10]) for c in (ftp.clues(s)[0] or [])]
+check("a clue number run into its word (1.5Carolyn, 1,7Breach, 1lluminate) is split at a list's start; 'cannot find a "
+      "clue number' stays for an ordinal, a 3-digit run and a number out of order; FT_GLUED is due for a read FT page "
+      "that stopped at one, once, ranked, and in BLANKET_PASSES",
+      [[([[15]], "Carolyn li"), ([[16]], "Next one")], [([[17]], "Breach of "), ([[19]], "Behold cag")],
+       [([[1]], "lluminate "), ([[2]], "Mad thing")], None, None, (1, 15, None, None, None),
+       [True, False, False], True],
+      [_gl("1.5Carolyn lied -saw poor clergyman accused (6) 16 Next one (4)"),
+       _gl("1,7Breach of faith？(11,3) 19 Behold caged (4)"), _gl("1lluminate tram (8) 2 Mad thing (4)"),
+       ftp.clues("1st of the month (6) 2 Mad thing (4)")[0], ftp.clues("114 forgotwords (6) 12 Next (3)")[0],
+       (__import__("clue_text").glued_number("1lluminate", 0)[0], clue_text.glued_number("1.5Carolyn", 0)[0],
+        clue_text.glued_number("1.5Carolyn", 15), clue_text.glued_number("1st of", 0), clue_text.glued_number("114 for", 0)),
+       [f.ft_glued_due({**_ftrow, "verdicts": [{"number": 1, "unparsed": {"ch": "across clues do not parse: cannot find a "
+                                                                             "clue number at: '1.5Carolyn lied -saw poor'"}}]}),
+        f.ft_glued_due({**_ftrow, "readAt": "2027-01-01T00:00:00+00:00", "verdicts": [{"number": 1, "unparsed": {
+            "ch": "cannot find a clue number at: '1.5Carolyn lied'"}}]}),
+        f.ft_glued_due({**_ftrow, "verdicts": [{"number": 1, "unparsed": {"ch": "cannot find a clue number at: ' paniment (7)'"}}]})],
+       f.RANKS[f.FT_GLUED] == 2 and f.FT_GLUED in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.FT_GLUED) is not None
+       and f.FT_GLUED in _eq_bp.FIX_LANDED and f.FT_GLUED in _eq_bp.UNFILED_FIRST])
+
+# The Gale FT's down list runs on in a third column right of the two (2002-03-20's 19, 21, 23, 25 down).
+_rt = (1776, 1370, 5485, f.Rise(110))
+_rt3 = (*_rt, f.Third(2200))
+check("a Gale FT page's third clue column is a window of its own right of the second, from the same top; no third "
+      "column without the marker; the FT's foot runs FT_DROP of the grid's height under it; FT_THIRD is due for a page "
+      "read with a down clue blank, once, ranked, and in "
+      "BLANKET_PASSES",
+      [[(968, 1370, 1370, 4414), (1370, 1776, 1776, 4414)], 2200, None,
+       [(968, 1370, 1370, 4414), (1370, 1776, 1776, 4414), (1776, 2200, 2200, 4414)], [True, False, False, False],
+       [(1776, 5564, 110), (1776, 5711, 110), (1776, 5711)], True],
+      [f.windows_of((193, 4524, 963, 5290), right=_rt)[:2], f.third_of(_rt3), f.third_of(_rt),
+       f.windows_of((193, 4524, 963, 5290), right=_rt3),
+       [f.ft_third_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]}),
+        f.ft_third_due({**_ftrow, "verdicts": [{"number": 1, "blank": {"20-across": "x", "1-across": "x"}}]}),
+        f.ft_third_due({**_ftrow, "readAt": "2027-01-01T00:00:00+00:00",
+                        "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]}),
+        f.ft_third_due({**_ftrow, "edition": "GaleTimes2004UKEnglish/2004-12-05",
+                        "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]})],
+       [f.ft_foot(types.SimpleNamespace(height=5564), (193, 4524, 963, 5290), (1776, 5000, 110)),
+        f.ft_foot(types.SimpleNamespace(height=9000), (193, 4524, 963, 5290), (1776, 5000, 110)),
+        f.ft_foot(types.SimpleNamespace(height=9000), (193, 4524, 963, 5290), (1776, 5600))],
+       f.RANKS[f.FT_THIRD] == 2 and f.FT_THIRD in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.FT_THIRD) is not None
+       and f.FT_THIRD in _eq_bp.FIX_LANDED and f.FT_THIRD in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1995-2006 page: the two clue columns left of the grid ran past left_bottom's 0.3 cut.
+_stp = f.paper_of("GaleSundayTimes2004UKEnglish/2004-12-05")
+_strow = {"edition": "GaleSundayTimes2004UKEnglish/2004-12-05", "inputs": "x", "readAt": "2026-11-07T11:00:00+00:00",
+          "verdicts": [{"number": 4095, "wrote": True, "complete": False, "blank": {"20-down": "no reading laid a clue on it"}}]}
+check("a Gale Sunday Times page with its grid right of its clue columns reads them to the page's foot, no other paper or "
+      "side; SUNDAY_TIMES_FOOT is due for an incomplete one with a blank clue read before it, once, ranked",
+      [True, False, False, [True, False, False, False], True],
+      [f.sunday_times_beside(_stp, "left"), f.sunday_times_beside(_stp, "below"),
+       f.sunday_times_beside(f.paper_of("GaleFT2004UKEnglish/2004-12-05"), "left"),
+       [f.sunday_times_foot_due(_strow),
+        f.sunday_times_foot_due({**_strow, "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.sunday_times_foot_due({**_strow, "verdicts": [{"number": 4095, "wrote": True, "complete": True}]}),
+        f.sunday_times_foot_due({**_strow, "edition": "GaleFT2004UKEnglish/2004-12-05"})],
+       f.RANKS[f.SUNDAY_TIMES_FOOT] == 2 and f.SUNDAY_TIMES_FOOT in f.BLANKET_PASSES
+       and _eq_bp.evidence_reason(f.SUNDAY_TIMES_FOOT) is not None
+       and f.SUNDAY_TIMES_FOOT in _eq_bp.FIX_LANDED and f.SUNDAY_TIMES_FOOT in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1987-2013 page whose columns left of the grid ran past columns()' floor: SUNDAY_FEET.
+_sfr = {**_strow, "edition": "GaleSundayTimes2005UKEnglish/2005-09-04", "readAt": "2026-11-14T01:02:44+00:00",
+        "verdicts": [{"number": 1, "wrote": True, "complete": False, "blank": {"22-down": "no reading laid a clue on it"}}]}
+check("SUNDAY_FEET is due for a 1987-2013 Gale Sunday Times page written incomplete with a clue no reading laid, read before it, "
+      "no other year, complete or later read; wired and ranked",
+      [[True, False, False, False], True],
+      [[f.sunday_feet_due(_sfr), f.sunday_feet_due({**_sfr, "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.sunday_feet_due({**_sfr, "edition": "GaleSundayTimes1970UKEnglish/1970-10-04"}),
+        f.sunday_feet_due({**_sfr, "verdicts": [{"number": 1, "wrote": True, "complete": True}]})],
+       f.RANKS[f.SUNDAY_FEET] == 2 and f.SUNDAY_FEET in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_FEET) is not None
+       and f.SUNDAY_FEET in _eq_bp.FIX_LANDED and f.SUNDAY_FEET in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_FEET in _eq_bp.NEWEST_LANDED])
+
+# r188: a Gale Sunday Times page held unfiled (never written) with a clue no reading laid is due once, any year.
+_shd = {**_strow, "edition": "GaleSundayTimes1964UKEnglish/1964-12-13", "readAt": "2026-11-14T23:30:00+00:00",
+        "verdicts": [{"number": 2080, "unfiled": 7, "complete": False, "blank": {"9-down": "no reading laid a clue on it"}}]}
+check("a Gale Sunday Times page held unfiled with a clue no reading laid is due the 1960-67 and the any-year reason, "
+      "not when written, complete, read later, or another paper",
+      [True, True, False, False, False, False, True],
+      [f.sunday_under_due(_shd), f.sunday_times_foot_due({**_shd, "edition": "GaleSundayTimes1985UKEnglish/1985-08-11"}),
+       f.sunday_times_foot_due({**_shd, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_times_foot_due({**_shd, "verdicts": [{**_shd["verdicts"][0], "wrote": True}]}),
+       f.sunday_times_foot_due({**_shd, "verdicts": [{**_shd["verdicts"][0], "complete": True}]}),
+       f.sunday_times_foot_due({**_shd, "edition": "GaleFT1964UKEnglish/1964-10-04"}),
+       f.sunday_times_foot_due(_shd)])
+
+# The Gale Sunday Times 1960-67 page whose DOWN list runs on in columns under the grid: SUNDAY_UNDER.
+_sur = {**_strow, "edition": "GaleSundayTimes1964UKEnglish/1964-10-04", "readAt": "2026-11-14T23:30:00+00:00"}
+check("SUNDAY_UNDER is due for a 1960-67 Gale Sunday Times page written incomplete with a blank clue read before it, "
+      "no other year, complete or later read; wired and ranked; windows_of lays the columns under the grid",
+      [[True, False, False, False, False], True,
+       [(263, 688, 718, 3867), (688, 1100, 1100, 4678), (1100, 1500, 1500, 4678)]],
+      [[f.sunday_under_due(_sur), f.sunday_under_due({**_sur, "readAt": "2027-01-01T00:00:00+00:00"}),
+        f.sunday_under_due({**_sur, "edition": "GaleSundayTimes1970UKEnglish/1970-10-04"}),
+        f.sunday_under_due({**_sur, "verdicts": [{"number": 1, "wrote": True, "complete": True}]}),
+        f.sunday_under_due({**_sur, "edition": "GaleFT1964UKEnglish/1964-10-04"})],
+       f.RANKS[f.SUNDAY_UNDER] == 2 and f.SUNDAY_UNDER in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_UNDER) is not None
+       and f.SUNDAY_UNDER in _eq_bp.FIX_LANDED and f.SUNDAY_UNDER in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_UNDER in _eq_bp.NEWEST_LANDED,
+       f.windows_of((835, 3947, 1555, 4683), left=(lambda s: (setattr(s, "under", [688, 1100, 1500]), s)[1])(
+           f.SolutionLeft((263, None, 5645))))])
+
+# A DOWN column's first line read as one word with the prize notice beside it: SUNDAY_NOTICE cuts it before the notice.
+_snr = {**_sur, "edition": "GaleSundayTimes1966UKEnglish/1966-04-24"}
+check("SUNDAY_NOTICE is due for a 1960-67 Gale Sunday Times page written incomplete read before it, no later read; wired and ranked; "
+      "under_unglued cuts a clue's line before the prize notice, the clue's piece ending at the gutter",
+      [[True, False], True,
+       [(1168, 4598, 1572.7567567567567, 4620, "16 Advocate the possibility of bear-"),
+        (1583, 4598, 2000, 4620, "Five book tokens.each valuedfl Is.are")]],
+      [[f.sunday_notice_due(_snr), f.sunday_notice_due({**_snr, "readAt": "2027-01-01T00:00:00+00:00"})],
+       f.RANKS[f.SUNDAY_NOTICE] == 2 and f.SUNDAY_NOTICE in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_NOTICE) is not None
+       and f.SUNDAY_NOTICE in _eq_bp.FIX_LANDED and f.SUNDAY_NOTICE in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_NOTICE in _eq_bp.NEWEST_LANDED,
+       f.under_unglued([(1168, 4598, 2000, 4620, "16 Advocate the possibility of bear-|Five book tokens.each valuedfl Is.are")],
+                       [1152, 1582, 2012])])
+
+# The Gale Sunday Times 1960-99 page whose solution-sized grid under its title (a 4118px scan, 574 at SCAN_WIDTH)
+# locate_grid passed over: SUNDAY_GRID is due for a refused "no reading parses" / "not a grid" row read before it, once.
+_sgrow = {"edition": "GaleSundayTimes1966UKEnglish/1966-05-15", "inputs": "x", "readAt": "2026-11-07T11:00:00+00:00",
+          "verdicts": [{"number": 2153, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("SUNDAY_GRID is due for a 1960-99 Sunday Times row refused no reading parses or not a grid, read before it, once; "
+      "no filed row, other paper or later year; ranked, evidence, fix-landed, unfiled-first",
+      [True, True, False, False, False, False, False, True],
+      [f.sunday_grid_due(_sgrow),
+       f.sunday_grid_due({**_sgrow, "verdicts": [{"number": 1, "cause": "not-a-grid"}]}),
+       f.sunday_grid_due({**_sgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_grid_due({**_sgrow, "verdicts": [{"number": 2153, "wrote": True}]}),
+       f.sunday_grid_due({**_sgrow, "edition": "GaleSundayTimes2004UKEnglish/2004-12-05"}),
+       f.sunday_grid_due({**_sgrow, "edition": "GaleTimes1966UKEnglish/1966-05-15"}),
+       f.sunday_grid_due({k: v for k, v in _sgrow.items() if k != "inputs"}),
+       f.RANKS[f.SUNDAY_GRID] == 2 and f.SUNDAY_GRID in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_GRID) is not None
+       and f.SUNDAY_GRID in _eq_bp.FIX_LANDED and f.SUNDAY_GRID in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1960-67 page's one clue column left of its grid (sunday_times_column): SUNDAY_LEFT is due for a
+# refused "no reading parses" row of those years read before it, once.
+check("SUNDAY_LEFT is due for a 1960-67 Sunday Times row refused no reading parses, read before it, once; no not-a-grid, "
+      "later year or other paper; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, False, False, True],
+      [f.sunday_left_due(_sgrow),
+       f.sunday_left_due({**_sgrow, "verdicts": [{"number": 1, "cause": "not-a-grid"}]}),
+       f.sunday_left_due({**_sgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_left_due({**_sgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-12-05"}),
+       f.sunday_left_due({**_sgrow, "edition": "GaleTimes1966UKEnglish/1966-05-15"}),
+       f.RANKS[f.SUNDAY_LEFT] == 2 and f.SUNDAY_LEFT in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_LEFT) is not None
+       and f.SUNDAY_LEFT in _eq_bp.FIX_LANDED and f.SUNDAY_LEFT in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1980-84 page's ACROSS band over its grid with the DOWN column right of it (sunday_times_band):
+# SUNDAY_BAND is due for a 1980-84 row refused "no reading parses" (or written incomplete with a blank clue), once.
+check("SUNDAY_BAND is due for a 1980-84 Sunday Times row refused no reading parses, read before it, once; no other year "
+      "or paper; ranked, evidence, fix-landed, unfiled-first; glued clue numbers unglued across a gutter",
+      [True, False, False, False, True, "12 Ted and the rest confused 25 Sanctimonious", True],
+      [f.sunday_band_due({**_sgrow, "edition": "GaleSundayTimes1980UKEnglish/1980-03-09"}),
+       f.sunday_band_due({**_sgrow, "edition": "GaleSundayTimes1980UKEnglish/1980-03-09", "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_band_due(_sgrow),
+       f.sunday_band_due({**_sgrow, "edition": "GaleTimes1982UKEnglish/1982-05-15"}),
+       f.sunday_band_due({**_sgrow, "edition": "GaleSundayTimes1983UKEnglish/1983-05-15",
+                          "verdicts": [{"number": 1, "wrote": True, "complete": False, "blank": {"3-across": "x"}}]}),
+       f.band_unglued([(690, 0, 1429, 10, "12 Ted and the rest confused25 Sanctimonious")], [1064])[0][4],
+       f.RANKS[f.SUNDAY_BAND] == 2 and f.SUNDAY_BAND in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_BAND) is not None
+       and f.SUNDAY_BAND in _eq_bp.FIX_LANDED and f.SUNDAY_BAND in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1980-84 page with its grid at the page's top left and the title right of it, the clue columns right of
+# the grid (sunday_top_page): SUNDAY_TOP is due for a 1980-84 row refused "no reading parses", once.
+check("SUNDAY_TOP is due for a 1980-84 Sunday Times row refused no reading parses, read before it, once; no other year; "
+      "ranked, evidence, fix-landed, unfiled-first; the top-left grid with its title right of it is the layout, a title "
+      "far under the grid's top or left of it is not",
+      [True, False, False, True, False, False, True],
+      [f.sunday_top_due({**_sgrow, "edition": "GaleSundayTimes1984UKEnglish/1984-02-12"}),
+       f.sunday_top_due({**_sgrow, "edition": "GaleSundayTimes1984UKEnglish/1984-02-12", "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_top_due(_sgrow),
+       f.sunday_top_page((328, 285, 1048, 1025), (1074, 289, 2006, 398)),
+       f.sunday_top_page((355, 2238, 919, 2839), (1416, 1826, 1768, 1931)),
+       f.sunday_top_page((328, 285, 1048, 1025), (339, 289, 900, 398)),
+       f.RANKS[f.SUNDAY_TOP] == 2 and f.SUNDAY_TOP in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_TOP) is not None
+       and f.SUNDAY_TOP in _eq_bp.FIX_LANDED and f.SUNDAY_TOP in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Telegraph under-grid DOWN column's window reaches SUNDAY_UNDER_REACH of the grid's width past the middle
+# (1981-09-06: a line ending x 921 against a middle of 914): SUNDAY_UNDER_WIDE is due once for a 1977-98 row with a DOWN blank.
+_suw = {"edition": "GaleSundayTelegraph1981UKEnglish/1981-09-06", "readAt": "2026-11-01T00:00:00+00:00",
+        "verdicts": [{"number": 1064, "blank": {"20-down": "no reading laid a clue on it"}}]}
+_suw_win = f.windows_of((564, 3393, 1284, 4152), left=f.UnderSides((189, (1719,), 5137)))
+check("SUNDAY_UNDER_WIDE is due for a 1977-98 Sunday Telegraph row with a DOWN clue no reading laid, read before it, once; "
+      "not an ACROSS-only blank; the under-grid window's right edge passes its gutter; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True, True],
+      [f.sunday_under_wide_due(_suw),
+       f.sunday_under_wide_due({**_suw, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_under_wide_due({**_suw, "verdicts": [{"number": 1064, "blank": {"20-across": "no reading laid a clue on it"}}]}),
+       _suw_win[1][2] > _suw_win[1][1],
+       f.RANKS[f.SUNDAY_UNDER_WIDE] == 2 and f.SUNDAY_UNDER_WIDE in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_UNDER_WIDE) is not None
+       and f.SUNDAY_UNDER_WIDE in _eq_bp.FIX_LANDED and f.SUNDAY_UNDER_WIDE in _eq_bp.UNFILED_FIRST])
+
+# Gale Sunday Telegraph 1984-06-24 9 across: the leading reader's "movnga problem" left the clue's last word paired with
+# nothing ("no other reading has 'problem'"); vote_other() lays the clue from the reader that spelt it whole.
+_svo = {"edition": "GaleSundayTelegraph1984UKEnglish/1984-06-24", "readAt": "2026-11-01T00:00:00+00:00",
+        "verdicts": [{"number": 1205, "unfiled": 9, "blank": {"9-across": "no other reading has 'problem'"}}]}
+check("SUNDAY_VOTE_OTHER is due for an unfiled Sunday Telegraph row with a 'no other reading has' blank, read before it, once; "
+      "not a Sunday Times row; vote_other ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True],
+      [f.sunday_vote_other_due(_svo),
+       f.sunday_vote_other_due({**_svo, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_vote_other_due({**_svo, "edition": "GaleSundayTimes1984UKEnglish/1984-06-24"}),
+       f.RANKS[f.SUNDAY_VOTE_OTHER] == 2 and f.SUNDAY_VOTE_OTHER in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_VOTE_OTHER) is not None
+       and f.SUNDAY_VOTE_OTHER in _eq_bp.FIX_LANDED and f.SUNDAY_VOTE_OTHER in _eq_bp.UNFILED_FIRST])
+
+# The Gale Sunday Times 1980-84 page whose ACROSS band was read in merged lines and whose right columns start level with the
+# grid's top (sunday_times_band, SUNDAY_BAND_SIDE): SUNDAY_MERGED is due for a held 1980-84 row with a clue no reading laid, once.
+_mgrow = {**_sgrow, "edition": "GaleSundayTimes1983UKEnglish/1983-03-27",
+          "verdicts": [{"number": 1, "unfiled": 4, "complete": False, "blank": {"1-across": "no reading laid a clue on it"}}]}
+check("SUNDAY_MERGED is due for a held 1980-84 Sunday Times row with a clue no reading laid, read before it, once; no other "
+      "year, no complete one; ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [True, False, False, False, True],
+      [f.sunday_merged_due(_mgrow),
+       f.sunday_merged_due({**_mgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_merged_due({**_mgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-03-27"}),
+       f.sunday_merged_due({**_mgrow, "verdicts": [{"number": 1, "unfiled": 4, "complete": True, "blank": {}}]}),
+       f.RANKS[f.SUNDAY_MERGED] == 2 and f.SUNDAY_MERGED in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_MERGED) is not None
+       and f.SUNDAY_MERGED in _eq_bp.FIX_LANDED and f.SUNDAY_MERGED in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_MERGED in _eq_bp.NEWEST_LANDED])
+# The Gale Sunday Telegraph 1960-77 page's DOWN tail stands in one column the grid's width under it (1969-04-06: 23 and 24
+# down x 964-972 under a grid from 966), and the left column's notice ended the list before it: SUNDAY_TAIL is due once for
+# a pre-1977-09-18 row with a DOWN blank; the window takes the whole width; the tail's lines are spliced before the notice.
+_sut = {"edition": "GaleSundayTelegraph1969UKEnglish/1969-04-06", "readAt": "2026-11-01T00:00:00+00:00",
+        "verdicts": [{"number": 425, "blank": {"23-down": "no reading laid a clue on it"}}]}
+_sut_left = f.UnderSides((121, (2577,), 6136))
+_sut_left.full = True
+_sut_win = f.windows_of((966, 4492, 1672, 5209), left=_sut_left)
+_sut_cols = f.tail_spliced([[(0, 0, 0, 0, "22 Claw (6)"), (0, 0, 0, 0, "PRIZEwINNERS OF No.424")],
+                            [(0, 0, 0, 0, "23 Collision (6)"), (0, 0, 0, 0, "COMPETITION No.425")]], _sut_left)
+check("SUNDAY_TAIL is due for a pre-1977 Sunday Telegraph row with a DOWN clue no reading laid, read before it, once; not "
+      "a 1977+ row; the tail window spans the grid; the tail clues move before the notice; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True, ["22 Claw (6)", "23 Collision (6)", "PRIZEwINNERS OF No.424"], True],
+      [f.sunday_tail_due(_sut),
+       f.sunday_tail_due({**_sut, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_tail_due({**_sut, "edition": "GaleSundayTelegraph1981UKEnglish/1981-09-06"}),
+       _sut_win[1][2] >= 1672,
+       [ln[4] for ln in _sut_cols[0]] + [_sut_cols[1][0][4]],
+       f.RANKS[f.SUNDAY_TAIL] == 2 and f.SUNDAY_TAIL in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_TAIL) is not None
+       and f.SUNDAY_TAIL in _eq_bp.FIX_LANDED and f.SUNDAY_TAIL in _eq_bp.UNFILED_FIRST])
+_ug = {"edition": "GaleTimes1934UKEnglish/1934-04-17", "readAt": "2026-11-15T22:53:41+00:00",
+       "verdicts": [{"number": 374, "id": "times-374", "blank": {"21-down": "no other reading has 'A'"}}]}
+check("UNGLUE_LEAD is due for a 1930-49 Times row blank 'no other reading has' a short word, read before it, once; not a long word; "
+      "ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, True],
+      [f.unglue_lead_due(_ug), f.unglue_lead_due({**_ug, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.unglue_lead_due({**_ug, "verdicts": [{"number": 374, "id": "t", "blank": {"21-down": "no other reading has 'Treacherous'"}}]}),
+       f.RANKS[f.UNGLUE_LEAD] == 2 and f.UNGLUE_LEAD in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.UNGLUE_LEAD) is not None
+       and f.UNGLUE_LEAD in _eq_bp.FIX_LANDED and f.UNGLUE_LEAD in _eq_bp.UNFILED_FIRST])
+
+# SUNDAY_MERGED2: the same pages with the title closer over the grid than 0.2 grid widths, or the second column's numbers lost.
+check("SUNDAY_MERGED2 is due for a held 1980-84 Sunday Times row with a clue no reading laid, read before it, once; no other "
+      "year, no complete one; ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [True, False, False, False, True],
+      [f.sunday_merged2_due(_mgrow),
+       f.sunday_merged2_due({**_mgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_merged2_due({**_mgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-03-27"}),
+       f.sunday_merged2_due({**_mgrow, "verdicts": [{"number": 1, "unfiled": 4, "complete": True, "blank": {}}]}),
+       f.RANKS[f.SUNDAY_MERGED2] == 2 and f.SUNDAY_MERGED2 in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_MERGED2) is not None
+       and f.SUNDAY_MERGED2 in _eq_bp.FIX_LANDED and f.SUNDAY_MERGED2 in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_MERGED2 in _eq_bp.NEWEST_LANDED])
+
+# SUNDAY_BAND3: the same pages whose fourth and fifth columns the band did not reach.
+check("SUNDAY_BAND3 is due for a held 1980-84 Sunday Times row with a clue no reading laid, read before it, once; no other "
+      "year, no complete one; ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [True, False, False, False, True],
+      [f.sunday_band3_due(_mgrow),
+       f.sunday_band3_due({**_mgrow, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_band3_due({**_mgrow, "edition": "GaleSundayTimes1975UKEnglish/1975-03-27"}),
+       f.sunday_band3_due({**_mgrow, "verdicts": [{"number": 1, "unfiled": 4, "complete": True, "blank": {}}]}),
+       f.RANKS[f.SUNDAY_BAND3] == 2 and f.SUNDAY_BAND3 in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_BAND3) is not None
+       and f.SUNDAY_BAND3 in _eq_bp.FIX_LANDED and f.SUNDAY_BAND3 in _eq_bp.UNFILED_FIRST
+       and f.SUNDAY_BAND3 in _eq_bp.NEWEST_LANDED])
+
+# A Gale Telegraph page whose grid read "the white cells span 15 rows and 14 columns" (its first column cut off by the crop
+# under a bare ACROSS title box, 1988-07-20): TELE_LEFT is due once for a row read before it; not a row of another shape
+# (15 rows and 13 columns), year or paper, nor a row read after; no title leaves the grid box unwidened.
+_tl = {"edition": "GaleTelegraph1988UKEnglish/1988-07-20", "inputs": "x", "readAt": "2026-11-19T09:11:10+00:00",
+       "verdicts": [{"number": 19438, "imageUnread": "the white cells span 15 rows and 14 columns"}]}
+check("TELE_LEFT is due for a Gale Telegraph 1985-2000 row whose grid read 15 rows and 14 columns, read before it, once; not "
+      "another shape, paper or a later read; no box, no widening; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, False, None, True],
+      [f.tele_left_due(_tl),
+       f.tele_left_due({**_tl, "verdicts": [{"imageUnread": "the white cells span 15 rows and 13 columns"}]}),
+       f.tele_left_due({**_tl, "edition": "GaleSundayTelegraph1988UKEnglish/1988-07-17"}),
+       f.tele_left_due({**_tl, "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.tele_left_grid(None, (0, 0, 0, 0), None),
+       f.RANKS[f.TELE_LEFT] == 2 and f.TELE_LEFT in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.TELE_LEFT) is not None
+       and f.TELE_LEFT in _eq_bp.UNFILED_FIRST and f.TELE_LEFT in _eq_bp.NEWEST_LANDED])
+
+# The Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over it (sunday_times_over):
+# SUNDAY_OVER is due for a 1968-76 row refused "no reading parses" or "not a grid", read before it, once.
+check("SUNDAY_OVER is due for a 1968-76 Sunday Times row refused no reading parses, read before it, once; no other year "
+      "or paper; ranked, evidence, fix-landed, unfiled-first",
+      [True, False, False, False, True, True],
+      [f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1970UKEnglish/1970-03-29"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1970UKEnglish/1970-03-29", "readAt": "2027-01-01T00:00:00+00:00"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1980UKEnglish/1980-03-09"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleTimes1970UKEnglish/1970-03-29"}),
+       f.sunday_over_due({**_sgrow, "edition": "GaleSundayTimes1972UKEnglish/1972-05-14",
+                          "verdicts": [{"number": 1, "refused": "x", "cause": "not-a-grid"}]}),
+       f.RANKS[f.SUNDAY_OVER] == 2 and f.SUNDAY_OVER in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.SUNDAY_OVER) is not None
+       and f.SUNDAY_OVER in _eq_bp.FIX_LANDED and f.SUNDAY_OVER in _eq_bp.UNFILED_FIRST])
+
+# The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
+# column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
+_ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]
+check("a Gale Independent weekday title joined to its number's line, the Saturday prize one on a line (last digit "
+      "read o), the old \"Crossword No 1,234\" still read",
+      [[6828], [7010], [1234]],
+      [[n for n, _, _ in f.independent_headings(ls)[0]]
+       for ls in (_ind, [line("The Saturday Prize Crossword by Bannsider #701o 4 April 2009", 192, 1537)],
+                  [line("Crossword No 1,234", 100, 100)])])
+check("an Independent Concise Crossword by a setter, a title with its number past reach and one with no number are "
+      "no title", [[], [], []],
+      [[n for n, _, _ in f.independent_headings(ls)[0]]
+       for ls in ([line("Concise Crossword by Phi", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)],
+                  [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 3000, 2048)],
+                  [line("The Wednesday Crossword by Dac", 196, 2047)])])
+
+# The two Gale Sunday series (gale_inbox.SUNDAYS): items of their own, titles, numbers by date.
+check("the Gale Sunday Telegraph and Independent on Sunday items are papers of their own; GALE_INDEPENDENT's regex "
+      "needs digits after GaleIndependent, so the Sunday item is none of it",
+      [("galesundaytelegraph", "sundaytel"), ("galeindysunday", "indysunday"), ("galeindependent", "independent"), None],
+      [(f.paper_of(f"x/{i}/d").key, f.paper_of(f"x/{i}/d").series)
+       for i in ("GaleSundayTelegraph1970UKEnglish", "GaleIndependentSunday1995UKEnglish", "GaleIndependent1995UKEnglish")]
+      + [f.GALE_INDEPENDENT.item.match("GaleIndependentSunday1995UKEnglish")])
+check("a Gale Sunday Telegraph title: 'Crossword No. N', 'Two-in-One Crossword No N', a number-less one is none, "
+      "a winners entry's colon is none, the solution heading kept",
+      ([214], [1234], [], [], ([], [213])),
+      ([n for n, _, _ in f.sunday_tel_headings([line("Crossword No. 214")])[0]],
+       [n for n, _, _ in f.sunday_tel_headings([line("Two-in-One Crossword No 1,234")])[0]],
+       [n for n, _, _ in f.sunday_tel_headings([line("Two-in-One Crossword")])[0]],
+       [n for n, _, _ in f.sunday_tel_headings([line("Crossword No. 2060: Bob Smith")])[0]],
+       ([n for n, _, _ in f.sunday_tel_headings([line("Solution to Crossword No. 213")])[0]],
+        [n for n, _ in f.sunday_tel_headings([line("Solution to Crossword No. 213")])[1]])))
+check("a Gale Independent on Sunday title: the setter's name before 'Prize Crossword No N', '#N', 'by' the setter, "
+      "the number a line beside the title joined; 'The Prize Crossword' alone is none",
+      ([954], [955], [954], [954], []),
+      ([n for n, _, _ in f.indy_sunday_headings([line("Beelzebub Prize Crossword No 954")])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("Sunday Crossword #955")])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("Prize Crossword by Beelzebub No 954")])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("The Prize Crossword", 100, 100), line("No 954", 330, 100)])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("The Prize Crossword")])[0]]))
+check("the Sunday Telegraph's number by date: its anchors, one a week outside them",
+      (1, 214, 2062, 2473, 1959, 2473 + 52),
+      (f.sunday_tel_expected_number(_d.date(1961, 2, 5)), f.sunday_tel_expected_number(_d.date(1965, 3, 7)),
+       f.sunday_tel_expected_number(_d.date(2000, 12, 31)), f.sunday_tel_expected_number(_d.date(2009, 3, 1)),
+       f.sunday_tel_expected_number(_d.date(1999, 1, 3)) // 1, f.sunday_tel_expected_number(_d.date(2010, 2, 28))))
+check("the Independent on Sunday's number by date: No 1 on 28 January 1990, No 954 on 1 June 2008, weekly after the last",
+      (1, 954, 1099, 1913 + 52),
+      (f.indy_sunday_expected_number(_d.date(1990, 1, 28)), f.indy_sunday_expected_number(_d.date(2008, 6, 1)),
+       f.indy_sunday_expected_number(_d.date(2011, 3, 13)), f.indy_sunday_expected_number(_d.date(2027, 10, 24))))
+check("the Sunday series' provenance rows and their solution and solved pins chain to the keys before",
+      (True, True, True, True),
+      (("sundaytel", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
+       ("indysunday", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
+       f._SOLUTION_PINS["dcddf269a45bb142"] == "432a5818529a9b11",
+       f._SOLVED_PINS["4237a057c8a24f5e"] == "050e93ff674ff62c"))
+
+# The Gale Sunday Times's 1987-92 title: "THE SUNDAY TIMES Crossword" over "No 3217" (a line of its own).
+_sun = [line("THE SUNDAY TIMES Crossword", 2088, 2496), line("No 3217", 2159, 2520), line("Solution to No 3216", 2753, 3657)]
+check("a Gale Sunday Times title joined to the line of its number under it, the solution heading kept; one numbered "
+      "on its own line is one title",
+      ([3217], [3216], [3217]),
+      ([n for n, _, _ in f.sunday_times_headings(_sun)[0]], [n for n, _ in f.sunday_times_headings(_sun)[1]],
+       [n for n, _, _ in f.sunday_times_headings([line("THE SUNDAY TIMES Crossword No 3217", 2088, 2496)])[0]]))
+check("a Sunday Times Concise Crossword over a number, and a title with its number lines below, are no title",
+      [[], []],
+      [[n for n, _, _ in f.sunday_times_headings(ls)[0]]
+       for ls in ([line("Concise Crossword", 2088, 2496), line("No 3217", 2159, 2520)],
+                  [line("THE SUNDAY TIMES Crossword", 2088, 2496), line("No 3217", 2159, 2700)])])
+
+# An untitled Gale FT, Telegraph, Independent or Sunday Times page scanned before the headings parsers joined
+# titles (any key before _JOINED_TITLE_FIX): its scan stale, due HEADINGS_JOINED once, rank 1.
+_hj = {"edition": "GaleTelegraph1990UKEnglish/1990-04-24", "scanKey": f._JOINED_TITLE_FIX["galetelegraph"][0],
+       "filesHash": "h", "inputs": "h", "scan": {"date": "1990-04-24", "item": "GaleTelegraph1990UKEnglish",
+                                                  "puzzles": [], "solutions": []}}
+_hj_ft = {**_hj, "edition": "GaleFT2004UKEnglish/2004-01-02", "scanKey": f._JOINED_TITLE_FIX["galeft"][0]}
+check("an untitled, verdict-less Gale Telegraph or FT scan from before the joined titles is due HEADINGS_JOINED "
+      "(its scan stale, rank 1); a titled one, one with a verdict, a failed one, one by the new code, the "
+      "archive.org FT's and a Gale Times page stand",
+      [False, f.HEADINGS_JOINED, False, f.HEADINGS_JOINED, 1, True, True, False, True, False, False, True],
+      [f.scan_current(_hj, "h"), f.fix_reason(_hj), f.scan_current(_hj_ft, "h"), f.fix_reason(_hj_ft),
+       f.RANKS[f.HEADINGS_JOINED],
+       f.scan_current({**_hj, "scan": {**_hj["scan"], "puzzles": [{"number": 19986, "leaf": 0}],
+                                       "solutions": [{"number": 19985, "leaf": 0}]}}, "h"),
+       f.scan_current({**_hj, "verdicts": [{"number": 19986}]}, "h"),
+       f.joined_rescan({**_hj, "scan": {**_hj["scan"], "failed": "x"}}),
+       f.scan_current({**_hj, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}, "h"),
+       f.joined_rescan({**_hj, "edition": "FinancialTimes1998UKEnglish/1998-03-04", "scanKey": f._JOINED_TITLE_FIX["ft"][0]}),
+       f.joined_rescan({**_hj, "edition": "GaleTimes1982UKEnglish/1982-07-21"}),
+       f.scan_current({**_hj, "edition": "FinancialTimes1998UKEnglish/1998-03-04",
+                       "scanKey": f._JOINED_TITLE_FIX["ft"][0]}, "h")])
+
+# A read Gale Sunday Times 1993-94 page from before the winners-title rescan is due WINNERS_TITLE once (its scan key
+# is pinned, so only its read time says); a page read after, another year's or an unread one stands.
+_wt = {"edition": "GaleSundayTimes1993UKEnglish/1993-12-26", "scanKey": f.scan_key(f.paper_of("GaleSundayTimes1993UKEnglish/1993-12-26")),
+       "filesHash": "h", "inputs": "h", "readAt": "2026-11-08T08:46:55+00:00",
+       "scan": {"date": "1993-12-26", "item": "GaleSundayTimes1993UKEnglish",
+                "puzzles": [{"number": 303, "leaf": 0}], "solutions": []}}
+check("a Gale Sunday Times 1993-94 page read before the rescan is due WINNERS_TITLE (scan stale, rank 1), "
+      "once; a later read, 1995, another paper and an unread row stand",
+      [False, f.WINNERS_TITLE, 1, True, False, False, False, False, True],
+      [f.scan_current(_wt, "h"), f.fix_reason(_wt), f.RANKS[f.WINNERS_TITLE], f.WINNERS_TITLE in f.BLANKET_PASSES,
+       f.winners_rescan({**_wt, "readAt": "2026-11-10T00:00:00+00:00"}),
+       f.winners_rescan({**_wt, "edition": "GaleSundayTimes1995UKEnglish/1995-01-01"}),
+       f.winners_rescan({**_wt, "edition": "GaleTimes1993UKEnglish/1993-12-26"}),
+       f.winners_rescan({k: v for k, v in _wt.items() if k != "inputs"}),
+       f.scan_current({**_wt, "readAt": "2026-11-10T00:00:00+00:00"}, "h")])
+
+# A Gale Sunday Times page whose title words the reads lost heads its puzzle "No 3169" alone over "ACROSS"
+# (numbered_across); a winners box ("Crossword No. 3486: Jean ...") beside it is no title; a masthead the Chinese
+# reader ran together ("THESUNDAYTIMESCROSSWORD") over its number is one; "No 1790" (the Mephisto) over "ACROSS", a
+# number with no ACROSS under it and a page that has a title found are not numbered_across's.
+_stn = [line("No 3169", 513, 3276), line("ACROSS", 470, 3302), line("Crossword No. 3486: Jean Smith, Hull", 250, 4707)]
+check("a Sunday Times 'No 3169' over ACROSS is the page's title when no title words were read; a winners box, the "
+      "Mephisto's number, a number with no ACROSS under it are none; a glued masthead over its number is one",
+      [[3169], [], [], [3165], [3165]],
+      [[n for n, _, _ in f.sunday_times_headings(_stn)[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("No 1790", 513, 3276), line("ACROSS", 470, 3302)])[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("No 3169", 513, 3276), line("DOWN", 470, 3302)])[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("THESUNDAYTIMESCROSSWORD", 395, 3104), line("No 3165", 484, 3123),
+                                                  line("ACROSS", 352, 3150)])[0]],
+       [n for n, _, _ in f.sunday_times_headings([line("THE SUNDAY TIMES CROSSWORD No 3165", 395, 3104),
+                                                  line("No 3167", 513, 3276), line("ACROSS", 470, 3302)])[0]]])
+# The 1960-86 pages' titles the readers split: "THE SUNDAY TIMES. Crossword NO. 1,893" (a "." between), "TIMES.Crossword
+# No. 2,060" on its own line after "THE SUNDAY", "THE SUNDAY"/"Crossword"/"No. 2,033" cut into three lines of a row,
+# "CROS SSWORD No. 022" under "Solution TO No. 2,021" (the thousands lost), "Crosswor No. 2434", "CROSSIVORD No. 2702",
+# a title with no number ("Crossword No.") over ACROSS and one solution heading, whose number plus one it is; two
+# solution headings, or a page with neither, name none.
+_tw = lambda *ws: [n for n, _, _ in f.sunday_times_headings(list(ws))[0]]
+check("a Sunday Times title the reads split or cut is read; a lost number is the solution heading's plus one",
+      [[1893], [2060], [2033], [2022], [2434], [2702], [2051], [1891], [], []],
+      [_tw(line("THE SUNDAY TIMES. Crossword NO. 1,893", 2662, 4121)),
+       _tw(line("THE SUNDAY", 458, 3958), line("TIMES.Crossword No. 2,060", 765, 3961)),
+       _tw(line("THE SUNDAY TIMES", 2692, 4088), line("Crossword", 3131, 4088), line("No.2,033", 3420, 4091)),
+       _tw(line("THE SUNDAY TIMES CROS SSWORD No. 022", 2541, 4048), line("Solution TO NO. 2,021", 2570, 4907)),
+       _tw(line("Crosswor No. 2434", 414, 3191)),
+       _tw(line("CROSSIVORD No. 2702", 1480, 2378)),
+       _tw(line("THE SUNDAY TIMES Crossword No.", 2649, 3943), line("ACROSS", 2686, 3982), line("Solution TO No. 2,050", 2535, 4845)),
+       _tw(line("ACROSS", 2693, 4189), line("Solution TO, No, 1;890.", 2605, 4902)),
+       _tw(line("ACROSS", 2693, 4189), line("Solution TO No. 2,050", 2535, 4845), line("Solution TO No. 2,052", 2535, 4945)),
+       _tw(line("ACROSS", 2693, 4189))])
+# A read Gale Sunday Times 1987-94 page with no title found, or only a winners box refused "not a grid", read before
+# the rescan is due SUNDAY_NUMBER once (its scan key is pinned, so only its read time says); a titled one, a filed
+# one, another year's, a failed scan, a later read stand.
+_sn = {"edition": "GaleSundayTimes1990UKEnglish/1990-12-23", "scanKey": f.scan_key(f.paper_of("GaleSundayTimes1990UKEnglish/1990-12-23")),
+       "filesHash": "h", "inputs": "h", "readAt": "2026-11-08T15:14:13+00:00", "verdicts": [],
+       "scan": {"date": "1990-12-23", "item": "GaleSundayTimes1990UKEnglish", "puzzles": [], "solutions": [], "wholeUntitled": True}}
+_snw = {**_sn, "verdicts": [{"number": 3369, "leaf": 0, "refused": "the ink under the title is 478x34, not a grid",
+                             "cause": "not-a-grid"}],
+        "scan": {**_sn["scan"], "puzzles": [{"number": 3369, "leaf": 0}]}}
+check("a Gale Sunday Times 1987-94 page with no title, or only a winners box refused not a grid, read before the rescan "
+      "is due SUNDAY_NUMBER (scan stale, rank 1), once, any year's when untitled; a failed scan, a later read stand",
+      [False, f.SUNDAY_NUMBER, False, f.SUNDAY_NUMBER, 1, True, True, True, False, True, False, False, False],
+      [f.scan_current(_sn, "h"), f.fix_reason(_sn), f.scan_current(_snw, "h"), f.fix_reason(_snw),
+       f.RANKS[f.SUNDAY_NUMBER], f.SUNDAY_NUMBER in f.BLANKET_PASSES, f.sunday_number_rescan(_snw),
+       f.scan_current({**_sn, "readAt": "2026-11-14T00:00:00+00:00"}, "h"),
+       f.sunday_number_rescan({**_sn, "readAt": "2026-11-14T00:00:00+00:00"}),
+       f.sunday_number_rescan({**_sn, "edition": "GaleSundayTimes1995UKEnglish/1995-01-01"}),
+       f.sunday_number_rescan({**_sn, "scan": {**_sn["scan"], "failed": "x"}}),
+       f.sunday_number_rescan({**_snw, "verdicts": [{"number": 3369, "leaf": 0}]}),
+       f.sunday_number_rescan({k: v for k, v in _sn.items() if k != "inputs"})])
+
+# 2005-09-04 (Gale FP1803553431): the winners box "Crossword No 4134" was the page's title, three low; its solution
+# heading "Solution No 4136" numbers the puzzle before the true 4137. 2003-05-18 was filed 4014 for 4017 so.
+_wn_sols = f.sunday_times_headings([line("Solution No 4136", 200, 3100)])[1]
+_wn_titles = [(4134, (100, 100, 900, 140), None, ["en"])]
+_wn_day = datetime.date(2005, 9, 4)
+check("a Gale Sunday Times title the winners box's number (heading M - 2) is numbered M + 1 by the solution heading; "
+      "a title already M + 1, a later date, another paper, a 1996 date stand; two headings (SUNDAY_WEEKLY: the number "
+      "runs weekly) number it 4137 too",
+      [[4137], [4137], [4134], [4134], [4137], [4134]],
+      [[t[0] for t in f.sunday_winners_mended(ts, ss, p, d)] for ts, ss, p, d in (
+          (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, _wn_day),
+          (_wn_titles + [(4137, (100, 200, 900, 240), None, ["en"])], _wn_sols, f.GALE_SUNDAY_TIMES, _wn_day),
+          (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, datetime.date(2005, 9, 18)),
+          (_wn_titles, _wn_sols, f.GALE_INDY_SUNDAY, _wn_day),
+          (_wn_titles, _wn_sols + [(4100, (0, 0, 1, 1))], f.GALE_SUNDAY_TIMES, _wn_day),
+          (_wn_titles, _wn_sols, f.GALE_SUNDAY_TIMES, datetime.date(1996, 12, 29)))])
+# 1996-12-15 is No 3682 (3633 on 1996-01-07, one a week): its box two back read 3680, "Solution No 3681" under it.
+_w6_sols = f.sunday_times_headings([line("Solution No 3681", 200, 3100)])[1]
+_w6_titles = [(3680, (100, 100, 900, 140), None, ["en"])]
+check("a Gale Sunday Times 1996 title the box's number two back (heading M - 1) or three back is numbered M + 1; "
+      "a 1994 page and a 2010 one stand",
+      [[3682], [3682], [3680], [3680]],
+      [[t[0] for t in f.sunday_winners_mended(ts, ss, f.GALE_SUNDAY_TIMES, d)] for ts, ss, d in (
+          (_w6_titles, _w6_sols, datetime.date(1996, 12, 15)),
+          ([(3679, (100, 100, 900, 140), None, ["en"])], _w6_sols, datetime.date(1996, 12, 15)),
+          (_w6_titles, _w6_sols, datetime.date(1994, 12, 15)),
+          (_w6_titles, _w6_sols, datetime.date(2010, 12, 15)))])
+_wnr = {**_sn, "edition": "GaleSundayTimes2003UKEnglish/2003-05-18", "date": "2003-05-18"}
+check("a Gale Sunday Times 1997-2005 page read before the rescan is due WINNERS_NUMBER, rank 1; a 2005-09-18 page, "
+      "a later read stand", [True, f.WINNERS_NUMBER, 1, False, False],
+      [f.winners_number_rescan(_wnr), f.fix_reason(_wnr), f.RANKS[f.WINNERS_NUMBER],
+       f.winners_number_rescan({**_wnr, "edition": "GaleSundayTimes2005UKEnglish/2005-09-18", "date": "2005-09-18"}),
+       f.winners_number_rescan({**_wnr, "readAt": "2026-11-17T00:00:00+00:00"})])
+
+# The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
+# "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick
+# crossword's title is not the cryptic's.
+titles, sols = f.guardian_headings([line("Guardian Crossword No 20,538", 1942, 3103), line("Set by Rufus", 1942, 3155),
+                                    line("□□ CROSSWORD SOLUTION 20^537", 2592, 3510),
+                                    line("CROSSWORD 17,101", 200, 900), line("QUICK CROSSWORD No. 4,575", 200, 200)])
+check("Guardian titles with the setter under, the solution label with a comma read as ^, no Quick",
+      ([(20538, "Rufus"), (17101, None)], [20537]), ([(n, s_) for n, _, s_ in titles], [n for n, _ in sols]))
+check("a solution label whose number is misread is the page's one title's previous puzzle", [20926],
+      [n for n, _ in f.guardian_headings([line("Guardian Crossword No 20,927", 1942, 3103),
+                                          line("□□ CROSSWORD BOLUTION 20^27", 2592, 3510)])[1]])
+check("the Guardian's editions file as cryptic, numbered as the feed's",
+      ("cryptic", [True, True, True]),
+      (f.paper_of(cache / "TheGuardian1996UKEnglish" / "x").series,
+       [abs(n - f.guardian_expected_number(datetime.date.fromisoformat(d))) <= 5
+        for d, n in [("1971-03-16", 12748), ("1996-01-02", 20538), ("1998-04-03", 21239)]]))
+# Three columns: the third right of the grid from under the solution grid
+# (its foot at 3530, its label 15px under);
+# a speck left of the grid's margin and the imprint after "Solution
+# tomorrow" (however misread) are not clues; "Across" in title case heads.
+grid = (1954, 3263, 2586, 3865)
+lines = [line("m", 1916, 3880), line("Across", 1957, 3880), line("1,4 Ancient patriarch (6,8)", 1973, 3909),
+         line("Down", 2284, 3880), line("1 Called once (4,4)", 2284, 3909),
+         line("20^39", 2700, 3545), line("10 Hell of a clue for Pi! (10,3)", 2617, 3726),
+         line("22 Fishy drawing (5)", 2617, 3760), line("Soiuton tamorrow", 2617, 3790),
+         line("Published by Guardian Newspapers", 2617, 3812)]
+check("Guardian columns: left, right, then right of the grid; specks, label and imprint left out",
+      "Across\n1,4 Ancient patriarch (6,8)\nDown\n1 Called once (4,4)\n10 Hell of a clue for Pi! (10,3)\n22 Fishy drawing (5)",
+      f.column_text(f.columns(lines, grid, (f.GUARDIAN_THIRD, 3530 + f.LABEL_DROP), 15)))
+check("a linked clue's numbers read, commas and 'dn' not taken for clue numbers",
+      [[{1}, {4}], [{10}, {9}], [{26}, {27}, {14}], [{4}]],
+      [c["tokens"] for c in f.parse("Across\n1,4 Ancient (6,8)\n10,9dn I am (4,10,3)\n"
+                                    "26,27,14dn That which (10,4,7)\nDown\n4 See 26 ac\n6 Bound (6)")[0]
+       ["across"] + f.parse("Across\n1 A (3)\nDown\n4 See 26 ac\n6 Bound (6)")[0]["down"][:1]])
+check("a clue's opening A run into its next word split; a word, or a commoner word misspelt, kept",
+      "15 A danger out east (5)\n3 Abed (4)\n4 Arived (7)", f.tidy("15 Adanger out east (5)\n3 Abed (4)\n4 Arived (7)"))
+# A word is_word has but the lexicon does not rank ("whore") is no crash:
+# a commoner spelling ("ashore") keeps the line as read.
+check("an unranked word after a glued A is compared as rarest",
+      "5 Awhore (6)", f.tidy("5 Awhore (6)"))
+check("rn read as m mended", True, "carnivore" in ocr_clues.edits("camivore"))
+g = ["...#...", "...#...", "......."]
+pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
+             {"1-across": ("Ancient patriarch", "3,3", ["1-across", "4-across"])}, "TheGuardian1996UKEnglish", 15,
+             series="cryptic", name="Cryptic crossword No {:,}".format(20540))
+check("a built puzzle's source url is the edition url given",
+      "https://archive.org/details/TheGuardian1996UKEnglish/page/n15/mode/1up", pz["source"]["url"])
+check("a linked light the paper prints no clue for reads 'See 1'", "See 1",
+      next(e["clue"]["text"] for e in pz["entries"] if (e["number"], e["direction"]) == (4, "across")))
+pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
+             {"1-across": ("(8)", "3", None), "4-across": ("Ancient patriarch", "3", None)},
+             "TheGuardian1996UKEnglish", 15, series="cryptic", name="Cryptic crossword No 20,540")
+one = next(e["clue"] for e in pz["entries"] if (e["number"], e["direction"]) == (1, "across"))
+check("a reading that kept only a count (ftcryptic-9610 3-down) is filed missing, with no text",
+      {"enumeration": "3", "missing": True}, one)
+pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
+             {"1-across": ("Like ignis", "3", None), "4-across": ("Ancient patriarch", "3", None)},
+             "TheGuardian1996UKEnglish", 15, series="cryptic", name="Cryptic crossword No 20,540",
+             printed={"1-across": ["ignis", "gone"], "4-across": ["patriarch"]})
+check("a built clue carries its asPrinted, only tokens of its text",
+      {1: ["ignis"], 4: ["patriarch"]},
+      {e["number"]: e["clue"]["asPrinted"] for e in pz["entries"] if e["clue"].get("asPrinted")})
+
+# match_canberra(): the reading sharing the clue list, printed first, same grid.
+def puzzle(pid, date, clues, cols=3):
+    return {"id": pid, "date": date, "dimensions": {"cols": cols, "rows": 3},
+            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i},
+                         "length": cols, "clue": {"text": t}} for i, t in enumerate(clues)]}
+words = [chr(97 + i // 26) + chr(97 + i % 26) + "x" for i in range(30)]
+clues = [" ".join(words[k * 10:k * 10 + 10]) for k in range(3)]
+src = Path(os.environ["TMP"]) / "src"; src.mkdir()
+(src / "times-13677.json").write_text(json.dumps(puzzle("times-13677", "1974-05-02", clues)))
+(src / "times-13678.json").write_text(json.dumps(puzzle("times-13678", "1974-05-03", ["quite other words here and there", "x y z", "q r s"])))
+can = Path(os.environ["TMP"]) / "canberra"; (can / "1975").mkdir(parents=True)
+misread = [clues[0].replace("abx", "abz"), clues[1], clues[2]]
+(can / "1975" / "canberra-750101.json").write_text(json.dumps(puzzle("canberra-750101", "1975-01-01", misread)))
+(can / "1975" / "canberra-750102.json").write_text(json.dumps(puzzle("canberra-750102", "1975-01-02", clues, cols=4)))
+(can / "1973").mkdir()
+(can / "1973" / "canberra-730101.json").write_text(json.dumps(puzzle("canberra-730101", "1973-01-01", clues)))
+import io
+got = f.match_canberra(src, write=False, out=io.StringIO(), canberra=can)
+check("a reprint matched through a misread; another grid, or a print before the London one, is not", {"canberra-750101": "times-13677"}, got)
+(src / "times-13679.json").write_text(json.dumps(puzzle("times-13679", "1974-05-04", clues)))
+got = f.match_canberra(src, write=False, out=io.StringIO(), canberra=can)
+check("two readings sharing the clue list alike name neither: the best must lead MATCH_LEAD times over", {}, got)
+
+# merge_answers(): a re-read's answers go into the held filing (17246's two
+# answers were lost when its "_" mend wrote the held file back), replace a
+# held answer read otherwise (17247 20a BAYED, now DATED), and drop a held
+# answer a new one crosses on another letter; another tool's file is left.
+def answered(sols, tool=f.TOOL):
+    lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (4, "across", 0, 2, 3)]
+    return {"source": {"acquiredBy": tool}, "dimensions": {"cols": 3, "rows": 3},
+            "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": k,
+                         "clue": {"text": "c", "enumeration": str(k)}, "solution": s,
+                         **({"annotation": {"definitions": []}} if s else {})}
+                        for (n, d, x, y, k), s in zip(lights, sols)]}
+held = answered([None, "BAD", "YES", None])
+got = f.merge_answers(held, answered(["BAT", None, None, "DOE"]))
+check("a re-read's answers merge into the held filing: new ones in, a crossed one out, the rest kept",
+      ({"1-across": "BAT", "2-down": None, "4-across": "DOE"}, ["BAT", "BAD", None, "DOE"], None),
+      (got, [e["solution"] for e in held["entries"]], held["entries"][2].get("annotation")))
+held = answered(["BAY", None, None, None])
+check("a held answer read otherwise now takes the new read, its annotation dropped",
+      ({"1-across": "BAT"}, None), (f.merge_answers(held, answered(["BAT", None, None, None])),
+                                   held["entries"][0].get("annotation")))
+held = answered(["BAY", "BAD", None, None])
+check("a re-read of the solution grid drops each held answer it did not read again",
+      ({"1-across": None, "1-down": None, "4-across": "DOE"}, [None, None, None, "DOE"]),
+      (f.merge_answers(held, answered([None, None, None, "DOE"]), reread=True), [e["solution"] for e in held["entries"]]))
+# A blog's answers stand: only a blank light is filled, solutions.partial shrinks to the blanks left.
+held = answered(["BAT", None, "TEA", None])
+held["solutions"] = {"origin": "writeup", "blog": "b", "partial": ["1-down", "4-across"]}
+got = f.merge_answers(held, answered(["BAY", "BAD", None, "DOX"]), reread=True)
+check("a blog-keyed file keeps its answers on a reread, fills a blank not crossing a held letter, and shrinks partial",
+      ({"1-down": "BAD"}, ["BAT", "BAD", "TEA", None], ["4-across"]),
+      (got, [e["solution"] for e in held["entries"]], held["solutions"].get("partial")))
+got = f.merge_answers(held, answered([None, None, None, "DOA"]), reread=True)
+check("the last blank filled drops solutions.partial, the origin stays",
+      ({"4-across": "DOA"}, False, "writeup"),
+      (got, "partial" in held["solutions"], held["solutions"]["origin"]))
+check("another tool's filing takes no answers", {},
+      f.merge_answers(answered([None] * 4, tool="other"), answered(["BAT", None, None, None])))
+# mark_clue_solved: a light clue_solved_reads filled is ours, never the print's: the file turns "model"
+# (CLUE_SOLVER) with every other answer in solutions.printed, the count its check states kept; a later
+# reading of the grid that answers our light moves it to printed (sync_printed). A blog's file takes none.
+held = answered(["BAT", None, "TOE", "DOE"])
+cs_verdict = {"solution": {"clueSolved": {"1-down": "BAD"}}}
+got = f.merge_answers(held, answered(["BAT", "BAD", "TOE", "DOE"]))
+f.mark_clue_solved(held, cs_verdict, got)
+cs_sol = dict(held["solutions"])
+check("a clue-solved light is recorded as ours: model CLUE_SOLVER, the paper's 3 answers in printed, the check's count 3",
+      ({"1-down": "BAD"}, f.CLUE_SOLVER, {"1-across": "BAT", "2-down": "TOE", "4-across": "DOE"}, "3", ["1-down"], "model"),
+      (got, cs_sol["model"], cs_sol["printed"], f.provenance.PRINTED_COUNT.search(cs_sol["check"])[1],
+       cs_verdict["clueSolved"], f.provenance.solution_origin_from_file(held)))
+got = f.merge_answers(held, answered(["BAT", "BID", "TOE", "DOE"]))
+check("a later grid reading of our light is the print's: it moves into printed, the count follows",
+      ({"1-down": "BID"}, "BID", "4"),
+      (got, held["solutions"]["printed"].get("1-down"), f.provenance.PRINTED_COUNT.search(held["solutions"]["check"])[1]))
+held = answered(["BAT", None, "TOE", "DOE"])
+held["solutions"] = {"origin": "writeup", "blog": "b", "partial": ["1-down"]}
+cs_verdict = {"solution": {"clueSolved": {"1-down": "BAD"}}}
+got = f.merge_answers(held, f.clue_solved_for(held, answered(["BAT", "BAD", "TOE", "DOE"]), cs_verdict))
+f.mark_clue_solved(held, cs_verdict, got)
+check("a blog-keyed file takes no clue-solved light: it stays blank and listed partial, the write-up's answers stand",
+      ({}, None, "writeup", ["1-down"]),
+      (got, held["entries"][1]["solution"], held["solutions"]["origin"], held["solutions"].get("partial")))
+
+# answers_only(): a title whose clues are filed whole and whose solution grid is
+# linked now is read from the solution grid alone (no clue OCR): the held file's
+# clues with the grid's answers, merged by decide() and never laid over by a
+# whole reading; the full read when the held file is short of a clue, another
+# tool's, from another page, or answered already. A held answer the grid reads otherwise is
+# settled light by light (settle_held), not the whole reading refused.
+def lights_held(sols, tool=f.TOOL, url="u"):
+    lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (3, "across", 0, 2, 3)]
+    return {"id": "times-1", "number": 1, "source": {"acquiredBy": tool, "url": url, "gridOrigin": "published"},
+            "dimensions": {"cols": 3, "rows": 3},
+            "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": k,
+                         "clue": {"text": f"clue {n} {d} words", "enumeration": str(k)}, "solution": s}
+                        for (n, d, x, y, k), s in zip(lights, sols)]}
+import copy
+ao_held = [lights_held([None] * 4)]
+ao_read = [{"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}]
+ao_stubbed = {n: getattr(f, n) for n in ("paper_of", "filed_number", "held_file", "page_url", "complete", "solved", "solution_source")}
+f.paper_of = lambda d: f.TIMES
+f.filed_number = lambda d, found, hit: (hit["number"], None, None)
+f.held_file = lambda series, n: copy.deepcopy(ao_held[0])
+f.page_url = lambda d, found, leaf: "u"
+f.complete = lambda p: True
+ao_seen = []
+f.solved = lambda sol, grid, above=False, lean=False, enums=None: (
+    ao_seen.append(enums) or (dict(ao_read[0]), {"accepted": len(ao_read[0]), "lights": 4, **ao_extra[0]}))
+ao_extra = [{}]
+f.solution_source = lambda sol: "src"
+ao_args = (Path("NewsUK/1990-08-22_1"), {}, {"number": 1, "leaf": 3}, {1: {"dir": Path("NewsUK/1990-08-23_1")}})
+ao_kept = f._KEEP_VLM["names"]
+f._KEEP_VLM["names"] = set()
+verdict, puzzle = f.answers_only(*ao_args)
+check("an answers-linked title with its clues held is read off the solution grid alone: the held clues, each answer the grid read",
+      (True, 0, 4, ["clue 1 across words", "clue 1 down words", "clue 2 down words", "clue 3 across words"],
+       ["BAT", "BED", "TOE", "DOE"]),
+      (verdict["answersOnly"], verdict["vlmAsks"], verdict["answers"], [e["clue"]["text"] for e in puzzle["entries"]],
+       [e["solution"] for e in puzzle["entries"]]))
+ao_held[0] = lights_held(["BAT", None, None, None])
+check("a held answer the grid reads alike stands", ["BAT", "BED", "TOE", "DOE"],
+      [e["solution"] for e in f.answers_only(*ao_args)[1]["entries"]])
+ao_held[0] = lights_held(["BAD", None, None, None])
+verdict, puzzle = f.answers_only(*ao_args)
+check("a held answer the grid reads otherwise, failing a crossing the grid's word fits, gives way to it (not the "
+      "whole reading refused: times-5432's AIDE for AIRS)",
+      (["BAT", "BED", "TOE", "DOE"], {"1-across": {"held": "BAD", "read": "BAT", "took": "read"}}),
+      ([e["solution"] for e in puzzle["entries"]], verdict["solution"]["heldClash"]))
+# Held words the grid reads as other words fitting every crossing give way too: the held answers are older
+# reads of the same grid (10-25: RIKSDAG for RIGSDAG, TITIS for TITUS, the reading right on every one).
+ao_held[0] = lights_held(["BAT", None, "TOE", None])
+ao_read[0] = {"1-across": "BAD", "1-down": "BED", "2-down": "DOE", "3-across": "DOE"}
+verdict, puzzle = f.answers_only(*ao_args)
+# Since 10-25 a letter read otherwise must be checked by a crossing light not itself clashing: here each
+# differing letter is the one cell 1-across and 2-down share (one misread cell is no evidence for
+# either), so both held words stand (times-7267's OOS for DOS, its first letter unchecked: COS).
+check("held words whose differing letter only another clashing light crosses stand; the other answers file",
+      (["BAT", "BED", "TOE", "DOE"], {"1-across": {"held": "BAT", "read": "BAD", "took": "held"},
+                                     "2-down": {"held": "TOE", "read": "DOE", "took": "held"}}),
+      ([e["solution"] for e in puzzle["entries"]], verdict["solution"]["heldClash"]))
+check("settle_held: a read word whose differing letter a crossing checks gives way; one unchecked stands",
+      ("read", "held"),
+      (f.settle_held(lights_held(["BAD", None, None, None])["entries"],
+                     {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"})[2]["1-across"]["took"],
+       f.settle_held(lights_held(["BAD", None, None, None])["entries"],
+                     {"1-across": "BAT", "1-down": "BED"})[2]["1-across"]["took"]))
+check("settle_held: a read answer crossing a kept held one on another letter goes with it",
+      ({"3-across": "DOE"}, {"1-across": "BAT"}),
+      f.settle_held(lights_held(["BAT", None, "TOE", None])["entries"],
+                    {"1-across": "BAD", "1-down": "ZED", "3-across": "DOE"})[:2])
+check("settle_held: a blog's held answer always stands", "held",
+      f.settle_held(lights_held(["BAD", None, None, None])["entries"],
+                    {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}, blog=True)[2]["1-across"]["took"])
+# Another puzzle's grid (wrong_grid): its reading gives other words than 2+ held answers, agreeing on fewer
+# (times-11998 off July's 11998), or a held neighbour holds more of its answers (times-21706 off 21707's).
+check("wrong_grid: OCR slips and one whole-word clash are this puzzle's grid; two whole-word clashes are not",
+      (None, None, True),
+      (f.wrong_grid(lights_held(["BAD", None, "TOD", None])["entries"], ao_read[0], "times", 1),
+       f.wrong_grid(lights_held(["SUN", "BED", None, None])["entries"], ao_read[0], "times", 1),
+       "2 held answers" in (f.wrong_grid(lights_held(["SUN", None, "ZIP", None])["entries"], ao_read[0], "times", 1) or "")))
+ao_held[0] = lights_held(["SUN", None, "ZIP", None])
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+verdict, puzzle = f.answers_only(*ao_args)
+check("answers_only files nothing off another puzzle's grid (times-11998, times-20109)",
+      (None, True, "src"), (puzzle, "another puzzle's" in verdict["skip"], verdict["solutionFrom"]))
+ao_held[0] = lights_held([None] * 4)
+real_ao_held = f.held_file
+f.held_file = lambda series, n: lights_held(["BAT", "BED", "TOE", None]) if n == 2 else copy.deepcopy(ao_held[0])
+try:
+    verdict, puzzle = f.answers_only(*ao_args)
+    check("... nor off a held neighbour's grid (times-21706 read off 21707's)", (None, True),
+          (puzzle, "No 2's" in verdict["wrongGrid"]))
+finally:
+    f.held_file = real_ao_held
+# STRAY_GRID (10-26): given the solution page's date, a neighbour dated that day or later is no evidence (its
+# solution cannot be on the page: times-22191's grid refused as 22192's), and a held answer a neighbour holds
+# on the same cells is a stray copy (times-22192 held 22191's DEPARTURELOUNGE), not a clash.
+stray_near = {2: dict(lights_held(["BAT", "BED", "TOE", None]), date="2002-11-08")}
+f.held_file = lambda series, n: copy.deepcopy(stray_near.get(n))
+try:
+    blank = lights_held([None] * 4)["entries"]
+    read = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+    dated = [f.wrong_grid(blank, read, "times", 1, printed="2002-11-08"),
+             "No 2's" in (f.wrong_grid(blank, read, "times", 1, printed="2002-11-09") or ""),
+             "No 2's" in (f.wrong_grid(blank, read, "times", 1) or "")]
+    stray_near[2] = dict(lights_held(["SUN", None, "ZIP", None]), date="2002-11-01")
+    strays = lights_held(["SUN", None, "ZIP", None])["entries"]
+    copied = [f.wrong_grid(strays, read, "times", 1, printed="2002-11-09"),
+              "2 held answers" in (f.wrong_grid(strays, read, "times", 1) or "")]
+finally:
+    f.held_file = real_ao_held
+check("wrong_grid with the page's date: a neighbour dated on or after it is no evidence; a held answer a "
+      "neighbour holds on the same cells is a stray copy; without a date the old checks stand",
+      [None, True, True, None, True], dated + copied)
+check("sure_page: the page's date only for a grid read at SURE_BLOCKS (times-18253's 0.911 keeps the old checks)",
+      ["2002-11-08", "1982-02-24", None, None],
+      [f.sure_page(Path("/x/2002-11-08"), {"blocks": 1.0}), f.sure_page("1982-02-24_61166 leaf 29", {"blocks": 0.97}),
+       f.sure_page("1990-03-29_63666", {"blocks": 0.911}), f.sure_page("src", {"blocks": 1.0})])
+check("STRAY_GRID is a rank 2 answers-only fix reason", (2, True, True),
+      (f.RANKS[f.STRAY_GRID], f.STRAY_GRID in f.SOLUTION_FIXES, f.STRAY_GRID.startswith("solution short")))
+check("UNSURE_LONE is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.UNSURE_LONE], f.UNSURE_LONE in f.SOLUTION_FIXES, f.UNSURE_LONE.startswith("solution short"),
+       f.UNSURE_LONE in __import__("edition_queue").LOW_ASK, f.UNSURE_LONE in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.UNSURE_LONE)))
+check("unsure_uncrossed: a row read since REREAD_UNSURE_LONE, or no Times paper's, is not due", [False, False],
+      [f.unsure_uncrossed({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                           "verdicts": []}),
+       f.unsure_uncrossed({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []})])
+check("RANKED_BLOCKS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.RANKED_BLOCKS], f.RANKED_BLOCKS in f.SOLUTION_FIXES, f.RANKED_BLOCKS.startswith("solution short"),
+       f.RANKED_BLOCKS in __import__("edition_queue").LOW_ASK, f.RANKED_BLOCKS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.RANKED_BLOCKS)))
+check("ranked_short: a row read since REREAD_RANKED_BLOCKS, no Times paper's, or a classified grid's is not due",
+      [False, False, False],
+      [f.ranked_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                       "verdicts": []}),
+       f.ranked_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.ranked_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                       "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                     "solution": {"accepted": 2, "lights": 30, "classified": 0}}]})])
+check("ranked_stale: a kept reading marked ranked, classified, whole or refused is not read again",
+      [False, False, False, False],
+      [f.ranked_stale({"ranked": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
+       f.ranked_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
+       f.ranked_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
+       f.ranked_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), 1, [])])
+check("BLURRED_BLOCKS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.BLURRED_BLOCKS], f.BLURRED_BLOCKS in f.SOLUTION_FIXES, f.BLURRED_BLOCKS.startswith("solution short"),
+       f.BLURRED_BLOCKS in __import__("edition_queue").LOW_ASK, f.BLURRED_BLOCKS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.BLURRED_BLOCKS)))
+_bp = min(f.BLURRED_PUZZLES)
+check("blurred_short: a row read since REREAD_BLURRED_BLOCKS, no Times paper's, a classified grid's or another "
+      "puzzle's is not due", [False, False, False, False],
+      [f.blurred_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": []}),
+       f.blurred_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.blurred_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_bp}", "solutionFrom": "x leaf 3", "number": _bp,
+                                      "solution": {"accepted": 2, "lights": 30, "classified": 0}}]}),
+       f.blurred_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]})])
+check("blurred_stale: an unmarked short unclassified Times reading of BLURRED_PUZZLES is read again; marked, "
+      "classified, whole, refused or another puzzle's is not",
+      [True, False, False, False, False, False],
+      [f.blurred_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"blurred": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1)])
+check("LETTERED_BLOCKS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.LETTERED_BLOCKS], f.LETTERED_BLOCKS in f.SOLUTION_FIXES, f.LETTERED_BLOCKS.startswith("solution short"),
+       f.LETTERED_BLOCKS in __import__("edition_queue").LOW_ASK, f.LETTERED_BLOCKS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.LETTERED_BLOCKS)))
+_lp = min(f.LETTERED_PUZZLES)
+check("lettered_short: a row read since REREAD_LETTERED_BLOCKS, no Times paper's, a classified grid's or another "
+      "puzzle's is not due", [False, False, False, False],
+      [f.lettered_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                         "verdicts": []}),
+       f.lettered_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.lettered_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": f"times-{_lp}", "solutionFrom": "x leaf 3", "number": _lp,
+                                       "solution": {"accepted": 2, "lights": 30, "classified": 0}}]}),
+       f.lettered_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                       "solution": {"accepted": 2, "lights": 30}}]})])
+check("lettered_stale: an unmarked short unclassified Times reading of LETTERED_PUZZLES is read again; marked, "
+      "classified, whole, refused or another puzzle's is not",
+      [True, False, False, False, False, False],
+      [f.lettered_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"lettered": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1)])
+# classed_clash: a VLM read against a held crossing stands where the classifier's likeliest letter is the VLM's on
+# every open cell and the clashing one (held_recrossed's only check with `wide`, a grid 3-5 short).
+_cc_p = [hr_probs[rc] for rc in hr_lts[(1, "across")]]
+_cc_off = [hr_cell("P", 0.6, "F", 0.3)] + _cc_p[1:]
+check("classed_clash: the classifier reads FOUR's F where PLAT's P was held, so FOUR stands (wide too); read P, "
+      "it does not, and wide re-reads nothing",
+      [True, False, False, {(1, "down"): "FLAT"}],
+      [f.classed_clash("FOUR", "??UR", _cc_p), f.classed_clash("FOUR", "??UR", _cc_off),
+       f.classed_clash("FOUR", "???", _cc_p),
+       f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, {(1, "down")}, hr_probs, hr_enums,
+                        wide=True)])
+check("CLASSED_CLASH is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.CLASSED_CLASH], f.CLASSED_CLASH in f.SOLUTION_FIXES, f.CLASSED_CLASH.startswith("solution short"),
+       f.CLASSED_CLASH in __import__("edition_queue").LOW_ASK, f.CLASSED_CLASH in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.CLASSED_CLASH)))
+_cp = min(f.CLASSED_PUZZLES)
+check("classed_short: a row read since REREAD_CLASSED_CLASH, no Times paper's, a refused grid's or another "
+      "puzzle's is not due", [False, False, False, False],
+      [f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": []}),
+       f.classed_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_cp}", "solutionFrom": "x leaf 3", "number": _cp,
+                                      "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]})])
+# ONE_WORD_SHORT: word_spells spells a word from one clue word (anagram, or hidden/reversed inside a longer one), which
+# clue_spells leaves out; spelt_word takes such a VLM reply (ARCOT "Displaced Croat", HATTA "from Manhattan").
+_tso = __import__("trove_solution_ocr")
+check("word_spells: one clue word's anagram, or a word hidden or reversed inside one; not the word itself, not 3 "
+      "letters hidden, not two words' letters",
+      ["anagram1", "inword", "revword", "anagram1", None, None, None],
+      [_tso.word_spells("ARCOT", "Displaced Croat"), _tso.word_spells("HATTA", "Looking-glass messenger from Manhattan"),
+       _tso.word_spells("REVEL", "Leverage gained"), _tso.word_spells("TIB", "Kitty has a bit on the way up"),
+       _tso.word_spells("CROAT", "Displaced Croat"), _tso.word_spells("ARD", "Nail seen on railway hoarding?"),
+       _tso.word_spells("ZAMBESI", "Current size Mab adjusted")])
+check("spelt_word takes a reply one clue word spells (ARCOT, ODETS); not a misread no clue word spells (TINEE)",
+      ["ARCOT", "ODETS", None],
+      [f.spelt_word("ARCOT", "A?C?T", sp_p("ARCOT"), "5", "Mad Croat defended by Clive"),
+       f.spelt_word("ODETS", "O?E?S", sp_p("ODETS"), "5", "American playwright dotes on cooking"),
+       f.spelt_word("TINEE", "T?N?E", sp_p("TINEE"), "5", "Suspicion can upset say")])
+check("ONE_WORD_SHORT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.ONE_WORD_SHORT], f.ONE_WORD_SHORT in f.SOLUTION_FIXES, f.ONE_WORD_SHORT.startswith("solution short"),
+       f.ONE_WORD_SHORT in __import__("edition_queue").LOW_ASK, f.ONE_WORD_SHORT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.ONE_WORD_SHORT)))
+_ow = min(f.ONE_WORD_PUZZLES)
+check("one_word_short: a row read since REREAD_ONE_WORD, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2099-01-01T00:00:00+00:00",
+                         "verdicts": []}),
+       f.one_word_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": f"times-{_ow}", "solutionFrom": "x leaf 3", "number": _ow,
+                                       "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                       "solution": {"accepted": 2, "lights": 30}}]})])
+# TWICE_READ: twice_word takes an unlisted VLM name of TWICE_NAMES (read alike by the VLM and the classifier on two
+# puzzles or more) where the classifier reads it here too, each open cell's likeliest letter the reply's.
+_tw_p = sp_p("ASPERN")
+_tw_p[0] = [0.3 if c == "A" else 0.6 if c == "E" else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+check("twice_word takes a TWICE_NAMES reply the classifier reads (ASPERN, MOMUS); not a name read once (TINEE), "
+      "nor one the classifier reads otherwise, against a crossing, with a '?', or off its enumeration",
+      ["ASPERN", "MOMUS", None, None, None, None, None],
+      [f.twice_word("ASPERN\n", "?S?E?N", [6], sp_p("ASPERN"), "6"),
+       f.twice_word("MOMUS", "M?M?S", [5], sp_p("MOMUS"), "5"),
+       f.twice_word("TINEE", "T?N?E", [5], sp_p("TINEE"), "5"),
+       f.twice_word("ASPERN", "?S?E?N", [6], _tw_p, "6"),
+       f.twice_word("ASPERN", "?S?E?T", [6], sp_p("ASPERN"), "6"),
+       f.twice_word("ASPER?", "?S?E??", [6], sp_p("ASPERN"), "6"),
+       f.twice_word("ASPERN", "?S?E?N", [6], sp_p("ASPERN"), "3,4")])
+check("vlm_word takes a TWICE_NAMES reply as read (LADIN, refused for LADEN one letter off)", "LADIN",
+      f.vlm_word("LADIN", "L?D?N", [5], sp_p("LADIN"), "5", "Boy at home in a manner of speaking"))
+check("TWICE_READ is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.TWICE_READ], f.TWICE_READ in f.SOLUTION_FIXES, f.TWICE_READ.startswith("solution short"),
+       f.TWICE_READ in __import__("edition_queue").LOW_ASK, f.TWICE_READ in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.TWICE_READ)))
+_tw = min(f.TWICE_PUZZLES)
+check("twice_short: a row read since REREAD_TWICE_READ, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2099-01-01T00:00:00+00:00",
+                      "verdicts": []}),
+       f.twice_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2000-01-01T00:00:00+00:00",
+                      "verdicts": [{"id": f"times-{_tw}", "solutionFrom": "x leaf 3", "number": _tw,
+                                    "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2000-01-01T00:00:00+00:00",
+                      "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                    "solution": {"accepted": 2, "lights": 30}}]})])
+# FORCED_WORD: crossed_word mends a VLM reply clashing one crossing letter to that letter, where the classifier spells
+# the mend in every cell and a print vouches for it (KILOMETER read for the held N of NILOMETER).
+cw_filed, cw_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"CHILLON"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset({"NILOMETER", "GUARDIANSHIP"})
+check("crossed_word mends a one-clash reply the classifier spells and a print vouches for (NILOMETER, CHILLON); not "
+      "an unvouched mend (UNDIE), one the classifier reads otherwise, two clashes, none, a '?', or off its enumeration",
+      ["NILOMETER", "CHILLON", None, None, None, None, None, None],
+      [f.crossed_word("KILOMETER\n", "N?L?M?T?R", sp_p("NILOMETER"), "9"),
+       f.crossed_word("CHILTON", "C?I?L?N", sp_p("CHILLON"), "7"),
+       f.crossed_word("UNBIE", "U?D?E", sp_p("UNDIE"), "5"),
+       f.crossed_word("KILOMETER", "N?L?M?T?R", sp_p("KILOMETER"), "9"),
+       f.crossed_word("KILOMETRR", "N?L?M?T?E", sp_p("NILOMETER"), "9"),
+       f.crossed_word("NILOMETER", "N?L?M?T?R", sp_p("NILOMETER"), "9"),
+       f.crossed_word("KILOMETE?", "N?L?M?T??", sp_p("NILOMETER"), "9"),
+       f.crossed_word("KILOMETER", "N?L?M?T?R", sp_p("NILOMETER"), "4,4")])
+check("crossed_word takes an unvouched mend its clue's wordplay spells (LANCS, an anagram of Clans); not without it",
+      ["LANCS", None],
+      [f.crossed_word("LANCE", "L?N?S", sp_p("LANCS"), "5", "Clans come south to their confusion"),
+       f.crossed_word("LANCE", "L?N?S", sp_p("LANCS"), "5", "Lancers ride south")])
+check("vlm_word takes the crossing's mend (NILOMETER for KILOMETER) and paired_name spares it misread_word",
+      ("NILOMETER", True),
+      (f.vlm_word("KILOMETER", "N?L?M?T?R", [9], sp_p("NILOMETER"), "9", "Nothing, love, on the clock for the river"),
+       f.paired_name("NILOMETER", "KILOMETER", "N?L?M?T?R", [9], sp_p("NILOMETER"), "9")
+       or not f.misread_word("NILOMETER", "9")))
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = cw_filed, cw_corpus
+check("FORCED_WORD is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.FORCED_WORD], f.FORCED_WORD in f.SOLUTION_FIXES, f.FORCED_WORD.startswith("solution short"),
+       f.FORCED_WORD in __import__("edition_queue").LOW_ASK, f.FORCED_WORD in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.FORCED_WORD)))
+_fw = min(f.FORCED_PUZZLES)
+check("forced_short: a row read since REREAD_FORCED_WORD, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                       "verdicts": []}),
+       f.forced_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                       "verdicts": [{"id": f"times-{_fw}", "solutionFrom": "x leaf 3", "number": _fw,
+                                     "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                       "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                     "solution": {"accepted": 2, "lights": 30}}]})])
+# VOUCHED_FIT: a blank light whose crossings leave one past answer (corpus_words, filed_words) that the classifier
+# allows and leads by 100 to 1 is taken by clue_solved_reads (ours), where no wordplay solves it.
+vf_filed, vf_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"SLATED"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset({"PLANET", "PLANED", "PLACID"})
+vf_cells = [(0, i) for i in range(6)]
+vf_probs = lambda w: {rc: p for rc, p in zip(vf_cells, sp_p(w))}
+vf_half = vf_probs("PLANET")
+vf_half[vf_cells[5]] = [0.5 if c in "TD" else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+check("vouched_fit: the one past answer the crossings leave that the classifier allows (PLANET, SLATED filed); not "
+      "with one letter crossed, a flat classifier, two near-equal words (PLANET/PLANED), a split enumeration or none",
+      ["PLANET", "SLATED", None, None, None, None, None],
+      [f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "SL????", vf_probs("SLATED"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "P?????", vf_probs("PLANET"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", {rc: [1 / 26] * 26 for rc in vf_cells}, "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PLAN??", vf_half, "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), "3,3"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), None)])
+check("... and not a word the classifier reads another letter of in a cell (PLACID where it reads PLANET)", None,
+      f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLASET"), "6"))
+vf_real = (f.trove_solution_ocr.lights, f.checked_answers, f.crop_cell_probs)
+f.trove_solution_ocr.lights = lambda grid: {(1, "across"): vf_cells, (1, "down"): [(0, 0), (1, 0), (2, 0)],
+                                            (3, "down"): [(0, 2), (1, 2), (2, 2)]}
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: vf_probs("PLANET")
+vf_crop = type("Crop", (), {"exists": lambda self: True})()
+vf_enums = {(1, "across"): "6", (1, "down"): "3", (3, "down"): "3"}
+for vf_clue, vf_want in (("Where we live, in a word", {"1-across": "PLANET"}), ("Planet in orbit", {})):
+    vf_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": vf_clue, "enumeration": "6"}},
+             {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+             {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}}]
+    vf_ans, vf_info = f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop)
+    check(f"clue_solved_reads takes the crossings' one past answer as ours (clueSolved), not one its clue holds: {vf_clue!r}",
+          (vf_want, vf_want or None), (vf_ans, vf_info.get("clueSolved")))
+# WEAK_FILLS: the same light with a crossing that is our own earlier solve (not the print's letter), or blank, is left
+# blank by the past-answer route; with every crossing printed (or a crossing the reading gives) it is filled.
+vf_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Where we live, in a word", "enumeration": "6"}},
+         {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}}]
+check("WEAK_FILLS: a past answer is not taken past a crossing that is our own solve, but is with it printed",
+      [{}, {"1-across": "PLANET"}, {}],
+      [f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop, ours={"1-down"})[0],
+       f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop, ours=set())[0],
+       f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop, ours={"3-down"})[0]])
+check("our_lights: the answered lights of a model-solved file outside printed and hand; none of another file",
+      [{"2-down"}, set()],
+      [f.our_lights({"solutions": {"model": f.CLUE_SOLVER, "printed": {"1-across": "CAT"}, "hand": {"1-down": "x"}},
+                     "entries": [{"number": 1, "direction": "across", "solution": "CAT"},
+                                 {"number": 1, "direction": "down", "solution": "COW"},
+                                 {"number": 2, "direction": "down", "solution": "TEA"},
+                                 {"number": 3, "direction": "down", "solution": None}]}),
+       f.our_lights({"solutions": {"origin": "published"}, "entries": [{"number": 1, "direction": "across", "solution": "CAT"}]})])
+f.trove_solution_ocr.lights, f.checked_answers, f.crop_cell_probs = vf_real
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = vf_filed, vf_corpus
+check("VOUCHED_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.VOUCHED_FIT], f.VOUCHED_FIT in f.SOLUTION_FIXES, f.VOUCHED_FIT.startswith("solution short"),
+       f.VOUCHED_FIT in __import__("edition_queue").LOW_ASK, f.VOUCHED_FIT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.VOUCHED_FIT)))
+_vf = min(f.VOUCHED_PUZZLES)
+check("vouched_short: a row read since REREAD_VOUCHED, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": []}),
+       f.vouched_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_vf}", "solutionFrom": "x leaf 3", "number": _vf,
+                                      "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]})])
+_vm = min(f.VOUCHED_MORE)
+check("vouched_short: VOUCHED_MORE is apart from VOUCHED_PUZZLES and read later; a row read since REREAD_VOUCHED_MORE, "
+      "or with a refused grid, is not due", [True, True, False, False],
+      [not (f.VOUCHED_MORE & f.VOUCHED_PUZZLES), f.REREAD_VOUCHED_MORE > f.REREAD_VOUCHED,
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_vm}", "solutionFrom": "x leaf 3", "number": _vm,
+                                      "solution": {"accepted": 2, "lights": 30}}]}),
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_vm}", "solutionFrom": "x leaf 3", "number": _vm,
+                                      "solution": {"refused": "its blocks are not the puzzle's"}}]})])
+# CLUE_REPEATED: a blank light whose clue (text and count) another committed puzzle prints too takes that puzzle's
+# answer where it fits the crossings (trove_solution_ocr.clue_repeat), taken by clue_solved_reads as ours.
+cr_t = f.trove_solution_ocr
+cr_filed, cr_corpus = cr_t.filed_clues, cr_t.corpus_words
+cr_key = lambda text, enum="6": cr_t.clue_key(text, enum)
+# (times-8's BLAMED is a lone read file's answer that fits no crossing of PLANET's: a rival that fits (PLANED) leaves
+# two fits, so no answer, which the "Rival answers" clue below tests on its own.)
+cr_book = {cr_key("Where we live, in a word"): [("times-7", "PLANET", True), ("times-8", "BLAMED", False)],
+           cr_key("A short clue about stars", "6"): [("times-9", "COMETS", False)],
+           cr_key("Another clue about stars", "6"): [("times-9", "COMETS", False), ("times-10", "COMETS", False)],
+           cr_key("Rival answers to this clue", "6"): [("times-9", "COMETS", True), ("times-10", "COMETH", True)],
+           cr_key("Our own earlier answer", "6"): [("times-5", "PLANET", True)]}
+cr_t.filed_clues = lambda: cr_book
+cr_t.corpus_words = lambda: frozenset({"PLANET", "COMETS"})
+check("clue_repeat: the one answer another puzzle's file gives the clue that fits the crossings (typed, or two files' "
+      "alike); not a lone read file's, rivals, its own puzzle's, one letter crossed, a clue too short, or a word unlisted",
+      ["PLANET", "COMETS", None, None, None, None, None, None, None],
+      [cr_t.clue_repeat("Where we live, in a word", "6", "PL????"),
+       cr_t.clue_repeat("Another clue about stars", "6", "C?M???"),
+       cr_t.clue_repeat("A short clue about stars", "6", "C?M???"),
+       cr_t.clue_repeat("Rival answers to this clue", "6", "?O?E??"),
+       cr_t.clue_repeat("Our own earlier answer", "6", "PL????", "times-5"),
+       cr_t.clue_repeat("Where we live, in a word", "6", "P?????"),
+       cr_t.clue_repeat("Where we live", "6", "PL????"),
+       cr_t.clue_repeat("Where we live, in a word", "6", "XL????"),
+       cr_t.clue_repeat("Where we live, in a word", "6", "PLANET")])
+cr_t.corpus_words = lambda: frozenset()
+check("... and not a word no list holds (PLANET off the corpus, and not listed)", None,
+      cr_t.clue_repeat("Where we live, in a word", "6", "PL????") if not cr_t.listed("PLANET") else None)
+cr_t.corpus_words = lambda: frozenset({"PLANET", "COMETS"})
+cr_real = (cr_t.lights, f.checked_answers, f.crop_cell_probs)
+cr_t.lights = lambda grid: {(1, "across"): vf_cells, (1, "down"): [(0, 0), (1, 0), (2, 0)],
+                            (3, "down"): [(0, 2), (1, 2), (2, 2)]}
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: {}
+cr_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Where we live, in a word", "enumeration": "6"}},
+         {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}}]
+cr_ans, cr_info = f.clue_solved_reads(cr_es, {}, {}, None, vf_enums, vf_crop, puzzle_id="times-1")
+check("clue_solved_reads takes the answer the clue's other puzzle gave as ours (clueSolved), first of the rules",
+      ({"1-across": "PLANET"}, {"1-across": "PLANET"}), (cr_ans, cr_info.get("clueSolved")))
+cr_ans, cr_info = f.clue_solved_reads(cr_es, {}, {}, None, vf_enums, vf_crop, puzzle_id="times-7")
+check("... not from the puzzle's own file (times-7 gave it, and no other file's answer fits)", ({}, None),
+      (cr_ans, cr_info.get("clueSolved")))
+cr_t.lights, f.checked_answers, f.crop_cell_probs = cr_real
+cr_t.filed_clues, cr_t.corpus_words = cr_filed, cr_corpus
+check("CLUE_REPEATED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, first of the queue",
+      (2, True, True, True, True, True, True),
+      (f.RANKS[f.CLUE_REPEATED], f.CLUE_REPEATED in f.SOLUTION_FIXES, f.CLUE_REPEATED.startswith("solution short"),
+       f.CLUE_REPEATED in __import__("edition_queue").LOW_ASK, f.CLUE_REPEATED in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.CLUE_REPEATED),
+       f.CLUE_REPEATED in __import__("edition_queue").UNFILED_FIRST))
+_cr = min(f.CLUE_REPEAT_PUZZLES)
+check("clue_repeat_short: a row read since REREAD_CLUE_REPEATED, no Times paper's, a refused grid's or another puzzle's "
+      "is not due; the reason is apart from VOUCHED_FIT", [False, False, False, False, True],
+      [f.clue_repeat_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                            "verdicts": []}),
+       f.clue_repeat_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.clue_repeat_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                            "verdicts": [{"id": f"times-{_cr}", "solutionFrom": "x leaf 3", "number": _cr,
+                                          "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.clue_repeat_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                            "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                          "solution": {"accepted": 2, "lights": 30}}]}),
+       f.CLUE_REPEATED != f.VOUCHED_FIT])
+# LATE_SOLUTIONS: a puzzle whose solution heading prints in a later issue than host_day names (1972-03-17's 13,027 on
+# the Wednesday 03-22) has that issue as a host, so hosted() takes its number and linked_solutions keeps the heading;
+# a row read before it is due LATE_LINKED once its number is seen.
+_ld = f.datetime.date
+check("host_days names a LATE_SOLUTIONS puzzle's late host after the next issue's, and hosts_of the reverse; others none",
+      ([_ld(1972, 3, 18), _ld(1972, 3, 22)], True, [_ld(1972, 3, 20)], False),
+      (f.host_days(_ld(1972, 3, 17)), _ld(1972, 3, 17) in f.hosts_of(_ld(1972, 3, 22)),
+       f.host_days(_ld(1972, 3, 18)), _ld(1972, 3, 17) in f.hosts_of(_ld(1972, 3, 24))))
+check("every LATE_SOLUTIONS host stands within HOST_REACH days after its puzzle and past host_day",
+      True, all(0 < (h - d).days <= f.HOST_REACH and h != f.host_day(d) for d, h in f.LATE_SOLUTIONS.items()))
+_lr = {"edition": "GaleTimes1972UKEnglish/1972-03-17", "inputs": "x", "solutionsSeen": [],
+       "scan": {"date": "1972-03-17", "puzzles": [{"number": 13027}], "solutions": []},
+       "verdicts": [{"number": 13027, "id": "times-13027", "clues": 30, "lights": 30, "answers": 0}]}
+# paper_of is stubbed to TIMES here (ao_stubbed, restored below): the other series' row needs the real one.
+_late_stub, f.paper_of = f.paper_of, ao_stubbed["paper_of"]
+_late_ft = f.late_linked({**_lr, "edition": "FinancialTimes1972UKEnglish/1972-03-17"}, [13027])
+f.paper_of = _late_stub
+check("late_linked: a LATE_SOLUTIONS puzzle's row whose number is seen now and was not is due LATE_LINKED once; not one "
+      "linked already, seen before, off the table, another series', or without a verdict",
+      [True, False, False, False, False, False, False, True],
+      [f.late_linked(_lr, [13027]), f.late_linked({**_lr, "solutionsSeen": [13027]}, [13027]),
+       f.late_linked(_lr, []),
+       f.late_linked({**_lr, "verdicts": [{**_lr["verdicts"][0], "solutionFrom": "1972-03-22 leaf 0"}]}, [13027]),
+       f.late_linked({**_lr, "scan": {**_lr["scan"], "date": "1972-03-31"}}, [13027]),
+       _late_ft,
+       f.late_linked({**_lr, "verdicts": []}, [13027]),
+       f.due_reason(_lr, "x", [13027], None) == f.LATE_LINKED])
+check("LATE_LINKED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, first of the queue",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.LATE_LINKED], f.LATE_LINKED in f.SOLUTION_FIXES,
+       f.LATE_LINKED in __import__("edition_queue").LOW_ASK, f.LATE_LINKED in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.LATE_LINKED),
+       __import__("edition_queue").UNFILED_FIRST.index(f.CLUE_REPEATED)
+       < __import__("edition_queue").UNFILED_FIRST.index(f.LATE_LINKED)))
+# SUNDAY_LISTED: a Gale Sunday Telegraph puzzle answered from the text lists under "COMPETITION No. N WINNERS &
+# SOLUTION" (a week on): the heading links N, a list's word is taken only where it fits its light and agrees with
+# every crossing, the Quickie's list beside it is not this puzzle's.
+_sl = lambda *w: {"number": w[0], "direction": w[1], "length": 2, "position": {"x": w[2], "y": w[3]}}
+_sl_es = [_sl(1, "across", 0, 0), _sl(3, "across", 0, 1), _sl(1, "down", 0, 0), _sl(2, "down", 1, 0)]
+_sl_text = ("COMPETITION No.1676 WINNERS & SOLUTION Last week's winners are: Mrs S Cassidy QUICKIE No.1392 ACROSS: 1 Cataract, 5 Silent. "
+            "DOWN: 1 Castle.\nACROSS: 1 Ab, 3 Cd.\nDOWN: 1 Ac, 2 Bd. Name Address")
+_sl_bad = _sl_text.replace("2 Bd", "2 Xd")
+_sl_heads = f.sunday_tel_headings([[(0, 0, 9, 9, "Name"), (10, 0, 99, 9, "COMPETITION"), (100, 0, 150, 9, "No.1676"),
+                                    (151, 0, 200, 9, "WINNERS"), (201, 0, 240, 9, "&"), (241, 0, 300, 9, "SOLUTION")]])[1]
+check("sunday_tel_headings links a COMPETITION No. N WINNERS & SOLUTION heading as N's solution; list_answers takes a "
+      "text list's words that fit and cross, not the Quickie's list, and none when a word clashes with another",
+      ([1676], 4, {"1-across": "AB", "3-across": "CD", "1-down": "AC", "2-down": "BD"}, 0),
+      ([n for n, _ in _sl_heads], f.list_answers(_sl_es, [_sl_text])[1].get("accepted"), f.list_answers(_sl_es, [_sl_text])[0],
+       len(f.list_answers(_sl_es, [_sl_bad])[0])))
+check("SUNDAY_LISTED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, queued before SUNDAY_SIDES; its solution key "
+      "stands pinned to the one before",
+      (2, True, True, True, True, True, "432a5818529a9b11"),
+      (f.RANKS[f.SUNDAY_LISTED], f.SUNDAY_LISTED in f.SOLUTION_FIXES,
+       f.SUNDAY_LISTED in __import__("edition_queue").LOW_ASK, f.SUNDAY_LISTED in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.SUNDAY_LISTED),
+       __import__("edition_queue").UNFILED_FIRST.index(f.SUNDAY_LISTED)
+       < __import__("edition_queue").UNFILED_FIRST.index(f.SUNDAY_SIDES),
+       f._SOLUTION_PINS["802de5c6f9a5f5f9"]))
+# crop_headings: a Sunday Telegraph heading its scan missed, read in its cached clue-column crops.
+_ch_tmp = tempfile.mkdtemp()
+os.makedirs(os.path.join(_ch_tmp, "rapid"))
+for _name, _words in (("1994-02-06_1704.ch.json", [[312, 4773, 930, 4804, "COMPETITION NO.17O3 WINNERS &SOLUTION"]]),
+                      ("1994-04-03_1712.ch.json", [[350, 4534, 870, 4579, "ETTION NO.17LO WINNERS &SOLUTION"]]),
+                      ("1994-04-17_1714.en5.json", [[227, 4468, 956, 4513, "Last week's winners are: Mr Tom Quinn"]]),
+                      ("1988-10-09_1428.en5.json", [[573, 4618, 1286, 4646, "Crossword No 1427: The first three prize winners in last"]])):
+    with open(os.path.join(_ch_tmp, "rapid", _name), "w") as _fh:
+        json.dump({"words": _words}, _fh)
+_ch_real = f.CROPS
+f.CROPS = Path(_ch_tmp)
+f._CROP_HEADINGS.clear()
+_ch_got = (f.crop_headings(Path("1994-02-06"), [1704]), f.crop_headings(Path("1994-04-03"), [1712]),
+           f.crop_headings(Path("1994-04-17"), [1714]), f.crop_headings(Path("1988-10-09"), [1428]),
+           f.crop_headings(Path("1994-02-13"), [1705]), f.crop_headings(Path("1994-02-06"), [1900]))
+f.CROPS = _ch_real
+f._CROP_HEADINGS.clear()
+check("crop_headings: a misread number agreeing in three places of four, the 1988 Crossword line and a Last week's "
+      "winners line (a box over it) give the previous number's heading; another number or no read gives none",
+      ({1703: {"number": 1703, "leaf": 0, "box": [312, 4773, 930, 4804]}}, {1711: {"number": 1711, "leaf": 0, "box": [350, 4534, 870, 4579]}},
+       {1713: {"number": 1713, "leaf": 0, "box": [227, 4408, 956, 4438]}}, {1427: {"number": 1427, "leaf": 0, "box": [573, 4618, 1286, 4646]}}, {}, {}),
+      _ch_got)
+# ONE_BLANK_FIT: a puzzle's only blank light takes the one word of the dictionary and past answers that fits its
+# crossings and count, where WordNet links the word to the clue's definition (one_fit, one_blank_word), as ours.
+ob_t = f.trove_solution_ocr
+ob_real = (ob_t.wordnet, ob_t.filed_words, ob_t.definition_linked)
+ob_t.wordnet = lambda: {"planet", "planes", "plated"}
+ob_t.filed_words = lambda: frozenset({"SLATED"})
+check("one_fit: the one word the crossings and count leave (PLANET, SLATED); not two fits (PLANE?), under half crossed, "
+      "a split or missing count, no open cell, a word in drop",
+      ["PLANET", "SLATED", None, None, None, None, None, None],
+      [ob_t.one_fit("PLA?ET", "6"), ob_t.one_fit("SLAT??", "6"), ob_t.one_fit("PLANE?", "6"),
+       ob_t.one_fit("P?????", "6"), ob_t.one_fit("PLA?ET", "3,3"), ob_t.one_fit("PLA?ET", None),
+       ob_t.one_fit("PLANET", "6"), ob_t.one_fit("PLA?ET", "6", {"PLANET"})])
+ob_t.definition_linked = lambda w, c: "orbit" in c
+check("one_blank_word: the fitting word where its definition links; not unlinked, or a word of the clue itself",
+      ["PLANET", None, None],
+      [f.one_blank_word("PLA?ET", "6", "Body in orbit"), f.one_blank_word("PLA?ET", "6", "Body in a story"),
+       f.one_blank_word("PLA?ET", "6", "planet in orbit")])
+ob_lts = {(1, "across"): [(0, i) for i in range(6)], (1, "down"): [(0, 0), (1, 0), (2, 0)],
+          (3, "down"): [(0, 2), (1, 2), (2, 2)], (4, "down"): [(0, 3), (1, 3)], (5, "down"): [(0, 4), (1, 4)],
+          (6, "down"): [(0, 5), (1, 5)]}
+ob_real_fa = (ob_t.lights, f.checked_answers, f.crop_cell_probs)
+ob_real_pf = ob_t.printed_fit
+ob_t.printed_fit = lambda pattern, enum=None: None  # PRINTED_FIT has its own test below
+ob_t.lights = lambda grid: ob_lts
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: {}
+ob_enums = {(1, "across"): "6", (1, "down"): "3", (3, "down"): "3", (4, "down"): "2", (5, "down"): "2", (6, "down"): "2"}
+for ob_clue, ob_want in (("Body in orbit", {"1-across": "PLANET"}), ("Body in a story", {})):
+    ob_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": ob_clue, "enumeration": "6"}},
+             {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+             {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}},
+             {"number": 4, "direction": "down", "solution": "NO", "clue": {"text": "Refusal", "enumeration": "2"}},
+             {"number": 5, "direction": "down", "solution": "EA", "clue": {"text": "Each, briefly", "enumeration": "2"}},
+             {"number": 6, "direction": "down", "solution": "TO", "clue": {"text": "Towards", "enumeration": "2"}}]
+    ob_ans, ob_info = f.clue_solved_reads(ob_es, {}, {}, None, ob_enums, vf_crop)
+    check(f"clue_solved_reads takes the only blank light's one linked word as ours (clueSolved): {ob_clue!r}",
+          (ob_want, ob_want or None), (ob_ans, ob_info.get("clueSolved")))
+ob_t.lights, f.checked_answers, f.crop_cell_probs = ob_real_fa
+ob_t.printed_fit = ob_real_pf
+# PRINTED_FIT: a blank light takes the one word of WordNet's lemmas and the past answers that the print's own crossings
+# leave (2+ letters crossed, enumeration of any words), no other fitting; a crossing that is a model fill is not used.
+pf_lemmas, pf_past = frozenset({"PLANET", "BASSET", "PLANED", "ICECREAM", "LEMMA"}), frozenset({"PLANET", "BASSET", "ICECREAM", "SLATED"})
+pf_real = (ob_t.lemma_words, ob_t.corpus_words)
+ob_t.lemma_words = lambda: pf_lemmas
+ob_t.corpus_words = lambda: pf_past
+ob_t._PRINTED_FIT.pop("by", None)
+check("printed_fit: the one fitting past answer; not two fits, a lemma that is no past answer, one crossing, a count that "
+      "does not add up, no open cell, a lower-case or open-unknown letter; a split count and a hyphen-free phrase stand",
+      ["PLANET", "ICECREAM", "PLANET", None, None, None, None, None, None, None],
+      [ob_t.printed_fit("PLA?ET", "6"), ob_t.printed_fit("ICE?REAM", "3,5"), ob_t.printed_fit("?LA?ET", "3,3"),
+       ob_t.printed_fit("PLANE?", "6"), ob_t.printed_fit("LEM?A", "5"), ob_t.printed_fit("P?????", "6"),
+       ob_t.printed_fit("PLA?ET", "3,4"), ob_t.printed_fit("PLANET", "6"), ob_t.printed_fit("PLa?ET", "6"),
+       ob_t.printed_fit("PLA?ET", None)])
+pf_real_fa = (ob_t.lights, f.checked_answers, f.crop_cell_probs)
+ob_t.lights = lambda grid: ob_lts
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: {}
+pf_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Body in a story", "enumeration": "6"}},
+         {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}},
+         {"number": 4, "direction": "down", "solution": "NO", "clue": {"text": "Refusal", "enumeration": "2"}},
+         {"number": 5, "direction": "down", "solution": "EA", "clue": {"text": "Each, briefly", "enumeration": "2"}},
+         {"number": 6, "direction": "down", "solution": "TO", "clue": {"text": "Towards", "enumeration": "2"}}]
+for pf_ours, pf_want in ((frozenset(), {"1-across": "PLANET"}), (frozenset({"1-down", "3-down", "4-down"}), {})):
+    pf_ans, pf_info = f.clue_solved_reads(pf_es, {}, {}, None, ob_enums, vf_crop, ours=pf_ours)
+    check(f"clue_solved_reads takes the printed-crossing fit as ours and tags it (fitFills); a model-fill crossing "
+          f"is not used: {sorted(pf_ours)}", (pf_want, ["1-across"] if pf_want else None),
+          (pf_ans, pf_info.get("fitFills")))
+ob_t.lights, f.checked_answers, f.crop_cell_probs = pf_real_fa
+ob_t.lemma_words, ob_t.corpus_words = pf_real
+ob_t._PRINTED_FIT.clear()
+check("PRINTED_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first (the newest "
+      "fix), apart from the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.PRINTED_FIT], f.PRINTED_FIT in f.SOLUTION_FIXES, f.PRINTED_FIT.startswith("solution short"),
+       f.PRINTED_FIT in __import__("edition_queue").LOW_ASK, f.PRINTED_FIT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.PRINTED_FIT),
+       f.PRINTED_FIT in __import__("edition_queue").UNFILED_FIRST,
+       f.PRINTED_FIT not in (f.ONE_BLANK_FIT, f.VOUCHED_FIT, f.CLUE_SOLVED)))
+check("printed_fit_short: a row read since REREAD_PRINTED_FIT, no Times paper's, or a row with no verdict is not due",
+      [False, False, False],
+      [f.printed_fit_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                            "verdicts": []}),
+       f.printed_fit_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.printed_fit_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                            "verdicts": []})])
+ob_t.wordnet, ob_t.filed_words, ob_t.definition_linked = ob_real
+check("ONE_BLANK_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first (the newest "
+      "fix), apart from the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.ONE_BLANK_FIT], f.ONE_BLANK_FIT in f.SOLUTION_FIXES, f.ONE_BLANK_FIT.startswith("solution short"),
+       f.ONE_BLANK_FIT in __import__("edition_queue").LOW_ASK, f.ONE_BLANK_FIT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.ONE_BLANK_FIT),
+       __import__("edition_queue").UNFILED_FIRST.index(f.ONE_BLANK_FIT) > __import__("edition_queue").UNFILED_FIRST.index(f.VLM_PLAIN),
+       f.ONE_BLANK_FIT not in (f.VOUCHED_FIT, f.CLUE_REPEATED, f.CLUE_SOLVED)))
+check("one_blank_short: a row read since REREAD_ONE_BLANK, no Times paper's, a refused grid's or a row with no verdict "
+      "is not due", [False, False, False, False],
+      [f.one_blank_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                          "verdicts": []}),
+       f.one_blank_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.one_blank_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                        "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.one_blank_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                        "solution": {"accepted": 2, "lights": 30}}]})])
+# HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
+# clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
+check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
+      [True, False, False],
+      [f.slip_clash(lights_held(["BAD", None, None, None]), {"1-across": "BAT", "1-down": "BED"}),
+       f.slip_clash(lights_held(["BAD", None, None, None]), {"1-across": "ZOO"}),
+       f.slip_clash(lights_held(["BAD", None, None, None]), {"1-across": "BAD", "1-down": "BED"})])
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "XED"}
+check("two answers crossing on different letters leave it to the full read", None, f.answers_only(*ao_args))
+ao_read[0] = {"1-across": "BAT", "2-down": "TOES"}
+check("an answer the light's length does not fit leaves it to the full read", None, f.answers_only(*ao_args))
+ao_read[0] = {"1-across": "BAT"}
+ao_held[0] = lights_held(["BAT", "BED", "TOE", "DOE"])
+check("a puzzle answered whole needs no read", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4, tool="other")
+check("another tool's file is read in full", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4, url="elsewhere")
+check("a file from another page is read in full", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4)
+f._KEEP_VLM["names"] = {"1990-08-22_1"}
+check("an edition asked to be read again is read in full", None, f.answers_only(*ao_args))
+f._KEEP_VLM["names"] = set()
+ao_held[0]["entries"][1]["clue"].pop("enumeration")
+# The grid reads every light (ao_read was left at {"1-across": "BAT"} by the checks above).
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+verdict, puzzle = f.answers_only(*ao_args)
+check("a held clue filed with no enumeration is no reason for the full read: its answers merge, no VLM ask (times-24146 1-across)",
+      (True, 0, ["BAT", "BED", "TOE", "DOE"], "clue 1 down words"),
+      (verdict["answersOnly"], verdict["vlmAsks"], [e["solution"] for e in puzzle["entries"]], puzzle["entries"][1]["clue"]["text"]))
+check("... and the grid's reading is given no enumeration for it", None, ao_seen[-1][(1, "down")])
+# decide(): an answers-only reading merges into the held file even where complete() refuses its clues (a word
+# OCR made up: suspect); with --out it went to the --out copy and the held file never took one (10-25, times-18329).
+import tempfile
+ao_held[0] = lights_held([None] * 4)
+with tempfile.TemporaryDirectory() as dd_dir:
+    (Path(dd_dir) / "held-1.json").write_text(json.dumps(lights_held([None] * 4)))
+    dd_where = []
+    f.complete = lambda p: False
+    verdict, puzzle = f.answers_only(*ao_args)
+    f.decide(verdict, puzzle, "times", dd_dir, set(), lambda where, p, v: dd_where.append(where and where[0]) or True,
+             path=lambda where, series, puzzles: Path(dd_dir) / f"{where[0]}-{where[1]}.json")
+    f.complete = lambda p: True
+check("an answers-only reading of a held file complete() refuses merges its answers into the held file, not --out",
+      (["held"], ["BAT", "BED", "DOE", "TOE"]), (dd_where[1:], sorted((verdict.get("answered") or {}).values())))
+# decide(): an answers-only reading drops no held answer it gives none for (10-22..25: 312 Times files lost 986
+# so, times-7522 all 26 for a reading that took none); only a named rule (held_drops) or a crossing read blanks one.
+def ao_decide(held, read, crossed=False):
+    ao_held[0] = held
+    ao_read[0] = read
+    with tempfile.TemporaryDirectory() as hd_dir:
+        (Path(hd_dir) / "held-1.json").write_text(json.dumps(held))
+        v, p = f.answers_only(*ao_args, crossed=crossed)
+        # decide() writes only through commit: this one writes the held file it is given, as the filer's does.
+        hd_path = lambda where: Path(hd_dir) / f"{where[0]}-{where[1]}.json"
+        f.decide(v, p, "times", hd_dir, set(),
+                 lambda where, p, vv: where is None or hd_path(where).write_text(json.dumps(p)) > 0,
+                 path=lambda where, series, puzzles: hd_path(where))
+        return v, [e["solution"] for e in json.loads((Path(hd_dir) / "held-1.json").read_text())["entries"]]
+verdict, sols = ao_decide(lights_held(["BAT", "BED", None, None]), {"2-down": "TOE", "3-across": "DOE"})
+check("an answers-only reread keeps each held answer it did not read again (times-4766's GREET, MERRIMENT)",
+      (["BAT", "BED", "TOE", "DOE"], {"2-down": "TOE", "3-across": "DOE"}), (sols, verdict.get("answered")))
+verdict, sols = ao_decide(lights_held(["BAT", "BED", None, None]), {})
+check("... one that reads none changes nothing", (["BAT", "BED", None, None], None), (sols, verdict.get("answered")))
+verdict, sols = ao_decide(lights_held(["BAT", None, None, None]), {"2-down": "POE", "3-across": "DOE"})
+check("... a read answer crossing a held one on another letter takes the light, named heldCrossed",
+      ([None, None, "POE", "DOE"], ["1-across"]), (sols, verdict["solution"].get("heldCrossed")))
+check("held_drops: heldMisread lights and each heldClash light settle_held dropped", {"1-down", "1-across"},
+      f.held_drops({"solution": {"heldMisread": ["1-down"], "heldClash": {"1-across": {"took": "dropped"},
+                                                                          "2-down": {"took": "read"}}}}))
+held = lights_held(["BAT", "BED", None, None])
+check("merge_answers drop: a held light named goes though not read, the rest stand",
+      ({"1-down": None, "3-across": "DOE"}, ["BAT", None, None, "DOE"]),
+      (f.merge_answers(held, lights_held([None, None, None, "DOE"]), drop={"1-down"}), [e["solution"] for e in held["entries"]]))
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+# decide(): a full reading not complete() (a clue blank) of a puzzle held with every clue merges its answers into the
+# held file, not --out; only blank held lights take one, crossing no held letter on another, and no held answer goes
+# (10-25: 227 Times grids, 3,825 answers in their --out copies).
+def uh_decide(held, sols, solution=True):
+    reading = lights_held(sols)
+    reading["entries"][3]["clue"] = {"text": ""}
+    with tempfile.TemporaryDirectory() as uh_dir:
+        (Path(uh_dir) / "held-1.json").write_text(json.dumps(held))
+        where = []
+        v = {"number": 1, **({"solution": {"accepted": 4, "lights": 4}} if solution else {})}
+        f.complete = lambda p: False
+        f.decide(v, reading, "times", uh_dir, set(), lambda w, p, vv: where.append(w and w[0]) or True,
+                 path=lambda w, series, puzzles: Path(uh_dir) / f"{w[0]}-{w[1]}.json")
+        f.complete = lambda p: True
+        return where[1:], v.get("answered"), v.get("heldWhole"), v.get("unfiled")
+check("a full reading with a clue blank fills a held file with every clue: its blank lights, the held answer kept",
+      (["held"], {"1-down": "BED", "2-down": "TOE", "3-across": "DOE"}, True, None),
+      uh_decide(lights_held(["BIT", None, None, None]), ["BAT", "BED", "TOE", "DOE"]))
+check("... an answer crossing a held letter on another stays out",
+      (["held"], {"2-down": "TOE", "3-across": "DOE"}, True, None),
+      uh_decide(lights_held(["BIT", None, None, None]), ["BAT", "XED", "TOE", "DOE"]))
+uh_blank = lights_held([None] * 4)
+uh_blank["entries"][2]["clue"] = {"text": ""}
+check("... a held file with a clue blank: the reading goes to --out as before",
+      ["out"], uh_decide(uh_blank, ["BAT", "BED", "TOE", "DOE"])[0])
+check("... another tool's held file: --out as before",
+      ["out"], uh_decide(lights_held([None] * 4, tool="other"), ["BAT", "BED", "TOE", "DOE"])[0])
+check("merge_answers keep: no held answer changes or goes, a blank light crossing it otherwise stays blank",
+      ({"2-down": "TOE"}, ["BIT", "BAD", "TOE", None]),
+      (lambda held: (f.merge_answers(held, lights_held(["BAT", "XED", "TOE", None]), keep=True),
+                     [e["solution"] for e in held["entries"]]))(lights_held(["BIT", "BAD", None, None])))
+# full_read_answers(): a full read's answers off the solution grid take answers_only's checks (checked_answers:
+# misread_word, uncrossed, settle_held against the held file), not filed as the grid gave them.
+fr_real = {n: getattr(f, n) for n in ("misread_word", "uncrossed")}
+fr_seen = []
+f.misread_word = lambda w, enum=None: w == "BEX"
+f.uncrossed = lambda answers, grid, enums=None, probs=None, rivals=None, seen=None: (
+    fr_seen.append((sorted(answers), probs is not None)) or ({"2-down"} & set(answers)))
+try:
+    ao_held[0] = lights_held(["BAD", None, None, "DOE"])
+    fr_reading = lights_held([None] * 4)
+    fr_args = ({"dir": Path("NewsUK/1990-08-23_1"), "number": 1}, f.trove_solution_ocr.puzzle_grid(fr_reading),
+               {"1-across": "BAT", "1-down": "BEX", "2-down": "TOE", "3-across": "DOE"}, {"accepted": 4})
+    answers, info = f.full_read_answers(f.TIMES, 1, fr_reading, *fr_args)
+    check("a full read's answers: a misread goes, an uncrossed misread goes (the classifier asked), a held answer "
+          "the grid reads otherwise on an unchecked letter stands (settle_held)",
+          ({"1-across": "BAD", "3-across": "DOE"}, ["1-down"], ["2-down"], "held", 2,
+           [(["1-across", "2-down", "3-across"], True)]),
+          (answers, info.get("misread"), info.get("uncrossed"), info["heldClash"]["1-across"]["took"],
+           info["accepted"], fr_seen))
+    check("... a paper whose cells are not classified, and a refused reading, are filed as read",
+          ([{"1-across": "BAT", "1-down": "BEX", "2-down": "TOE", "3-across": "DOE"}, {"accepted": 4}], {"refused": "x"}),
+          (list(f.full_read_answers(f.FT, 1, fr_reading, *fr_args)),
+           f.full_read_answers(f.TIMES, 1, fr_reading, *fr_args[:3], {"refused": "x"})[1]))
+finally:
+    for n, fn in fr_real.items():
+        setattr(f, n, fn)
+# decide(): a full read that read the solution grid drops no held answer it gives none for (no reread drop since
+# 10-25, as answers-only): a held answer goes only by held_drops (heldMisread, a dropped clash) or a crossing read.
+def fr_decide(held, sols, solution):
+    ao_held[0] = held
+    with tempfile.TemporaryDirectory() as fr_dir:
+        (Path(fr_dir) / "held-1.json").write_text(json.dumps(held))
+        v = {"number": 1, "solutionFrom": "src", "solution": solution}
+        made = []
+        f.decide(v, lights_held(sols), "times", fr_dir, set(),
+                 lambda w, p, vv: made.append((w, [e["solution"] for e in p["entries"]])) or True,
+                 path=lambda w, series, puzzles: Path(fr_dir) / f"{w[0]}-{w[1]}.json")
+        return [s for w, s in made if w and w[0] == "held"][-1:]
+check("a full read keeps each held answer it did not read again (before 10-25 a reread blanked them)",
+      [["BAT", "BED", "TOE", "DOE"]],
+      fr_decide(lights_held(["BAT", "BED", None, None]), [None, None, "TOE", "DOE"], {"accepted": 2, "lights": 4}))
+check("... but for a held answer a named rule drops (heldMisread)",
+      [["BAT", None, "TOE", "DOE"]],
+      fr_decide(lights_held(["BAT", "BED", None, None]), [None, None, "TOE", "DOE"],
+                {"accepted": 2, "lights": 4, "heldMisread": ["1-down"]}))
+ao_held[0] = lights_held([None] * 4)
+# unenumerated_held(): a row read before REREAD_UNENUMERATED that linked a grid, whose held puzzle is short of
+# answers and has a clue with no enumeration, is read again once (fix_reason).
+import tempfile
+with tempfile.TemporaryDirectory() as ue_dir:
+    ue_path = Path(ue_dir) / "times-1.json"
+    # Its own fixture: ao_held[0] is set afresh (every clue counted) by the checks above.
+    ue_bare = lights_held([None] * 4)
+    ue_bare["entries"][1]["clue"].pop("enumeration")
+    ue_path.write_text(json.dumps(ue_bare))
+    ue_old = f._HELD_PATH.get((f.TIMES.series, 1))
+    f._HELD_PATH[f.TIMES.series, 1] = ue_path
+    ue_row = {"edition": "NewsUK1990UKEnglish/1990-08-22_1", "readAt": "2026-10-22T16:00:00+00:00",
+              "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "1990-08-23 leaf 0",
+                            "solution": {"lights": 4, "accepted": 4}}]}
+    check("a row read before the fix, its held puzzle short of answers with a clue bare of its count, is due",
+          True, f.unenumerated_held(ue_row))
+    check("... not once read after it", False, f.unenumerated_held({**ue_row, "readAt": "2026-10-22T16:31:00+00:00"}))
+    check("... nor one read by answers_only", False, f.unenumerated_held({**ue_row, "verdicts": [{**ue_row["verdicts"][0], "answersOnly": True}]}))
+    ue_held = lights_held([None] * 4)
+    ue_path.write_text(json.dumps(ue_held))
+    check("... nor with every clue counted", False, f.unenumerated_held(ue_row))
+    # short_unfitted(): this solution code's full read left the grid 1 to STRIP_MAX lights short of a
+    # puzzle held with every clue and no answer: read again once, answers-only (SHORT_UNFITTED).
+    su_row = {**ue_row, "solutionKey": f.solution_key(),
+              "verdicts": [{**ue_row["verdicts"][0], "solution": {"lights": 4, "accepted": 2}}]}
+    su_v = su_row["verdicts"][0]
+    check("a grid this code read two lights short, its puzzle held with every clue and no answer, is due",
+          [True, 2, True, True],
+          [f.short_unfitted(su_row), f.RANKS[f.SHORT_UNFITTED], f.SHORT_UNFITTED in f.SOLUTION_FIXES,
+           f.keeps_vlm(f.SHORT_UNFITTED, {}, {}) is False])
+    check("... not three short, nor whole, nor read after REREAD_SHORT_FITTED, nor by answers_only, nor by other code",
+          [False] * 5,
+          [f.short_unfitted({**su_row, "verdicts": [{**su_v, "solution": {"lights": 4, "accepted": 1}}]}),
+           f.short_unfitted({**su_row, "verdicts": [{**su_v, "solution": {"lights": 4, "accepted": 4}}]}),
+           f.short_unfitted({**su_row, "readAt": "2026-10-24T05:00:00+00:00"}),
+           f.short_unfitted({**su_row, "verdicts": [{**su_v, "answersOnly": True}]}),
+           f.short_unfitted({**su_row, "solutionKey": "old"})])
+    if ue_old is None:
+        del f._HELD_PATH[f.TIMES.series, 1]
+    else:
+        f._HELD_PATH[f.TIMES.series, 1] = ue_old
+# held_titles(): a Gale Times page whose scan by current code finds no title, the one puzzle held for its
+# date filed from it with every clue and not every answer (1956-09-15's 8,235, the 09-17 page printing its
+# solution), is read answers-only under that number (HELD_TITLE), once, no VLM ask.
+import datetime
+with tempfile.TemporaryDirectory() as ht_dir:
+    ht_ed = Path(ht_dir) / "GaleTimes1956UKEnglish" / "1956-09-15"
+    ht_ed.mkdir(parents=True)
+    ht_url = "https://go.gale.com/ps/retrieve.do?docId=GALE%7CCS235362095"
+    (ht_ed / "pages.json").write_text(json.dumps({"url": ht_url, "date": "1956-09-15", "crossword_pages": [{"leaf": 0}]}))
+    ht_file = Path(ht_dir) / "times-8235.json"
+    ht_held = {"number": 8235, "source": {"acquiredBy": f.TOOL, "url": ht_url}, "entries": []}
+    ht_file.write_text(json.dumps(ht_held))
+    ht_saved = (f.held_dates, f.filed_state, f.current_keys, f._HELD_PATH.get((f.SERIES, 8235)))
+    # held_titles matches the page's own pages.json url: the real page_url, not the answers_only cases' "u" stub.
+    ht_page_url, f.page_url = f.page_url, ao_stubbed["page_url"]
+    ht_days = [{8235: datetime.date(1956, 9, 15)}]
+    ht_state = [(False, True)]
+    f.held_dates = lambda series: f.Held(ht_days[0])
+    f.filed_state = lambda series, n: ht_state[0] if n == 8235 else None
+    f.current_keys = lambda paper: frozenset({"cur"})
+    f._HELD_PATH[f.SERIES, 8235] = ht_file
+    ht_row = {"edition": "GaleTimes1956UKEnglish/1956-09-15", "inputs": "x", "scanKey": "cur",
+              "readAt": "2026-10-23T23:33:53+00:00",
+              "scan": {"date": "1956-09-15", "item": "GaleTimes1956UKEnglish", "puzzles": [],
+                       "solutions": [{"number": 8234, "leaf": 0, "box": [0, 0, 1, 1]}]}}
+    ht_hit = {"number": 8235, "leaf": 0, "box": None, "heldTitle": True}
+    check("an untitled page whose held puzzle, filed from it, waits on its answers is read under its number",
+          [[ht_hit], [ht_hit], 2, True, False],
+          [f.held_titles(ht_row, ht_dir), f.held_titled(ht_row, ht_dir)["puzzles"], f.RANKS[f.HELD_TITLE],
+           f.HELD_TITLE in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_TITLE, {}, {})])
+    ht_none = [f.held_titles({**ht_row, "readAt": "2026-10-26T02:00:00+00:00"}, ht_dir),
+               f.held_titles({**ht_row, "scanKey": "old"}, ht_dir),
+               f.held_titles({**ht_row, "scan": {**ht_row["scan"], "puzzles": [{"number": 8235, "leaf": 0}]}}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8236}]}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8235, "refused": True}]}, ht_dir),
+               f.held_titles({**ht_row, "verdicts": [{"number": 8235}, {"number": 8236}]}, ht_dir),
+               f.held_titles({k: v for k, v in ht_row.items() if k != "inputs"}, ht_dir)]
+    # 10-25: 82 Times rows whose one verdict, the held puzzle's, an older scan read under the title the
+    # current scan lost (1982-07-19's 15,885) stood "inputs changed", no held title read.
+    check("an untitled page whose one verdict is its held puzzle's is read under that number too",
+          [[ht_hit], [ht_hit]],
+          [f.held_titles({**ht_row, "verdicts": [{"number": 8235, "id": "times-8235"}]}, ht_dir),
+           f.held_titles({**ht_row, "verdicts": [{"number": 9, "read_as": 8235}]}, ht_dir)])
+    # A row a held-title read wrote (its scan's one title the held one, heldTitle) is read again once more
+    # after REREAD_HELD_TITLE moves (10-26, held_proven).
+    check("an untitled page a held-title read wrote, its scan holding the held title, is read under it again",
+          [ht_hit], f.held_titles({**ht_row, "verdicts": [{"number": 8235}],
+                                   "scan": {**ht_row["scan"], "puzzles": [ht_hit]}}, ht_dir))
+    # held_proven: a held title's reading giving HELD_PROOF held answers alike, none another word, takes
+    # the titled read's uncrossed check (10-25: times-8025's TERRITORIALARMY left out on every-uncrossed).
+    hp_es = [{"number": n, "direction": "across", "solution": w}
+             for n, w in ((1, "ALPHA"), (2, "BRAVO"), (3, "DELTA"), (4, "ECHO"), (5, "GOLF"), (6, None))]
+    hp_four = {"1-across": "ALPHA", "2-across": "BRAVO", "3-across": "DELTA", "4-across": "ECHO", "6-across": "HOTEL"}
+    check("held_proven: 4 held answers read alike proves the grid; 3, or one held answer read as another word, does not",
+          [True, True, False, False],
+          [f.held_proven(hp_es, hp_four), f.held_proven(hp_es, {**hp_four, "5-across": "GOLD"}),
+           f.held_proven(hp_es, {k: v for k, v in hp_four.items() if k != "4-across"}),
+           f.held_proven(hp_es, {**hp_four, "5-across": "KILO"})])
+    # held_strips(): a row a held-title read (no VLM ask) wrote since REREAD_HELD_TITLE, before REREAD_HELD_STRIPS,
+    # its held puzzle 1 to LATE_MAX short and the grid's crop kept, is read again asking its strips (HELD_STRIPS).
+    hs_crops, f.CROPS = f.CROPS, Path(ht_dir) / "crops"
+    (f.CROPS / "solutions").mkdir(parents=True)
+    hs_crop = f.CROPS / "solutions" / "1956-09-17_8235.png"
+    hs_crop.write_bytes(b"png")
+    hs_row = {**ht_row, "readAt": "2026-10-26T02:00:00+00:00", "scan": {**ht_row["scan"], "puzzles": [ht_hit]},
+              "verdicts": [{"number": 8235, "id": "times-8235", "answersOnly": True, "solutionFrom": "1956-09-17 leaf 0"}]}
+    hs_es = lambda blank: [{"number": n, "direction": "across", "solution": None if n <= blank else "WORD"} for n in range(1, 9)]
+    ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(2)}))
+    hs_due = [f.held_strips(hs_row, ht_dir), f.held_titles(hs_row, ht_dir), f.RANKS[f.HELD_STRIPS],
+              f.HELD_STRIPS in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_STRIPS, {}, {}), f.HELD_STRIPS.startswith("solution short")]
+    hs_not = [f.held_strips({**hs_row, "readAt": "2026-10-26T05:00:00+00:00"}, ht_dir),
+              f.held_strips({**hs_row, "verdicts": [{**hs_row["verdicts"][0], "wrongGrid": "x"}]}, ht_dir)]
+    # held_asked(): such a row a HELD_TITLE reread read again after REREAD_HELD_STRIPS with no strip asked (no
+    # lateStrips, no vlmLights) is read again asking them (HELD_ASKED), once: not after REREAD_HELD_ASKED.
+    ha_row = {**hs_row, "readAt": "2026-10-27T03:20:00+00:00"}
+    ha_due = [f.held_asked(ha_row, ht_dir), f.held_strips(ha_row, ht_dir), f.RANKS[f.HELD_ASKED],
+              f.HELD_ASKED in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_ASKED, {}, {}), f.HELD_ASKED.startswith("solution short")]
+    ha_not = [f.held_asked({**ha_row, "readAt": "2026-10-27T09:00:00+00:00"}, ht_dir),
+              f.held_asked({**ha_row, "verdicts": [{**ha_row["verdicts"][0], "solution": {"lateStrips": ["1-across"]}}]}, ht_dir),
+              f.held_asked({**ha_row, "verdicts": [{**ha_row["verdicts"][0], "solution": {"vlmLights": ["1-across"]}}]}, ht_dir),
+              f.held_asked({**ha_row, "verdicts": [{**ha_row["verdicts"][0], "wrongGrid": "x"}]}, ht_dir)]
+    check("a held title read after REREAD_HELD_STRIPS, 1-5 short, no strip asked, is due HELD_ASKED (rank 2, answers-only)",
+          [True, False, 2, True, False, True], ha_due)
+    check("... not read after REREAD_HELD_ASKED, its strips asked (late or kept), or of another puzzle's grid",
+          [False] * 4, ha_not)
+    ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(6)}))
+    hs_not.append(f.held_strips(hs_row, ht_dir))
+    ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(2)}))
+    hs_crop.unlink()
+    hs_not.append(f.held_strips(hs_row, ht_dir))
+    f.CROPS = hs_crops
+    ht_file.write_text(json.dumps(ht_held))
+    check("a held title read since REREAD_HELD_TITLE, 1-5 short, its crop kept, is due HELD_STRIPS (rank 2, answers-only)",
+          [True, [], 2, True, False, True], hs_due)
+    check("... not read after REREAD_HELD_STRIPS, of another puzzle's grid, 6 short, or with no crop", [False] * 4, hs_not)
+    ht_state[0] = (True, True)
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_state[0] = (False, False)
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_state[0] = (False, True)
+    ht_days[0] = {8235: datetime.date(1956, 9, 15), 8236: datetime.date(1956, 9, 15)}
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_days[0] = {8235: datetime.date(1956, 9, 15)}
+    ht_file.write_text(json.dumps({**ht_held, "source": {"acquiredBy": f.TOOL, "url": "elsewhere"}}))
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    ht_file.write_text(json.dumps({**ht_held, "source": {"acquiredBy": "other", "url": ht_url}}))
+    ht_none.append(f.held_titles(ht_row, ht_dir))
+    check("... not read after REREAD_HELD_TITLE, by older scan code, with a title, a verdict of another number, "
+          "refused, or two verdicts, never read, its puzzle answered whole or a clue short, two held that day, "
+          "from another page or another tool", [[]] * 12, ht_none)
+    f.held_dates, f.filed_state, f.current_keys = ht_saved[:3]
+    f.page_url = ht_page_url
+    if ht_saved[3] is None:
+        del f._HELD_PATH[f.SERIES, 8235]
+    else:
+        f._HELD_PATH[f.SERIES, 8235] = ht_saved[3]
+# read_puzzle(): a held title is read answers-only with no VLM ask, and never in full.
+ht_calls = []
+ht_ao, ht_rp = f.answers_only, f.read_page
+f.answers_only = lambda *a, **k: ht_calls.append(k) or None
+f.read_page = lambda *a, **k: (_ for _ in ()).throw(AssertionError("a held title read in full"))
+ht_v, ht_p = f.read_puzzle(None, {"puzzles": [ht_hit]}, ht_hit, {})
+# A HELD_STRIPS reread's edition (_HELD_ASK) asks its strips; another edition's held title does not.
+f._HELD_ASK["names"] = {"1956-09-15"}
+f.read_puzzle(Path("GaleTimes1956UKEnglish/1956-09-15"), {"puzzles": [ht_hit]}, ht_hit, {})
+f.read_puzzle(Path("GaleTimes1956UKEnglish/1956-09-16"), {"puzzles": [ht_hit]}, ht_hit, {})
+f._HELD_ASK["names"] = set()
+f.answers_only, f.read_page = ht_ao, ht_rp
+check("a held title its grid gives no answers is skipped, its answers read with no VLM ask but for HELD_STRIPS's",
+      (None, True, 8235, [{"ask_vlm": False, "crossed": True}, {"ask_vlm": True, "crossed": True},
+                          {"ask_vlm": False, "crossed": True}]), (ht_p, "skip" in ht_v, ht_v["number"], ht_calls))
+# uncrossed(): an answer with a cell another light crosses unanswered is left out (one pass).
+# 3x3 grid, its middle cell black: 1-across, 1-down, 2-down, 3-across round the edge.
+ht_grid = [list("..."), list(".#."), list("...")]
+check("an answer a letter of which only it gives, where another light crosses unanswered, is left out",
+      [set(), {"1-across", "3-across"}],
+      [f.uncrossed({"1-across": "BAT", "1-down": "BOG", "2-down": "TIN", "3-across": "GUN"}, ht_grid),
+       f.uncrossed({"1-across": "BAT", "1-down": "BOG", "3-across": "GUN"}, ht_grid)])
+check("... and one no word, its unchecked middle letter checked by nothing (10,927's RUSSUM for RUSTUM)",
+      {"1-down"}, f.uncrossed({"1-across": "BAT", "1-down": "BXG", "2-down": "TIN", "3-across": "GUN"}, ht_grid))
+import inspect
+import numpy as np
+def uc_reads(rows, at=None):
+    # {cell: probabilities}: each cell reads its letter of `rows` at .97, or at[cell]'s letter at .95 (its own .02).
+    out = {}
+    for r, row in enumerate(rows):
+        for c, ch in enumerate(row):
+            if ch == "#":
+                continue
+            p = np.full(26, 0.0004)
+            p[tso.AZ.index(ch)] = 0.97
+            if at and (r, c) in at:
+                p[tso.AZ.index(ch)], p[tso.AZ.index(at[r, c])] = 0.02, 0.95
+            out[r, c] = p
+    return out
+
+
+uc_rows = ["BAT", "O#A", "GUN"]
+uc_part = {"1-across": "BAT", "1-down": "BOG", "3-across": "GUN"}
+check("... unless the classifier reads its lone letters as filed: one read as another letter making a listed word "
+      "(8,564's BATES, its B read .035 under P: PATES) is left out, one read as no word is not",
+      [set(), {"1-across"}, set()],
+      [f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows)),
+       f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"})),
+       f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "X"}))])
+# unsure_lone (10-27): no crop read (no framing's blocks sure) leaves out only a near answer (a listed word a lone
+# letter off) that is no corpus answer; with none near, every one stands.
+uc_corpus = tso.corpus_words
+try:
+    tso.corpus_words = lambda: {"GUN"}
+    check("no crop read leaves out a near answer but a corpus answer (BAT out, GUN kept); none near, none out",
+          [{"1-across"}, set()],
+          [f.uncrossed(uc_part, ht_grid, probs=lambda: None),
+           f.uncrossed({"1-across": "QXZ", "1-down": "BOG", "3-across": "GUN"}, ht_grid, probs=lambda: None)])
+finally:
+    tso.corpus_words = uc_corpus
+check("misread_rival names the word", ["BIT", None],
+      [f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows, {(0, 1): "I"})),
+       f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows))])
+# rival_stands: the rival is filed for an answer no corpus answer when it is one, or a word where the
+# answer is none (AGHASI: AGHAST); a corpus answer (SETH: NETH) or a word read as no corpus answer stays out.
+uc_corpus = tso.corpus_words
+try:
+    tso.corpus_words = lambda: {"AGHAST", "SETH", "BIT"}
+    check("rival_stands takes AGHAST for AGHASI and GARDENERS for GARDENEDS, not NETH for SETH nor ELICKER for FLICKER",
+          [True, True, False, False],
+          [f.rival_stands("AGHASI", "AGHAST", "6"), f.rival_stands("GARDENEDS", "GARDENERS", "9"),
+           f.rival_stands("SETH", "NETH", "4"), f.rival_stands("FLICKER", "ELICKER", "7")])
+    uc_rivals = {}
+    uc_out = f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"}), rivals=uc_rivals)
+    check("uncrossed names the rival that stands for an answer it leaves out", ({"1-across"}, {"1-across": "BIT"}),
+          (uc_out, uc_rivals))
+    tso.corpus_words = lambda: {"BAT", "BIT"}
+    uc_rivals = {}
+    f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"}), rivals=uc_rivals)
+    check("... none when the answer filed is a corpus answer itself", {}, uc_rivals)
+finally:
+    tso.corpus_words = uc_corpus
+# vlm_stands: a VLM word misread_rival's rival would drop stands where the classifier gives its own letter
+# VLM_RIVAL_OWN+, it is a corpus or filed answer, and the rival no corpus answer or the clue favours the word.
+vs_corpus, vs_filed = tso.corpus_words, tso.filed_words
+try:
+    tso.corpus_words = lambda: {"OPEN", "BAT", "BIT", "PALMS", "TESS", "LESS"}
+    tso.filed_words = lambda: frozenset({"COSTERS"})
+    check("vlm_stands keeps OPEN over ODEN (no corpus answer) and the filed COSTERS over COSTEDS, its letter at .2+; "
+          "not BALMS (no answer anywhere), TESS for LESS (both corpus answers, no clue for it), nor OPEN at .1",
+          [True, True, False, False, False],
+          [f.vlm_stands("OPEN", "ODEN", 0.263), f.vlm_stands("COSTERS", "COSTEDS", 0.42),
+           f.vlm_stands("BALMS", "PALMS", 0.3), f.vlm_stands("TESS", "LESS", 0.3), f.vlm_stands("OPEN", "ODEN", 0.1)])
+    tso.corpus_words = lambda: {"BAT"}
+    vs_es = [{"number": n, "direction": d, "solution": None, "clue": {"text": "Club", "enumeration": "3"}}
+             for n, d in ((1, "across"), (1, "down"), (2, "down"), (3, "across"))]
+    vs_en = {(e["number"], e["direction"]): "3" for e in vs_es}
+
+    def vs_probs(own):
+        p = uc_reads(uc_rows, {(0, 1): "I"})
+        p[0, 1] = [own if c == "A" else (0.6 if c == "I" else (0.4 - own) / 24) for c in tso.AZ]
+        return p
+    vs_real = f.crop_cell_probs
+    vs_out = []
+    for own, vlm_ in ((0.3, {"1-across"}), (0.3, ()), (0.1, {"1-across"})):
+        f.crop_cell_probs = lambda crop, grid, own=own: vs_probs(own)
+        got, info, _ = f.checked_answers(vs_es, dict(uc_part), ht_grid, vs_en, {}, Path(__file__), vlm=vlm_)
+        vs_out.append((got.get("1-across"), info.get("vlmStood")))
+    f.crop_cell_probs = vs_real
+    check("checked_answers keeps the VLM's BAT that uncrossed would drop for BIT (I .6, A .3) where vlm_stands keeps it; "
+          "not a word the VLM did not give, nor one whose A the classifier reads at .1",
+          [("BAT", ["1-across"]), (None, None), (None, None)], vs_out)
+finally:
+    tso.corpus_words, tso.filed_words = vs_corpus, vs_filed
+check("... and the crop is not read when no answer would be left out",
+      set(), f.uncrossed({"1-across": "BAT", "1-down": "BOG", "2-down": "TIN", "3-across": "GUN"}, ht_grid,
+                         probs=lambda: (_ for _ in ()).throw(AssertionError("crop read"))))
+check("answers-only reads of every reason take the check (crossed by default)",
+      True, inspect.signature(f.answers_only).parameters["crossed"].default)
+ao_held[0] = lights_held([None] * 4)
+ao_held[0]["entries"][2]["clue"]["text"] = ""
+check("a held file with a blank clue is read in full", None, f.answers_only(*ao_args))
+ao_held[0] = lights_held([None] * 4)
+ao_held[0]["entries"][2]["clue"]["text"] = "-clue 2 down words"
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+verdict, puzzle = f.answers_only(*ao_args)
+check("a held clue the readers left unsettled (a stray mark) is kept as filed: the answers merge, no VLM ask",
+      (True, 0, "-clue 2 down words", "TOE"),
+      (verdict["answersOnly"], verdict["vlmAsks"], puzzle["entries"][2]["clue"]["text"], puzzle["entries"][2]["solution"]))
+check("the held clues' enumerations go to the grid's reading", {(1, "across"): "3", (1, "down"): "3", (2, "down"): "3", (3, "across"): "3"},
+      ao_seen[-1])
+# A light the grid's reading left (at most STRIP_MAX of them) is asked of the VLM once, as its row of
+# squares with the letters its crossings hold: the word stands when it fits the light, agrees with
+# each crossing, is listed, and the classifier finds each letter possible (14047: PLAT for FLAT).
+import numpy as np
+import trove_solution_ocr as tso
+ao_held[0] = lights_held([None] * 4)
+ao_read[0] = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE"}
+cells4 = np.full((30, 30), 255, np.uint8)
+png4 = tso.light_strip(cells4, [0, 10, 20, 30], [0, 10, 20, 30], [(2, 0), (2, 1), (2, 2)])
+check("a light's strip is a PNG", b"\x89PNG", __import__("base64").b64decode(png4)[:4])
+flat = [1 / 26] * 26
+ruled_out = [1 / 26] * 26
+ruled_out[tso.AZ.index("I")] = 0.0
+ao_extra[0] = {"strips": {"3-across": {"png": png4, "p": [flat, flat, flat]}}}
+ao_asked = []
+real_vlm = (f.vlm.ask, f.vlm.wanted)
+f.vlm.wanted = lambda: True
+try:
+    for reply, probs4, want, why in (("DOE", [flat] * 3, "DOE", "the word the VLM names stands"),
+                                      ("DOE\n", [flat] * 3, "DOE", "a reply's first line is its word"),
+                                      ("DIE", [flat, ruled_out, flat], None, "a letter the classifier rules out is not taken"),
+                                      ("DOES", [flat] * 3, None, "a word of another length is not taken"),
+                                      ("BOE", [flat] * 3, None, "a word against a crossing letter is not taken"),
+                                      ("DXE", [flat] * 3, None, "a word that is not listed is not taken"),
+                                      ("", [flat] * 3, None, "no reply takes nothing")):
+        ao_extra[0] = {"strips": {"3-across": {"png": png4, "p": probs4}}}
+        f.vlm.ask = lambda img, prompt, max_tokens=1500, reply=reply: ao_asked.append(prompt) or reply
+        verdict, puzzle = f.answers_only(*ao_args)
+        check(f"VLM fallback: {why}", (want, "strips" in verdict["solution"]), (puzzle["entries"][3]["solution"], False))
+    check("it is asked once, with the crossings' letters in the prompt", (7, True),
+          (len(ao_asked), "D?E" in ao_asked[0] and "one word of 3 letters" in ao_asked[0]))
+    ao_extra[0] = {"strips": {"3-across": {"png": png4, "p": [flat] * 3}}}
+    f.vlm.ask = lambda *a, **k: (_ for _ in ()).throw(f.vlm.Spooled("spooled"))
+    verdict, puzzle = f.answers_only(*ao_args)
+    check("a spooled ask leaves the light unread (the read runs again once it is answered)", None, puzzle["entries"][3]["solution"])
+    check("the VLM's lights are named in the verdict, not their pictures", (None, None),
+          (verdict["solution"].get("strips"), verdict["solution"].get("vlmLights")))
+    f.vlm.ask = lambda *a, **k: "DOE"
+    verdict, puzzle = f.answers_only(*ao_args)
+    check("the VLM's light is named and counted", (["3-across"], 4), (verdict["solution"]["vlmLights"], verdict["solution"]["accepted"]))
+finally:
+    f.vlm.ask, f.vlm.wanted = real_vlm
+ao_extra[0] = {}
+def cell_p(ch, p=0.9):
+    v = [(1 - p) / 25] * 26
+    v[tso.AZ.index(ch)] = p
+    return v
+check("a name no lexicon lists is not taken even where the classifier reads it alike (BALINITY for SALINITY)", None,
+      f.vlm_word("BALINITY", "?ALINITY", [8], [cell_p(c) for c in "BALINITY"]))
+check("a listed word the classifier finds possible is taken", "SALINITY",
+      f.vlm_word("SALINITY", "?ALINITY", [8], [cell_p(c) for c in "SALINITY"]))
+check("a VLM reply a letter short or long and no word is mended to the one listed word of the light that "
+      "agrees with its crossings (HORPIPE, CASCAS); a real word of the wrong length is not (BASIS for PASS)",
+      ["HORNPIPE", "CASCA", None, "HORNPIPE", "CASCA"],
+      [f.near_word("HORPIPE", "??R?P?P?"), f.near_word("CASCAS", "C?S?A"), f.near_word("BASIS", "?A?S"),
+       f.vlm_word("HORPIPE", "??R?P?P?", [8], [cell_p(c) for c in "HORNPIPE"]),
+       f.vlm_word("CASCAS", "C?S?A", [5], [cell_p(c) for c in "CASCA"], "5")])
+check("a mended word stands on vlm_word's checks: EANS mends to EANES, but the classifier reads ERNES' R "
+      "(a 1989 print's 22-down), so it is not taken", ("EANES", None),
+      (f.near_word("EANS", "E?N?S"), f.vlm_word("EANS", "E?N?S", [5], [cell_p(c) for c in "ERNES"])))
+check("a reply of the light's length with a square it could not read (?) is filled to the one listed word of its "
+      "letters and crossings (HOR?PIPE, ?RFE); its own letters must agree with the crossings",
+      [("HORNPIPE", {3}), "ORFE", None, "ORFE"],
+      [f.mend_word("HOR?PIPE", "??R?P?P?"), f.near_word("?RFE", "?R?E"), f.mend_word("?RFA", "?R?E"),
+       f.vlm_word("?RFE", "?R?E", [4], [cell_p(c) for c in "ORFE"])])
+check("a mended word whose own letter, as the VLM read it, the classifier reads under the floor in an open cell is "
+      "not taken (OFISH mended to OFFISH for \"Like Jabberwocky thought\": its O read U, UFFISH); the letter the "
+      "mend added may be (BARSAC's B)",
+      [None, "OFFISH", "BARSAC"],
+      [f.vlm_word("OFISH", "?F?I?H", [6], [cell_p(c) for c in "UFFISH"]),
+       f.vlm_word("OFISH", "?F?I?H", [6], [cell_p(c) for c in "OFFISH"]),
+       f.vlm_word("ARSAC", "?A?S?C", [6], [cell_p("O")] + [cell_p(c) for c in "ARSAC"])])
+check("a clue's wordplay: an anagram of two or more of its words in a row (ADVERTISER, \"TV is dearer\"), not of "
+      "one word (SHRUB for \"Drop clean brush\"'s SCRUB); a word hidden across its word breaks (CHAMP in \"picnic "
+      "hamper\"), or reversed",
+      ["anagram", None, "hidden", "reversed"],
+      [tso.clue_wordplay("TV is dearer alternative for him (10)", 10).get("ADVERTISER"),
+       tso.clue_wordplay("Drop clean brush", 5).get("SHRUB"),
+       tso.clue_wordplay("Crush front of picnic hamper", 5).get("CHAMP"),
+       tso.clue_wordplay("Bad evil", 5).get("LIVED")])
+check("a blank light's wordplay fit: the one listed word on its crossings (DESPERADO, LOATHE); not a hidden "
+      "word crossed at under half its letters (KINGS), a light under WORDPLAY_MIN or of another enumeration",
+      ["DESPERADO", "LOATHE", None, None, None],
+      [f.wordplay_fit("Road speed potentially criminal", "D?S?E?A??", "9"),
+       f.wordplay_fit("Abominate alterations made to a hotel", "L??T??", "6"),
+       f.wordplay_fit("What a striking suit!", "????S", "5"),
+       f.wordplay_fit("Article in German", "?E?", "3"),
+       f.wordplay_fit("Road speed potentially criminal", "D?S?E?A??", "4,6")])
+check("a wordplay word's definition link (clue_solved_reads): WordNet ties DESPERADO to \"criminal\", LOATHE to "
+      "\"abominate\", CRAMP to \"crush\"; not CHAMP (the hidden word the clue does not define), nor a clue whose "
+      "definition end is gone",
+      [True, True, True, False, False],
+      [tso.definition_linked("DESPERADO", "Road speed potentially criminal"),
+       tso.definition_linked("LOATHE", "Abominate alterations made to a hotel"),
+       tso.definition_linked("CRAMP", "Crush front of picnic hamper"),
+       tso.definition_linked("CHAMP", "Crush front of picnic hamper"),
+       tso.definition_linked("DESPERADO", "Road speed potentially")])
+wp_cells = [(0, i) for i in range(9)]
+check("a wordplay fit stands only where the printed grid confirms it: the classifier's likeliest letter is the "
+      "word's in every open cell (DESPERADO, faint at 0.4); not where it reads one otherwise (DESPERADO's O as D)",
+      ["DESPERADO", None],
+      [f.wordplay_word("Road speed potentially criminal", "D?S?E?A??", wp_cells,
+                       {rc: cell_p(c, 0.4) for rc, c in zip(wp_cells, "DESPERADO")}, "9"),
+       f.wordplay_word("Road speed potentially criminal", "D?S?E?A??", wp_cells,
+                       {rc: cell_p(c) for rc, c in zip(wp_cells, "DESPERADD")}, "9")])
+check("the VLM's word against the classifier's floor is not taken", None,
+      f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
+check("a VLM word the classifier reads every one of its 3+ open letters under VLM_ALONE_P is not taken (RUMPLE "
+      "for RUMPUS on ?U????); one letter read surely, or two open, it is",
+      (None, "RUMPLE", "RUMPLE"),
+      (f.vlm_word("RUMPLE", "?U????", [6], [cell_p(c, 0.3) for c in "RUMPLE"]),
+       f.vlm_word("RUMPLE", "?U????", [6], [cell_p(c, 0.9 if i == 2 else 0.3) for i, c in enumerate("RUMPLE")]),
+       f.vlm_word("RUMPLE", "RUM?L?", [6], [cell_p(c, 0.3) for c in "RUMPLE"])))
+check("a VLM reply of the light's length one letter off one listed word is mended where the classifier reads every "
+      "open letter of the mend (ELGHT for EIGHT; BUSY on a held S for BUSS); not where it reads the VLM's letter "
+      "(CORONEL's E), nor a listed reply that fits (no swap), nor one off two listed words",
+      ("EIGHT", "BUSS", None, None, None),
+      (f.vlm_word("ELGHT", "E?G?T", [5], [cell_p(c) for c in "EIGHT"]),
+       f.swap_word("BUSY", "?U?S", [4], [cell_p(c) for c in "BUSY"]),
+       f.swap_word("CORONEL", "C?R?N?L", [7], [cell_p(c) for c in "CORONEL"]),
+       f.swap_word("EIGHT", "E?G?T", [5], [cell_p(c) for c in "EIGHT"]),
+       f.swap_word("TOBB", "?O?B", [4], [cell_p(c) for c in "TOBB"])))
+check("a VLM reply the classifier misreads with it is settled by its clue: the one listed word near it (a letter "
+      "swapped, a '?' filled) that the clue's definition links (STAIR for SIAIR, COHERES for TOHERES); never with no "
+      "clue, nor where two listed words lie near (E?E?D: EASED, EDGED, ENDED...)",
+      (None, "STAIR", "COHERES", None),
+      (f.vlm_word("SIAIR", "S?A?R", [5], [cell_p(c) for c in "SIAIR"]),
+       f.vlm_word("SIAIR", "S?A?R", [5], [cell_p(c) for c in "SIAIR"], None, "The way to parade in step"),
+       f.defined_word("TOHERES", "??H?R?S", [7], "Sticks here in an island"),
+       f.defined_word("E?E?D", "E???D", [5], "Being sharp, advanced gradually")))
+check("of several listed words near the VLM's reply, the one its clue defines stands only where the classifier "
+      "reads it likeliest by FLOOR_MARGIN (BUCK for BUCY on ??C?, its K read surely); not on a flat cell, nor with "
+      "no probabilities",
+      ("BUCK", None, None),
+      (f.defined_word("BUCY", "??C?", [4], "Dollar for a dandy", None, [cell_p(c) for c in "BUCK"]),
+       f.defined_word("BUCY", "??C?", [4], "Dollar for a dandy", None, [cell_p("B"), cell_p("U"), cell_p("C"), flat]),
+       f.defined_word("BUCY", "??C?", [4], "Dollar for a dandy")))
+# held_blank_unchecked: a word read for a held-blank light, its unchecked letters (no other light) read again.
+hu_real = tso.lights
+tso.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (4, "down"): [(0, 3), (1, 3), (2, 3), (3, 3)]}
+hu_es = [{"number": 1, "direction": "across", "solution": None}, {"number": 4, "direction": "down", "solution": "EVEN"}]
+hu = f.held_blank_unchecked(hu_es, {"1-across": "DINE", "4-down": "EVEN"}, None)
+hu_none = f.held_blank_unchecked([dict(e, solution=None) for e in hu_es], {"1-across": "DINE", "4-down": "EVEN"}, None)
+tso.lights = hu_real
+hu_probs = {(0, 0): [0.8 if c == "P" else (0.075 if c == "D" else 0.125 / 24) for c in tso.AZ],
+            (0, 1): cell_p("I"), (0, 2): cell_p("N")}
+check("held_blank_unchecked: DINE read for a held-blank light, its D, I, N unchecked, is read again and misread_rival "
+      "names PINE (D 0.075 under P 0.80); the held EVEN is not, nor anything of a file holding no answer",
+      (["1-across"], [0, 1, 2], "PINE", {}),
+      (sorted(hu), [i for i, _, _ in hu.get("1-across", ())], f.misread_rival("DINE", hu.get("1-across", ()), hu_probs),
+       hu_none))
+def faint(word, at, p=0.005, rival="B"):
+    """cell_p of `word`, its cell `at` read as `rival` (0.9) with the word's letter at `p`, under VLM_FLOOR."""
+    cells = [cell_p(c) for c in word]
+    cells[at] = [(0.1 - p) / 24] * 26
+    cells[at][tso.AZ.index(rival)], cells[at][tso.AZ.index(word[at])] = 0.9, p
+    return cells
+check("a listed word one cell under the floor stands where its crossings leave the classifier no likelier "
+      "listed word (LATITUDINARIANS' L at 0.003)", "SALINITY",
+      f.vlm_word("SALINITY", "?ALINITY", [8], faint("SALINITY", 0)))
+check("...not two cells under (CUBER), nor where the classifier decodes another listed word (HOSTER for HOSIER)",
+      (None, None),
+      (f.vlm_word("SALINITY", "?A?INITY", [8], faint("SALINITY", 0)[:2] + faint("SALINITY", 2, rival="T")[2:]),
+       f.vlm_word("PLAT", "?L?T", [4], faint("PLAT", 0, rival="F"))))
+check("a name no list holds, its letters the classifier's too and its count the clue's, is taken (PERSHORE)", "PERSHORE",
+      f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "8"))
+check("...even with BALINITY's count: SALINITY lies one open letter off", None,
+      f.vlm_word("BALINITY", "?ALINITY", [8], [cell_p(c) for c in "BALINITY"], "8"))
+check("...nor for a surname alone one open letter off (CORUNNA, cmudict's CORINNA); a dictionary word so "
+      "refuses it (TINEE, TINGE)", ("CORUNNA", None, False, True),
+      (f.vlm_word("CORUNNA", "C?R?N?A", [7], [cell_p(c) for c in "CORUNNA"], "7"),
+       f.vlm_word("TINEE", "T?N?E", [5], [cell_p(c) for c in "TINEE"], "5"),
+       f.rival_away("CORUNNA", "C?R?N?A", "7", names=False), f.rival_away("CORUNNA", "C?R?N?A", "7")))
+def cell_two(ch, p, other, q):
+    v = [(1 - p - q) / 24] * 26
+    v[tso.AZ.index(ch)], v[tso.AZ.index(other)] = p, q
+    return v
+am_filed = f.trove_solution_ocr.filed_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"ASCHAM", "DONALD"})
+check("a VLM reply no list holds, one open letter off the classifier's word where the VLM's letter is under the "
+      "floor and the classifier's 0.6+, stands as the classifier's word: a name (ASCHEM, ASCHAM) or one listed word "
+      "among several (BONALD: DONALD, not RONALD)", ("ASCHAM", "DONALD"),
+      (f.vlm_word("ASCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6"),
+       f.vlm_word("BONALD", "?O?A?D", [6], [cell_p(c) for c in "DONALD"], "6")))
+am_corpus = f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"DONALD"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset({"DONALD"})  # hermetic: the real corpus may come to hold ASCHAM
+check("...not where neither the corpus nor another puzzle's filed answers hold the classifier's word (WEBTERHAM "
+      "over WETTERHAM for WESTERHAM)", None, f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6"))
+f.trove_solution_ocr.filed_words = am_filed
+f.trove_solution_ocr.corpus_words = am_corpus
+check("...not for a listed reply (CAMEL over CAMES), the VLM's letter at 0.01+ (HERTFORD), the classifier's under "
+      "ARGMAX_TOP, a misread (TIRIA for TIBIA), nor a reply two letters off", (None, None, None, None, None),
+      (f.argmax_word("CAMEL", "C?M??", [5], [cell_p(c) for c in "CAMES"], "5"),
+       f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_two(c, 0.9, "E", 0.02) if i == 4 else cell_p(c)
+                                                for i, c in enumerate("ASCHAM")], "6"),
+       f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_p(c, 0.5 if i == 4 else 0.9) for i, c in enumerate("ASCHAM")], "6"),
+       f.argmax_word("TIRRA", "T?R?A", [5], [cell_p(c) for c in "TIRIA"], "5"),
+       f.argmax_word("ESCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6")))
+check("a listed VLM reply one open letter under the floor off the classifier's listed word stands as that word where "
+      "the clue's definition links it alone, proper names counted (ETNA over ELNA, IRAN over PRAN)", ("ETNA", "IRAN"),
+      (f.vlm_word("ELNA", "E?N?", [4], [cell_p(c) for c in "ETNA"], "4", "Nothing less than a fiver, say, to back this mount"),
+       f.vlm_word("PRAN", "?R?N", [4], [cell_p(c) for c in "IRAN"], "4", "Confession of cowardice in the Middle East?")))
+check("...not where the clue links both (SEEMS/SEEKS), the VLM's letter is at the floor, or no clue is given",
+      (None, None, None),
+      (f.paired_word("SEEMS", "S?E?S", [5], [cell_p(c) for c in "SEEKS"], "5", "Looks for certain Indians, say"),
+       f.paired_word("ELNA", "E?N?", [4], [cell_two(c, 0.9, "L", 0.05) if i == 1 else cell_p(c) for i, c in enumerate("ETNA")],
+                     "4", "Nothing less than a fiver, say, to back this mount"),
+       f.paired_word("ELNA", "E?N?", [4], [cell_p(c) for c in "ETNA"], "4")))
+check("a name the classifier spells in every cell at PAIRED_TOP+, one listed word one open letter off it, stands over "
+      "the VLM's unlisted misread where the clue names something past its first word (OXTED for OTTED, \"John Bull\"), "
+      "and checked_answers' misread_word spares it (paired_name)", ("OXTED", True),
+      (f.vlm_word("OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], "5", "Surrey relative of John Bull ?"),
+       f.paired_name("OXTED", "OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], "5", "Surrey relative of John Bull ?")))
+check("...not with no capitalised word past the clue's first, an open letter under PAIRED_TOP, a crossing the "
+      "classifier reads otherwise, or no enumeration", (None, None, None, None),
+      (f.paired_word("OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], "5", "Surrey relative of bull ?"),
+       f.paired_word("OTTED", "O?T?D", [5], [cell_p(c, 0.9) for c in "OXTED"], "5", "Surrey relative of John Bull ?"),
+       f.paired_word("OTTED", "O?T?D", [5], [cell_p("R" if i == 2 else c, 0.99) for i, c in enumerate("OXTED")], "5",
+                     "Surrey relative of John Bull ?"),
+       f.paired_word("OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], None, "Surrey relative of John Bull ?")))
+check("definition_linked counts a proper name's senses only with names (ETNA, \"this mount\")", (False, True),
+      (tso.definition_linked("ETNA", "to back this mount"), tso.definition_linked("ETNA", "to back this mount", names=True)))
+check("...not with a letter the classifier reads unsure (STROGONOFF, its O at 0.38)", None,
+      f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c, 0.38 if i == 6 else 0.9) for i, c in enumerate("PERSHORE")], "8"))
+check("...nor with no count of its own (a linked light's \"See 8\") or a count it does not fill", (None, None),
+      (f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], None),
+       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "5,9")))
+check("a phrase no list holds whole stands though its short piece (DE) or a listed one (FEMME) lies one letter off "
+      "a word (FEMME DE CHAMBRE); a long unlisted piece one off a word does not (DEFINATE ARTICLE)",
+      ("FEMMEDECHAMBRE", None),
+      (f.vlm_word("FEMMEDECHAMBRE", "?E?M?D?C?A?B?E", [5, 2, 7], [cell_p(c) for c in "FEMMEDECHAMBRE"], "5,2,7"),
+       f.vlm_word("DEFINATEARTICLE", "???????????????", [8, 7], [cell_p(c) for c in "DEFINATEARTICLE"], "8,7")))
+check("pieces of an enumeration: a phrase's words, else the light whole", ([4, 4, 3, 3], [12], [9], [4, 5]),
+      (tso.pieces_of("4,4,3,3", 14), tso.pieces_of("4,4,3,3", 12), tso.pieces_of(None, 9), tso.pieces_of("4-5", 9)))
+f._KEEP_VLM["names"] = ao_kept
+# A reread due for its solution grid alone (SOLUTION_FIXES) is not kept for the VLM: answers_only reads
+# it first (fitted reads, the VLM's strips); a refusal's fix, a forced unit and a bug reread still are.
+real_fix = f.fix_reason
+try:
+    f.fix_reason = lambda row: row.get("fix")
+    check("keeps_vlm: solution-only fixes read answers-only first; the rest keep the VLM",
+          [False, False, False, True, True, True, False],
+          [f.keeps_vlm("solution short, its cells unclassified", {"fix": "solution short, its cells unclassified"}, {}),
+           f.keeps_vlm("inputs changed", {"fix": "answers held back by a clue with no enumeration"}, {}),
+           f.keeps_vlm("solution short, read by other code", {}, {}),
+           f.keeps_vlm("refused not-a-grid before its fix", {"fix": "refused not-a-grid before its fix"}, {}),
+           f.keeps_vlm("solution short, read by other code", {}, {"force": True}),
+           f.keeps_vlm(None, {}, None),
+           f.keeps_vlm("inputs changed", {}, {})])
+finally:
+    f.fix_reason = real_fix
+
+for n, fn in ao_stubbed.items():
+    setattr(f, n, fn)
+
+# rules(): a printed solution grid's rules lie unevenly and its rows shear
+# against its columns (Gale's 1987-01-07, ~1px a cell, 8px over the grid);
+# straightened() squares them and rules() finds each one where it lies.
+import numpy as np
+import trove_solution_ocr as tso
+grid17246 = ["..........#....", ".#.#.#.#.#.#.#.", ".......#.......", ".#.#.#.#.#.#.#.",
+             ".........#.....", "##.#.#.#.#.###.", ".....#.........", ".#.#.#####.#.#.",
+             ".........#.....", ".###.#.#.#.#.##", ".....#.........", ".#.#.#.#.#.#.#.",
+             ".......#.......", ".#.#.#.#.#.#.#.", "....#.........."]
+step = [46, 49, 44, 47, 45, 50, 43, 46, 48, 45, 47, 44, 49, 46, 45]
+edges = [0] + list(np.cumsum(step))
+side = edges[-1] + 1
+ink = np.zeros((side, side), bool)
+for k, e in enumerate(edges):
+    w = 4 if k in (0, len(edges) - 1) else 2
+    ink[:, max(0, e - w):e + w + 1] = True
+    ink[max(0, e - w):e + w + 1, :] = True
+for r, row in enumerate(grid17246):
+    for c, ch in enumerate(row):
+        if ch == "#":
+            ink[edges[r]:edges[r + 1] + 1, edges[c]:edges[c + 1] + 1] = True
+        else:
+            # A letter's upright, a fifth of a cell from its left rule.
+            ink[edges[r] + 12:edges[r + 1] - 12, edges[c] + 9:edges[c] + 13] = True
+drawn = Image.fromarray(np.where(ink, 0, 255).astype(np.uint8))
+sheared = tso.sheared(drawn, 0, 0.012)
+ys, xs = tso.rules(np.asarray(tso.straightened(sheared)), grid17246)
+inner = edges[1:-1]
+check("each inner rule of an uneven, sheared grid found within 2px",
+      (True, True), (max(abs(a - b) for a, b in zip(xs[1:-1], inner)) <= 2,
+                     max(abs(a - b) for a, b in zip(ys[1:-1], inner)) <= 2))
+# A heavy print's edge column, blocks every other row and fat letters
+# between, is ink down most of its first cell: the frame's middle is still
+# at the frame (Times 1981-10-15 put it a third of a cell in, and lost the
+# column's letters).
+edge = ["#" + "." * 14 if r % 2 else "." * 15 for r in range(15)]
+heavy = np.zeros((side, side), bool)
+for k, e in enumerate(edges):
+    w = 4 if k in (0, len(edges) - 1) else 2
+    heavy[:, max(0, e - w):e + w + 1] = True
+    heavy[max(0, e - w):e + w + 1, :] = True
+for r in range(15):
+    top, foot = edges[r], edges[r + 1]
+    if r % 2:
+        heavy[top:foot + 1, :edges[1] + 1] = True
+    else:
+        # An H: two fat uprights and a bar, paper between them.
+        heavy[top + 8:foot - 8, 7:16] = heavy[top + 8:foot - 8, 30:39] = True
+        heavy[(top + foot) // 2 - 3:(top + foot) // 2 + 3, 7:39] = True
+ys, xs = tso.rules(np.where(heavy, 0, 255).astype(np.uint8), edge)
+check("a frame beside a heavy edge column found within 2px of its middle", True, abs(xs[0] - 2) <= 2)
+# read_framed(): the lattice reading most cells surely leads, and another
+# lattice's lights stand where they agree with its letters. Times 20352 on
+# rules() lost MERCILESS, RACER, ICECAP that an even lattice a few pixels
+# off read; a light whose cell the leader surely reads otherwise does not
+# stand (13977's even lattice read CREATED's D as an R).
+grid3 = ["...", ".#.", "..."]
+lead = ({(1, "across"): "CAT"}, {"cellsSure": 7, "blocks": 1.0}, {(0, 0): "C", (0, 1): "A", (0, 2): "T", (2, 2): "D"}, {})
+other = ({(1, "across"): "COT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOR"},
+         {"cellsSure": 5, "blocks": 1.0}, {}, {})
+real_framings, real_lattice = tso.framings, tso.read_lattice
+tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
+tso.read_lattice = lambda g, ys, xs, grid: {"o": other, "l": lead}[g]
+try:
+    Image.new("L", (30, 30), 255).save(os.path.join(os.environ["TMP"], "grid3.png"))
+    accepted, stats = tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3)
+finally:
+    tso.framings, tso.read_lattice = real_framings, real_lattice
+check("the surest lattice's lights stand; another's where every cell agrees",
+      ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED"}, 2),
+      (accepted, stats["lattices"]))
+# The leader's sure letters in a light it did not accept veto another
+# lattice's word only where they still spell a word: 15921's leader read
+# PROVISO as PB?VISO and NEWLOOK as NEWL?QK, its own cut's misreads, while
+# NONET read as NONER (15549) stays in doubt.
+def framed(lead_sure):
+    tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
+    tso.read_lattice = lambda g, ys, xs, grid: {"o": ({(3, "across"): "BED"}, {"cellsSure": 5, "blocks": 1.0}, {}, {}),
+                                                "l": ({}, {"cellsSure": 7, "blocks": 1.0}, lead_sure, {})}[g]
+    try:
+        return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3)[0].get((3, "across"))
+    finally:
+        tso.framings, tso.read_lattice = real_framings, real_lattice
+check("a leader's sure misread spelling no word does not veto another lattice's word",
+      "BED", framed({(2, 0): "B", (2, 1): "Q", (2, 2): "D"}))
+check("a leader's sure letter spelling another word leaves the light unread",
+      None, framed({(2, 0): "B", (2, 1): "E", (2, 2): "G"}))
+# grid_ocr_cache: read_lights' recogniser outputs are kept on disk by their cells, rendering and
+# model, per crop file: a fresh process (memo cleared) reads the same cells off disk, exactly
+# (float32 probabilities), the recogniser never run; other cells are read. 10-26: every reader
+# fix pushed read each Times grid again (~65 of ~95 CPU-s a grid in the recogniser).
+import grid_ocr_cache as goc
+real_cache = goc.CROP_CACHE
+goc.CROP_CACHE = Path(os.environ["TMP"]) / "grid_ocr"
+fake_model = Path(os.environ["TMP"]) / "fake_rec.onnx"
+fake_model.write_bytes(b"model")
+cells_a = [np.full((9, 9), 40, np.uint8), np.full((9, 9), 200, np.uint8)[1:8, 1:8]]
+probs_a = [float(np.float32(0.93)), float(np.float32(0.5123))]
+runs = []
+
+
+def fake_read(word, probs):
+    def read():
+        runs.append(word)
+        return word, list(probs)
+    return read
+
+
+crop_png = os.path.join(os.environ["TMP"], "grid3.png")
+try:
+    goc._MEMO.clear()
+    with goc.crop_scope(crop_png):
+        first = goc.recognised(cells_a, 1, 0, [fake_model], fake_read("AB", probs_a))
+    goc._MEMO.clear()
+    with goc.crop_scope(crop_png):
+        again = goc.recognised(cells_a, 1, 0, [fake_model], fake_read("XX", [0.1, 0.1]))
+        other = goc.recognised(cells_a, 2, 0, [fake_model], fake_read("CD", probs_a))
+    goc._MEMO.clear()
+    with goc.crop_scope(io.BytesIO(b"no file")):
+        unfiled = goc.recognised(cells_a, 3, 0, [fake_model], fake_read("EF", probs_a))
+finally:
+    goc.CROP_CACHE = real_cache
+    goc._MEMO.clear()
+check("a crop's recogniser outputs read again off disk, exactly; other renderings read",
+      [("AB", probs_a), ("AB", probs_a), ("CD", probs_a), ("EF", probs_a), ["AB", "CD", "EF"], 1],
+      [first, again, other, unfiled, runs, len(list((Path(os.environ["TMP"]) / "grid_ocr").glob("*.json.z")))])
+# agreed_reads(): two lattices reading a light surely in every cell as the
+# one listed word among its whole reads take it, though its numbered cell's
+# glyph match refused it (16752 REPINED, 14290 EGGDANCE); a rival whole read
+# that is a word leaves it unread (17469 DOUR, read with its number as BOUR).
+def lattices(word, *printed):
+    cells = [(0, i) for i in range(len(word))]
+    return {(1, "across"): cells}, [({}, {"cellsSure": 9}, dict(zip(cells, word)), {(1, "across"): set(p)})
+                                    for p in printed]
+check("two lattices reading every cell as the one word among the whole reads take it",
+      {(1, "across"): "REPINED"}, tso.agreed_reads(*lattices("REPINED", {"REPINED", "AEPINED"}, {"HEPINED"})))
+check("a rival whole read that is a word leaves the light unread",
+      {}, tso.agreed_reads(*lattices("BOUR", {"BOUR"}, {"BOUR", "DOUR"})))
+lts, one = lattices("REPINED", {"REPINED"})
+check("one lattice reading every cell is not two",
+      {}, tso.agreed_reads(lts, one + [({}, {"cellsSure": 9}, {}, {})]))
+# swapped_reads(): 1990s Times prints read an R as a sure A; the one listed
+# word an A-to-R swap makes is taken (18976 ESCAITOIRE, 18471 WOAKSHY), but
+# an R is never swapped to an A (BRLLOON stays unread, not BALLOON).
+def swapped(word):
+    lts = {(1, "across"): [(0, i) for i in range(len(word))]}
+    every = dict(zip(lts[(1, "across")], word))
+    return tso.swapped_reads(lts, every, {(1, "across"): {word}}, {}, every)
+check("a sure A whose swap to R makes the one word a letter away is that word",
+      {(1, "across"): "ESCRITOIRE"}, swapped("ESCAITOIRE"))
+check("a sure R is not swapped to an A", {}, swapped("BRLLOON"))
+# The cell classifier: a second reader of a Times print's cells. Each cell's
+# 26 probabilities; a light is decoded as the listed word they make likeliest
+# by CLASS_MARGIN over the next, its accepted crossings' letters held (8059's
+# STONECROP, read by the recogniser as STONECBAD).
+def sure_cells(word, p=0.99, at=(0, 0), across=True):
+    out = {}
+    for i, ch in enumerate(word):
+        v = np.full(26, (1 - p) / 25)
+        if ch != "?":
+            v[tso.AZ.index(ch)] = p
+        else:
+            v[:] = 1 / 26
+        out[(at[0], at[1] + i) if across else (at[0] + i, at[1])] = v
+    return out
+row = {(1, "across"): [(0, i) for i in range(9)]}
+check("a light whose cells read surely is decoded as its listed word",
+      {(1, "across"): "STONECROP"}, tso.classified_reads(row, {}, sure_cells("STONECROP")))
+check("cells that make two listed words alike likely decode neither",
+      {}, tso.classified_reads({(1, "across"): [(0, i) for i in range(4)]}, {}, sure_cells("RI?E")))
+import hashlib
+cross = {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (2, "down"): [(0, 2), (1, 2), (2, 2)]}
+check("an accepted crossing's letter settles the cell the classifier cannot",
+      {(1, "across"): "RIDE"}, tso.classified_reads(cross, {(2, "down"): "DUE"}, sure_cells("RI?E")))
+check("a word whose letter the classifier rules out is not decoded",
+      {}, tso.classified_reads(row, {}, {**sure_cells("STONECROP"), (0, 6): np.eye(26)[tso.AZ.index("B")] * 0.999 + 0.001 / 26}))
+check("an accepted light the classifier reads otherwise is vetoed where a crossing light decodes against it too; "
+      "on its own cells alone (UNION, SINAI on a 1974 print), or one it agrees with, it is not",
+      ({(1, "across")}, set(), set()),
+      (tso.vetoed(cross, {(1, "across"): "RIDE"}, {**sure_cells("?UE", at=(0, 2), across=False), **sure_cells("RICE")}),
+       tso.vetoed(row, {(1, "across"): "STONECROP"}, {**sure_cells("STONECROP"), (0, 6): np.eye(26)[1] * 0.9999 + 1e-6}),
+       tso.vetoed(row, {(1, "across"): "STONECROP"}, sure_cells("STONECROP"))))
+check("a crossing the classifier reads otherwise pins no decoded light (14043: TIRINGS held, PREFERRER not taken)",
+      {}, tso.classified_reads(cross, {(2, "down"): "CUE"}, {**sure_cells("?UE", at=(0, 2), across=False),
+                                                              **sure_cells("RIDE")}))
+# fitted_reads(): a light the classifier's top letters make words of its enumeration's pieces,
+# with no other listed word that fits (24229: WENT OVER THE TOP, 4,4,3,3, no listed word as one).
+phrase = {(9, "down"): [(i, 0) for i in range(14)]}
+phrase_p = sure_cells("WENTOVERTHETOP", p=0.8, across=False)
+check("a phrase of listed words, each cell read surely, is taken by its enumeration", {(9, "down"): "WENTOVERTHETOP"},
+      tso.fitted_reads(phrase, {}, phrase_p, {(9, "down"): "4,4,3,3"}))
+check("the same cells with no enumeration are no listed word", {}, tso.fitted_reads(phrase, {}, phrase_p, {}))
+check("an enumeration that does not add up to the light is not used", {},
+      tso.fitted_reads(phrase, {}, phrase_p, {(9, "down"): "4,4,3,2"}))
+check("a piece that is no word leaves the light unread", {},
+      tso.fitted_reads(phrase, {}, sure_cells("WENTOVERTHETXP", p=0.8, across=False), {(9, "down"): "4,4,3,3"}))
+check("a cell read below FIT_TOP leaves the light unread", {},
+      tso.fitted_reads(phrase, {}, sure_cells("WENTOVERTHETOP", p=0.5, across=False), {(9, "down"): "4,4,3,3"}))
+rival_p = sure_cells("RIDE")
+rival_p[(0, 2)] = np.full(26, 0.001)
+rival_p[(0, 2)][tso.AZ.index("D")] = 0.9
+rival_p[(0, 2)][tso.AZ.index("C")] = 0.07
+check("a light with a rival word a letter off at 5% or more (RIDE, RICE) is not taken", {},
+      tso.fitted_reads({(1, "across"): [(0, i) for i in range(4)]}, {}, rival_p, {}))
+rival_p[(0, 2)][tso.AZ.index("C")] = 0.01
+check("a rival under 5% leaves the one word", {(1, "across"): "RIDE"},
+      tso.fitted_reads({(1, "across"): [(0, i) for i in range(4)]}, {}, rival_p, {}))
+def margin_p(rival):
+    out = sure_cells("RIDE")
+    out[(0, 2)] = np.full(26, 0.001)
+    out[(0, 2)][tso.AZ.index("D")] = 0.97
+    out[(0, 2)][tso.AZ.index("C")] = rival
+    return out
+check("a light decodes at 50 to 1 over its rival word (RIDE 0.97, RICE 0.015) and not at 20 to 1 (0.05)",
+      ({(1, "across"): "RIDE"}, {}),
+      (tso.classified_reads(row4 := {(1, "across"): [(0, i) for i in range(4)]}, {}, margin_p(0.015)),
+       tso.classified_reads(row4, {}, margin_p(0.05))))
+check("a crossing's letter the classifier rules out stops it", {},
+      tso.fitted_reads(cross, {(2, "down"): "CUE"}, {**sure_cells("?UE", at=(0, 2), across=False), **sure_cells("RIDE")}, {}))
+# A surname cmudict alone lists is no word to win a margin (times-13764, 1974: the classifier
+# decoded TROEGER for TRIGGER at 50 to 1, its I and G misread): it stands only where every cell
+# not held reads it at UNLISTED_TOP, as a word no list holds does.
+check("TROEGER is cmudict's alone; TRIGGER and ROAN are words", (True, False, False),
+      (tso.name_only("TROEGER"), tso.name_only("TRIGGER"), tso.name_only("ROAN")))
+row7 = {(1, "across"): [(0, i) for i in range(7)]}
+check("a cmudict-only name read at 0.8 a cell is not decoded, at 0.99 it is; a word at 0.8 is",
+      ({}, {(1, "across"): "TROEGER"}, {(1, "across"): "TRIGGER"}),
+      (tso.classified_reads(row7, {}, sure_cells("TROEGER", p=0.8)),
+       tso.classified_reads(row7, {}, sure_cells("TROEGER")),
+       tso.classified_reads(row7, {}, sure_cells("TRIGGER", p=0.8))))
+check("nor is it fitted at 0.8 a cell", ({}, {(1, "across"): "TROEGER"}),
+      (tso.fitted_reads(row7, {}, sure_cells("TROEGER", p=0.8), {}),
+       tso.fitted_reads(row7, {}, sure_cells("TROEGER"), {})))
+check("the cell model on disk is the one CELL_MODEL_SHA names", True,
+      hashlib.sha256(tso.CELL_MODEL.read_bytes()).hexdigest() == tso.CELL_MODEL_SHA)
+glyphs = {(0, 0): np.zeros((tso.GLYPH + 2 * tso.GLYPH_SHIFT,) * 2, np.float32)}
+check("the classifier gives each cell 26 probabilities summing to one", (26, True),
+      (len(tso.classified(glyphs)[(0, 0)]), abs(tso.classified(glyphs)[(0, 0)].sum() - 1) < 1e-4))
+# read_framed(classify=True): the classifier vetoes and decodes on the best
+# lattice, only where its blocks are surely the puzzle's.
+def framed_classify(blocks):
+    tso.framings = lambda gray, grid: [("l", [0, 1, 2, 3], [0, 1, 2, 3])]
+    tso.read_lattice = lambda g, ys, xs, grid: ({(1, "across"): "CAT"}, {"cellsSure": 7, "blocks": blocks}, {}, {})
+    real_classified = tso.classified
+    tso.classified = lambda glyphs: {**sure_cells("CAT"), **sure_cells("COB", across=False),
+                                     **sure_cells("BED", at=(2, 0)), **sure_cells("TOD", at=(0, 2), across=False)}
+    real_glyph = tso.glyph
+    tso.glyph = lambda g, ys, xs, r, c: None
+    # The stub framing has no pixels: blocks_sure's heavy-print fallback must see no block read.
+    real_blocks_read = tso.blocks_read
+    tso.blocks_read = lambda gray, lat, n: {(0, 0): None}
+    try:
+        return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3, classify=True)
+    finally:
+        tso.framings, tso.read_lattice, tso.classified, tso.glyph = real_framings, real_lattice, real_classified, real_glyph
+        tso.blocks_read = real_blocks_read
+got, info = framed_classify(1.0)
+check("a sure grid's other lights are decoded by the classifier",
+      ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOD"}, 3, 0),
+      (got, info["classified"], info["vetoed"]))
+check("a grid whose blocks read unsure is not classified", ({(1, "across"): "CAT"}, None),
+      (framed_classify(0.9)[0], framed_classify(0.9)[1].get("classified")))
+# numbered_swaps(): a clue number makes its cell's sure read a misread
+# (15839 BVEREAT, 17215 YMPLORE); the one listed word a change of that cell
+# makes is taken, where half the lights crossing it are accepted. A plain
+# cell's change (BEEIZEBUB) is left to plain_swaps; a light in a grid read
+# around it so little that the crop may be another day's is not taken
+# (20372 TSQUARE).
+def settled(swaps, word, crossings_accepted):
+    across = [(1, i) for i in range(len(word))]
+    lts = {(2, "across"): across, (1, "down"): [(0, 1), (1, 1)], (3, "down"): [(0, 3), (1, 3)]}
+    accepted = {(1, "down"): "A" + word[1]} if crossings_accepted else {}
+    return swaps(lts, accepted, [{}, dict(zip(across, word))])
+check("a numbered cell's sure misread one letter from the only listed word is that word",
+      {(2, "across"): "OVEREAT"}, settled(tso.numbered_swaps, "BVEREAT", True))
+check("a plain cell's misread is not swapped", {}, settled(tso.numbered_swaps, "BEEIZEBUB", True))
+check("a light whose crossings are mostly unread is not swapped", {}, settled(tso.numbered_swaps, "BVEREAT", False))
+# listed_reads(): a sure read that is a listed word stands though its
+# numbered cell's glyph match refused it (16684 MOWGLI, 15870 REALLY), unless
+# another letter in that cell makes a listed word too (16777 BINNER for
+# DINNER, 17469 BOUR for DOUR), or half its crossings are unread.
+check("a sure listed read whose numbered cell no other letter fits stands",
+      {(2, "across"): "MOWGLI"}, settled(tso.listed_reads, "MOWGLI", True))
+check("a sure listed read whose numbered cell another letter makes a word of is unread",
+      {}, settled(tso.listed_reads, "BINNER", True))
+check("a sure listed read whose crossings are mostly unread is unread", {}, settled(tso.listed_reads, "MOWGLI", False))
+# plain_swaps(): a plain cell's sure misread one letter from exactly one
+# listed word is that word (15883 BEEIZEBUB, 19638 AOVENTURE); a second word
+# a letter away (15883 BRANG: BHANG, BRAND) leaves it unread.
+check("a plain cell's sure misread one letter from the only listed word is that word",
+      {(2, "across"): "BEELZEBUB"}, settled(tso.plain_swaps, "BEEIZEBUB", True))
+check("a sure misread a letter from two listed words is unread", {}, settled(tso.plain_swaps, "BRANG", True))
+# whole_listed(): a heavy print's light read whole as one listed word is
+# that word where accepted crossings hold every cell a letter's change makes
+# another listed word in (15901 PETAL beside PINUP); where a crossing is
+# unread, the read's first glyph may be an F (FETAL) and the light stays
+# unread; a whole read an accepted crossing contradicts is no word there.
+def whole(read, held_cols, crossing="PETAL"):
+    lts = {(5, "across"): [(1, j) for j in range(5)]}
+    lts.update({(j + 1, "down"): [(0, j), (1, j)] for j in range(5)})
+    accepted = {(j + 1, "down"): "X" + crossing[j] for j in held_cols}
+    return tso.whole_listed(lts, accepted, [{(5, "across"): set(read)}])
+check("a whole read whose every changeable cell a crossing holds is taken",
+      {(5, "across"): "PETAL"}, whole({"PETAL"}, range(5)))
+check("a whole read with a changeable cell no crossing holds is unread", {}, whole({"PETAL"}, range(1, 5)))
+check("a rival whole read a crossing contradicts leaves the word",
+      {(5, "across"): "PETAL"}, whole({"PETAL", "PEDAL"}, range(5)))
+check("a whole read a crossing contradicts is unread", {}, whole({"FETAL"}, range(5)))
+# mended_reads(): an accepted light whole_listed() reads otherwise with it
+# left out is that word (15901 FETAL, its first cell PINUP's P); one it
+# reads alike, or not at all, stands.
+def mended(accepted_word, read, held_cols):
+    lts = {(5, "across"): [(1, j) for j in range(5)]}
+    lts.update({(j + 1, "down"): [(0, j), (1, j)] for j in range(5)})
+    accepted = {(j + 1, "down"): "X" + "PETAL"[j] for j in held_cols}
+    return tso.mended_reads(lts, {**accepted, (5, "across"): accepted_word}, [{(5, "across"): set(read)}])
+check("an accepted light its crossings and whole read settle otherwise is mended",
+      {(5, "across"): "PETAL"}, mended("FETAL", {"PETAL"}, range(5)))
+check("an accepted light read alike stands", {}, mended("PETAL", {"PETAL"}, range(5)))
+check("an accepted light whose changed cell no crossing holds stands", {}, mended("FETAL", {"PETAL"}, range(1, 5)))
+# crossed_reads(): an unread light's cells take accepted crossings' letters
+# and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
+# cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),
+# and a crossing that a sure read contradicts leaves the light unread.
+cat_cob = {(1, "across"): "CAT", (1, "down"): "COB"}
+check("an unread light whose cells crossings and plain sure reads fill stands",
+      {(3, "across"): "BED"}, tso.crossed_reads(tso.lights(grid3), cat_cob, {(2, 1): "E", (2, 2): "D"}))
+check("a numbered cell's own sure read fills no light",
+      {}, tso.crossed_reads(tso.lights(grid3), {(1, "across"): "CAT"},
+                            {(1, 0): "O", (2, 0): "B", (2, 1): "E", (2, 2): "D"}))
+check("a crossing a sure read contradicts fills no light",
+      {}, tso.crossed_reads(tso.lights(grid3), {(1, "across"): "CAT", (3, "across"): "BED"},
+                            {(1, 2): "O", (2, 2): "T"}))
+# numbers_printed(): a Times solution grid from the mid-1980s prints no clue
+# numbers; blanking its numbered cells' corners makes a D a sure J (20006
+# DELETE lost), so only a grid whose numbered corners carry ink is blanked.
+lts = tso.lights(grid17246)
+numbered = {cells[0]: n for (n, _), cells in lts.items()}
+cells = {rc for c in lts.values() for rc in c}
+def solution_ink(numbers_too):
+    a = np.zeros((side, side), bool)
+    for k, e in enumerate(edges):
+        a[:, max(0, e - 2):e + 3] = a[max(0, e - 2):e + 3, :] = True
+    for r, c in cells:
+        a[edges[r] + 12:edges[r + 1] - 12, edges[c] + 18:edges[c] + 24] = True
+        if numbers_too and (r, c) in numbered:
+            a[edges[r] + 4:edges[r] + 14, edges[c] + 4:edges[c] + 12] = True
+    return np.where(a, 0, 255).astype(np.uint8)
+inner = list(map(float, edges))
+check("a grid printing its clue numbers is read as one; the same letters without them are not",
+      (True, False), tuple(bool(tso.numbers_printed(solution_ink(n), inner, inner, numbered, cells))
+                           for n in (True, False)))
+# unnumbered_reads(): in a grid printing no numbers a numbered cell takes the
+# letter its plain and blanked reads agree on surely, unless its whole glyph
+# best matches another letter (a light's first I read as a sure T lost
+# INSTEP, filed TRILOGY's I as T).
+gside = tso.GLYPH + 2 * tso.GLYPH_SHIFT
+def drawn_letter(ch):
+    g = np.zeros((gside, gside), np.float32)
+    g[6:32, 17:22] = 1
+    if ch == "T":
+        g[6:11, 8:31] = 1
+    return g
+glyphs = {(0, 1): drawn_letter("I"), (0, 2): drawn_letter("T"), (1, 0): drawn_letter("I"),
+          (2, 0): drawn_letter("T"), (3, 0): drawn_letter("T")}
+read = {(0, 1): "I", (0, 2): "T"}
+numbered = {(1, 0): 1, (2, 0): 2, (3, 0): 3}
+check("a numbered cell read surely both ways stands only as its glyph's best match; one way is not enough",
+      {(2, 0): "T"}, tso.unnumbered_reads({(1, 0): "T", (2, 0): "T", (3, 0): "T"}, {(1, 0): "T", (2, 0): "T"},
+                                          glyphs, read, numbered))
+# best_match(): a letter no plain cell was read as has no model, so the glyph
+# cannot veto it (GERFALCON, GATECRASH and PEGASUS lost their numbered G in
+# times-19998); a letter with a model still yields to a better match.
+check("a numbered cell's letter with no model stands; one a likelier model beats does not",
+      (True, False, True),
+      tuple(tso.best_match(drawn_letter(drawn), tso.letter_models(glyphs, read), 1, ch)
+            for drawn, ch in (("I", "G"), ("I", "T"), ("T", "T"))))
+check("run-together words of 3+ letters are an answer only when read whole: not A + ALLEY, A + DO + IS + ON",
+      (False, False, True, True, False),
+      (tso.answer("AALLEY", set()), tso.answer("AALLEY", {"AALLEY"}), tso.answer("TUCKSHOP", {"TUCKSHOP"}),
+       tso.answer("ALLEY", set()), tso.answer("ADOISON", {"ADOISON"})))
+# numbered_letters(): in a grid printing its numbers a light's one unread
+# numbered cell takes the one allowed letter making a word the light was
+# read whole as (?UEUE: QUEUE, 15893); not a run-together (H read as N:
+# NARD + COURT), not two words (BRIER/DRIER), not a word never read whole,
+# and not against a crossing read in full.
+def numbered_case(word, allowed, printed, cross=None):
+    lts = {(1, "across"): [(0, c) for c in range(len(word))]}
+    letters = {(0, c): ch for c, ch in enumerate(word) if c}
+    if cross:
+        lts[(1, "down")] = [(r, 0) for r in range(len(cross))]
+        letters.update({(r, 0): ch for r, ch in enumerate(cross) if r})
+    return tso.numbered_letters(lts, letters, {(0, 0): 1}, {(0, 0): set(allowed)},
+                                {(1, "across"): set(printed)})
+check("a numbered first cell takes the one allowed letter making a word read whole, and only that",
+      ({(0, 0): "Q"}, {}, {}, {}, {}, {(0, 0): "D"}),
+      (numbered_case("?UEUE", "BDQ", {"BUEUE", "QUEUE"}), numbered_case("?ARDCOURT", "N", {"NARDCOURT"}),
+       numbered_case("?RIER", "BD", {"BRIER", "DRIER"}), numbered_case("?UEUE", "Q", {"BUEUE"}),
+       numbered_case("?YNE", "D", {"DYNE"}, cross="?XQZ"), numbered_case("?YNE", "D", {"DYNE"}, cross="?ARE")))
+# whole_reads(): a light read whole as exactly one word takes its letters
+# where the word agrees with every letter settled; not two words (HEADS and
+# MEADS), not against a settled letter, and a numbered cell left open only
+# as its glyph's best match to a letter model (DROWN read as BROWN, 13773).
+def whole_case(printed, settled=None, number=None, drawn="T"):
+    lts = {(1, "across"): [(5, c) for c in range(len(next(iter(printed))))]}
+    gl = {**glyphs, (5, 0): drawn_letter(drawn)}
+    return tso.whole_reads(lts, settled or {}, {rc: set(tso.AZ) for rc in lts[(1, "across")]},
+                           {(1, "across"): set(printed)}, {(5, 0): 1} if number else {}, gl,
+                           tso.letter_models(glyphs, read))
+check("a light read whole as one word takes its open letters, the numbered first one as its glyph's best match",
+      ("SLUMP", {}, {}, "TIDE", {}, {}),
+      ("".join(whole_case({"SLUMP", "SLOMP"}, {(5, 2): "U"}).get((5, c), "U") for c in range(5)),
+       whole_case({"HEADS", "MEADS"}), whole_case({"SLUMP"}, {(5, 2): "O"}),
+       "".join(whole_case({"TIDE"}, number=True)[(5, c)] for c in range(4)),
+       whole_case({"TIDE"}, number=True, drawn="I"), whole_case({"BROWN"}, number=True)))
+
+# read_solution(): the solution grid under its heading, answers keyed as
+# trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.
+from PIL import Image, ImageDraw
+ed = Path(os.environ["TMP"]) / "ed"; ed.mkdir()
+im = Image.new("L", (1200, 1400), 255)
+ImageDraw.Draw(im).rectangle((110, 160, 460, 510), fill=0)
+im.save(ed / "leaf_0003.jpg")
+f.CROPS = Path(os.environ["TMP"]) / "crops"
+import trove_solution_ocr
+seen = []
+classify_seen = []
+def fake(path, grid, tight=False, bounded=False, classify=False, lean=False, **kw):
+    seen.append((Image.open(path).size, tight, bounded))
+    classify_seen.append(classify)
+    return {(1, "across"): "ABC"}, {"blocks": stats_blocks}
+trove_solution_ocr.read_answers = fake
+sol = {"dir": ed, "leaf": 3, "number": 7, "box": (100, 100, 400, 140)}
+stats_blocks = 1.0
+got, _ = f.read_solution(f.page(ed, 3), sol, ["..."])
+check("solution answers keyed as fill() reads them, the grid cropped tight at 3x and read on its own rules",
+      ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True, True)), (got, seen[0]))
+check("a Times edition's solution grid is read with the cell classifier (CELLS_CLASSIFIED)", True,
+      classify_seen[0])
+# A crop another cut left at the path is never read: each read cuts afresh.
+stale = f.CROPS / "solutions" / f"{ed.name}_7.png"
+Image.new("L", (90, 90), 255).save(stale)
+seen.clear()
+f.read_solution(f.page(ed, 3), sol, ["..."])
+check("a solution crop saved by other code is not reused: the grid is cut again", (352 * 3, 352 * 3), seen[0][0])
+# Under SOLUTION_BLOCKS a Times read stands from NEAR_BLOCKS with NEAR_SHARE of its lights read (near_read,
+# NEAR_GRID): here one light of one, so a grid is refused only under NEAR_BLOCKS.
+stats_blocks = f.NEAR_BLOCKS
+got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
+check("a Times solution grid at NEAR_BLOCKS whose lights it read stands as a near read",
+      ({"1-across": "ABC"}, False, True), (got, "refused" in info, info.get("near")))
+stats_blocks = f.NEAR_BLOCKS - 0.01
+got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
+check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
+stats_blocks = 0.9
+got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
+check("...and a noisy print of the puzzle's grid gives its bounded lights", ({"1-across": "ABC"}, False),
+      (got, "refused" in info))
+# A grid joined to a photo under it (1993: 344x426 ink, 103 refused for it) or to a
+# neighbour's text beside it is read as its square part, and refused only when no cut's
+# blocks are the puzzle's.
+stats_blocks = 1.0
+for name, rect, want in (("tall", (110, 160, 460, 640), 1), ("wide", (110, 160, 640, 510), 1)):
+    led = Path(os.environ["TMP"]) / ("ed_" + name); led.mkdir()
+    pg = Image.new("L", (1200, 1400), 255)
+    ImageDraw.Draw(pg).rectangle(rect, fill=0)
+    pg.save(led / "leaf_0003.jpg")
+    seen.clear()
+    got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
+    # The leaf is a JPEG: its ringing at the box's edges moves the Otsu cut a pixel or two
+    # (the tall box's square part is 350 wide, not 352), so the cut is square and 352 +- 3.
+    check(f"a {name} ink box (a grid and what is joined to it) is read as its square part",
+          ({"1-across": "ABC"}, True, True),
+          (got, seen[0][0][0] == seen[0][0][1], abs(seen[0][0][0] - 352 * 3) <= 3 * 3))
+    stats_blocks = f.NEAR_BLOCKS - 0.01
+    seen.clear()
+    got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
+    check(f"...and a {name} one no cut of which has the puzzle's blocks is refused", ({}, True, True),
+          (got, "refused" in info, len(seen) >= 1))
+    stats_blocks = 1.0
+# A heading box that lost its first words (Gale 2012: 137px of a 357px grid) cuts the grid's
+# left and foot off the window: the window grows while the ink touches its edges.
+stats_blocks = 1.0
+seen.clear()
+got, _ = f.read_solution(f.page(ed, 3), {**sol, "box": (300, 100, 440, 120)}, ["..."])
+check("a grid cut by the window of a short heading is read whole", ({"1-across": "ABC"}, (352 * 3, 352 * 3)),
+      (got, seen[0][0]))
+check("a box far from square (a speck under the heading) has no square cut", [],
+      f.squares(Image.new("L", (500, 500), 255), (0, 0, 300, 20)))
+check("a square box has none", [], f.squares(Image.new("L", (500, 500), 255), (0, 0, 300, 296)))
+# matched_box(): a grid whose ink joins a neighbour's (1974-78: a 444x434 box for a 313px grid) is
+# found as the lattice whose blocks are the puzzle's.
+mg = ["..#..", ".#.#.", "#...#", ".#.#.", "..#.."]
+mw = Image.new("L", (520, 420), 255)
+md = ImageDraw.Draw(mw)
+md.rectangle((100, 100, 350, 350), outline=0, width=3)
+for k in range(1, 5):
+    md.line((100 + 50 * k, 100, 100 + 50 * k, 350), fill=0, width=2)
+    md.line((100, 100 + 50 * k, 350, 100 + 50 * k), fill=0, width=2)
+md.rectangle((350, 60, 470, 380), fill=0)
+for r, row in enumerate(mg):
+    for c, ch in enumerate(row):
+        if ch == "#":
+            md.rectangle((100 + 50 * c, 100 + 50 * r, 150 + 50 * c, 150 + 50 * r), fill=0)
+m_agree, m_box, _ = f.matched_box(mw, mg, (200, 400))
+check("a grid joined to a neighbour's ink is found by its blocks", (1.0, True),
+      (m_agree, all(abs(a - b) <= 4 for a, b in zip(m_box, (100, 100, 350, 350)))))
+# aligned_framings(): with a matched lattice, a framing whose blocks agree near its reads whole; one
+# far under (times-3938's at 0.796, rows off the grid) reads only the cells its rules cut as the
+# matched lattice's do, here the first row of a lattice 3px a row short.
+_ag = np.full((120, 120), 255, np.uint8)
+_m, _same, _drift = (_ag, *tso.even((10, 10, 20, 20), 5)), (_ag, *tso.even((11, 10, 20, 20), 5)), (_ag, *tso.even((10, 10, 20, 17), 5))
+_fits = {id(_m[1]): 1.0, id(_same[1]): 0.99, id(_drift[1]): 0.8}
+_ba, tso.block_agreement = tso.block_agreement, lambda g, grid, lat: _fits[id(lat[0])]
+try:
+    _keep, _only = tso.aligned_framings(_ag, ["....."] * 5, [_m, _same, _drift])
+finally:
+    tso.block_agreement = _ba
+check("a framing far under a matched lattice reads only its aligned cells; one near it, every cell",
+      (3, {2: {(0, c) for c in range(5)}}), (len(_keep), _only))
+# solved(): read_solution kept by what it reads from, so a re-read for a
+# clue-vote change runs no solution OCR; another grid or heading reads again.
+stats_blocks = 1.0
+seen.clear()
+first = f.solved(sol, ["..."])
+again = f.solved(sol, ["..."])
+check("a solution read once is kept: the second read opens no page and runs no OCR",
+      (({"1-across": "ABC"}, {"blocks": 1.0}), 1), (again, len(seen)))
+check("...and gives what the read gave", first, again)
+f.solved(sol, [".#."])
+f.solved({**sol, "box": (100, 100, 401, 140)}, [".#."])
+check("...read again for another grid or another heading box", 3, len(seen))
+check("solved() is not in read_solution's reach: solution_key() stays the reader's",
+      False, ("file_archive_org_puzzles", "solved") in set(code_reach.reach("file_archive_org_puzzles", {"read_solution"})))
+
+# rapid_lines(): a reader's clue reading is kept per crop, so a re-read after a
+# post-processing change runs no clue OCR; a moved grid (new scan, locate fix)
+# reads again.
+_read_words, reads = f.read_words, []
+f.read_words = lambda crop, which: reads.append((crop.size, which)) or [(5, 5, 60, 20, "1 Clue (4)")]
+clue_page = Image.new("L", (1200, 1600), 255)
+rp = Path(os.environ["TMP"]) / "rapid" / "1990-01-01_1.en5.json"
+first = f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp)
+again = f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp)
+check("a clue reading is kept: the second identical read runs no OCR and gives the first's words",
+      (1, first), (len(reads), again))
+f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp, above=120.5, x0=180.25)
+f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp, above=120.5, x0=180.25)
+check("...a fractional `above` crop round-trips its JSON key: read once", 2, len(reads))
+f.rapid_lines(clue_page, (240, 300, 740, 800), "en5", rp)
+check("...and a moved grid is read again", 3, len(reads))
+near = f.rapid_lines(clue_page, (243, 300, 743, 800), "en5", rp)
+check("...a window within NEAR_WINDOW px on every edge of one read stands on that read (no OCR)",
+      (3, f.rapid_lines(clue_page, (240, 300, 740, 800), "en5", rp)), (len(reads), near))
+f.rapid_lines(clue_page, (245, 300, 745, 800), "en5", rp)
+check("...one more than NEAR_WINDOW px off on an edge is read", 4, len(reads))
+f.read_words = _read_words
+
+# bounded_light(): a light off a grid whose blocks read unsure stands only
+# where the image ends it with blocks and no lattice read another word there
+# (times-19371 read off 19271's grid: TRACTA ran on into a letter).
+bl = trove_solution_ocr.bounded_light
+row = [(0, 1), (0, 2), (0, 3), (0, 4)]
+blocks = {(0, 0): True, (0, 5): True}
+check("a light its blocks bound, read as one word, stands", True,
+      bl(row, "across", blocks, "TREK", [{"TREK"}, {"TREK", "TQEK"}]))
+check("...not one the image runs on past (another puzzle's grid)", False,
+      bl(row, "across", {(0, 0): True, (0, 5): False}, "TREK", [{"TREK"}]))
+check("...nor one a lattice read whole as another word (PASTILLE beside BASTILLE)", False,
+      bl(row, "across", blocks, "TREK", [{"TREK"}, {"TREE"}]))
+check("...and the grid's edge bounds a light", True,
+      bl([(0, 0), (0, 1), (0, 2), (0, 3)], "across", {(0, 4): True}, "TREK", [{"TREK"}]))
+
+check("a complete puzzle goes to the corpus, with or without --out",
+      [None, None], [f.destination("out", True), f.destination(None, True)])
+check("a puzzle with a blank clue goes to --out or nowhere, never the corpus",
+      ["out", False], [f.destination("out", False), f.destination(None, False)])
+check("complete() is every clue having text, none with a made-up word", [True, False, False],
+      [f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": "B"}}]}),
+       f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": " "}}]}),
+       f.complete({"entries": [{"clue": {"text": "A"}}, {"clue": {"text": "Start trom Hint"}}]})])
+
+import fetch_puzzle
+ed_dir = Path(os.environ["TMP"]) / "runcache" / "NewsUK1990UKEnglish" / "1990-01-01_1"
+ed_dir.mkdir(parents=True)
+wrote = []
+saved = (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
+         fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file)
+f.edition_dirs = lambda cache, paper=None: [ed_dir]
+f.scan = lambda d: {"date": "1990-01-01", "item": "NewsUK1990UKEnglish", "solutions": [],
+                    "puzzles": [{"number": 18179, "leaf": 1, "box": None},
+                                {"number": 18180, "leaf": 2, "box": None}]}
+def fake_read(d, found, hit, solutions):
+    blank = hit["number"] == 18179
+    return {"number": hit["number"]}, {"id": f"times-{hit['number']}", "number": hit["number"],
+            "entries": [{"clue": {"text": "Top"}}, {"clue": {"text": "" if blank else "Left"}}]}
+f.read_puzzle = fake_read
+f.input_hash = lambda d: "h"
+f.held_numbers = lambda series="times": set()
+fetch_puzzle.puzzle_path = lambda series, n: Path(os.environ["TMP"]) / "corpus" / f"times-{n}.json"
+fetch_puzzle.write_puzzle_file = lambda path, puzzle, generator: wrote.append(path.parent.name + "/" + path.name)
+rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled",
+             source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
+check("run files the complete puzzle in the corpus and the one with a blank clue in --out",
+      ["unfiled/times-18179.json", "corpus/times-18180.json"], sorted(wrote, reverse=True))
+wrote.clear()
+rows = f.run(cache=ed_dir.parent.parent, ledger=Path(os.environ["TMP"]) / "l2.jsonl",
+             source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
+check("without --out a puzzle with a blank clue is written nowhere", ["corpus/times-18180.json"], wrote)
+# One puzzle whose write raises is a verdict: the run files the rest, and
+# its summary counts the failure.
+import io
+def failing_write(path, puzzle, generator):
+    if puzzle["id"] == "times-18179":
+        raise ValueError("times-18179 22-down: definition 'x' is not in the clue ''")
+    wrote.append(path.parent.name + "/" + path.name)
+wrote.clear()
+fetch_puzzle.write_puzzle_file = failing_write
+summary = io.StringIO()
+rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled",
+             ledger=Path(os.environ["TMP"]) / "l3.jsonl", source=Path(os.environ["TMP"]) / "src", out=summary)
+failed = [v for r in rows for v in r["verdicts"] if v.get("writeFailed")]
+check("a puzzle whose write raises is logged, counted and skipped; the rest are filed",
+      (["corpus/times-18180.json"], [18179], True, True),
+      (wrote, [v["number"] for v in failed], "is not in the clue" in failed[0]["writeFailed"],
+       "1  write failed: ValueError" in summary.getvalue()))
+# --edition limits the scans as well as the reads: the named edition and
+# the days after it (its solution) are scanned, no other edition.
+eds = [ed_dir.parent / n for n in ("1990-01-01_1", "1990-01-02_2", "1990-03-01_50")] + \
+      [ed_dir.parent.parent / "NewsUK1991UKEnglish" / "1991-01-02_9"]
+scanned, read = [], []
+f.edition_dirs = lambda cache, paper=None: eds
+f.scan = lambda d: scanned.append(d.name) or {"puzzles": [{"number": 1, "leaf": 1, "box": None}], "solutions": []}
+f.read_puzzle = lambda d, found, hit, solutions: read.append(d.name) or ({"number": 1}, None)
+f.run(cache=ed_dir.parent.parent, write=False, ledger=Path(os.environ["TMP"]) / "l4.jsonl",
+      source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"),
+      editions=["NewsUK1990UKEnglish/1990-01-01_1"])
+check("--edition scans that edition and the days after it, reads it alone",
+      (["1990-01-01_1", "1990-01-02_2"], ["1990-01-01_1"]), (sorted(scanned), read))
+# A run's (and so a read unit's) stale scans are made whole on the desktop
+# when it answers, as a scan unit's are: scan() here only when it does not.
+import ocr_remote
+remote_scanned, _remote_scan = [], ocr_remote.scan
+ocr_remote.scan = lambda d: remote_scanned.append(d.name) or {"puzzles": [{"number": 1, "leaf": 1, "box": None}],
+                                                              "solutions": []}
+scanned.clear(); read.clear()
+f.run(cache=ed_dir.parent.parent, write=False, ledger=Path(os.environ["TMP"]) / "l4r.jsonl",
+      source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"),
+      editions=["NewsUK1990UKEnglish/1990-01-01_1"])
+ocr_remote.scan = _remote_scan
+check("a run's scans are made on the desktop when it answers, none here",
+      (["1990-01-01_1", "1990-01-02_2"], []), (sorted(remote_scanned), scanned))
+# --no-scan scans nothing and reads only the due editions whose read waits
+# on no scan: not 1990-01-01, whose next day (its solution) is unscanned.
+l5 = Path(os.environ["TMP"]) / "l5.jsonl"
+l5.write_text("".join(json.dumps({"edition": f"{d.parent.name}/{d.name}", "filesHash": "h", "scanKey": f.scan_key(),
+                                  "scan": {"puzzles": [{"number": 1, "leaf": 1, "box": None}], "solutions": []}}) + "\n"
+                      for d in (eds[0], eds[2])))
+scanned.clear(); read.clear()
+summary = io.StringIO()
+f.run(cache=ed_dir.parent.parent, write=False, ledger=l5, source=Path(os.environ["TMP"]) / "src", out=summary,
+      scan_new=False)
+check("--no-scan scans nothing and reads only the editions no unscanned day's solution waits on",
+      ([], ["1990-03-01_50"], True), (scanned, read, "3 wait on a scan" in summary.getvalue()))
+# --paper gale --newer-than: only the editions laid out since then are
+# scanned (with the days after them) and read, the latest laid out first,
+# under the Gale ledger, never filed.jsonl.
+gcache = Path(os.environ["TMP"]) / "galecache"
+geds = [gcache / "GaleTimes1987UKEnglish" / n for n in ("1987-03-02", "1987-03-03", "1987-03-04", "1987-06-01")]
+for k, d in enumerate(geds):
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    os.utime(d / "pages.json", (1000 + k, 1000 + k))
+os.utime(geds[0] / "pages.json", (5000, 5000))
+os.utime(geds[1] / "pages.json", (4000, 4000))
+scanned.clear(); read.clear()
+f.edition_dirs = lambda cache, paper=None: geds if paper is f.GALE else []
+f.run(cache=gcache, paper=f.GALE, source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"), newer=3000)
+check("--newer-than reads only the editions laid out since, latest laid out first, scanning their next days too",
+      (["1987-03-02", "1987-03-03", "1987-03-04"], ["1987-03-02", "1987-03-03"]), (sorted(scanned), read))
+check("the Gale run keeps its own ledger", (True, False),
+      ((gcache / "filed-gale.jsonl").exists(), (gcache / "filed.jsonl").exists()))
+scanned.clear(); read.clear()
+f.run(cache=gcache, paper=f.GALE, source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
+check("without it, every due Gale edition is read, the never-read latest laid out first",
+      ["1987-06-01", "1987-03-04"], read)
+(f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
+ fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file) = saved
+check("unsettled: an unscanned edition holds back itself and the SOLUTION_DAYS before it, not after",
+      ["1990-01-01_1", "1990-01-02_2"], sorted(d.name for d in f.unsettled(eds, [eds[1]])))
+check("unsettled: an edition the scan of a dir dated SOLUTION_DAYS later still holds back; one day more does not",
+      [True, False], [Path("x/1990-01-01_1") in f.unsettled([Path("x/1990-01-01_1")], [Path(f"x/1990-01-0{k}_2")])
+                      for k in (1 + f.SOLUTION_DAYS, 2 + f.SOLUTION_DAYS)])
+check("unsettled: nothing unscanned holds nothing back; an undated unscanned dir holds back every dir",
+      [set(), set(eds)], [f.unsettled(eds, []), f.unsettled(eds, [Path("x/listener_x")])])
+check("edition_date finds the date anywhere in the name", [__import__("datetime").date(1930, 2, 1), None],
+      [f.edition_date(Path("per_times_the-times_1930-02-01_45426")), f.edition_date(Path("listener_x"))])
+
+import cross_validate
+a = cross_validate.ArchiveOrg()
+check("archiveorg does not compare a file it filed with itself", [False, True],
+      [a.covers({"source": {"acquiredBy": "tools/file_archive_org_puzzles.py"}}),
+       a.covers({"source": {"acquiredBy": "tools/acquire_book.py"}})])
+# A retrained Tesseract model gets its own cache name; RapidOCR's keep theirs.
+model = Path(os.environ["TMP"]) / "m.traineddata"
+saved = dict(ocr_clues.TESS_MODELS), dict(ocr_clues._MODEL_HASHES)
+ocr_clues.TESS_MODELS["times"] = model
+# The Telegraph: "No. 18,340 ACROSS" heads the left clue column, DOWN the
+# right, the grid under both; "SOLUTION No. 18,339" over the last grid.
+titles, sols = f.telegraph_headings([line("No. T8,338ACROSS", 168, 2517), line("Ko. 18.339 ACROSS", 217, 2492),
+                                     line("No. 18-340ACROM", 210, 2335), line("SOLUTION No. 18,339", 991, 3698),
+                                     line("QUICK CROSSWORD", 189, 3848), line("No. 12 Down Street", 900, 100)])
+check("Telegraph titles however misread, the solution box the solution grid's width, no Quick",
+      ([18338, 18339, 18340], [(18339, f.TELEGRAPH_SOLUTION_SPAN)]),
+      ([n for n, _, _ in titles], [(n, b[2] - b[0]) for n, b in sols]))
+check("the Telegraph's editions file as telegraph, numbered as the feed's",
+      ("telegraph", "telegraph", [True, True]),
+      (f.paper_of(cache / "TheDailyTelegraph1985UKEnglish" / "x").series,
+       f.paper_of(cache / "SundayTelegraph1971UKEnglish" / "x").series,
+       [abs(n - f.telegraph_expected_number(datetime.date.fromisoformat(d))) <= 5
+        for d, n in [("1985-01-02", 18338), ("2009-02-07", 25846)]]))
+check("a heading led by the puzzle's number, a zero read for O; a street name no heading",
+      ["ACROSS", "ACROSS", None], [f.numbered_heading(t_) for t_ in ("No. 18.339ACR0SS", "No. T8,338ACROSS",
+                                                                       "No. 12 Down Street")])
+# Clues over the grid: split at the gutter, which the left column's long
+# lines pass the grid's middle to reach; the right column overhangs the
+# grid but ends before the next column's words; specks are no line.
+grid = (200, 3100, 900, 3800)
+lines = [line("No. 18,340ACROSS", 210, 2335), line("DOWN", 700, 2335),
+         line("1 Plumber who puts on airs in", 215, 2365), line("Local", 570, 2365, ),
+         line("trader providing people", 640, 2365), line("Lak", 935, 2365),
+         line("Scotland (5)", 240, 2390), line("(8)", 600, 2390), line(", . .", 600, 2415)]
+lines[3] = [(570, 2365, 620, 2381, "1"), (630, 2365, 680, 2381, "Local")]
+top = 2325
+split = f.gutter(lines, grid, top)
+right = f.gutter(lines, grid, top, grid[2] - f.OVERHANG, grid[2] + f.OVERHANG)
+check("gutter between the columns, right edge before the next column", (True, True),
+      (520 <= split < 570, 866 <= right < 935))
+check("clues-above columns: the title read as ACROSS, specks and the next column left out",
+      "ACROSS\n1 Plumber who puts on airs in\nScotland (5)\nDOWN\n1 Local trader providing people\n(8)",
+      f.column_text(f.columns(lines, grid, None, 15, (top, split, right))))
+# The 1970s Telegraph (Gale 1975-03-05) indents its grid under the clues,
+# the Quick crossword's clues in the gap: the across column starts at the
+# title's left edge, not the grid's, or every across number is cut off.
+grid = (421, 4160, 1196, 4935)
+title = (237, 3247, 533, 3283)
+lines = [line("No. 15,302 ACROSS", 237, 3247), line("DOWN", 898, 3249),
+         line("1 & 9 Fortified ruler of un-", 245, 3290), line("2 One on a Scot of Greek", 733, 3282),
+         line("washed scamps (4, 2, 3, 6)", 280, 3325), line("origin (6)", 757, 3313)]
+x0 = f.clues_left(grid, title, 15)
+top = title[1] - 10
+span = (x0 + 15 + 0.3 * (grid[2] - x0 - 15), x0 + 15 + 0.75 * (grid[2] - x0 - 15))
+split = f.gutter(lines, grid, top, *span)
+right = f.gutter(lines, grid, top, grid[2] - f.OVERHANG, grid[2] + f.OVERHANG)
+check("clues-above columns start at a title left of an indented grid; elsewhere at the grid",
+      (222, 385, "ACROSS\n1 & 9 Fortified ruler of un-\nwashed scamps (4, 2, 3, 6)\nDOWN\n2 One on a Scot of Greek\norigin (6)"),
+      (x0, f.clues_left((400, 0, 900, 0), (410, 0, 600, 0), 15),
+       f.column_text(f.columns(lines, grid, None, 15, (top, split, right, x0)))))
+check("a 1 read as I or l at a clue's start, '<' for '(', specks after a count, a count left open at a list's end",
+      "ACROSS\n1 A fruitful cause (5)\n17 More than two (5-8)\n29 Swallows (5)\nDOWN\n1 Some (5-\n4)",
+      f.tidy("ACROSS\nIA fruitful cause <5)'\nI7 More than two (5-8).\n29 Swallows (5r\nDOWN\n1 Some (5-\n4)"))
+g = ["...#...", "...#...", "......."]
+laid, _ = f.lay_loose(f.parse("ACROSS\n1 & 4 Linked words (3,3)\nDOWN\n1 Down (3)")[0], g)
+check("a linked clue laid on the lights its numbers name when one count fills them; the tail reads See",
+      (("Linked words", "3,3", ["1-across", "4-across"]), "See 1"), (laid.get("1-across"), laid.get("4-across", ("",))[0]))
+laid, _ = f.lay_loose(f.parse("ACROSS\n1 & 4 Linked words (7)\nDOWN\n1 Down (3)")[0], g)
+check("a linked clue whose count does not fill its lights is not laid", None, laid.get("1-across"))
+# Gale 1966-12-24: "26, 30 Women who ..." in the down list over 26 down and 30 across.
+g = ["...", ".#.", "..."]
+laid, _ = f.lay_loose(f.parse("ACROSS\n1 Top (3)\n3 See 1 down\nDOWN\n1, 3 Linked across the lists (3,3)\n2 Right (3)")[0], g)
+check("a linked clue's tail its list does not number is the other list's light",
+      (("Linked across the lists", "3,3", ["1-down", "3-across"]), "See 1"),
+      (laid.get("1-down"), laid.get("3-across", ("",))[0]))
+check("a linked head with no space after a count is the next clue's numbers, not a speck",
+      [[{1}], [{5}, {20}], [{9}]],
+      [c["tokens"] for c in ftp.clues("1 Flower of the field (5) 5,20 How to make brash yet (4, 5) 9 Big cat roars (4)")[0]])
+check("ACROSS lost before a linked head opening on a figure (Gale 1954-07-05)",
+      ["ACROSS", "1, 10 8 sailors hate (3, 6)"],
+      ftp.heads(["1, 10 8 sailors hate (3, 6)", "11 What the doctor (8)", "12 What should (6)", "13 There's (4)",
+                 "DOWN", "2 Changes (8)", "3 Subject (8)", "4 See 26 (9)"])[:2])
+got, _ = ocr_clues.reconcile({"15-down": ("Entice Fortune, but provoke Nemesis? (5,4) - . 18 & 25 The point of", "9",
+                                          ["15-down", "24-down"])},
+                         ["15 & 24 Entice Fortune, but provoke Nemesis? (5,4)"], {"15-down": 5, "24-down": 4, "25-down": 5})
+check("a run-on cut at the next clue; the count left inside ends the clue and is its count",
+      ("Entice Fortune, but provoke Nemesis?", "5,4"), got["15-down"][:2])
+check("text run in ahead of a clue's own number, with a number in it, is cut off",
+      ["The point is there's a proposition", "One who acquires a farm building"],
+      [ocr_clues.trimmed("The solution of Prize Puzzle No 18,178 will appear 26 The point is there's a proposition",
+                         "26-across"),
+       ocr_clues.trimmed("Tried to join paper 7. 4 Not fully understood 5 One who acquires a farm building", "5-down")])
+check("a clue that prints its own number keeps it", "Like a don in trouble with Homer in 15 Down",
+      ocr_clues.trimmed("Like a don in trouble with Homer in 15 Down", "15-across"))
+check("a lone small i, a heading on 1 down and specks inside a line-end hyphen go",
+      ["Religious system uniting man", "Poet's way to frame a line", "She reverts to foolish buying method",
+       "One accepted as likewise a great artist"],
+      [ocr_clues.trimmed(t, lid) for t, lid in (("Religious system i uniting man", "9-across"),
+                                                ("Down i Poet's way to frame a line", "1-down"),
+                                                ("She reverts to foolish buy- 4 ing method", "16-across"),
+                                                ("One accepted as like- .wise a great artist", "19-down"))])
+check("the newspaper i, a heading word in a later clue and a stutter stand",
+      ["Showing true colours, posh editor supports this paper but not the i", "Across Aegean rain falls",
+       "Gladly f-fib first"],
+      [ocr_clues.trimmed(t, lid) for t, lid in (("Showing true colours, posh editor supports this paper but not the i",
+                                                 "8-down"), ("Across Aegean rain falls", "21-across"),
+                                                ("Gladly f-fib first", "21-across"))])
+check("a broken count or symbols after the last word go; a percentage and a cross-reference stand",
+      ["Girl named in a Lords amendment", "In memory of former days?", "Twice reduced by 50%", "Don't 23!"],
+      [ocr_clues.trimmed(t, "5-down") for t in ("Girl named in a Lords amendment S).",
+                                                "In memory of former days? &%S4),", "Twice reduced by 50%",
+                                                "Don't 23!")])
+got, blank = ocr_clues.reconcile({"1-across": ("19, we hear, in the crew", "5", None)},
+                                 ["1 19, we hear, in the crew (5)"] * 2, {"1-across": 5, "19-across": 5})
+check("a clue opening on another light's number is no lost opening", ("19, we hear, in the crew", {}),
+      (got["1-across"][0], blank))
+# Two clues run together win the vote when every reading runs them together
+# the same way: the Times of 3 April 1985's 2 down and 1 May 1975's 28
+# across filed as one clue each. Such a text is blanked, never filed.
+merged_2d = "Where everybody goes in to sweep around the floor? 2 Seek fresh increases"
+merged_28a = "Confused by a divine the Spanish backed (15) 2 Master of the Rolls surrounds aesthetic victim"
+check("a voted clue with a clue number and another clue inside it is blanked",
+      ({"2-down": ("", "8", None)}, {"2-down": "two clues run together"}),
+      ocr_clues.reconcile({"2-down": (merged_2d, "8", None)}, [f"2 {merged_2d} (8)"] * 2, {"2-down": 8}))
+check("a voted clue with a count and another clue after it is blanked",
+      ({"28-across": ("", "6", None)}, {"28-across": "two clues run together"}),
+      ocr_clues.reconcile({"28-across": (merged_28a, "6", None)}, [f"28 {merged_28a} (6)"] * 2, {"28-across": 6}))
+check("numbers a setter writes are no merged clue", [None] * 7,
+      [ocr_clues.merged(t) for t in ("Catch 22 Hero", "Over 18? Join", "Of the Vale, turn to Map 10 E",
+                                     "Bird (4)", "Dad up to no good, scoffing (26) wild snappers?",
+                                     "Massive commercial transaction? 3 Down!",
+                                     "Halt opening exchange in No. 1 Court feature")])
+check("two counts in one clue are two clues", "two clues run together",
+      ocr_clues.merged("Harsh one (9) avoiding repetition (5) of"))
+check("a clue cut at its own count when text follows it", ["Entice Fortune?", "Entice Fortune? (5,4)"],
+      [ocr_clues.cut_at_count("Entice Fortune? (5,4) - 18 &", "5,4"), ocr_clues.cut_at_count("Entice Fortune? (5,4)", "5,4")])
+
+# The desktop VLM's failures (Times heldout, VLM alone): a reading of another
+# part of the page (No 20,989), a reading with every clue blank (No 19,742),
+# and its pick's single-word misreads ("gain" for gait, "linner" for linnet).
+g5 = ["....."] * 5
+good = ("ACROSS\n1 Bird in a tree (5)\n6 Fish in the sea (5)\n7 Dog on a lead (5)\n"
+        "DOWN\n1 Cat on a mat (5)\n2 Cow in a field (5)\n3 Hen in a coop (5)")
+elsewhere = ("ACROSS\n1 Advantageous position not the first part (6,5)\n4 One accepted by Constable (7)\n"
+             "12 Sounds like sort of horse (5)\nDOWN\n14 Encouragement after slipping (3-1-5)\n"
+             "16 Improperly assigned to throne (2,3,4)")
+same_slots = ("ACROSS\n1 Seize illegal drugs (5)\n6 Thoughts of leader (5)\n7 Tried to get editor (5)\n"
+              "DOWN\n1 Again request harvest (5)\n2 Servant with carriage (5)\n3 Child looked after (5)")
+kept, dropped = f.screened({"djvu": good, "ch": good.replace("tree", "trec"), "vlm": elsewhere}, g5)
+check("a reading whose clues name no light of the grid with their count is dropped",
+      (["ch", "djvu"], ["vlm"]), (sorted(kept), sorted(dropped)))
+kept, dropped = f.screened({"djvu": good, "ch": good.replace("tree", "trec"), "vlm": same_slots}, g5)
+check("a reading that fits the slots but disagrees with every other reading's clue of each number is dropped",
+      ["vlm"], sorted(dropped))
+kept, dropped = f.screened({"djvu": good, "ch": good, "vlm": "ACROSS\n1 (5)\n6 (5)\nDOWN\n1 (5)\n2 (5)"}, g5)
+check("a reading with every clue blank is no reading", {"vlm": "no clue words"}, dropped)
+kept, dropped = f.screened({"djvu": good, "vlm": "\n".join(good.splitlines()[:3] + ["DOWN"])}, g5)
+check("a partial reading still votes: its clues lose to the others clue by clue", ({}, 2), (dropped, len(kept)))
+# OCR first: the VLM is asked only for the columns holding a clue the scan's
+# own readers leave blank or do not settle.
+lens = {"1-across": [1] * 5, "6-across": [1] * 5, "1-down": [1] * 5}
+filed_laid = {"1-across": ("Bird in a tree", "5", None), "6-across": ("Fish in the sea", "5", None),
+              "1-down": ("Cat on a mat", "5", None)}
+rd2 = {"djvu": good, "ch": good, "en5": good.replace("Fish in the", "Fisk in the")}
+check("clues read alike by two readers are settled, a blank one is weak", {"7-across"},
+      f.weak_lights(rd2, {**filed_laid, "7-across": ("", "5", None)}, {"7-across": "x"}, {**lens, "7-across": [1] * 5}))
+rd3 = {"djvu": good, "ch": good.replace("Fish in the sea", "Fisk in the sea")}
+check("a clue only one of two readings prints as filed is weak", {"6-across"},
+      f.weak_lights(rd3, filed_laid, {}, lens))
+# Gale 1965 (vlm_corpus.jsonl): one reader's slip in a word the other printed right, or an
+# accent it dropped, is no disagreement; the VLM was asked 60 times for such lights.
+slip_laid = {**filed_laid, "6-across": ("Fish flourish in the sea", "5", None)}
+slip_rd = {"en5": good.replace("Fish in the", "Fish flourish in the"),
+           "ch": good.replace("Fish in the", "Fish fourish in the")}
+check("a reading with one slip in a word the other printed right settles the clue", set(),
+      f.weak_lights(slip_rd, slip_laid, {}, lens))
+check("a lone reading is still weak", True,
+      "6-across" in f.weak_lights({"ch": slip_rd["ch"]}, slip_laid, {}, lens))
+check("a reading two words off is no slip of it", False,
+      clue_repair.slip_of("Fish flourish in the sea", "Fish fourish in tho sea"))
+check("a dropped accent is no disagreement", True,
+      clue_repair.slip_of("The cur\u00e9 is indisposed", "The cure is indisposed"))
+check("a one for the I a clue opens with is a slip", True,
+      clue_repair.slip_of("I am punctual with a film", "1 am punctual with a film"))
+check("a slip that is another real word is no slip", False,
+      clue_repair.slip_of("Fish flourish in the sea", "Fish flourishes in the sea"))
+check("a word the clues print is no slip", False,
+      clue_repair.slip_of("Seen in dance by Pyrrho", "Seen in dance by Pyrrhos"))
+check("a run-together pair of words with one more slip is a slip", True,
+      clue_repair.slip_of("and in the fire of Spring your garment of Repentance fling",
+                          "and in the fire of Springyour, garment of Repentance fing"))
+check("an accent a reading keeps is no disagreement for weak_lights", True,
+      f.words_of("Omar Khayyám") == f.words_of("Omar Khayyam"))
+# A "See N" tail is a clue of only a cross-reference: two readings printing it settle it, laid
+# as "See 1" as filed puzzles have it, so the VLM is not asked for it.
+seen = good.replace("7 Dog on a lead (5)", "7 See 1 across")
+seen_rd = {"djvu": seen, "ch": seen.replace("See 1 across", "See 1")}
+seen_lens = {**lens, "7-across": [1] * 5}
+laid_see, blank_see = f.see_laid(seen_rd, filed_laid, {"7-across": "x"}, seen_lens, f.parse)
+check("two readings of a bare See N clue lay it as See N", ("See 1", {}),
+      (laid_see["7-across"][0], blank_see))
+check("one reading of a See N clue does not settle it", {"7-across": "x"},
+      f.see_laid({"djvu": seen, "ch": good}, filed_laid, {"7-across": "x"}, seen_lens, f.parse)[1])
+check("a laid See N clue two readings print is not weak", set(),
+      f.weak_lights(seen_rd, laid_see, {}, seen_lens))
+check("a See N naming no numbered light is not laid", {"7-across": "x"},
+      f.see_laid({k: t.replace("See 1", "See 9") for k, t in seen_rd.items()}, filed_laid,
+                 {"7-across": "x"}, seen_lens, f.parse)[1])
+# A reader that lost a clue's number, or ran its count into the next column's
+# text, still printed the clue: two such readings settle it (1948 Gale pages:
+# "These go before us", "Underground watchword (6) nem EDGES PuattsuiN").
+nonum = {"ch": good.replace("6 Fish in the sea (5)", "Fish in the sea (5)"),
+         "en5": good.replace("6 Fish in the sea (5)", "Fish in the sea (5) nem EDGES PuattsuiN Company, Limited")}
+long_laid = {**filed_laid, "6-across": ("Fish in the sea off Cornwall", "5", None)}
+nonum = {k: t.replace("Fish in the sea", "Fish in the sea off Cornwall") for k, t in nonum.items()}
+check("two readings that print a clue with no number or with junk after it settle it", set(),
+      f.weak_lights(nonum, long_laid, {}, {"6-across": [1] * 5}))
+check("one such reading does not settle it", {"6-across"},
+      f.weak_lights({"ch": nonum["ch"]}, long_laid, {}, {"6-across": [1] * 5}))
+check("a short clue is not settled by a run inside another clue", False, f.prints_clue("Fish in the sea (5) Cat on a mat", "cat"))
+colA = [(0, 10, 0, 50, "ACROSS"), (12, 22, 0, 50, "1 Bird in a tree (5)")]
+colB = [(0, 10, 60, 110, "6 Fish in the sea (5)"), (12, 22, 60, 110, "DOWN 1 Cat on a mat (5)")]
+colB = [(0, 10, 60, 110, "6 Fish in the sea (5)")]
+colC = [(0, 10, 120, 170, "DOWN"), (12, 22, 120, 170, "2 Cow in a field (5)")]
+check("the columns holding the weak lights' numbers are the ones read",
+      {1}, f.columns_with([[colA, colB, colC]], ["6-across"]))
+check("a number in no column's lines asks no column for it", set(),
+      f.columns_with([[colA, colB, colC]], ["9-down"]))
+check("a lost number does not widen the ask to every column", {1},
+      f.columns_with([[colA, colB, colC]], ["6-across", "9-down"]))
+check("the 1930 page still reads every column for a lost number", None,
+      f.columns_with([[colA, colB, colC]], ["9-down"], True))
+asked = []
+def fake_page(d, found, hit, sols, vlm_for=False):
+    asked.append(vlm_for)
+    return ({"number": 1, "grid": "image", "_weak": set(PAGE_WEAK)} if vlm_for is False else {"number": 1, "grid": "image"}), {"id": "x"}
+real_page = f.read_page
+f.read_page = fake_page
+PAGE_WEAK = []
+v, p = f.read_puzzle(None, None, None, None)
+check("a page the scan's readers settle is filed with no VLM look", ([False], 0, "_weak" in v), (asked, v.get("vlmAsks"), "_weak" in v))
+asked.clear()
+PAGE_WEAK = ["6-across"]
+f.read_puzzle(None, None, None, None)
+check("a page with a weak clue is read again with the VLM on that clue's columns only", [False, ["6-across"]], asked)
+asked.clear()
+f.read_puzzle(None, None, None, None, ocr_first=False)
+check("ocr_first=False asks the VLM for every column, as before", [None], asked)
+# The window the readers alone settled on is the one the VLM is shown first.
+firsts = []
+def fake_alt_page(d, found, hit, sols, vlm_for=False, first=None):
+    firsts.append((vlm_for, first))
+    return ({"number": 1, "grid": "image", "_weak": {"6-across"}, "_alt": ("plain", None)} if vlm_for is False else {"number": 1, "grid": "image"}), {"id": "x"}
+f.read_page = fake_alt_page
+f.read_puzzle(None, None, None, None)
+check("the VLM pass is handed the window the readers settled on", [(False, None), (["6-across"], ("plain", None))], firsts)
+f.read_page = real_page
+tried = []
+real_inner = f._read_page
+def fake_inner(d, found, hit, sols, vlm_for, alt, alts, defer=False):
+    tried.append(alt)
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    good = alt == ("plain", None)
+    return {"number": 1, "lights": 10, "agreed": 10 if good else 0, "blank": {}}, {"id": "x"}
+f._read_page = fake_inner
+v, p = f.read_page(None, None, None, None, ["6-across"], ("plain", None))
+check("a first window that reads well is the only one the VLM is asked about", ([("plain", None)], "gutter"), (tried, v.get("cropFrom")))
+tried.clear()
+v, p = f.read_page(None, None, None, None, ["6-across"], ("lead", 1))
+check("a poor first window falls back to the layout's, then the other windows",
+      [("lead", 1), None, ("plain", None)], tried)
+tried.clear()
+v, p = f.read_page(None, None, None, None, False)
+check("the readers' own pass keeps the window it settled on for the VLM pass", [None, ("lead", 1), ("plain", None)], tried)
+check("and notes it", ("plain", None), v.get("_alt"))
+def fake_full(d, found, hit, sols, vlm_for, alt, alts, defer=False):
+    tried.append(alt)
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    return {"number": 1, "lights": 10, "agreed": 10, "blank": {}, "imageDisagrees": "x"}, {"id": "x"}
+f._read_page = fake_full
+tried.clear()
+f.read_page(None, None, None, None, ["6-across"])
+check("a poor window that fills every light with none blank ends the VLM's search", [None], tried)
+tried.clear()
+f.read_page(None, None, None, None, False)
+check("the readers' own pass still tries the other windows", [None, ("lead", 1), ("plain", None)], tried)
+def fake_spooling(d, found, hit, sols, vlm_for, alt, alts, defer=False):
+    tried.append(alt)
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    f.vlm._UNANSWERED[0] += 1  # a pick or column read spooled for the drainer: its blanks are unanswered
+    return {"number": 1, "lights": 10, "agreed": 0, "blank": {}}, {"id": "x"}
+f._read_page = fake_spooling
+tried.clear()
+f.read_page(None, None, None, None, ["6-across"])
+check("a window with asks spooled is not followed by the other windows' asks", [None], tried)
+tried.clear()
+f.read_page(None, None, None, None, ["6-across"], ("plain", None))
+check("nor is the first window the readers settled on", [("plain", None)], tried)
+lents = []
+def fake_lending(d, found, hit, sols, vlm_for, alt, alts, lent=None, defer=False):
+    lents.append((alt, lent))
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    laid = {"1-across": ("One", "3", None), "2-down": ("Two", "4", None)} if alt is None else \
+        {"1-across": ("One", "3", None), "2-down": ("Two", "4", None), "3-down": ("Three", "5", None)}
+    return {"number": 1, "lights": 3, "agreed": len(laid), "blank": {"3-down": 1} if alt is None else {},
+            "imageDisagrees": "x", "_laid": laid}, {"id": "x"}
+f._read_page = fake_lending
+f.read_page(None, None, None, None, ["6-across"])
+check("a later window is lent the clues the best window so far has", [(None, None), (("lead", 1), {"1-across": ("One", "3", None), "2-down": ("Two", "4", None)})],
+      lents)
+v, p = f.read_page(None, None, None, None, ["6-across"])
+check("and the lent clues are not left in the verdict", False, "_laid" in v)
+lents.clear()
+f.read_page(None, None, None, None, False)
+check("the readers' own pass lends nothing", [(None, None), (("lead", 1), None), (("plain", None), None)], lents)
+laid, blank, got = f.lend_laid({"1-across": ("", "3", None), "2-down": ("", "4", None), "3-down": ("", "5", None)},
+                               {"1-across": 1, "2-down": 1, "3-down": 1},
+                               {"1-across": ("One", "3", None), "2-down": ("Two", "5", None), "3-down": ("", "5", None)})
+check("a blank light takes the clue lent for it when the count is the same, and not otherwise",
+      ({"1-across": "One", "2-down": "", "3-down": ""}, ["2-down", "3-down"], {"1-across"}),
+      ({k: v[0] for k, v in laid.items()}, sorted(blank), got))
+# Picks wait for the best window: a poor window with another to try defers them.
+reads = []
+def fake_deferring(d, found, hit, sols, vlm_for, alt, alts, lent=None, defer=False):
+    reads.append((alt, defer))
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+        defer = bool(alts)
+    n = {None: 3, ("lead", 1): 6, ("plain", None): 5}[alt]  # blanks of each window
+    v = {"number": 1, "lights": 10, "agreed": 10 - n, "blank": {f"{i}-down": 1 for i in range(n)}}
+    if defer:
+        v["_deferred"] = {"alt": alt, "lent": lent}
+    else:
+        v["agreed"], v["blank"] = v["agreed"] + 2, dict(list(v["blank"].items())[2:])  # the picks fill two
+        v["picked"] = True
+    return v, {"id": "x"}
+f._read_page = fake_deferring
+v, p = f.read_page(None, None, None, None, ["6-across"])
+check("a poor window with others to try asks no pick; the best, chosen, is read again with them",
+      [(None, None), (("lead", 1), True), (("plain", None), False), (None, False)], reads)
+check("and that window's verdict is the one filed, picked, with no deferral left in it", (True, False), (v.get("picked"), "_deferred" in v))
+f._read_page = real_inner
+# The linked-clue mends (clue_text.set_linked_mends) fill only the lights a window's read without them left with
+# no clue laid (failure shapes r27b, Gale 1954-06-19): that read's laid words stand ("great", not the mended read's
+# "groat"), a linked head keeps its words and takes the group's count, its tail light filled "See 1".
+_lf_calls, _lf_miss = [], [True]
+_lf_real = f._read_window
+
+
+def _lf_window(d, found, hit, sols, vlm_for, alt, alts, lent=None, defer=False):
+    on = f.clue_text.linked_mends()
+    _lf_calls.append((on, vlm_for))
+    if not on and _lf_miss[0]:
+        f.clue_text.linked_missed(True)
+
+    def e(n, text, **k):
+        return {"number": n, "direction": "across", "position": {"x": n, "y": 0}, "length": 8,
+                "clue": {"text": text, **k} if text else {"missing": True}, "solution": None}
+    if not on:
+        return ({"number": 1, "grid": "image", "lights": 3, "agreed": 2, "blank": {"9-across": "no reading laid a clue on it"}},
+                {"id": "x", "dimensions": {"cols": 15, "rows": 15},
+                 "entries": [e(1, "But'are there", enumeration="8"), e(9, ""), e(10, "Ben Lemon among the great")]})
+    head = {**e(1, "But are there", enumeration="8,8"), "group": ["1-across", "9-across"]}
+    return ({"number": 1, "grid": "image", "lights": 3, "agreed": 3},
+            {"id": "x", "dimensions": {"cols": 15, "rows": 15},
+             "entries": [head, e(9, "See 1"), e(10, "Ben Lemon among the groat")]})
+
+
+f._read_window = _lf_window
+try:
+    # The window is chosen on the read without the mends (_read_page marks it "_linked"); read_page fills it after.
+    v, p = f._read_page(None, None, None, None, ["6-across"], None, None)
+    check("a window's read is the one without the mends, marked for the fill", ({"alt": None}, {"9-across"}),
+          (v.get("_linked"), set(v.get("blank") or ())))
+    _lf_calls.clear()
+    v, p = f.read_page(None, None, None, None, ["6-across"])
+    check("a light left unlaid is filled from the mended read, nothing else the first read laid changes",
+          ([(False, ["6-across"]), (True, False)], ["9-across"], None, False,
+           [("But'are there", "8,8", ["1-across", "9-across"]), ("See 1", None, None), ("Ben Lemon among the great", None, None)]),
+          (_lf_calls, v.get("linkedFilled"), v.get("blank"), "_linked" in v,
+           [(x["clue"].get("text"), x["clue"].get("enumeration"), x.get("group")) for x in p["entries"]]))
+    _lf_calls.clear()
+    _lf_miss[0] = False
+    v, p = f.read_page(None, None, None, None, False)
+    check("no mend the first read would have made: no second read, its blank stands",
+          ([(False, False)], {"9-across": "no reading laid a clue on it"}), (_lf_calls, v.get("blank")))
+    check("the mends are back in force after the read", True, f.clue_text.linked_mends())
+finally:
+    f._read_window = _lf_real
+
+
+# A head whose comma was read as a stop ("25. 26 \" For a good local,\"", Gale 1951-12-27, failure shapes r28): the
+# first read laid 25 with words led by 26; the fill takes the mended words for it, not only the group's count.
+def _sl_e(n, text, **k):
+    return {"number": n, "direction": "across", "position": {"x": n, "y": 0}, "length": 7,
+            "clue": {"text": text, **k} if text else {"missing": True}, "solution": None}
+
+
+_sl_v, _sl_p = f.linked_filled(
+    {"grid": "image", "agreed": 1, "blank": {"26-across": "no reading laid a clue on it"}},
+    {"dimensions": {"cols": 15}, "entries": [_sl_e(25, '26 " For a good local," said Tommy', enumeration="7"),
+                                             _sl_e(26, "")]},
+    {"grid": "image", "agreed": 2},
+    {"dimensions": {"cols": 15}, "entries": [{**_sl_e(25, '" For a good local," said Tommy', enumeration="3,4,7"),
+                                              "group": ["25-across", "26-across"]}, _sl_e(26, "See 25")]})
+check("a stop-linked head's words led by its tail's number take the mended words; its tail is filled",
+      (['" For a good local," said Tommy', "3,4,7", "See 25"], ["26-across"], None),
+      ([_sl_p["entries"][0]["clue"]["text"], _sl_p["entries"][0]["clue"]["enumeration"], _sl_p["entries"][1]["clue"]["text"]],
+       _sl_v.get("linkedFilled"), _sl_v.get("blank")))
+def fake_refused(d, found, hit, sols, vlm_for=False):
+    asked.append(vlm_for)
+    return {"number": 1, "cause": "not-a-grid"}, None
+f.read_page = fake_refused
+asked.clear()
+f.read_puzzle(None, None, None, None)
+check("a refusal the VLM cannot mend ends the read with no ask", [False], asked)
+# A held puzzle is not put to the VLM when the held file leaves it nothing to mend.
+class FakeDir:
+    name = "ed1"
+def fake_weak(d, found, hit, sols, vlm_for=False):
+    asked.append(vlm_for)
+    return ({"number": 7, "grid": "image", "_weak": {"6-across"}} if vlm_for is False else {"number": 7, "grid": "image"}), {"id": "x"}
+f.read_page = fake_weak
+real_paper_of, real_held_dates, real_held_file = f.paper_of, f.held_dates, f.held_file
+f.paper_of = lambda d: f.TIMES
+f.held_dates = lambda series: {7: None}
+whole_clue = {"text": "Bird in a tree", "enumeration": "5"}
+f.held_file = lambda series, n: {"source": {"acquiredBy": "someone else"}, "entries": [{"clue": {}}]}
+asked.clear()
+v, p = f.read_puzzle(FakeDir(), None, None, None)
+check("a held puzzle another tool filed asks the VLM nothing", ([False], True, 0), (asked, v.get("heldSkip"), v.get("vlmAsks")))
+f.held_file = lambda series, n: {"source": {"acquiredBy": f.TOOL}, "entries": [{"number": 1, "direction": "across", "clue": {}}]}
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("a held puzzle of this tool's with a blank clue keeps the VLM", [False, ["6-across"]], asked)
+f.held_file = lambda series, n: {"source": {"acquiredBy": "someone else"}, "entries": []}
+f._KEEP_VLM["names"] = {"ed1"}
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("an edition asked to be read again keeps the VLM for a held puzzle", [False, ["6-across"]], asked)
+f._KEEP_VLM["names"] = set()
+f.held_dates = lambda series: {}
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("a puzzle not held asks the VLM", [False, ["6-across"]], asked)
+def fake_count(weak):
+    def read(d, found, hit, sols, vlm_for=False, *a, **kw):
+        asked.append(vlm_for)
+        return ({"number": 7, "grid": "image", "imageDisagrees": "14-across: the enumeration reads as ['14'], the grid holds 4 letters",
+                 "_weak": set(weak)} if vlm_for is False else {"number": 7, "grid": "image"}), \
+            {"id": "x", "entries": [{"number": 14, "direction": "across", "clue": {"text": text14, "enumeration": enum14}}]}
+    return read
+text14, enum14 = "Stop a race", "4"
+f.read_page = fake_count(set())
+asked.clear()
+v, p = f.read_puzzle(FakeDir(), None, None, None)
+check("a count the grid settles on a light the readers confirm asks the VLM nothing", ([False], 0), (asked, v.get("vlmAsks")))
+f.read_page = fake_count({"6-across"})
+asked.clear()
+f.read_puzzle(FakeDir(), None, None, None)
+check("a count disagreement asks only the weak lights, not the light the grid settled", [False, ["6-across"]], asked)
+f.read_page = fake_count(set())
+for text14, enum14, what in (("Stop a race", None, "no enumeration"), ("Stop -a race", "4", "a stray mark"), ("", "4", "no text")):
+    asked.clear()
+    f.read_puzzle(FakeDir(), None, None, None)
+    check(f"a count-disagreeing light with {what} is still asked", [False, ["14-across"]], asked)
+text14, enum14 = "Stop a race", "4"
+check("a clue's own hyphen or ellipsis is no stray mark", [None, None],
+      [f.STRAY_MARK.search("Half-hearted - a stop"), f.STRAY_MARK.search("... and so on")])
+f.paper_of, f.held_dates, f.held_file = real_paper_of, real_held_dates, real_held_file
+# The queue's entrance: an edition whose titles the date checks refuse is not read.
+real_fn, real_fs = f.filed_number, f.filed_state
+f.filed_number = lambda d, found, hit: (None, None, "2026-10-18 is a Sunday and no daily cryptic")
+scan0 = {"puzzles": [{"number": 7, "leaf": 1}], "date": "2026-10-18"}
+check("an edition whose title is a Sunday is skipped", "sunday", f.unit_skip(f.TIMES, None, scan0, {}, "never read", {}))
+check("a refusal read before its fix is kept", None, f.unit_skip(f.TIMES, None, scan0, {}, "refused not-a-grid before its fix", {}))
+check("an annotation asked is kept", None, f.unit_skip(f.TIMES, None, scan0, {}, "annotation asked", {}))
+f.filed_number = lambda d, found, hit: (7, datetime.date(2026, 10, 17), None)
+f.filed_state = lambda series, n: (True, True)
+held0 = {7: datetime.date(2026, 10, 17)}
+check("an edition whose puzzle is held whole is skipped", "already held whole", f.unit_skip(f.TIMES, None, scan0, {}, "inputs changed", held0))
+f.filed_state = lambda series, n: (False, True)
+check("a held puzzle short of answers is kept for a content reason", None, f.unit_skip(f.TIMES, None, scan0, {}, "inputs changed", held0))
+check("... but skipped for the VLM's own reason", "already held (VLM-only reason)", f.unit_skip(f.TIMES, None, scan0, {}, "read by another VLM", held0))
+check("a puzzle not held is kept", None, f.unit_skip(f.TIMES, None, scan0, {}, "read by another VLM", {}))
+f.filed_number, f.filed_state = real_fn, real_fs
+f.read_page = real_page
+got, _ = ocr_clues.reconcile({"21-across": ("Poet's", "6", None)},
+                             ["21 Poet's uninteresting study (6)", "21 Poet's uninteresting study (6)"])
+check("words a partial reading lost are put back from the others", "Poet's uninteresting study", got["21-across"][0])
+check("a pick's real word no reading has, where every reading has one a letter off, takes theirs",
+      "Walk the street unsteady gait", ocr_clues.held("Walk the street unsteady gain", ["Walk the street unsteady gait (6)"]))
+check("a pick's non-word takes the lexicon word another reading has there",
+      "For example, a linnet entangled in a bush",
+      ocr_clues.held("For example, a linner entangled in a bush", ["For example, a linnet entangled in a bush (9)",
+                                                                  "For exampie, a llnner entangled ia a bush"]))
+check("a pick's non-word no reading has a lexicon word for fails the pick", "",
+      ocr_clues.held("For example, a linner entangled in a bush", ["For example, a linner entangled in a bush (9)"]))
+check("a pick that is another clue's text (No 20,989's 1 across read as 11 down) fails", "",
+      ocr_clues.held("Advantageous position - not the first part of record?",
+                     ["First issue in 1999, for example (5,6)"]))
+laid, blank = ocr_clues.vlm_pick({"vlm": "x"}, {"13-across": ("", "9", None)}, {"13-across": "readings differ"},
+                                 lambda t: ({"across": [{"tokens": [{13}], "text": "For example, a linner entangled",
+                                                         "enums": {"9"}, "see": None}], "down": []}, None),
+                                 lambda lid, cands: "For example, a linner entangled")
+check("the VLM's pick of a non-word no reading corrects is not filed", ("", ["13-across"]),
+      (laid["13-across"][0], sorted(blank)))
+check("the clean reading inside two others' table scraps is the clue (no pick asked)",
+      "Hanker after an unknown make (5)",
+      ocr_clues.clean_inside(["Hanker after an unknown Ipcome Growtb make (5)",
+                              "Hanker after an unknown Incorme Gronth Aock - make (5)",
+                              "Hanker after an unknown make (5)"], "5"))
+check("a word two readings both add is a known word lost from the third: no clean reading", None,
+      ocr_clues.clean_inside(["Sound made by cat to arouse bird (6)", "Sound made by the cat to arouse bird (6)",
+                              "Sound made by the cat to arouse bird (6)"], "6"))
+check("a clean reading whose count is not the light's is not taken", None,
+      ocr_clues.clean_inside(["Hanker after an unknown Ipcome Growtb make (5)",
+                              "Hanker after an unknown Incorme Gronth Aock - make (5)",
+                              "Hanker after an unknown make (5)"], "7"))
+check("three readings of the last across clue that differ only in the solution-box footer agree (no pick asked)",
+      "Study applied to uninteresting poet (6)",
+      ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
+                                    "Study applied to uninteresting poet (6) 23,099 Soluti",
+                                    "Study applied to uninteresting poet (6) WORD 23,099"], "6"))
+check("a footer cut that leaves two readings unlike is no agreement (the pick is asked)", None,
+      ocr_clues.agreed_past_footer(["Net I weaved with my needle (6) 23,095 Soluti",
+                                    "Net I wove with my needle (6) SWORD 23,095"], "6"))
+check("a torn 'Solution to' and a torn 'so' after the number are footer too (23,109, 23,105)",
+      ["Don't be seen to collect feathers? (4,4)", "Cruel fellow has fixed trap for woman with brown hair (8)"],
+      [ocr_clues.footer_cut("Don't be seen to collect feathers? (4,4) 23,109 Solution to"),
+       ocr_clues.footer_cut("Cruel fellow has fixed trap for woman with brown hair (8) 23,105 so")])
+check("a number torn at the crop edge ('WORD 23,0') is footer too (2005 pages)",
+      "Division (8)", ocr_clues.footer_cut("Division (8) WORD 23,0"))
+check("words after a count with no footer mark are a clue's, not cut", "Pun (4) so to",
+      ocr_clues.footer_cut("Pun (4) so to"))
+check("a second clue after a mid-text count is not a footer: nothing is cut",
+      "Euclid's fifth proposition is game (9) perfect in conception (5)",
+      ocr_clues.footer_cut("Euclid's fifth proposition is game (9) perfect in conception (5)"))
+check("a laid clue that ran into the footer is cut at its count, not blanked for a pick",
+      (("Which us sort", "6", None), {}),
+      (lambda r: (r[0]["29-across"], r[1]))(f.unfit_blanked(
+          {"29-across": ("Which us sort (6) WORD 22,9", None, None)}, {}, {"29-across": 6})))
+check("a footer on a count that is not the light's stays blank",
+      "29-across",
+      next(iter(f.unfit_blanked({"29-across": ("Which us sort (6) WORD 22,9", None, None)}, {}, {"29-across": 7})[1])))
+check("a footer_laid with no footer is None", None, ocr_clues.footer_laid("Which us sort (6)", 6))
+# Gale 2005-03-17 28 across: the footer ran on after a count that fills the light, so unfit()
+# passed the text and it was filed with the footer until the VLM's column read it clean.
+check("a laid clue unfit() passes is cut at its count too when the footer follows it",
+      (("Went to ground without hesitation, being sticky", "5", None), {}),
+      (lambda r: (r[0]["28-across"], r[1]))(f.unfit_blanked(
+          {"28-across": ("Went to ground without hesitation, being sticky (5) 22,926 Solutic", None, None)},
+          {}, {"28-across": 5})))
+# Gale 2005-03-17 13 down: every reader lost the cross-reference ("like 21"), so the readers
+# agreed on a clue that ends in a word a reference follows; the VLM is asked for it.
+open_rd = {"djvu": good.replace("Fish in the sea", "Fish in the sea like"),
+           "ch": good.replace("Fish in the sea", "Fish in the sea like")}
+check("a clue the readers agree on that ends in a word a reference follows is weak", {"6-across"},
+      f.weak_lights(open_rd, {**filed_laid, "6-across": ("Fish in the sea like", "5", None)}, {}, lens))
+check("a clue that ends in such a word with a mark after it is not", set(),
+      f.weak_lights({k: t.replace("sea like", "sea, like?") for k, t in open_rd.items()},
+                    {**filed_laid, "6-across": ("Fish in the sea, like?", "5", None)}, {}, lens))
+# FT 1985: three readers, each with a slip in another word, no two alike on the whole line.
+_lily = ["Lilyas head replaced by song in Jaunty manner", "Lily's head replaced by song in Jauuty manner",
+         "Lily's head replaced by song in jaunty manner"]
+check("a clue whose every word two readers print is confirmed though no two print it whole", True,
+      f.words_confirmed("Lily's head replaced by song in jaunty manner", None, [(t, 0) for t in _lily]))
+check("a clue with a word only one reader prints is not", False,
+      f.words_confirmed("Benefit from a drink today", None,
+                        [(t, 0) for t in ["Benefit from a drink today", "Beneft from a drink today", "Benefi from a drink today"]]))
+check("a clue with a figure is not", False,
+      f.words_confirmed("Bathsheba swallowed 8 doctor repellent", None,
+                        [(t, 0) for t in ["Bathsheba swallowed 8 doctor repellent"] * 3]))
+check("a footer cut to a count that is not the light's is not taken", None,
+      ocr_clues.agreed_past_footer(["Study applied to uninteresting poet (6) 23,099 Solutic",
+                                    "Study applied to uninteresting poet (6) 23,099 Soluti"], "7"))
+check("readings already alike with no footer to cut are left to the pick", None,
+      ocr_clues.agreed_past_footer(["Study applied to poet (6)", "Study applied to poet (6)"], "6"))
+check("the last across clue the readings agree on past the footer is laid with no ask", "Study applied to uninteresting poet",
+      ocr_clues.vlm_pick({"ch": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Study applied to uninteresting poet (6) 23,099 Solutic\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n",
+                          "en5": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Study applied to uninteresting poet (6) 23,099 Soluti\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n",
+                          "vlm": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Study applied to uninteresting poet (6) WORD 23,099\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n"},
+                         {"9-across": ("", "6", None)}, {"9-across": "readings differ"}, f.parse,
+                         lambda lid, cands: 1 / 0)[0]["9-across"][0])
+check("a pick that copied the footer under the last across clue is laid without it (23,105's 28 across)",
+      "Cruel fellow has fixed trap for woman with brown hair",
+      ocr_clues.vlm_pick({"x": "x"}, {"28-across": ("", "8", None)}, {"28-across": "readings differ"},
+                         lambda t: ({"across": [{"tokens": [{28}], "text": "Cruel fellow has fixed trap for woman with brown hair",
+                                                 "enums": {"8"}, "see": None}], "down": []}, None),
+                         lambda lid, cands: "Cruel fellow has fixed trap for woman with brown hair (8) WORD 23,105")[0]["28-across"][0])
+check("the VLM's own reading beside an OCR slip of a letter is laid with no ask", "Mender of slippery eels in water",
+      ocr_clues.vlm_pick({"ch": "ACROSS\n1 Mender of slippery eals in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Lost rain falls on a hill (5,3)\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n5 Bird in a bush is worth two (5)\n",
+                          "vlm": "ACROSS\n1 Mender of slippery eels in water (5)\n4 Quiet horse runs in the lane (6)\n7 Chap leaves the tall old house (4)\n9 Lost rain falls on a hill (5,3)\nDOWN\n2 Strange tales from the mountain (7)\n3 Most of the cattle go west (4)\n5 Bird in a bush is worth two (5)\n"},
+                         {"1-across": ("", "5", None)}, {"1-across": "readings differ"}, f.parse,
+                         lambda lid, cands: 1 / 0)[0]["1-across"][0])
+
+# FT 1984-09-20: worn type, three readers each garbling every clue differently
+# (none within SETTLE_SIMILAR of another); the VLM's column reading was clean and
+# every pick asked came back as that very text. Laid with no ask when its count is
+# the light's and its words are known; asked when its count is not or a word is not.
+WORN_OCR = {"ch": "ACROSS\n18Poet'siudycruwnrdwlth\npold (5)\nDOWN\n3Stir up volnily-.cherr\nllerorvel151\n",
+            "en5": "ACROSS\n18 Poet's wludy crownrd with\nFold (5)\nDOWN\n3 Goree WiT\" wilh .1\ncomnon sl (9)\n"}
+WORN_VLM = "ACROSS\n18 Poet's study crowned with\ngold (5)\nDOWN\n3 Gorge a wife with a\ncommon salt (9)\n"
+check("the VLM's column reading beside three worn readers, its count the light's, is laid with no ask",
+      "Poet's study crowned with gold",
+      ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM}, {"18-across": ("", "5", None)},
+                         {"18-across": "no other reading has"}, f.parse, lambda lid, cands: 1 / 0)[0]["18-across"][0])
+check("the same reading for a light of another length is asked about, not laid", ["18-across"],
+      sorted(ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM}, {"18-across": ("", "6", None)},
+                                {"18-across": "no other reading has"}, f.parse, lambda lid, cands: None)[1]))
+check("a column reading with a word no lexicon knows and no reader prints is asked about", ["18-across"],
+      sorted(ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM.replace("study", "stuqdy")}, {"18-across": ("", "5", None)},
+                                {"18-across": "no other reading has"}, f.parse, lambda lid, cands: None)[1]))
+
+# Times 13,998 as an older reading filed it: the loose lay put 18 across's
+# clue on 15 across too, where a misread number laid it, and 15 across's own
+# clue ("An Athenian acted in any element", ANTIMONY) was lost.
+laid_13998 = {"14-across": ("A man's man (if not hero's)", "5", None),
+              "15-across": ("Occasional raid cops turn out for", "8", None),
+              "18-across": ("Occasional raid cops turn out for", "8", None),
+              "16-down": ("Picture by satellite has space problem", "9", None),
+              "17-down": ("See 16", None, None), "19-down": ("See 16", None, None)}
+laid, blank = f.one_light_each(laid_13998, {}, fits={"15-across", "18-across"})
+check("one clue on two lights its count fills both: filed on neither, both read again (Times 13,998)",
+      (["15-across", "18-across"], "", "", "A man's man (if not hero's)", "See 16"),
+      (sorted(blank), laid["15-across"][0], laid["18-across"][0], laid["14-across"][0], laid["19-down"][0]))
+laid, blank = f.one_light_each(laid_13998, {}, fits={"18-across"})
+check("one clue on two lights its count fills one of: kept there, the other read again",
+      (["15-across"], "", "Occasional raid cops turn out for"),
+      (sorted(blank), laid["15-across"][0], laid["18-across"][0]))
+# Listener No 3 prints "An exclamation." under both lists, for 32A and 2D.
+laid, blank = f.one_light_each({"32-across": ("An exclamation.", None, None), "2-down": ("An exclamation.", None, None)}, {})
+check("one clue in both lists is printed twice: kept on both",
+      ({}, "An exclamation.", "An exclamation."), (blank, laid["32-across"][0], laid["2-down"][0]))
+
+# A held filing with one clue on two lights takes this reading's clue for
+# each of them, blank where it has none; the rest of the file stands.
+def held_13998(texts):
+    return {"id": "times-13998", "source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 8, "rows": 3},
+            "entries": [{"number": n, "direction": "across", "position": {"x": 0, "y": y}, "length": 8,
+                         "clue": {"text": t, "enumeration": "8"} if t else {"text": "", "missing": True},
+                         "solution": a}
+                        for (n, y, a), t in zip([(14, 0, "VALETTTT"), (15, 1, "ANTIMONY"), (18, 2, "SPORADIC")],
+                                                texts)]}
+occasional = "Occasional raid cops turn out for"
+path = Path(os.environ["TMP"]) / "times-13998.json"
+path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
+mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", occasional]), path)
+check("a held clue on two lights takes this reading's clue for each, answers kept",
+      (["A man's man", "An Athenian acted in any element", occasional], {"15-across": "An Athenian acted in any element", "18-across": occasional}, "ANTIMONY"),
+      ([e["clue"]["text"] for e in mended["entries"]], now, mended["entries"][1]["solution"]))
+mended, now = f.mend_held(held_13998(["A man's man", "", occasional]), path)
+check("a light this reading has no clue for is filed blank", ("", True),
+      (mended["entries"][1]["clue"].get("text", ""), mended["entries"][1]["clue"].get("missing")))
+path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
+mended, now = f.mend_held(None, path)
+check("with no reading, each light a held clue sits on twice is blank", {"15-across": "", "18-across": ""}, now)
+check("a held filing with no clue on two lights is left alone", None,
+      f.mend_held(held_13998(["A man's man", "x", "y"]), path.write_text(json.dumps(
+          held_13998(["A man's man", "An Athenian", occasional]))) and path))
+
+# A refused held clue under an annotation (ftcryptic-9091 22 down): this
+# reading's clue replaces it and the annotation, written against the old
+# words, goes; with no clue read for it the held clue goes blank: no write
+# keeps another clue's text (scan_queue.file_puzzle), and check_rewrite lets
+# such a clue go.
+import copy, definitions, puzzle_integrity, puzzle_schema
+held = held_13998(["A man's man", "Occasional raid 18 Cops turn out", "Sporadic"])
+held["entries"][1]["annotation"] = {"definitions": [{"text": "Cops turn out", "at": 19}]}
+held["source"]["retrievedFrom"] = "newspaper"
+path.write_text(json.dumps(held))
+mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", "Sporadic"]), path)
+check("a held clue the filer now refuses takes this reading's clue, its annotation dropped",
+      ({"15-across": "An Athenian acted in any element"}, None),
+      (now, mended["entries"][1].get("annotation")))
+for reading in (None, held_13998(["A man's man", "", "Sporadic"])):
+    blanked, now = f.mend_held(reading, path)
+    flags = []
+    puzzle_integrity.check_rewrite(held, blanked, flags)
+    check("a held clue holding another clue no reading has goes blank, annotation and all, and may be written",
+          ({"15-across": ""}, None, True, []),
+          (now, blanked["entries"][1].get("annotation"), blanked["entries"][1]["clue"].get("missing"), flags))
+mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", "Sporadic"]), path)
+flags = []
+puzzle_integrity.check_rewrite(held, definitions.place_puzzle(puzzle_schema.prune(copy.deepcopy(mended))), flags)
+check("a mended filing places its definitions and passes the rewrite check", [], flags)
+
+# A reader's fix to a held clue's words reaches the file (corrected_clues):
+# Listener No 3's 52D gained its opening "A". A reading that drops a real
+# word, swaps one, blanks a clue or makes one up does not land; nor does
+# one under an annotation or a source_clue_wrong row, written against the
+# held words, nor one that improves() the file (it replaces it whole).
+check("a reading adding a word, or mending a misread non-word, corrects a held clue",
+      [True, True, True], [f.corrects("Frontier cantonment.", "A Frontier cantonment."),
+                           f.corrects("Fudqe the issue", "Fudge the issue"),
+                           f.corrects("A 100 of 58 across.", "A 100 of 56 across.")])
+check("the vote's speck removal, a stop after a lone letter dropped, corrects a held clue (No 3's 27D and 50D)",
+      [True, True], [f.corrects("A. junction on the East Indian Railway.", "A junction on the East Indian Railway."),
+                     f.corrects("A. Frontier cantonment.", "A Frontier cantonment.")])
+check("other marks alone correct nothing (mirror)",
+      [False, False], [f.corrects("A town.", "A town,"), f.corrects("A. Smith wrote it", "A. Smith, wrote it")])
+# Stored archive.org readings would have landed these; each is refused, its
+# mirror taken.
+refused = [("Watch salesman with consumer", "Watch salesman with consumer sumer."),  # a neighbour's fragment
+           ("Protest over first of buses put out of service", "Protest over first of buses put out of sen service"),
+           ("Be responsible for flooring?", "Is Be responsible for flooring?"),  # an opener before a capital
+           ("How much work in Schönberg's music?", "How much work in Schö- berg's music?"),  # a hyphen split
+           ("Coin-in-the-slot source, medication?", "Coin-in-the-slot source-of medication?"),  # a short word hyphened on
+           ("Doctor enters a ring, or pulpit", "Doctor enters a ring, pulpit or pulpit"),  # a word read twice
+           ("Foolhardy in war, as Hot spur was?", "Foolhardy in war, as Hot was spur?"),  # words reordered
+           ("Distant object worth very little until 1961", "Distant object worth very little until 196"),
+           ("Controversial poet receives £1 for subsistence", "Controversial poet receives I for subsistence"),
+           ("Spirit-raising shattered Mather", "Spirit-raising shattered Mother"),  # a name to a word
+           ("Underclothing adjusted in this restaurant", "Underclothing I adjusted in this restaurant"),
+           ("In revised text pirate is the look-out man", "In La revised text pirate is the look-out man"),
+           ("Letter from the girl I have cut.", "Letter from the girl I have oil cut."),  # no corpus pair
+           ('Extend onself. There\'s time "inside"', 'Extend oneself. There\'s time "*inside"')]  # a speck symbol
+check("a re-read's fragment, opener, hyphen split, reorder, figure lost, name swapped or speck corrects nothing",
+      [], [r for r in refused if f.corrects(*r)])
+taken = [("Watch salesman with consumer", "Watch salesman with a consumer"),
+         ("in trouble, blame Ella", "If in trouble, blame Ella"),  # an opener restoring the capital
+         ("How much work Schönberg's music?", "How much work in Schönberg's music?"),
+         ("Anxious to get hearted West Indian music", "Anxious to get half-hearted West Indian music"),
+         ("Cut 3 dash during keep fit session", "Cut a dash during keep fit session"),
+         ("Drilled one of Byrun's mighty tribes", "Drilled one of Byron's mighty tribes"),
+         ("Dealer about to take manager", "Dealer about to take a manager")]
+check("(mirror) a lost article, opener, word, misread figure or name mended corrects a held clue",
+      [], [t for t in taken if not f.corrects(*t)])
+check("a re-read that drops a misread count filling the light corrects a held clue (count_dropped)",
+      [True, True, True], [f.count_dropped("Song of joy 141", "Song of joy", 4, ()),
+                           f.count_dropped("Third degree restaurant? 15-41", "Third degree restaurant?", 9, ()),
+                           f.count_dropped("Overdone qualiry 7", "Overdone quality", 7, ())])
+check("mirror: figures that do not fill the light, have a unit or are kept are no count dropped",
+      [False, False, False, False], [f.count_dropped("Under extremes of 9", "Under extremes of", 5, ()),
+                                     f.count_dropped("Goes down in 8s", "Goes down in", 8, ()),
+                                     f.count_dropped("Song of joy 141", "Song of joy 141", 4, ()),
+                                     f.count_dropped("Song of joy 141", "Song", 4, ())])
+check("a reference to a light after See/No/Channel or a preposition is the clue's, no count left (count_left)",
+      [None] * 5, [f.count_left("See 15", 5, {1, 15, 21}),
+                   f.count_left("Mercenary backing Channel 5", 5, {5, 10}),
+                   f.count_left("Sailor's main dish cooked to entertain occupant of No 10", 10, {10}),
+                   f.count_left("A film about hilarious old company in 18", 8, {12, 18}),
+                   f.count_left("Good quality that comes from being 8", 8, {7, 8})])
+check("mirror: figures naming no light, or after a word a clue ends on, are a count left",
+      ["See", "Compare with a man who is under", "Russian author employed as Kent ARP organizer"],
+      [f.count_left("See 15", 5, {1, 21}), f.count_left("Compare with a man who is under 51", 5, {5, 15}),
+       f.count_left("Russian author employed as Kent ARP organizer 9", 9, {9})])
+check("a reading losing or swapping a real word, blank, unchanged, marks only or made up corrects nothing",
+      [False] * 8, [f.corrects("Frontier cantonment.", "Frontier."),
+                    f.corrects("Swearing and lying", "Swearing and lying (7). But not backward"),
+                    f.corrects("A town (4)", "A town (4) 7"),
+                    f.corrects('The shout "Last out"', 'The shout \u201cLast out\u201d'),
+                    f.corrects("Fudge the issue", "Judge the issue"),
+                    f.corrects("Frontier cantonment.", ""),
+                    f.corrects("A town", "A town"),
+                    f.corrects("A town", "A town xqzvb")])
+check("a reading that puts back a line end the held clue lost (a cut word, then words) corrects it; a swap does not",
+      [True, True, True, False, False],
+      [f.corrects("Humorist overwhelmed by tr to become brighter", "Humorist overwhelmed by trouble to become brighter"),
+       f.corrects("Old clothing Pacific nation has name for", "Old clothing Pacific nation has no name for"),
+       f.corrects("So", "So many people go"),
+       f.corrects("Fish in pond", "Fish by the pond"),
+       f.corrects("A town", "A town xqzvb")])
+check("a held clue ending on a stop takes no words from the next line or column (times-204)",
+      [False, False, True],
+      [f.corrects("Give out in time.", "Give out in time, arranged for use"),
+       f.corrects("Skim.", "Skim. Empire is full of"),
+       f.corrects("So", "So many people go")])
+check("a reread that cuts a word at its edge or turns a word to a non-word corrects nothing",
+      [False] * 6, [f.corrects("The servant behind the 1st Earl of Ypres", "The servant behind the st Earl of Ypres"),
+                    f.corrects("Scoundrel but good at heart", "Scoundrel but good at hear"),
+                    f.corrects("Just like Bill Brewer", "Just ike Bill Brewer"),
+                    f.corrects("Dickens family mad about Humpty Dumpty", "Dickens family mad about Humply Dumpty"),
+                    f.corrects("Department of State about to recognise", "Department of State about 10 recognise"),
+                    f.corrects("Waller receives a note from the Norms", "Waller receives a note from the Norns")])
+check("a reread that gains a lone & corrects nothing (times-12467)",
+      [False, False], [f.corrects("Lone wolf unimpeded by a weapon", "Lone wolf unimpeded by & a weapon"),
+                       f.corrects("Lone wolf unimpeded by weapon", "Lone wolf unimpeded by & weapon")])
+check("a reread that gains furniture, a leaked hyphen, E for £, a glued figure, an unpaired quote, "
+      "1 for I or its count corrects nothing (clue_text.REFUSED_GLITCHES, tools/audit_updates.py)",
+      [False] * 7,
+      [f.corrects("About to entertain lavishly, look up place to eat",
+                  "About to entertain lavishly, look times, up place to eat"),
+       f.corrects("Knocks about Minehead looking for swindles", "Knocks about Minehead look- 2119. ing for swindles"),
+       f.corrects("Locks secured, in the end, with £25 left", "Locks secured, in the end, with E25 left"),
+       f.corrects("A former emperor rebuffed the follower of another",
+                  "2A former emperor rebuffed the follower of another"),
+       f.corrects('Oriental girl stars in "The Special Agents"', 'Oriental girl stars in "The Special Agents'),
+       f.corrects("Featured in the newspaper. I live for danger", "Featured in the newspaper. 1 live for danger"),
+       f.corrects("Bomb is not half an unpleasant experience", "Bomb is not half an unpleasant experience (5). code.")])
+check("rewritten(): another clue's words over a held clue, not a reading of it",
+      [True, True, False, False],
+      [f.rewritten("Bill's relations", "Virtue"), f.rewritten("See 25", "Cambridge Park, E 11 01-989"),
+       f.rewritten("Dry places ruined this old timer", "Dry places ruined this old-timer"),
+       f.rewritten("", "Virtue")])
+
+# keep_held_clues(): a count that trades word breaks the answer bears out for other
+# breaks ("2,3,2,3,2" over ONTHEUPANDUP to "5,7", a neighbour's count: The Times
+# 18,561 prints "(2,3,2,3,2)"), or a reading of other words, keeps the held clue; a
+# lone count read off the print ("3,4" over REDWINE to "7": the 1950s-90s Times
+# print CATCHUP "(7)", TIMEWORN "(8)" over the corpus's guessed "5,2", "4-4") and a
+# count that gains breaks are taken.
+def p7(clues, answer="REDWINE"):
+    return {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": len(answer), "rows": len(clues)},
+            "entries": [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": len(answer),
+                         "clue": c, "solution": answer} for i, c in enumerate(clues)]}
+held7 = p7([{"text": "Port, perhaps, in colour", "enumeration": "3,4"}, {"text": "Bill's relations", "enumeration": "7"},
+            {"text": "Wine colour", "enumeration": "7"}])
+read7 = p7([{"text": "Port, perhaps, in colour", "enumeration": "7"}, {"text": "Virtue", "enumeration": "7"},
+            {"text": "Wine colour", "enumeration": "3,4"}])
+check("another clue's words keep the held clue; a lone count read off the print over guessed breaks, "
+      "and a count gaining breaks, are taken",
+      [["2-across"], ["7", "7", "3,4"], ["Port, perhaps, in colour", "Bill's relations", "Wine colour"]],
+      [sorted(f.keep_held_clues(read7, held7)), [e["clue"]["enumeration"] for e in read7["entries"]],
+       [e["clue"]["text"] for e in read7["entries"]]])
+held12 = p7([{"text": "Trustworthy, and still improving", "enumeration": "2,3,2,3,2",
+              "separators": [{"at": n, "mark": ","} for n in (2, 5, 7, 10)]}], "ONTHEUPANDUP")
+read12 = p7([{"text": "Trustworthy, and still improving", "enumeration": "5,7",
+              "separators": [{"at": 5, "mark": ","}]}], "ONTHEUPANDUP")
+for e in held12["entries"]:
+    e["solution"] = None  # the answer the reread fills in bears the breaks out too
+check("a count trading breaks the answer bears out for a neighbour's keeps the held clue, marks and all "
+      "(times-18561)",
+      [["1-across"], held12["entries"][0]["clue"]],
+      [f.keep_held_clues(read12, held12), read12["entries"][0]["clue"]])
+held8 = p7([{"text": "Port, perhaps, in colour", "enumeration": "3,4"}, {"text": "Wine colour", "enumeration": "7"}])
+for e in held8["entries"]:
+    e["solution"] = None
+read8 = p7([{"text": "Port, perhaps, in colour", "enumeration": "7", "countFrom": "grid"},
+            {"text": "Wine colour", "enumeration": "7", "countFrom": "grid"}])
+for e in read8["entries"]:
+    e["solution"] = None
+check("a grid-length count over a printed count with breaks keeps the held clue, answer or not",
+      [["1-across"], ["3,4", "7"]],
+      [sorted(f.keep_held_clues(read8, held8)), [e["clue"]["enumeration"] for e in read8["entries"]]])
+check("breaks_lost(): only breaks the answer bears out, traded for other breaks (ASKANCE's \"4,3\" may go; "
+      "a lone count is the print's)",
+      [True, False, False, False, False],
+      [f.breaks_lost("2,3,2,3,2", "5,7", "ONTHEUPANDUP"), f.breaks_lost("3,4", "7", "REDWINE"),
+       f.breaks_lost("5,2", "7", "CATCHUP"), f.breaks_lost("4,3", "7", "ASKANCE"),
+       f.breaks_lost("2,3,2,3,2", "5,7", None)])
+check("held_count(): the held count, its marks and countFrom over the reading's, the words kept",
+      {"text": "Low laugh", "enumeration": "2-2", "separators": [{"at": 2, "mark": "-"}]},
+      f.held_count({"text": "Low laugh", "enumeration": "4", "countFrom": "grid"},
+                   {"text": "Lo laugh", "enumeration": "2-2", "separators": [{"at": 2, "mark": "-"}]}))
+check("mirror: regressed() names those, and not a mend, a split word or a letter gained",
+      ([True] * 3, [False] * 3),
+      ([f.regressed("good at heart", "good at hear"), f.regressed("the 1st Earl", "the st Earl"),
+        f.regressed("Humpty Dumpty", "Humply Dumpty")],
+       [f.regressed("Fudqe the issue", "Fudge the issue"), f.regressed("fix the bathroom", "fix the bath-room"),
+        f.regressed("Windblow soil", "Windblown soil")]))
+held = held_13998(["A man's man", "Occasional raid cops turn out", "Sporadic"])
+path.write_text(json.dumps(held))
+mended, now = f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path)
+check("a held filing takes a reading's added word, answers kept, the rest as held",
+      ({"15-across": "Occasional raid cops turn out for"}, "ANTIMONY", "A man's man"),
+      (now, mended["entries"][1]["solution"], mended["entries"][0]["clue"]["text"]))
+flags = []
+puzzle_integrity.check_rewrite(held, mended, flags)
+check("a corrected filing passes the rewrite check", [], flags)
+check("a reading losing a held word leaves the file alone", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn", "Sporadic"]), path))
+check("a reading with a clue blank leaves the held clue alone", None,
+      f.mend_held(held_13998(["A man's man", "", "Sporadic"]), path))
+check("a reading laying another light's words on a light corrects nothing", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out", "Occasional raid cops turn out"]), path))
+held["entries"][1]["annotation"] = {"definitions": [{"text": "turn out", "at": 21}]}
+path.write_text(json.dumps(held))
+check("an annotated held clue keeps its words and annotation", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+del held["entries"][1]["annotation"]
+path.write_text(json.dumps(held))
+import fetch_puzzle
+fetch_puzzle.SOURCE_CLUE_WRONG[("times-13998", "15-across")] = ("Occasional", "Occasional raid cops turn out", "x")
+check("a held clue a source_clue_wrong row names keeps its words", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+del fetch_puzzle.SOURCE_CLUE_WRONG[("times-13998", "15-across")]
+path.write_text(json.dumps(held_13998(["A man's man", "Occasional raid cops turn out", ""])))
+check("a reading that improves() the file is no correction: it replaces the file", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+other = held_13998(["A man's man", "Occasional raid cops turn out", "Sporadic"])
+other["source"]["acquiredBy"] = "tools/acquire_book.py"
+path.write_text(json.dumps(other))
+check("another tool's file is never corrected", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+
+check("a one read as l before a digit, and the space lost after a question mark, mended",
+      "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
+
+for body in (b"old", b"new"):
+    model.write_bytes(body)
+    ocr_clues._MODEL_HASHES.clear()
+    check(f"reader_key hashes the model ({body.decode()})", True,
+          ocr_clues.reader_key("times").startswith("times-"))
+    if body == b"old":
+        old_key = ocr_clues.reader_key("times")
+check("a changed model changes the cache name", True, ocr_clues.reader_key("times") != old_key)
+check("RapidOCR readers keep their name", "en5", ocr_clues.reader_key("en5"))
+ocr_clues.TESS_MODELS.clear(); ocr_clues.TESS_MODELS.update(saved[0])
+ocr_clues._MODEL_HASHES.clear(); ocr_clues._MODEL_HASHES.update(saved[1])
+
+# Real page crops (tools/fixtures/archive-org-grids, cases.json gives each
+# one's scan and title box): the grid is the one the title heads wherever it
+# lies, whole.
+from PIL import Image
+fix = Path("fixtures/archive-org-grids")
+cases = json.loads((fix / "cases.json").read_text())
+def located(name):
+    """The grid box found in a region of a page, laid on a page as wide as
+    the scan's (a grid's size is judged against the page's width)."""
+    region = Image.open(fix / f"{name}.jpg").convert("L")
+    pg = Image.new("L", (cases[name].get("pageWidth", f.SCAN_WIDTH), region.height), 255)
+    pg.paste(region, (0, 0))
+    box, side = f.locate_grid(pg, cases[name]["title"])
+    return side, f.shaped_on(pg, box), box
+side, shaped, box = located("times-20117-below-far")
+check("a grid further under its title than the first crop reaches is read whole (Times 20,117)",
+      ("below", True, True), (side, shaped, abs((box[3] - box[1]) - (box[2] - box[0])) < 30))
+side, shaped, box = located("times-16977-clues-joined")
+check("a grid whose ink joins the clue column under it is found under its title (Times 16,977)",
+      ("below", True, True), (side, shaped, box[3] - box[1] < 700))
+side, shaped, box = located("times-14132-flush-title")
+check("a grid flush under its title, which the under-crop cuts, is found whole (Times 14,132)",
+      ("below", True), (side, shaped))
+# A 1940s Gale Times grid whose top lies within its title's line (band_grid): 1943-09-06's title over its clue
+# column and grid (the title's middle just left of the grid, so locate_grid took it as right of the title).
+_bg_title, _bg_grid = (1221, 3925, 2244, 4014), (1788, 3991, 2508, 4743)
+check("a grid under its title's right part, its top in the title's line, is the grid under it", _bg_grid,
+      f.offset_under(_bg_title, _bg_grid))
+check("not a grid starting past the title, nor left of its edge, nor well under it, nor over it", [None] * 4,
+      [f.offset_under(_bg_title, (2300, 3991, 3020, 4743)), f.offset_under(_bg_title, (1100, 3991, 1820, 4743)),
+       f.offset_under(_bg_title, (1788, 4300, 2508, 5052)), f.offset_under(_bg_title, (1788, 3100, 2508, 3852))])
+_bg_page = Image.new("L", (3621, 4977), 255)
+_bg_page.paste(0, _bg_grid)
+_bg_found = f.band_grid(_bg_page, _bg_title)
+check("band_grid finds the grid on the page when locate_grid missed it", True,
+      _bg_found is not None and all(abs(a - b) <= 2 for a, b in zip(_bg_found, _bg_grid)))
+check("band_grid takes locate_grid's own box when it qualifies", _bg_grid, f.band_grid(_bg_page, _bg_title, _bg_grid))
+check("band_grid: none when no grid lies in the title's line", None,
+      f.band_grid(Image.new("L", (3621, 4977), 255), _bg_title))
+side, shaped, box = located("times-16988-prize-solutions")
+check("a Saturday prize grid under the last puzzles' two solution grids is found under them (Times 16,988)",
+      ("below", True, True), (side, shaped, box[1] > 700))
+saved_shaped, f.solution_shaped = f.solution_shaped, lambda img: lambda box: False
+check("(mirror) taking the solution grid for any other ink under the title, it is refused", None,
+      located("times-16988-prize-solutions")[0])
+f.solution_shaped = saved_shaped
+side, shaped, box = located("times-17001-above")
+check("a grid printed over its title is found (Times 17,001)", ("above", True), (side, shaped))
+side, shaped, gbox = located("ftcryptic-8649-left")
+check("a grid left of its title is found, not ink under the title (FT Monday Prize 8,649)",
+      ("left", True), (side, shaped))
+side, shaped, _ = located("ftcryptic-5607-right")
+check("a grid right of its title, the title's box past the page's left edge (FT 1985-01-02, 5,607)",
+      ("right", True), (side, shaped))
+side, shaped, box = located("ftcryptic-5101-article-above")
+check("an article's ink far over the title is no grid over it: the grid right of it is (FT 1983-02-18, 5,101)",
+      ("right", True, True), (side, shaped, box[0] > cases["ftcryptic-5101-article-above"]["title"][2] - 300))
+f.ABOVE_GAP, saved_gap = 10 ** 6, f.ABOVE_GAP
+check("(mirror) with no bound on the gap, the article is taken for the grid", "above",
+      located("ftcryptic-5101-article-above")[0])
+f.ABOVE_GAP = saved_gap
+lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-8649-left"]["lines"]]
+text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
+check("the clue columns left of the grid are read, across then down",
+      (True, True), (text.startswith("ACROSS\nI Footwear"), "\nDOWN\n2 Fruit" in text))
+# The 1983-86 FT: ACROSS and the first DOWN clues in a column under the title,
+# left of the grid; the rest of DOWN in two columns under the grid, a clue
+# running on from each column into the next (RapidOCR's words, 5,607).
+_, _, gbox = located("ftcryptic-5607-right")
+lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-5607-right"]["lines"]]
+lead = f.lead_split(lines, gbox, f.lead_column(cases["ftcryptic-5607-right"]["title"], gbox))
+cols = f.columns(lines, gbox, lead=lead, split=f.under_gutter(lines, gbox))
+text = f.column_text(cols)
+parsed, _ = f.parse(text)
+# The Times to 1967-04-10 sets its grid under the title, indented from the
+# title's left edge, with ACROSS and the first DOWN clues left of it (No
+# 11,509); from No 11,510 the grid starts at the title's edge, its clues under it.
+check("an indented grid under its title has a clue column left of it, a flush one none",
+      ((121, 3865), None),
+      (f.indented_column((271, 3802, 1148, 3865), (491, 3879, 1211, 4595)),
+       f.indented_column((198, 2784, 911, 2819), (190, 2829, 912, 3535))))
+# A title read from its second word ("CROSSWORD PUZZLE NO. ..." of "THE TIMES
+# CROSSWORD ..."; Gale 1962-11-02) sits level with its grid: its printed line
+# is walked left to the first word, so the clue column left of it is cropped.
+from PIL import Image as _Image, ImageDraw as _Draw
+_img = _Image.new("L", (1400, 200), 255)
+_d = _Draw.Draw(_img)
+for _x0 in (200, 340, 480):
+    _d.rectangle((_x0, 100, _x0 + 110, 130), fill=0)  # words, gaps under a grid's TITLE_GAP
+_d.rectangle((1300, 100, 1330, 130), fill=0)  # print far right: not the title
+check("a title read from its second word is walked left to its line's start",
+      (200, (0, 130)), (f.title_left(_img, (600, 100, 800, 130), (610, 140, 1210, 740))[0],
+                         f.indented_column(f.title_left(_img, (600, 100, 800, 130), (610, 140, 1210, 740)),
+                                           (610, 140, 1210, 740))))
+check("the column beside the grid is read first, then the two under it",
+      ("ACROSS", "cause lock-jaw(7)", "ofNewport（5)"), tuple(c[0][4] for c in cols))
+check("a clue's run-on line opens the next column and stays with its clue",
+      (True, True), ("6 Chewing nuts with tea may\ncause lock-jaw" in text,
+                     "22 Music for one in outskirts\nofNewport" in text))
+check("an under-grid clue's number outdented past the grid's edge stays in its column",
+      True, any(l[4].startswith("10 It's simple") for l in cols[1]))
+# This one reading's own slips (25 read as 23, 19 run into 17) are the vote's
+# to mend: the 15 across and 12 of the 13 down parse.
+check("every across and down clue of the layout parses",
+      (15, 12), tuple(len(parsed[k]) for k in ("across", "down")) if parsed else None)
+check("(mirror) read as two columns under the grid, no reading parses", None,
+      f.parse(f.column_text(f.columns(lines, gbox, split=f.under_gutter(lines, gbox))))[0])
+
+side, shaped, box = located("times1930-54-fold")
+check("a grid is found when a fold in the paper runs down through its title and into it (1930 No 54)",
+      ("below", True), (side, shaped))
+f.CLEAR_SHARE, saved_clear = -1, f.CLEAR_SHARE
+check("(mirror) without the clear row under the title the folded grid is refused", None, located("times1930-54-fold")[0])
+f.CLEAR_SHARE = saved_clear
+
+side, shaped, box = located("gale-times-17247-tight-title")
+check("a grid whose top frame lies 2px under its title's foot, a descender over it, is the title's (Gale 1987-01-07)",
+      ("below", True), (side, shaped))
+f.TITLE_OVERLAP, saved_overlap = 0, f.TITLE_OVERLAP
+check("looking for the clear row over the title's foot only, a crop beside the title finds it whole under it",
+      "below", located("gale-times-17247-tight-title")[0])
+f.TITLE_OVERLAP = saved_overlap
+
+side, shaped, box = located("times-16960-foot")
+check("a grid box ends at the grid's foot frame, not under the ACROSS line touching it (Times 16,960)",
+      ("below", 711), (side, box[3]))
+side, shaped, box = located("times-20778-faint-foot")
+check("a grid box keeps its last row of cells when its foot frame is too faint to be one (Times 20,778)",
+      ("below", 838), (side, box[3]))
+cut = Path(os.environ["TMP"]) / "20778.png"
+Image.open(fix / "times-20778-faint-foot.jpg").crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(cut)
+check("its grid reads whole off the box", 15, len(f.trove_grid.read_grid(cut)[0] or ()))
+# The 1970s-80s Times prints its blocks as a halftone stipple, in places so
+# pale that the paper between its dots is a patch as big as a light's
+# (Times 15,725 read "not 180-degree symmetric", 16,331 "r4c8 is neither a
+# light nor a block").
+for name in ("times-15725-grey-blocks", "times-16331-grey-blocks-noisy"):
+    check(f"grey stippled blocks read as blocks, cell for cell ({name})",
+          (cases[name]["grid"], None), f.trove_grid.read_grid(fix / f"{name}.jpg"))
+# A lattice fit that holds where the scan does not: two stipples merged
+# without a rule leave a patch half a cell off, which chained a column's
+# patches into the next column's (Times 15,174); a warped corner (14,653);
+# a stray mark cutting a light's paper short (14,797); a sticker over four
+# rows, read from the cells' mirrors (15,773).
+for name in ("times-15174-column-half-off", "times-14653-warped", "times-14797-stray-mark",
+             "times-15773-sticker"):
+    check(f"the lattice is fitted and every cell read ({name})",
+          (cases[name]["grid"], None), f.trove_grid.read_grid(fix / f"{name}.jpg"))
+check("a column's patches are not chained into the next by one half a cell between",
+      [0, 0, 0, 1, 1], f.trove_grid.steps([2.0, 2.05, 2.5, 2.95, 3.0]))
+# A page scanned at twice the usual width: its grid is twice as wide, not
+# too big to be one (Times 17,186 cut the solution grid over its title).
+side, shaped, box = located("times-17186-double-width")
+check("a grid on a double-width page is found under its title (Times 17,186)",
+      ("below", True), (side, shaped))
+cut = Path(os.environ["TMP"]) / "17186.png"
+Image.open(fix / "times-17186-double-width.jpg").crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(cut)
+check("its grid reads off the box, the puzzle's and not the filled solution's",
+      (cases["times-17186-double-width"]["grid"], None), f.trove_grid.read_grid(cut))
+check("a light with no neighbouring light is no crossword's", "the light at r1c1 has no neighbouring light",
+      f.trove_grid.unchecked([".#.", "#..", "..."]))
+check("lights in two patches are no crossword's", "the lights are not one connected patch",
+      f.trove_grid.unchecked(["..#", "###", "#.."]))
+check("one patch of lights, each with a neighbour, is a crossword's", None,
+      f.trove_grid.unchecked(["...", ".#.", "..."]))
+side, shaped, box = located("times-16357-title")
+check("a grid whose top frame reaches into its title's box is the title's grid (Times 16,357)",
+      ("below", True), (side, shaped))
+
+# Real clue readings (tools/fixtures/archive-org-clues: each edition's
+# column texts as the readers read them and its scanned grid; times-16960
+# also has RapidOCR's words and the grid box): the clue each reading spoils
+# is filed whole.
+import file_trove_puzzles as ftp
+import reconstruct_grid as rg
+clue_cases = json.loads(Path("fixtures/archive-org-clues/cases.json").read_text())
+def readings_of(name):
+    c = clue_cases[name]
+    lengths = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(c["grid"]).items()}
+    return c["texts"], lengths
+def parsed_of(name, reader):
+    p, why = f.parse(clue_cases[name]["texts"][reader])
+    assert p, why
+    return {(n, d): c for d in ("across", "down") for c in p[d]
+            for n in (c["tokens"][0] if len(c["tokens"][0]) == 1 else ())}
+def voted(name, reader, lid, text, enum):
+    texts, lengths = readings_of(name)
+    return ocr_clues.reconcile({lid: (text, enum, None)}, [t for k, t in texts.items() if k != reader],
+                               lengths)[0][lid][0]
+check("a clue the print opens in lower case, every reading with its number before it, is filed (Times 15,122 13A)",
+      "under twenty-one", voted("times-15122", "djvu", "13-across", "under twenty-one", "5"))
+check("a clue opening on two cross-references is filed (Times 15,122 5D)",
+      "3 3 on the watch", voted("times-15122", "djvu", "5-down", "3 3 on the watch", "5"))
+check("a cross-reference read apart is one number where most readings have it (Times 16,376 19D)",
+      "Agaric, maybe, confused with 15's first reformer",
+      voted("times-16376", "djvu", "19-down", "Agaric, maybe, confused with 1 5's first reformer", "7"))
+check("a cross-reference before \"I\" is no next clue run on (Times 16,357 16D)",
+      "Removal of 25 I notice in distress outside",
+      voted("times-16357", "ch", "16-down", "Removal of 25 I notice in distress outside", "8"))
+d16960 = parsed_of("times-16960", "djvu")
+check("a count read as a bracket and a digit on its own line ends its clue, the grid giving it (Times 16,960 20A)",
+      ("What Ractatraw, in spite of all temptations, remained", set(), "Fine island, jolly compact"),
+      (d16960[20, "across"]["text"], d16960[20, "across"]["enums"], d16960[21, "across"]["text"]))
+check("a notice printed between two clues is in neither (Times 16,960 5D, 6D)",
+      ("Be responsible for burning high church taper", "Peer inside the pearly gates"),
+      (d16960[5, "down"]["text"], d16960[6, "down"]["text"]))
+c = clue_cases["times-16960"]
+text = f.column_text(f.columns([[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])))
+check("a line printed across both clue columns ends the column (Times 16,960)",
+      (False, True), ("Collins" in text, "\nPeer inside the pearty gztes" in text))
+def case_columns(name):
+    c = clue_cases[name]
+    words, gbox = [[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])
+    return [[l[4] for l in col] for col in f.columns(words, gbox, split=f.under_gutter(words, gbox))]
+c16136 = case_columns("times-16136")
+check("a row RapidOCR reads across a narrow gutter is cut at the right clue's number, not read as a notice"
+      " (Times 16,136)",
+      ("11 Scandinavian hzs no right to", "perhaps? (10).", "12 Sympathetic type on long desert", "(4)."),
+      (c16136[0][6], c16136[0][26], c16136[1][7], c16136[1][-1]))
+c15328 = case_columns("times-15328")
+check("a line across the gutter is cut at a misread number (\"l4\", \"I6\") and one starting just left of it"
+      " (Times 15,328)",
+      (["12 Poct hrrs the uurk 'e", "13Thev nere unr!hy"], ["l4 Aias Peter Simple? The real",
+                                                            "I6 DeniedhrJack-aaed ton.", "24 Paper. set up balf their"]),
+      ([t for t in c15328[0] if t.startswith(("12 ", "13"))],
+       [t for t in c15328[1] if t.startswith(("l4", "I6", "24"))]))
+c17231 = case_columns("times-17231")
+check("a skewed page's right-column line overhanging the grid by under the crop's reach is kept, not its"
+      " continuation alone (Times 17,231 17D, 24D)",
+      ["17 Top position for apprentice", "in boat (8).", "24 Unusuafly close to the foot", "of the cofumn (5)."],
+      [t for t in c17231[1] if t.startswith(("17 ", "in boat", "24 ", "of the"))])
+c17001 = case_columns("times-17001")
+check("a skewed page's right-column line starting just left of the gutter is the right column's, not run into"
+      " the left column's row (Times 17,001 24D, 26A)",
+      (["26 Unhappily forgel rule-"], True),
+      ([t for t in c17001[0] if t.startswith("26 ")], "24 Present from the queen (5)." in c17001[1]))
+check("a column opening on clue 1 read as \"I\" keeps that line (Times 21,083 1A)",
+      ["I Very late at night louts, having", "lost out, run wild (4.5)."], case_columns("times-21083")[0][:2])
+c13696 = case_columns("times-13696")
+check("a line across the gutter at two rows' heights is cut so the line under its right half is kept"
+      " (Times 13,696 24D)",
+      (["Charles on the river (6).", "24 Jobs for the boys, such as", "Horner ? (5)."], True),
+      (c13696[1][c13696[1].index("24 Jobs for the boys, such as") - 1:][:3],
+       "20 Shnor the works-ike Isa-" in c13696[0]))
+c = clue_cases["times-17382"]
+gbox, djvu = tuple(c["gbox"]), [[tuple(w) for w in ws] for ws in c["djvuLines"]]
+column = f.left_column(djvu, gbox)
+texts = [f.column_text(f.columns(ws, gbox, left=column)) for ws in (djvu, [[tuple(w)] for w in c["chWords"]])]
+check("the one clue column left of a Saturday prize grid is read, ACROSS to the last DOWN clue under the grid's"
+      " foot (Times 17,382)",
+      [(True, True, True)] * 2,
+      [(t.startswith("ACROSS\n"), "\n4 Spectacle for a grea" in t, t.rstrip().endswith("bill (4).")) for t in texts])
+c = clue_cases["times-16136"]
+check("(mirror) a grid whose clues are under it has no column left of it (Times 16,136)", None,
+      f.left_column([[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])))
+# The Gale 1987-02-21 prize page's RapidOCR probe read its heading "EACROSS." (No 17,286).
+probe = [[(542, 2996, 630, 3028, "The Ti")], [(248, 3040, 269, 3060, "1")], [(248, 3048, 368, 3073, "EACROSS.")],
+         [(258, 3072, 602, 3098, ": 1 Musican's disc has the exact")], [(292, 3096, 408, 3119, "words (7-5).")]]
+pgrid = (631, 3053, 1300, 3800)
+check("a probe heading read with a letter glued on is no heading by HEADING_ALONE", None, f.left_column(probe, pgrid))
+check("but places the column by PROBE_HEADING", (188, None, 3800 + f.COLUMN_DROP * 747),
+      f.left_column(probe, pgrid, heading=f.PROBE_HEADING))
+check("PROBE_HEADING still takes a plain heading, not a clue's word", (True, True, False, False),
+      tuple(bool(f.PROBE_HEADING.match(t)) for t in (". ACROSS", "Down", "Sundown", "ACROSS 5")))
+_80s = {"scan": {"item": "GaleTimes1987UKEnglish", "date": "1987-02-21"}, "readAt": "2026-10-21T19:29:37+00:00",
+        "verdicts": [{"number": 17286, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a 1987 Gale page refused no reading parses before the probe's fix is due again, any day", True, f.parses_era_due(_80s))
+check("a 1995 one is not", False, f.parses_era_due({**_80s, "scan": {"item": "GaleTimes1995UKEnglish", "date": "1995-02-21"}}))
+check("a centred notice with no clue number near the gutter still spans it",
+      [(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")],
+      f.split_across([(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")], [400]))
+check("a clue number far from the gutter does not cut a line across it",
+      [(100, 0, 700, 20, "12 Poet shows the work returned again and again here")],
+      f.split_across([(100, 0, 700, 20, "12 Poet shows the work returned again and again here")], [400]))
+check("a row's end spilled a little over a narrow gutter is cut there, not taken for a notice (FT 1981-10-19)",
+      [(154, 0, 504, 20, "(25 and part. back (4,3,4)"), (505, 0, 590, 20, ":+:up!")],
+      f.split_across([(154, 0, 590, 20, "(25 and part. back (4,3,4) :+:up!")], [505]))
+check("a clue number read with a dash before it still cuts a row across the gutter",
+      [(100, 0, 399, 20, "hole, but not in reverse (6). - -"), (400, 0, 700, 20, "3. Grotesque insect I caught")],
+      [w[:4] + (w[4].strip(),) for w in f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). - -3. Grotesque insect I caught")], [400])][:2])
+# Gale 1963-07-01: a speck glued before a linked clue's numbers put its line left of the gutter, and
+# the cut fell at its second number ("21 Hamlet"), leaving "25," in the other column.
+_linked = f.split_across([(741, 0, 1222, 20, "1 25, 21 Hamlet .of the. animal'world ?")], [770])
+check("a linked clue read across the gutter is cut at its first number, a speck left behind",
+      ("1", "25, 21 Hamlet"), (_linked[0][4].strip(), _linked[-1][4][:13]))
+check("a linked clue just left of the gutter is never cut at its later number (it is the next column's, whole)",
+      [(770, 0, 1222, 20, "25, 21 Hamlet of the animal world ?")],
+      f.split_across([(760, 0, 1222, 20, "25, 21 Hamlet of the animal world ?")], [770]))
+# Gale 1963-07-20: the column rule read as a mark glued to the next column's number (MARKED_NEXT); ch's
+# line stayed whole, so 22 down was lost into the clue before it.
+check("a clue number read with the gutter's rule glued before it cuts the row there, the mark dropped",
+      ["gripping  show", "22 Noisome to us, the good earth ?(5)."],
+      [w[4] for w in f.split_across([(524, 0, 1216, 20, "gripping  show '22 Noisome to us, the good earth ?(5).")], [777])])
+check("but not where the rest of the line is no whole clue (no count closes it), nor after a colon",
+      [1, 1],
+      [len(f.split_across([(226, 0, 920, 20, "are taken for protection (6, '20 Rotter for whom a young")], [600])),
+       len(f.split_across([(300, 0, 900, 20, "20 Sort of theatre the Spanish reject :9: Platre (7.2.5).")], [640]))])
+check("a rule read as a 1 before a digit stays the number's (NEXT_CLUE's '|5' is 15)",
+      "|5 Grotesque insect I caught",
+      f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). |5 Grotesque insect I caught")], [400])[-1][4])
+# Gale 1935-05-13 (MARKED_HYPHEN): a row whose second clue wraps on a broken word has no count to close it.
+check("a clue number behind a rule's mark cuts the row where the rest ends on a hyphenated word",
+      ["Heights of literary", "19 His type was photo-"],
+      [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Heights of literary ·19 His type was photo-")], [2273])])
+# Gale 1935-06-24, 1938-02-17, 1939-08-03 (MARKED_RISE): "!", "[" "(" before two digits, the row ending on a lower-case word.
+check("a '!' before a rising clue number cuts the row ending on a lower-case word",
+      ["Engage a building", "17 Grenade burst with"],
+      [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Engage a building !17 Grenade burst with")], [2273])])
+check("a '[' before a rising clue number cuts the row ending on a lower-case word",
+      ["Rises as a bird", "21 Foot of a hill with"],
+      [w[4] for w in f.split_across([(2085, 3183, 2424, 3207, "Rises as a bird [21 Foot of a hill with")], [2273])])
+check("a mark before a number that does not rise on the row's own stays whole",
+      1, len(f.split_across([(2085, 3183, 2424, 3207, "22 Engage a building !17 Grenade burst with")], [2273])))
+# Gale 1964-10-16's 4 down: the VLM was asked for the one column with a weak light, its reply a list with no
+# heading (parse() needs both lists), and the readers' line was garbled ("4 t u p n emstic a lly").
+_vlmcol = "4 Euphemistically\nmore bloody (7).\n5 Tripped under\ncanvas (7).\n6 Love-bird? (4).\n"
+_vlmread = "4 t u p n emstic a lly more bloody (7). 5 Tripped under canvas (7)"
+_vlblank = {"4-down": "no reading laid a clue on it"}
+_vllaid = {"4-down": ("", None, None)}
+check("a VLM reply's clues are split at the numbers that open a closed clue, a line opening on a number inside one is its",
+      [[(4, "Euphemistically more bloody", "7"), (5, "Tripped under canvas", "7"), (6, "Love-bird?", "4")],
+       [(5, "Sleeping accommodation in the 19 Club perhaps", "8")]],
+      [f.vlm_clues(_vlmcol), f.vlm_clues("5 Sleeping accommodation in the\n19 Club perhaps (8).\n")])
+check("a light no reading laid takes the VLM's clue under its number and count when the readers spell most of its words",
+      [{"4-down": ("Euphemistically more bloody", "7", None)}, {}],
+      [f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7, "5-down": 7})[0],
+       f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7, "5-down": 7})[1]])
+check("but not where the number names another light of that length, the count fits no light, or the readers share none of its words",
+      [_vlblank] * 3,
+      [f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7, "4-across": 7})[1],
+       f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 8})[1],
+       f.vlm_laid({"ch": "Quite unrelated print about gardens", "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7})[1]])
+check("and a light blank for another reason is left to the pick",
+      {"4-down": "'Murat': a word misread as a name"},
+      f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, {"4-down": "'Murat': a word misread as a name"}, {"4-down": 7})[1])
+# Gale 1932-03-11's 22 down: the 1930-33 lists print no counts, so the VLM's reply (one tail column of the down
+# list, no heading) had none for vlm_laid to fit; the clue stands in the list between its grid neighbours' clues.
+_vplain = ("17 Arrange.\n19 This plot is\ngenerally culti-\nvated secretly.\n20 Defeat.\n22 I'd look more\n"
+           "orderly in a row.\n23 English first edi-\ntion expert.\nSOLUTION OF PUZZLE No. 653\n")
+_vpread = "22 I'd look more orderly in a row. 23 English first edition expert."
+_vplens = {"17-down": 7, "19-down": 6, "20-down": 6, "22-down": 7, "23-down": 7}
+_vpblank = {"22-down": "no reading laid a clue on it"}
+_vplaid = {"22-down": ("", None, None)}
+check("a reply's numbered entries take their wrapped lines up to the next number or a heading",
+      [(17, "Arrange.", 1), (19, "This plot is generally culti- vated secretly.", 3), (20, "Defeat.", 1),
+       (22, "I'd look more orderly in a row.", 2), (23, "English first edi- tion expert.", 2)],
+      f.vlm_plain_entries(_vplain))
+check("a count-less page's light no reading laid takes the reply's clue between its grid neighbours' when the readers spell it",
+      [{"22-down": ("I'd look more orderly in a row.", None, None)}, {}],
+      [f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, _vplens)[0],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, _vplens)[1]])
+check("but not where a light between sits in the grid, the number names another light, the readers share none of its words, "
+      "the page prints counts, or the blank is for another reason",
+      [_vpblank] * 4 + [{"22-down": "'Murat': a word misread as a name"}],
+      [f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, {**_vplens, "21-down": 5})[1],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, {**_vplens, "22-across": 5})[1],
+       f.vlm_laid_plain({"ch": "Quite unrelated print about gardens", "vlm": _vplain}, _vplaid, _vpblank, _vplens)[1],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain + "4 Foo bar (3).\n5 Bar foo (4).\n6 Baz qux (5).\n"},
+                        _vplaid, _vpblank, _vplens)[1],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, {"22-down": "'Murat': a word misread as a name"}, _vplens)[1]])
+check("and a racing line that opens on the number is no clue (no entry beside it is a grid neighbour's)",
+      {"20-down": "no reading laid a clue on it"},
+      f.vlm_laid_plain({"ch": _vpread + " each agst the others", "vlm": "TOTALISATOR PRICES.\n20 to 1 each agst the others.\nWon by four lengths.\n"},
+                       {"20-down": ("", None, None)}, {"20-down": "no reading laid a clue on it"},
+                       {"19-down": 6, "20-down": 6, "22-down": 7})[1])
+# A 3x3 grid: 1 across and down, 2 down, 3 across.
+_g3 = ["...", ".#.", "..."]
+check("a light number no reading opens a clue on is unread",
+      {2}, f.unread_numbers(_g3, {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "3 Bar (3)")], [(4, 5, 0, 1, "1 Baz (3)")]]}))
+check("nor when another reading, or a clue's number inside a merged row, has it",
+      set(), f.unread_numbers(_g3, {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "it may 3 Bar (3)")]],
+                                    "en5": [[(0, 1, 0, 1, "2, 1 Baz (3)")]]}))
+_solo = {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "3 Bar (3)")]],
+         "en5": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "2 Baz (3)"), (4, 5, 0, 1, "3 Bar (3)")]]}
+check("SOLO_READ: a light number only one reading opens a clue on is read alone by the readers that opened none there",
+      {"ch": {2}}, f.solo_numbers(_g3, _solo))
+check("and none when two readings open it, or none does",
+      {}, f.solo_numbers(_g3, {"ch": _solo["en5"], "en5": _solo["en5"]}))
+check("SOLO_READ is due a Times page unfiled with a light blank only one reading printed, read before the cutoff, not one read solo",
+      [True, False],
+      [f.solo_read_due({"edition": "GaleTimes1939UKEnglish/1939-02-08", "readAt": "2026-11-17T15:19:47+00:00",
+                        "verdicts": [{"number": 99999, "id": "times-99999", "unfiled": 1, "blank": {"5-down": "no other reading has 'The'"}}]}),
+       f.solo_read_due({"edition": "GaleTimes1939UKEnglish/1939-02-08", "readAt": "2026-11-17T15:19:47+00:00",
+                        "verdicts": [{"number": 99999, "id": "times-99999", "unfiled": 1, "readSolo": [5],
+                                      "blank": {"5-down": "no other reading has 'The'"}}]})])
+check("SOLO_CUT: a solo clue number inside a row cuts it there, a stray '1' before the number dropped (Gale 1931-04-18's 22 down)",
+      ["17 He makes the door", "22 He was engineer"],
+      [w[4] for w in f.solo_cut([[(0, 0, 400, 10, "17 He makes the door 122 He was engineer")]], {22})[0]])
+check("and a row that opens on it, or holds no such number, stays whole",
+      [[(0, 0, 400, 10, "22 He was")]], f.solo_cut([[(0, 0, 400, 10, "22 He was")]], {22}))
+check("a clue number read as a box of its own joins the line beside it, the line's copy of its last figure dropped (1961-03-10)",
+      [(773, 4768, 1215, 4804, "25 Mock at 'the Rock, going East (4).")],
+      f.numbers_joined([(773, 4770, 804, 4791, "25"), (790, 4768, 1215, 4804, "5 Mock at 'the Rock, going East (4).")]))
+_alone_img = Image.new("RGB", (400, 400), "white")
+_real_read_words = f.read_words
+try:
+    # Read alone, the window's tile holds the line the whole crop's read lost, and the speck's
+    # line it read instead: the line opening on the unread number takes the speck's place.
+    f.read_words = lambda crop, which: [(10, 50, 200, 70, "25 A position in the building world"),
+                                        (150, 72, 190, 90, "(4)."), (10, 120, 200, 140, "26 Old (3).")]
+    _rapid = [[(130, 150, 300, 170, "i 25 A positon")], [(130, 220, 300, 240, "26 Old (3).")]]
+    _got = f.alone_words(_alone_img, [(120, 330, 330, 100)], 400, "ch", _rapid, {25})
+    check("alone_words lays the lost line, its count under it, in place of the speck's",
+          ["(4).", "25 A position in the building world", "26 Old (3)."], sorted(w[0][4] for w in _got))
+    check("alone_words keeps the reading as it was when no tile opens on an unread number",
+          True, f.alone_words(_alone_img, [(120, 330, 330, 100)], 400, "ch", _rapid, {27}) is _rapid)
+finally:
+    f.read_words = _real_read_words
+# FT 1981-10-19: the across clues no reader laid have no count, so the grid's gives it, and
+# the VLM's clean column reading is laid with no pick (14 of 16 picks were for these).
+check("a blank light no reader laid takes the grid's length as its count: the clean column reading is laid, no ask",
+      "Poet's study crowned with gold",
+      ocr_clues.vlm_pick({**WORN_OCR, "vlm": WORN_VLM}, {"18-across": ("", None, None)},
+                         {"18-across": "no reading laid a clue on it"}, f.parse, lambda lid, cands: 1 / 0,
+                         {"18-across": 5})[0]["18-across"][0])
+d16626 = parsed_of("times-16626", "djvu")
+check("\"Prize Crossword in\" between two clues is in neither (Times 16,626 3D, 4D)",
+      ("Bones of little girl in centre of trail", "Of great significance to chaps in Missouri.all French"),
+      (d16626[3, "down"]["text"], d16626[4, "down"]["text"]))
+check("a count torn at a clue's end is read as its count: \"17).\", \"IS).\" (Times 16,626 5A, 19A)",
+      (("Definitely the product of a writer", {"7"}), ("Souvenir exhibited by Kildare licensee", True)),
+      ((d16626[5, "across"]["text"], d16626[5, "across"]["enums"]),
+       (d16626[19, "across"]["text"], "5" in d16626[19, "across"]["enums"])))
+check("a word split at a line end is joined where this clue misreads it by a letter (Times 16,626 20D)",
+      "Half-clad and primitive, obviously",
+      voted("times-16626", "djvu", "20-down", "Half-clad and primitive, obviousJy", "7"))
+check("a speck read as a full stop gives way to the comma the other readings have (Times 16,626 4D)",
+      "Of great significance to chaps in Missouri, all French",
+      voted("times-16626", "djvu", "4-down", "Of great significance to chaps in Missouri.all French", "9"))
+p, _ = f.parse(clue_cases["times-13683"]["texts"]["en5"])
+p, _ = ftp.renumber(p)
+nums = [next(iter(c["tokens"][0])) for c in p["across"] if len(c["tokens"][0]) == 1]
+check("a clue number its list's order refuses is left for the grid to place (Times 13,683: 19 between 9 and 12)",
+      (True, set()), (nums == sorted(set(nums)), next(c for c in p["across"] if c["text"].startswith("Man"))["tokens"][0]))
+
+# Real page crops whose archive.org text has no crossword title
+# (tools/fixtures/archive-org-titles; cases.json gives each one's scan, its
+# paper and date, and the words our readers read in each title band, so no
+# OCR runs here): the grid is found, the title read over or under it, and the
+# number is the one its date implies.
+import datetime
+tfix = Path("fixtures/archive-org-titles")
+tcases = json.loads((tfix / "cases.json").read_text())
+band_words, shaped_on = f.band_words, f.shaped_on
+# Each image is a crop (cases.json's "region") of a SCAN_WIDTH page, so its grid
+# is measured at that page's scale: ocr_titles' shaped_on would scale the crop
+# up to SCAN_WIDTH as if it were the whole page, and lose the grid (FT 5607's
+# 1760px crop then took a 300px patch under it for its grid).
+f.shaped_on = lambda img, box: f.grid_shaped(box)
+for name, what in (("cryptic-21238", "Guardian 1998-04-02, its title over the grid's left"),
+                   ("ftcryptic-9705", "FT 1998-06-11, its number line unread"),
+                   ("ftcryptic-7869", "FT 1992-06-10, a column rule beside its title"),
+                   ("times-19801", "Times 1995-03-13, its title 250px over the grid"),
+                   ("ftcryptic-5607", "FT 1985-01-02, \"F.T. CROSSWORD\" over \"PUZZLE No.\" left of the grid")):
+    c = tcases[name]
+    f.band_words = lambda img, band, which, path, c=c: [tuple(w) for w in c["bands"][",".join(map(str, band))][which]]
+    paper, day = f.PAPERS[c["paper"]], datetime.date.fromisoformat(c["date"])
+    got = f.ocr_titles(Image.open(tfix / f"{name}.jpg"), paper, day, name)
+    want = int(name.split("-")[1])
+    check(f"a title archive.org's text lacks is read by ours: {what}", ([want], True),
+          ([t[0] for t in got], bool(got) and abs(got[0][0] - paper.expected(day)) <= f.NUMBER_SLACK))
+f.band_words, f.shaped_on = band_words, shaped_on
+
+# A grid at the page's top edge has a title band over it with no height
+# (title_bands clips it to the page): it reads as no words, it does not
+# stop the scan. No OCR runs: the band is empty before any reader sees it.
+os.environ.pop("OCR_REMOTE", None)
+page_img = Image.new("RGB", (400, 600), "white")
+band = f.title_bands(page_img, (100, 0, 300, 200))[0]
+check("a title band over a grid at the page's top edge has no height", 0, band[3] - band[1])
+check("the far band reaches a grid's height over it, the grid's width (a Saturday prize title over its entry form)",
+      (3, (100, 100, 300, 300)), (len(f.title_bands(page_img, (100, 300, 300, 500))),
+                                  f.title_bands(page_img, (100, 300, 300, 500), far=True)[-1]))
+# A Gale page whose whole-page read finds no title has the bands round its
+# grid read, the far one too.
+gd = Path(os.environ["TMP"]) / "GaleTimes1987UKEnglish" / "1987-07-02"
+gd.mkdir(parents=True)
+page_img.save(gd / "leaf_0000.jpg")
+(gd / "pages.json").write_text(json.dumps({"date": "1987-07-02", "item": "GaleTimes1987UKEnglish",
+                                           "crossword_pages": [{"leaf": 0}]}))
+saved_h, saved_t = f.ocr_headings, f.ocr_titles
+asked = []
+saved_bw = f.band_words
+f.band_words = lambda img, band, which, path: []
+f.ocr_titles = lambda img, paper, day, key, far=False: asked.append(far) or [(17398, (0, 0, 1, 1), None, ["ch", "en5"])]
+check("a Gale page with no whole-page title is read in the bands round its grid", ([17398], [True]),
+      ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
+f.band_words = saved_bw
+f.ocr_headings = lambda img, paper, key, day=None: ([(17398, (0, 0, 1, 1), None, ["ch", "en5"])], [])
+asked.clear()
+check("(mirror) one whose whole-page read has its title is not read again", ([17398], []),
+      ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
+# A solution heading read as its own edition's title (15,682's grid under
+# 15,683, read "15,683") is dropped from the scan: 15,683 never takes it.
+f.ocr_headings = lambda img, paper, key, day=None: ([(15683, (0, 0, 1, 1), None, ["ch", "en5"])],
+                                          [(15683, (0, 2, 1, 3)), (15682, (0, 4, 1, 5))])
+check("a scan drops a solution numbered like its own edition's title", [15682],
+      [s["number"] for s in f._scan(gd)["solutions"]])
+f.ocr_headings, f.ocr_titles = saved_h, saved_t
+# A Times leaf whose archive.org text garbles its solution heading ("Solution
+# to Puzzle No 21X162", 1996-05-09) has the heading's band read by our
+# readers: a number half of them read one SOLUTION_LAGS before a title
+# stands. The mirrors: one reader alone, or a number neither lag gives, is
+# no heading; a text that reads the heading is not read again.
+saved_bw, saved_sb = f.band_words, f.solution_bands
+f.solution_bands = lambda img, words: [(0, 0, 400, 40)]
+def band_reads(texts):
+    f.band_words = lambda img, band, which, path: ([(10, 10, 60, 30, "Solution"), (70, 10, 90, 30, "to"),
+                                                    (100, 10, 150, 30, "Puzzle"), (160, 10, 180, 30, "No"),
+                                                    (190, 10, 260, 30, texts[which])] if texts.get(which) else [])
+    return [n for n, _ in f.band_solutions(page_img, [20163], [], "band_test")]
+check("a garbled text heading is read in its band by our readers", [20162],
+      band_reads({"ch": "20. 162", "en5": "20,162", "times": "20,162"}))
+check("(mirror) one reader alone is no heading", [], band_reads({"times": "20,162"}))
+check("(mirror) a number neither lag before a title gives is no heading", [],
+      band_reads({"ch": "20,150", "en5": "20,150", "times": "20,150"}))
+td = Path(os.environ["TMP"]) / "NewsUK1996UKEnglish" / "1996-05-09_65575"
+td.mkdir(parents=True)
+page_img.save(td / "leaf_0023.jpg")
+(td / "djvu.xml.gz").write_bytes(b"")
+(td / "pages.json").write_text(json.dumps({"date": "1996-05-09", "item": "NewsUK1996UKEnglish",
+                                           "crossword_pages": [{"leaf": 23}]}))
+saved_ll, called = f.leaf_lines, []
+band_reads({"ch": "20,162", "en5": "20,162", "times": "20,162"})
+f.solution_bands = lambda img, words: called.append(1) or [(0, 0, 400, 40)]
+for heading, want in (("Solution to Puzzle No 21X162", ([20162], [1])),
+                      ("Solution to Puzzle No 20,162", ([20162], []))):
+    called.clear()
+    f.leaf_lines = lambda path, leaves, h=heading: {23: [line("THE TIMES CROSSWORD NO 20,163", y=100), line(h, y=900)]}
+    got = f._scan(td)
+    check(f"a Times text leaf reading {heading!r} under its title: the band re-read only when the text has no heading",
+          want, ([s["number"] for s in got["solutions"]], called))
+# A leaf whose text holds no word of its solution heading and whose solution
+# grid grids_on misses (1986-08-12) places no band: the strip under its
+# title, down the page, is read instead. The mirrors: no title box reads no
+# strip; a band that reads the heading is not followed by the strip.
+def strip_reads(bands, boxes, heading_in):
+    read = []
+    f.solution_bands = lambda img, words: bands
+    def words(img, band, which, path):
+        read.append(band)
+        return ([(band[0] + 10, band[1] + 300, band[0] + 60, band[1] + 320, "Solution"),
+                 (band[0] + 70, band[1] + 300, band[0] + 90, band[1] + 320, "to"),
+                 (band[0] + 100, band[1] + 300, band[0] + 150, band[1] + 320, "Puzzle"),
+                 (band[0] + 160, band[1] + 300, band[0] + 180, band[1] + 320, "No"),
+                 (band[0] + 190, band[1] + 300, band[0] + 260, band[1] + 320, "20,162")]
+                if band == heading_in else [])
+    f.band_words = words
+    return [n for n, _ in f.band_solutions(page_img, [20163], [], "strip_test", boxes)], sorted(set(read))
+strip = (26, 90, 139, 600)  # 40 and 900 px at SCAN_WIDTH, on a 400px page
+check("no band from text or grid: the strip under the title is read", ([20162], [strip]),
+      strip_reads([], [(30, 50, 300, 90)], strip))
+check("(mirror) a band that reads nothing, then the strip", ([20162], [(0, 0, 400, 40), strip]),
+      strip_reads([(0, 0, 400, 40)], [(30, 50, 300, 90)], strip))
+check("(mirror) no title box, no strip", ([], []), strip_reads([], [], strip))
+check("(mirror) a band that reads the heading: no strip", ([20162], [(0, 0, 400, 40)]),
+      strip_reads([(0, 0, 400, 40)], [(30, 50, 300, 90)], (0, 0, 400, 40)))
+f.band_words, f.solution_bands, f.leaf_lines = saved_bw, saved_sb, saved_ll
+# A reader timing out on a whole Gale page (tesseract, 300s, Gale
+# 1987-08-06) reads nothing; the others' title still stands.
+import subprocess
+saved_bw = f.band_words
+def timed_out(img, band, which, path):
+    if which == "times":
+        raise subprocess.TimeoutExpired("tesseract", 300)
+    return [(10, 10, 300, 40, "The TimesCrosswordPuzzleNo17,428")]
+f.band_words = timed_out
+check("a reader's timeout on a whole page reads as nothing, not a failed scan", [(17428, ["ch", "en5"])],
+      [(n, r) for n, _, _, r in f.ocr_headings(Image.new("RGB", (400, 600), "black"), f.GALE, "timeout_test")[0]])
+f.band_words = saved_bw
+# Only PAGE_READERS read a Gale page's whole ink; the other readers read the
+# strips round their words a heading could be (hint_strips), or the whole ink
+# when they read nothing there.
+strip_img = Image.new("L", (f.SCAN_WIDTH, 2000), 255)
+strip_img.putpixel((10, 10), 0)
+check("a strip round each heading-like word, padded, clipped, overlaps merged",
+      [(0, 70, 450, 130), (900, 1470, 1500, 1530)],
+      f.hint_strips(strip_img, [(10, 90, 300, 110, "THE TIMES CROSSWORD"), (200, 95, 260, 110, "17,554"),
+                                (1050, 1490, 1350, 1510, "Solution to Puzzle"), (500, 500, 600, 520, "Down clue 12")]))
+check("(mirror) no heading-like word, no strip", [], f.hint_strips(strip_img, [(10, 90, 300, 110, "27 Order (5)")]))
+asked = []
+def strip_read(page_words):
+    def words(img, box, which, path):
+        asked.append((which, "page" if "_page." in str(path) else tuple(box)))
+        return page_words if which in f.PAGE_READERS and "_page." in str(path) else \
+            [(10, 90, 300, 110, "The Times Crossword Puzzle No 17,554")] if box[1] <= 90 else []
+    asked.clear()
+    f.band_words = words
+    try:
+        return [t[0] for t in f.ocr_headings(strip_img, f.GALE, "strip_read_test")[0]], sorted(set(asked))
+    finally:
+        f.band_words = saved_bw
+heading = [(10, 90, 300, 110, "The Times Crossword Puzzle No 17,554")]
+others = [r for r in f.READERS if r not in f.PAGE_READERS]
+check("the other readers read only the heading strips, and vote with the page reader",
+      ([17554], sorted([(r, "page") for r in f.PAGE_READERS] + [(r, (0, 70, 450, 130)) for r in others])), strip_read(heading))
+check("(mirror) page readers that read nothing: the others read the whole ink",
+      ([], sorted([(r, "page") for r in f.READERS])), strip_read([]))
+check("a band with no height reads as no words, not a crash", [],
+      f.band_words(page_img, band, "times", Path(os.environ["TMP"]) / "band.json"))
+check("an image with no width reads as no words", [], ocr_clues.read_words(Image.new("RGB", (0, 40)), "ch"))
+check("a sliver RapidOCR would scale to no pixels reads as no words, not ResizeImgError", [],
+      ocr_clues.read_words(Image.new("RGB", (1800, 12), "black"), "ch"))
+check("a thin band it can still scale is read", False, ocr_clues.too_thin(1800 * 2, 20 * 2, "ch"))
+
+# The desktop not answering: the crop is read here (None from ocr_remote),
+# the reason logged, and no second attempt until RETRY has passed.
+import contextlib, io, time
+import ocr_remote
+os.environ["OCR_REMOTE"] = "nobody@127.0.0.1"
+ocr_remote.SSH = ocr_remote.SSH + ["-p", "1"]
+ocr_remote.versions = lambda: {}
+ocr_remote.alert_once = lambda key, text: False  # never a real alert from a test (one reached the room, 2026-10-14)
+err = io.StringIO()
+with contextlib.redirect_stderr(err):
+    t = time.monotonic()
+    first = ocr_remote.words(page_img, "ch")
+    second = ocr_remote.words(page_img, "ch")
+    took = time.monotonic() - t
+check("a desktop that is off: read here, the reason logged, not retried at once, no hang",
+      (None, None, True, True), (first, second, "unavailable (nobody@127.0.0.1: " in err.getvalue(), took < 30))
+os.environ.pop("OCR_REMOTE")
+
+# A Sunday edition filed under "The Times" is refused: the daily prints none.
+sunday = {"date": "1994-08-14", "puzzles": [{"number": 19620}]}
+n, day, why = f.filed_number(Path("x/NewsUK1994UKEnglish/ed"), sunday, {"number": 19620, "leaf": 1})
+check("a Sunday Times-item puzzle is refused, not filed on a Sunday", (None, True), (n, bool(why and "Sunday" in why)))
+n, day, why = f.filed_number(Path("x/GaleTimes1994UKEnglish/1994-08-14"), sunday, {"number": 19620, "leaf": 1})
+check("and so is one off a Gale page", (None, True), (n, bool(why and "Sunday" in why)))
+
+# A Gale page's headings (ocr_headings): "Crossword" misread is read as the
+# word, and a title fewer than half the readers read stands when the page's
+# solution heading names the day before's puzzle (1987-01-08, -09).
+from PIL import Image
+gale_img = Image.new("L", (500, 500), 255)
+gale_img.putpixel((10, 10), 0)
+def gale_words(by_reader):
+    saved_bw = f.band_words
+    f.band_words = lambda img, box, which, path: by_reader.get(which, [])
+    try:
+        return f.ocr_headings(gale_img, f.GALE, "test")
+    finally:
+        f.band_words = saved_bw
+title = lambda text: [(10 + 60 * k, 10, 60 + 60 * k, 30, w) for k, w in enumerate(text.split())]
+sol = [(10, 300, 40, 320, "Solution"), (45, 300, 60, 320, "to"), (65, 300, 90, 320, "Puzzle"),
+       (95, 300, 110, 320, "No"), (115, 300, 160, 320, "17,247")]
+rs = list(f.READERS)
+got = gale_words({rs[0]: title("The Times CresswordPuzzle No 17,248") + sol,
+                  rs[1]: title("The Times Cressword Puzzle No 17,248") + sol})
+check("a title read 'Cressword' is the title", ([17248], [17247]), ([t[0] for t in got[0]], [s_[0] for s_ in got[1]]))
+got = gale_words({rs[2]: title("The Times Crossword Puzzle NO 17,249"),
+                  rs[0]: [(*w[:4], "17,248" if w[4] == "17,247" else w[4]) for w in sol],
+                  rs[1]: [(*w[:4], "17,248" if w[4] == "17,247" else w[4]) for w in sol]})
+check("a title one reader read stands after the solution heading the others read", [17249], [t[0] for t in got[0]])
+got = gale_words({rs[2]: title("The Times Crossword Puzzle No 17,300")})
+check("one reader's title with no solution heading to back it is not", [], got[0])
+ran_on = [(10, 300, 30, 320, "27"), (35, 300, 80, 320, "Order"), (85, 300, 120, 320, "con-")]
+got = gale_words({r: ran_on + [(w[0] + 140, w[1], w[2] + 140, w[3], "Solotion" if w[4] == "Solution" else w[4])
+                               for w in sol] for r in rs[:2]})
+check("a solution heading read on the end of a clue line, 'Solotion', is read once a reader", ([17247], []),
+      ([s_[0] for s_ in got[1]], got[0]))
+# A solution heading is read again in its own band: a whole-page read misses
+# its small type (two of three readers read nothing there, Gale's 1987-01-10)
+# or splits it at a wide gap ("Solution tn Puzzle" ... "No 17,245", 1987-01-06).
+def gale_bands(page, band):
+    saved_bw = f.band_words
+    def words(img, box, which, path):
+        if "_page." in str(path):
+            return page.get(which, [])
+        # A band (a heading strip, a solution band) reads the page's words in it too.
+        return sorted({w for w in page.get(which, []) + band.get(which, [])
+                       if box[0] <= w[0] and w[2] <= box[2] and box[1] <= w[1] and w[3] <= box[3]})
+    f.band_words = words
+    try:
+        return f.ocr_headings(wide_img, f.GALE, "test")
+    finally:
+        f.band_words = saved_bw
+wide_img = Image.new("L", (f.SCAN_WIDTH, 600), 255)
+wide_img.putpixel((10, 10), 0)
+gapped = [(40, 300, 110, 320, "Solution"), (115, 300, 135, 320, "tn"), (140, 300, 190, 320, "Puzzle"),
+          (260, 300, 280, 320, "No"), (285, 300, 340, 320, "17,245")]
+got = gale_bands({rs[2]: gapped[:1]}, {r: gapped for r in rs})
+check("a heading one reader saw on the page and every reader read in its band, gapped and 'tn', stands",
+      [17245], [s_[0] for s_ in got[1]])
+got = gale_bands({rs[2]: gapped[:1]}, {rs[2]: gapped})
+check("(mirror) one reader in its band is not enough", [], got[1])
+# A band is read against the page's titles (Gale 1988-06-28: "Puzzie" under
+# 17,707 read by every reader): the loose heading stands for title-1 only.
+puzzie = [(40, 300, 110, 320, "Solution"), (115, 300, 135, 320, "to"), (140, 300, 190, 320, "Puzzie"),
+          (195, 300, 215, 320, "No"), (220, 300, 275, 320, "17,706")]
+titled = {r: title("The Times Crossword Puzzle No 17,707") + puzzie[:1] for r in rs}
+got = gale_bands(titled, {r: puzzie for r in rs})
+check("a loose heading in its band stands as the page's title-1", [17706], [s_[0] for s_ in got[1]])
+got = gale_bands({r: puzzie[:1] for r in rs}, {r: puzzie for r in rs})
+check("(mirror) with no title read on the page it is not", [], got[1])
+got = gale_bands({r: title("The Times Crossword Puzzle No 17,720") + puzzie[:1] for r in rs}, {r: puzzie for r in rs})
+check("(mirror) nor under a title it is no lag before", [], got[1])
+# A page no title has half the readers on (Gale 1989-06-20: "PUZZLE NO
+# 18,013" a line under "THE TIMES CROSSWORD") reads its bands against the
+# titles ocr_titles finds round its grids, given the edition's day.
+solation = [(40, 300, 110, 320, "Solation"), (115, 300, 135, 320, "to"), (140, 300, 190, 320, "Puzzle"),
+            (195, 300, 215, 320, "No"), (220, 300, 275, 320, "18,012")]
+saved_t = f.ocr_titles
+f.ocr_titles = lambda img, paper, day, key, far=False: [(18013, (0, 0, 1, 1), None, ["ch", "en5"])]
+def gale_day(day):
+    saved_bw = f.band_words
+    f.band_words = lambda img, box, which, path: [(40, 300, 110, 320, "Solution")] if "_page." in str(path) else solation
+    try:
+        return f.ocr_headings(wide_img, f.GALE, "test", day)
+    finally:
+        f.band_words = saved_bw
+got = gale_day(D("1989-06-20"))
+check("a heading read against the titles round the grid where the page voted none", ([18013], [18012]),
+      ([t[0] for t in got[0]], [s_[0] for s_ in got[1]]))
+got = gale_day(None)
+check("(mirror) with no day, no grid titles: only an exact heading stands", ([], []), got)
+f.ocr_titles = saved_t
+notice = title("The solution of Saturday's Prize Puzzle No 17,250 will appear next Saturday")
+notice = [(w[0], 300, w[2], 320, w[4]) for w in notice]
+got = gale_bands({r: notice for r in rs}, {r: notice for r in rs})
+check("a notice that the solution will appear is no heading (1987-01-12)", [], got[1])
+# A solution grid no reader's page pass read a heading over (1987-01-17):
+# its band is over the grid's top, and the heading read there stands.
+from PIL import ImageDraw
+sol_page = Image.new("L", (f.SCAN_WIDTH, 1400), 255)
+sd = ImageDraw.Draw(sol_page)
+gx, gy, cell = 600, 700, 22
+for k in range(16):
+    sd.line([(gx + k * cell, gy), (gx + k * cell, gy + 15 * cell)], fill=0, width=2)
+    sd.line([(gx, gy + k * cell), (gx + 15 * cell, gy + k * cell)], fill=0, width=2)
+for r in range(15):
+    for c in range(15):
+        if (r * 7 + c * 3) % 4 == 0:
+            sd.rectangle([gx + c * cell, gy + r * cell, gx + (c + 1) * cell, gy + (r + 1) * cell], fill=0)
+bands = f.solution_bands(sol_page, [])
+check("a band over a solution grid's top, though no reader read a 'Solution' word", True,
+      len(bands) == 1 and bands[0][1] < gy - 40 and gy <= bands[0][3] <= gy + 10 and bands[0][0] <= gx)
+check("and one heading's word and grid make one band", 1,
+      len(f.solution_bands(sol_page, [(gx + 10, gy - 40, gx + 90, gy - 15, "Solution")])))
+# A solution grid whose frame the scan broke is boxed whole (1987-01-15).
+sd.rectangle([gx + 5 * cell - 1, gy - 2, gx + 5 * cell, gy + 15 * cell + 2], fill=255)
+sd.rectangle([gx - 2, gy + 7 * cell - 1, gx + 15 * cell + 2, gy + 7 * cell], fill=255)
+crop = sol_page.crop((gx - 60, gy - 20, gx + 15 * cell + 60, gy + 15 * cell + 60))
+whole = f.ink_box(crop, f.SOLUTION_CLOSE)
+check("a solution grid with its frame broken is boxed whole once the gap is closed", True,
+      whole is not None and whole[2] - whole[0] >= 15 * cell - 4 and whole[3] - whole[1] >= 15 * cell - 4)
+part = f.ink_box(crop)
+check("(mirror) unclosed, the largest ink is a part of it", True, part[2] - part[0] < 15 * cell - 4 or part[3] - part[1] < 15 * cell - 4)
+
+# The 1930 Times (pub_times, one item an issue): its paper, its 1-3 digit
+# numbers held to the date, four clue columns, and counts from the grid.
+d1930 = Path("x/per_times_the-times_1930-03-04_45452/per_times_the-times_1930-03-04_45452")
+check("a pub_times issue is the 1930 Times, read 4x smaller, filed as times",
+      ("times1930", 4, "times"), (f.paper_of(d1930).key, f.paper_of(d1930).shrink, f.paper_of(d1930).series))
+check("a run of the Times reads the 1930 issues too; the Telegraph and FT runs their Gale pages", (True, True, True),
+      (f.TIMES_1930 in f.run_papers(f.TIMES), f.GALE_TELEGRAPH in f.run_papers(f.TELEGRAPH), f.GALE_FT in f.run_papers(f.FT)))
+check("every paper's .also (archive_coverage and edition_queue read it) is its run's other papers", [],
+      [p.key for p in (*f.FILERS.values(), f.TIMES_1930, f.GALE_TELEGRAPH) if f.run_papers(p) != (p, *p.also)])
+import datetime as _dt
+check("1930 numbers run six a week from No 1 on 1 Feb, none on Good Friday",
+      [1, 27, 54, 94, 129, 209],
+      [f.times1930_expected_number(_dt.date.fromisoformat(x)) for x in
+       ("1930-02-01", "1930-03-04", "1930-04-04", "1930-05-22", "1930-07-02", "1930-10-03")])
+t30, s30 = f.times1930_headings([line("LT THE TIMES CROSSWORD PUZZLE No. 129"), line("SOLUTION OF PUZZLE No. 126.", y=900)])
+check("1930 title and solution heading read", ([129], [126]), ([n for n, _, _ in t30], [n for n, _ in s30]))
+t30, _ = f.times1930_headings([line("THE TIMES CROSSWORD PUZZLE No."), line("SOLUTION OF PUZZLE No. 53", y=900)])
+check("a 1930 title whose number was not read is the one after the page's solution", [54], [n for n, _, _ in t30])
+t30 = [f.times1930_headings([line(t)])[0] for t in (
+    "eat htheketesigant Sacx| THE TIMES CROSSWORD PUZZLE No. 40", "THE TIMES CROSS WORD PUZZLE No. 71",
+    "THE TIMES CROSSWORD PUZ ZLE No. 12", "THE TIMES CROSSWORD PUBZLE NO. 4")]
+check("1930 titles behind the next column's words, split or misread (1930-03-19, 04-25, 02-14, 02-05)",
+      [40, 71, 12, 4], [h[0][0] for h in t30])
+check("a 1930 title behind the next column's words is boxed from TIMES on", 100 + 10 * 25 + 8 * 4,
+      t30[0][0][1][0])
+t30 = f.times1930_headings([line("a THE TIMES ROBSWORD PUZZLE No. 55")])[0]
+check("after TIMES a misread CROSSWORD is still the title (1930-04-05)", [55], [n for n, _, _ in t30])
+t30, _ = f.times1930_headings([line("SIDCUP events' four, 7 a THE TIM ES CROSS WORD PUZZLE No."),
+                                line("SOLUTION OF PUZZLE No. 51", y=900)])
+check("a numberless title behind run-on words and a split TIMES takes the solution's next (1930-04-02)",
+      [52], [n for n, _, _ in t30])
+check("(mirror) TIMES and PUZZLE with words between them are no title", ([], []),
+      f.times1930_headings([line("THE TIMES of the many puzzle solvers No. 12")]))
+check("the note under the clues is no title", ([], []),
+      f.times1930_headings([line("The fifty-fifth crossword puzzle in this series, together with the solution of puzzle No. 54,")]))
+found30 = {"date": "1930-10-03", "puzzles": [{"number": 200, "leaf": 4}], "solutions": [{"number": 208, "leaf": 4}]}
+f.held_dates, f.same_scan, f.page_url = (lambda series: {}), (lambda *a: None), (lambda *a: "")
+check("a misread 1930 number (200 for 209) is the page's solution's next",
+      (209, None), f.filed_number(d1930, found30, {"number": 200, "leaf": 4})[::2])
+found30["solutions"] = []
+check("with no solution heading to say so it is refused",
+      (None, True), (lambda r: (r[0], bool(r[2])))(f.filed_number(d1930, found30, {"number": 200, "leaf": 4})))
+# A 1933 Gale Times page small_titled titled from its heading alone (No 965 over "SOLUTION OF PUZZLE No. 964", read
+# twice): its filed neighbours count to different numbers ([965, 970] on 1933-03-11), and filed_number files the
+# heading's number (small_headed) instead of refusing "fit more than one"; a number far from the date's is not so
+# trusted. SMALL_HEADED is due once for a row refused so before REREAD_SMALL_HEADED.
+_g33 = Path("x/GaleTimes1933UKEnglish/1933-03-11")
+_f33 = {"date": "1933-03-11", "item": "GaleTimes1933UKEnglish", "puzzles": [{"number": 965, "leaf": 0, "fromSolutions": [964]}],
+        "solutions": [{"number": 964, "leaf": 0}]}
+_held_before = f.held_dates
+f.held_dates = lambda series: {975: datetime.date(1933, 3, 17), 960: datetime.date(1933, 3, 6)}
+_far = {"number": 965, "leaf": 0, "fromSolutions": [964]}
+_h33 = f.filed_number(_g33, _f33, _far)
+_why33 = f.solution_title(datetime.date(1933, 3, 11), [964], f.held_dates("times"))
+f.held_dates = _held_before
+check("a 1933 Gale Times page titled by its heading alone files as the heading's next, where the neighbours' count "
+      "refused it (solution_title still does); a heading far from the date's number, a page of 1934 or a Telegraph's is not "
+      "trusted; a Saturday's two headings are",
+      [965, True, True, False, False, False, True],
+      [_h33[0], _why33[0] is None, f.small_headed(f.GALE, datetime.date(1933, 3, 11), _far),
+       f.small_headed(f.GALE, datetime.date(1933, 3, 11), {"number": 301, "leaf": 0, "fromSolutions": [300]}),
+       f.small_headed(f.GALE, datetime.date(1934, 3, 12), {"number": 965, "leaf": 0, "fromSolutions": [964]}),
+       f.small_headed(f.GALE_TELEGRAPH, datetime.date(1933, 3, 11), _far),
+       f.small_headed(f.GALE, datetime.date(1933, 3, 13), {"number": 967, "leaf": 0, "fromSolutions": [962, 966]})])
+_sh = {"edition": "GaleTimes1933UKEnglish/1933-03-11", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "readAt": "2026-11-03T06:57:56+00:00",
+       "scan": {"date": "1933-03-11", "item": "GaleTimes1933UKEnglish", f.SMALL_READ: True, "solutions": [],
+                "puzzles": [{"number": 965, "leaf": 0, "fromSolutions": [964]}]},
+       "verdicts": [{"number": 965, "leaf": 0, "cause": "number-date-mismatch",
+                     "refused": "no title read; the solution headings No 964 fit more than one of the numbers the filed neighbours give 1933-03-11: [965, 970]"}]}
+check("a heading-titled 1933 row refused for its neighbours' count is due SMALL_HEADED once; read after the cutoff, "
+      "refused otherwise, of 1934, unstamped or titled outright it is not",
+      [f.SMALL_HEADED, 2, False, False, False, False, False],
+      [f.fix_reason(_sh), f.RANKS[f.SMALL_HEADED],
+       f.small_headed_due({**_sh, "readAt": "2026-11-03T09:00:00+00:00"}),
+       f.small_headed_due({**_sh, "verdicts": [{**_sh["verdicts"][0], "refused": "No 965 is not near"}]}),
+       f.small_headed_due({**_sh, "scan": {**_sh["scan"], "date": "1934-03-11", "item": "GaleTimes1934UKEnglish"}}),
+       f.small_headed_due({**_sh, "scan": {**_sh["scan"], f.SMALL_READ: False}}),
+       f.small_headed_due({**_sh, "scan": {**_sh["scan"], "puzzles": [{"number": 965, "leaf": 0}]}})])
+ft83 = {"date": "1983-02-18", "puzzles": [{"number": 5401, "leaf": 1}], "solutions": []}
+check("an FT title read 5,401 on 1983-02-18 files as 5,101, not refused as misdated",
+      (5101, None), f.filed_number(Path("x/FinancialTimes1983UKEnglish/1983-02-18_29003"), ft83,
+                                   {"number": 5401, "leaf": 1})[::2])
+ft2833 = {"date": "1975-07-16", "puzzles": [{"number": 2833, "leaf": 1}], "solutions": [],
+          "editions": ["1975-07-16_26719", "1975-07-16_26722", "1975-07-18_26721", "1975-07-21_26723"]}
+check("an FT title files for the day its edition's issue neighbours give, not the item title's (ftcryptic-2833)",
+      (2833, _dt.date(1975, 7, 19), None),
+      f.filed_number(Path("x/FinancialTimes1975UKEnglish/1975-07-16_26722"), ft2833, {"number": 2833, "leaf": 1}))
+# A title its page's solution heading vouches for (No n - 1, the issue before) is not overruled
+# by a count of issues: Times 22129 filed for 2002-08-28 (whose page prints No 22130) and 22232 on
+# 12-26 count unbroken over Christmas Day, which had no paper, so the count put every title
+# between them one low (08-29's No 22131 filed as 22130, 74 more after it).
+_D = _dt.date.fromisoformat
+xmas = f.Held({22129: _D("2002-08-28"), 22232: _D("2002-12-26")})
+real_held_dates = f.held_dates
+f.held_dates = lambda series: xmas
+g0829 = Path("x/GaleTimes2002UKEnglish/2002-08-29")
+found0829 = {"date": "2002-08-29", "item": "GaleTimes2002UKEnglish", "puzzles": [{"number": 22131, "leaf": 0}],
+             "solutions": [{"number": 22130, "leaf": 0}]}
+check("a title its page's heading of the issue before vouches for files as read, not as the count says",
+      (22131, None), f.filed_number(g0829, found0829, {"number": 22131, "leaf": 0})[::2])
+check("(mirror) with no heading to vouch for it the count still fixes the number",
+      (22130, None), f.filed_number(g0829, {**found0829, "solutions": []}, {"number": 22131, "leaf": 0})[::2])
+check("(mirror) placed: a vouched title the count agrees with, an unvouched one, or a vouched one more than one "
+      "issue off (a digit the OCR misread in title and heading alike: 1968's 11999 over 11998 for 11909) files as the count says",
+      [(22130, None), (22130, None), (22130, None)],
+      [f.placed(22130, _D("2002-08-29"), xmas, True), f.placed(22131, _D("2002-08-29"), xmas),
+       f.placed(22190, _D("2002-08-29"), xmas, True)])
+check("a vouched title another day holds is refused, not filed a number off",
+      (None, True), (lambda r: (r[0], bool(r[1])))(f.placed(22131, _D("2002-08-29"), f.Held({**xmas, 22131: _D("2002-08-30")}), True)))
+# renumbered(): once its file is renamed to the title, an edition filed off it is due an answers-only
+# reread (its host's heading names the title); one refused as taken, a full read once its title is free.
+filed_low = {"edition": "GaleTimes2002UKEnglish/2002-08-29", "readAt": "2026-10-22T00:00:00+00:00",
+             "scan": {"date": "2002-08-29"}, "verdicts": [{"number": 22130, "read_as": 22131, "id": "times-22130", "wrote": True}]}
+taken = {"edition": "GaleTimes2002UKEnglish/2002-08-27", "readAt": "2026-10-24T00:00:00+00:00", "scan": {"date": "2002-08-27"},
+         "verdicts": [{"number": 22129, "refused": "No 22129 is already filed for 2002-08-28, not 2002-08-27",
+                       "cause": "number-date-mismatch"}]}
+due = []
+for held_now, row in ((f.Held({22131: _D("2002-08-29")}), filed_low), (f.Held({22130: _D("2002-08-29"), 22131: _D("2002-08-30")}), filed_low),
+                      (f.Held({}), taken), (f.Held({22129: _D("2002-08-28")}), taken),
+                      (f.Held({22131: _D("2002-08-29")}), {**filed_low, "readAt": "2026-10-26T00:00:00+00:00"})):
+    f.held_dates = lambda series, h=held_now: h
+    due.append(f.renumbered(row))
+f.held_dates = real_held_dates
+check("renumbered: filed off its title and since renamed to it is RENUMBERED; not yet renamed, not due; refused as "
+      "taken and its title free is the refusal's reread, still taken not; read since the renumber, not due",
+      [f.RENUMBERED, None, "refused number-date-mismatch before its fix", None, None], due)
+check("RENUMBERED is a rank 2 answers-only reread", (2, True), (f.RANKS[f.RENUMBERED], f.RENUMBERED in f.SOLUTION_FIXES))
+# Four columns under the grid: ACROSS down the first two over the DOWN
+# heading, DOWN under it and on down the third and fourth, which stop at the
+# previous solution's heading.
+g30 = (100, 100, 900, 900)
+rows = [line("ACROSS", 250, 920), line("1 Cornstalks, or in-", 100, 950), line("versely blemishes.", 120, 970),
+        line("28 Louder.", 300, 950), line("29 Broaden.", 300, 970),
+        line("DOWN", 260, 1000), line("2 Have a shot", 100, 1030), line("9 This yawns", 300, 1030),
+        line("22 The desert's", 500, 950), line("32 Split this aim", 700, 950),
+        line("SOLUTION OF PUZZLE NO. 26", 520, 1100), line("STEPPES COUNSEL", 520, 1130)]
+gut = [300 - 5, 500 - 5, 700 - 5]
+check("1930 columns read in the lists' order",
+      "ACROSS\n1 Cornstalks, or in-\nversely blemishes.\n28 Louder.\n29 Broaden.\nDOWN\n2 Have a shot\n"
+      "9 This yawns\n22 The desert's\n32 Split this aim",
+      f.column_text(f.columns_of_four(rows, g30, gut, f.down_at(rows, g30, gut))))
+grid30 = ["...#", "....", "#...", "...."]
+check("1930 clues take their counts from the grid; a line that is no clue's number carries on",
+      "ACROSS\n1 Toe (3)\n4 Dose of a\nlong cure (4)\n6 Ask (3)\n7 Hop (4)\nDOWN\n1 Lone\nis far (2)\n2 Ox (4)\n"
+      "3 Up (4)\n5 Go (3)",
+      f.counted("ACROSS\n1 Toe\n4 Dose of a\nlong cure\n6 Ask\n7 Hop\nDOWN\n1 Lone\nis far\n2 Ox\n3 Up\n5 Go", grid30))
+# A lost number runs one clue into the next, and the grid's count fits
+# whatever text it is given (No 129, 1930-07-02: "+ Nitrate (anag.)", 4d's
+# number read "+", filed as 3d). The list must name the grid's lights in
+# order, or the clue next to the break is dropped.
+check("a clue followed by a later light's than the next (one skipped) is dropped, the skipped light left blank",
+      "ACROSS\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\nin Dickens\n+ Dose of a cure\n6 Ask\n7 Hop", grid30))
+check("a clue ending its list before the list's last light is dropped",
+      "ACROSS\n1 Toe (3)\n4 Dose (4)\nDOWN\n1 Lone (2)\n2 Ox (4)",
+      f.counted("ACROSS\n1 Toe\n4 Dose\n6 Ask\nhop\nDOWN\n1 Lone\n2 Ox\n3 Up", grid30))
+check("a number at or before the last clue's drops the clue it ran into",
+      "ACROSS\n1 Toe (3)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\n4 Dose\n1 Ask again\n6 Ask\n7 Hop", grid30))
+check("a guessed number the print then names drops the guess and the clue it was cut from",
+      "ACROSS\n1 Toe (3)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\n4 Dose of a cure.\nThat is London.\n6 Ask\n7 Hop", grid30))
+check("a break after guessed numbers drops them back to the last number read (No 54: 36a took 37a's words, the guesses ran one light behind)",
+      "ACROSS\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\nthe offence.\nAsk again.\n7 Hop", grid30))
+check("a number read with a speck holding the next light's starts its clue (\"151\" for 15)",
+      "ACROSS\n1 Toe. (3)\n4 Dose (4)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe.\n141 Dose\n6 Ask\n7 Hop", grid30))
+check("a capital after a clue's full stop is the next light's clue, its number lost; the number run into its word",
+      "ACROSS\n1 Toe. (3)\n4 Dose of a\nLondon cure. (4)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe.\nDose of a\nLondon cure.\n6.Ask\n7Hop", grid30))
+check("1930 words RapidOCR ran together put apart, specks between words dropped",
+      "These people are flat and in \u201cThe Tempest\u201d Hornblower",
+      f.spaced("Thesepeopleare flat.and in\u201cThe Tempest\u201d Hornblower"))
+check("1930 spacing leaves a known word, a word broken over a line end, and splits a run after its clue number",
+      "41 Neat gem (anag.)\n25 Holds an esta-\nblished ap-\npearance",
+      f.spaced("41 Neat gem (anag.)\n25Holdsan esta-\nblished ap-\npearance"))
+
+import datetime
+tue = datetime.date(1996, 6, 11)
+check("a stray lower number does not date the edition's own puzzle later (Guardian 1996-06-11 read No 20673 beside No 20676)",
+      tue, f.issue_day(tue, 20676, [20676, 20673]))
+check("each number of an unbroken run above the edition's own is one issue later, skipping Sunday",
+      datetime.date(1996, 6, 17), f.issue_day(datetime.date(1996, 6, 15), 20681, [20680, 20681]))
+check("a number above a gap is not a later issue",
+      tue, f.issue_day(tue, 20679, [20676, 20677, 20679]))
+mon = datetime.date(2001, 4, 9)
+check("a Gale page is one day: Monday's prize notice (No 21,696) does not move No 21,697 to Tuesday",
+      mon, f.issue_day(mon, 21697, [21697, 21696], "GaleTimes2001UKEnglish"))
+check("an archive.org item can still bind the next day's paper",
+      datetime.date(2001, 4, 10), f.issue_day(mon, 21697, [21697, 21696], "NewsUK2001UKEnglish"))
+
+check("why= names the lights an ask is for, blank or unsettled, with no space",
+      "5d(blank),12a(unsettled)", f.why_lights({"12-across", "5-down"}, {"5-down"}))
+check("why= caps a long list with +N",
+      "1a(unsettled),2a(unsettled),+1", f.why_lights({"1-across", "2-across", "3-across"}, (), cap=2))
+with f.vlm.because("fallback:no-reading-parses"):
+    check("a reason set by the caller is the one the next ask carries", "fallback:no-reading-parses", f.vlm._WHY.get())
+check("and it is gone after the read", "", f.vlm._WHY.get())
+_fut = lambda paper, day: f.fallback_futile(paper, Path("x") / day)
+check("no-reading-parses fallback asks are skipped for FT 1981 and Gale 1960-66 only",
+      [True, True, True, False, False, False, False],
+      [_fut(f.FT, "1981-10-02_28588"), _fut(f.GALE, "1960-01-04"), _fut(f.GALE, "1966-12-31"),
+       _fut(f.FT, "1982-10-02_1"), _fut(f.FT, "1985-01-12_29522"), _fut(f.GALE, "1967-01-02"), _fut(f.GALE, "1945-04-11")])
+
+_rp = f._read_puzzle
+f._read_puzzle = lambda *a, **k: ({"number": 1, "_weak": {"1-across"}}, None)
+try:
+    check("read_puzzle's verdict never keeps read_page's private _weak set (the ledger row is JSON)",
+          {"number": 1}, f.read_puzzle(None, {}, {}, {})[0])
+finally:
+    f._read_puzzle = _rp
+
+print(f"FAILS {fails}")
+sys.stdout = _stdout
+out = _buf.getvalue().rstrip("\n")
+
+
+def ocr_check():
+    # Gale's 1987-01-07 solution grid (No 17,246, at the page's scale): clean,
+    # but its rules lie unevenly, its rows shear and its clue numbers run into
+    # the letters, and every light was refused but 2 of 30. Read now, most
+    # lights are accepted and each is the answer a person reads off the scan.
+    # Skipped where the OCR engine is not installed (CI's test job).
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        try:
+            import os
+            from pathlib import Path
+            from PIL import Image
+            # the body above stubs this module; the .sh read it in a fresh process
+            sys.modules.pop("trove_solution_ocr", None)
+            import trove_solution_ocr as tso
+            if tso.available():
+                print("skip")
+                raise SystemExit
+            hand = ["BEDOFROSES#AGED", "A#O#I#N#A#O#R#I", "BROWNIE#REPRESS", "E#N#D#R#L#E#E#P", "LIEGELORD#RANGE",
+                    "##S#R#U#O#A###R", "EMBUS#SOMETIMES", "N#I#K#####I#U#A", "WITNESSED#OFFAL", "R###E#C#U#N#F##",
+                    "EQUIP#ASSESSING", "A#N#E#N#T#R#N#O", "TUTORED#BLOOMER", "H#I#S#A#I#O#A#G", "EVEN#BLANCMANGE"]
+            grid = ["".join("#" if ch == "#" else "." for ch in row) for row in hand]
+            small = Image.open("fixtures/archive-org-grids/gale-times-17246-solution.png")
+            path = Path(os.environ["TMP"]) / "sol.png"
+            small.resize((small.width * 3, small.height * 3), Image.BICUBIC).save(path)
+            got, stats = tso.read_answers(path, grid, tight=True)
+            lts = tso.lights(grid)
+            wrong = {k: w for k, w in got.items() if w != "".join(hand[r][c] for r, c in lts[k])}
+            print("ok" if len(got) >= 15 and not wrong and stats["blocks"] == 1 else (len(got), wrong, stats))
+        except SystemExit:
+            pass
+    return buf.getvalue().strip()
+
+
+ocr = ocr_check()
+if ocr == "skip":
+    print("skip solution grid letters: rapidocr-onnxruntime not installed")
+elif ocr == "ok":
+    print("ok   Gale 1987-01-07's solution grid: 15+ of 30 lights read (was 2), each as a person reads it")
+else:
+    print(f"FAIL Gale 1987-01-07's solution grid: {ocr}")
+    out += "\nFAILS 1"
+_q_paper = f.paper_of(Path("GaleTimes1935UKEnglish/1935-04-05"))
+if f.quarter_print(_q_paper, Path("1935-04-05")) and f.quarter_print(_q_paper, Path("1934-04-05")) \
+        and not f.quarter_print(_q_paper, Path("1940-04-05")) \
+        and f.quarter_1935_due({"edition": "GaleTimes1935UKEnglish/1935-04-05", "readAt": "2026-11-16T00:00:00+00:00"}) is False \
+        and f.fix_reason({}) != f.QUARTER_1935 and f.QUARTER_1935 in f.RANKS:
+    print("ok   Gale Times 1935 pages are read in their four clue columns (QUARTER_1935)")
+else:
+    print("FAIL Gale Times 1935 pages are read in their four clue columns (QUARTER_1935)")
+    out += "\nFAILS 1"
+# Gale Times June 1933 (COUNT_FIRST): the count stands right after the number, "1(9)A small measure (17(7)Not necessarily".
+_cf = "ACROSS\n1(9)A small measure (17(7)Not necessarily\nso. 20(6)Study this atti-\ntude 23(5)Heavy\nDOWN\n1(4)Herc visitors 5(6)Neckwear done\nprov"
+_cf_parsed = f.parse(_cf)[0]
+if _cf_parsed and [c["text"] for c in _cf_parsed["across"]] == ["A small measure", "Not necessarily so.", "Study this attitude", "Heavy"] \
+        and [c["enums"] for c in _cf_parsed["down"]] == [{"4"}, {"6"}] \
+        and f.count_first("ACROSS\n1 A thing (5)\n2 Other (4)") == "ACROSS\n1 A thing (5)\n2 Other (4)" \
+        and f.count_first_due({"edition": "GaleTimes1933UKEnglish/1933-06-05", "readAt": "2026-11-18T00:00:00+00:00"}) is False \
+        and f.COUNT_FIRST in f.RANKS:
+    print("ok   a count printed right after its clue number is read as the clue's (COUNT_FIRST)")
+else:
+    print("FAIL a count printed right after its clue number is read as the clue's (COUNT_FIRST)")
+    out += "\nFAILS 1"
+if f.marked_starts("surprising|23 Famous peak dis-") == {11: 10} \
+        and f.marked_starts("1Their occupants,17 Domestic celebra-") == {17: 17} \
+        and f.marked_starts("21A litle book might|25 Turnover.") == {21: 20} \
+        and f.marked_starts("costs 3,17 Smith and sons") == {} \
+        and f.marked_starts("1 Poet hidden in a 5,12 Tales (4).") == {} \
+        and f.BARRED_NUMBER in f.RANKS:
+    print("ok   a clue number glued to the word before it behind a bar or comma is cut there (BARRED_NUMBER)")
+else:
+    print("FAIL a clue number glued to the word before it behind a bar or comma is cut there (BARRED_NUMBER)")
+    out += "\nFAILS 1"
+_it_lines = [[(x, 2000 + 50 * k, x + 20, 2020 + 50 * k, str(k + 1))] for x in (3140, 3463, 3787) for k in range(8)]
+_it_grid = (2407, 2006, 3127, 2726)
+_it = f.indy_columns(_it_lines, _it_grid, (4499, 3767, 3104))
+_it_two = f.indy_columns(_it_lines[:16], _it_grid, (4499, 3767, 3104))
+if f.third_of(_it) and _it[0] < 3787 and 3300 < _it[1] < 3463 and f.third_of(_it_two) is None \
+        and f.indy_three_due({"edition": "GaleIndependent2009UKEnglish/2009-12-23", "readAt": "2026-11-18T11:14:58+00:00",
+                              "verdicts": [{"number": 1, "id": "independent-1", "blank": {"8-down": "x"}}]}) is False \
+        and f.INDY_THREE in f.RANKS:
+    print("ok   the Independent's three evenly pitched clue columns are kept when the old gutter stands before the third (INDY_THREE)")
+else:
+    print("FAIL the Independent's three evenly pitched clue columns are kept when the old gutter stands before the third (INDY_THREE)")
+    out += "\nFAILS 1"
+# r271 INDY_THREE_MORE: three print columns in a later cached window (the first, a plain window under the grid, is empty).
+import tempfile as _tf3
+import edition_queue as _eq3
+_c3 = Path(_tf3.mkdtemp())
+(_c3 / "rapid").mkdir()
+_w3 = [[x, 2000 + 50 * k, x + 20, 2020 + 50 * k, str(k + 1)] for x in (3140, 3463, 3787) for k in range(8)]
+(_c3 / "rapid" / f"2008-10-30_6877.{f.reader_key('ch')}.json").write_text(
+    json.dumps({"box": [1, 2, 3, 4], "words": [], "more": [{"box": [5, 6, 7, 8], "words": _w3}]}))
+_crops3, f.CROPS = f.CROPS, _c3
+f.indy_three_read.cache_clear()
+_row3 = {"edition": "GaleIndependent2008UKEnglish/2008-10-30", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 6877, "id": "independent-6877", "blank": {"8-down": "no reading laid a clue on it"}}]}
+_m3 = [f.indy_three_read("2008-10-30_6877"), f.indy_three_read("2008-10-30_6877", True),
+       f.indy_three_due(_row3), f.indy_three_more_due(_row3),
+       f.indy_three_more_due({**_row3, "readAt": "2027-01-01T00:00:00+00:00"})]
+f.CROPS = _crops3
+f.indy_three_read.cache_clear()
+if _m3 == [True, False, False, True, False] and f.RANKS[f.INDY_THREE_MORE] == 2 \
+        and f.INDY_THREE_MORE in _eq3.NEWEST_LANDED and f.INDY_THREE_MORE in _eq3.UNFILED_FIRST:
+    print("ok   a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE")
+else:
+    print("FAIL a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE", _m3)
+    out += "\nFAILS 1"
+# r291 INDY_UNDER_SPLIT: three print columns under the grid, the first window of the old split holding two of them.
+_g4 = (173, 448, 893, 1167)
+_w4 = [[x, 1200 + 50 * k, x + 200, 1220 + 50 * k, str(k + 1)] for x in (170, 420, 671) for k in range(8)]
+_lines4 = [[tuple(w) for w in _w4]]
+if f.indy_under_columns(_lines4, _g4, (585, 957, 1399), 40) == (416, 667, 947) \
+        and f.indy_under_columns(_lines4, _g4, (300, 957, 1399), 40) == (300, 957, 1399) \
+        and f.indy_under_columns([_lines4[0][:16]], _g4, (585, 957, 1399), 40) == (585, 957, 1399):
+    print("ok   an Independent page's first two columns under the grid are cut at their numbers (INDY_UNDER_SPLIT)")
+else:
+    print("FAIL an Independent page's first two columns under the grid are cut at their numbers (INDY_UNDER_SPLIT)")
+    out += "\nFAILS 1"
+_c4 = Path(_tf3.mkdtemp())
+(_c4 / "rapid").mkdir()
+(_c4 / "rapid" / f"2012-02-13_7903.{f.reader_key('ch')}.json").write_text(json.dumps({"box": [1, 2, 3, 4], "words": [], "more": [{"box": [133, 1167, 923, 2463], "words": _w4}]}))
+_crops4, f.CROPS = f.CROPS, _c4
+f.indy_under_read.cache_clear()
+_row4 = {"edition": "GaleIndependent2012UKEnglish/2012-02-13", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 7903, "id": "independent-7903", "blank": {"1-down": "no reading laid a clue on it"}}]}
+_m4 = [f.indy_under_read("2012-02-13_7903"), f.indy_under_split_due(_row4),
+       f.indy_under_split_due({**_row4, "readAt": "2027-01-01T00:00:00+00:00"}), f.fix_reason(_row4)]
+f.CROPS = _crops4
+f.indy_under_read.cache_clear()
+if _m4 == [True, True, False, f.INDY_UNDER_SPLIT] and f.RANKS[f.INDY_UNDER_SPLIT] == 2 \
+        and f.INDY_UNDER_SPLIT in _eq3.NEWEST_LANDED and f.INDY_UNDER_SPLIT in _eq3.UNFILED_FIRST \
+        and all(r in f.RANKS for r in _eq3.UNFILED_FIRST):
+    print("ok   an Independent page with three print columns under the grid is due INDY_UNDER_SPLIT")
+else:
+    print("FAIL an Independent page with three print columns under the grid is due INDY_UNDER_SPLIT", _m4)
+# r292 INDY_RIGHT_CUT: three clue columns right of the grid (pitch 350), the second's first line cut through at the window's top.
+_w5 = [[x, 2217 + 50 * k, x + 200, 2240 + 50 * k, str(k + 1)] for x in (3343, 3693, 4046) for k in range(8)]
+_w5[8][1], _w5[8][3], _w5[8][4] = 2217, 2232, "Resinentgroup"
+_c5 = Path(_tf3.mkdtemp())
+(_c5 / "rapid").mkdir()
+(_c5 / "rapid" / f"2012-02-24_7913.{f.reader_key('ch')}.json").write_text(json.dumps({"box": [3290, 2217, 4433, 3271], "words": _w5}))
+_crops5, f.CROPS = f.CROPS, _c5
+f.indy_right_cut_read.cache_clear()
+_row5 = {"edition": "GaleIndependent2012UKEnglish/2012-02-24", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 7913, "id": "independent-7913", "blank": {"9-down": "no reading laid a clue on it"}}]}
+_m5 = [f.indy_right_cut_read("2012-02-24_7913"), f.indy_right_cut_due(_row5),
+       f.indy_right_cut_due({**_row5, "readAt": "2027-01-01T00:00:00+00:00"}), f.indy_right_cut_due({**_row5, "edition": "GaleIndependent2015UKEnglish/2015-02-24"})]
+_w5[8][4] = "9"
+(_c5 / "rapid" / f"2012-02-24_7913.{f.reader_key('ch')}.json").write_text(json.dumps({"box": [3290, 2217, 4433, 3271], "words": _w5}))
+f.indy_right_cut_read.cache_clear()
+_m5.append(f.indy_right_cut_read("2012-02-24_7913"))
+f.CROPS = _crops5
+f.indy_right_cut_read.cache_clear()
+_pa5 = type("P", (), {"key": "galeindependent"})()
+_m5 += [f.indy_rise(_pa5, Path("2012-02-24")), f.indy_rise(_pa5, Path("2015-02-24"))]
+if _m5 == [True, True, False, False, False, f.INDY_RIGHT_RISE, f.RIGHT_RISE] and f.RANKS[f.INDY_RIGHT_CUT] == 2 \
+        and f.INDY_RIGHT_CUT in _eq3.NEWEST_LANDED and f.INDY_RIGHT_CUT in _eq3.UNFILED_FIRST \
+        and all(r in f.RANKS for r in _eq3.UNFILED_FIRST):
+    print("ok   an Independent page with right-of-grid columns cut through their first line is due INDY_RIGHT_CUT")
+else:
+    print("FAIL an Independent page with right-of-grid columns cut through their first line is due INDY_RIGHT_CUT", _m5)
+# r294 INDY_THREE_FEW: a third clue column holding five clue starts (INDY_THREE_FULL wants six), read before INDY_THREE landed.
+_c4 = Path(_tf3.mkdtemp())
+(_c4 / "rapid").mkdir()
+_w4 = [[x, 2000 + 50 * k, x + 20, 2020 + 50 * k, str(k + 1)] for x, n in ((925, 12), (1227, 12), (1528, 5)) for k in range(n)]
+(_c4 / "rapid" / f"2015-05-14_8917.{f.reader_key('ch')}.json").write_text(
+    json.dumps({"box": [1, 2, 3, 4], "words": _w4}))
+_crops4, f.CROPS = f.CROPS, _c4
+f.indy_three_read.cache_clear()
+_row4 = {"edition": "GaleIndependent2015UKEnglish/2015-05-14", "readAt": "2026-11-18T21:21:57+00:00",
+         "verdicts": [{"number": 8917, "id": "independent-8917", "blank": {"19-down": "no reading laid a clue on it"}}]}
+_m4 = [f.indy_three_read("2015-05-14_8917"), f.indy_three_few_due(_row4), f.indy_three_few_due({**_row4, "readAt": "2026-11-19T01:00:00+00:00"}),
+       f.fix_reason(_row4) == f.INDY_THREE_FEW]
+f.CROPS = _crops4
+f.indy_three_read.cache_clear()
+if _m4 == [False, True, False, True] and f.RANKS[f.INDY_THREE_FEW] == 2 \
+        and f.INDY_THREE_FEW in _eq3.NEWEST_LANDED and f.INDY_THREE_FEW in _eq3.UNFILED_FIRST:
+    print("ok   an Independent page whose third clue column held five clue starts is due INDY_THREE_FEW")
+else:
+    print("FAIL an Independent page whose third clue column held five clue starts is due INDY_THREE_FEW", _m4)
+# r296 INDY_THIRD_TOP: the 2004 third column's first lines stand over the plain window's top, in a strip window beside the grid.
+_c4 = Path(_tf3.mkdtemp())
+(_c4 / "rapid").mkdir()
+_ys4 = [2484, 2510, 2535, 2559, 2584, 2608, 2634]
+_w4 = [[2208, y, 2400, y + 20, "word of clue"] for y in _ys4] + [[2175, 2289, 2190, 2309, "E"]]
+(_c4 / "rapid" / f"2004-07-21_5541.{f.reader_key('en5')}.json").write_text(json.dumps(
+    {"box": [1386, 2632, 2563, 3532], "words": [[2208, 2634, 2400, 2654, "point of no return (7)"]],
+     "more": [{"box": [2151, 1937, 3296, 2986], "words": _w4}]}))
+(_c4 / "rapid" / f"2004-03-16_5432.{f.reader_key('en5')}.json").write_text(json.dumps(
+    {"box": [135, 4141, 1406, 5000], "words": [], "more": [{"box": [900, 3373, 2047, 4535],
+     "words": [[1345, 4141 - 30 * k, 1500, 4161 - 30 * k, "article text here"] for k in range(1, 8)]}]}))
+_crops4, f.CROPS = f.CROPS, _c4
+f.indy_third_top_read.cache_clear()
+_row4 = {"edition": "GaleIndependent2004UKEnglish/2004-07-21", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 5541, "id": "independent-5541", "blank": {"4-down": "no reading laid a clue on it"}}]}
+_m4 = [f.indy_third_top([(2208, y, 2400, y + 20, "word of clue") for y in _ys4], 2156, 2632),
+       f.indy_third_top([(2208, y, 2400, y + 20, "word of clue") for y in (2300, 2610)], 2156, 2632),
+       f.indy_third_top_read("2004-07-21_5541"), f.indy_third_top_read("2004-03-16_5432"),
+       f.indy_third_top_due(_row4), f.indy_third_top_due({**_row4, "readAt": "2027-01-01T00:00:00+00:00"})]
+f.CROPS = _crops4
+f.indy_third_top_read.cache_clear()
+# (the registry reasons, SOLO_VLM now, stand after the last hand-listed one in UNFILED_FIRST: [-2:])
+if _m4 == [2476, None, True, False, True, False] and f.RANKS[f.INDY_THIRD_TOP] == 2 and f.INDY_THIRD_TOP in _eq3.NEWEST_LANDED \
+        and f.INDY_THIRD_TOP in _eq3.UNFILED_FIRST[-2:] and f.INDY_THIRD_TOP in _eq3.FIX_LANDED:
+    print("ok   a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP")
+else:
+    print("FAIL a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP", _m4)
+    out += "\nFAILS 1"
+print(out)
+lines = out.splitlines()
+if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
+    print("test_file_archive_org_puzzles: failed")
+    sys.exit(1)
+print("test_file_archive_org_puzzles: all passed")

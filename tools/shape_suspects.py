@@ -1,0 +1,267 @@
+#!/usr/bin/env python3
+"""Rank clues whose wordplay tree is probably wrong, from shape signals (read-only on puzzles/).
+
+    nice -n 19 python3 tools/shape_suspects.py --collect /tmp/shape_all.jsonl   # one corpus pass
+    python3 tools/shape_suspects.py --sample /tmp/shape_all.jsonl N [seed] [ncommon]
+    nice -n 19 python3 tools/shape_suspects.py --rank /tmp/shape_all.jsonl      # write tools/data/shape_suspects.json
+
+Imports the skeleton code from tools/clue_shapes.py.
+"""
+import collections
+import json
+import random
+import re
+import sys
+from pathlib import Path
+
+import clue_shapes as cs
+import puzzle_paths
+
+OUT = Path(__file__).resolve().parent / "data" / "shape_suspects.json"
+
+
+def collect(dest):
+    with open(dest, "w") as f:
+        for path in puzzle_paths.puzzle_files():
+            try:
+                pz = json.loads(Path(path).read_text())
+            except (OSError, ValueError):
+                continue
+            series = Path(path).parent.parent.name
+            pid = pz.get("id") or Path(path).stem
+            for e in pz.get("entries") or []:
+                ann = e.get("annotation")
+                if not ann or ann.get("wordplay") is None:
+                    continue
+                wp = ann["wordplay"]
+                clue = (e.get("clue") or {}).get("text", "")
+                sk = cs.analyse(wp)[0]
+                f.write(json.dumps({"id": f"{pid}#{e.get('number')}{(e.get('direction') or '?')[:1]}", "series": series,
+                                    "clue": clue, "sol": e.get("solution", ""), "sk": sk, "line": cs.compact(wp),
+                                    "wp": wp, "defs": ann.get("definitions") or [], "andLit": bool(ann.get("andLit"))}) + "\n")
+
+
+def L(s):
+    return cs.letters(s)
+
+
+def nodes(wp):
+    out = [wp]
+    for p in (wp.get("parts") or []):
+        out += nodes(p)
+    return out
+
+
+def leaves(wp):
+    return [n for n in nodes(wp) if "op" not in n]
+
+
+def d_arity_ins(r):
+    """A container with other than two parts: the thing held or the holder is missing. The
+    rule is the validator's (validate_annotations.arity_ins), which counts unchecked steps."""
+    import validate_annotations as V
+    if k := V.arity_ins(r["wp"]):
+        return f"{k} ins with other than two parts, takes 2"
+
+
+def d_arity_other(r):
+    """del/sub/homophone/one-armed op with a part count the evaluator does not take. The rule
+    is the validator's (validate_annotations.arity_other): a substitution takes exactly three
+    parts, so a one- or two-part letter swap is flagged here as it is there."""
+    import validate_annotations as V
+    if k := V.arity_other(r["wp"]):
+        return f"{k} op(s) with the wrong part count"
+
+
+def d_del_single(r):
+    """A deletion with one part: the letters it removes are not stated."""
+    import validate_annotations as V
+    if V.del_single(r["wp"]):  # the whole tree: a lone leaf under an anagram is read from its parent
+        return "del with one part (what it removes is not stated)"
+
+
+def d_span_overlap(r):
+    """Two leaves, or a leaf and an indicator, covering the same clue letters."""
+    import validate_annotations as V
+    if k := V.span_overlaps(r["wp"]):
+        return f"{k} pair(s) of leaves or indicators share clue words"
+
+
+def d_ind_in_leaf(r):
+    """The validator's own rule (validate_annotations.ind_in_leaf), occurrence-aware."""
+    import validate_annotations as V
+    if V.ind_in_leaf(r["wp"], r["clue"]):
+        return "indicator also sits inside a leaf of clue words"
+
+
+def _sanctioned_unchecked(lf, parent, ancestors=()):
+    """Whether an unchecked leaf is the mandatory form, not an unverified synonym:
+    a sound leaf anywhere under a spoonerism (`soundsLike` says what is said aloud, and its
+    `gives` is not the words' own letters, so it can never be checked; the usual shape is
+    spoonerism > charade > sound leaves), a letterless leaf under a `hidden` whose own
+    `gives` is a run of the leaf's words (the op over it does the picking), or a `select`
+    leaf whose `gives` is letters picked from its own words (first, middle, outer,
+    last: the op over it does the picking, the leaf cannot be checked)."""
+    if lf.get("soundsLike") and any(a.get("op") == "spoonerism" for a in (*ancestors, parent or {})):
+        return True
+    if (parent or {}).get("op") == "hidden" and not L(lf.get("gives")):
+        g = L(parent.get("gives"))
+        return bool(g) and g in L(lf.get("words"))
+    # a letterless leaf under a palindrome: its words are the answer, read both ways (PEEP "Look"
+    # with "both ways", round 10)
+    if str((parent or {}).get("op")).startswith("pal") and not L(lf.get("gives")):
+        return True
+    # a leaf whose words are the next leaves' words run together ("Classmate" over Class + mate):
+    # the compound is shown whole, the pieces carry the letters (FORMALLY, round 10)
+    sibs = [L(p.get("words")) for p in (parent or {}).get("parts") or [] if p is not lf and "op" not in p and p.get("words")]
+    if L(lf.get("words")) and L(lf.get("words")) in ("".join(sibs),):
+        return True
+    if lf.get("select"):
+        g, w = L(lf.get("gives")), L(lf.get("words"))
+        it = iter(w)
+        return bool(g) and all(c in it for c in g)  # g is a subsequence of the words' letters
+    return False
+
+
+def d_unchecked_leaf_word(r):
+    """An unchecked leaf (gives taken as filed) with clue words."""
+    stack = [(r["wp"], None, ())]
+    while stack:
+        n, parent, anc = stack.pop()
+        stack += [(p, n, anc + ((parent,) if parent else ())) for p in n.get("parts") or []]
+        if "op" not in n and n.get("unchecked") and n.get("words") and "dropped" not in (n.get("note") or "") \
+                and not _sanctioned_unchecked(n, parent, anc):
+            return f"unchecked leaf '{n['words']}'"
+
+
+_WORDS = set()
+_REF = re.compile(r"^\d+[AD]?(\s+\d+[AD]?)*\s*\??$")
+
+
+def is_rebus_clue(text, solution):
+    """Whether the clue text is a rebus to read, not words to parse: no lowercase letter,
+    a solution that is not the clue itself (a straight puzzle), no word of 3+ letters the
+    lexicon knows (ordinary capitals: CLUE TO COME), and not a bare clue reference ("9 15")
+    or a lone "?". HIJKLMNO, CO2?, P?, 1984? and 50 + 0 = 0? qualify."""
+    text = (text or "").strip()
+    if not text or not solution or re.search("[a-z]", text) or re.sub(r"\s", "", text) == solution:
+        return False
+    if _REF.match(text) or not re.search(r"[^\s?]", text):
+        return False
+    if not re.search(r"[A-Z0-9]", text):
+        return False  # a bare symbol ("*") is an unclued entry, not a picture to read
+    if not _WORDS:
+        lex = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+        with lex.open(encoding="utf-8") as f:
+            _WORDS.update(w for w in (ln.split("\t")[0].strip().upper() for ln in f)
+                          if len(w) >= 3 and w.isalpha())
+    return not any(k in _WORDS for k in re.findall("[A-Z]{3,}", text))
+
+
+def d_rebus(r):
+    """A rebus clue (is_rebus_clue) whose tree is not the rebus op: Paul 10-16, "put a rebus
+    puzzle or two at the front of the queue once you build support to annotate them"."""
+    if r["wp"].get("op") not in ("rebus", "picture") and is_rebus_clue(r["clue"], r["sol"]):
+        return f"rebus clue '{r['clue']}' is not annotated with rebus()"
+
+
+DETECTORS = {"arity_ins": d_arity_ins, "arity_other": d_arity_other, "del_single": d_del_single,
+             "span_overlap": d_span_overlap, "ind_in_leaf": d_ind_in_leaf, "unchecked_leaf": d_unchecked_leaf_word,
+             "rebus": d_rebus}
+CDETECTORS = {}
+# Hand-measured precision (share of ~8-16 sampled hits per detector whose tree was wrong or unverifiable
+# against the clue text, 2026-10-15). Detectors measured below 50% (leaf-in-definition ~40%, ins-in-ins,
+# del/rev over a charade, rare skeleton alone, repeated leaf words, bare letters under del) are left out.
+PRECISION = {"arity_ins": 0.95, "arity_other": 0.9, "del_single": 0.9, "span_overlap": 0.9, "ind_in_leaf": 0.85,
+             "unchecked_leaf": 0.85, "rebus": 0.9}
+
+
+def run_detectors(rows):
+    c = collections.Counter(r["sk"] for r in rows)
+    for r in rows:
+        hits = {}
+        for k, f in DETECTORS.items():
+            try:
+                x = f(r)
+            except Exception:
+                x = None
+            if x:
+                hits[k] = x
+        for k, f in CDETECTORS.items():
+            x = f(r, c)
+            if x:
+                hits[k] = x
+        yield r, hits
+
+
+def load(src):
+    return [json.loads(line) for line in open(src)]
+
+
+def main():
+    a = sys.argv
+    if a[1] == "--collect":
+        collect(a[2])
+    elif a[1] == "--hits":
+        hits = []
+        for r, h in run_detectors(load(a[2])):
+            if h:
+                hits.append({"id": r["id"], "series": r["series"], "clue": r["clue"], "sol": r["sol"], "skeleton": r["sk"],
+                             "line": r["line"], "hits": h})
+        json.dump(hits, open(a[3], "w"))
+    elif a[1] == "--rank":
+        # --rank HITS.json: keep detectors measured >= 50% precise, rank, write tools/data/shape_suspects.json
+        import re
+        v = cs.load_verdicts()
+        pats = [(p, re.compile(p.get("re", "."))) for p in v["patterns"]]
+        out = []
+        for x in json.load(open(a[2])):
+            keep = {k: why for k, why in x["hits"].items() if k in PRECISION}
+            if not keep:
+                continue
+            miss = 1.0
+            for k in keep:
+                miss *= 1 - PRECISION[k]
+            row, group = cs.judge(x["skeleton"], v, pats)
+            out.append({"id": x["id"], "clue": x["clue"], "answer": x["sol"], "skeleton": x["skeleton"],
+                        "reason": "; ".join(f"{k}: {w}" for k, w in keep.items()), "score": round(1 - miss, 3),
+                        "shape_verdict": (row or {}).get("verdict"), "tree": x["line"]})
+        out.sort(key=lambda r: (-r["score"], r["id"]))
+        OUT.write_text(json.dumps({"precision": PRECISION, "count": len(out), "suspects": out}, indent=0) + "\n")
+        print(len(out), "suspects")
+    elif a[1] == "--detect":
+        rows = load(a[2])
+        per = collections.defaultdict(list)
+        for r, hits in run_detectors(rows):
+            for k, why in hits.items():
+                per[k].append((r, why))
+        random.seed(5)
+        for k, v in sorted(per.items()):
+            print("##", k, len(v))
+            for r, why in random.sample(v, min(len(v), int(a[3]))):
+                print(k, r["id"], "|", r["clue"], "|", r["sol"], "|", r["line"], "|", why)
+    elif a[1] == "--sample":
+        rows = load(a[2])
+        n = int(a[3])
+        c = collections.Counter(r["sk"] for r in rows)
+        random.seed(int(a[4]) if len(a) > 4 else 1)
+        by = collections.defaultdict(list)
+        for r in rows:
+            if c[r["sk"]] <= 3 and r["sk"] != "V":
+                by[r["series"]].append(r)
+        pick = []
+        keys = sorted(by)
+        while len(pick) < n and keys:
+            for k in keys:
+                if by[k] and len(pick) < n:
+                    pick.append(by[k].pop(random.randrange(len(by[k]))))
+            keys = [k for k in keys if by[k]]
+        common = [r for r in rows if c[r["sk"]] >= 200]
+        ctl = random.sample(common, int(a[5]) if len(a) > 5 else 30)
+        for tag, rs in (("RARE", pick), ("COMMON", ctl)):
+            for r in rs:
+                print(tag, r["id"], c[r["sk"]], "|", r["clue"], "|", r["sol"], "|", r["line"], "|", r["sk"])
+
+
+if __name__ == "__main__":
+    main()

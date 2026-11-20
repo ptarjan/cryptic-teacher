@@ -1,0 +1,275 @@
+"""The puzzles /showcase/ picks out, and why: facts read off each file, never a guess.
+
+build_seo_pages.puzzle_page_job() calls facts() on every listed, solved puzzle as
+it renders that puzzle's page, so the showcase costs no second pass over the
+corpus; sections() then picks each section's puzzles from all of them.
+
+Only puzzles with our hints are shown: a reader who opens a pick to solve it
+gets help. wanted() names the unhinted puzzles a section would show, and the
+pre-reset burn (tools/prereset_plan.py) annotates those first.
+
+Every section is a fact the file or the index states. A feature section is
+one of tools/puzzle_tags.py's TAGS, with that tag's label for its heading, its
+blurb, and the puzzles the tag is on, so /showcase/ and the app's feature
+filter name and pick the same features. The rest are rankings, which no filter
+offers.
+"""
+
+import clue_text
+import re
+
+import puzzle_tags
+import series as series_meta
+
+# Top-level features (no `implies`) /showcase/ gives no section, each with why.
+# A tag that implies another shows in that one's section, by its own label.
+NOT_SHOWCASED = {}
+
+# At most this many puzzles of one series among a feature's cards on /showcase/;
+# its own page lists them all.
+FEATURE_PER_SERIES = {"hidden-message": 3, "asymmetric": 2, "barred": 3, "big-grid": 2,
+                      "unclued": 3, "letters-given": 3, "special-rules": 3}
+
+PER_SECTION = 6
+
+
+def enumeration_letters(enum):
+    return clue_text.count_total(enum or "")
+
+
+def longest_answer(puz):
+    """(letters, lights) of the puzzle's longest answer, a linked one counted
+    whole across every light it runs through, or None. Only an answer whose
+    printed count adds up to the squares it fills: a count that disagrees
+    is a filing slip, not a record."""
+    ents = puz["entries"]
+    by_id = {puzzle_tags.entry_id(e): e for e in ents}
+    cont = puzzle_tags.continuations(ents)
+    best = None
+    for e in ents:
+        eid = puzzle_tags.entry_id(e)
+        if eid in cont:
+            continue
+        lights = [by_id[g] for g in e.get("group") or [eid] if g in by_id]
+        letters = sum(x["length"] for x in lights)
+        if enumeration_letters(e["clue"].get("enumeration")) != letters:
+            continue
+        if best is None or letters > best[0]:
+            best = (letters, len(lights))
+    return best
+
+
+def facts(puz, meta):
+    """What the showcase needs to know about one puzzle, small enough to
+    send back from a worker. `meta` is its index row."""
+    return with_meta(file_facts(puz), meta)
+
+
+def file_facts(puz):
+    """facts() as the file alone states them; with_meta() adds the index's."""
+    ents = puz["entries"]
+    cont = puzzle_tags.continuations(ents)
+    tags = puzzle_tags.tags(puz)
+    day = series_meta.puzzle_day(puz)
+    series = series_meta.of(puz) or "cryptic"
+    return {
+        "id": puz["id"], "series": series, "number": puz["number"],
+        "day": day.toordinal() if day else None,
+        # A book puzzle's year is the book's, not the day the paper printed it.
+        "dated": "date" in puz,
+        "answers": sum(1 for e in ents if puzzle_tags.entry_id(e) not in cont
+                       and not e["clue"].get("missing")),
+        "longest": longest_answer(puz),
+        "tags": [k for k in puzzle_tags.TAGS if k in tags],
+        "difficulty": None,
+        "annotated": False,
+        # A round issue number means something only where the number counts
+        # issues: not a date (the Canberra Times), not our own day count
+        # (Metro, numberIsDayCount), not a book's volume * 1000 + position.
+        "counted": not (series_meta.is_book(series)
+                        or "numberIsDayCount" in series_meta.meta(series)
+                        or series_meta.number_date(series, puz["number"])),
+    }
+
+
+def with_meta(f, meta):
+    """file_facts() `f` with what its index row `meta` states."""
+    meta = meta or {}
+    diff = meta.get("difficulty") or {}
+    return {**f,
+            # big-grid compares the puzzle with its series, so only the index has it.
+            "tags": [k for k in puzzle_tags.TAGS if k in f["tags"]
+                     or (k == "big-grid" and k in meta.get("tags", ()))],
+            "difficulty": diff.get("index") if diff.get("band") else None,
+            "annotated": bool(meta.get("annotated"))}
+
+
+def newest_first(f):
+    return -(f["day"] or 0)
+
+
+def ranked(cands, key, per_series=None):
+    """cands by key, at most per_series from any one series."""
+    out, count = [], {}
+    for f in sorted(cands, key=key):
+        if per_series and count.get(f["series"], 0) >= per_series:
+            continue
+        out.append(f)
+        count[f["series"]] = count.get(f["series"], 0) + 1
+    return out
+
+
+def oldest_per_paper(fs):
+    """The earliest dated puzzle of each publisher, oldest first."""
+    best = {}
+    for f in fs:
+        if not f["dated"] or f["day"] is None:
+            continue
+        paper = series_meta.publisher(f["series"])
+        if paper not in best or (f["day"], f["id"]) < (best[paper]["day"], best[paper]["id"]):
+            best[paper] = f
+    return sorted(best.values(), key=lambda f: (f["day"], f["id"]))
+
+
+def features():
+    """The top-level tags /showcase/ gives a section, in TAGS order."""
+    return [t for t, info in puzzle_tags.TAGS.items()
+            if "implies" not in info and t not in NOT_SHOWCASED]
+
+
+def feature_spec(fs, tag):
+    """A feature's section: the puzzles with the tag, a stronger one first
+    (the most repeats of a pangram), each noting its own tag's label."""
+    variants = [k for k, info in puzzle_tags.TAGS.items() if k == tag or info.get("implies") == tag]
+
+    def own(f):
+        return next(k for k in f["tags"] if k in variants)
+    key = (lambda f: (variants.index(own(f)), newest_first(f))) if len(variants) > 1 else newest_first
+    info = puzzle_tags.TAGS[tag]
+    return (tag, info["label"][0].upper() + info["label"][1:], info["blurb"],
+            [f for f in fs if puzzle_tags.has_tag(f["tags"], tag)], key,
+            lambda f: puzzle_tags.TAGS[own(f)]["label"], FEATURE_PER_SERIES.get(tag))
+
+
+# Each list as (slug, heading, blurb, which puzzles, ranking, card note,
+# per_series): the rankings, every feature, then the round numbers. A
+# ranking's list is its candidates by ranking, at most per_series from one
+# series: all of them, or the top FULL of a ranking (a key other than
+# newest_first), which can run to thousands. A feature's list is every
+# candidate, per_series picking only the cards /showcase/ shows (sections).
+# A per_series of 1 lets a ranking that one series dominates show several
+# papers.
+def specs(fs):
+    return [
+        ("longest", "The longest answers",
+         ("A single answer, often a whole quotation, that snakes through several parts "
+          "of the grid."),
+         [f for f in fs if f["longest"] and f["longest"][1] > 1],
+         lambda f: (-f["longest"][0], newest_first(f)),
+         lambda f: f"{f['longest'][0]} letters in {f['longest'][1]} parts", None),
+        ("hardest", "The hardest",
+         "The puzzles our difficulty rating puts at the top.",
+         [f for f in fs if f["difficulty"] is not None],
+         lambda f: (-f["difficulty"], newest_first(f)), lambda f: "", 1),
+        ("easiest", "The easiest",
+         "The puzzles our difficulty rating puts at the bottom: a good place to start.",
+         [f for f in fs if f["difficulty"] is not None],
+         lambda f: (f["difficulty"], newest_first(f)), lambda f: "", 1),
+        ("most-clues", "The most clues", "The puzzles with the most clues.",
+         fs, lambda f: (-f["answers"], newest_first(f)),
+         lambda f: f"{f['answers']} clues", 1),
+        *(feature_spec(fs, t) for t in features()),
+        ("round-numbers", "Round numbers", "Milestone issues, numbered in round thousands.",
+         [f for f in fs if f["counted"] and f["number"] >= 1000
+          and f["number"] % 1000 == 0], newest_first, lambda f: "", 1),
+    ]
+
+
+FULL = 100
+
+ONE_PER_SERIES = " Here, no two from the same series."
+
+
+def unhinted_note(n):
+    """What a feature's own page adds when the puzzle list holds more of it
+    than the page may show: the page lists only puzzles with our hints."""
+    if not n:
+        return ""
+    return (f" Only puzzles with our hints are listed here; {n} more have it, "
+            "and the feature menu in the puzzle list finds them.")
+
+
+def sections(all_facts, hinted=True):
+    """[(slug, heading, blurb, [(fact dict, card note)], full)] in page order,
+    full being (blurb, cards, "all 21" or "top 100") for /showcase/<slug>/, or
+    None where the section already shows everything it has. A puzzle may be in
+    several sections. With hinted, only the puzzles we have annotated are
+    candidates.
+
+    A ranking is ranked once, at most per_series from a series, so /showcase/
+    shows the first PER_SECTION of its own page. A feature's own page lists
+    every candidate with the feature, newest first, and says how many more
+    the puzzle list holds unhinted: "all 7" must be all of them. Its
+    per_series only spreads the PER_SECTION cards /showcase/ picks."""
+    all_facts = list(all_facts)
+    fs = [f for f in all_facts if f["annotated"] or not hinted]
+    out = []
+    for slug, heading, blurb, cands, key, note, per_series in specs(fs):
+        feature = slug in puzzle_tags.TAGS
+        whole = ranked(cands, key, None if feature else per_series)
+        if not whole:
+            continue
+        shown = ranked(cands, key, per_series)[:PER_SECTION] if feature else whole[:PER_SECTION]
+        if key is not newest_first and not feature and len(whole) > FULL:
+            whole, label = whole[:FULL], f"top {FULL}"
+        else:
+            label = f"all {len(whole)}"
+        blurb += ONE_PER_SERIES if per_series == 1 else ""
+        full_blurb = blurb
+        if feature:
+            full_blurb += unhinted_note(sum(
+                1 for f in all_facts if puzzle_tags.has_tag(f["tags"], slug)) - len(whole))
+        cards = [(f, note(f)) for f in whole]
+        full = (full_blurb, cards, label) if len(cards) > len(shown) else None
+        out.append((slug, heading, blurb, [(f, note(f)) for f in shown], full))
+    oldest = oldest_per_paper(fs)
+    if oldest:
+        out.append(("oldest", "The oldest",
+                    "The earliest puzzle we have from each paper, oldest first.",
+                    # No note: the series badge already names the paper.
+                    [(f, "") for f in oldest], None))
+    return out
+
+
+def wanted(all_facts):
+    """Ids of the unannotated puzzles the showcase would pick if it took any
+    puzzle: what annotating first would put on the page."""
+    return [f["id"] for _, _, _, cards, _ in sections(all_facts, hinted=False)
+            for f, _ in cards if not f["annotated"]]
+
+
+def _file_facts(path):
+    from fetch_puzzle import read_puzzle_view
+    return file_facts(read_puzzle_view(path))
+
+
+def _file_facts_deps(path, row):
+    """What file_facts() read besides the file (tools/row_cache.py): whether
+    a blog found a nina in the puzzle."""
+    return row["id"] in puzzle_tags.blogged_ninas()
+
+
+def corpus_facts(index):
+    """facts() for every listed puzzle with all its answers (the index's
+    hasSolutions), which build_seo_pages gathers as it renders their pages.
+    Each file's part is reused while the file, the code and the book registry
+    it was read under stand (tools/row_cache.py)."""
+    import hashlib
+
+    import row_cache
+    from puzzle_paths import puzzle_files
+    meta = {p["id"]: p for p in index["puzzles"] if p.get("hasSolutions")}
+    paths = [p for p in puzzle_files() if p.stem in meta]
+    salt = hashlib.sha1(series_meta.BOOKS_FILE.read_bytes()).hexdigest()[:16]
+    parts = row_cache.cached_map("showcase", _file_facts, paths, salt=salt, deps=_file_facts_deps)
+    return [with_meta(f, meta[f["id"]]) for f in parts if f["id"] in meta]

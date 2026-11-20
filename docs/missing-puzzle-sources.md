@@ -1,0 +1,180 @@
+# Free sources for the missing puzzles
+
+Research of 2026-11-17, ranked by how many missing puzzles each source fills.
+It names sources only; no fetcher was written. Scan sources (Gale, archive.org,
+Trove) belong to #cryptic-desktop and appear here only as notes.
+
+## The holes, measured
+
+Measured as missing numbers between held neighbours in `puzzles/<series>/`
+(gaps that span a year boundary are split between the two years). The
+measuring script is `/tmp/mps/gaps.py`, not committed.
+
+| Series | Hole | Missing | Source today |
+|---|---|---:|---|
+| telegraph | 2001-2008 (none held) | ~2,620 | none: Gale ends 2000, bigdave44 starts 2009 |
+| ftcryptic | 2000-2009 | ~2,250 | Gale FTHA (to 2010), desktop |
+| independent | 2004-2013 | ~2,000 | Gale INDA (to 2015), desktop |
+| sundaytel | 2001-2008 | ~440 | none |
+| sundaytimes | 2007-2014 | ~410 | none: Gale STHA ends 2006 |
+| times | 2015-2016 | 109 (142 for 2015-2026) | Times feed, partly |
+| mephisto | 2007-2016 | ~610 | none |
+| timesjumbo | 1997-2016 | ~1,000 | Gale Jumbo solutions only |
+| azed | 1975-2004 | ~1,600 | andlit slips, partial |
+
+The 2015-2016 Times gap is mostly weekday runs of five (26095-26099,
+26101-26105, 26131-26135, ...): whole weekly batches the feed walk missed.
+
+## Ranked sources
+
+### 1. Cryptonite dataset (Times + Telegraph clues, 2000-2020): about 3,000 puzzles as of 11-17
+
+- **What it holds:** one row per clue: `publisher` (Times/Telegraph),
+  `sub_publisher` (e.g. "The Times"), print `date` (epoch ms, UTC midnight),
+  clue `number`, `orientation` (across/down), `clue`, `answer`, `enumeration`,
+  `quick`. 523k clues. It has no grid and no puzzle number, and clue and
+  answer text are **lowercased**.
+- **Years:** Telegraph late 2001-2020 (weekdays and Sundays); Times 2000-2020,
+  with Sunday Times.
+- **Free/legal:** free download, no login. The Hugging Face card says
+  **CC BY-NC 4.0**; the GitHub repo has no licence file. The authors scraped
+  the papers' subscription sites for an EMNLP 2021 research benchmark, so the
+  clue text is still the papers' copyright. Non-commercial use fits the
+  card's licence; whether to republish it on the site is Paul's call.
+- **Checked URL:** https://github.com/aviaefrat/cryptonite/raw/main/data/cryptonite-official-split.zip
+  (19 MB, three jsonl files). Card:
+  https://huggingface.co/datasets/aviaefrat/cryptonite
+- **Spot check:** for held 2012 puzzles the answers match ours on the same
+  date (telegraph-26756 30/30, 26758 32/32; sundaytel-2627 30/30; times-25055
+  30/30). Some dates carry a second puzzle (a 51- or 87-answer date), so
+  split on `sub_publisher` and clue numbers. 2015-05-11 (Times 26095, which
+  we lack) is present.
+- **Fill**, counted as Cryptonite dates with 20+ clues that we hold no
+  puzzle for:
+
+  | Gap | Dates |
+  |---|---:|
+  | Telegraph weekday 2001-2008 | 2,215 |
+  | Sunday Telegraph 2001-2008 | 345 |
+  | Sunday Times 2007-2014 | 395 |
+  | Times 2015-2016 | 110 |
+  | Telegraph 2009-2020 strays | 88 |
+  | Times 2000-2014 (upper bound) | 290 |
+  | Sunday Times 2001-2006 (upper bound) | 71 |
+
+  The core total is **3,065**. The upper-bound rows may partly be date
+  mismatches against our blog-dated files.
+- **Filing:** clue numbers plus answers rebuild the grid (times_grids
+  backsolve, 99.3% invertible from clue numbers per
+  cryptic-grid-reconstruction). Puzzle numbers come from held neighbours by
+  date, and case has to be restored (proper nouns). Where both exist, the
+  Times feed or the National Post PDFs (below) give proper case.
+- **Filer (11-17):** `tools/file_cryptonite.py DATA_DIR` (docstring has the
+  rules). The number is accepted only when every printing calendar that fits
+  the held neighbours gives the same one. Leave-one-out on 1,534 held puzzles
+  (2001-2020, all four series): every one right, none wrong. The grid is filed
+  only when exactly one half-turn-symmetric 15x15 takes the answers. Case comes
+  back by rule: the first word of each sentence, "I", and words our own clues
+  capitalise mid-clue at least 90% of the time. Provenance: `retrievedFrom:
+  dataset`, `acquiredBy: tools/file_cryptonite.py`. The site cannot show a
+  clue-only puzzle (clues_only/ is never published), so an unplaced one is
+  skipped.
+- **What will not file, measured:**
+  - Sunday Telegraph 2001-08: the held numbers leave about 16 fewer numbers
+    than Sundays, and the dataset does not show which Sundays went unprinted,
+    so every number is ambiguous. One more held anchor inside the hole would
+    unlock it.
+  - Sunday Times 2001-06: this once read "the dataset's answers miss our held
+    puzzles on most dates". That was wrong. The rule compared the dataset's
+    answer set with ours on each held date, and most of those held puzzles
+    carried no answers (the Gale scans gave clues only), so the overlap was
+    near zero whatever the dataset held. Cross-checked clue by clue
+    (tools/check_cryptonite.py), the dataset's clue text matches ours at
+    overlap 1.0 on nearly every date; where we do hold answers they agree,
+    except 14 puzzles of 2001-09 to 2002-10 that carry the answers of the
+    puzzle 21 days earlier (the paper prints a solution three weeks after its
+    puzzle, and the page's solution block was joined to the page's puzzle).
+    tools/repair_cryptonite.py fills the missing answers and replaces those
+    (ledger: docs/cryptonite_repairs.json). With the repaired corpus the
+    "disagree" skip fell from 71 dates to 14 (2001: 5, 2002: 9; those years
+    still sit under 90% agreement), and a dry run of file_cryptonite now
+    would file 39 Sunday Times puzzles of 2003-06 (2003: 7, 2004: 17, 2005:
+    13, 2006: 2) that it skipped before; 2001-02 remain unfiled.
+  - Saturday Times and some 2008+ Telegraph dates carry two cryptics (Jumbo
+    or Toughie) that share numbers, so they cannot be split.
+- **Filed (11-17 full run): 2,013 puzzles.** Telegraph 1,598 (2001: 19, 2002:
+  250, 2003: 236, 2004: 245, 2005: 238, 2006: 230, 2007: 188, 2008: 170, 2009:
+  18, 2013: 4); Sunday Times 221 (2007: 32, 2008: 29, 2009: 19, 2010: 31, 2011:
+  26, 2012: 27, 2013: 24, 2014: 21, 2015: 7, 2016: 3, 2017: 2); Times 192
+  (2000-2020, 1-26 a year, most in 2006 and 2010); Sunday Telegraph 2 (2010,
+  2011). Of 14,059 dates skipped, 10,472 were already held and 1,734 were
+  Quick puzzles. The rest, by reason: 735 no grid (clue numbers skip), 406
+  label disagrees with the weekday, 347 Sunday Telegraph number ambiguous, 82
+  two cryptics on the date, 79 no grid takes the answers, 71 Sunday Times
+  2001-06 dataset disagrees with our held puzzles (see above), 100 write
+  refused by the filing guard (id or served-page mismatch), 19 clue count
+  unlike a 15x15, 12 no number free, 2 held neighbours disagree with the
+  calendar. Filing also merged nine Telegraph and ten Times "book" twins into
+  the new ids (tools/data/renamed_ids.json).
+
+### 2. The Times feed, wider id search (existing source): ~110 Times 2015-2016
+
+- **What it holds:** feeds.thetimes.co.uk `data.json`: clues as printed
+  (proper case), grid, answers.
+- **Free/legal:** free; it is the paper's own web player feed, already used
+  by tools/fetch_times_feed.py.
+- **Checked:** https://feeds.thetimes.co.uk/puzzles/crossword/20150511/4497/data.json
+  is "Times Cryptic No 26095". That is Quick id 4336 + 161, just past the
+  walk's `WIDE = 150`, which is why the week was missed. The cache holds only
+  the Quicks for 11-15 May 2015.
+- **Fill:** likely most of the 109 numbers missing in 2015-2016, with better
+  text than Cryptonite. It is a reach fix in fetch_times_feed.py
+  (`--daily-missing 2015-01-01 2016-12-31` with a wider WIDE), not a new
+  source. The feed also serves "Concise"; untested for Sunday Times, Jumbo or
+  Mephisto from 2014 on, so worth probing a Sunday.
+
+### 3. National Post Cryptic Crossword Forum (Telegraph reprints, 2009-2022): cross-check only
+
+- **What it holds:** daily reviews of the Telegraph cryptic the National Post
+  reprinted months late, headed "DT nnnnn", quoting clues, with links to PDF
+  or JPG copies of the puzzle.
+- **Free/legal:** free blog; quoted clues as review.
+- **Checked:** https://natpostcryptic.blogspot.com/2015/11/wednesday-november-11-2015-dt-27818.html
+- **Fill:** about 0 new: we already hold Telegraph 2009+. Useful to restore
+  case in Cryptonite rows and to check the 88 Telegraph strays.
+
+### 4. Ottawa Citizen Cryptic Crossword Forum (Sunday Times reprints, 2009-2014): partial clues
+
+- **What it holds:** about 258 reviews headed "ST nnnn" (May 2009 - June
+  2014), each quoting the clues it discusses (about 17 of 30) with answers.
+- **Free/legal:** free blog.
+- **Checked:** https://citizencryptic.blogspot.com/2012/10 (ST 4505)
+- **Fill:** about 250 of the ~410 missing Sunday Times numbers, but only about
+  55% of the clues each, so no puzzle files from it alone. Use it to restore
+  case and cross-check Cryptonite's Sunday Times rows.
+
+### 5. Gale, for #cryptic-desktop (scans; not ours to build)
+
+Independent 2004-2013 (~2,000, INDA runs to 2015) and FT 2000-2009 (~2,250,
+FTHA runs to 2010) are inside Gale's range and in the desktop's queue. No free
+web source beats them. Telegraph (TGRH) and Sunday Times (STHA) stop at
+2000 and 2006, so source 1 is the only route for those holes.
+
+## Checked and empty (2026-11-17)
+
+- Wayback `feeds.thetimes.co.uk/puzzles/crossword/2015-16`: a handful of 302s,
+  no data.
+- The Australian and New York Post are said to reprint the Times cryptic, but
+  neither has a free archive; their CDX prefixes 503'd or were empty.
+- Wayback `nationalpost.com` puzzle paths 2000-2009: empty. telegraph.co.uk
+  `/crossword` 2001-2007: about 15 landing pages, no puzzles.
+- anagrammer.com Telegraph pages are the General Knowledge puzzle, not the
+  cryptic (and 403 to scripts).
+- Mephisto 2007-2016, Times Jumbo, TLS: no free source beyond TftT. Lucian
+  Poll's Goodreads blog covers only ~2019-2023 Jumbos.
+- Datasets: eigenfoo/cryptics (georgeho) is already used; mdda/cryptic-wordplay
+  is mostly FT clues. No Mephisto, Azed or Sunday-only dataset exists.
+- The 2015 TftT posts for the missing Times numbers (e.g.
+  timesforthetimes.co.uk/times-26097-middle-of-the-road) give answers and
+  wordplay with no clue text, so they can only key a Cryptonite or feed
+  puzzle.

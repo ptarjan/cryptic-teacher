@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+# Does tools/gale_tls_read.py keep a clue list's numbers in its column (joined_numbers)?
+# 1993-11-12 (Gale EX1200472083): the finer gutter split the "7", "8", "14" numbers
+# of the second down column from their clues, a sliver the crop then left out,
+# so eight down clues lost their numbers and were never laid.
+#
+#     python3 tests/test_gale_tls_read.py
+import _path  # puzzles tools/ on sys.path
+import gale_tls_read as t
+
+lh = 26
+# a number sliver (631-666), its clues (679-1075)
+assert t.joined_numbers([(631, 666), (679, 1075)], lh) == [(631, 1075)]
+# two real columns stay two
+assert t.joined_numbers([(98, 585), (666, 1075)], lh) == [(98, 585), (666, 1075)]
+# a sliver last has nothing to join: kept as it was
+assert t.joined_numbers([(98, 585), (700, 730)], lh) == [(98, 585), (700, 730)]
+assert t.joined_numbers([], lh) == []
+assert t.VERSION >= 11
+# 1992-10-02: 7-down's "(9)" read "(5)", 3-down's "(8)": the light's own count where the figures are lookalikes
+lengths = {f"{i}-down": 9 for i in range(1, 9)}
+laid = {f"{i}-down": ("a clue", "9", None) for i in range(1, 7)} | {
+    "7-down": ("a clue", "5", None), "8-down": ("a clue", "4", None)}
+mended = t.mended_counts(laid, lengths)
+assert mended["7-down"][1] == "9"  # 5 and 9 are lookalikes
+assert mended["8-down"][1] == "4"  # 4 for 9 is not a misread figure
+# a linked count mends one group: 1993-11-12's 11-down "(4,6)" for 12 is (4,8)
+assert t.mended_counts({"1-down": ("c", "4,6", None)} | {f"{i}-down": ("c", "9", None) for i in range(2, 5)},
+                       {"1-down": 12} | {f"{i}-down": 9 for i in range(2, 5)})["1-down"][1] == "4,8"
+# a page whose lights mostly miss their counts has a grid no count is mended by
+assert t.mended_counts({"1-down": ("c", "5", None), "2-down": ("c", "5", None)},
+                       {"1-down": 9, "2-down": 9}) == {"1-down": ("c", "5", None), "2-down": ("c", "5", None)}
+# 1992-04-17: a correction notice and a grid, no clue lists, is no puzzle
+words = [(0, 0, 10, 10, w) for w in "We apologize for the errors in the numbering".split()]
+assert t.no_lists_why(words).startswith("no puzzle on the page: a correction notice")
+assert t.no_lists_why([(0, 0, 10, 10, "ACROSS")]) == "no TLS clue lists found on the page"
+# 1992-06-05: a second list set beside the first with no gutter is cut where its numbers start
+side = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [(300, 100 + 30 * i, 330, 120 + 30 * i, str(i + 6)) for i in range(14)] + [
+    (340, 100 + 30 * i, 400, 120 + 30 * i, "clue") for i in range(14)]
+assert t.side_by_side(side, 700, 20) == 290
+assert t.side_by_side(side[:14], 700, 20) is None
+# 1992-02-07: three stray "3"s in prose under the lists are no second list
+stray = [(10, 100 + 30 * i, 200, 120 + 30 * i, "text") for i in range(14)] + [
+    (300, 100 + 30 * i, 330, 120 + 30 * i, "3") for i in range(3)]
+assert t.side_by_side(stray, 700, 20) is None
+# 1993-02-26: the pitch drifts, the next column clips the last found one's edge: set from that edge instead
+drift_words = [(10 + 30 * i, 10, 30 + 30 * i, 30, "w") for i in range(50)]
+drift = t.pitch_columns(drift_words, (1000, 0, 1400, 400), [(0, 0, 464, 900), (69, 420, 531, 900)])
+assert drift and drift[0][0] == 531
+# 1993-01-22: a stray "5" in prose over clue 1 is trimmed; 1993-09-03's across 8-26 over down's 1 is not
+assert t.prose_over([(100, 120, 5, 10), (400, 420, 1, 10), (440, 460, 2, 10)], 20) == 390
+assert t.prose_over([(100 + 40 * i, 120 + 40 * i, 8 + i, 10) for i in range(5)] + [(400, 420, 1, 10)], 20) is None
+# 1996-03-22: a RapidOCR reading drops the lone "4" before "Flowers for Jane's cousins": the page reading's is lent
+import gale_listener as gl
+page = [(65, 1277, 82, 1297, "4"), (97, 1276, 189, 1297, "Flowers"), (195, 1275, 233, 1297, "for"),
+        (66, 1312, 81, 1332, "5"), (96, 1310, 204, 1333, "Gibbons'")]
+rapid = [(92, 1273, 189, 1297, "Flowers"), (195, 1273, 233, 1297, "for"), (66, 1312, 81, 1332, "5"),
+         (91, 1307, 204, 1333, "Gibbons'"), (66, 1350, 81, 1370, "6"), (96, 1350, 200, 1370, "Next"),
+         (66, 1390, 81, 1410, "7"), (96, 1390, 200, 1410, "Then")]
+lent = gl.lend_numbers({"page": page, "ch": rapid})
+assert (65, 1277, 82, 1297, "4") in lent["ch"] and len(lent["ch"]) == 9 and sum(w[4] == "5" for w in lent["ch"]) == 1  # the "5" it read is not doubled
+assert lent["page"] == page
+assert t.VERSION >= 20
+# the 60 modern back issues: tlsback:N units, never globbing a folder, led by the oldest number
+import tempfile
+assert len(t.BACK_DATES) == 60 and min(t.BACK_DATES) == 1337 and max(t.BACK_DATES) == 1612
+assert all(__import__("datetime").date.fromisoformat(d).weekday() == 4 for d in t.BACK_DATES.values())
+with tempfile.TemporaryDirectory() as store:
+    due = t.plan_back(store)
+    assert len(due) == 60 and due[0]["rel"] == "tlsback:1337" and not t.BACK_PREFIX.startswith(t.PREFIX)
+    t.append_row({"file": "tlsback-1337", "version": t.BACK_VERSION}, store)
+    assert len(t.plan_back(store)) == 59
+# the footer's Friday and the byline of the-tls.com's own title line
+foot = [(0, 3990, 100, 4000, "Friday,"), (110, 3990, 300, 4000, "September 4, 2020")]
+words = [(0, 10, 300, 40, "TLS Crossword 1341 by Praxiteles")] + foot
+day, setter = t.footer_and_setter(words, 4000)
+assert str(day) == "2020-09-04" and setter == "Praxiteles", (day, setter)
+# 1604: specks of the last solution grid under clue 14's count, and ahead of the column's lone "5"
+col = [(12, 414, 30, 440, "14"), (42, 414, 150, 440, "Detective"), (186, 445, 240, 467, "clues (4, 5)"),
+       (41, 486, 100, 510, "TTT"), (82, 494, 95, 512, "IL."), (12, 540, 30, 560, "15"),
+       (42, 540, 150, 560, "Something")]
+kept = [w[4] for w in t.strays_after_count(col)]
+assert "TTT" not in kept and "IL." not in kept and "Detective" in kept and "15" in kept and "Something" in kept, kept
+assert [w[4] for w in t.strays_after_count([(0, 0, 90, 30, "ACROSS"), (6, 40, 60, 60, "1"), (70, 40, 90, 60, "Go (4)"),
+                                              (0, 80, 90, 110, "DOWN")])][-1] == "DOWN"
+row = [(330, 835, 345, 860, "S"), (354, 835, 380, 860, "Il"), (393, 835, 410, 860, "O"), (456, 835, 470, 860, "O"),
+       (492, 835, 514, 872, "5"), (537, 844, 588, 863, "Four"),
+       (516, 784, 531, 802, "4"), (538, 783, 643, 808, "Language"), (517, 905, 531, 925, "6"),
+       (537, 905, 590, 925, "Twist"), (516, 940, 531, 960, "7"), (537, 940, 590, 960, "Then")]
+assert [w[4] for w in t.specks_before_number(row)] == ["5", "Four", "4", "Language", "6", "Twist", "7", "Then"]
+assert [w[0] for w in t.aligned_numbers(t.specks_before_number(row)) if w[4] == "5"] == [516]
+print("ok")

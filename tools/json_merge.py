@@ -1,0 +1,358 @@
+#!/usr/bin/env python3
+"""Git merge driver and clean filter for the keyed JSON data files several
+writers append to.
+
+    git config merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
+    git config filter.json-keys.clean "python3 tools/json_merge.py --clean"
+
+registered by tools/nightly_worktree.sh on every scheduled run, and named per
+file in .gitattributes. Git hands it the ancestor (%O), the current side (%A)
+and the other side (%B); the merge is written over %A, and exit 0 means
+resolved.
+
+A line merge of these files conflicts whenever two writers add neighbouring
+keys, and `merge=union` is no answer: it keeps both lines and loses the comma
+between them, so the result is not JSON. Here the merge is per key, three-way:
+a key only one side changed takes that side; a key both sides added or changed
+alike is kept once; a key both changed differently merges as dicts key by key,
+as lists by union, and otherwise takes %B (in a rebase, the commit being
+replayed), with a note on stderr. A rebase stopped on a ledger row strands every
+later commit, which costs far more than either side's version of one row.
+
+Every one of these files is laid out by dump_lines, one line per top-level key,
+and the merge writes that layout whatever the sides were in, since a side that
+parses is mergeable however it was spaced. Keys and lists that were sorted stay
+sorted. Anything that does not parse as a JSON object exits 1 and git falls back
+to an ordinary conflict.
+
+`--puzzle` is the driver for the puzzle files (puzzles/**/*.json), which the
+daily update and the pre-reset burn both annotate: when they annotate the same
+puzzle in the same night, the two commits rewrite every entry's lines and a line
+merge cannot place them. Here the merge is the same three-way walk, except that
+`entries` merge entry by entry (both sides must hold the same lights in the same
+order), an entry's `annotation` is one value (two annotations are never spliced
+together; when both sides wrote one, %A's is kept, which in a rebase and in
+push_puzzle_commit.sh's merge-tree is the one already on origin and so already
+on the site) and survives only beside the clue words it was written for, `annotatedBy` is a union, and anything else both sides changed
+differently is a real conflict, written with conflict markers by
+`git merge-file` so no caller can stage it as resolved. The result is written in
+write_puzzle_file's layout.
+
+The clean filter is what keeps that layout in the repository: `git add` stores
+dump_lines of whatever is on disk, so a row typed in by hand (an annotating
+model editing the file) is staged in the canonical layout. Input that does not
+parse is staged as it is, and the merge refuses it later.
+"""
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+
+MISSING = object()
+
+
+def write_atomic(path, text):
+    """Write `text` to `path` whole or not at all: a temp file in the same
+    directory, flushed, then os.replace'd over it, so a reader (the burn
+    loading a source table) never sees a half-written file."""
+    path = Path(path)
+    part = path.with_name(f".{path.name}.{os.getpid()}.part")
+    with open(part, "w", encoding="utf-8") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(part, path)
+
+
+def dump_lines(held):
+    """One line per top-level key, keys sorted, so writers touching different
+    keys touch different lines."""
+    lines = [f" {json.dumps(k, ensure_ascii=False)}: "
+             f"{json.dumps(held[k], sort_keys=True, ensure_ascii=False)}"
+             for k in sorted(held)]
+    return "{\n" + ",\n".join(lines) + "\n}\n"
+
+
+def _sorted(seq):
+    try:
+        return list(seq) == sorted(seq)
+    except TypeError:
+        return False
+
+
+def merge_lists(o, a, b):
+    base = o if isinstance(o, list) else []
+    gone = [x for x in base if x not in a or x not in b]
+    out = [x for x in a if x not in gone]
+    out += [x for x in b if x not in out and x not in gone]
+    return sorted(out) if _sorted(a) and _sorted(b) else out
+
+
+def merge(o, a, b, path=""):
+    if a == b:
+        return a
+    if a == o:
+        return b
+    if b == o:
+        return a
+    if isinstance(a, dict) and isinstance(b, dict):
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = merge(base.get(k, MISSING), a.get(k, MISSING), b.get(k, MISSING),
+                      f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        if _sorted(list(a)) and _sorted(list(b)):
+            out = dict(sorted(out.items()))
+        return out
+    if isinstance(a, list) and isinstance(b, list):
+        return merge_lists(o, a, b)
+    if a is MISSING or b is MISSING:
+        # One side removed the key, the other changed it: keep the change, since
+        # dropping data is the costlier mistake (rows lists drop it: merge_rows).
+        return b if a is MISSING else a
+    print(f"json_merge: {path or '/'} changed on both sides; kept the replayed "
+          f"side's {json.dumps(b, ensure_ascii=False)[:200]}", file=sys.stderr)
+    return b
+
+
+def merge_allowances(o, a, b, path=""):
+    """merge() for tools/annotation_backlog.json (field -> puzzle -> allowance).
+    Where both sides moved one puzzle's allowance differently, the larger wins
+    (merge() would take the replayed side's): an allowance that is too high
+    only forgives, one that is too low turns CI red, and the file is lowered
+    by --tighten from a full run, which sets every allowance right again. A
+    side that merely stood still never overrides the other, as in merge()."""
+    if isinstance(a, int) and isinstance(b, int) and not isinstance(a, bool) \
+            and a != b and a != o and b != o:
+        return max(a, b)
+    if isinstance(a, dict) and isinstance(b, dict) and a != o and b != o and a != b:
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = merge_allowances(base.get(k, MISSING), a.get(k, MISSING),
+                                 b.get(k, MISSING), f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        if _sorted(list(a)) and _sorted(list(b)):
+            out = dict(sorted(out.items()))
+        return out
+    return merge(o, a, b, path)
+
+
+def is_backlog(held):
+    return "_why" in held and all(isinstance(v, dict) for k, v in held.items() if k != "_why")
+
+
+class Conflict(Exception):
+    pass
+
+
+def entry_key(e):
+    return (e.get("number"), e.get("direction")) if isinstance(e, dict) else e
+
+
+def merge_puzzle(o, a, b, path=""):
+    if a == b:
+        return a
+    if a == o:
+        return b
+    if b == o:
+        return a
+    key = path.rsplit("/", 1)[-1]
+    if key == "annotation":
+        return a
+    if isinstance(a, dict) and isinstance(b, dict):
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = merge_puzzle(base.get(k, MISSING), a.get(k, MISSING),
+                             b.get(k, MISSING), f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        return out
+    if isinstance(a, list) and isinstance(b, list):
+        if key == "annotatedBy":
+            return merge_lists(o, a, b)
+        if key == "entries" and isinstance(o, list) and \
+                [entry_key(e) for e in o] == [entry_key(e) for e in a] == \
+                [entry_key(e) for e in b]:
+            return [annotated_for_clue(merge_puzzle(x, y, z, f"{path}/{entry_key(y)}"), y, z)
+                    for x, y, z in zip(o, a, b)]
+    raise Conflict(path or "/")
+
+
+def reapply_puzzle(o, a, b, notes, path=""):
+    """`b`'s change (from `o`) re-applied onto `a`, for a replay merge_puzzle
+    refused: `a` (origin) wins every field both sides changed differently, so
+    nothing origin holds is reverted; `b`'s annotations, `annotatedBy` and
+    every field only `b` changed are carried over. Entries pair by light
+    (number, direction), not by position, so origin adding or reordering
+    lights does not stop it. Each field origin kept is noted in `notes`."""
+    if a == b or b == o:
+        return a
+    if a == o:
+        return b
+    key = path.rsplit("/", 1)[-1]
+    if key == "annotation":
+        return b if b is not MISSING else a
+    if isinstance(a, dict) and isinstance(b, dict):
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = reapply_puzzle(base.get(k, MISSING), a.get(k, MISSING),
+                               b.get(k, MISSING), notes, f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        return out
+    if isinstance(a, list) and isinstance(b, list):
+        if key == "annotatedBy":
+            return merge_lists(o, a, b)
+        if key == "entries":
+            olds = {entry_key(e): e for e in (o if isinstance(o, list) else [])}
+            news = {entry_key(e): e for e in b}
+            return [annotated_for_clue(
+                        reapply_puzzle(olds.get(entry_key(e), MISSING), e,
+                                       news.get(entry_key(e), MISSING), notes,
+                                       f"{path}/{entry_key(e)}"), e,
+                        news.get(entry_key(e), MISSING))
+                    for e in a]
+    if a is not MISSING:
+        notes.append(f"{path or '/'}: kept origin's value")
+        return a
+    return b
+
+
+def new_annotations(o, b):
+    """The lights whose annotation `b` wrote or changed from `o`."""
+    olds = {entry_key(e): (e or {}).get("annotation") for e in (o or {}).get("entries") or []}
+    return {entry_key(e): e["annotation"] for e in (b or {}).get("entries") or []
+            if isinstance(e, dict) and e.get("annotation")
+            and e["annotation"] != olds.get(entry_key(e))}
+
+
+def reapply(o, a, b):
+    """(merged puzzle, notes) with `b`'s annotation re-applied onto `a`; raises
+    Conflict when `b` annotated no light (not an annotation, so not ours to
+    settle) or not one it annotated survives (origin re-read every clue it
+    annotated, or dropped the lights)."""
+    import puzzle_schema
+    notes = []
+    merged = puzzle_schema.order(reapply_puzzle(o, a, b, notes))
+    wanted = new_annotations(o, b)
+    got = {entry_key(e): e.get("annotation") for e in merged.get("entries") or []
+           if isinstance(e, dict)}
+    lost = [k for k in wanted if got.get(k) != wanted[k]]
+    if not wanted:
+        raise Conflict("the replayed side wrote no annotation")
+    if len(lost) == len(wanted):
+        raise Conflict("every annotation the replayed side wrote")
+    notes += [f"{k}: annotation dropped, origin's clue words differ" for k in lost]
+    return merged, notes
+
+
+def clue_text(e):
+    return ((e.get("clue") if isinstance(e, dict) else None) or {}).get("text") or ""
+
+
+def annotated_for_clue(merged, a, b):
+    """`merged` without its annotation unless a side holding that annotation
+    holds the merged clue's words too: one side re-reading a clue and the
+    other annotating the old words must not combine into an annotation of
+    words the entry no longer has."""
+    if not isinstance(merged, dict) or "annotation" not in merged:
+        return merged
+    if any(isinstance(s, dict) and s.get("annotation") == merged["annotation"]
+           and clue_text(s) == clue_text(merged) for s in (a, b)):
+        return merged
+    return {k: v for k, v in merged.items() if k != "annotation"}
+
+
+def main_puzzle(o_path, a_path, b_path):
+    import puzzle_schema  # here, so dump_lines and the keyed merge need only the stdlib
+    try:
+        # An empty ancestor is a file both sides added (add/add).
+        o, a, b = (json.loads(t) if t.strip() or p != o_path else {}
+                   for p in (o_path, a_path, b_path) for t in [Path(p).read_text(encoding="utf-8")])
+        merged = puzzle_schema.order(merge_puzzle(o, a, b))
+    except (ValueError, Conflict) as err:
+        print(f"json_merge --puzzle: {type(err).__name__} at {err}; "
+              "leaving a marked conflict", file=sys.stderr)
+        subprocess.run(["git", "merge-file", "-L", "current", "-L", "base",
+                        "-L", "other", a_path, o_path, b_path], check=False)
+        return 1
+    with open(a_path, "w", encoding="utf-8") as f:
+        f.write(json.dumps(merged, indent=1, ensure_ascii=False) + "\n")
+    return 0
+
+
+def is_rows(x):
+    """A list of objects each with a string "id" (tools/data/shape_reannotate.json)."""
+    return isinstance(x, list) and all(isinstance(r, dict) and isinstance(r.get("id"), str) for r in x)
+
+
+def merge_rows(o, a, b):
+    """Rows merged per id, the same three-way walk as a keyed object: a row one
+    side dropped is dropped, one side changed takes that side. In %A's order,
+    rows only %B has after. One row per line, the layout its writers use."""
+    def keyed(rows):
+        return {r["id"]: r for r in rows}
+    removed = {r["id"] for r in o} - {r["id"] for r in a} | \
+              {r["id"] for r in o} - {r["id"] for r in b}
+    held = merge(keyed(o), keyed(a), keyed(b))
+    held = {k: v for k, v in held.items() if k not in removed}
+    order = [r["id"] for r in a] + [r["id"] for r in b]
+    out = [held[k] for k in dict.fromkeys(order) if k in held]
+    return "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n]\n"
+
+
+def main(o_path, a_path, b_path):
+    texts = []
+    for p in (o_path, a_path, b_path):
+        with open(p, encoding="utf-8") as f:
+            texts.append(f.read())
+    try:
+        o, a, b = (json.loads(t) if t.strip() else {} for t in texts)
+    except ValueError as err:
+        print(f"json_merge: not JSON ({err}); leaving the conflict", file=sys.stderr)
+        return 1
+    if is_rows(a) and is_rows(b) and (o == {} or is_rows(o)):   # {}: no ancestor
+        o = o or []
+        text = merge_rows(o, a, b)   # before open(): a crash must not truncate %A
+        with open(a_path, "w", encoding="utf-8") as f:
+            f.write(text)
+        return 0
+    if not all(isinstance(x, dict) for x in (o, a, b)):
+        print("json_merge: not a JSON object; leaving the conflict", file=sys.stderr)
+        return 1
+    text = dump_lines((merge_allowances if is_backlog(a) and is_backlog(b) else merge)(o, a, b))
+    with open(a_path, "w", encoding="utf-8") as f:
+        f.write(text)
+    return 0
+
+
+def clean(text):
+    """dump_lines of `text` when it is a JSON object, else `text` unchanged."""
+    try:
+        held = json.loads(text)
+    except ValueError as err:
+        print(f"json_merge --clean: not JSON ({err}); staged as it is", file=sys.stderr)
+        return text
+    if not isinstance(held, dict):
+        print("json_merge --clean: not a JSON object; staged as it is", file=sys.stderr)
+        return text
+    return dump_lines(held)
+
+
+if __name__ == "__main__":
+    if sys.argv[1:] == ["--clean"]:
+        sys.stdout.write(clean(sys.stdin.read()))
+        sys.exit(0)
+    if len(sys.argv) == 5 and sys.argv[1] == "--puzzle":
+        sys.exit(main_puzzle(*sys.argv[2:]))
+    if len(sys.argv) != 4:
+        sys.exit("usage: json_merge.py [--puzzle] ANCESTOR CURRENT OTHER | json_merge.py --clean")
+    sys.exit(main(*sys.argv[1:]))

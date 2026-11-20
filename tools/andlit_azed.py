@@ -1,0 +1,1283 @@
+#!/usr/bin/env python3
+"""File the Observer's Azed from the Guardian's printable copies, found
+through andlit.org.uk's Azed index.
+
+    python3 tools/andlit_azed.py fetch [--limit N] [--budget-seconds S]   # download the next not yet cached
+    python3 tools/andlit_azed.py file [--dry-run] [--numbers A-B] [--scan-seconds S]
+    python3 tools/andlit_azed.py nightly [--budget-seconds S] [--scan-seconds S]   # fetch for S seconds, then file what is cached
+
+andlit.org.uk's index (puzzles.php) lists Nos 1734-2757 and 2798-2799, each
+behind puzzle_router.php, which redirects to the Guardian's own copy:
+
+  * up to about No 1789, an HTML print page: the clues, and the grid as a
+    table whose cells draw a bar as a 2px right or bottom border;
+  * after that, a vector PDF: the clues as text, the grid as ruled lines
+    (stroked paths up to ~2016, thin filled rectangles since), a bar a line
+    several times thicker than the lattice, and the cell numbers as small type.
+    The page also prints the previous puzzle's solution grid (smaller) and its
+    notes, which are left out.
+
+The grid's numbering must match the cell numbers printed in it and the clue
+list light for light, and each enumeration must count its light, or the
+puzzle is not filed. The answers are fifteensquared's (tools/azed_puzzles.py
+caches its posts): the parsed record's numbered answers, else the answer the
+post prints in each clue's place, else the crossings' letters, written into the
+grid with every crossing agreeing. With no post, or one that leaves a light
+unanswered, a plain puzzle files unsolved for the backfill to solve. A special
+(andlit's index names it, or its preamble says more than which Chambers to
+use) files the same way, carrying its preamble (the HTML page's "Special
+instructions", or the PDF's lines above ACROSS: pdf_preamble), the post's
+answers only where they cross, else unsolved; one whose preamble no reader
+finds files with awaitsPreamble. Clues are the only must-have. A scanned copy
+(2006-08's PDFs are one page image) is read by the shared OCR vote and the
+barred grid finder (read_scan), to a time budget. Numbers
+already filed are left alone. A filing run over every number (no --dry-run or
+--numbers) writes held.json, the cause each cached copy is not filed, which
+tools/coverage.py reads.
+"""
+import argparse
+import collections
+import datetime
+import hashlib
+import html
+import importlib.util
+import io
+import itertools
+import json
+import logging
+import math
+import re
+import sys
+import time
+import urllib.error
+import azed_puzzles
+import downloads
+import media_manifest
+import fetch_fifteensquared as fsq
+import file_blog_puzzles
+import ft_pdf_puzzles as fpp
+import listener_puzzles as lp
+import clue_text
+import reconstruct_grid as rg
+from fetch_puzzle import (
+    correct_source_answers,
+    http_fetch,
+    puzzle_path,
+    read_puzzle_file,
+    write_puzzle_file,
+)
+from unit_more import backlog_left
+
+
+SERIES = "azed"
+CACHE = downloads.ANDLIT_AZED
+INDEX_URL = "https://www.andlit.org.uk/azed/puzzles.php"
+ROUTER = "https://www.andlit.org.uk/azed/puzzle_router.php?src=L&puzzle_no={}"
+GENERATOR = "tools/andlit_azed.py"
+#: Seconds between requests: andlit and the Guardian's file servers are
+#: fetched one page at a time.
+PAUSE = 2.0
+
+#: "<a href="puzzle_router.php?src=L&puzzle_no=2600" ...>2600</a></td><td ...>10 Apr 2022</td><td>Plain</td>"
+INDEX_ROW = re.compile(r"puzzle_no=(\d+)\"[^>]*>\d+</a></td><td[^>]*>([^<]*)</td><td[^>]*>([^<]*)</td>")
+
+#: {number: CAUSES key} of every cached copy the last filing run held,
+#: which tools/coverage.py reads as the reason each is missing.
+HELD = CACHE / "held.json"
+
+#: The kinds of failure assemble() reports, so a run's tally reads as causes.
+CAUSES = {
+    "not-text": "the Guardian's copy is an image or missing, not text",
+    "other-puzzle": "the copy is of another Azed",
+    "grid-unread": "no lattice of ruled lines read off the page",
+    "numbers-differ": "the grid's numbering differs from the numbers printed in it",
+    "clues-differ": "the clue list does not clue the grid's lights",
+    "enumeration": "an enumeration does not count its light",
+    # Retired 2026-10-12: a special files like any puzzle (clues are the
+    # only must-have); kept so an old held.json still reads.
+    "special": "a special (no longer held: it files with its preamble, or awaitsPreamble)",
+    "post-misses": "a special whose fifteensquared post leaves a light unanswered (no longer held)",
+    "answers-disagree": "fifteensquared's answers cross wrongly in the printed grid",
+    "refused-on-write": "puzzle_integrity refused the write",
+    "scan-unread": "a scanned copy the OCR budget or an absent reader left unread this run",
+    "ocr-blank": "a scanned copy whose OCR readings leave a clue unagreed",
+    "scan-no-clues": "a scanned copy no reader reads a clue list off (the scan may stop short of it)",
+}
+#: The Chambers line, only where it ends its sentence: "... is recommended
+#: but does not give the phrase at 30" is an instruction, kept whole.
+CHAMBERS = re.compile(r"(?i)(?:special instructions:\s*)?(?:the\s+)?chambers dictionary \(\d{4}\)"
+                      r" is recommended(?:\.|(?=\s*$)|(?=\s+(?-i:[A-Z0-9])))")
+#: "Number 25 across should read: ...": the erratum's lead-in word, which
+#: errata.apply would leave behind as the whole preamble.
+ERRATUM_LEAD = re.compile(r"\bNumber\s+(?=\d+\s*(?:across|down|ac|dn)\b)", re.I)
+
+
+def get(url):
+    """(final url, bytes)."""
+    return http_fetch(url, timeout=60)
+
+
+# ------------------------------------------------------------------ the index
+
+def index(refresh=False):
+    """{number: (print date, kind)} from andlit's index, cached as index.html."""
+    path = CACHE / "index.html"
+    if refresh:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(get(INDEX_URL)[1])
+    if not path.exists():
+        return {}
+    out = {}
+    for n, day, kind in INDEX_ROW.findall(path.read_text(encoding="utf-8", errors="replace")):
+        day = html.unescape(day).replace("\xa0", " ").strip()
+        try:
+            date = datetime.date(*time.strptime(day, "%d %b %Y")[:3])
+        except ValueError:
+            date = None
+        out[int(n)] = (date, html.unescape(kind).strip())
+    return out
+
+
+#: tools/media_manifest.py's record of each copy fetch saved, {"key":
+#: "<n>.<ext>"}, so the nightly asks it, not up to three stats per number on
+#: the media disk. Built once by `media_manifest.py build andlit-copies`.
+COPIES = "andlit-copies"
+_copies = {}
+
+
+def cached(n):
+    """The cached copy of No n: Path or None."""
+    if not _copies:
+        for key in media_manifest.latest(COPIES, "key"):
+            num, ext = key.split(".", 1)
+            _copies.setdefault(int(num), set()).add(ext)
+    have = _copies.get(int(n), ())
+    for ext in ("pdf", "html", "other"):
+        if ext in have:
+            return CACHE / "copies" / f"{n}.{ext}"
+    return None
+
+
+def urls():
+    path = CACHE / "urls.json"
+    return {int(k): v for k, v in json.loads(path.read_text()).items()} if path.exists() else {}
+
+
+def download(n, known, log=print):
+    """Fetch the router's copy of No n into the cache and note its address in
+    `known` and urls.json; False for one that failed and is asked again."""
+    try:
+        url, data = get(ROUTER.format(n))
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            log(f"  No {n}: HTTP {e.code}")
+            time.sleep(PAUSE)
+            return False
+        url, data = f"404 at {e.url}", b""
+    except urllib.error.URLError as e:
+        # The router sends a few numbers to an address with no host:
+        # there is no copy, so the number is not asked for again.
+        if "no host given" not in str(e.reason):
+            log(f"  No {n}: {e.reason}")
+            time.sleep(PAUSE)
+            return False
+        url, data = "the router redirects to no host", b""
+    ext = "pdf" if data[:4] == b"%PDF" else "html" if b"<html" in data[:2000].lower() else "other"
+    (CACHE / "copies").mkdir(parents=True, exist_ok=True)
+    (CACHE / "copies" / f"{n}.{ext}").write_bytes(data)
+    media_manifest.record(COPIES, CACHE / "copies" / f"{n}.{ext}", key=f"{n}.{ext}")
+    if _copies:
+        _copies.setdefault(int(n), set()).add(ext)
+    known[n] = url
+    (CACHE / "urls.json").write_text(json.dumps({str(k): v for k, v in sorted(known.items())}, indent=0))
+    time.sleep(PAUSE)
+    return True
+
+
+def fetch(limit=None, budget_seconds=None, log=print, clock=time.monotonic):
+    """Download the copies not yet cached of numbers not yet filed, oldest first;
+    none is started once `budget_seconds` have passed. Returns how many the
+    budget left unasked (a number that failed is asked again next run)."""
+    nums = [n for n in sorted(index(refresh=True)) if not puzzle_path(SERIES, n).exists()
+            and cached(n) is None]
+    known, got, start = urls(), 0, clock()
+    walk, unasked = nums[:limit], 0
+    for i, n in enumerate(walk):
+        if budget_seconds is not None and clock() - start >= budget_seconds:
+            unasked = len(walk) - i
+            break
+        got += download(n, known, log)
+    log(f"fetched {got} Azed copies; {max(0, len(nums) - got)} still to fetch")
+    return unasked
+
+
+# ------------------------------------------------------------------ the HTML print pages
+
+SQUARE = re.compile(r"<td[^>]*id=square([^>]*)>(.*?)</td>", re.DOTALL | re.IGNORECASE)
+
+
+def read_html(text):
+    """{"number", "preamble", "grid", "printed", "clues"} of a print page."""
+    m = re.search(r"Azed Crossword No\.?\s*([\d,]+)", text)
+    number = int(m.group(1).replace(",", "")) if m else None
+    pre = re.search(r"Special instructions:\s*</B>(.*?)</font>", text, re.DOTALL | re.IGNORECASE)
+    preamble = ERRATUM_LEAD.sub("", clean(pre.group(1))) if pre else ""
+    grid, printed = [], {}
+    for row_html in re.findall(r"<tr>(.*?)</tr>", text, re.DOTALL | re.IGNORECASE):
+        cells = SQUARE.findall(row_html)
+        if not cells:
+            continue
+        y, row = len(grid), ""
+        for x, (attrs, inner) in enumerate(cells):
+            right, below = "border-right" in attrs, "border-bottom" in attrs
+            row += "+" if right and below else "r" if right else "b" if below else "."
+            num = re.sub(r"<[^>]+>|&nbsp;", "", inner).strip()
+            if num.isdigit():
+                printed[(y, x)] = int(num)
+        grid.append(row)
+    grid = trim_edges(grid)
+    lines = {"across": [], "down": []}
+    for way, block in re.findall(r"<B>(Across|Down)</b>(.*?)</table>", text, re.DOTALL | re.IGNORECASE):
+        for num, clue in re.findall(r"<B>(\d+)</B>.*?<TD[^>]*>(.*?)</TD>", block, re.DOTALL | re.IGNORECASE):
+            lines[way.lower()].append(f"{num} {clean(clue)}")
+    return {"number": number, "preamble": preamble, "grid": grid or None,
+            "printed": printed, "lines": lines}
+
+
+def clean(fragment):
+    t = html.unescape(re.sub(r"<[^>]+>", " ", fragment)).replace("\xa0", " ")
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def trim_edges(grid):
+    """A bar on the grid's outer edge is the frame, not a bar."""
+    if not grid:
+        return grid
+    rows, cols = len(grid), len(grid[0])
+    keep = {"+": ("r", "b"), "r": ("r", ""), "b": ("", "b"), ".": ("", "")}
+    out = []
+    for y, row in enumerate(grid):
+        s = ""
+        for x, c in enumerate(row):
+            r, b = keep[c]
+            r = r if x + 1 < cols else ""
+            b = b if y + 1 < rows else ""
+            s += "+" if r and b else r or b or "."
+        out.append(s)
+    return out
+
+
+# ------------------------------------------------------------------ the PDFs
+
+def segments(ops):
+    """[(orientation "v"/"h", position, low, high, thickness)] of every
+    axis-aligned line the page draws: a stroked path's segments at its line
+    width, a filled rectangle thinner than 4pt at its thickness."""
+    out = []
+
+    def add_stroke(a, b, w):
+        if abs(a[0] - b[0]) < 0.3 and abs(a[1] - b[1]) > 3:
+            out.append(("v", a[0], min(a[1], b[1]), max(a[1], b[1]), w))
+        elif abs(a[1] - b[1]) < 0.3 and abs(a[0] - b[0]) > 3:
+            out.append(("h", a[1], min(a[0], b[0]), max(a[0], b[0]), w))
+
+    def add_rect(x0, y0, x1, y1):
+        dx, dy = x1 - x0, y1 - y0
+        if dx < 4 and dy > 5:
+            out.append(("v", (x0 + x1) / 2, y0, y1, dx))
+        elif dy < 4 and dx > 5:
+            out.append(("h", (y0 + y1) / 2, x0, x1, dy))
+
+    def walk(ops, ctm):
+        width, stack, path = 1.0, [], []
+
+        def at(p):
+            return (ctm[0] * p[0] + ctm[2] * p[1] + ctm[4], ctm[1] * p[0] + ctm[3] * p[1] + ctm[5])
+        for operands, op in ops:
+            if op == b"q":
+                stack.append((ctm, width))
+            elif op == b"Q" and stack:
+                ctm, width = stack.pop()
+            elif op == b"cm":
+                ctm = fpp._mul([float(v) for v in operands], ctm)
+            elif op == b"w":
+                width = float(operands[0])
+            elif op == b"Do":
+                walk(operands[1], fpp._mul(operands[0], ctm))
+            elif op == b"m":
+                path.append((False, [at((float(operands[0]), float(operands[1])))]))
+            elif op == b"l" and path:
+                path[-1][1].append(at((float(operands[0]), float(operands[1]))))
+            elif op == b"re":
+                x, y, w, h = (float(v) for v in operands)
+                path.append((True, [at((x, y)), at((x + w, y)), at((x + w, y + h)), at((x, y + h)), at((x, y))]))
+            elif op in (b"S", b"s", b"f", b"F", b"f*", b"B", b"B*", b"b", b"b*", b"n"):
+                scale = (abs(ctm[0]) + abs(ctm[3])) / 2
+                for is_rect, pts in path:
+                    if op in (b"S", b"s", b"B", b"B*", b"b", b"b*"):
+                        for a, b in itertools.pairwise(pts):
+                            add_stroke(a, b, width * scale)
+                    if op in (b"f", b"F", b"f*", b"B", b"B*", b"b", b"b*"):
+                        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+                        # A rectangle drawn as `re`, or as four corners (the
+                        # sideways 2482 draws every grid line so).
+                        if is_rect or (4 <= len(pts) <= 5 and all(
+                                min(abs(x - min(xs)), abs(x - max(xs))) < 0.05
+                                and min(abs(y - min(ys)), abs(y - max(ys))) < 0.05 for x, y in pts)):
+                            add_rect(min(xs), min(ys), max(xs), max(ys))
+                path = []
+    walk(ops, [1, 0, 0, 1, 0, 0])
+    return out
+
+
+def _even(positions):
+    """The positions, if they are a lattice: evenly spaced, 6 or more."""
+    if len(positions) < 6:
+        return None
+    gaps = [b - a for a, b in itertools.pairwise(positions)]
+    pitch = sum(gaps) / len(gaps)
+    return positions if pitch > 6 and all(abs(g - pitch) < 0.15 * pitch for g in gaps) else None
+
+
+def _frame(positions, lo, hi):
+    """The lattice `positions` reaching the span lo..hi at both ends, or None.
+    A frame edge a copy never draws as a line of its own (1775's left edge)
+    is added, one pitch beyond the end the crossing lines reach to."""
+    pitch = (positions[-1] - positions[0]) / (len(positions) - 1)
+    out = list(positions)
+    if abs(lo - out[0]) > 3:
+        if abs(lo - (out[0] - pitch)) > 3:
+            return None
+        out.insert(0, out[0] - pitch)
+    if abs(hi - out[-1]) > 3:
+        if abs(hi - (out[-1] + pitch)) > 3:
+            return None
+        out.append(out[-1] + pitch)
+    return out
+
+
+def lattice(segs):
+    """(xs, ys, thickness) of the page's largest grid: the set of full-length
+    thin lines, vertical and horizontal, evenly spaced and spanning each other."""
+    groups = []     # [orientation, width, low, high, [positions]]
+    for o, pos, lo, hi, w in segs:
+        if hi - lo <= 60 or w >= 1.0:
+            continue
+        for g in groups:
+            if g[0] == o and abs(g[1] - w) < 0.05 and abs(g[2] - lo) < 3 and abs(g[3] - hi) < 3:
+                g[4].append(pos)
+                break
+        else:
+            groups.append([o, w, lo, hi, [pos]])
+    best = None
+    for o, w, lo, hi, pos in groups:
+        xs = _even(lp._cluster(pos, 0.8)) if o == "v" else None
+        if not xs:
+            continue
+        for o2, w2, lo2, hi2, pos2 in groups:
+            ys = _even(lp._cluster(pos2, 0.8)) if o2 == "h" else None
+            if not ys:
+                continue
+            xs_, ys_ = _frame(xs, lo2, hi2), _frame(ys, lo, hi)
+            if not xs_ or not ys_:
+                continue
+            area = (xs_[-1] - xs_[0]) * (ys_[-1] - ys_[0])
+            if best is None or area > best[0]:
+                best = (area, xs_, ys_, round(min(w, w2), 2))
+    return best and best[1:]
+
+
+def read_bars(segs):
+    """(grid rows, xs, ys) of the largest ruled grid, or None. A bar is a line
+    on a lattice line at least twice the lattice's thickness, covering the
+    middle of the edge between two cells."""
+    found = lattice(segs)
+    if not found:
+        return None
+    xs, ys, thin = found
+    ys_down = sorted(ys, reverse=True)
+    cols, rows = len(xs) - 1, len(ys) - 1
+    pitch = (xs[-1] - xs[0]) / cols
+    thick = [s for s in segs if s[4] >= 2 * thin and s[4] < pitch / 3]
+
+    def barred(o, pos, mid):
+        return any(s[0] == o and abs(s[1] - pos) < pitch / 6 and s[2] < mid < s[3] for s in thick)
+    grid = []
+    for y in range(rows):
+        cy = (ys_down[y] + ys_down[y + 1]) / 2
+        row = ""
+        for x in range(cols):
+            cx = (xs[x] + xs[x + 1]) / 2
+            right = x + 1 < cols and barred("v", xs[x + 1], cy)
+            below = y + 1 < rows and barred("h", ys_down[y + 1], cx)
+            row += "+" if right and below else "r" if right else "b" if below else "."
+        grid.append(row)
+    return grid, xs, ys_down
+
+
+def column_lines(runs, size, skip):
+    """The page's lines of clue-sized type in reading order: columns left to
+    right, each top to bottom. A column starts where a line's left edge sits
+    60pt or more right of the last column's. `skip` drops runs by position."""
+    runs = [r for r in runs if (abs(r[3] - size) < 0.6 or clue_text.exact_heading(r[4]))
+            and not skip(r[1], r[2])]
+    starts = []
+    for x in sorted(r[1] for r in runs):
+        if not starts or x - starts[-1][-1] > 60:
+            starts.append([x])
+        else:
+            starts[-1].append(x)
+    edges = [s[0] for s in starts]
+    cols = collections.defaultdict(lambda: collections.defaultdict(list))
+    for _p, x, y, _s, t in runs:
+        c = max(i for i, e in enumerate(edges) if e <= x + 0.1)
+        cols[c][round(y)].append((x, t))
+    out = []
+    for c in sorted(cols):
+        merged = []
+        for y in sorted(cols[c], reverse=True):
+            if merged and merged[-1][0] - y <= 1.5:
+                merged[-1][1].extend(cols[c][y])
+            else:
+                merged.append((y, list(cols[c][y])))
+        for y, parts in merged:
+            out.append((c, y, re.sub(r"\s+", " ", " ".join(t for _x, t in sorted(parts))).strip()))
+    return out
+
+
+def text_turn(page, reader):
+    """Quarter turns (0-3, counterclockwise) the page's text is set at in its
+    content stream: the direction of each shown string's baseline, weighted
+    by its length, ctm and text matrix together."""
+    from pypdf.generic import ContentStream
+    contents = page.get_contents()
+    if contents is None:
+        return 0
+    votes = collections.Counter()
+    ctm, stack, tm = [1, 0, 0, 1, 0, 0], [], [1, 0, 0, 1, 0, 0]
+    for operands, op in ContentStream(contents, reader).operations:
+        try:
+            if op == b"q":
+                stack.append(ctm)
+            elif op == b"Q" and stack:
+                ctm = stack.pop()
+            elif op == b"cm":
+                ctm = fpp._mul([float(v) for v in operands], ctm)
+            elif op == b"BT":
+                tm = [1, 0, 0, 1, 0, 0]
+            elif op == b"Tm":
+                tm = [float(v) for v in operands]
+            elif op in (b"Tj", b"TJ", b"'", b'"'):
+                parts = operands[0] if op == b"TJ" else [operands[-1]]
+                n = sum(len(str(v)) for v in parts if not (isinstance(v, (int, float)) or hasattr(v, "as_numeric")))
+                dx = tm[0] * ctm[0] + tm[1] * ctm[2]
+                dy = tm[0] * ctm[1] + tm[1] * ctm[3]
+                if n and (dx or dy):
+                    votes[round(math.atan2(dy, dx) / (math.pi / 2)) % 4] += n
+        except (ValueError, TypeError, IndexError):
+            continue
+    return votes.most_common(1)[0][0] if votes else 0
+
+
+def upright(data):
+    """The PDF with its page turned so the text reads left to right: the
+    page's /Rotate applied to the content, then any quarter turn the text is
+    set at (2482's landscape page is drawn sideways by a cm matrix, with no
+    /Rotate at all, so its glyph sizes and positions read nonsense). The
+    same bytes when it is already upright."""
+    import pypdf
+    from pypdf.generic import RectangleObject
+    reader = pypdf.PdfReader(io.BytesIO(data))
+    if not reader.pages:
+        return data
+    # pypdf 7 refuses to change the content of a page no writer owns
+    writer = pypdf.PdfWriter()
+    page = writer.add_page(reader.pages[0])
+    spun = int(page.get("/Rotate") or 0) % 360
+    if spun:
+        page.transfer_rotation_to_content()
+    turn = text_turn(page, writer)
+    if not turn and not spun:
+        return data
+    if turn:
+        box = page.mediabox
+        w, h = float(box.width), float(box.height)
+        # turn the content clockwise by `turn` quarter turns, back to upright
+        a, b, c, d = [(1, 0, 0, 1), (0, -1, 1, 0), (-1, 0, 0, -1), (0, 1, -1, 0)][turn]
+        e = {0: 0, 1: 0, 2: w, 3: h}[turn]
+        f = {0: 0, 1: w, 2: h, 3: 0}[turn]
+        page.add_transformation(pypdf.Transformation((a, b, c, d, e, f)))
+        nw, nh = (h, w) if turn % 2 else (w, h)
+        for key in ("mediabox", "cropbox", "trimbox", "bleedbox", "artbox"):
+            setattr(page, key, RectangleObject([0, 0, nw, nh]))
+    out = io.BytesIO()
+    writer.write(out)
+    return out.getvalue()
+
+
+def read_pdf(data):
+    """{"number", "preamble", "grid", "printed", "lines"} of a printable PDF."""
+    logging.getLogger("pypdf").setLevel(logging.CRITICAL)
+    data = upright(data)
+    text, ops = fpp.ops_of(data)
+    if not text.strip():
+        return None     # a scan: the page is one image
+    runs = overprinted_once(mac_punctuation(lp.text_runs(data)))
+    # The heading is the largest "Azed No. n" on the page: the competition
+    # rules' "to Azed No. n, PO Box ..." and the prizewinners are set small.
+    # A run that opens with it comes first: 2482's text is all one size, and
+    # its notes "to mark Azed No. 2,500" are not its heading "No. 2,482 Plain".
+    title = max(((bool(re.match(r"(?i)\s*(?:Azed\s+)?No\.?\s*\d{1,2},?\d{3}", t)), s, t)
+                 for _p, _x, _y, s, t in runs if re.search(r"(?i)(?:Azed\s+|^\s*)No\.?\s*\d{1,2},?\d{3}", t)
+                 and not re.search(r"(?i)solution|prizewinners", t)), default=(0, 0, ""))[2].strip()
+    m = re.search(r"(?i)No\.?\s*(\d{1,2},?\d{3})", title)
+    number = int(m.group(1).replace(",", "")) if m else None
+    found = read_bars(segments(ops))
+    if not found:
+        return {"number": number, "preamble": "", "grid": None, "printed": {}, "lines": {}}
+    grid, xs, ys = found
+    printed = {}
+    for _p, x, y, size, t in runs:
+        if re.fullmatch(r"\d{1,3}", t.strip()) and xs[0] < x < xs[-1] and ys[-1] < y < ys[0]:
+            cx = max(i for i in range(len(xs) - 1) if xs[i] <= x + 1)
+            cy = max(i for i in range(len(ys) - 1) if ys[i] >= y - 1)
+            printed.setdefault((cy, cx), t.strip())
+    # Clue type is the size most of the page's letters are set in.
+    sizes = collections.Counter()
+    for _p, _x, _y, s, t in runs:
+        sizes[round(s, 1)] += len(t.strip())
+    size = sizes.most_common(1)[0][0] if sizes else 7.5
+    lines = column_lines(runs, size, lambda x, y: xs[0] - 5 < x < xs[-1] + 5 and ys[-1] - 5 < y < ys[0] + 5)
+    # A heading that says "Plain" has no instructions to read: text above
+    # its ACROSS is a notice (2498's postponed lunch), not a preamble.
+    pre = "" if re.search(r"(?i)\bPlain\b", title) else pdf_preamble(runs, lines, size, xs, ys)
+    return {"number": number, "preamble": pre, "title": title,
+            "grid": grid, "printed": printed, "lines": sections(lines)}
+
+
+def mac_punctuation(runs):
+    """The runs with Mac Roman's punctuation put right: 2482 is set in that
+    encoding, so "Santa's helpers - seamen" reads "SantaÕs helpers Ð seamen"
+    through cp1252. Only a page that shows a Mac quote (Õ Ô Ò Ó, none of them
+    English) is turned, so a legitimate Ð or Ñ elsewhere stays."""
+    if not any(c in t for _p, _x, _y, _s, t in runs for c in "ÕÔÒÓ"):
+        return runs
+    return [(p, x, y, s, clue_text.mac_punctuation(t)) for p, x, y, s, t in runs]
+
+
+def overprinted_once(runs):
+    """The runs with bold-by-overprinting undone: a run whose text begins
+    another run's at the same spot ("2 Letters Latent" under "2 Letters
+    Latent From the answer ...") or repeats it is dropped."""
+    at = collections.defaultdict(set)
+    for r in runs:
+        at[(r[0], round(r[1]), round(r[2]))].add(r[4].strip())
+    out, seen = [], set()
+    for r in runs:
+        key, t = (r[0], round(r[1]), round(r[2])), r[4].strip()
+        if (t and any(o != t and o.startswith(t) for o in at[key])) or (key, t) in seen:
+            continue
+        seen.add((key, t))
+        out.append(r)
+    return out
+
+
+#: A row of a Playfair word square printed beside the instructions ("E S T I C").
+SQUARE_ROW = re.compile(r"(?<!\S)(?:[A-Z] ){4}[A-Z](?!\S)")
+#: The competition entry form's labels, printed under the grid.
+FORM_LABELS = re.compile(r"^(?:(?:Name|Address|Post ?code)\s*)+$", re.I)
+
+
+def full_width(lines):
+    """`lines` (column_lines' (column, y, text)) with a column whose lines all
+    sit within the previous column's height merged into it line by line: a
+    preamble set the full width of the page, which column_lines cut in two
+    where a line's right part starts past its 60pt gap ("...a clue to 37" +
+    "37 (a word in the quotation) in the style"). A number overprinted at
+    the cut is kept once."""
+    cols = []
+    for c in sorted({c for c, _y, _t in lines}):
+        mine = [ln for ln in lines if ln[0] == c]
+        last = cols[-1] if cols else None
+        if last and min(y for _c, y, _t in last) - 2 <= min(y for _c, y, _t in mine) \
+                and max(y for _c, y, _t in mine) <= max(y for _c, y, _t in last) + 2:
+            for _c, y, t in mine:
+                i = min(range(len(last)), key=lambda k: abs(last[k][1] - y))
+                if abs(last[i][1] - y) <= 2:
+                    left = last[i][2]
+                    first, _, rest = t.partition(" ")
+                    if left.split(" ")[-1] == first.rstrip(",.;:") and first[:1].isdigit():
+                        t = left.rsplit(" ", 1)[0] + " " + t if rest else left
+                    else:
+                        t = f"{left} {t}"
+                    last[i] = (last[i][0], last[i][1], t)
+                else:
+                    last.append((last[i][0], y, t))
+            last.sort(key=lambda ln: -ln[1])
+        else:
+            cols.append(mine)
+    return [ln for col in cols for ln in col]
+
+
+def pdf_preamble(runs, lines, size, xs, ys):
+    """A special's instructions off its PDF: the clue-sized lines read before
+    the ACROSS heading (since ~2016 they run on under the grid and into the
+    next column), else the lines set in smaller type under the grid, above an
+    ACROSS heading in that column (~2006-2015). A word square's letter rows
+    printed beside the text go after it, a row a line. "" for none."""
+    head = []
+    for line in lines:
+        if clue_text.exact_heading(line[2]):
+            break
+        if not FORM_LABELS.match(line[2]):
+            head.append(line)
+    head = [t for _c, _y, t in full_width(head)]
+    if not head:
+        across = [(x, y) for p, x, y, _s, t in runs
+                  if p == 0 and re.fullmatch(r"(?i)a\s*c\s*r\s*o\s*s\s*s", t.strip())]
+        ax, ay = max(across, key=lambda a: a[1], default=(None, None))
+        if ax is not None and xs[0] - 15 < ax < xs[-1]:
+            under = [r for r in runs if r[0] == 0 and ay < r[2] < ys[-1] - 5 and xs[0] - 15 < r[1] < xs[-1]
+                     and abs(r[3] - size) >= 0.6 and r[3] > 5 and r[4].strip()]
+            if under:
+                small = collections.Counter(round(r[3], 1) for r in under).most_common(1)[0][0]
+                head = [t for _c, _y, t in full_width(column_lines(under, small, lambda x, y: False))
+                        if not FORM_LABELS.match(t)]
+    # A square row read into a line of text ("I doing K B D F H double duty").
+    square = [row for t in head for row in SQUARE_ROW.findall(t)]
+    text = ""
+    for t in (SQUARE_ROW.sub(" ", t).strip() for t in head):
+        if not t:
+            continue
+        if text.endswith("-") and not text.endswith(" -") and t[:1].islower():
+            text = text[:-1] + t
+        else:
+            text = f"{text} {t}" if text else t
+    text = re.sub(r"\s+", " ", text).strip()
+    return text + "".join("\n" + r.replace(" ", "") for r in square) if text else ""
+
+
+def split_numbers(printed, starts):
+    """{cell: number}. Two cell numbers side by side can come out of the
+    text as one string ("89" on 8's cell where 9 starts the next), or as the
+    digits split across the two cells ("91" and "0" for 9 and 10): such strings
+    are taken as the grid's numbers when the grid's own numbering reads so and
+    the next cell holds no number of its own."""
+    out = {}
+    for (y, x), t in sorted(printed.items()):
+        if (y, x) in out:
+            continue
+        a, b = starts.get((y, x)), starts.get((y, x + 1))
+        nxt = printed.get((y, x + 1))
+        if a is not None and b is not None and t == f"{a}{b}" and nxt is None:
+            out[(y, x)], out[(y, x + 1)] = a, b
+        elif a is not None and b is not None and nxt is not None and t + nxt == f"{a}{b}":
+            out[(y, x)], out[(y, x + 1)] = a, b
+        else:
+            out[(y, x)] = int(t)
+    return out
+
+
+def sections(lines):
+    """{"across": [line...], "down": [...]}: each heading's lines, read on
+    through the columns until the next heading. The previous puzzle's notes
+    print "Across 1, ..." on one line, which is no heading."""
+    out, way = {"across": [], "down": []}, None
+    for _c, _y, t in lines:
+        if clue_text.exact_heading(t):
+            way = clue_text.exact_heading(t).lower()
+            continue
+        if way:
+            out[way].append(t)
+    return out
+
+
+# ------------------------------------------------------------------ the clues
+
+CLUE_START = re.compile(r"^\*?(\d{1,2})\s*(?![\d,.;])(\S.*)$")
+#: A count read glued to the clue's last word, its bracket unclosed:
+#: "centrepiece(10,3words". Stays here: it needs the count the page's readers voted.
+GLUED_COUNT = re.compile(r"\s*\((\d+),\s*(\d)\s*words?\)?\s*$")
+ENUM_END = re.compile(r"\(([^()]*\d[^()]*)\)\s*$")
+#: A clue that opens with a figure ("18 50% of academic institutions ..."): CLUE_START
+#: refuses a digit after the number, so it is taken only for the light the grid expects next.
+NUMBERED_CLUE = re.compile(r"^\*?(\d{1,2})\s+(\d\S*(?:\s.*)?)$")
+
+
+def clue_list(lines, wanted):
+    """{(number, direction): clue text} read off each section's lines: a line
+    opens a clue only when it starts with the next light the grid numbers in
+    that direction, and a clue ends at its closing count, so the notes, form
+    lines and footers between clues fall away. A direction's last light the
+    page never numbers rightly (34 printed "24") takes the one numbered line
+    left over after its last read clue, when that line closes with a count."""
+    out = {}
+    for way in ("across", "down"):
+        expect = sorted(n for n, d in wanted if d == way)
+        current, orphans = None, []
+        for line in lines.get(way, []):
+            m = CLUE_START.match(line) or NUMBERED_CLUE.match(line)
+            if m and expect and int(m.group(1)) == expect[0]:
+                current = (expect.pop(0), way)
+                out[current] = m.group(2)
+                orphans = []
+            elif m and ENUM_END.search(m.group(2)) and (current is None or ENUM_END.search(out[current])):
+                orphans.append(m.group(2))
+            elif current and not ENUM_END.search(out[current]):
+                gap = "" if out[current].endswith("-") and not out[current].endswith(" -") else " "
+                out[current] = f"{out[current]}{gap}{line}"
+            if current and ENUM_END.search(out[current]) and not expect:
+                current = None
+        if len(expect) == 1 and len(orphans) == 1 and (expect[0], way) not in out:
+            out[(expect[0], way)] = orphans[0]
+        if any(k[1] == way for k in wanted if k not in out):
+            for key, text in clue_sequence(lines.get(way, []), way, sorted(n for n, d in wanted if d == way)).items():
+                out.setdefault(key, text)
+    return {k: re.sub(r"\s+", " ", v).replace(" ,", ",").strip() for k, v in out.items()}
+
+
+def clue_sequence(lines, way, wanted):
+    """{(number, way): clue text} when the page's clues, read in order, are as
+    many as the grid's lights and at most two carry a number other than
+    their light's; else {}. The Guardian's copies
+    misprint a clue's number now and then ("23" for 33, "26 25" for 25 26): the
+    order of the clues is the order of the lights, and the enumeration check
+    that follows holds any wrong pairing, each count against its light's length."""
+    clues = []
+    for line in lines:
+        m = CLUE_START.match(line) or NUMBERED_CLUE.match(line)
+        if m and (not clues or ENUM_END.search(clues[-1][1])):
+            clues.append([int(m.group(1)), m.group(2)])
+        elif clues and not ENUM_END.search(clues[-1][1]):
+            gap = "" if clues[-1][1].endswith("-") and not clues[-1][1].endswith(" -") else " "
+            clues[-1][1] = f"{clues[-1][1]}{gap}{line}"
+    if len(clues) != len(wanted) or not all(ENUM_END.search(t) for _n, t in clues):
+        return {}
+    if sum(n != wanted[i] for i, (n, _t) in enumerate(clues)) > 2:
+        return {}
+    return {(wanted[i], way): t for i, (_n, t) in enumerate(clues)}
+
+
+#: "(5, 2 words or 1)": the count, and its words. Azed's own print notation, not an OCR slip.
+LOOSE_WORDS = re.compile(r"\(\s*(\d{1,2})\s*,\s*\d\s+words?\s+or\s+\d\s*\)\s*$")
+
+
+#: A PDF text layer is exact, so "6)" is a lost "(" ; a scan's "12)" may be 12 or 2, which clue_text.mend_count refuses.
+LOST_BRACKET = re.compile(r"\s(\d{1,2}(?:[,\-]\s?\d{1,2})*)\)\s*$")
+#: "(11, 3 words, apostrophe)": Azed's own print notation.
+APOSTROPHE_COUNT = re.compile(r"\((\d{1,2}),\s*(?:(\d)\s*words?,\s*)?apostrophe\)\s*$")
+
+
+def entry_of(key, text, answers):
+    """A clue record as tools/azed_puzzles.py's parser writes one."""
+    text = LOOSE_WORDS.sub(r"(\1)", text)
+    text = re.sub(r"(?i)\bapos-\s?trophe\)\s*$", "apostrophe)", text)     # the line broke "apos-trophe"
+    # A count whose "(" the PDF's text lost: "You can’t —— that! 6)".
+    if not ENUM_END.search(text):
+        text = LOST_BRACKET.sub(r" (\1)", text)
+    apos = APOSTROPHE_COUNT.search(text)
+    m = azed_puzzles.FIGURE_WORDS.search(text)
+    if apos and not apos.group(2):
+        enum = apos.group(1)    # "(5, apostrophe)": the count, its words not printed
+    elif apos and int(apos.group(2)) in azed_puzzles.SPELT:
+        text = (f"{text[:apos.start()].rstrip()} ({apos.group(1)}, "
+                f"{azed_puzzles.SPELT[int(apos.group(2))]} words, apostrophe)")
+        enum = apos.group(1)
+    elif m and int(m.group(2)) in azed_puzzles.SPELT:
+        text = f"{text[:m.start()].rstrip()} ({m.group(1)}, {azed_puzzles.SPELT[int(m.group(2))]} words)"
+        enum = m.group(1)
+    else:
+        e = ENUM_END.search(text)
+        enum = re.sub(r"\s", "", e.group(1)) if e else None
+        if e and not re.fullmatch(r"\d+(?:[,\-]\d+)*", enum):
+            enum = None
+    return {"number": key[0], "direction": key[1], "answer": answers.get(key),
+            "clue": text, "enumeration": enum}
+
+
+# ------------------------------------------------------------------ filing
+
+def blog_records():
+    """{number: parsed fifteensquared record} for numbers one post claims."""
+    path = azed_puzzles.CACHE / "parsed.jsonl"
+    if not path.exists():
+        return {}
+    recs = [json.loads(line) for line in path.open(encoding="utf-8")]
+    claims = collections.Counter(r["number"] for r in recs)
+    return {r["number"]: r for r in recs if claims[r["number"]] == 1}
+
+
+# ------------------------------------------------------------------ the scans
+
+#: Voted readings of the scanned copies, one {number}.json each, keyed by the
+#: copy's sha and SCAN_VERSION: bump it when the reading below changes.
+SCAN_STORE = CACHE / "scans"
+SCAN_VERSION = 4
+#: The 2006-08 scans are ~750px wide, too small for the readers' detector:
+#: upscaled 2x, the vote agrees on 32 of No 1820's 36 clues, not 21.
+SCAN_SCALE = 2
+#: How alike a clue on a light the grid lacks must be to a grid light's
+#: clue to be its copy under a misread number (al.CORROBORATE).
+PHANTOM_COPY = 0.7
+FOOTER = re.compile(r"(?i)\s*the\s+chambers\s+dictionary\b.*$")
+
+
+def page_image(path):
+    """The copy's page as a PIL image: a scanned PDF's largest image, or the
+    copy itself when the router served an image. None when it has neither."""
+    from PIL import Image, UnidentifiedImageError
+    data = path.read_bytes()
+    if data[:4] != b"%PDF":
+        try:
+            return Image.open(io.BytesIO(data)).convert("RGB")
+        except UnidentifiedImageError:
+            return None
+    import pypdf
+    imgs = [i.image for page in pypdf.PdfReader(io.BytesIO(data)).pages[:1] for i in page.images]
+    return max(imgs, key=lambda i: i.width * i.height).convert("RGB") if imgs else None
+
+
+def can_ocr():
+    """Whether a clue reader answers here: the desktop (OCR_REMOTE) or a local RapidOCR."""
+    import ocr_remote
+    return bool(ocr_remote.hosts()) or importlib.util.find_spec("rapidocr") is not None
+
+
+def read_scan(path, number, ocr=True):
+    """The copy dict assemble() takes, read off a scan by the shared clue vote
+    (gale_listener.read_page: every ocr_clues reader, voted) and the barred
+    grid finder (listener_grid, its bars fitted to the printed numbers), or
+    None when the page holds no image, or "scan" when it is not stored and
+    not `ocr`. "clues" maps each light to its voted
+    text, "" where the readings do not agree; "printed" is the grid's own
+    numbering only when every number read agrees with it."""
+    data = path.read_bytes()
+    sha = hashlib.sha256(data).hexdigest()
+    store = SCAN_STORE / f"{number}.json"
+    if store.exists():
+        got = json.loads(store.read_text())
+        if got["sha"] == sha and got["version"] == SCAN_VERSION:
+            return scan_copy(got)
+    if not ocr:
+        return "scan"
+    img = page_image(path)
+    if img is None:
+        return None
+    import gale_listener
+    import listener_grid
+    import numpy as np
+    from PIL import Image
+    img = img.resize((img.width * SCAN_SCALE, img.height * SCAN_SCALE), Image.LANCZOS)
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    grids = [g for g in listener_grid.find_grids(gray) if g["rows"]]
+    # The page's own grid is the biggest; the previous solution's is smaller.
+    grid = max(grids, key=lambda g: (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1]), default=None)
+    rows, exact = None, False
+    if grid:
+        fitted = listener_grid.fit(grid, listener_grid.printed_numbers(gray, grid))
+        rows, exact = fitted["rows"], fitted["exact"]
+    # A grid whose numbers all fit counts each light, so a clue whose count
+    # no reader read is voted on, not held.
+    verdict, voted = gale_listener.read_page(img, f"azed-{sha[:16]}", lengths=light_lengths(rows) if exact else None)
+    got = {"sha": sha, "version": SCAN_VERSION, "verdict": verdict, "rows": rows, "exact": exact,
+           "clues": {k: [t, e] for k, (t, e, _g) in (voted or {}).items()}}
+    SCAN_STORE.mkdir(parents=True, exist_ok=True)
+    store.write_text(json.dumps(got))
+    return scan_copy(got)
+
+
+#: A scan's reader runs two words together where the print spaces them
+#: ("maybeheard", "sendingback"): a word rarer than the lexicon's
+#: RUN_TOGETHER_RANK (or not in it, and printed by the corpus's clues less
+#: often than the pair) is two words when the corpus's clues print the pair
+#: at least RUN_TOGETHER_PAIRS times; a word the lexicon holds only past
+#: RUN_TOGETHER_RARE ("rulering", read for "ruler in") is two when it is
+#: two of the lexicon's RUN_TOGETHER_COMMON commonest words and the corpus's
+#: clues print that pair at all. A word the corpus's clues print whole
+#: RUN_TOGETHER_SEEN times ("inbuilt") and a name the lexicon knows ("Notus")
+#: are words. On the corpus's filed Azed clues
+#: these trip 77 of 21,478, several of them misreads.
+RUN_TOGETHER_RANK = 100_000
+RUN_TOGETHER_PAIRS = 3
+RUN_TOGETHER_RARE = 200_000
+RUN_TOGETHER_COMMON = 10_000
+RUN_TOGETHER_SEEN = 2
+
+
+def run_together(word):
+    """The two words ("maybe heard") a scan's reader ran together into
+    `word`, else None: a capitalised word the lexicon holds is a name."""
+    import ocr_clues
+    low = word.lower()
+    if len(low) < 4 or not low.isalpha():
+        return None
+    rank = ocr_clues.rank(low)
+    if rank is not None and rank <= RUN_TOGETHER_RANK:
+        return None
+    if word[0].isupper() and ocr_clues.known(low):
+        return None
+    uni, pairs, _ = ocr_clues.clue_lm()
+    seen = uni.get(low, 0)
+    if seen >= RUN_TOGETHER_SEEN:
+        return None
+    for k in range(1, len(low)):
+        a, b = low[:k], low[k:]
+        if not (ocr_clues.is_word(a) and ocr_clues.is_word(b)):
+            continue
+        if pairs.get(f"{a} {b}", 0) >= max(RUN_TOGETHER_PAIRS, seen + 1):
+            return f"{a} {b}"
+        if (rank or 0) > RUN_TOGETHER_RARE and not seen and min(len(a), len(b)) >= 3 and pairs.get(f"{a} {b}") \
+                and max(ocr_clues.rank(a) or math.inf, ocr_clues.rank(b) or math.inf) <= RUN_TOGETHER_COMMON:
+            return f"{a} {b}"
+    return None
+
+
+def split_run(word):
+    """`word` spaced where every reader ran two words together ("thesound",
+    "Jackmaybe"), else None: only a token no lexicon holds and the corpus's
+    clues never print, with one split alone into two words commoner than
+    RUN_TOGETHER_COMMON the corpus prints as a pair RUN_TOGETHER_PAIRS
+    times. A dropped g ("climbin", "Seein") is no pair."""
+    import ocr_clues
+    low = word.lower()
+    if len(low) < 4 or not low.isalpha() or ocr_clues.known(low) or ocr_clues.clue_lm()[0].get(low) \
+            or low.endswith("in") and ocr_clues.known(low + "g"):
+        return None
+    pairs = ocr_clues.clue_lm()[1]
+
+    def common(w):
+        return (ocr_clues.rank(w) or math.inf) <= RUN_TOGETHER_COMMON
+    cuts = [k for k in range(1, len(low)) if common(low[:k]) and common(low[k:])
+            and pairs.get(f"{low[:k]} {low[k:]}", 0) >= RUN_TOGETHER_PAIRS]
+    return f"{word[:cuts[0]]} {word[cuts[0]:]}" if len(cuts) == 1 else None
+
+
+def light_lengths(rows):
+    """{"<n>-<across|down>": cells} of each light of `rows`, as the vote keys them."""
+    return {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
+
+
+def scan_copy(got):
+    """read_scan's stored reading as the copy dict assemble() takes."""
+    rows = got["rows"]
+    printed = {}
+    if rows and got["exact"]:
+        printed = {cells[0]: str(n) for (n, _d), cells in rg.light_cells(rows).items()}
+    import ocr_clues
+    lengths = {k: len(c) for k, c in rg.light_cells(rows).items()} if rows else {}
+    clues = {}
+    own = {k: (t or "").lower() for k, (t, _e) in got["clues"].items()
+           if (int(k.split("-")[0]), k.split("-")[1]) in lengths}
+    for key, (text, enum) in got["clues"].items():
+        n, way = key.split("-")
+        light = (int(n), way)
+        if printed and light not in lengths and (not text or any(
+                t and ocr_clues.similar(text.lower(), t) >= PHANTOM_COPY for t in own.values())):
+            # A number the grid, whose numbers all fit, has no light for: a
+            # misread one ("1" or "83" for 11 or 8). With no words, or the
+            # words another light's clue has, it holds nothing back.
+            continue
+        text = FOOTER.sub("", text or "").strip()
+        text = re.sub(r"[A-Za-z]+", lambda m: split_run(m.group(0)) or m.group(0), text)
+        if enum and (m := GLUED_COUNT.search(text)) and m.group(1) == enum:
+            # The voted count's words-tail run onto the clue's last word,
+            # its bracket lost ("centrepiece(10,3words").
+            text = f"{text[:m.start()].rstrip()} ({enum}, {m.group(2)} words)"
+        if ENUM_END.search(text):
+            enum = None     # the count stayed in the text
+        elif not enum and light in lengths:
+            enum = str(lengths[light])  # a lost count is the light's length
+        ok = text and not ocr_clues.suspect(text) and not any(
+            run_together(w) for w in re.findall(r"[A-Za-z'\u2019]+", text))
+        clues[light] = f"{text} ({enum})" if ok and enum else text if ok else ""
+    return {"number": None, "preamble": "", "title": "", "grid": rows, "printed": printed,
+            "clues": clues}
+
+
+def read(path, number=None, scans=True):
+    """The copy dict of a cached copy. A scan not read before is read only
+    when `scans` (else "scan" is returned, for the caller to hold)."""
+    data = path.read_bytes()
+    if path.suffix == ".html":
+        return read_html(data.decode("utf-8", "replace"))
+    if path.suffix == ".pdf":
+        copy = read_pdf(data)
+        if copy is not None:
+            return copy
+    if not data:
+        return None
+    return read_scan(path, number, ocr=scans)
+
+
+def special(kind, copy):
+    """Whether No n is a special: andlit's index names it ("‘Playfair’"),
+    its PDF's title quotes a name, or its preamble says more than which
+    Chambers to use."""
+    return (kind not in ("", "Plain") or "‘" in copy.get("title", "")
+            or bool(CHAMBERS.sub("", copy["preamble"] or "").strip(" .\n")))
+
+
+def post_answers(post, entries, lights):
+    """{light: answer} off the fifteensquared post: its parsed record's
+    numbered answers where one fits its light, else the answer the post prints
+    in that clue's place (ft_pdf_puzzles.blog_answers, walked with this copy's
+    own clue list, so a light the parser misnumbered is still found)."""
+    fits = {}
+    for e in post["entries"]:
+        key, word = (e["number"], e["direction"]), re.sub(r"[^A-Z]", "", (e.get("answer") or "").upper())
+        if key in lights and len(word) == len(lights[key]):
+            fits[key] = word
+    if len(fits) < len(lights):
+        raw = fsq.POSTS / f"{post['post_id'].removeprefix('fifteensquared-')}.json"
+        if raw.exists():
+            rendered = json.loads(raw.read_text(encoding="utf-8"))["content"]["rendered"]
+            clues = [{"lights": [(e["number"], e["direction"])], "enumeration": e["enumeration"],
+                      "clue": e["clue"]} for e in entries if e["enumeration"]]
+            for key, word in fpp.blog_answers(rendered, clues).items():
+                if key not in fits and len(word) == len(lights[key]):
+                    fits[key] = word
+    return fits
+
+
+def fill_from_crossings(grid, entries):
+    """Entries with each unanswered light written from its crossings, where
+    the answered lights cover every one of its cells; None if the answered
+    lights disagree at a cell or a light stays unfilled."""
+    lights = rg.light_cells(grid)
+    letters = {}
+    for e in entries:
+        if not e["answer"]:
+            continue
+        cells = lights[(e["number"], e["direction"])]
+        word = re.sub(r"[^A-Z]", "", e["answer"].upper())
+        if len(word) != len(cells):
+            return None
+        for c, ch in zip(cells, word):
+            if letters.setdefault(c, ch) != ch:
+                return None
+    out = []
+    for e in entries:
+        if not e["answer"]:
+            cells = lights[(e["number"], e["direction"])]
+            if not all(c in letters for c in cells):
+                return None
+            e = dict(e, answer="".join(letters[c] for c in cells))
+        out.append(e)
+    return out
+
+
+def assemble(number, copy, url, date, post, kind=""):
+    """(puzzle, None) or (None, CAUSES key, detail)."""
+    if copy is None:
+        return None, "not-text", ""
+    if copy["number"] not in (None, number):
+        return None, "other-puzzle", f"it says No {copy['number']}"
+    grid = copy["grid"]
+    if not grid:
+        return None, "grid-unread", ""
+    lights = rg.light_cells(grid)
+    starts = {cells[0]: n for (n, _d), cells in lights.items()}
+    printed = split_numbers({k: str(v) for k, v in copy["printed"].items()}, starts)
+    # A text copy that prints no cell numbers at all (1808-15) is checked by its
+    # clue list instead: each light's number in order and its count against the
+    # light's length (the enumeration check below).
+    if printed != starts and (copy["printed"] or "lines" not in copy):
+        return None, "numbers-differ", f"{len(set(printed.items()) ^ set(starts.items()))} cells"
+    if "clues" in copy and not copy["clues"]:
+        return None, "scan-no-clues", ""
+    clues = copy["clues"] if "clues" in copy else clue_list(copy["lines"], set(lights))
+    if blank := sorted(k for k in lights if k in clues and not clues[k]):
+        return None, "ocr-blank", f"{len(blank)} clues, e.g. {blank[:3]}"
+    if set(clues) != set(lights):
+        return None, "clues-differ", f"unread {sorted(set(lights) - set(clues))[:3]}"
+    # Only the clues are mandatory (grid and answers are derived): a special
+    # files like any puzzle, its preamble carried, its post's answers written
+    # only where every crossing agrees and unsolved otherwise (a Playfair's
+    # encoded or a Letters Latent's mutilated entries never cross the post's
+    # answers), for the solver to fill at hint time. One whose preamble no
+    # reader finds files with awaitsPreamble, which keeps annotators off it.
+    is_special = special(kind, copy)
+    # A special's light printed with a count and no words ("*37 (8)", the
+    # competition's clue word) is clued by its preamble: "See preamble (8)",
+    # as the Listener readers file one.
+    for k in lights:
+        if is_special and not re.search(r"[A-Za-z]", re.sub(r"\([^()]*\)\s*$", "", clues[k])):
+            count = ENUM_END.search(clues[k])
+            clues = {**clues, k: "See preamble" + (f" ({count.group(1)})" if count else "")}
+    entries = [entry_of(k, clues[k], {}) for k in lights]
+    if post:
+        answers = post_answers(post, entries, lights)
+        entries = [dict(e, answer=answers.get((e["number"], e["direction"]))) for e in entries]
+    if post and any(not e["answer"] for e in entries):
+        filled = fill_from_crossings(grid, entries)
+        # A puzzle whose post leaves lights unanswered files unsolved, for
+        # the backfill to solve.
+        entries = filled or [dict(e, answer=None) for e in entries]
+        post = post if filled else None
+    # A special's count may be the full answer's, not its entry's (Letters
+    # Latent, Give & Take), or belong to the light the clue really clues
+    # (Wrong Number): the preamble says so, and it is not held for it.
+    for e in entries:
+        if e["enumeration"] is None and not (is_special and not re.search(r"[\d)]\s*$", e["clue"])) \
+                or not is_special and e["enumeration"] and int(re.sub(r"\D.*", "", e["enumeration"]) or 0) and \
+                clue_text.count_total(e["enumeration"]) != len(lights[(e["number"], e["direction"])]):
+            return None, "enumeration", f"{e['number']} {e['direction']}"
+    rec = {"post_id": post["post_id"] if post else f"andlit-{number}",
+           "link": post["link"] if post else url, "date": post["date"] if post else None,
+           "series": azed_puzzles.CATEGORY, "number": number, "setter": azed_puzzles.SETTER,
+           "entries": entries}
+    row = {"grid": grid, "number": number, "how": "andlit"}
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, azed_puzzles.SETTER,
+                                          loose_counts=is_special)
+    if why and is_special and post:
+        post = None
+        rec = dict(rec, post_id=f"andlit-{number}", link=url, date=None,
+                   entries=[dict(e, answer=None) for e in entries])
+        puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, azed_puzzles.SETTER,
+                                          loose_counts=is_special)
+    if why:
+        return None, ("answers-disagree" if "disagree" in why else "clues-differ"), why
+    pre = CHAMBERS.sub("", copy["preamble"] or "").strip()
+    if pre:
+        puzzle["preamble"] = pre
+    elif is_special:
+        puzzle["awaitsPreamble"] = True
+    puzzle["source"] = {"url": url, "gridOrigin": "published"}
+    if post:
+        puzzle["solutions"]["check"] = (
+            "grid and clues read from the Guardian's printable copy, its numbering matching the "
+            "numbers printed in it and the clue list; every fifteensquared answer written into "
+            "it with each crossing agreeing")
+    return puzzle, None, ""
+
+
+def file(write=True, numbers=None, log=print, scan_seconds=None, clock=time.monotonic):
+    """File every cached copy not yet in puzzles/; (filed, Counter of causes).
+    A scan not yet read is read (read_scan) only while `scan_seconds` have
+    not passed and a reader answers; one left unread calls backlog_left(),
+    so the next tick reads on."""
+    idx, where, posts = index(), urls(), blog_records()
+    filed, held, why = [], collections.Counter(), {}
+    start, ocr = clock(), can_ocr()
+    for n in sorted(idx):
+        if numbers and n not in numbers:
+            continue
+        path = cached(n)
+        if path is None or puzzle_path(SERIES, n).exists():
+            continue
+        copy = read(path, n, scans=ocr and (scan_seconds is None or clock() - start < scan_seconds))
+        if copy == "scan":
+            held["scan-unread"] += 1
+            why[n] = "scan-unread"
+            continue
+        puzzle, cause, detail = assemble(n, copy, where.get(n, ROUTER.format(n)), idx[n][0],
+                                         posts.get(n), idx[n][1])
+        if puzzle is None:
+            held[cause] += 1
+            why[n] = cause
+            log(f"  No {n}: {CAUSES[cause]}{': ' + detail if detail else ''}")
+            continue
+        if write:
+            try:
+                if puzzle["solutions"].get("origin") != "unsolved":
+                    correct_source_answers(puzzle["id"], puzzle["entries"])
+                write_puzzle_file(puzzle_path(SERIES, n), puzzle, generator=GENERATOR)
+            except ValueError as e:     # puzzle_integrity's write check
+                held["refused-on-write"] += 1
+                why[n] = "refused-on-write"
+                log(f"  No {n}: refused on write: {str(e)[:160]}")
+                continue
+        filed.append(puzzle["id"])
+    if held["scan-unread"] and ocr:
+        backlog_left()
+    if write and not numbers:
+        HELD.write_text(json.dumps({str(k): v for k, v in sorted(why.items())}, indent=0))
+    return filed, held
+
+
+def preambles(numbers, write=True, fetch_missing=False, log=print):
+    """Put the printed copy's special instructions on the filed Azed among
+    `numbers` that hold none. A puzzle filed from fifteensquared's post alone
+    (retrievedFrom blog) carries no preamble, so a special's annotator cannot
+    read its device; the copy andlit routes to has it. (filed, left): the ids
+    given a preamble, and a cause for each number left as it was. Only the
+    cached copies are read unless `fetch_missing`; a copy that is a scan, of
+    another number, or of a Plain puzzle gives nothing. A preamble already
+    there is never replaced."""
+    known, filed, left = urls(), [], {}
+    for n in sorted(numbers):
+        path = puzzle_path(SERIES, n)
+        if not path.exists():
+            left[n] = "no puzzle file"
+            continue
+        puzzle = read_puzzle_file(path)
+        if puzzle.get("preamble"):
+            left[n] = "has a preamble"
+            continue
+        if cached(n) is None and fetch_missing:
+            download(n, known, log)
+        copy_path = cached(n)
+        if copy_path is None:
+            left[n] = "copy not cached"
+            continue
+        copy = read(copy_path, n, scans=False)
+        if not isinstance(copy, dict) or copy.get("number") not in (None, n):
+            left[n] = "copy unread or of another puzzle"
+            continue
+        pre = CHAMBERS.sub("", copy["preamble"] or "").strip()
+        if not pre:
+            left[n] = "copy prints no instructions"
+            continue
+        if write:
+            write_puzzle_file(path, dict(puzzle, preamble=pre))
+        filed.append(puzzle["id"])
+    return filed, left
+
+
+def number_range(text):
+    """"2305,2500-2510": every number the comma-separated ranges name."""
+    out = set()
+    for part in text.split(","):
+        a, _, b = part.partition("-")
+        out |= set(range(int(a), int(b or a) + 1))
+    return out
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    f = sub.add_parser("fetch")
+    f.add_argument("--limit", type=int)
+    f.add_argument("--budget-seconds", type=float)
+    g = sub.add_parser("file")
+    g.add_argument("--dry-run", action="store_true")
+    g.add_argument("--numbers", type=number_range)
+    q = sub.add_parser("preambles", help="give filed Azed with no preamble the printed copy's instructions")
+    q.add_argument("--numbers", type=number_range, required=True)
+    q.add_argument("--dry-run", action="store_true")
+    q.add_argument("--fetch", action="store_true", help="download copies not yet cached")
+    h = sub.add_parser("nightly")
+    h.add_argument("--budget-seconds", type=float)
+    for p in (g, h):
+        p.add_argument("--scan-seconds", type=float, help="stop reading new scans after this long")
+    a = ap.parse_args(argv)
+    if a.cmd == "preambles":
+        filed, left = preambles(a.numbers, write=not a.dry_run, fetch_missing=a.fetch)
+        print(f"{'would give' if a.dry_run else 'gave'} {len(filed)} Azed a preamble: " + " ".join(filed))
+        for cause, k in collections.Counter(left.values()).most_common():
+            print(f"  left {k}: {cause}")
+        return 0
+    if a.cmd in ("fetch", "nightly") and fetch(getattr(a, "limit", None), a.budget_seconds):
+        backlog_left()
+    if a.cmd in ("file", "nightly"):
+        filed, held = file(write=not getattr(a, "dry_run", False), numbers=getattr(a, "numbers", None),
+                           scan_seconds=a.scan_seconds)
+        print(f"{'would file' if getattr(a, 'dry_run', False) else 'filed'} {len(filed)} Azed: "
+              + " ".join(filed[:20]) + (" ..." if len(filed) > 20 else ""))
+        for cause, k in held.most_common():
+            print(f"  held {k}: {CAUSES.get(cause, cause)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

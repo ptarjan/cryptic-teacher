@@ -1,0 +1,2566 @@
+#!/usr/bin/env python3
+"""A clue's wordplay as one line the model writes, and the tree a puzzle stores.
+
+The model writes an expression; `parse` turns it into the stored tree,
+`evaluate` works out the letters at every node and refuses a tree whose
+letters are not the answer, and `render` writes a tree back as the expression.
+
+Grammar
+-------
+    [clue words]LETTERS   a leaf: these clue words give LETTERS, before any
+                          operation on them (papers gives ID; rev makes DI)
+    [clue words]          a leaf whose letters are the words as written
+                          (anagram fodder, hidden-word text)
+    [in#2]                the second "in" in the clue; #n picks a repeat
+    LETTERS               letters with no clue words (a preamble's piece, or
+                          the letters a del/sub indicator names: del(x, H))
+    A + B                 a charade, in answer order, pieces side by side (ins
+                          only where one piece is cut open by another). Every
+                          clue piece that gives letters is a term: none is left
+                          out (inside ana() they are the fodder's parts)
+    op<indicator>(...)    an operation; <indicator words> follow the op they
+                          signal, one <...> per phrase; `+<under>` is an
+                          indicator on the charade. Every op but + needs its
+                          indicator: no clue word signals it, the op is not there
+    ana(x)                anagram of x's letters; ana(x + y + z) shuffles several
+                          of the clue's own pieces as one pool. A single letter, a
+                          pick at the answer's end, an abbreviation or a synonym
+                          is spelt beside it, ana(x) + N, never scrambled in
+                          (unless its clue word stands between the fodder words,
+                          "This fine gift may be exchanged": F is fodder, ana(This + [fine]F +
+                          gift): the pool is the clue's words in order)
+                          A short word next to the indicator may be fodder:
+                          the fodder's letter count must equal what the
+                          anagram makes. A joining word inside the fodder
+                          ('and' in gale and waves) is no fodder: two leaves,
+                          ana(gale + waves). A possessive 's is no letter
+                          (Croatian's: [Croatian's]CROATIAN)
+    rev(x)                x backwards; an indicator naming a stretch (last pair
+                          of, first three, half) turns only that stretch, 2+
+                          letters: rev<last pair of>([mini vehicles]KARTS) for KARST.
+                          A leaf under rev() gives its word forwards, never pre-turned,
+                          and rev() wraps only the piece it turns: [Use a browser]SURF
+                          + rev<looking up>([link]TIE), never rev(TIE + FRUS)
+    rep(x)                x twice (leaf gives one copy): rep<twice>([boy]AL) for ALAL
+    ins(outer, inner)     inner put inside outer (the answer decides where)
+    del(from, removed)    removed taken out of from (the answer decides where):
+                          one run, or scattered in the same order
+                          (del([Equably], [by]BY) for EQUAL)
+    hid(x)                letters hidden in x's words: hid([say no before]YNOBE),
+                          or hid([say no before]) to let the answer pick them
+    sound(x, SPELT)       x sounds like SPELT, the letters entered. x is ONE leaf
+                          naming the word said aloud: sound<ind>([clue words]HEARD,
+                          SPELT). Leaves side by side (a dash or "has to" between)
+                          are merged for you; over a step (first, del, hid, or a
+                          charade with an indicator) write ONE leaf holding the
+                          step's letters, never the step inside sound()
+    spoon(a, b)           a and b with their first consonants swapped (written
+                          letters); spoon(a, b, SPELT) when the swap is by sound,
+                          SPELT the letters entered. Never put sound() round a
+                          Spoonerism: spoon<Spooner's>([marry]MARRY, [fan]FAN, FERRYMAN)
+    sub(x, OLD, NEW)      OLD in x replaced by NEW
+    cyc(x)                x with letters moved from one end to the other
+    move(x, MOVED)        MOVED, one run of x's letters, taken out and put back
+                          elsewhere in x (the answer decides where), one step:
+                          move<dropping>([England]ALBION, [ball]O) for ALBINO,
+                          never ALBION + O with the first O deleted
+    pal(x)                x, which reads the same backwards; pal() with no x
+                          when the answer itself is all the wordplay
+    first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)
+                          letters picked from x's words: first letter (or
+                          each word's), middle letter(s) or all but the
+                          ends, first and last, alternate, every 2nd/3rd, the nth.
+                          x is the words picked FROM, never the pick:
+                          alt<regularly>([most]) for MS, not ([most]MS). Over
+                          several words it takes a comma list, never +:
+                          outer<fringes of>([Argive], [Greece], [Anatolian]).
+                          The indicator needs a note; the pick needs none
+    cd([words])           cryptic definition: the words, no letters (a wp that
+                          is one leaf is refused; no mechanism means a cd or a
+                          double definition)
+    comp(x, y)            composite anagram: x's letters are the answer plus y's
+                          (never ana(del(...))): comp<sadly>([thirsted], [it's])
+                          for DERTH
+    reverse([words], "reading")
+                          a reverse clue: the words read as wordplay that would
+                          build the answer; "reading" spells it in the pieces,
+                          capitals joined by spaces or +: reverse([What makes
+                          pets], "OUT + STEP") for OUTSTEP. The whole wordplay;
+                          the definition stays a `def`. Only when the reading
+                          names the clue's own last words rearranged (pets ->
+                          STEP); a phrase of 3+ words with no such word is
+                          refused (reversePhrase): write what the words do
+                          (ana, hid, charade), or cd([words]) if nothing builds
+                          the answer
+    rebus([words], "reading")
+                          a picture of letters or figures, "reading" saying what
+                          it shows: rebus([HIJKLMNO], "H to O") for WATER. The
+                          whole wordplay; with no `def` it is the whole clue
+A double definition has no wordplay: two definitions and no expression.
+
+Unchecked nodes: a tree filed before trees were checked may hold an
+`"unchecked": true` node: an op node or leaf whose `gives` is taken as
+stated, its parts shown but not checked, where the old blocks could not be
+rebuilt step by step (a deletion of scattered letters, a selection from a
+synonym). The expression has no way to write one, so a new annotation
+cannot add any.
+
+Stored tree: a leaf is {"words", "at", "gives"?, "note"?} ({"gives"} alone
+for letters with no words); an op is {"op", "indicators"?: [{"text", "at",
+"note"?}], "parts": [...]}, with "spelt" on homophone/spoonerism and "n" on
+nth. "at" is filled when `parse` is given the clue.
+
+An anagram's parts are its fodder, one pool of letters: `ana(x + y)` stores
+x and y as the anagram's own parts, never a charade under it, since nothing
+is joined in order (fodder_pool, and validate_annotations refuses a charade
+directly under an anagram).
+
+Shapes that read wrongly are refused for a new annotation (validate_annotations):
+join pieces in one charade, never a charade with no indicator inside a charade;
+give every op that needs one its indicator word (ana, rev, ins, del, hid, sound,
+first/last/...); a cryptic definition is one cd([clue words]); no clue word sits
+in two leaves or indicators, or in both the definition and the wordplay (unless
+&lit); a selection over several words is one op with a comma list of leaves; a
+leaf that gives a stretch of its own words is the selection, deletion or hidden
+word as an op; the wordplay is never one leaf; every charade piece has clue words
+(a bare-letters piece belongs in a leaf of the clue word that supplies it); an
+anagram's container is the outer step, ins(outer, ana(x)), not ana(ins(...)).
+"""
+import argparse
+import collections
+import copy
+import functools
+import itertools
+import math
+import json
+import re
+import sys
+import unicodedata
+from pathlib import Path
+
+# Expression name -> stored op.
+OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion",
+       "hid": "hidden", "sound": "homophone", "spoon": "spoonerism",
+       "sub": "substitution", "cyc": "cycling", "move": "move", "cd": "cryptic", "pal": "palindrome",
+       "rebus": "rebus", "comp": "composite", "reverse": "reverse",
+       "first": "first", "last": "last", "middle": "middle", "outer": "outer",
+       "alt": "alternate", "regular": "regular", "nth": "nth", "rep": "repeat"}
+NAMES = {v: k for k, v in OPS.items()}
+# The fewest parts the written form takes where a stored tree may carry fewer: a spoonerism
+# filed as one leaf with `soundsLike` (HAD MATTER), a substitution of the centre (sub(x, NEW)).
+_STORED_SHORT = {"spoonerism": 2, "substitution": 3}
+SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
+# A selection over a list takes at most this many words (the middle letter of each of the 10 words
+# of "it's not about odd man Charlie and the Chocolate Factory's", TOO DARN HOT).
+SELECT_MAX = 12
+# How many parts each op takes: (fewest, most).
+# ana() takes one argument; a charade written there becomes its parts (_fodder_parts).
+ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 9),
+         "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (1, 3),
+         "substitution": (2, 3), "cycling": (1, 1), "move": (2, 2), "cryptic": (1, 9), "palindrome": (0, 1),
+         "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2), "repeat": (1, 1),
+         **{s: (1, SELECT_MAX) for s in SELECT}}  # a selection over a list: several parts, each giving its pick
+# A search that grows past this many candidate strings stops: no clue needs it.
+CAP = 20000
+
+
+class WordplayError(ValueError):
+    """A parse or evaluation failure, worded for the model to act on."""
+
+
+_NOT_AZ = re.compile(r"[^A-Z]")
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def _letters_of_str(s):
+    return _NOT_AZ.sub("", unicodedata.normalize("NFD", s).upper())
+
+
+def letters(s):
+    """A-Z, accents folded (É is E), everything else dropped."""
+    return _letters_of_str(str(s or ""))
+
+
+def run_slip(text, gives):
+    """Whether `gives` is a run of `text` with a setter's slip: one wrong letter, or
+    two letters swapped (TORORE printed where TORERO was meant). Both are letter
+    strings. False for a run `text` holds exactly, or one further out."""
+    n = len(gives)
+    for a in range(len(text) - n + 1):
+        d = [i for i in range(n) if text[a + i] != gives[i]]
+        if len(d) == 1 or (len(d) == 2 and text[a + d[0]] == gives[d[1]] and text[a + d[1]] == gives[d[0]]):
+            return True
+    return False
+
+
+_SLIP_TABLE = ("", None)   # (stamp, {(fodder letters, gives letters)})
+# A str, not a Path: row_cache keys a row on every tools/data Path its code reaches, and the card rows of
+# og_list reach wordplay without reading this table (tests/test_og_card_key.py).
+SLIP_FILE = str(Path(__file__).resolve().parent / "data" / "setter_error.json")   # the tests point it elsewhere
+
+
+def slipped_run(text, gives):
+    """Whether tools/data/setter_error.json names `text` (a hidden leaf's words, as
+    letters) as printed with a slip whose corrected run is `gives`, and `gives` is
+    run_slip() of it. Read again whenever the file changes: annotate_check files a
+    row mid-run. A row's key is its puzzle and light, but the pair (fodder, gives)
+    is what is looked up, so evaluating a tree needs no puzzle."""
+    global _SLIP_TABLE
+    path = Path(SLIP_FILE)
+    try:
+        stamp = f"{path}:{path.stat().st_mtime_ns}"
+    except OSError:
+        return False
+    if _SLIP_TABLE[0] != stamp:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+        _SLIP_TABLE = (stamp, {(letters(r[0]), letters(r[1])) for r in rows.values()
+                               if isinstance(r, list) and len(r) >= 2})
+    return (text, gives) in _SLIP_TABLE[1] and run_slip(text, gives)
+
+
+# ---------- parse ----------
+
+class _Parser:
+    def __init__(self, text):
+        self.s = text
+        self.i = 0
+
+    def fail(self, msg):
+        raise WordplayError(f"wordplay {self.s!r}: {msg} at column {self.i} "
+                            f"(…{self.s[self.i:self.i + 15]!r})")
+
+    def ws(self):
+        while self.i < len(self.s) and self.s[self.i].isspace():
+            self.i += 1
+
+    def peek(self):
+        self.ws()
+        return self.s[self.i] if self.i < len(self.s) else ""
+
+    def take(self, ch):
+        if self.peek() != ch:
+            self.fail(f"expected {ch!r}")
+        self.i += 1
+
+    def until(self, close):
+        j = self.s.find(close, self.i)
+        if j < 0:
+            self.fail(f"no closing {close!r}")
+        out, self.i = self.s[self.i:j], j + 1
+        return out
+
+    def indicators(self):
+        out = []
+        while self.peek() == "<":
+            self.i += 1
+            text = self.until(">").strip()
+            if not text:
+                self.fail("empty <indicator>")
+            out.append({"text": text})
+        return out
+
+    def expr(self):
+        parts, inds = [self.term()], []
+        while self.peek() == "+":
+            self.i += 1
+            inds += self.indicators()
+            parts.append(self.term())
+        if len(parts) == 1:
+            if inds:
+                self.fail("an indicator on a charade needs a '+'")
+            return parts[0]
+        node = {"op": "charade", "parts": parts}
+        if inds:
+            node["indicators"] = inds
+        return node
+
+    def term(self):
+        c = self.peek()
+        if c == "(":
+            self.i += 1
+            node = self.expr()
+            self.take(")")
+            return node
+        if c == "[":
+            self.i += 1
+            words = self.until("]").strip()
+            if not words:
+                self.fail("empty [clue words]")
+            leaf = {"words": words}
+            m = re.compile(r"[A-Z]+").match(self.s, self.i)
+            if m:
+                leaf["gives"] = m.group()
+                self.i = m.end()
+            return leaf
+        m = re.compile(r"[A-Za-z]+").match(self.s, self.i)
+        if not m:
+            c = self.s[self.i:self.i + 1]
+            if c == "<":
+                self.fail("expected [clue words], LETTERS, '(' or an op; an <indicator> sits right after the "
+                          "op or '+' it signals, never before a piece: ins<in>(A, B), or A +<after> B")
+            if c.isdigit():
+                self.fail("expected [clue words], LETTERS, '(' or an op; first/last take no count "
+                          "(first<ind>([words]) picks one letter, each word's first over a list): write the "
+                          "letters picked as a leaf, [arbiters]JUD, or nth(3)(x) for the nth letter")
+            if c == "":
+                self.fail("expected [clue words], LETTERS, '(' or an op; a '+' (or '+<indicator>') needs "
+                          "the piece it joins after it: A + B, or A +<after> B")
+            self.fail("expected [clue words], LETTERS, '(' or an op")
+        word = m.group()
+        after = self.s[m.end():].lstrip()
+        if word.isupper() and not after.startswith(("(", "<")):
+            self.i = m.end()
+            return {"gives": word}
+        if word not in OPS:
+            self.fail(f"unknown op {word!r}; ops are {', '.join(OPS)}")
+        self.i = m.end()
+        op = OPS[word]
+        node = {"op": op}
+        if op == "nth":
+            self.take("(")
+            n = re.compile(r"\s*(\d+)\s*").match(self.s, self.i)
+            if not n:
+                self.fail("nth needs a number: nth(3)(x)")
+            node["n"] = int(n.group(1))
+            self.i = n.end()
+            self.take(")")
+        inds = self.indicators()
+        self.take("(")
+        args = [] if op == "palindrome" and self.peek() == ")" else [self.expr()]
+        while args and self.peek() == ",":
+            self.i += 1
+            args.append(self.quoted() if op in ("rebus", "reverse") else self.expr())
+        self.take(")")
+        inds += self.indicators()
+        if inds:
+            node["indicators"] = inds
+        lo, hi = ARITY[op]
+        if op in _STORED_SHORT:  # the one-leaf spoon and two-part sub are stored forms, not written ones
+            lo = _STORED_SHORT[op]
+        if not lo <= len(args) <= hi:
+            want = {"homophone": "sound(x, SPELT)", "spoonerism": "spoon(a, b) or spoon(a, b, SPELT)",
+                    "container": "ins(outer, inner)", "deletion": "del(from, removed, ...)",
+                    "substitution": "sub(x, OLD, NEW)", "move": "move(x, MOVED)",
+                    "rebus": 'rebus([words], "reading")',
+                    "composite": "comp(fodder, taken out)",
+                    "reverse": 'reverse([words], "PIECE + PIECE")'}.get(op, f"{word}(x)")
+            self.fail(f"{word} takes {want}, got {len(args)} argument(s)")
+        if op in ("homophone", "spoonerism") and len(args) == hi:
+            spelt = args.pop()
+            if set(spelt) != {"gives"}:
+                self.fail(f"{word}'s last argument is the spelling entered, bare LETTERS")
+            node["spelt"] = spelt["gives"]
+        if op == "rebus":
+            if "reading" not in args[1] or "words" not in args[0] or set(args[0]) - {"words"}:
+                self.fail('rebus takes rebus([picture words], "what it reads as"): the clue words '
+                          'with no letters, then the reading in double quotes')
+            node["reading"] = args.pop()["reading"]
+        if op == "reverse":
+            if "reading" not in args[1] or "words" not in args[0] or set(args[0]) - {"words"}:
+                self.fail('reverse takes reverse([clue words], "PIECE + PIECE"): the clue words '
+                          'with no letters, then the answer in its pieces, in double quotes')
+            node["reading"] = args.pop()["reading"]
+        node["parts"] = _fodder_parts(args[0], self) if op == "anagram" else args
+        return node
+
+    def quoted(self):
+        """A "reading": text in double quotes (rebus's second argument)."""
+        if self.peek() != '"':
+            self.fail('expected the reading in double quotes: rebus([words], "reading")')
+        self.i += 1
+        text = self.until('"').strip()
+        if not text:
+            self.fail("empty reading")
+        return {"reading": text}
+
+
+def _fodder_parts(arg, parser=None):
+    """ana(x)'s stored parts: x's pieces when x is a charade (nested ones too),
+    in the order written, since an anagram's fodder is one pool and nothing
+    under it is joined in sequence. A join with an indicator of its own is
+    refused: order means nothing to a pool, so a word between pieces is a link
+    word, and an anagram indicator goes on ana<...>."""
+    if arg.get("op") != "charade" or arg.get("unchecked"):
+        return [arg]
+    if arg.get("indicators") and parser is not None:
+        words = ", ".join(repr(i["text"]) for i in arg["indicators"])
+        parser.fail(f"ana(x + y) is one pool of letters, not a charade, so +<{words}> has nothing "
+                    f"to order: leave a word that only joins the pieces out (it is a link word), "
+                    f"and write an anagram indicator as ana<...>")
+    return [q for p in parts_of(arg) for q in _fodder_parts(p, parser)]
+
+
+def fodder_pool(node):
+    """An anagram's fodder as one node: its part, or its parts as a run (a
+    reading of the pool in stored order). Built fresh, so never a key of
+    evaluate()'s result."""
+    parts = parts_of(node)
+    return parts[0] if len(parts) == 1 else {"op": "charade", "parts": parts}
+
+
+def _masked(text):
+    """`text` with the inside of every [..], <..> and ".." blanked to 'x' (same length), so
+    the structure characters left are the expression's own."""
+    out, close = [], None
+    for ch in text:
+        if close:
+            out.append(ch if ch == close else "x")
+            close = None if ch == close else close
+        elif ch in "[<\"":
+            out.append(ch)
+            close = {"[": "]", "<": ">", '"': '"'}[ch]
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+def _top_level(masked, sep):
+    """Offsets of `sep` in `masked` outside every bracket pair."""
+    depth, hits = 0, []
+    for i, ch in enumerate(masked):
+        depth += ch == "(" or -(ch == ")")
+        if ch == sep and depth == 0:
+            hits.append(i)
+    return hits
+
+
+def _pieces(text, masked, sep):
+    cuts = [-1] + _top_level(masked, sep) + [len(text)]
+    return [text[a + 1:b].strip() for a, b in zip(cuts, cuts[1:])]
+
+
+_TRAILING_PLUS = re.compile(r"\+\s*((?:<[^<>]*>\s*)+)(?=[,)]|$)")
+
+
+_PREFIX_PLUS = re.compile(r"\+\s*(<[^<>]*>(?:\s*<[^<>]*>)*)\s*\(")
+
+
+def mend_charade_indicator(text):
+    """`text` with a charade indicator written the way the parser does not take it, said
+    in the one way it does; None when `text` has no such slip. Only the syntax moves: the
+    pieces, their order and every word stay, and the answer still decides whether the
+    result is right (translate checks it). Three slips, all 'the order word of a charade':
+      A + B +<after>         the indicator written after the last piece with nothing to join
+                             (the commonest refusal, 11-13): it signals the join before that
+                             piece, so it moves there: A +<after> B
+      A + B + +<after>C      the doubled '+' (the indicator IS the join): A + B +<after> C
+      +<after>(A, B)         the join written as a prefix op over its pieces, comma list or
+      +<after>(A + B)        a sum: (A +<after> B), the pieces nested when they are sums."""
+    masked = _masked(text)
+    changed = False
+    # the doubled '+': the first one is the join's, the second only repeats it
+    while (m := re.search(r"\+\s*(?=\+\s*<)", masked)):
+        text, masked = text[:m.start()] + text[m.end():], masked[:m.start()] + masked[m.end():]
+        changed = True
+    # the trailing indicator: `A + B +<ind>` has no piece after it; it names the last join
+    for m in reversed(list(_TRAILING_PLUS.finditer(masked))):
+        depth, k, at = 0, m.start() - 1, None
+        while k >= 0:
+            c = masked[k]
+            if c == ")":
+                depth += 1
+            elif c == "(" or (c == "," and depth == 0):
+                if depth == 0:
+                    break
+                depth -= 1
+            elif c == "+" and depth == 0:
+                at = k
+                break
+            k -= 1
+        if at is None or masked[at + 1:].lstrip().startswith("<"):
+            continue
+        inds = text[m.start(1):m.end(1)].strip()
+        head = text[:m.start()].rstrip()
+        text = head[:at + 1] + inds + head[at + 1:] + text[m.end():]
+        masked = _masked(text)
+        changed = True
+    # the prefix op: the last one first, so a nested one is mended before its parent
+    for m in reversed(list(_PREFIX_PLUS.finditer(masked))):
+        if masked[:m.start()].rstrip()[-1:] not in ("", "(", ","):
+            continue            # `A +<after>(B + C)` is a join with a bracketed piece: it parses
+        inner_at, depth, j = m.end(), 1, m.end()
+        while j < len(masked) and depth:
+            depth += masked[j] == "(" or -(masked[j] == ")")
+            j += 1
+        if depth:
+            continue
+        body, mbody = text[inner_at:j - 1], masked[inner_at:j - 1]
+        args = _pieces(body, mbody, ",")
+        if len(args) == 1:
+            args = _pieces(body, mbody, "+")        # +<ind>(a + b): the sum's pieces
+            keep = False
+        else:
+            keep = True                             # +<ind>(a, b): each arg stays one piece
+        if len(args) < 2 or not all(args):
+            continue
+        parts = [f"({a})" if keep and _top_level(_masked(a), "+") else a for a in args]
+        joined = f"({parts[0]} +{text[m.start(1):m.end(1)]} " + " + ".join(parts[1:]) + ")"
+        text, masked = text[:m.start()] + joined + text[j:], masked[:m.start()] + _masked(joined) + masked[j:]
+        changed = True
+    return text if changed else None
+
+
+def parse(text, clue=None):
+    """The tree for expression `text`; with `clue`, every leaf and indicator
+    gets its `at` (offset in the clue) and words not in the clue are refused."""
+    p = _Parser(str(text or ""))
+    if not p.peek():
+        raise WordplayError("wordplay is empty: write the expression, or leave `wp` out "
+                            "for a double definition")
+    node = p.expr()
+    if p.peek():
+        p.fail("unexpected text after the expression")
+    if clue is not None:
+        locate(node, clue)
+    return node
+
+
+def _spans(node, bare=False):
+    """(dict, key) for every indicator and leaf's words in tree order; with
+    `bare`, letters with no clue words too, keyed by those letters."""
+    for ind in node.get("indicators") or []:
+        yield ind, "text"
+    if "words" in node:
+        yield node, "words"
+    elif bare and "op" not in node:
+        yield node, "gives"
+    for part in node.get("parts") or []:
+        yield from _spans(part, bare)
+
+
+def find_at(clue, text, nth=1, taken=()):
+    """Offset of the nth whole-word copy of `text` in `clue` (any copy if no
+    whole-word one), skipping copies that overlap `taken` spans; None if absent.
+
+    str.find, not re.finditer(re.escape(text)): the same non-overlapping
+    copies, but a pattern per distinct text overflowed re's cache and compiled
+    afresh nearly every call -- most of annotation.view()'s time, which every
+    deploy pays per puzzle on a full reindex and render."""
+    hits, h = [], clue.find(text)
+    while h >= 0:
+        hits.append(h)
+        h = clue.find(text, h + (len(text) or 1))
+    whole = [h for h in hits if (h == 0 or not clue[h - 1].isalnum())
+             and (h + len(text) == len(clue) or not clue[h + len(text)].isalnum())]
+    pool = whole or hits
+    if nth == 1:
+        free = [h for h in pool if not any(h < b and a < h + len(text) for a, b in taken)]
+        pool = free or pool
+    return pool[nth - 1] if len(pool) >= nth else None
+
+
+_MARKS = str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"', "–": "-", "—": "-",
+                        "‑": "-", "‐": "-", "−": "-"})
+
+
+def fold_marks(s):
+    """`s` with curly quotes and dash kinds made straight, one character for one."""
+    return s.translate(_MARKS)
+
+
+def _gapped_runs(text, clue):
+    """(the clue's stretch from the first to the last of `text`'s words, its runs of
+    adjacent matched words) when the words all occur in the clue in order but with
+    other words between; else None."""
+    toks = [(m.group().lower(), m.start(), m.end())
+            for m in re.finditer(r"[\w'’]+", fold_marks(clue))]
+    words = [w.lower() for w in re.findall(r"[\w'’]+", fold_marks(text))]
+    if len(words) < 2:
+        return None
+    for start in range(len(toks)):
+        i, hit = start, []
+        for w in words:
+            while i < len(toks) and toks[i][0] != w:
+                i += 1
+            if i == len(toks):
+                break
+            hit.append(i)
+            i += 1
+        else:
+            if hit[0] != start or hit[-1] - hit[0] + 1 == len(hit):
+                continue
+            runs, cur = [], [hit[0]]
+            for a, b in zip(hit, hit[1:]):
+                if b == a + 1:
+                    cur.append(b)
+                else:
+                    runs.append(cur)
+                    cur = [b]
+            runs.append(cur)
+            return (clue[toks[hit[0]][1]:toks[hit[-1]][2]],
+                    [clue[toks[r[0]][1]:toks[r[-1]][2]] for r in runs])
+    return None
+
+
+def not_in_clue(text, clue, nth=1):
+    """The refusal for words a span names that the clue does not hold, saying
+    what to change: a repeat that has no such copy, words the clue has but not
+    side by side (write each run as its own [..] piece), or words it lacks."""
+    head = f"{text!r} is not in the clue {clue!r}: "
+    low = clue.lower()
+    if nth > 1:
+        # Count what find_at counts: whole-word copies when there are any ("a" in
+        # "inhabiting a region" is one copy, not the seven letters a inside words).
+        have = (len(re.findall(rf"(?<!\w){re.escape(text.lower())}(?!\w)", low))
+                or len(re.findall(re.escape(text.lower()), low)))
+        return head + (f"the clue has {have} copy of those words, so there is no copy #{nth}: "
+                       f"drop the `#{nth}`" if have == 1 else f"the clue has {have} copies, "
+                       f"so there is no copy #{nth}")
+    words = re.findall(r"[\w'’]+", text.lower())
+    absent = [w for w in words if w not in low]
+    if "#" in text:
+        fixed = re.sub(r"#(\d+)(?=\s)", "", text)
+        n = int(re.search(r"#(\d+)", text).group(1))
+        hint = (f": write {fixed + '#' + str(n)!r}"
+                if fixed != text and low.count(fixed.lower()) >= n else "")
+        return head + ("`#n` goes once, at the very end of the quote (`fond#2`), and the "
+                       "quote itself must be one unbroken run of clue words" + hint)
+    runs = _gapped_runs(text, clue)
+    if runs:
+        return head + (f"those words sit in the clue in order but not side by side: the clue has "
+                       f"{runs[0]!r} there. Quote that whole run if the words between belong to it; "
+                       f"otherwise give each run its own piece: "
+                       f"{', '.join(repr(r) for r in runs[1])} (an indicator: one <..> per run; "
+                       f"wordplay: one [..] per run)")
+    if len(words) > 1 and not absent:
+        toks = re.findall(r"[\w'’]+", low)
+        if all(w in toks for w in words):
+            pos = [toks.index(w) for w in words]
+            if pos != sorted(pos):
+                return head + ("those words are in the clue but in a different order than "
+                               "you wrote them: quote them as the clue has them, "
+                               + ", ".join(repr(words[i]) for i in sorted(range(len(words)), key=pos.__getitem__))
+                               + " (each run its own piece if other words sit between)")
+        return head + ("each word is in the clue but not side by side: give each run of "
+                       "clue words its own [..] piece (the words between belong to other pieces "
+                       "or are link words)")
+    import definitions
+    near = definitions.near_run(text, clue)
+    if near:
+        return head + (f"the clue as given reads {near!r} there, a letter off from your quote: "
+                       f"quote the clue's own words")
+    if absent:
+        import difflib
+        clue_words = list(dict.fromkeys(re.findall(r"[\w'’]+", clue)))
+        close = {w: difflib.get_close_matches(w, [c.lower() for c in clue_words], n=2, cutoff=0.6)
+                 for w in absent}
+        hint = "; ".join(f"for {w!r} the clue has {' or '.join(repr(c) for c in cs)}"
+                         for w, cs in close.items() if cs)
+        tail = (f"nearest clue words: {hint}. Quote the clue's own word (a possessive 's, a "
+                f"corrected spelling or another word is not in the clue), and give any "
+                f"scan-garbled reading as printedClue" if hint else
+                f"the clue's words are {', '.join(map(repr, clue_words))}: quote only those")
+        return head + (f"{', '.join(repr(w) for w in absent)} {'is' if len(absent) == 1 else 'are'} "
+                       f"not among its words: {tail}")
+    return head + "copy the clue words exactly"
+
+
+_ELLIPSIS = re.compile(r"\s*(?:\.\.\.|…)\s*")
+
+
+def _split_ellipsis(node, clue):
+    """An indicator written 'taking ... into' (a phrase split round other words) is
+    two indicators, 'taking' and 'into': the refusal asked for one <..> per run
+    and the gap words are the model's own pieces. Only a text the clue does not
+    print as it is (an ellipsis in the clue itself stays one indicator)."""
+    inds = node.get("indicators")
+    if inds:
+        out = []
+        for ind in inds:
+            text = ind.get("text")
+            parts = [p for p in _ELLIPSIS.split(text) if p.strip()] if isinstance(text, str) else []
+            if len(parts) > 1 and text not in clue and _ELLIPSIS.search(text):
+                out += [{**ind, "text": p} for p in parts]
+                continue
+            # 'putting on' for the clue's 'putting warning light on': an indicator
+            # phrase split round the words it acts on is its runs, the split the
+            # refusal would ask for (15 of the audit's 'quote not in clue' refusals
+            # in one day). Only when no other reading finds the text in the clue.
+            gapped = (_gapped_runs(text, clue) if isinstance(text, str)
+                      and fold_marks(text).lower() not in fold_marks(clue).lower()
+                      and not _reordered_run(text, clue) else None)
+            if gapped and len(gapped[1]) > 1:
+                out += [{**ind, "text": r} for r in gapped[1]]
+            else:
+                out.append(ind)
+        node["indicators"] = out
+    for p in node.get("parts") or ():
+        _split_ellipsis(p, clue)
+
+
+def _strip_inner_marks(text):
+    """(`text` without `#n` marks, n) for a quote that put the mark inside it
+    ('Greek#2 goddess', 'guy#2 at#2 St#2 Andrews') when every mark is the same n:
+    the copy asked for is the quote's. None otherwise."""
+    marks = set(re.findall(r"#(\d+)(?=\s|$)", text))
+    if len(marks) != 1 or not re.search(r"#\d+\s", text):
+        return None
+    return re.sub(r"#\d+(?=\s|$)", "", text), int(marks.pop())
+
+
+def _without_possessive(text, clue):
+    """(offset, clue text) of the one whole-word run the clue prints for a quote that put a
+    possessive 's on a word the clue prints bare ("professional's" for 'professional'), when
+    the quote is not in the clue as written and the bare run is there exactly once; else None."""
+    bare = re.sub(r"(?<=\w)['\u2019]s\b", "", text)
+    if bare == text or not bare.strip():
+        return None
+    hits = [m.start() for m in re.finditer(rf"(?<!\w){re.escape(bare)}(?!\w)", clue, re.I)]
+    return (hits[0], clue[hits[0]:hits[0] + len(bare)]) if len(hits) == 1 else None
+
+
+def _reordered_run(text, clue):
+    """The clue's run of words that are `text`'s words in another order
+    ('flambé, perhaps' for the clue's 'perhaps flambé'), when exactly one run of
+    the clue has them; else None."""
+    want = sorted(w.lower() for w in re.findall(r"[\w'’]+", fold_marks(text)))
+    if len(want) < 2:
+        return None
+    toks = [(m.group().lower(), m.start(), m.end()) for m in re.finditer(r"[\w'’]+", fold_marks(clue))]
+    runs = {(toks[i][1], toks[i + len(want) - 1][2]) for i in range(len(toks) - len(want) + 1)
+            if sorted(t[0] for t in toks[i:i + len(want)]) == want}
+    if len(runs) != 1:
+        return None
+    a, b = runs.pop()
+    return a, clue[a:b]
+
+
+def locate(node, clue, taken=()):
+    """Fill `at` on every span of `node` from `clue`; `#n` suffixes pick the
+    nth copy and come off the stored text.
+
+    Spans that already have an `at` are claimed first, then the rest longest
+    first (tree order among equals): a short span placed first takes the first
+    free copy of its words even when that copy sits inside a longer span
+    ("in" inside "lost in": genius-209 22A, "Short key, article lost in
+    pilgrimage, in great journey"), leaving the clue's other "in" uncovered,
+    so it was derived as a link word."""
+    used = list(taken)
+    todo = []
+    for span, key in _spans(node):
+        text, nth = span[key], 1
+        m = re.fullmatch(r"(.+?)#(\d+)", text) if "#" in text else None
+        if m and text not in clue:
+            text, nth = m.group(1), int(m.group(2))
+            span[key] = text
+        elif "#" in text and text not in clue and _strip_inner_marks(text):
+            text, nth = _strip_inner_marks(text)
+            span[key] = text
+        if "at" in span:
+            used.append((span["at"], span["at"] + len(text)))
+        else:
+            todo.append((span, text, nth, key))
+    todo.sort(key=lambda t: -len(t[1]))
+    low = clue.lower() if len(clue.lower()) == len(clue) else None
+    repeated = {t.lower() for _, t, n, _ in todo if n > 1}
+    for span, text, nth, key in todo:
+        # "fruit" and "fruit#2" for "Fruit fly turning peeled fruit": the first
+        # copy is capitalised, so counting exact-case copies finds one and the
+        # run was told there is no copy #2 (51 refusals in 48h). A text the
+        # tree repeats is counted without regard to case, both copies alike.
+        at = None
+        if low and text.lower() in repeated:
+            at = find_at(low, text.lower(), nth, used)
+        if at is None:
+            at = find_at(clue, text, nth, used)
+        if at is None and low:
+            at = find_at(low, text.lower(), nth, used)
+        if at is None:
+            # Curly vs straight quotes and dash kinds: a 1:1 character fold, so the
+            # offset is the clue's own and the stored text is the clue's spelling.
+            folded = fold_marks(clue).lower()
+            if len(folded) == len(clue):
+                at = find_at(folded, fold_marks(text).lower(), nth, used)
+        if at is None and nth > 1 and "#" not in text:
+            # '#2' for a word the clue prints once: the only copy there is.
+            if len(re.findall(rf"(?<!\w){re.escape(text.lower())}(?!\w)", clue.lower())) == 1:
+                at = find_at(clue.lower(), text.lower(), 1, used) if low else find_at(clue, text, 1, used)
+        if at is None and nth == 1 and "#" not in text:
+            run = _reordered_run(text, clue)  # the words are there, in the clue's order
+            if run:
+                at, text = run
+                span[key] = text
+        if at is None and nth == 1 and "#" not in text:
+            bare = _without_possessive(text, clue)  # "professional's" for the clue's 'professional'
+            if bare:
+                at, text = bare
+                span[key] = text
+        if at is None and nth == 1 and "#" not in text:
+            import definitions  # scan debris in the clue: the quote of the run as the clue prints it
+            run = definitions.damaged_run(text, clue)
+            if run:
+                at, text = clue.find(run), run
+                span[key] = text
+        if at is not None and clue[at:at + len(text)] != text:
+            span[key] = text = clue[at:at + len(text)]
+        if at is None:
+            raise WordplayError(not_in_clue(text, clue, nth))
+        span["at"] = at
+        used.append((at, at + len(text)))
+    return node
+
+
+# ---------- render ----------
+
+def render(node):
+    """The expression for a tree: parse(render(t)) == t, `at` aside. An
+    unchecked node renders as `?op(...)=GIVES`, which does not parse."""
+    if node.get("unchecked") and "op" in node:
+        inner = render({k: v for k, v in node.items() if k not in ("unchecked", "gives")})
+        return f"?{inner}={node.get('gives', '')}"
+    if "op" not in node:
+        if "words" not in node:
+            return node.get("gives", "")
+        return f"[{node['words']}]{node.get('gives', '')}"
+    inds = "".join(f"<{i['text']}>" for i in node.get("indicators") or [])
+    op = node["op"]
+    if op == "charade":
+        out = []
+        for k, part in enumerate(parts_of(node)):
+            s = render(part)
+            if part.get("op") == "charade":
+                s = f"({s})"
+            out.append(s)
+        joiner = f" +{inds} " if inds else " + "
+        return joiner.join(out) if not inds else out[0] + joiner + " + ".join(out[1:])
+    if op == "anagram" and len(parts_of(node)) > 1:
+        return f"ana{inds}({render(fodder_pool(node))})"
+    args = [render(p) for p in parts_of(node)]
+    if "spelt" in node:
+        args.append(node["spelt"])
+    if op in ("rebus", "reverse"):
+        args.append(f'"{node.get("reading", "")}"')
+    head = NAMES[op] + (f"({node['n']})" if op == "nth" else "")
+    return f"{head}{inds}({', '.join(args)})"
+
+
+# ---------- evaluate ----------
+
+class _NeedTarget(Exception):
+    """An anagram's order is only known against the answer."""
+
+
+def leaf_letters(node):
+    return letters(node["gives"] if "gives" in node else node.get("words"))
+
+
+def parts_of(node):
+    """An op's parts. A file stores no empty list (puzzle_schema.prune: an
+    absent key means empty), so `pal()` over the answer alone is stored with
+    no `parts` key and every reader goes through here."""
+    return node.get("parts") or []
+
+
+def lettered(parts):
+    """The parts that give letters: an unchecked leaf filed with no letters (an
+    unchecked `gives: ""`, a note riding along) gives none."""
+    return [p for p in parts if not (p.get("unchecked") and not letters(p.get("gives")))]
+
+
+def _words(node):
+    """The letters of each word under a selection, when it is a plain leaf."""
+    if "op" not in node and "gives" not in node:
+        return [w for w in (letters(x) for x in re.split(r"[\s\-–—/]+", node["words"])) if w]
+    return None
+
+
+def _select(op, n, s, words, half=False):
+    """Every string `op` can pick from `s`. Where the leaf's words are known the pick
+    is also made from any run of them (the leaf may carry an indicator word, "strain
+    of MRSA"), and a first/last/outer pick is a stretch of any length ("40% of Truro"
+    is TR), a middle pick any centred stretch (ACHE from teachers). `half`: the middle op's
+    indicator says "half", so the pick is also half the letters, from the middle (LIC, the central
+    three of POLICE: a half of an even length cannot be centred, so either side of the centre)."""
+    out = set()
+    if not s:
+        return out
+    words = words or [s]
+    runs = [words[i:j] for i in range(len(words)) for j in range(i + 1, len(words) + 1)]
+    if op in ("first", "last", "nth") and 2 < len(words) <= 7:
+        # a linking word between them is skipped ("blancmange and jelly" for L, E)
+        runs += [list(c) for k in range(2, len(words)) for c in itertools.combinations(words, k)
+                 if c not in map(tuple, runs)]
+    for run in runs:
+        t = "".join(run)
+        if op == "first":
+            out |= {t[:k] for k in range(1, len(t))}
+            out.add("".join(w[0] for w in run))
+        elif op == "last":
+            out |= {t[-k:] for k in range(1, len(t))}
+            out.add("".join(w[-1] for w in run))
+        elif op == "middle":
+            h = len(t) // 2
+            # the plain centre (a lone letter is its own middle), then wider stretches
+            out.add(t[h] if len(t) % 2 else t[h - 1:h + 1])
+            out |= {t[k:len(t) - k] for k in range(1, (len(t) + 1) // 2)}
+            if half and len(t) >= 4:
+                for size in {len(t) // 2, (len(t) + 1) // 2}:
+                    out |= {t[k:k + size] for k in {(len(t) - size) // 2, (len(t) - size + 1) // 2}}
+        elif op == "outer":
+            out |= {t[:k] + t[-k:] for k in range(1, len(t) // 2 + 1)}
+            out.add("".join(w[0] + w[-1] for w in run if len(w) > 1))
+        elif op == "alternate":
+            out |= {t[0::2], t[1::2]}
+            # a run that stops short of the last word's end ("Does Joan vouch" for DEJAVU,
+            # the odd letters of DOESJOANVOU)
+            out |= {t[0::2][:-1], t[1::2][:-1]} if len(t) >= 9 else set()
+        elif op == "regular":
+            out |= {t[k::step] for step in (2, 3, 4) for k in range(step)}
+            # every other pair (DEEP from deCRepIT's pairs) and the letters left once
+            # every 2nd/3rd is discarded (LUBE from pLUMBER's P, M, R)
+            for step in (2, 3):
+                chunks = [t[i:i + step] for i in range(0, len(t), step)]
+                out |= {"".join(chunks[k::2]) for k in (0, 1)}
+                out |= {"".join(c for i, c in enumerate(t) if i % step != k) for k in range(step)}
+        elif op == "nth":
+            if len(t) >= n:
+                out.add(t[n - 1])
+            if all(len(w) >= n for w in run):
+                out.add("".join(w[n - 1] for w in run))
+            out |= {t[n - 1:n - 1 + k] for k in (2, 3) if len(t) >= n - 1 + k}
+    return {x for x in out if x}
+
+
+def _spoon_sound(sounds, gives):
+    """Whether `gives` can be the swap by sound of the two words in `sounds`: spelling
+    shifts with the sound (BEST GEAR -> GUESTBEER), so the check is the frame, not the
+    letters: it opens and closes as the second word does, and the first word's opening
+    letter now sits inside."""
+    ws = [letters(w) for w in (sounds or "").split()]
+    if len(ws) != 2 or not all(ws) or len(gives) < 4:
+        return False
+    a, b = ws
+    return gives[0] == b[0] and gives[-1] == b[-1] and a[0] != b[0] and a[0] in gives[1:]
+
+
+def _onset(s):
+    m = re.match(r"[^AEIOU][^AEIOUY]*|", s)
+    return m.group() if m.group() != s else s[:1]
+
+
+def _removals_all(f, rs):
+    """Letters of each piece of `rs` taken out of `f` in turn (BASTARDS minus T, minus R)."""
+    out = {f}
+    for r in rs:
+        out = set().union(*(_removals(x, r) for x in out)) if out else out
+    return out
+
+
+def _removals(f, r):
+    """Every string left when the letters of `r` are taken out of `f`, each once, in
+    order: one run (STING from NESTING), or scattered letters (B, Y from EQUABLY)."""
+    if not r:
+        return {f}
+    states = {(0, "")}  # (letters of r gone so far, letters kept so far)
+    for i, ch in enumerate(f):
+        left = len(f) - i - 1  # letters after this one
+        nxt = set()
+        for j, kept in states:
+            if len(r) - j <= left:
+                nxt.add((j, kept + ch))
+            if j < len(r) and ch == r[j] and len(r) - j - 1 <= left:
+                nxt.add((j + 1, kept))
+        states = nxt
+        if len(states) > CAP:
+            raise WordplayError(f"del({f}, {r}) has too many readings to check: delete in two steps")
+    return {kept for j, kept in states if j == len(r)}
+
+
+def _moves(f, m):
+    """Every string `f` becomes when one run `m` of its letters is taken out and put
+    back somewhere else (ALBION with its O dropped is ALBINO); never `f` itself."""
+    if not m or len(m) >= len(f):
+        return set()
+    out = set()
+    for k in range(len(f) - len(m) + 1):
+        if f.startswith(m, k):
+            rest = f[:k] + f[k + len(m):]
+            out |= {rest[:j] + m + rest[j:] for j in range(len(rest) + 1)}
+    return out - {f}
+
+
+# What a reversal's indicators say about the stretch it turns round, not the whole word.
+_ENDS = {"first": 0, "initial": 0, "opening": 0, "start": 0, "head": 0, "top": 0, "front": 0,
+         "leading": 0, "beginning": 0, "last": 1, "final": 1, "closing": 1, "end": 1, "tail": 1,
+         "bottom": 1, "finally": 1}
+_SIZES = {"pair": 2, "couple": 2, "two": 2, "three": 3, "four": 4}
+_MIDDLE = {"middle", "centre", "center", "central", "essentially", "inside"}
+
+
+_SCATTER = {"separately", "variously", "individually", "scattered", "spread", "distributed",
+            "dispersed", "apart", "each"}
+
+
+def _scatters(node):
+    """True when a container's indicators say the inner letters go in one by one
+    ("variously interrupting", "separately within"), or when the inner argument is itself
+    several separate letters: a repeat (rep<twice>(U) cutting TREBLE is TRUEBLUE) or a selection
+    over a comma list of words (first<bits of>(Hong, Kong) in PACINO is PACHINKO)."""
+    toks = re.findall(r"[a-z]+", " ".join(i.get("text", "") for i in node.get("indicators") or []).lower())
+    if any(t in _SCATTER for t in toks):
+        return True
+    inner = (node.get("parts") or [None, None])[-1]
+    if node.get("op") == "container" and len(node.get("parts") or []) == 2 and isinstance(inner, dict):
+        if inner.get("op") == "repeat":
+            return True
+        return inner.get("op") in SELECT and len(inner.get("parts") or []) >= 2
+    return False
+
+
+def _spread_in(o, i):
+    """`o` with the letters of `i` dropped in one by one, in order, each at a different
+    place inside it (never at either end): "AB variously interrupting LEVEE" is LEAVEBE."""
+    if len(i) < 2 or len(i) > len(o) - 1:
+        return set()
+    return {"".join(o[a:b] + c for a, b, c in zip((0,) + gaps, gaps + (len(o),), tuple(i) + ("",)))
+            for gaps in itertools.combinations(range(1, len(o)), len(i))}
+
+
+def _span_words(node):
+    """(sides, sizes, halves, middle): the position words in a reversal's indicators,
+    or None when they name no stretch (an ordinary whole-word reversal)."""
+    toks = re.findall(r"[a-z]+|\d+", " ".join(i.get("text", "") for i in node.get("indicators") or []).lower())
+    sides = {_ENDS[t] for t in toks if t in _ENDS}
+    sizes = {_SIZES[t] for t in toks if t in _SIZES} | {int(t) for t in toks if t.isdigit()}
+    half = "half" in toks
+    middle = any(t in _MIDDLE for t in toks)
+    return (sides, sizes, half, middle) if sides or sizes or half or middle else None
+
+
+def _span_flips(node, v):
+    """The strings `v` becomes when the reversal turns round only the stretch its
+    indicators name ("last pair of", "turning tail", "half sent back"): a proper stretch
+    of 2+ letters at the end they name, of the size they name."""
+    named = _span_words(node)
+    if not named or len(v) < 3:
+        return set()
+    sides, sizes, half, middle = named
+    out = set()
+    for a in range(len(v)):
+        for b in range(a + 2, len(v) + 1):
+            n = b - a
+            if n == len(v):
+                continue
+            if sizes and n not in sizes:
+                continue
+            if half and not sizes and n not in (len(v) // 2, (len(v) + 1) // 2):
+                continue
+            if sides and not middle and not ((0 in sides and a == 0) or (1 in sides and b == len(v))):
+                continue
+            out.add(v[:a] + v[a:b][::-1] + v[b:])
+    return out - {v}
+
+
+def values(node):
+    """Every string `node` can give, without the answer to steer it."""
+    if node.get("unchecked"):
+        return {letters(node.get("gives"))}
+    if "op" not in node:
+        return {leaf_letters(node)}
+    op, parts = node["op"], parts_of(node)
+    if op == "anagram":
+        raise _NeedTarget(node)
+    if op in ("cryptic", "rebus", "reverse", "composite"):
+        raise _NeedTarget(node)
+    if op == "charade":
+        out = {""}
+        for p in parts:
+            out = {a + b for a in out for b in values(p)}
+            if len(out) > CAP:
+                raise WordplayError(f"{render(node)} has too many readings to check: "
+                                    f"write the letters each part gives")
+        return out
+    if op == "reversal":
+        vs = values(parts[0])
+        out = {v[::-1] for v in vs}.union(*(_span_flips(node, v) for v in vs))
+        return out | _each_flipped(parts[0])
+    if op == "container":
+        outs = {o[:k] + i + o[k:] for o in values(parts[0]) for i in values(parts[1])
+                for k in range(1, len(o))}
+        if _scatters(node):
+            for o in values(parts[0]):
+                for i in values(parts[1]):
+                    outs |= _spread_in(o, i)
+        return outs
+    if op == "deletion":
+        out = set()
+        for f in values(parts[0]):
+            for rs in itertools.product(*(sorted(values(p)) for p in parts[1:])):
+                out |= _removals_all(f, rs)
+        return out
+    if op == "hidden":
+        leaf = parts[0]
+        text = letters(leaf.get("words"))
+        # '&' is read AND by a hidden word as everywhere else ('Accident & Emergency' hides TANDEM)
+        also = letters(str(leaf.get("words") or "").replace("&", " and ")) if "&" in str(leaf.get("words")) else ""
+        if re.search(r"\d", str(leaf.get("words"))) and leaf.get("gives"):
+            # a cross-reference or numeral ('6', '70s'): the words it stands for are what hides the answer
+            text = letters(leaf["gives"])
+        elif "gives" in leaf:
+            g = leaf["gives"]
+            # a setter's slip in the printed run, named in tools/data/setter_error.json
+            return {g} if g in text or g in also or slipped_run(text, g) else set()
+        return {t[a:b] for t in (text, also) for a in range(len(t)) for b in range(a + 1, len(t) + 1)}
+    if op == "homophone":
+        return {node["spelt"]}
+    if op == "spoonerism":
+        if "spelt" in node:
+            return {node["spelt"]}
+        if len(parts) == 1:
+            g = letters(parts[0].get("gives"))
+            return {g} if _spoon_sound(parts[0].get("soundsLike"), g) else set()
+        out = set()
+        for a in values(parts[0]):
+            for b in values(parts[1]):
+                for oa, ob in ((_onset(a), _onset(b)), (a[:1], b[:1])):
+                    out.add(ob + a[len(oa):] + oa + b[len(ob):])
+        return out
+    if op == "substitution" and len(parts) == 2:
+        # the centre of x swapped for the other piece, in whichever order they are filed
+        out = set()
+        for a, b in ((0, 1), (1, 0)):
+            for x in values(parts[a]):
+                for new in values(parts[b]):
+                    out |= {x[:k] + new + x[len(x) - k:] for k in range(1, (len(x) + 1) // 2)}
+        return out
+    if op == "substitution":
+        out = set()
+        for x in values(parts[0]):
+            for old in values(parts[1]):
+                for new in values(parts[2]):
+                    out |= {x[:k] + new + x[k + len(old):] for k in range(len(x)) if x.startswith(old, k)}
+        return out
+    if op == "cycling":
+        return {v[k:] + v[:k] for v in values(parts[0]) for k in range(1, len(v))}
+    if op == "repeat":
+        return {v + v for v in values(parts[0]) if v}
+    if op == "move":
+        return {r for f in values(parts[0]) for m in values(parts[1]) for r in _moves(f, m)}
+    if op == "palindrome":
+        real = lettered(parts)
+        if not real:
+            # pal() alone: the answer is the wordplay, known only against it.
+            raise _NeedTarget(node)
+        out = values(real[0] if len(real) == 1 else {"op": "charade", "parts": real})
+        return {v for v in out if v == v[::-1]}
+    if op in SELECT and len(parts) > 1:
+        # one indicator over a list: outer<fringes of>(Argive, Greece, Anatolian) picks from
+        # each part in turn and joins the picks in order
+        out = {""}
+        for p in parts:
+            out = {a + b for a in out for b in values({**node, "parts": [p]})}
+            if len(out) > CAP:
+                raise WordplayError(f"{render(node)} has too many readings to check")
+        if op in ("alternate", "regular", "nth") and all(_words(p) for p in parts):
+            # alternate/regular/nth letters of "gear on a site" run along the words as one
+            # string (ERNST, Painter: alt<dropping odd bits of>([gear], [on], [a], [site])), not
+            # word by word: the joined words are a reading too
+            # (only the whole joined string, though: _select's drop-the-last-letter variants
+            # for a run that stops short would read fanned vitriol as ANDIR + ON, ahead of
+            # ANDIRO + N, for ANDIRON)
+            if op == "alternate":
+                t = "".join(w for p in parts for w in _words(p))
+                out |= {x for x in (t[0::2], t[1::2]) if x}
+            else:
+                joined = {"words": " ".join(p["words"] for p in parts)}
+                out |= values({**node, "parts": [joined]})
+        return out
+    if op in SELECT:
+        leaf = parts[0]
+        half = op == "middle" and any(re.search(r"\bhalf\b", i.get("text", ""), re.I)
+                                      for i in node.get("indicators") or [])
+        if "op" not in leaf and leaf.get("words") and (leaf.get("select") or "gives" not in leaf):
+            # a leaf that names its own pick (select: last, gives AM), or the bare clue words
+            # (last<last>([Observer's]) is R): the pick is made here from the clue words, with
+            # or without a possessive 's
+            raw = re.split(r"[\s\-–—/]+", leaf["words"])
+            out = set()
+            for drop in (False, True):
+                ws = [w for w in (letters(re.sub(r"['’]s$", "", w) if drop else w) for w in raw) if w]
+                out |= _select(op, node.get("n"), "".join(ws), ws, half)
+            return out
+        words = _words(leaf)
+        return set().union(*(_select(op, node.get("n"), v, words, half) for v in values(leaf)))
+    raise WordplayError(f"unknown op {op!r}")
+
+
+def _is_plain_charade(child):
+    return (isinstance(child, dict) and child.get("op") == "charade" and not child.get("unchecked")
+            and len(child.get("parts") or []) >= 2)
+
+
+def _flipped_run(charade):
+    """A copy of a charade with each piece turned round where it stands (sharing the pieces, so
+    their gives fill in): one reversal indicator over a charade reads PAM + PER for PAMPER's
+    plan + agent as well as the whole run backwards (setters: 'plan agent coming back')."""
+    return {**charade, "parts": [{"op": "reversal", "parts": [p]} for p in charade["parts"]]}
+
+
+def _each_flipped(child):
+    """The readings of `child` when it is a charade whose every piece is reversed in place."""
+    if not _is_plain_charade(child):
+        return set()
+    return values(_flipped_run(child))
+
+
+def _each_flipped_ok(child, want):
+    try:
+        return want in _each_flipped(child)
+    except (_NeedTarget, WordplayError):
+        return False
+
+
+def lengths(node):
+    """Every length `node` can give."""
+    op = node.get("op")
+    if node.get("unchecked"):
+        return {len(letters(node.get("gives")))}
+    if op == "anagram":
+        return lengths(fodder_pool(node))
+    if op == "reversal":
+        return lengths(parts_of(node)[0])
+    if op in ("cryptic", "rebus", "reverse"):
+        return None
+    if op == "composite":
+        try:
+            return {len(f) - len(m) for f in _bag(parts_of(node)[0]) for m in values(parts_of(node)[1])}
+        except (_NeedTarget, WordplayError):
+            return None
+    if op == "charade":
+        out = {0}
+        for p in parts_of(node):
+            ls = lengths(p)
+            if ls is None:
+                return None
+            out = {a + b for a in out for b in ls}
+        return out
+    if op == "container":
+        a, b = lengths(parts_of(node)[0]), lengths(parts_of(node)[1])
+        return None if a is None or b is None else {x + y for x in a for y in b}
+    try:
+        return {len(v) for v in values(node)}
+    except _NeedTarget:
+        return None
+
+
+def _bag(node):
+    """The sorted letters of `node` where its order is open (anagram fodder)."""
+    try:
+        return {"".join(sorted(v)) for v in values(node)}
+    except _NeedTarget:
+        op = node["op"]
+        if op == "anagram":
+            return _bag(fodder_pool(node))
+        if op == "reversal":
+            return _bag(parts_of(node)[0])
+        if op == "repeat":
+            return {"".join(sorted(b + b)) for b in _bag(parts_of(node)[0])}
+        if op == "charade":
+            out = {""}
+            for p in parts_of(node):
+                out = {"".join(sorted(a + b)) for a in out for b in _bag(p)}
+            return out
+        if op == "container":
+            return {"".join(sorted(a + b)) for a in _bag(parts_of(node)[0]) for b in _bag(parts_of(node)[1])}
+        raise WordplayError(f"{render(node)}: an anagram inside {NAMES[op]}() can't be "
+                            f"checked; write the letters it gives as a leaf")
+
+
+def match(node, want, got=None):
+    """{id(node): letters} for `node` and everything under it giving `want`,
+    or None when it can't."""
+    got = {} if got is None else got
+    op = node.get("op")
+    if node.get("unchecked"):
+        # Its letters are its `gives`, none when absent (a file stores no ""),
+        # as values() and lengths() read it.
+        ok = letters(node.get("gives")) == want
+        for p in node.get("parts") or []:
+            _fill(p, got)
+    elif op is None:
+        ok = leaf_letters(node) == want
+    elif op in ("cryptic", "rebus", "reverse"):
+        ok = True
+        for p in parts_of(node):
+            _fill(p, got)
+    elif op == "composite":
+        ok = _match_composite(node, want, got)
+    elif op == "charade":
+        ok = _match_run(parts_of(node), want, got)
+    elif op == "reversal":
+        ok = match(parts_of(node)[0], want[::-1], got) is not None
+        if not ok and _each_flipped_ok(parts_of(node)[0], want):
+            ok = match(_flipped_run(parts_of(node)[0]), want, got) is not None
+        if not ok and _span_words(node):
+            try:
+                whole = sorted(v for v in values(parts_of(node)[0]) if want in _span_flips(node, v))
+            except _NeedTarget:
+                whole = []
+            if whole:
+                ok = match(parts_of(node)[0], whole[0], got) is not None
+    elif op == "repeat":
+        half = len(want) // 2
+        ok = bool(want) and len(want) % 2 == 0 and want[:half] == want[half:] \
+            and match(parts_of(node)[0], want[:half], got) is not None
+    elif op == "anagram":
+        child = fodder_pool(node)
+        ok = False
+        if "".join(sorted(want)) in _bag(child):
+            try:
+                # A reading that is a real anagram first (one already in the
+                # answer's order is no anagram: _check_ops), then the first in
+                # order, so the result never depends on set order.
+                same = sorted((v for v in values(child) if sorted(v) == sorted(want)),
+                              key=lambda v: (v == want, v))
+            except _NeedTarget:
+                same = []
+            ok = True
+            if same:
+                match(child, same[0], got)
+                if len(parts_of(node)) > 1:
+                    got.pop(id(child), None)
+    elif op == "container":
+        ok = _match_container(node, want, got)
+    elif op == "deletion":
+        ok = False
+        for f in sorted(values(parts_of(node)[0])):
+            for rs in itertools.product(*(sorted(values(p)) for p in parts_of(node)[1:])):
+                if want in _removals_all(f, rs):
+                    match(parts_of(node)[0], f, got)
+                    for p, r in zip(parts_of(node)[1:], rs):
+                        match(p, r, got)
+                    ok = True
+                    break
+            if ok:
+                break
+    elif op == "move":
+        ok = False
+        for f in sorted(values(parts_of(node)[0])):
+            m = next((m for m in sorted(values(parts_of(node)[1])) if want in _moves(f, m)), None)
+            if m is not None:
+                match(parts_of(node)[0], f, got)
+                match(parts_of(node)[1], m, got)
+                ok = True
+                break
+    elif op == "palindrome":
+        real = lettered(parts_of(node))
+        ok = want == want[::-1] and (not real or _match_run(real, want, got))
+        for p in parts_of(node):
+            if not any(p is r for r in real):
+                _fill(p, got)
+    elif op in ("homophone", "spoonerism") and "spelt" in node:
+        ok = node["spelt"] == want
+        for p in parts_of(node):
+            _fill(p, got)
+    else:
+        ok = want in values(node)
+        if ok and op == "cycling" and len(parts_of(node)) == 1:
+            # the reading of the part that cycles into the answer, not its default
+            for v in sorted(values(parts_of(node)[0])):
+                if want in values({**node, "parts": [{"gives": v, "unchecked": True}]}):
+                    match(parts_of(node)[0], v, got)
+                    break
+            else:
+                _fill(parts_of(node)[0], got)
+        elif ok and op == "substitution" and _match_parts(node, want, got):
+            pass
+        elif ok:
+            for p in parts_of(node):
+                if op == "hidden":
+                    got[id(p)] = want
+                else:
+                    _fill(p, got)
+    if not ok:
+        return None
+    got[id(node)] = want
+    return got
+
+
+def _match_composite(node, want, got):
+    """The fodder's letters are the answer's plus the letters taken out."""
+    fodder, minus = parts_of(node)
+    bags = _bag(fodder)
+    for m in sorted(values(minus)):
+        if "".join(sorted(want + m)) in bags:
+            match(minus, m, got)
+            try:
+                same = sorted(v for v in values(fodder) if sorted(v) == sorted(want + m))
+            except _NeedTarget:
+                same = []
+            if same:
+                match(fodder, same[0], got)
+            return True
+    return False
+
+
+#: The most readings of a node's parts _match_parts tries together.
+PARTS_TRIED = 4096
+
+
+def _match_parts(node, want, got):
+    """Match each part of `node` to the reading of it that makes `want`, shortest
+    readings first, and say whether one did. _fill's defaults are each part's
+    plainest reading, which need not be the one the answer takes: "first letter
+    of European" is EU in sub(VOYEUR, EU, AGE) for VOYAGER, not E."""
+    parts = parts_of(node)
+    pools = [sorted(values(p), key=lambda v: (len(v), v)) for p in parts]
+    if not all(pools) or math.prod(len(v) for v in pools) > PARTS_TRIED:
+        return False
+    for combo in itertools.product(*pools):
+        if want in values({**node, "parts": [{"gives": v, "unchecked": True} for v in combo]}):
+            for p, v in zip(parts, combo):
+                match(p, v, got)
+            return True
+    return False
+
+
+def _fill(node, got):
+    """Record a concrete reading of `node` where no answer steers it."""
+    try:
+        # The shortest reading first: a selection's default is one letter, and a
+        # longer stretch is only the answer's to ask for.
+        vs = sorted(values(node), key=lambda v: (len(v), v))
+    except _NeedTarget:
+        return
+    if vs:
+        # Readings where every selection takes its plain default come first.
+        try:
+            plain = sorted(values(_defaulted(node)), key=lambda v: (len(v), v))
+        except (_NeedTarget, WordplayError):
+            plain = []
+        match(node, next((v for v in plain if v in vs), vs[0]), got)
+
+
+def _defaulted(node):
+    """A copy of `node` with each selection over a leaf replaced by the letters its
+    indicator plainly picks."""
+    if not isinstance(node, dict) or node.get("unchecked") or "op" not in node:
+        return node
+    pick = _default_pick(node)
+    if pick:
+        return {"gives": pick, "unchecked": True}
+    return {**node, "parts": [_defaulted(p) for p in node.get("parts") or []]}
+
+
+def _default_pick(node, vs=None):
+    """What a selection's indicator plainly asks of the leaf's letters (the first,
+    the last, the outer pair, the centre, the nth), when that is a reading of it."""
+    op, parts = node.get("op"), parts_of(node)
+    if op not in ("first", "last", "outer", "middle", "nth") or len(parts) != 1:
+        return None
+    try:
+        for s in sorted(values(parts[0])):
+            h = len(s) // 2
+            pick = {"first": s[:1], "last": s[-1:], "outer": s[:1] + s[-1:] if len(s) > 1 else "",
+                    "middle": s[h] if len(s) % 2 else s[h - 1:h + 1],
+                    "nth": s[node["n"] - 1:node["n"]] if node.get("n") else ""}[op]
+            if pick and (vs is None or pick in vs):
+                return pick
+    except _NeedTarget:
+        pass
+    return None
+
+
+def _match_run(parts, want, got):
+    if not parts:
+        return want == ""
+    head, rest = parts[0], parts[1:]
+    ls = lengths(head)
+    cands = range(len(want) + 1) if ls is None else sorted(ls)
+    for n in cands:
+        if n > len(want):
+            continue
+        trial = dict(got)
+        if match(head, want[:n], trial) is not None and _match_run(rest, want[n:], trial):
+            got.update(trial)
+            return True
+    return False
+
+
+def _match_container(node, want, got):
+    outer, inner = parts_of(node)
+    for n in sorted(lengths(inner) or range(1, len(want))):
+        for k in range(1, len(want) - n):
+            trial = dict(got)
+            if (match(inner, want[k:k + n], trial) is not None
+                    and match(outer, want[:k] + want[k + n:], trial) is not None):
+                got.update(trial)
+                return True
+    if _scatters(node):
+        # A selection (or a bare leaf) matches exactly the strings values() gives, so ask
+        # values() once: the combinations whose letters are not among them fail without
+        # a match() each, which re-ran values() on every one (C(14,7) of them).
+        gives = None
+        if not inner.get("unchecked") and (inner.get("op") is None or inner.get("op") in SELECT):
+            try:
+                gives = values(inner)
+            except (_NeedTarget, WordplayError):
+                gives = None
+        for n in sorted(lengths(inner) or range(2, len(want))):
+            for pos in itertools.combinations(range(1, len(want) - 1), n):
+                if gives is not None and "".join(want[j] for j in pos) not in gives:
+                    continue
+                trial = dict(got)
+                rest = "".join(c for j, c in enumerate(want) if j not in pos)
+                if (match(inner, "".join(want[j] for j in pos), trial) is not None
+                        and match(outer, rest, trial) is not None):
+                    got.update(trial)
+                    return True
+    return False
+
+
+def _gives(node):
+    try:
+        vs = sorted(values(node), key=lambda v: (len(v), v))
+    except _NeedTarget:
+        b = sorted(_bag(node))
+        return f"the letters {b[0]}" if len(b) == 1 else "letters in some order"
+    except WordplayError:
+        return "too many readings"
+    if not vs:
+        return "nothing"
+    return vs[0] if len(vs) == 1 else " or ".join(vs[:4]) + (" …" if len(vs) > 4 else "")
+
+
+def merge_hidden_leaves(pieces):
+    """One leaf for the plain leaves of a `+` list under hid(): their clue words joined (a hidden word runs
+    across words), or, for cross-references and numerals ([24D]FLAT + [10]MATES), the words they stand for
+    in `gives`. None when a piece is anything else, or a looked-up word (a hidden word reads printed letters)."""
+    if len(pieces) < 2 or any("op" in p or not p.get("words") for p in pieces):
+        return None
+    if all("gives" not in p for p in pieces):
+        merged = {"words": " ".join(p["words"] for p in pieces)}
+    elif all(re.search(r"\d", str(p["words"])) and p.get("gives") for p in pieces):
+        merged = {"words": " ".join(p["words"] for p in pieces), "gives": "".join(p["gives"] for p in pieces)}
+    else:
+        return None
+    if "at" in pieces[0]:
+        merged["at"] = pieces[0]["at"]
+    return merged
+
+
+def _hid_over_reversal_hint(node, want):
+    """hid(rev(words)) for a word hidden backwards: hid() takes a leaf, so the reversal goes round the hidden
+    word, rev<indicator>(hid<indicator>([words])). Named only when that reading gives `want`."""
+    parts = parts_of(node)
+    if node.get("op") != "hidden" or len(parts) != 1 or parts[0].get("op") != "reversal":
+        return None
+    rev = parts[0]
+    kids = parts_of(rev)
+    if len(kids) != 1:
+        return None
+    kid = kids[0]
+    if kid.get("op") == "charade":
+        kid = merge_hidden_leaves(parts_of(kid))
+    if not kid or "op" in kid:
+        return None
+    new = {**rev, "parts": [{**node, "parts": [kid]}]}
+    try:
+        if match(new, want) is None:
+            return None
+    except (_NeedTarget, WordplayError):
+        return None
+    return (f"hid() takes a leaf, so a word hidden backwards is {render(new)}: write the hid() inside "
+            f"the rev(), with the reversal word as rev()'s indicator")
+
+
+def _hint(node, want):
+    """A one-sentence correction for two common right-parse-written-wrong shapes, or None:
+    a selection or hidden word over a `+` run (the op applies to the run's letters, not
+    to each word), and a spoonerism whose words are wrapped in sound()."""
+    op, parts = node.get("op"), parts_of(node)
+    if op == "hidden":
+        said = _hid_over_reversal_hint(node, want)
+        if said:
+            return said
+        if len(parts) == 1 and "op" not in parts[0] and not parts[0].get("gives") and len(want) > 2 \
+                and want in letters(parts[0].get("words"))[::-1] and want not in letters(parts[0].get("words")):
+            return (f"hid() reads forwards only: {want} is hidden BACKWARDS in these words, so write "
+                    f"rev<reversal word>(hid<hidden-word indicator>([those words])), the reversal word as "
+                    f"rev()'s indicator (hid() has no reading of its own for it)")
+    if op in SELECT + ("hidden",) and len(parts) == 1 and parts[0].get("op") == "charade":
+        pieces = parts_of(parts[0])
+        name = NAMES[op]
+        if op == "hidden":
+            merged = merge_hidden_leaves(pieces)
+            if merged:
+                new = {**node, "parts": [merged]}
+                try:
+                    ok = match(new, want) is not None
+                except (_NeedTarget, WordplayError):
+                    ok = False
+                if ok:
+                    return f"hid() takes one leaf, so a hidden word across words is {render(new)}"
+            return f"hid() takes one leaf, not a + list: put the words in one [bracket]"
+        new = {**node, "parts": pieces}
+        try:
+            ok = match(new, want) is not None
+        except (_NeedTarget, WordplayError):
+            ok = False
+        if ok:
+            return f"{name}() over a + list works on the joined letters; commas apply it to each word: {render(new)}"
+        return f"{name}() over a + list works on the joined letters; commas apply it to each word: {name}(a, b, c)"
+    if op == "spoonerism" and "spelt" not in node and any(p.get("op") == "homophone" for p in parts):
+        inner = [parts_of(p)[0] if p.get("op") == "homophone" else p for p in parts]
+        if (len(inner) == 2 and all("op" not in p and leaf_letters(p) != want for p in inner)
+                and _spoon_sound(" ".join(leaf_letters(p) for p in inner), want)):
+            return (f"spoon() swaps the starts of its two words itself, so give it the clue words "
+                    f"and the spelling heard, not sound(): {render({**node, 'parts': inner, 'spelt': want})}")
+        return ("spoon() swaps the starts of its two words itself, so give it the clue words "
+                "and the spelling heard, not sound(): spoon(a, b, SPELT)")
+    return None
+
+
+def _seam_hint(node, want):
+    """A charade whose pieces each give one string and join one letter over or under the answer: say which
+    letter and where (HONEY + YTRAP is HONEYYTRAP, the answer HONEYTRAP: a letter doubled at the join), so the
+    model changes the piece that is wrong and not the whole parse. Not mended in code: either side could be
+    the slip. None unless exactly one letter is the difference."""
+    pieces = parts_of(node)
+    try:
+        got = [next(iter(values(p))) if len(values(p)) == 1 else None for p in pieces]
+    except (WordplayError, _NeedTarget):
+        return None
+    if len(pieces) < 2 or None in got:
+        return None
+    joined = "".join(got)
+    bounds, at = [], 0
+    for g in got:
+        at += len(g)
+        bounds.append(at)
+    for i in range(len(joined)):
+        if len(joined) == len(want) + 1 and joined[:i] + joined[i + 1:] == want:
+            who = [render(p) for p, hi in zip(pieces, bounds) if hi - len(got[bounds.index(hi)]) <= i < hi]
+            return (f"{render(node)} gives {joined}, one letter too many for {want}: the extra {joined[i]} "
+                    f"is in {who[0]} (or the piece next to it repeats it); cut it from the piece whose letters "
+                    f"are not its clue word's own")
+        if len(joined) + 1 == len(want) and joined[:i] + want[i] + joined[i:] == want:
+            near = [render(p) for p, hi in zip(pieces, bounds) if hi == i or hi - len(got[bounds.index(hi)]) == i]
+            return (f"{render(node)} gives {joined}, one letter short of {want}: {want[i]} is missing at "
+                    f"letter {i + 1}" + (f", at the join of {' and '.join(near)}" if near else "") +
+                    "; a piece lacks it or a piece is missing")
+    return None
+
+
+def _hidden_looked_up_hint(node, want):
+    """hid() over a leaf whose filed letters are a looked-up word ([US state]IDAHO): a hidden word reads the
+    clue's own printed letters, so the answer sits in no printed word and the hid() is the slip."""
+    parts = parts_of(node)
+    if node.get("op") != "hidden" or len(parts) != 1 or "op" in parts[0] or not parts[0].get("gives"):
+        return None
+    lf = parts[0]
+    if re.search(r"\d", str(lf.get("words"))) or letters(lf.get("words")) == letters(lf["gives"]):
+        return None
+    printed = letters(lf.get("words"))
+    if want in printed and lf["gives"] != want and lf["gives"] not in printed:
+        # the answer's own letters are printed in the leaf's words and the filed letters are not: a slip
+        # in copying the run out, not a looked-up word
+        return (f"hid() reads the letters printed in the clue: {lf.get('words')!r} prints {want}, not "
+                f"{lf['gives']}; write {render({**node, 'parts': [{**lf, 'gives': want}]})}")
+    if lf["gives"] == want:
+        return (f"hid() reads the letters printed in the clue, and {lf.get('words')!r} does not print {want}: "
+                f"hide it in the words the clue prints, or take it as a plain leaf ({render(lf)}) and drop the hid()")
+    return (f"hid() reads the letters printed in the clue, and {lf.get('words')!r} does not print {want}: "
+            f"{lf['gives']} is a word you looked up, so no hidden word. Take {want} from {lf['gives']} with "
+            f"first(), last() or del() over {render(lf)}, or write the printed words in the hid() leaf")
+
+
+def diagnose(node, want):
+    """The deepest node that fails to give its share of `want`, in words."""
+    op = node.get("op")
+    hint = _hint(node, want)
+    if hint:
+        return hint
+    ls = lengths(node)
+    hint = _container_reversed_hint(node, want) or _charade_container_hint(node, want) or _repeat_count_hint(node, want) or _hidden_looked_up_hint(node, want)
+    hint = hint or _surplus_piece_hint(node, want) or _leaf_trim_hint(node, want)
+    hint = hint or _container_inner_hint(node, want) or _partial_reversal_hint(node, want)
+    if hint:
+        return hint
+    if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
+        sizes = [next(iter(lengths(p))) for p in parts_of(node)]
+        if sum(sizes) == len(want):
+            at = 0
+            for p, n in zip(parts_of(node), sizes):
+                if match(p, want[at:at + n]) is None:
+                    return diagnose(p, want[at:at + n])
+                at += n
+    if op == "reversal" and (not ls or len(want) in ls):
+        child = parts_of(node)[0]
+        if "op" not in child and leaf_letters(child) == want:
+            return (f"{render(child)} already reads {want}, but a leaf gives its letters "
+                    f"before the reversal: write {render({**child, 'gives': want[::-1]})} inside rev()")
+        return diagnose(child, want[::-1]) + " (inside the reversal, read backwards)"
+    if op == "palindrome":
+        if want != want[::-1]:
+            return f"{render(node)}: {want} does not read the same backwards"
+        real = lettered(parts_of(node))
+        return diagnose(real[0] if len(real) == 1 else {"op": "charade", "parts": real}, want)
+    if op == "composite":
+        fodder, minus = parts_of(node)
+        try:
+            bags, taken = _bag(fodder), values(minus)
+        except (WordplayError, _NeedTarget) as e:
+            return str(e)
+        if not bags or not taken:
+            return f"{render(node)} gives no letters"
+        bag, m = min(bags, key=len), min(taken, key=len)
+        extra = "".join(sorted((_count(bag) - _count(want + m)).elements()))
+        short = "".join(sorted((_count(want + m) - _count(bag)).elements()))
+        return (f"{render(node)}: the fodder has the letters {bag}, which must be the answer {want} "
+                f"plus the letters taken out ({m}), {len(want + m)} in all" +
+                (f"; the fodder has {extra} to spare" if extra else "") +
+                (f"; it lacks {short}" if short else ""))
+    if op == "anagram":
+        try:
+            bags = _bag(fodder_pool(node))
+        except WordplayError as e:
+            return str(e)
+        if not bags:
+            return _gives_nothing(fodder_pool(node))
+        bag = min(bags, key=len)
+        extra = "".join(sorted((_count(bag) - _count(want)).elements()))
+        short = "".join(sorted((_count(want) - _count(bag)).elements()))
+        return (f"{render(node)} has the letters {bag}; the answer needs an anagram of {want} "
+                f"here" + (f" (the fodder has {extra} to spare" if extra else " (") +
+                (f"{'; ' if extra else ''}it lacks {short})" if short else ")") +
+                (f": one letter swapped. If the clue prints {extra} where the anagram needs {short} (an OCR "
+                 f"slip: m/rn, o/u, I/l), give the entry printedClue with that letter corrected; otherwise "
+                 f"the fodder is the wrong words" if len(extra) == 1 == len(short) else ""))
+    seam = _seam_hint(node, want) if op == "charade" else None
+    if seam:
+        return seam
+    seam = _leaf_trim_hint(node, want, choice=True)    # after the join messages, which name the letter exactly
+    if seam:
+        return seam
+    msg = f"{render(node)} gives {_gives(node)}; the answer needs {want} here"
+    if op is None and leaf_letters(node)[::-1] == want:
+        msg += (f". {leaf_letters(node)} reads backwards: a leaf's letters come before any "
+                f"operation, so write rev<indicator>(...) round it")
+    elif ls and len(want) not in ls:
+        msg += f" ({'/'.join(map(str, sorted(ls)))} letters against {len(want)})"
+    return msg
+
+
+def _tree_gives(node, want):
+    try:
+        return match(node, want) is not None
+    except (WordplayError, _NeedTarget, IndexError, KeyError, TypeError, ValueError):
+        return False
+
+
+def _surplus_piece_hint(node, want):
+    """[A] + [way]LANE round PT for PLANET: the charade is the answer once one piece is cut. Named only
+    when exactly one piece, anywhere in `node`, can be cut (a charade keeps two or more) to make it give
+    `want`; the message says to cut it and leave its clue words to the definition or as link words."""
+    if node.get("op") is None:
+        return None
+    found = []
+    for k, n in enumerate(_walk(node)):
+        parts = n.get("parts") or []
+        if n.get("op") != "charade" or len(parts) < 2:
+            continue
+        for i in range(len(parts)):
+            new = copy.deepcopy(node)
+            m = _walk(new)[k]
+            del m["parts"][i]
+            if len(m["parts"]) == 1:
+                only = m["parts"][0]
+                m.clear()
+                m.update(only)
+            if _tree_gives(new, want):
+                found.append(parts[i])
+    if len(found) != 1:
+        return None
+    return (f"{render(node)} gives {_gives(node)}, but the piece {render(found[0])} is surplus: without it "
+            f"the wordplay gives {want}. Cut it from the wordplay; if its clue word only links or points "
+            f"at the definition, it is a link word and needs no leaf")
+
+
+def _leaf_trim_hint(node, want, choice=False):
+    """[article]AN in ins(MINE, AN) for MAINE: one leaf's letters are one letter too long. Every leaf that,
+    with one letter dropped (an end, or inside: [cube]DICE -> DIE), makes `node` give `want` is named; one
+    candidate is said plainly; two or three (`choice`) as a choice, since only the clue word's meaning picks one."""
+    if node.get("op") is None:
+        return None
+    found, seen = [], set()
+    for k, n in enumerate(_walk(node)):
+        g = str(n.get("gives") or "")
+        if n.get("op") is not None or len(g) < 2 or not g.isalpha():
+            continue
+        for i in range(len(g)):
+            short = g[:i] + g[i + 1:]
+            if (k, short) in seen:
+                continue
+            seen.add((k, short))
+            new = copy.deepcopy(node)
+            _walk(new)[k]["gives"] = short
+            if _tree_gives(new, want):
+                where = "end" if i == len(g) - 1 else "start" if i == 0 else f"inside, its {g[i]}"
+                found.append((n, short, where))
+    if not found or len(found) > 3 or (len(found) > 1 and not choice):
+        return None
+    if len(found) == 1:
+        n, short, where = found[0]
+        return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. It would give it with "
+                f"{render(n)} shortened at its {where} to {short}: write {render({**n, 'gives': short})} if that "
+                f"is what the clue word means, else another piece is wrong")
+    opts = " or ".join(render({**n, "gives": short}) for n, short, _ in found)
+    return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. One leaf is a letter too long: "
+            f"write {opts}, whichever is what its clue word means (if neither is, another piece is wrong)")
+
+
+def _container_inner_hint(node, want):
+    """ins(SCARCE, F) for SCARFACE: the outer piece is right, the answer is that piece with a run of letters
+    dropped in (SCAR + FA + CE), and the inner piece gives other letters or a different count. Names the run the
+    answer needs inside, so the model re-reads the inner clue words for it and not the whole parse. Quiet when the
+    outer gives several strings, no position fits, or more than three runs do."""
+    parts = parts_of(node)
+    if node.get("op") != "container" or len(parts) != 2 or _scatters(node):
+        return None
+    outer, inner = parts
+    try:
+        outs = values(outer)
+    except (WordplayError, _NeedTarget):
+        return None
+    if len(outs) != 1:
+        return None
+    o = next(iter(outs))
+    need = len(want) - len(o)
+    if need < 1 or len(o) < 2:
+        return None
+    runs = {want[i:i + need]: i for i in range(1, len(o)) if want[:i] == o[:i] and want[i + need:] == o[i:]}
+    if not runs or len(runs) > 3:
+        return None
+    return (f"{render(node)} gives {_gives(node)}; with {render(outer)} outside, the answer {want} needs "
+            f"{' or '.join(runs)} inside it, but {render(inner)} gives {_gives(inner)}: write the inner piece "
+            f"so it gives {' or '.join(runs)} (re-read its clue words), or another piece is wrong")
+
+
+def _partial_reversal_hint(node, want):
+    """rev(FELT) for LEFT: the answer is the leaf with only a stretch of it turned round (FEL to LEF), which rev()
+    cannot say (it turns the whole leaf); sub<indicator>(leaf, FEL, LEF) can. Named only when the leaf is a plain
+    lettered leaf and one stretch of two or more letters, turned, makes `want`."""
+    parts = parts_of(node)
+    if node.get("op") != "reversal" or len(parts) != 1 or "op" in parts[0]:
+        return None
+    x = leaf_letters(parts[0])
+    if len(x) != len(want) or x == want or x[::-1] == want:
+        return None
+    lo = next(i for i in range(len(x)) if x[i] != want[i])
+    hi = max(i for i in range(len(x)) if x[i] != want[i])
+    if hi <= lo or x[lo:hi + 1][::-1] != want[lo:hi + 1]:
+        return None
+    seg = x[lo:hi + 1]
+    ind = " ".join(i.get("text", "") for i in node.get("indicators") or []) or "indicator"
+    return (f"rev<{ind}> turns the whole of {render(parts[0])}, but {want} is {x} with only {seg} turned round "
+            f"(needs {want}): write "
+            f"sub<{ind}>({render(parts[0])}, {seg}, {seg[::-1]}), keeping the clue words for the turning as the indicator")
+
+
+def _container_reversed_hint(node, want):
+    """ins(LATE, CO) for LOCATE: one argument reads backwards in the answer (LATE round OC), which
+    only rev<indicator>(...) round it can say. Named only when exactly one argument, reversed, makes the
+    container give `want`."""
+    parts = parts_of(node)
+    if node.get("op") != "container" or len(parts) != 2:
+        return None
+    ok = []
+    for i in (0, 1):
+        new = copy.deepcopy(node)
+        new["parts"][i] = {"op": "reversal", "parts": [new["parts"][i]]}
+        try:
+            if match(new, want) is not None:
+                ok.append(i)
+        except (WordplayError, _NeedTarget, IndexError, KeyError, TypeError):
+            pass
+    if len(ok) != 1:
+        return None
+    arg = render(parts[ok[0]])
+    msg = (f"{render(node)} gives the answer {want} only with {arg} read backwards: write "
+           f"rev<indicator>({arg}) as that argument, with a reversal word from the clue as its indicator")
+    leaf = parts[ok[0]]
+    if "op" not in leaf and leaf.get("words") and len(letters(leaf.get("gives") or "")) == 2:
+        # 3 of the 61 still-failing refusals on 11-16 were CO written where OC (the officer
+        # commanding) is the abbreviation: no reversal word exists, the letters just run the other way
+        back = letters(leaf["gives"])[::-1]
+        msg += (f". If no clue word reverses it, the clue's own abbreviation is the other way round: "
+                f"write [{leaf['words']}]{back} as a plain leaf (no rev) in its place")
+    return msg
+
+
+_TIMES = re.compile(r"\b(three|thrice|triple|treble|trebled|tripled|four|quadruple|five)\b", re.I)
+
+
+def _charade_container_hint(node, want):
+    """[cold]C + [New York]NY for EMERGENCY (EMERGE, then C inside NY): two neighbouring pieces that only give
+    the answer with one inside the other. Named only when exactly one such container does it; the
+    container word is the clue's to supply."""
+    parts = parts_of(node)
+    if node.get("op") != "charade" or len(parts) < 2:
+        return None
+    found = []
+    for i in range(len(parts) - 1):
+        for outer, inner in ((i, i + 1), (i + 1, i)):
+            box = {"op": "container", "parts": [copy.deepcopy(parts[outer]), copy.deepcopy(parts[inner])]}
+            new = box if len(parts) == 2 else {**node, "parts": [*parts[:i], box, *parts[i + 2:]]}
+            try:
+                ok = match(new, want) is not None
+            except (WordplayError, _NeedTarget, IndexError, KeyError, TypeError):
+                ok = False
+            if ok:
+                found.append((outer, inner))
+    if len(found) != 1:
+        return None
+    o, n = found[0]
+    return (f"{render(node)} gives {_gives(node)}, but {render(parts[n])} goes inside {render(parts[o])}: write "
+            f"ins<indicator>({render(parts[o])}, {render(parts[n])}) in place of those two pieces, with a "
+            f"container word from the clue as its indicator")
+
+
+def _repeat_count_hint(node, want):
+    """rep<three times>(CHA) is CHA twice: rep() doubles its piece and no more. A piece written three or
+    more times is the piece, then rep<again>(piece), the doubling after it."""
+    if node.get("op") != "repeat" or not any(_TIMES.search(str(i.get("text", ""))) for i in node.get("indicators") or []):
+        return None
+    return (f"{render(node)} doubles its piece, one copy short of {want}: rep() writes a piece twice, never "
+            f"three times; write the piece once, then + rep<indicator>(piece) after it")
+
+
+def _gives_nothing(node):
+    """The deepest node under `node` that can give no letters at all, in words
+    (anagram fodder whose deletion finds no run to take out)."""
+    for p in node.get("parts") or []:
+        try:
+            if not values(p):
+                return _gives_nothing(p)
+        except (_NeedTarget, WordplayError):
+            pass
+    if node.get("op") == "deletion":
+        whole, *gones = parts_of(node)
+        gone = gones[0] if len(gones) == 1 else {"op": "charade", "parts": gones}
+        return (f"{render(node)} gives nothing: {render(gone)} is not letters of "
+                f"{render(whole)} in order (one run, or scattered but in the same order). "
+                f"Letters taken in another order are one del per piece, e.g. del(del(x, N), OT)")
+    return f"{render(node)} gives no letters"
+
+
+def _count(s):
+    return collections.Counter(s)
+
+
+#: The ops whose evaluation reads a fixed part by position, so the count must be
+#: exact. The rest take their shape from elsewhere (a charade has any number, a
+#: homophone may carry its spelling in `spelt`, ana() takes a charade's parts).
+COUNTED = ("reversal", "repeat", "container", "deletion", "hidden", "substitution", "cycling", "move",
+           "spoonerism", *SELECT)
+
+
+def _check_arity(node):
+    """A stored tree is not parsed, so an op filed with the wrong number of parts
+    reaches the evaluator as it is; refuse it with the count it wants. An
+    unchecked node stands for its `gives` and is not looked into."""
+    if node.get("unchecked"):
+        return
+    op = node.get("op")
+    parts = node.get("parts") or []
+    if op in COUNTED:
+        lo, hi = ARITY[op]
+        if not lo <= len(parts) <= hi:
+            want = str(lo) if lo == hi else f"{lo} to {hi}"
+            raise WordplayError(f"{NAMES[op]}() takes {want} part(s), the tree files {len(parts)}: "
+                                f"{render(node)}")
+        if op == "spoonerism" and len(parts) == 1 and not (
+                "op" not in parts[0] and len((parts[0].get("soundsLike") or "").split()) == 2):
+            raise WordplayError(f"spoon() takes 2 to 3 part(s), the tree files 1 (a one-part spoon is a leaf whose soundsLike is the two words "
+                                f"before the swap, HAD MATTER): {render(node)}")
+    for p in parts:
+        _check_arity(p)
+
+
+def evaluate(tree, answer):
+    """{id(node): letters} with every node of `tree` giving its share of
+    `answer`'s letters; raises WordplayError naming the node that breaks."""
+    want = letters(answer)
+    if not want:
+        raise WordplayError(f"this entry has no answer filed yet, so no wordplay can be checked against it: "
+                            f"set `answer` to the letters {render(tree)} builds if that is the solution")
+    _check_arity(tree)
+    try:
+        got = match(tree, want)
+        if got is None:
+            raise WordplayError(f"the wordplay does not give {want}: {diagnose(tree, want)}")
+    except _NeedTarget as e:
+        raise WordplayError(f"{render(e.args[0])} sits where its letters have to be known in "
+                            f"order (inside del, sub, a selection or a homophone): write the "
+                            f"letters it gives as a leaf instead") from None
+    except (IndexError, KeyError, TypeError) as e:
+        raise WordplayError(f"the tree is not shaped as its ops need ({type(e).__name__} {e}): "
+                            f"{render(tree)}") from None
+    _check_ops(tree, got)
+    _check_rebus(tree, want)
+    _check_reverse(tree, want)
+    return got
+
+
+#: A run of capitals and figures in a reading, naming the picture's own
+#: characters: H, O2, W-H-E-A-T. A word with a lower-case letter is prose.
+PICTURE_TOKEN = re.compile(r"(?<![\w'’])[A-Z0-9](?:-?[A-Z0-9])*(?![\w'’])")
+
+
+def _alnum(s):
+    return re.sub(r"[^A-Z0-9]", "", unicodedata.normalize("NFD", str(s or "")).upper())
+
+
+def _in_order(token, picture):
+    """`token`'s characters appear in `picture` in order (IOU in IO2U)."""
+    it = iter(picture)
+    return all(ch in it for ch in token)
+
+
+def _check_rebus(tree, want):
+    """A rebus is the whole wordplay, and its reading names characters
+    the picture shows (so it reads the picture rather than restating the
+    answer) without being the answer itself."""
+    for node in _walk(tree):
+        if node.get("op") != "rebus" or node.get("unchecked"):
+            continue
+        if node is not tree:
+            raise WordplayError(f"{render(node)}: a rebus is the whole wordplay, "
+                                f"never a piece of it; write rebus(...) alone")
+        words = parts_of(node)[0].get("words")
+        reading = node.get("reading") or ""
+        named = PICTURE_TOKEN.findall(reading)
+        if not named:
+            raise WordplayError(f"{render(node)}: the reading names none of the picture's "
+                                f"characters; say what it shows in its own capitals and "
+                                f"figures (\"H to O\", \"P, the core of apple\")")
+        missing = [t for t in named if not _in_order(_alnum(t), _alnum(words))]
+        if missing:
+            raise WordplayError(f"{render(node)}: the reading names {', '.join(missing)}, "
+                                f"which the picture {words!r} does not show")
+        if letters(reading) == want:
+            raise WordplayError(f"{render(node)}: the reading is the answer; say what the "
+                                f"picture shows that turns into it")
+
+
+def _check_reverse(tree, want):
+    """A reverse clue is the whole wordplay, and its reading spells the
+    answer in pieces: two or more, capitals joined by spaces or +, whose
+    letters in order are the answer (OUT + STEP for OUTSTEP). One piece is
+    the answer itself and says nothing."""
+    for node in _walk(tree):
+        if node.get("op") != "reverse" or node.get("unchecked"):
+            continue
+        if node is not tree:
+            raise WordplayError(f"{render(node)}: a reverse clue is the whole wordplay, "
+                                f"never a piece of it; write reverse(...) alone")
+        reading = node.get("reading") or ""
+        pieces = [x for x in re.split(r"[\s+]+", reading) if x]
+        if len(pieces) < 2 or any(x != x.upper() or not letters(x) for x in pieces):
+            raise WordplayError(f"{render(node)}: the reading is the answer's pieces in capitals, "
+                                f"two or more joined by spaces or +: \"OUT + STEP\"")
+        if letters(reading) != want:
+            raise WordplayError(f"{render(node)}: the reading's pieces spell {letters(reading)}, "
+                                f"not the answer {want}")
+
+
+def _walk(node):
+    out = []
+
+    def go(n):  # a list, not a generator: nested yields cost per level
+        out.append(n)
+        for p in n.get("parts") or ():
+            go(p)
+    go(node)
+    return out
+
+
+def _spells_in_order(parts, want):
+    """Whether `parts` read as a plain charade can give `want`: match() may
+    have placed an insertion so the anagram above it looks like it moves
+    letters, when another placement spells the answer with none moved."""
+    ops = {n.get("op") for p in parts for n in _walk(p) if n.get("parts")}
+    if "container" not in ops or not ops <= {"container", "charade"}:
+        return False  # a deletion or the like picks its letters to fit any target
+    try:
+        return match({"op": "charade", "parts": parts}, want) is not None
+    except (_NeedTarget, IndexError, KeyError, TypeError):
+        return False
+
+
+def _check_ops(node, got):
+    """Steps that leave their letters as they were say nothing."""
+    if node.get("unchecked"):
+        return
+    op = node.get("op")
+    for p in node.get("parts") or []:
+        _check_ops(p, got)
+    if op == "anagram":
+        parts = parts_of(node)
+        read = "".join(got[id(p)] for p in parts) if all(id(p) in got for p in parts) else None
+        if read != got.get(id(node)) and got.get(id(node)) and _spells_in_order(parts, got[id(node)]):
+            read = got[id(node)]  # the match scrambled a container the fodder can give in order
+        if read is not None and read == got.get(id(node)):
+            raise WordplayError(f"{render(node)}: the fodder already reads "
+                                f"{got[id(node)]}, so there is no anagram")
+    if op == "reversal" and got.get(id(node)) and got[id(node)] == got[id(node)][::-1]:
+        raise WordplayError(f"{render(node)}: {got[id(node)]} reads the same backwards, "
+                            f"so the reversal does nothing")
+
+
+def _fold(text):
+    return " ".join(re.findall(r"\w+", text.lower()))
+
+
+def _rekey(notes, tree):
+    """Land each leftover note on the one span with no note whose words are the
+    note's key apart from case, punctuation and spacing, or (when exactly one
+    span qualifies) contain it or are contained in it. Those keys name the span
+    plainly and the run was only sent back to retype them (172 of the
+    'name no span' refusals in 48h). Anything ambiguous stays refused."""
+    for key in list(notes):
+        want = _fold(re.sub(r"#\d+$", "", key))
+        if not want:
+            continue
+        free = [(s, k) for s, k in _spans(tree, True) if "note" not in s and _fold(s[k])]
+        same = [x for x in free if _fold(x[0][x[1]]) == want]
+        near = [x for x in free if f" {want} " in f" {_fold(x[0][x[1]])} "
+                or (len(_fold(x[0][x[1]]).split()) > 1 and f" {_fold(x[0][x[1]])} " in f" {want} ")]
+        if len(same) == 1 or (not same and len(near) == 1):
+            (same or near)[0][0]["note"] = notes.pop(key)
+        elif not same:  # no one span names it: spans that together spell it may
+            _rekey_parts(notes, key, want, free)
+            if key in notes:
+                _rekey_run_together(notes, key, want, free)
+
+
+_SMALL_WORDS = {"the", "and", "for", "but", "with", "from", "into", "over", "its", "are", "was", "has"}
+
+
+def _rekey_parts(notes, key, want, free):
+    """A note keyed by several free spans' words joined ('Munch nuts' for the
+    free [Munch] and [nuts], 'held by' for [held], [by]) lands on each of them;
+    one keyed by a phrase round exactly one free span ('Labour leader' for
+    [Labour]) lands on that span. The spans' words must be the key's words with
+    nothing over (as a multiset, in any order) for the joined form, and a lone
+    span must be a word of 3+ letters that is not a small link word. Any other
+    overlap stays refused."""
+    words = want.split()
+    inside = [x for x in free if _is_sub(_fold(x[0][x[1]]).split(), words)]
+    if len(inside) > 1:
+        got = sorted(w for x in inside for w in _fold(x[0][x[1]]).split())
+        if got == sorted(words) and len({id(x[0]) for x in inside}) == len(inside):
+            note = notes.pop(key)
+            for span, _ in inside:
+                span["note"] = note
+    elif len(inside) == 1:
+        text = _fold(inside[0][0][inside[0][1]])
+        if len(words) > len(text.split()) and (len(text.split()) > 1 or
+                                                 (len(text) >= 3 and text not in _SMALL_WORDS)):
+            inside[0][0]["note"] = notes.pop(key)
+
+
+def _rekey_run_together(notes, key, want, free):
+    """A note keyed by two or three free spans' words run into one word ('cheerleader' for
+    the free [leader] and [cheer]) lands on each of them, when those words, in one order,
+    spell the key exactly and no two free spans have the same words."""
+    flat = want.replace(" ", "")
+    near = [x for x in free if _fold(x[0][x[1]]).replace(" ", "") in flat]
+    texts = [_fold(x[0][x[1]]) for x in near]
+    if not 2 <= len(near) <= 3 or len(set(texts)) < len(texts):
+        return
+    if any("".join(t.replace(" ", "") for t in order) == flat for order in itertools.permutations(texts)):
+        note = notes.pop(key)
+        for span, _ in near:
+            span["note"] = note
+
+
+def _spans_owed_a_note(tree):
+    """(dict, key) of each span still without a note that the prompt says needs one. A leaf
+    a pick (first/last/..., hidden) reads from goes without, so a leftover note beside only
+    those is a stray extra (a note on a charade's link word beside `last<end of>([candle])`).
+    An own-letters leaf (`[a]A`) is not exempt: a stray note beside one may be its mistyped key."""
+    owed = [(s, k) for s, k in _spans(tree, True) if "note" not in s]
+    exempt = set()
+
+    def walk(node):
+        if node.get("op") in SELECT + ("hidden",):
+            exempt.update(id(p) for p in node.get("parts") or [] if "words" in p)
+        for p in node.get("parts") or []:
+            walk(p)
+    walk(tree)
+    return [(s, k) for s, k in owed if id(s) not in exempt]
+
+
+def _is_sub(small, big):
+    """Whether `small` (a list of words) is a run of `big`, or, for one word, among them."""
+    n = len(small)
+    return bool(n) and any(big[i:i + n] == small for i in range(len(big) - n + 1))
+
+
+def _with_fodder_trimmed(tree, answer):
+    """`tree` with one link word cut from an anagram's fodder (tools/wordplay_fodder_mend.py) when
+    that makes it give `answer`, else None."""
+    import wordplay_fodder_mend
+    repaired = copy.deepcopy(tree)
+    if not wordplay_fodder_mend.drop_surplus_fodder_word(repaired, answer):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def _with_rule_mends(tree, clue, answer):
+    """`tree` mended by the bag's doesNotGive fixer (fix_shape_suspects.RULE_REPAIRS, the one table
+    the old puzzles' sweep reads too): arguments of a container the wrong way round, a charade out of
+    order, each only when exactly one edit gives the answer. None when it does not mend."""
+    try:
+        import fix_shape_suspects as F
+        fixed, used = F.repair_tree(tree, clue, answer, {"doesNotGive": F.RULE_REPAIRS["doesNotGive"]})
+        if used:
+            evaluate(fixed, answer)
+            return fixed
+    except Exception:
+        pass
+    return None
+
+
+def translate(clue_out, clue, answer, taken=(), respell=None):
+    """The stored tree for one clue of model output ({"wp", "notes"}),
+    checked against `answer`. Notes are keyed by span words (`#2` for a
+    repeat), or a bare piece's letters, and land on the span they name.
+    `taken` are (start, end) clue spans already used (the definitions), so a
+    word in both picks another copy; `respell(text, clue)` spells each span's
+    words as the clue prints them first (a retyped apostrophe or capital)."""
+    tree = parse(clue_out["wp"])
+    _split_ellipsis(tree, clue)
+    if respell:
+        for span, key in _spans(tree):
+            if not re.search(r"#\d+$", span[key]):
+                span[key] = respell(span[key], clue)
+    locate(tree, clue, taken)
+    notes = dict(clue_out.get("notes") or {})
+    seen = {}
+    raw_tree = parse(clue_out["wp"])
+    _split_ellipsis(raw_tree, clue)
+    raw = list(_spans(raw_tree, True))
+    for (span, key), (orig, _) in zip(_spans(tree, True), raw):
+        name = orig[key]
+        base = re.sub(r"#\d+$", "", name)
+        seen[base] = seen.get(base, 0) + 1
+        for k in (name, base if seen[base] == 1 else f"{base}#{seen[base]}"):
+            if k in notes:
+                span["note"] = notes.pop(k)
+                break
+    if notes:
+        _rekey(notes, tree)
+    if notes and not _spans_owed_a_note(tree):
+        # Every span that needs a note has one: a leftover is a stray extra (the commonest
+        # 'name no span' refusal in the annotate bag), and dropping it loses nothing.
+        notes.clear()
+    if notes:
+        keys = [s[k] for s, k in _spans(tree, True) if "note" not in s]
+        raise WordplayError(f"notes {sorted(notes)} name no span of the wordplay; key each "
+                            f"note by its words as written in the expression (a note on a link word "
+                            f"or indicator the expression does not write needs it written as "
+                            f"`<indicator>`, else drop the note)"
+                            + (f" (spans with no note yet: {keys})" if keys else
+                               " (every span has a note already)"))
+    _quote_bare_words(tree, clue, taken)
+    _requote_sibling_words(tree)
+    _quote_lone_bare_leaf(tree, clue, taken)
+    try:
+        evaluate(tree, answer)
+    except WordplayError as err:
+        tree = (_with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
+                or _with_after_swapped(tree, answer) or _with_fodder_trimmed(tree, answer)
+                or _with_rule_mends(tree, clue, answer))
+        if tree is None:
+            left = unaccounted_words(locate_copy(clue_out, clue, taken), clue, taken)
+            if left and "does not give" in str(err):
+                raise WordplayError(f"{err}; clue words no leaf, indicator or definition covers "
+                                    f"(a piece may be missing, or they are link words): "
+                                    f"{', '.join(repr(w) for w in left)}") from None
+            raise err
+    return normalize(tree, clue, answer)[0]
+
+
+def _quote_bare_words(tree, clue, taken=()):
+    """Bare letters that spell, whole, a word or run of 2-3 words the clue prints
+    exactly once and no leaf, indicator or definition covers get those words
+    quoted: `ins<helmeted>(HAT, ...)` for the clue word 'hat' becomes
+    `ins<helmeted>([hat]HAT, ...)`. The first check's 'a block with no
+    clueFragment' (110 sessions in the 10-24/25 audit) is for letters the preamble
+    supplies, and letters that are a clue word, spelt out, are that word's. Only
+    3+ letters, one copy and one reading (a second uncovered run spelling the same
+    letters is ambiguous): the rest stays refused."""
+    used = [(s["at"], s["at"] + len(s[k])) for s, k in _spans(tree) if "at" in s] + list(taken)
+    words = [(m.start(), m.end()) for m in re.finditer(r"[\w'’]+", clue)]
+    for node in _all_nodes(tree):
+        if "op" in node or "words" in node or node.get("unchecked"):
+            continue
+        want = re.sub(r"[^a-z]", "", str(node.get("gives") or "").lower())
+        if len(want) < 3 or not str(node.get("gives") or "").isalpha():
+            continue
+        hits = []
+        for i in range(len(words)):
+            for j in range(i, min(i + 3, len(words))):
+                a, b = words[i][0], words[j][1]
+                if re.sub(r"[^a-z]", "", clue[a:b].lower()) == want and not any(a < y and x < b for x, y in used):
+                    hits.append((a, b))
+        if len(hits) == 1:
+            a, b = hits[0]
+            node["words"], node["at"] = clue[a:b], a
+            used.append((a, b))
+
+
+def _requote_sibling_words(tree):
+    """One quote that spells several pieces ([two letters]DEE + ESS for D and S spelt
+    out, [Three musical neighbours]D + EFLAT + E) leaves the later pieces bare, and the
+    first check's 'a block with no clueFragment' refuses them. In a charade whose quoted
+    leaves all quote the same words, bare alphabetic leaves next to a run of those leaves
+    take the words again (what `[two letters#2]ESS` writes). Two different quotes among the
+    siblings, or a bare piece not touching a quoted one, is ambiguous and stays refused."""
+    for node in _all_nodes(tree):
+        if node.get("op") != "charade":
+            continue
+        parts = parts_of(node)
+        quoted = {(p["words"].lower(), p.get("at")) for p in parts if "op" not in p and "words" in p}
+        if len(quoted) != 1:
+            continue
+        words, at = next((p["words"], p.get("at")) for p in parts if "op" not in p and "words" in p)
+        have = [("op" not in p and "words" in p) for p in parts]
+        bare = [("op" not in p and "words" not in p and not p.get("unchecked")
+                 and str(p.get("gives") or "").isalpha()) for p in parts]
+        grow = list(have)
+        for _ in parts:  # a bare piece joins when it touches a quoted one
+            for i, b in enumerate(bare):
+                if b and not grow[i] and ((i and grow[i - 1]) or (i + 1 < len(parts) and grow[i + 1])):
+                    grow[i] = True
+        if any(b and not g for b, g in zip(bare, grow)):
+            continue  # a bare piece apart from the quote: leave it to the refusal
+        for p, b in zip(parts, bare):
+            if b:
+                p["words"], p["at"] = words, at
+
+
+def _quote_lone_bare_leaf(tree, clue, taken=()):
+    """One bare letter piece and exactly one clue word that nothing else covers (not a
+    link word) is that piece's word: the first check's 'a block with no clueFragment'
+    would send the run to quote it. Two bare pieces or two spare words stay refused. The letters
+    a deletion, substitution or move names (its later pieces) are no block and stay bare."""
+    bare = [p for n in _all_nodes(tree) for i, p in enumerate(parts_of(n))
+            if "op" not in p and "words" not in p and not p.get("unchecked")
+            and str(p.get("gives") or "").isalpha()
+            and not (i and n.get("op") in REMOVED_LETTER_OPS)]
+    if len(bare) != 1:
+        return
+    left = unaccounted_words(tree, clue, taken)
+    if len(left) != 1 or left[0].lower() in LONE_LEAF_LINKS:
+        return
+    at = [m.start() for m in re.finditer(r"(?<![\w'’])%s(?![\w'’])" % re.escape(left[0]), clue)]
+    if len(at) == 1:
+        bare[0]["words"], bare[0]["at"] = left[0], at[0]
+
+
+#: Ops whose later bare letters are the letters an indicator names (`del<topless>([beefcake]HUNK, H)`):
+#: annotation._blocks gives them no block, so they are never a spare clue word's letters. Binding the H
+#: to the one spare word ('showing') made a block nobody could note (the first check's blocks.note).
+REMOVED_LETTER_OPS = ("deletion", "substitution", "move")
+
+LONE_LEAF_LINKS = frozenset({"a", "an", "the", "and", "of", "in", "to", "for", "is", "with", "by",
+                             "from", "as", "at", "on", "that", "has", "gives", "makes", "see"})
+
+
+def _all_nodes(node):
+    yield node
+    for p in node.get("parts") or []:
+        yield from _all_nodes(p)
+
+
+def locate_copy(clue_out, clue, taken):
+    """The model's wp parsed and located against `clue`, for reading spans only."""
+    tree = parse(clue_out["wp"])
+    _split_ellipsis(tree, clue)
+    locate(tree, clue, taken)
+    return tree
+
+
+def unaccounted_words(tree, clue, taken=()):
+    """The clue's words that no leaf, indicator or taken span (the definition) covers,
+    in clue order: a wordplay that misses the answer has often left a piece out."""
+    covered = list(taken)
+    for span, key in _spans(tree):
+        if "at" in span:
+            covered.append((span["at"], span["at"] + len(span[key])))
+    out = []
+    for m in re.finditer(r"[\w'’]+", clue):
+        if not any(a < m.end() and m.start() < b for a, b in covered):
+            out.append(m.group(0))
+    return out
+
+
+#: Indicators that put the first piece of a two-piece charade after (or under) the second.
+AFTER_WORDS = frozenset({
+    "after", "following", "follows", "to follow", "behind", "pursuing", "chasing", "trailing",
+    "on", "put on", "supporting", "in support of", "under", "underneath", "beneath", "below",
+    "undermining"})
+
+
+def _with_after_swapped(tree, answer):
+    """A copy of `tree` with swap_after_pieces() applied when that makes it give
+    `answer`, else None."""
+    repaired = copy.deepcopy(tree)
+    if not swap_after_pieces(repaired):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def swap_after_pieces(tree):
+    """[Politician]MP +<after> [tea]CHA is MP after CHA, written in clue order where a
+    charade is in answer order (CHA + MP): the commonest charade slip among the
+    'does not give the answer' refusals. A two-piece charade whose indicator says the
+    first piece sits after (or under) the second has its pieces swapped. Returns how
+    many charades changed; translate() keeps the change only when the tree then
+    gives the answer, so a charade written in answer order, or an indicator that
+    is not a placement, is never touched."""
+    changed = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        inds = node.get("indicators") or []
+        if (node.get("op") == "charade" and len(parts) == 2 and len(inds) == 1
+                and inds[0].get("text", "").strip().lower() in AFTER_WORDS):
+            parts.reverse()
+            changed += 1
+    return changed
+
+
+def _with_hidden_merged(tree, clue, answer):
+    """A copy of `tree` with merge_hidden_run() applied when that makes it give
+    `answer`, else None."""
+    repaired = copy.deepcopy(tree)
+    if not merge_hidden_run(repaired, clue):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def merge_hidden_run(tree, clue):
+    """hid<ind>([Sign] + [a] + [road's]) is hid<ind>([Sign a road's]): a hidden word
+    runs across the clue's words, which the run writes as a charade of one leaf per
+    word where hid() wants one leaf (the 'hid() takes one leaf' refusal, the commonest
+    sub-cause of 'wordplay does not give the answer'). The leaves, plain clue words
+    with no letters of their own, that sit side by side in the clue are joined in
+    place into one leaf, their notes joined. Returns how many hid() nodes changed;
+    translate() keeps the change only when the tree then gives the answer."""
+    changed = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "hidden" or len(parts) != 1 or parts[0].get("op") != "charade":
+            continue
+        leaves = parts[0].get("parts") or []
+        if (len(leaves) < 2 or parts[0].get("indicators")
+                or not all("op" not in p and p.get("words") and "at" in p
+                           and ("gives" not in p or re.search(r"\d", str(p["words"])))
+                           and not p.get("select") and not p.get("unchecked") for p in leaves)):
+            continue
+        if any(clue[a["at"] + len(a["words"]):b["at"]].strip(" \t,;:") or b["at"] < a["at"] + len(a["words"])
+               for a, b in zip(leaves, leaves[1:])):
+            continue
+        first, last = leaves[0], leaves[-1]
+        merged = {"words": clue[first["at"]:last["at"] + len(last["words"])], "at": first["at"]}
+        if any("gives" in p for p in leaves):
+            # a cross-reference ([16]MEDALLION + [I confess]): the words it stands for, then the printed ones
+            merged["gives"] = "".join(letters(p["gives"]) if "gives" in p else letters(p["words"]) for p in leaves)
+        notes = [p["note"].rstrip(". ") for p in leaves if p.get("note")]
+        if notes:
+            merged["note"] = "; ".join(notes)
+        node["parts"] = [merged]
+        changed += 1
+    return changed
+
+
+def _with_picks_dropped(tree, answer):
+    """A copy of `tree` with drop_written_picks() applied when that makes it give
+    `answer`, else None."""
+    repaired = copy.deepcopy(tree)
+    if not drop_written_picks(repaired):
+        return None
+    try:
+        evaluate(repaired, answer)
+    except WordplayError:
+        return None
+    return repaired
+
+
+def drop_written_picks(tree):
+    """Drop the letters of each leaf a selection op picks from that are already
+    the op's pick from the leaf's own words: alt<regularly>([most]MS) is
+    alt<regularly>([most]), since MS is the alternate letters of "most" and
+    alternating MS again would give M or S. The commonest refusal in the
+    annotate runs (a third of them): the run writes what the selection gives
+    where the op wants the clue words it picks from. A leaf whose letters are
+    no pick of its words ([dog]CUR under last) is a synonym the op picks
+    from, and stays. Returns how many leaves changed; translate() keeps the
+    change only when the tree then gives the answer."""
+    changed = 0
+    for node in _walk(tree):
+        if node.get("op") not in SELECT:
+            continue
+        for leaf in parts_of(node):
+            if ("op" in leaf or "gives" not in leaf or not leaf.get("words")
+                    or leaf.get("select") or leaf.get("unchecked")):
+                continue
+            bare = {k: v for k, v in leaf.items() if k != "gives"}
+            try:
+                picks = values({**node, "parts": [bare]})
+            except (WordplayError, _NeedTarget):
+                continue
+            if letters(leaf["gives"]) in picks:
+                del leaf["gives"]
+                changed += 1
+    return changed
+
+
+def normalize(tree, clue, answer):
+    """(tree, [rewrites]): the canonical shape of a tree whose letters already check, by code
+    (tools/tree_normalize.py: deletion inside the piece it cuts, one selection over a list,
+    one reversal over adjacent reversed pieces). Run after evaluate(); a rewrite is kept only
+    when evaluate() still gives the answer, so the letters are proved unchanged."""
+    import tree_normalize
+    try:
+        new, used = tree_normalize.normalize(tree, clue, answer)
+    except Exception:
+        return tree, []
+    if used:
+        evaluate(new, answer)
+    return (new, used) if used else (tree, [])
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("expression")
+    ap.add_argument("--answer")
+    ap.add_argument("--clue")
+    a = ap.parse_args()
+    try:
+        tree = parse(a.expression, a.clue)
+        if a.answer:
+            evaluate(tree, a.answer)
+    except WordplayError as e:
+        sys.exit(str(e))
+    print(json.dumps(tree, indent=1))
+
+
+if __name__ == "__main__":
+    main()

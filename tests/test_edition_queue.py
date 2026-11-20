@@ -1,0 +1,4420 @@
+#!/usr/bin/env python3
+# Does the per-edition queue (tools/edition_queue.py) keep each edition's
+# read a unit of its own: rows appended, the last standing, never a whole
+# rewrite under another unit; one unit per edition; the most urgent first
+# (Gale pages the fetcher downloaded, then never read, then the re-reads); a read
+# only after the scans its solution needs, and a scan held while a read
+# pool of reads is ready; a slow unit killed at its own
+# limit without holding up the rest; a capped run saying what it left; and
+# a TERM passed on to the units; an edition just laid out (fresh) found
+# without a plan and started before every planned unit, even mid-plan?
+#
+#     python3 tests/test_edition_queue.py
+#
+# Temp dirs only; no OCR, no VLM, no network.
+import atexit
+import os
+os.environ.setdefault("CT_VLM_BLIP_SECONDS", "0")  # no link-blip waits on a fake unreachable VLM
+
+# The desktop the code reaches is a fake one: the real addresses live in an untracked local config.
+os.environ.update(CT_LOCAL_CONFIG="/nonexistent", CT_DESKTOP_USER="tester", CT_VLM_PORT="8000",
+                  CT_DESKTOP_ADDRESSES="192.0.2.198 192.0.2.180 100.64.0.15", CT_DESKTOP_HOME="C:\\Users\\tester\\ocrw")
+import shutil
+import sys
+import tempfile
+from pathlib import Path
+
+os.environ["DESKTOP_HOSTS_STATIC"] = "1"  # desktop_hosts.ranked: the json order, no network probe
+os.environ["CT_REFUSAL_REREADS"] = "1"  # the cases below plan refusal rereads beside never-read units (the hold cases turn it off)
+os.environ["CT_BLANKET_REREADS"] = "1"  # the cases below plan every reread (the blanket-reread cases turn it off)
+os.environ["CT_AUTO_RELOAD"] = "0"  # no dispatch here fetches the real repo (the reload cases turn it on)
+REPO = Path(__file__).resolve().parent.parent
+_tmp = tempfile.mkdtemp()
+_parent = os.getpid()
+atexit.register(lambda: os.getpid() == _parent and shutil.rmtree(_tmp, ignore_errors=True))
+os.environ["TMP"] = _tmp
+# Hermetic: every "~/.cache/..." the planner reads (held_dates, archive_org_crops, corpus_queue/*, scan
+# requests) is this temp home, never the host's or an earlier test file's. A plan's solution-host scans and
+# held-series lists came from that live cache, so "no scan for a blanket reread" and the fix-reason cases
+# passed or failed with what ran before them in the CI shard.
+os.makedirs(os.path.join(_tmp, "home"))
+os.environ["HOME"] = os.path.join(_tmp, "home")
+os.chdir(REPO / "tools")
+import _path  # puts tools/ on sys.path
+
+import contextlib, io, json, os, signal, sys, time
+from pathlib import Path
+import scan_queue as q
+import vlm_reader
+vlm_reader.reachable = lambda *a, **k: False
+# Nor asks its slot count: slots()' /props probe of the fake desktop waits out a 5 s connect (longer in
+# CI's cut network) inside the first dispatch, past the kill case's 15 s. The fallback is what it yields.
+vlm_reader._SLOTS[0] = vlm_reader.SLOTS_FALLBACK
+import file_archive_org_puzzles as f
+import edition_queue as eq
+eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
+eq.idle_gate_reader = lambda: 1e6  # nor its idle cores
+# nor its free memory: mem_gate.room's real MemAvailable (3 GB floor + 600 MB a unit) held starts on a
+# loaded CI runner past the kill case's 300 s release (run 40388294193). Cases that test the gate set their own.
+eq.mem_gate_reader = lambda: 1 << 40
+os.environ["CT_UNIT_CEILING_FILE"] = "/nonexistent/unit_ceiling"  # nor a live ceiling override file
+os.environ["CT_VLM_SPOOL_MAX_FILE"] = "/nonexistent/vlm_spool_max"  # nor the live spool-depth file
+eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
+eq.desktop_mem_reader = lambda: None  # nor its free memory
+eq.vlm_gate_reader = lambda: True  # nor whether its VLM answers
+os.environ["CT_BURN_STATE"] = os.path.join(os.environ["TMP"], "no-burn")  # nor this host's burn
+os.environ["CT_PSI_PATH"] = os.path.join(os.environ["TMP"], "no-psi")  # nor this host's memory pressure
+
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+
+# The plan runs in a forked child (plan_forked); the cases below stub eq.plan and watch it in this process, so
+# they plan in-process, and the fork has its cases here.
+import plan_fork
+check("plan_fork: an answer comes back from the child", ("ok", [1, {"a": Path("x")}]), plan_fork.run(lambda: [1, {"a": Path("x")}]))
+status, got = plan_fork.run(lambda: 1 / 0)
+check("plan_fork: the child's exception comes back to raise", ("err", ZeroDivisionError), (status, type(got)))
+check("plan_fork: a child that dies is 'failed'", "failed", plan_fork.run(lambda: os._exit(3))[0])
+check("plan_fork: an answer that will not pickle is 'failed'", "failed", plan_fork.run(lambda: lambda: 1)[0])
+os.environ["CT_PLAN_FORK"] = "0"
+
+for _val, _want in ((None, 1200), ("", 1200), ("3600", 3600.0), ("abc", 1200), ("0", 1200), ("-5", 1200)):
+    os.environ.pop("CT_READ_SECONDS_T", None)
+    if _val is not None:
+        os.environ["CT_READ_SECONDS_T"] = _val
+    check(f"seconds_from_env({_val!r})", _want, eq.seconds_from_env("CT_READ_SECONDS_T", 1200))
+os.environ.pop("CT_READ_SECONDS_T", None)
+
+T = Path(os.environ["TMP"])
+os.environ["CT_VLM_ASK_LOG"] = str(T / "vlm_asks.log")  # never the host's real log
+eq.DIR_CACHE, eq.HELD_CACHE, eq.LIKELY_CACHE = T / "dir_cache.pickle", T / "held_files.pickle", T / "likely.pickle"  # never this host's caches
+eq.COUNT_LEFT_CACHE = T / "count_left.pickle"
+q.LEDGERS = {k: T / f"none-{k}.jsonl" for k in ("archive", "gale", "trove")}
+q.REQUESTS = T / "requests.jsonl"
+
+# ---- the ledger: appended rows, the last standing
+led = T / "l.jsonl"
+q.append(led, [{"edition": "a", "n": 1}, {"edition": "b", "n": 1}])
+q.append(led, [{"edition": "a", "n": 2}])
+check("the last row of a source stands", {"a": 2, "b": 1}, {k: r["n"] for k, r in q.ledger_rows(led, "edition").items()})
+with open(led, "a") as fh:
+    fh.write('{"edition": "c", "n"')
+check("a line still being appended is not a row", ["a", "b"], sorted(q.ledger_rows(led, "edition")))
+check("jsonl_rows skips it too", 3, len(q.jsonl_rows(led)))
+led.write_text(led.read_text()[: -len('{"edition": "c", "n"')])
+check("compact folds to one row a source", (3, 2), q.compact(led, "edition"))
+check("compacted rows keep the last", {"a": 2, "b": 1}, {k: r["n"] for k, r in q.ledger_rows(led, "edition").items()})
+with q.lock(led) as mine:
+    check("a run holding the ledger throughout is seen", (True, True), (mine, q.held(led)))
+    check("compact leaves a held ledger alone", None, q.compact(led, "edition"))
+check("free again", False, q.held(led))
+with q.source_lock(led, "x") as a:
+    pid = os.fork()
+    if pid == 0:
+        with q.source_lock(led, "x") as b, q.source_lock(led, "y") as c:
+            os._exit(0 if (b, c) == (False, True) else 1)
+    check("one process a source: another gets busy, another source is free", 0,
+          os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+
+# ---- plan(): ranks, needs, order; nothing scanned
+cache = T / "cache"
+def edition(item, name, staged):
+    d = cache / item / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    os.utime(d / "pages.json", (staged, staged))
+    return d
+g1 = edition("GaleTimes1987UKEnglish", "1987-03-02", 1000)
+g2 = edition("GaleTimes1987UKEnglish", "1987-03-03", 2000)
+t1 = edition("NewsUK1980UKEnglish", "1980-01-01_1", 10)
+t2 = edition("NewsUK1980UKEnglish", "1980-01-02_2", 10)
+t3 = edition("NewsUK1980UKEnglish", "1980-03-01_3", 10)
+f.edition_dirs = lambda cache=None, paper=None: {"gale": [g1, g2], "times": [t1, t2, t3]}.get((paper or f.TIMES).key, [])
+f.input_hash = lambda d: "h"
+f.inputs_of = lambda fh, found, series, reprints=None: fh
+scan = {"puzzles": [{"number": 1, "leaf": 1, "box": None}], "solutions": []}
+def row(d, read_at=None, **kw):
+    r = {"edition": f"{d.parent.name}/{d.name}", "filesHash": "h", "scanKey": f.scan_key(), "scan": scan}
+    if read_at:
+        r.update(inputs="h", solutionsSeen=[], verdicts=[{"number": 1}], readAt=read_at)
+    return {**r, **kw}
+tl = cache / "filed.jsonl"
+q.append(tl, [row(t1, "2026-01-01T00:00:00+00:00"), row(t2, "2026-09-01T00:00:00+00:00", scanKey="old")])
+before = q.when("2026-06-01T00:00:00+00:00")
+scans, reads = f.plan(f.TIMES, cache, reread=before)
+check("times: a stale scan and a never-scanned edition are scan units, by rank", ["1980-03-01_3", "1980-01-02_2"],
+      [u["rel"].split("/")[1] for u in scans])
+check("times: each read and why; a scan-code change is a whole-corpus re-read, newest first",
+      [("1980-03-01_3", "never read", 1), ("1980-01-02_2", "scan stale", 3), ("1980-01-01_1", "--reread", 3)],
+      [(u["rel"].split("/")[1], u["reason"], u["rank"]) for u in reads])
+check("a read needs its own stale scan and those SOLUTION_DAYS after it, no other",
+      {"1980-01-01_1": ["1980-01-02_2"], "1980-01-02_2": ["1980-01-02_2"], "1980-03-01_3": ["1980-03-01_3"]},
+      {u["rel"].split("/")[1]: [r.split("/")[1] for r in u["needs"]] for u in reads})
+check("a scan takes the rank of the most urgent read needing it", [1, 3], [u["rank"] for u in scans])
+_, reads = f.plan(f.TIMES, cache, asked={"NewsUK1980UKEnglish/1980-01-01_1"})
+check("annotation's ask makes a read due, forced", [("1980-01-01_1", "annotation asked", True)],
+      [(u["rel"].split("/")[1], u["reason"], u["force"]) for u in reads if u["rel"].endswith("_1")])
+gs, gr = f.plan(f.GALE, cache)
+check("Gale pages the fetcher downloaded: rank 0, the latest laid out first", [("1987-03-03", 0), ("1987-03-02", 0)],
+      [(u["rel"].split("/")[1], u["rank"]) for u in gr])
+check("the Gale plan keeps to its own ledger", False, (cache / "filed-gale.jsonl").exists())
+
+# ---- Paul's order: new first, then re-reads that can change a result, then the whole corpus; newest first
+oc = T / "order"
+def ed(item, name):
+    d = oc / item / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    return d
+eds = {n: ed(item, n) for item, n in [("NewsUK1990UKEnglish", "1990-05-01_1"), ("NewsUK1990UKEnglish", "1990-06-01_1"),
+                                      ("NewsUK1970UKEnglish", "1970-01-01_1"), ("NewsUK1985UKEnglish", "1985-01-01_1"),
+                                      ("NewsUK1995UKEnglish", "1995-01-01_1"), ("NewsUK1999UKEnglish", "1999-01-01_1"),
+                                      ("TeleUK1992UKEnglish", "1992-01-01_1")]}
+listing, f.edition_dirs = f.edition_dirs, lambda cache=None, paper=None: (
+    [d for n, d in eds.items() if n != "1992-01-01_1"] if (paper or f.TIMES).key == "times" else [eds["1992-01-01_1"]])
+hashes, f.input_hash = f.input_hash, lambda d: "moved" if d.name == "1985-01-01_1" else "h"
+old = "2026-01-01T00:00:00+00:00"
+q.append(oc / "filed.jsonl", [
+    row(eds["1970-01-01_1"], old, verdicts=[{"number": 1, "cause": "not-a-grid"}]),  # its refusal's fix landed since
+    row(eds["1985-01-01_1"], old),  # its files moved
+    row(eds["1995-01-01_1"], old, scanKey="old"),  # only the scan code moved
+    row(eds["1999-01-01_1"], old)])  # nothing moved: the --reread alone
+# Hermetic: solution_hosts reads the puzzles checked into this repo (held_dates: which are filed without answers)
+# and plans a HOST_SCAN of the edition printing each one's solution, so these editions' dates (1970-99) met
+# whatever the checkout held; no host scans here (the cases that want one build the unit by hand).
+_solution_hosts, f.solution_hosts = f.solution_hosts, lambda *a, **k: {}
+_, reads = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("never read newest first across papers, then fixes and moved inputs newest first, then the whole corpus",
+      [("1992-01-01_1", 1), ("1990-06-01_1", 1), ("1990-05-01_1", 1), ("1985-01-01_1", 2), ("1970-01-01_1", 2),
+       ("1999-01-01_1", 3), ("1995-01-01_1", 3)],
+      [(u["rel"].split("/")[1], u["rank"]) for u in reads])
+check("a fix's re-read ranks 2 even under --reread; moved files are inputs changed",
+      {"1970-01-01_1": "refused not-a-grid before its fix", "1985-01-01_1": "inputs changed"},
+      {u["rel"].split("/")[1]: u["reason"] for u in reads if u["rank"] == 2})
+# ---- only rereads with bug evidence: never read/scanned, annotation asked, a refusal whose fix landed
+del os.environ["CT_BLANKET_REREADS"]
+sc_ev, rd_ev = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("no blanket rereads: inputs changed, scan stale and --reread are not planned; refusals whose fix landed are",
+      {"1992-01-01_1", "1990-06-01_1", "1990-05-01_1", "1970-01-01_1"}, {u["rel"].split("/")[1] for u in rd_ev})
+# A fix reason evidence_reason doesn't keep is dropped at plan time with no log line (LEFT_EDGE_GRID 11-15 planned 0 of 26).
+check("every UNFILED_FIRST fix reason is kept at plan time", [], [r for r in eq.UNFILED_FIRST if not eq.evidence_reason(r)])
+check("every planned read's reason is a kept one", True, all(eq.evidence_reason(u["reason"]) or f.likely_gain(u) > 0 for u in rd_ev))
+check("the refusal's read says which puzzle and what the refusal said", True,
+      all("puzzle 1" in u.get("detail", "") for u in rd_ev if u["reason"].startswith("refused ")) and
+      any(u.get("detail") for u in rd_ev))
+check("no scan for a blanket reread", True, all(u["reason"] == "never scanned" or u["rel"] in
+      {r for x in rd_ev for r in x.get("needs") or ()} for u in sc_ev))
+f.solution_hosts = _solution_hosts
+eq._ASKED_WHY[("times", "X/1")] = "puzzle times-1: printedClue"
+_, ask = eq.only_evidence("times", [], [{"rel": "X/1", "reason": "annotation asked", "needs": []},
+                                         {"rel": "X/2", "reason": "inputs changed", "needs": []}])
+check("annotation asked carries its puzzle and checks; inputs changed is dropped",
+      [("X/1", "annotation asked", "puzzle times-1: printedClue")], [(u["rel"], u["reason"], u["detail"]) for u in ask])
+_, lk = eq.only_evidence("times", [], [{"rel": "X/3", "reason": "scan stale, answers linked", "needs": [], "likely": {"answers linked": 2}},
+                                        {"rel": "X/4", "reason": "scan stale", "needs": [], "likely": {}}])
+check("a read predicted to file whole (answers linked) stays, with its detail", [("X/3", "answers linked x2")],
+      [(u["rel"], u["detail"]) for u in lk])
+_sc, _rd = eq.only_evidence("times", [{"rel": "G/1", "reason": "scan stale", "kind": "scan"},
+                                      {"rel": "G/2", "reason": "scan stale", "kind": "scan"}],
+                            [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
+check("a Times read waiting on scans for its solution heading keeps neither (only the solution-host scans are kept, 5c8eb3523ce)",
+      ([], []), ([u["rel"] for u in _sc], _rd))
+_sc, _rd = eq.only_evidence("times", [{"rel": "G/1", "reason": f.HOST_SCAN, "kind": "scan"},
+                                      {"rel": "G/2", "reason": "scan stale", "kind": "scan"}],
+                            [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
+check("mirror: a solution-host scan is kept", (["G/1"], []), ([u["rel"] for u in _sc], _rd))
+_, _rd = eq.only_evidence("ft", [], [{"rel": "G/0", "reason": "scan stale, answers missing", "needs": ["G/1"]}])
+check("another paper's is dropped", [], _rd)
+_note = []
+_refusal = {"rel": "G/0", "reason": "refused not-a-grid before its fix", "needs": ["G/0", "G/1", "G/2"]}
+_sc, _rd = eq.only_evidence("gale", [{"rel": r, "reason": "scan stale", "kind": "scan"} for r in ("G/0", "G/1", "G/2")],
+                            [_refusal], _note)
+check("a Times-series refusal reread keeps its own page's scan, not the week after it", (["G/0"], [_refusal]),
+      ([u["rel"] for u in _sc], _rd))
+check("and the plan says how many it left out", True, len(_note) == 1 and "left out 2 stale scans" in _note[0])
+_sc, _ = eq.only_evidence("ft", [{"rel": r, "reason": "scan stale", "kind": "scan"} for r in ("G/0", "G/1")],
+                          [{"rel": "G/0", "reason": "never read", "needs": ["G/0", "G/1"]}])
+check("another paper's read keeps every scan it waits on", ["G/0", "G/1"], [u["rel"] for u in _sc])
+_ws = lambda s: [(0, 0, 9, 9, w) for w in s.split()]
+check("Solution to Crossword N and Yesterday's solution N are headings", [(22925, 3), (24378, 2)],
+      [f.solution_at(_ws("Solution to Crossword 22,925"), 0, {22925}), f.solution_at(_ws("Yesterday's solution 24,378"), 0, {24378})])
+check("a Saturday prize's solution heading (Gale Times 2006-09: \"Solution to Prize Crossword N\", \"Prize solution N\") "
+      "is read at PRIZE_LAG before the Monday's title only; the weekday heading's lags still read as before",
+      [(23420, 4), (24299, 2), None, None, (24305, 3)],
+      [f.solution_at(_ws("Solution to Prize Crossword 23,420"), 0, {23426}, (), {23420}),
+       f.solution_at(_ws("Prize solution 24,299"), 0, {24305}, (), {24299}),
+       f.solution_at(_ws("Prize solution 24,299"), 0, {24305}),
+       f.solution_at(_ws("Solution to Prize Crossword 23,421"), 0, {23426}, (), {23420}),
+       f.solution_at(_ws("Solution to Crossword 24,305"), 0, {24305}, (), {24299})])
+check("solution_headings takes the prize under a Monday's title and not a Prize heading lagging otherwise",
+      [[(23420, (1, 2, 5, 9))], []],
+      [f.solution_headings([[(1, 2, 3, 4, "Solution"), (3, 4, 4, 5, "to"), (4, 3, 5, 9, "Prize"), (5, 3, 5, 9, "Crossword"),
+                             (1, 2, 5, 9, "23,420")]], [23427]),
+       f.solution_headings([[(1, 2, 3, 4, "Solution"), (3, 4, 4, 5, "to"), (4, 3, 5, 9, "Prize"), (5, 3, 5, 9, "Crossword"),
+                             (1, 2, 5, 9, "23,420")]], [23500])])
+# ---- a read that wrote an incomplete puzzle before the cause time is due once ("unfiled before its fix")
+_un = {"id": "times-9999999", "number": 9999999, "complete": False, "wrote": True, "unfiled": 3, "clues": 27, "lights": 30}
+_unrow = {"verdicts": [_un], "scan": {"item": "GaleTimes1947UKEnglish", "date": "1947-04-19"}}
+# _after must stay later than f.REREAD_UNFILED, which each reader fix bumps.
+_before, _after = "2026-10-19T23:11:28+00:00", "2099-01-01T00:00:00+00:00"
+check("an incomplete write read before the cause time is due, with its puzzle and blank count", True,
+      f.fix_reason({**_unrow, "readAt": _before}) == "unfiled before its fix"
+      and f.unfiled_blank(_unrow) == [("times-9999999", 3)])
+_held1 = Path(tempfile.mkdtemp()) / "times-9999999.json"
+_was1 = f._HELD_PATH.get(("times", 9999999))
+f._HELD_PATH[("times", 9999999)] = _held1
+_held1.write_text(json.dumps({"entries": [{"clue": {"text": "a"}}, {"clue": {"text": "b"}}]}))
+_whole1 = f.fix_reason({**_unrow, "readAt": _before})
+_held1.write_text(json.dumps({"entries": [{"clue": {"text": "a"}}, {"clue": None}, {"x": 1}]}))
+_short1 = f.fix_reason({**_unrow, "readAt": _before})
+if _was1 is None:
+    del f._HELD_PATH[("times", 9999999)]
+else:
+    f._HELD_PATH[("times", 9999999)] = _was1
+check("a puzzle the corpus already holds with every clue is not due for its page's blanks; one held short still is",
+      [None, "unfiled before its fix"], [_whole1, _short1])
+check("one read after it (incomplete again) is not due again; nor a complete or a refused one", [None] * 3,
+      [f.fix_reason({**_unrow, "readAt": _after}),
+       f.fix_reason({**_unrow, "readAt": _before, "verdicts": [{**_un, "complete": True}]}),
+       f.fix_reason({**_unrow, "readAt": _before, "verdicts": [{**_un, "refused": "x"}]})])
+check("the reason is evidence, ranked with the fix-landed rereads and held behind never-read pages", (True, 2, True, True),
+      (eq.evidence_reason("unfiled before its fix"), f.rank_of_reason("unfiled before its fix"),
+       "unfiled before its fix" in eq.FIX_LANDED, eq.refusal_reread("unfiled before its fix")))
+# ---- a 2000-14 Times page left unfiled before the 10-25 clue-11 / cut-window fixes is due once (fa.UNFILED_MODERN):
+# also when its read was "complete" or carries "unfiled" with no "wrote" (unfiled_blank passes both over).
+_mo = {"id": "times-9999997", "number": 9999997, "complete": True, "unfiled": 1, "clues": 30, "lights": 30}
+_morow = {"edition": "GaleTimes2007UKEnglish/2007-04-06", "verdicts": [_mo], "readAt": "2026-10-23T05:00:00+00:00"}
+check("a 2000-14 Times page written unfiled before the fix is due as such, ranked and kept as fix evidence",
+      [f.UNFILED_MODERN, 2, True, True, True],
+      [f.fix_reason(_morow), f.RANKS[f.UNFILED_MODERN], eq.evidence_reason(f.UNFILED_MODERN),
+       f.UNFILED_MODERN in eq.FIX_LANDED, f.UNFILED_MODERN.startswith(f.BUG_READS)])
+check("not after the fix, not another era, not a page with nothing unfiled", [None] * 3,
+      [f.fix_reason({**_morow, "readAt": _after}),
+       f.fix_reason({**_morow, "edition": "GaleTimes1999UKEnglish/1999-04-06"}),
+       f.fix_reason({**_morow, "verdicts": [{**_mo, "unfiled": 0}]})])
+# ---- a Times page written unfiled for a blank the print's close-set dash made ("Beat,—with") is due once
+# (fa.DASH_JOINED): its own reason, so CANARY_FAILED's Times "unfiled before its fix" row does not hold it.
+_dj = {"id": "times-9999996", "number": 9999996, "complete": False, "wrote": True, "unfiled": 1, "clues": 31,
+       "lights": 32, "blank": {"15-across": "'Beat,—with': a stray mark inside a word"}}
+_djrow = {"edition": "GaleTimes1943UKEnglish/1943-09-18", "verdicts": [_dj], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a close-set dash is due as such, ranked, evidence, fix-landed, never canary-held",
+      [f.DASH_JOINED, 2, True, True, None, None],
+      [f.fix_reason(_djrow), f.RANKS[f.DASH_JOINED], eq.evidence_reason(f.DASH_JOINED), f.DASH_JOINED in eq.FIX_LANDED,
+       eq.canary_failed({"paper": "gale", "reason": f.DASH_JOINED, "date": "1943-09-18"}),
+       eq.canary_failed({"paper": "times", "reason": f.DASH_JOINED, "date": "1978-11-04"})])
+check("not after the fix, nor for a stray mark the dash rule leaves ('wor,d'), nor another paper", [False] * 3,
+      [f.dash_joined({**_djrow, "readAt": _after}),
+       f.dash_joined({**_djrow, "verdicts": [{**_dj, "blank": {"15-across": "'wor,d': a stray mark inside a word"}}]}),
+       f.dash_joined({**_djrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for a word's old or spoken form read as no word ("loveth", "fishin'") is due
+# once (fa.OLD_FORM): its own reason, so CANARY_FAILED's Times "unfiled before its fix" row does not hold it.
+_of = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"4-down": "'smilest': not a word"}}
+_ofrow = {"edition": "GaleTimes1968UKEnglish/1968-05-03", "verdicts": [_of], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for an old verb form is due as such, ranked, evidence, fix-landed, never canary-held",
+      [f.OLD_FORM, 2, True, True, None, None, True],
+      [f.fix_reason(_ofrow), f.RANKS[f.OLD_FORM], eq.evidence_reason(f.OLD_FORM), f.OLD_FORM in eq.FIX_LANDED,
+       eq.canary_failed({"paper": "gale", "reason": f.OLD_FORM, "date": "1968-05-03"}),
+       eq.canary_failed({"paper": "times", "reason": f.OLD_FORM, "date": "1984-12-31"}),
+       f.old_blank("\"workin'\": not a word")])
+check("not after the fix, nor for a misread ('sanotimonious'), nor another paper", [False] * 3,
+      [f.old_formed({**_ofrow, "readAt": _after}),
+       f.old_formed({**_ofrow, "verdicts": [{**_of, "blank": {"4-down": "'sanotimonious': not a word"}}]}),
+       f.old_formed({**_ofrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a 1969-or-older Times page written unfiled for a stray letter, a letter-spaced word's ("l i t t l e"), is
+# due once (fa.LETTER_SPACED): its own reason, so CANARY_FAILED's Times "unfiled before its fix" row does not hold it.
+_ls = {"id": "times-9999994", "number": 9999994, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"9-down": "'l': a stray letter"}}
+_lsrow = {"edition": "GaleTimes1965UKEnglish/1965-04-09", "verdicts": [_ls], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a letter-spaced word's letter is due as such, ranked, evidence, fix-landed, never canary-held",
+      [f.LETTER_SPACED, 2, True, True, None, None, True],
+      [f.fix_reason(_lsrow), f.RANKS[f.LETTER_SPACED], eq.evidence_reason(f.LETTER_SPACED), f.LETTER_SPACED in eq.FIX_LANDED,
+       eq.canary_failed({"paper": "gale", "reason": f.LETTER_SPACED, "date": "1965-04-09"}),
+       eq.canary_failed({"paper": "times", "reason": f.LETTER_SPACED, "date": "1970-12-31"}),
+       f.spaced_blank("'e,': a stray letter")])
+check("not after the fix, nor for 'a' or a capital, nor after the spaced years, nor another paper", [False] * 5,
+      [f.spaced_worded({**_lsrow, "readAt": _after}),
+       f.spaced_worded({**_lsrow, "verdicts": [{**_ls, "blank": {"9-down": "'a': a stray letter"}}]}),
+       f.spaced_worded({**_lsrow, "verdicts": [{**_ls, "blank": {"9-down": "'X': a stray letter"}}]}),
+       f.spaced_worded({**_lsrow, "edition": "GaleTimes1991UKEnglish/1991-02-15"}),
+       f.spaced_worded({**_lsrow, "edition": "FinancialTimes1960UKEnglish/1960-01-21_0"})])
+# ---- a Times page written unfiled for a Mc surname or "Messrs." read as a name that lost a letter is due once
+# (fa.NAME_CLUSTER), ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_nc = {"id": "times-9999993", "number": 9999993, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"17-down": "'McTavish': a letter lost from a name"}}
+_ncrow = {"edition": "GaleTimes1963UKEnglish/1963-11-26", "verdicts": [_nc], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a Mc surname is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.NAME_CLUSTER, 2, True, True, True, None, None, True],
+      [f.fix_reason(_ncrow), f.RANKS[f.NAME_CLUSTER], eq.evidence_reason(f.NAME_CLUSTER), f.NAME_CLUSTER in eq.FIX_LANDED,
+       f.NAME_CLUSTER in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.NAME_CLUSTER, "date": "1963-11-26"}),
+       eq.canary_failed({"paper": "times", "reason": f.NAME_CLUSTER, "date": "1984-12-31"}),
+       f.cluster_blank("'Messrs.': a letter lost from a name")])
+check("a Times page refused as taken whose title a renumber freed (r34) is ranked 2, evidence and unfiled-first: it files a new puzzle",
+      (2, True, True),
+      (f.rank_of_reason(f.NUMBER_DATE_REFUSED), eq.evidence_reason(f.NUMBER_DATE_REFUSED),
+       f.NUMBER_DATE_REFUSED in eq.UNFILED_FIRST))
+check("not after the fix, nor for a name that lost its accent ('Mnchen'), nor a word misread as a name, nor another paper",
+      [False] * 4,
+      [f.cluster_named({**_ncrow, "readAt": _after}),
+       f.cluster_named({**_ncrow, "verdicts": [{**_nc, "blank": {"17-down": "'Mnchen': a letter lost from a name"}}]}),
+       f.cluster_named({**_ncrow, "verdicts": [{**_nc, "blank": {"17-down": "'Murat': a word misread as a name"}}]}),
+       f.cluster_named({**_ncrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for a derived word the lexicon lacks ("immortaliser") read as no word is due
+# once (fa.DERIVED_FORM), ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_df = {"id": "times-9999992", "number": 9999992, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"28-across": "'immortaliser': not a word"}}
+_dfrow = {"edition": "GaleTimes1991UKEnglish/1991-07-17", "verdicts": [_df], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a derived word is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.DERIVED_FORM, 2, True, True, True, None, None, True],
+      [f.fix_reason(_dfrow), f.RANKS[f.DERIVED_FORM], eq.evidence_reason(f.DERIVED_FORM), f.DERIVED_FORM in eq.FIX_LANDED,
+       f.DERIVED_FORM in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.DERIVED_FORM, "date": "1991-07-17"}),
+       eq.canary_failed({"paper": "times", "reason": f.DERIVED_FORM, "date": "1984-12-31"}),
+       f.derived_blank("'collectivization': not a word")])
+check("not after the fix, nor for a verb unknown whole ('vertiser'), nor an old form's reason, nor another paper",
+      [False] * 4,
+      [f.derived_formed({**_dfrow, "readAt": _after}),
+       f.derived_formed({**_dfrow, "verdicts": [{**_df, "blank": {"28-across": "'vertiser': not a word"}}]}),
+       f.old_formed(_dfrow),
+       f.derived_formed({**_dfrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for a clue that swallowed the next one's number, a neighbouring column's
+# words read past a count ("(7). Walks" then "8 Some batsman"; times-15827), is due once (fa.NEIGHBOUR_TAIL),
+# ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_nt = {"id": "times-9999991", "number": 9999991, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"8-down": "holds a clue number and text: '8 Some batsman a'"}}
+_ntrow = {"edition": "GaleTimes1982UKEnglish/1982-05-10", "verdicts": [_nt], "readAt": "2026-10-22T01:26:02+00:00"}
+check("a Times page blanked for a swallowed clue number is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.NEIGHBOUR_TAIL, 2, True, True, True, None, None],
+      [f.fix_reason(_ntrow), f.RANKS[f.NEIGHBOUR_TAIL], eq.evidence_reason(f.NEIGHBOUR_TAIL), f.NEIGHBOUR_TAIL in eq.FIX_LANDED,
+       f.NEIGHBOUR_TAIL in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.NEIGHBOUR_TAIL, "date": "1982-05-10"}),
+       eq.canary_failed({"paper": "times", "reason": f.NEIGHBOUR_TAIL, "date": "1984-12-31"})])
+check("not after the fix, nor for another reason, nor three blanks, nor another paper",
+      [False] * 4,
+      [f.neighbour_tailed({**_ntrow, "readAt": _after}),
+       f.neighbour_tailed({**_ntrow, "verdicts": [{**_nt, "blank": {"8-down": "starts mid-clue"}}]}),
+       f.neighbour_tailed({**_ntrow, "verdicts": [{**_nt, "blank": {**_nt["blank"], "1-across": "starts mid-clue",
+                                                                     "2-down": "starts mid-clue"}}]}),
+       f.neighbour_tailed({**_ntrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for Down lights lost after a wrapped clue line opening "solution" in lower case
+# ("solution in Cluedo mystery"; 2009-05-09), where ftp.sections once ended the Down list, is due once
+# (fa.DOWN_CUT), ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_dc = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"3-down": "no reading laid a clue on it", "22-down": "no reading laid a clue on it"}}
+_dcrow = {"edition": "GaleTimes2009UKEnglish/2009-05-09", "verdicts": [_dc], "readAt": "2026-10-22T01:26:02+00:00"}
+_dc_read = f.down_cut_read
+f.down_cut_read = lambda key: True
+check("a Times page whose Down list a lower-case 'solution' line cut is due as such, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held",
+      [f.DOWN_CUT, 2, True, True, True, None, None],
+      [f.fix_reason(_dcrow), f.RANKS[f.DOWN_CUT], eq.evidence_reason(f.DOWN_CUT), f.DOWN_CUT in eq.FIX_LANDED,
+       f.DOWN_CUT in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.DOWN_CUT, "date": "2009-05-09"}),
+       eq.canary_failed({"paper": "times", "reason": f.DOWN_CUT, "date": "1984-12-31"})])
+check("not after the fix, nor for an Across light, nor another paper",
+      [False] * 3,
+      [f.down_cut_lost({**_dcrow, "readAt": _after}),
+       f.down_cut_lost({**_dcrow, "verdicts": [{**_dc, "blank": {"3-across": "no reading laid a clue on it"}}]}),
+       f.down_cut_lost({**_dcrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.down_cut_read = lambda key: False
+check("nor with no reading holding such a line", False, f.down_cut_lost(_dcrow))
+f.down_cut_read = _dc_read
+check("a lower-case 'solution' line opens a cached reading's line", [True, False],
+      [bool(f.DOWN_CUT_LINE.match("solution in Cluedo mystery")), bool(f.DOWN_CUT_LINE.match("SOLUTION OF PUZZLE"))])
+# ---- a Times page written unfiled for its first Down lights, its DOWN heading set alone at the foot of the across
+# column past a gap that ended the column (1983-03-02's 1-3 down), is due once (fa.DOWN_FOOT), ordered with
+# never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_df = {"id": "times-9999992", "number": 9999992, "complete": False, "wrote": True, "unfiled": 3, "clues": 29,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("1-down", "2-down", "3-down")}}
+_dfrow = {"edition": "GaleTimes1983UKEnglish/1983-03-02", "verdicts": [_df], "readAt": "2026-10-22T01:26:02+00:00"}
+_df_read = f.down_foot_read
+f.down_foot_read = lambda key: True
+check("a Times page whose DOWN heading a gap cut off the across column is due as such, ranked, evidence, "
+      "fix-landed, unfiled-first, never canary-held",
+      [f.DOWN_FOOT, 2, True, True, True, None, None],
+      [f.fix_reason(_dfrow), f.RANKS[f.DOWN_FOOT], eq.evidence_reason(f.DOWN_FOOT), f.DOWN_FOOT in eq.FIX_LANDED,
+       f.DOWN_FOOT in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.DOWN_FOOT, "date": "1983-03-02"}),
+       eq.canary_failed({"paper": "times", "reason": f.DOWN_FOOT, "date": "1983-05-30"})])
+check("not after the fix, nor for an Across light, nor another paper",
+      [False] * 3,
+      [f.down_foot_lost({**_dfrow, "readAt": _after}),
+       f.down_foot_lost({**_dfrow, "verdicts": [{**_df, "blank": {"1-across": "no reading laid a clue on it"}}]}),
+       f.down_foot_lost({**_dfrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.down_foot_read = lambda key: False
+check("nor with no reading holding such a heading", False, f.down_foot_lost(_dfrow))
+f.down_foot_read = _df_read
+# ---- a Times page written unfiled for a clue blanked on a stray mark the mends now clear ("never felt,a", Gale
+# 1941-06-16's 25 down) or a stopped abbreviation's possessive ("Mr. F.'s") is due once (fa.SPECK_MENDED),
+# ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_sm = {"id": "times-9999993", "number": 9999993, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"25-down": "'felt,a': a stray mark inside a word"}}
+_smrow = {"edition": "GaleTimes1941UKEnglish/1941-06-16", "verdicts": [_sm], "readAt": "2026-10-22T01:26:02+00:00"}
+check("a Times page with a clue blanked on a glued comma is due as such, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held",
+      [f.SPECK_MENDED, 2, True, True, True, None, None],
+      [f.fix_reason(_smrow), f.RANKS[f.SPECK_MENDED], eq.evidence_reason(f.SPECK_MENDED), f.SPECK_MENDED in eq.FIX_LANDED,
+       f.SPECK_MENDED in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.SPECK_MENDED, "date": "1941-06-16"}),
+       eq.canary_failed({"paper": "times", "reason": f.SPECK_MENDED, "date": "1984-12-31"})])
+check("not after the fix, nor for another paper",
+      [False] * 2,
+      [f.speck_mended_lost({**_smrow, "readAt": _after}),
+       f.speck_mended_lost({**_smrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+check("which blank tokens the mends now clear: a glued comma, a quote glued to its source, 'Mr. F.'s', a known "
+      "slip; not a foreign word, a close-set dash another fix passes, nor the vote's 'both read'",
+      [True, True, True, True, False, False, False],
+      [f.speck_blank(w) for w in ("'felt,a': a stray mark inside a word",
+                                  "'provoke\"(Pope)': a stray mark inside a word",
+                                  "\"F.'s\": a stray mark inside a word", "'hrute': not a word",
+                                  "'linguae': not a word", "'Beat,—with': a stray mark inside a word",
+                                  "both read 'felt,a', not a word")])
+# ---- a Times page written unfiled for lights no reading laid after a clue's last line opening on a STOP word ended
+# the column (Gale 1982-12-15: 5 down's "Jumbo?(6.3.6)."; 6-21 down unlaid) is due once (fa.STOP_TAIL), ordered
+# with never-read pages, never canary-held.
+_cl = {"id": "times-9999994", "number": 9999994, "complete": False, "wrote": True, "unfiled": 2, "clues": 30,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("7-down", "8-down")}}
+_clrow = {"edition": "GaleTimes1982UKEnglish/1982-12-15", "verdicts": [_cl], "readAt": "2026-10-22T01:26:02+00:00"}
+_cl_read = f.stop_tail_read
+f.stop_tail_read = lambda key: key == "1982-12-15_9999994"
+check("a Times page whose column a clue's STOP-word last line ended is due as such, ranked, evidence, "
+      "fix-landed, unfiled-first, never canary-held",
+      [f.STOP_TAIL, 2, True, True, True, None, None],
+      [f.fix_reason(_clrow), f.RANKS[f.STOP_TAIL], eq.evidence_reason(f.STOP_TAIL),
+       f.STOP_TAIL in eq.FIX_LANDED, f.STOP_TAIL in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.STOP_TAIL, "date": "1982-12-15"}),
+       eq.canary_failed({"paper": "times", "reason": f.STOP_TAIL, "date": "1984-12-31"})])
+check("not after the fix, nor for another paper, nor with no light no reading laid",
+      [False] * 3,
+      [f.stop_tail_lost({**_clrow, "readAt": _after}),
+       f.stop_tail_lost({**_clrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
+       f.stop_tail_lost({**_clrow, "verdicts": [{**_cl, "blank": {"7-down": "'hrute': not a word"}}]})])
+f.stop_tail_read = lambda key: False
+check("nor with no reading holding such a line", False, f.stop_tail_lost(_clrow))
+f.stop_tail_read = _cl_read
+# ---- a Times page written unfiled for lights no reading laid while the gutter under the grid lay right of where
+# the second column's clue lines open (Gale 1963-10-07: printed ~770 px, sought at 864; 14-22 down unlaid) is due
+# once (fa.OPENING_GUTTER), ordered with never-read pages, never canary-held.
+_og = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 5, "clues": 25,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("14-down", "16-down")}}
+_ogrow = {"edition": "GaleTimes1963UKEnglish/1963-10-07", "verdicts": [_og], "readAt": "2026-10-15T14:39:49+00:00"}
+_og_read, _og_tail = f.opening_gutter_read, f.stop_tail_read
+f.opening_gutter_read = lambda key: key == "1963-10-07_9999995"
+f.stop_tail_read = lambda key: False
+check("a Times page whose gutter lay right of its second column's clue openings is due as such, ranked, "
+      "evidence, fix-landed, unfiled-first, never canary-held",
+      [f.OPENING_GUTTER, 2, True, True, True, None, None],
+      [f.fix_reason(_ogrow), f.RANKS[f.OPENING_GUTTER], eq.evidence_reason(f.OPENING_GUTTER),
+       f.OPENING_GUTTER in eq.FIX_LANDED, f.OPENING_GUTTER in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.OPENING_GUTTER, "date": "1963-10-07"}),
+       eq.canary_failed({"paper": "times", "reason": f.OPENING_GUTTER, "date": "1984-12-31"})])
+check("not after the fix, nor for another paper, nor with no light no reading laid",
+      [False] * 3,
+      [f.opening_gutter_lost({**_ogrow, "readAt": _after}),
+       f.opening_gutter_lost({**_ogrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
+       f.opening_gutter_lost({**_ogrow, "verdicts": [{**_og, "blank": {"14-down": "'hrute': not a word"}}]})])
+f.opening_gutter_read = lambda key: False
+check("nor with no reading so cut", False, f.opening_gutter_lost(_ogrow))
+f.opening_gutter_read, f.stop_tail_read = _og_read, _og_tail
+# ---- a Times page written unfiled for a clue the vote blanked on words read on past its count (the noise under a
+# list's last clue: Gale 1946-03-22's "taken in by them (5). ir th tb ca") is due once (fa.RUN_ON_TAIL), ordered
+# with never-read pages, never canary-held.
+_rt = {"id": "times-9999996", "number": 9999996, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"25-down": "no other reading has 'th'"}}
+_rtrow = {"edition": "GaleTimes1946UKEnglish/1946-03-22", "verdicts": [_rt], "readAt": "2026-10-18T09:12:40+00:00"}
+_rt_read = f.run_on_tail_read
+f.run_on_tail_read = lambda key, word: key == "1946-03-22_9999996" and word == "th"
+check("a Times page whose clue the vote blanked on words run on past its count is due as such, ranked, "
+      "evidence, fix-landed, unfiled-first, never canary-held",
+      [f.RUN_ON_TAIL, 2, True, True, True, None, None],
+      [f.fix_reason(_rtrow), f.RANKS[f.RUN_ON_TAIL], eq.evidence_reason(f.RUN_ON_TAIL),
+       f.RUN_ON_TAIL in eq.FIX_LANDED, f.RUN_ON_TAIL in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.RUN_ON_TAIL, "date": "1946-03-22"}),
+       eq.canary_failed({"paper": "times", "reason": f.RUN_ON_TAIL, "date": "1984-12-31"})])
+check("the words of 'readings differ' count too",
+      True, f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "readings differ: th / tb"}}]}))
+check("not after the fix, nor for another paper, nor with a blank that names no refused words",
+      [False] * 3,
+      [f.run_on_tail_lost({**_rtrow, "readAt": _after}),
+       f.run_on_tail_lost({**_rtrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
+       f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "no reading laid a clue on it"}}]})])
+f.run_on_tail_read = lambda key, word: False
+# ---- a Times page written unfiled whose blank lights a replay of the current reader lays, no other reason due
+# (fa.LAID_PUZZLES: r12's 12 Gale pages, e.g. 1944-12-13's 4,613), is due once as LAID_BLANKS.
+_bf_was = f.block_forties_due  # a newer reread (BLOCK_FORTIES) claims 1940s Gale pages first; these rows test the older reasons
+f.block_forties_due = lambda row: False
+_lb_was = f.LAID_PUZZLES
+f.LAID_PUZZLES = frozenset((9999995,))
+_lb = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"9-across": "no reading laid a clue on it"}}
+_lbrow = {"edition": "GaleTimes1944UKEnglish/1944-12-13", "verdicts": [_lb], "readAt": "2026-10-25T07:19:26+00:00",
+          "scan": {"item": "GaleTimes1944UKEnglish", "date": "1944-12-13", "puzzles": [{"number": 9999995}]}}
+check("a LAID_PUZZLES page written unfiled is due as LAID_BLANKS, ranked, evidence, fix-landed, unfiled-first, "
+      "never canary-held, passing a blanket reason",
+      [f.LAID_BLANKS, 2, True, True, True, None, f.LAID_BLANKS],
+      [f.fix_reason(_lbrow), f.RANKS[f.LAID_BLANKS], eq.evidence_reason(f.LAID_BLANKS),
+       f.LAID_BLANKS in eq.FIX_LANDED, f.LAID_BLANKS in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.LAID_BLANKS, "date": "1944-12-13"}),
+       f.blanket_or_fix(_lbrow, "inputs changed")])
+check("not after REREAD_LAID_BLANKS, nor complete, refused, another number or another paper",
+      [False] * 5,
+      [f.laid_blanks_due({**_lbrow, "readAt": _after}),
+       f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "complete": True}]}),
+       f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "refused": "no reading parses"}]}),
+       f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "number": 9999994, "id": "times-9999994"}]}),
+       f.laid_blanks_due({**_lbrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.LAID_PUZZLES = _lb_was
+f.block_forties_due = _bf_was
+check("nor with no reading printing them after a count", False, f.run_on_tail_lost(_rtrow))
+f.run_on_tail_read = _rt_read
+# ---- a Times page written unfiled while a reading of its clue window ends a line on a count whose 1 was read as i
+# ("gatherer (i1).", Times 1974-12-07) is due once (fa.ONES_COUNT), ordered with never-read pages, never canary-held.
+_oc = {"id": "times-9999993", "number": 9999993, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"4-down": "no reading laid a clue on it"}}
+_ocrow = {"edition": "GaleTimes1974UKEnglish/1974-12-07", "verdicts": [_oc], "readAt": "2026-10-25T07:19:26+00:00",
+          "scan": {"item": "GaleTimes1974UKEnglish", "date": "1974-12-07", "puzzles": [{"number": 9999993}]}}
+_oc_read = f.ones_count_read
+f.ones_count_read = lambda key: key == "1974-12-07_9999993"
+check("a Times page whose window reads a count's 1 as i is due as ONES_COUNT, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held, passing a blanket reason",
+      [f.ONES_COUNT, 2, True, True, True, None, f.ONES_COUNT],
+      [f.fix_reason(_ocrow), f.RANKS[f.ONES_COUNT], eq.evidence_reason(f.ONES_COUNT),
+       f.ONES_COUNT in eq.FIX_LANDED, f.ONES_COUNT in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.ONES_COUNT, "date": "1974-12-07"}),
+       f.blanket_or_fix(_ocrow, "inputs changed")])
+check("not after REREAD_ONES_COUNT, nor with no blank, another window or another paper",
+      [False] * 4,
+      [f.ones_count_lost({**_ocrow, "readAt": _after}),
+       f.ones_count_lost({**_ocrow, "verdicts": [{**_oc, "blank": {}}]}),
+       f.ones_count_lost({**_ocrow, "edition": "GaleTimes1974UKEnglish/1974-12-08"}),
+       f.ones_count_lost({**_ocrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.ones_count_read = _oc_read
+# ---- a Times page refused "no reading parses" (or written unfiled) while a reading of its clue window holds a clue
+# opening on "See 16" and running on ("19 See 16 about covering Australian port (9).", Times 1983-11-05) is due once
+# (fa.SEE_RUNS_ON), ordered with never-read pages, never canary-held.
+_sr = {"number": 9999992, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' about covering'"}}
+_srrow = {"edition": "GaleTimes1983UKEnglish/1983-11-05", "verdicts": [_sr], "readAt": "2026-10-21T17:24:29+00:00",
+          "scan": {"item": "GaleTimes1983UKEnglish", "date": "1983-11-05", "puzzles": [{"number": 9999992}]}}
+_sr_read = f.see_run_read
+f.see_run_read = lambda key: key == "1983-11-05_9999992"
+check("a Times page whose window holds a See clue run on is due as SEE_RUNS_ON, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held, passing a blanket reason",
+      [f.SEE_RUNS_ON, 2, True, True, True, None, f.SEE_RUNS_ON],
+      [f.fix_reason(_srrow), f.RANKS[f.SEE_RUNS_ON], eq.evidence_reason(f.SEE_RUNS_ON),
+       f.SEE_RUNS_ON in eq.FIX_LANDED, f.SEE_RUNS_ON in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.SEE_RUNS_ON, "date": "1983-11-05"}),
+       f.blanket_or_fix(_srrow, "inputs changed")])
+_sr_unfiled = {"id": "times-9999992", "number": 9999992, "complete": False, "wrote": True, "unfiled": 1,
+               "blank": {"19-across": "no reading laid a clue on it"}}
+check("written unfiled with a blank too; not after REREAD_SEE_RUNS_ON, nor another refusal, window or paper",
+      [True, False, False, False, False],
+      [f.see_run_lost({**_srrow, "verdicts": [_sr_unfiled]}),
+       f.see_run_lost({**_srrow, "readAt": _after}),
+       f.see_run_lost({**_srrow, "verdicts": [{**_sr, "cause": "not-a-grid"}]}),
+       f.see_run_lost({**_srrow, "edition": "GaleTimes1983UKEnglish/1983-11-07"}),
+       f.see_run_lost({**_srrow, "edition": "FinancialTimes1983UKEnglish/1983-11-05_0"})])
+f.see_run_read = _sr_read
+# ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
+# quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
+_pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,
+       "refusedWrite": "refusing to write times-9999991: SHAPE 25-across: clue \"Emperor's returned, an odd cove;, quietly "
+                       "spoken\" holds two marks in a row ('odd cove;, quietly'): file the reading that prints it right "
+                       "(punctuation.faults); SHAPE 3-down: clue 'You\\'ve got the key of the , my friend\" (Dickens)' holds "
+                       "a space before a comma ('the , my'): file the reading that prints it right (punctuation.faults)"}
+_pmrow = {"edition": "GaleTimes1987UKEnglish/1987-02-11", "verdicts": [_pm], "readAt": "2026-10-25T19:14:00+00:00",
+          "scan": {"item": "GaleTimes1987UKEnglish", "date": "1987-02-11", "puzzles": [{"number": 9999991}]}}
+check("a Times page refused over punctuation now mended is due as such, ranked, evidence, fix-landed, unfiled-first",
+      [f.PUNCT_MENDED, 2, True, True, True, None, True],
+      [f.fix_reason(_pmrow), f.RANKS[f.PUNCT_MENDED], eq.evidence_reason(f.PUNCT_MENDED), f.PUNCT_MENDED in eq.FIX_LANDED,
+       f.PUNCT_MENDED in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.PUNCT_MENDED, "date": "1987-02-11"}),
+       f.blanket_or_fix(_pmrow, "inputs changed") == f.PUNCT_MENDED])
+_pm_left = "refusing to write times-9999991: SHAPE 2-down: clue 'Sad ,Maori (anag.)' holds a space before a comma " \
+           "('Sad ,Maori (a'): file the reading that prints it right (punctuation.faults)"
+_pm_other = _pm["refusedWrite"] + "; SHAPE 4-down: holds the page's text: 'x (3) 5 Y'; cut it (ocr_clues.run_in) or file the clue blank"
+check("not after the fix, nor a fault no mend clears, nor beside another refusal, nor another paper",
+      [False] * 4,
+      [f.punct_mended({**_pmrow, "readAt": _after}),
+       f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_left}]}),
+       f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_other}]}),
+       f.punct_mended({**_pmrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page whose write the gate refused over speck marks at a clue's word gap the mends leave (".:",
+# " ,") is due once (fa.GAP_VOTED: agree() takes the marks other readings print there), unfiled-first.
+_gv = {**_pm, "refusedWrite": "refusing to write times-9999991: SHAPE 3-down: clue 'Measure.:associated with "
+                              "lobsters' holds two marks in a row ('Measure.:associated'): file the reading that prints "
+                              "it right (punctuation.faults)"}
+_gvrow = {**_pmrow, "verdicts": [_gv]}
+check("a Times page refused over a gap's speck marks is due as GAP_VOTED, ranked, evidence, fix-landed, unfiled-first",
+      [f.GAP_VOTED, 2, True, True, True, None, True, True],
+      [f.fix_reason(_gvrow), f.RANKS[f.GAP_VOTED], eq.evidence_reason(f.GAP_VOTED), f.GAP_VOTED in eq.FIX_LANDED,
+       f.GAP_VOTED in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.GAP_VOTED, "date": "1987-02-11"}),
+       f.blanket_or_fix(_gvrow, "inputs changed") == f.GAP_VOTED,
+       f.gap_vote_due({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_left}]})])
+_gv_quote = "refusing to write times-9999991: SHAPE 2-down: clue \"Reading munitions ''dump\" holds two apostrophes " \
+            "for a double quote (\"nitions ''dump\"): file the reading that prints it right (punctuation.faults)"
+check("not after the fix, nor what PUNCT_MENDED rereads, nor an apostrophes fault, nor beside another refusal, nor FT",
+      [False] * 5,
+      [f.gap_vote_due({**_gvrow, "readAt": _after}),
+       f.gap_vote_due(_pmrow),
+       f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv_quote}]}),
+       f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv["refusedWrite"] + "; SHAPE 4-down: holds "
+                                                                    "the page's text: 'x (3) 5 Y'; cut it"}]}),
+       f.gap_vote_due({**_gvrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page with every answer read whose write was refused as a copy of a held book file with no answer and
+# no annotation (fetch_puzzle.unsolved_book) is due once (fa.BOOK_YIELDS: such a book gives way), unfiled-first.
+import fetch_puzzle as _fp
+_by = {"id": "times-9999992", "number": 9999992, "complete": False, "clues": 30, "lights": 30, "answers": 30,
+       "refusedWrite": "requested times-9999992 but the page served the clues of book-99015 (26 of 30 clues are the "
+                       "same) — refusing to file a copy"}
+_byrow = {"edition": "GaleTimes2005UKEnglish/2005-03-02", "verdicts": [_by], "readAt": "2026-10-28T19:14:00+00:00",
+          "scan": {"item": "GaleTimes2005UKEnglish", "date": "2005-03-02", "puzzles": [{"number": 9999992}]}}
+_by_real = _fp.unsolved_book
+_fp.unsolved_book = lambda pid: Path("/x/book-99015.json") if pid == "book-99015" else None
+try:
+    check("a Times page refused over an unsolved book copy is due as BOOK_YIELDS, ranked, evidence, fix-landed, "
+          "unfiled-first, blanket-passing",
+          [f.BOOK_YIELDS, 2, True, True, True, None, True],
+          [f.fix_reason(_byrow), f.RANKS[f.BOOK_YIELDS], eq.evidence_reason(f.BOOK_YIELDS), f.BOOK_YIELDS in eq.FIX_LANDED,
+           f.BOOK_YIELDS in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.BOOK_YIELDS, "date": "2005-03-02"}),
+           f.blanket_or_fix(_byrow, "inputs changed") == f.BOOK_YIELDS])
+    check("not after the fix, nor an answer short, nor a solved or annotated book, nor another paper",
+          [False] * 4,
+          [f.book_yields_due({**_byrow, "readAt": _after}),
+           f.book_yields_due({**_byrow, "verdicts": [{**_by, "answers": 29}]}),
+           f.book_yields_due({**_byrow, "verdicts": [{**_by, "refusedWrite": _by["refusedWrite"].replace("99015", "99016")}]}),
+           f.book_yields_due({**_byrow, "edition": "FinancialTimes1990UKEnglish/1990-03-02_0"})])
+finally:
+    _fp.unsolved_book = _by_real
+# ---- an untitled verdict-less 1935-39 Gale Times page never looked over for its footer (fa.footer_rescan) is due
+# FOOTER_TITLE: ranked, evidence, fix-landed, unfiled-first, its scans planned with it ("fix").
+check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fix-landed, unfiled-first",
+      [2, True, True, True, None],
+      [f.RANKS[f.FOOTER_TITLE], eq.evidence_reason(f.FOOTER_TITLE), f.FOOTER_TITLE in eq.FIX_LANDED,
+       f.FOOTER_TITLE in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
+check("a GUARDIAN_SET page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [1, True, True, True, True],
+      [f.RANKS[f.GUARDIAN_SET], eq.evidence_reason(f.GUARDIAN_SET), f.GUARDIAN_SET in eq.FIX_LANDED,
+       f.GUARDIAN_SET in eq.UNFILED_FIRST, f.GUARDIAN_SET in eq.NEWEST_LANDED])
+check("an FT_RIGHT page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [1, True, True, True, True],
+      [f.RANKS[f.FT_RIGHT], eq.evidence_reason(f.FT_RIGHT), f.FT_RIGHT in eq.FIX_LANDED,
+       f.FT_RIGHT in eq.UNFILED_FIRST, f.FT_RIGHT in eq.NEWEST_LANDED])
+check("a TELEGRAPH_DATED page is ranked, evidence, fix-landed, unfiled-first, newest-landed",
+      [1, True, True, True, True],
+      [f.RANKS[f.TELEGRAPH_DATED], eq.evidence_reason(f.TELEGRAPH_DATED), f.TELEGRAPH_DATED in eq.FIX_LANDED,
+       f.TELEGRAPH_DATED in eq.UNFILED_FIRST, f.TELEGRAPH_DATED in eq.NEWEST_LANDED])
+# ---- an untitled verdict-less 1930-33 Gale Times page (numbers of 1-3 digits, fa.small_rescan) is due SMALL_TITLE:
+# ranked, evidence, fix-landed, the newest unfiled-first fix, first tier, and it feeds the VLM (its read asks).
+check("an untitled 1931 Gale Times page due SMALL_TITLE is ranked, evidence, fix-landed, in unfiled-first, tier 0",
+      [2, True, True, True, None, 0],
+      [f.RANKS[f.SMALL_TITLE], eq.evidence_reason(f.SMALL_TITLE), f.SMALL_TITLE in eq.FIX_LANDED,
+       eq.UNFILED_FIRST.index(f.SMALL_TITLE) > eq.UNFILED_FIRST.index(f.VLM_LAID),
+       eq.canary_failed({"paper": "gale", "reason": f.SMALL_TITLE, "date": "1931-03-27"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.SMALL_TITLE, "date": "1931-03-27"})])
+# ---- a heading-titled 1930-33 Gale Times page refused for its neighbours' count (fa.small_headed_due) is due
+# SMALL_HEADED: ranked, evidence, fix-landed, after SMALL_TITLE in unfiled-first, tier 0, blanket-passing.
+check("a heading-titled 1933 Gale Times page due SMALL_HEADED is ranked, evidence, fix-landed, after SMALL_TITLE in "
+      "unfiled-first, tier 0, never canary-held, blanket-passing",
+      [2, True, True, True, None, 0, True],
+      [f.RANKS[f.SMALL_HEADED], eq.evidence_reason(f.SMALL_HEADED), f.SMALL_HEADED in eq.FIX_LANDED,
+       eq.UNFILED_FIRST.index(f.SMALL_HEADED) > eq.UNFILED_FIRST.index(f.SMALL_TITLE),
+       eq.canary_failed({"paper": "gale", "reason": f.SMALL_HEADED, "date": "1933-03-11"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.SMALL_HEADED, "date": "1933-03-11"}),
+       f.SMALL_HEADED in f.BLANKET_PASSES])
+# ---- an untitled Gale FT/Telegraph/Independent/Sunday Times page scanned before the joined titles (fa.joined_rescan)
+# is due HEADINGS_JOINED: ranked as never read (1), evidence, fix-landed, the newest unfiled-first fix, first tier,
+# blanket-passing, never canary-held.
+check("a Gale Telegraph or FT page due HEADINGS_JOINED is ranked 1, evidence, fix-landed, in unfiled-first, "
+      "tier 0, blanket-passing, never canary-held",
+      [1, True, True, True, True, None, 0, 0, True],
+      [f.RANKS[f.HEADINGS_JOINED], eq.evidence_reason(f.HEADINGS_JOINED), f.HEADINGS_JOINED in eq.FIX_LANDED,
+       f.HEADINGS_JOINED in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.HEADINGS_JOINED) > eq.UNFILED_FIRST.index(f.SMALL_TITLE),
+       eq.canary_failed({"paper": "telegraph", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
+       eq.files_likely_tier(1, {"paper": "telegraph", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
+       eq.files_likely_tier(2, {"paper": "ft", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "2004-01-02"}),
+       f.HEADINGS_JOINED in f.BLANKET_PASSES])
+check("title rescans (HEADINGS_JOINED, WINNERS_TITLE) are not refusal rereads, so never held; another fix reason still is",
+      [False, False, True],
+      [eq.refusal_reread(f.HEADINGS_JOINED), eq.refusal_reread(f.WINNERS_TITLE), eq.refusal_reread(f.CLUE_GARBLED)])
+check("a Gale Sunday Times page due WINNERS_TITLE is ranked 1, evidence, fix-landed, in unfiled-first after "
+      "HEADINGS_JOINED, tier 0, blanket-passing",
+      [1, True, True, True, 0, True],
+      [f.RANKS[f.WINNERS_TITLE], eq.evidence_reason(f.WINNERS_TITLE), f.WINNERS_TITLE in eq.FIX_LANDED,
+       (f.WINNERS_TITLE in eq.UNFILED_FIRST
+        and eq.UNFILED_FIRST.index(f.WINNERS_TITLE) > eq.UNFILED_FIRST.index(f.HEADINGS_JOINED)),
+       eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.WINNERS_TITLE, "date": "1993-12-26"}),
+       f.WINNERS_TITLE in f.BLANKET_PASSES])
+# ---- a Gale Telegraph Saturday refused no reading parses is due SIDES_READ once; weekdays and read-since rows are not.
+_srow = {"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
+         "verdicts": [{"number": 23315, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a Gale Telegraph Saturday refused no reading parses is due SIDES_READ (ranked, evidence, fix-landed, last of "
+      "unfiled-first); a weekday, an image-unread page and a page read since are not",
+      [True, 1, True, True, True, True, False, False, False],
+      [f.sides_due(_srow), f.RANKS[f.SIDES_READ], eq.evidence_reason(f.SIDES_READ), f.SIDES_READ in eq.FIX_LANDED,
+       eq.UNFILED_FIRST.index(f.SIDES_READ) > eq.UNFILED_FIRST.index(f.WINNERS_TITLE), f.SIDES_READ in f.BLANKET_PASSES,
+       f.sides_due({**_srow, "edition": "GaleTelegraph2000UKEnglish/2000-12-29"}),
+       f.sides_due({**_srow, "verdicts": [{**_srow["verdicts"][0], "imageUnread": "not a square grid"}]}),
+       f.sides_due({**_srow, "readAt": (f.datetime.datetime.fromisoformat(f.REREAD_SIDES_READ)
+                                           + f.datetime.timedelta(hours=1)).isoformat()})])
+# ---- a Gale Sunday Telegraph 1987-98 page refused no reading parses is due SUNDAY_SIDES once, in unfiled-first.
+_strow = {"edition": "GaleSundayTelegraph1987UKEnglish/1987-05-10", "readAt": "2026-11-09T17:32:20+00:00",
+          "verdicts": [{"number": 1354, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a Gale Sunday Telegraph 1987 page refused no reading parses is due SUNDAY_SIDES (ranked, evidence, fix-landed, "
+      "in unfiled-first); a 1999 page, an image-unread page and a page read since are not",
+      [True, 1, True, True, True, True, False, False, False],
+      [f.sunday_sides_due(_strow), f.RANKS[f.SUNDAY_SIDES], eq.evidence_reason(f.SUNDAY_SIDES), f.SUNDAY_SIDES in eq.FIX_LANDED,
+       f.SUNDAY_SIDES in eq.UNFILED_FIRST, f.SUNDAY_SIDES in f.BLANKET_PASSES,
+       f.sunday_sides_due({**_strow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"}),
+       f.sunday_sides_due({**_strow, "verdicts": [{**_strow["verdicts"][0], "imageUnread": "not a square grid"}]}),
+       f.sunday_sides_due({**_strow, "readAt": "2026-11-09T19:00:00+00:00"})])
+check("a non-Times row due SUNDAY_SIDES or SIDES_READ keeps that reason past the blanket 'inputs changed'; another stays blanket",
+      [f.SUNDAY_SIDES, f.SIDES_READ, "inputs changed"],
+      [f.blanket_or_fix(_strow, "inputs changed"), f.blanket_or_fix(_srow, "inputs changed"),
+       f.blanket_or_fix({**_strow, "readAt": "2026-11-09T19:00:00+00:00"}, "inputs changed")])
+_srrow = {"edition": "GaleSundayTelegraph1993UKEnglish/1993-12-05", "readAt": "2026-11-09T19:47:38+00:00",
+          "verdicts": [{"number": 1696, "refused": "no reading parses", "cause": "no-reading-parses",
+                        "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
+check("a Gale Sunday Telegraph 1993 page read since SUNDAY_SIDES, still no ACROSS and DOWN lists, is due SUNDAY_RIGHT (ranked, "
+      "evidence, fix-landed, in unfiled-first, planned past the blanket); a read before, a parse failure and a 1999 page are not",
+      [True, 1, True, True, True, True, f.SUNDAY_RIGHT, "inputs changed", False, False, False],
+      [f.sunday_right_due(_srrow), f.RANKS[f.SUNDAY_RIGHT], eq.evidence_reason(f.SUNDAY_RIGHT), f.SUNDAY_RIGHT in eq.FIX_LANDED,
+       f.SUNDAY_RIGHT in eq.UNFILED_FIRST, f.SUNDAY_RIGHT in f.BLANKET_PASSES,
+       f.blanket_or_fix(_srrow, "inputs changed"),
+       f.blanket_or_fix({**_srrow, "readAt": "2026-11-09T21:00:00+00:00"}, "inputs changed"),
+       f.sunday_right_due({**_srrow, "readAt": "2026-11-09T17:00:00+00:00"}),
+       f.sunday_right_due({**_srrow, "verdicts": [{**_srrow["verdicts"][0], "unparsed": {"ch": "across clues do not parse: x"}}]}),
+       f.sunday_right_due({**_srrow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"})])
+check("a Gale Sunday Telegraph SUNDAY_RIGHT or SUNDAY_SIDES reread is canary-proven, so hold_refusal_rereads keeps it past never-read units",
+      [True, True, False],
+      [bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_RIGHT, "date": "1993-12-05"})),
+       bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_SIDES, "date": "1987-05-10"})),
+       bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_SIDES, "date": "1999-05-10"}))])
+_sgrid = (229, 3491, 949, 4215)
+_sline = lambda x0, y0, x1, t: [(x0, y0, x1, y0 + 25, t)]
+_slines = [_sline(1080, 3979, 1206, "ACROSS"), _sline(1468, 3976, 1568, "DOWN"), _sline(1070, 3700, 1230, "ad words"),
+           _sline(985, 4018, 1320, "1 What tempted you"), _sline(1361, 4021, 1691, "1 It's no joke")]
+check("a Sunday Telegraph grid at the page's edge has its ACROSS and DOWN columns split at the least crossed gutter, from "
+      "the headings down; its windows are two columns right of the grid",
+      [(1340, 3966), [(954, 1322, 1322, 3969), (1322, 1725, 1725, 3969)]],
+      [f.sunday_gutter(_slines, _sgrid, (0, (1725, 1330), 5328)),
+       f.windows_of(_sgrid, left=(0, (1725, 1322, 3969), 5328))])
+check("the Two-in-One crossword's text is cut at its second ACROSS heading; a one-set text and the left column's start stand",
+      ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
+      [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),
+       f.first_clue_set("ACROSS\n1 a (3)"), f.sunday_left((640, 3253, 1358, 4015))])
+# ---- r88: a Sunday Telegraph 1970-77 page whose clue column's left was cut off is due SUNDAY_WIDE once.
+_wrow = {"edition": "GaleSundayTelegraph1973UKEnglish/1973-04-22", "readAt": "2026-11-11T08:08:53+00:00",
+         "verdicts": [{"number": 633, "refused": "no reading parses"}]}
+check("a Gale Sunday Telegraph 1973 page refused no reading parses is due SUNDAY_WIDE (ranked, in unfiled-first); the "
+      "column starts 820 px left of a small grid, 1.1 grids left of a big one; a 1980 page's refusal is not due",
+      [f.SUNDAY_WIDE, True, True, 350, 209, False],
+      [f.fix_reason(_wrow), f.SUNDAY_WIDE in f.RANKS, all(r in f.RANKS for r in eq.UNFILED_FIRST),
+       f.sunday_left((1000, 4000, 1460, 4700), True), f.sunday_left((1200, 4000, 2100, 4800), True),
+       f.sunday_wide_due({**_wrow, "edition": "GaleSundayTelegraph1980UKEnglish/1980-04-20"})])
+# ---- a Sunday Telegraph 1972-77 page filed with its Quickie set is due QUICK_SET once, in unfiled-first.
+_qrow = {"edition": "GaleSundayTelegraph1976UKEnglish/1976-02-08", "readAt": "2026-11-10T02:26:34+00:00",
+         "verdicts": [{"number": 779, "id": "sundaytel-779", "wrote": True}]}
+check("a Gale Sunday Telegraph 1976 page filed is due QUICK_SET (ranked, evidence, fix-landed, in unfiled-first); "
+      "a 1977-09-25 page, a page read since and a refused page with no puzzle are not",
+      [True, 1, True, True, True, False, False, False],
+      [f.quick_set_due(_qrow), f.RANKS[f.QUICK_SET], eq.evidence_reason(f.QUICK_SET), f.QUICK_SET in eq.FIX_LANDED,
+       f.QUICK_SET in eq.UNFILED_FIRST,
+       f.quick_set_due({**_qrow, "edition": "GaleSundayTelegraph1977UKEnglish/1977-09-25"}),
+       f.quick_set_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00"}),
+       f.quick_set_due({**_qrow, "verdicts": [{"number": 779, "refused": "no reading parses"}]})])
+check("a Gale Sunday Telegraph 1976 page read after QUICK_SET is due QUICK_HELD (ranked, evidence, fix-landed, in unfiled-first); "
+      "a page read since, a 1977-09-25 page and a refused page are not",
+      [True, 1, True, True, True, False, False, False],
+      [f.quick_held_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00"}), f.RANKS[f.QUICK_HELD],
+       eq.evidence_reason(f.QUICK_HELD), f.QUICK_HELD in eq.FIX_LANDED, f.QUICK_HELD in eq.UNFILED_FIRST,
+       f.quick_held_due({**_qrow, "readAt": "2026-11-10T09:00:00+00:00"}),
+       f.quick_held_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00", "edition": "GaleSundayTelegraph1977UKEnglish/1977-09-25"}),
+       f.quick_held_due({**_qrow, "verdicts": [{"number": 779, "refused": "no reading parses"}]})])
+def _held_entries(texts):
+    return [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": 3, "solution": None,
+             "clue": {"text": t, "enumeration": "3"}} for i, t in enumerate(texts)]
+_held_old = {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 3, "rows": 20}, "entries": _held_entries(["Old dance"] * 20)}
+_held_new = {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 3, "rows": 20}, "entries": _held_entries(["Made to look larger than a planet nearby"] * 20)}
+check("a Quickie-clue held file is replaced by a cryptic reading on its grid, not the other way round",
+      [True, False, False],
+      [f.quick_held(_held_new, _held_old), f.quick_held(_held_old, _held_new), f.quick_held(_held_new, _held_new)])
+check("the Quickie heading and its advert cut the text; the Quickie set is a short-clue list and a cryptic one is not",
+      ["ACROSS\n1 Made (9)\nDOWN\n2 Old (7)", True, False],
+      [f.first_clue_set("ACROSS\n1 Made (9)\nDOWN\n2 Old (7)\nclues fora simpler\nQuickie'No.5\nACROSS\n1 Big (5)"),
+       f.quick_set({"across": [{"text": "Old dance"}] * 20}),
+       f.quick_set({"across": [{"text": "Made to look larger than a planet nearby"}] * 20})])
+check("a Gale Sunday Times page due SUNDAY_NUMBER is ranked 1, evidence, fix-landed, a title rescan, last in "
+      "unfiled-first, tier 0, blanket-passing, never held as a refusal reread",
+      [1, True, True, True, True, 0, True, False],
+      [f.RANKS[f.SUNDAY_NUMBER], eq.evidence_reason(f.SUNDAY_NUMBER), f.SUNDAY_NUMBER in eq.FIX_LANDED,
+       f.SUNDAY_NUMBER in eq.TITLE_RESCANS, f.SUNDAY_NUMBER in eq.UNFILED_FIRST,
+       eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.SUNDAY_NUMBER, "date": "1990-12-23"}),
+       f.SUNDAY_NUMBER in f.BLANKET_PASSES, eq.refusal_reread(f.SUNDAY_NUMBER)])
+# ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
+# fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
+check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
+      [2, True, True, 0, True, False, False],
+      [f.RANKS[f.HELD_LINKED], eq.evidence_reason(f.HELD_LINKED), f.HELD_LINKED in eq.FIX_LANDED,
+       eq.files_likely_tier(2, {"paper": "gale", "reason": f.HELD_LINKED, "date": "1957-07-16", "kind": "read"}),
+       f.HELD_LINKED.startswith(eq.CPU_ONLY), f.HELD_LINKED in eq.UNFILED_FIRST,
+       eq.fills_gpu({"paper": "gale", "kind": "read", "rank": 2, "reason": f.HELD_LINKED})])
+# ---- a Times page written unfiled with every blank clue "not a word" (a word every reading spells alike, "Nil
+# nisi bonum", or one reader ran together, "thewordsof") is due once (fa.SHARED_WORD), unfiled-first.
+_sw = {"id": "times-9999987", "number": 9999987, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"23-across": "'bonum': not a word"}}
+_swrow = {"edition": "GaleTimes1970UKEnglish/1970-05-25", "verdicts": [_sw], "readAt": "2026-10-27T03:06:10+00:00",
+          # the scan holds the verdict's title: a row whose scan lost it is a lost-title one (blanket_or_fix keeps
+          # its blanket reason when the scan holds no title at all), not the shared-word one this case is
+          "scan": {"date": "1970-05-25", "item": "GaleTimes1970UKEnglish", "puzzles": [{"number": 9999987, "leaf": 0}]}}
+check("a Times page unfiled over a word its readings spell alike is due as SHARED_WORD, ranked, evidence, "
+      "fix-landed, unfiled-first, blanket-passing",
+      [f.SHARED_WORD, 2, True, True, True, None, True],
+      [f.fix_reason(_swrow), f.RANKS[f.SHARED_WORD], eq.evidence_reason(f.SHARED_WORD), f.SHARED_WORD in eq.FIX_LANDED,
+       f.SHARED_WORD in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.SHARED_WORD, "date": "1970-05-25"}),
+       f.blanket_or_fix(_swrow, "inputs changed") == f.SHARED_WORD])
+check("not after the fix, nor beside another blank, nor the vote's 'both read', nor another paper",
+      [False] * 4,
+      [f.shared_worded({**_swrow, "readAt": _after}),
+       f.shared_worded({**_swrow, "verdicts": [{**_sw, "blank": {**_sw["blank"], "1-down": "no reading laid a clue on it"}}]}),
+       f.shared_worded({**_swrow, "verdicts": [{**_sw, "blank": {"23-across": "both read 'felt,a', not a word"}}]}),
+       f.shared_worded({**_swrow, "edition": "FinancialTimes1970UKEnglish/1970-05-25_0"})])
+# ---- a Times page written unfiled over a mark the print sets in a word ("(under)world", "kissin'-cousin",
+# "end,—or") is due once (fa.MARKED_WORD), unfiled-first.
+_mw = {"id": "times-9999979", "number": 9999979, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"27-across": "'(under)world': a stray mark inside a word"}}
+_mwrow = {"edition": "GaleTimes1973UKEnglish/1973-10-13", "verdicts": [_mw], "readAt": "2026-10-26T20:58:00+00:00",
+          "scan": {"date": "1973-10-13", "item": "GaleTimes1973UKEnglish", "puzzles": [{"number": 9999979, "leaf": 0}]}}
+check("a Times page unfiled over a mark the print sets in a word is due as MARKED_WORD, ranked, evidence, "
+      "fix-landed, unfiled-first, blanket-passing",
+      [f.MARKED_WORD, 2, True, True, True, None, True],
+      [f.fix_reason(_mwrow), f.RANKS[f.MARKED_WORD], eq.evidence_reason(f.MARKED_WORD), f.MARKED_WORD in eq.FIX_LANDED,
+       f.MARKED_WORD in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.MARKED_WORD, "date": "1973-10-13"}),
+       f.blanket_or_fix(_mwrow, "inputs changed") == f.MARKED_WORD])
+check("a stopped dash whose words join into one ('end,—or') and a not-a-word beside it are due too",
+      [True, True],
+      [f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {"28-across": "'end,—or': a stray mark inside a word"}}]}),
+       f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {**_mw["blank"], "1-down": "'bonum': not a word"}}]})])
+check("not after the fix, nor a shared misread ('der.sory'), nor beside another blank, nor another paper",
+      [False] * 4,
+      [f.marked_worded({**_mwrow, "readAt": _after}),
+       f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {"16-down": "'der.sory': a stray mark inside a word"}}]}),
+       f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {**_mw["blank"], "1-down": "no reading laid a clue on it"}}]}),
+       f.marked_worded({**_mwrow, "edition": "FinancialTimes1973UKEnglish/1973-10-13_0"})])
+# ---- a Times page written unfiled over a light no reading laid whose number a cached reading holds after the
+# gutter's rule read as a mark ("gripping show '22 Noisome") is due once (fa.MARKED_NEXT_READ), unfiled-first.
+_mn = {"id": "times-9999978", "number": 9999978, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"22-down": "no reading laid a clue on it"}}
+_mnrow = {"edition": "GaleTimes1963UKEnglish/1963-07-20", "verdicts": [_mn], "readAt": "2026-10-26T23:21:07+00:00",
+          "scan": {"date": "1963-07-20", "item": "GaleTimes1963UKEnglish", "puzzles": [{"number": 9999978, "leaf": 0}]}}
+_mn_real = f.marked_numbers
+f.marked_numbers = lambda key: frozenset({22}) if key == "1963-07-20_9999978" else frozenset()
+try:
+    check("a Times page unfiled over a clue number its gutter's rule hid is due as MARKED_NEXT_READ, ranked, "
+          "evidence, fix-landed, unfiled-first, blanket-passing",
+          [True, 2, True, True, True, None, True],
+          [f.marked_next_due(_mnrow), f.RANKS[f.MARKED_NEXT_READ], eq.evidence_reason(f.MARKED_NEXT_READ),
+           f.MARKED_NEXT_READ in eq.FIX_LANDED, f.MARKED_NEXT_READ in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.MARKED_NEXT_READ, "date": "1963-07-20"}),
+           f.MARKED_NEXT_READ in f.BLANKET_PASSES])
+    check("not after the fix, nor another light's number, nor another blank, nor another paper",
+          [False] * 4,
+          [f.marked_next_due({**_mnrow, "readAt": _after}),
+           f.marked_next_due({**_mnrow, "verdicts": [{**_mn, "blank": {"21-down": "no reading laid a clue on it"}}]}),
+           f.marked_next_due({**_mnrow, "verdicts": [{**_mn, "blank": {"22-down": "'Noisorne': not a word"}}]}),
+           f.marked_next_due({**_mnrow, "edition": "FinancialTimes1963UKEnglish/1963-07-20_0"})])
+finally:
+    f.marked_numbers = _mn_real
+# ---- a Times page written unfiled over a light no reading laid whose number a cached reading holds in a linked
+# clue's head ("1, 9 A revolutionary story": its count torn over a line, or 9 split off it) is due once
+# (fa.LINKED_COUNT_READ), unfiled-first.
+_lc = {"id": "times-9999977", "number": 9999977, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"9-across": "no reading laid a clue on it"}}
+_lcrow = {"edition": "GaleTimes1955UKEnglish/1955-07-01", "verdicts": [_lc], "readAt": "2026-10-26T23:21:07+00:00",
+          "scan": {"date": "1955-07-01", "item": "GaleTimes1955UKEnglish", "puzzles": [{"number": 9999977, "leaf": 0}]}}
+_lc_real = f.linked_numbers
+f.linked_numbers = lambda key: frozenset({1, 9}) if key == "1955-07-01_9999977" else frozenset()
+try:
+    check("a Times page unfiled over a linked clue's light is due as LINKED_COUNT_READ, ranked, evidence, "
+          "fix-landed, unfiled-first, blanket-passing",
+          [True, 2, True, True, True, None, True],
+          [f.linked_count_due(_lcrow), f.RANKS[f.LINKED_COUNT_READ], eq.evidence_reason(f.LINKED_COUNT_READ),
+           f.LINKED_COUNT_READ in eq.FIX_LANDED, f.LINKED_COUNT_READ in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.LINKED_COUNT_READ, "date": "1955-07-01"}),
+           f.LINKED_COUNT_READ in f.BLANKET_PASSES])
+    check("not after the fix, nor another light's number, nor another blank, nor another paper",
+          [False] * 4,
+          [f.linked_count_due({**_lcrow, "readAt": _after}),
+           f.linked_count_due({**_lcrow, "verdicts": [{**_lc, "blank": {"10-across": "no reading laid a clue on it"}}]}),
+           f.linked_count_due({**_lcrow, "verdicts": [{**_lc, "blank": {"9-across": "'revolutionery': not a word"}}]}),
+           f.linked_count_due({**_lcrow, "edition": "FinancialTimes1955UKEnglish/1955-07-01_0"})])
+finally:
+    f.linked_numbers = _lc_real
+# ---- a Times page written unfiled over a light no reading laid whose number a cached reading holds after a linked
+# head's comma read as a stop ("25. 26 A good local") is due once (fa.STRAY_LINK_READ), unfiled-first.
+_sl = {**_lc, "id": "times-9999976", "number": 9999976, "blank": {"26-across": "no reading laid a clue on it"}}
+_slrow = {**_lcrow, "edition": "GaleTimes1951UKEnglish/1951-12-27", "verdicts": [_sl],
+          "scan": {"date": "1951-12-27", "item": "GaleTimes1951UKEnglish", "puzzles": [{"number": 9999976, "leaf": 0}]}}
+_sl_real = f.stray_link_numbers
+f.stray_link_numbers = lambda key: frozenset({26}) if key == "1951-12-27_9999976" else frozenset()
+try:
+    check("a Times page unfiled over a stop-linked clue's light is due as STRAY_LINK_READ, ranked, evidence, "
+          "fix-landed, unfiled-first, blanket-passing",
+          [True, 2, True, True, True, None, True],
+          [f.stray_link_due(_slrow), f.RANKS[f.STRAY_LINK_READ], eq.evidence_reason(f.STRAY_LINK_READ),
+           f.STRAY_LINK_READ in eq.FIX_LANDED, f.STRAY_LINK_READ in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.STRAY_LINK_READ, "date": "1951-12-27"}),
+           f.STRAY_LINK_READ in f.BLANKET_PASSES])
+    check("not after the fix, nor another light's number, nor another blank, nor another paper",
+          [False] * 4,
+          [f.stray_link_due({**_slrow, "readAt": _after}),
+           f.stray_link_due({**_slrow, "verdicts": [{**_sl, "blank": {"25-across": "no reading laid a clue on it"}}]}),
+           f.stray_link_due({**_slrow, "verdicts": [{**_sl, "blank": {"26-across": "'locel': not a word"}}]}),
+           f.stray_link_due({**_slrow, "edition": "FinancialTimes1951UKEnglish/1951-12-27_0"})])
+finally:
+    f.stray_link_numbers = _sl_real
+# ---- a Gale Times page whose every reading stopped at a clue tail after a space ("' paniment (7) 19 Half changed",
+# the 1936-40 four clue columns read as two), refused or written unfiled with a blank, is due once (fa.TAIL_READ),
+# ordered with the newest fix, never canary-held.
+_tr = {"number": 9999974, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' paniment (7) 19 Half changed yet 29Hcr '"}}
+# (A 1941 page: a 1936-40 one is due as QUARTER_READ first, below.)
+_trrow = {"edition": "GaleTimes1941UKEnglish/1941-12-30", "verdicts": [_tr], "readAt": "2026-10-30T05:34:48+00:00",
+          "scan": {"date": "1941-12-30", "item": "GaleTimes1941UKEnglish", "puzzles": [{"number": 9999974, "leaf": 0}]}}
+check("a Gale Times page refused at a clue tail after a space is due as TAIL_READ, ranked, evidence, "
+      "fix-landed, in unfiled-first, never canary-held, blanket-passing",
+      [f.TAIL_READ, 2, True, True, True, None, True],
+      [f.fix_reason(_trrow), f.RANKS[f.TAIL_READ], eq.evidence_reason(f.TAIL_READ), f.TAIL_READ in eq.FIX_LANDED,
+       f.TAIL_READ in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.TAIL_READ, "date": "1941-12-30"}),
+       f.TAIL_READ in f.BLANKET_PASSES])
+_tr_unfiled = {"id": "times-9999974", "number": 9999974, "wrote": True, "unfiled": 1, "readings": ["vlm"],
+               "blank": {"22-down": "no reading laid a clue on it"}, "unparsed": _tr["unparsed"]}
+check("written unfiled with a blank too; not whole, after the fix, a tail at the list's start, another refusal "
+      "or another paper",
+      [True, False, False, False, False, False, False],
+      [f.tail_read_due({**_trrow, "verdicts": [_tr_unfiled]}),
+       f.tail_read_due({**_trrow, "verdicts": [{k: v for k, v in _tr_unfiled.items() if k not in ("blank", "unfiled")}]}),
+       f.tail_read_due({**_trrow, "readAt": _after}),
+       f.tail_read_due({**_trrow, "verdicts": [{**_tr, "unparsed": {"ch": "across clues do not parse: cannot find a clue "
+                                                                            "number at: 'paniment (7) 19 Half'"}}]}),
+       f.tail_read_due({**_trrow, "verdicts": [{**_tr, "cause": "not-a-grid"}]}),
+       f.tail_read_due({**_trrow, "verdicts": [{**_tr, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
+       f.tail_read_due({**_trrow, "edition": "TheGuardian1937UKEnglish/1937-12-30"})])
+# ---- a 1936-40 Gale Times page written unfiled for a light no reading laid, or refused "no reading parses", is due
+# once (fa.QUARTER_READ: the four clue columns read as a window of their own), ordered with the newest fix, never
+# canary-held; a page of another year, read since, or blank only for a misread word is not.
+_qr = {"id": "times-9999973", "number": 9999973, "wrote": True, "unfiled": 2, "readings": ["vlm", "ch"],
+       "blank": {"18-down": "no reading laid a clue on it", "3-across": "'r': a stray letter"}}
+_qrrow = {"edition": "GaleTimes1937UKEnglish/1937-02-10", "verdicts": [_qr], "readAt": "2026-10-30T05:34:48+00:00",
+          "scan": {"date": "1937-02-10", "item": "GaleTimes1937UKEnglish", "puzzles": [{"number": 9999973, "leaf": 0}]}}
+check("a 1936-40 Gale Times page unfiled for a light no reading laid is due as QUARTER_READ, ranked, evidence, "
+      "fix-landed, blanket-passing, in unfiled-first after TAIL_READ, never canary-held",
+      [f.QUARTER_READ, 2, True, True, True, True, None, True],
+      [f.fix_reason(_qrrow), f.RANKS[f.QUARTER_READ], eq.evidence_reason(f.QUARTER_READ), f.QUARTER_READ in eq.FIX_LANDED,
+       f.QUARTER_READ in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.QUARTER_READ) > eq.UNFILED_FIRST.index(f.TAIL_READ),
+       eq.canary_failed({"paper": "gale", "reason": f.QUARTER_READ, "date": "1937-02-10"}),
+       f.QUARTER_READ in f.BLANKET_PASSES])
+check("refused no-reading-parses is due too; not read since, another year, a misread word only, another paper",
+      [True, True, False, False, False, False],
+      [f.quarter_read_due({**_qrrow, "verdicts": [{"number": 9999973, "refused": "no reading parses",
+                                                   "cause": "no-reading-parses"}]}),
+       f.quarter_read_due({**_qrrow, "verdicts": [{**_qr, "unfiled": 1}]}),
+       f.quarter_read_due({**_qrrow, "readAt": _after}),
+       f.quarter_read_due({**_qrrow, "edition": "GaleTimes1941UKEnglish/1941-02-10"}),
+       f.quarter_read_due({**_qrrow, "verdicts": [{**_qr, "blank": {"3-across": "'r': a stray letter"}}]}),
+       f.quarter_read_due({**_qrrow, "edition": "TheGuardian1937UKEnglish/1937-02-10"})])
+# ---- a 1939-12 to 1940 Gale Times page refused "no reading parses" (it ends soon under its grid and the clue lists run
+# on right of it) is due once (fa.RIGHT_WIDE: the columns right of the grid read with the two under it), ordered with
+# the newest fix, never canary-held; another year, read since, another refusal or another paper is not.
+_rw = {"number": 9999972, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}
+_rwrow = {"edition": "GaleTimes1940UKEnglish/1940-03-13", "verdicts": [_rw], "readAt": "2026-10-31T05:00:00+00:00",
+          "scan": {"date": "1940-03-13", "item": "GaleTimes1940UKEnglish", "puzzles": [{"number": 9999972, "leaf": 0}]}}
+check("a 1940 Gale Times page refused no reading parses is due as RIGHT_WIDE (ahead of QUARTER_READ), ranked, evidence, "
+      "fix-landed, blanket-passing, in unfiled-first after QUARTER_READ, never canary-held",
+      [f.RIGHT_WIDE, 2, True, True, True, True, None, True],
+      [f.fix_reason(_rwrow), f.RANKS[f.RIGHT_WIDE], eq.evidence_reason(f.RIGHT_WIDE), f.RIGHT_WIDE in eq.FIX_LANDED,
+       f.RIGHT_WIDE in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.RIGHT_WIDE) > eq.UNFILED_FIRST.index(f.QUARTER_READ),
+       eq.canary_failed({"paper": "gale", "reason": f.RIGHT_WIDE, "date": "1940-03-13"}),
+       f.RIGHT_WIDE in f.BLANKET_PASSES])
+check("not read since, another year, another refusal, an unfiled page, another paper",
+      [False] * 5,
+      [f.right_wide_due({**_rwrow, "readAt": _after}),
+       f.right_wide_due({**_rwrow, "edition": "GaleTimes1941UKEnglish/1941-03-13"}),
+       f.right_wide_due({**_rwrow, "verdicts": [{**_rw, "cause": "not-a-grid"}]}),
+       f.right_wide_due({**_rwrow, "verdicts": [{**_qr, "number": 9999972}]}),
+       f.right_wide_due({**_rwrow, "edition": "TheGuardian1940UKEnglish/1940-03-13"})])
+# ---- a Times page written unfiled with every light answered and a light no reading laid (the VLM's column reading
+# holds its clue, list-less) is due once (fa.VLM_LAID), ordered with the newest fix, never canary-held.
+_vl = {"id": "times-9999971", "number": 9999971, "complete": False, "wrote": True, "unfiled": 1, "clues": 31,
+       "lights": 32, "answers": 32, "blank": {"4-down": "no reading laid a clue on it"}}
+_vlrow = {"edition": "GaleTimes1964UKEnglish/1964-10-16", "verdicts": [_vl], "readAt": "2026-10-30T04:38:16+00:00",
+          "scan": {"date": "1964-10-16", "item": "GaleTimes1964UKEnglish", "puzzles": [{"number": 9999971, "leaf": 0}]}}
+check("a Times page unfiled with every answer over a light no reading laid is due as VLM_LAID (ahead of RIGHT_WIDE), "
+      "ranked, evidence, fix-landed, blanket-passing, in unfiled-first after RIGHT_WIDE, never canary-held",
+      [f.VLM_LAID, 2, True, True, True, True, None, True],
+      [f.fix_reason(_vlrow), f.RANKS[f.VLM_LAID], eq.evidence_reason(f.VLM_LAID), f.VLM_LAID in eq.FIX_LANDED,
+       f.VLM_LAID in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.VLM_LAID) > eq.UNFILED_FIRST.index(f.RIGHT_WIDE),
+       eq.canary_failed({"paper": "gale", "reason": f.VLM_LAID, "date": "1964-10-16"}),
+       f.VLM_LAID in f.BLANKET_PASSES])
+# ---- a 1930-33 Gale Times page written unfiled over a light no reading laid, read with the VLM (the lists print no
+# counts, so vlm_laid had none to fit) is due once (fa.VLM_PLAIN), ahead of VLM_LAID, at the end of unfiled-first.
+_vp = {"id": "times-9999981", "number": 9999981, "complete": False, "wrote": True, "unfiled": 1, "clues": 27,
+       "lights": 28, "blank": {"22-down": "no reading laid a clue on it"}}
+_vprow = {"edition": "GaleTimes1932UKEnglish/1932-03-11", "verdicts": [_vp], "readAt": "2026-11-04T01:03:08+00:00",
+          "vlm": "3518fba64a",
+          "scan": {"date": "1932-03-11", "item": "GaleTimes1932UKEnglish", "puzzles": [{"number": 9999981, "leaf": 0}]}}
+check("a 1932 Gale Times page unfiled over a light no reading laid is due as VLM_PLAIN (ahead of VLM_LAID), ranked, "
+      "evidence, fix-landed, tier 0, blanket-passing, in unfiled-first after VLM_LAID, never canary-held",
+      [f.VLM_PLAIN, 2, True, True, True, True, True, None, 0],
+      [f.fix_reason(_vprow), f.RANKS[f.VLM_PLAIN], eq.evidence_reason(f.VLM_PLAIN), f.VLM_PLAIN in eq.FIX_LANDED,
+       f.VLM_PLAIN in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.VLM_PLAIN) > eq.UNFILED_FIRST.index(f.VLM_LAID),
+       f.VLM_PLAIN in f.BLANKET_PASSES,
+       eq.canary_failed({"paper": "gale", "reason": f.VLM_PLAIN, "date": "1932-03-11"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.VLM_PLAIN, "date": "1932-03-11"})])
+check("not read since the fix, read without the VLM, another year, a refused or unblank verdict, another paper",
+      [False] * 6,
+      [f.vlm_plain_due({**_vprow, "readAt": "2026-11-04T03:00:00+00:00"}),
+       f.vlm_plain_due({**_vprow, "vlm": None}),
+       f.vlm_plain_due({**_vprow, "edition": "GaleTimes1936UKEnglish/1936-03-11"}),
+       f.vlm_plain_due({**_vprow, "verdicts": [{**_vp, "refused": "not a grid"}]}),
+       f.vlm_plain_due({**_vprow, "verdicts": [{**_vp, "blank": {"22-down": "'Murat': a word misread as a name"}}]}),
+       f.vlm_plain_due({**_vprow, "edition": "TheGuardian1932UKEnglish/1932-03-11"})])
+check("not read since, nor a light unanswered, nor another blank, nor another paper",
+      [False] * 4,
+      [f.vlm_laid_due({**_vlrow, "readAt": _after}),
+       f.vlm_laid_due({**_vlrow, "verdicts": [{**_vl, "answers": 31}]}),
+       f.vlm_laid_due({**_vlrow, "verdicts": [{**_vl, "blank": {"4-down": "'Murat': a word misread as a name"}}]}),
+       f.vlm_laid_due({**_vlrow, "edition": "TheGuardian1964UKEnglish/1964-10-16"})])
+# ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
+# grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
+_st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("22-down", "23-down", "25-down", "27-down")}}
+f.block_forties_due = lambda row: False  # as above
+_strow = {"edition": "GaleTimes1942UKEnglish/1942-06-20", "verdicts": [_st], "readAt": "2026-10-26T03:06:10+00:00"}
+check("a 1940-44 page blanked for its down tail is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.STRIP_TAIL, 2, True, True, True, None],
+      [f.fix_reason(_strow), f.RANKS[f.STRIP_TAIL], eq.evidence_reason(f.STRIP_TAIL), f.STRIP_TAIL in eq.FIX_LANDED,
+       f.STRIP_TAIL in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.STRIP_TAIL, "date": "1942-06-20"})])
+check("not after the fix, nor an across clue unlaid, nor 1945-49 (read so since 10-20), nor the News UK copy",
+      [False] * 4,
+      [f.strip_tailed({**_strow, "readAt": _after}),
+       f.strip_tailed({**_strow, "verdicts": [{**_st, "blank": {**_st["blank"], "1-across": "no reading laid a clue on it"}}]}),
+       f.strip_tailed({**_strow, "edition": "GaleTimes1946UKEnglish/1946-06-20"}),
+       f.strip_tailed({**_strow, "edition": "NewsUK1942UKEnglish/1942-06-20_1"})])
+f.block_forties_due = _bf_was
+# ---- a Times page written unfiled whose clue window caught the line-end letters of the column to its left ("e 11
+# Office worker", "S" alone; times-23760) is due once (fa.EDGE_LETTERS), ordered with never-read pages, never canary-held.
+_el = {"id": "times-9999989", "number": 9999989, "complete": False, "wrote": True, "unfiled": 2, "clues": 30,
+       "lights": 30, "blank": {"15-across": "'chair n': not a word",
+                               "11-across": "no reading laid a clue on it"}}
+_elrow = {"edition": "GaleTimes2007UKEnglish/2007-11-16", "verdicts": [_el], "readAt": "2026-10-27T03:06:10+00:00"}
+_el_crops = f.CROPS
+f.CROPS = Path(tempfile.mkdtemp())
+(f.CROPS / "rapid").mkdir()
+_el_words = [[854, 2214, 864, 2227, "S"], [855, 2235, 864, 2249, "e"], [890, 2235, 1200, 2249, "11 Office worker, former model (8)"],
+             [855, 2257, 862, 2268, "n"], [890, 2257, 1200, 2268, "12 Eugene still below the limit after"]]
+for _el_key in ("2007-11-16_9999989", "1980-01-21_0_9999989"):
+    (f.CROPS / "rapid" / f"{_el_key}.ch.json").write_text(json.dumps({"box": [853, 1974, 1953, 2689], "words": _el_words}))
+# The same letters inside the window, not at its edge: the reading's own ("a", "I" in a clue's line).
+(f.CROPS / "rapid" / "2007-11-17_9999989.ch.json").write_text(json.dumps(
+    {"box": [853, 1974, 1953, 2689], "words": [[w[0] + 40, *w[1:]] for w in _el_words]}))
+try:
+    check("a Times page whose window caught its neighbour's letters is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+          [f.EDGE_LETTERS, 2, True, True, True, None],
+          [f.fix_reason(_elrow), f.RANKS[f.EDGE_LETTERS], eq.evidence_reason(f.EDGE_LETTERS), f.EDGE_LETTERS in eq.FIX_LANDED,
+           f.EDGE_LETTERS in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.EDGE_LETTERS, "date": "2007-11-16"})])
+    check("not after the fix, nor letters inside the window, nor no blank, nor another paper",
+          [False] * 4,
+          [f.edge_lettered({**_elrow, "readAt": _after}),
+           f.edge_lettered({**_elrow, "edition": "GaleTimes2007UKEnglish/2007-11-17"}),
+           f.edge_lettered({**_elrow, "verdicts": [{**_el, "blank": {}}]}),
+           f.edge_lettered({**_elrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+finally:
+    shutil.rmtree(f.CROPS, ignore_errors=True)
+    f.CROPS = _el_crops
+# ---- a Times page written unfiled for a clue line the whole crop's read lost (Gale 1955-12-16's "25 A position in
+# the building world (4).", read by no reading) is due once (fa.ALONE_READ), ordered with never-read pages, never canary-held.
+_al = {"id": "times-9999988", "number": 9999988, "complete": False, "wrote": True, "unfiled": 1, "clues": 32,
+       "lights": 32, "blank": {"25-down": "no reading laid a clue on it"}}
+_alrow = {"edition": "GaleTimes1955UKEnglish/1955-12-16", "verdicts": [_al], "readAt": "2026-10-27T03:06:10+00:00"}
+_al_crops = f.CROPS
+f.CROPS = Path(tempfile.mkdtemp())
+(f.CROPS / "rapid").mkdir()
+_al_words = [[782, 4698, 1228, 4736, "23 Just the painter to silence a verbose"], [824, 4732, 955, 4760, "speaker (5)."],
+             [782, 4764, 1168, 4797, "24 Informers break the ranks (5)."], [496, 5154, 748, 5186, "21. See 25."]]
+(f.CROPS / "rapid" / "1955-12-16_9999988.ch.json").write_text(json.dumps({"box": [142, 3965, 1251, 5534], "words": _al_words}))
+# A reading that opens the clue: its blank is some other fault's.
+(f.CROPS / "rapid" / "1955-12-17_9999988.ch.json").write_text(json.dumps(
+    {"box": [142, 3965, 1251, 5534], "words": _al_words + [[782, 4801, 1189, 4838, "25 A position in the building world"]]}))
+try:
+    check("a Times page whose crop's read lost a clue line is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+          [f.ALONE_READ, 2, True, True, True, None],
+          [f.fix_reason(_alrow), f.RANKS[f.ALONE_READ], eq.evidence_reason(f.ALONE_READ), f.ALONE_READ in eq.FIX_LANDED,
+           f.ALONE_READ in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.ALONE_READ, "date": "1955-12-16"})])
+    check("not after the fix, nor a line some reading opens, nor another blank, nor read alone already, nor another paper",
+          [False] * 5,
+          [f.alone_lost({**_alrow, "readAt": _after}),
+           f.alone_lost({**_alrow, "edition": "GaleTimes1955UKEnglish/1955-12-17"}),
+           f.alone_lost({**_alrow, "verdicts": [{**_al, "blank": {"25-down": "'lui': not a word"}}]}),
+           f.alone_lost({**_alrow, "verdicts": [{**_al, "readAlone": [25]}]}),
+           f.alone_lost({**_alrow, "edition": "FinancialTimes1955UKEnglish/1955-12-16_0"})])
+    # Its number read only as a count on a line of its own ("(25).", 1961-05-11's "(4).." under 16 across) or
+    # bare ("25."): no clue line, so still due (fa.CLUE_OPENING).
+    for _day, _w in (("1955-12-19", "(25)."), ("1955-12-20", "25.")):
+        (f.CROPS / "rapid" / f"{_day}_9999988.ch.json").write_text(json.dumps(
+            {"box": [142, 3965, 1251, 5534], "words": _al_words + [[824, 4801, 900, 4830, _w]]}))
+    check("a lost line whose number some reading prints only as a count, or bare, is due all the same",
+          [True, True], [f.alone_lost({**_alrow, "edition": f"GaleTimes1955UKEnglish/{_day}"}) for _day in ("1955-12-19", "1955-12-20")])
+finally:
+    shutil.rmtree(f.CROPS, ignore_errors=True)
+    f.CROPS = _al_crops
+# ---- a 1939-49 Gale Times page refused for a grid whose top lies within its title's line (1943-09-06: one title
+# line over the clue column and the grid, the grid taken as right of it; 1948-02-21: missed, "1086x20, not a grid")
+# is due once (fa.BAND_GRID), ordered with never-read pages, never canary-held.
+_bg_nolist = {k: "no ACROSS and DOWN lists under the grid" for k in ("ch", "en5", "times", "vlm")}
+_bg = {"number": 9999987, "leaf": 0, "unparsed": _bg_nolist, "refused": "no reading parses", "cause": "no-reading-parses"}
+_bgrow = {"edition": "GaleTimes1943UKEnglish/1943-09-06", "verdicts": [_bg], "readAt": "2026-10-27T03:06:10+00:00",
+          "scan": {"date": "1943-09-06", "item": "GaleTimes1943UKEnglish",
+                   "puzzles": [{"number": 9999987, "leaf": 0, "box": [1221, 3925, 2244, 4014]}]}}
+_bgng = {"number": 9999987, "leaf": 0, "refused": "the ink under the title is 1086x20, not a grid", "cause": "not-a-grid"}
+_bgngrow = {**_bgrow, "edition": "GaleTimes1948UKEnglish/1948-02-21", "verdicts": [_bgng],
+            "scan": {**_bgrow["scan"], "date": "1948-02-21", "item": "GaleTimes1948UKEnglish"}}
+check("a 1940s Gale Times page refused for a grid in its title's line is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.BAND_GRID, f.BAND_GRID, 2, True, True, True, None],
+      [f.fix_reason(_bgrow), f.fix_reason(_bgngrow), f.RANKS[f.BAND_GRID], eq.evidence_reason(f.BAND_GRID), f.BAND_GRID in eq.FIX_LANDED,
+       f.BAND_GRID in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.BAND_GRID, "date": "1943-09-06"})])
+check("not after the fix, nor a title over its grid alone, nor another unparsed list, nor 1940-41's not a grid, nor the 1950s",
+      [False] * 5,
+      [f.band_due({**_bgrow, "readAt": _after}),
+       f.band_due({**_bgrow, "scan": {**_bgrow["scan"], "puzzles": [{"number": 9999987, "leaf": 0, "box": [1593, 3890, 2247, 3942]}]}}),
+       f.band_due({**_bgrow, "verdicts": [{**_bg, "unparsed": {**_bg_nolist, "ch": "down clues do not parse: cannot find a clue number"}}]}),
+       f.band_due({**_bgngrow, "scan": {**_bgngrow["scan"], "date": "1941-03-10", "item": "GaleTimes1941UKEnglish"}}),
+       f.band_due({**_bgrow, "scan": {**_bgrow["scan"], "date": "1953-09-07", "item": "GaleTimes1953UKEnglish"}})])
+# ---- a 1945-47 Gale Times page refused "no reading parses" for its two clue columns left of the grid (read as one
+# window, its rows glued across both before lead_split's LEAD_TWO; or stopped at "See 4 across, 9") is due once
+# (fa.LEFT_SPLIT), ordered with never-read pages, never canary-held.
+_ls = {"number": 9999986, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' (4) 28 Part party wear and'",
+                    "en5": "no ACROSS and DOWN lists under the grid"}}
+_lsrow = {"edition": "GaleTimes1945UKEnglish/1945-02-13", "verdicts": [_ls], "readAt": "2026-10-20T09:51:00+00:00",
+          "scan": {"date": "1945-02-13", "item": "GaleTimes1945UKEnglish", "puzzles": [{"number": 9999986, "leaf": 0}]}}
+check("a 1945-47 Gale Times page refused for clue columns left of its grid is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.LEFT_SPLIT, 2, True, True, True, None],
+      [f.fix_reason(_lsrow), f.RANKS[f.LEFT_SPLIT], eq.evidence_reason(f.LEFT_SPLIT), f.LEFT_SPLIT in eq.FIX_LANDED,
+       f.LEFT_SPLIT in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LEFT_SPLIT, "date": "1945-02-13"})])
+check("not after the fix, nor another refusal, nor a reading stopped otherwise, nor every reading listless (1947-04-10), nor 1944 or 1948",
+      [False] * 6,
+      [f.left_split_due({**_lsrow, "readAt": _after}),
+       f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
+       f.left_split_due({**_lsrow, "verdicts": [{**_ls, "cause": "not-a-grid"}]}),
+       f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {**_ls["unparsed"], "times": "across clues do not parse: clue 3 has no count"}}]}),
+       f.left_split_due({**_lsrow, "scan": {**_lsrow["scan"], "date": "1944-02-13", "item": "GaleTimes1944UKEnglish"}}),
+       f.left_split_due({**_lsrow, "scan": {**_lsrow["scan"], "date": "1948-02-13", "item": "GaleTimes1948UKEnglish"}})])
+# ---- a 1940-41 Gale Times page pending for a grid trove_grid could not read at its scan's size (too few white
+# cells) is due once (fa.SCALED_GRID), ordered with never-read pages, never canary-held.
+_sg = {"number": 9999985, "leaf": 0, "clues": 30, "complete": False, "readings": ["ch", "en5"],
+       "imageUnread": "too few neighbouring white cells to measure the lattice", "pending": "no grid: the search found no grid"}
+_sgrow = {"edition": "GaleTimes1941UKEnglish/1941-08-14", "verdicts": [_sg], "readAt": "2026-10-26T09:34:44+00:00",
+          "scan": {"date": "1941-08-14", "item": "GaleTimes1941UKEnglish", "puzzles": [{"number": 9999985, "leaf": 0}]}}
+# PALE_RULES (11-16) is due first for the same too-few-white-cells pages read before its cutoff, so these checks
+# run with its cutoff before the row's reading, as SCALED_GRID's own pages read in between.
+_pale_cutoff, f.REREAD_PALE_RULES = f.REREAD_PALE_RULES, "2026-10-01T00:00:00+00:00"
+check("a 1940-41 Gale Times page pending for a grid unread at its scan's size is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.SCALED_GRID, 2, True, True, True, None, True],
+      [f.fix_reason(_sgrow), f.RANKS[f.SCALED_GRID], eq.evidence_reason(f.SCALED_GRID), f.SCALED_GRID in eq.FIX_LANDED,
+       f.SCALED_GRID in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.SCALED_GRID, "date": "1941-08-14"}),
+       f.scaled_grid_due({**_sgrow, "verdicts": [{**_sg, "imageUnread": "only 12 white cells found",
+                                                  "pending": "no grid: the search ran out of budget"}]})])
+check("not after the fix, nor a grid unread otherwise, nor one not pending, nor 1939 or 1942, nor News UK",
+      [False] * 6,
+      [f.scaled_grid_due({**_sgrow, "readAt": _after}),
+       f.scaled_grid_due({**_sgrow, "verdicts": [{**_sg, "imageUnread": "the lights are not one connected patch"}]}),
+       f.scaled_grid_due({**_sgrow, "verdicts": [{k: v for k, v in _sg.items() if k != "pending"}]}),
+       f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1939-08-14", "item": "GaleTimes1939UKEnglish"}}),
+       f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1942-08-14", "item": "GaleTimes1942UKEnglish"}}),
+       f.scaled_grid_due({**_sgrow, "edition": "NewsUK1941UKEnglish/1941-08-14_1",
+                          "scan": {**_sgrow["scan"], "item": "NewsUK1941UKEnglish"}})])
+f.REREAD_PALE_RULES = _pale_cutoff
+# ---- the same on a 1939 Gale Times page (its readings stopped unparsed, no grid to lay them) is due once as
+# fa.SCALED_EARLY; read after its cutoff, or 1938, it is not.
+_se = {**_sg, "number": 9999983, "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' niece (8) 11 They are'"}}
+_serow = {"edition": "GaleTimes1939UKEnglish/1939-10-21", "verdicts": [_se], "readAt": "2026-10-27T07:00:00+00:00",
+          "scan": {"date": "1939-10-21", "item": "GaleTimes1939UKEnglish", "puzzles": [{"number": 9999983, "leaf": 0}]}}
+check("a 1939 Gale Times page pending for a grid unread at its scan's size is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.SCALED_EARLY, 2, True, True, True, None],
+      [f.fix_reason(_serow), f.RANKS[f.SCALED_EARLY], eq.evidence_reason(f.SCALED_EARLY), f.SCALED_EARLY in eq.FIX_LANDED,
+       f.SCALED_EARLY in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.SCALED_EARLY, "date": "1939-10-21"})])
+check("not after its cutoff, nor 1938, nor (as 1940-41's) SCALED_GRID",
+      [False, False, False],
+      [f.scaled_early_due({**_serow, "readAt": _after}),
+       f.scaled_early_due({**_serow, "scan": {**_serow["scan"], "date": "1938-10-21", "item": "GaleTimes1938UKEnglish"}}),
+       f.scaled_grid_due(_serow)])
+# ---- an untitled 1930-69 Gale Times page scanned before inset_grid (fa.INSET_GRID): ranked, evidence, fix-landed,
+# unfiled-first, never canary-held, first tier; the stale scan it waits on goes with it.
+check("an untitled 1941 Gale Times page scanned before inset_grid is due INSET_GRID, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held, first tier",
+      [2, True, True, True, None, 0],
+      [f.RANKS[f.INSET_GRID], eq.evidence_reason(f.INSET_GRID), f.INSET_GRID in eq.FIX_LANDED,
+       f.INSET_GRID in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.INSET_GRID, "date": "1941-01-27"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.INSET_GRID, "date": "1941-01-27"})])
+# ---- an untitled Gale Times page scanned before paired_titles (fa.LONE_TITLE): ranked, evidence, fix-landed,
+# unfiled-first, never canary-held, first tier.
+check("an untitled 1982 Gale Times page scanned before paired_titles is due LONE_TITLE, ranked, evidence, "
+      "fix-landed, unfiled-first, never canary-held, first tier",
+      [2, True, True, True, None, 0],
+      [f.RANKS[f.LONE_TITLE], eq.evidence_reason(f.LONE_TITLE), f.LONE_TITLE in eq.FIX_LANDED,
+       f.LONE_TITLE in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LONE_TITLE, "date": "1982-07-21"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.LONE_TITLE, "date": "1982-07-21"})])
+# ---- a 1948-54 Gale Times page refused "no reading parses" at a bare count (two clue columns left of the grid
+# read as one line) before lead_split's LEAD_TWO landed is due once (fa.LEFT_LATE), never canary-held.
+_ll = {"number": 9999984, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: \" (8) 17 He's never fully satisfied by an\"",
+                    "times": "down clues do not parse: cannot find a clue number at: ' (4, 8) 9 A case for a wig'",
+                    "en5": "no ACROSS and DOWN lists under the grid"}}
+_llrow = {"edition": "GaleTimes1950UKEnglish/1950-11-01", "verdicts": [_ll], "readAt": "2026-10-19T12:10:00+00:00",
+          "scan": {"date": "1950-11-01", "item": "GaleTimes1950UKEnglish", "puzzles": [{"number": 9999984, "leaf": 0}]}}
+check("a 1948-54 Gale Times page refused at a bare count before LEAD_TWO is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.LEFT_LATE, 2, True, True, True, None],
+      [f.fix_reason(_llrow), f.RANKS[f.LEFT_LATE], eq.evidence_reason(f.LEFT_LATE), f.LEFT_LATE in eq.FIX_LANDED,
+       f.LEFT_LATE in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LEFT_LATE, "date": "1950-11-01"})])
+check("not read after LEAD_TWO, nor a stop at words (not a count), nor every reading listless, nor 1947 or 1955",
+      [False] * 5,
+      [f.left_late_due({**_llrow, "readAt": "2026-10-20T01:00:00+00:00"}),
+       f.left_late_due({**_llrow, "verdicts": [{**_ll, "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: 'his flashing eyes we read'"}}]}),
+       f.left_late_due({**_llrow, "verdicts": [{**_ll, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
+       f.left_late_due({**_llrow, "scan": {**_llrow["scan"], "date": "1947-11-01", "item": "GaleTimes1947UKEnglish"}}),
+       f.left_late_due({**_llrow, "scan": {**_llrow["scan"], "date": "1955-11-01", "item": "GaleTimes1955UKEnglish"}})])
+# ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
+_lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
+_lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
+          "readAt": "2026-10-14T06:48:52+00:00"}
+_lw_list, _lw_ren = f._held_list, f._renamed_ids
+_lw_was = f._HELD_PATH.pop(("times", 9999998), None)
+try:
+    f._held_list = lambda series: (1, ((1, None), (99999999, None))) if series == "times" else (1, ())
+    _lw_gone = (f.fix_reason(_lwrow), f.lost_writes(_lwrow))
+    _lw_past = f.lost_writes({**_lwrow, "verdicts": [{**_lw, "id": "times-199999999", "number": 199999999}]})
+    _lw_after = f.fix_reason({**_lwrow, "readAt": "2099-01-01T00:00:00+00:00"})
+    _lw_not = [f.lost_writes({**_lwrow, "verdicts": [{**_lw, **extra}]})
+               for extra in ({"unfiled": 2}, {"refused": "x"}, {"skip": "already held"}, {"wrote": False},
+                             {"answersOnly": True}, {"id": "cryptic-9999998"})]
+    # The edition's date filed under another number (10-24's renumber: times-22158 is times-22159 now).
+    f._held_list = lambda series: ((2, ((1, None), (9999999, (None, None, "1970-01-02")), (99999999, None)))
+                                   if series == "times" else (2, ()))
+    _lw_dated = (f.lost_writes(_lwrow),
+                 f.lost_writes({**_lwrow, "edition": "GaleTimes1970UKEnglish/1970-01-02", "scan": {}}),
+                 f.lost_writes({**_lwrow, "scan": {**_lwrow["scan"], "date": "1970-01-03"}}))
+    f._held_list = lambda series: (1, ((1, None), (99999999, None))) if series == "times" else (1, ())
+    f._renamed_ids = lambda: {"times-9999998": "times-9999999"}
+    _lw_renamed = f.lost_writes(_lwrow)
+    f._renamed_ids = _lw_ren
+    _lw_file = Path(tempfile.mkdtemp()) / "times-9999998.json"
+    _lw_file.write_text(json.dumps({"entries": [{"clue": {"text": "a"}}]}))
+    f._HELD_PATH[("times", 9999998)] = _lw_file
+    _lw_held = f.lost_writes(_lwrow)
+finally:
+    f._held_list, f._renamed_ids = _lw_list, _lw_ren
+    f._SPAN.clear()
+    f._DAYS.clear()
+    f._HELD_PATH.pop(("times", 9999998), None)
+    if _lw_was is not None:
+        f._HELD_PATH[("times", 9999998)] = _lw_was
+check("a write the corpus no longer holds is due once, naming the puzzle", ("written, its file gone", ["times-9999998"]),
+      _lw_gone)
+check("not again once read after REREAD_LOST", None, _lw_after)
+check("not an unfiled, refused, skipped, unwritten or answers-only verdict, nor one of a series with no listing", [[]] * 6,
+      _lw_not)
+check("not a renamed id, one whose file is held, nor a number past the series' highest (a test's, a new one's)",
+      ([], [], []), (_lw_renamed, _lw_held, _lw_past))
+check("not one whose edition's date the series holds under another number (by scan or dir date); another date's is",
+      ([], [], ["times-9999998"]), _lw_dated)
+check("the reason is evidence, ranked 2, a fix-landed reread, never skipped, and tier 0 for a newest-first paper",
+      (True, 2, True, True, 0),
+      (eq.evidence_reason(f.LOST_WRITE), f.rank_of_reason(f.LOST_WRITE), f.LOST_WRITE in eq.FIX_LANDED,
+       f.LOST_WRITE.startswith(f.BUG_READS),
+       eq.files_likely_tier(2, {"kind": "read", "paper": "gale", "reason": f.LOST_WRITE, "date": "1970-01-02"})))
+# ---- a found title whose read gave no verdict, its puzzle unheld, is unread work ("titles found, never read"; 10-25)
+_ut = {"edition": "GaleTimes2000UKEnglish/2000-03-13", "inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
+       "scan": {"date": "2000-03-13", "item": "GaleTimes2000UKEnglish", "puzzles": [{"number": 9999997, "leaf": 0}]}}
+_ut_list = f._held_list
+_ut_was = f._HELD_PATH.pop(("times", 9999997), None)
+try:
+    f._held_list = lambda series: (1, ())
+    _ut_due = [f.due_reason(r, "h", [], "v") for r in (
+        _ut, {**_ut, "solOnly": True}, {**_ut, "verdicts": [{"number": 9999996}]})]
+    # Its files fetched again since (the 2009-11 Gale Saturdays' wrong pages): still unread work, not
+    # the blanket "inputs changed"; a row with a verdict whose files moved is.
+    _ut_moved = [f.due_reason(_ut, "h2", [], "v"), f.due_reason({**_ut, "verdicts": [{"number": 9999997}]}, "h2", [], "v")]
+    # A stale-scan row (fix_reason's turn, 10-28: 125 Gale pages planned "scan stale") read before the fix
+    # is due so once; after it, not again.
+    _ut_fix = [f.fix_reason({**_ut, "readAt": "2026-10-12T02:57:56+00:00"}), f.fix_reason({**_ut, "readAt": _after}),
+               f.blanket_or_fix({**_ut, "readAt": "2026-10-12T02:57:56+00:00"}, "scan stale, answers missing")]
+    _ut_file = Path(tempfile.mkdtemp()) / "times-9999997.json"
+    _ut_file.write_text(json.dumps({"entries": []}))
+    f._HELD_PATH[("times", 9999997)] = _ut_file
+    _ut_held = f.due_reason(_ut, "h", [], "v")
+finally:
+    f._held_list = _ut_list
+    f._HELD_PATH.pop(("times", 9999997), None)
+    if _ut_was is not None:
+        f._HELD_PATH[("times", 9999997)] = _ut_was
+check("a title with no verdict is never-read work; a solutions-only read, another title's verdict or a held puzzle not",
+      [f.UNREAD_TITLES, "titles changed", "titles changed", "titles changed"], _ut_due + [_ut_held])
+check("a never-read title whose files moved is still never-read work; a read one is 'inputs changed'",
+      [f.UNREAD_TITLES, "inputs changed"], _ut_moved)
+check("fix_reason names a never-read title read before REREAD_UNREAD_TITLES, blanket_or_fix keeps it",
+      [f.UNREAD_TITLES, None, f.UNREAD_TITLES], _ut_fix)
+check("the reason is evidence and ranked with never-read work", (True, f.RANKS["never read"]),
+      (eq.evidence_reason(f.UNREAD_TITLES), f.rank_of_reason(f.UNREAD_TITLES)))
+# ---- A Times solution grid refused before matched_box is planned though likely() predicts it nothing (10-24)
+_refused = {"kind": "read", "paper": "times", "rel": "NewsUK1984UKEnglish/1984-05-01_61715", "date": "1984-05-01",
+            "reason": f.REFUSED_GRID, "rank": 2, "needs": []}
+check("a grid refused unmatched is evidence: only_evidence keeps its read with no likely gain, a low-ask fix-landed one",
+      (True, [f.REFUSED_GRID], True, True),
+      (eq.evidence_reason(f.REFUSED_GRID), [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused)])[1]],
+       f.REFUSED_GRID in eq.FIX_LANDED, f.REFUSED_GRID.startswith(eq.LOW_ASK)))
+check("a grid refused for its blocks before MATCHED_LATTICE is evidence too, a low-ask fix-landed one",
+      (True, [f.MATCHED_GRID], True, True),
+      (eq.evidence_reason(f.MATCHED_GRID),
+       [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=f.MATCHED_GRID)])[1]],
+       f.MATCHED_GRID in eq.FIX_LANDED, f.MATCHED_GRID.startswith(eq.LOW_ASK)))
+check("a grid refused just under the blocks bar with half its lights read (NEAR_GRID) is evidence too, a low-ask fix-landed one",
+      (True, [f.NEAR_GRID], True, True),
+      (eq.evidence_reason(f.NEAR_GRID),
+       [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=f.NEAR_GRID)])[1]],
+       f.NEAR_GRID in eq.FIX_LANDED, f.NEAR_GRID.startswith(eq.LOW_ASK)))
+# ---- The unclassified-held and unenumerated answers-only rereads are planned likewise; plain unclassified is not (10-24)
+_unenum = "answers held back by a clue with no enumeration"
+check("an unclassified grid of a puzzle held short, and a held clue bare of its count, are evidence (low-ask, "
+      "fix-landed); a plain unclassified one, no puzzle answers_only can read, is dropped",
+      ([f.UNCLASSIFIED_HELD, _unenum], True, True, True, True, False),
+      ([u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=r) for r in
+                                                           (f.UNCLASSIFIED_HELD, _unenum, "solution short, its cells unclassified")])[1]],
+       f.UNCLASSIFIED_HELD in eq.FIX_LANDED, f.UNCLASSIFIED_HELD.startswith(eq.LOW_ASK), _unenum.startswith(eq.LOW_ASK),
+       eq.evidence_reason(_unenum), eq.evidence_reason("solution short, its cells unclassified")))
+# ---- A grid read unclassified under SURE_BLOCKS (SURE_FRAMING) and a renumbered puzzle are planned (10-25 evening)
+check("a grid unclassified before sure_framing and a renumbered puzzle are evidence, low-ask and fix-landed",
+      ([f.SURE_FRAMING, f.RENUMBERED], True, True, True, True),
+      ([u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=r) for r in (f.SURE_FRAMING, f.RENUMBERED)])[1]],
+       f.SURE_FRAMING in eq.FIX_LANDED, f.RENUMBERED in eq.FIX_LANDED, f.SURE_FRAMING.startswith(eq.LOW_ASK),
+       f.RENUMBERED.startswith(eq.LOW_ASK)))
+# ---- Gale Times 2000-14 pages with evidence of a puzzle that can file are planned (10-22)
+_third = {"kind": "read", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "date": "2007-03-15",
+          "reason": eq.THREE_COLUMNS, "rank": 2, "needs": ["GaleTimes2007UKEnglish/2007-03-15", "GaleTimes2007UKEnglish/2007-03-16"]}
+_s15 = {"kind": "scan", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "reason": "scan stale", "rank": 2, "date": "2007-03-15"}
+_s16 = {**_s15, "rel": "GaleTimes2007UKEnglish/2007-03-16", "date": "2007-03-16"}
+_s99 = {**_s15, "rel": "GaleTimes2007UKEnglish/2007-06-01", "date": "2007-06-01"}
+_sc, _rd = eq.only_evidence("gale", [_s15, _s16, _s99], [_third, {**_third, "date": "2008-03-15"},
+                                                         {**_third, "paper": "times"}])
+check("a 2007 Gale short third-column read is planned, 2008's (not yet read) and another paper's are not",
+      ["2007-03-15"], [u["date"] for u in _rd])
+check("its own page's scan goes with it in the first tier (4633a959929); the next day's is no longer kept for a Times-series read (5c8eb3523ce), another page's scan is tier 2", ([0], 2),
+      ([eq.files_likely_tier(2, u) for u in _sc], eq.files_likely_tier(2, _s99)))
+_title = {**_third, "reason": "titles changed", "date": "2010-01-02"}
+_nt = {**_third, "reason": f.NO_TITLE_RESCAN, "date": "2000-03-14"}
+check("a Gale 2000-14 page with a title no read covered, or no title found by older scan code, is planned; a 1999 one is not",
+      ["2010-01-02", "2000-03-14"], [u["date"] for u in eq.only_evidence("gale", [], [_title, _nt, {**_title, "date": "1999-01-02"}])[1]])
+check("a 2005-06 title no read covered is not planned (it files nothing or only rewrites a filed puzzle)", [],
+      eq.only_evidence("gale", [], [{**_title, "date": "2005-09-01"}, {**_title, "date": "2006-11-18"}])[1])
+check("both go in the first tier (4633a959929), asking the VLM", (0, 0, True), (eq.files_likely_tier(2, _title), eq.files_likely_tier(2, _nt), eq.fills_gpu({**_nt, "needs": []})))
+os.environ["CT_BLANKET_REREADS"] = "1"
+_, rd_old =eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("CT_BLANKET_REREADS=1 restores every reread", True, len(rd_old) == 7)
+# ---- refusal rereads wait while never-read or never-scanned units remain
+del os.environ["CT_REFUSAL_REREADS"]
+notes_h = []
+sc_h, rd_h = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"), out=notes_h)
+check("refusal rereads are held while never-read units remain; the new ones stay",
+      {"1992-01-01_1", "1990-06-01_1", "1990-05-01_1", "1985-01-01_1", "1999-01-01_1", "1995-01-01_1"},
+      {u["rel"].split("/")[1] for u in rd_h})
+check("one note says how many were held and why", True,
+      sum("refusal rereads: held 1" in n and "never-read" in n for n in notes_h) == 1)
+os.environ["CT_REFUSAL_REREADS"] = "1"
+_, rd_k = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("CT_REFUSAL_REREADS=1 keeps the refusal reread", True, "1970-01-01_1" in {u["rel"].split("/")[1] for u in rd_k})
+del os.environ["CT_REFUSAL_REREADS"]
+unit_n = {"paper": "times", "rel": "X/n", "reason": "never read", "needs": ["X/n"]}
+unit_c = {"paper": "times", "rel": "X/c", "reason": "refused not-a-grid before its fix", "needs": ["X/c"]}
+unit_a = {"paper": "times", "rel": "X/a", "reason": "annotation asked", "needs": []}
+unit_t = {"paper": "trove", "rel": "t1", "reason": "no-grid cured since", "needs": []}
+scan_c = {"paper": "times", "rel": "X/c", "reason": "scan stale"}
+tup = lambda u: (0, 0, 0, u)
+sc_x, rd_x = eq.hold_refusal_rereads([tup(scan_c)], [tup(unit_n), tup(unit_c), tup(unit_a), tup(unit_t)])
+check("held: cured-since and fix-landed reads go, annotation asked stays, and the scan only they needed",
+      (["X/n", "X/a"], []), ([t[3]["rel"] for t in rd_x], sc_x))
+_fix_reason = sorted(r for r in eq.FIX_LANDED if r not in eq.TITLE_RESCANS and not r.endswith((" cured since", " before its fix")))[0]
+unit_f = {"paper": "times", "rel": "X/f", "reason": _fix_reason, "needs": ["X/f"]}
+scan_f = {"paper": "times", "rel": "X/f", "reason": "scan stale"}
+sc_f, rd_f = eq.hold_refusal_rereads([tup(scan_f)], [tup(unit_n), tup(unit_f), tup(unit_c)])
+check("a FIX_LANDED reread is kept (with its scan) while never-read units remain; a generic refused-before-its-fix one is held",
+      (["X/n", "X/f"], ["X/f"]), ([t[3]["rel"] for t in rd_f], [t[3]["rel"] for t in sc_f]))
+sc_y, rd_y = eq.hold_refusal_rereads([], [tup(unit_c), tup(unit_t)])
+check("with no new unit left the refusal rereads come back", 2, len(rd_y))
+unit_l = {"paper": "listener", "rel": "GALE_GM1.pdf", "reason": "refused clues-short before its fix", "needs": []}
+_, rd_l = eq.hold_refusal_rereads([], [tup(unit_n), tup(unit_l), tup(unit_c)])
+check("a Listener refusal reread (local OCR, no VLM) is not held", ["X/n", "GALE_GM1.pdf"], [t[3]["rel"] for t in rd_l])
+
+# ---- canary-proven refusal rereads skip the hold and go right after the never-read work
+gk = lambda rel, date, reason="refused no-reading-parses before its fix", paper="gale": tup(
+    {"paper": paper, "rel": rel, "reason": reason, "date": date, "needs": []})
+_, rd_p = eq.hold_refusal_rereads([], [tup(unit_n), gk("g61", "1961-05-01"), gk("g70", "1970-05-01"), gk("g05", "2005-03-02"),
+                                       gk("t61", "1961-05-01", paper="times"), tup(unit_c)], notes_p := [])
+_, rd_nf = (os.environ.__setitem__("CT_NEWEST_FIRST", "times"), eq.hold_refusal_rereads([], [tup(unit_n), tup(unit_c), tup(unit_t)]))[1]
+del os.environ["CT_NEWEST_FIRST"]
+check("CT_NEWEST_FIRST papers' refusal rereads are not held", ["X/n", "X/c"], [t[3]["rel"] for t in rd_nf])
+check("canary: only gale no-reading-parses of 1960-66 and 2005-06 survive the hold", ["X/n", "g61", "g05"],
+      [t[3]["rel"] for t in rd_p])
+check("canary: one note counts the kept", 1, sum("canary-proven rereads: kept 2 (" in n for n in notes_p))
+uf = "unfiled before its fix"
+_, rd_u = eq.hold_refusal_rereads([], [tup(unit_n), gk("g05", "2005-03-02", uf), gk("g70", "1970-05-01", uf),
+                                       gk("f86", "1986-03-02", uf, paper="ft"), gk("f87", "1987-03-02", uf, paper="ft"),
+                                       gk("t05", "2005-03-02", uf, paper="times")], notes_u := [])
+check("canary: unfiled before its fix survives for gale 2005-06 and ft 1986 only", ["X/n", "g05", "f86"],
+      [t[3]["rel"] for t in rd_u])
+os.environ["CT_NEWEST_FIRST"] = "gale"
+gu = lambda *a, **k: gk(*a, **k)[3]
+ordered = eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (2, 0, 1, gu("g70", "1970-05-01")),
+                         (2, 1, 0, {**unit_c, "date": "2000-01-01"}), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
+                         (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])
+check("named papers first: never-read, then proven, then fix-landed rereads, then other papers", ["gnew", "g61", "g70", "X/n"],
+      [u["rel"] for u in ordered][:4])
+check("named papers' proven rereads go before other papers' never-read work", ["gnew", "g61", "X/n", "X/m"],
+      [u["rel"] for u in eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
+                                        (1, 1, 2, {**unit_n, "rel": "X/m", "date": "1989-01-01"}),
+                                        (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])])
+del os.environ["CT_NEWEST_FIRST"]
+
+# ---- low-yield Trove years wait while other never-read units remain
+tv = lambda rel, date, reason="never read": tup({"paper": "trove", "rel": rel, "reason": reason, "date": date, "needs": []})
+_, rd_l = eq.hold_low_yield_eras([], [tv("a", "1980-01-01"), tv("b", "1990-01-01"), tv("c", "1972-12-31"),
+                                       tv("d", "1989-12-31"), tv("e", "1980-01-01", "inputs changed"), tup(unit_n)], notes_l := [])
+check("low-yield: 1973-1989 never-read Trove goes, other years/reasons/papers stay", ["b", "c", "e", "X/n"], [t[3]["rel"] for t in rd_l])
+check("low-yield: one note counts the held", True, len(notes_l) == 1 and "held 2" in notes_l[0])
+_, rd_m = eq.hold_low_yield_eras([], [tv("a", "1980-01-01")], notes_m := [])
+check("low-yield: with no other never-read unit they come back", 1, len(rd_m))
+os.environ["CT_LOW_YIELD_ERAS"] = "1"
+_, rd_o = eq.hold_low_yield_eras([], [tv("a", "1980-01-01"), tup(unit_n)])
+check("CT_LOW_YIELD_ERAS=1 keeps them", 2, len(rd_o))
+del os.environ["CT_LOW_YIELD_ERAS"]
+
+f.edition_dirs, f.input_hash = listing, hashes
+
+# ---- likely(): within a rank, the re-reads predicted to file a puzzle whole go first
+lc = T / "likely"
+def led_ed(name):
+    d = lc / "NewsUK1980UKEnglish" / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    return d
+L = {n: led_ed(n) for n in ("1980-01-21_0", "1980-01-22_0", "1980-02-04_1", "1980-02-05_2", "1980-02-06_3",
+                            "1980-02-12_9", "1980-02-13_10")}
+def lrow(name, titles, verdicts, sols=(), **kw):
+    sc = {"date": name[:10], "puzzles": [{"number": n, "leaf": 1, "box": None} for n in titles],
+          "solutions": [{"number": n, "leaf": 1, "box": None} for n in sols]}
+    return {"edition": f"NewsUK1980UKEnglish/{name}", "filesHash": "h", "scanKey": "old", "scan": sc, "inputs": "h",
+            "solutionsSeen": [], "verdicts": verdicts, "readAt": "2026-10-01T00:00:00+00:00", **kw}
+def v(n, **kw):
+    return {"number": n, "id": f"times-{n}", **kw}
+part = lambda gap: {"solutionFrom": "x", "solution": {"lights": 30, "accepted": 30 - gap}}
+q.append(lc / "filed.jsonl", [
+    lrow("1980-02-04_1", [90100], [v(90100)]),  # answerless; 02-05's stored heading links it now
+    lrow("1980-02-05_2", [90101], [v(90101)], sols=[90100]),  # answerless, a later edition held: rank 2; 02-06's text prints its heading
+    lrow("1980-02-06_3", [90102], [v(90102, **part(5))]),  # the next issue of 90101: its text links it
+    lrow("1980-02-12_9", [90104], [v(90104)]),  # answerless, a later edition held: rank 2; its next issue's text links nothing
+    lrow("1980-02-13_10", [90105], [v(90105)]),  # the next issue of 90104, newer than 02-06
+    lrow("1980-01-21_0", [90090], [v(90090, **part(1))], scanKey=f.scan_key()),  # a grid two lights short
+    lrow("1980-01-22_0", [90091], [v(90091, **part(5))], scanKey=f.scan_key())])  # mirror: five short, newer
+real = (f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings, dict(f._HELD_PATH))
+f.edition_dirs = lambda cache=None, paper=None: list(L.values()) if (paper or f.TIMES).key == "times" else []
+f.input_hash = lambda d: "h"
+f.linked_solutions = lambda paper, found, held: found["solutions"]
+text_read = []
+f.text_headings = lambda d, deadline=None: text_read.append(d.name) or (
+    [(90101, 1)] if d.name == "1980-02-06_3" else [])
+f._HELD_PATH.clear()
+_, reads = f.plan(f.TIMES, lc)
+got = [(u["rel"].split("/")[1], u["reason"], u["rank"], u.get("likely")) for u in reads]
+check("a stale scan whose puzzle a stored heading now answers ranks 2, not with the whole corpus",
+      ("1980-02-04_1", "scan stale, answers linked", 2, {"answers linked": 1}),
+      next(g for g in got if g[0] == "1980-02-04_1"))
+check("within rank 2 the predicted re-reads go first, newest first among equals; then the rest newest first",
+      ["1980-02-06_3", "1980-02-04_1", "1980-01-21_0", "1980-02-13_10", "1980-02-12_9", "1980-02-05_2",
+       "1980-01-22_0"],
+      [g[0] for g in got if g[2] == 2])
+check("the next issue of an answerless puzzle its text links is predicted; one its text does not link is not",
+      ({"answers in the next issue's text": 1}, None),
+      tuple(next(g[3] for g in got if g[0] == n) for n in ("1980-02-06_3", "1980-02-13_10")))
+check("a grid read before read_framed two lights short is predicted, five short not",
+      ({"solution grid read before read_framed": 1}, None),
+      tuple(next(g[3] for g in got if g[0] == n) for n in ("1980-01-21_0", "1980-01-22_0")))
+check("only the editions due as an answerless puzzle's next issue have their text read",
+      ["1980-02-05_2", "1980-02-06_3", "1980-02-12_9", "1980-02-13_10"], sorted(text_read))
+whole = T / "times-90100.json"
+whole.write_text(json.dumps({"entries": [{"clue": "c", "solution": "S"}]}))
+f._HELD_PATH[("times", 90100)] = whole
+_, reads = f.plan(f.TIMES, lc)
+check("mirror: a puzzle filed whole already (its answers from elsewhere) is not predicted, nor promoted",
+      ("scan stale", 3, None), next((u["reason"], u["rank"], u.get("likely")) for u in reads
+                                    if u["rel"].endswith("02-04_1")))
+check("eq.by_urgency: rank first, then predicted puzzles, then newest",
+      ["new", "likely", "newer", "old"],
+      [u["rel"] for u in eq.by_urgency([(2, 0, 0, {"rel": "newer", "date": "1999"}),
+                                        (2, 1, 0, {"rel": "likely", "date": "1980", "likely": {"x": 1}}),
+                                        (2, 0, 1, {"rel": "old", "date": "1970"}),
+                                        (1, 0, 2, {"rel": "new", "date": "1960"})])])
+nf_units = [(2, 0, 0, {"rel": "gale-old-gain", "date": "1947", "paper": "gale", "rank": 2, "likely": {"x": 5}}),
+            (3, 0, 1, {"rel": "gale-new", "date": "1999", "paper": "gale", "rank": 3}),
+            (1, 1, 0, {"rel": "other", "date": "2000", "paper": "guardian", "rank": 1}),
+            (0, 0, 2, {"rel": "gale-hand", "date": "1900", "paper": "gale", "rank": 0}),
+            (5, 2, 0, {"rel": "times-mid", "date": "1980", "paper": "times", "rank": 5})]
+check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
+      ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
+      [u["rel"] for u in eq.by_urgency(nf_units)])
+os.environ["CT_NEWEST_FIRST"] = "gale, times"
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' never-read first, then likely filers, then their rereads alternating with other papers' work (Paul 10-21, 10-24)",
+      ["gale-hand", "gale-old-gain", "gale-new", "other", "times-mid"],
+      [u["rel"] for u in eq.by_urgency(nf_units)])
+check("eq.by_urgency: other papers' units of one rank take turns, not newest edition across papers (11-06: Independent 2011-15 stood ahead of every Telegraph 1992 scan)",
+      ["tg-1992", "ind-2015", "tg-1991", "ind-2014", "ind-2013"],
+      [u["rel"] for u in eq.by_urgency([(1, 6, 0, {"rel": "ind-2015", "date": "2015", "paper": "galeindependent", "rank": 1}),
+                                        (1, 6, 1, {"rel": "ind-2014", "date": "2014", "paper": "galeindependent", "rank": 1}),
+                                        (1, 6, 2, {"rel": "ind-2013", "date": "2013", "paper": "galeindependent", "rank": 1}),
+                                        (1, 3, 0, {"rel": "tg-1992", "date": "1992", "paper": "telegraph", "rank": 1}),
+                                        (1, 3, 1, {"rel": "tg-1991", "date": "1991", "paper": "telegraph", "rank": 1})])])
+def tgu(rel, rank, reason, place):
+    return (rank, 3, place, {"rel": rel, "date": "1992", "paper": "telegraph", "rank": rank, "reason": reason})
+check("eq.by_urgency: another paper's FIX_LANDED rereads go ahead of its never-read units, the 'before its fix' kind stays behind (Paul 11-14)",
+      ["tg-sides", "tg-cells", "tg-new1", "tg-new2", "tg-held"],
+      [u["rel"] for u in eq.by_urgency([tgu("tg-new1", 1, "never read (Gale fetch)", 0), tgu("tg-new2", 1, "never read (Gale fetch)", 1),
+                                        tgu("tg-sides", 2, f.SIDES_HEADED, 2), tgu("tg-cells", 2, f.TELEGRAPH_CELLS, 3),
+                                        tgu("tg-held", 2, "refused x before its fix", 4)])])
+check("eq.by_urgency: the Listener's pages go after the newest-first papers' never-read, ahead of the rest (Paul 10-23, 10-24)",
+      ["gale-hand", "listener-page", "gale-old-gain", "gale-new", "other", "times-mid"],
+      [u["rel"] for u in eq.by_urgency(nf_units + [(0, 1, 0, {"rel": "listener-page", "paper": "listener", "rank": 0,
+                                                               "kind": "read", "reason": "never read (Gale fetch)"})])])
+lu = lambda rel, rank, reason: (rank, 1, 0, {"rel": rel, "paper": "listener", "rank": rank, "kind": "read", "reason": reason})
+check("eq.by_urgency: the Listener's pages read short before a fix alternate with its never-read ones",
+      ["l-short", "l-new1", "l-unparsed", "l-new2", "l-new3"],
+      [u["rel"] for u in eq.by_urgency([lu("l-new1", 0, "never read (Gale fetch)"), lu("l-new2", 0, "never read (Gale fetch)"),
+                                        lu("l-new3", 0, "never read (Gale fetch)"),
+                                        lu("l-short", 2, "refused clues-short before its fix"),
+                                        lu("l-unparsed", 2, "refused no-reading-parses before its fix")])])
+rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
+check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a refusal or short read, then ones whose page holds the puzzle",
+      ["never", "refused", "short", "changed-new", "changed-old"],
+      [u["rel"] for u in eq.by_urgency([
+          rr("changed-new", "2020", "inputs changed"),
+          rr("short", "2010", "short Times page, its third clue column read since"),
+          rr("changed-old", "2000", "inputs changed"),
+          rr("refused", "2015", "refused no-reading-parses before its fix"),
+          (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
+gr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "gale", "rank": 2, "reason": reason, **k})
+check("eq.by_urgency: CT_NEWEST_FIRST, a Gale 2007 short page and a 2000 no-title rescan go with the likely filers, not behind (Paul 10-22)",
+      ["likely80", "notitle00", "short07", "changed"],
+      [u["rel"] for u in eq.by_urgency([
+          gr("changed", "2020", "inputs changed"),
+          gr("likely80", "1980", "solution short, read by other code", likely={"x": 1}),
+          gr("notitle00", "2000", f.NO_TITLE_RESCAN),
+          gr("short07", "2007", "short Times page, its third clue column read since")])])
+check("eq.by_urgency: CT_NEWEST_FIRST, the named papers' solution rereads first, their other rereads alternate one for one with another paper's never-read (Paul 10-21, 10-24)",
+      ["short", "never", "ft-never", "changed", "ft-stale"],
+      [u["rel"] for u in eq.by_urgency([
+          rr("changed", "2020", "inputs changed"),
+          rr("short", "2010", "solution short, read by other code"),
+          (3, 1, 0, {"rel": "ft-stale", "date": "1985", "paper": "ft", "rank": 3, "reason": "scan stale"}),
+          (1, 1, 1, {"rel": "ft-never", "date": "1980", "paper": "ft", "rank": 1, "reason": "never read"}),
+          (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
+# Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest priority":
+# every Times solution reread (and a scan one waits on, `serves`) goes ahead of the Times never-read, which go
+# ahead of the Listener's, ahead of the rest; a solution reread is not interleaved with any other paper's.
+ts = [rr("t-wide", "1990", f.SHORT_WIDE), gr("g-unlisted", "1980", f.UNLISTED), gr("g-grid", "1970", f.REFUSED_GRID),
+      rr("t-linked", "1960", "scan stale, answers linked"),
+      (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0, "reason": "never read (Gale fetch)"}),
+      (1, 1, 1, {"rel": "tg-never", "date": "2002", "paper": "telegraph", "rank": 1, "reason": "never read"}),
+      lu("l-new", 0, "never read (Gale fetch)")]
+check("eq.by_urgency: Times solution rereads, then Times never-read, then the Listener, then others (Paul 10-24)",
+      ["t-wide", "g-unlisted", "g-grid", "t-linked", "g-never", "l-new", "tg-never"],
+      [u["rel"] for u in eq.by_urgency(ts)])
+check("eq.by_urgency: a Times lost write's reread (rank 2, UNFILED_FIRST) goes first, ahead of solution work and the Listener (10-27, Paul 10-28)",
+      ["g-lost", "t-wide", "g-never", "l-new", "g-changed"],
+      [u["rel"] for u in eq.by_urgency([gr("g-changed", "2020", "inputs changed"), gr("g-lost", "2007", f.LOST_WRITE),
+                                        rr("t-wide", "1990", f.SHORT_WIDE), lu("l-new", 0, "never read (Gale fetch)"),
+                                        (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0,
+                                                   "reason": "never read (Gale fetch)"})])])
+sc = lambda rel, rank, reason, paper="gale": (rank, 0, 0, {"rel": rel, "date": "1990", "paper": paper, "rank": rank,
+                                                         "kind": "scan", "reason": reason})
+check("eq.by_urgency: a Times stale scan a solution reread waits on (serves) goes ahead of never-scanned pages",
+      ["s-host", "s-serves", "s-never", "s-stale", "tg-scan"],
+      [u["rel"] for u in eq.by_urgency([sc("s-never", 0, "never scanned"), sc("s-stale", 2, "scan stale"),
+                                        sc("s-serves", 2, "scan stale"), sc("s-host", 1, f.HOST_SCAN),
+                                        sc("tg-scan", 1, "never scanned", "telegraph")],
+                                       serves={("gale", "s-serves")})])
+# Paul 10-28: "Things you're fixing should be at the front of the queue": a fix's rereads (UNFILED_FIRST) and
+# the scans they wait on (fixing) go ahead of every other named-paper unit, solution work included.
+check("eq.by_urgency: a fix's rereads go first of all, ahead of Times solution rereads (Paul 10-28)",
+      ["g-fix", "t-wide", "g-never", "l-new"],
+      [u["rel"] for u in eq.by_urgency([rr("t-wide", "1990", f.SHORT_WIDE), lu("l-new", 0, "never read (Gale fetch)"),
+                                        gr("g-fix", "1951", f.LINKED_COUNT_READ),
+                                        (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0,
+                                                   "reason": "never read (Gale fetch)"})])])
+check("eq.by_urgency: the scan a fix's reread waits on (fixing) goes ahead of a solution reread's (serves)",
+      ["s-fixing", "s-host", "s-serves", "s-never"],
+      [u["rel"] for u in eq.by_urgency([sc("s-never", 0, "never scanned"), sc("s-serves", 2, "scan stale"),
+                                        sc("s-fixing", 2, "scan stale"), sc("s-host", 1, f.HOST_SCAN)],
+                                       serves={("gale", "s-serves")}, fixing={("gale", "s-fixing")})])
+check("eq.fixing_needs: a fix reread's own edition and needs, not a solution reread's or another paper's",
+      {("gale", "F"), ("gale", "N")},
+      eq.fixing_needs([{"paper": "gale", "rel": "F", "reason": f.STRAY_LINK_READ, "needs": ["N"]},
+                       {"paper": "gale", "rel": "R", "reason": f.UNLISTED, "needs": ["Y"]},
+                       {"paper": "telegraph", "rel": "T", "reason": f.STRAY_LINK_READ, "needs": []}]))
+check("eq.solution_needs: a Times solution read's own edition and needs, not another paper's or a never-read's",
+      {("gale", "R"), ("gale", "N")},
+      eq.solution_needs([{"paper": "gale", "rel": "R", "reason": f.UNLISTED, "needs": ["N"]},
+                         {"paper": "gale", "rel": "X", "reason": "never read", "needs": ["Y"]},
+                         {"paper": "telegraph", "rel": "T", "reason": f.UNLISTED, "needs": []}]))
+check("eq.newest_first: a named paper's unit, not rank 0", [True, False, False],
+      [eq.newest_first(u) for u in (nf_units[1][3], nf_units[2][3], nf_units[3][3])])
+del os.environ["CT_NEWEST_FIRST"]
+mend = {"readAt": "2026-10-09T00:00:00+00:00"}
+check("blanks a vote fix landed for since the read, answers whole: predicted",
+      "blanks a vote fix mends", f.short_cause("times", mend, v(90200, blank={"1-a": "'qx': not a word"}, **part(0)), {}))
+check("mirror: a blank no vote fix mends holds it", None,
+      f.short_cause("times", mend, v(90200, blank={"1-a": "junk"}, **part(0)), {}))
+check("mirror: read after the fix, the same blank holds it", None,
+      f.short_cause("times", {"readAt": "2099-01-01T00:00:00+00:00"}, v(90200, blank={"1-a": "'qx': not a word"},
+                                                                        **part(0)), {}))
+# A Times grid read by other code (solution_key) that left at most SHORT_GAP lights, on a lattice the
+# classifier trusts (blocks), is read again for fitted_reads and the VLM's strips; read by the
+# current code, or with the blocks unsure, or more lights short, or another paper's, it is not.
+def classified_part(gap, blocks=1.0, **kw):
+    return {"solutionFrom": "x", "solution": {"lights": 30, "accepted": 30 - gap, "lattices": 3, "blocks": blocks, **kw}}
+old_read = {"edition": "NewsUK1980UKEnglish/1980-01-21_0", "solutionKey": "old"}
+check("a classified grid read by other code, three lights short: predicted for the fitted and VLM reads",
+      f.LIKELY[4], f.short_cause("times", old_read, v(90210, **classified_part(3)), {}))
+check("mirror: read by the current code, three lights short, it is not", None,
+      f.short_cause("times", {**old_read, "solutionKey": f.solution_key()}, v(90210, **classified_part(3)), {}))
+# Read by the current code's full read (no enumerations: no fitted read, no strip asked) and at most
+# STRIP_MAX lights short, before REREAD_SHORT_FITTED: predicted too, whatever its blocks (SHORT_UNFITTED).
+cur_read = {**old_read, "solutionKey": f.solution_key(), "readAt": "2026-10-23T00:00:00+00:00"}
+check("a grid this code's full read left two lights short, before the fitted reread: predicted",
+      [f.LIKELY[4], f.LIKELY[4]],
+      [f.short_cause("times", cur_read, v(90210, **classified_part(2)), {}),
+       f.short_cause("times", cur_read, v(90210, **classified_part(1, blocks=0.9)), {})])
+# Read after REREAD_UNLISTED too: before it, a grid at most STRIP_MAX short is read again for unlisted
+# words (LIKELY[6], c766e6cf936), answers_only or not.
+import datetime
+after_read = {**cur_read, "readAt": (q.when(f.REREAD_UNLISTED) + datetime.timedelta(days=1)).isoformat()}
+check("mirror: read after REREAD_SHORT_FITTED, or by answers_only, it is not", [None, None],
+      [f.short_cause("times", after_read, v(90210, **classified_part(2)), {}),
+       f.short_cause("times", after_read, v(90210, answersOnly=True, **classified_part(2)), {})])
+check("mirror: more than SHORT_GAP lights short, blocks unsure, or refused", (None, None, None),
+      (f.short_cause("times", old_read, v(90210, **classified_part(f.SHORT_GAP + 1)), {}),
+       f.short_cause("times", old_read, v(90210, **classified_part(2, blocks=0.9)), {}),
+       f.short_cause("times", old_read, v(90210, **classified_part(2, refused="its blocks are not the puzzle's")), {})))
+check("mirror: another paper's grid (the classifier reads only the Times's) is not", None,
+      f.short_cause("times", {**old_read, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"},
+                    v(90210, **classified_part(3)), {}))
+f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings = real[:4]
+f._HELD_PATH.clear()
+f._HELD_PATH.update(real[4])
+
+# ---- the queue's order across papers
+os.utime(g2 / "pages.json", (time.time(), time.time()))
+scans, reads = eq.plan(["gale", "times"], cache, before)
+check("rank 0 first (Gale by hand), then never read, then the rest",
+      ["1987-03-03", "1987-03-02", "1980-03-01_3", "1980-01-02_2", "1980-01-01_1"],
+      [u["rel"].split("/")[1] for u in reads])
+check("edition_queue takes no --newer-than: one queue, the fresh ones first", False,
+      "--newer-than" in Path(eq.__file__).read_text())
+
+# ---- fresh(): the editions just laid out, found without a plan
+fc = T / "fresh-cache"
+now = time.time()
+def laid(item, name, staged):
+    d = fc / item / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    os.utime(d / "pages.json", (staged, staged))
+    return d
+gi = "GaleTimes1990UKEnglish"
+laid(gi, "1990-01-02", now - 10)
+laid(gi, "1990-01-03", now - 5)
+laid(gi, "1990-01-01", now - f.FRESH - 10)  # laid out before FRESH: the plan's
+done = laid(gi, "1990-01-04", now - 20)  # read with its current files
+q.append(fc / f.LEDGER_NAMES["gale"], [{"edition": f"{gi}/1990-01-04", "inputs": "x", "filesHash": f.input_hash(done)}])
+laid("NewsUK1980UKEnglish", "1980-01-05_1", now - 30)
+laid("NewsUK1981UKEnglish", "1981-01-05_1", now - 30)
+os.utime(fc / "NewsUK1981UKEnglish", (now - f.FRESH - 10, now - f.FRESH - 10))  # an item unmoved: not looked in
+fs, fr = eq.fresh(["gale", "listener", "times", "trove"], fc, now)
+check("fresh: never-read editions laid out within FRESH, any paper, latest laid out first",
+      [f"{gi}/1990-01-03", f"{gi}/1990-01-02", "NewsUK1980UKEnglish/1980-01-05_1"], [u["rel"] for u in fr])
+check("each a scan too, ranked just laid out (0), ahead of the never read",
+      ([u["rel"] for u in fr], {0}, {"just laid out"}, True),
+      ([u["rel"] for u in fs], {u["rank"] for u in fs + fr}, {u["reason"] for u in fs + fr},
+       f.RANKS["just laid out"] < f.RANKS["never read"]))
+check("a fresh read needs its own scan and the fresh days after it", [f"{gi}/1990-01-02", f"{gi}/1990-01-03"],
+      fr[1]["needs"])
+check("nothing once past FRESH", ([], []), eq.fresh(["gale", "times"], fc, now + f.FRESH + 60))
+was_hold, eq.PLAN_HOLD_WAIT = eq.PLAN_HOLD_WAIT, 0.5  # a batch run's hold outlasts it
+with q.lock(cache / "filed-gale.jsonl"):
+    notes = []
+    scans, reads = eq.plan(["gale", "times"], cache, before, out=notes)
+    check("a paper whose ledger a batch run holds is left out, and said", (False, True),
+          (any(u["paper"] == "gale" for u in reads), "gale: a run holds" in notes[0]))
+# A unit's row write (q.append) takes the same lock for a moment: 10-27 a plan met one with no wait and
+# left all of gale out (~9,250 Gale Times reads), and that plan was kept and run from.
+eq.PLAN_HOLD_WAIT = 30
+import fcntl
+import threading
+brief = open(q.lock_path(cache / "filed-gale.jsonl"), "w")
+fcntl.flock(brief, fcntl.LOCK_EX)
+threading.Timer(0.3, lambda: fcntl.flock(brief, fcntl.LOCK_UN)).start()
+notes = []
+t0 = time.monotonic()
+scans, reads = eq.plan(["gale", "times"], cache, before, out=notes)
+check("a unit's moment on the ledger is waited out: the paper is planned, no note", (True, [], True),
+      (any(u["paper"] == "gale" for u in reads), [n for n in notes if "a run holds" in n], time.monotonic() - t0 < 30))
+brief.close()
+eq.PLAN_HOLD_WAIT = was_hold
+notes = []
+eq.plan(["gale", "times"], cache, before, out=notes)
+check("a quick plan adds no timing note", [], [n for n in notes if n.startswith("slow plan")])
+was, eq.SLOW_PLAN = eq.SLOW_PLAN, 0
+notes = []
+eq.plan(["gale", "times"], cache, before, out=notes)
+eq.SLOW_PLAN = was
+check("a slow plan names the papers it spent its seconds on",
+      (1, True), (len([n for n in notes if n.startswith("slow plan: papers took")]),
+                  all(p in notes[-1] for p in ("gale", "times"))))
+
+# ---- the queue is built once and consumed: a plan whose inputs did not move is the last one's lists
+# themselves, and one after units finish or inputs change equals the whole plan derived afresh
+# (Paul 10-17: "Don't we just have a queue to burn through").
+bq = T / "built-queue"
+real_root = eq.media_manifest.downloads.ROOT
+eq.media_manifest.downloads.ROOT = T  # the cache counts as on the media disk: plans are stamped
+real_mm, real_dirs = eq.media_manifest.DIR, f.edition_dirs
+eq.media_manifest.DIR = T / "built-queue-manifest"  # the edition manifests a fetcher appends a row to
+eq.media_manifest.DIR.mkdir()
+f.edition_dirs = lambda cache=None, paper=None: (
+    sorted((bq / "NewsUK1981UKEnglish").iterdir()) if (paper or f.TIMES).key == "times" else [])
+probes = []
+real_reachable = f.vlm.reachable
+f.vlm.reachable = lambda: probes.append(1) or False
+def bq_edition(item, name, content="{}"):
+    d = bq / item / name
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "pages.json").write_text(content)
+    eq.media_manifest.record_edition(d)  # as the fetcher does when it lays an edition out
+    for x in (d, d.parent, bq):
+        os.utime(x, (time.time() - 600, time.time() - 600))
+    return d
+bq_dirs = [bq_edition("NewsUK1981UKEnglish", f"1981-0{m}-0{m}_{m}") for m in (1, 2, 3)]
+def bq_row(d):
+    fh, found = f.input_hash(d), {"puzzles": [], "solutions": []}
+    return {"edition": f"{d.parent.name}/{d.name}", "filesHash": fh, "scanKey": f.scan_key(), "scan": found,
+            "inputs": f.inputs_of(fh, found, f.TIMES.series), "solutionsSeen": [], "verdicts": [],
+            "readAt": "2026-01-01T00:00:00+00:00"}
+def bq_whole(reread=None):
+    """The plan derived from nothing (every memo of the planner set aside, then put back)."""
+    memos = (eq._QUEUE, f._PLANNED, f._PAPER_PLANS)
+    kept = [dict(m) for m in memos]
+    for m in memos:
+        m.clear()
+    try:
+        return eq.plan(["times"], bq, reread)
+    finally:
+        for m, k in zip(memos, kept):
+            m.clear()
+            m.update(k)
+def bq_units(plan):
+    return [[(u["kind"], u["rel"], u["rank"], u["reason"]) for u in us] for us in plan]
+first_plan = eq.plan(["times"], bq)
+check("the first plan of a cache reads each edition due", 3, len(first_plan[1]))
+n_probes = len(probes)
+again = eq.plan(["times"], bq)
+check("a plan whose inputs did not move is the last one's lists themselves, the VLM not probed again",
+      (True, True, n_probes + 1), (again[0] is first_plan[0], again[1] is first_plan[1], len(probes)))
+probes.clear()
+eq._QUEUE.clear()
+f._PLANNED.clear()
+eq.plan(["times"], bq)
+check("a whole plan probes the VLM once, not once a paper per stamp and plan", 1, len(probes))
+import subprocess
+q.append(bq / "filed.jsonl", [bq_row(bq_dirs[0])])
+done_plan = eq.plan(["times"], bq)
+check("a unit's row landing: the incremental plan is the whole plan, the edition dropped out",
+      (bq_units(bq_whole()), False), (bq_units(done_plan), any(u["rel"].endswith(bq_dirs[0].name) for u in done_plan[1])))
+q.append(bq / "filed.jsonl", [bq_row(bq_dirs[1]), {**bq_row(bq_dirs[0]), "inputs": "moved"}])
+check("more rows, one moved: still the whole plan", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+bq_edition("NewsUK1981UKEnglish", "1981-04-04_4")
+check("a new scan laid out: the whole plan again, the new edition in it", (bq_units(bq_whole()), True),
+      (bq_units(eq.plan(["times"], bq)), any(u["rel"].endswith("1981-04-04_4") for u in eq.plan(["times"], bq)[1])))
+bq_edition("NewsUK1981UKEnglish", bq_dirs[2].name, '{"moved": 1}')
+check("a file of an edition moved: the whole plan again", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+cutoff = q.when("2099-01-01T00:00:00+00:00")
+check("a --reread cutoff: the whole plan again, rows read before it due", (bq_units(bq_whole(cutoff)), True),
+      (bq_units(eq.plan(["times"], bq, cutoff)), len(eq.plan(["times"], bq, cutoff)[1]) > len(eq.plan(["times"], bq)[1])))
+check("and back without it", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+os.environ["CT_NEWEST_FIRST"] = "times"
+try:
+    check("CT_NEWEST_FIRST changed: the whole plan again, in its order", bq_units(bq_whole()), bq_units(eq.plan(["times"], bq)))
+    with_env = eq.plan_version(eq.code_files())
+finally:
+    del os.environ["CT_NEWEST_FIRST"]
+check("a kept plan is not used by other code or environment: its version moves with CT_NEWEST_FIRST",
+      False, eq.plan_version(eq.code_files()) == with_env)
+f.vlm.reachable = real_reachable
+f.edition_dirs = real_dirs
+eq.media_manifest.downloads.ROOT = real_root
+eq.media_manifest.DIR = real_mm
+
+# ---- the units: each appends its own row, never another's
+calls = []
+f.scan = lambda d: calls.append(("scan", d.name)) or {"puzzles": [{"number": 7, "leaf": 1, "box": None}], "solutions": []}
+f.held_numbers = lambda series="times": set()
+f.held_dates = lambda series: {}
+def fake_read(d, found, hit, solutions):
+    calls.append(("read", d.name))
+    return {"number": hit["number"], "refused": "x"}, None
+f.read_puzzle = fake_read
+import ocr_remote
+ocr_remote.edition = lambda d, found, sols: None
+lines_before = len(tl.read_text().splitlines())
+check("scan_unit scans and appends one row", ("scanned", [("scan", "1980-03-01_3")], lines_before + 1),
+      (f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache), calls, len(tl.read_text().splitlines())))
+check("a scan that stands is not made again", "current", f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache))
+# A unit's desktop read meeting a busy desktop: deferred, no ledger row, no
+# failure; with no desktop set the same unit reads here.
+t4 = edition("NewsUK1980UKEnglish", "1980-03-08_4", 10)
+real_busy, real_failure, failed = ocr_remote.desktop_busy.busy, q.failure, []
+ocr_remote.desktop_busy.busy = lambda hosts: "playing Wow"
+q.failure = lambda *a, **k: failed.append(a)
+os.environ.update(OCR_REMOTE="tester@100.64.0.15", OCR_REMOTE_DEFER="1")
+lines_before = len(tl.read_text().splitlines())
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-03-08_4"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-08_4", cache))
+check("a unit whose desktop read meets a busy desktop ends deferred: no row, no failure, nothing read here",
+      (eq.EXITS["deferred"], lines_before, [], []), (got, len(tl.read_text().splitlines()), failed, calls[1:]))
+del os.environ["OCR_REMOTE_DEFER"]
+check("a process that does not defer reads here while the desktop is busy", None, ocr_remote.session())
+os.environ.update(OCR_REMOTE="", OCR_REMOTE_DEFER="1")
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-03-08_4"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-08_4", cache))
+check("mirror: with no desktop set the same unit scans here and appends its row",
+      (0, lines_before + 1, ("scan", "1980-03-08_4")), (got, len(tl.read_text().splitlines()), calls[-1]))
+ocr_remote.desktop_busy.busy, q.failure = real_busy, real_failure
+for k in ("OCR_REMOTE", "OCR_REMOTE_DEFER"):
+    os.environ.pop(k, None)
+calls.clear()
+with contextlib.redirect_stderr(io.StringIO()):
+    got = f.read_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache, out=io.StringIO())
+rows = q.ledger_rows(tl, "edition")
+check("read_unit reads its edition alone and appends its row", ("read", [("read", "1980-03-01_3")], lines_before + 2, True),
+      (got, calls, len(tl.read_text().splitlines()), "readAt" in rows["NewsUK1980UKEnglish/1980-03-01_3"]))
+calls.clear()
+err = io.StringIO()
+with contextlib.redirect_stderr(err):
+    f.read_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache, out=io.StringIO())
+check("a unit whose edition is no longer due reads nothing", ([], True), (calls, "not due" in err.getvalue()))
+listed = f.edition_dirs
+def no_listing(*a, **k):
+    raise AssertionError("a unit after a plan lists no items")
+f.edition_dirs = no_listing
+with contextlib.redirect_stderr(io.StringIO()):
+    f.read_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache, out=io.StringIO(), force=True)
+f.edition_dirs = listed
+check("forced (annotation asked), it reads anyway, off the plan's listing", [("read", "1980-03-01_3")], calls)
+with q.source_lock(tl, "NewsUK1980UKEnglish/1980-03-01_3"):
+    pid = os.fork()
+    if pid == 0:
+        os._exit(0 if f.read_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache) == "busy" else 1)
+    check("an edition another unit holds is busy", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+q.UNIT_HOLD_WAIT = 0.5  # a batch run's hold outlasts it
+with q.lock(tl):
+    pid = os.fork()
+    if pid == 0:
+        os._exit(0 if f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-01-02_2", cache) == "held" else 1)
+    check("a ledger a batch run holds is held: the unit adds nothing", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+
+# ---- a scan keyed with the thread-pool sizing in is current, and re-keyed, not rescanned
+rk = T / "rekey.jsonl"
+q.append(rk, [{"edition": "a", "scanKey": f.sized_scan_key()}, {"edition": "b", "scanKey": "older"}])
+check("a row under the sized key is current until re-keyed; one under older code is not",
+      (True, False), tuple(f.scan_current({"filesHash": "h", "scanKey": k, "scan": {}}, "h") for k in (f.sized_scan_key(), "older")))
+check("rows under the sized key take the narrowed one; others stay stale; once", (1, [f.scan_key(), "older"], 0),
+      (f.rekey_scans(rk), [r["scanKey"] for r in q.jsonl_rows(rk)], f.rekey_scans(rk)))
+
+# ---- a unit's own process: its outcome is its exit status, an error logged
+for outcome, want in (("busy", 3), ("read", 0)):
+    eq.run_unit = lambda unit, cache, puzzles, reread, o=outcome: o
+    pid = os.fork()
+    if pid == 0:
+        os._exit(eq.unit_main({"unit": {"kind": "read", "paper": "times", "rel": "x"}, "cache": str(T),
+                               "puzzles": None, "reread": "2026-01-01T00:00:00+00:00"}))
+    check(f"unit_main: {outcome} exits {want}", want, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+def boom(unit, cache, puzzles, reread):
+    raise ValueError("bad page")
+eq.run_unit = boom
+r, w = os.pipe()
+pid = os.fork()
+if pid == 0:
+    os.dup2(w, 2)
+    sys.stderr = os.fdopen(2, "w")
+    os._exit(eq.unit_main({"unit": {"kind": "read", "paper": "times", "rel": "x"}, "cache": str(T),
+                           "puzzles": None, "reread": None}))
+os.close(w)
+said = os.fdopen(r).read()
+check("unit_main: an error exits 1, the traceback logged", (1, True),
+      (os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]), "failed x: ValueError: bad page" in said))
+
+# ---- the dispatcher: order, gating, limits, --seconds, TERM
+# Each unit is started as a fresh process of eq.UNIT_SCRIPT, here a fake
+# (named as the real one, for ps) whose behaviour each case writes.
+log = T / "units.log"
+fake_dir = T / "fake"
+fake_dir.mkdir()
+eq.UNIT_SCRIPT = fake_dir / "edition_queue.py"
+behaviour = T / "behaviour.json"
+eq.UNIT_SCRIPT.write_text(f"""import json, os, subprocess, sys, time
+VERSION = "v1"
+unit = json.loads(os.environ["CT_EDITION_UNIT"])["unit"]
+b = json.loads(open({str(behaviour)!r}).read())
+def say(line):
+    with open({str(log)!r}, "a") as fh:
+        fh.write(line + "\\n")
+if b.get("ps"):
+    say(unit["rel"] + "\\t" + subprocess.run(["ps", "-o", "args=", "-p", str(os.getpid())],
+                                            capture_output=True, text=True).stdout.strip())
+else:
+    say(f"{{time.monotonic():.3f}} start {{unit['kind']}} {{unit['rel']}} {{VERSION}}")
+if b.get("env"):
+    say(f"desktop {{unit['rel']}} {{os.environ.get('OCR_REMOTE')!r}}")
+if unit["rel"] == b.get("rewrite_on"):
+    path = b.get("rewrite", __file__)
+    with open(path) as fh:
+        text = fh.read()
+    with open(path, "w") as fh:
+        fh.write(text.replace(*b["change"]))
+time.sleep(b.get("sleep", {{}}).get(unit["rel"], b.get("default", 0.2)))
+held = b.get("hold", {{}}).get(unit["rel"])  # runs until this file exists (a test's event, not a guessed time)
+until = time.monotonic() + 600
+while held and not os.path.exists(held) and time.monotonic() < until:
+    time.sleep(0.1)
+if b.get("ends", True) and not b.get("ps"):
+    say(f"{{time.monotonic():.3f}} end {{unit['kind']}} {{unit['rel']}}")
+outcome = b.get("outcome", {{}}).get(unit["rel"], "read" if unit["kind"] == "read" else "fetched")
+sys.exit({eq.EXITS!r}.get(outcome, 1))
+""")
+def fake(**kw):
+    behaviour.write_text(json.dumps(kw))
+# "slow" runs until released, and it is released only after the dispatcher returns (or, so a dispatcher
+# that never kills it fails here rather than hanging, after RELEASE_AFTER): events, not a wall-clock
+# bound a loaded CI runner can miss. A dispatcher that returns with "slow" never logging its end killed it.
+slow_released = T / "release-slow"
+RELEASE_AFTER = 300
+fake(hold={"slow": str(slow_released)})
+eq.fresh = lambda papers, cache=None: ([], [])  # the tests' temp editions are no fresh downloads
+def units(scans, reads):
+    return lambda papers, cache=None, reread=None, out=None: (
+        [{"kind": "scan", "paper": "times", "rel": r, "rank": 1, "reason": "scan stale"} for r in scans],
+        [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": n} for r, n in reads])
+eq.plan = units(["s1"], [("r1", ["s1"]), ("slow", []), ("r2", [])])
+import threading
+_release_timer = threading.Timer(RELEASE_AFTER, slow_released.touch)
+_release_timer.daemon = True
+_release_timer.start()
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=2, scan_workers=1, read_seconds=2, replan=0.5)
+_release_timer.cancel()
+released_early = slow_released.exists()  # True only if the safety net fired: the dispatcher never killed "slow"
+slow_released.touch()
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+starts = [e[2] for e in ev if e[0] == "start"]
+check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "slow"]), (rc, sorted(starts)))
+# A read waits only on a scan that is running (read_waits); reads go ahead of a scan not yet begun
+# (the queue's order, and the scan is held while a full read pool is ready), so r1 starts before s1 ends.
+check("a read whose needed scan has not begun starts without waiting for it, and the scan still runs", True,
+      ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s1"]))
+check("a unit past its limit is killed, the others not held up", (False, True, True),
+      (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, not released_early))
+log.unlink(missing_ok=True)
+fake(sleep={"n1": 1.0})
+eq.plan = lambda papers, cache=None, reread=None, out=None: (
+    [{"kind": "scan", "paper": "times", "rel": "b1", "rank": 3, "reason": "scan stale"}],
+    [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []} for r in ("n1", "n2")])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a whole-corpus unit waits, in its own idle pool, until no new one is left to start", True,
+      ev.index(["start", "read", "n2", "v1"]) < ev.index(["start", "scan", "b1", "v1"]))
+log.unlink(missing_ok=True)
+fake(sleep={"r1": 0.6, "r2": 0.6})
+eq.plan = units(["s9"], [("r1", []), ("r2", [])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a scan no read waits on holds while a full read pool of reads is ready", True,
+      ev.index(["start", "read", "r2", "v1"]) < ev.index(["start", "scan", "s9", "v1"]))
+log.unlink(missing_ok=True)
+import threading
+def release_on(marker, path, limit=60):
+    """Touch `path` once units.log holds `marker`, or after `limit` s: a held unit's end is an event
+    of the test's, not a guessed time (on a loaded CI runner a unit's brief and process take seconds)."""
+    def watch():
+        until = time.monotonic() + limit
+        while time.monotonic() < until and not (log.exists() and marker in log.read_text()):
+            time.sleep(0.05)
+        path.touch()
+    threading.Thread(target=watch, daemon=True).start()
+# The reads run until the scan has started (or 60 s): a scan held behind them starts only after r1 ends.
+released = T / "release-s9"
+fake(hold={"r1": str(released), "r2": str(released)})
+eq.plan = units(["s9"], [("r1", []), ("r2", [])])
+release_on("start scan s9 ", released)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.2)
+released.touch()
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("with fewer ready reads than read slots the scans start at once", True,
+      ev.index(["start", "scan", "s9", "v1"]) < ev.index(["end", "read", "r1"]))
+log.unlink(missing_ok=True)
+fake(sleep={"s0": 1.5})
+eq.plan = units(["s0", "s1"], [("r1", ["s1"])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a read whose days-after scan waits behind a full scan pool starts at once", True,
+      ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s0"]))
+log.unlink(missing_ok=True)
+fake(sleep={"s0": 1.5}, outcome={"bad": "failed"})
+eq.plan = units(["s0", "r1", "bad"], [("r1", ["r1"]), ("bad", ["bad"])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a read whose own scan waits behind a full scan pool starts only after that scan ends done", True,
+      ev.index(["end", "scan", "r1"]) < ev.index(["start", "read", "r1", "v1"]))
+check("a read whose own scan failed is left for the next run, not read unscanned", False,
+      ["start", "read", "bad", "v1"] in ev)
+log.unlink(missing_ok=True)
+fake()
+# scan_stands hashes through _stand_hash (its path facts kept), not input_hash.
+(hashes, stand_hash), f.input_hash, f._stand_hash = (f.input_hash, f._stand_hash), lambda d: "h", lambda c, r: "h"
+q.append(cache / "filed.jsonl", [{"edition": "done", "filesHash": "h", "scanKey": f.scan_key(), "scan": scan}])
+eq.plan = units(["done", "s1"], [("done", ["done"])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a planned scan whose edition was scanned since (a kept plan) is not started; its read goes on, the others' scans run",
+      (False, True, True), (["start", "scan", "done", "v1"] in ev, ["start", "read", "done", "v1"] in ev,
+                            ["start", "scan", "s1", "v1"] in ev))
+f.input_hash, f._stand_hash = hashes, stand_hash
+log.unlink(missing_ok=True)
+fake()
+calls = []
+def slow_replan(papers, cache=None, reread=None, out=None):
+    calls.append(time.monotonic())
+    if len(calls) == 2:
+        time.sleep(3)
+    return [], [{"kind": "read", "paper": "times", "rel": f"q{k}", "rank": 1, "reason": "never read", "needs": []}
+                for k in range(3)]
+eq.plan = slow_replan
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    t0 = time.monotonic()
+    eq.dispatch(["times"], cache, workers=1, replan=0.1)
+starts = [float(line.split()[0]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("a slow replan does not hold up starts from the plan before it", (3, True),
+      (len(starts), max(starts) - starts[0] < 2.5))
+log.unlink(missing_ok=True)
+fresh_unit = {"kind": "read", "paper": "times", "rel": "f1", "rank": 0, "reason": "just laid out", "needs": []}
+eq.plan = units([], [("b1", []), ("b2", [])])
+eq.fresh = lambda papers, cache=None: ([], [fresh_unit])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, replan=0.2)
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("an edition just laid out starts before the planned backlog, once", ["f1", "b1", "b2"], starts)
+log.unlink(missing_ok=True)
+calls = []
+eq.plan = slow_replan
+t_fresh = time.monotonic() + 0.5
+eq.fresh = lambda papers, cache=None: ([], [fresh_unit] if time.monotonic() > t_fresh else [])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, replan=0.1)
+starts = {line.split()[3]: float(line.split()[0]) for line in log.read_text().splitlines() if line.split()[1] == "start"}
+check("one laid out mid-plan starts while the planner thread is still at it", (True, True),
+      ("f1" in starts, starts.get("f1", 99) < calls[1] + 3))
+eq.fresh = lambda papers, cache=None: ([], [])
+log.unlink(missing_ok=True)
+kept_ho = Path(os.environ["TMP"]) / "kept-handoff.json"
+eq.plan = units([], [("k1", []), ("k2", [])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
+log.unlink(missing_ok=True)
+plans_made = []
+def stalled_until(rels, limit=60):
+    """A planner whose (empty) plan is made only once each of `rels` has logged its start, or after
+    `limit` s: the kept plan's starts are an event of the test's, not a guessed 3 s. With a fixed 3 s
+    a loaded CI runner failed this case: the host's own gates (its MemAvailable under the floor,
+    "memory-bound"; reads waiting on the VLM in the shared temp dir) held the kept units past the
+    3 s, the empty plan then replaced the kept one, as it should, and no unit started at all."""
+    def plan(papers, cache=None, reread=None, out=None):
+        until = time.monotonic() + limit
+        while time.monotonic() < until and not (
+                log.exists() and all(f" start read {r} " in log.read_text() for r in rels)):
+            time.sleep(0.05)
+        plans_made.append(time.monotonic())
+        return [], []
+    return plan
+eq.plan = stalled_until(["k1", "k2"])
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
+starts = [(float(line.split()[0]), line.split()[3]) for line in (log.read_text() if log.exists() else "").splitlines()
+          if line.split()[1] == "start"]
+if not starts:
+    print("the run given the kept plan started nothing; its log:\n" + err.getvalue())
+check("the next run starts the kept plan's units before its own plan is made", (["k1", "k2"], True),
+      (sorted(r for _, r in starts), bool(plans_made) and all(t < plans_made[0] for t, _ in starts)))
+log.unlink(missing_ok=True)
+# A slice boundary: the next slice fills its free slots with what the last
+# one had not started, at once, its ledger upkeep on the planner thread.
+# Driven by events, not wall time (a 2 s slice on a loaded CI runner ended before any unit logged its
+# start): k2 and k3 run until released, so both slots are busy and k4, k5 cannot start in this slice,
+# and the slice's clock runs out only once k3 (begun when k1 ends) has logged its start.
+released = T / "release-k"
+fake(hold={"k2": str(released), "k3": str(released)})
+kept_ho = Path(os.environ["TMP"]) / "kept-handoff2.json"
+eq.plan = units([], [(f"k{k}", []) for k in range(1, 6)])
+class KSliceClock:
+    def __getattr__(self, name):
+        return getattr(time, name)
+    def monotonic(self):
+        begun = log.exists() and "start read k3 " in log.read_text()
+        return time.monotonic() + (600 if begun else 0)
+eq.time = KSliceClock()
+try:
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=2, replan=60, seconds=600, handoff=kept_ho)
+finally:
+    eq.time = time
+released.touch()  # the next slice, taking k2 and k3 over, sees them end
+ran = {line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"}
+log.unlink(missing_ok=True)
+left_over = sorted({"k1", "k2", "k3", "k4", "k5"} - ran)
+eq.plan = stalled_until(left_over)
+plans_made.clear()
+upkept = []
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    # The upkeep, like the plan, ends only once the units left over have started (or 60 s).
+    eq.dispatch(["times"], cache, workers=4, replan=0.1, handoff=kept_ho,
+                upkeep=lambda: (eq.plan([]), upkept.append(time.monotonic())))
+starts = [(float(line.split()[0]), line.split()[3]) for line in (log.read_text() if log.exists() else "").splitlines()
+          if line.split()[1] == "start"]
+if not starts:
+    print("the next slice started nothing; its log:\n" + err.getvalue())
+check("the next slice starts at once what the last left unstarted, not what it ran; upkeep beside it",
+      (left_over, True, 1, True),
+      (sorted(r for _, r in starts), len(upkept) == 1 and all(t < upkept[0] for t, _ in starts), len(upkept), "k1" in ran))
+log.unlink(missing_ok=True)
+fake(sleep={"slow": 30})
+eq.plan = units([], [(f"r{k}", []) for k in range(6)])
+out = io.StringIO()
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=0.5, replan=60)
+check("--seconds starts nothing after it and says what it left", (True, True),
+      (len((log.read_text() if log.exists() else "").splitlines()) <= 4, "left for the next run" in out.getvalue()))
+# A slow runner can reach the deadline before the one worker logs a start,
+# and then no log is written at all: that is still "nothing after it".
+log.unlink(missing_ok=True)
+eq.plan = units([], [("slow", [])])
+pid = os.fork()
+if pid == 0:
+    sys.stderr = open(os.devnull, "w")
+    os._exit(eq.dispatch(["times"], cache, workers=1))
+time.sleep(1.5)
+os.kill(pid, signal.SIGTERM)
+t0 = time.monotonic()
+rc = os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1])
+check("a TERM ends the running units and exits 143, at once", (143, True, False),
+      (rc, time.monotonic() - t0 < 5, "end read slow" in (log.read_text() if log.exists() else "")))
+# A slow runner may TERM it before the unit logs its start: no log at all.
+log.unlink(missing_ok=True)
+# --beside: a batch filer runs beside the units, again while it leaves work.
+beside_n = T / "beside.n"
+script = T / "beside.sh"
+script.write_text(f'n=$(cat {beside_n} 2>/dev/null || echo 0); echo $((n+1)) > {beside_n}; '
+                  f'[ "$n" -lt 2 ] && echo "  1  left for the next run"; exit 0\n')
+eq.plan = units([], [("r1", [])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, beside=[["bash", str(script)]])
+check("--beside runs beside the units until it leaves nothing", (0, "3", True),
+      (rc, beside_n.read_text().strip(), "end read r1" in log.read_text()))
+
+# --fetch: a source's fetch units run in a pool of their own beside the
+# reads; a 429 lowers the pool, FETCH_OUTAGES in a row stop the source.
+log.unlink(missing_ok=True)
+outcome = {}
+fake(default=0.3, ends=False)
+eq.plan = units([], [("r1", [])])
+eq.FETCHERS = {"src": {"plan": lambda: [{"rel": f"e{k}", "reason": "not fetched"} for k in range(6)],
+                       "workers": 3, "seconds": 5}}
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("fetch units run beside the reads, each once, in their own pool", (0, ["r1"], [f"e{k}" for k in range(6)]),
+      (rc, [e[2] for e in ev if e[1] == "read"], sorted(e[2] for e in ev if e[1] == "fetch")))
+log.unlink(missing_ok=True)
+fake(default=0.3, ends=False, sleep={"e0": 0.1}, outcome={"e0": "throttled", **{f"e{k}": "outage" for k in range(1, 4)}})
+eq.FETCH_OUTAGES = 3
+eq.FETCHERS["src"]["workers"] = 2
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for the run", (True, True, False),
+      ("at most 1 fetches at once" in err.getvalue(), "no more fetches this run" in err.getvalue(),
+       "start fetch e5" in log.read_text()))
+
+# A slow fetch plan holds no read back: the first plan's reads start before it is made.
+log.unlink(missing_ok=True)
+fake(default=0.3, ends=False)
+err = io.StringIO()
+plan_saw = []
+def slow_fetch_plan():
+    plan_saw.append("start read r1" in err.getvalue())
+    return [{"rel": "e0", "reason": "not fetched"}]
+eq.FETCHERS = {"src": {"plan": slow_fetch_plan, "workers": 1, "seconds": 5}}
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+check("the first plan starts its reads before the fetch plan is made, and the fetches after", (True, True),
+      (plan_saw[:1] == [True], "start fetch e0" in log.read_text()))
+
+# A fetch source's plan is made again only fetch_replan after the last; the
+# scans' and reads' plans every replan meanwhile.
+eq.plan = units([], [("r1", [])])
+made = {}
+for every in (60, 0):
+    log.unlink(missing_ok=True)
+    fake(default=0.3, ends=False, sleep={"r1": 1.0})
+    eq.FETCHERS = {"src": {"plan": lambda e=every: made.setdefault(e, []).append(1) or [],
+                           "workers": 1, "seconds": 5}}
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.1, fetch_replan=every)
+check("a fetch plan is made once per fetch_replan, not every replan; mirror: at 0 every replan",
+      (1, True), (len(made[60]), len(made[0]) > 2))
+
+# Each unit's command line names its kind, paper and edition, not the queue's.
+log.unlink(missing_ok=True)
+fake(ps=True)
+eq.plan = units([], [("GaleTimes1988UKEnglish/1988-08-30", [])])
+eq.FETCHERS = {"src": {"plan": lambda: [{"rel": "article/120905968", "reason": "not fetched"}],
+                       "workers": 1, "seconds": 5}}
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+seen = {k: v[v.index("edition_queue.py unit"):] for k, v in (line.split("\t", 1) for line in log.read_text().splitlines())}
+check("a unit's ps command line is its kind, paper and edition",
+      {"GaleTimes1988UKEnglish/1988-08-30": "edition_queue.py unit read times GaleTimes1988UKEnglish/1988-08-30",
+       "article/120905968": "edition_queue.py unit fetch src article/120905968"}, seen)
+
+# ---- the media share down (the Mac's SMB server refused the session for a minute, 10-20 and 10-23,
+# and the whole pass died): a unit ends deferred, the dispatcher waits for the share, a bug stays a bug
+import errno
+import downloads
+on_share = str(downloads.ROOT / "archive_org_editions")
+def host_down(path=on_share, code=errno.EHOSTDOWN):
+    return OSError(code, os.strerror(code), path)
+for code in (errno.EHOSTDOWN, errno.ENOTCONN, errno.ESTALE, errno.EIO, errno.EACCES, errno.EPERM):
+    check(f"media_down: {errno.errorcode[code]} on a path under the media root", True,
+          downloads.media_down(host_down(on_share + "/filed.jsonl", code)))
+check("media_down: the media root's own folder (pathlib's mkdir stat, 10-23)", True, downloads.media_down(host_down()))
+check("mirror: the same errno on a path off the share is no outage", False,
+      downloads.media_down(host_down(str(T / "filed.jsonl"))))
+check("mirror: a missing file on the share is no outage", False,
+      downloads.media_down(host_down(on_share + "/x.jsonl", errno.ENOENT)))
+check("mirror: an error with no path, or no OSError, is no outage", (False, False),
+      (downloads.media_down(OSError(errno.EHOSTDOWN, "Host is down")), downloads.media_down(ValueError(on_share))))
+try:
+    try:
+        raise host_down()
+    except OSError as cause:
+        raise RuntimeError("wrapped") from cause
+except RuntimeError as wrapped:
+    check("an error raised from a media outage (its __cause__) is one", True, downloads.media_down(wrapped))
+try:
+    try:
+        raise host_down()
+    except OSError:
+        raise KeyError("a bug in the handler")  # only __context__: the bug is what is raised
+except KeyError as bug:
+    check("mirror: a bug raised while handling one is not", False, downloads.media_down(bug))
+
+# A unit's own process: an outage of the share is EXITS["media"], deferred, no failure logged;
+# the same errno off the share is a failure, as ever.
+failed = []
+real_failure, q.failure = q.failure, lambda *a, **k: failed.append(a)
+err = io.StringIO()
+with contextlib.redirect_stderr(err):
+    got = eq.unit_status({"kind": "read", "paper": "times", "rel": "m"}, lambda: (_ for _ in ()).throw(host_down()))
+check("a unit whose ledger mkdir meets the share down ends deferred for it, nothing failed",
+      (eq.EXITS["media"], [], True), (got, failed, "deferred, the media share is down" in err.getvalue()))
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "read", "paper": "times", "rel": "m"},
+                         lambda: (_ for _ in ()).throw(host_down(str(T / "x"), errno.EACCES)))
+check("mirror: EACCES off the share fails the unit", (1, 1), (got, len(failed)))
+q.failure = real_failure
+
+# A scan whose page the share did not serve keeps no "failed" row: it is scanned again once it answers.
+m1, m2 = edition("NewsUK1980UKEnglish", "1980-04-05_6", 10), edition("NewsUK1980UKEnglish", "1980-04-12_7", 10)
+real_scan_anywhere = f.scan_anywhere
+f.scan_anywhere = lambda d: (_ for _ in ()).throw(host_down(on_share + f"/{d.parent.name}/{d.name}/leaf_0021.jpg"))
+lines_before = len(tl.read_text().splitlines())
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-04-05_6"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-04-05_6", cache))
+check("a scan meeting the share down ends deferred and appends no row", (eq.EXITS["media"], lines_before),
+      (got, len(tl.read_text().splitlines())))
+f.scan_anywhere = lambda d: (_ for _ in ()).throw(host_down(str(d / "leaf_0021.jpg"), errno.EIO))
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.unit_status({"kind": "scan", "paper": "times", "rel": "NewsUK1980UKEnglish/1980-04-12_7"},
+                         lambda: f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-04-12_7", cache))
+check("mirror: an EIO off the share stands as a failed scan, as ever", (0, lines_before + 1, True),
+      (got, len(tl.read_text().splitlines()),
+       "failed" in q.ledger_rows(tl, "edition")["NewsUK1980UKEnglish/1980-04-12_7"]["scan"]))
+f.scan_anywhere = real_scan_anywhere
+
+# MediaGate on a clock the test moves: one "waiting" line, a probe every `every`, "back" once.
+now = [0.0]
+answers = []
+said = []
+gate = eq.MediaGate(probe=lambda: answers.pop(0), every=20, limit=1800, clock=lambda: now[0], say=said.append)
+check("no outage noted: nothing held, nothing probed", (False, []), (gate.hold(), said))
+check("a non-outage error is not noted", (False, False), (gate.down(ValueError("x")), gate.held()))
+answers[:] = [False, False, True]
+gate.down()
+held = [gate.hold()]
+now[0] = 5.0
+held.append(gate.hold())  # between probes: held, not probed
+now[0] = 20.0
+held.append(gate.hold())
+now[0] = 40.0
+held.append(gate.hold())
+check("down: held until a probe answers, probed every 20s, one waiting line, one back line",
+      ([True, True, True, False], [], 2, True, True),
+      (held, answers, len(said), said[0].startswith("media down: waiting"), said[1].startswith("media back after 40s")))
+said.clear()
+answers[:] = [True]
+gate.down()
+check("a unit's note the first probe finds answered is let go without a line", (False, []), (gate.hold(), said))
+answers[:] = [False] * 200
+gate.down(host_down())
+gone = None
+try:
+    while gate.hold():
+        now[0] += 20
+except eq.MediaGone as e:
+    gone = str(e)
+check("down past the limit: MediaGone", True, gone is not None and "CT_MEDIA_WAIT 1800" in gone)
+# The loop's own error on one path, the share answering each time: raised once it repeats (a bug, not an outage).
+gate = eq.MediaGate(probe=lambda: True, every=20, limit=1800, clock=lambda: now[0], say=said.append)
+raised = None
+try:
+    for _ in range(eq.MEDIA_BLIPS):
+        gate.down(host_down(on_share + "/filed.jsonl", errno.EACCES))
+        gate.hold()
+        now[0] += 1
+except OSError as e:
+    raised = e.errno
+check("the loop's media error on a share that answers is raised once it repeats", errno.EACCES, raised)
+
+# main's fallback: the share back after an outage, the run re-execs; answering at once, the error is raised.
+execs = []
+gate = eq.MediaGate(probe=iter([False, True]).__next__, every=0, limit=1800, say=said.append)
+with contextlib.redirect_stderr(io.StringIO()):
+    got = eq.media_restart(host_down(), gate=gate, execv=lambda *a: execs.append(a))
+check("media_restart: waits for the share, then re-execs", (0, 1), (got, len(execs)))
+gate = eq.MediaGate(probe=lambda: True, every=0, limit=1800, say=said.append)
+raised = None
+try:
+    eq.media_restart(host_down(), gate=gate, execv=lambda *a: execs.append(a))
+except OSError as e:
+    raised = e.errno
+check("mirror: a share that answers at once: the error is raised, no re-exec", (errno.EHOSTDOWN, 1), (raised, len(execs)))
+gate = eq.MediaGate(probe=lambda: False, every=0, limit=0.001, clock=iter(range(0, 10 ** 6, 10)).__next__, say=said.append)
+with contextlib.redirect_stderr(io.StringIO()):
+    check("media_restart: down past the limit ends 1", 1, eq.media_restart(host_down(), gate=gate, execv=lambda *a: execs.append(a)))
+check("the probe: a folder that lists answers, a missing one does not", (True, False),
+      (eq.media_reachable(T), eq.media_reachable(T / "nowhere")))
+
+# The dispatcher: a read ends deferred for the share; no unit starts until a probe finds it back,
+# then the queue goes on. m1 always meets it: past MEDIA_TRIES it fails, the run ends 0.
+real_reachable, real_nap = eq.media_reachable, eq.MEDIA_NAP
+eq.MEDIA_PROBE_EVERY, eq.MEDIA_NAP = 0, 0.05
+probes = []
+def probe():
+    starts = sum(" start " in line for line in log.read_text().splitlines()) if log.exists() else 0
+    probes.append(starts)
+    return len(probes) >= 3
+eq.media_reachable = probe
+log.unlink(missing_ok=True)
+fake(default=0.1, outcome={"m1": "media"})
+eq.plan = units([], [("m1", []), ("m2", [])])
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("the share down: no unit starts while the probes find it down", (True, probes[0]), (len(probes) >= 3, probes[1]))
+check("the run goes on once it answers: m2 read, m1 tried MEDIA_TRIES + 1 times, rc 0",
+      (0, eq.MEDIA_TRIES + 1, 1), (rc, starts.count("m1"), starts.count("m2")))
+check("one waiting line, one back line; m1 deferred, then failed", (1, 1, True, True),
+      (err.getvalue().count("media down: waiting"), err.getvalue().count("media back after"),
+       "end read m1: deferred (the media share is down)" in err.getvalue(),
+       f"end read m1: failed (the media share's error {eq.MEDIA_TRIES + 1} times this run)" in err.getvalue()))
+
+# Down past CT_MEDIA_WAIT: nothing more starts and the run ends 1.
+eq.media_reachable = lambda: False
+os.environ["CT_MEDIA_WAIT"] = "0.3"
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("down past CT_MEDIA_WAIT: m2 never starts, the run gives up and ends 1", (1, ["m1"], True),
+      (rc, starts, "media down: giving up" in err.getvalue()))
+del os.environ["CT_MEDIA_WAIT"]
+
+# The dispatcher's own plan meets the share down (10-23: the loop's ledger stat): it waits and plans again.
+probes.clear()
+eq.media_reachable = probe
+plans = []
+def plan_once_down(papers, cache=None, reread=None, out=None):
+    plans.append(1)
+    if len(plans) == 1:
+        raise host_down(on_share + "/filed.jsonl")
+    return units([], [("p1", [])])(papers)
+eq.plan = plan_once_down
+log.unlink(missing_ok=True)
+fake(default=0.1)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+check("a plan meeting the share down waits for it, plans again and reads", (0, True, True, True),
+      (rc, len(plans) >= 2, "start read p1" in log.read_text(), "media back after" in err.getvalue()))
+# Mirror: EACCES off the share is a bug: the dispatcher raises it.
+def plan_denied(papers, cache=None, reread=None, out=None):
+    raise host_down(str(T / "filed.jsonl"), errno.EACCES)
+eq.plan = plan_denied
+raised = None
+try:
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+except PermissionError as e:
+    raised = e.errno
+check("mirror: the plan's EACCES off the share is raised, not waited out", errno.EACCES, raised)
+eq.media_reachable, eq.MEDIA_NAP, eq.MEDIA_PROBE_EVERY = real_reachable, real_nap, 20
+log.unlink(missing_ok=True)
+fake()
+
+# ---- fresh code: a unit started after a code change runs the new code.
+# The first unit changes the unit script as it runs (master moved under
+# the tree); every unit started after it runs the changed script.
+log.unlink(missing_ok=True)
+fake(rewrite_on="c0", change=['VERSION = "v1"', 'VERSION = "v2"'], sleep={"c0": 0.5})
+eq.plan = units([], [(f"c{k}", []) for k in range(4)])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, replan=0.2)
+ran = [e.split()[3:] for e in log.read_text().splitlines() if " start " in e]
+check("a unit started after a code change runs the new code, none the old",
+      [["c0", "v1"], ["c1", "v2"], ["c2", "v2"], ["c3", "v2"]], ran)
+
+# ---- the queue itself follows its code: a change to it hands its running
+# units to its new image (same pid, a child still) and re-execs.
+log.unlink(missing_ok=True)
+driver = T / "driver.py"
+driver.write_text(f"""import os, sys
+sys.path.insert(0, {str(Path.cwd())!r})
+import edition_queue as eq
+VERSION = "p1"
+print(f"parent {{VERSION}} {{os.getpid()}}", file=sys.stderr, flush=True)
+eq.cpu_gate_reader = lambda: 0.0
+eq.idle_gate_reader = lambda: 1e6
+eq.mem_gate_reader = lambda: 1 << 40
+# As above, in this process too: off Paul's LAN (CI) the real VLM probe says
+# down, and the "times" reads it gates (needs_vlm) never start: a hang.
+eq.desktop_gate_reader = lambda: None
+eq.desktop_mem_reader = lambda: None
+eq.vlm_gate_reader = lambda: True
+eq.UNIT_SCRIPT ={str(eq.UNIT_SCRIPT)!r}
+eq.plan = lambda papers, cache=None, reread=None, out=None: (
+    [], [{{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []}}
+         for r in ("long", "r1", "r2")])
+resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None
+sys.exit(eq.dispatch(["times"], {str(cache)!r}, workers=1, replan=0.3, resume=resume,
+                 plan_reuse=float(os.environ.get("TEST_PLAN_REUSE", 0))))
+""")
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+import subprocess
+long_released = T / "release-long"
+long_released.unlink(missing_ok=True)
+
+
+def run_reexec(extra_env=None):
+    """Run the driver with "long" held until the re-exec'd image has printed its banner ("parent p2"): the
+    unit outlives the re-exec by an event, not a sleep a loaded runner's slow start can outlast."""
+    long_released.unlink(missing_ok=True)
+    errf = T / "driver.err"
+    with open(errf, "w") as ef:
+        pr = subprocess.Popen([sys.executable, str(driver)], stdout=subprocess.DEVNULL, stderr=ef, text=True,
+                              env={**os.environ, **(extra_env or {})})
+        until = time.monotonic() + 280
+        while pr.poll() is None and time.monotonic() < until:
+            if "parent p2" in errf.read_text():
+                long_released.touch()
+            time.sleep(0.05)
+        if pr.poll() is None:
+            pr.kill()
+        pr.wait()
+    long_released.touch()
+    return subprocess.CompletedProcess([], pr.returncode, "", errf.read_text())
+
+
+fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], hold={"long": str(long_released)})
+p = run_reexec()
+parents = [l.split()[1:] for l in p.stderr.splitlines() if l.startswith("parent ")]
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a code change re-execs the queue once, same pid, new code", (0, ["p1", "p2"], True, True),
+      (p.returncode, [v for v, _ in parents], len({pid for _, pid in parents}) == 1, "re-exec" in p.stderr))
+check("its running unit is kept, not started again, reaped by the new image, then the rest start",
+      (1, True, True, ["long", "r1", "r2"]),
+      (sum(e[:3] == ["start", "read", "long"] for e in ev), "end read long: done" in p.stderr,
+       ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1", "v1"]),
+       [e[2] for e in ev if e[0] == "start"]))
+# A re-exec reuses a young kept plan as its own: it says so, and the plan's
+# time to make survives in the file for the replan back-off.
+check("mirror: with plan_reuse 0 the re-exec's image does not keep the plan", False, "kept, not made again" in p.stderr)
+log.unlink(missing_ok=True)
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+driver.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"'))
+fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], hold={"long": str(long_released)})
+reused = run_reexec({"TEST_PLAN_REUSE": "600"})
+check("a re-exec starts from a plan under plan_reuse old and keeps it as its own, units still all started once",
+      (0, True, ["long", "r1", "r2"]),
+      (reused.returncode, "kept, not made again now" in reused.stderr,
+       [e[3] for e in (l.split() for l in log.read_text().splitlines()) if e[1] == "start"]))
+kp = T / "took.plan"
+eq.keep_plan(kp, ["k"], ([], [], []), time.time(), 123.0)
+check("a kept plan carries how long it took", (([], [], []), 123.0), (eq.last_plan(kp, ["k"])[0], eq.last_plan(kp, ["k"])[2]))
+# A hot reload changes the planner files' digests: the plan kept by the old code still starts units
+# (loose), unless the scan keys changed too, or loose is not asked.
+kl = T / "loose.plan"
+old_key = [["times"], "c", None, [], [["d1"], [["k1"]], "s", [], "r"]]
+new_key = [["times"], "c", None, [], [["d2"], [["k1"]], "s", [], "r"]]
+rekeyed = [["times"], "c", None, [], [["d2"], [["k2"]], "s", [], "r"]]
+eq.keep_plan(kl, old_key, ([{"u": 1}], [{"u": 2}], []), time.time())
+check("a plan kept by other planner code or scan keys is taken only loosely, and only with the same arguments",
+      (None, 1, 1, None), (eq.last_plan(kl, new_key)[0], len(eq.last_plan(kl, new_key, loose=True)[0][1]),
+                           len(eq.last_plan(kl, rekeyed, loose=True)[0][1]), eq.last_plan(kl, ["x"], loose=True)[0]))
+other_args = [["guardian"], "c", None, [], [["d2"], [["k1"]], "s", [], "r"]]
+check("a loose plan is refused when the arguments differ", None, eq.last_plan(kl, other_args, loose=True)[0])
+# Mirror: a plan that takes minutes (a cold cache on the media mount) holds
+# no re-exec back; the old code would run until the plan ended.
+log.unlink(missing_ok=True)
+slow = T / "slow_driver.py"
+slow.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+calls = []
+def plan(*a, **k):
+    calls.append(1)
+    if len(calls) > 1 and VERSION == "p1":
+        time.sleep(60)
+    return quick(*a, **k)
+eq.plan = plan
+quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=120"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(slow), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+slowed = subprocess.run([sys.executable, str(slow)], capture_output=True, text=True, timeout=300)
+check("a code change re-execs the queue while its plan is still being made",
+      ["p1", "p2"], [l.split()[1] for l in slowed.stderr.splitlines() if l.startswith("parent ")])
+# Mirror: an image that has not yet made a plan of its own (it runs the kept
+# one) makes it before re-exec'ing on the next change, so changes landing
+# faster than a plan takes still get plans made on new code.
+log.unlink(missing_ok=True)
+busy = T / "busy_driver.py"
+busy_src = (driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+def plan(*a, **k):
+    if VERSION == "p2":
+        src = open(__file__).read()
+        open(__file__, "w").write(src.replace('VERSION = "p2"', 'VERSION = "p3"'))
+        time.sleep(1.5)
+        print("plan made by p2", file=sys.stderr, flush=True)
+    return quick(*a, **k)
+eq.plan = plan
+quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=120"))
+busy.write_text(busy_src)
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=300)
+said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
+        if l.startswith("parent ") or l == "plan made by p2"]
+check("an image re-execs on a change only after making its own first plan",
+      ["p1", "p2", "plan made by p2", "p3"], said)
+# Mirror: every unit ended while that first plan was made (a loaded host),
+# so the run's last plan is next; it is made on the new code, not the old.
+log.unlink(missing_ok=True)
+busy.write_text(busy_src.replace("time.sleep(1.5)", "time.sleep(5)"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 1})
+busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=300)
+said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
+        if l.startswith("parent ") or l == "plan made by p2"]
+check("mirror: with its units all ended during its first plan, an image still re-execs before its last plan",
+      ["p1", "p2", "plan made by p2", "p3"], said)
+# But a slice's first image (started by the shell, running the plan the last
+# slice kept) re-execs on a change to itself mid-plan: its plan can take half
+# an hour on a loaded host, and the dispatcher it runs would be the old all
+# that while (2026-10-15: edition_queue.py landed at 01:51 and a slice begun
+# at 01:45 was still on its first plan at 02:10).
+log.unlink(missing_ok=True)
+fresh_drv = T / "fresh_driver.py"
+kept = T / "fresh-kept.json"
+fresh_drv.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+def plan(*a, **k):
+    if VERSION == "p1":
+        time.sleep(60)
+    return quick(*a, **k)
+eq.plan = plan
+quick = lambda papers""").replace(
+    'resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None', f"""
+resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else {str(kept)!r}
+if "--resume" not in sys.argv:
+    eq.keep_plan(eq.Path(resume + ".plan"), [["times"], {str(cache)!r}, None, [], eq.plan_version(eq.code_files())],
+                 (*quick(["times"]), []), time.time())
+""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=120"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(fresh_drv), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+t0 = time.monotonic()
+freshed = subprocess.run([sys.executable, str(fresh_drv)], capture_output=True, text=True, timeout=300)
+check("a slice's first image re-execs on a change to itself while its first plan is still being made",
+      (["p1", "p2"], True), ([l.split()[1] for l in freshed.stderr.splitlines() if l.startswith("parent ")],
+                             time.monotonic() - t0 < 200))
+
+# ---- --handoff: a slice's end hands its running units to the next run,
+# which counts them in its pools and does not start them again.
+log.unlink(missing_ok=True)
+released = T / "release-long"
+released.unlink(missing_ok=True)  # an earlier re-exec case left it touched
+fake(hold={"long": str(released)})  # "long" runs until released, so it is still running when the slice ends
+eq.plan = units([], [("long", []), ("r1", [])])
+ho = T / "handoff.json"
+out = io.StringIO()
+# Driven by events, not wall time (a 25-min CI run on a loaded runner flaked on both): the slice's clock
+# runs out only once "long" has logged its start (its brief is made on a pool thread and its process
+# can take seconds to come up), and the slice is long enough that only that can end it.
+SLICE = 600  # the jump ages "long" too: overdue() (READ_SECONDS 1200) kills it only after 600 s of real running
+class SliceClock:
+    def __getattr__(self, name):
+        return getattr(time, name)
+    def monotonic(self):
+        begun = log.exists() and "start read long" in log.read_text()
+        return time.monotonic() + (SLICE if begun else 0)
+eq.time = SliceClock()
+try:
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
+        rc = eq.dispatch(["times"], cache, workers=1, seconds=SLICE, handoff=ho)
+finally:
+    eq.time = time
+began = [float(l.split()[0]) for l in log.read_text().splitlines() if " start read long " in l]
+check("a slice ends at once, handing over its running unit, and says it left work", (0, True, ["long"], True, False),
+      (rc, bool(began) and time.monotonic() - began[0] < 60, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
+       "left for the next run" in out.getvalue(), "end read long" in log.read_text()))
+released.touch()  # the next run, taking it over, sees it end
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, handoff=ho, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("the next run takes it over: not started twice, its slot held until it ends, then r1",
+      (0, 1, True, True, False),
+      (rc, sum(e[:3] == ["start", "read", "long"] for e in ev),
+       ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1", "v1"]),
+       "end read long" in err.getvalue(), ho.exists()))
+
+# ---- Trove articles: one read unit each, appended rows, its own lock
+import file_trove_puzzles as ftp
+tc = T / "trove"
+for a in ("101", "102"):
+    (tc / a).mkdir(parents=True)
+    (tc / a / "meta.json").write_text("{}")
+tled = tc / "filed.jsonl"
+ftp.held_files = lambda puzzles=None: {}
+ftp.inputs_of = lambda d, held=None: "h"
+read_calls = []
+def fake_consider(d):
+    read_calls.append(d.name)
+    return {"skip": "not a cryptic"}, None, None, False
+ftp.consider_article = fake_consider
+q.append(tled, [{"article": "102", "inputs": "h", "readAt": "2026-01-01T00:00:00+00:00"}])
+units_ = ftp.plan(tc, reread=q.when("2026-06-01T00:00:00+00:00"))
+check("trove plan: never read first, then --reread", [("101", "never read", 1), ("102", "--reread", 3)],
+      [(u["rel"], u["reason"], u["rank"]) for u in units_])
+for a, title in (("103", "02 Jan 1972 - X"), ("104", "05 Mar 1980 - Y")):
+    (tc / a).mkdir()
+    (tc / a / "meta.json").write_text(json.dumps({"title": title}))
+check("trove plan: a rank's articles newest first", ["104", "103", "101"],
+      [u["rel"] for u in ftp.plan(tc) if u["rank"] == 1])
+rk = T / "trove-rekey.jsonl"
+q.append(rk, [{"article": "103", "inputs": "copied", "readAt": "2026-01-01T00:00:00+00:00"},
+              {"article": "104", "inputs": "edited", "readAt": "2026-01-01T00:00:00+00:00"}])
+os.utime(tc / "103" / "meta.json", (1.5e9, 1.5e9))
+check("an article whose files are older than its read is re-keyed, not read again; one edited since is not",
+      (1, {"103": "h", "104": "edited"}),
+      (ftp.rekey_unchanged(rk, tc), {a: r["inputs"] for a, r in q.ledger_rows(rk, "article").items()}))
+# A zones-not-fetched row whose zones arrived since is not re-keyed: due once, while one still without zones is re-keyed.
+zc = ftp.zones_of(tc)
+for a in ("105", "106"):
+    (tc / a).mkdir()
+    (tc / a / "meta.json").write_text("{}")
+    os.utime(tc / a / "meta.json", (1.5e9, 1.5e9))
+(zc / "105").mkdir(parents=True)
+(zc / "105" / "zone0.png").write_text("x")
+rz = T / "trove-zones.jsonl"
+zrow = {"inputs": "old", "readAt": "2026-01-01T00:00:00+00:00", "pending": True, "cause": "zones-not-fetched"}
+q.append(rz, [{"article": "105", **zrow}, {"article": "106", **zrow}])
+check("a zones-not-fetched row with its zones cached since is not re-keyed; one without is",
+      (1, {"105": "old", "106": "h"}),
+      (ftp.rekey_unchanged(rz, tc), {a: r["inputs"] for a, r in q.ledger_rows(rz, "article").items()}))
+check("and it is due once (zones arrived); read after the fix, it is not", (ftp.ZONES_ARRIVED, None, None),
+      (ftp.due_reason({"article": "105", **zrow, "inputs": "h"}, "h", None, None, zc),
+       ftp.due_reason({"article": "105", **zrow, "inputs": "h", "readAt": "2026-12-01T00:00:00+00:00"}, "h", None, None, zc),
+       ftp.due_reason({"article": "106", **zrow, "inputs": "h"}, "h", None, None, zc)))
+for a in ("105", "106"):
+    (tc / a / "meta.json").unlink()
+    (tc / a).rmdir()
+(zc / "105" / "zone0.png").unlink()
+(zc / "105").rmdir()
+for a in ("103", "104"):
+    for p_ in (tc / a).iterdir():
+        p_.unlink()
+    (tc / a).rmdir()
+check("annotation's ask is rank 1, forced", [("102", 1, True)],
+      [(u["rel"], u["rank"], u["force"]) for u in ftp.plan(tc, asked={"102"}) if u["rel"] == "102"])
+with contextlib.redirect_stderr(io.StringIO()):
+    got = ftp.read_unit("101", tc)
+check("a trove unit reads its article and appends one row", ("read", ["101"], 2, "not a cryptic"),
+      (got, read_calls, len(tled.read_text().splitlines()), q.ledger_rows(tled, "article")["101"]["skip"]))
+with contextlib.redirect_stderr(io.StringIO()):
+    check("read, it is current", ("current", ["101"]), (ftp.read_unit("101", tc), read_calls))
+with q.source_lock(tled, "102"):
+    pid = os.fork()
+    if pid == 0:
+        os._exit(0 if ftp.read_unit("102", tc, reread=q.when("now")) == "busy" else 1)
+    check("an article another unit holds is busy", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+with q.lock(tled):
+    pid = os.fork()
+    if pid == 0:
+        os._exit(0 if ftp.read_unit("102", tc, reread=q.when("now")) == "held" else 1)
+    check("a ledger a batch run holds: the unit is held", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+# A slice's upkeep (compact) holds the ledger for seconds as its first units
+# start: they wait it out rather than end "held" and leave the desktop idle
+# until the next plan (10-13).
+q.UNIT_HOLD_WAIT = 30
+import fcntl
+t0 = time.monotonic()
+hold = open(tled.with_suffix(".lock"), "w")
+fcntl.flock(hold, fcntl.LOCK_EX)
+pid = os.fork()
+if pid == 0:
+    hold.close()  # the parent's hold stands (a forked copy of q.lock's would be the unit's own)
+    with contextlib.redirect_stderr(io.StringIO()):
+        os._exit(0 if ftp.read_unit("101", tc) == "current" else 1)
+time.sleep(1.5)
+fcntl.flock(hold, fcntl.LOCK_UN)
+hold.close()
+check("a hold that ends within UNIT_HOLD_WAIT (a slice's fold) is waited out, not held",
+      (0, True), (os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]), 1.5 <= time.monotonic() - t0 < 200))
+
+# ---- Listener pages: one read unit each, rows appended to its ledger
+import gale_listener as gl
+inbox, store = T / "linbox", T / "lstore"
+inbox.mkdir()
+for name in ("1930-04-02.pdf", "1930-04-09.pdf"):
+    (inbox / name).write_bytes(name.encode())
+(store).mkdir()
+(store / gl.LEGACY).write_text(json.dumps({gl.file_hash(inbox / "1930-04-09.pdf"): {"file": "1930-04-09.pdf", "version": gl.VERSION}}))
+check("listener plan: the pages not read at VERSION, rank 0", [("1930-04-02.pdf", 0)],
+      [(u["rel"], u["rank"]) for u in gl.plan(inbox, store)])
+vers, gl.VERSION = gl.VERSION, "next"
+check("listener plan: a VERSION bump is a whole-corpus re-read, after the new pages",
+      [("1930-04-02.pdf", 0, "never read (Gale fetch)"), ("1930-04-09.pdf", 3, "version changed")],
+      [(u["rel"], u["rank"], u["reason"]) for u in gl.plan(inbox, store)])
+gl.VERSION = vers
+gl.index = lambda *a, **k: [{"number": 1, "date": None, "title": "t"}]
+gl.match = lambda p, idx, read_title=True: {"file": p.name, "number": None, "why": "no number", "pages": [], "reports": []}
+with contextlib.redirect_stdout(io.StringIO()):
+    got = gl.read_unit("1930-04-02.pdf", inbox, store, file_it=False)
+check("a listener unit reads its page and appends its row; the old ledger still counts", ("read", 1, []),
+      (got, len((store / gl.LEDGER).read_text().splitlines()), gl.plan(inbox, store)))
+with contextlib.redirect_stdout(io.StringIO()):
+    check("read, it is current", "current", gl.read_unit("1930-04-02.pdf", inbox, store, file_it=False))
+
+# ---- Trove's pace: units at once still ask at most once a `delay`
+import fetch_trove
+pace_dir = T / "pace"
+pace_dir.mkdir()
+stamps = T / "stamps"
+kids = []
+for _ in range(3):
+    pid = os.fork()
+    if pid == 0:
+        tv = fetch_trove.Trove(str(pace_dir), 0.3, 600)
+        for _ in range(3):
+            tv.pace()
+            with open(stamps, "a") as fh:
+                fh.write(f"{time.time()}\n")
+        os._exit(0)
+    kids.append(pid)
+for pid in kids:
+    os.waitpid(pid, 0)
+ts = sorted(float(x) for x in stamps.read_text().split())
+# A stamp is written after its pace() returns, so two may land close
+# together; the nine together still take eight gaps.
+check("three processes' nine requests are paced 0.3s apart between them", (9, True),
+      (len(ts), ts[-1] - ts[0] >= 8 * 0.3 - 0.05))
+
+# ---- the memory gate: no start without room, running units untouched
+import mem_gate as mg
+G = 1 << 30
+check("room: plenty available starts", True, mg.room(0, lambda: 16 * G))
+check("room: below floor plus a unit does not", False, mg.room(0, lambda: 3 * G))
+check("room: units begun this pass count against it", (True, True, False),
+      tuple(mg.room(n * mg.UNIT, lambda: mg.FLOOR + int(2.5 * mg.UNIT)) for n in (0, 1, 2)))
+check("ceiling_step: low RAM or hot CPU steps down, roomy and cool up, else holds, clamped 8..24",
+      (18, 18, 20, 20, 20, 8, 24, 12),
+      (mg.ceiling_step(20, 1500, 50), mg.ceiling_step(20, 3000, 95), mg.ceiling_step(18, 5000, 50),
+       mg.ceiling_step(20, 3000, 85), mg.ceiling_step(20, None, 99), mg.ceiling_step(8, 1000, 99),
+       mg.ceiling_step(24, 9000, 10), mg.ceiling_step(12, 5000, None)))
+check("ceiling_step: VM swap traffic steps down and holds any step up",
+      (18, 20, 22),
+      (mg.ceiling_step(20, 9000, 10, swap_mb=mg.SWAP_DOWN_MB + 1), mg.ceiling_step(20, 9000, 10, swap_mb=mg.SWAP_HOLD_MB + 1),
+       mg.ceiling_step(20, 9000, 10, swap_mb=0)))
+check("ceiling_step: Windows hard faults or a low pre-drop reading step down; faults hold any step up",
+      (18, 20, 22, 18),
+      (mg.ceiling_step(20, 9000, 10, faults=mg.FAULTS_DOWN + 1), mg.ceiling_step(20, 9000, 10, faults=mg.FAULTS_HOLD + 1),
+       mg.ceiling_step(20, 9000, 10, faults=0), mg.ceiling_step(20, 9000, 10, low_mb=1500)))
+check("ceiling_step: no step up while the running units sit well under the ceiling (idle queue); unknown keeps it",
+      (20, 20, 22, 22),
+      (mg.ceiling_step(20, 9000, 10, running=3), mg.ceiling_step(20, 9000, 10, running=17),
+       mg.ceiling_step(20, 9000, 10, running=18), mg.ceiling_step(20, 9000, 10, running=None)))
+check("ceiling_step: severe swap, low Windows free or double faults halve toward lo, else -2",
+      (16, 16, 16, 8, 18),
+      (mg.ceiling_step(32, 9000, 10, swap_mb=mg.SEVERE_SWAP_MB + 1), mg.ceiling_step(32, 900, 10),
+       mg.ceiling_step(32, 9000, 10, faults=mg.FAULTS_DOWN * 2 + 1), mg.ceiling_step(12, 9000, 10, swap_mb=3549),
+       mg.ceiling_step(20, 9000, 10, swap_mb=mg.SEVERE_SWAP_MB)))
+_cf = os.path.join(tempfile.mkdtemp(), "unit_ceiling")
+os.environ["CT_UNIT_CEILING_FILE"] = _cf
+with open(_cf, "w") as _f:
+    _f.write("32\n")
+check("clamp_ceiling_start: a stored 32 is lowered to the start value and logged",
+      (True, 12), (bool(mg.clamp_ceiling_start(12)), mg.unit_ceiling()))
+check("clamp_ceiling_start: a stored value at or under the start is left", (None, 12), (mg.clamp_ceiling_start(12), mg.unit_ceiling()))
+del os.environ["CT_UNIT_CEILING_FILE"]
+check("vm_short: low MemAvailable or busy swap", (True, True, False),
+      (mg.vm_short(2 << 30, 0), mg.vm_short(8 << 30, mg.SWAP_DOWN_MB + 1), mg.vm_short(8 << 30, 0)))
+_pf_run, _pf_en, _pf_short, _pf_plan = eq.plan_fork.run, eq.plan_fork.enabled, mg.vm_short, eq.plan
+eq.plan_fork.run = lambda fn, locks=(): ("failed", "child ended with no answer")
+eq.plan_fork.enabled = lambda: True
+eq.plan = lambda papers, cache=None, reread=None, out=None: ("in-process",)
+mg.vm_short = lambda *a, **k: True
+try:
+    eq.plan_forked(["times"])
+    _pf_got = "planned"
+except eq.PlanDeferred:
+    _pf_got = "deferred"
+mg.vm_short = lambda *a, **k: False
+_pf_got2 = eq.plan_forked(["times"])
+eq.plan_fork.run, eq.plan_fork.enabled, mg.vm_short, eq.plan = _pf_run, _pf_en, _pf_short, _pf_plan
+check("plan_forked: a dead child with the VM short of memory defers; with room it plans in-process",
+      ("deferred", ("in-process",)), (_pf_got, _pf_got2))
+M = 1 << 20
+_ps =[(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
+check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},
+      mg.tree_rss([10, 20, 99], _ps))
+check("unit_costs: the largest unit of a kind, at least UNIT_MIN; kinds none runs are absent",
+      {"read": 230 * M, "scan": 900 * M, "fetch archive.org": mg.UNIT_MIN},
+      mg.unit_costs({10: "read", 20: "read", 30: "scan", 40: "fetch archive.org"}, _ps))
+# Desktop reads measured at ~100 MB: 4 GB over the floor starts many, where a flat UNIT started 6.
+_cost = mg.unit_costs({10: "read"}, _ps)["read"]
+_avail = lambda: mg.FLOOR + 4 * G
+check("room: measured cheap units fit more per pass than the flat UNIT", (17, 6),
+      tuple(next(n for n in range(100) if not mg.room(n * c, _avail, unit=c)) for c in (_cost, mg.UNIT)))
+# mirror: a measured heavy kind fits fewer than the flat UNIT, so the gate still holds
+check("room: a measured heavy kind is charged its size, not UNIT", 4,
+      next(n for n in range(100) if not mg.room(n * 900 * M, _avail, unit=900 * M)))
+check("room: an unreadable figure gates nothing", True, mg.room(0, lambda: None))
+check("available() reads this host", True, (mg.available() or 1) > 0)
+check("cpu_room: under the load ceiling starts", True, mg.cpu_room(0, lambda: 3.0, cores=4))
+check("cpu_room: at the ceiling does not", False, mg.cpu_room(0, lambda: mg.LOAD_PER_CORE * 4, cores=4))
+check("cpu_room: units begun this pass count against it", (True, False),
+      tuple(mg.cpu_room(n, lambda: mg.LOAD_PER_CORE * 4 - 0.5, cores=4) for n in (0, 1)))
+check("cpu_room: the default ceiling leaves the host usable (at most 2 per core)", True,
+      os.environ.get("CT_LOAD_PER_CORE") is not None or mg.LOAD_PER_CORE <= 2)
+check("cpu_room: an unreadable load gates nothing", True, mg.cpu_room(0, lambda: None, cores=4))
+# foreground_load: the run queue less nice-19 work. 2026-10-15: load 24 on 6 cores, ~3 of it nice 0.
+_runq = iter([{0: 3, 19: 17, 10: 1}, {0: 2, 19: 19}, {19: 21}, {0: 6, 19: 15}])
+check("foreground_load: averages the runnable threads niced under 19 over its samples", 3.0,
+      mg.foreground_load(lambda: next(_runq), samples=4, sleep=lambda s: None))
+check("foreground_load: a host busy only with nice-19 work reads idle", 0.0,
+      mg.foreground_load(lambda: {19: 40}, samples=2, sleep=lambda s: None))
+check("foreground_load: an unreadable run queue is None", None,
+      mg.foreground_load(lambda: None, samples=2, sleep=lambda s: None))
+check("cpu_room: nice-19 load over the ceiling does not shut a gate on foreground_load", (False, True),
+      (mg.cpu_room(0, lambda: 24.0, cores=6),
+       mg.cpu_room(0, lambda: mg.foreground_load(lambda: {0: 3, 19: 21}, samples=1), cores=6)))
+import tempfile
+_proc = Path(tempfile.mkdtemp())
+for _pid, _threads in {"10": [("R", 0), ("S", 0)], "11": [("R", 19), ("R", 19)], "12": [("R", 5)], "self": [("R", 0)]}.items():
+    for _i, (_st, _nice) in enumerate(_threads):
+        (_proc / _pid / "task" / str(_i)).mkdir(parents=True)
+        (_proc / _pid / "task" / str(_i) / "stat").write_text(
+            f"{_pid} (a) b) {_st} " + " ".join(["1"] * 15) + f" {_nice} 1 0\n")
+check("runnable_by_nice: counts R threads by nice, past a ')' in the name, skipping non-pids and `skip`",
+      ({0: 1, 19: 2, 5: 1}, {19: 2, 5: 1}),
+      (mg.runnable_by_nice(str(_proc)), mg.runnable_by_nice(str(_proc), skip=(10,))))
+check("runnable_by_nice: no /proc is None", None, mg.runnable_by_nice(str(_proc / "none")))
+import unit_queue as _uq
+check("unit_queue: its units run at the niceness the CPU gate leaves out", mg.BACKGROUND_NICE, _uq.UNIT_NICE)
+eq.cpu_gate_reader = lambda: 1e6
+log.unlink(missing_ok=True)
+eq.plan = units([], [(f"c{k}", []) for k in range(3)])
+eq.mem_gate_reader = lambda: 16 * G
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("over the load ceiling nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("cpu-bound")))
+eq.cpu_gate_reader = lambda: 0.0
+# A desktop set, this host's load holds back fetches alone: a scan's or
+# read's OCR runs there, its reads here wait on ocr_remote.LOCAL_SLOTS.
+os.environ["OCR_REMOTE"] = "tester@100.64.0.15"
+check("with a desktop set the load gates fetches, not scans or reads", (True, False, False),
+      tuple(eq.load_gated({"kind": k}) for k in ("fetch", "scan", "read")))
+os.environ["OCR_REMOTE"] = ""
+check("mirror: with no desktop the load gates every unit", (True, True, True),
+      tuple(eq.load_gated({"kind": k}) for k in ("fetch", "scan", "read")))
+# Paul 10-15 "load average is still pretty high": the pools whose units work
+# on this host's CPU start only while a core is idle, so the burn (its quota
+# expires at each reset) keeps the CPU; the pools waiting on the desktop or
+# the network stay their full width.
+os.environ["OCR_REMOTE"] = "tester@100.64.0.15"
+_kinds = (("read", "trove"), ("read", "listener"), ("read", "times"), ("scan", "gale"), ("fetch", "trove"))
+check("with a desktop set only Trove and Listener units are local CPU", (True, True, False, False, False),
+      tuple(eq.local_cpu({"kind": k, "paper": p}) for k, p in _kinds))
+os.environ["OCR_REMOTE"] = ""
+check("mirror: with no desktop every scan and read is local CPU, a fetch never", (True, True, True, True, False),
+      tuple(eq.local_cpu({"kind": k, "paper": p}) for k, p in _kinds))
+check("idle_room: 1.2 idle cores start one local unit a pass, not two", (True, False),
+      tuple(mg.idle_room(n, lambda: 1.2) for n in (0, 1)))
+check("idle_room: under a core idle starts none", False, mg.idle_room(0, lambda: 0.3))
+check("idle_room: an unread figure gates nothing", True, mg.idle_room(0, lambda: None))
+import collections
+_cpu = {"t": 100.0, "busy": 0.0, "idle": 0.0, "rate": 3.0}
+def _adv(dt):
+    _cpu["busy"] += _cpu["rate"] * dt * 100
+    _cpu["idle"] += (4 - _cpu["rate"]) * dt * 100
+    _cpu["t"] += dt
+_stat = lambda: f"cpu  {int(_cpu['busy'])} 0 0 {int(_cpu['idle'])} 0 0 0 0\ncpu0 1 2 3 4\n"
+_samples = collections.deque()
+def _idle():
+    return mg.idle_cores(_stat, cores=4, clock=lambda: _cpu["t"], samples=_samples, sleep=_adv)
+check("idle_cores: a first call samples IDLE_FIRST_S and reads 3 busy of 4 cores as 1 idle", 1.0, round(_idle(), 2))
+_cpu["rate"] = 0.0
+for _ in range(40):
+    _adv(2)
+    _idle()
+_cpu["rate"] = 4.0
+_seen = []
+for _ in range(6):
+    _adv(2)
+    _seen.append(round(_idle(), 1))
+check("idle_cores: measures about the last IDLE_SPAN_S, so a busy spell shows within it", (True, 0.0),
+      (_seen[0] > 2, _seen[-1]))
+check("idle_cores: keeps no more than IDLE_KEEP_S of samples", True,
+      _cpu["t"] - _samples[0][0] <= mg.IDLE_KEEP_S + 2)
+check("idle_cores: an unreadable /proc/stat is no figure", None,
+      mg.idle_cores(lambda: "", cores=4, samples=collections.deque(), sleep=lambda s: None))
+def _concurrency():
+    most = now = 0
+    for line in log.read_text().splitlines():
+        now += {"start": 1, "end": -1}.get(line.split()[1], 0)
+        most = max(most, now)
+    return most
+def _running():
+    now = 0
+    for line in log.read_text().splitlines():
+        now += {"start": 1, "end": -1}.get(line.split()[1], 0)
+    return now
+# No desktop, so these reads are local: no idle core, none starts.
+eq.idle_gate_reader = lambda: 0.0
+log.unlink(missing_ok=True)
+fake(sleep={f"i{k}": 1.2 for k in range(3)})
+eq.plan = units([], [(f"i{k}", []) for k in range(3)])
+err, out = io.StringIO(), io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("no idle core: no local unit starts, it says so once, and leaves them for the next run", (False, 1, True),
+      (log.exists(), err.getvalue().count("idle-bound"), "left for the next run" in out.getvalue()))
+# One core idle besides each running unit's: one at a time, all of them in turn, none killed.
+eq.idle_gate_reader = lambda: 1.5 - (_running() if log.exists() else 0)
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+ends = [line.split()[1:4] for line in log.read_text().splitlines() if line.split()[1] == "end"]
+check("one idle core: the local pool runs one at a time, each to its end", (1, 3, 0),
+      (_concurrency(), len(ends), err.getvalue().count("failed")))
+# mirror: cores idle, the same pool runs its full width at once
+eq.idle_gate_reader = lambda: 1e6
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("mirror: idle cores, the pool runs its full width at once", 3, _concurrency())
+# No idle core: the plan is made every replan * IDLE_BACKOFF seconds while the last holds more untried
+# units than the pools are wide; with a short queue, or an idle core, every replan seconds.
+def _plans(n_reads, idle):
+    made = []
+    inner = units([], [(f"p{k}", []) for k in range(n_reads)])
+    eq.plan = lambda *a, **k: (made.append(1), inner(*a, **k))[1]
+    eq.idle_gate_reader = lambda: idle
+    log.unlink(missing_ok=True)
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.3)
+    return len(made)
+fake(sleep={f"p{k}": 0.1 for k in range(6)})
+backed_off = _plans(6, 0.0)
+check("no idle core, a full queue: the planner backs off (under 5 plans in 4s at replan 0.3)", True, backed_off < 5)
+check("mirror: idle cores replan more often than the backed-off run", True, _plans(6, 1e6) > backed_off)
+check("mirror: no idle core but a queue no wider than the pools replans more often than the backed-off run", True,
+      _plans(2, 0.0) > backed_off)
+eq.idle_gate_reader = lambda: 1e6
+fake(outcome={}, default=0.1)
+os.environ.pop("OCR_REMOTE")
+eq.desktop_gate_reader = lambda: "a game is running"
+log.unlink(missing_ok=True)
+eq.plan = units([], [(f"d{k}", []) for k in range(3)])
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("while the desktop yields no OCR unit starts here, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("desktop-bound")))
+# mirror: the same plan with the desktop idle starts
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("with the desktop idle the same units start", (True, 0),
+      (log.exists(), err.getvalue().count("desktop-bound")))
+# A unit ending deferred is not done or failed: it is started again once the
+# desktop is idle, and while it yields it is left for the next run.
+eq.desktop_gate_reader = lambda: "a game is running" if log.exists() else None  # busy once d0 has begun
+fake(outcome={"d0": "deferred"}, default=0.1)
+log.unlink(missing_ok=True)
+eq.plan = units([], [("d0", [])])
+err, out = io.StringIO(), io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
+check("a deferred unit is counted deferred, not failed, and left for the next run while the desktop yields",
+      (1, True, False, True), (log.read_text().count("start"), "deferred (the desktop is busy)" in err.getvalue(),
+                               "failed" in err.getvalue(), "left for the next run" in out.getvalue()))
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
+check("mirror: once the desktop is idle it starts again", 1, log.read_text().count("start"))
+# Paul 10-17: a game stops the running units gracefully, opt-in by CT_YIELD_HOSTS: after
+# CT_YIELD_GRACE they are TERMed and ended deferred (not failed), durable.sh is told to commit, and
+# they start again once the game is over. Without CT_YIELD_HOSTS (the Mac) they are left alone.
+def yield_run(hosts, game_for=None):
+    flag = T / "durable-now"
+    flag.unlink(missing_ok=True)
+    os.environ["DURABLE_NOW"] = str(flag)
+    os.environ["CT_YIELD_GRACE"] = "0.5"
+    if hosts:
+        os.environ["CT_YIELD_HOSTS"] = hosts
+    else:
+        os.environ.pop("CT_YIELD_HOSTS", None)
+    t_game = [None]
+    def gate():
+        if not log.exists():
+            return None
+        t_game[0] = t_game[0] or time.monotonic()
+        return "a game is running" if game_for is None or time.monotonic() - t_game[0] < game_for else None
+    eq.desktop_gate_reader = gate
+    fake(sleep={"g0": 8, "g1": 8}, default=0.1)
+    log.unlink(missing_ok=True)
+    eq.plan = units([], [("g0", []), ("g1", [])])
+    err, out = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+        t0 = time.monotonic()
+        eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=6, replan=0.5)
+        took = time.monotonic() - t0
+    os.environ.pop("DURABLE_NOW")
+    os.environ.pop("CT_YIELD_GRACE")
+    os.environ.pop("CT_YIELD_HOSTS", None)
+    return err.getvalue(), out.getvalue(), flag.exists(), took
+msg, out, flagged, took = yield_run("tester@192.0.2.198")
+check("a game stops the running units after the grace: TERMed, deferred, not failed, left for the next run",
+      (2, False, True, True, True),
+      (msg.count("deferred (stopped for a game)"), "failed" in msg, "TERM to 2" in msg, "left for the next run" in out, took < 7))
+check("and durable.sh is told to commit at the start of the yield", True, flagged)
+msg, out, flagged, took = yield_run("tester@192.0.2.198", game_for=1.2)
+
+check("the units stopped for a game start again once it is over", (2, 4), (msg.count("deferred (stopped for a game)"), log.read_text().count("start")))
+msg, out, flagged, took = yield_run(None)
+check("mirror: without CT_YIELD_HOSTS running units are left alone (no TERM, no flag)", (0, False, False),
+      (msg.count("stopped for a game"), "TERM" in msg, flagged))
+def game_on(hosts):
+    if hosts:
+        os.environ["CT_YIELD_HOSTS"] = hosts
+    eq.desktop_gate_reader = lambda: "a game is running"
+    fake(outcome={}, default=0.1)
+    log.unlink(missing_ok=True)
+    eq.plan = units(["s9"], [("g0", ["s9"])])
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2, replan=0.5)
+    os.environ.pop("CT_YIELD_HOSTS", None)
+    return log.read_text() if log.exists() else ""
+got = game_on("tester@192.0.2.198")
+check("during a game (opt-in) a scan starts, a read does not", (True, False), ("s9" in got, "g0" in got))
+got = game_on(None)
+check("mirror: without CT_YIELD_HOSTS neither starts while it yields", (False, False), ("s9" in got, "g0" in got))
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+# Paul 10-17: a game (desktop_busy's "game: ...") TERMs the scans beyond CT_GAME_SCAN_WORKERS (their RAM
+# comes back; ended deferred, never failed, run again after it), starts no scan past the cap, and the
+# --beside filers are SIGSTOPped with their clock stopped, SIGCONTed when it ends or on a TERM.
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198"
+os.environ["CT_GAME_SCAN_WORKERS"] = "1"
+t_game = {}
+def game_gate():
+    if not log.exists() or log.read_text().count("start scan") < 3 and "on" not in t_game:  # once all three run
+        return None
+    t_game.setdefault("on", time.monotonic())
+    if time.monotonic() - t_game["on"] < 2.5:
+        return "game: playing wow.exe"
+    t_game.setdefault("off", time.monotonic())
+    return None
+eq.desktop_gate_reader = game_gate
+fake(sleep={"a0": 6.0, "a1": 6.0, "a2": 6.0})
+log.unlink(missing_ok=True)
+eq.plan = units(["a0", "a1", "a2"], [])
+err = io.StringIO()
+os.environ["CT_SCAN_WORKERS"] = "3"  # scan_cap: three scans at once
+quiet_nap, eq.QUIET_NAP = eq.QUIET_NAP, 1 # the pass that sees the game comes within a second
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=3, seconds=25, replan=0.5)
+eq.QUIET_NAP = quiet_nap
+os.environ.pop("CT_SCAN_WORKERS")
+rows = [line.split() for line in log.read_text().splitlines()]
+starts = {k: [float(r[0]) for r in rows if r[1] == "start" and r[3] == k] for k in ("a0", "a1", "a2")}
+check("a game TERMs the scans beyond the cap: deferred (not failed), the oldest runs on",
+      (True, 2, False, 1), ("TERM to 2 scan(s)" in err.getvalue(), err.getvalue().count("deferred (stopped for a game)"),
+                            "failed" in err.getvalue(), len(starts["a0"])))
+check("and they start again only once the game is over",
+      (True, True), (all(len(starts[k]) == 2 and starts[k][1] >= t_game["off"] for k in ("a1", "a2")),
+                     all(any(r[1] == "end" and r[3] == k for r in rows) for k in ("a0", "a1", "a2"))))
+# A --beside filer is SIGSTOPped for the game, its --seconds clock stopped, and continued after.
+def proc_state(pid):
+    return Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0]
+bs = eq.Beside(["bash", "-c", "sleep 30", "x"])
+bs.poll(True, 60)
+bs.pause()
+time.sleep(0.3)
+state, began = proc_state(bs.proc.pid), bs.started
+bs.resume()
+time.sleep(0.3)
+check("a --beside filer is stopped for a game and continued after, its clock credited the time stopped",
+      ("T", True, False), (state, bs.started > began, proc_state(bs.proc.pid) == "T"))
+bs.stop(signal.SIGTERM)
+bs.proc.wait()
+os.environ["CT_GAME_SCAN_WORKERS"] = "0"
+fake(sleep={"x0": 30, "x1": 30})
+log.unlink(missing_ok=True)
+t_game.clear()
+eq.plan = units(["x0", "x1"], [])
+pid = os.fork()
+if pid == 0:
+    sys.stderr = open(os.devnull, "w")
+    os._exit(eq.dispatch(["times"], cache, workers=1, scan_workers=2, beside=[["bash", "-c", "sleep 30", "x"]]))
+time.sleep(2.5)  # the scans started, then were shed, the filer stopped, on the game
+os.kill(pid, signal.SIGTERM)
+t0 = time.monotonic()
+rc = os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1])
+check("a TERM while the filer is stopped continues it first: exits 143 well inside STOP_GRACE", (143, True),
+      (rc, time.monotonic() - t0 < eq.STOP_GRACE / 2))
+os.environ.pop("CT_GAME_SCAN_WORKERS")
+os.environ.pop("CT_YIELD_HOSTS")
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+# The VLM down (Paul 10-13:"just go onto the next scan and do it when it is
+# back"): an edition's read is not started, its scan and a fetch-free scan
+# are, and it says so; a read that is started (not needs_vlm) and ends
+# deferred for the VLM is held, not started again, and left for the next run.
+eq.vlm_gate_reader = lambda: False
+eq.VLM_IDLE = 0.3
+log.unlink(missing_ok=True)
+fake(outcome={"t1": "vlm"}, default=0.1)
+eq.plan = lambda papers, cache=None, reread=None, out=None: (
+    [{"kind": "scan", "paper": "times", "rel": "vs", "rank": 1, "reason": "scan stale"}],
+    [{"kind": "read", "paper": "times", "rel": "v1", "rank": 1, "reason": "never read", "needs": []},
+     {"kind": "read", "paper": "trove", "rel": "t1", "rank": 1, "reason": "never read", "needs": []}])
+err, out = io.StringIO(), io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=2.2, replan=0.5)
+starts = sorted(line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start")
+check("the VLM down: no edition read starts, the scan does, a Trove read once, it ends deferred and is held",
+      (["t1", "vs"], True, True, True, False),
+      (starts, "VLM down (" in err.getvalue(), "deferred (the VLM is down)" in err.getvalue(),
+       "left for the next run" in out.getvalue(), "failed" in err.getvalue()))
+check("the slice's tally names the scans deferred", True, "VLM down: 2 scans deferred" in out.getvalue())
+eq.vlm_gate_reader = lambda: True
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=2.2, replan=0.5)
+check("mirror: the VLM back, the edition's read starts", True,
+      "v1" in [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"])
+# The desktop's free memory gates the units that open an OCR session there:
+# each started since its last reading is charged DESKTOP_SESSION_MB, and none
+# starts that would take it under DESKTOP_FLOOR_MB.
+os.environ["OCR_REMOTE"] = "tester@100.64.0.15"
+real_prepare, eq.prepare = eq.prepare, lambda *a: None
+read_at = time.time()
+eq.desktop_mem_reader = lambda: (read_at, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
+fake(outcome={}, default=1.5)
+kept_plan, eq.plan = eq.plan, units([], [(f"m{k}", []) for k in range(4)])
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("the desktop's free memory less a session per start since its reading caps the starts, said once",
+      (2, 1), (log.read_text().count("start"), err.getvalue().count("desktop-memory-bound")))
+eq.desktop_mem_reader = lambda: (time.time() + 60, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("mirror: a reading newer than the starts counts them in its free memory, none charged again", 4,
+      log.read_text().count("start"))
+# A unit that ended since the reading gives its session back: the gate caps
+# sessions open at once, not starts per reading (that held the live queue
+# to ~4 starts a minute with 6-12 units running, 2026-10-13).
+read_at = time.time()
+eq.desktop_mem_reader = lambda: (read_at, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
+fake(outcome={}, default=0.1)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.5, replan=0.3)
+check("units ended since the reading are not charged: all four start, two at a time", 4,
+      log.read_text().count("start"))
+check("an end is credited for a unit started since the reading or settled before it, not one still loading",
+      (1, 0, 1, 2, 0), (eq.desktop_sessions(100, [101, 102], [(101, 103)]),
+                        eq.desktop_sessions(100, [101], [(101, 103), (50, 104)]),
+                        eq.desktop_sessions(100, [101], [(90, 104)]),
+                        eq.desktop_sessions(100, [101, 102], [(101, 99)]),
+                        eq.desktop_sessions(100, [], [(50, 104)])))
+eq.desktop_mem_reader = lambda: None
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("mirror: no reading (the desktop not answering) holds nothing back", 4, log.read_text().count("start"))
+eq.desktop_mem_reader = lambda: (time.time() - eq.DESKTOP_STALE_S - 1, eq.DESKTOP_FLOOR_MB)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("a stale reading (probes failing since) holds nothing back: the units try the connection", 4,
+      log.read_text().count("start"))
+eq.prepare, eq.plan = real_prepare, kept_plan
+os.environ.pop("OCR_REMOTE")
+# A unit the desktop keeps losing (its read ends the server there) is started
+# again with the desktop until it has ended lost LOST_TRIES times, then with none: read here.
+eq.LOST_TRIES = 1
+os.environ["OCR_REMOTE"] = "tester@192.0.2.180"
+real_prepare, eq.prepare = eq.prepare, lambda *a: None  # no desktop probe
+eq.plan = units([], [("d0", [])])  # its own plan: the cases above leave theirs
+eq.desktop_mem_reader = lambda: None  # no memory gate
+fake(outcome={"d0": "lost"}, default=0.05, env=True)
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
+desk = [line.split(" ", 2)[2] for line in log.read_text().splitlines() if line.startswith("desktop ")]
+check("a lost unit is started again with the desktop, then after LOST_TRIES with none",
+      (["'tester@192.0.2.180'", "''"], True, False),
+      (desk[:2], "deferred (the desktop was lost)" in err.getvalue(), "failed" in err.getvalue()))
+# A read whose own scan went stale after its plan (a kept plan across a scan
+# code change) is not started whole: a scan unit runs first, then the read
+# is prepared for the desktop.
+eq.prepare = lambda unit, *a: (eq.SCAN_FIRST if unit["kind"] == "read" and not (
+    log.exists() and f"end scan {unit['rel']}" in log.read_text()) else None)
+fake(default=0.05)
+log.unlink(missing_ok=True)
+eq.plan = units([], [("g1", [])])
+eq.mem_gate_reader = lambda: 1 << 40  # this host's memory must not gate it
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
+check("a read whose own scan is stale starts after a scan unit of its own, once",
+      [["start", "scan", "g1"], ["end", "scan", "g1"], ["start", "read", "g1"], ["end", "read", "g1"]],
+      [line.split()[1:4] for line in log.read_text().splitlines()])
+# mirror: a read whose scan stands starts at once, no scan before it
+eq.prepare = lambda *a: None
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
+check("mirror: a read whose scan stands starts with no scan of its own",
+      [["start", "read", "g1"], ["end", "read", "g1"]], [line.split()[1:4] for line in log.read_text().splitlines()])
+# Briefs are made on a pool beside the loop: slow ones overlap, and every read starts.
+import threading
+_now, _peak = [0], [0]
+def _slow_prepare(*a):
+    _now[0] += 1
+    _peak[0] = max(_peak[0], _now[0])
+    time.sleep(0.6)
+    _now[0] -= 1
+eq.prepare = _slow_prepare
+eq.plan = units([], [(f"s{k}", []) for k in range(3)])
+fake(default=0.05)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=5, replan=0.5)
+check("slow briefs are made side by side, and every read starts",
+      (True, ["s0", "s1", "s2"]),
+      (_peak[0] >= 2, sorted(line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start")))
+os.environ.pop("OCR_REMOTE")
+eq.prepare = real_prepare
+eq.desktop_gate_reader = lambda: None
+eq.cpu_gate_reader = lambda: 0.0
+eq.mem_gate_reader = None
+log.unlink(missing_ok=True)
+eq.plan = units([], [(f"m{k}", []) for k in range(3)])
+gate_reads = []
+eq.mem_gate_reader = lambda: gate_reads.append(1) or 1 * G
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("short of memory nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("memory-bound")))
+check("a gate holding one unit back is read once a pass, not once a unit due", True, len(gate_reads) <= 4)
+# mirror: the same plan with room starts every unit and never says memory-bound
+eq.mem_gate_reader = lambda: 16 * G
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("with room every unit starts, no memory-bound line", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("memory-bound")))
+eq.mem_gate_reader = None
+
+# Memory pressure (fake /proc/pressure/memory and /proc/meminfo) holds starts back, and says so once.
+_psi, _mi = T / "psi", T / "meminfo"
+_mi.write_text(f"MemAvailable: {16 * G >> 10} kB\n")
+_psi.write_text("some avg10=20.00 avg60=9.00 avg300=1.00 total=1\nfull avg10=12.50 avg60=15.00 avg300=1.00 total=1\n")
+os.environ.update(CT_PSI_PATH=str(_psi), CT_MEMINFO=str(_mi))
+check("pressure reads full avg10", 12.5, mg.pressure())
+check("room says no over the pressure max, memory plenty", False, mg.room())
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("under memory pressure nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("memory-bound")))
+_psi.write_text("full avg10=1.00 avg60=1.00 avg300=1.00 total=1\n")
+check("calm and roomy: room", True, mg.room())
+_mi.write_text(f"MemAvailable: {2 * G >> 10} kB\n")
+check("calm but under 3 GB available: no room", False, mg.room())
+# the unit-children ceiling: 5 queued reads, ceiling 2, never more than 2 at once
+_mi.write_text(f"MemAvailable: {16 * G >> 10} kB\n")
+os.environ["CT_UNIT_CEILING"] = "2"
+os.environ["CT_UNIT_CEILING_FILE"] = "/nonexistent/unit_ceiling"  # a live override file must not leak in
+os.environ["CT_VLM_SPOOL_MAX_FILE"] = "/nonexistent/vlm_spool_max"  # likewise the live spool-depth file
+eq.plan = units([], [(f"c{k}", []) for k in range(5)])
+# Units outlast the dispatcher's 1 s pass nap (the pass after a start): the ceiling line
+# is logged by a pass that finds the ceiling met with units still running, so units that
+# end inside that nap (0.8 s did, and a fast host never logged it) would never be seen at it.
+fake(default=2.0)
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=5, scan_workers=1, seconds=3, replan=0.5)
+_ev = [(float(l.split()[0]) if l.split()[0].replace(".", "").isdigit() else 0, l.split()[1]) for l in log.read_text().splitlines()]
+_open = _peak2 = 0
+for _, w in _ev:
+    _open += 1 if w == "start" else -1 if w == "end" else 0
+    _peak2 = max(_peak2, _open)
+check("the ceiling holds starts to 2 at once, and says so", (True, True),
+      (_peak2 == 2, "unit ceiling" in err.getvalue()))
+os.environ.pop("CT_UNIT_CEILING")
+
+# VLM-waiting cap: while CT_VLM_WAITING reads have an ask under way no read starts, and it says so once.
+os.environ["CT_VLM_WAITING"] = "2"
+os.environ["CT_VLM_SPOOL"] = "0"  # the spool-off cap (spool on: the cases below)
+_w = vlm_reader.waiting_now
+vlm_reader.waiting_now = lambda: 2
+eq.plan = units([], [(f"v{k}", []) for k in range(3)])
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("reads wait for the VLM's queue to drain, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("vlm-bound")))
+vlm_reader.waiting_now = lambda: 1
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("below the cap every read starts", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+vlm_reader.waiting_now = _w
+os.environ.pop("CT_VLM_SPOOL")
+# Spool on: the queue's own drainer mark and a part-filled spool never hold read starts; a full spool does.
+_sp = vlm_reader.spooled
+os.environ["CT_VLM_WAITING"] = "2"
+os.environ["CT_VLM_SPOOL_MAX"] = "10"
+vlm_reader.waiting_now = lambda: 1  # the queue's own mark, which the gate subtracts
+vlm_reader.spooled = lambda: [f"k{i}" for i in range(9)]
+_own = vlm_reader._waiting_dir() / str(os.getpid())
+_own.parent.mkdir(parents=True, exist_ok=True)
+_own.touch()
+eq.plan = units([], [(f"v{k}", []) for k in range(3)])
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("spool on, spool below max: reads start despite the drainer's mark", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+vlm_reader.spooled = lambda: [f"k{i}" for i in range(10)]
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("spool on, spool full: fresh reads that may ask are held (bb548de531f); none starts, no vlm-bound line", (0, 0),
+      (sum(" start " in l for l in (log.read_text() if log.exists() else "").splitlines()), err.getvalue().count("vlm-bound")))
+check("the queue's cap is the reader's", True, eq.vlm_spool_max() == vlm_reader.vlm_spool_max() == 10)
+# GPU fill: with the VLM stage short of asks, another paper's never-read read goes ahead of the
+# CT_NEWEST_FIRST paper's OCR-only rereads (Times first otherwise), and the queue says so.
+_pipe0, _sl0 = vlm_reader.PIPELINE, vlm_reader._SLOTS[0]
+vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = 1, 2
+os.environ["CT_NEWEST_FIRST"] = "gale"
+_mk = lambda paper, rel, rank, reason: {"kind": "read", "paper": paper, "rel": rel, "rank": rank, "reason": reason, "needs": []}
+_tm = [_mk("gale", f"g{k}", 2, "scan stale, answers linked") for k in range(3)]
+_ft = [_mk("times", f"t{k}", 1, "never read") for k in range(3)]
+_cands = [(u, eq.key_of(u)) for u in _tm + _ft]
+_none = lambda u: False
+check("gpu_fill: an unfed VLM stage takes the other paper's never-read reads, within half the read pool", ["t0", "t1"],
+      [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 2)])
+check("gpu_fill: spooled asks at the feed target (CT_VLM_FEED, 4), no fill", ([], ["t0"]),
+      (eq.gpu_fill(_cands, set(), set(), _none, _none, 4, False, 0, 2), [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 3, False, 0, 4)]))
+# Lead time: fills in their OCR phase count as asks to come toward the look-ahead, so a spool at the target
+# still gets fills started while the pipe (spooled + per_fill * running) is short of `ahead`.
+_more = [_mk("times", f"m{k}", 1, "never read (Gale fetch)") for k in range(10)]
+_mc = [(u, eq.key_of(u)) for u in _more]
+_fa = lambda spooled, running, maxf, ahead=40, per=4, full=False: len(
+    eq.gpu_fill(_mc, set(), set(), _none, _none, spooled, full, running, maxf, None, frozenset(), 0, ahead, per))
+check("gpu_fill: spooled at the target but the pipe short of ahead starts fills (empty spool: as many as ahead needs)",
+      (5, 8, 0, 0, 2),
+      (_fa(0, 0, 8, ahead=20), _fa(0, 0, 8), _fa(0, 8, 8), _fa(36, 0, 8, ahead=36), _fa(4, 2, 8, ahead=20)))
+check("gpu_fill: running fills count as asks to come; a full spool or no per-fill count keeps the old rule",
+      (0, 0, 0),
+      (_fa(0, 5, 8, ahead=20), _fa(4, 0, 8, per=0, ahead=0), _fa(0, 0, 8, full=True)))
+check("gpu_fill: the look-ahead never exceeds max_fills", 3, _fa(0, 5, 8, ahead=1000))
+os.environ["CT_VLM_FEED_AHEAD"] = "junk"
+os.environ["CT_VLM_FILL_ASKS"] = "junk"
+check("vlm_feed_ahead / vlm_fill_asks: bad values fall back to 40 (at least the target) and 4",
+      (max(40, eq.vlm_feed_target()), 4), (eq.vlm_feed_ahead(), eq.vlm_fill_asks()))
+del os.environ["CT_VLM_FEED_AHEAD"], os.environ["CT_VLM_FILL_ASKS"]
+# answers_only rereads ask the VLM nothing: they never feed it, even ranked first; never-read, fix-landed and proven ones do.
+_al = _mk("times", "al", 2, "inputs changed: answers linked x1")
+_fx = _mk("times", "fx", 2, "unfiled before its fix")
+_cp = _mk("gale", "cp", 2, "inputs changed: answers linked x1")
+check("fills_gpu: answers-linked rereads are CPU-only, never-read and fix-landed ones feed", (False, True, True, False),
+      (eq.fills_gpu(_al), eq.fills_gpu(_fx), eq.fills_gpu(_ft[0]), eq.fills_gpu(_cp)))
+check("gpu_fill: answers-linked rereads ranked first do not fill, the never-read ones behind them do", ["t0", "fx"],
+      [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in [_al, _cp, _ft[0], _fx]], set(), set(), _none, _none, 2, False, 0, 2)])
+# Paul 10-22: Times solution rereads (1-3 asks each) held all 18 slots, the GPU ~27% busy. They are no fill,
+# so the FT never-read reads behind them are, and the reserve holds slots for those; nor are they cpu-only
+# (no cpu-only cap on them) or answers-linked (no batching).
+_lo = [_mk("times", f"s{k}", 2, r) for k, r in enumerate(eq.LOW_ASK)]
+check("fills_gpu: low-ask solution rereads do not feed; neither cpu-only nor answers-linked", ([False] * len(eq.LOW_ASK),) * 3,
+      ([eq.fills_gpu(u) for u in _lo], [eq.cpu_only_unit(u) for u in _lo],
+       [eq.answers_linked({**u, "paper": next(iter(eq.fa.FILERS))}) for u in _lo]))
+check("gpu_fill: low-ask solution rereads ranked first do not fill, the never-read ones behind them do", ["t0", "t1"],
+      [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in _lo + _ft], set(), set(), _none, _none, 0, False, 0, 2)])
+# 10-29: ~100 reads of one fix reason took all 20 unit slots (18 min OCR each, no VLM asks): one reason is capped.
+_rc_old = os.environ.pop("CT_REASON_CAP", None)
+_rc = [eq.reason_cap_for(20), eq.reason_cap_for(3)]
+os.environ["CT_REASON_CAP"] = "0"
+_rc.append(eq.reason_cap_for(20))
+os.environ["CT_REASON_CAP"] = "5"
+_rc.append(eq.reason_cap_for(20))
+os.environ.pop("CT_REASON_CAP")
+if _rc_old is not None:
+    os.environ["CT_REASON_CAP"] = _rc_old
+check("reason_cap_for: ceiling//3 (min 2), CT_REASON_CAP overrides, 0 = off", [6, 2, 0, 5], _rc)
+check("gpu_fill: a full spool, no fill", [],eq.gpu_fill(_cands, set(), set(), _none, _none, 0, True, 0, 2))
+check("gpu_fill: fills running count against the half pool", ["t0"], [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 1, 2)])
+check("gpu_fill: tried, running and waiting reads are skipped", ["t2"],
+      [u["rel"] for u in eq.gpu_fill(_cands, {eq.key_of(_ft[0])}, {eq.key_of(_ft[1])}, _none, _none, 2, False, 0, 2)])
+# Every FT read waits on its own scan, queued behind the Gale and Times scans: the fill brings the scan forward.
+_sc = {("times", f"t{k}"): {"kind": "scan", "paper": "times", "rel": f"t{k}", "rank": 1, "reason": "never scanned", "needs": []}
+       for k in range(3)}
+_waiting = lambda u: u["kind"] == "read" and u["paper"] == "times"
+_scan_of = lambda u: _sc.get((u["paper"], u["rel"]))
+check("gpu_fill: reads waiting on their own scan are not filled, nor are their scans (a scan never asks the VLM)", ([], []),
+      ([u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2)],
+       [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of)]))
+# Paul 10-23: GPU 0% for 6+ min, every fill read waiting on its own scan far back in the plan. With no fill
+# read ready, the scans they wait on start, in the reads' order, at most max_scans running at once.
+_fs = lambda *a, **k: [(u["kind"], u["rel"]) for u in eq.gpu_fill(*a, **k)]
+check("gpu_fill: no fill read ready, the scans they wait on start, capped at max_scans", [("scan", "t0"), ("scan", "t1")],
+      _fs(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of, frozenset(), 2))
+check("gpu_fill: a running scan a fill read waits on counts against max_scans", [("scan", "t1")],
+      _fs(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of, {("times", "t0")}, 2))
+check("gpu_fill: max_scans already running, no more scans", [],
+      _fs(_cands, set(), set(), _waiting, _none, 0, False, 0, 2, _scan_of, {("times", "t0"), ("times", "t2")}, 2))
+check("gpu_fill: tried or running scans are skipped", [("scan", "t2")],
+      _fs(_cands, {eq.key_of(_sc["times", "t0"])}, {eq.key_of(_sc["times", "t1"])}, _waiting, _none, 0, False, 0, 2,
+          _scan_of, frozenset(), 3))
+check("gpu_fill: a ready fill read goes alone, no scan pulled forward", [("read", "t0")],
+      _fs(_cands, set(), set(), lambda u: u["rel"] in ("t1", "t2"), _none, 0, False, 0, 2, _scan_of, frozenset(), 2))
+check("gpu_fill: a fed VLM or a full spool pulls no scan", ([], []),
+      (_fs(_cands, set(), set(), _waiting, _none, 4, False, 0, 2, _scan_of, frozenset(), 2),
+       _fs(_cands, set(), set(), _waiting, _none, 0, True, 0, 2, _scan_of, frozenset(), 2)))
+check("gpu_fill: CPU-only reads waiting on scans pull none forward", [],
+      _fs([(u, eq.key_of(u)) for u in _tm], set(), set(), lambda u: True, _none, 0, False, 0, 2,
+          lambda u: {**u, "kind": "scan"}, frozenset(), 2))
+# Times first (Paul 10-21): the named papers' pending scans take every slot their ready reads will not.
+_ms = lambda paper, rel: {"kind": "scan", "paper": paper, "rel": rel, "rank": 2, "reason": "scan stale"}
+_tsc = [_ms("gale", "a"), _ms("ft", "f"), _ms("gale", "b"), _ms("gale", "c"), _ms("gale", "d")]
+check("times_scans_pending: the named papers' scans, not FT's, not tried, running or done", ["a"],
+      [u["rel"] for u in eq.times_scans_pending([_tsc], {eq.key_of(_tsc[2])}, {eq.key_of(_tsc[3])}, {("gale", "d")})])
+check("times_scan_room: all but the ready reads' slots, capped at the pending scans", (10, 3, 7, 7),
+      (eq.times_scan_room(40, 5, 2, 12, 15), eq.times_scan_room(3, 0, 1, 12, 20), eq.times_scan_room(40, 5, 2, 3, 10),
+       eq.times_scan_room(40, 0, 7, 12, 4)))
+check("times_scan_room: nothing pending leaves the pool's own room", 4, eq.times_scan_room(0, 5, 4, 12, 20))
+check("listener_free: nothing else due takes every ceiling slot left; other work due keeps the fixed pool",
+      (16, 0, 3, -4, 5),
+      (eq.listener_free(0, False, 16), eq.listener_free(0, True, 16), eq.listener_free(3, False, 0),
+       eq.listener_free(-4, True, 10), eq.listener_free(5, False, 2)))
+check("scan_widen_room: a full pool gets room, never past the ceiling left nor twice the pool; none at the ceiling",
+      (True, True, True, True),
+      (0 < eq.scan_widen_room(6, 6, 10) <= 10, eq.scan_widen_room(6, 6, 0) == 0,
+       eq.scan_widen_room(12, 6, 10) == 0, eq.scan_widen_room(6, 6, 2) <= 2))
+_nt = {"galeft": "scan", "ft": "read", "guardian": "scan", "gale": "scan", "times": "read", "listener": "read",
+       "trove": "read"}
+_nt_units = {p: {"kind": k, "paper": p} for p, k in _nt.items()}
+_nt_papers = frozenset({"gale", "times"})
+check("non_times_unit: FT/other papers' scans and reads only; Times, Listener, Trove and fetches not",
+      ["galeft", "ft", "guardian"], [p for p, u in _nt_units.items() if eq.non_times_unit(u, _nt_papers)])
+check("non_times_unit: a fetch is none", False, eq.non_times_unit({"kind": "fetch", "paper": "ft"}, _nt_papers))
+check("non_times_held: held at the cap while Times is due, free below it or with no Times work",
+      (True, False, False, False),
+      (eq.non_times_held(_nt_units["galeft"], _nt_papers, True, 2, 2), eq.non_times_held(_nt_units["galeft"], _nt_papers, True, 1, 2),
+       eq.non_times_held(_nt_units["galeft"], _nt_papers, False, 9, 2), eq.non_times_held(_nt_units["times"], _nt_papers, True, 9, 2)))
+_orw_fix = {"kind": "read", "paper": "gale", "reason": "fix"}
+_orw_ft = {"kind": "read", "paper": "ft", "reason": "never read"}
+check("other_reason_waits: another reason counts only with pool room and not held by its own cap",
+      (True, False, False, False, False),
+      (eq.other_reason_waits("fix", [(_orw_ft, "k1", "read")], set(), {"read": 1}, lambda v: False),
+       eq.other_reason_waits("fix", [(_orw_ft, "k1", "read")], set(), {"read": 1}, lambda v: True),
+       eq.other_reason_waits("fix", [(_orw_ft, "k1", "listener")], set(), {"read": 1, "listener": 0}, lambda v: False),
+       eq.other_reason_waits("fix", [(_orw_ft, "k1", "read")], {"k1"}, {"read": 1}, lambda v: False),
+       eq.other_reason_waits("fix", [(_orw_fix, "k2", "read")], set(), {"read": 1}, lambda v: False)))
+check("NON_TIMES_BESIDE_TIMES defaults to 2", True, eq.NON_TIMES_BESIDE_TIMES >= 1)
+del os.environ["CT_NEWEST_FIRST"]
+check("times_scans_pending: without CT_NEWEST_FIRST, none", [], eq.times_scans_pending([_tsc], set(), set(), set()))
+check("gpu_fill: without CT_NEWEST_FIRST the VLM is fed too", ["t0", "t1"],
+      [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 2)])
+vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = _pipe0, _sl0
+_own.unlink(missing_ok=True)
+vlm_reader.spooled = _sp
+os.environ.pop("CT_VLM_SPOOL_MAX")
+os.environ.pop("CT_VLM_WAITING")
+
+# The VLM stage: vlm_drainer answers spooled asks (the server stubbed) into the cache while no read blocks,
+# and a spooled read's asks stop being pending.
+import threading as _th
+import tempfile as _tf
+import urllib.request as _ur
+_cache, _slots, _pipe, _real, _gate = vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader
+vlm_reader.CACHE = T / "vlm-stage"
+(T / "vlm-stage-tmp").mkdir(exist_ok=True)
+_tempdir, _tf.tempdir = _tf.tempdir, str(T / "vlm-stage-tmp")  # the host's real slot locks are held by live askers
+vlm_reader._SLOTS[0], vlm_reader.PIPELINE = 1, 0
+_asked, _all_asked = [], _th.Event()
+def _answer(req, timeout=None):
+    _asked.append(1)
+    if len(_asked) >= 3:
+        _all_asked.set()
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "A"}}]}).encode())
+_ur.urlopen = _answer
+eq.vlm_gate_reader = lambda: True
+_busy, vlm_reader.busy = vlm_reader.busy, lambda: ""
+_keys = [vlm_reader.ask_key(b"png%d" % k, "p") for k in range(3)]
+for _k, _b in zip(_keys, range(3)):
+    vlm_reader.put_spool(_k, b"png%d" % _b, "p", 10)
+_stop, _dthreads = _th.Event(), []
+eq.vlm_drainer(_stop, _dthreads)
+# Completion signals, not wall time: the server stub sets an Event once all three asks reached it, then the
+# threads are joined so every in-flight ask has its cache file written (a claimed ask is already out of the
+# spool) and the threads have ended before the real cache is back. The waits only bound a real hang.
+_all_asked.wait(300)
+_stop.set()
+for _t in _dthreads:
+    _t.join(300)
+check("the drainer answers every spooled ask into the cache", (0, True),
+      (len(vlm_reader.spooled()), all((vlm_reader.CACHE / f"{k}.txt").exists() for k in _keys)))
+vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader = _cache, _slots, _pipe, _real, _gate
+vlm_reader.busy = _busy
+_tf.tempdir = _tempdir
+# A drainer thread survives an error (logged once, with its traceback) and looks again; run again,
+# vlm_drainer starts only the threads that have ended.
+_logged, _calls, _stop = [], [], _th.Event()
+def _step():
+    # Only this test's own drainer thread counts: a straggler from an earlier drainer test (its stop
+    # set but still in a step) may call the patched step too, which made the count flake (3 vs 4).
+    if _th.current_thread() not in _thr:
+        return False
+    _calls.append(1)
+    if len(_calls) <= 2:
+        raise KeyError("boom")
+    _stop.set()
+    return False
+_saved = eq.drain_step, eq.log, eq.DRAINER_IDLE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, vlm_reader.requeue_claimed
+eq.drain_step, eq.log, eq.DRAINER_IDLE = _step, _logged.append, 0.01
+vlm_reader._SLOTS[0], vlm_reader.PIPELINE, vlm_reader.requeue_claimed = 1, 0, lambda start=True: 0
+_thr = []
+eq.vlm_drainer(_stop, _thr)
+_thr[0].join(5)
+check("a drainer thread goes on past an error, logged once", (3, 1, True),
+      (len(_calls), sum("KeyError" in l for l in _logged), "(the thread goes on)" in _logged[0]))
+_ended = _thr[0]
+eq.vlm_drainer(_stop, _thr)
+check("... and an ended thread is started again, once", (1, False), (len(_thr), _thr[0] is _ended))
+_thr[0].join(5)
+# A stall is logged with its cause, at most every DRAINER_STALL seconds.
+_logged.clear()
+eq._DRAIN["sent"], eq._DRAIN["logged"] = 1000.0, float("-inf")
+check("a drainer idle under the stall bar logs nothing", False, eq.drainer_stalled(4, "x", now=1000.0 + eq.DRAINER_STALL - 1))
+check("... past it, it says how long and why", (True, ["vlm drainer: 4 spooled, nothing sent for 130 s, because the VLM is down"]),
+      (eq.drainer_stalled(4, "the VLM is down", now=1130.0), _logged))
+check("... and not again at once", False, eq.drainer_stalled(4, "x", now=1131.0))
+eq.drain_step, eq.log, eq.DRAINER_IDLE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, vlm_reader.requeue_claimed = _saved
+eq._DRAIN["errors"].clear()
+# A unit deferred by spooled asks says so; a real VLM outage keeps its words.
+_cause = vlm_reader._CAUSE[0]
+vlm_reader._CAUSE[0] = "spooled"
+check("a spooled deferral is logged as spooled, not down", "deferred, 0 VLM asks spooled", eq.vlm_deferral(RuntimeError("x")))
+vlm_reader._CAUSE[0] = "refused"
+check("a real VLM outage is logged as down", "deferred, the VLM is down (boom)", eq.vlm_deferral(RuntimeError("boom")))
+vlm_reader._CAUSE[0] = _cause
+os.environ["CT_PSI_PATH"] = str(T / "no-psi")
+os.environ.pop("CT_MEMINFO")
+
+# unit_queue.tick shares the gate: short of memory it starts nothing, with room it starts all
+import types
+import unit_queue as uq
+uq.LOAD_READER = lambda: 0.0
+class _Ledger:
+    def __init__(self, queue): pass
+    def compact(self): pass
+    def running_units(self): return {}
+stub = types.SimpleNamespace(LIMITS={}, SLOTS=0, LOG="x.log")
+uq.queue_module = lambda name: stub
+uq.Ledger = _Ledger
+uq.STATE = T / "uq-state"
+uq.main_checkout = lambda: T
+uq.due_units = lambda mod, ledger, now: [(types.SimpleNamespace(key=f"k{i}", cls=""), "due") for i in range(3)]
+spawned = []
+uq.spawn = lambda queue, unit, logfile: spawned.append(unit.key)
+for reader, want in ((lambda: 1 * G, (0, 1)), (lambda: 16 * G, (3, 0))):
+    uq.MEM_READER = reader
+    spawned.clear()
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        uq.tick("fake")
+    check("tick: units started / memory-bound lines", want, (len(spawned), out.getvalue().count("memory-bound")))
+uq.MEM_READER = None
+
+# ---- burn first: while the burn's cpu cap holds it below its need, no unit starts
+capped = {"need": 8, "mem": 20, "cpu": 3, "width": 3}
+enough = {"need": 8, "mem": 20, "cpu": 9, "width": 8}
+check("burn_starved: cpu-capped below its need gates", capped, mg.burn_starved(lambda: capped))
+check("burn_starved: cpu cap at or over the need does not", None, mg.burn_starved(lambda: enough))
+check("burn_starved: memory, not cpu, holding it back does not", None,
+      mg.burn_starved(lambda: {"need": 8, "mem": 2, "cpu": 3, "width": 2}))
+check("burn_starved: no need or no cpu reading does not", (None, None),
+      (mg.burn_starved(lambda: {"need": None, "mem": 20, "cpu": 3}),
+       mg.burn_starved(lambda: {"need": 8, "mem": 20, "cpu": None})))
+state = T / "burn.width"
+state.write_text(json.dumps(capped))
+check("burn_state: a fresh plan is read", capped, mg.burn_state(state))
+os.utime(state, (time.time() - mg.BURN_STALE_S - 60,) * 2)
+check("burn_state: a stale plan (no burn planning) is none, so no gate", (None, None),
+      (mg.burn_state(state), mg.burn_starved(lambda: mg.burn_state(state))))
+check("burn_state: no plan or a garbled one is none", (None, None),
+      (mg.burn_state(T / "absent"), (state.write_text("{oops"), mg.burn_state(state))[1]))
+eq.plan = units([], [(f"b{k}", []) for k in range(3)])
+log.unlink(missing_ok=True)
+eq.burn_gate_reader = lambda: capped
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("the burn cpu-capped: nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("burn-first")))
+# mirror: the burn with its width starts every unit and never says burn-first
+eq.burn_gate_reader = lambda: enough
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("the burn with its width: every unit starts, no burn-first line", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("burn-first")))
+eq.burn_gate_reader = None
+uq.MEM_READER = lambda: 16 * G
+for reader, want in ((lambda: capped, (0, 1)), (lambda: enough, (3, 0)), (lambda: None, (3, 0))):
+    uq.BURN_READER = reader
+    spawned.clear()
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        uq.tick("fake")
+    check("tick: units started / burn-first lines", want, (len(spawned), out.getvalue().count("burn-first")))
+uq.BURN_READER = uq.MEM_READER = None
+
+# ---- one version of the code a process: a start loads its lazy imports
+# too (the write path's puzzle_integrity), under code.lock; a tree move
+# holding code.lock alone makes a start wait it out.
+import subprocess, fcntl
+probe = ("import runpy, sys; sys.argv = ['edition_queue.py', '-h']\n"
+         "try:\n    runpy.run_path('edition_queue.py', run_name=RUN)\nexcept SystemExit:\n    pass\n"
+         "print('puzzle_integrity' in sys.modules, file=sys.stderr)")
+loaded = [subprocess.run([sys.executable, "-c", probe.replace("RUN", repr(run))], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1] for run in ("__main__", "edition_queue")]
+check("a run's start loads the modules it imports lazily; a plain import does not", ["True", "False"], loaded)
+# a third-party package missing (requests, absent on CI) skips the module
+# needing it; a missing tree module still fails the start
+for blocked_mod, want in (("requests", "True"), ("fetch_ia_book", "ModuleNotFoundError")):
+    out = subprocess.run([sys.executable, "-c", f"import sys; sys.modules[{blocked_mod!r}] = None\n"
+                          + probe.replace("RUN", repr("__main__"))], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1]
+    check(f"a start with {blocked_mod} not installed: {want}", want, out.split(":")[0])
+# A fetch unit loads its source's module and MODULES, exactly what its
+# fetch_unit reaches, and none of the queue's filers.
+import code_reach, importlib
+for src, (name, _) in sorted(eq.FETCH_UNITS.items()):
+    mod = importlib.import_module(name)
+    check(f"{name}.MODULES is what its fetch_unit reaches",
+          sorted({m for m, _ in code_reach.reach(name, ["fetch_unit"], opaque=())} - {name}), sorted(mod.MODULES))
+    fetch_probe = (f"import importlib, json, os, runpy, sys\n"
+                   f"m = importlib.import_module({name!r}); m.fetch_unit = lambda *a: 'busy'\n"
+                   f"os.environ['CT_EDITION_UNIT'] = json.dumps({{'unit': {{'kind': 'fetch', 'paper': {src!r}, 'rel': 'x'}}}})\n"
+                   f"sys.argv = ['edition_queue.py', 'unit', 'fetch', {src!r}, 'x']\n"
+                   f"try:\n    runpy.run_path('edition_queue.py', run_name='__main__')\n"
+                   f"except SystemExit as e:\n"
+                   f"    print(e.code, all(n in sys.modules for n in m.MODULES),\n"
+                   f"          [n for n in ('code_reach', 'gale_listener', 'mem_gate') if n in sys.modules],"
+                   f" file=sys.stderr)")
+    got = subprocess.run([sys.executable, "-c", fetch_probe], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1]
+    check(f"a {src} fetch unit loads its MODULES, not the queue's, and exits its outcome", f"{eq.EXITS['busy']} True []", got)
+# A scan or read unit loads its paper's module and what that may load
+# (lazy imports too), not the queue's other filers and fetchers.
+for kind, paper, fn in (("scan", "gale", "scan_unit"), ("read", "trove", "read_unit")):
+    name = eq.UNIT_MODULES.get(paper, eq.UNIT_MODULES[None])
+    unit_probe = (f"import importlib, json, os, runpy, sys\n"
+                  f"m = importlib.import_module({name!r}); m.{fn} = lambda *a, **k: 'busy'\n"
+                  f"os.environ['CT_EDITION_UNIT'] = json.dumps({{'unit': {{'kind': {kind!r}, 'paper': {paper!r}, 'rel': 'x'}},"
+                  f" 'cache': '/nonexistent', 'puzzles': None, 'reread': None}})\n"
+                  f"sys.argv = ['edition_queue.py', 'unit', {kind!r}, {paper!r}, 'x']\n"
+                  f"try:\n    runpy.run_path('edition_queue.py', run_name='__main__')\n"
+                  f"except SystemExit as e:\n"
+                  f"    print(e.code, 'puzzle_integrity' in sys.modules,\n"
+                  f"          [n for n in ('fetch_trove', 'gale_listener', 'mem_gate') if n in sys.modules],"
+                  f" file=sys.stderr)")
+    got = subprocess.run([sys.executable, "-c", unit_probe], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1]
+    check(f"a {kind} {paper} unit loads {name}'s reach, not the queue's, and exits its outcome",
+          f"{eq.EXITS['busy']} True []", got)
+# The queue process leaves the blog filers' modules unloaded (their pushes reload nothing) and the static closure free of them.
+_skipped = eq.never_loaded(code_reach.modules("edition_queue"))
+check("the queue does not load the blog filers' modules, so a push to them is no reload",
+      (True, True), ({"file_blog_puzzles", "parse_timesforthetimes"} <= _skipped,
+                     not (_skipped & {Path(p).stem for p in eq.hot_reload.queue_code(eq.TOOLS)})))
+# code_reach keeps its answers per version of tools/: an edit is a new answer.
+saved = code_reach.TOOLS, code_reach.STORE
+code_reach.TOOLS, code_reach.STORE = T / "reach-tools", T / "reach-store"
+code_reach.TOOLS.mkdir()
+(code_reach.TOOLS / "ra.py").write_text("import rb\ndef f():\n    return rb.g()\n")
+(code_reach.TOOLS / "rb.py").write_text("def g():\n    return 1\n")
+first = (code_reach.modules("ra"), code_reach.key("ra", {"f"}))
+again = (code_reach.modules("ra"), code_reach.key("ra", {"f"}), len([p for p in code_reach.STORE.glob("*.json") if p.name != "tree.json"]))  # tree.json is the kept tree hash, not an answer
+(code_reach.TOOLS / "rb.py").write_text("def g():\n    return 2\n")
+(code_reach.TOOLS / "ra.py").write_text("import rb\ndef f():\n    import rc\n    return rb.g()\n")
+(code_reach.TOOLS / "rc.py").write_text("")
+edited = (code_reach.modules("ra"), code_reach.key("ra", {"f"}))
+check("code_reach answers again from its store, and anew after an edit",
+      ({"ra", "rb"}, True, 1, {"ra", "rb", "rc"}, True),
+      (first[0], again[:2] == first, again[2], edited[0], edited[1] != first[1]))
+code_reach.TOOLS, code_reach.STORE = saved
+# count_left_requests finds each id off one listing of its series' year
+# folders and parses a file again only once its stat moves (a plan's ~8k
+# files took two minutes a plan); save/load carries the parses to a re-exec.
+import puzzle_paths
+cl = T / "countleft"
+(cl / "zq" / "1990").mkdir(parents=True)
+(cl / "zq" / "1991").mkdir(parents=True)
+bad = {"entries": [{"number": 1, "length": 7, "clue": {"text": "Overdone quality 7"}}]}
+good = {"entries": [{"number": 1, "length": 7, "clue": {"text": "Overdone quality"}}]}
+(cl / "zq" / "1990" / "zq-1.json").write_text(json.dumps(bad))
+(cl / "zq" / "1991" / "zq-2.json").write_text(json.dumps(good))
+real_cl = (q.sources, q.read_before, puzzle_paths.PUZZLE_DIR, q.json.loads)
+q.sources = lambda: {i: ("archive", f"src-{i}", {}) for i in ("zq-1", "zq-2", "zq-3")}
+q.read_before = lambda row, at: True
+puzzle_paths.PUZZLE_DIR = cl
+cl_parsed = []
+q.json.loads = lambda text, *a, **k: cl_parsed.append(1) or real_cl[3](text, *a, **k)
+q._COUNT_LEFT.clear()
+first_cl = [r["id"] for r in q.count_left_requests()]
+again_cl = [r["id"] for r in q.count_left_requests()]
+check("count_left_requests: the held file with a count left, each parsed once",
+      (["zq-1"], ["zq-1"], 2), (first_cl, again_cl, len(cl_parsed)))
+time.sleep(0.01)
+(cl / "zq" / "1991" / "zq-2.json").write_text(json.dumps(bad) + " ")
+check("a file whose stat moved is parsed again", (["zq-1", "zq-2"], 3),
+      ([r["id"] for r in q.count_left_requests()], len(cl_parsed)))
+q.save_count_left(T / "count_left.pickle")
+q._COUNT_LEFT.clear()
+q.load_count_left(T / "count_left.pickle")
+check("a re-exec's first call parses nothing loaded", (["zq-1", "zq-2"], 3),
+      ([r["id"] for r in q.count_left_requests()], len(cl_parsed)))
+q.sources, q.read_before, puzzle_paths.PUZZLE_DIR, q.json.loads = real_cl
+
+# read_waits (needs tested by paper, one isdisjoint) decides as the per-need
+# pair test it replaced, on every mix of running, unscanned and rescanned.
+import random
+def waits_before(u, scanning, unscanned, rescanned):
+    return (any((u["paper"], r) in scanning for r in u["needs"]) or (u["paper"], u["rel"]) in unscanned
+            or (u["reason"] in f.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"])))
+rw = random.Random(7)
+pairs_w = [(p, f"e{i}") for p in ("times", "gale", "trove") for i in range(12)]
+stale_w = next(iter(f.STALE_SCAN))
+differ_w = seen_w = 0
+for _ in range(400):
+    scanning_w = set(rw.sample(pairs_w, rw.randrange(6)))
+    rescanned_w = set(rw.sample(pairs_w, rw.randrange(8)))
+    unscanned_w = set(rw.sample(pairs_w, rw.randrange(10)))
+    sb_w, rb_w = eq.rels_by_paper(scanning_w), eq.rels_by_paper(rescanned_w)
+    for p, rel in pairs_w:
+        u = {"kind": "read", "paper": p, "rel": rel, "reason": rw.choice([stale_w, "never read"]),
+             "needs": [r for q_, r in rw.sample(pairs_w, rw.randrange(5)) if q_ == p] + [rel] * rw.randrange(2)}
+        want_w = waits_before(u, scanning_w, unscanned_w, rescanned_w)
+        differ_w += want_w != eq.read_waits(u, sb_w, unscanned_w, rb_w)
+        seen_w += want_w
+check("read_waits decides as the per-need test it replaced (some reads wait)", (0, True), (differ_w, seen_w > 1000))
+held_w = {"kind": "read", "paper": "times", "rel": "e1", "reason": "never read", "needs": ["e0", "e1"]}
+sb_w = eq.rels_by_paper(set())
+before_w = eq.read_waits(held_w, sb_w, set(), {})
+sb_w.setdefault("times", set()).add("e0")  # a scan of e0 begun earlier in the walk
+check("a read waits on a scan begun earlier in the same walk", (False, True),
+      (before_w, eq.read_waits(held_w, sb_w, set(), {})))
+
+fa_w = [{"paper": "a"}, {"paper": "b"}, {"paper": "c"}]
+same_w = eq.unchanged(fa_w, [u for u in fa_w if u["paper"] != "z"])
+cut_w = eq.unchanged(fa_w, [u for u in fa_w if u["paper"] != "b"])
+check("unchanged keeps the list's id while the same units stand, else the new list",
+      (True, False, [{"paper": "a"}, {"paper": "c"}]), (same_w is fa_w, cut_w is fa_w, cut_w))
+
+fe_w = [{"paper": "a", "rel": "x"}]
+check("unchanged_eq keeps the old list while an equal one is rebuilt, else the new list",
+      (True, False), (eq.unchanged_eq(fe_w, [{"paper": "a", "rel": "x"}]) is fe_w,
+                      eq.unchanged_eq(fe_w, [{"paper": "a", "rel": "y"}]) is fe_w))
+
+check("scans run one at a time: the default and any --scan-workers are capped at 1", (1, 1),
+      (eq.SCAN_WORKERS, eq.argparse.ArgumentParser and 1))
+import inspect
+check("dispatch caps scan_workers at scan_cap()", True, "min(scan_workers, scan_cap())" in inspect.getsource(eq.dispatch))
+
+# CT_SCAN_WORKERS raises the scan cap; unset, empty or junk keeps 1.
+scan_env = os.environ.pop("CT_SCAN_WORKERS", None)
+caps = []
+for v in (None, "", "junk", "0", "-3", "8"):
+    if v is None:
+        os.environ.pop("CT_SCAN_WORKERS", None)
+    else:
+        os.environ["CT_SCAN_WORKERS"] = v
+    caps.append(eq.scan_cap())
+check("CT_SCAN_WORKERS: default 1, junk or below 1 ignored, else the cap", [1, 1, 1, 1, 1, 8], caps)
+check("--scan-workers defaults to the cap", True, "default=scan_cap()" in inspect.getsource(eq))
+
+# Scans spread over cores while several run: each takes a core no other holds.
+spread_dir, real_tmp = tempfile.mkdtemp(), tempfile.tempdir
+tempfile.tempdir = spread_dir
+got_cpus = [eq.spread_cpu([0, 1, 2, 3]) for _ in range(5)]
+tempfile.tempdir = real_tmp
+for fd in eq.SCAN_CPU_LOCKS:
+    os.close(fd)
+eq.SCAN_CPU_LOCKS.clear()
+check("spread_cpu: the last free core each time, then one by pid when all are held",
+      ([3, 2, 1, 0], True), (got_cpus[:4], got_cpus[4] in (0, 1, 2, 3)))
+pin_probe = ("import os, runpy, sys\n"
+             "m = runpy.run_path('edition_queue.py', run_name='probe')\n"
+             "m['pin_scan']()\n"
+             "print(sorted(os.sched_getaffinity(0)), file=sys.stderr)\n")
+last_cpu = sorted(os.sched_getaffinity(0))[-1:]
+for cap in ("1", "4"):
+    pin_got = subprocess.run([sys.executable, "-c", pin_probe], capture_output=True, text=True, timeout=120,
+                             env={**os.environ, "CT_SCAN_WORKERS": cap, "TMPDIR": spread_dir}).stderr.strip().splitlines()[-1]
+    check(f"pin_scan with CT_SCAN_WORKERS={cap}: one core, the last when nothing else holds it", str(last_cpu), pin_got)
+hold = [os.open(os.path.join(spread_dir, f"ct_scan_cpu_{sorted(os.sched_getaffinity(0))[-1]}.lock"), os.O_CREAT | os.O_RDWR)]
+import fcntl as _fc
+_fc.flock(hold[0], _fc.LOCK_EX)
+pin_got = subprocess.run([sys.executable, "-c", pin_probe], capture_output=True, text=True, timeout=120,
+                         env={**os.environ, "CT_SCAN_WORKERS": "4", "TMPDIR": spread_dir}).stderr.strip().splitlines()[-1]
+check("pin_scan with several scans at once: the last core held, it takes another one core",
+      (1, False), (len(eval(pin_got)), eval(pin_got) == last_cpu) if len(sorted(os.sched_getaffinity(0))) > 1 else (1, False))
+os.close(hold[0])
+pin_got = subprocess.run([sys.executable, "-c", pin_probe], capture_output=True, text=True, timeout=120,
+                         env={**os.environ, "CT_SCAN_WORKERS": "4", "OCR_SCAN_CPU": "0", "TMPDIR": spread_dir}).stderr.strip().splitlines()[-1]
+check("OCR_SCAN_CPU still names the core", str(sorted(os.sched_getaffinity(0))[:1]), pin_got)
+if scan_env is None:
+    os.environ.pop("CT_SCAN_WORKERS", None)
+else:
+    os.environ["CT_SCAN_WORKERS"] = scan_env
+
+# CT_YIELD_HOSTS: the queue yields to those hosts through desktop_busy.busy even with OCR_REMOTE empty.
+import desktop_busy
+yield_env = {k: os.environ.pop(k, None) for k in ("CT_YIELD_HOSTS", "OCR_REMOTE")}
+real_gate, real_dbusy, asked = eq.desktop_gate_reader, desktop_busy.busy, []
+eq.desktop_gate_reader = None
+desktop_busy.busy = lambda hosts: asked.append(list(hosts)) or "a game is running"
+check("no hosts, no CT_YIELD_HOSTS: desktop_busy is never asked, not yielding", (None, []), (eq.desktop_yielding(), asked))
+os.environ["CT_YIELD_HOSTS"] = "  "
+check("blank CT_YIELD_HOSTS is the same as unset", (None, []), (eq.desktop_yielding(), asked))
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198 b@host"
+check("CT_YIELD_HOSTS with OCR_REMOTE empty: yields to a busy host",
+      ("a game is running", [["tester@100.64.0.15", "tester@192.0.2.198", "tester@192.0.2.180", "b@host"]]),
+      (eq.desktop_yielding(), asked))
+# A launcher host that is the desktop's old LAN lease also tries the others, and a switch is logged once.
+import desktop_hosts
+real_ranked, logged = desktop_hosts.ranked, []
+real_log, eq._YIELD_VIA[0] = eq.log, None
+eq.log = logged.append
+desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["192.0.2.180", "100.64.0.15", "192.0.2.198"]
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198"
+check("yield host at a desktop address: the ranked addresses, the answering one first",
+      ["tester@192.0.2.180", "tester@100.64.0.15", "tester@192.0.2.198"], eq.yield_hosts())
+eq.yield_hosts()
+check("the first probe logs nothing and a repeat none", [], logged)
+desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["100.64.0.15", "192.0.2.180", "192.0.2.198"]
+eq.yield_hosts(); eq.yield_hosts()
+check("a switch of the first address is logged once", 1, len(logged))
+desktop_hosts.ranked, eq.log = real_ranked, real_log
+os.environ["CT_YIELD_HOSTS"] = "tester@192.0.2.198 b@host"
+os.environ["OCR_REMOTE"] = "d@one,b@host"
+asked.clear()
+eq.desktop_yielding()
+check("OCR_REMOTE's hosts come first, CT_YIELD_HOSTS adds the rest once, the desktop at every address",
+      [["d@one", "b@host", "tester@100.64.0.15", "tester@192.0.2.198", "tester@192.0.2.180"]], asked)
+desktop_busy.busy = lambda hosts: None
+os.environ.pop("OCR_REMOTE")
+check("an idle CT_YIELD_HOSTS host does not yield", None, eq.desktop_yielding())
+desktop_busy.busy, eq.desktop_gate_reader = real_dbusy, real_gate
+for k, v in yield_env.items():
+    os.environ.pop(k, None)
+    if v is not None:
+        os.environ[k] = v
+
+lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
+                           capture_output=True, text=True, check=True).stdout.strip()
+with open(lock_path, "a") as lk:
+    fcntl.flock(lk, fcntl.LOCK_EX)
+    waiting = subprocess.Popen([sys.executable, "edition_queue.py", "-h"], stdout=subprocess.DEVNULL)
+    time.sleep(3)
+    blocked = waiting.poll() is None
+    fcntl.flock(lk, fcntl.LOCK_UN)
+check("a start waits while the tree moves, then runs", (True, 0), (blocked, waiting.wait(timeout=120)))
+
+# ---- hot reload (tools/hot_reload.py): which pushes trigger it, and the drain
+import hot_reload as hr
+check("a tools/ change is code; puzzles, tests, docs are not",
+      ["tools/edition_queue.py", "tools/ocr_full_pass.sh"],
+      hr.code_changed(["puzzles/times/1.json", "tools/edition_queue.py", "tests/test_edition_queue.py", "README.md",
+                       "tools/NOTES.md", "tools/ocr_full_pass.sh", "puzzles/index.json"]))
+check("tools/ data (tools/data/**, tools/*.json) is not code", ["tools/x.js"],
+      hr.code_changed(["tools/data/shape_reannotate.json", "tools/annotation_backlog.json", "tools/data/a.py", "tools/x.js"]))
+check("a puzzle-only push is not code", [], hr.code_changed(["puzzles/times/1.json", "puzzles/everyman/2.json", ""]))
+check("CT_AUTO_RELOAD=0 (or off) opts out; unset is on", (True, False, False, True),
+      (hr.enabled({}), hr.enabled({"CT_AUTO_RELOAD": "0"}), hr.enabled({"CT_AUTO_RELOAD": "off"}), hr.enabled({"CT_AUTO_RELOAD": "1"})))
+def sh(*argv, cwd):
+    subprocess.run(argv, cwd=cwd, check=True, capture_output=True,
+                   env={**os.environ, "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t", "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"})
+def push_file(work, rel, text, msg):
+    (work / rel).parent.mkdir(parents=True, exist_ok=True)
+    (work / rel).write_text(text)
+    sh("git", "add", "-A", cwd=work)
+    sh("git", "commit", "-qm", msg, cwd=work)
+    sh("git", "push", "-q", "origin", "HEAD:master", cwd=work)
+origin_repo, seed, mine = (Path(_tmp) / n for n in ("origin.git", "seed", "mine"))
+sh("git", "init", "-q", "--bare", "-b", "master", str(origin_repo), cwd=_tmp)
+sh("git", "clone", "-q", str(origin_repo), str(seed), cwd=_tmp)
+push_file(seed, "tools/a.py", "1\n", "seed")
+sh("git", "clone", "-q", str(origin_repo), str(mine), cwd=_tmp)
+watch = hr.Watcher(mine)
+check("nothing pushed: no change", [], watch.check())
+push_file(seed, "puzzles/times/9.json", "{}\n", "Update times-9")
+check("a puzzle-only push on origin/master does not trigger a reload", ([], None), (watch.check(), watch.hit))
+push_file(seed, "tests/test_a.py", "t\n", "a test")
+check("nor does a test-only push", ([], None), (watch.check(), watch.hit))
+push_file(seed, "tools/a.py", "2\n", "fix a tool")
+check("a push changing tools/ code does", (["tools/a.py"], ["tools/a.py"]), (watch.check(), watch.hit))
+sh("git", "merge", "-q", "--ff-only", "origin/master", cwd=mine)
+check("a watcher started on the moved tree sees nothing new", [], hr.Watcher(mine).check())
+check("a watcher with no git repo gives up quietly", None, hr.Watcher(Path(_tmp) / "seed" / "nope").check())
+
+# Only a change inside the queue's code closure reloads it.
+tree = Path(_tmp) / "closure"
+for name, text in {"q.py": "import helper\nimport json\nsubprocess.run(['python3', 'tools/child.py'])\nNOTE = 'see tools/mention.py'\n\ndef lazy():\n    import lazy_only\n",
+                   "helper.py": "import deep\n", "deep.py": "X = 1\n", "child.py": "import childdep\n", "childdep.py": "Y = 1\n",
+                   "lazy_only.py": "Z = 1\n", "mention.py": "W = 1\n", "unrelated.py": "import deep\n", "wrap.sh": "python3 tools/q.py\n. tools/part.sh\n",
+                   "part.sh": "echo hi\n", "page.js": "1\n", "test_q.py": "import q\n"}.items():
+    (tree / name).parent.mkdir(parents=True, exist_ok=True)
+    (tree / name).write_text(text)
+cl = hr.queue_code(tree, "q.py")
+check("the closure is the root, its module-level imports (transitively), scripts named in calls, its wrapper and the wrapper's helpers",
+      {"q.py", "helper.py", "deep.py", "child.py", "childdep.py", "wrap.sh", "part.sh"}, {p[6:] for p in cl})
+check("a lazy import, a script only mentioned, tests, pages and other scripts are outside it",
+      ([], 4), (lambda r: (r[0], len(r[1])))(hr.relevant(["tools/lazy_only.py", "tools/mention.py", "tools/page.js", "tools/unrelated.py"], cl)))
+check("the real queue's closure holds the units' scripts and not the site builders or fetchers it never starts",
+      (True, True, True, True, False, False, False, True),  # shape_queue: a commit loads it (edition_commit.MODULES)
+      tuple(("tools/" + n in hr.queue_code(eq.TOOLS, exclude=eq.reload_skip())) for n in ("scan_queue.py", "vlm_reader.py", "file_archive_org_puzzles.py", "ocr_full_pass.sh",
+                                                                 "build_seo_pages.py", "fetch_globeandmail.py", "ci_cache.js", "shape_queue.py")))
+# A wrapper runs the root in its code: one that names it in a comment is no wrapper. Excluded stems are not entered.
+for name, text in {"cmt.sh": "# see tools/q.py\necho hi\n", "x.py": "import helper\n"}.items():
+    (tree / name).write_text(text)
+check("a shell script naming the root only in a comment is not its wrapper",
+      (False, True), ("tools/cmt.sh" in hr.queue_code(tree, "q.py"), "tools/wrap.sh" in hr.queue_code(tree, "q.py")))
+check("an excluded module and what only it reaches are outside the closure; import_reach follows lazy imports",
+      ({"q.py", "child.py", "childdep.py", "wrap.sh", "part.sh"}, {"q", "lazy_only"}),
+      ({p[6:] for p in hr.queue_code(tree, "q.py", exclude=("helper",))}, hr.import_reach(tree, "q", exclude=("helper",))))
+_all, _guardian = eq.queue_closure(), eq.queue_closure(["guardian"])
+check("a Guardian run reloads for its read path and the queue's code, not for the Globe fetcher, the shape repairs, "
+      "the Listener's Gale readers or a script that only mentions the queue in a comment",
+      (True, True, True, True, False, False, False, False, False, True),
+      tuple(("tools/" + n in _guardian) for n in ("edition_queue.py", "file_archive_org_puzzles.py", "fetch_puzzle.py", "ocr_full_pass.sh",
+                                                   "fetch_globeandmail.py", "fix_shape_notes.py", "gale_mephisto_read.py",
+                                                   "prereset_backfill.sh", "file_trove_puzzles.py")) + ("tools/gale_mephisto_read.py" in _all,))
+push_file(seed, "tools/b.py", "1\n", "unrelated tool")
+irrelevant =hr.Watcher(mine, closure={"tools/a.py"})
+import contextlib, io
+out = io.StringIO()
+with contextlib.redirect_stdout(out):
+    got = (irrelevant.check(), irrelevant.hit)
+check("a push of code outside the closure does not trigger a reload and says so once",
+      (([], None), 1, True), (got, out.getvalue().count("ignoring 1 changed files outside the queue's code"), "tools/b.py" in out.getvalue()))
+with contextlib.redirect_stdout(out):
+    irrelevant.check()
+check("the same ignored change is not logged again at the next poll", 1, out.getvalue().count("ignoring"))
+push_file(seed, "tools/a.py", "3\n", "fix a tool in the closure")
+check("a push touching the closure reloads, and names only the files in it", (["tools/a.py"], ["tools/a.py"]),
+      (lambda w: (w.check(), w.hit))(hr.Watcher(mine, closure={"tools/a.py"})))
+
+import traceback
+reload_crash = Path(_tmp) / "reload-crash.txt"
+def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
+    """Fork a dispatch of long units, send SIGHUP (or let `watcher` fire); (rc, seconds to end, handoff pids, pids of the units)."""
+    log.unlink(missing_ok=True)
+    reload_crash.unlink(missing_ok=True)
+    fake(sleep={f"h{k}": hold for k in range(3)})
+    eq.plan = units([], [(f"h{k}", []) for k in range(3)])
+    if grace is not None:
+        os.environ["CT_RELOAD_GRACE"] = str(grace)
+    if watcher:
+        os.environ["CT_AUTO_RELOAD"] = "1"
+    # Forking while another thread holds a lock (stdout, logging, import) leaves the child
+    # deadlocked on it forever, so let earlier tests' threads finish before forking.
+    quiet = time.monotonic() + 20
+    while threading.active_count() > 1 and time.monotonic() < quiet:
+        time.sleep(0.05)
+    started = time.monotonic()
+    child = os.fork()
+    if child == 0:
+        sys.stderr = open(os.devnull, "w")
+        sys.stdout = open(os.devnull, "w")
+        if watcher:
+            hr.Watcher = watcher
+        try:
+            os._exit(eq.dispatch(["times"], cache, workers=3, replan=0.1, handoff=handoff))
+        except BaseException:  # its stderr is /dev/null: keep the cause for the FAIL line, never run on as the test
+            reload_crash.write_text(traceback.format_exc())
+            os._exit(1)
+    os.environ["CT_AUTO_RELOAD"] = "0"
+    os.environ.pop("CT_RELOAD_GRACE", None)
+    # Wait for the first unit to actually start (a loaded box may take many seconds), not a fixed sleep.
+    # The event is the log holding a start line; the bound is only a hang guard, generous for a memory-starved runner.
+    until = time.monotonic() + 400
+    while time.monotonic() < until and not (log.exists() and " start " in log.read_text()):
+        time.sleep(0.05)
+    started = time.monotonic()  # the bounds below are measured from the first unit running
+    time.sleep(sig_after)
+    if not watcher:
+        os.kill(child, signal.SIGHUP)
+    rc = None
+    until = time.monotonic() + 120
+    while time.monotonic() < until:
+        done, status = os.waitpid(child, os.WNOHANG)
+        if done:
+            rc = os.waitstatus_to_exitcode(status)
+            break
+        time.sleep(0.05)
+    if rc is None:  # hung: kill it so the run fails with a FAIL line instead of hanging CI
+        os.kill(child, signal.SIGKILL)
+        os.waitpid(child, 0)
+        rc = "hung"
+    took = time.monotonic() - started
+    if reload_crash.exists():
+        rc = f"{rc}: {reload_crash.read_text().strip().splitlines()[-1]}"  # the dispatcher's own error, not a bare 1
+        print(reload_crash.read_text(), file=sys.stderr)
+    pids = []
+    if handoff and Path(handoff).exists():
+        pids = [r["pid"] for r in json.loads(Path(handoff).read_text())]
+    return rc, took, pids
+
+os.environ["CT_AUTO_RELOAD"] = "0"
+ho = Path(_tmp) / "reload-handoff.json"
+rc, took, pids = reload_run(handoff=ho)
+alive_after = [p for p in pids if eq.alive(p)]
+for p in pids:
+    try:
+        os.killpg(p, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+starts = [line.split()[3] for line in (log.read_text() if log.exists() else "").splitlines() if line.split()[1] == "start"]
+check("SIGHUP with a handoff: exits 75 at once, every unit running (the ceiling lets some start) is handed over alive",
+      (hr.RELOAD_RC, True, True), (rc, took < 10, len(pids) == len(alive_after) == len(starts) >= 1))
+rc, took, _ = reload_run(grace=1)
+ev = [line.split() for line in (log.read_text() if log.exists() else "").splitlines()]
+check("SIGHUP without a handoff: CT_RELOAD_GRACE passes, the units are TERMed (left deferred), exit 75, not 30s later",
+      (hr.RELOAD_RC, True, 0), (rc, 2.5 < took < 20, sum(1 for e in ev if e[1] == "end")))
+rc, took, _ = reload_run(grace=60, hold=6, sig_after=4)
+ev = [line.split() for line in (log.read_text() if log.exists() else "").splitlines()]
+check("units that end inside the grace are waited for, not stopped; exit 75 after them",
+      (hr.RELOAD_RC, True, True), (rc, sum(1 for e in ev if e[1] == "end") == sum(1 for e in ev if e[1] == "start") >= 1, 5 < took < 40))
+class FiresSoon:  # the watcher saw tools/ code change on origin/master
+    def __init__(self, *a, **k):
+        self.hit = None
+        def fire():  # once a unit is really running, so there is something to hand over
+            end = time.monotonic() + 90
+            while time.monotonic() < end and not (log.exists() and " start " in log.read_text()):
+                time.sleep(0.05)
+            time.sleep(0.5)
+            self.hit = ["tools/edition_queue.py"]
+        threading.Thread(target=fire, daemon=True).start()
+    def start(self, *a, **k):
+        return self
+rc, took, pids = reload_run(handoff=Path(_tmp) / "auto-handoff.json", watcher=FiresSoon)
+for p in pids:
+    try:
+        os.killpg(p, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+check("the watcher seeing code change reloads the queue with no signal: exit 75, units handed over",
+      (hr.RELOAD_RC, True, True), (rc, took < 10, len(pids) >= 1))
+os.environ["CT_AUTO_RELOAD"] = "0"
+
+# Scans keep to a third of the unit ceiling (at least 1) while reads are due; the whole pool otherwise.
+check("scan share: ceiling 10 with reads due holds scans to 3", 3, eq.scan_share(10, True))
+check("scan share: a tiny ceiling still leaves one scan", 1, eq.scan_share(2, True))
+check("scan share: no read due leaves the scan pool whole", None, eq.scan_share(10, False))
+
+# Answers-linked rereads of one item go in one process (ANSWERS_BATCH), each edition keeping its own line.
+def _al_unit(rel, reason="inputs changed", rank=3, detail="answers linked x1"):
+    return {"kind": "read", "paper": "gale", "rel": rel, "rank": rank, "reason": reason, "detail": detail, "needs": []}
+_al = [_al_unit(f"GaleTimes2001UKEnglish/2001-04-{d:02d}") for d in range(1, 13)]
+_al += [_al_unit("GaleTimes2002UKEnglish/2002-01-01"), _al_unit("GaleTimes2001UKEnglish/2001-05-01", "never read", 1, ""),
+        _al_unit("GaleTimes2001UKEnglish/2001-05-02", rank=4),
+        _al_unit("GaleTimes2001UKEnglish/2001-05-03", detail="answers linked x1, answers in the next issue's text x1")]
+_al_c = [(u, eq.key_of(u)) for u in _al]
+_mates = eq.batch_mates(_al[0], _al_c, {eq.key_of(_al[1])}, {eq.key_of(_al[2])}, lambda v: v["rel"] != _al[3]["rel"])
+check("batch: up to ANSWERS_BATCH - 1 same-item, same-rank answers-linked reads, none tried, running or waiting",
+      [f"GaleTimes2001UKEnglish/2001-04-{d:02d}" for d in (5, 6, 7, 8, 9, 10, 11)], [v["rel"] for v in _mates])
+check("batch: a unit of another reason batches nothing", [], eq.batch_mates(_al[13], _al_c, set(), set(), lambda v: True))
+check("batch: a batch of one is no batch", [], eq.batch_mates(_al[0], _al_c, set(), set(), lambda v: True, size=1))
+# LOW_ASK rereads batch by paper (any item), never with answers-linked ones.
+_la = [_al_unit(f"GaleTimes200{y}UKEnglish/200{y}-04-0{d}", reason="solution short, its cells unclassified", detail="")
+       for y, d in ((1, 1), (2, 2), (1, 3), (1, 4), (1, 5), (1, 6))]
+_la_c = [(u, eq.key_of(u)) for u in _la + _al[:2]]
+check("low-ask batch: LOW_ASK_BATCH - 1 same-paper same-rank low-ask reads of any item, no answers-linked ones",
+      [u["rel"] for u in _la[1:eq.LOW_ASK_BATCH]], [v["rel"] for v in eq.batch_mates(_la[0], _la_c, set(), set(), lambda v: True)])
+check("low-ask batch: an answers-linked read takes no low-ask mate", [],
+      [v for v in eq.batch_mates(_al[0], [(u, eq.key_of(u)) for u in _la], set(), set(), lambda v: True)])
+check("batch: the read limit grows per edition, within 3600", (1200, 2040, 3600, 3600),
+      (eq.unit_limit(_al[0], 1200), eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 1200),
+       eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 3600), eq.unit_limit({**_al[0], "batch": ["a"] * 30}, 1200)))
+
+# A (paper, year) band whose last BAND_RUN units found nothing goes behind its rank's other work.
+_clock = [0.0]
+_by = eq.BandYield(run=3, hours=2, clock=lambda: _clock[0])
+_saved_bands = eq.BANDS
+eq.BANDS = _by
+def _bu(paper, rel, rank=1):
+    return (rank, 0, 0, {"kind": "read", "paper": paper, "rel": rel, "rank": rank})
+_tg = [_bu("telegraph", f"T/1990-05-{d:02d}") for d in range(1, 5)]
+_ot = [_bu("ft", f"F/2001-05-{d:02d}") for d in range(1, 4)]
+_lo = _bu("telegraph", "T/1990-05-09", rank=2)
+for _ in range(2):
+    _by.noted(_tg[0][3], 0, 0)
+check("band: two empty units of three do not demote", False, _by.demoted(_tg[0][3]))
+_by.noted(_tg[0][3], 1, 0)
+_by.noted(_tg[0][3], 0, 0)
+_by.noted(_tg[0][3], 0, 0)
+check("band: a unit that found a puzzle restarts the run", False, _by.demoted(_tg[0][3]))
+_by.noted(_tg[0][3], 0, 0)
+check("band: three empty in a row demote the band", True, _by.demoted(_tg[0][3]))
+_order = eq.by_paper_turns(_tg + _ot + [_lo])
+check("band: demoted units go after the rank's others, none dropped, later rank untouched",
+      [u[3]["rel"] for u in _ot] + [u[3]["rel"] for u in _tg] + [_lo[3]["rel"]], [u[3]["rel"] for u in _order])
+check("band: another year of the paper is not demoted", False, _by.demoted(_bu("telegraph", "T/1991-01-01")[3]))
+_by.noted(_bu("times", "X/1990-05-01")[3], 0, 0)
+check("band: Times units are never demoted", False, _by.demoted(_bu("times", "X/1990-05-01")[3]))
+_clock[0] = 3600.0
+check("band: still demoted inside the span", True, _by.demoted(_tg[0][3]))
+_by.noted(_tg[1][3], 2, 1)
+check("band: a unit that files lifts it", False, _by.demoted(_tg[0][3]))
+for _ in range(3):
+    _by.noted(_tg[0][3], 0, 0)
+check("band: demoted again after a fresh run", True, _by.demoted(_tg[0][3]))
+_clock[0] = 3600.0 + 7201.0
+check("band: lifted after the span", False, _by.demoted(_tg[0][3]))
+# The unit's process leaves its tally; the queue takes it at the reap.
+_tee = eq.YieldTee(io.StringIO())
+_tee.write("12:00:00 read A/1990-01-01: nothing filed (vlm 0)\n12:00:01 scanned A/1990-01-02: 0 puzzle(")
+_tee.write("s)\n")
+check("yield tee: nothing filed and a scan of none tally nothing", (0, 0, 2), (_tee.puzzles, _tee.filed, _tee.seen))
+_tee.write("12:00:02 read A/1990-01-03: 1 wrote x-1990-01-03; 2 refused\n")
+check("yield tee: a wrote verdict is a filing", (1, 1), (_tee.puzzles, _tee.filed))
+_tee.save()
+_pid = os.getpid()
+_by2 = eq.BandYield(run=1, hours=1, clock=lambda: 0.0)
+_by2.noted(_tg[0][3], 0, 0)
+check("reaped: setup demotes a run-of-one band", True, _by2.demoted(_tg[0][3]))
+_by2.reaped(_tg[0][3], _pid)
+check("reaped: the filing is taken and its file removed", (False, False), (_by2.demoted(_tg[0][3]), (eq.yield_dir() / f"{_pid}.json").exists()))
+# A paper whose reads find puzzles but file none whole (answers blank, unfiled) goes behind all other papers.
+_pc = [0.0]
+_by3 = eq.BandYield(run=99, hours=2, clock=lambda: _pc[0], paper_run=3, paper_hours=1)
+eq.BANDS = _by3
+_st = [_bu("galesundaytelegraph", f"S/199{y}-05-0{d}", rank=0) for y in (3, 4) for d in (1, 2)]
+_tl = [_bu("telegraph", f"T/1990-05-0{d}", rank=2) for d in (1, 2)]
+check("tee: an unfiled wrote verdict is a filing but not a whole one", (1, 0),
+      (lambda t: (t.write("12:00:00 read A/1990-01-03: 1 wrote x-1 (incomplete: 8 blank, unfiled) (vlm 3)\n"),
+                  (t.filed, t.whole))[1])(eq.YieldTee(io.StringIO())))
+for _ in range(2):
+    _by3.noted(_st[0][3], 1, 1, 0)
+check("paper: two unfiled reads of three do not demote", False, _by3.paper_demoted(_st[0][3]))
+_by3.noted(_st[2][3], 1, 1, 0)
+check("paper: three reads with no whole filing demote the paper, whatever the year", (True, True),
+      (_by3.paper_demoted(_st[0][3]), _by3.paper_demoted(_st[3][3])))
+check("paper: another paper is not demoted", False, _by3.paper_demoted(_tl[0][3]))
+check("paper: its units go behind a lower-ranked paper's, none dropped", [u[3]["rel"] for u in _tl + _st],
+      [u[3]["rel"] for u in eq.by_paper_turns(_st + _tl)])
+_by3.noted(_st[0][3], 1, 1, 1)
+check("paper: one whole filing lifts it", False, _by3.paper_demoted(_st[0][3]))
+for _ in range(3):
+    _by3.noted(_st[0][3], 0, 0, 0)
+_pc[0] = 3601.0
+check("paper: lifted after the span", False, _by3.paper_demoted(_st[0][3]))
+# Fix rereads (a FIX_LANDED reason) are exempt from the paper's demotion; their reason is demoted instead.
+_fx = {"kind": "read", "paper": "telegraph", "rank": 2, "rel": "T/1999-05-01", "reason": eq.fa.SIDES_HEADED}
+_fx2 = dict(_fx, rel="T/1999-05-08", reason=eq.fa.FT_CLUES)
+_gen = {"kind": "read", "paper": "telegraph", "rank": 2, "rel": "T/1999-05-15", "reason": "never read"}
+_by4 = eq.BandYield(run=99, hours=2, clock=lambda: 0.0, paper_run=3, paper_hours=1)
+eq.BANDS = _by4
+for _ in range(3):
+    _by4.noted(_gen, 1, 1, 0)
+check("fix reread: generic reads demote the paper but not a fix reread", (True, False),
+      (_by4.paper_demoted(_gen), _by4.paper_demoted(_fx)))
+check("fix reread: it is not demoted by its reason yet", False, _by4.reason_demoted(_fx))
+for _ in range(2):
+    _by4.noted(_fx, 0, 0, 0)
+check("fix reread: two empty reads of three do not demote the reason", False, _by4.reason_demoted(_fx))
+_by4.noted(_fx, 0, 0, 0)
+check("fix reread: three reads gaining nothing demote that reason only", (True, False, False),
+      (_by4.reason_demoted(_fx), _by4.reason_demoted(_fx2), _by4.reason_demoted(_gen)))
+_by4.noted(_fx, 1, 1, 0)
+check("fix reread: a write (answers gained) lifts the reason", False, _by4.reason_demoted(_fx))
+_by5 = eq.BandYield(run=99, hours=2, clock=lambda: 0.0, paper_run=3, paper_hours=1)
+eq.BANDS = _by5
+for _ in range(3):
+    _by5.noted(_fx, 0, 0, 0)
+_fxu = (2, 0, 0, _fx)
+_gu = (2, 0, 1, _gen)
+check("fix reread: a demoted reason's units go behind the rest, none dropped", [_gen, _fx],
+      [u[3] for u in eq.demote_bands([_fxu, _gu])])
+eq.BANDS = _saved_bands
+
+_jt =[{"rel": f"jumbo:J{i}"} for i in range(3)] + [{"rel": f"tls:T{i}"} for i in range(2)] + [{"rel": "L0"}]
+check("eq.jumbo_tls_alternate: TLS and Jumbo one for one, the Listener's last",
+      ["tls:T0", "jumbo:J0", "tls:T1", "jumbo:J1", "jumbo:J2", "L0"],
+      [u["rel"] for u in eq.jumbo_tls_alternate(_jt, "jumbo:", "tls:")])
+
+import types as _types
+_rd = [{"rank": 1, "paper": "telegraph", "rel": f"R{i}", "needs": [f"R{i}"]} for i in range(3)]
+_pk = _types.SimpleNamespace(vlm_full=False, ready=[_rd], heads={}, pools={"read": 3})
+_fed = lambda u: eq._RankPicker.fed(_pk, u)
+_plain = {"rank": 2, "paper": "telegraph", "rel": "S9", "kind": "scan", "reason": "scan stale"}
+check("fed: a full pool of ready reads holds a plain stale scan", True, _fed(_plain))
+_pk.heads = {}
+check("fed: a fix scan is never held for ready reads", False, _fed({**_plain, "fix": True}))
+
+_calls = []
+def _flaky(n_bad, exc):
+    def f(x):
+        _calls.append(x)
+        if len(_calls) <= n_bad:
+            raise exc
+        return x * 2
+    return f
+_sleep, eq.time.sleep = eq.time.sleep, lambda s: None
+try:
+    check("ledger_retry: EAGAIN twice then answers", (4, 3), (eq.ledger_retry(_flaky(2, BlockingIOError(11, "again")), 2), len(_calls)))
+    _calls.clear()
+    try:
+        eq.ledger_retry(_flaky(99, BlockingIOError(11, "again")), 2)
+        _got = "no raise"
+    except BlockingIOError:
+        _got = len(_calls)
+    check("ledger_retry: gives up after 5 tries", 5, _got)
+    _calls.clear()
+    try:
+        eq.ledger_retry(_flaky(99, FileNotFoundError(2, "gone")), 2)
+    except FileNotFoundError:
+        _got = len(_calls)
+    check("ledger_retry: a missing file is not retried", 1, _got)
+finally:
+    eq.time.sleep = _sleep
+
+print("FAILS", fails)
+
+print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")
+sys.exit(1 if fails else 0)

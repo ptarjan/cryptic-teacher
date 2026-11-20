@@ -1,0 +1,471 @@
+#!/usr/bin/env python3
+"""Write tools/data/progress.json, the history /progress/ draws (see
+tools/progress.py for the phases and the backfill's dating).
+
+    python3 tools/progress_record.py record     # today's row, nightly (the page build
+                                                # overlays live filed/solved/hinted)
+    python3 tools/progress_record.py backfill   # every day before the first one held
+    python3 tools/progress_record.py backfill-queue   # downloaded/queued on days without them,
+                                                      # dated off the media disk (edition_backlog.dated)
+"""
+import collections
+import datetime
+import hashlib
+import importlib
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+import annotation
+import coverage
+import fetch_puzzle
+import gitlog_cache
+import parallel
+import progress
+import puzzle_paths
+import series as series_meta
+
+#: puzzle_row() per file, kept between runs: {"code": code_digest(), "rows":
+#: {path: [size, mtime_ns, row]}}, so a night re-reads only the files that moved.
+ROWS_CACHE = Path.home() / ".cache" / "cryptic-progress-rows.json"
+
+#: The modules a row is derived by: a change to any of them re-reads every file.
+ROW_CODE = ("progress_record", "fetch_puzzle", "annotation", "wordplay", "groups",
+            "series", "puzzle_schema")
+
+
+def code_digest():
+    h = hashlib.sha256()
+    here = Path(__file__).resolve().parent
+    for name in ROW_CODE:
+        h.update((here / f"{name}.py").read_bytes())
+    return h.hexdigest()
+
+
+def puzzle_row(path):
+    """(id, series, acquiredOn, solved on or None, hinted) for one puzzle file."""
+    p = fetch_puzzle.read_puzzle_file(path)
+    # The view drops an annotation whose tree does not give its answer and
+    # touches nothing else these read, so a raw file that is unannotated is
+    # unannotated as viewed too: only a fully annotated one pays for the view
+    # (viewing all ~55k files, serially under nice at load 30, ran past 900s
+    # on 2026-10-15). A file with no "number" has no view series: view it
+    # anyway, so it fails as it always did.
+    if fetch_puzzle.puzzle_is_annotated(p) or "number" not in p:
+        p = annotation.view_puzzle(p)
+        series = p["series"]
+    else:
+        series = series_meta.parse_id(p["id"])[0]
+    got = p["source"]["acquiredOn"]
+    sol = p.get("solutions") or {}
+    # The index's own tests (hasSolutions, annotated), so a night's row and the
+    # page build's overlay (progress.index_counts) count the same puzzles.
+    solved = max(got, sol.get("date") or got) if fetch_puzzle.puzzle_is_solved(p) else None
+    return p["id"], series, got, solved, fetch_puzzle.puzzle_is_annotated(p)
+
+
+#: Wall-clock seconds a night spends re-deriving rows that are only stale (their
+#: file did not move, the deriving code did). New and moved files always are read.
+REFRESH_SECONDS = 20 * 60
+#: Stale rows re-derived between two looks at the clock.
+REFRESH_BATCH = 200
+
+
+#: Files the last cached_rows() left unread for want of budget (0: it saw every file).
+UNREAD = 0
+
+
+def tracked_blobs(root=None):
+    """{repo-relative path: git blob id} for the committed files whose working copy
+    is unmodified; {} when git cannot say. The id is the same in every checkout, and
+    one call costs no file reads. A modified or untracked file is left out."""
+    root = root or progress.ROOT
+    try:
+        run = lambda *a: subprocess.run(["git", *a], cwd=root, capture_output=True,
+                                        text=True, check=True).stdout
+        listing, moved = run("ls-files", "-s", "-z"), run("ls-files", "-m", "-z")
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    blobs = {}
+    for ent in listing.split("\0"):
+        meta, _, name = ent.partition("\t")
+        parts = meta.split()
+        if len(parts) == 3 and parts[2] == "0":
+            blobs[name] = parts[1]
+    for name in moved.split("\0"):
+        blobs.pop(name, None)
+    return blobs
+
+
+def cached_rows(paths, cache=None, clock=time.monotonic, budget=REFRESH_SECONDS,
+                batch=REFRESH_BATCH, blobs=None, root=None):
+    """puzzle_row() for each of paths that exists. Each cached row remembers the
+    code_digest() and time it was derived under. A file that moved (size,
+    mtime_ns) or is new is read at once; a row from an older digest is stale:
+    stale rows are re-derived annotated first, then oldest first, until `budget`
+    seconds of clock() pass, and the rest are kept as they are, so a night
+    always finishes and the cache converges over a few nights. New and moved
+    files count against the same budget: past it they are left out of the
+    result (and the cache) and the next run carries on. A committed, unmodified
+    file is keyed by its repo-relative path and git blob id, so every checkout
+    shares the cache; any other file by its path, size and mtime. Rewrites the
+    cache with the paths it read."""
+    cache = cache or ROWS_CACHE
+    root = root or progress.ROOT
+    blobs = tracked_blobs(root) if blobs is None else blobs
+    code = code_digest()
+    try:
+        held = json.loads(cache.read_text())
+        old = held.get("code")
+        held = held["rows"]
+    except (OSError, ValueError, AttributeError, KeyError, TypeError):
+        held, old = {}, None
+    stamps, out, when, fresh, stale = {}, {}, {}, [], []
+    keys = {}
+    for path in paths:
+        try:
+            rel = str(Path(path).relative_to(root))
+        except ValueError:
+            rel = None
+        if rel in blobs:
+            key, stamp = rel, ["blob", blobs[rel]]
+        else:
+            try:
+                st = os.stat(path)
+            except FileNotFoundError:
+                continue
+            key, stamp = str(path), [st.st_size, st.st_mtime_ns]
+        keys[str(path)] = key
+        stamps[key] = stamp
+        hit = held.get(key)
+        if isinstance(hit, list) and len(hit) >= 3 and hit[:2] == stamp:
+            out[key] = tuple(hit[2])
+            digest = hit[3] if len(hit) > 3 else old
+            when[key] = hit[4] if len(hit) > 4 else 0
+            if digest != code:
+                stale.append(path)
+        else:
+            fresh.append(path)
+    now = int(time.time())
+    start, done = clock(), set()
+
+    def derive(todo):
+        for i in range(0, len(todo), batch):
+            if clock() - start >= budget:
+                return todo[i:]
+            chunk = todo[i:i + batch]
+            for path, row in zip(chunk, parallel.pmap(puzzle_row, chunk)):
+                k = keys[str(path)]
+                out[k], when[k] = tuple(row), now
+                done.add(k)
+        return []
+
+    unread = derive(fresh)
+    global UNREAD
+    UNREAD = len(unread)
+    for path in unread:
+        stamps.pop(keys[str(path)], None)
+    if unread:
+        print(f"progress_record: {len(unread)} new or moved puzzle file(s) not read: "
+              f"the {budget}s budget ran out; the next run carries on", file=sys.stderr)
+    stale = [p for p in stale if keys[str(p)] in stamps]
+    stale.sort(key=lambda p: (not out[keys[str(p)]][4], when[keys[str(p)]]))
+    derive(stale)
+    left = {keys[str(p)] for p in stale} - done
+    try:
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        tmp = cache.with_name(f"{cache.name}.{os.getpid()}.tmp")
+        tmp.write_text(json.dumps({"rows": {
+            k: stamps[k] + [list(out[k]),
+                            held[k][3] if k in left and len(held[k]) > 3 else
+                            (old if k in left else code), when[k]]
+            for k in stamps}}))
+        os.replace(tmp, cache)
+    except OSError:
+        pass
+    return [out[k] for k in stamps]
+
+
+def corpus():
+    """puzzle_row() for every listed puzzle file."""
+    return [r for r in cached_rows(puzzle_paths.puzzle_files())
+            if not series_meta.unlisted(r[1])]
+
+
+def ledger_on(day):
+    try:
+        return json.loads((coverage.STATE / f"{day}.json").read_text())
+    except (OSError, ValueError):
+        return None
+
+
+def backlog():
+    """edition_backlog.counts()'s per series, or None with no media disk (manifests) here."""
+    import edition_backlog
+    import media_manifest
+    # The SSD manifests stand for the media disk (nothing scheduled stats it):
+    # a host that never held its editions has no gale-editions manifest.
+    if not media_manifest.built(media_manifest.GALE_EDITIONS):
+        return None
+    # downloads refuses to import with the media disk unmounted (its one
+    # .on-media-disk stat); no stat here, the media disk spins.
+    try:
+        importlib.import_module("downloads")
+    except SystemExit:
+        print("media disk not mounted: downloaded/queued not counted", file=sys.stderr)
+        return None
+    return edition_backlog.counts()[0]
+
+
+#: A series whose downloaded falls below this share of its last recorded count
+#: is a partial count (2026-11-15: every scanned paper fell 25-90% for a day).
+MAX_DROP = 0.9
+
+
+def guard_queue(queue, days, today):
+    """queue ({series: [downloaded, queued]}) without the series whose downloaded
+    fell sharply against the latest earlier row that has one: a partial count
+    (disk half-synced, manifest mid-build) is recorded as null, never charted
+    as a drop. Each refusal is logged."""
+    if not queue:
+        return queue
+    prev = [d for d in days if d < today and any(c[progress.QUEUED] is not None
+                                                 for c in days[d].values())]
+    last = days[max(prev)] if prev else {}
+    out = {}
+    for s, c in queue.items():
+        was = last.get(s, [None] * len(progress.PHASES))[progress.DOWNLOADED]
+        if was and c[0] is not None and c[0] < was * MAX_DROP:
+            print(f"::warning::{s}: downloaded {c[0]} is under {MAX_DROP:.0%} of {was}: "
+                  "partial count, not recorded", file=sys.stderr)
+            continue
+        out[s] = c
+    return out
+
+
+def fetching(rows, papers=None):
+    """Where the Gale downloader is, from its plan() `rows` ((product, day,
+    ...) in the order it fetches): the first row's paper and year, how many
+    rows are left in that year of that paper, and whether it is working
+    back (dates falling). None with no row. `papers`: {product: name}."""
+    papers = papers or {}
+    if not rows:
+        return None
+    prod, first = rows[0][0], rows[0][1]
+    bucket = [r[1] for r in rows if r[0] == prod and r[1].year == first.year]
+    back = len(bucket) < 2 or bucket[0] >= bucket[1]
+    return {"paper": papers.get(prod, prod), "year": first.year, "left": len(bucket), "back": back}
+
+
+def gale_cursor(today):
+    """fetching() of the downloader's live plan, stamped `today`; None when
+    this host has no Gale state (the plan needs ~/.cache/gale_inbox)."""
+    try:
+        import gale_fetch
+        import gale_inbox
+        papers = {"TTDA": "The Times", "LSNR": "The Listener",
+                  **{p: o.folder for p, o in gale_inbox.OTHERS.items()}}
+        rows = gale_fetch.plan(gale_fetch.have_docs(), skip=0)
+    except Exception as e:  # no state, no disk: the last saved line stays
+        print(f"no Gale cursor recorded: {type(e).__name__}: {e}", file=sys.stderr)
+        return None
+    cur = fetching(rows, papers)
+    return cur and {"at": today, **cur}
+
+
+def record(today=None):
+    today = today or datetime.date.today().isoformat()
+    cursor = None if os.environ.get("GITHUB_ACTIONS") else gale_cursor(today)  # no Gale state or media disk in CI
+    if cursor:
+        progress.save_fetching(cursor)
+    rows = corpus()
+    if UNREAD:
+        # A partial count would chart as a fake drop: the cache is saved, the
+        # next run (warm) records the night's row.
+        print(f"progress row skipped: {UNREAD} files not read yet")
+        return None
+    files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in rows)
+    days = progress.load()
+    if os.environ.get("GITHUB_ACTIONS"):
+        # CI holds neither the coverage ledger nor the media disk: the home server's
+        # progress-counts unit commits their numbers (COUNTS).
+        ledger, queue = held_counts(today, days)
+    else:
+        ledger, queue = ledger_on(today), backlog()
+    queue = guard_queue(queue, days, today)
+    days[today] =progress.day_row(files, ledger, queue)
+    progress.save(days)
+    return days[today]
+
+
+#: Numbers only: {"at": day, "series": {s: [known, acquired, downloaded, queued]}}.
+COUNTS = progress.ROOT / "tools" / "data" / "progress_counts.json"
+
+
+def write_counts(today):
+    """Save today's coverage ledger and media-disk counts to COUNTS. 75 (never
+    began, retried at the next tick) with no ledger yet."""
+    ledger = ledger_on(today)
+    if ledger is None:
+        print(f"no coverage ledger for {today} yet")
+        return 75
+    queue = guard_queue(backlog() or {}, progress.load(), today)
+    led =ledger.get("series", {})
+    series = {s: [led[s]["exist"] if s in led else None, led[s]["filed"] if s in led else None,
+                  *queue.get(s, [None, None])] for s in sorted(led.keys() | queue.keys())}
+    COUNTS.write_text(json.dumps({"at": today, "series": series}, sort_keys=True, separators=(",", ":")) + "\n")
+    print(f"{len(series)} series' counts for {today} saved")
+    return 0
+
+
+def held_counts(today, days):
+    """(ledger, backlog) for day_row from COUNTS when it is at most a day old,
+    else the latest earlier row's own columns, logged."""
+    day = datetime.date.fromisoformat(today)
+    try:
+        held = json.loads(COUNTS.read_text())
+        age = (day - datetime.date.fromisoformat(held["at"])).days
+    except (OSError, ValueError, KeyError):
+        held, age = None, None
+    if held and age <= 1:
+        print(f"counts from {COUNTS.name}, {held['at']}")
+        sv = held["series"]
+        return ({"series": {s: {"exist": c[0], "filed": c[1]} for s, c in sv.items() if c[0] is not None}},
+                {s: c[2:4] for s, c in sv.items() if c[2] is not None})
+    prev = [d for d in days if d < today]
+    print(f"::warning::{COUNTS.name} is {'missing' if age is None else f'{age} days old'}: "
+          "known/acquired/downloaded/queued carried forward from the last row")
+    if not prev:
+        return None, None
+    last = days[max(prev)]
+    return ({"series": {s: {"exist": c[0], "filed": c[1]} for s, c in last.items() if c[0] is not None}},
+            {s: c[5:7] for s, c in last.items() if len(c) > 6 and c[5] is not None})
+
+
+def annotate_dates():
+    """{id: the day of its first "Annotate <id>" commit}."""
+    out = gitlog_cache.log(["--reverse", "--date=short", "--format=\x01%ad\t%s%n%b"],
+                           cwd=progress.ROOT)
+    first = {}
+    for entry in out.split("\x01")[1:]:
+        head, _, body = entry.partition("\n")
+        day, _, subject = head.partition("\t")
+        words = subject.split()
+        # "Annotate <id>"; a batch's old "Annotate N puzzles: <id> <id> ...";
+        # or its new "Annotate N puzzles" with the ids in the body's first
+        # paragraph (the trailer paragraphs after it are not ids).
+        if len(words) == 2 and words[0] == "Annotate":
+            first.setdefault(words[1], day)
+        elif len(words) > 3 and words[0] == "Annotate" and words[2] == "puzzles:":
+            for pid in words[3:]:
+                first.setdefault(pid, day)
+        elif len(words) == 3 and words[0] == "Annotate" and words[2] == "puzzles":
+            for pid in body.strip().split("\n\n")[0].split():
+                first.setdefault(pid, day)
+    return first
+
+
+def backfill_days(rows, annotated, ledgers, until):
+    """{day: row} for every day from the first acquiredOn to until, inclusive.
+    rows are puzzle_row()s; annotated is annotate_dates(); ledgers maps a day
+    to its saved ledger."""
+    events = collections.defaultdict(list)  # day -> [(series, phase index)]
+    for pid, series, got, solved, hinted in rows:
+        events[got].append((series, 0))
+        if solved:
+            events[solved].append((series, 1))
+        if hinted:
+            events[max(got, annotated.get(pid, got))].append((series, 2))
+    if not events:
+        return {}
+    day = datetime.date.fromisoformat(min(events))
+    end = datetime.date.fromisoformat(until)
+    running = collections.defaultdict(lambda: [0, 0, 0])
+    out = {}
+    while day <= end:
+        iso = day.isoformat()
+        for series, i in events.get(iso, ()):
+            running[series][i] += 1
+        out[iso] = progress.day_row({s: list(c) for s, c in running.items()}, ledgers.get(iso))
+        day += datetime.timedelta(days=1)
+    return out
+
+
+def backfill():
+    days = progress.load()
+    rows = corpus()
+    until = min(days) if days else datetime.date.today().isoformat()
+    until = (datetime.date.fromisoformat(until) - datetime.timedelta(days=1)).isoformat()
+    first = min(r[2] for r in rows)
+    span = [(datetime.date.fromisoformat(first) + datetime.timedelta(days=i)).isoformat()
+            for i in range((datetime.date.fromisoformat(until)
+                            - datetime.date.fromisoformat(first)).days + 1)]
+    ledgers = {d: led for d in span if (led := ledger_on(d))}
+    made = backfill_days(rows, annotate_dates(), ledgers, until)
+    progress.save({**made, **days})
+    return len(made)
+
+
+def fill_queue(days, hist):
+    """days with downloaded/queued filled from hist (edition_backlog.history())
+    on a night that never counted them, and over a recorded downloaded of 0
+    while scans had landed; any other recorded count is kept (a series a
+    counted night left out had none). Returns the days it filled."""
+    filled = set()
+    for day, counts in hist.items():
+        row = days.get(day)
+        if row is None:
+            continue
+        counted = any(c[progress.QUEUED] is not None for c in row.values())
+        for s, (got, queued) in counts.items():
+            if not got or (counted and (s not in row or row[s][progress.DOWNLOADED] is None)):
+                continue
+            c = row.setdefault(s, [None, None, 0, 0, 0, None, None])
+            if c[progress.DOWNLOADED] is None or c[progress.DOWNLOADED] == 0:
+                c[progress.DOWNLOADED:] = [got, queued]
+                filled.add(day)
+    return sorted(filled)
+
+
+def backfill_queue():
+    """fill_queue() over the history from the media disk's scans; [] with no disk."""
+    import downloads
+    if not downloads.ROOT.is_dir():
+        return []
+    import edition_backlog
+    days = progress.load()
+    filled = fill_queue(days, edition_backlog.history(edition_backlog.dated(), list(days)))
+    progress.save(days)
+    return filled
+
+
+#: Exit status of `record` when it wrote no row (files not read yet): not a
+#: failure, but the step is not done, so a later run retries with a warm cache.
+SKIPPED = 3
+
+
+def main(argv):
+    if argv[1:] == ["record"]:
+        row = record()
+        if row is None:
+            return SKIPPED  # cache still cold: the step runner retries next run
+        print(json.dumps(progress.totals(row)))
+    elif argv[1:] == ["counts"]:
+        return write_counts(datetime.date.today().isoformat())
+    elif argv[1:] == ["backfill"]:
+        print(f"{backfill()} day(s) backfilled into {progress.HISTORY.relative_to(progress.ROOT)}")
+        print(f"downloaded/queued filled on {len(backfill_queue())} day(s)")
+    elif argv[1:] == ["backfill-queue"]:
+        filled = backfill_queue()
+        print(f"downloaded/queued filled on {len(filled)} day(s): {filled[:1]}..{filled[-1:]}")
+    else:
+        print(__doc__)
+        return 2
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

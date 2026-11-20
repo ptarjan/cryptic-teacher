@@ -1,0 +1,1297 @@
+#!/usr/bin/env python3
+"""Recover a crossword's black squares from the clue list alone.
+
+The numbering of a blocked crossword is not decoration, it is a function.
+Scan the cells row-major; a cell earns the next number exactly when it starts
+an across light (two or more cells, nothing to its left) or starts a down one.
+So a black-square pattern *determines* the list of lights printed above the
+clues. This module runs that function backwards: given the lights, it finds
+every grid that would have produced them.
+
+That matters because the lights survive where the picture does not. A clue
+list is text — in the newspaper, in the blog, in an OCR of a book scan —
+while the grid is an image we may have no way to read. If the list pins the
+grid down, a puzzle we can only read the clues of is still a puzzle.
+
+WHAT IT TAKES IN — the weakest form we can actually get, which is two ordered
+lists of lengths and nothing else:
+
+    {"across": [6, 6, 4, 10, ...], "down": [4, 9, 5, ...]}
+
+Clue numbers are optional, because a scan often loses them: OCR of a printed
+book keeps the clue text and the enumeration and drops the little numerals.
+When some or all numbers *are* legible, pass triples instead —
+``[(1, "across", 6), (None, "across", 6), (5, "across", 4), ...]`` — one
+direction's triples given in the order that direction prints (row-major
+order, the same order full numbering would sort them into), with ``number``
+written ``None`` for whichever lights lost theirs. That is the general case:
+every number present, none present, and anything in between are the same
+input shape and the same search, not three of them. A known number is a hard
+constraint; an unknown one is still not a free variable, because numbering is
+a dense 1..N sequence with each value used once — so it is squeezed between
+whichever known numbers flank it in its own direction, tighter the fewer
+unknowns separate them, exact when only one does. An unknown length may be
+written ``None`` too, at a steep price in search.
+
+Lengths here are LIGHTS, not enumerations. An enumeration of "(7,5)" is one
+twelve-cell light and should be passed as 12. A linked clue — "1,5" with a
+single enumeration covering two entries — is two lights, and which half is
+which is not recoverable from the enumeration alone; split it yourself, or
+pass ``None`` for both and let the search decide. A "See 15" clue is a real
+light whose length is one component of 15's enumeration; if you cannot tell
+which, ``None`` is the honest answer.
+
+METHOD — row by row, top to bottom, with the lists consumed in step. Within a
+row the search walks left to right choosing the next white run's length; each
+cell of the run is then matched against the light it would have to be. The
+clue list drives the search rather than filtering its output, so a wrong turn
+usually dies in the row that made it: a run of two or more cells starts an
+across light, and across lights are handed out in row-major order, so the run
+can only be as long as the next unspent across length.
+
+180-degree rotational symmetry — which every published grid here has bar
+about one in four hundred, counted rather than assumed — is worth more than
+halving the grid. Writing a cell writes its twin,
+so a down light committed in row 1 lights up row 13 on the spot; and the
+lights of the mirrored rows are read off the *ends* of the two lists, so the
+search is squeezed from both directions at once and meets in the middle. A
+choice in row 0 that no bottom row could ever match fails in row 0.
+
+Beyond the numbering the search enforces these, and only these:
+
+  * a maximal run of white cells is a light of the length the list gives it,
+    in both directions;
+  * every white cell belongs to some light — a white cell with blocks on all
+    four sides is not an unchecked square, it is a hole;
+  * the grid is 180-degree symmetric, unless that search finishes empty and
+    the caller allows the fallback;
+  * every row holds at least two white cells, and every column at least
+    one -- columns get the weaker rule because Genius 209 (2020-11-02)
+    has a column whose only white cell sits inside an across light.
+    That is the only kind of lone cell there can be (a cell in no light is
+    already a hole), so "two, unless the single cell is an across light's"
+    would be the same rule spelled longer. It costs no speed: columns are
+    only judged on finished grids, while the row rule, which prunes as each
+    row is decided, stays at two;
+  * no two adjacent rows both lack an across light, and no two adjacent
+    columns both lack a down light;
+  * the white cells are all connected;
+  * when the caller gives them: the answers agree wherever two lights cross,
+    and no line of blocks is longer than the caller's cap.
+
+The row, column and connectivity rules are `strict`, and they are here
+because they hold for every published grid we have — recounted over the whole
+corpus by tests/test_reconstruct_grid.py's nightly run (CT_FULL=1; a sample of
+it otherwise), so a series that arrives breaking one fails that test rather
+than quietly costing hit rate. They earn their place
+on speed as much as on accuracy: an all-black row is numbered perfectly well
+and is not a crossword, and without them the search spends its whole budget
+under one.
+
+Notably absent: "no light shorter than three", "at least half of every light
+is checked", "no two unchecked squares in a row". The first is implied (a
+run's length has to equal a length in the list, so a two-cell run needs a
+two-cell clue, and one puzzle here has exactly that), and the other two are
+simply false of this corpus — thousands of these puzzles have a light under
+half checked. The test asserts that those counterexamples are still there, so
+the day one of these rules becomes safe to adopt is a day something fails
+rather than a day nobody notices. A rule that real crosswords break is a rule
+that turns hits into misses.
+
+Ambiguity is reported, never hidden: `reconstruct()` returns *every* grid
+consistent with the lists, up to a limit, and says whether the limit bit.
+
+Usage:
+    python3 tools/reconstruct_grid.py cryptic-30066          # strip, re-derive
+    python3 tools/reconstruct_grid.py cryptic-30066 --numberless
+    python3 tools/reconstruct_grid.py cryptic-30066 --blank 0.5 --seed 1
+    python3 tools/reconstruct_grid.py --lights lights.json --cols 15 --rows 15
+"""
+import argparse
+import json
+import random
+import sys
+from pathlib import Path
+
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
+
+WHITE, BLACK = True, False
+
+# Nodes are cell decisions. The cap exists so that a list no grid satisfies
+# fails in seconds instead of exploring a 15x15 grid's 2**225 patterns. Two
+# million is tens of seconds and finishes the large majority of 15x15s when
+# the clue numbers are known; without them, reckon on five times the search
+# and on most 15x15s not finishing at all.
+DEFAULT_MAX_NODES = 2_000_000
+DEFAULT_LIMIT = 40
+STEP_RATIO = 4
+
+
+def _sequence_bounds(nums):
+    """lo[i]/hi[i]: the range light i's number must fall in, one direction at a time.
+
+    A direction's own numbers strictly increase (parse_lights enforces it), so
+    a light with no number of its own is still squeezed by its neighbours: it
+    must be at least the previous known number plus its distance forward from
+    it, and at most the next known number minus its distance back from it --
+    tighter the closer a run of unknowns sits to a known number on either
+    side, and exact once only one unknown separates two knowns. This is the
+    partial-numbering case doing real work: five consecutive unknown downs
+    between two known numbers 21 apart can only be 22..26, not "any number".
+    `hi[i] is None` means no known number ever follows, so there is no ceiling.
+    """
+    n = len(nums)
+    lo, hi = [1] * n, [None] * n
+    last, last_i = None, -1
+    for i, v in enumerate(nums):
+        if v is not None:
+            lo[i] = v
+            last, last_i = v, i
+        elif last is not None:
+            lo[i] = last + (i - last_i)
+    nxt, nxt_i = None, n
+    for i in range(n - 1, -1, -1):
+        v = nums[i]
+        if v is not None:
+            hi[i] = v
+            nxt, nxt_i = v, i
+        elif nxt is not None:
+            hi[i] = nxt - (nxt_i - i)
+    return lo, hi
+
+
+class _Solver:
+    def __init__(self, across, down, anum, dnum, cols, rows,
+                 limit, symmetry, max_nodes, strict=True, words=None,
+                 max_black_run=None, groups=None, min_light=2, no_square=False,
+                 min_row_white=2):
+        self.min_light = min_light
+        self.min_row_white = min_row_white
+        self.no_square = no_square
+        self.across, self.down = across, down
+        # Numbers are always a per-light list from here on, `None` standing for
+        # "not known" light by light -- the single generalisation that makes a
+        # fully numbered puzzle, a fully numberless one and everything between
+        # the same code path instead of three. A caller who knows nothing about
+        # a whole direction may still pass `None` for it; it reads the same as
+        # a list of `None`s of the right length.
+        anum = anum if anum is not None else [None] * len(across)
+        dnum = dnum if dnum is not None else [None] * len(down)
+        if len(anum) != len(across) or len(dnum) != len(down):
+            raise ValueError("a number list must have one entry per light")
+        self.anum, self.dnum = anum, dnum
+        self.alo, self.ahi = _sequence_bounds(anum)
+        self.dlo, self.dhi = _sequence_bounds(dnum)
+        self.na, self.nd = len(across), len(down)
+        self.cols, self.rows = cols, rows
+        self.limit, self.symmetry, self.max_nodes = limit, symmetry, max_nodes
+        self.strict = strict
+        self.prev_across = True     # there is no row above row 0 to pair with
+        self.cells = [None] * (cols * rows)
+        # The answers, when the caller has them: (across words, down words),
+        # each parallel to its length list, None for a light with no answer.
+        # A light is written into the grid letter by letter the moment it is
+        # placed, so two lights that disagree on a shared cell die there.
+        # Letter writes go on the same trail as cells, offset by the grid
+        # size, so one undo takes back both.
+        self.ncell = cols * rows
+        self.max_black_run = max_black_run or max(cols, rows)
+        self.letters = [None] * self.ncell
+        self.awords, self.dwords = words if words else (None, None)
+        self.solutions = []
+        self.nodes = 0
+        self.steps = 0
+        self.hit_cap = False
+
+        # Linked groups: lights whose lengths are each unknown but whose sum
+        # is printed (a clue "8 and 1 down (5,6,3,5,1,3,5)" is 28 letters
+        # over two lights, split any way). Light k (across i is k = i, down
+        # i is k = na + i) belongs to group gof[k]; a placed light's length
+        # goes on the trail as 2 * ncell + k, so undo takes it back too.
+        self.gof = [-1] * (self.na + self.nd)
+        self.gtotal, self.gsum, self.gleft = [], [], []
+        self.glen = [0] * (self.na + self.nd)
+        for g, (members, total) in enumerate(groups or ()):
+            ks = sorted({(i if d == "across" else self.na + i)
+                         for d, i in members})
+            for k in ks:
+                if self.gof[k] != -1:
+                    raise ValueError(f"light {k} is in two linked groups")
+                self.gof[k] = g
+            self.gtotal.append(int(total))
+            self.gsum.append(0)
+            self.gleft.append(len(ks))
+        self.longest = max(cols, rows)
+        self.bound_lengths()
+
+        # Tail cursors: one past the last light the mirrored bottom rows have
+        # already claimed. They walk down as the top rows are fixed, and the
+        # head cursors (ai, di) must never pass them.
+        self.at, self.dt = self.na, self.nd
+        # The number the next mirrored light off the tail must carry. The last
+        # numbered cell starts the last across or the last down, so when both
+        # lists end in a known number the larger is how many cells are
+        # numbered, and the bottom rows are numbered backwards from it.
+        self.tn = None
+        if self.na and self.nd and anum[-1] is not None and dnum[-1] is not None:
+            self.tn = max(anum[-1], dnum[-1])
+
+        # The longest down light not yet spent from the head. One of length M
+        # cannot start below row rows-M, so a row that ends with a long down
+        # light still unplaced has already lost. An unknown length claims
+        # nothing, which is why None reads as 0 here.
+        self.deepest = [0] * (self.nd + 1)
+        for i in range(self.nd - 1, -1, -1):
+            self.deepest[i] = max(self.lmin[self.na + i], self.deepest[i + 1])
+
+        # Room left. The across lights between the head and the tail have to
+        # fit in the rows between them, and a row of `cols` cells holds only
+        # so much: at most `cols` cells of across light, and at most one light
+        # per three columns, since each needs two cells and a block after it.
+        # Mirror rows only one apart with an across light still unspent is the
+        # commonest way a promising top half turns out to be impossible.
+        self.apre = [0] * (self.na + 1)
+        for i, length in enumerate(across):
+            self.apre[i + 1] = self.apre[i] + self.lmin[i]
+        self.per_row = (cols + 1) // 3
+
+    def bound_lengths(self):
+        """lmin[k]..lmax[k]: the lengths light k can have. A known length is
+        its own range. An unknown one is at least `min_light` and at most the
+        board; in a linked group the printed total squeezes it further -- what
+        the group's known lights leave, less the least each other unknown
+        light takes, and at least what the others cannot reach."""
+        total = self.na + self.nd
+        lengths = list(self.across) + list(self.down)
+        self.lmin = [v if v is not None else self.min_light for v in lengths]
+        self.lmax = [v if v is not None else self.longest for v in lengths]
+        for g, gtotal in enumerate(self.gtotal):
+            members = [k for k in range(total) if self.gof[k] == g]
+            unknown = [k for k in members if lengths[k] is None]
+            left = gtotal - sum(lengths[k] for k in members if lengths[k] is not None)
+            for k in unknown:
+                others = len(unknown) - 1
+                self.lmax[k] = min(self.lmax[k], left - self.min_light * others)
+                self.lmin[k] = max(self.lmin[k], left - self.longest * others)
+
+    # --- the partial grid -------------------------------------------------
+    # Off the board reads as BLACK and refuses to be written white, which is
+    # what lets the edge of the grid and a block be the same case everywhere
+    # below: a light ending at the border needs no special sentence.
+
+    def get(self, x, y):
+        if not (0 <= x < self.cols and 0 <= y < self.rows):
+            return BLACK
+        return self.cells[y * self.cols + x]
+
+    def put(self, x, y, value, trail):
+        """Set (x, y) and, under symmetry, its twin: place() twice, inlined
+        because this is the hottest call of the search."""
+        cols, rows, cells = self.cols, self.rows, self.cells
+        if 0 <= x < cols and 0 <= y < rows:
+            i = y * cols + x
+            was = cells[i]
+            if was is None:
+                cells[i] = value
+                trail.append(i)
+            elif was != value:
+                return False
+        elif value != BLACK:
+            return False
+        if not self.symmetry:
+            return True
+        x, y = cols - 1 - x, rows - 1 - y
+        if 0 <= x < cols and 0 <= y < rows:
+            i = y * cols + x
+            was = cells[i]
+            if was is None:
+                cells[i] = value
+                trail.append(i)
+                return True
+            return was == value
+        return value == BLACK
+
+    def place(self, x, y, value, trail):
+        if not (0 <= x < self.cols and 0 <= y < self.rows):
+            return value == BLACK
+        i = y * self.cols + x
+        was = self.cells[i]
+        if was is None:
+            self.cells[i] = value
+            trail.append(i)
+            return True
+        return was == value
+
+    def undo(self, trail, mark):
+        ncell, cells, letters = self.ncell, self.cells, self.letters
+        for i in trail[mark:]:
+            if i < ncell:
+                cells[i] = None
+            elif i < 2 * ncell:
+                letters[i - ncell] = None
+            else:
+                k = i - 2 * ncell
+                g = self.gof[k]
+                self.gsum[g] -= self.glen[k]
+                self.gleft[g] += 1
+                self.glen[k] = 0
+        del trail[mark:]
+
+    def take(self, k, length, trail):
+        """Light k is placed with `length` cells: False when its linked
+        group can no longer reach its printed total (each light still to come
+        takes two cells at least and a whole side at most)."""
+        g = self.gof[k]
+        if g < 0:
+            return True
+        self.glen[k] = length
+        self.gsum[g] += length
+        self.gleft[g] -= 1
+        trail.append(2 * self.ncell + k)
+        got, left, total = self.gsum[g], self.gleft[g], self.gtotal[g]
+        return got + self.min_light * left <= total <= got + self.longest * left
+
+    def peek(self, k, length):
+        """Could light k be `length` cells, its group's placed lights as they
+        stand? The mirror claim's check: the head walks the mirrored rows
+        again after the middle and places (take()s) those lights then."""
+        g = self.gof[k]
+        if g < 0 or self.glen[k]:
+            return True
+        got, left, total = self.gsum[g] + length, self.gleft[g] - 1, self.gtotal[g]
+        return got + self.min_light * left <= total <= got + self.longest * left
+
+    def write(self, word, x, y, dx, dy, trail):
+        """Write an answer from (x, y) along (dx, dy); False on a clash."""
+        if word is None:
+            return True
+        letters, cols = self.letters, self.cols
+        for k, ch in enumerate(word):
+            i = (y + k * dy) * cols + x + k * dx
+            was = letters[i]
+            if was is None:
+                letters[i] = ch
+                trail.append(i + self.ncell)
+            elif was != ch:
+                return False
+        return True
+
+    @staticmethod
+    def number_ok(lo, hi, i, n):
+        """Could light i legally take number n, given what its direction knows?
+
+        Exact when the light's own number is known (lo[i] == hi[i] == it).
+        Otherwise a range narrowed by _sequence_bounds from whichever known
+        numbers flank it -- unconstrained, bar the floor of 1, when none do.
+        """
+        return lo[i] <= n and (hi[i] is None or n <= hi[i])
+
+    # --- the search -------------------------------------------------------
+
+    def run(self):
+        self.row(0, 0, 0, 1, [])
+        return self.solutions
+
+    def row(self, y, ai, di, n, trail):
+        if self.nodes > self.max_nodes or self.hit_cap:
+            self.hit_cap = True
+            return
+        if len(self.solutions) >= self.limit:
+            return
+        if y == self.rows:
+            if ai == self.na and di == self.nd and self.whole_grid_ok():
+                self.solutions.append(self.snapshot())
+            return
+        self.column(y, 0, ai, di, n, trail)
+
+    def column(self, y, x, ai, di, n, trail):
+        """Decide what occupies column x of row y: a block, or a white run.
+
+        The grid is read straight out of the flat cell list here rather than
+        through get(): this is the innermost loop of the whole search, and the
+        scan for how far a white run could reach runs on every node.
+        """
+        self.nodes += 1
+        if self.hit_cap or self.nodes > self.max_nodes:
+            self.hit_cap = True
+            return
+        if len(self.solutions) >= self.limit:
+            return
+        cols, cells = self.cols, self.cells
+        if x >= cols:
+            self.close_row(y, ai, di, n, trail)
+            return
+        base = y * cols
+        here = cells[base + x]
+
+        if here != WHITE:
+            mark = len(trail)
+            if self.put(x, y, BLACK, trail) and self.black_run_ok(x, y):
+                self.column(y, x + 1, ai, di, n, trail)
+            self.undo(trail, mark)
+
+        if here == BLACK:
+            return
+        reach = 0
+        while x + reach < cols and cells[base + x + reach] != BLACK:
+            reach += 1
+        # Only a couple of run lengths are worth trying. Two or more cells
+        # start an across light, and across lights are numbered in row-major
+        # order, so the run's length is pinned to the next unspent across
+        # length. Everything else is a single unchecked cell belonging to the
+        # down light through it.
+        lengths = [1] if reach >= 1 else []
+        if ai < self.na:
+            wanted = self.across[ai]
+            if wanted is None:
+                lengths += list(range(self.lmin[ai], min(reach, self.lmax[ai]) + 1))
+            elif 2 <= wanted <= reach:
+                lengths.append(wanted)
+        for length in lengths:
+            if x + length < cols and cells[base + x + length] == WHITE:
+                continue        # the run has to be closed by a block or the edge
+            if length >= 2 and not self.tail_run_ok(y, x, length, ai):
+                continue
+            mark = len(trail)
+            ok = True
+            for i in range(length):
+                if not self.put(x + i, y, WHITE, trail):
+                    ok = False
+                    break
+            if ok:
+                ok = self.put(x + length, y, BLACK, trail)
+            if ok:
+                self.in_run(y, x, length, 0, ai, di, n, trail)
+            self.undo(trail, mark)
+
+    def tail_run_ok(self, y, x, length, ai):
+        """Could a run of `length` cells at (x, y) be the mirror of a light
+        the tail still holds? Row y's runs, left to right, are the tail's
+        lights read backwards from `at`, so the c-th run answers to light
+        at-1-c: checked here, as the run is chosen, instead of when the whole
+        row is banked after every way of finishing it has been tried."""
+        if not self.symmetry or self.rows - 1 - y <= y:
+            return True
+        cells, base, runs, run = self.cells, y * self.cols, 0, 0
+        for i in range(x):
+            if cells[base + i] == WHITE:
+                run += 1
+            else:
+                if run >= 2:
+                    runs += 1
+                run = 0
+        t = self.at - 1 - runs
+        if t <= ai:
+            return False
+        return self.across[t] in (None, length) \
+            and self.lmin[t] <= length <= self.lmax[t]
+
+    def in_run(self, y, x0, length, i, ai, di, n, trail):
+        """Match cell i of a white run against the light it would have to be.
+
+        The row above is fully decided by the time we are here, so "does a
+        down light start in this cell" is only open when the cell above is a
+        block — and when clue numbers are known it is not open even then,
+        because the number this cell must carry says whether a down light
+        shares it.
+        """
+        # Column decisions are the nodes the budget is sized in; the in_run
+        # and branch_down fan-out between them is bounded as well, at the
+        # ratio it runs at (about three to one), so that no path outruns it.
+        self.steps += 1
+        if self.hit_cap or self.steps > STEP_RATIO * self.max_nodes:
+            self.hit_cap = True
+            return
+        if len(self.solutions) >= self.limit:
+            return
+        if i == length:
+            self.column(y, x0 + length + 1, ai, di, n, trail)
+            return
+        x = x0 + i
+        top_blocked = y == 0 or self.cells[(y - 1) * self.cols + x] == BLACK
+
+        if i == 0 and length >= 2:
+            # An across light starts here; it can only be the next one.
+            if ai >= self.na:
+                return
+            want = self.across[ai]
+            if want is not None and want != length:
+                return
+            if not self.number_ok(self.alo, self.ahi, ai, n):
+                return
+            mark = len(trail)
+            if self.take(ai, length, trail) and (
+                    self.awords is None
+                    or self.write(self.awords[ai], x, y, 1, 0, trail)):
+                self.branch_down(y, x, length, i, ai + 1, di, n, top_blocked,
+                                 numbered=True, trail=trail)
+            self.undo(trail, mark)
+            return
+
+        if not top_blocked:
+            # Mid-column: inside a down light already committed, so this cell
+            # starts nothing and carries no number.
+            self.in_run(y, x0, length, i + 1, ai, di, n, trail)
+            return
+
+        self.branch_down(y, x, length, i, ai, di, n, True,
+                         numbered=False, trail=trail)
+
+    def branch_down(self, y, x, length, i, ai, di, n, top_blocked, numbered,
+                    trail):
+        """Does a down light start in this cell? Try both answers that survive.
+
+        `numbered` says the cell is already spoken for by an across light, so
+        it takes number n either way; otherwise it takes a number only if a
+        down light does start here, and if it does not it is an unchecked
+        square in the across light it sits in.
+        """
+        x0 = x - i
+        may_start = top_blocked and di < self.nd
+        if may_start and not numbered and ai < self.na \
+                and self.anum[ai] is not None and self.anum[ai] == n:
+            may_start = False   # a down-only number is not one the acrosses claim
+        if may_start and not self.number_ok(self.dlo, self.dhi, di, n):
+            may_start = False
+
+        if may_start:
+            want = self.down[di]
+            spans = ([want] if want is not None
+                     else range(self.lmin[self.na + di],
+                                min(self.rows - y, self.lmax[self.na + di]) + 1))
+            for down_len in spans:
+                mark = len(trail)
+                if self.commit_down(x, y, down_len, trail) \
+                        and self.take(self.na + di, down_len, trail) and (
+                        self.dwords is None
+                        or self.write(self.dwords[di], x, y, 0, 1, trail)):
+                    self.in_run(y, x0, length, i + 1, ai, di + 1, n + 1, trail)
+                self.undo(trail, mark)
+
+        # The other answer: no down light begins here. Always open, even when
+        # the numbers say down light di is numbered n -- n may belong to a
+        # cell further along the row.
+        if numbered or length >= 2:
+            # A one-cell run that starts no down light would be white with
+            # blocks on all four sides.
+            mark = len(trail)
+            ok = self.put(x, y + 1, BLACK, trail) if top_blocked else True
+            if ok:
+                self.in_run(y, x0, length, i + 1, ai, di,
+                            n + 1 if numbered else n, trail)
+            self.undo(trail, mark)
+
+    def commit_down(self, x, y, down_len, trail):
+        """Paint a whole down light now, and the block that stops it."""
+        if y + down_len > self.rows:
+            return False
+        for k in range(down_len):
+            if not self.put(x, y + k, WHITE, trail):
+                return False
+        return self.put(x, y + down_len, BLACK, trail)
+
+    def close_row(self, y, ai, di, n, trail):
+        """Bank the row, and read the mirrored bottom row off the list's tail.
+
+        Row y fixes row rows-1-y. That row's across lights are this row's runs
+        in reverse, and the down lights that *start* there are the mirrors of
+        the ones that *end* here — both fully known now, and both a suffix of
+        their list, since numbering runs row-major. Checking them against the
+        tail turns the bottom of the grid from something verified at the end
+        of the search into something that constrains its first decision.
+        """
+        mirror = self.rows - 1 - y
+        saved = (self.at, self.dt, self.tn)
+        mark = len(trail)
+        ok = True
+        if self.symmetry and mirror > y:
+            ok = self.claim_mirror_row(y, ai, di, trail)
+            if ok and self.tn is not None and self.tn + 1 < n:
+                ok = False      # the head and the tail have passed each other
+        if ok and di < self.nd and self.deepest[di] > self.rows - (y + 1):
+            ok = False          # a long down light with no row left to start in
+        if ok:
+            # Rows still free, and the across lights that must go in them.
+            band = (mirror - 1 - y) if (self.symmetry and mirror > y) else (self.rows - 1 - y)
+            top = self.at if (self.symmetry and mirror > y) else self.na
+            left = top - ai
+            if left > band * self.per_row \
+                    or (self.apre[top] - self.apre[ai]) > band * self.cols \
+                    or self.rows_needed(ai, top) > band:
+                ok = False
+            elif self.strict and left < band // 2:
+                # Across-free rows cannot touch, so at least every other row
+                # of the band carries a light, and each carries at least one.
+                ok = False
+        if ok and mirror > y + 1:
+            ok = self.next_row_fits(y, ai, top)
+        saved_across = self.prev_across
+        if ok and self.strict:
+            ok = self.row_ok(y)
+        if ok:
+            ok = self.column_runs_ok(y)
+        if ok and self.no_square:
+            ok = self.square_free(y) and (
+                not self.symmetry or self.square_free(self.rows - 2 - y))
+        if ok:
+            self.row(y + 1, ai, di, n, trail)
+        self.prev_across = saved_across
+        self.at, self.dt, self.tn = saved
+        self.undo(trail, mark)
+
+    def black_run_ok(self, x, y):
+        """Is the row of blocks ending at (x, y) no longer than the cap?"""
+        cells, k, i = self.cells, self.max_black_run, y * self.cols + x
+        lo = y * self.cols
+        run = 0
+        while i >= lo and cells[i] == BLACK:
+            run += 1
+            if run > k:
+                return False
+            i -= 1
+        return True
+
+    def square_free(self, y):
+        """No 2x2 of white cells in rows y and y+1, so far as they are decided."""
+        if y < 0 or y + 1 >= self.rows:
+            return True
+        cols, cells = self.cols, self.cells
+        a, b = y * cols, (y + 1) * cols
+        for x in range(cols - 1):
+            if (cells[a + x] == WHITE and cells[a + x + 1] == WHITE
+                    and cells[b + x] == WHITE and cells[b + x + 1] == WHITE):
+                return False
+        return True
+
+    def column_runs_ok(self, y):
+        """No column's blocks ending in row y run longer than the cap."""
+        cells, cols, k = self.cells, self.cols, self.max_black_run
+        if y + 1 < k:
+            return True
+        for x in range(cols):
+            run, yy = 0, y
+            while yy >= 0 and cells[yy * cols + x] == BLACK:
+                run += 1
+                yy -= 1
+            if run > k:
+                return False
+        return True
+
+    def claim_mirror_row(self, y, ai, di, trail):
+        """Claim the mirrored row's lights off the tails, and write them in.
+
+        Cell (x, y) ending a light is its twin starting one, so walking row y
+        left to right walks the mirror row right to left, and meets its lights
+        in the reverse of their printed order: the tail of each list, read
+        backwards. Their answers go in now, so the bottom half checks the
+        crossings of the top one from the first row on.
+        """
+        cols, rows, cells = self.cols, self.rows, self.cells
+        base, my = y * cols, rows - 1 - y
+        run = 0
+        for x in range(cols):
+            if cells[base + x] != WHITE:
+                run = 0
+                continue
+            run += 1
+            starts = False
+            if run >= 2 and (x + 1 == cols or cells[base + x + 1] != WHITE):
+                starts = True
+                self.at -= 1
+                if self.at < ai or self.across[self.at] not in (None, run) \
+                        or not self.lmin[self.at] <= run <= self.lmax[self.at]:
+                    return False
+                if not self.peek(self.at, run):
+                    return False
+                if self.tn is not None and not self.number_ok(
+                        self.alo, self.ahi, self.at, self.tn):
+                    return False
+                if self.awords is not None and not self.write(
+                        self.awords[self.at], cols - 1 - x, my, 1, 0, trail):
+                    return False
+            if cells[base + cols + x] != WHITE:
+                k = 1
+                while y - k >= 0 and cells[(y - k) * cols + x] == WHITE:
+                    k += 1
+                if k >= 2:
+                    starts = True
+                    self.dt -= 1
+                    if self.dt < di or self.down[self.dt] not in (None, k) \
+                            or not self.lmin[self.na + self.dt] <= k <= self.lmax[self.na + self.dt]:
+                        return False
+                    if self.tn is not None and not self.number_ok(
+                            self.dlo, self.dhi, self.dt, self.tn):
+                        return False
+                    if not self.peek(self.na + self.dt, k):
+                        return False
+                    if self.dwords is not None and not self.write(
+                            self.dwords[self.dt], cols - 1 - x, my, 0, 1, trail):
+                        return False
+            if starts and self.tn is not None:
+                self.tn -= 1
+        return True
+
+    def next_row_fits(self, y, lo, hi):
+        """Look one row down before banking this one.
+
+        Deciding row y writes every cell of row y+1 that sits under a white
+        cell, because a white cell either continues a down light or is
+        stopped by a block. So half of the next row is already on the board,
+        and a white stretch of it that no remaining across light could ever
+        be is a dead end -- found now, rather than after the next row has been
+        searched a hundred thousand times. This is the prune that lets the
+        hard 15x15s finish.
+        """
+        lengths, spans = set(), []
+        for i in range(lo, hi):
+            if self.across[i] is None:
+                spans.append((self.lmin[i], self.lmax[i]))
+            else:
+                lengths.add(self.across[i])
+        longest = max(lengths | {b for _a, b in spans}, default=0)
+
+        def fits(length):
+            return length in lengths or any(a <= length <= b for a, b in spans)
+
+        ny, x = y + 1, 0
+        while x < self.cols:
+            if self.get(x, ny) != WHITE:
+                x += 1
+                continue
+            start = x
+            while x < self.cols and self.get(x, ny) == WHITE:
+                x += 1
+            length = x - start
+            if length < 2:
+                continue        # one cell is an unchecked square, always legal
+            growable = (start > 0 and self.get(start - 1, ny) is None) \
+                or (x < self.cols and self.get(x, ny) is None)
+            if growable:
+                if longest < length:
+                    return False
+            elif not fits(length):
+                return False
+        return True
+
+    def rows_needed(self, lo, hi):
+        """Fewest rows that could hold across lights lo..hi-1, in this order.
+
+        Lights are numbered row-major, so a row takes a contiguous group of
+        them, and a group of k lights needs its lengths plus k-1 blocks. Greedy
+        is exact for a contiguous partition, and it is the difference between
+        "the lengths would fit somewhere" and "they would fit in the rows that
+        are left".
+        """
+        if hi <= lo:
+            return 0
+        used, need = 0, 1
+        for i in range(lo, hi):
+            # A light needs its own cells and a block after it, so k lights in
+            # one row cost sum(length) + k - 1, which is sum(length + 1) - 1.
+            cost = self.lmin[i] + 1
+            if used + cost > self.cols + 1:
+                need += 1
+                used = cost
+            else:
+                used += cost
+        return need
+
+    # --- the conventions the corpus actually obeys ------------------------
+    # Each was counted over all 15,931 published grids before it was written
+    # down here, and each holds for every one of them. They are what stops the
+    # search wandering into grids that are numbered correctly and are not
+    # crosswords -- an all-black row is the cheap example, and without these
+    # the search spends its whole budget under one.
+
+    def row_ok(self, y):
+        """Two rules about a single row, checked the moment it is decided."""
+        white = sum(1 for x in range(self.cols) if self.get(x, y) == WHITE)
+        if white < self.min_row_white:
+            return False        # no row of any puzzle has fewer than two
+        has_across = bool(self.across_runs(y))
+        if not has_across and not self.prev_across:
+            return False        # no puzzle has two such rows in a row
+        self.prev_across = has_across
+        return True
+
+    def whole_grid_ok(self):
+        """The same rules down the columns, plus one connected grid.
+
+        Columns cannot be judged until the last row is placed, so these do not
+        prune -- they cut the answer down, which is what matters when the clue
+        numbers are missing and several grids fit. The rules themselves live in
+        conventions_broken(), so that what a finished grid is judged against and
+        what a miss is explained by cannot drift apart.
+        """
+        if not self.strict:
+            return True
+        return not conventions_broken(self.snapshot(), symmetry=False)
+
+    def snapshot(self):
+        return tuple(
+            "".join("." if self.cells[y * self.cols + x] else "#"
+                    for x in range(self.cols))
+            for y in range(self.rows))
+
+    def across_runs(self, y):
+        """Lengths of row y's across lights, left to right, the row now fixed.
+
+        Left to right here is right to left in the mirrored row, which is why
+        the caller walks the tail of the across list backwards as it goes.
+        """
+        out, run = [], 0
+        row = self.cells[y * self.cols:(y + 1) * self.cols]
+        for cell in row + [BLACK]:
+            if cell == WHITE:
+                run += 1
+            else:
+                if run >= 2:
+                    out.append(run)
+                run = 0
+        return out
+
+
+def light_cells(grid):
+    """The forward function: which cells does each light of this grid cover?
+
+    Row-major scan; a cell takes the next number when it starts an across
+    light (two or more cells, a block, a bar or the edge to its left) or a
+    down one. Everything in this module exists to invert exactly this, so the
+    numbering is written once, here, and lights_from_grid is a view of it.
+
+    A grid is a string per row, a character per cell: "#" a block, any other
+    an open cell, and a barred grid's bars on the cell they follow ("r" a bar
+    on its right, "b" one below it, "+" both, "." neither).
+
+    Returns {(number, direction): [(y, x), ...]} in printed order.
+    """
+    rows, cols = len(grid), len(grid[0])
+    # Does (y, x) run on into its right / lower neighbour?
+    right = [[x + 1 < cols and row[x] not in "#r+" and row[x + 1] != "#"
+              for x in range(cols)] for row in grid]
+    below = [[y + 1 < rows and grid[y][x] not in "#b+" and grid[y + 1][x] != "#"
+              for x in range(cols)] for y in range(rows)]
+    cells, number = {}, 0
+    for y in range(rows):
+        for x in range(cols):
+            if grid[y][x] == "#":
+                continue
+            across = right[y][x] and (x == 0 or not right[y][x - 1])
+            down = below[y][x] and (y == 0 or not below[y - 1][x])
+            if not (across or down):
+                continue
+            number += 1
+            if across:
+                run = [(y, x)]
+                while right[y][run[-1][1]]:
+                    run.append((y, run[-1][1] + 1))
+                cells[(number, "across")] = run
+            if down:
+                run = [(y, x)]
+                while below[run[-1][0]][x]:
+                    run.append((run[-1][0] + 1, x))
+                cells[(number, "down")] = run
+    return cells
+
+
+def lights_from_grid(grid):
+    """What clue list would this grid print? (number, direction, length)."""
+    return [(n, d, len(cells)) for (n, d), cells in light_cells(grid).items()]
+
+
+def conventions_broken(grid, symmetry=True):
+    """Which of this module's rules a finished grid breaks; empty means none.
+
+    The search enforces these, so a published grid that breaks one is a
+    published grid the search cannot return, and this is the sentence that
+    says which. It is what tests/test_reconstruct_grid.py prints beside a
+    miss, so a miss never has to be investigated by hand twice.
+    """
+    rows, cols = len(grid), len(grid[0])
+    white = [[c == "." for c in row] for row in grid]
+    broken = []
+    if symmetry and any(white[y][x] != white[rows - 1 - y][cols - 1 - x]
+                        for y in range(rows) for x in range(cols)):
+        broken.append("not 180-degree symmetric")
+
+    def scan(lines, what, least):
+        bare = 0
+        for line in lines:
+            if sum(line) < least:
+                broken.append(f"a {what} has fewer than two white cells"
+                              if least == 2 else f"a {what} has no white cell")
+                return
+            longest, run = 0, 0
+            for cell in list(line) + [False]:
+                run = run + 1 if cell else 0
+                longest = max(longest, run)
+            bare = bare + 1 if longest < 2 else 0
+            if bare >= 2:
+                broken.append(f"two adjacent {what}s with no light along them")
+                return
+
+    # Rows two, columns one: see the module docstring for Genius 209.
+    scan(white, "row", 2)
+    scan([[white[y][x] for y in range(rows)] for x in range(cols)], "column", 1)
+
+    start = next(((x, y) for y in range(rows) for x in range(cols)
+                  if white[y][x]), None)
+    if start is not None:
+        seen, stack = {start}, [start]
+        while stack:
+            x, y = stack.pop()
+            for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if 0 <= nx < cols and 0 <= ny < rows and white[ny][nx] \
+                        and (nx, ny) not in seen:
+                    seen.add((nx, ny))
+                    stack.append((nx, ny))
+        if len(seen) != sum(row.count(True) for row in white):
+            broken.append("white cells cut off from the rest of the grid")
+    return broken
+
+
+def parse_lights(spec):
+    """Normalise either input shape to (across, down, across_nums, down_nums).
+
+    Numbers come back as None when the caller had none for that light, which
+    is the common case for anything that has been through OCR: any mix of
+    known and unknown numbers is legal, one entry at a time.
+
+    The triple form ``(number, direction, length)`` is read positionally: the
+    triples for one direction must be given in the order the puzzle prints
+    them (row-major order, same as increasing number), and `number` may be
+    `None` for any of them. When every number is given this is the order
+    sorting by number produces; a caller with gaps leaves them `None` in
+    place rather than omitting them.
+    """
+    if isinstance(spec, dict):
+        across = [None if v is None else int(v) for v in spec.get("across", [])]
+        down = [None if v is None else int(v) for v in spec.get("down", [])]
+        anum = spec.get("acrossNumbers")
+        dnum = spec.get("downNumbers")
+        if anum is not None:
+            anum = [None if v is None else int(v) for v in anum]
+        if dnum is not None:
+            dnum = [None if v is None else int(v) for v in dnum]
+        return across, down, anum, dnum
+
+    lengths = {"across": [], "down": []}
+    numbers = {"across": [], "down": []}
+    last = {"across": None, "down": None}
+    for number, direction, length in spec:
+        d = str(direction).lower()
+        if d not in lengths:
+            raise ValueError(f"light {number}: unknown direction {direction!r}")
+        num = None if number is None else int(number)
+        if num is not None and last[d] is not None and num <= last[d]:
+            raise ValueError(
+                f"{d} numbers must strictly increase in the order given; "
+                f"{num} follows {last[d]}")
+        if num is not None:
+            last[d] = num
+        numbers[d].append(num)
+        lengths[d].append(None if length is None else int(length))
+    return lengths["across"], lengths["down"], numbers["across"], numbers["down"]
+
+
+def number_gaps(anum, dnum):
+    """Numbers 1..N that no light carries, when every light's number is known.
+
+    Numbering is dense, so a skipped number is a light the list lost and no
+    grid can print it -- which the search can take its whole budget to prove.
+    """
+    if anum is None or dnum is None:
+        return []
+    nums = list(anum) + list(dnum)
+    if not nums or None in nums:
+        return []
+    return sorted(set(range(1, max(nums) + 1)) - set(nums))
+
+
+def split_words(spec, words):
+    """(across words, down words), parallel to parse_lights' length lists."""
+    if words is None:
+        return None
+    if isinstance(spec, dict) or len(words) != len(spec):
+        raise ValueError("words must be one per triple, in the order given")
+    out = {"across": [], "down": []}
+    for (_, direction, _), word in zip(spec, words):
+        out[str(direction).lower()].append(word.upper() if word else None)
+    return out["across"], out["down"]
+
+
+def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
+                max_nodes=DEFAULT_MAX_NODES, fallback=False, strict=True,
+                words=None, max_black_run=None, groups=None, min_light=2,
+                no_square=False, min_row_white=2):
+    """Every grid whose numbering would print these lights.
+
+    Returns (solutions, info). Each solution is a tuple of row strings, '#'
+    for a block and '.' for a letter. `info` says how the answer was reached:
+    whether symmetry was assumed, how much search it took, and whether a limit
+    cut the enumeration short — a caller handed one grid deserves to know
+    whether it is the only one or merely the only one we looked for.
+
+    `fallback` re-runs without symmetry, but only when the symmetric pass
+    both finished and found nothing — which is the shape an asymmetric grid
+    makes, and not the shape a budget running out makes. Spending a second
+    full budget on a search that has already proved it cannot finish the
+    easier version is the one way this call can waste a minute for nothing.
+    About one puzzle in 450 here is asymmetric; on a 13x13 the unconstrained
+    search still lands in a tenth of a second, on a 23x23 it does not land.
+
+    `words`, one answer per triple of `spec` (None where unknown), writes each
+    answer in as its light is placed, so only grids the answers agree in come
+    back -- and they come back fast, because two lights that disagree on a
+    square die when the second is placed instead of after the whole grid is.
+    A list that skips a number is refused before any search, `info["gaps"]`
+    naming the numbers.
+
+    `max_black_run` caps how many blocks may stand in a line, across or down.
+    It is not a rule of crosswords -- the Independent prints eleven -- so it
+    is the caller's, for a series it has been counted on. It is what makes a
+    23x23 finish: without it the search's first move is a top row of sixteen
+    blocks, legal and hopeless, and the budget goes on refuting that.
+
+    `min_light` is the shortest light of unknown length the search tries
+    (2, the shortest a light can be). A series that has never printed a
+    shorter one may say so: Cyclops has no light under three in any of its
+    695 filed grids, and a free length starting at 3 is a third fewer
+    branches at every unknown light. Known lengths are never touched.
+
+    `no_square` forbids a 2x2 block of white cells. Not a rule of crosswords
+    (an American grid has them) but true of every one of the 681 15x15
+    Cyclops grids filed, a checked-alternately style, and it prunes hard: the
+    caller's, for a series it has been counted on.
+
+    `min_row_white` is the fewest white cells a row may hold (2, the least
+    any published grid has). Cyclops has none under three in 777 filed grids.
+
+    `groups`, a list of ([(direction, index), ...], total), ties lights of
+    unknown length together: a linked answer whose enumeration counts words,
+    not lights, so only the sum of its lights' lengths is printed. `index`
+    is the light's place in its direction's list (the order `spec` gives).
+    """
+    across, down, anum, dnum = parse_lights(spec)
+    if not across and not down:
+        raise ValueError("no lights given")
+    gaps = number_gaps(anum, dnum)
+    if gaps:
+        return [], {"symmetric": bool(symmetry), "nodes": 0,
+                    "truncated": False, "gaps": gaps}
+    split = split_words(spec, words)
+    # The search recurses a few frames per cell; a 23x23 is past the default.
+    sys.setrecursionlimit(max(sys.getrecursionlimit(), 8 * cols * rows + 200))
+    solver = _Solver(across, down, anum, dnum, cols, rows,
+                     limit, bool(symmetry), max_nodes, strict, split,
+                     max_black_run, groups, min_light, no_square, min_row_white)
+    found = solver.run()
+    info = {"symmetric": bool(symmetry), "nodes": solver.nodes, "steps": solver.steps,
+            "truncated": solver.hit_cap or len(found) >= limit}
+    if found or not (symmetry and fallback) or info["truncated"]:
+        return found, info
+    loose = _Solver(across, down, anum, dnum, cols, rows,
+                    limit, False, max_nodes, strict, split, max_black_run,
+                    groups, min_light, no_square, min_row_white)
+    found = loose.run()
+    return found, {"symmetric": False, "nodes": solver.nodes + loose.nodes,
+                   "truncated": loose.hit_cap or len(found) >= limit}
+
+
+def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
+                max_black_run=None, pick=None, limit=DEFAULT_LIMIT, search=None,
+                groups=None, min_light=2, no_square=False, min_row_white=2):
+    """(grid, None) when exactly one grid prints these lights and the search
+    finished, else (None, why not): a filer backsolving a grid from its clue
+    list files it only then. `pick`, given every grid of a finished search
+    that found several, returns the one other evidence (a scan of the grid)
+    settles on, or None. `search` runs reconstruct() (another host's,
+    tools/ocr_remote.py's)."""
+    try:
+        found, info = (search or reconstruct)(spec, cols=cols, rows=rows,
+                                  limit=limit if pick else 2,
+                                  max_nodes=max_nodes, words=words,
+                                  max_black_run=max_black_run,
+                                  **({"groups": groups} if groups else {}),
+                                  **({"min_light": min_light} if min_light != 2 else {}),
+                                  **({"no_square": True} if no_square else {}),
+                                  **({"min_row_white": min_row_white}
+                                     if min_row_white != 2 else {}))
+    except ValueError as e:
+        return None, f"clue list unusable: {e}"
+    if info.get("gaps"):
+        return None, f"numbers {info['gaps']} lost from the clue list"
+    if len(found) == 1 and not info["truncated"]:
+        return list(found[0]), None
+    if found and not info["truncated"]:
+        chosen = pick(list(found)) if pick else None
+        if chosen is not None:
+            return list(chosen), None
+        return None, f"{len(found)} grids fit the clue list"
+    if len(found) >= (limit if pick else 2):
+        # The grid limit stopped it, not the budget: the list is ambiguous.
+        return None, f"at least {len(found)} grids fit the clue list"
+    if found:
+        return None, f"{len(found)} grids found before the search ran out of budget"
+    return None, "the search " + ("ran out of budget" if info["truncated"] else "found no grid")
+
+
+def lights_of(puzzle, numbered=True):
+    """The clue list's own metadata, in printed order: what a reader has."""
+    order = {"across": 0, "down": 1}
+    entries = sorted(puzzle["entries"],
+                     key=lambda e: (e["number"], order[e["direction"]]))
+    if numbered:
+        return [(e["number"], e["direction"], e["length"]) for e in entries]
+    return {d: [e["length"] for e in entries if e["direction"] == d]
+            for d in ("across", "down")}
+
+
+def blank_numbers(triples, fraction, rng):
+    """Simulate the OCR damage this module exists for: lose `fraction` of the
+    numbers off a fully-numbered light list, keep everything else.
+
+    Order is untouched -- it is what parse_lights reads position from once a
+    number is gone -- and which lights lose theirs is decided by `rng`, so a
+    fixed seed reproduces the exact same puzzle at the exact same coverage
+    level every run. `fraction` is a probability per light, not a count, so
+    0.0 and 1.0 reproduce the fully-numbered and fully-numberless paths
+    exactly rather than approximating them.
+    """
+    return [(None if rng.random() < fraction else number, direction, length)
+            for number, direction, length in triples]
+
+
+def barred(grid):
+    """Is this a barred grid, its lights ended by bars rather than blocks?"""
+    return any(c in "rb+" for row in grid for c in row)
+
+
+def grid_of(puzzle):
+    """The published grid, as light_cells() reads it: a barred puzzle's
+    `bars` rows with its black squares, else its black squares as
+    reconstruct() would render them: the squares no entry covers."""
+    cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
+    white = [[False] * cols for _ in range(rows)]
+    for e in puzzle["entries"]:
+        x, y = e["position"]["x"], e["position"]["y"]
+        for i in range(e["length"]):
+            cx, cy = (x + i, y) if e["direction"] == "across" else (x, y + i)
+            if 0 <= cx < cols and 0 <= cy < rows:
+                white[cy][cx] = True
+    if puzzle.get("bars"):
+        # A barred grid may have black squares too (Listener No 29): a square
+        # no light covers is black, unless an unclued light has it (No 93's
+        # greeting), as a lone square between bars is in no entry.
+        for light in puzzle.get("unclued") or []:
+            for c in light.get("cells") or []:
+                if 0 <= c["x"] < cols and 0 <= c["y"] < rows:
+                    white[c["y"]][c["x"]] = True
+        return tuple("".join(ch if white[y][x] else "#" for x, ch in enumerate(row))
+                     for y, row in enumerate(puzzle["bars"]))
+    return tuple("".join("." if c else "#" for c in row) for row in white)
+
+
+def specs_in(data):
+    """The searches a --lights file asks for: one spec, or a list of specs.
+    ocr_remote.reconstruct ships triples, so the dict shape becomes triples."""
+    if isinstance(data, list) and data and (
+            isinstance(data[0], dict)
+            or (isinstance(data[0], list) and data[0] and isinstance(data[0][0], list))):
+        return [one for d in data for one in specs_in(d)]
+    if isinstance(data, dict):
+        nums = {d: data.get(d + "Numbers") or [None] * len(data.get(d, [])) for d in ("across", "down")}
+        return [[(n, d, length) for d in ("across", "down")
+                 for n, length in zip(nums[d], data.get(d, []))]]
+    return [data]
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("puzzle", nargs="?", help="puzzle id to strip and re-derive")
+    ap.add_argument("--lights", action="append",
+                    help='JSON file: {"across": [...], "down": [...]}'
+                         ' or [[number, direction, length], ...], or a list of those;'
+                         ' given again, each is one more search, run together on the desktop')
+    ap.add_argument("--words", action="append",
+                    help="JSON file: a list parallel to the lights, the word where known,"
+                         " null where not (once for all, or once per --lights)")
+    ap.add_argument("--numberless", action="store_true",
+                    help="throw the clue numbers away before reconstructing")
+    ap.add_argument("--blank", type=float, default=0.0,
+                    help="fraction of clue numbers to erase at random first, "
+                         "simulating partial OCR loss (needs the puzzle id; not read with --lights)")
+    ap.add_argument("--seed", type=int, default=0, help="seed for --blank")
+    ap.add_argument("--cols", type=int, default=15)
+    ap.add_argument("--rows", type=int, default=15)
+    ap.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
+    ap.add_argument("--no-symmetry", action="store_true")
+    ap.add_argument("--fallback", action="store_true",
+                    help="retry without symmetry if the symmetric pass is empty")
+    ap.add_argument("--max-nodes", type=int, default=DEFAULT_MAX_NODES)
+    args = ap.parse_args(argv)
+
+    if bool(args.puzzle) == bool(args.lights):
+        ap.error("give either a puzzle id or --lights, not both")
+    if args.blank and args.lights:
+        ap.error("--blank blanks a puzzle's printed numbers; it needs a puzzle id, not --lights")
+
+    published = None
+    if args.puzzle:
+        puzzle = read_puzzle_file(resolve_puzzle(args.puzzle))
+        spec = lights_of(puzzle, numbered=not args.numberless)
+        if args.blank:
+            if args.numberless:
+                ap.error("--blank already has nothing to erase under --numberless")
+            spec = blank_numbers(spec, args.blank, random.Random(args.seed))
+        published = grid_of(puzzle)
+        specs = [spec]
+        cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
+    else:
+        specs = [s for f in args.lights for s in specs_in(json.loads(Path(f).read_text(encoding="utf-8")))]
+        cols, rows = args.cols, args.rows
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    import ocr_remote  # the search runs on the desktop when OCR_REMOTE is set
+
+    words = [json.loads(Path(w).read_text(encoding="utf-8")) for w in args.words or []]
+    if len(words) > 1 and len(words) != len(specs):
+        ap.error("--words once, or once per --lights")
+    runs = [dict(cols=cols, rows=rows, limit=args.limit,
+                 symmetry=not args.no_symmetry, fallback=args.fallback,
+                 max_nodes=args.max_nodes,
+                 **({"words": words[i % len(words)]} if words else {}))
+            for i in range(len(specs))]
+    with ThreadPoolExecutor(max(1, min(len(specs), ocr_remote.SEARCH_SLOTS))) as pool:
+        results = list(pool.map(lambda sr: ocr_remote.reconstruct(sr[0], **sr[1]),
+                                zip(specs, runs)))
+
+    for n, (found, info) in enumerate(results, 1):
+        if len(specs) > 1:
+            print(f"{'' if n == 1 else chr(10)}== lights {n} of {len(specs)} ==")
+        print(f"{cols}x{rows}: {len(found)} grid(s), {info['nodes']} nodes"
+              + ("" if info.get("symmetric") else ", symmetry not assumed")
+              + (", search truncated" if info.get("truncated") else ""))
+        for i, grid in enumerate(found, 1):
+            mark = "  <- published" if published is not None and grid == published else ""
+            print(f"\n  grid {i}{mark}")
+            for row in grid:
+                print("    " + " ".join(row))
+    found = results[0][0]
+    if published is None:
+        return 0
+    print()
+    if not found:
+        print("MISS: no grid found")
+    elif published not in found:
+        print("MISS: the published grid is not among them")
+    elif len(found) == 1:
+        print("exact: the published grid, uniquely")
+    else:
+        print(f"ambiguous: the published grid is 1 of {len(found)}")
+    return 0 if published in found else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

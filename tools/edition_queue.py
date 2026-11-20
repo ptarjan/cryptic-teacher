@@ -1,0 +1,5557 @@
+#!/usr/bin/env python3
+"""The archive.org and Gale editions' read queue: one small unit per edition.
+
+    python3 tools/edition_queue.py run [--paper P ...] [--reread BEFORE] [--seconds N] [--workers N] [--fetch SRC]
+    python3 tools/edition_queue.py plan [--paper P ...] [--reread BEFORE] [--fetch SRC]  # what is due; reads nothing
+    python3 tools/edition_queue.py unit KIND PAPER REL  # one unit; the queue starts these (CT_EDITION_UNIT)
+
+Each unit is one edition's scan (file_archive_org_puzzles.scan_unit) or one
+edition's read and filing (read_unit), run in a process of its own, started
+as `python3 tools/edition_queue.py unit ...` (never forked from this one), so
+it runs the code its tree holds when it starts, with its own time limit (SCAN_SECONDS, READ_SECONDS) and its
+own lock on the edition (scan_queue.source_lock), adding its own ledger row
+(scan_queue.append). So one slow edition holds up only its own slot, and no
+two units read one edition at once.
+
+What is due comes from file_archive_org_puzzles.plan(), every paper's, made
+again every REPLAN seconds on a thread. A paper whose inputs did not move is
+its last plan again; one whose ledger a unit's row landed in is its last plan
+brought up to date (file_archive_org_puzzles.PaperPlan: only the editions
+that row touches are worked out again), and planned whole only at a
+process's start and every PLAN_FULL seconds. An edition just laid out (a Gale page Paul saved, an
+archive.org fetch: fresh) is found apart from it, every FRESH_POLL seconds
+on the dispatch loop, and its scan and read start ahead of everything
+planned, so it is read within minutes whatever the planner is doing. Then
+the most urgent first (plan's RANKS): Gale pages the fetcher downloaded, then never-read
+editions and the re-reads annotation asked for (tools/scan_queue.py), then
+the re-reads that can change what was filed (inputs moved, a fix for a
+refusal cause), then the whole-corpus ones (a scan-code change, --reread
+BEFORE), which start only once nothing more urgent waits in any pool; each
+rank the reads predicted to file the most puzzles whole first (fa.likely:
+a fix since their last read mends what held them), then the newest edition.
+A read waits until the scans it needs (its own, and the SOLUTION_DAYS after
+it, where its solution prints) are made; those scans take the read's rank.
+A read never starts before its own planned scan has ended done: a read
+unit making that scan itself does it at the reads' idle desktop priority
+and then reads the whole edition here, not prepared, past READ_SECONDS.
+Scans run whole on the desktop (ocr_remote.scan, its CPU) in SCAN_WORKERS
+slots, reads in --workers slots (mostly the desktop's CPU: its VLM is idle
+most of the time). A scan holds while the next --workers ready reads of
+its rank or more urgent are there and none of them needs it: scans run
+above the reads there and finish ten times as fast, so unchecked they keep
+most of the desktop's cores while the scanned editions' reads queue behind them.
+
+--fetch SOURCE adds a fetcher's units (FETCHERS: archive.org, one edition
+each, fetch_archive_org_editions.fetch_unit) in a pool of their own, its
+plan() made with the rest every FETCH_REPLAN seconds; what a fetch lands is scanned and read from the
+next plan on. A unit is tried once a run: one that runs out of time or fails is left for
+the next run. --seconds stops starting units after N seconds and lets those
+running finish, then prints "left for the next run" when anything due was
+not started, as the batch filers do, so tools/ocr_full_pass.sh runs it in
+slices and moves its tree to origin/master between them. With --handoff
+FILE a slice does not wait for its units: at --seconds it writes those still
+running to FILE and ends, and the next slice, started from the moved tree,
+takes them on (counts them in its pools, kills them at their limits, TERMs
+them on a stop) while it starts new units at once. --beside runs a
+batch filer (the Trove filer) beside the units, again while it says "left
+for the next run", each run under its own time limit, so it never waits on
+the editions nor they on it. SIGTERM stops starting units, passes the
+TERM to each one running and waits up to STOP_GRACE seconds for them.
+
+The queue follows its tree too: when a tools/ module it loaded changes on
+disk (tools/durable.sh's DURABLE_RESYNC moves the tree to origin/master while
+it runs), it hands its running units to its own new image (--resume, or
+--handoff when it has one) and re-execs itself, same pid, same --seconds
+end, so no run outlives the code it started on by more than a REPLAN.
+
+SIGHUP reloads the queue (tools/hot_reload.py): no unit starts, the units
+running are handed over to the next image (--handoff; without it they get
+CT_RELOAD_GRACE seconds, then are TERMed and left deferred) and the run exits
+75, which tools/ocr_full_pass.sh takes as "move the tree to origin/master and
+start again at once". The queue asks for that itself when a fetch of
+origin/master (every CT_RELOAD_POLL, 180s) shows tools/ code changed, not
+puzzles, and only in the queue's own code (hot_reload.queue_code: what it
+imports at module level, transitively, the scripts it starts and its wrappers;
+a change elsewhere in tools/ logs "reload: ignoring N changed files" and
+waits for the next relevant one). CT_AUTO_RELOAD=0 opts out.
+
+With CT_YIELD_HOSTS set (space-separated ssh hosts, e.g. "user@host.example";
+unset by default) the queue yields to those hosts too, even with OCR_REMOTE
+empty (scans and reads OCR here, on a machine Paul also games on): while
+desktop_busy.busy says one is busy, nothing but fetches starts, exactly as
+with a busy OCR_REMOTE desktop; units already running are left alone, as there.
+CT_SCAN_WORKERS (default 1, SCAN_WORKERS) raises the most scans at once; with
+it above 1 each scan pins to a core no other scan holds (spread_cpu),
+unless OCR_SCAN_CPU names one.
+Each process loads all its code as it starts (code_reach.modules: lazy
+imports too), under a shared lock on the tree's code (snapshot) that
+tools/durable.sh's tree move takes whole, so none pairs modules of two
+versions of the tree. A scan or read unit loads only its paper's module
+(UNIT_MODULES) and what that may load (load_unit), not the queue's.
+
+With a desktop set (OCR_REMOTE) and not busy, an archive.org or Gale read's
+request is made here as its unit starts (prepare: file_archive_org_puzzles.brief,
+this process's ledger, scans and corpus already loaded), and its unit is
+tools/edition_commit.py's: it loads only its MODULES (under the same lock),
+sends the request, waits and commits what the desktop decided; any other
+outcome runs the whole unit in its place.
+A fetch unit loads only its source's module and that module's MODULES
+(FETCH_UNITS; under the same lock), what its fetch_unit reaches.
+"""
+import argparse
+import ctypes
+import datetime
+import errno
+import functools
+import hashlib
+import itertools
+import importlib
+import importlib.util
+import json
+import os
+import re
+import shlex
+import signal
+import subprocess
+import sys
+import threading
+import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor
+import time
+from pathlib import Path
+
+if sys.argv[1:2] == ["unit"]:
+    # A unit's numpy runs one BLAS thread, set before anything imports it: OpenBLAS otherwise
+    # spins a thread per core on tiny batches (the per-cell classifier's ~16 cells cost 5-7 s
+    # CPU for 0.3 s wall), on a box whose 24 units already fill every core. Results move only at
+    # float rounding (~3e-7). RapidOCR's onnxruntime and cv2 are sized apart (ocr_clues.engine_threads).
+    for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+        os.environ.setdefault(_var, "1")
+
+TOOLS = Path(__file__).resolve().parent
+
+
+def snapshot():
+    """Hold the tree's code still (a shared flock on <git dir>/code.lock,
+    which durable_resync takes alone to move the tree) and return the lock's
+    fd, or None outside a git tree. Found held, the tree is moving: wait it
+    out and re-exec, since what this process read already may be the old."""
+    import fcntl
+    try:
+        path = subprocess.run(["git", "-C", str(TOOLS), "rev-parse", "--path-format=absolute", "--git-path",
+                               "code.lock"], capture_output=True, text=True, check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o644)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_SH | fcntl.LOCK_NB)
+    except BlockingIOError:
+        fcntl.flock(fd, fcntl.LOCK_SH)
+        os.execv(sys.executable, [sys.executable, *sys.argv])
+    return fd
+
+
+def unit_title(unit):
+    """A unit's command line in ps: its kind, paper (or fetch source) and
+    edition, article or file, not the queue's."""
+    return f"edition_queue.py unit {unit['kind']} {unit['paper']} {unit['rel']}"
+
+
+#: The address space (MB) each unit may hold (RLIMIT_AS, inherited by its
+#: tesseract and other children): a unit at ~360 MB, a runaway one (the
+#: 363 MP Gale page of 2013-12-17, 11.8 GB) fails itself with a MemoryError
+#: (unit_status: a failure naming the ceiling) instead of starving the host.
+UNIT_MEMORY_MB = int(os.environ.get("CT_UNIT_MEMORY_MB") or 6144)
+
+
+def cap_memory(mb=None):
+    """In the unit's own process: hold it to `mb` (UNIT_MEMORY_MB) MB of
+    address space, hard, so it cannot raise it again."""
+    import resource
+    n = (mb or UNIT_MEMORY_MB) << 20
+    _, hard = resource.getrlimit(resource.RLIMIT_AS)
+    n = n if hard == resource.RLIM_INFINITY else min(n, hard)
+    resource.setrlimit(resource.RLIMIT_AS, (n, n))
+
+
+def memory_failure(unit, e):
+    """The failure a unit's MemoryError is logged as: the ceiling named."""
+    import scan_queue
+    why = MemoryError(f"{unit['kind']} {unit['rel']} hit its memory ceiling "
+                      f"({UNIT_MEMORY_MB} MB address space, RLIMIT_AS): {e}")
+    why.__cause__ = e
+    return scan_queue.failure((unit["rel"],), why)
+
+
+def titled():
+    """Whether units can name themselves (setproctitle is installed)."""
+    return importlib.util.find_spec("setproctitle") is not None
+
+
+def vlm_deferral(e):
+    """The log words for a unit deferred by VLM error `e`: its asks spooled, or the VLM down."""
+    import vlm_reader
+    if vlm_reader.cause() == "spooled":
+        return f"deferred, {len(vlm_reader.spooled_by(os.getpid()))} VLM asks spooled"
+    if vlm_reader.cause() == "spool full":
+        return "deferred: VLM spool full"
+    return f"deferred, the VLM is down ({e})"
+
+
+def unit_status(unit, run):
+    """In the unit's own process: name it after `unit`, run() it and return
+    its exit status (EXITS; 1 for an error, logged; "deferred" when its
+    desktop reads met a busy desktop and it defers, ocr_remote.DEFER; "lost"
+    when the desktop stopped answering them, ocr_remote.DesktopLost)."""
+    import edition_commit
+    import ocr_remote
+    import scan_queue
+    if titled():
+        import setproctitle
+        setproctitle.setproctitle(unit_title(unit))
+    try:
+        return edition_commit.EXITS.get(run(), 1)
+    except ocr_remote.DesktopLost as e:
+        print(f"{unit['kind']} {unit['rel']}: deferred, the desktop was lost ({e})", file=sys.stderr, flush=True)
+        return edition_commit.EXITS["lost"]
+    except ocr_remote.DesktopBusy as e:
+        print(f"{unit['kind']} {unit['rel']}: deferred, the desktop is busy ({e})", file=sys.stderr, flush=True)
+        return edition_commit.EXITS["deferred"]
+    except MemoryError as e:  # past UNIT_MEMORY_MB: a failure, its cause named
+        memory_failure(unit, e)
+        return 1
+    except Exception as e:  # any raise: the unit's end is its exit status, logged
+        if scan_queue.vlm_down(e):
+            print(f"{unit['kind']} {unit['rel']}: {vlm_deferral(e)}", file=sys.stderr, flush=True)
+            return edition_commit.EXITS["vlm"]
+        if media_deferral(unit, e):
+            return edition_commit.EXITS["media"]
+        scan_queue.failure((unit["rel"],), e)
+        return 1
+
+
+def yield_dir():
+    """Where a unit process leaves what it found for the queue (one JSON file per pid), under HOME."""
+    return Path(os.environ.get("HOME") or "/tmp") / ".cache" / "corpus_queue" / "unit_yield"
+
+
+_YIELD_LINE = re.compile(r"^\d\d:\d\d:\d\d (scanned|read) (.+?): (.*)$")
+
+
+class YieldTee:
+    """In the unit's own process: stderr passed through as it was, its "scanned REL: N puzzle(s)" and
+    "read REL: ..." lines also tallied (puzzles found, pages that filed), and left in yield_dir() at exit
+    for the queue's band tracker (BandYield). A line it cannot read counts as nothing."""
+
+    def __init__(self, inner):
+        self.inner, self.buf = inner, ""
+        self.puzzles = self.filed = self.seen = self.whole = 0
+
+    def __getattr__(self, name):
+        return getattr(self.inner, name)
+
+    def write(self, s):
+        n = self.inner.write(s)
+        self.buf += s
+        *lines, self.buf = self.buf.split("\n")
+        for line in lines:
+            self.tally(line)
+        return n
+
+    def tally(self, line):
+        m = _YIELD_LINE.match(line)
+        if not m:
+            return
+        kind, _, rest = m.groups()
+        if kind == "scanned":
+            k = re.match(r"(\d+) puzzle\(s\)", rest)
+            if k:
+                self.seen += 1
+                self.puzzles += int(k.group(1))
+        else:
+            self.seen += 1
+            if not rest.startswith("nothing filed"):
+                self.puzzles += 1  # a verdict per puzzle found, filed or refused
+            if " wrote " in rest:
+                self.filed += 1
+                if "unfiled" not in rest:
+                    self.whole += 1
+
+    def save(self):
+        if not self.seen:
+            return
+        try:
+            d = yield_dir()
+            d.mkdir(parents=True, exist_ok=True)
+            tmp = d / f"{os.getpid()}.part"
+            tmp.write_text(json.dumps({"puzzles": self.puzzles, "filed": self.filed, "whole": self.whole}))
+            tmp.replace(d / f"{os.getpid()}.json")
+        except OSError:
+            pass
+
+
+def watch_yield():
+    """In the unit's own process: tally its stderr (YieldTee) and leave the tally at exit."""
+    import atexit
+    tee = YieldTee(sys.stderr)
+    sys.stderr = tee
+    atexit.register(tee.save)
+
+
+def media_deferral(unit, e):
+    """In the unit's own process: whether error `e` is the media share not answering
+    (downloads.media_down); then say the unit ends deferred, retried once it answers."""
+    import downloads
+    if not downloads.media_down(e):
+        return False
+    print(f"{unit['kind']} {unit['rel']}: deferred, the media share is down ({type(e).__name__}: {e})",
+          file=sys.stderr, flush=True)
+    return True
+
+
+#: Each fetch source's module and how its unit runs there. A fetch unit
+#: loads only that module and its MODULES (what its fetch_unit reaches), not
+#: the queue's filers: it is network work, started 30-70 times a minute.
+FETCH_UNITS = {"archive.org": ("fetch_archive_org_editions", lambda m, u: m.fetch_unit(m.downloads.ARCHIVE_ORG, u)),
+               "trove": ("fetch_trove", lambda m, u: m.fetch_unit(u))}
+
+
+def load_fetcher(source):
+    """Import fetch `source`'s module, its MODULES and what unit_status
+    uses (a fetch unit's start, under the code lock); return the module."""
+    module = importlib.import_module(FETCH_UNITS[source][0])
+    for name in (*module.MODULES, "downloads", "edition_commit", "scan_queue"):
+        importlib.import_module(name)
+    return module
+
+
+#: Each paper's module, whose read_unit (and scan_unit) its units run;
+#: any other paper's is UNIT_MODULES[None], the archive.org and Gale filer.
+UNIT_MODULES = {"trove": "file_trove_puzzles", "listener": "gale_listener", None: "file_archive_org_puzzles"}
+
+
+def unit_module(paper):
+    return importlib.import_module(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
+
+
+#: Scans at once: exactly one. A scan is CPU-bound OCR (on this host when the
+#: desktop is off, and Gale pages always), and OCR runs as ONE process pinned
+#: to one core at nice 19 (env OCR_SCAN_CPU, pin_scan); ten at once held this host's
+#: load at 30+ on 6 cores. dispatch() caps any --scan-workers at this, or at
+#: env CT_SCAN_WORKERS (scan_cap) when that is higher. (Above pin_scan: a unit
+#: process runs it before the rest of this module is defined.)
+SCAN_WORKERS = 1
+
+
+def scan_cap():
+    """The most scans at once: SCAN_WORKERS, or env CT_SCAN_WORKERS when it is a
+    whole number above that (anything else is ignored)."""
+    try:
+        return max(SCAN_WORKERS, int(os.environ.get("CT_SCAN_WORKERS", "")))
+    except ValueError:
+        return SCAN_WORKERS
+
+
+SCAN_CPU_LOCKS = []  # open lock files of the cores this process holds (kept for its life)
+
+
+def spread_cpu(cpus):
+    """The core for a scan when CT_SCAN_WORKERS allows several at once: the
+    last one no other scan holds (an flock on a file per core in the temp
+    dir, held while this process lives), else one by pid."""
+    import fcntl
+    import tempfile
+    for cpu in reversed(cpus):
+        fd = os.open(os.path.join(tempfile.gettempdir(), f"ct_scan_cpu_{cpu}.lock"), os.O_CREAT | os.O_RDWR, 0o666)
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError:
+            os.close(fd)
+            continue
+        SCAN_CPU_LOCKS.append(fd)
+        return cpu
+    return cpus[os.getpid() % len(cpus)]
+
+
+def pin_scan():
+    """The standing OCR rule in the scan's own process: one core (SCAN_CPU,
+    the last by default; with CT_SCAN_WORKERS above 1 and no OCR_SCAN_CPU, a
+    core of its own, spread_cpu), nice 19, one thread (OMP_NUM_THREADS, OCR_THREADS)."""
+    os.environ["OMP_NUM_THREADS"] = os.environ["OCR_THREADS"] = "1"
+    try:
+        cpus = sorted(os.sched_getaffinity(0))
+        if scan_cap() > 1 and "OCR_SCAN_CPU" not in os.environ:
+            cpu = spread_cpu(cpus)
+        else:
+            cpu = cpus[int(os.environ.get("OCR_SCAN_CPU", "-1"))]
+        os.sched_setaffinity(0, {cpu})
+        os.nice(19)
+    except (AttributeError, IndexError, OSError):
+        pass  # no affinity here (macOS): nice and one thread still hold
+
+
+def run_unit(unit, cache, puzzles, reread):
+    """In the unit's process: its outcome (EXITS). A scan's desktop
+    sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
+    the scans its solution needs, so a starved scan holds up reads too."""
+    if unit["kind"] == "scan":
+        os.environ["OCR_REMOTE_PRIORITY"] = "scan"
+        pin_scan()
+    m = unit_module(unit["paper"])
+    if unit["paper"] == "trove":
+        return m.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
+    if unit["paper"] == "listener":
+        import gale_jumbo_read as jumbo  # a unit process exits before the queue's own imports
+        import gale_tls_read as tls
+        import gale_mephisto_read as mephisto
+        if unit["rel"].startswith(mephisto.PREFIX):
+            return mephisto.read_unit(unit["rel"])
+        if unit["rel"].startswith(jumbo.PREFIX):
+            return jumbo.read_unit(unit["rel"])
+        if unit["rel"].startswith(tls.BACK_PREFIX):
+            return tls.read_back_unit(unit["rel"])
+        if unit["rel"].startswith(tls.PREFIX):
+            return tls.read_unit(unit["rel"])
+        return m.read_unit(unit["rel"])
+    paper = m.FILERS[unit["paper"]]
+    if unit["kind"] == "scan":
+        # A solution host is wanted for the solutions it prints: its solution bands alone are read.
+        # (A unit process never imports fa: it exits before the queue's own imports.)
+        return m.scan_unit(paper, unit["rel"], cache, host=unit.get("reason") in getattr(m, "HOST_REASONS", ()))
+    return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"),
+                       also=unit.get("batch") or ())
+
+
+def unit_main(spec):
+    """In the unit's own process: run `spec` (CT_EDITION_UNIT: the unit and
+    the queue's cache, puzzles and reread) and return its exit status
+    (EXITS; 1 for an error, logged)."""
+    import scan_queue
+    unit = spec["unit"]
+    return unit_status(unit, lambda: run_unit(unit, Path(spec["cache"]), spec["puzzles"] and Path(spec["puzzles"]),
+                                              scan_queue.when(spec["reread"])))
+
+
+def load_reach(names, reach):
+    """Import `names`, tools/ modules. One whose third-party package is not
+    installed here (fetch_ia_book's requests) is skipped: the path that
+    needs it fails when taken, not every start. A missing module of
+    `reach` (the tree's) raises."""
+    for name in sorted(names):
+        try:
+            importlib.import_module(name)
+        except ModuleNotFoundError as err:
+            if (err.name or "").partition(".")[0] in reach:
+                raise
+
+
+def load_unit(paper):
+    """Import a scan or read unit of `paper`'s module, every tools/ module
+    it may load (code_reach.modules: lazy imports too) and what unit_main
+    uses: the unit's start, under the code lock. Not the queue's own
+    modules (the other papers' filers, the fetchers)."""
+    import code_reach
+    reach = code_reach.modules(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
+    load_reach(reach | {"downloads", "edition_commit", "ocr_remote", "scan_queue"}, reach)
+
+
+_snapshot = snapshot() if __name__ == "__main__" else None
+_spec = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}") if sys.argv[1:2] == ["unit"] else {}
+if _spec.get("unit"):
+    cap_memory()
+    if _spec["unit"].get("kind") in ("scan", "read"):
+        watch_yield()
+if _spec.get("unit", {}).get("kind") == "fetch":
+    _fetcher = load_fetcher(_spec["unit"]["paper"])
+    if _snapshot is not None:
+        os.close(_snapshot)
+    sys.exit(unit_status(_spec["unit"], lambda: FETCH_UNITS[_spec["unit"]["paper"]][1](_fetcher, _spec["unit"])))
+if _snapshot is not None and _spec.get("brief"):
+    # A read the queue prepared: its unit loads only what it commits with.
+    import edition_commit
+    edition_commit.load()
+    os.close(_snapshot)
+    try:
+        import setproctitle
+        setproctitle.setproctitle(f"edition_queue.py unit read {_spec['unit']['paper']} {_spec['unit']['rel']} (desktop)")
+    except ImportError:
+        pass
+    import ocr_remote
+    try:
+        sys.exit(edition_commit.main(_spec))
+    except ocr_remote.DesktopLost:
+        sys.exit(edition_commit.EXITS["lost"])
+    except ocr_remote.DesktopBusy:
+        sys.exit(edition_commit.EXITS["deferred"])
+    except MemoryError as e:
+        memory_failure(_spec["unit"], e)
+        sys.exit(1)
+    except Exception as e:  # any raise: the unit's end is its exit status, logged
+        import scan_queue
+        if scan_queue.vlm_down(e):
+            print(f"read {_spec['unit']['rel']}: {vlm_deferral(e)}", file=sys.stderr, flush=True)
+            sys.exit(edition_commit.EXITS["vlm"])
+        if media_deferral(_spec["unit"], e):
+            sys.exit(edition_commit.EXITS["media"])
+        scan_queue.failure((_spec["unit"]["rel"],), e)
+        sys.exit(1)
+if _spec.get("unit", {}).get("kind") in ("scan", "read"):
+    load_unit(_spec["unit"]["paper"])
+    if _snapshot is not None:
+        os.close(_snapshot)
+    sys.exit(unit_main(_spec))
+# The queue's own modules: imported only past the unit dispatch above, so a
+# unit's process never loads them.
+import ask_log_fold
+import code_reach
+import dir_cache
+import edition_commit
+import fetch_archive_org_editions as fetch_ao
+import fetch_trove
+import fix_reasons
+import file_archive_org_puzzles as fa
+import file_trove_puzzles as ftp
+import gale_jumbo_read
+import gale_mephisto_read
+import gale_tls_read
+import gale_listener
+import hot_reload
+import media_manifest
+import mem_gate
+import ocr_remote
+import plan_fork
+import scan_queue
+import vlm_reader
+
+# vlm_asks.log read once, then by its appended lines (a plan pass parsed it whole ~45 times, ~900 MB).
+ask_log_fold.install(fa)
+
+#: Modules the queue process reaches only through lazy imports of the blog filers' paths (clues_only's
+#: _blog_build, ft_puzzles, ...) and never runs: it starts units, it reads no blog post. Loaded, they were in
+#: queue_closure, so each push touching them reloaded the queue (a replan, 55-175 s) for nothing. The units
+#: that do use them are their own processes, which load their own reach (load_unit).
+#: (Named inside never_loaded, not in a module-level constant: hot_reload._needs reads a module-level
+#: string as a module the file loads, which would put them in the static closure.)
+def never_loaded(reach, tools=None):
+    """The modules of `reach` the queue process does not load: file_blog_puzzles, parse_timesforthetimes
+    and each module outside the queue's own static closure (hot_reload.queue_code) that imports one at
+    module level, so loading it would load them again."""
+    tools = TOOLS if tools is None else Path(tools)
+    names = {p.name for p in tools.iterdir() if p.suffix == ".py"}
+    static = {Path(p).stem for p in hot_reload.queue_code(tools)}
+    skip = {"file_blog_puzzles", "parse_timesforthetimes"}
+    while True:
+        more = {m for m in reach if m not in skip and m not in static
+                and {Path(n).stem for n in hot_reload._needs(tools, f"{m}.py", names)} & skip}
+        if not more:
+            return skip & set(reach)
+        skip |= more
+
+
+if _snapshot is not None:
+    _reach = code_reach.modules("edition_queue")
+    load_reach(_reach - {"edition_queue"} - never_loaded(_reach), _reach)
+    os.close(_snapshot)
+
+#: The papers in the order a rank's units are taken; "trove" is the
+#: Canberra Times articles (tools/file_trove_puzzles.py), read in a pool of
+#: their own (TROVE_WORKERS) beside the editions', and "listener" the
+#: Listener pages tools/gale_fetch.py downloads (tools/gale_listener.py), LISTENER_WORKERS
+#: at once (this host's Tesseract, no VLM) within LISTENER_SECONDS.
+PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft",
+          "galeindependent", "galesundaytimes", "galetls", "galesundaytelegraph", "galeindysunday", "trove"]
+#: Reads at once: mostly waits on the desktop (mem_gate and desktop_room
+#: hold the rest back when either host is short of memory).
+WORKERS = 25
+TROVE_WORKERS = 6
+#: Paul 10-23: the Listener ahead of FT's never-read pages. ~2,950 unread pages (Gale 1930-91, on the
+#: media disk since 10-20); each unit is one page's local OCR, no VLM, so they share the unit ceiling
+#: (mem_gate's controller: Windows' free RAM) with the reads but take no GPU turn. Measured on the
+#: desktop 10-23 (4 at once): 0.3-0.75 GB RSS and ~1 core each, 17-19 min a page (half its read, half
+#: filing: its neighbours' grids, each page's found once). 8 is a bound: the idle-core gate
+#: (local_cpu) and the unit ceiling hold them back first.
+LISTENER_WORKERS = int(os.environ.get("CT_LISTENER_WORKERS") or 8)
+#: Paul 10-24: "Remember times is the most important". While a CT_NEWEST_FIRST paper's (the Times')
+#: read or scan is due or running, the Listener pool shrinks to this many units, so its ~17-min
+#: local-OCR pages (8 of a 16 ceiling) don't hold the slots Times reads and scans want.
+LISTENER_BESIDE_TIMES = int(os.environ.get("CT_LISTENER_BESIDE_TIMES") or 2)
+LISTENER_SECONDS = 1800
+#: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
+SCAN_CPU = "OCR_SCAN_CPU"
+#: A unit still running this long is killed and left for the next run.
+def seconds_from_env(name, default):
+    """Seconds from the environment variable `name`, or `default` when unset, not a number, or not above 0."""
+    try:
+        got = float(os.environ.get(name) or default)
+    except ValueError:
+        return default
+    return got if got > 0 else default
+
+
+#: CT_SCAN_SECONDS / CT_READ_SECONDS raise them: a read waits its turn on the one-slot VLM
+#: (~7.6 requests a minute across every unit), so with many reads at once 1200s kills
+#: reads that are only waiting; their cached replies (vlm_reader.ask_png) survive the kill.
+SCAN_SECONDS = seconds_from_env("CT_SCAN_SECONDS", 1200)
+READ_SECONDS = seconds_from_env("CT_READ_SECONDS", 1200)
+#: Reads allowed to wait for the VLM at once (env CT_VLM_WAITING, default 4: the
+#: slot, its pipeline and one more): at ~7 asks a puzzle the one-slot VLM finishes
+#: ~1 read a minute, so ~30 started reads sat ~30 min each in its lock holding
+#: ~0.5 GB apiece, past the read limit, and lost on every restart. While this many
+#: processes have an ask under way (vlm_reader.waiting_now, not the queue's own drainer) no read starts
+#: (spool off; spool on: see vlm_spool_max); reads OCR
+#: settles without an ask never wait, so they still flow at CPU speed.
+def vlm_waiting_cap():
+    try:
+        return max(1, int(os.environ.get("CT_VLM_WAITING", "4")))
+    except ValueError:
+        return 4
+
+
+#: Spooled asks (vlm_reader.spooled) at which no read starts (env CT_VLM_SPOOL_MAX): at ~6.7 asks
+#: a minute 200 are half an hour of the VLM's work, and each read begun past that only waits.
+#: A number in ~/.cache/corpus_queue/vlm_spool_max (env CT_VLM_SPOOL_MAX_FILE) beats the env, so
+#: the depth is tunable live: a deep spool adds no throughput, it only delays new code's asks.
+#: Defined in vlm_reader (a read past it spools nothing and ends deferred: "spool full"); one
+#: source for the reader and the queue.
+def vlm_spool_max():
+    return vlm_reader.vlm_spool_max()
+
+
+#: Seconds the drainer may send nothing while asks are spooled before it logs why (then once as
+#: often while that lasts): 10-28 23:20 and 10-29 01:14 it sent nothing for minutes, and the log said not why.
+DRAINER_STALL = 120
+#: How often (seconds) the drainer queues again the claims no live process is asking
+#: (vlm_reader.requeue_claimed): a hand drainer killed mid-ask, an image before a re-exec.
+DRAINER_SWEEP = 60
+#: Seconds an idle drainer thread waits before it looks again.
+DRAINER_IDLE = 5
+#: The drainer's shared state: when it last sent an ask (or had none to send), last logged a
+#: stall, last swept the claims, and the errors it logged (each once).
+_DRAIN = {"sent": float("-inf"), "logged": float("-inf"), "swept": float("-inf"), "errors": set()}
+_DRAIN_LOCK = threading.Lock()
+_START_LOCK = threading.Lock()
+
+
+def drainer_stalled(n, why, now=None):
+    """Log, at most every DRAINER_STALL seconds, that `n` asks are spooled and the drainer has sent
+    none for DRAINER_STALL seconds, and `why`."""
+    now = time.monotonic() if now is None else now
+    with _DRAIN_LOCK:
+        idle = now - _DRAIN["sent"]
+        if idle < DRAINER_STALL or now - _DRAIN["logged"] < DRAINER_STALL:
+            return False
+        _DRAIN["logged"] = now
+    log(f"vlm drainer: {n} spooled, nothing sent for {idle:.0f} s, because {why}")
+    return True
+
+
+def drain_step():
+    """One look of a drainer thread: sweep stale claims (every DRAINER_SWEEP s), then ask the oldest
+    spooled ask when the VLM is up. Whether it sent one (the thread looks again at once)."""
+    now = time.monotonic()
+    with _DRAIN_LOCK:
+        sweep = now - _DRAIN["swept"] >= DRAINER_SWEEP
+        if sweep:
+            _DRAIN["swept"] = now
+    if sweep:
+        n = vlm_reader.requeue_claimed(start=False)
+        if n:
+            log(f"vlm drainer: {n} claimed ask(s) no live drainer was asking queued again")
+    queued = vlm_reader.spooled()
+    if not queued:
+        with _DRAIN_LOCK:
+            _DRAIN["sent"] = now  # nothing to send is no stall
+        return False
+    if not vlm_up():
+        drainer_stalled(len(queued), f"the VLM is down ({vlm_reader.cause() or 'not answering'}; "
+                                     f"vlm_reader.up asks again every {vlm_reader.UP_EVERY} s)")
+        return False
+    if vlm_reader.drain_one():
+        with _DRAIN_LOCK:
+            _DRAIN["sent"] = time.monotonic()
+        return True
+    drainer_stalled(len(queued), vlm_reader.MISS[0] or "drain_one sent nothing")
+    return False
+
+
+def vlm_drainer(stop, threads):
+    """The VLM stage: one thread per ask in flight (vlm_reader.slots() + PIPELINE) takes the
+    oldest spooled ask (vlm_reader.drain_one), asks the server and caches the answer, so no
+    read blocks on the VLM. Idle, or the VLM down (vlm_up), it waits and looks again.
+    `threads` (the caller's list) holds the threads; run again, it starts only the ones that
+    have ended. A thread survives any error (logged once each), so it never ends silently."""
+    def work():
+        while not stop.is_set():
+            try:
+                if drain_step():
+                    continue
+            except Exception as e:  # never die: a dead drainer leaves the spool to rot
+                what = f"{type(e).__name__}: {e}"
+                with _DRAIN_LOCK:
+                    new = what not in _DRAIN["errors"]
+                    _DRAIN["errors"].add(what)
+                if new:
+                    import traceback
+                    log(f"vlm drainer: {what} (the thread goes on)\n{traceback.format_exc().rstrip()}")
+            stop.wait(DRAINER_IDLE)
+    with _START_LOCK:  # the early start (dispatch's drainer_early) and the loop's check may race
+        first = not threads
+        dead = [t for t in threads if not t.is_alive()]
+        for t in dead:
+            threads.remove(t)
+        want = max(1, vlm_reader.slots() + max(0, vlm_reader.PIPELINE)) - len(threads)
+        if want <= 0:
+            return
+        with _DRAIN_LOCK:
+            _DRAIN["sent"] = time.monotonic()
+        n = vlm_reader.requeue_claimed(start=first)
+        if dead:
+            log(f"vlm drainer: {len(dead)} thread(s) had ended; started again")
+        if n:
+            log(f"vlm drainer: {n} claimed ask(s) of a drainer gone queued again")
+        for _ in range(want):
+            t = threading.Thread(target=work, daemon=True, name="vlm drainer")
+            t.start()
+            threads.append(t)
+
+
+#: How often (seconds) the queue is planned again.
+REPLAN = 60
+#: While no core is idle, a plan is made every REPLAN * IDLE_BACKOFF seconds
+#: (5 minutes), as long as the last plan holds enough untried units to keep
+#: the pools full: the planner thread's stats are CPU the burn wants.
+IDLE_BACKOFF = 5
+#: A plan may use at most 1/PLAN_DUTY of the wall clock: the next waits PLAN_DUTY times
+#: as long as the last took (2026-10-17: plans of 29k scans and 47k reads took a median 48 s,
+#: p90 280 s, max 5000 s on a host at load 28, replanned every 60-300 s, so the planner ran
+#: near-continuously against the OCR it feeds). The queue is a burn of ~190 scans and ~310
+#: reads an hour; a plan stale by a few minutes costs nothing.
+PLAN_DUTY = 10
+#: ... but never more than this many seconds.
+PLAN_WAIT_MAX = 1800
+#: How often (seconds) the dispatch loop looks for editions just laid out
+#: (fresh): a listing of the cache and a stat of each item dir, ~0.3s.
+FRESH_POLL = 30
+#: How long a stop waits for the units it TERMed before it KILLs them.
+STOP_GRACE = 30
+
+
+GAME_DROP_EVERY = 900  # seconds between page-cache drops while a game lasts
+
+def game_scans():
+    """Scans left running while a game runs (CT_GAME_SCAN_WORKERS, 3): the rest are TERMed and left deferred."""
+    try:
+        return max(0, int(os.environ.get("CT_GAME_SCAN_WORKERS", "3")))
+    except ValueError:
+        return 3
+
+
+def yield_grace():
+    """Seconds the running units get to finish once the desktop yields (CT_YIELD_GRACE, 50: the game-guard drains the VLM for 60)."""
+    try:
+        return float(os.environ.get("CT_YIELD_GRACE", "50"))
+    except ValueError:
+        return 50.0
+#: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
+EXITS = edition_commit.EXITS
+
+#: The fetch units (--fetch SOURCE): each source's plan() of units (its unit
+#: runs FETCH_UNITS), how many run at once and each one's time limit. archive.org
+#: throttles each connection (~100 KB/s), not the client, so its units run
+#: in parallel, one connection each; an answer 429 lowers its slots by one,
+#: and FETCH_OUTAGES units in a row finding it down stop its fetches for
+#: the run (fetch_archive_org_editions.outage).
+FETCHERS = {
+    "archive.org": {"plan": lambda: fetch_ao.plan(fetch_ao.downloads.ARCHIVE_ORG), "workers": 12, "seconds": 1200},
+    # Trove is asked at most once a second across every unit (fetch_trove
+    # pace()); three at once overlap one's request with the others' waits.
+    "trove": {"plan": lambda: fetch_trove.plan(), "workers": 3, "seconds": 900},
+}
+FETCH_OUTAGES = fetch_ao.FAILURES_IN_A_ROW
+#: How often (seconds) a run makes each fetch source's plan again, from when
+#: the last was made: archive.org's stats every done edition's dirs (minutes
+#: on the media mount) and a fetch due a few minutes late costs nothing.
+FETCH_REPLAN = 600
+
+
+def log(line):
+    print(f"{time.strftime('%H:%M:%S')} {line}", file=sys.stderr, flush=True)
+
+
+def plan(papers, cache=fa.CACHE, reread=None, out=None):
+    """(scan units, read units) of every paper, each list most urgent
+    first: by rank, then the paper's place in `papers`, then plan's order.
+    A paper whose ledger a batch run holds throughout is left out (its units
+    could not add their rows)."""
+    load_caches()
+    _HELD_SEEN.clear()
+    try:
+        # One scope for the whole plan: each series is listed and the VLM probed once, not per paper.
+        with fa.held_once():
+            return _plan_kept(papers, cache, reread, out)
+    finally:
+        # The listings are a hint for the next process (each stands only while its dir_key does), and
+        # pickling them is ~1s CPU a plan: written at most every DIR_SAVE_EVERY seconds, first plan included.
+        # So are the parse caches (~35 MB, rewritten on nearly every plan as puzzles are filed): each entry
+        # stands only while its file's stat does, so an older snapshot costs the next process a few re-parses.
+        if time.monotonic() - _DIR_SAVED[0] >= DIR_SAVE_EVERY:
+            dir_cache.save(DIR_CACHE)
+            fa.save_held(HELD_CACHE)
+            fa.save_likely(LIKELY_CACHE)
+            scan_queue.save_count_left(COUNT_LEFT_CACHE)
+            _DIR_SAVED[0] = time.monotonic()
+        give_back_memory()
+
+
+class PlanDeferred(Exception):
+    """The plan fork died and the VM is short of memory: poll_plan makes no plan this pass and forks again."""
+
+
+#: Seconds poll_plan waits after a PlanDeferred before the next fork.
+PLAN_DEFER_S = 30
+
+
+def plan_forked(papers, cache=fa.CACHE, reread=None, out=None):
+    """plan()'s answer, made in a forked child that exits (CT_PLAN_FORK=0: in this process): a plan's heap
+    (~2 GB of transient objects pinned by the caches, none of it returned by malloc_trim) went with the child
+    and not the parent's RSS. What the parent reads from the caches the plan fills comes back with the answer:
+    fa._PLANNED_DIRS (brief, read_unit and fresh() start from it) and _DIR_SAVED (when the caches were last
+    saved, so the child's save is not made again at the next plan). Every other cache (the parse caches,
+    fa's per-paper plan memos, _QUEUE's whole-plan reuse) is the child's and is rebuilt by the next plan from
+    the pickles it saved; the parent loads the same pickles on demand (load_caches, as a re-exec's briefs do)."""
+    if not plan_fork.enabled():
+        return plan(papers, cache, reread, out)
+    notes = [] if out is not None else None
+
+    def work():
+        made = plan(papers, cache, reread, notes)
+        return made, notes, dict(fa._PLANNED_DIRS), _DIR_SAVED[0]
+    status, got = plan_fork.run(work, [(dir_cache, "_THREADS_LOCK"), (scan_queue, "_KEPT_LOCK"), (vlm_reader, "_DRAINING_LOCK"),
+                                       (vlm_reader, "_MINE_LOCK"), (fa, "_HELD_LOCKS"), (sys.modules[__name__], "_LOAD_LOCK")])
+    if status == "err":
+        if transient_oserror(got):
+            # 11-19 07:59: EAGAIN opening a Gale PDF on CIFS in the plan child killed the queue (rc=1)
+            log(f"plan met a momentary CIFS refusal ({got}); planning again next pass")
+            raise PlanDeferred(got)
+        tb = getattr(got, "plan_child_traceback", None)
+        if tb:
+            log("plan child raised:\n" + tb.rstrip())
+        if isinstance(got, FileNotFoundError) and "/puzzles/" in str(getattr(got, "filename", "") or ""):
+            # 11-19 12:19: a git rebase rewrote a puzzle file while the plan child read it; planned again next pass
+            log(f"plan met a puzzle file vanishing ({got}); planning again next pass")
+            raise PlanDeferred(got)
+        raise got
+    if status == "failed":
+        if mem_gate.vm_short():
+            log(f"plan fork failed ({got}); VM short of memory, not planned in this process: forking again next pass")
+            raise PlanDeferred(got)
+        log(f"plan fork failed ({got}); planned in this process")
+        return plan(papers, cache, reread, out)
+    made, notes, dirs, saved = got
+    fa._PLANNED_DIRS.update(dirs)
+    _DIR_SAVED[0] = max(_DIR_SAVED[0], saved)
+    if out is not None:
+        out.extend(notes)
+    return made
+
+
+#: Seconds between plan()'s writes of DIR_CACHE, and when the last was (monotonic).
+DIR_SAVE_EVERY = 600
+_DIR_SAVED = [float("-inf")]
+
+
+def load_caches():
+    """Take what the last process's plan() saved (DIR_CACHE, HELD_CACHE,
+    LIKELY_CACHE, COUNT_LEFT_CACHE), once a process: plan() and prepare()
+    call it, as a re-exec starts units from the last plan whose briefs would
+    else parse every filed puzzle (held_files) before its first plan loads
+    them."""
+    with _LOAD_LOCK:
+        if not _LOADED:
+            dir_cache.load(DIR_CACHE)
+            fa.load_held(HELD_CACHE)
+            fa.load_likely(LIKELY_CACHE)
+            scan_queue.load_count_left(COUNT_LEFT_CACHE)
+            _LOADED.append(True)
+
+
+_LOAD_LOCK = threading.Lock()
+
+
+#: Where plan() keeps the edition and article dirs' listings between
+#: processes (dir_cache.save): a slice or a re-exec starts warm, not with a
+#: stat of every file on the media mount.
+DIR_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/dir_cache.pickle"))
+#: Where plan() keeps held_files' parse of each filed puzzle between
+#: processes (fa.save_held), so a re-exec does not parse the corpus again.
+HELD_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/held_files.pickle"))
+#: Where plan() keeps what fa.likely read between processes: the solution
+#: headings in each edition's archive.org text, each filed puzzle's state.
+LIKELY_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/likely.pickle"))
+#: Where plan() keeps scan_queue.count_left_requests' verdict on each filed
+#: puzzle between processes, so a re-exec's first plan parses only the files
+#: that moved, not ~8k (most of a minute on a loaded host).
+COUNT_LEFT_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/count_left.pickle"))
+#: Non-empty once this process has loaded DIR_CACHE and HELD_CACHE: later
+#: plans hold everything those had, so they are read once a process.
+_LOADED = []
+
+
+#: The last whole plan (see _plan_kept): {"key", "stamps", "extra", "made", "out", "notes"}.
+_QUEUE = {}
+
+
+#: {(paper key, source): what the open requests said} as _asked last saw them:
+#: the puzzle and the checks that met a misread, for the "annotation asked" log line.
+_ASKED_WHY = {}
+
+
+def _ask_detail(req):
+    return f"puzzle {req.get('id')}: {', '.join(req.get('why') or ())}"[:200]
+
+
+def _asked():
+    """{paper key: {source}} the annotation asked to have read again."""
+    asked = {}
+    why = {}
+    try:
+        for req in scan_queue.all_open_requests():
+            if req["filer"] == "archive":
+                p = fa.filer_of(req["source"])
+                if p is not None:
+                    asked.setdefault(p.key, set()).add(req["source"])
+                    why.setdefault((p.key, req["source"]), []).append(_ask_detail(req))
+            elif req["filer"] == "trove":
+                asked.setdefault("trove", set()).add(req["source"])
+                why.setdefault(("trove", req["source"]), []).append(_ask_detail(req))
+    except (OSError, ValueError) as e:
+        log(f"the annotation re-read requests did not load ({type(e).__name__}: {e}); planned without them")
+    _ASKED_WHY.clear()
+    _ASKED_WHY.update({k: "; ".join(v)[:300] for k, v in why.items()})
+    return asked
+
+
+#: The reasons a reread or rescan is planned for: a puzzle never read or
+#: scanned, laid out just now, or with concrete evidence of a bug (the
+#: annotation asked, a refusal whose fix landed since). The rest are blanket:
+#: "inputs changed", "titles changed", "scan stale*", "--reread", "read by
+#: another VLM", "read without the VLM", "solution moved", "solution short, read
+#: by other code", "short Times page, its third clue column read since" and the
+#: listener's "version changed" flag no puzzle in particular, so they are not
+#: planned unless CT_BLANKET_REREADS=1 (the old behaviour).
+def evidence_reason(reason):
+    return (reason in ("never read", "never scanned", "never read (Gale fetch)", "just laid out", "annotation asked",
+                       fa.UNCONFIGURED_READ)  # read OCR-only by accident (the VLM URL empty): as good as unread
+            or (reason.startswith("refused ") and reason.endswith(" before its fix"))
+            or reason == fa.NO_TITLE_RESCAN  # a Gale 1957-62 or 2000-14 page no title was found on, scan code since
+            # A Gale 1930-69 page no title was found on before grids_on took a grid with inset blocks (fa.inset_rescan).
+            or reason in (fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE,
+                          fa.SMALL_HEADED,  # a 1930-33 heading-titled page refused for its neighbours' count
+                          fa.CLUE_GARBLED,  # named Gale Times puzzles whose stored clue text is cut or garbled
+                          fa.VLM_PLAIN,  # a 1930-33 page unfiled over a count-less clue the VLM's column reply holds
+                          fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT,  # a Gale Sunday Times 1993-94 page scanned before its winners box was refused
+                          fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE,  # a Gale Telegraph 1980+ puzzle with no solution read, its next day's heading garbled
+                          fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.INDY_BARRED_LATE, fa.INDY_LINKS, fa.INDY_COLUMNS, fa.INDY_ABOVE, fa.INDY_WIDE, fa.INDY_DROPPED, fa.SUNDAY_FOOT, fa.IOS_TITLES, fa.TELEGRAPH_OWN, fa.TELEGRAPH_FIGURE, fa.INDY_REDATED, fa.INDY_PAIRED, fa.IOS_EVEN, fa.IOS_EVEN, fa.TELEGRAPH_LEAD_NUMBER, fa.TELEGRAPH_STOP, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS, fa.INDY_OVER_PLAIN, fa.INDY_GUTTER_DOWN, fa.IOS_WORDS, fa.PALE_RULES, fa.INDY_THIN, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_SPECK_WORDS, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.INDY_THREE, fa.INDY_REPARSE, fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE, fa.SUNDAY_MERGED, fa.SUNDAY_TAIL, fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST, fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3,  # a Gale Telegraph solution grid read short with no cell classified
+                          fa.INDEPENDENT_HEADINGS,  # a Gale Independent page, its glued title / weekday-only solution heading read since
+                          fa.INDY_THREE_MORE,  # a Gale Independent page whose three clue columns stood in a later cached window
+                          fa.INDY_UNDER_SPLIT, fa.INDY_RIGHT_CUT, fa.INDY_THREE_FEW,  # a Gale Independent page whose first two clue columns under the grid ran together
+                          fa.INDY_FOOT_TAIL,  # a Gale Independent page refused no ACROSS and DOWN lists, its third column / low DOWN heading read since
+                          fa.INDEPENDENT_RIGHT, fa.INDY_BARRED,  # a Gale Independent page refused for its grid / clue lists, clues right of the grid read since
+                          fa.FT_HEADINGS,  # a Gale FT page, its glued title / solution heading read since
+                          fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_GRID, fa.SUNDAY_LEFT, fa.SUNDAY_BAND, fa.SUNDAY_PAIR, fa.SUNDAY_TITLE_GRID, fa.SUNDAY_OVER, fa.SUNDAY_CAPTION, fa.SUNDAY_STACKED, fa.SUNDAY_BETWEEN, fa.FT_NUMBER_MENDED, fa.TLS_MONTHLY, fa.SUNDAY_MID, fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT, fa.SUNDAY_UNDER, fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.SUNDAY_1970S, fa.PLAIN_LAID, fa.QUARTER_PLAIN, fa.QUARTER_BLANKS, fa.QUARTER_1934, fa.QUARTER_1935, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.SUB_REFUSED, fa.MARKED_HYPHEN, fa.MARKED_RISE, fa.SOLO_READ, fa.COUNT_FIRST, fa.NUMBERLESS_FIT, fa.NUMBERLESS_EARLY, fa.TEL_TITLE_FAR, fa.BLOCK_FORTIES, fa.TELE_OVER, fa.TELE_HEAD, fa.MID_OTHER, fa.MID_TIMES, fa.UNGLUE_LEAD, fa.SIDES_HEADED, fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID,  # a Gale FT page (and WEEKDAY_RIGHT's Telegraph weekday 1999-2000 refused no reading parses, its columns right of its grid read since; and SIDES_HEADED's Telegraph Saturday 1999-2000 refused no ACROSS and DOWN lists, its headed columns read since) with a blank clue or unparsed list, its columns read from the title's line since
+                          fa.HEAD_GRID, fa.TELE_LEFT, fa.INDY_THIRD_TOP,  # a Gale Telegraph weekday 2000-10..12 refused no reading parses, its grid off its Across heading
+                          fa.SIDES_READ,  # a Gale Telegraph page refused no reading parses, its columns either side of its grid
+                          fa.SUNDAY_SIDES,  # the same for a Gale Sunday Telegraph 1987-98 page
+                          fa.SUNDAY_RIGHT,  # that page read since, still no clue lists: its columns right of its grid
+                          fa.QUICK_SET,  # a Gale Sunday Telegraph 1972-77 page filed with its Quickie clue set
+                          fa.QUICK_HELD,  # that page read under QUICK_SET, its cryptic reading held off by the Quickie file
+                          fa.JUMBO_SOLUTION,  # a filed Times Jumbo whose Gale solution page is on disk
+                          fa.HEADINGS_JOINED)  # a Gale FT/Telegraph/Independent/Sunday Times page no title was found on
+            # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
+            # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
+            or reason == fa.TOUCHING_GRID
+            or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
+            # A 2000-14 Times page written unfiled before the 10-25 clue-11 and cut-window fixes (fa.unfiled_modern).
+            or reason == fa.UNFILED_MODERN
+            # A Times page written unfiled for a blank the print's close-set dash made ("Beat,—with"; fa.dash_joined).
+            or reason == fa.DASH_JOINED
+            # A Times page written unfiled for a word's old or spoken form read as no word ("loveth", "fishin'"; fa.old_formed).
+            or reason == fa.OLD_FORM
+            # A 1969-or-older Times page written unfiled for a stray letter, a letter-spaced word's ("l i t t l e"; fa.spaced_worded).
+            or reason == fa.LETTER_SPACED
+            # A Times page written unfiled for a Mc surname or "Messrs." read as a name that lost a letter (fa.cluster_named).
+            or reason == fa.NAME_CLUSTER
+            # A Times page written unfiled for a derived word the lexicon lacks ("immortaliser"; fa.derived_formed).
+            or reason == fa.DERIVED_FORM
+            # A Times page written unfiled for a word every reading spells alike ("Nil nisi bonum") or one
+            # reader ran together ("thewordsof"), which the vote blanked first (fa.shared_worded).
+            or reason == fa.SHARED_WORD
+            # A Times page written unfiled for a mark the print sets in a word ("(under)world",
+            # "kissin'-cousin", "end,—or") every reading prints so (fa.marked_worded).
+            or reason == fa.MARKED_WORD
+            # A Times page written unfiled for a clue whose number the gutter's rule, read as a mark, hid
+            # inside a line read across both columns ("show '22 Noisome"; fa.marked_next_due).
+            or reason == fa.MARKED_NEXT_READ
+            # A Times page written unfiled for a linked clue's tail light, its head's count torn over a line
+            # break or its later number split off it ("1, 9 A revolutionary story"; fa.linked_count_due).
+            or reason == fa.LINKED_COUNT_READ
+            # A Times page written unfiled for a linked clue's later light, its head's comma read as a stop
+            # ("25. 26 A good local"; fa.stray_link_due).
+            or reason == fa.STRAY_LINK_READ
+            # A 1936-40 Gale Times page whose OCR readings all stopped at a clue tail mid-list ("paniment (7)
+            # 19 Half changed"), so the VLM read every column; the mended parse reads the tail (fa.tail_read_due).
+            or reason == fa.TAIL_READ
+            # A 1936-40 Gale Times page unfiled for lights no reading laid, its four clue columns read as a window of
+            # their own (fa.quarter_read_due).
+            or reason == fa.QUARTER_READ
+            # A 1939-12 to 1940 Gale Times page refused no reading parses, the two clue columns right of its grid
+            # read with the two under it (fa.right_wide_due).
+            or reason == fa.RIGHT_WIDE
+            # A Times page written unfiled, every light answered, for a light no reading laid whose clue the VLM's
+            # list-less column reading holds (fa.vlm_laid_due).
+            or reason == fa.VLM_LAID
+            # A Times page written unfiled for a clue that swallowed the next one's number, after a
+            # neighbouring column's words read past a count ("(7). Walks 8 Some"; fa.neighbour_tailed).
+            or reason == fa.NEIGHBOUR_TAIL
+            # A Times page whose write the gate refused over clue punctuation a mend now clears (";,", a
+            # quotation's lost "—" before its comma; fa.punct_mended).
+            or reason == fa.PUNCT_MENDED
+            # A Times page whose write was refused as a copy of a held book file with no answer or annotation,
+            # its reading every answer: such a book now gives way (fa.book_yields_due).
+            or reason == fa.BOOK_YIELDS
+            # A Times page whose write the gate refused over speck marks at a clue's word gap (".:", " ,") the
+            # mends leave, before agree() took the marks other readings print there (ocr_clues.gap_voted; fa.gap_vote_due).
+            or reason == fa.GAP_VOTED
+            # A 1940-44 Gale Times page written unfiled for its down clues set over the grid (fa.strip_tailed).
+            or reason == fa.STRIP_TAIL
+            # A Times page written unfiled whose clue window caught the line-end letters of the column to
+            # its left, before clue numbers ("e 11 Office worker") or alone (fa.edge_lettered).
+            or reason == fa.EDGE_LETTERS
+            # A Times page written unfiled for a clue line no reading of its whole crop held, its windows
+            # now read alone in tiles (fa.alone_lost).
+            or reason == fa.ALONE_READ
+            # A 1939-49 Gale Times page refused for a grid whose top lies within its title's line, taken as
+            # right of the title or missed, read under it since (fa.band_grid, fa.band_due).
+            or reason == fa.BAND_GRID
+            # A 1945-47 Gale Times page refused "no reading parses" for its clue columns left of the grid,
+            # read as two columns since (fa.lead_split's LEAD_TWO, ftp.SEE_LINKED; fa.left_split_due).
+            or reason == fa.LEFT_SPLIT
+            # A 1940-41 Gale Times page pending for a grid trove_grid could not read at its scan's size,
+            # read shrunk since (fa.scaled_grid, fa.scaled_grid_due).
+            or reason == fa.SCALED_GRID
+            # A 1948-54 Gale Times page refused "no reading parses" at a bare count before lead_split's
+            # LEAD_TWO split its two clue columns left of the grid (fa.left_late_due).
+            or reason == fa.LEFT_LATE
+            # SCALED_GRID's shape on a 1939 Gale Times page (fa.scaled_early_due).
+            or reason == fa.SCALED_EARLY
+            # A 1939-67 Gale Times page written unfiled whose clue window left of the grid started inside its
+            # own column (numbers clipped, or the ACROSS column cut off), read again from further left
+            # since (fa.lead_retried, fa.lead_retry_due).
+            or reason == fa.LEAD_RETRY
+            # A 1950-67 Gale Times page refused "not a grid" for a grid whose top lies within its title's
+            # line, read under it since (fa.band_grid past OFFSET_UNDER_YEARS, fa.band_late_due).
+            or reason == fa.BAND_LATE
+            # A 1940-41 Gale Times page printed small, refused "not a grid" for its grid under grid_shaped's
+            # floor, taken as the grid since (fa.small_grid, fa.small_page_due).
+            or reason == fa.SMALL_PAGE
+            # A 1946-48 Gale Times page refused "no reading parses" for the adverts right of its grid read as
+            # clue columns, before right_or_over was gated off pre-2014 Gale (fa.right_ads_due).
+            or reason == fa.RIGHT_ADS
+            # A 1950-54 Gale Times page refused "no reading parses", every reading finding no lists, read before
+            # title_left cut its lead column and its grid box stopped short of the advert (fa.fifties_left_due).
+            or reason == fa.FIFTIES_LEFT
+            # A 1940-41 Gale Times page refused "not a grid" for a grid its scan broke into pieces, found in the
+            # page's ink with its gaps closed since (fa.closed_grid, fa.closed_grid_due).
+            or reason == fa.CLOSED_GRID
+            # A Times page written unfiled for a linked clue's first light ("26, 30 Women", "1, 10 8 sailors"),
+            # read before lay_loose took a tail in the other direction and LEAD a linked head (fa.linked_lead_lost).
+            or reason == fa.LINKED_LEAD
+            # A Times page written unfiled for Down lights lost after a wrapped clue line opening "solution" or
+            # "yesterday" in lower case, where ftp.sections once ended the Down list (fa.down_cut_lost).
+            or reason == fa.DOWN_CUT
+            # A Times page written unfiled for its first Down lights, its DOWN heading set alone at the foot of
+            # the across column past a gap that once ended the column (fa.down_foot_lost).
+            or reason == fa.DOWN_FOOT
+            # A Times page written unfiled for a clue blanked on a stray mark or no-word token the mends now
+            # clear: a space lost by a comma or closing quote, a slip mended before the blanking (fa.speck_blank).
+            or reason == fa.SPECK_MENDED
+            # A Times page written unfiled for lights no reading laid after a clue's last line opening on a STOP
+            # word ("Jumbo?(6.3.6).") ended the column; a clue's count closing it now keeps it (fa.stop_tail_read).
+            or reason == fa.STOP_TAIL
+            # A Times page written unfiled for lights no reading laid while the gutter under the grid lay right of
+            # the second column's clue openings; it is now sought where they open (fa.opening_gutter_read).
+            or reason == fa.OPENING_GUTTER
+            # A Times page written unfiled for a clue the vote blanked on words read on past its count (the
+            # noise under a list's last clue); tail_cut now cuts it at its count (fa.run_on_tail_read).
+            or reason == fa.RUN_ON_TAIL
+            # A Times page written unfiled whose blank lights a replay of the current reader's vote over its
+            # cached clue windows lays, no other reason due (fa.LAID_PUZZLES, fa.laid_blanks_due).
+            or reason == fa.LAID_BLANKS
+            # A Times page written unfiled while a reading of its clue window ended a line on a count whose 1 was
+            # read as i ("(i1)."); clue_text.ones_in_count now reads it (fa.ones_count_read).
+            or reason == fa.ONES_COUNT
+            # A Times page refused "no reading parses" or written unfiled while a reading of its clue window held a
+            # clue opening on "See 16" and running on ("19 See 16 about covering ... (9)"); ftp.see_runs_on reads it.
+            or reason == fa.SEE_RUNS_ON
+            # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
+            or reason == fa.LOST_WRITE
+            # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
+            or reason == fa.UNREAD_TITLES
+            # A solution host of an unanswered Times puzzle read before loose_bands read the heading over a
+            # near-square solution grid (the 1940s'): once (fa.host_rescan_reason); a scan, kept as a host's.
+            or reason == fa.HOST_GRID_RESCAN
+            # ... read before column_headings read a heading set in a narrow column beside another, its number on
+            # the row under it, and named_day_headings the 2007-14 "Monday's Solution 23,792": once.
+            or reason == fa.HOST_COLUMN_RESCAN
+            # ... a championship puzzle's week-later host (fa.WEEK_ON_SOLUTIONS) read before its "Solution to
+            # Eliminator Puzzle No 17,907" heading was read (fa.championship_number): once.
+            or reason == fa.HOST_WEEK_ON_RESCAN
+            # ... a host of a TITLE_HEADINGS era (1940-46, 1951-86) read before the slices under its title were
+            # read (fa.era_bands), where its era prints the heading: once.
+            or reason == fa.HOST_LAYOUT_RESCAN
+            # ... a host of 1947-50 or 1987-2002 (fa.ERA_HEADINGS), whose layouts era_bands did not hold: once.
+            or reason == fa.HOST_ERA_RESCAN
+            # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
+            # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
+            or reason == fa.RIGHT_FOREIGN_READ
+            # A held puzzle whose solution grid read 3+ lights short before unlisted_reads (Paul 10-24: every
+            # short grid current code may improve, once); no likely gain, so after the 1-2-short ones.
+            or reason == fa.SHORT_WIDE
+            # A held puzzle whose grid read 1-2 lights short since unlisted_reads, before the VLM's unlisted
+            # strip words stood (fa.unlisted_word): likely() predicts it nothing, so this keeps it, once.
+            or reason == fa.VLM_UNLISTED
+            # One read since, its reading's strip of a light left blank, before the VLM's word stood one
+            # cell under the classifier's floor (fa.floor_word): once.
+            or reason == fa.VLM_FLOOR_SHORT
+            # A held puzzle 1-2 answers short, a blank light of it with no strip cut (fa.late_short), once.
+            or reason == fa.LATE_STRIPS
+            # The same held 3-5 blank (up to fa.LATE_MAX), read before late_strips asked of more than 2, once.
+            or reason == fa.WIDE_STRIPS
+            # One read since VLM_UNLISTED, a blank light's strip kept, before answers_only judged the VLM's
+            # word again on the checked crossings and took a phrase's short piece (fa.rejudged), once.
+            or reason == fa.VLM_REJUDGED
+            # A held puzzle 6+ blank on a classified grid, read before answers_only read its lights by their
+            # clues' candidates and asked the VLM to pick among them (fa.candidate_reads), once.
+            or reason == fa.CANDIDATE_READS
+            # The same held 1-2 blank, read before answers_only read such lights by their clues' candidates and
+            # took a VLM name the classifier spells in every cell (fa.candidate_reads, fa.agreed_word), once.
+            or reason == fa.CLUE_SHORT
+            # The same, read before answers_only took such a light's VLM read against held crossings that read
+            # again as listed words (fa.clash_reads), once.
+            or reason == fa.CLASH_SHORT
+            # The same held 3-5 blank, read before answers_only read such lights by their clues' candidates
+            # (fa.candidate_reads on any short grid, since CLUE_SHORT's code), once.
+            or reason == fa.CLUE_WIDE
+            # A held puzzle short whose solution the same day's other scan prints too, read before
+            # answers_only read that copy's grid where its own left a light blank (fa.SOLUTION_COPIES), once.
+            or reason == fa.OTHER_COPY
+            # A held puzzle short whose blank light's cached VLM reply, a letter long or short or a square unread,
+            # mends to one listed word vlm_word takes (fa.mend_word), read before it did, once.
+            or reason == fa.NEAR_WORD
+            # A held puzzle short whose blank light's cached VLM reply, the light's length, is one letter
+            # swapped off one listed word the classifier reads in every open cell (fa.swap_word), once.
+            or reason == fa.SWAP_WORD
+            # A held puzzle short whose blank light's cached VLM reply vlm_word refuses is near one listed word
+            # its clue defines (fa.defined_word), once.
+            or reason == fa.DEFINED_WORD
+            # A held puzzle short whose answers-only checks dropped a held answer the grid read alike, its light
+            # still blank and never stripped (late_strips counted it held: fa.misread_short), once.
+            or reason == fa.MISREAD_STRIPS
+            # A held puzzle short whose answers-only checks dropped the reading's word as a misread where a
+            # cached VLM strip reply spells it alike (fa.agreed_short; late_strips' agreed_held keeps it), once.
+            or reason == fa.AGREED_HELD
+            # A held puzzle more than fa.LATE_MAX short, read before candidate_reads asked each open light's
+            # plain strip on such a grid and took the words a second reader agrees on (fa.wide_asks), once.
+            or reason == fa.WIDE_AGREED
+            # A held puzzle short whose answers-only checks dropped a VLM name (the VLM and the classifier
+            # spell it alike) as a misread for a listed word one crossed letter off (fa.named_short;
+            # checked_answers now spares it: fa.vlm_named), once.
+            or reason == fa.VLM_NAMED
+            # A held puzzle short whose blank light's cached VLM name (the classifier spells it alike) was refused
+            # for a surname alone one open letter off (fa.near_short with named; fa.word_away), once.
+            or reason == fa.NAME_RIVALS
+            # A held puzzle short whose blank light's cached VLM reply reads one open letter under the floor where
+            # the classifier is sure of another, its word otherwise the classifier's (fa.near_short with argmax;
+            # fa.argmax_word), once.
+            or reason == fa.ARGMAX_SHORT
+            # A held puzzle short whose blank light's cached VLM reply lies one open letter off the classifier's
+            # word, the clue settling it: its definition links that word alone, or it names something for a name
+            # the classifier spells (fa.near_short with paired; fa.paired_word), once.
+            or reason == fa.PAIRED_SHORT
+            # A held puzzle short whose blank light's cached VLM reply every other mend refuses and the clue's
+            # wordplay spells as read, an anagram or hidden word (fa.near_short with spelt; fa.spelt_word), once.
+            or reason == fa.SPELT_SHORT
+            # A held puzzle short whose blank light's cached VLM reply every other mend refuses and another puzzle's
+            # filed answer spells as read, the classifier reading it too (fa.near_short with filed; fa.filed_word), once.
+            or reason == fa.FILED_NAME
+            # A held puzzle 1-2 short whose blank light's strip only late_strips cut (none kept by the reading) has a
+            # cached VLM reply vlm_word takes now (fa.near_short with late), once.
+            or reason == fa.LATE_JUDGED
+            # A held puzzle short whose blank light's cached VLM word a classifier rival on an unchecked letter dropped
+            # and vlm_stands keeps (fa.near_short with rivaled), once.
+            or reason == fa.VLM_RIVALED
+            # A held puzzle 1-5 short whose answers-only read cut no late strip (late_strips ran while it was 6+
+            # short, the reads after it left it 1-5) and one blank light never asked (fa.unasked_short), once.
+            or reason == fa.LATE_UNASKED
+            # A held puzzle 1-5 short whose blank light's cached VLM reply vlm_word now mends to the word its clue
+            # defines two open letters off (fa.near_short with far: far_word), once.
+            or reason == fa.FAR_DEFINED
+            # A held puzzle 1-5 short whose blank light's cached VLM reply vlm_word now mends to the classifier's
+            # likeliest of the near words its clue names (fa.near_short with tied: tied_word), once.
+            or reason == fa.TIED_DEFINED
+            # A held puzzle 1-5 short whose blank light's cached long VLM reply every other mend refuses vlm_word now
+            # takes, the classifier's likeliest listed word (fa.near_short with lengthy: long_word), once.
+            or reason == fa.LONG_FLOOR
+            # A held puzzle 1-5 short whose blank light's cached VLM reply a letter long or short every other mend
+            # refuses vlm_word now mends to the word the classifier reads (fa.near_short with shifted:
+            # shifted_word), once.
+            or reason == fa.SHIFTED_WORD
+            # A held puzzle 1-2 short whose every blank light is a light of a linked answer ("See 11"), its VLM
+            # reply a fragment vlm_word's lists refused; linked_reads judges the group's whole answer
+            # (fa.linked_short), once.
+            or reason == fa.LINKED_ANSWER
+            # The same puzzle read before linked_name took a linked answer's unlisted piece both readers spell alike
+            # (OMNIUM GATHERUM, EBBW VALE), once.
+            or reason == fa.LINKED_NAME
+            # A held puzzle short whose last read was a full read answers_only did not try first (no strip cut,
+            # no VLM ask, none of its later reads: fa.full_short), at any time, once a read.
+            or reason == fa.FULL_SHORT
+            # A held puzzle 1-5 short whose blank light's cached reply to answers_only's first ask, on the reading's
+            # own crossings (not the held file's, as every near_short check looks it up), vlm_word takes now
+            # (fa.crossed_short), once.
+            or reason == fa.READ_CROSSED
+            # A held puzzle short whose blank light's clue's anagram or hidden word is the one listed word its
+            # held crossings allow (fa.held_wordplay), read before answers_only read clues' wordplay, once.
+            or reason == fa.WORDPLAY_SHORT
+            # The same with a blank light's wordplay word linked to its clue's definition in WordNet
+            # (fa.held_clue_solved), filed as ours (solutions origin "model"), read before it did, once.
+            or reason == fa.CLUE_SOLVED
+            # A held puzzle whose linked solution grid was refused (its blocks, or its ink's size) before
+            # read_solution looked for it by its blocks (matched_box), once. likely() predicts nothing for
+            # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
+            # puzzles held short (1980s ~250, 1990s ~115, 1970s ~105) stood so, none planned.
+            or reason == fa.REFUSED_GRID
+            # The same refused for its blocks after that fix, before read_solution read a matched grid on
+            # matched_box's own lattice (fa.MATCHED_LATTICE): its crop's framings missed rows, once.
+            or reason == fa.MATCHED_GRID
+            # The same refused at blocks just under SOLUTION_BLOCKS with half its lights or more accepted,
+            # before read_solution took such a read (fa.near_read), once.
+            or reason == fa.NEAR_GRID
+            # A held puzzle whose grid read short at blocks just under SURE_BLOCKS (a heavy print's inked
+            # letters read as blocks) before the classifier read such grids (fa.heavy_short), once.
+            or reason == fa.HEAVY_PRINT
+            # The same read under SURE_BLOCKS with no cell classified, before read_framed classified on the
+            # best sure framing, not only the best-fitting one, and very heavy prints (fa.unsure_short), once.
+            or reason == fa.SURE_FRAMING
+            # The same band read since: its crop read for another puzzle's grid, the page's other heading's
+            # taken where the page swapped them (fa.other_grid_short, fa.swapped_heading), once.
+            or reason == fa.OTHER_GRID_SHORT
+            # A held puzzle whose own grid answers-only refused as another puzzle's through a neighbour's
+            # stray held answers (or one dated on or after the page), its cached sure reading passing
+            # wrong_grid now (fa.stray_grid): once, and again when a neighbour's held file moves.
+            or reason == fa.STRAY_GRID
+            # A held puzzle short whose grid the classifier cannot read (no sure framing), the uncrossed check
+            # having dropped every answer an unread crossing left unchecked, whose cached reading gives a blank
+            # light uncrossed keeps now (fa.unsure_uncrossed, fa.unsure_lone), once.
+            or reason == fa.UNSURE_LONE
+            # A held puzzle short whose grid read with no cell classified: a framing whose blocks are exactly
+            # the image's most inked cells is sure since (trove_solution_ocr.blocks_ranked), once.
+            or reason == fa.RANKED_BLOCKS
+            # Likewise a grey print's grid whose blocks are its darkest cells blurred to a tone
+            # (trove_solution_ocr.blurred_framing), once.
+            or reason == fa.BLURRED_BLOCKS
+            # Likewise a grid no framing's blocks judge, classified on the framing whose letters its reading
+            # reads (trove_solution_ocr.lettered_framing), once.
+            or reason == fa.LETTERED_BLOCKS
+            # A blank light's VLM read against a held crossing the classifier reads its way (fa.classed_clash),
+            # taken with the crossing re-read: the puzzles of fa.CLASSED_PUZZLES, once.
+            or reason == fa.CLASSED_CLASH
+            # A blank light's VLM name one clue word spells (trove_solution_ocr.word_spells), taken by spelt_word:
+            # the puzzles of fa.ONE_WORD_PUZZLES, once.
+            or reason == fa.ONE_WORD_SHORT
+            # A blank light's VLM name the VLM and the classifier spelled alike on two puzzles or more
+            # (fa.TWICE_NAMES), taken by twice_word: the puzzles of fa.TWICE_PUZZLES, once.
+            or reason == fa.TWICE_READ
+            # A blank light's VLM reply one crossing letter off, mended to that letter where the classifier
+            # spells the mend and a print vouches for it (fa.crossed_word): the puzzles of fa.FORCED_PUZZLES, once.
+            or reason == fa.FORCED_WORD
+            # A blank light whose crossings leave one past answer the classifier allows (trove_solution_ocr.vouched_fit),
+            # taken by clue_solved_reads as ours: the puzzles of fa.VOUCHED_PUZZLES, once.
+            or reason == fa.VOUCHED_FIT
+            # A blank light whose clue another committed puzzle prints again, its answer fitting the crossings
+            # (trove_solution_ocr.clue_repeat), taken by clue_solved_reads as ours: the puzzles of fa.CLUE_REPEAT_PUZZLES, once.
+            or reason == fa.CLUE_REPEATED
+            # A puzzle whose solution heading prints in a late host (fa.LATE_SOLUTIONS) that links it since
+            # (fa.late_linked, r37: 13 Times puzzles 1972-86 filed with every clue, none answered): once.
+            or reason == fa.LATE_LINKED
+            # A Gale Sunday Telegraph puzzle whose solution list (the issue a week on) links since, or filed with
+            # every clue and no answers-only read tried (fa.sunday_listed): its held file answered by the list, once.
+            or reason == fa.SUNDAY_LISTED
+            # A puzzle with one blank light that has one fitting word its clue's definition links
+            # (fa.one_blank_word, taken by clue_solved_reads as ours): fa.held_one_blank, once.
+            or reason == fa.ONE_BLANK_FIT
+            # A puzzle 1-5 short whose answers-only read took clue-solved fills and cut no late strip (late_strips
+            # counted those lights blank, 6+): one blank light never asked (fa.final_unasked), once.
+            or reason == fa.FINAL_STRIPS
+            # A puzzle 6-14 short whose blank lights without a clue-read candidate were never asked (fa.blind_unasked): once.
+            or reason == fa.BLIND_STRIPS
+            # A puzzle short whose solution grid is a 1930 Times print page read with no cell classified
+            # (fa.printed_short, PRINT_CLASSIFIED): once.
+            or reason == fa.PRINTED_CELLS
+            # A puzzle 1-5 short whose blank lights' plain strip asks were all refused (fa.prepped_unasked): asked
+            # again as prepared strips (fa.prepped_strip), once.
+            or reason == fa.PREPPED_STRIPS
+            # A puzzle 1-2 lights short where a blank light's print-crossed letters leave one word of the lexicon and
+            # the past answers (fa.held_printed_fit, taken by clue_solved_reads as ours, tagged), once.
+            or reason == fa.PRINTED_FIT
+            # A puzzle filed a number off its title and renumbered to it since: its answers were read off
+            # the wrong number's grid (fa.renumbered). Ranked and answers-only (SOLUTION_FIXES) since 10-25,
+            # but no evidence reason, so only_evidence dropped every one (33 Times puzzles, 2001-02), once.
+            or reason == fa.RENUMBERED
+            # A held file with a suspect clue whose answers-only reading went to --out (fa.suspect_held), once.
+            or reason == fa.SUSPECT_HELD
+            # A held file with every clue whose full read's answers went to --out, or whose write a mended
+            # clue's fault refused (fa.unfiled_held), once.
+            or reason == fa.UNFILED_HELD
+            # A held file off a printed grid whose linked grid's reading reads a held answer otherwise
+            # (an OCR slip), refused whole before settle_held (fa.held_clash), once.
+            or reason == fa.HELD_CLASH
+            # The other two answers_only rereads likely() predicts nothing for: a grid older code read short
+            # (cells unclassified) for a puzzle held short from its page that short_again passes over (its
+            # blocks under SURE_BLOCKS), and a held puzzle with a clue filed without its count. Paul 10-24:
+            # ~670 and ~275 Times puzzles held every clue short of answers so, none planned. Each once: a
+            # reread writes this solution_key; unenumerated_held wants a read before REREAD_UNENUMERATED.
+            # Plain "solution short, its cells unclassified" (no puzzle answers_only can read) stays out.
+            or reason in (fa.UNCLASSIFIED_HELD, "answers held back by a clue with no enumeration")
+            # A page whose scan finds no title while the puzzle filed from it waits on its answers
+            # (fa.held_titles: Paul 10-25, ~240 Times puzzles a host's heading names): answers-only, once.
+            or reason == fa.HELD_TITLE
+            # A held title's row left answerless before a host's heading linked it (fa.held_linked: failure shapes
+            # r31, 17 Times puzzles 2-5 short, none planned): answers-only, no VLM ask, once.
+            or reason == fa.HELD_LINKED
+            # Such a held title's reread whose blank lights' strips its CPU-only read never asked (fa.held_strips:
+            # 10-26, 172 Times puzzles 1-5 short, none planned): answers-only with the VLM, once.
+            or reason == fa.HELD_STRIPS
+            # One a HELD_TITLE reread read again after HELD_STRIPS' time with no ask (fa.held_asked: 10-27, 131
+            # Times puzzles 1-5 short, 1950s 106, none planned): answers-only with the VLM, once.
+            or reason == fa.HELD_ASKED
+            or reason in fix_reasons.of("kept")  # a fix registered in tools/reasons/
+            or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
+
+
+#: Paul 10-22: ~1,500 Gale Times 2000-14 editions had no puzzle filed. 2007's 312 (each read once on 10-12,
+#: ~10 down clues blank: the third clue column under the grid) were never reread: their reason is the blanket
+#: "short Times page, its third clue column read since", which only_evidence dropped, and the 2008-13 pages
+#: the same fix reread (10-18) no longer leave that column blank. Also ~270 pages of 2006-11 whose rescan
+#: found a title the read never covered ("titles changed", no verdict: a puzzle never read). Each is concrete
+#: evidence of a page that can file, so planned, for the years named here (widen them as each is read).
+THREE_COLUMNS = fa.THREE_COLUMNS
+THREE_COLUMNS_YEARS = fa.THREE_COLUMNS_YEARS
+#: The Gale Times years whose "titles changed" rereads (a title no verdict covers) are planned.
+NEW_TITLE_YEARS = (2000, 2014)
+#: ...except these: Paul 10-22, of the ~86 2005-06 rereads started 08:23-09:30, every 2005 one (17) filed nothing and
+#: every 2006 one that wrote only rewrote a puzzle already filed (the old scan's titles were false).
+NEW_TITLE_SKIP_YEARS = (2005, 2006)
+
+
+def year_evidence(unit):
+    """Whether `unit` is a Gale Times reread planned for the page's own evidence (see THREE_COLUMNS):
+    a short third-column page of THREE_COLUMNS_YEARS, or a "titles changed" one of NEW_TITLE_YEARS."""
+    year = (unit.get("date") or "")[:4]
+    if unit.get("paper") != "gale" or not year.isdigit():
+        return False
+    reason = unit.get("reason")
+    if reason == THREE_COLUMNS:
+        return THREE_COLUMNS_YEARS[0] <= int(year) <= THREE_COLUMNS_YEARS[1]
+    return (reason == "titles changed" and NEW_TITLE_YEARS[0] <= int(year) <= NEW_TITLE_YEARS[1]
+            and int(year) not in NEW_TITLE_SKIP_YEARS)
+
+
+def blanket_rereads():
+    return os.environ.get("CT_BLANKET_REREADS", "") not in ("", "0")
+
+
+def only_evidence(paper, scans, reads, out=None):
+    """`scans`, `reads` (fa.plan's units of one paper) without the blanket
+    rereads, each kept read carrying "detail" (the puzzle and what the
+    annotation or the refusal said); a scan stays when it is a first scan or a
+    kept read waits on it."""
+    # A read fa.likely() predicts to file a puzzle whole (e.g. "answers linked": a scan now links the
+    # printed solution of a puzzle filed without answers) is evidence too. Paul 10-21: filling the
+    # Times answers printed in the papers takes priority over the other papers.
+    reads = [u for u in reads if evidence_reason(u["reason"]) or year_evidence(u) or fa.likely_gain(u) > 0]
+    # Paul 10-21: "The goal is to get the solutions to the puzzles that have all their clues already in
+    # hand but no solutions." The Times scans kept for that are fa.HOST_SCAN's alone (planned by
+    # fa.solution_hosts: the one issue printing such a puzzle's solution, OCR with no VLM ask); once
+    # one links the heading the puzzle's read is due with "answers linked" likely (answers_only, 0
+    # asks), which is evidence above. No scan of a read's own edition or the week after it is kept for
+    # a Times read (it was cd3554e547d's, ~10,000 rescans).
+    times = getattr(fa.FILERS.get(paper), "series", None) == fa.SERIES
+    for u in reads:
+        if year_evidence(u) and not u.get("detail"):
+            u["detail"] = "a title no read covered" if u["reason"] == "titles changed" else "clues short of lights"
+        if not evidence_reason(u["reason"]) and not u.get("detail"):
+            u["detail"] = ", ".join(f"{k} x{n}" for k, n in sorted((u.get("likely") or {}).items()))
+        if u["reason"] == "annotation asked" and not u.get("detail"):
+            u["detail"] = _ASKED_WHY.get((paper, u["rel"]), "")
+    # Paul 10-22: the stale full scans of the editions in the week after a Times or Gale Times read
+    # (its "needs" beyond its own page) were ~1,340 of the queue's 2,647 scans. A read needs its own
+    # page scanned (prepare: SCAN_FIRST) and nothing else to file its puzzle; where the printed solution
+    # is, is a HOST_SCAN's business once the puzzle is filed with every clue and no answers.
+    if times:
+        needed = {u["rel"] for u in reads if u["reason"] not in fa.STALE_SCAN and u["rel"] in (u.get("needs") or ())}
+        week = {rel for u in reads if u["reason"] not in fa.STALE_SCAN for rel in u.get("needs") or ()} - needed
+    else:
+        needed = {rel for u in reads for rel in u.get("needs") or ()}
+        week = set()
+    gated = [u for u in scans if u["reason"] == "scan stale" and u["rel"] in week]
+    scans = [u for u in scans if u["reason"] in ("never scanned", *fa.HOST_REASONS) or u["rel"] in needed]
+    # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
+    # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
+    # Paul 11-14: so do the scans a kept FIX_LANDED reread waits on (fix_landed_reread): 933 of the first 2,000
+    # reads needed a scan at 1,000+ of 24,000 (SIDES_HEADED: none started in 6 h); fix_rereads_forward orders them.
+    fixed = {rel for u in reads if year_evidence(u) or fix_landed_reread(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.IOS_TITLES, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_HEADINGS, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.FT_NOISY_TITLE)
+             for rel in u.get("needs") or ()}
+    scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
+    if gated and out is not None:
+        out.append(f"{paper}: left out {len(gated)} stale scans of editions only in the week after a kept read "
+                   f"(its own page's scan is kept; a solution host's is planned by fa.solution_hosts)")
+    return scans, reads
+
+
+#: Seconds a plan waits out a hold on a paper's ledger before it leaves the paper out. Every unit's
+#: row (scan_queue.append) takes the same lock for its write, so with ~20 units running a wait of 0
+#: met one now and then: 10-27 08:37:55 a plan left all of gale out ("a run holds filed-gale.lock"),
+#: ~9,250 Gale Times reads with every DASH_JOINED/OLD_FORM and ~1,280 lost-write reread, and that
+#: plan was kept (plan_file) and run from. A batch run holding it throughout outlasts this.
+PLAN_HOLD_WAIT = 20
+
+#: A paper whose ledger is held past PLAN_HOLD_WAIT is planned after every other paper, its ledger looked at
+#: again for this many PLAN_HOLD_WAITs, and left out only if it is held still. 11-16: about one plan in five
+#: left out Times, Telegraph, Guardian, FT and the Gale papers (archive_org_editions/filed.jsonl, one ledger
+#: and one lock for all of them; "planned: 0 scans, 2979 reads"), each after its own 20 s wait, twice
+#: (plan_inputs, _plan), while a restart's ledger_upkeep re-keyed that ledger once per paper (3-5 min held);
+#: the partial plan was kept and run from for ~20 min.
+PLAN_HOLD_RETRY = 6
+
+#: {lock path: held} of ledger_held within one plan() (cleared as it starts): papers sharing a ledger (and
+#: plan_inputs then _plan) wait on its lock once, not once each.
+_HELD_SEEN = {}
+
+
+def ledger_held(ledger, wait=None):
+    """Whether a batch run holds `ledger` (scan_queue.held after PLAN_HOLD_WAIT), not a unit's write; the
+    answer this plan already had for its lock (_HELD_SEEN) unless `wait` (seconds) asks it again."""
+    path = str(scan_queue.lock_path(ledger))
+    if wait is None and path in _HELD_SEEN:
+        return _HELD_SEEN[path]
+    _HELD_SEEN[path] = held = bool(scan_queue.held(ledger, PLAN_HOLD_WAIT if wait is None else wait))
+    return held
+
+
+def plan_inputs(papers, cache, reread, asked):
+    """(key, stamps, extra): what a plan of `papers` is made of, each cheap to
+    read (stats, one listing per series, one VLM probe). `key` is the request
+    (papers, cache, reread, CT_NEWEST_FIRST); `stamps` each archive paper's
+    fa.plan_stamp and whether a run holds its ledger (None for any: not told
+    cheaply, as off the media disk); `extra` the Listener's and Trove's units
+    (small, and Trove's kept for TROVE_REPLAN seconds on their own)."""
+    key = (tuple(papers), str(cache), reread, tuple(sorted(newest_first_papers())), blanket_rereads())
+    stamps = {}
+    for k in papers:
+        if k in ("listener", "trove"):
+            continue
+        paper = fa.FILERS[k]
+        stamp = fa.plan_stamp(paper, cache, reread, asked.get(k, ()))
+        stamps[k] = None if stamp is None else (stamp, ledger_held(fa.ledger_of(cache, paper)))
+    extra = {}
+    if "listener" in papers:
+        extra["listener"] = gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()
+    if "trove" in papers:
+        led = media_manifest.trove_ledger(ftp.CACHE)
+        trove_held = ledger_held(led)
+        extra["trove"] = (trove_held, None if trove_held else trove_plan(reread, asked.get("trove", ())))
+    return key, stamps, extra
+
+
+def _plan_kept(papers, cache, reread, out):
+    """_plan's answer, the last whole plan's lists themselves while nothing it
+    is made of moved (plan_inputs equal, and under fa.PLAN_REUSE seconds old,
+    fa's own backstop): the queue is built once and consumed (dispatch drops
+    each unit it has tried), not derived again each tick. Any input moving
+    (a ledger row, a new scan or fetch, filed puzzles, the scan code, the
+    VLM, the request, CT_NEWEST_FIRST) derives it again, whole, as before:
+    each paper through fa's own per-paper memo, so only what moved is worked
+    out."""
+    asked = _asked()
+    key, stamps, extra = plan_inputs(papers, cache, reread, asked)
+    last = _QUEUE.get("last")
+    if (last is not None and last["key"] == key and None not in stamps.values() and last["stamps"] == stamps
+            and last["extra"] == extra and time.monotonic() - last["made"] < fa.PLAN_REUSE):
+        if out is not None:
+            out.extend(last["notes"])
+        return last["result"]
+    notes = []
+    result = _plan(papers, cache, reread, notes, asked)
+    if out is not None:
+        out.extend(notes)
+    # Notes about a slow plan describe that plan, not the one that reuses it.
+    _QUEUE["last"] = {"key": key, "stamps": stamps, "extra": extra, "made": time.monotonic(), "result": result,
+                      "notes": [n for n in notes if not n.startswith("slow plan")]}
+    return result
+
+
+def _plan(papers, cache, reread, out, asked=None):
+    asked = _asked() if asked is None else asked
+    scans, reads = [], []
+    blanket = blanket_rereads()
+    if vlm_reader.unconfigured() and out is not None:
+        out.append(f"VLM NOT CONFIGURED: {vlm_reader.UNCONFIGURED}; treated as VLM down, "
+                   "reads that need it wait (an explicitly empty VLM_READER_URL is the OCR-only opt-out)")
+    began, took, later = time.monotonic(), {}, []
+
+    def paper_units(k, key):
+        sc, rd = fa.plan(fa.FILERS[key], cache, reread=reread, asked=asked.get(key, ()))
+        if not blanket:
+            sc, rd = only_evidence(key, sc, rd, out)
+        scans.extend((u["rank"], k, n, u) for n, u in enumerate(sc))
+        reads.extend((u["rank"], k, n, u) for n, u in enumerate(rd))
+
+    for k, key in enumerate(papers):
+        took[key] = time.monotonic()
+        if key == "listener":
+            reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
+                      for n, u in enumerate(gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
+            continue
+        if key == "trove":
+            led = media_manifest.trove_ledger(ftp.CACHE)
+            if ledger_held(led):
+                if out is not None:
+                    out.append(f"trove: a run holds {led.with_suffix('.lock')}; left out")
+                continue
+            _, tr = (None, trove_plan(reread, asked.get("trove", ())))
+            if not blanket:
+                _, tr = only_evidence("trove", [], tr)
+            reads += [(u["rank"], k, n, u) for n, u in enumerate(tr)]
+            continue
+        if ledger_held(fa.ledger_of(cache, fa.FILERS[key])):
+            later.append((k, key, len(out) if out is not None else 0))  # after the others (PLAN_HOLD_RETRY)
+            continue
+        paper_units(k, key)
+    # A held ledger once more, each lock once, after every other paper: a restart's upkeep or a convoy of
+    # unit writes is over by now, and only a run holding it still (a batch run's) leaves its papers out.
+    asked_again, gone = set(), 0
+    for k, key, at in later:
+        ledger = fa.ledger_of(cache, fa.FILERS[key])
+        lock = str(scan_queue.lock_path(ledger))
+        took[f"{key} (held)"] = time.monotonic()
+        held = ledger_held(ledger, None if lock in asked_again else PLAN_HOLD_RETRY * PLAN_HOLD_WAIT)
+        asked_again.add(lock)
+        if not held:
+            paper_units(k, key)
+        elif out is not None:
+            out.insert(at + gone, f"{key}: a run holds {lock}; left out")
+            gone += 1
+    scans, reads = hold_refusal_rereads(scans, reads, out)
+    scans, reads = hold_low_yield_eras(scans, reads, out)
+    ended = time.monotonic()
+    if out is not None and ended - began >= SLOW_PLAN:
+        out.append(slow_plan_note(took, ended, began))
+    reads_only = [t[3] for t in reads]
+    return (by_urgency(scans, serves=solution_needs(reads_only), fixing=fixing_needs(reads_only),
+                       newest=fixing_needs(reads_only, newest_only=True)),
+            by_urgency(reads))
+
+
+def fixing_needs(reads, newest_only=False):
+    """The (paper, rel) of every edition a newest-first paper's fix reread (fixing_work) waits on: its own
+    and its needs. by_urgency puts the scans of these first of all, with those rereads."""
+    named = newest_first_papers()
+    return {(u["paper"], rel) for u in reads if u.get("paper") in named and (newest_fix(u) if newest_only else fixing_work(u))
+            for rel in [u["rel"], *(u.get("needs") or ())]}
+
+
+#: How many of UNFILED_FIRST's last reasons (the newest fixes) go ahead of the other fix rereads.
+#: Paul 10-28: "Things you're fixing should be at the front of the queue": r35's VOUCHED_FIT units stood
+#: at plan places 649-1065 behind ~1,200 older fix rereads, none started in the hours since it shipped.
+NEWEST_FIX_COUNT = 1
+
+
+def newest_fix(unit):
+    """Whether `unit` is a reread for one of the newest fixes (the last NEWEST_FIX_COUNT of UNFILED_FIRST)."""
+    return unit.get("reason") in UNFILED_FIRST[-NEWEST_FIX_COUNT:]
+
+
+def fixing_work(unit):
+    """Whether `unit` rereads a page for a reader fix just shipped (UNFILED_FIRST: a page held back
+    unfiled whose failure shape a fix since reads, or a lost write)."""
+    return unit.get("reason") in UNFILED_FIRST
+
+
+def solution_needs(reads):
+    """The (paper, rel) of every edition a newest-first paper's solution read (times_solution_work)
+    waits on: its own and its needs. by_urgency puts the scans of these first with that work: on 10-24
+    3,528 such rereads waited on their own stale scan, 3,385 of those scans past 5,000 in the scan list."""
+    named = newest_first_papers()
+    return {(u["paper"], rel) for u in reads if u.get("paper") in named and times_solution_work(u)
+            for rel in [u["rel"], *(u.get("needs") or ())]}
+
+
+#: Reasons of a puzzle never read or scanned: new work, filed before any refusal is read again.
+NEW_WORK = ("never read", "never scanned", "never read (Gale fetch)", "just laid out")
+
+
+#: Title and heading rescans of a fix: pages scanned wrong, so as good as never read; never refusal rereads,
+#: so hold_refusal_rereads leaves them at the front while never-read work remains.
+TITLE_RESCANS = (fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.IOS_TITLES, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_HEADINGS, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.FT_NOISY_TITLE)
+
+
+def refusal_reread(reason):
+    return reason not in TITLE_RESCANS and (
+        reason.endswith(" cured since") or reason in FIX_LANDED
+        or (reason.startswith("refused ") and reason.endswith(" before its fix")))
+
+
+#: Refusal rereads whose cause a 10-PAGE CANARY proved fixed: they skip the hold below and
+#: are ordered (by_urgency) right after the never-read units of the CT_NEWEST_FIRST papers,
+#: alongside other papers' never-read work, ahead of every other reread. One tuple per case:
+#: (paper key, refusal cause as in "refused <cause> before its fix", first year, last year, note).
+#: RULE: add a line only after a 10-page canary of that cause and era was read with the
+#: current code and mostly parsed; the note records the date and the canary's result.
+CANARY_PROVEN = (
+    ("gale", "no-reading-parses", 1960, 1966, "10-18 canary: 20 of 22 sample pages parsed"),
+    ("gale", "no-reading-parses", 2005, 2006, "10-18 canary: 20 of 22 sample pages parsed"),
+    # cause "unfiled" is the reason "unfiled before its fix" (a page written with blank clues).
+    ("gale", "unfiled", 2005, 2006, "10-20 canary: 8 of 10 Dec 2005 pages read complete, 0 uncached VLM asks"),
+    ("ft", "unfiled", 1986, 1986, "10-20 canary: 4 of 5 pages read complete, 0 uncached VLM asks"),
+    ("gale", "no-reading-parses", 1950, 1959, "10-21 canary: 8 of 9 1950s pages parsed from OCR alone (was 0 of 6), 0 VLM asks"),
+    ("gale", "unfiled", 1950, 1959, "10-21 canary: 8 of 10 one-blank 1950s pages read complete from OCR alone (was 0 of 10), 4 of 4 filed pages still complete"),
+    # Since 10-24 unfiled_blank leaves out a puzzle already filed with every clue, so these are pages never filed.
+    ("gale", "unfiled", 1945, 1949, "10-24 canary: 3 of 8 never-filed 1945-48 pages filed whole (was 0), blanks 32 -> 5 "
+                                    "on the 6 written, 1 refused, 1 found nothing; 51 live rereads since 10-22: blanks 366 -> 24"),
+    # 11-09: the Gale Sunday Telegraph's clue-column rereads were held behind its own 202 never-read and 182 never-scanned
+    # units (hold_refusal_rereads: 0 of either reason in the plan). Live SUNDAY_SIDES rereads: 84 of 173 pages gained clue
+    # lists (was 0 of 173), 8 filed; SUNDAY_RIGHT is 11 rows, a run too small to hold.
+    ("galesundaytelegraph", fa.SUNDAY_SIDES, 1987, 1998, "11-09 live: 84 of 173 reread pages gained clue lists (was 0), 8 filed"),
+    ("galesundaytelegraph", fa.SUNDAY_RIGHT, 1987, 1998, "11-09: 11 rows, the crop right of the grid; its own canary"),
+    # 11-10: 59 filed Sunday Telegraph puzzles of 1972-77 carry the Quickie clue set (census of sundaytel-580..859, 1.4 to 2.2
+    # words a clue): wrong files, so the reread stands whatever the paper's refusal hold.
+    ("galesundaytelegraph", fa.QUICK_SET, 1972, 1977, "11-10 census: 59 filed puzzles carry the Quickie set, not the cryptic"),
+    ("galesundaytelegraph", fa.QUICK_HELD, 1972, 1977, "11-10: QUICK_SET rereads read the cryptic clues but decide() kept the Quickie file; wrong files, own canary"),
+    # 11-09: SUNDAY_LISTED was held by this very hold (0 in the plan; 45 due once the crop headings link): an
+    # answers-only reread of a held file from the next issue's text lists, no clue-column read.
+    ("galesundaytelegraph", fa.SUNDAY_LISTED, 1987, 1998, "11-09: answers-only from the printed text lists, 45 due"),
+)
+
+
+#: Refusal rereads that a canary or live reading showed still fail: held even for the
+#: CT_NEWEST_FIRST papers, until the cause is fixed. Same tuple shape as CANARY_PROVEN.
+CANARY_FAILED = (
+    # Paul 10-21: "Why are we rereading times when all we want is their solutions": these reread the
+    # clue pages, and live they rewrote the same blanks (~350 writes an hour, 5 new filings).
+    # 10-24: most were puzzles already filed whole (now left out by unfiled_blank); a canary of 4 never-filed
+    # 1974-84 pages filed 2 (times-13689, -15170), cut 1 from 8 blanks to 1, and left 1 worse (9 blanks -> 26:
+    # its clues laid on no light, nothing written). Under the 10-page rule: ~116 such pages left to sample.
+    ("times", "unfiled", 1785, 2100, "10-21 live: ~350 writes/h made 5 new filings; 10-24 canary 2 of 4 filed"),
+    ("gale", "unfiled", 1785, 1944, "10-20 canary: 1 of 3 1945-49 pages with blanks improved (1945-49 proven 10-24)"),
+)
+
+
+def canary_failed(unit):
+    """The CANARY_FAILED note of a refusal reread `unit`, or None."""
+    return canary_match(unit, CANARY_FAILED)
+
+
+def canary_proven(unit):
+    """The CANARY_PROVEN note of a refusal reread `unit`, or None."""
+    return canary_match(unit, CANARY_PROVEN)
+
+
+def canary_match(unit, table):
+    reason, year = unit.get("reason") or "", (unit.get("date") or "")[:4]
+    if not year.isdigit():
+        return None
+    for paper, cause, first, last, note in table:
+        # A cause naming its whole reason (one with a space: fa.UNFILED_MODERN) is that reason.
+        want = "unfiled before its fix" if cause == "unfiled" else cause if " " in cause else f"refused {cause} before its fix"
+        if (unit.get("paper") == paper and reason == want
+                and first <= int(year) <= last):
+            return note
+    return None
+
+
+def refusal_rereads_wanted():
+    return os.environ.get("CT_REFUSAL_REREADS", "") not in ("", "0")
+
+
+def hold_refusal_rereads(scans, reads, out=None):
+    """(scans, reads) (_plan's (rank, k, n, unit) tuples) without the refusal
+    rereads while the plan holds any never-read or never-scanned unit: they
+    spend the one-slot VLM that new puzzles wait for. "annotation asked"
+    rereads stay (concrete bug evidence), as do scans a kept read needs; a
+    scan only a held read needed goes too. CT_REFUSAL_REREADS=1 keeps all.
+    One note says how many were held and why."""
+    new = any(u["reason"] in NEW_WORK for _, _, _, u in scans + reads)
+    proven = [t for t in reads if refusal_reread(t[3]["reason"]) and canary_proven(t[3])]
+    if proven and out is not None:
+        for note in dict.fromkeys(canary_proven(t[3]) for t in proven):
+            out.append(f"canary-proven rereads: kept {sum(canary_proven(t[3]) == note for t in proven)} ({note})")
+    # CT_NEWEST_FIRST papers' refusal rereads are never held: Paul 10-21, "Read the remaining times
+    # puzzles before doing ft" (their never-read pages ran out; ~1,200 rereads waited behind FT's).
+    named = newest_first_papers()
+    # Nor are the Listener's: read on local OCR in their own pool (LISTENER_WORKERS), they ask no VLM, so
+    # holding them saved the VLM nothing. Held, its 619 pages read before the paragraph-list fixes
+    # (CLUES_FIX) waited behind 2,858 never-read ones (~110 h of its pool, 10-24), and no Listener filed.
+    # Nor are the named fixes' (reason in FIX_LANDED): Paul 11-13, "Things you're fixing should be at the front
+    # of the queue". 3,548 of them (SIDES_READ, INDY_LINKS, SUNDAY_GRID, ...) were held behind 23,941 never-read
+    # units, 0 in the plan. Only the generic "... cured since" / "refused X before its fix" rereads are held.
+    held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
+            and not (t[3]["reason"] in FIX_LANDED and not t[3]["reason"].endswith((" before its fix", " cured since")))
+            and t[3]["paper"] != "listener" and (t[3]["paper"] not in named or canary_failed(t[3]))]
+    if not held:
+        return scans, reads
+    if refusal_rereads_wanted():
+        if out is not None:
+            out.append(f"refusal rereads: {len(held)} kept (CT_REFUSAL_REREADS=1)")
+        return scans, reads
+    if not new:
+        if out is not None:
+            out.append(f"refusal rereads: {len(held)} kept, no never-read or never-scanned unit left")
+        return scans, reads
+    reads = [t for t in reads if t not in held]
+    kept = {(t[3]["paper"], rel) for t in reads for rel in t[3].get("needs") or ()}
+    gone = {(t[3]["paper"], rel) for t in held for rel in t[3].get("needs") or ()} - kept
+    before = len(scans)
+    scans = [t for t in scans if t[3]["reason"] in NEW_WORK or (t[3]["paper"], t[3]["rel"]) not in gone]
+    if out is not None:
+        out.append(f"refusal rereads: held {len(held)} (and {before - len(scans)} scans only they needed) "
+                   f"while never-read or never-scanned units remain; CT_REFUSAL_REREADS=1 restores them")
+    return scans, reads
+
+
+#: Trove print years whose never-read articles file rarely: measured on
+#: trove-filed.jsonl (articles read, not skipped; filed = a puzzle id and no
+#: refusal), 1973-1989 file 306 of 4331 reads (7.1%; per year 1973 9%, 1974 3%,
+#: 1975 14%, 1976 4%, 1977 9%, 1978 0.5%, 1979 18%, 1980 14%, 1981 5%, 1982 1%,
+#: 1983 19%, 1984 6%, 1985-1989 0.6-17%), the rest "zones-not-fetched" and
+#: "no-grid". Every other year is above 20% (1972 39%, 1990 29%, 1992+ 32-54%);
+#: 1968 and 1971 dip on 63 and 46 reads but 1967-1970 average higher, so they stay.
+LOW_YIELD_YEARS = range(1973, 1990)
+
+
+def low_yield_eras_held():
+    return os.environ.get("CT_LOW_YIELD_ERAS", "") not in ("", "0")
+
+
+def low_yield_trove(unit):
+    return (unit["paper"] == "trove" and unit["reason"] in NEW_WORK
+            and unit.get("date", "")[:4].isdigit() and int(unit["date"][:4]) in LOW_YIELD_YEARS)
+
+
+def hold_low_yield_eras(scans, reads, out=None):
+    """(scans, reads) without the never-read Trove articles of LOW_YIELD_YEARS
+    while the plan holds any other never-read or never-scanned unit: they
+    spend the one-slot VLM on articles that mostly refuse. Once only they
+    are left they come back. CT_LOW_YIELD_ERAS=1 keeps them. One note says how many."""
+    held = [t for t in reads if low_yield_trove(t[3])]
+    if not held:
+        return scans, reads
+    if low_yield_eras_held():
+        if out is not None:
+            out.append(f"low-yield eras: {len(held)} kept (CT_LOW_YIELD_ERAS=1)")
+        return scans, reads
+    if not any(u["reason"] in NEW_WORK for _, _, _, u in scans + reads if not low_yield_trove(u)):
+        if out is not None:
+            out.append(f"low-yield eras: {len(held)} kept, no other never-read or never-scanned unit left")
+        return scans, reads
+    if out is not None:
+        out.append(f"low-yield eras: held {len(held)} never-read Trove articles of {LOW_YIELD_YEARS[0]}-{LOW_YIELD_YEARS[-1]} "
+                   f"(filing yield under 20%) while other never-read or never-scanned units remain; "
+                   f"CT_LOW_YIELD_ERAS=1 restores them")
+    return scans, [t for t in reads if t not in held]
+
+
+#: A plan of the papers that takes this many seconds says, in its notes, what each paper cost.
+SLOW_PLAN = 30
+
+
+def slow_plan_note(starts, ended, began):
+    """The note a slow plan logs: the whole in seconds and the three papers
+    that took the most (a paper's span is from its start to the next's)."""
+    stamps = list(starts.items())
+    spans = sorted(((nxt - at, key) for (key, at), (_, nxt) in zip(stamps, [*stamps[1:], (None, ended)])), reverse=True)
+    return (f"slow plan: papers took {ended - began:.0f}s; "
+            + ", ".join(f"{key} {s:.0f}s" for s, key in spans[:3]))
+
+
+def fresh(papers, cache=fa.CACHE, now=None):
+    """(scan units, read units) of the editions of `papers` laid out in the
+    last fa.FRESH seconds with no reading of their current files, each the
+    latest laid out first, ranked fa.RANKS["just laid out"]; found without a
+    plan, so dispatch starts them ahead of everything planned however long
+    the planner takes. On the media disk the editions come off the edition
+    manifests (media_manifest.edition_rows: the fetcher and gale_inbox append
+    a row as they lay one out), so this 30 s tick lists and stats nothing
+    there. A read needs its own scan and those of the fresh editions
+    dated SOLUTION_DAYS after it (where its solution prints)."""
+    now = time.time() if now is None else now
+    cache = Path(cache)
+    if media_manifest.on_media(cache):
+        # The edition manifests' rows laid out within FRESH, never a listing.
+        laid = [(row["at"], cache / rel) for rel, row in media_manifest.edition_rows().items()
+                if now - row.get("at", 0) <= fa.FRESH and "/" in rel]
+    else:
+        laid = _laid_out_listed(cache, now)
+    rank = fa.RANKS["just laid out"]
+    scans, reads = [], []
+    for key in papers:
+        paper = fa.FILERS.get(key)
+        if paper is None:
+            continue
+        found, rows = [], None
+        for staged, d in laid:
+            if not any(p.item.match(d.parent.name) for p in (paper, *paper.also)):
+                continue
+            rows = ledger_retry(fa.standing, paper, cache) if rows is None else rows
+            row = rows.get(f"{d.parent.name}/{d.name}") or {}
+            try:
+                if "inputs" not in row or row.get("filesHash") != fa.input_hash(d):
+                    found.append((staged, d))
+            except OSError:
+                continue
+        found.sort(key=lambda t: t[0], reverse=True)
+        dirs = [d for _, d in found]
+        planned = fa._PLANNED_DIRS.get((str(cache), key))
+        known_dirs = set(planned) if planned is not None and dirs else None
+        if known_dirs is not None and not set(dirs) <= known_dirs:
+            # A read prepared here (brief) finds its solution among them.
+            fa._PLANNED_DIRS[(str(cache), key)] = [*planned, *(d for d in dirs if d not in known_dirs)]
+        rel = {d: f"{d.parent.name}/{d.name}" for d in dirs}
+
+        def needs(d, dirs=dirs, rel=rel):
+            day = fa.edition_date(d)
+            after = [o for o in dirs if day and fa.edition_date(o)
+                     and day < fa.edition_date(o) <= day + datetime.timedelta(days=fa.SOLUTION_DAYS)]
+            return [rel[d]] + [rel[o] for o in after]
+        scans += [{"kind": "scan", "paper": key, "rel": rel[d], "rank": rank, "date": fa.day_of(d),
+                   "reason": "just laid out"} for d in dirs]
+        reads += [{"kind": "read", "paper": key, "rel": rel[d], "rank": rank, "date": fa.day_of(d),
+                   "reason": "just laid out", "needs": needs(d), "force": False} for d in dirs]
+    return scans, reads
+
+
+def _laid_out_listed(cache, now):
+    """fresh's [(staged_at, edition dir)] laid out within fa.FRESH of a folder
+    off the media disk (a test's), listed: only items moved within FRESH are
+    looked in (laying an edition out renames or makes a dir in its item)."""
+    try:
+        names = os.listdir(cache)
+    except OSError:
+        return []
+    out = []
+    for name in names:
+        try:
+            if now - (cache / name).stat().st_mtime > fa.FRESH:
+                continue
+            editions = os.listdir(cache / name)
+        except OSError:
+            continue
+        for e in editions:
+            try:
+                staged = fa.staged_at(cache / name / e)
+            except OSError:
+                continue
+            if now - staged <= fa.FRESH:
+                out.append((staged, cache / name / e))
+    return out
+
+
+def alternate(a, b):
+    """The items of `a` and `b` taken one from each in turn, the longer's tail last."""
+    out = [x for pair in zip(a, b) for x in pair]
+    return out + a[len(b):] + b[len(a):]
+
+
+def back_first(units, prefix):
+    """`units` with those whose rel opens with `prefix` first, each group in its order."""
+    mine = [u for u in units if str(u.get("rel", "")).startswith(prefix)]
+    return mine + [u for u in units if not str(u.get("rel", "")).startswith(prefix)]
+
+
+def jumbo_tls_alternate(units, jumbo_prefix, tls_prefix):
+    """`units` with the Jumbo's and the TLS's taken one for one first, then the rest, each in its order."""
+    jumbo = [u for u in units if str(u.get("rel", "")).startswith(jumbo_prefix)]
+    tls = [u for u in units if str(u.get("rel", "")).startswith(tls_prefix)]
+    taken = {id(u) for u in jumbo + tls}
+    rest = [u for u in units if id(u) not in taken]
+    return alternate(tls, jumbo) + rest
+
+
+#: 11-07/08: ~24 h went to Gale Telegraph 1990-91, FT 1999-2000, Independent 2008-09 and Sunday Times 1987,
+#: nearly every unit ending "checked, no puzzle" or "nothing filed (vlm 0)", while productive work waited.
+#: A (paper, year) band whose last BAND_RUN completed units in a row found no puzzle and filed nothing goes
+#: behind the other units of its rank (never dropped, never the Times'); it is back in order when any unit of
+#: it files, or after BAND_HOURS.
+BAND_RUN = 20
+BAND_HOURS = 4
+PAPER_RUN = 25
+PAPER_HOURS = 3
+
+
+def band_of(unit):
+    """(paper, year) of `unit`, or None when its edition has no date to read."""
+    m = re.search(r"(\d{4})-\d\d-\d\d", unit.get("rel") or "") or re.match(r"(\d{4})", unit.get("date") or "")
+    return (unit.get("paper"), m.group(1)) if m else None
+
+
+class BandYield:
+    """The recent outcomes of the units this process ended, per band (band_of): the run of them in a row that
+    found no puzzle and filed nothing, and the bands demoted for it (demoted())."""
+
+    def __init__(self, run=BAND_RUN, hours=BAND_HOURS, clock=time.monotonic, paper_run=PAPER_RUN,
+                 paper_hours=PAPER_HOURS):
+        self.run, self.span, self.clock = run, hours * 3600, clock
+        self.paper_run, self.paper_span = paper_run, paper_hours * 3600
+        self.zero, self.since = {}, {}
+        self.paper_zero, self.paper_since = {}, {}
+        self.reason_zero, self.reason_since = {}, {}
+        self.lock = threading.Lock()
+
+    def noted(self, unit, puzzles, filed, whole=None):
+        """A completed unit of `unit`'s band found `puzzles` puzzles and filed or updated `filed`, `whole` of
+        them complete (unset: all of them)."""
+        band = band_of(unit)
+        if band is None or unit.get("paper") == "times":
+            return
+        with self.lock:
+            self.paper_noted(unit, filed if whole is None else whole)
+            if is_fix_reread(unit):
+                # Paul 11-14: fixes go first. A fix reread is demoted per reason (reason_noted), never by
+                # its paper or band: 37 SIDES_HEADED reads sat ~10 h behind the Telegraph's demotion.
+                if unit.get("kind") == "read":
+                    self.reason_noted(unit, whole if whole is not None else filed, filed)
+                return
+            if filed:
+                self.zero[band] = 0
+                if self.since.pop(band, None) is not None:
+                    log(f"{band[0]} {band[1]}: a page filed; back in the usual order")
+            elif puzzles:
+                self.zero[band] = 0
+            else:
+                self.zero[band] = self.zero.get(band, 0) + 1
+                if self.zero[band] >= self.run and band not in self.since:
+                    self.since[band] = self.clock()
+                    log(f"{band[0]} {band[1]}: last {self.run} pages found no puzzle; moved behind other work")
+
+    def paper_noted(self, unit, whole):
+        """A completed read of `unit`'s paper filed `whole` complete puzzles (the lock is held). 11-09: Gale
+        Sunday Telegraph 1993-97 took 61% of the GPU for ~0 filings: its reads found puzzles (so the band
+        count above never ran) but left 3-16 answers blank, unfiled. A paper whose last PAPER_RUN reads
+        filed nothing whole goes behind every other paper's work for PAPER_HOURS, or until a read files."""
+        if unit.get("kind") != "read" or is_fix_reread(unit):
+            return
+        paper = unit.get("paper")
+        if whole:
+            self.paper_zero[paper] = 0
+            if self.paper_since.pop(paper, None) is not None:
+                log(f"{paper}: a page filed whole; back in the usual order")
+            return
+        self.paper_zero[paper] = self.paper_zero.get(paper, 0) + 1
+        if self.paper_zero[paper] >= self.paper_run and paper not in self.paper_since:
+            self.paper_since[paper] = self.clock()
+            log(f"{paper}: last {self.paper_run} reads filed no whole puzzle; moved behind other papers' work")
+
+    def reason_noted(self, unit, whole, wrote):
+        """A completed fix reread (is_fix_reread) filed `whole` complete puzzles and wrote `wrote` files (a
+        write, even unfiled, gains answers; the lock is held). A reason whose last PAPER_RUN reads in a row
+        filed none whole and wrote none goes behind the other work for PAPER_HOURS, or until a read gains."""
+        key = (unit.get("paper"), unit.get("reason"))
+        if whole or wrote:
+            self.reason_zero[key] = 0
+            if self.reason_since.pop(key, None) is not None:
+                log(f"{key[0]}: fix reason gained answers; back in the usual order")
+            return
+        self.reason_zero[key] = self.reason_zero.get(key, 0) + 1
+        if self.reason_zero[key] >= self.paper_run and key not in self.reason_since:
+            self.reason_since[key] = self.clock()
+            log(f"{key[0]}: last {self.paper_run} reads for '{str(key[1])[-60:]}' gained no answers; "
+                "moved behind other work")
+
+    def reason_demoted(self, unit):
+        """Whether a fix reread's reason is behind other work now; past the span it is lifted (logged)."""
+        if not is_fix_reread(unit):
+            return False
+        key = (unit.get("paper"), unit.get("reason"))
+        with self.lock:
+            if key not in self.reason_since:
+                return False
+            if self.clock() - self.reason_since[key] < self.paper_span:
+                return True
+            del self.reason_since[key]
+            self.reason_zero[key] = 0
+            log(f"{key[0]}: {self.paper_span / 3600:g} hours passed; fix reason back in the usual order")
+            return False
+
+    def paper_demoted(self, unit):
+        """Whether `unit`'s paper is behind all other papers' work now; past its span it is lifted (logged)."""
+        paper = unit.get("paper")
+        if paper == "times" or paper in newest_first_papers() or is_fix_reread(unit):
+            return False
+        with self.lock:
+            if paper not in self.paper_since:
+                return False
+            if self.clock() - self.paper_since[paper] < self.paper_span:
+                return True
+            del self.paper_since[paper]
+            self.paper_zero[paper] = 0
+            log(f"{paper}: {self.paper_span / 3600:g} hours passed; back in the usual order")
+            return False
+
+    def demoted(self, unit):
+        """Whether `unit`'s band is behind other work now; a band past its span is lifted (and logged) here."""
+        band = band_of(unit)
+        if band is None or unit.get("paper") == "times" or unit.get("paper") in newest_first_papers() \
+                or is_fix_reread(unit):
+            return False
+        with self.lock:
+            if band not in self.since:
+                return False
+            if self.clock() - self.since[band] < self.span:
+                return True
+            del self.since[band]
+            self.zero[band] = 0
+            log(f"{band[0]} {band[1]}: {self.span / 3600:g} hours passed; back in the usual order")
+            return False
+
+    def reaped(self, unit, pid):
+        """Take what the ended unit process `pid` left (YieldTee.save); none left is no news."""
+        path = yield_dir() / f"{pid}.json"
+        try:
+            got = json.loads(path.read_text())
+            path.unlink()
+        except (OSError, ValueError):
+            return
+        self.noted(unit, got.get("puzzles", 0), got.get("filed", 0), got.get("whole"))
+
+
+BANDS = BandYield()
+
+
+def demote_bands(units):
+    """The (rank, ...) tuples `units` with each rank's units of demoted bands (BANDS) after the rest of it,
+    every other order kept."""
+    return sorted(units, key=lambda t: (BANDS.paper_demoted(t[3]) or BANDS.reason_demoted(t[3]), t[0],
+                                        BANDS.demoted(t[3])))
+
+
+def is_fix_reread(unit):
+    """Whether `unit` is a reread for a fix just shipped (FIX_LANDED or UNFILED_FIRST: a reason naming a fix
+    "... since"): exempt from the paper and band demotions, demoted per reason instead (BandYield.reason_noted)."""
+    reason = unit.get("reason") or ""
+    return bool(reason) and (fix_landed_reread(unit) or reason in UNFILED_FIRST)
+
+
+def by_paper_turns(units):
+    """The (rank, paper's place, plan's place, unit) tuples `units`, already in by_urgency's order, with the
+    papers of each rank taking turns: the first of each paper's, then the second of each ... (a paper's own
+    order is kept; ranks stay in order). 11-06 13:00: sorted newest edition first across papers, 7,700 Gale
+    Independent 2011-15 never-scanned scans (7 filed an hour) stood ahead of 15,700 Telegraph 1992 and older
+    ones (28 an hour), so the Telegraph started none for 11 hours."""
+    by_rank = {}
+    for t in units:
+        by_rank.setdefault(t[0], {}).setdefault(t[3].get("paper"), []).append(t)
+    out = []
+    for rank in sorted(by_rank):
+        queues = sorted(by_rank[rank].values(), key=lambda q: q[0][1:3])
+        for i in range(max(len(q) for q in queues)):
+            out.extend(q[i] for q in queues if i < len(q))
+    return demote_bands(out)
+
+
+def fix_landed_reread(unit):
+    """Whether `unit` is a reread a named fix landed for (reason in FIX_LANDED, not the held 'before its fix' /
+    'cured since' kinds hold_refusal_rereads keeps)."""
+    reason = unit.get("reason") or ""
+    return reason in FIX_LANDED and not reason.endswith((" before its fix", " cured since"))
+
+
+#: Fix rereads of the fixes being worked on now: first of all the fix rereads (fix_rereads_forward).
+#: Add the newest fix's reason; drop one once its rereads are read.
+NEWEST_LANDED = (fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.QUARTER_BLANKS, fa.QUARTER_1934,
+                 fa.QUARTER_1935, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.SUB_REFUSED, fa.MARKED_HYPHEN,
+                 fa.MARKED_RISE, fa.COUNT_FIRST, fa.NUMBERLESS_FIT, fa.NUMBERLESS_EARLY, fa.TEL_TITLE_FAR,
+                 fa.BLOCK_FORTIES, fa.TELE_OVER, fa.TELE_HEAD, fa.MID_OTHER, fa.MID_TIMES, fa.QUARTER_PLAIN,
+                 fa.PLAIN_LAID, fa.SUNDAY_1970S, fa.FT_FAINT, fa.SUNDAY_UNDER, fa.LEFT_EDGE_GRID, fa.WEEKDAY_RIGHT,
+                 fa.SIDES_HEADED, fa.TELEGRAPH_CELLS, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT,
+                 fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS, fa.INDY_OVER_PLAIN,
+                 fa.INDY_GUTTER_DOWN, fa.IOS_WORDS, fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.FT_NUMBER_MENDED,
+                 fa.TLS_MONTHLY, fa.SUNDAY_PAIR, fa.SUNDAY_CAPTION, fa.SUNDAY_STACKED, fa.SUNDAY_BETWEEN,
+                 fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT, fa.SUNDAY_TITLE_GRID, fa.IOS_EVEN, fa.PALE_RULES,
+                 fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.INDY_THIN, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE,
+                 fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.INDY_FOOT_TAIL,
+                 fa.INDY_THREE, fa.INDY_REPARSE, fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE,
+                 fa.SUNDAY_MERGED, fa.INDY_THREE_MORE, fa.SUNDAY_TAIL, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE,
+                 fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT,
+                 fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED,
+                 fa.FT_SMALL_TEXT, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE,
+                 fa.FT_SPECK_WORDS, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST,
+                 fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER,
+                 fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.HEAD_GRID, fa.SOLO_READ, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_UNDER_SPLIT, fa.INDY_RIGHT_CUT, fa.TELE_LEFT, fa.INDY_THREE_FEW, fa.INDY_THIRD_TOP) + fix_reasons.of("newest_landed")
+
+
+#: The fixes whose rereads lead every other fix reread (fix_rereads_forward), whatever their rank: drop one
+#: once its rereads have started. 11-16: six sat 10-18 hours without a start.
+FIRST_FIXES = (fa.TELEQUICK, fa.TELEPAIR, fa.TELE_GRID, fa.FAINT_EDGE, fa.FT_SMALL_TEXT, fa.SUNDAY_WIDE, fa.TELEGRAPH_DATED, fa.INDY_TITLED)
+
+
+def fix_rereads_forward(out):
+    """`out` (units in dispatch order) with the other papers' fix rereads (fix_landed_reread, rank 2, not the
+    CT_NEWEST_FIRST papers' nor the Listener's: those have their own fixes-first rule) moved, in their order,
+    ahead of the first never-read/never-scanned unit of such a paper. Paul 11-13/14: "Things you're fixing
+    should be at the front of the queue" - 1-2k Telegraph/FT/Independent fix rereads stood behind 13,700
+    Telegraph never-read units (rank 1) and would not have run for days."""
+    named = newest_first_papers()
+
+    def other(u):
+        return u.get("paper") not in named and u.get("paper") != "listener"
+    # The scans such a reread waits on (a "scan stale" unit marked "fix" by only_evidence) go with them.
+    # 11-16: the title rescans of FIRST_FIXES (TELEQUICK, TELEGRAPH_DATED: rank 1) sat among the rank-1 Telegraph
+    # never-read units (index 9,239+), and the rank-2 ones (FAINT_EDGE, SUNDAY_WIDE, INDY_TITLED, FT_SMALL_TEXT)
+    # at 1,359-3,700 behind ~300 older NEWEST_LANDED rereads of the same capped non-Times slots
+    # (CT_NON_TIMES_BESIDE_TIMES = 2, ~900 s a Sunday Telegraph read): not one "start read" in 10-18 hours.
+    fix = [u for u in out if other(u)
+           and ((u.get("rank", 9) > 1 and (fix_landed_reread(u) or (u.get("kind") == "scan" and u.get("fix"))))
+                or (u.get("kind") == "read" and u.get("reason") in FIRST_FIXES))]
+    if not fix:
+        return out
+    # 11-14: the newest fixes' rereads lead the block (stable, the order otherwise kept). The block is ~3,350
+    # fix rereads of 5+ papers taking turns, and fresh reads start only as the VLM spool has room (spool_cap_hit),
+    # so the walk's frontier sat at ~50: 37 SIDES_HEADED and 446 TELEGRAPH_CELLS rereads (index 289-500)
+    # had not one "start read" in hours while older fixes' kept re-entering ahead of them.
+    fix.sort(key=lambda u: (not (u.get("kind") == "read" and u.get("reason") in FIRST_FIXES),
+                            u.get("kind") != "read" or u.get("reason") not in NEWEST_LANDED))
+    ids = {id(u) for u in fix}
+    rest = [u for u in out if id(u) not in ids]
+    at = next((i for i, u in enumerate(rest) if other(u) and u.get("rank", 9) <= 1), len(rest))
+    return rest[:at] + fix + rest[at:]
+
+
+def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
+    """`ordered_by_urgency`'s order with the Jumbo solution units first of all (11-11): answers only, local
+    CPU, a handful of units; they stood last of the plan behind the Times work and ~300 Jumbo page reads,
+    so no jumbo:solution unit had run in 8 hours."""
+    out = fix_rereads_forward(ordered_by_urgency(units, serves, fixing, newest))
+    sol = (gale_jumbo_read.SOLUTION_PREFIX, gale_tls_read.SOLUTION_PREFIX)
+    first = [u for u in out if str(u.get("rel", "")).startswith(sol)]
+    return first + [u for u in out if not str(u.get("rel", "")).startswith(sol)] if first else out
+
+
+def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
+    """The units of (rank, paper's place, plan's place, unit) by rank, then
+    the most puzzles predicted to file whole (fa.likely_gain), then the
+    newest edition first ("date") across papers, rank 0 (never read, Gale fetch) in
+    its plans' order, then the paper's place and plan's order. With
+    CT_NEWEST_FIRST set (newest_first), the units of those papers come first,
+    ahead of rank 0 (hand-saved pages) too, strictly newest edition first whatever their rank and
+    fa.likely_gain (scans and reads alike: a read's scan is its edition's
+    date too), the paper's place and plan's order breaking a tie; the rest
+    keep the order above after them. Last, with CT_NEWEST_FIRST: those papers' solution work
+    (times_solution_work, or a scan whose (paper, rel) is in `serves`) first of all, then their
+    never-read units, then the Listener's, then the rest."""
+    units = sorted(units, key=lambda t: t[1:3])
+    units.sort(key=lambda t: "" if t[0] == 0 else t[3].get("date", ""), reverse=True)
+    units.sort(key=lambda t: (t[0], -fa.likely_gain(t[3])))
+    if newest_first_papers():
+        named = newest_first_papers()
+        newest = [t for t in units if t[3].get("paper") in named]
+        newest.sort(key=lambda t: "9" if unproven_first(t[3]) else t[3].get("date", ""), reverse=True)
+        # stable: newest first in each group; the scans of the issues printing the answers of puzzles
+        # filed without them (fa.HOST_SCAN) first of the Times work (Paul 10-21: printed answers first)
+        # A read whose answers a stored heading links (fa.LIKELY[0]) goes ahead of the host scans: they ran
+        # all first and 663 Gale 2001-05 solution headings were linked on 10-22 with no answer filed from
+        # them (each read files its puzzle's answers by OCR alone, ~110 s; a scan only links the next).
+        newest.sort(key=lambda t: (files_likely_tier(t[0], t[3]),
+                                   0 if t[3].get("kind") == "read" and fa.LIKELY[0] in (t[3].get("likely") or {})
+                                   else 1 if t[3].get("reason") in fa.HOST_REASONS else 2))
+        rest = by_paper_turns([t for t in units if t[3].get("paper") not in named])
+        # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
+        # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
+        # filings of 184 writes), and 3,300 never-read FT pages waited behind ~30k of them.
+        # CANARY_PROVEN rereads are interleaved with that never-read work, one for one: on 10-20 the named
+        # papers' new pages ran out and 3,300 FT never-read reads (most end in seconds, their scan found no
+        # puzzle) went first, leaving the GPU idle while ~970 proven Times rereads waited behind them.
+        proven = [t for t in units if canary_proven(t[3])]
+        newest = [t for t in newest if t not in proven]
+        rest = [t for t in rest if t not in proven]
+        # The Listener's units go first below (by their own alternation): left in `rest` (rank 0 and 1)
+        # they took the alternation's slots and moved the other papers' work among themselves. Taken out
+        # here, in the order they held, the others alternate as if there were none.
+        listener_units = [t for t in newest + rest if t[3].get("paper") == "listener"]
+        newest = [t for t in newest if t[3].get("paper") != "listener"]
+        rest = [t for t in rest if t[3].get("paper") != "listener"]
+        # Paul 10-21: "Read the remaining times puzzles before doing ft": the named papers' likely filers
+        # and proven rereads go before any other paper's. Their other rereads alternate one for one with
+        # other papers' never-read work: on 10-21 with only those rereads left, ~350 writes an hour made
+        # 5 new filings (most rewrote the same blanks) while 1,304 never-read FT pages waited.
+        units = (listener_units + [t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in proven if t[3].get("paper") in named]
+                 + alternate([t for t in newest if files_likely_tier(t[0], t[3]) > 0],
+                             alternate([t for t in rest if t[0] <= 1], [t for t in proven if t[3].get("paper") not in named]))
+                 + [t for t in rest if t[0] > 1])
+    # Paul 10-23: "switch from filing the FT next to doing the listener". Behind the Times' likely filers
+    # (thousands) a Listener unit never met a free ceiling slot: FT reached them as the VLM's fills, which
+    # a Listener read (local OCR, no VLM) never is. So the Listener's go first: its own pool
+    # (LISTENER_WORKERS), the idle-core gate and the fill reserve keep them from taking more.
+    # Its pages read before a reader fix alternate one for one with its never-read ones: ranked after
+    # them, the 619 read short or unparsed before CLUES_FIX waited behind 2,858 (~110 h of its pool),
+    # while a 10-24 canary of the near-complete ones read whole (No 2: 42 -> 43 of 43 clues) and
+    # never-read pages read that day filed none.
+    listener, again = [], []
+    for *_, u in units:
+        if u.get("paper") == "listener":
+            (again if refusal_reread(u.get("reason") or "") else listener).append(u)
+    listener_order = alternate(again, listener)
+    # Times Jumbo pages (gale_jumbo_read, rel "jumbo:NAME") go right after the Times work, ahead of the Listener's.
+    # The TLS's (gale_tls_read, "tls:NAME") follow the Jumbo's, still ahead of the Listener's.
+    # 11-13: with the Jumbo's all ahead, no TLS unit ever started (944 never read): they now alternate one for one.
+    listener_order = jumbo_tls_alternate(listener_order, gale_jumbo_read.PREFIX, gale_tls_read.PREFIX)
+    # Paul 11-14: work being fixed goes at the front. The 60 modern TLS back issues (tlsback:N, the-tls.com
+    # images tools/tls_puzzles.py could not read) lead the Listener's pool, ahead of the Jumbo's and the TLS's.
+    listener_order = back_first(listener_order, gale_tls_read.BACK_PREFIX)
+    # The Sunday Times Mephisto pages (gale_mephisto_read, "mephisto:NAME", ~185 so far, the fetch still adding) lead.
+    listener_order = back_first(listener_order, gale_mephisto_read.PREFIX)
+    others = [u for *_, u in units if u.get("paper") != "listener"]
+    # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
+    # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of
+    # all, not interleaved with any other paper's; then their never-read pages; then the Listener's; then
+    # the rest in the order above. On 10-24 2,727 Listener never-read reads stood ahead of every Times
+    # solution reread and ~3,300 more were alternated one for one with Telegraph never-read pages.
+    # gpu_fill still picks VLM-asking reads (FT, Telegraph) out of order to keep an idle GPU busy.
+    named = newest_first_papers()
+    if not named:
+        return listener_order + others
+    # Paul 10-28: "Things you're fixing should be at the front of the queue". A fix's rereads (fixing_work,
+    # and the scans they wait on) go first of all, ahead of the solution work: on 10-28 ~1,000 of them
+    # stood at 2,600+ of 25,600 reads behind solution rereads, so no fix could be judged for hours.
+    fixes = [u for u in others if u.get("paper") in named
+             and (fixing_work(u) or (u.get("paper"), u.get("rel")) in fixing)]
+    # The newest fixes' rereads (and the scans they wait on, `newest`) go ahead of the older fixes'.
+    fixes.sort(key=lambda u: 0 if newest_fix(u) or (u.get("paper"), u.get("rel")) in newest else 1)
+    first = {id(u) for u in fixes}
+    solution = [u for u in others if u.get("paper") in named and id(u) not in first
+                and (times_solution_work(u) or (u.get("paper"), u.get("rel")) in serves)]
+    first |= {id(u) for u in solution}
+    # A lost write's reread (fa.LOST_WRITE, rank 2) is as good as never read: it goes with the never-read.
+    # 10-27: the 247 planned stood at 9,309+ of 22,373, behind the Listener, two days after REREAD_LOST.
+    # So do UNFILED_FIRST's (a puzzle held back unfiled by one blank a fix since reads): each files a new
+    # puzzle, and the 60 close-set dash ones stood at 10,076+ of 22,814 behind the Listener (10-27).
+    new = [u for u in others if u.get("paper") in named and id(u) not in first
+           and (u.get("rank", 9) <= 1 or u.get("reason") in UNFILED_FIRST)]
+    first |= {id(u) for u in new}
+    return fixes + solution + new + listener_order + [u for u in others if id(u) not in first]
+
+
+def fresh_turns(fresh, planned):
+    """The queue's order for the units just laid out (`fresh`, fresh()'s) and the plan's (`planned`) of one kind.
+    11-10: a fetch laid out ~100 Gale Sunday Telegraph editions an hour (CPU-only reads, no VLM asks), and
+    fresh units stood ahead of the whole plan, so they held the 4 scan slots and most read slots all night:
+    0 Gale Telegraph scans in 300 starts, 15,000 Telegraph/6,700 Independent/5,400 FT never-scanned units
+    waited and the VLM got 2-30 asks per 10 min. The named papers' fresh units (the Times') still go first;
+    the other papers' fresh units take turns by paper, then alternate one for one with the plan."""
+    named = newest_first_papers()
+    head = [u for u in fresh if u.get("paper") in named]
+    by_paper = {}
+    low = [u for u in fresh if no_ask_sunday(u)]
+    fresh = [u for u in fresh if not no_ask_sunday(u)]
+    for u in fresh:
+        if u.get("paper") not in named:
+            by_paper.setdefault(u.get("paper"), []).append(u)
+    queues = list(by_paper.values())
+    rest = [q[i] for i in range(max(map(len, queues), default=0)) for q in queues if i < len(q)]
+    return head + alternate(rest, planned) + low
+
+
+#: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
+#: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
+UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
+                 fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
+                 fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
+                 fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
+                 fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.NUMBER_DATE_REFUSED,
+                 # r35 10-29: answers-only, but a fix's 95 rereads sat behind 1,289 fix rereads + solution work.
+                 fa.VOUCHED_FIT,
+                 # r36 10-29: the newest fix goes first of all (NEWEST_FIX_COUNT).
+                 fa.CLUE_REPEATED,
+                 # r37 10-29: a late host's heading links; the newest fix goes first.
+                 fa.LATE_LINKED,
+                 # r38 10-31: a 1936-40 Gale Times page the OCR readers could not parse (a clue tail mid-list),
+                 # read by the VLM column by column; the newest fix goes first.
+                 fa.TAIL_READ,
+                 # r39 10-31: a 1936-40 Gale Times page unfiled for lights no reading laid, its four clue columns
+                 # (the "quarters" window) read; the newest fix goes first.
+                 fa.QUARTER_READ,
+                 # r40 10-31: a 1939-12 to 1940 Gale Times page refused no reading parses, the clue columns right
+                 # of its grid read with the two under it; the newest fix goes first.
+                 fa.RIGHT_WIDE,
+                 # r41 11-02: a Times page unfiled with every answer for a light only the VLM's list-less column
+                 # reading holds; the newest fix goes first.
+                 fa.VLM_LAID,
+                 # r42 11-02: an untitled 1930-33 Gale Times page (numbers of 1-3 digits: "PUZZLE No. 357") its cached
+                 # page reads title, scanned again with no OCR then read; the newest fix goes first.
+                 fa.SMALL_TITLE,
+                 # r43 11-03: a 1930-33 heading-titled page refused "fit more than one" of its neighbours' counts,
+                 # read again taking the heading's title (small_headed); the newest fix goes first.
+                 fa.SMALL_HEADED,
+                 # r44 11-03: named Gale Times puzzles with cut or garbled clue text, read again whole; the newest
+                 # fix goes first.
+                 fa.CLUE_GARBLED,
+                 # r45 11-03: a 1930-33 Gale Times page unfiled over a count-less clue only the VLM's column reply
+                 # holds (vlm_laid_plain), read again; the newest fix goes first.
+                 fa.VLM_PLAIN,
+                 # r43 11-06: a Times puzzle one light short whose only fitting word its clue's definition links
+                 # (fa.one_blank_word), read again; the newest fix goes first.
+                 fa.ONE_BLANK_FIT,
+                 # r43 11-06: a Times puzzle 1-5 short after clue-solved fills whose last lights' strips late_strips
+                 # never asked (fa.final_unasked), read again; the newest fix goes first.
+                 fa.FINAL_STRIPS,
+                 # r44 11-06: a Times puzzle 6-14 short whose blank lights without a clue-read candidate were never
+                 # asked (fa.blind_unasked, wide_asks blind), read again; the newest fix goes first.
+                 fa.BLIND_STRIPS,
+                 # r45 11-06: a Times puzzle short whose solution grid is a 1930 Times print page read with no cell
+                 # classified (fa.printed_short, PRINT_CLASSIFIED), read again; the newest fix goes first.
+                 fa.PRINTED_CELLS,
+                 # 11-06: a Times puzzle 1-5 short whose blank lights' plain strip asks were all refused
+                 # (fa.prepped_unasked), asked again as prepared strips (PREPPED_STRIPS); the newest fix goes first.
+                 fa.PREPPED_STRIPS,
+                 # 11-08: an untitled Gale FT (1999-2010), Telegraph (1990-91, Saturdays, 2000), Independent (2008-10)
+                 # or Sunday Times (1987-92) page, its title's number a column away or five digits, scanned again
+                 # then read (fa.joined_rescan); the newest fix goes first.
+                 fa.HEADINGS_JOINED,
+                 # 11-09: a Gale Sunday Times 1993-94 page scanned before its winners box was refused as the title,
+                 # scanned again then read (fa.winners_rescan); the newest fix goes first.
+                 fa.WINNERS_TITLE,
+                 # 11-09: a Times puzzle 1-2 short whose blank light's printed crossings leave one fitting past
+                 # answer (fa.printed_fit_short), read again; the newest fix goes first.
+                 fa.PRINTED_FIT,
+                 # 11-09: a Gale Telegraph page refused no reading parses, its clue columns either side of its
+                 # grid (fa.sides_columns), read again; the newest fix goes first.
+                 fa.SIDES_READ,
+                 # 11-09: a Gale Sunday Telegraph puzzle whose text-list solution links (fa.sunday_listed); newest first.
+                 fa.SUNDAY_LISTED,
+                 # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its clue columns either side
+                 # of its grid (fa.sunday_sides_due), read again; the newest fix goes first.
+                 fa.SUNDAY_SIDES,
+                 # 11-09: the same page read since, still no clue lists (fa.sunday_right_due): its columns right of its grid.
+                 fa.SUNDAY_RIGHT,
+                 # 11-10: a Gale Sunday Telegraph 1972-77 page filed with the Quickie clue set (fa.quick_set_due), read again.
+                 fa.QUICK_SET,
+                 # 11-10: that page read under QUICK_SET, its cryptic reading held off by the Quickie-clue file (fa.quick_held_due).
+                 fa.QUICK_HELD,
+                 # 11-11: a Times Jumbo puzzle gale_jumbo_read filed whose Gale solution page is on disk
+                 # (answers only); the newest fix goes first.
+                 fa.JUMBO_SOLUTION,
+                 # 11-13: a Gale Telegraph Mon-Fri 1980+ puzzle with no solution read, its next day's page scanned
+                 # again for a garbled "Solution No." heading (fa.telegraph_next_due); the newest fix goes first.
+                 fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED,
+                 # 11-13: a Gale Independent page (daily) whose glued title or weekday-only "Wednesday's solution"
+                 # heading was read since (fa.indy_next_due); the newest fix goes first.
+                 fa.INDEPENDENT_HEADINGS,
+                 # 11-13: a Gale Independent page refused for its grid (a wide page) or its clue lists (clues
+                 # right of the grid), read since (fa.indy_right_due); the newest fix goes first.
+                 fa.INDEPENDENT_RIGHT, fa.INDY_BARRED,
+                 # 11-13: a Gale FT page whose glued title or solution heading was read since (fa.ft_next_due);
+                 # the newest fix goes first.
+                 fa.FT_HEADINGS,
+                 # 11-13: a Gale FT page read with a blank clue or an unparsed list, its columns read from the
+                 # title's line since (fa.ft_clues_due); the newest fix goes first.
+                 fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT,
+                 # 11-13: a Gale Sunday Times 1987-94 page with no title or only its winners box, its heading "No N" alone
+                 # over ACROSS read since (fa.sunday_number_rescan), scanned again then read; the newest fix goes first.
+                 fa.SUNDAY_NUMBER,
+                 # 11-14: a Gale Sunday Times 1960-99 page refused for its grid (a wide scan's solution-sized grid under
+                 # its title taken for an ad's frame), read since (fa.sunday_grid_due); the newest fix goes first.
+                 fa.SUNDAY_GRID,
+                 # 11-13: a Gale Sunday Times 1960-67 page refused "no reading parses", its one clue column left of its
+                 # grid read since (fa.sunday_left_due); the newest fix goes first.
+                 fa.SUNDAY_LEFT,
+                 # 11-14: a Gale Sunday Times 1980-84 page whose ACROSS clues stand in a band over its grid and its DOWN
+                 # clues right of it, refused "no reading parses" or filed incomplete, read since
+                 # (fa.sunday_band_due); the newest fix goes first.
+                 fa.SUNDAY_BAND,
+                 # 11-15: a Gale Sunday Times 1985-89 page refused "no reading parses", its ACROSS and DOWN columns side by
+                 # side left of the grid read since (fa.sunday_pair_due).
+                 fa.SUNDAY_PAIR,
+                 # 11-13: a Gale Sunday Times 1968-76 page whose title stands under its grid, the clue columns over the
+                 # grid, refused "not a grid" (fa.sunday_over_due); the newest fix goes first.
+                 fa.SUNDAY_OVER,
+                 # 11-17: a Gale Sunday Times 1985-90 page refused whose scanned title is a caption under its grid, the
+                 # grid over it and the clue columns left of it read since (fa.sunday_caption_due).
+                 fa.SUNDAY_CAPTION,
+                 # 11-13: a Gale Telegraph puzzle whose linked solution grid read short with no cell classified
+                 # (fa.telegraph_cells_due, PRINT_CLASSIFIED), read again; the newest fix goes first.
+                 fa.TELEGRAPH_CELLS,
+                 # 11-13: a 2001-15 Independent on Sunday Beelzebub page whose barred grid was unread (fa.indy_barred_late_due).
+                 fa.INDY_BARRED_LATE, fa.INDY_LINKS, fa.INDY_COLUMNS, fa.INDY_ABOVE, fa.INDY_WIDE, fa.INDY_DROPPED, fa.SUNDAY_FOOT, fa.IOS_TITLES,
+                 # 11-13: a Gale Telegraph Saturday puzzle 1987-2000 with no solution read, its Monday's "PRIZE SOLUTION of
+                 # DECEMBER 3-No." heading read since (fa.telegraph_prize_due); the newest fix goes first.
+                 fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY,
+                 # 11-13: a Gale Telegraph Mon-Fri puzzle with every clue worded and no solution read, its next day's page
+                 # scanned again (fa.telegraph_whole_due); the newest fix goes first.
+                 fa.TELEGRAPH_WHOLE,
+                 # 11-13: a Gale FT page refused number-date-mismatch ("not near", "out of date order": a title's
+                 # digit lost, a misfiled neighbour) read since (fa.ft_number_due); 11-15: the archive.org FT too
+                 # (1977, 1984: neighbours filed 200 off weighed by their offsets, Held.steady).
+                 fa.FT_NUMBER_MENDED,
+                 # 11-13: a Gale Sunday Times 1976-78 page refused "not a grid" (its scanned title the winners caption):
+                 # the live heading right of it, grid and three clue columns read since (fa.sunday_mid_due).
+                 fa.SUNDAY_MID,
+                 # 11-15: a Gale Sunday Times 1987-99 page refused "not a grid" under its short "No N" heading, its grid
+                 # right of it and two clue columns left of it, read since (fa.number_grid_due).
+                 fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT,
+                 # 11-13: a Gale Telegraph page with a clue blank "starts mid-clue" (the clue before's torn tail laid in
+                 # front, its own number glued and misread), read since (fa.telegraph_own_due); the newest fix goes first.
+                 fa.TELEGRAPH_OWN, fa.TELEGRAPH_FIGURE, fa.INDY_REDATED, fa.TELEGRAPH_LEAD_NUMBER, fa.TELEGRAPH_STOP, fa.TELEGRAPH_FITTED,
+                 # 11-14: a Gale Telegraph Saturday of 1999-10 to 2000-10 refused no reading parses (no ACROSS and DOWN
+                 # lists: the scan's grid the Quick crossword's): its headed columns and own grid read since
+                 # (fa.sides_headed_due).
+                 fa.SIDES_HEADED,
+                 # 11-14: a Gale Telegraph weekday of 1999-2000 refused no reading parses (grid at the left edge, both
+                 # clue columns right of it): read to where the Quick crossword's clues begin (fa.weekday_right_due).
+                 fa.WEEKDAY_RIGHT,
+                 # 11-14: that page whose grid the scan took far under its title (fa.left_edge_grid_due).
+                 fa.LEFT_EDGE_GRID,
+                 # 11-15: an Independent on Sunday Beelzebub page whose barred grid was refused for bars just under symmetric (fa.indy_paired_due).
+                 fa.INDY_PAIRED,
+                 # 11-15: a Gale Sunday Times 1960-67 page written incomplete with a clue no reading laid (the DOWN list's
+                 # columns under the grid cut at the grid's left edge), read since (fa.sunday_under_due).
+                 fa.SUNDAY_UNDER,
+                 # 11-15: a Gale FT page whose solution grid was refused for its blocks, its faint letters stretched since
+                 # (fa.ft_faint_due, faint_stretch).
+                 fa.FT_FAINT,
+                 # 11-15: a Gale Sunday Times 1968-78 page written incomplete with a clue no reading laid (its columns over a
+                 # grid found above the title, or three columns under its own title), read since (fa.sunday_1970s_due).
+                 fa.SUNDAY_1970S,
+                 # 11-15: a Guardian page written incomplete with a clue no reading laid, read since (fa.guardian_laid_due).
+                 fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS,
+                 # 11-15: a 1930-33 Gale Times page unfiled over an imageDisagrees (a stray digit read as a count),
+                 # its clues laid on the lights their numbers name, read since (fa.plain_laid_due).
+                 fa.PLAIN_LAID,
+                 # 11-15: a 1930-33 Gale Times page unfiled with a light blank (a down light 18-23), its four clue columns
+                 # read since (fa.quarter_plain_due).
+                 fa.QUARTER_PLAIN, fa.INDY_OVER_PLAIN, fa.INDY_GUTTER_DOWN, fa.IOS_WORDS,
+                 # 11-15: a Gale TLS page of 1982-91 refused number-date-mismatch ("not near the -379": the crossword ran
+                 # monthly then, TLS_ANCHORS now counts it so) read since (fa.tls_monthly_due); the newest fix goes first.
+                 fa.TLS_MONTHLY,
+                 # 11-15: a Gale Sunday Times 1985-89 page refused "no reading parses" whose grid touches its title, its one
+                 # clue column left of it read since (fa.sunday_title_grid_due).
+                 fa.SUNDAY_TITLE_GRID,
+                 # 11-15: a 1930-33 Gale Times page unfiled with a light blank of a joined line (a clue number and text,
+                 # a digit inside a word), read before QUARTER_PLAIN: its four clue columns read since (fa.quarter_blanks_due).
+                 fa.QUARTER_BLANKS, fa.QUARTER_1934, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.SUB_REFUSED, fa.MID_OTHER,
+                 # 11-15: a Gale Sunday Times 1987-2013 page written incomplete with a clue no reading laid, its columns left of
+                 # the grid read since under the grid's foot cut (fa.sunday_feet_due).
+                 fa.SUNDAY_FEET, fa.SUNDAY_TALL,
+                 # 11-15: an Independent on Sunday Beelzebub page whose barred grid stood unread, its rules counted wrong (fa.ios_even_due).
+                 fa.IOS_EVEN,
+                 # 11-15: an Independent on Sunday Beelzebub page whose barred grid stood unread, its rules counted wrong (fa.ios_even_due).
+                 fa.IOS_EVEN,
+                 # 11-16: a Gale page whose stretched grid lattice was called larger than its frame (fa.indy_frame_due).
+                 fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST,fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF,
+                 # 11-15: a Gale Sunday Times 1997 to 2005-09-11 page titled by its winners box, three numbers low (fa.winners_number_rescan).
+                 fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY,
+                 # 11-16: a Gale Independent page refused no ACROSS and DOWN lists (a solution grid's cell numbers beside
+                 # its third print column hid the three columns), read since (fa.indy_thin_due).
+                 fa.INDY_THIN,
+                 # 11-16: a Gale Independent page whose first down clues stood blank under a DOWN heading set low in the
+                 # across list's second column, read since (fa.indy_down_foot_due).
+                 fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST,fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF,
+                 # 11-15: a Gale Sunday Telegraph 1980-89 page whose ACROSS list starts over the grid's title, with a blank
+                 # clue or a grid-clue disagreement, read from its heading since (fa.sunday_above_due).
+                 fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.FT_SPECK_WORDS,
+                 # 11-15: a Gale Sunday Times 1960-67 page still incomplete after SUNDAY_UNDER, its DOWN column's first line read
+                 # as one word with the prize notice beside it, cut before the notice since (fa.sunday_notice_due).
+                 fa.SUNDAY_NOTICE,
+                 # 11-15 r30: a 1940s Gale Times page refused "only N white cells found" (its rules paler than the paper line),
+                 # read since by the crop's black and white (fa.pale_rules_due).
+                 fa.PALE_RULES,
+                 # 11-16: a Gale Telegraph 1985-87 page refused not a grid for the Quick crossword's ink, its cryptic heading
+                 # found over its clue block since (fa.telequick_rescan).
+                 fa.TELEQUICK, fa.TELEPAIR, fa.TELE_GRID,
+                 # 11-16: an archive.org Daily Telegraph 1984-85 page of no title, numbered by its date since (fa.telegraph_dated_rescan).
+                 fa.TELEGRAPH_DATED,
+                 # 11-16: a Gale Sunday Telegraph 1990-94 page with no title found, its misread "Puzzle No N by setter" line
+                 # read since (fa.suntel_by_due).
+                 fa.SUNTEL_BY, fa.SUNTEL_BARE,
+                 # 11-17: an archive.org Guardian page whose down list ends in a fourth column of two clues, the third
+                 # column's two last clues blank, read since (fa.guardian_pair_due).
+                 fa.GUARDIAN_PAIR,
+                 # 11-17: an archive.org Guardian page whose across list runs on atop the column right of the grid, the
+                 # last across clues blank, read since (fa.guardian_across_due).
+                 fa.GUARDIAN_ACROSS,
+                 # 11-17: a Gale Sunday Telegraph or Telegraph 1980-89 page unfiled with a clue blank "starts mid-clue", a
+                 # reader having lost its first line, laid from the other reader since (fa.mid_other_due).
+                 fa.MID_OTHER,
+                 # 11-18 r215: a 1930-49 Gale Times page unfiled with a clue blank "starts mid-clue" (fa.mid_times_due).
+                 fa.MID_TIMES,
+                 # 11-17 r134: a 1930-39 Gale Times page refused no reading parses, the sub-column window "halves" taken
+                 # as the page's reading when it scored best, read since (fa.sub_refused_due).
+                 fa.SUB_REFUSED,
+                 # 11-17 r142: a Gale Telegraph 1990-94 page with no title found (a Monday's "WINNERS OF PRIZE Crossword No N"
+                 # line, a Saturday's numberless "Today's Prize Crossword"), titled since (fa.teleprize_due).
+                 fa.TELEPRIZE,
+                 # 11-17 r146: a Gale Sunday Telegraph 1990-92 puzzle with no solution linked, its bare "COMPETITION No N"
+                 # heading (no WINNERS) read since (fa.suntel_bare_due).
+                 fa.SUNTEL_BARE,
+                 # 11-17 r139: a 1935-39 Gale Times page unfiled with a blank light or a clue "[]" laid on no light, a clue's
+                 # number behind a rule's mark in a row ending on a broken word, read since (fa.marked_hyphen_due).
+                 fa.MARKED_HYPHEN, fa.COUNT_FIRST,
+                 # 11-17 r156: a 1935-39 Gale Times page unfiled with a light blank or a clue "[]" laid on no light, its
+                 # numberless clue laid on the one free light its count fills since (fa.numberless_fit_due).
+                 fa.NUMBERLESS_FIT,
+                 # 11-17 r149: a 1935 Gale Times page unfiled with a light blank or a clue laid on no light, its four clue
+                 # columns read since (fa.quarter_1935_due).
+                 fa.QUARTER_1935,
+                 # 11-17 r154: a Gale Sunday Times 1970-74 page refused "not a grid" whose ACROSS and DOWN stack in one
+                 # column over the grid (fa.sunday_stacked_due).
+                 fa.SUNDAY_STACKED,
+                 # 11-17 r160: the same for a 1930-34 Gale Times page, the second pass now serving those years too
+                 # (fa.numberless_early_due).
+                 fa.NUMBERLESS_EARLY,
+                 # 11-17 r162: a Gale Telegraph 1985-89 page read with 9+ blank lights, its title far over the grid
+                 # (fa.tel_title_far_due).
+                 fa.TEL_TITLE_FAR, fa.BLOCK_FORTIES,
+                 # 11-17 r169: a 1935-39 Gale Times page unfiled with a light blank, a clue's number behind a "!", "[" or "("
+                 # mark in a row ending on a lower-case word read since (fa.marked_rise_due).
+                  fa.MARKED_RISE,
+                  # 11-17 r177: an FT page of 1990-94 with no puzzle found, its title run onto a neighbouring column's words
+                  # or its number under large print, read since (fa.ft_title_host); the newest fix goes first.
+                  fa.FT_TITLE_GLUED,
+                 # 11-17 r182: a 1985-89 Gale Telegraph page refused "ink under the title" for a title that was the Quick's
+                 # ACROSS (or a stray word), its cryptic's heading over the clue columns read since (fa.tele_over_due).
+                 fa.TELE_OVER,
+                 # 11-17 r184: a Gale Sunday Times 1985-89 page whose grid right of its title was unread a row short (fa.sunday_tall_due).
+                 fa.SUNDAY_TALL,
+                 # 11-18 r191: an FT page of 1985-94 with no puzzle found, its title noisy (a stray word or mark between "CROSSWORD"
+                 # and "No.N", "F.T.CROSSWORD" glued, "PUZZLE No. N" or "No.N Set by X" alone) read since (fa.ft_noisy_host).
+                 fa.FT_NOISY_TITLE,
+                 # 11-18 STparse6569: a Gale Sunday Times 1965-69 page refused "no reading parses" whose clue columns stand
+                 # between its heading and its grid (fa.sunday_between_due).
+                 fa.SUNDAY_BETWEEN,
+                 # 11-18 r220: a Gale Telegraph 1990-2000 page whose grid read but whose clue columns began at a title box
+                 # set mid-list (only the lower clues laid), its heading over the columns read since (fa.tele_head_due).
+                 fa.TELE_HEAD,
+                 # 11-18 r222: a Gale Times 1930-49 page unfiled for a clue whose number stood glued to the word before it
+                 # across a gutter, behind a bar or comma, cut there since (fa.barred_number_due).
+                 fa.BARRED_NUMBER,
+                 # 11-18 r222: a Gale Telegraph weekday 2000-10..12 refused no reading parses, its grid off its Across
+                 # heading and both clue columns right of it read since (fa.head_grid_due).
+                 fa.HEAD_GRID,
+                 # 11-18 r229: a Gale Sunday Telegraph page whose DOWN list was cut at a late number misread as 1 or 2 (fa.sunday_restart_due).
+                 fa.SUNDAY_RESTART,
+                 # 11-18 r235: an Independent page refused no ACROSS and DOWN lists, its third column and low DOWN heading read since (fa.indy_foot_tail_due).
+                 fa.INDY_FOOT_TAIL,
+                 # 11-18 r234: a Gale Independent page whose third clue column stood past the window's gutter (fa.indy_three_due)
+                 fa.INDY_THREE,
+                 # 11-19: an archive.org Guardian weekday page with no puzzle, its glued or lost title numbered by its date
+                 # since (fa.guardian_set_rescan).
+                 fa.GUARDIAN_SET,
+                 # 11-19: an Independent page refused no ACROSS and DOWN lists, reread since (fa.indy_reparse_due)
+                 fa.INDY_REPARSE,
+                 # 11-19 r252: a Gale Sunday Telegraph 1977-98 page with a DOWN clue no reading laid, its second DOWN column under the grid read since (fa.sunday_under_down_due)
+                 fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE, fa.SUNDAY_TAIL,
+                 # 11-19 r253: an archive.org FT 1985-94 page with no puzzle, the band right of its grid read for its title
+                 # since (fa.ft_right_rescan).
+                 fa.FT_RIGHT,
+                 # 11-19 r263: a Gale Sunday Times 1980-84 page held with ACROSS clues no reading laid, its band's merged lines read since (fa.sunday_merged_due)
+                 fa.SUNDAY_MERGED,
+                 # 11-19 r283: the same held page whose title stands under 0.2 grid widths over its grid (fa.sunday_merged2_due)
+                 fa.SUNDAY_MERGED2,
+                 # 11-19 r285: the same held page whose fourth column's numbers stand below the band's rows, a fifth beyond the crop (fa.sunday_band3_due)
+                 fa.SUNDAY_BAND3,
+                 # 11-19 r271: a Gale Independent page whose three clue columns stood in a later cached window (fa.indy_three_more_due)
+                 fa.INDY_THREE_MORE,
+                 # 11-19 r277: a Gale Times 1930-49 page unfiled over a clue only one reading printed, read again alone by the other readers (fa.solo_read_due)
+                 fa.SOLO_READ,
+                 # 11-19 r267: a 1930-49 Gale Times page blank "no other reading has" a short first word, its glued misread
+                 # second-reader word parted since (fa.unglue_lead_due).
+                 fa.UNGLUE_LEAD,
+                 # 11-19 r273: a Gale Sunday Telegraph page with a clue "no other reading has" a word, laid from the reading that spelt it whole since (fa.sunday_vote_other_due)
+                 fa.SUNDAY_VOTE_OTHER,
+                 # 11-19 r291: a Gale Independent 2010-13 page whose first two clue columns under the grid ran together (fa.indy_under_split_due)
+                 fa.INDY_UNDER_SPLIT,
+                 # 11-19 r292: a Gale Independent 2011-13 page whose clue columns right of the grid were cut through their first line (fa.indy_right_cut_due)
+                 fa.INDY_RIGHT_CUT,
+                 # 11-19 r291: a Gale Telegraph page whose grid read a column short (its first column cut off by the crop
+                 # under a bare ACROSS title box), the grid widened to the left since (fa.tele_left_due).
+                 fa.TELE_LEFT,
+                 # 11-19 r294: a Gale Independent page whose third clue column held 4-5 clue starts, read before INDY_THREE landed (fa.indy_three_few_due)
+                 fa.INDY_THREE_FEW,
+                 # 11-19 r296: a Gale Independent 2004 page whose third clue column began beside the grid, its first clues
+                 # (4 and 5 down) read since (fa.indy_third_top_due).
+                 fa.INDY_THIRD_TOP) + fix_reasons.of("unfiled_first")
+
+
+
+def times_solution_work(unit):
+    """Whether `unit` is solution work of a newest-first paper's puzzle: its reason one of
+    TIMES_SOLUTION's (below LOW_ASK), or a read whose answers a stored heading links (fa.LIKELY[0])."""
+    reason = unit.get("reason") or ""
+    return (reason.startswith(TIMES_SOLUTION)
+            or (unit.get("kind") == "read" and fa.LIKELY[0] in (unit.get("likely") or {})))
+
+
+#: The rank 2 reasons whose last read was refused or short and a fix landed
+#: since: fa.likely_gain is 0 for these (it counts only fa.LIKELY causes), yet
+#: they are the rereads that can file. Other rank 2 reasons ("inputs changed",
+#: "titles changed", ...) are held behind them unless likely_gain > 0.
+FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
+              "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
+              "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
+              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.MATCHED_GRID,
+              fa.NEAR_GRID, fa.TOUCHING_GRID, fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
+              fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
+              fa.HELD_ASKED, fa.HELD_LINKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
+              fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
+              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.SUNDAY_LISTED, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
+              fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
+              fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
+              fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.SUNDAY_GRID, fa.SUNDAY_LEFT, fa.SUNDAY_BAND, fa.SUNDAY_PAIR, fa.SUNDAY_TITLE_GRID, fa.SUNDAY_OVER, fa.SUNDAY_CAPTION, fa.SUNDAY_STACKED, fa.SUNDAY_BETWEEN, fa.FT_NUMBER_MENDED, fa.TLS_MONTHLY, fa.SUNDAY_MID, fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT, fa.SUNDAY_UNDER, fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.SUNDAY_1970S, fa.PLAIN_LAID, fa.QUARTER_PLAIN, fa.QUARTER_BLANKS, fa.QUARTER_1934, fa.QUARTER_1935, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.MID_OTHER, fa.SIDES_HEADED, fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID, fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.INDY_BARRED_LATE, fa.INDY_LINKS, fa.INDY_COLUMNS, fa.INDY_ABOVE, fa.INDY_WIDE, fa.INDY_DROPPED, fa.SUNDAY_FOOT, fa.IOS_TITLES, fa.TELEGRAPH_OWN, fa.TELEGRAPH_FIGURE, fa.INDY_REDATED, fa.INDY_PAIRED, fa.IOS_EVEN, fa.TELEGRAPH_LEAD_NUMBER, fa.TELEGRAPH_STOP, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS, fa.INDY_OVER_PLAIN, fa.INDY_GUTTER_DOWN, fa.IOS_WORDS, fa.PALE_RULES, fa.INDY_THIN, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_SPECK_WORDS, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.INDY_THREE, fa.INDY_REPARSE, fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE, fa.SUNDAY_MERGED, fa.INDY_THREE_MORE, fa.SUNDAY_TAIL, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST, fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER, fa.SUB_REFUSED, fa.MARKED_HYPHEN, fa.COUNT_FIRST, fa.NUMBERLESS_FIT, fa.NUMBERLESS_EARLY, fa.TEL_TITLE_FAR, fa.BLOCK_FORTIES, fa.TELE_OVER, fa.TELE_HEAD, fa.MID_TIMES, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_THREE_FEW, fa.INDY_THIRD_TOP,
+                 # 11-17 r169: a 1935-39 Gale Times page unfiled with a light blank, a clue's number behind a "!", "[" or "("
+                 # mark in a row ending on a lower-case word read since (fa.marked_rise_due).
+                 fa.MARKED_RISE, fa.SOLO_READ) + fix_reasons.of("fix_landed")
+
+
+def unproven_first(unit):
+    """Whether `unit` is a Gale 2000 "no title found" reread (or the scan one waits on): ordered ahead of
+    the newer year_evidence units so a first batch is read and judged (the 2007 third-column rereads had
+    10 of 10 filed complete on 10-22; 2000's had not run, newest-first put them after all 2007's 301)."""
+    return unit.get("paper") == "gale" and (unit.get("reason") == fa.NO_TITLE_RESCAN
+                                            or bool(unit.get("fix") and (unit.get("date") or "")[:4] == "2000"))
+
+
+def files_likely_tier(rank, unit):
+    """A newest-first paper's unit's tier: 0 for one likely to file new
+    (rank 0 or 1, fa.likely_gain > 0), 1 for a reread a fix landed for (a
+    refusal's or one in FIX_LANDED), 2 for any other. A refusal's reread is
+    not tier 0: "a fix landed" only means code touching its cause changed,
+    and on 10-18 the 1,126 Gale no-reading-parses rereads (mostly the
+    2005-06 layout) held 3,300 never-read FT pages behind them."""
+    reason = unit.get("reason") or ""
+    if rank <= 1 or fa.likely_gain(unit) > 0:
+        return 0
+    # Paul 10-22: 2007's 312 short third-column pages and 2000's ~208 "no title found" ones were planned but
+    # stood at reads 4,534+ of 6,222 (tier 1, alternated one for one with FT never-read work, behind ~4,500
+    # older "solution short" rereads): no 2007 read had started. Each is concrete evidence of a page that
+    # can file, so they (and the scans they wait on, "fix") go in the first tier with the likely filers,
+    # newest first among them.
+    # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
+    # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
+    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.LOST_WRITE,
+                                                                    fa.HELD_TITLE, fa.HELD_LINKED, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.INDEPENDENT_RIGHT, fa.INDY_BARRED, fa.FT_HEADINGS, fa.FT_CLUES, fa.FT_GLUED, fa.FT_THIRD, fa.SUNDAY_TIMES_FOOT, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.SUNDAY_GRID, fa.SUNDAY_LEFT, fa.SUNDAY_BAND, fa.SUNDAY_PAIR, fa.SUNDAY_TITLE_GRID, fa.SUNDAY_OVER, fa.SUNDAY_CAPTION, fa.SUNDAY_STACKED, fa.SUNDAY_BETWEEN, fa.FT_NUMBER_MENDED, fa.TLS_MONTHLY, fa.SUNDAY_MID, fa.NUMBER_GRID, fa.SUNDAY_QUICKIE_CUT, fa.SUNDAY_UNDER, fa.SUNDAY_NOTICE, fa.SUNDAY_FEET, fa.SUNDAY_TALL, fa.SUNDAY_1970S, fa.PLAIN_LAID, fa.QUARTER_PLAIN, fa.QUARTER_BLANKS, fa.QUARTER_1934, fa.QUARTER_1935, fa.PLAIN_BETWEEN, fa.CLUE_BLOCK, fa.SUB_COLUMNS, fa.MID_OTHER, fa.SIDES_HEADED, fa.WEEKDAY_RIGHT, fa.LEFT_EDGE_GRID, fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.INDY_BARRED_LATE, fa.INDY_LINKS, fa.INDY_COLUMNS, fa.INDY_ABOVE, fa.INDY_WIDE, fa.INDY_DROPPED, fa.SUNDAY_FOOT, fa.IOS_TITLES, fa.TELEGRAPH_OWN, fa.TELEGRAPH_FIGURE, fa.INDY_REDATED, fa.INDY_PAIRED, fa.IOS_EVEN, fa.TELEGRAPH_LEAD_NUMBER, fa.TELEGRAPH_STOP, fa.TELEGRAPH_FITTED, fa.GUARDIAN_LAID, fa.GUARDIAN_CUT, fa.GUARDIAN_FOURTH, fa.GUARDIAN_NOTICE, fa.GUARDIAN_PAIR, fa.GUARDIAN_ACROSS, fa.INDY_OVER_PLAIN, fa.INDY_GUTTER_DOWN, fa.IOS_WORDS, fa.PALE_RULES, fa.INDY_THIN, fa.FT_LEAD_WHOLE, fa.FT_SIDE_RIGHT, fa.SUNTEL_RIGHT, fa.NUMBERLESS_LAID, fa.QUARTER_DOWN, fa.QUARTER_HEADLESS, fa.QUARTER_GLUED, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.INDY_BANNER, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_SPECK_WORDS, fa.SUNDAY_ABOVE, fa.SUNDAY_WIDE, fa.SUNDAY_NOTICE_CUT, fa.SUNDAY_PRIZE_CUT, fa.SUNDAY_LEAD, fa.SUNDAY_RESTART, fa.INDY_THREE, fa.INDY_REPARSE, fa.SUNDAY_UNDER_DOWN, fa.SUNDAY_TOP, fa.SUNDAY_UNDER_WIDE, fa.SUNDAY_MERGED, fa.INDY_THREE_MORE, fa.SUNDAY_TAIL, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.INDY_FRAME, fa.WHOLE_INK, fa.FAINT_EDGE, fa.INDY_DOWN_FOOT, fa.INDY_UNDER, fa.IOS_FOOT, fa.SUNTEL_FOOT, fa.SUNTEL_LIST, fa.INDY_TITLED, fa.IOS_WRAP, fa.IOS_ACROSS, fa.IOS_LEAD, fa.DOWN_HALF, fa.BARRED_NUMBER, fa.SUB_REFUSED, fa.MARKED_HYPHEN, fa.COUNT_FIRST, fa.NUMBERLESS_FIT, fa.NUMBERLESS_EARLY, fa.TEL_TITLE_FAR, fa.BLOCK_FORTIES, fa.TELE_OVER, fa.TELE_HEAD, fa.MID_TIMES, fa.UNGLUE_LEAD, fa.SUNDAY_VOTE_OTHER, fa.SUNDAY_MERGED2, fa.SUNDAY_BAND3, fa.INDY_THREE_FEW, fa.INDY_THIRD_TOP,
+                 # 11-17 r169: a 1935-39 Gale Times page unfiled with a light blank, a clue's number behind a "!", "[" or "("
+                 # mark in a row ending on a lower-case word read since (fa.marked_rise_due).
+                 fa.MARKED_RISE, fa.SOLO_READ):
+        return 0
+    if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
+        return 1
+    return 2
+
+
+def newest_first_papers():
+    """The papers CT_NEWEST_FIRST names (comma-separated keys, e.g.
+    "gale,times"), read at each call so a plan after an env change follows
+    it; empty when unset: the order is then by rank and fa.likely_gain."""
+    return frozenset(k.strip() for k in os.environ.get("CT_NEWEST_FIRST", "").split(",") if k.strip())
+
+
+#: First year of the Gale Sunday Telegraph pages that ask the VLM in numbers. 11-10: 1964-77 pages (no
+#: cryptic grid or the Quickie set) are CPU-only reads: ~17 asks for dozens of reads started, while 1978+
+#: pages made 20-140 a year. As fills and as fresh units they held all 14 slots; the GPU sat empty.
+SUNDAY_ASKS_FROM = 1978
+
+
+def no_ask_sunday(unit):
+    """Whether `unit` is a Gale Sunday Telegraph edition before SUNDAY_ASKS_FROM: it spools almost no asks."""
+    if unit.get("paper") != "galesundaytelegraph":
+        return False
+    band = band_of(unit)
+    return band is not None and int(band[1]) < SUNDAY_ASKS_FROM
+
+
+def fills_gpu(unit):
+    """Whether `unit` is a read that asks the VLM: another paper's never-read read, or a
+    CT_NEWEST_FIRST paper's reread of a page refused or unfiled before its fix (it reads
+    its clue columns again; those papers' other rereads run on OCR alone). Paul 10-21:
+    Times work goes ahead of FT's, and the GPU stays busy; the plan's order puts these
+    Times rereads first."""
+    if unit["kind"] != "read" or not needs_vlm(unit) or no_ask_sunday(unit):
+        return False
+    reason = unit.get("reason") or ""
+    if reason.startswith(CPU_ONLY):
+        return False  # answers_only: links answers, asks the VLM nothing
+    if reason.startswith(LOW_ASK):
+        return False  # solution rereads: minutes of CPU for 1-3 asks; they do not keep the VLM fed
+    if reason.startswith((fa.QUICK_SET, fa.QUICK_HELD)):
+        return False  # 11-10: Gale Sunday Telegraph Quickie-set rereads spool 0 asks ("0 asks spooled, target 4"); as fills they held the GPU empty
+    if reason.startswith(fa.FOOTER_TITLE):
+        return False  # 10-29: ~18 min of whole-page OCR before any ask; 6 counted as fills held the feed shut, GPU ~1%
+    # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
+    return (unit["rank"] <= 1 or "before its fix" in reason or reason in FIX_LANDED
+            or canary_proven(unit))
+
+
+#: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.
+#: fa.UNMERGED: a solution grid a full read read whole, its answers never merged; answers_only reads it
+#: again whole (no light short, no strip asked) and merges them.
+#: fa.HELD_TITLE: a page its scan found no title on, read answers-only under its held puzzle's number.
+CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED, fa.HELD_TITLE, fa.HELD_LINKED,
+            fa.JUMBO_SOLUTION)  # a Jumbo solution grid read on CPU, asks the VLM nothing
+#: Reasons of rereads that ask the VLM only a little: a Times solution reread spends 30-250 s of CPU, spools
+#: 1-3 asks (solution strips are capped at vlm_reader STRIP_MAX) and defers. Paul 10-22: with all 18 slots
+#: on these the GPU sat ~27% busy (~160 asks/h of ~400) while 798 FT never-read reads waited. They keep
+#: their place in the plan (Times first) but are no fill: while spooled asks are under the feed target,
+#: gpu_fill's reserve holds slots for reads that do ask. Unlike CPU_ONLY they are not answers-linked
+#: (no batching) and not under the cpu-only cap (they would starve behind it).
+LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
+           "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
+           fa.REFUSED_GRID, fa.MATCHED_GRID, fa.NEAR_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
+           fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
+           fa.HELD_STRIPS, fa.HELD_ASKED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
+           fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
+           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.SUNDAY_LISTED, fa.TELEGRAPH_CELLS, fa.FT_FAINT, fa.TELEGRAPH_FITTED)
+#: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
+#: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
+#: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).
+TIMES_SOLUTION = LOW_ASK + CPU_ONLY + fa.HOST_REASONS
+
+
+def reason_cap_for(ceiling):
+    """Most units of one reason string running at once while other work waits: CT_REASON_CAP
+    (integer, 0 = off), default max(2, ceiling // 3)."""
+    try:
+        v = int(os.environ.get("CT_REASON_CAP", ""))
+    except ValueError:
+        return max(2, ceiling // 3)
+    return max(0, v)
+
+
+def vlm_feed_reads():
+    """The most gpu_fill reads running at once: CT_VLM_FEED_READS (default 8). A fill spends 100-500 s
+    on OCR before its first ask and then makes only a few, so keeping the VLM fed takes many reads in
+    the pipe, not just slots + PIPELINE; this cap is separate from the Times read pool."""
+    try:
+        return max(1, int(os.environ.get("CT_VLM_FEED_READS", "8")))
+    except ValueError:
+        return 8
+
+
+def vlm_feed_target():
+    """The asks (spooled plus VLM-needing reads in flight) the queue keeps the VLM fed with:
+    CT_VLM_FEED (default 4), at least the stage's slots + PIPELINE (vlm_reader.feed_target: a read
+    below it waits in-process for its spooled asks' answers rather than defer)."""
+    return vlm_reader.feed_target()
+
+
+def vlm_feed_ahead():
+    """The asks (spooled plus those running fills will make) gpu_fill keeps ahead of the GPU:
+    CT_VLM_FEED_AHEAD (default 40, ~9 min of the drainer's ~4 asks/min, the p90 lead of a never-read
+    read). Never below vlm_feed_target(); fills are still bounded by vlm_feed_reads() and the free
+    read slots, the unit ceiling and CT_VLM_SPOOL_MAX."""
+    try:
+        return max(vlm_feed_target(), int(os.environ.get("CT_VLM_FEED_AHEAD", "40")))
+    except ValueError:
+        return max(vlm_feed_target(), 40)
+
+
+def vlm_fill_asks():
+    """The asks a running fill is counted to make (CT_VLM_FILL_ASKS, default 4; 0 = count none)."""
+    try:
+        return max(0, int(os.environ.get("CT_VLM_FILL_ASKS", "4")))
+    except ValueError:
+        return 4
+
+
+def vlm_feed_scans():
+    """The most scans gpu_fill keeps running for fill reads that wait on them: CT_VLM_FEED_SCANS (default 4)."""
+    try:
+        return max(0, int(os.environ.get("CT_VLM_FEED_SCANS", "4")))
+    except ValueError:
+        return 4
+
+
+def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, max_fills,
+             scan_of=None, scanning=frozenset(), max_scans=0, ahead=0, per_fill=0):
+    """The units to start ahead of the queue's order because the VLM stage is short of asks (spooled
+    below vlm_reader.slots() + PIPELINE) while CT_NEWEST_FIRST papers' OCR-only work holds the read
+    pool: the next never-read reads of other papers that ask the VLM, as many as keep running fills
+    (all of them, however old: each is asks still to come) under `max_fills` (the caller bounds it by
+    CT_VLM_FEED_READS and the free read slots, not by Times' share of the pool). Empty with a fed VLM or
+    a full spool.
+
+    Only when no such read is ready (Paul 10-23: GPU 0% for 6+ min, all 656 FT never-read reads waiting
+    on FT scans planned behind ~1,850 Gale stale scans, the Gale before-its-fix rereads on their own
+    pages' stale scans) does it return the scans those fill reads wait on (`scan_of(u)`: the scan unit or
+    None), in the reads' order, one per page, so that at most `max_scans` such scans run at once (a
+    running scan in `scanning` that a fill read waits on counts). Ready reads always come first: on
+    10-21, when a waiting read's scan was taken whenever met, 15 of ~25 feed starts were scans."""
+    target = vlm_feed_target()
+    # Lead time: a fill spends minutes on OCR before its first ask (never-read Gale reads: median 170 s,
+    # p90 550 s over 5,700 reads) while the GPU drains ~4 asks/min, so a spool at the target is empty
+    # before the next fill asks. Each running fill counts `per_fill` asks still to come toward `ahead`.
+    ahead = max(target, ahead)
+    coming = spooled + per_fill * running_fills
+    if full or spooled >= ahead or coming >= ahead:
+        return []
+    left = min(max_fills - running_fills, max(target - spooled, -(-(ahead - coming) // per_fill) if per_fill else 0))
+    out, waiting = [], []
+    for u, k in read_cands:
+        if left <= 0:
+            break
+        if not (fills_gpu(u) and k not in tried and k not in busy and not vlm_waits(u)):
+            continue
+        if not waits(u):
+            out.append(u)
+            left -= 1
+        elif not out and scan_of is not None and max_scans > 0:
+            waiting.append(u)
+    if out or not waiting:
+        return out
+    # No fill read is ready: bring forward the scans the waiting ones need.
+    feeding = {(u["paper"], u["rel"]) for u in waiting if (u["paper"], u["rel"]) in scanning}
+    room = max_scans - len(feeding)
+    seen = set(feeding)
+    for u in waiting:
+        if room <= 0:
+            break
+        pr = (u["paper"], u["rel"])
+        if pr in seen:
+            continue
+        seen.add(pr)
+        s = scan_of(u)
+        if s is None or key_of(s) in tried or key_of(s) in busy:
+            continue
+        out.append(s)
+        room -= 1
+    return out
+
+
+def cpu_only_unit(unit):
+    """Whether `unit` never asks the VLM: a "scan stale" scan or an answer-linked reread."""
+    reason = unit.get("reason") or ""
+    if unit["kind"] == "scan":
+        return reason.startswith("scan stale")
+    return unit["kind"] == "read" and reason.startswith(CPU_ONLY)
+
+
+#: The most answers-linked rereads of one item read in one unit process (CT_ANSWERS_BATCH; 1 turns
+#: batching off). Each such read costs ~110 s wall / ~135 CPU-s, nearly all per-process setup (ledger and
+#: held lists, the solution-heading index, OCR model init); in one process the 2nd-6th puzzle cost ~0 s.
+ANSWERS_BATCH = max(1, int(os.environ.get("CT_ANSWERS_BATCH") or 8))
+#: Seconds a batch's read limit grows by for each edition past its first (up to the larger of the
+#: read limit and BATCH_LIMIT_MAX).
+BATCH_EXTRA_SECONDS = 120
+BATCH_LIMIT_MAX = 3600
+
+
+def answers_linked(unit):
+    """Whether read `unit` is due only because a solution grid is linked now (its reread is answers_only):
+    its reason is one of CPU_ONLY, or its "likely" kinds (what fa.likely predicts the read files, shown
+    as its detail, "answers linked x1") are all "answers linked" (the reason itself is then "inputs
+    changed" or "scan stale, answers missing")."""
+    if unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+        return False
+    if (unit.get("reason") or "").startswith(CPU_ONLY):
+        return True
+    kinds = set(unit.get("likely") or ()) or {k.rpartition(" x")[0] or k for k in (unit.get("detail") or "").split(", ") if k}
+    return kinds == {"answers linked"}
+
+
+#: The most LOW_ASK (short-solution) rereads of one paper read in one unit process (CT_LOWASK_BATCH; 1 turns
+#: it off). 11-14: 1,331 answers-only units spent 18,816 CPU-s in 5 h, ~18 s of each in setup before the
+#: first stage (solution_sources and sister_solutions linking, load_known, edition_dirs, imports). Modest
+#: so a batch holds its slot a few minutes at most: each edition files as it ends, and one deferred for
+#: the VLM (asks spooled) does not end the others' reads (file_archive_org_puzzles._run, "tolerant").
+LOW_ASK_BATCH = max(1, int(os.environ.get("CT_LOWASK_BATCH") or 4))
+
+
+def low_ask_batchable(unit):
+    """Whether read `unit` is a LOW_ASK reread of an archive.org paper (batched with others of its paper)."""
+    return (unit["kind"] == "read" and unit["paper"] in fa.FILERS
+            and (unit.get("reason") or "").startswith(LOW_ASK))
+
+
+def batch_kind(unit):
+    """"answers" (answers_linked), "low_ask" (low_ask_batchable) or None: the reads batched together are of one kind."""
+    if answers_linked(unit):
+        return "answers"
+    return "low_ask" if low_ask_batchable(unit) else None
+
+
+def batch_mates(unit, cands, tried, busy, ready, size=None):
+    """The reads that go with read `unit` in its process: up to `size` - 1 of `cands` ((unit, key) pairs in
+    the queue's order) of the same paper, the same rank and the same batch_kind, not tried nor busy and for
+    which `ready(unit)` holds (not waiting on a scan or the VLM). Answers-linked reads (ANSWERS_BATCH)
+    must also share an item (the part of the edition's name before the "/"); LOW_ASK rereads
+    (LOW_ASK_BATCH) need only the paper, the setup they share being the paper's. Empty for any other unit."""
+    kind = batch_kind(unit)
+    if kind is None:
+        return []
+    size = (ANSWERS_BATCH if kind == "answers" else LOW_ASK_BATCH) if size is None else size
+    if size <= 1:
+        return []
+    item = unit["rel"].partition("/")[0]
+    out = []
+    for v, k in cands:
+        if len(out) >= size - 1:
+            break
+        if (v["paper"] != unit["paper"] or v["rel"] == unit["rel"] or v["rank"] != unit["rank"]
+                or k in tried or k in busy or batch_kind(v) != kind
+                or kind == "answers" and v["rel"].partition("/")[0] != item):
+            continue
+        if ready(v):
+            out.append(v)
+    return out
+
+
+def batch_mate_keys(unit):
+    """The keys of the other editions read in `unit`'s process (its "batch"): none for a unit read alone."""
+    return [("read", unit["paper"], r) for r in unit.get("batch") or ()]
+
+
+def batch_note(unit):
+    """What a log line says of the editions batched with `unit`: " (+N batched)" or nothing."""
+    return f" (+{len(unit['batch'])} batched)" if unit.get("batch") else ""
+
+
+def unit_limit(unit, base):
+    """Seconds `unit` may run before it is killed: `base` (its kind's limit), and for a read batching
+    several editions BATCH_EXTRA_SECONDS more for each past the first, never past the larger of `base`
+    and BATCH_LIMIT_MAX."""
+    extra = len(unit.get("batch") or ())
+    if not extra or unit["kind"] != "read":
+        return base
+    return min(base + BATCH_EXTRA_SECONDS * extra, max(base, BATCH_LIMIT_MAX))
+
+
+def newest_first(unit):
+    """Whether `unit` is of a paper CT_NEWEST_FIRST names and not rank 0.
+    Such a unit is never held back as a backlog's (queue's `fed`) nor as a
+    whole-corpus re-read (fa.BLANKET) behind more urgent work: it is the
+    most urgent there is, so its scan is not starved by ready older reads."""
+    return unit["rank"] != 0 and unit["paper"] in newest_first_papers()
+
+
+#: How often (seconds) the Trove articles are planned again: stat-ing
+#: every article's inputs takes ~5s, and a new article is never urgent.
+TROVE_REPLAN = 300
+_TROVE = {}
+
+
+def trove_plan(reread, asked):
+    """file_trove_puzzles.plan()'s units, made again every TROVE_REPLAN
+    seconds or when the annotation asks change."""
+    asked = frozenset(asked)
+    if _TROVE.get("asked") != asked or time.monotonic() - _TROVE.get("at", -TROVE_REPLAN) >= TROVE_REPLAN:
+        units = [{**u, "kind": "read", "paper": "trove"} for u in ftp.plan(reread=reread, asked=asked)]
+        _TROVE.update(asked=asked, at=time.monotonic(), units=units)
+    return _TROVE["units"]
+
+
+def transient_oserror(e):
+    """A momentary refusal (EAGAIN, EINTR, EBUSY) from a CIFS lock, not a share that is gone."""
+    return isinstance(e, (BlockingIOError, InterruptedError)) or getattr(e, "errno", None) in (errno.EAGAIN, errno.EINTR, errno.EBUSY)
+
+
+def ledger_retry(fn, *args, tries=5, pause=2.0):
+    """fn(*args), asked again `tries` times, `pause` s apart, while it fails transiently
+    (11-16 20:30: open() of filed-gale.jsonl raised EAGAIN and killed the queue)."""
+    for n in range(tries):
+        try:
+            return fn(*args)
+        except OSError as e:
+            if not transient_oserror(e) or n == tries - 1:
+                raise
+            time.sleep(pause)
+
+
+def key_of(unit):
+    return unit["kind"], unit["paper"], unit["rel"]
+
+
+def scan_share(ceiling, reads_due):
+    """The most scans at once while reads are due: a third of the unit ceiling, at least 1.
+    None when no read waits (scans keep their whole pool)."""
+    return max(1, ceiling // 3) if reads_due else None
+
+
+def times_scans_pending(scan_lists, tried, busy, scanned):
+    """The CT_NEWEST_FIRST papers' queued scans not yet tried, running or done: each is for a read of
+    those papers (only_evidence keeps no other scan), so while any is left the Times work still has
+    something to start and FT may fill only the slots it cannot use. Empty with no CT_NEWEST_FIRST."""
+    named = newest_first_papers()
+    if not named:
+        return []
+    return [u for us in scan_lists for u in us
+            if u["paper"] in named and key_of(u) not in tried and key_of(u) not in busy
+            and (u["paper"], u["rel"]) not in scanned]
+
+
+#: Paul 11-03: never-scanned Gale FT 2003 scans (600-1500 s each, 25 of 27 found no puzzle) held up to ~10
+#: of the ~18-20 unit slots while Times 1933 reads waited and the VLM idled. While a Times (CT_NEWEST_FIRST
+#: paper) read or scan is due or running, the other papers' scans and reads (FT, Guardian, Telegraph ...;
+#: not the Listener's or Trove's own pools, nor fetches) keep at most this many units, as the Listener does.
+NON_TIMES_BESIDE_TIMES = int(os.environ.get("CT_NON_TIMES_BESIDE_TIMES") or 2)
+
+
+def non_times_unit(unit, times_papers):
+    """Whether `unit` is a scan or read of a paper outside the CT_NEWEST_FIRST set `times_papers` and
+    outside the Listener's and Trove's own pools (fetches are no scan or read)."""
+    return (unit["kind"] in ("scan", "read") and unit["paper"] not in times_papers
+            and unit["paper"] not in ("listener", "trove"))
+
+
+def non_times_held(unit, times_papers, times_due, live, cap):
+    """Whether `unit` waits for Times work: Times work is `times_due`, the non-Times units running
+    (`live`) are at `cap`, and `unit` is another one."""
+    return times_due and live >= cap and non_times_unit(unit, times_papers)
+
+
+def startable_fills(fill, times_papers, times_due, live, cap):
+    """How many of the `fill` units the non-Times cap lets start: all of the Times papers' (and the
+    Listener's, Trove's), and while Times work is due only `cap` - `live` of the rest. 11-06: the slot reserve
+    counted every fill, but the Telegraph never-read fills sat behind the non-Times cap (2 running), so
+    8 of 24 slots stayed empty for reads that could not start while 4,000 Times rereads waited."""
+    room = max(0, cap - live)
+    n = 0
+    for u in fill:
+        if non_times_held(u, times_papers, times_due, live, cap):
+            continue
+        if times_due and non_times_unit(u, times_papers):
+            if room <= 0:
+                continue
+            room -= 1
+        n += 1
+    return n
+
+
+def other_reason_waits(reason, queued, tried, free, held):
+    """Whether a unit of another reason than `reason` could start in its place: one of `queued`
+    ((unit, key, slot) triples) that is no fetch, untried, has room in its slot's pool (`free`) and is
+    not `held` by its own cap. 11-03: FT reads waiting behind the non-Times cap and Listener reads
+    behind their full pool counted as "other work", so the reason cap held the 788 1930-33 Times
+    rereads (the only Times work due) at 8 and 12 of 24 slots sat idle."""
+    return any(v["kind"] != "fetch" and v.get("reason") != reason and k not in tried
+               and free.get(slot, 0) > 0 and not held(v)
+               for v, k, slot in queued)
+
+
+def scan_wide_max(pool):
+    """Most scans at once while every due read waits on one: CT_SCAN_WIDE (default twice the pool)."""
+    try:
+        return max(pool, int(os.environ.get("CT_SCAN_WIDE", "")))
+    except ValueError:
+        return pool * 2
+
+
+def scan_widen_room(live, pool, ceiling_left):
+    """Scan starts allowed beyond a full pool: up to scan_wide_max(pool) scans in all, and a third of the
+    ceiling slots left stay for the reads these scans will free (never more than ceiling_left)."""
+    if ceiling_left <= 0:
+        return 0
+    keep = ceiling_left // 3
+    return max(0, min(scan_wide_max(pool) - live, ceiling_left - keep))
+
+
+def listener_free(free_listener, other_due, ceiling_left):
+    """The Listener pool's free slots this pass: its fixed pool's (LISTENER_WORKERS, `free_listener`)
+    while other read or scan work is due or running (`other_due`), else every unit-ceiling slot left
+    (`ceiling_left`): its units ask no VLM, so nothing else wants them. The ceiling still bounds it."""
+    if other_due or ceiling_left <= 0:
+        return free_listener
+    return max(free_listener, ceiling_left)
+
+
+def times_scan_room(pending, ready_reads, free_scan, free_read, ceiling_left):
+    """How many scans may start now while the CT_NEWEST_FIRST papers' scans are `pending` (a count):
+    every unit-ceiling slot but those their `ready_reads` will take (at most `free_read`), so the
+    reads waiting on those scans are not left idle behind the scan share while FT reads fill the
+    slots. Never fewer than `free_scan` (the pool's own room)."""
+    if not pending:
+        return free_scan
+    return max(free_scan, min(pending, ceiling_left - min(ready_reads, free_read)))
+
+
+def slot_of(unit):
+    """The pool a unit runs in: "scan", "read", "trove" (its article reads)
+    or its fetch source ("fetch archive.org", "fetch trove")."""
+    if unit["kind"] == "fetch":
+        return f"fetch {unit['paper']}"
+    return unit["paper"] if unit["paper"] in ("trove", "listener") else unit["kind"]
+
+
+def rels_by_paper(pairs):
+    """{paper: {rel}} of (paper, rel) pairs: what read_waits tests needs against."""
+    out = {}
+    for p, r in pairs:
+        out.setdefault(p, set()).add(r)
+    return out
+
+
+_NONE = frozenset()
+
+
+def unchanged(old, new):
+    """`old` when `new` holds the very same units in the same order, else
+    `new`: dispatch keys its queue memo on the lists' ids, so a list rebuilt
+    each pass to the same units (the stopped sources' fetches left out) must
+    keep its id or the memo misses every pass (~25k units re-keyed)."""
+    if len(old) == len(new) and all(a is b for a, b in zip(old, new)):
+        return old
+    return new
+
+
+def unchanged_eq(old, new):
+    """`old` when `new` equals it (fresh() builds new unit dicts each tick),
+    else `new`: the same id-keeping as unchanged() for lists whose units are
+    rebuilt equal, so queue_memo does not miss on every FRESH_POLL."""
+    return old if old == new else new
+
+
+def read_waits(u, scanning, unscanned, rescanned):
+    """Whether read `u` waits on a scan: one it needs running, its own
+    planned and not yet done, or one of a stale-scan re-read's ended since
+    the plan. `scanning` and `rescanned` are rels_by_paper maps: each read's
+    needs are tested in one isdisjoint, not a pair built per need (a pass
+    asks it of every queued read, ~43k)."""
+    p = u["paper"]
+    return (not scanning.get(p, _NONE).isdisjoint(u["needs"]) or (p, u["rel"]) in unscanned
+            or (u["reason"] in fa.STALE_SCAN and not rescanned.get(p, _NONE).isdisjoint(u["needs"])))
+
+
+def plan_fetches(sources):
+    """Every fetch source's units, each source's in its plan's order."""
+    out = []
+    for src in sources:
+        out += [{**u, "kind": "fetch", "paper": src, "rank": 1} for u in FETCHERS[src]["plan"]()]
+    return out
+
+
+#: The script a unit is started as (tests swap it).
+UNIT_SCRIPT = Path(__file__).resolve()
+
+
+def unit_argv(unit):
+    """A unit's command line: its kind, paper (or fetch source) and edition,
+    article or file, also its name in ps."""
+    return [sys.executable, str(UNIT_SCRIPT), "unit", unit["kind"], unit["paper"], unit["rel"]]
+
+
+_ZYGOTE = []
+
+
+def spawn_unit(unit, argv, env):
+    """The pid of the new unit process: forked from the unit zygote (tools/unit_zygote.py: the imports a
+    unit loads made once, their pages shared copy-on-write; CT_UNIT_ZYGOTE=0 turns it off), else, when
+    that is off, not ready or not for this unit, posix_spawned afresh. Either way it is this process's
+    child in its own process group."""
+    if unit["kind"] in ("scan", "read") and Path(UNIT_SCRIPT) == Path(__file__).resolve():
+        import unit_zygote
+        if not _ZYGOTE:
+            _ZYGOTE.append(unit_zygote.Client(UNIT_MODULES.values()))
+        pid = _ZYGOTE[0].spawn(argv, env)
+        if pid:
+            return pid
+    return os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
+
+
+#: Set in the environment of an image a re-exec started (may_reexec).
+REEXEC_ENV = "EDITION_QUEUE_REEXECED"
+
+
+def code_files():
+    """{path: sha1} of this run's own code: every loaded module under tools/
+    and the script it was started as."""
+    paths = {Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m, "__file__", None)}
+    paths = {f for f in paths if f.parent == TOOLS}
+    main_file = getattr(sys.modules.get("__main__"), "__file__", None)
+    if main_file:
+        paths.add(Path(main_file).resolve())
+    return {f: digest(f) for f in paths}
+
+
+#: Modules only the named paper's plan and units use: a run of other papers never executes them, so
+#: a push to one (gale_mephisto_read changed six times in a 5 h Guardian run) is no reload for it.
+PAPER_ONLY = {"listener": ("gale_mephisto_read", "gale_jumbo_read", "gale_tls_read", "gale_listener", "file_gale_listener"),
+              "trove": ("file_trove_puzzles",)}
+#: Modules the queue reaches only through a lazy import and no read runs: the Globe and Mail fetcher
+#: (cross_validate's lazy import) and the shape-repair tools (wordplay's lazy import of fix_shape_suspects).
+NEVER_RUN = ("fetch_globeandmail", "fix_shape_suspects", "fix_shape_notes")
+
+
+def reload_skip(papers=None):
+    """The module stems whose change reloads nothing for a run of `papers` (None: every paper)."""
+    papers = PAPERS if papers is None else papers
+    return set(NEVER_RUN) | {m for k, ms in PAPER_ONLY.items() if k not in papers for m in ms}
+
+
+def queue_closure(papers=None):
+    """The tools/ files (repo-relative) whose change reloads a queue of `papers`:
+    hot_reload.queue_code's, and every module this process has loaded that the
+    run can reach (reload_skip's, and what only they reach, are left out)."""
+    skip = reload_skip(papers)
+    reach = hot_reload.import_reach(TOOLS, "edition_queue", skip)
+    mine = {f"tools/{f.name}" for f in code_files() if f.stem in reach or f.stem == "edition_queue"}
+    return hot_reload.queue_code(TOOLS, exclude=skip) | mine
+
+
+def digest(path):
+    try:
+        return hashlib.sha1(path.read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
+#: Times a unit ends lost (the desktop stopped answering its reads, though it
+#: answers others) before it is started with no desktop: an edition whose read
+#: ends the desktop's server each time is read here, not deferred forever.
+LOST_TRIES = 3
+
+#: Where prepare() leaves each read it made for its unit (edition_commit.load_brief removes it).
+BRIEFS = Path(os.environ.get("TMPDIR") or "/tmp") / "edition-briefs"
+
+
+#: What prepare() returns for a read whose own scan is stale or missing: a
+#: scan unit runs first, then the read is prepared for the desktop.
+SCAN_FIRST = "scan first"
+
+#: What a read's brief is while a pool thread makes it (brief_of).
+PENDING = object()
+#: Threads making briefs (prepare: held_files, the desktop request) beside the dispatch loop.
+PREPARERS = 3
+#: Seconds the loop waits for a brief it has just asked a pool thread for.
+BRIEF_WAIT = 0.2
+#: Seconds a made brief waits for its unit to be asked again before it is dropped.
+BRIEF_KEEP = 600
+
+
+def prepare(unit, cache, puzzles, reread):
+    """The file of an archive.org or Gale read unit's read made here
+    (file_archive_org_puzzles.brief), for its unit to send to the desktop
+    and commit (tools/edition_commit.py); SCAN_FIRST when its own scan is
+    stale or missing; or None: the unit runs whole, each cause logged as a
+    "whole read <rel>: <why>" line (no desktop set, it is busy, not due,
+    or making it failed)."""
+    import desktop_busy
+    import ocr_remote
+    if unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+        return None
+    if not ocr_remote.hosts():
+        return whole(unit, "no desktop (OCR_REMOTE unset)")
+    why = desktop_busy.busy(ocr_remote.hosts())
+    if why:
+        return whole(unit, f"desktop busy ({why})")
+    try:
+        paper = fa.FILERS[unit["paper"]]
+        load_caches()  # a re-exec's briefs start before its first plan loads them
+        made = fa.brief(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
+        if made is None:
+            return whole(unit, "not due") if fa.scan_stands(paper, unit["rel"], cache) else SCAN_FIRST
+        import tempfile
+        BRIEFS.mkdir(parents=True, exist_ok=True)
+        fd, path = tempfile.mkstemp(dir=BRIEFS, suffix=".brief")
+        os.close(fd)
+        edition_commit.save_brief(path, *made)
+        return path
+    except Exception as e:  # any raise: the unit runs whole and says nothing of it; the cause is logged here
+        return whole(unit, f"brief failed: {scan_queue.failure((unit['rel'],), e)}")
+
+
+def whole(unit, why):
+    """Log why the read unit runs whole here, not prepared for the desktop (prepare returns this None)."""
+    log(f"whole {unit['kind']} {unit['rel']}: {why}")
+
+
+#: Each --beside run's --seconds when the queue has no --seconds of its own,
+#: and how long past its --seconds it is let run before it is killed.
+BESIDE_SECONDS = 3600
+BESIDE_GRACE = 1200
+
+
+class Beside:
+    """A batch filer (one taking --seconds) run beside the units, again
+    while its output says "left for the next run" and starting is allowed,
+    each run given the queue's time left (or BESIDE_SECONDS) as its
+    --seconds and killed BESIDE_GRACE after it. Its output goes to a file
+    this loop copies to the log as it grows: no thread, so the queue's
+    re-exec (code_files) leaves nothing half done."""
+
+    def __init__(self, argv):
+        self.argv, self.seconds = argv, 0
+        self.proc, self.started, self.again, self.done = None, 0.0, True, False
+        self.out, self.pos, self.text = None, 0, ""
+        self.paused_at = None  # when a game stopped it, or None
+
+    def copy(self):
+        self.out.seek(self.pos)
+        new = self.out.read()
+        self.pos += len(new)
+        if new:
+            sys.stderr.write(new.decode(errors="replace"))
+            sys.stderr.flush()
+            self.text = (self.text + new.decode(errors="replace"))[-4096:]
+
+    def poll(self, may_start, remaining=None):
+        if self.proc is not None:
+            self.copy()
+            rc = self.proc.poll()
+            if rc is None:
+                if self.paused_at is None and time.monotonic() - self.started > self.seconds + BESIDE_GRACE:
+                    log(f"beside: {shlex.join(self.argv)} ran {BESIDE_GRACE}s past its --seconds; killed")
+                    os.killpg(self.proc.pid, signal.SIGKILL)
+                return
+            self.copy()
+            self.out.close()
+            self.again = "left for the next run" in self.text
+            log(f"beside: {shlex.join(self.argv)[:120]} ended (rc={rc})"
+                + ("; it left work, so it runs again" if self.again and rc == 0 else ""))
+            self.proc, self.paused_at = None, None
+            if rc != 0:
+                self.done = True
+        if self.done or not self.again or not may_start:
+            return
+        self.again, self.text, self.pos = False, "", 0
+        import tempfile
+        self.out = tempfile.TemporaryFile()
+        self.seconds = max(60, int(BESIDE_SECONDS if remaining is None else remaining))
+        self.proc = subprocess.Popen([*self.argv, "--seconds", str(self.seconds)], stdout=self.out, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                                     start_new_session=True)
+        self.started = time.monotonic()
+
+    def busy(self):
+        return self.proc is not None
+
+    def stop(self, sig):
+        if self.proc is not None and self.proc.poll() is None:
+            if sig in (signal.SIGTERM, signal.SIGKILL):
+                self.resume()  # a stopped group does not act on a TERM until continued
+            os.killpg(self.proc.pid, sig)
+
+    def pause(self):
+        """SIGSTOP its group for a game; its --seconds clock stops with it (resume credits the time)."""
+        if self.proc is not None and self.paused_at is None and self.proc.poll() is None:
+            self.paused_at = time.monotonic()
+            os.killpg(self.proc.pid, signal.SIGSTOP)
+
+    def resume(self):
+        if self.paused_at is not None:
+            self.started += time.monotonic() - self.paused_at
+            self.paused_at = None
+            if self.proc is not None and self.proc.poll() is None:
+                try:
+                    os.killpg(self.proc.pid, signal.SIGCONT)
+                except ProcessLookupError:
+                    pass
+
+
+#: What the memory gate reads (tests swap it); None is mem_gate.available.
+mem_gate_reader = None
+#: What the CPU gate reads (tests swap it); None is mem_gate.load.
+cpu_gate_reader = None
+#: What the idle-core gate reads (tests swap it); None is mem_gate.idle_cores.
+idle_gate_reader = None
+#: What the burn-first gate reads (tests swap it); None is mem_gate.burn_state.
+burn_gate_reader = None
+#: Why the desktop is busy, or None (tests swap it); None is desktop_busy.busy over ocr_remote.hosts().
+desktop_gate_reader = None
+#: (when read, the desktop's free memory in MB), or None (tests swap it);
+#: None is desktop_busy.free_mb over ocr_remote.hosts().
+desktop_mem_reader = None
+#: Whether the desktop's VLM answers (tests swap it); None is vlm_reader.up(),
+#: asked at most every vlm_reader.UP_EVERY seconds, never once a unit.
+vlm_gate_reader = None
+#: Seconds a read ending deferred for the VLM (EXITS["vlm"]) holds the reads
+#: that need it, whatever the last answer: the queue does not restart them on
+#: an answer from before it went down. 11-06: one read's failed ask (58 s, "the VLM is down") froze every
+#: VLM-asking start for 60 s while asks kept completing (units fell 22 -> 2, GPU ~1%); 15 s still outlives
+#: the stale answer (vlm_reader.up() is rate-limited by UP_EVERY).
+VLM_RECHECK = 15
+#: A read that has ended deferred for the VLM's asks (spooled, or the spool full) twice running
+#: in a row waits DEFER_BACKOFF * 2 ** (n - 2) seconds (at most DEFER_BACKOFF_MAX) before it
+#: starts again: each start redoes its OCR, and one that finds a few new asks per pass (the
+#: next stage's asks need the last's answers; a spool just below its cap) burned ~4 page
+#: OCR passes a restart, 20+ restarts a read (the 10-21 log).
+DEFER_BACKOFF = 120
+DEFER_BACKOFF_MAX = 1800
+#: At most this many seconds a pass that would walk the queue as the last
+#: idle one did skips it (dispatch's idle_key): the walk is the loop's CPU.
+IDLE_WALK = 5
+#: The dispatch loop's tick while the reads left wait for the VLM and nothing
+#: runs: it checks again, but does not walk the queue every second for nothing.
+VLM_IDLE = 10
+#: A pass that started nothing with every slot full waits this long (cut short by a child's exit or a TERM/INT) before the
+#: next: the queue walk each pass costs ~20% of a core, and nothing it reads moves faster than this
+#: except a unit ending, which wakes it (adopted units, a plan's end, a gate easing: a few seconds late).
+QUIET_NAP = 5
+_wake = []  # [read end] of the self-pipe SIGCHLD/TERM/INT write to, made once
+
+
+def nap(seconds):
+    """Sleep up to `seconds`, waking at once on SIGCHLD, TERM or INT (self-pipe)."""
+    import select
+    if not _wake:
+        r, w = os.pipe()
+        os.set_blocking(r, False)
+        os.set_blocking(w, False)
+        signal.signal(signal.SIGCHLD, lambda *_: None)  # a handler, so the signal is delivered to the wakeup fd
+        signal.set_wakeup_fd(w, warn_on_full_buffer=False)
+        _wake.append(r)
+    if select.select([_wake[0]], [], [], seconds)[0]:
+        try:
+            while os.read(_wake[0], 4096):
+                pass
+        except BlockingIOError:
+            pass
+
+
+#: While the media share is down (downloads.media_down: the Mac's SMB server refused the session
+#: for a minute, 10-20 08:03 and 10-23 12:44, and the pass died), it is probed this often.
+MEDIA_PROBE_EVERY = 20
+#: A probe that has not answered in this many seconds found the share down (a hung SMB stat).
+MEDIA_PROBE_TIMEOUT = 10
+#: A unit ending deferred for the share this many times in a run while each probe found it up
+#: fails instead: an errno on one path of a share that answers is that path's, not an outage.
+MEDIA_TRIES = 3
+#: The dispatch loop's own media error noted this many times in MEDIA_BLIP_WINDOW seconds, each
+#: found answering at the first probe, is raised: a path the share refuses while it answers.
+MEDIA_BLIPS = 5
+MEDIA_BLIP_WINDOW = 600
+#: The dispatch loop's nap between passes while the share is down (cut short by a unit's exit or a TERM).
+MEDIA_NAP = 5
+_media_reexec = [None, None]  # dispatch's reexec and the pids of its running units, for media_restart
+
+
+def media_wait_limit():
+    """Seconds the queue waits for the media share before it gives up (env CT_MEDIA_WAIT, 1800)."""
+    return seconds_from_env("CT_MEDIA_WAIT", 1800)
+
+
+_media_probe = [None]  # the probe thread last started (one at a time: a hung stat is not stacked)
+
+
+def media_reachable(root=None, timeout=MEDIA_PROBE_TIMEOUT):
+    """Whether the media share answers: a stat and a listing of `root` (downloads.ROOT) within
+    `timeout` seconds, on a thread, so a hung SMB call never holds the dispatch loop."""
+    import downloads
+    root = root or downloads.ROOT
+    if _media_probe[0] is not None and _media_probe[0].is_alive():
+        return False  # the last one still hangs
+    box = []
+
+    def probe():
+        try:
+            os.stat(root)
+            os.listdir(root)
+            box.append(True)
+        except OSError:
+            box.append(False)
+    _media_probe[0] = threading.Thread(target=probe, daemon=True, name="media probe")
+    _media_probe[0].start()
+    _media_probe[0].join(timeout)
+    return bool(box and box[0])
+
+
+class MediaGone(Exception):
+    """The media share stayed down past media_wait_limit(): the queue ends nonzero."""
+
+
+class MediaGate:
+    """The dispatch loop's hold while the media share is down. down(e) notes an outage (a
+    unit that ended deferred for it, EXITS["media"], or the loop's own error on a media
+    path); hold() then probes (`probe`, media_reachable) at once and every `every` seconds,
+    and while the share does not answer no unit starts: "media down: waiting" is logged
+    once, "media back" when it answers again. Past `limit` seconds down, hold() raises
+    MediaGone. A note the first probe finds answered is let go without a line."""
+
+    def __init__(self, probe=None, every=None, limit=None, clock=None, say=None):
+        self.probe, self.clock = probe or media_reachable, clock or time.monotonic
+        self.every = MEDIA_PROBE_EVERY if every is None else every
+        self.limit = media_wait_limit() if limit is None else limit
+        self.say = say or log
+        self.since = None  # when the outage was first noted
+        self.next_probe = None
+        self.waiting = False  # "media down: waiting" logged, "media back" owed
+        self.why = None
+        self.error = None  # the loop's own error behind the note, if any
+        self.blips = []  # when a note of the loop's own error met a share that answered
+        self.seen_down = False  # a probe has found the share down
+
+    def down(self, e=None):
+        """Note an outage when `e` is None (a unit's EXITS["media"]) or downloads.media_down(e);
+        whether it was noted (False: `e` is no outage, raise it)."""
+        import downloads
+        if e is not None and not downloads.media_down(e):
+            return False
+        if self.since is None:
+            self.since = self.clock()
+            self.next_probe = self.since
+        if e is not None:
+            self.why = f"{type(e).__name__}: {e}"
+            self.error = e
+        return True
+
+    def held(self):
+        """Whether an outage is noted and not yet seen over (no probe run)."""
+        return self.since is not None
+
+    def hold(self):
+        """Whether no unit may start now: probes when one is due."""
+        if self.since is None:
+            return False
+        now = self.clock()
+        if now >= self.next_probe:
+            self.next_probe = now + self.every
+            if self.probe():
+                if self.waiting:
+                    self.say(f"media back after {now - self.since:.0f}s down; units start again")
+                    self.blips.clear()
+                elif self.error is not None:
+                    self.blips = [t for t in self.blips if now - t < MEDIA_BLIP_WINDOW] + [now]
+                    if len(self.blips) >= MEDIA_BLIPS:
+                        raise self.error  # the share answers, this path does not: a bug, not an outage
+                self.since, self.waiting, self.why, self.error = None, False, None, None
+                return False
+            self.seen_down = True
+            if not self.waiting:
+                self.waiting = True
+                self.say(f"media down: waiting ({self.why or 'a unit ended deferred for it'}); no unit starts, "
+                         f"probed every {self.every:.0f}s, given up after {self.limit:.0f}s")
+        if now - self.since > self.limit:
+            raise MediaGone(f"the media share has been down {now - self.since:.0f}s (CT_MEDIA_WAIT {self.limit:.0f}s)")
+        return True
+
+    def wait(self, sleep=None):
+        """Block until the share answers (hold() false); MediaGone past the limit."""
+        sleep = sleep or (lambda s: time.sleep(s))
+        while self.hold():
+            sleep(max(0.0, min(self.every, self.next_probe - self.clock())))
+
+
+def vlm_up():
+    """Whether the VLM answers: vlm_gate_reader(), else vlm_reader.up(). False
+    when no VLM address was ever configured (vlm_reader.unconfigured: it is
+    down, never OCR-only by accident); True under an explicitly empty
+    VLM_READER_URL (the opt-out: then the reads are made without it)."""
+    if vlm_gate_reader is not None:
+        return vlm_gate_reader()
+    import vlm_reader
+    if vlm_reader.unconfigured():
+        return False
+    return not vlm_reader.URL or vlm_reader.up()
+
+
+def needs_vlm(unit):
+    """Whether `unit` is not started while the VLM is down: an archive.org
+    or Gale edition's read (its clue columns are read with the VLM). Any
+    other read starts and, asking for the VLM (vlm_reader.wanted), ends
+    deferred, so a Trove article that is no crossword still files; one that
+    has ended deferred so waits too (dispatch's vlm_held)."""
+    return unit["kind"] == "read" and unit["paper"] in fa.FILERS
+
+
+#: The desktop's free memory, in MB, it keeps: its VLM (~22 GB) and OCR
+#: sessions page below it, so no unit that opens a session there starts.
+DESKTOP_FLOOR_MB = 4096
+#: What one OCR session takes on the desktop (private MB, 0.85-1.3 GB seen).
+DESKTOP_SESSION_MB = 1024
+#: Seconds a free-memory reading gates starts. desktop_busy keeps the last
+#: one through every probe that fails (a saturated desktop, a LAN address
+#: gone), so an old low reading would hold each desktop unit back until the
+#: probe answered again; past this it is no reading, and the unit tries the
+#: connection (ocr_remote alerts and reads here when none works).
+DESKTOP_STALE_S = 600
+
+
+def load_gated(unit):
+    """Whether this host's load average holds `unit` back: a fetch always; a
+    scan or read only with no desktop set. With one, its OCR and searches run
+    there, and whatever it would read here waits for one of ocr_remote's
+    LOCAL_SLOTS, so the burn's load on this host does not idle the desktop."""
+    return unit["kind"] == "fetch" or not ocr_remote.hosts()
+
+
+#: The pools whose units work on this host's CPU with a desktop set: a Trove
+#: article's OCR and grid search (file_trove_puzzles), the Listener's
+#: Tesseract. Scans and edition reads wait on the desktop, fetches on the
+#: network: those pools stay their full width.
+LOCAL_POOLS = ("trove", "listener")
+
+
+def local_cpu(unit):
+    """Whether `unit` works on this host's CPU, so starts only while the
+    cores everything else leaves idle hold one more (mem_gate.idle_room): a
+    LOCAL_POOLS unit, or any scan or read with no desktop set. Its pool is
+    then as wide as the idle cores, at most its fixed count; units running
+    are never touched."""
+    return slot_of(unit) in LOCAL_POOLS or (unit["kind"] != "fetch" and not ocr_remote.hosts())
+
+
+#: The desktop address the yield probe last put first, to log a switch once.
+_YIELD_VIA = [None]
+
+
+def yield_hosts():
+    """The ssh hosts whose busyness the queue yields to: OCR_REMOTE's, then
+    any more in CT_YIELD_HOSTS (space-separated; unset or empty adds none).
+    A host at one of the desktop's addresses (desktop_hosts) stands for the
+    desktop: it is replaced by the desktop's every address, ranked (the ones
+    answering now first, the tailnet one before the LAN ones), so a LAN
+    lease that moved under CT_YIELD_HOSTS does not blind the probe. One line
+    is logged when the address put first changes."""
+    import desktop_hosts
+    import ocr_remote
+    hosts = ocr_remote.hosts()
+    hosts = hosts + [h for h in os.environ.get("CT_YIELD_HOSTS", "").split() if h not in hosts]
+    out = []
+    for h in hosts:
+        user, _, address = h.rpartition("@")
+        if desktop_hosts.is_desktop(address):
+            for a in desktop_hosts.ranked(22, tailnet_first=True):
+                r = f"{user}@{a}" if user else a
+                if r not in out:
+                    out.append(r)
+        elif h not in out:
+            out.append(h)
+    first = next((h.rpartition("@")[2] for h in out if desktop_hosts.is_desktop(h.rpartition("@")[2])), None)
+    if first and first != _YIELD_VIA[0]:
+        if _YIELD_VIA[0]:
+            log(f"game-yield probe: desktop now at {first} (was {_YIELD_VIA[0]})")
+        _YIELD_VIA[0] = first
+    return out
+
+
+def desktop_yielding():
+    """Why the desktop OCR hosts are yielding to Paul, or None (also None
+    when no desktop is set: then every read is made here anyway)."""
+    if desktop_gate_reader is not None:
+        return desktop_gate_reader()
+    import desktop_busy
+    hosts = yield_hosts()
+    return desktop_busy.busy(hosts) if hosts else None
+
+
+def desktop_free():
+    """desktop_mem_reader(): (when read, free MB) of the desktop, or None."""
+    if desktop_mem_reader is not None:
+        return desktop_mem_reader()
+    import desktop_busy
+    import ocr_remote
+    hosts = ocr_remote.hosts()
+    return desktop_busy.free_mb(hosts) if hosts else None
+
+
+#: Seconds a session runs before its memory surely shows in a reading: an
+#: end is credited back only for a unit started this long before the
+#: reading (or since it), not one whose session was still loading then.
+DESKTOP_SETTLE_S = 30
+
+
+def desktop_sessions(t, opened, closed=()):
+    """The OCR sessions opened on the desktop since a reading at `t` and not
+    closed again: each start in `opened` (start times) since it, less each
+    unit in `closed` ((start, end) times) that ended since it, having
+    started since it or DESKTOP_SETTLE_S before it (its memory was in the
+    reading). Never below none."""
+    ended = sum(e >= t and (s >= t or s <= t - DESKTOP_SETTLE_S) for s, e in closed)
+    return max(0, sum(s >= t for s in opened) - ended)
+
+
+def desktop_room(reading, opened, closed=()):
+    """Whether the desktop has room for one more OCR session: its free
+    memory at `reading` (desktop_free; None, or one over DESKTOP_STALE_S
+    old: room), less a session for each still open of those started since
+    that reading (desktop_sessions: starts less ends since it), stays above
+    DESKTOP_FLOOR_MB after it.
+    Counting only starts held the queue to (free - floor) / session starts
+    per reading (~one a minute) however many units had ended: ~4 a minute
+    at 9 GB free, so 6-12 units ran on a desktop with room for more."""
+    if reading is None or time.time() - reading[0] > DESKTOP_STALE_S:
+        return True
+    t, free = reading
+    return free - DESKTOP_SESSION_MB * (desktop_sessions(t, opened, closed) + 1) >= DESKTOP_FLOOR_MB
+
+
+# dispatch() is split by what each part of a pass does, over one state (_Dispatch): _Poller (the units that
+# ended, origin/master, the code on disk, the plan), _FetchPool, _Children (starting and reaping units),
+# _SlotBalancer (the unit ceiling, the caps and the CPU / RAM / VLM gates) and _RankPicker (the walk of the
+# queue by rank). What a pass's `settle` tells the loop:
+END = "end"  # the run is over
+AGAIN = "again"  # the next pass starts at once
+
+
+class _Poller:
+    """What a pass looks at before it starts anything: the units that ended, origin/master (hot reload),
+    the code on disk (re-exec), the editions just laid out and the plan being made."""
+
+    def replan_after(self):
+        """Seconds after the last plan the next is made: `replan`, or
+        IDLE_BACKOFF times it while no core is idle and the last plan still
+        holds more untried units than the pools are wide (read at most every
+        FRESH_POLL seconds)."""
+        if self.planned_took[0] * PLAN_DUTY > self.replan and self.planned_took[0]:
+            wait = min(self.planned_took[0] * PLAN_DUTY, PLAN_WAIT_MAX)
+        else:
+            wait = 0
+        # Counting stops past pool_width: the queue is ~25k units and the untried come early.
+        if sum(1 for _ in itertools.islice((u for u in self.queue if key_of(u) not in self.tried), self.pool_width + 1)) <= self.pool_width:
+            return self.replan
+        if self.idle_seen[0] is None or time.monotonic() - self.idle_seen[0] >= FRESH_POLL:
+            self.idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
+        return max(wait, self.replan if self.idle_seen[1] else self.replan * IDLE_BACKOFF)
+
+    def notice_refetches(self, notes=None):
+        """Record the edition dirs another host laid out again since the
+        manifests last said (media_manifest.notice_refetched), so the plan
+        that follows finds their files hash moved and rescans them. Never
+        fails a plan: the share down is media.hold's, anything else is noted."""
+        if not media_manifest.on_media(self.cache):
+            return
+        began = time.monotonic()
+        try:
+            found = media_manifest.notice_refetched(self.cache)
+        except (OSError, SystemExit, ValueError) as e:
+            if notes is not None:
+                notes.append(f"refetch check failed: {e!r}")
+            return
+        if found and notes is not None:
+            notes.append(f"refetched editions noticed: {len(found)} ({', '.join(found[:3])}"
+                         + f"{', ...' if len(found) > 3 else ''}) in {time.monotonic() - began:.1f}s")
+
+    def replan_all(self, notes=None):
+        self.notice_refetches(notes)
+        sc, rd = plan_forked(self.papers, self.cache, self.reread, notes)
+        return sc, rd, self.plan_fetch_units(notes)
+
+    def may_start(self):
+        return not self.stop and not self.reload and (self.seconds is None or time.monotonic() - self.begun < self.seconds)
+
+    def reload_check(self):
+        """A reload asked (SIGHUP, or the watcher saw code change on origin/master):
+        say so once and, at once, have what is filed committed (the wrapper's
+        move to origin/master follows). With a handoff the main loop then hands
+        the running units over and ends; without one they are waited for, and
+        after CT_RELOAD_GRACE TERMed and left deferred, as a game does."""
+        if self.watcher is not None and self.watcher.hit and not self.reload:
+            self.reload.append(f"origin/master changed {hot_reload.summary(self.watcher.hit)}")
+        if not self.reload:
+            return
+        now = time.monotonic()
+        if self.reload_since[0] is None:
+            self.reload_since[0] = now
+            flag = os.environ.get("DURABLE_NOW")
+            if flag:
+                try:
+                    Path(flag).touch()
+                except OSError:
+                    pass
+            log(f"reload: {self.reload[0]}; no unit starts, {len(self.running) + len(self.adopted)} running "
+                + ("are handed to the next run" if self.handoff else f"get {hot_reload.grace_seconds():.0f}s to finish, then are stopped and left deferred"))
+        if self.handoff or now - self.reload_since[0] < hot_reload.grace_seconds():
+            return
+        for pid, (unit, _) in self.units_running():
+            if pid not in self.yield_termed:
+                self.yield_termed.add(pid)
+                log(f"reload: grace over, TERM to {unit['kind']} {unit['rel']}")
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+        if self.reload_termed_at[0] is None:
+            self.reload_termed_at[0] = now
+        elif now - self.reload_termed_at[0] >= STOP_GRACE:
+            for pid in list(self.yield_termed):
+                if pid in self.running or pid in self.adopted:
+                    try:
+                        os.killpg(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+
+    def keep_untried(self):
+        # What the next run starts from: the plan in force less the units
+        # this one started (done, running or failed), so its first pass
+        # fills the slots with new work, not units already done.
+        if self.plan_at is not None:
+            keep_plan(self.plan_file, self.plan_key, [[u for u in us if key_of(u) not in self.tried]
+                                            for us in (self.scans, self.reads, self.fetches)], self.plan_at, self.planned_took[0])
+
+    def reexec(self, why=None):
+        """Hand the running units to this run's new image and become it."""
+        path = self.handoff or self.resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
+        self.thaw()  # the next image does not know the filers are stopped
+        hand_over(path, self.units_running())
+        self.keep_untried()
+        argv =[sys.executable, *sys.argv]
+        if self.seconds is not None:
+            argv += ["--seconds", str(max(0.0, self.seconds - (time.monotonic() - self.begun)))]
+        if not self.handoff:
+            argv += ["--resume", str(path)]
+        log(f"{why or 'code changed (' + ', '.join(sorted(f.name for f, h in self.code.items() if digest(f) != h)) + ')'}; "
+            f"re-exec, {len(self.running) + len(self.adopted)} running unit(s) kept")
+        sys.stdout.flush()
+        sys.stderr.flush()
+        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
+        os.environ[REEXEC_ENV] = "1"
+        vlm_reader.release_claims()  # the exec ends the drainer's asks in flight: queued again, not left claimed
+        os.execv(argv[0], argv)
+
+    # A slice's first image (started by the shell, not by a re-exec) runs the
+    # plan the last slice kept, which can be a whole plan (half an hour on a
+    # loaded host) older than the code it was started on, so it re-execs on a
+    # change at once, mid-plan. Every image after a re-exec makes a plan of
+    # its own first: changes landing faster than a plan takes still get plans
+    # made on new code, and the chain re-execs without one at most once.
+    def may_reexec(self):
+        return self.plan_done is not None or not os.environ.get(REEXEC_ENV)
+
+    def poll_units(self):
+        self.reap()
+        self.reap_adopted()
+        self.overdue()
+        self.reload_check()
+        if self.ceiling_ctl:
+            running = sum(1 for _, (u, _) in self.units_running() if u["kind"] != "fetch")
+            for line in self.ceiling_ctl.poll(running=running):
+                log(line)
+        for b in self.beside:
+            b.poll(self.may_start() and not self.game_now[0], None if self.seconds is None else self.seconds - (time.monotonic() - self.begun))
+
+    def media_waits(self):
+        """Whether the pass is over because the media share is down (True: the loop goes on to the next)."""
+        # The media share down: nothing is planned, looked for or started (each would meet it) until a
+        # probe finds it answering; units running are reaped and kept to their limits meanwhile. A stop,
+        # a reload or the slice's end goes on as ever (none starts a unit).
+        if self.may_start():
+            try:
+                media_holds = self.media.hold()
+            except MediaGone as e:
+                log(f"media down: giving up, {e}; stopping")
+                self.media_gone.append(str(e))
+                self.stop.append("media")
+                media_holds = False
+            if media_holds:
+                nap(MEDIA_NAP)
+                return True
+        return False
+
+    def reexec_on_new_code(self):
+        # A plan stats every edition and article (minutes on the media
+        # mount), so after the first it is made on a thread while this loop
+        # goes on reaping and starting from the plan before it.
+        # Checked apart from planning: a plan can take minutes (a cold cache
+        # on the media mount), and the code it would run is the old. An image
+        # a re-exec started re-execs only once it has made a whole plan of
+        # its own (kept in plan_file for the next), or changes landing faster
+        # than a plan takes would leave every image running the last kept,
+        # stale plan; a slice's first image need not (may_reexec).
+        if self.may_start() and self.may_reexec() and time.monotonic() - self.code_checked >= self.replan:
+            self.code_checked = time.monotonic()
+            if not any(b.busy() for b in self.beside) and any(digest(f) != h for f, h in self.code.items()):
+                self.reexec()
+
+    def poll_fresh(self):
+        if self.may_start() and (self.fresh_at is None or time.monotonic() - self.fresh_at >= min(self.replan, FRESH_POLL)):
+            self.fresh_at = time.monotonic()
+            try:
+                self.new_scans, self.new_reads = fresh(self.papers, self.cache)
+            except OSError as e:
+                if not self.media.down(e):
+                    raise
+                self.new_scans, self.new_reads = self.fresh_scans, self.fresh_reads  # looked for again once the share answers
+            self.fresh_scans, self.fresh_reads = unchanged_eq(self.fresh_scans, self.new_scans), unchanged_eq(self.fresh_reads, self.new_reads)
+
+    def poll_plan(self):
+        if self.may_start() and self.planner is None and not self.media.held() and time.monotonic() >= getattr(self, "plan_defer_until", 0) and (
+                self.plan_done is None or time.monotonic() - self.plan_done >= self.replan and time.monotonic() - self.plan_done >= self.replan_after()):
+            box = {"begun": time.monotonic(), "notes": []}
+
+            def make(box=box):
+                try:
+                    while self.upkept:
+                        self.upkept.pop()()
+                    box["plan"] = self.replan_all(box["notes"])
+                except BaseException as e:  # raised again on the dispatch loop
+                    box["error"] = e
+            self.planner = (threading.Thread(target=make, daemon=True), box)
+            if self.planned is None and self.fetch:
+                # Scans and reads start first; the fetch plan (every done
+                # edition's siblings, minutes off a cold cache) is made on
+                # the thread at once after.
+                try:
+                    while self.upkept:
+                        self.upkept.pop()()
+                    self.notice_refetches(box["notes"])
+                    box["plan"], box["partial"] = (*plan_forked(self.papers, self.cache, self.reread, box["notes"]), []), True
+                except BaseException as e:  # raised again below, as make()'s
+                    box["error"] = e
+            elif self.planned is None:
+                make()
+            else:
+                self.planner[0].start()
+        if self.planner is not None and not self.planner[0].is_alive() and "error" in self.planner[1] and self.media.down(self.planner[1]["error"]):
+            self.planner = None  # the plan met the media share down: made again once it answers (media.hold)
+        if self.planner is not None and not self.planner[0].is_alive() and isinstance(self.planner[1].get("error"), PlanDeferred):
+            self.planner = None  # the fork died with the VM short of memory: forked again after PLAN_DEFER_S
+            self.plan_defer_until = time.monotonic() + PLAN_DEFER_S
+        if self.planner is not None and not self.planner[0].is_alive():
+            box, self.planner = self.planner[1], None
+            if "error" in box:
+                raise box["error"]
+            self.scans, self.reads, self.fetches = box["plan"]
+            self.planned, self.plan_done = box["begun"], None if box.get("partial") else time.monotonic()
+            if self.plan_done is not None:
+                self.planned_took[0] = self.plan_done - self.planned
+                self.plan_at = time.time()
+                keep_plan(self.plan_file, self.plan_key, box["plan"], self.plan_at, self.planned_took[0])
+            else:
+                # The scans and reads first, fetches next: a fetch queue's whole plan can outlast the next reload
+                # (none was kept 14:55-16:20 on 11-13, so each reload started nothing until its first plan), so the
+                # partial one is kept too, with no fetches: a run starting from it never takes it as its whole plan.
+                try:
+                    keep_plan(self.plan_file, self.plan_key, box["plan"], time.time(), 0.0)
+                except OSError:
+                    pass
+            for n in box["notes"]:
+                log(n)
+            log(f"planned: {len(self.scans)} scans, {len(self.reads)} reads"
+                + (", fetches next" if box.get("partial") else f", {len(self.fetches)} fetches" if self.fetch else "")
+                + f" due in {time.monotonic() - self.planned:.0f}s; running {len(self.running) + len(self.adopted)}")
+
+
+class _FetchPool:
+    """The fetch sources' pools: their plans, their outages, and the sources stopped for the run."""
+
+    def plan_fetch_units(self, notes=None):
+        """The units of the fetch sources not stopped, each source's plan made again `fetch_replan` seconds after the last."""
+        live = [s for s in self.fetch if s not in self.stopped]
+        for src in live:
+            if src not in self.fetch_made or time.monotonic() - self.fetch_made[src][0] >= (
+                    FETCH_REPLAN if self.fetch_replan is None else self.fetch_replan):
+                t0 = time.monotonic()
+                units = plan_fetches([src])
+                self.fetch_made[src] = (time.monotonic(), units)
+                if notes is not None and self.fetch_made[src][0] - t0 >= SLOW_PLAN:
+                    notes.append(f"slow plan: {src} fetches took {self.fetch_made[src][0] - t0:.0f}s")
+        return [u for src in live for u in self.fetch_made[src][1]]
+
+    def drop_stopped_fetches(self):
+        self.fetches = unchanged(self.fetches, [u for u in self.fetches if u["paper"] not in self.stopped])
+
+    def fetch_ended(self, unit, rc):
+        """A fetch unit ended with `rc`: its source's outages, its pool narrowed on a 429, the source stopped for the run."""
+        src = unit["paper"]
+        self.outages[src] = self.outages[src] + 1 if rc == 5 else 0
+        if rc == 6 and self.pools[f"fetch {src}"] > 1:
+            self.pools[f"fetch {src}"] -= 1
+            log(f"{src}: answered 429; at most {self.pools[f'fetch {src}']} fetches at once from now on")
+        if (rc == 7 or self.outages[src] >= FETCH_OUTAGES) and src not in self.stopped:
+            self.stopped.add(src)
+            log(f"{src}: no more fetches this run ({'disk full' if rc == 7 else f'{self.outages[src]} in a row found it down'})")
+
+
+class _Children:
+    """The units this run started (or took over): starting, reaping, limits, and the desktop yielding."""
+
+    def units_running(self):
+        return list(self.running.items()) + list(self.adopted.items())
+
+    def yield_stop(self, yielding):
+        if not yielding:
+            self.yield_held.clear()
+        if not (yielding and os.environ.get("CT_YIELD_HOSTS", "").split()):
+            self.yield_since[0] = self.yield_termed_at[0] = None
+            self.yield_killed[0] = False
+            return
+        now = time.monotonic()
+        if self.yield_since[0] is None:
+            self.yield_since[0] = now
+            flag = os.environ.get("DURABLE_NOW")  # durable.sh commits what is filed now, before units stop
+            if flag:
+                try:
+                    Path(flag).touch()
+                except OSError:
+                    pass
+            log(f"yield: {yielding}; no read starts, the {len([1 for _, (u, _) in self.units_running() if u['kind'] == 'read'])} "
+                f"running get {yield_grace()}s to finish, then are stopped and left for after the game")
+        if now - self.yield_since[0] < yield_grace():
+            return
+        fresh_pids = [pid for pid, (u, _) in self.units_running() if u["kind"] == "read" and pid not in self.yield_termed]
+        if fresh_pids:
+            if self.yield_termed_at[0] is None:
+                self.yield_termed_at[0] = now
+                log(f"yield: grace over, TERM to {len(fresh_pids)} unit(s), up to {STOP_GRACE}s")
+            for pid in fresh_pids:
+                self.yield_termed.add(pid)
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+        if self.yield_termed_at[0] is not None and not self.yield_killed[0] and now - self.yield_termed_at[0] >= STOP_GRACE:
+            self.yield_killed[0] = True
+            for pid in list(self.yield_termed):
+                if pid in self.running or pid in self.adopted:
+                    try:
+                        os.killpg(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+
+    def drop_cache(self, now):
+        cmd = os.environ.get("CT_GAME_DROP_CACHE", "").strip()
+        if not cmd:
+            return
+        began, last = self.drop_at
+        if last is None:
+            if any(u["kind"] != "fetch" for _, (u, _) in self.units_running()) and now - began < 2 * STOP_GRACE + yield_grace():
+                return
+        elif now - last < GAME_DROP_EVERY:
+            return
+        self.drop_at[1] = now
+        try:
+            subprocess.Popen(["sh", "-c", cmd], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                             stderr=subprocess.DEVNULL, start_new_session=True)
+            log("game: dropping the VM's page cache so Windows gets the RAM back")
+        except OSError as e:
+            log(f"game: page-cache drop failed: {e}")
+
+    def freeze(self, game):
+        self.game_now[0] = game
+        if not game:
+            self.thaw()
+            self.shed.clear()
+            self.drop_at[:] = [None, None]
+            return
+        now = time.monotonic()
+        if self.drop_at[0] is None:
+            self.drop_at[0] = now
+        live = sorted((t0, pid) for pid, (u, t0) in self.units_running() if u["kind"] == "scan" and pid not in self.shed)
+        new = [pid for _, pid in live[game_scans():]]  # the oldest scans keep running
+        for pid in new:
+            self.shed[pid] = now
+            self.yield_termed.add(pid)
+            try:
+                os.killpg(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        for pid, at in list(self.shed.items()):
+            if pid not in self.running and pid not in self.adopted:
+                del self.shed[pid]
+            elif now - at >= STOP_GRACE:
+                try:
+                    os.killpg(pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+        for b in self.beside:
+            b.pause()
+        if new:
+            log(f"game: TERM to {len(new)} scan(s) beyond the {game_scans()} that may run on; they are left for after it")
+        self.drop_cache(now)
+
+    def thaw(self):
+        """SIGCONT the stopped --beside filers, crediting them the time stopped."""
+        for b in self.beside:
+            b.resume()
+
+    def brief_of(self, unit):
+        """The prepare() result of read `unit`, made on a pool thread so the
+        loop goes on reaping and starting others meanwhile: PENDING until it
+        is made (asked again every pass), then the result, once."""
+        key = key_of(unit)
+        if key not in self.preparing:
+            self.preparing[key] = (time.monotonic(), self.briefers.submit(lambda: prepare(unit, self.cache, self.puzzles, self.reread)))
+            concurrent.futures.wait([self.preparing[key][1]], timeout=BRIEF_WAIT)  # a quick one starts this pass
+        if not self.preparing[key][1].done():
+            return PENDING
+        return self.preparing.pop(key)[1].result()
+
+    def drop_stale_briefs(self):
+        """Forget the briefs no pass asked for in BRIEF_KEEP seconds (a
+        unit that left the plan), removing the file each made."""
+        for key, (t, fut) in list(self.preparing.items()):
+            if time.monotonic() - t >= BRIEF_KEEP and fut.done():
+                del self.preparing[key]
+                path = fut.result()
+                if path and path is not SCAN_FIRST:
+                    Path(path).unlink(missing_ok=True)
+
+    def start(self, unit, mates=()):
+        """Start `unit`; False when it is not started: a read whose own scan
+        is stale or missing waits on a scan unit queued for it (first).
+        PENDING while its brief is being made. `mates` (batch_mates): more
+        answers-linked reads of its item read in the same process, whole
+        (answers_only needs no desktop), each logged and tracked as a unit."""
+        sys.stdout.flush()
+        sys.stderr.flush()
+        alone = self.losses.get(key_of(unit), 0) >= LOST_TRIES
+        if mates and not alone:
+            unit = {**unit, "batch": [v["rel"] for v in mates]}
+        else:
+            mates = ()
+        argv = unit_argv(unit)
+        if alone or mates or unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+            made = None
+        else:
+            made = self.brief_of(unit)
+            if made is PENDING:
+                return PENDING
+        if made == SCAN_FIRST and (unit["paper"], unit["rel"]) in self.scanned:
+            made = whole(unit, "own scan stale or missing, scanned this run already")
+        elif made == SCAN_FIRST:
+            self.first.append({"kind": "scan", "paper": unit["paper"], "rel": unit["rel"], "rank": unit["rank"],
+                          "reason": "its read's own scan is stale or missing"})
+            return False
+        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**self.spec, "unit": unit, **({"brief": made} if made else {})}),
+               # setproctitle then keeps /proc/<pid>/environ (the title fits
+               # in its argv), so the room tag the bridge's watchdog reads stays.
+               "SPT_NOENV": "1"}
+        if unit["kind"] == "read":
+            # A read needing the VLM while it is down ends deferred, never read without it (vlm_reader.wanted).
+            env[vlm_reader.DEFER_ENV] = "1"
+            # ... and its ask the VLM has not answered is spooled for the drainer, not waited for (vlm_reader.SPOOL_ENV).
+            if os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0":
+                env[vlm_reader.SPOOL_ENV] = "1"
+        if alone:
+            env["OCR_REMOTE"] = ""
+        elif unit["kind"] != "fetch":
+            # Its OCR is not moved onto this host while the desktop yields: it ends deferred, run again once idle.
+            env[ocr_remote.DEFER] = "1"
+        pid = spawn_unit(unit, argv, env)
+        self.running[pid] = (unit, time.monotonic())
+        self.tried.add(key_of(unit))
+        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})"
+            + (f" in a batch of {len(mates) + 1} ({batch_kind(unit)}: one setup, ~18 CPU-s saved a mate)" if mates else ""))
+        for v in mates:
+            self.tried.add(key_of(v))
+            log(f"start {v['kind']} {v['rel']} ({v['reason']}) in the batch of {unit['rel']}")
+        return True
+
+    def ended(self, unit, t0):
+        # Its desktop session has closed: desktop_room credits it back.
+        if not load_gated(unit):
+            now = time.time()
+            self.closed.append((now - (time.monotonic() - t0), now))
+
+    def reap(self):
+        # A unit this process started before a re-exec is adopted and still its child.
+        while self.running or self.adopted:
+            try:
+                pid, status = os.waitpid(-1, os.WNOHANG)
+            except ChildProcessError:
+                return
+            if pid == 0:
+                return
+            if pid not in self.running and pid not in self.adopted:
+                continue
+            unit, t0 = self.running.pop(pid) if pid in self.running else self.adopted.pop(pid)
+            self.ended(unit, t0)
+            rc = os.waitstatus_to_exitcode(status)
+            # TERMed or KILLed for a game (yield_stop): left for the next run, never a failure.
+            parked = pid in self.yield_termed and rc in (-signal.SIGTERM, -signal.SIGKILL, 128 + signal.SIGTERM)
+            self.yield_termed.discard(pid)
+            if parked:
+                self.tried.discard(key_of(unit))
+                self.tried.difference_update(batch_mate_keys(unit))
+                self.outcomes["deferred"] = self.outcomes.get("deferred", 0) + 1
+                log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game) in {time.monotonic() - t0:.0f}s")
+                continue
+            if rc == EXITS["lost"]:
+                self.losses[key_of(unit)] = self.losses.get(key_of(unit), 0) + 1
+            # The media share did not answer: deferred, and no unit starts until it does (media.hold).
+            # One deferred for it MEDIA_TRIES times this run fails: that path's error, not an outage.
+            media_retry = False
+            if rc == EXITS["media"]:
+                self.media_tries[key_of(unit)] = self.media_tries.get(key_of(unit), 0) + 1
+                media_retry = self.media_tries[key_of(unit)] <= MEDIA_TRIES
+                self.media.down()
+            if rc == EXITS["vlm"]:
+                spooled_by = vlm_reader.spooled_by(pid)
+                spooled_end = bool(spooled_by)
+                full_end = vlm_reader.full_mark(pid).exists()
+                if full_end:
+                    vlm_reader.full_mark(pid).unlink(missing_ok=True)
+                    self.full_wait.pop(key_of(unit), None)
+                    self.full_wait[key_of(unit)] = None  # started again once the spool has room for it
+                if spooled_by or full_end:
+                    n = self.defer_runs[key_of(unit)] = self.defer_runs.get(key_of(unit), 0) + 1
+                    if n >= 2:
+                        self.defer_until[key_of(unit)] = time.monotonic() + min(DEFER_BACKOFF_MAX, DEFER_BACKOFF * 2 ** (n - 2))
+                    if self.defer_file:
+                        keep_defers(self.defer_file, self.defer_runs, self.defer_until)
+                if spooled_by:
+                    self.spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
+                    for k in batch_mate_keys(unit):  # a batch's editions share its pid's asks: none reread before they are answered
+                        self.spool_wait[k] = set(spooled_by)
+                    self.full_wait.pop(key_of(unit), None)  # its asks are spooled: the answers, not the cap, release it
+                elif not full_end:
+                    self.vlm_held.add(key_of(unit))
+                    self.vlm_lost_at[0] = time.monotonic()
+            if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) or media_retry:
+                self.tried.discard(key_of(unit))  # started again once the desktop is idle, the VLM or the media share answers
+                self.tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
+                if unit.get("batch"):
+                    self.unbatched.update(batch_mate_keys(unit))
+                    self.unbatched.add(key_of(unit))
+                if self.desktop_bound and unit["kind"] == "scan":
+                    self.yield_held.add(key_of(unit))
+            else:
+                self.finished[key_of(unit)] = time.monotonic()
+                for k in batch_mate_keys(unit):
+                    self.finished[k] = self.finished[key_of(unit)]
+                if self.defer_runs.pop(key_of(unit), None) is not None and self.defer_file:
+                    self.defer_until.pop(key_of(unit), None)
+                    keep_defers(self.defer_file, self.defer_runs, self.defer_until)
+                self.defer_until.pop(key_of(unit), None)
+            if unit["kind"] == "scan" and rc == 0:
+                self.scanned.add((unit["paper"], unit["rel"]))
+            elif unit["kind"] == "scan" and rc != EXITS["deferred"] and not media_retry:
+                self.scan_failed.add((unit["paper"], unit["rel"]))
+            what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
+                    5: "failed, the source looks down", 6: "done, but throttled (429)",
+                    7: "not started: the disk is full",
+                    EXITS["media"]: "deferred (the media share is down)" if media_retry
+                    else f"failed (the media share's error {MEDIA_TRIES + 1} times this run)",
+                    EXITS["deferred"]: "deferred (the desktop is busy)",
+                    EXITS["lost"]: "deferred (the desktop was lost)",
+                    EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end
+                    else "deferred: VLM spool full" if rc == EXITS["vlm"] and full_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
+            if rc == 0 and unit["kind"] in ("scan", "read"):
+                BANDS.reaped(unit, pid)
+            if unit["kind"] == "fetch":
+                self.fetch_ended(unit, rc)
+            self.outcomes[what.split(" ")[0]] = self.outcomes.get(what.split(" ")[0], 0) + 1
+            log(f"end {unit['kind']} {unit['rel']}: {what} in {time.monotonic() - t0:.0f}s")
+            for r in unit.get("batch") or ():
+                log(f"end {unit['kind']} {r}: {what} in the batch of {unit['rel']}")
+
+    def reap_adopted(self):
+        for pid, (unit, t0) in list(self.adopted.items()):
+            if not alive(pid):
+                del self.adopted[pid]
+                self.ended(unit, t0)
+                if pid in self.yield_termed:  # stopped for a game: left for the next run
+                    self.yield_termed.discard(pid)
+                    self.tried.discard(key_of(unit))
+                    self.tried.difference_update(batch_mate_keys(unit))
+                    log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game, taken over) in {time.monotonic() - t0:.0f}s")
+                    continue
+                self.finished[key_of(unit)] = time.monotonic()
+                for k in batch_mate_keys(unit):
+                    self.finished[k] = self.finished[key_of(unit)]
+                log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
+
+    def overdue(self):
+        for pid, (unit, t0) in self.units_running():
+            limit = (FETCHERS[unit["paper"]]["seconds"] if unit["kind"] == "fetch" else
+                     LISTENER_SECONDS if unit["paper"] == "listener" else
+                     unit_limit(unit, self.read_seconds) if unit["kind"] == "read" else self.scan_seconds)
+            if time.monotonic() - t0 > limit:
+                log(f"{unit['kind']} {unit['rel']}{batch_note(unit)} ran past {limit}s; killed, left for the next run")
+                try:
+                    os.killpg(pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+
+
+class _SlotBalancer:
+    """How many units may start this pass: the unit ceiling, the per-reason, CPU-only and non-Times
+    caps, and the CPU / RAM / VLM gates, each logged once as it binds."""
+
+    def drainer_early(self):
+        # A fresh image (a re-exec, a new slice) makes its first plan before the dispatch loop starts,
+        # minutes on a loaded host, while the units it adopted spool asks: 10-29 01:14-01:19 nothing
+        # drained, and with a push every ~5 min the drainer was down most of the hour. So the drainer
+        # starts as soon as anything is spooled, until the loop's own check runs (or an hour passes).
+        end = time.monotonic() + 3600
+        while not self.drainer_looped.is_set() and not self.drainer and time.monotonic() < end:
+            if vlm_reader.spooled():
+                vlm_drainer(self.drainer_stop, self.drainer)
+                return
+            self.drainer_looped.wait(5)
+
+    def count_slots(self):
+        self.busy = {key_of(u) for _, (u, _) in self.units_running()}
+        # A read of an edition read before, waiting only on a new scan, starts
+        # after the plan that follows its scans: the scan may leave it not due.
+        self.rescanned = {(p, r) for (k, p, r), t in self.finished.items() if k == "scan" and t > (self.planned or 0)}
+        # A read waits on the scans it needs while they run, and on its own
+        # edition's planned scan until that ends done (a scan that failed or
+        # was killed leaves the read for the next run); a days-after scan
+        # still queued behind a full scan pool stands as last scanned.
+        self.scanning = {(p, r) for k, p, r in self.busy if k == "scan"}
+        # The (paper, rel) of every queued scan, made again only when one of
+        # its lists is replaced or grows (~25k units, a pass a second).
+        scan_lists = tuple((id(us), len(us)) for us in (self.fresh_scans, self.scans, self.first))
+        if self.scan_keys[0] != scan_lists:
+            self.scan_keys[:] = [scan_lists, frozenset((u["paper"], u["rel"]) for u in self.fresh_scans + self.scans + self.first),
+                            (self.fresh_scans, self.scans, self.first)]  # held, so no id is reused while keyed
+        self.unscanned = set(self.scan_keys[1])
+        self.unscanned -= self.scanned
+        self.free = dict(self.pools)
+        for _, (u, _) in self.units_running():
+            self.free[slot_of(u)] = self.free.get(slot_of(u), 0) - 1
+        # The unit-children ceiling (mem_gate.unit_ceiling) over every pool but the
+        # fetches: the pools' widths stay, the slots left are zeroed once it is met.
+        self.ceiling_left = mem_gate.unit_ceiling() - sum(1 for _, (u, _) in self.units_running() if u["kind"] != "fetch")
+        if self.ceiling_left <= 0:
+            self.free.update({sl: 0 for sl in self.free if not sl.startswith("fetch ")})
+            if not self.ceiling_bound and any(self.pools[sl] for sl in self.pools if not sl.startswith("fetch ")):
+                self.ceiling_bound = True
+                log(f"unit ceiling: {mem_gate.unit_ceiling()} unit children running; no read or scan starts until one exits")
+        else:
+            self.ceiling_bound = False
+
+    def gate_vlm(self):
+        vlm_waiting = vlm_reader.waiting_now()
+        self.queued = vlm_reader.spooled()
+        self.drainer_looped.set()  # the early start (drainer_early) is done: this check is the drainer's now
+        if self.queued and (not self.drainer or not all(t.is_alive() for t in self.drainer)):
+            vlm_drainer(self.drainer_stop, self.drainer)
+        stage = (len(self.queued), len(self.spool_wait))
+        if stage != self.stage_seen[0] and (stage[0] or self.stage_seen[0]) and time.monotonic() - self.stage_seen[1] >= 30:
+            self.stage_seen[:] = [stage, time.monotonic()]
+            log(f"vlm stage: {stage[0]} asks spooled, {stage[1]} reads waiting")
+        # With the spool on, a spooled read holds no RAM and no slot, so it never counts: the gate is the
+        # spool's depth (CT_VLM_SPOOL_MAX) plus the OTHER processes blocked in an ask. The queue's own mark
+        # (its drainer threads asking, slots()+PIPELINE) is not one: counting it held every read start
+        # while the GPU drained, so the CPU idled. Spool off: the old cap on reads waiting in the VLM's lock.
+        spool_on = os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0"
+        if spool_on and (vlm_reader._waiting_dir() / str(os.getpid())).exists():
+            vlm_waiting -= 1
+        if spool_on:
+            # A full spool does not stop reads: one that needs an uncached ask then ends deferred
+            # ("VLM spool full", vlm_reader.ask_png) and waits in full_wait; OCR-only reads go on.
+            self.vlm_full = vlm_waiting >= vlm_waiting_cap()
+        else:
+            vlm_waiting += len(self.queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
+            self.vlm_full = vlm_waiting >= vlm_waiting_cap()
+        if self.vlm_full != self.vlm_bound:
+            self.vlm_bound = self.vlm_full
+            if self.vlm_full:
+                log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
+                    f"{len(self.queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
+        # CPU round 2 (11-14): 1,445 reads ended "deferred: VLM spool full" (~40 s of OCR each, redone later)
+        # because the spool, a few asks under its cap when they started, was filled by the reads already
+        # running (6,054 spooled-ask deferrals, a few asks each). A fresh read starts only with room for
+        # the asks of half the reads in flight (at most a third of the cap); those in flight are not held.
+        reading = sum(1 for _, (u, _) in self.units_running() if u["kind"] == "read" and needs_vlm(u))
+        reserve = min(reading // 2, vlm_spool_max() // 3)
+        self.spool_cap_hit = len(self.queued) + reserve >= vlm_spool_max()
+        # Of the reads held for a full spool only as many as the spool has room for start this pass, oldest first:
+        # all at once they would OCR their pages and defer again as it fills.
+        self.full_free = list(self.full_wait)[:max(0, vlm_spool_max() - len(self.queued) - reserve)]
+
+    def gate_host(self):
+        self.begun_now = self.charged = 0
+        self.costs = None  # unit_costs, measured at this pass's first start
+        self.held_back = self.cpu_held = self.idle_held = False
+        self.local_now = 0  # local_cpu units begun this pass, a core each
+        self.idle_read = {}
+        self.starved = mem_gate.burn_starved(burn_gate_reader)
+        if self.starved and not self.burn_bound:
+            log(f"{mem_gate.burn_line(self.starved)} ({len(self.running) + len(self.adopted)} running are left alone)")
+        self.burn_bound = bool(self.starved)
+        # While the desktop yields, its OCR would fall back to this host's
+        # CPU: only fetches start until it is idle again.
+        self.yielding = desktop_yielding()
+        if self.yielding and not self.desktop_bound:
+            log(f"desktop-bound: desktop yielding ({self.yielding}); only fetches start until it is idle "
+                f"({len(self.running) + len(self.adopted)} running are left alone)")
+        self.desktop_bound = bool(self.yielding)
+        self.yield_stop(self.yielding)
+        self.game = bool(self.yielding) and str(self.yielding).startswith("game")  # desktop_busy's "game: ..."
+        self.freeze(self.game)
+        self.live_scans = sum(1 for pid, (u, _) in self.units_running() if u["kind"] == "scan")
+        self.yield_opt_in = bool(os.environ.get("CT_YIELD_HOSTS", "").split())  # scans go on during a game only then
+        self.desk_mem = desktop_free() if not self.yielding else None
+        self.opened[:] = [s for s in self.opened if s > time.time() - 3600]
+        self.closed[:] = [c for c in self.closed if c[1] > time.time() - 3600]
+        self.desk_held = False
+        self.vlm_now = []  # whether the VLM answers, asked once a pass and only when a read needs it
+        self.full_held = set()  # reads this pass held for a full spool (full_wait)
+
+
+    def cap_listener(self):
+        # Paul 10-24: the plan held only Listener reads (local OCR, no VLM) and its fixed pool ran 8 of the
+        # 24 ceiling slots, 16 idle. While no other read or scan is due (queued untried) or running, the
+        # Listener pool takes every ceiling slot left; once one is, it is back to LISTENER_WORKERS.
+        other_due = bool(self.other_keys - self.tried) or any(
+            slot_of(v) != "listener" and v["kind"] != "fetch" for _, (v, _) in self.units_running())
+        widen = not other_due and bool(self.listener_keys - self.tried)
+        if widen:
+            self.free["listener"] = listener_free(self.free.get("listener", 0), other_due, self.ceiling_left)
+        if widen != self.listener_wide and (widen or self.listener_wide):
+            n_listener = sum(1 for _, (v, _) in self.units_running() if slot_of(v) == "listener")
+            log(f"listener pool: widened to {n_listener + max(0, self.free['listener'])}, nothing else due "
+                f"(unit ceiling {mem_gate.unit_ceiling()})" if widen else
+                f"listener pool: back to {self.pools['listener']} (CT_LISTENER_WORKERS), "
+                + ("other work due" if other_due else "no Listener read left"))
+        self.listener_wide = widen
+        # Times first (Paul 10-24): while its work is due or running, the Listener keeps at most
+        # LISTENER_BESIDE_TIMES units.
+        self.times_due = bool(self.times_keys - self.tried) or any(v["paper"] in self.times_papers and slot_of(v) in ("read", "scan")
+                                                    for _, (v, _) in self.units_running())
+        self.non_times_live = sum(1 for _, (v, _) in self.units_running() if non_times_unit(v, self.times_papers))
+        self.non_times_capped = False
+        if self.times_due:
+            n_listener = sum(1 for _, (v, _) in self.units_running() if slot_of(v) == "listener")
+            self.free["listener"] = max(0, min(self.free.get("listener", 0), LISTENER_BESIDE_TIMES - n_listener))
+
+    def share_scans(self):
+        # Reads feed the VLM and file puzzles; scans only find them. While a read is due the scans
+        # keep to scan_share of the unit ceiling, so they cannot crowd the reads out of it.
+        # Paul 10-21: "Read the remaining times puzzles before doing ft". While the CT_NEWEST_FIRST papers'
+        # scans are pending, their reads wait on them (1,123 Times answer fills behind ~1,200 scans), so FT
+        # reads, FT scans and the scan share took the slots: the scans those reads need take every slot
+        # the ready Times reads will not, and FT fills only what is left, plus the few gpu_fill reads that
+        # keep an otherwise idle VLM fed.
+        named_now = newest_first_papers()
+        tf_pending = times_scans_pending(self.scan_keys[2], self.tried, self.busy, self.scanned) if named_now else []
+        tf_ready = sum(1 for u, k in self.read_cands if u["paper"] in named_now and k not in self.tried and k not in self.busy
+                       and not self.waits(u)) if named_now else 0
+        reads_due = not self.vlm_full and not self.yielding and (
+            tf_ready > 0 or (not tf_pending and any(k not in self.tried and not self.waits(u) for u, k in self.read_cands)))
+        share = scan_share(mem_gate.unit_ceiling(), reads_due)
+        if self.free.get("scan", 0) > 0 and share is not None:
+            live = sum(1 for _, (v, _) in self.units_running() if v["kind"] == "scan")
+            if live + self.free["scan"] > share:
+                self.free["scan"] = max(0, share - live)
+                if not self.scan_held and self.free["scan"] == 0:
+                    self.scan_held = True
+                    log(f"scan held for reads: {live} scans running of {share} allowed while reads are due "
+                        f"(unit ceiling {mem_gate.unit_ceiling()})")
+        if tf_pending and not self.yielding and self.ceiling_left > 0 and self.may_start():
+            room = times_scan_room(len(tf_pending), tf_ready, self.free.get("scan", 0), self.free.get("read", 0), self.ceiling_left)
+            if room > self.free.get("scan", 0):
+                self.free["scan"] = room
+                if not self.times_first[0]:
+                    self.times_first[0] = True
+                    log(f"times first: {len(tf_pending)} Times/Gale scans pending for {tf_ready} ready reads and "
+                        f"the reads waiting on them; scans may use {room} slots, FT fills only what is left")
+        elif self.times_first[0] and not tf_pending:
+            self.times_first[0] = False
+        self.widen_scans(share, tf_pending)
+        if self.free.get("scan", 0) > 0 or share is None:
+            self.scan_held = False
+
+    def widen_scans(self, share, tf_pending):
+        # 11-06: the plan held only Telegraph (never scanned + never read); every read waits on its own scan, the
+        # scan pool (6) ran full at ~190 s a scan, so reads started ~2/min and the unit count sat at 13-18 of 24
+        # with the CPU and VLM idle. While no read is ready (all wait on scans) and the pool is full, scans take
+        # the ceiling slots left, up to scan_wide_max(); the ceiling, RAM and CPU gates still apply to each start.
+        live = sum(1 for _, (v, _) in self.units_running() if v["kind"] == "scan")
+        if (share is not None or tf_pending or self.times_due or self.yielding or self.vlm_full
+                or self.free.get("scan", 0) > 0 or self.ceiling_left <= 0 or not self.may_start()):
+            widen = False
+        else:
+            cands = [(v, k) for v, k in self.read_cands if k not in self.tried and k not in self.busy]
+            ready = sum(1 for v, _ in cands if not self.waits(v))
+            widen = ready == 0 and any(self.waits(v) for v, _ in cands)
+        if widen:
+            self.free["scan"] = scan_widen_room(live, self.pools["scan"], self.ceiling_left)
+        if (widen and self.free.get("scan", 0) > 0) != self.scan_wide:
+            self.scan_wide = not self.scan_wide
+            log(f"scan pool: widened to {live + self.free.get('scan', 0)} (pool {self.pools['scan']}), every read waits on a scan "
+                f"(unit ceiling {mem_gate.unit_ceiling()})" if self.scan_wide else
+                f"scan pool: back to {self.pools['scan']}, reads are ready or nothing waits on a scan")
+
+    def count_reasons(self):
+        # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
+        # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
+        self.reason_cap = reason_cap_for(mem_gate.unit_ceiling())
+        self.reason_live = {}
+        if self.reason_cap:
+            for _, (v, _at) in self.units_running():
+                if v["kind"] != "fetch" and v.get("reason"):
+                    self.reason_live[v["reason"]] = self.reason_live.get(v["reason"], 0) + 1
+
+
+    def set_caps(self):
+        # Paul 10-21: CPU-only units (answers-linked rereads, scans) filled the whole unit ceiling and the
+        # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
+        startable = startable_fills(self.fill, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES)
+        self.reserve = min(startable, max(1, mem_gate.unit_ceiling() // 3)) if startable else 0
+        self.reserve_hit = False
+        # While the GPU is underfed the CPU-only units (stale scans, answer-linked rereads) share at most a
+        # third of the ceiling, so the rest goes to reads that ask the VLM.
+        self.cpu_cap = mem_gate.unit_ceiling() // 3 if len(self.queued) < vlm_feed_target() else None
+        self.cpu_live = sum(1 for _, (v, _at) in self.units_running() if cpu_only_unit(v)) if self.cpu_cap is not None else 0
+        self.cpu_capped = False
+        self.reason_other = {}  # reason -> whether a unit of another reason is queued and untried
+        self.reason_capped = []
+
+    def log_walk_bounds(self):
+        if not self.skip_walk:
+            if len(self.full_held) != self.spool_held[0] and (time.monotonic() - self.spool_held[1] >= 60 or len(self.full_held) // 10 != self.spool_held[0] // 10):
+                self.spool_held[:] = [len(self.full_held), time.monotonic()]
+                if self.full_held:
+                    log(f"spool full: {len(self.full_held)} reads that ended deferred for it held until it is below its cap "
+                        f"({len(self.queued)} asks spooled, CT_VLM_SPOOL_MAX {vlm_spool_max()}); reads with spooled asks go on")
+            if self.reserve_hit and not self.reserve_bound:
+                log(f"slot reserve: {self.reserve} of {mem_gate.unit_ceiling()} unit slots held for VLM-asking reads "
+                    f"({len(self.queued)} asks spooled, target {vlm_feed_target()}); other starts wait")
+            self.reserve_bound = self.reserve_hit
+            if self.cpu_capped and not self.cpu_cap_bound:
+                log(f"cpu-only cap: {self.cpu_live} stale scans/answer-linked rereads running of {self.cpu_cap} allowed "
+                    f"while {len(self.queued)} asks spooled (target {vlm_feed_target()}); the rest wait for VLM-asking reads")
+            self.cpu_cap_bound = self.cpu_capped
+            if self.non_times_capped and not self.non_times_bound[0]:
+                log(f"non-Times cap: {self.non_times_live} FT/other-paper scans and reads running of "
+                    f"{NON_TIMES_BESIDE_TIMES} allowed (CT_NON_TIMES_BESIDE_TIMES) while Times work is due; "
+                    f"the rest of the {mem_gate.unit_ceiling()} slots are for it")
+            self.non_times_bound[0] = self.non_times_capped
+            reason_hit = self.reason_capped[0] if self.reason_capped else None
+            if reason_hit and reason_hit != self.reason_cap_logged[0]:
+                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {self.reason_cap}); other work starts")
+            self.reason_cap_logged[0] = reason_hit
+
+    def log_bounds(self):
+        if self.held_back and not self.memory_bound:
+            self.memory_bound = True
+            log(f"memory-bound: {((mem_gate_reader or mem_gate.available)() or 0) >> 20} MB available, floor {mem_gate.FLOOR >> 20} MB, "
+                f"memory pressure {mem_gate.pressure()} (max {mem_gate.psi_max()}), "
+                f"{self.charged >> 20} MB charged to {self.begun_now} begun this pass; a unit costs "
+                + ", ".join(f"{k} {v >> 20} MB" for k, v in sorted((self.costs or {}).items()))
+                + f" (else {mem_gate.UNIT >> 20} MB); no unit starts until a later pass finds room "
+                f"({len(self.running) + len(self.adopted)} running are left alone)")
+        if self.desk_held and not self.desk_mem_bound:
+            log(f"desktop-memory-bound: {self.desk_mem[1]} MB free there {time.time() - self.desk_mem[0]:.0f}s ago, "
+                f"{desktop_sessions(self.desk_mem[0], self.opened, self.closed)} session(s) opened since and still open "
+                f"at {DESKTOP_SESSION_MB} MB each, "
+                f"floor {DESKTOP_FLOOR_MB} MB; only fetches start until it has room "
+                f"({len(self.running) + len(self.adopted)} running are left alone)")
+        self.desk_mem_bound = self.desk_held
+        if self.walked:
+            self.vlm_pending[0] = self.vlm_deferred
+        if self.vlm_deferred and (self.vlm_logged[0] is None or time.monotonic() - self.vlm_logged[0] >= 600):
+            self.vlm_logged[:] = [time.monotonic(), self.vlm_deferred]
+            log(f"VLM down ({vlm_reader.cause() or 'unreachable'}): {self.vlm_deferred} scans deferred; their reads start once it answers, "
+                f"scans, fetches and reads that do not ask it go on ({len(self.running) + len(self.adopted)} running)")
+        if self.cpu_held and not self.cpu_bound:
+            self.cpu_bound = True
+            log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "
+                f"({len(self.running) + len(self.adopted)} running are left alone)")
+        if self.idle_held and not self.idle_bound:
+            idle = (idle_gate_reader or mem_gate.idle_cores)()
+            log(f"idle-bound: {idle if idle is None else round(idle, 1)} idle core(s), {self.local_now} local unit(s) "
+                f"begun this pass; no unit that works on this host's CPU (local_cpu) starts until a core "
+                f"is idle, those waiting on the desktop or the network go on "
+                f"({sum(local_cpu(v) for _, (v, _) in self.units_running())} local running are left alone)")
+        self.idle_bound = self.idle_held
+
+
+class _RankPicker:
+    """Which units start, in what order: the queue by rank, the urgent ones first, the GPU-fill reads, and
+    the walk that starts what the slots and gates leave room for."""
+
+    def vlm_waits(self, u):
+        """Whether read `u` waits for the VLM: it needs it (needs_vlm,
+        or it ended deferred for it) and it is down."""
+        if u["kind"] == "read" and key_of(u) in self.full_wait and key_of(u) not in self.spool_wait:
+            # Ended deferred for a full spool with no ask spooled (any paper, needs_vlm or not): its
+            # OCR would be redone for nothing. A read with spooled asks is in spool_wait and never held here.
+            if key_of(u) not in self.full_free:
+                self.full_held.add(key_of(u))
+                return True  # not again until the spool has room for it
+            self.full_wait.pop(key_of(u), None)
+        if u["kind"] != "read" or not (key_of(u) in self.vlm_held or needs_vlm(u)):
+            return False
+        if self.spool_cap_hit and key_of(u) not in self.spool_wait and key_of(u) not in self.full_wait:
+            # The spool is at its cap: a fresh read that may ask would OCR its pages (~25 CPU-s),
+            # be refused ("VLM spool full") and start again once held, churning while the drainer
+            # works. It waits here, free, until the spool is below its cap.
+            self.full_held.add(key_of(u))
+            return True
+        if key_of(u) in self.spool_wait:
+            if any(vlm_reader.pending(k) for k in self.spool_wait[key_of(u)]):
+                return True
+            del self.spool_wait[key_of(u)]  # answered: its asks hit the cache now
+            # ... and it starts at once: the backoff spares OCR redone for asks still unanswered, and
+            # 10-24 held reads whose asks an idle drainer answered in seconds for 120 s+ (the GPU at 0%).
+            self.defer_until.pop(key_of(u), None)
+        elif self.defer_until.get(key_of(u), 0) > time.monotonic():
+            return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
+        if not self.vlm_now:
+            self.vlm_now.append(time.monotonic() - self.vlm_lost_at[0] >= VLM_RECHECK and vlm_up())
+            if self.vlm_now[0] and self.vlm_held:
+                log(f"VLM back: {len(self.vlm_held)} read(s) deferred for it start again")
+                self.vlm_held.clear()
+            if self.vlm_now[0]:
+                self.vlm_logged[0] = None
+        return not self.vlm_now[0]
+
+    def load_queue(self):
+        self.vlm_deferred = 0
+        # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
+        # urgent is left to start, in any pool: new and fixed work first
+        # (a read waiting for the VLM holds none back).
+        lists = (self.first, self.fresh_scans, self.fresh_reads, self.scans, self.reads, self.fetches)
+        sig = tuple((id(l), len(l)) for l in lists)
+        self.times_papers = newest_first_papers()
+        if self.queue_memo[0] != sig:
+            scans_q, reads_q = fresh_turns(self.fresh_scans, self.scans), fresh_turns(self.fresh_reads, self.reads)
+            q = self.first + scans_q + reads_q + self.fetches
+            self.qkeys, self.qslots, self.last_of = [key_of(u) for u in q], [slot_of(u) for u in q], {}
+            for i, sl in enumerate(self.qslots):
+                self.last_of[sl] = i
+            body = scans_q + reads_q
+            cands = [(u, key_of(u), slot_of(u)) for u in body
+                     if (u["rank"] < fa.BLANKET or newest_first(u)) and self.pools.get(slot_of(u))]
+            first_at = {}  # each urgent candidate's key: its first index in cands
+            for i, (_, k, _) in enumerate(cands):
+                first_at.setdefault(k, i)
+            self.queue_memo[:] = [sig, q, self.qkeys, self.qslots, self.last_of, cands,
+                             [(v, key_of(v)) for v in reads_q if slot_of(v) == "read"], lists,  # lists held: no id reused
+                             frozenset(first_at), first_at,
+                             # A whole-corpus re-read (fa.BLANKET) waits behind the Listener's due reads anyway, so it
+                             # is not "other work due": 10-24 five held FT/Guardian --reread units kept the pool at 8
+                             # of 24 slots while it, in turn, held them (load 8, one File in 25 min).
+                             frozenset(k for u, k, sl in zip(q, self.qkeys, self.qslots) if sl != "listener" and not sl.startswith("fetch ")
+                                       and (u["rank"] < fa.BLANKET or newest_first(u))),
+                             frozenset(k for k, sl in zip(self.qkeys, self.qslots) if sl == "listener"),
+                             frozenset(k for u, k, sl in zip(q, self.qkeys, self.qslots) if sl in ("read", "scan") and u["paper"] in self.times_papers)]
+        (_, self.queue, self.qkeys, self.qslots, self.last_of, self.urgent_cands, self.read_cands, _, self.urgent_keys, self.urgent_first,
+         self.other_keys, self.listener_keys, self.times_keys) = self.queue_memo
+
+    def find_urgent(self):
+        # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
+        # difference (stored hashes, C speed), not a key built and looked up per candidate each pass
+        # (~half the loop's CPU while all are tried); the walk then starts at the first untried one, so
+        # vlm_waits is asked of the same units in the same order as a walk of them all.
+        untried_urgent = self.urgent_keys - self.tried
+        self.urgent = bool(untried_urgent) and any(
+            k not in self.tried and not self.vlm_waits(u)
+            for u, k, _ in itertools.islice(self.urgent_cands, min(map(self.urgent_first.__getitem__, untried_urgent)), None))
+
+    def start_reads(self):
+        # A pass with no free slot starts nothing; and once a gate holds
+        # one unit back it holds every later one (begun_now only grows), so
+        # the gates are read at most once a unit begun, not once a unit due.
+        self.mem_read, self.cpu_read = {}, {}
+        # Each ledger read once a pass, not once a queued scan: a scan unit
+        # checks its row again before it scans (scan_unit's "current").
+        self.stands = {}
+        self.stand_keys, self.cache_s = {}, os.fspath(self.cache)  # current_keys by paper, a pass's; the cache's str, not a Path to fspath each ask
+
+
+    def stood(self, u):
+        paper = fa.FILERS[u["paper"]]
+        if u["paper"] not in self.stands:
+            self.stands[u["paper"]] = ledger_retry(fa.standing, paper, self.cache)
+        return fa.scan_stands(paper, u["rel"], self.cache_s, self.stands[u["paper"]], self.stand_keys, u.get("reason") in fa.HOST_REASONS)
+
+    def stage_reads(self):
+        self.scanning_by = rels_by_paper(self.scanning)  # kept in step as scans begin below
+
+        # Whether a read waits on a scan; a partial, not a closure: no Python frame of its own.
+        self.waits = functools.partial(read_waits, scanning=self.scanning_by, unscanned=self.unscanned,
+                                  rescanned=rels_by_paper(self.rescanned))
+
+    def begin_pick(self):
+        # A fresh scan is never held for a backlog's reads (fed).
+        self.firsts = {key_of(u) for u in self.first + self.fresh_scans}
+        self.ready = []
+        self.heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
+
+        self.walked = self.may_start() and any(v > 0 for v in self.free.values())
+
+    def ready_reads(self):
+        # 10-30: a read whose reason is at its cap is not ready: the walk skips it while a scan waits, so
+        # counting it held every scan back as "fed" for reads that could not start (load 8 on 28 threads).
+        return [v for v, k in self.read_cands if k not in self.tried and k not in self.busy and not self.waits(v) and not self.vlm_waits(v)
+                and not (self.reason_cap and v.get("reason") and self.reason_live.get(v["reason"], 0) >= self.reason_cap)]
+
+    def fed(self, u):
+        """Whether scan `u` only feeds a backlog: the next full read pool
+        of ready reads ranked as it or more urgent, in the queue's order,
+        are there and none needs it. Then its desktop CPU (scans run above
+        reads there) is the reads' instead. Worked out once a pass per
+        rank: a pass asks it of every queued scan (~12k)."""
+        if self.vlm_full:
+            return False  # reads cannot start (vlm-bound), so no scan is held for their CPU
+        if u.get("fix"):
+            # Paul 11-14: "Things you're fixing should be at the front of the queue". A fix scan (a kept fix
+            # reread's "needs", only_evidence) is never held for the ready reads' CPU: rank 2, it was "fed" by
+            # the pool of ready reads while rank-1 never-scanned scans (no full pool of reads) started, so 4,019
+            # fix scans (37 SIDES_HEADED rereads) waited for hours.
+            return False
+        if not self.ready:
+            self.ready.append(self.ready_reads())
+        if u["rank"] not in self.heads:
+            nxt = [v for v in self.ready[0] if v["rank"] <= u["rank"]][:self.pools["read"]]
+            self.heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
+                                if len(nxt) >= self.pools["read"] else None)
+        needed = self.heads[u["rank"]]
+        return needed is not None and (u["paper"], u["rel"]) not in needed
+
+    def fill_scan(self, u):
+        """The queued scan read `u` waits on (its own, not yet done), or None."""
+        if (u["paper"], u["rel"]) not in self.unscanned:
+            return None
+        if self.scan_of_rel[0] is not self.scan_keys[2]:
+            self.scan_of_rel[:] = [self.scan_keys[2], {(s["paper"], s["rel"]): s for us in self.scan_keys[2] for s in us}]
+        return self.scan_of_rel[1].get((u["paper"], u["rel"]))
+
+    def feed_gpu(self):
+        # An idle GPU is a bug: with the VLM stage short of asks, other papers' never-read reads (which
+        # ask the VLM) go ahead of the CT_NEWEST_FIRST papers' OCR-only rereads (gpu_fill).
+        fills_running = sum(1 for _, (v, _at) in self.units_running() if fills_gpu(v))
+        self.fill = gpu_fill(self.read_cands, self.tried, self.busy, self.waits, self.vlm_waits, len(self.queued), self.vlm_full or self.spool_cap_hit,
+                        fills_running,
+                        # Paul 10-21: "you should also be letting things through which use gpu so it doesn't sit
+                        # idle". Fills run up to CT_VLM_FEED_READS at once (each spends minutes on OCR before
+                        # its first ask), never past the free read slots; Times work still starts first.
+                        min(vlm_feed_reads(), fills_running + self.free.get("read", 0)),
+                        self.fill_scan, self.scanning,
+                        # Paul 10-23: no fill read ready, GPU 0%: the scans they wait on start, a few at once.
+                        min(vlm_feed_scans(), max(1, mem_gate.unit_ceiling() // 3)),
+                        vlm_feed_ahead(), vlm_fill_asks()
+                        ) if (self.free.get("read", 0) > 0 and self.may_start() and not self.yielding and not self.starved) else []
+        self.fill_keys = {key_of(u) for u in self.fill}
+        fill_scans = sum(1 for u in self.fill if u["kind"] == "scan")
+        if fill_scans and self.free.get("scan", 0) < fill_scans and self.ceiling_left > 0:
+            # The scan share held scans for reads, but no fill read can start until these end.
+            self.free["scan"] = min(fill_scans, self.ceiling_left)
+            if fill_scans != self.fill_scan_logged[0]:
+                log(f"vlm feed: no VLM-asking read ready ({len(self.queued)} asks spooled, target {vlm_feed_target()}); "
+                    f"{fill_scans} scan(s) they wait on start ahead of the queue")
+        self.fill_scan_logged[0] = fill_scans
+        if self.fill and self.free.get("scan", 0) > 0 and not self.vlm_full:
+            # The fill reads start ahead of the queue: the pool fed() asks about is the one before they begin,
+            # else a scan no read waits on is "not fed" the moment they take the last read slot and starts
+            # ahead of them (the queue lists scans first).
+            self.ready.append(self.ready_reads())
+
+    def others_wait(self, reason):
+        if reason not in self.reason_other:
+            self.reason_other[reason] = other_reason_waits(
+                reason, zip(self.queue, self.qkeys, self.qslots), self.tried, self.free,
+                lambda v: non_times_held(v, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES))
+        return self.reason_other[reason]
+
+    def idle_key(self, gates):
+        """What a walk of the queue (~12k units) that begins nothing
+        depends on: the plan, the units running and tried, the gates it
+        read (`gates`: the (mem, cpu, idle) readings by their arguments),
+        and the IDLE_WALK slot of time (a ledger another process moved,
+        the VLM back, a desktop session aged out: noticed within
+        IDLE_WALK seconds)."""
+        return (self.planned, self.plan_done, self.fresh_at, len(self.queue), len(self.first), len(self.tried), len(self.scanned), len(self.scan_failed),
+                sum(self.losses.values()), len(self.vlm_held), len(self.spool_wait), len(self.full_wait), self.spool_cap_hit, self.vlm_full, tuple(self.running), tuple(self.adopted), tuple(sorted(self.free.items())),
+                len(self.stopped), self.urgent, tuple(self.fill_keys), bool(self.starved), bool(self.yielding), self.desk_mem, len(self.opened), len(self.closed),
+                int(time.monotonic() // IDLE_WALK), gates)
+
+    def gates_again(self, gates):
+        """The gates the last idle walk read, read again with the same
+        arguments: once each, as that walk did."""
+        mem, cpu, idle = gates
+        return (tuple((k, mem_gate.room(k[0], mem_gate_reader, unit=k[1])) for k, _ in mem),
+                tuple((k, mem_gate.cpu_room(k, cpu_gate_reader)) for k, _ in cpu),
+                tuple((k, mem_gate.idle_room(k, idle_gate_reader)) for k, _ in idle))
+
+    def skip_idle_walk(self):
+        # A pass the last idle one's state and gates stand for would begin
+        # nothing again: its outcome stands, the walk is skipped. The state
+        # is compared first: the gates are read only when it matches.
+        self.skip_walk = (self.walked and self.idle_walk[0] is not None and self.idle_key(self.idle_walk[0][-1]) == self.idle_walk[0]
+                     and self.gates_again(self.idle_walk[0][-1]) == self.idle_walk[0][-1])
+        if self.skip_walk:
+            self.held_back, self.desk_held, self.cpu_held, self.idle_held, self.vlm_deferred = self.idle_walk[1]
+
+    def walk(self):
+        # The walk ends past the last unit of any pool with a free slot: no later unit can start.
+        reach = max((self.last_of.get(sl, -1) for sl, v in self.free.items() if v > 0), default=-1)
+        may_start, free, tried = self.may_start, self.free, self.tried  # the walk's hot lines (same objects all pass)
+        for i, (u, ukey, uslot) in enumerate(itertools.chain(((v, key_of(v), slot_of(v)) for v in self.fill), zip(self.queue, self.qkeys, self.qslots))
+                                             if reach >= 0 and not self.skip_walk else (), -len(self.fill)):
+            if i > reach or self.media.held():
+                break  # (the media share noted down this pass: nothing more starts until it answers)
+            if not may_start() or free[uslot] <= 0 or ukey in tried:
+                continue
+            if non_times_held(u, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES):
+                self.non_times_capped = True  # Times first: the slots left are for its scans and reads
+                continue
+            if self.reserve and ukey not in self.fill_keys and not uslot.startswith("fetch ") and self.ceiling_left <= self.reserve:
+                self.reserve_hit = True  # the last slots are for reads that ask the VLM
+                continue
+            if (self.cpu_cap is not None and self.cpu_live >= self.cpu_cap and cpu_only_unit(u) and ukey not in self.fill_keys
+                    and not (self.listener_wide and uslot == "listener")):  # no VLM-asking read is due to keep slots for
+                self.cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
+                continue
+            if (self.reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in self.fill_keys
+                    and self.reason_live.get(u["reason"], 0) >= self.reason_cap and self.others_wait(u["reason"])):
+                self.reason_capped.append((self.reason_live[u["reason"]], u["reason"]))
+                continue  # waits (not dropped): other work starts first
+            if self.urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
+                continue
+            # Held before its ledger row is checked: stood() stats the
+            # edition's files, and a held scan is asked again every pass.
+            if u["kind"] == "scan" and ukey not in self.firsts and ukey not in self.fill_keys and self.fed(u) and not newest_first(u):
+                continue
+            try:
+                stands_now = u["kind"] == "scan" and u["paper"] in fa.FILERS and self.stood(u)
+            except OSError as e:  # its ledger or files on the media share, which did not answer (10-20, 10-23)
+                if transient_oserror(e):
+                    continue  # 11-16: EAGAIN on the CIFS ledger outlasted its retries: skip this unit this pass, not the queue
+                if not self.media.down(e):
+                    raise
+                break
+            if stands_now:
+                # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
+                self.tried.add(ukey)
+                self.scanned.add((u["paper"], u["rel"]))
+                continue
+            if u["kind"] == "read" and self.waits(u):
+                if (u["paper"], u["rel"]) in self.unscanned and (u["paper"], u["rel"]) in self.scan_failed:
+                    self.tried.add(ukey)
+                continue
+            # A game stops the VLM: no read starts (nor a scan its desktop deferred) while it yields;
+            # scans and fetches go on (CPU work).
+            # Nor does a scan during a game beyond CT_GAME_SCAN_WORKERS running (the rest are shed).
+            if self.starved or (self.yielding and (u["kind"] == "read" or ukey in self.yield_held
+                                         or (u["kind"] == "scan" and (not self.yield_opt_in or (self.game and self.live_scans >= game_scans()))))):
+                continue
+            if self.vlm_waits(u):
+                self.vlm_deferred += ukey not in self.spool_wait and ukey not in self.full_wait and ukey not in self.defer_until  # a read for the drainer is no "VLM down"
+                continue
+            if self.vlm_full and u["kind"] == "read":
+                continue
+            if self.costs is None:
+                self.costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in self.units_running()})
+            cost = self.costs.get(uslot, mem_gate.UNIT)
+            if not self.held_back and (self.charged, cost) not in self.mem_read:
+                self.mem_read[self.charged, cost] = mem_gate.room(self.charged, mem_gate_reader, unit=cost)
+            if self.held_back or not self.mem_read[self.charged, cost]:
+                self.held_back = True
+                continue
+            if not load_gated(u):
+                if self.desk_held or not desktop_room(self.desk_mem, self.opened, self.closed):
+                    self.desk_held = True
+                    continue
+            if load_gated(u):
+                if not self.cpu_held and self.begun_now not in self.cpu_read:
+                    self.cpu_read[self.begun_now] = mem_gate.cpu_room(self.begun_now, cpu_gate_reader)
+                if self.cpu_held or not self.cpu_read[self.begun_now]:
+                    self.cpu_held = True
+                    continue
+            local = local_cpu(u)
+            if local:
+                if not self.idle_held and self.local_now not in self.idle_read:
+                    self.idle_read[self.local_now] = mem_gate.idle_room(self.local_now, idle_gate_reader)
+                if self.idle_held or not self.idle_read[self.local_now]:
+                    self.idle_held = True
+                    continue
+            # Answers-linked rereads of one item go in one process: the setup is ~all of their cost.
+            # (An edition of a batch that ended deferred is read alone from then on: one needing the VLM's
+            # asks would end its whole batch again, the other editions unread.)
+            began = self.start(u, [] if ukey in self.unbatched else batch_mates(
+                u, self.read_cands, self.tried, self.busy | self.unbatched,
+                lambda v: not self.waits(v) and not self.vlm_waits(v) and key_of(v) not in self.firsts))
+            if not began and began is not PENDING:
+                self.unscanned.add((u["paper"], u["rel"]))
+                continue
+            if ukey in self.fill_keys:
+                log(f"vlm feed: start {ukey[0]} {ukey[1]} {ukey[2]} ({u.get('reason') or 'rank ' + str(u['rank'])}; "
+                    f"{len(self.queued)} asks spooled, target {vlm_feed_target()})")
+            # A unit whose brief is being made holds its slot and its gates' charges as if begun.
+            self.local_now += local
+            self.begun_now += 1
+            self.live_scans += u["kind"] == "scan"
+            self.cpu_live += cpu_only_unit(u)
+            self.non_times_live += non_times_unit(u, self.times_papers)
+            if self.reason_cap and u["kind"] != "fetch" and u.get("reason"):
+                self.reason_live[u["reason"]] = self.reason_live.get(u["reason"], 0) + 1
+            self.charged += cost
+            if began is not PENDING and not load_gated(u):
+                self.opened.append(time.time())
+            self.free[uslot] -= 1
+            if not uslot.startswith("fetch "):
+                self.ceiling_left -= 1
+                if self.ceiling_left <= 0:
+                    self.free.update({sl: 0 for sl in self.free if not sl.startswith("fetch ")})
+            if self.free[uslot] <= 0:
+                reach = max((self.last_of.get(sl, -1) for sl, v in self.free.items() if v > 0), default=-1)
+            if began is PENDING:
+                continue
+            if u["kind"] == "scan":
+                self.scanning.add((u["paper"], u["rel"]))
+                self.scanning_by.setdefault(u["paper"], set()).add(u["rel"])
+
+    def remember_idle_walk(self):
+        if self.walked and not self.skip_walk and not self.begun_now:
+            self.idle_walk[:] = [self.idle_key((tuple(sorted(self.mem_read.items())), tuple(sorted(self.cpu_read.items())),
+                                      tuple(sorted(self.idle_read.items())))),
+                            (self.held_back, self.desk_held, self.cpu_held, self.idle_held, self.vlm_deferred)]
+        elif not self.skip_walk:
+            self.idle_walk[:] = [None, None]
+
+
+class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
+    """One run of the queue: `run` loops the passes of the pieces above over this one state."""
+
+    def __init__(self, papers, cache, puzzles, reread, seconds, workers, scan_workers, beside, read_seconds, scan_seconds, replan, fetch, trove_workers, handoff, resume, fetch_replan, upkeep, plan_reuse, watch):
+        self.papers = papers
+        self.cache = cache
+        self.puzzles = puzzles
+        self.reread = reread
+        self.seconds = seconds
+        self.beside = beside
+        self.read_seconds = read_seconds
+        self.scan_seconds = scan_seconds
+        self.replan = replan
+        self.fetch = fetch
+        self.handoff = handoff
+        self.resume = resume
+        self.fetch_replan = fetch_replan
+        self.stop = []
+        signal.signal(signal.SIGTERM, lambda *_: self.stop.append(signal.SIGTERM))
+        signal.signal(signal.SIGINT, lambda *_: self.stop.append(signal.SIGINT))
+        # SIGHUP (or the watcher: origin/master's tools/ code moved) reloads: see reload_check.
+        self.reload = []  # why a reload was asked, once
+        self.reload_since = [None]  # when this run began to wind down for it
+        self.reload_termed_at = [None]  # when the first TERM went at the end of the grace
+        signal.signal(signal.SIGHUP, lambda *_: self.reload.append("SIGHUP"))
+        # A re-exec blocks these across it (reexec); the handlers are in place now.
+        signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
+        self.code = code_files()
+        self.watcher = hot_reload.Watcher(TOOLS.parent, closure=queue_closure(self.papers)).start() if hot_reload.enabled() and watch else None
+        self.begun = self.code_checked = time.monotonic()
+        self.running = {}  # pid: (unit, started)
+        self.tried = set()
+        self.finished = {}
+        self.scanned, self.scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
+        self.outcomes = {}
+        self.losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
+        self.unbatched = set()  # keys of the editions of a batch that ended deferred: read alone from then on (batch_mates)
+        # Paul 10-13: "If the vision model is down and you need it just go onto
+        # the next scan and do it when it is back". The reads that ended deferred
+        # for the VLM (EXITS["vlm"]), held with needs_vlm's while it is down.
+        self.vlm_held = set()
+        self.vlm_lost_at = [float("-inf")]  # when a read last ended deferred for it
+        self.vlm_logged = [None, 0]  # (when the "VLM down" line was last logged, its count)
+        self.vlm_pending = [0]  # the reads waiting for it at the last pass that could start units
+        self.idle_walk = [None, None]  # (idle_key, (held flags, vlm_deferred)) of the last pass whose walk began nothing
+        # The media share down (a unit's EXITS["media"], or this loop's own error on a media path):
+        # no unit starts until it answers, and past CT_MEDIA_WAIT the run ends 1 (MediaGate).
+        self.media = MediaGate()
+        self.media_tries = {}  # key_of(unit): times it ended deferred for the share this run (MEDIA_TRIES)
+        self.media_gone = []  # why the run gave up on the share
+        self.beside = [Beside(argv) for argv in self.beside or ()]
+        self.scans = self.reads = self.fetches = []
+        # The editions just laid out (fresh), looked for every FRESH_POLL
+        # seconds on this loop, not the planner's thread, and started first.
+        self.fresh_scans = self.fresh_reads = []
+        self.fresh_at = None
+        self.first = []  # scan units of reads whose own scan was stale when they were to start (start)
+        self.planned = None  # when the plan in force was begun
+        self.plan_done = None  # when it was made
+        self.planner = None  # (thread, its result box) making the next plan
+        # The last plan is kept beside the hand-over, so a re-exec or the next
+        # slice starts units from it at once while its own plan is made.
+        self.plan_file = Path(f"{self.handoff or self.resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
+        self.plan_key = [list(self.papers), str(self.cache), self.reread and self.reread.isoformat(), sorted(self.fetch), plan_version(self.code)]
+        self.plan_at = None  # when the plan in force was made (wall clock), once one is kept
+        plan_reuse = PLAN_REUSE if plan_reuse is None else plan_reuse
+        self.planned_took = [0.0]  # seconds the last whole plan took (replan_after)
+        if self.handoff or self.resume:
+            kept, self.plan_at, kept_took = last_plan(self.plan_file, self.plan_key)
+            other_code = False
+            if not kept:
+                kept, self.plan_at, kept_took = last_plan(self.plan_file, self.plan_key, loose=True)
+                other_code = bool(kept)
+            if kept:
+                self.scans, self.reads, self.fetches = kept
+                self.planned = time.monotonic()
+                log(f"started from the last plan{' (made by other code: the whole plan follows)' if other_code else ''}: "
+                    f"{len(self.scans)} scans, {len(self.reads)} reads, {len(self.fetches)} fetches")
+                if not other_code and (self.fetches or not self.fetch) and time.time() - self.plan_at < plan_reuse:
+                    # Young enough to stand as made: the next whole plan comes when it
+                    # would have without the re-exec (fresh() already looks for new
+                    # editions every FRESH_POLL), and the image may re-exec again at once.
+                    self.plan_done = self.planned
+                    self.planned_took[0] = kept_took
+                    log(f"the plan is {time.time() - self.plan_at:.0f}s old: kept, not made again now")
+        self.queue = []  # the units of the last pass, started or not
+        self.idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
+        self.pool_width = scan_workers + workers
+
+        self.upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
+        self.left = 0
+        self.pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
+                 **{f"fetch {src}": FETCHERS[src]["workers"] for src in self.fetch}}
+        self.outages = dict.fromkeys(self.fetch, 0)
+        self.memory_bound = self.cpu_bound = self.desktop_bound = self.desk_mem_bound = False  # logged once per slice
+        self.idle_bound = False  # logged once each time the idle cores run out
+        self.vlm_bound = False  # logged once each time the VLM-waiting cap is met
+        self.drainer = []  # the VLM stage's threads, started with the first spooled ask
+        self.drainer_stop = threading.Event()
+        self.drainer_looped = threading.Event()  # set once the dispatch loop has looked at the spool (drainer_early)
+        self.spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
+        self.full_wait = {}  # {key_of(read): None} of the reads deferred for a full spool, oldest first: released as the spool has room
+        self.spool_held = [0, 0.0]  # reads the last log line said were held for a full spool, and when (once a minute, or per 10)
+        self.defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
+        self.defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
+        self.defer_file = Path(f"{self.handoff or self.resume}.defer") if self.handoff or self.resume else None  # kept across re-execs
+        if self.defer_file:
+            self.defer_runs, self.defer_until = last_defers(self.defer_file)
+        self.stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
+        self.reason_cap_logged = [None]  # (running, reason) last logged by the per-reason cap
+        self.non_times_bound = [False]  # logged once each time the non-Times cap holds a start back
+        self.cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
+        self.reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
+        self.ceiling_bound = False  # logged once each time the unit-children ceiling is met
+        self.scan_wide = False  # logged once each time the scan pool widens past its width or narrows back
+        self.listener_wide = False  # logged once each time the Listener pool widens to the ceiling or narrows back
+        self.times_first = [False]  # logged once each time the Times scans take the slots FT would
+        self.scan_held = False  # logged once each time the scans are held to their share for the reads
+        self.opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
+        self.closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
+        self.burn_bound = False  # logged once each time the burn starts starving
+        self.stopped = set()  # fetch sources started no more this run
+        self.adopted = {**(take_over(self.handoff) if self.handoff else {}), **(take_over(self.resume) if self.resume else {})}  # pid: (unit, started)
+        if not titled():
+            log("setproctitle is not installed: every unit's command line shows the queue's (pip install setproctitle)")
+        for unit, _ in self.adopted.values():
+            self.tried.add(key_of(unit))
+            log(f"taken over: {unit['kind']} {unit['rel']}")
+
+        # Opt-in (CT_YIELD_HOSTS set): when a game starts, no new unit starts, the running ones get
+        # CT_YIELD_GRACE seconds to finish, then are TERMed (STOP_GRACE, then KILLed) and left deferred.
+        self.yield_since = [None]  # when this yield began
+        self.yield_termed = set()  # pids stopped for it
+        self.yield_termed_at = [None]  # when the first TERM went
+        self.yield_killed = [False]
+        self.yield_held = set()  # scans that ended deferred (desktop busy) during a yield: not retried until it ends
+
+        # A game also sheds the CPU work (Paul 10-17: WoW choppy, WSL2's VM competes as a whole, nice does not
+        # help; a SIGSTOPped scan keeps its ~0.6 GB, and Windows paged at 3.8k/s): the scans beyond
+        # CT_GAME_SCAN_WORKERS (3; the oldest keep running) are TERMed, then KILLed after STOP_GRACE, and end
+        # deferred (a scan is ~200 s of work; yield_termed makes reap count it deferred, never a failure) to run
+        # again once the game ends. No scan starts beyond that cap. Fetches (network) go on. The --beside filers
+        # (a long batch, costly to lose) are SIGSTOPped instead, their --seconds clock stopped with them (resume
+        # credits the time), and SIGCONTed when the game ends, on a TERM, or before a hand-over.
+        self.shed = {}  # pid: when its TERM went
+        self.game_now = [False]
+
+        # A game also wants the RAM the WSL VM holds: Linux's page cache stays in the VM (Windows sees it
+        # as vmmemWSL) after the units end (Paul 10-18: "wow is slow ... you're not freeing your ram hog
+        # thing"; Windows was down to 1 GB free, 7 GB after a drop). CT_GAME_DROP_CACHE, a shell command
+        # (unset runs none), runs once the stopped units are gone (or their grace is over), then
+        # every GAME_DROP_EVERY seconds while the game lasts, in the background.
+        self.drop_at = [None, None]  # (when the game began, when the last drop ran)
+
+        self.fetch_made = {}  # source: (when its plan was made, its units)
+        # The queue's units with their key and slot, made once per plan (the lists' (id, len)
+        # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
+        # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
+        # the urgent candidates' keys, {key: its first index among them}).
+        self.queue_memo = [None] * 13
+        self.scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
+        self.fill_scan_logged = [0]  # the fill scans last logged: logged again when their count changes
+        self.scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
+
+        self.spec = {"cache": str(self.cache), "puzzles": self.puzzles and str(self.puzzles), "reread": self.reread and self.reread.isoformat()}
+
+        self.preparing = {}  # key: (when submitted, the future of prepare(unit)) of the reads being briefed
+        self.briefers = ThreadPoolExecutor(PREPARERS, "brief")
+
+        # A media error this loop does not catch itself ends dispatch; main waits for the share
+        # and hands the running units to a new image through this (media_restart).
+        _media_reexec[:] = [self.reexec, lambda: [pid for pid, _ in self.units_running()]]
+
+        # The unit ceiling follows the Windows host's free RAM and CPU (mem_gate.ceiling_controller; opt-in by
+        # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
+        self.ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
+        if self.ceiling_ctl:
+            clamped = mem_gate.clamp_ceiling_start()
+            if clamped:
+                log(clamped)
+            log(f"ceiling controller on: host {self.ceiling_ctl.host}, metrics {self.ceiling_ctl.metrics}, every {self.ceiling_ctl.every} s")
+
+        threading.Thread(target=self.drainer_early, daemon=True, name="vlm drainer start").start()
+
+    def run(self):
+        """The passes, until nothing due is left to start (or a stop, a reload or the slice's end); the exit status."""
+        while True:
+            log_parent_rss()
+            self.poll_units()
+            if self.media_waits():
+                continue
+            self.reexec_on_new_code()
+            self.poll_fresh()
+            self.poll_plan()
+            self.drop_stopped_fetches()
+            self.count_slots()
+            self.gate_vlm()
+            self.gate_host()
+            self.load_queue()
+            self.cap_listener()
+            self.find_urgent()
+            self.start_reads()
+            self.stage_reads()
+            self.share_scans()
+            self.begin_pick()
+            self.count_reasons()
+            self.feed_gpu()
+            self.set_caps()
+            self.skip_idle_walk()
+            self.walk()
+            self.log_walk_bounds()
+            self.remember_idle_walk()
+            self.log_bounds()
+            verdict = self.settle()
+            if verdict == END:
+                break
+            if verdict == AGAIN:
+                continue
+            self.rest()
+        return self.finish()
+
+    def settle(self):
+        """END when the run is over, AGAIN when the next pass starts at once, else None (the pass rests)."""
+        if self.stop:
+            return END
+        if self.handoff and not self.may_start() and not any(b.busy() for b in self.beside):
+            self.left = sum(k not in self.tried for k in self.qkeys) + len(self.running) + len(self.adopted)
+            self.thaw()
+            hand_over(self.handoff, self.units_running())
+            self.keep_untried()
+            log(f"slice over: {len(self.running) + len(self.adopted)} unit(s) handed over to the next run, still running")
+            self.running.clear()
+            self.adopted.clear()
+            return END
+        if not self.running and not self.adopted and self.planner is None and not any(b.busy() for b in self.beside) and not (
+                self.media.held() and self.may_start()):
+            untried = sum(k not in self.tried for k in self.qkeys)
+            if not self.may_start():
+                self.left = untried + sum(b.again and not b.done for b in self.beside)
+                return END
+            if not untried:
+                # Nothing left to start: one more plan, in case something
+                # landed, made on the new code when it changed.
+                if self.may_reexec() and any(digest(f) != h for f, h in self.code.items()):
+                    self.reexec()
+                try:
+                    self.scans, self.reads, self.fetches = self.replan_all()
+                    self.new_scans, self.new_reads = fresh(self.papers, self.cache)
+                except OSError as e:
+                    if not self.media.down(e):
+                        raise
+                    return AGAIN  # planned again once the media share answers (media.hold)
+                self.fresh_scans, self.fresh_reads = unchanged_eq(self.fresh_scans, self.new_scans), unchanged_eq(self.fresh_reads, self.new_reads)
+                self.fresh_at = time.monotonic()
+                self.drop_stopped_fetches()
+                self.planned = time.monotonic()
+                if all(key_of(u) in self.tried for u in self.first + self.fresh_scans + self.fresh_reads + self.scans + self.reads + self.fetches) and not any(b.again and not b.done
+                                                                             for b in self.beside):
+                    return END
+                return AGAIN
+        return None
+
+    def rest(self):
+        # Only reads waiting for the VLM left to start, and nothing running:
+        # look again every VLM_IDLE seconds (vlm_up is asked once a minute).
+        self.drop_stale_briefs()
+        if self.vlm_deferred and not self.begun_now and not self.running and not self.adopted:
+            time.sleep(VLM_IDLE)
+        elif not self.begun_now and not any(v > 0 for v in self.free.values()):
+            nap(1 if self.game_now[0] else QUIET_NAP)  # a game: shed scans past the cap soon. Every slot full: only an exit (or a stop) can change what this pass would start
+        else:
+            time.sleep(1)
+
+    def finish(self):
+        if self.stop:
+            log(f"stop asked: TERM to {len(self.running) + len(self.adopted)} running unit(s), up to {STOP_GRACE}s")
+            self.thaw()  # SIGCONT first: a stopped filer would sit on the TERM, then be left stopped
+            for pid in list(self.running) + list(self.adopted):
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+            for b in self.beside:
+                b.stop(signal.SIGTERM)
+            end = time.monotonic() + STOP_GRACE
+            while (self.running or self.adopted) and time.monotonic() < end:
+                self.reap()
+                self.reap_adopted()
+                time.sleep(0.2)
+            for pid in list(self.running) + list(self.adopted):
+                try:
+                    os.killpg(pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+            for b in self.beside:
+                b.stop(signal.SIGKILL)
+            self.reap()
+            if self.media_gone:
+                print(f"edition queue: the media share stayed down; {self.media_gone[0]}")
+                return 1
+            return 143
+        print(f"edition queue: {len(self.tried)} units started; " + ", ".join(f"{v} {k}" for k, v in sorted(self.outcomes.items())))
+        if self.vlm_pending[0]:
+            print(f"  VLM down: {self.vlm_pending[0]} scans deferred")
+        if self.left:
+            print(f"  {self.left:5d}  left for the next run")
+        if self.reload:
+            print(f"reload: {self.reload[0]}; exiting {hot_reload.RELOAD_RC} for the wrapper to move the tree and start again")
+            return hot_reload.RELOAD_RC
+        return 0
+
+
+def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
+             scan_workers=SCAN_WORKERS, beside=None, read_seconds=READ_SECONDS,
+             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
+             resume=None, fetch_replan=None, upkeep=None, plan_reuse=None, watch=True):
+    """Run the queue until nothing due is left to start (or `seconds` have
+    passed, or a TERM), then wait for the units running. `fetch` names the
+    FETCHERS whose units run too, in pools of their own. With `handoff` (a
+    path), the units another run handed over there are taken on (counted in
+    their pools, killed at their limits, TERMed on a stop), and when
+    `seconds` pass the units still running are handed over there in turn and
+    this run ends at once, not waiting for them. `resume` (a path) is the
+    hand-over of this run's own image before a re-exec (code_files changed),
+    taken on the same way. Each fetch source's plan is made again
+    `fetch_replan` (FETCH_REPLAN when None) seconds after the last.
+    `upkeep` (main's ledger_upkeep) runs once before the first plan made
+    here: on the planner thread when the run starts units from the last
+    plan, so a slice's or re-exec's slots refill at once, not after it.
+    Returns the exit status: 0, or 143 after a TERM."""
+    scan_workers = min(scan_workers, scan_cap())
+    return _Dispatch(papers, cache, puzzles, reread, seconds, workers, scan_workers, beside, read_seconds,
+                     scan_seconds, replan, fetch, trove_workers, handoff, resume, fetch_replan, upkeep,
+                     plan_reuse, watch).run()
+
+
+def alive(pid):
+    """Whether process `pid` still runs (a zombie has ended)."""
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    try:
+        return Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0] != "Z"
+    except (OSError, IndexError):
+        return True
+
+
+def child(pid):
+    """Whether `pid` is this process's child (one it started before a
+    re-exec): ended or not, reap() collects its status."""
+    try:
+        return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[1]) == os.getpid()
+    except (OSError, IndexError, ValueError):
+        return False
+
+
+#: How old a kept plan (keep_plan) a run may start from.
+PLAN_KEPT = 7200
+
+#: Under this many seconds old, a kept plan a run starts from also stands as
+#: that run's own whole plan: a re-exec on a code change (261 in full_pass.log,
+#: each replanning 55-175 s, up to ~1600 s under load) no longer replans.
+PLAN_REUSE = 600
+
+
+def plan_version(code):
+    """What a kept plan depends on besides its arguments, so a plan kept by
+    other code, scan keys or environment is not started from (a restart after
+    a change started units the new code would have skipped): the digests of
+    the planner's own files (`code`, code_files()), each paper's scan key and
+    the solution key, CT_NEWEST_FIRST and the request files' path."""
+    own = [code.get(Path(f).resolve()) for f in (__file__, fa.__file__, scan_queue.__file__)]
+    keys = [sorted(fa.current_keys(p)) for p in fa.FILERS.values()]
+    return json.loads(json.dumps([own, keys, fa.solution_key(), sorted(newest_first_papers()),
+                                  str(scan_queue.REQUESTS)], default=str))
+
+
+def keep_plan(path, key, made, at, took=0.0):
+    """Save plan `made` (scans, reads, fetches), made at `at` (time.time())
+    in `took` seconds, for a run with `key`'s arguments."""
+    tmp = Path(f"{path}.tmp")
+    # Streamed to the file: json.dumps made the whole ~40 MB text (and its encoder's chunks) on the heap
+    # at each plan, the fragmentation the parent kept as resident memory.
+    with open(tmp, "w") as f:
+        json.dump({"key": key, "at": at, "took": took, "plan": made}, f)
+    tmp.replace(path)
+    give_back_memory()
+
+
+ARENA_MAX = 2  # glibc malloc arenas the run process keeps (M_ARENA_MAX)
+
+
+def cap_arenas():
+    """Hold the run process to ARENA_MAX glibc malloc arenas before its threads start: by default each
+    of its ~33 threads may take an arena of its own (up to 8 per CPU), and on 11-14 the live parent kept
+    ~1.9 GB of private memory that none of its planner state accounted for (RAMparent census)."""
+    try:
+        ctypes.CDLL("libc.so.6").mallopt(-8, ARENA_MAX)  # M_ARENA_MAX
+    except (OSError, AttributeError):
+        pass
+
+
+RSS_LOG_EVERY = 1800  # seconds between "parent rss" log lines
+_RSS_LOGGED = [float("-inf")]
+
+
+def log_parent_rss(now=None):
+    """Log this process's resident memory (VmRSS) at most every RSS_LOG_EVERY seconds: the parent held
+    ~2.8 GB (RAMcensus 11-14) and a cut to what it holds shows here."""
+    now = time.monotonic() if now is None else now
+    if now - _RSS_LOGGED[0] < RSS_LOG_EVERY:
+        return
+    _RSS_LOGGED[0] = now
+    try:
+        with open("/proc/self/status") as f:
+            for line in f:
+                if line.startswith("VmRSS:"):
+                    log(f"parent rss {int(line.split()[1]) // 1024} MB")
+                    return
+    except (OSError, ValueError):
+        pass
+
+
+#: Seconds between give_back_memory's trims, and when the last started (monotonic).
+GIVE_BACK_EVERY = 60.0
+_GAVE_BACK = [None]
+
+
+def give_back_memory():
+    """Return the heap's free pages to the OS (glibc malloc_trim): a plan and the saving of it leave
+    tens of MB of freed but resident arena the parent would otherwise hold for good. At most once per
+    GIVE_BACK_EVERY seconds, and no full gc.collect (it holds the GIL, stalling the dispatch loop that
+    calls keep_plan on a big heap): a trim is all that returns pages to the OS."""
+    now = time.monotonic()
+    if _GAVE_BACK[0] is not None and now - _GAVE_BACK[0] < GIVE_BACK_EVERY:
+        return
+    _GAVE_BACK[0] = now
+    try:
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except (OSError, AttributeError):
+        pass
+
+
+def last_plan(path, key, loose=False):
+    """(the plan keep_plan saved at `path` for these arguments, when it was
+    made, how long it took), if under PLAN_KEPT seconds old, else
+    (None, None, 0.0): its units may be done by now, and each says so as it
+    starts (\"current\"). `loose` also takes a plan kept by other code or
+    keys (all of key[4]: the files' digests, scan keys, solution key, ...)
+    when the arguments (key[:4]) agree: a hot reload moves one of those on
+    nearly every push (the 16:23 and 16:30 reloads each planned ~6 minutes
+    with nothing started), and the new run starts units from it while it
+    plans; each unit re-checks it is current as it starts."""
+    try:
+        kept = json.loads(Path(path).read_text())
+    except (FileNotFoundError, ValueError):
+        return None, None, 0.0
+    if time.time() - kept.get("at", 0) > PLAN_KEPT:
+        return None, None, 0.0
+    key = json.loads(json.dumps(key))
+    then = kept.get("key")
+    if then != key:
+        try:
+            same = loose and then[:4] == key[:4]
+        except (TypeError, IndexError, KeyError):
+            same = False
+        if not same:
+            return None, None, 0.0
+    return tuple(kept["plan"]), kept["at"], kept.get("took", 0.0)
+
+
+def keep_defers(path, runs, until):
+    """Save the deferral backoff (DEFER_BACKOFF) at `path`, beside the hand-over, so a
+    re-exec does not restart the backed-off reads at once: [key, runs, wall time until]."""
+    now_wall, now = time.time(), time.monotonic()
+    rows = [[list(k), n, now_wall + (until[k] - now) if k in until else 0] for k, n in runs.items()]
+    tmp = Path(f"{path}.tmp")
+    tmp.write_text(json.dumps(rows))
+    tmp.replace(path)
+
+
+def last_defers(path):
+    """(defer_runs, defer_until) the last run kept at `path`; a read whose wait ended
+    over DEFER_BACKOFF_MAX seconds ago is forgotten (its run count would restart too)."""
+    try:
+        rows = json.loads(Path(path).read_text())
+    except (FileNotFoundError, ValueError):
+        return {}, {}
+    now_wall, now = time.time(), time.monotonic()
+    runs, until = {}, {}
+    for k, n, at in rows:
+        if at < now_wall - DEFER_BACKOFF_MAX:
+            continue
+        runs[tuple(k)] = n
+        if at > now_wall:
+            until[tuple(k)] = now + (at - now_wall)
+    return runs, until
+
+
+def hand_over(path, units):
+    """Write the units still running for the next run to take on."""
+    now_wall, now = time.time(), time.monotonic()
+    rows = [{"pid": pid, "unit": unit, "startedAt": now_wall - (now - t0)} for pid, (unit, t0) in units]
+    tmp = Path(f"{path}.tmp")
+    tmp.write_text(json.dumps(rows))
+    tmp.replace(path)
+
+
+def take_over(path):
+    """{pid: (unit, started)} of the units a run handed over at `path` that
+    still run or are this process's children; the file is removed."""
+    try:
+        rows = json.loads(Path(path).read_text())
+    except FileNotFoundError:
+        return {}
+    Path(path).unlink()
+    now_wall, now = time.time(), time.monotonic()
+    return {r["pid"]: (r["unit"], now - (now_wall - r["startedAt"])) for r in rows if alive(r["pid"]) or child(r["pid"])}
+
+
+def ledger_upkeep(papers, cache):
+    """Re-key and fold each paper's ledger (under its lock, so units append
+    meanwhile): tens of seconds on the media mount, so each ledger once. (11-16: archive_org_editions/filed.jsonl
+    is a dozen papers' ledger and was re-keyed once per paper, its lock held 3-5 min after each restart; a
+    plan made then left all those papers out, ledger_held.)"""
+    done = set()
+    for key in [k for k in papers if k != "listener"]:
+        ledger = media_manifest.trove_ledger(ftp.CACHE) if key == "trove" else fa.ledger_of(cache, fa.FILERS[key])
+        if (key == "trove", str(ledger)) in done:
+            continue
+        done.add((key == "trove", str(ledger)))
+        if key != "trove" and (n := fa.rekey_scans(ledger)):
+            log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
+        if key == "trove" and (n := ftp.rekey_unchanged(ledger)):
+            log(f"{ledger.name}: {n} articles re-keyed: their files are as they were read")
+        # No fold here (scan_queue.compact, kept for a ledger no other machine writes): replacing a
+        # ledger the Mac also appends to leaves its SMB client writing at the old, longer EOF, which
+        # tore filed-gale.jsonl (a partial row, hundreds of NULs, a full row; 10-21). Readers keep
+        # the last row a key (scan_queue.ledger_rows), so duplicates only cost file size.
+    give_back_memory()  # the re-key's parse of every row is garbage now
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    u = sub.add_parser("unit", help="run one unit (the queue starts these; CT_EDITION_UNIT holds it)")
+    u.add_argument("kind")
+    u.add_argument("paper")
+    u.add_argument("rel")
+    for name in ("run", "plan"):
+        p = sub.add_parser(name)
+        p.add_argument("--paper", action="append", choices=PAPERS, help="default: every paper, in PAPERS order")
+        p.add_argument("--cache", type=Path, default=fa.CACHE)
+        p.add_argument("--reread", metavar="BEFORE", help="re-read every edition last read before BEFORE (ISO)")
+        p.add_argument("--fetch", action="append", default=[], choices=sorted(FETCHERS),
+                       help="this source's fetch units too, each source in a pool of its own")
+    r = sub.choices["run"]
+    r.add_argument("--out", type=Path, help="where a puzzle with a blank clue goes (file_archive_org_puzzles --out)")
+    r.add_argument("--seconds", type=float, help="start no unit after this many seconds")
+    r.add_argument("--workers", type=int, default=WORKERS, help="reads at once")
+    r.add_argument("--scan-workers", type=int, default=scan_cap())
+    r.add_argument("--handoff", type=Path, metavar="FILE",
+                   help="take on the units a run handed over in FILE; after --seconds, hand those still "
+                        "running over there and end at once")
+    r.add_argument("--resume", type=Path, metavar="FILE", help="take on the units this run's own image handed "
+                   "over in FILE before re-exec'ing on a code change")
+    r.add_argument("--trove-workers", type=int, default=TROVE_WORKERS, help="Trove article reads at once")
+    r.add_argument("--wait", action="store_true", help="accepted for tools/ocr_full_pass.sh's slices; units never wait")
+    r.add_argument("--beside", action="append", default=[], metavar="COMMAND",
+                   help="a batch filer taking --seconds to run beside the units (shell words), again while it "
+                        "leaves work")
+    args = ap.parse_args(argv)
+    if args.cmd == "unit":
+        return unit_main(json.loads(os.environ["CT_EDITION_UNIT"]))
+    if args.cmd == "run":
+        cap_arenas()
+    papers = args.paper or PAPERS
+    reread = scan_queue.when(args.reread)
+    if args.cmd == "plan":
+        notes = []
+        scans, reads = plan(papers, args.cache, reread, notes)
+        for n in notes:
+            print(n)
+        print(f"{len(fresh(papers, args.cache)[1])} reads just laid out, started before any of these")
+        for kind, units in (("scans", scans), ("reads", reads)):
+            counts = {}
+            for u in units:
+                counts[(u["rank"], u["paper"], u["reason"])] = counts.get((u["rank"], u["paper"], u["reason"]), 0) + 1
+            print(f"{len(units)} {kind} due")
+            for (rank, paper, reason), n in sorted(counts.items()):
+                print(f"  rank {rank}  {paper:9s} {reason:22s} {n:6d}")
+        likely = {}
+        for u in reads:
+            for fix, n in (u.get("likely") or {}).items():
+                k = likely.setdefault((u["rank"], u["paper"], fix), [0, 0])
+                k[0], k[1] = k[0] + 1, k[1] + n
+        print(f"{sum(bool(u.get('likely')) for u in reads)} reads first in their rank: predicted to file puzzles whole")
+        for (rank, paper, fix), (n, whole) in sorted(likely.items()):
+            print(f"  rank {rank}  {paper:9s} {fix:38s} {n:6d} reads {whole:6d} puzzles")
+        fetches = plan_fetches(args.fetch)
+        if args.fetch:
+            print(f"{len(fetches)} fetches due")
+        counts = {}
+        for u in fetches:
+            counts[(u["paper"], u["reason"])] = counts.get((u["paper"], u["reason"]), 0) + 1
+        for (src, reason), n in sorted(counts.items()):
+            print(f"  {src:11s} {reason:22s} {n:6d}")
+        return 0
+    try:
+        return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers,
+                        [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
+                        handoff=args.handoff, resume=args.resume,
+                        # A re-exec onto new code keeps its slice's ledgers: their upkeep ran at the slice's start.
+                        upkeep=None if args.resume else lambda: ledger_upkeep(papers, args.cache))
+    except OSError as e:
+        import downloads
+        if not downloads.media_down(e):
+            raise
+        return media_restart(e)
+
+
+def media_restart(e, gate=None, execv=None):
+    """The dispatch loop met the media share down (`e`, downloads.media_down) where it does
+    not wait for it itself: wait for it (MediaGate), then hand the running units to a new
+    image (dispatch's reexec; else re-exec as started). A share that answers at the first
+    probe raises `e` again: that path's error is a bug, not an outage. 1 past CT_MEDIA_WAIT."""
+    gate = gate or MediaGate()
+    gate.down(e)
+
+    def stopped(signum, _frame):  # dispatch's handlers are gone with it: a stop TERMs its units and ends
+        for pid in (_media_reexec[1]() if _media_reexec[1] else ()):
+            try:
+                os.killpg(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        raise SystemExit(128 + signum)
+    if execv is None:
+        signal.signal(signal.SIGTERM, stopped)
+        signal.signal(signal.SIGINT, stopped)
+    try:
+        gate.wait()
+    except MediaGone as gone:
+        log(f"media down: giving up, {gone}")
+        return 1
+    if not gate.seen_down:
+        raise e
+    why = f"media back: the loop met it down ({type(e).__name__}: {e})"
+    if _media_reexec[0] is not None and execv is None:
+        _media_reexec[0](why)
+    log(f"{why}; re-exec")
+    sys.stdout.flush()
+    sys.stderr.flush()
+    if execv is None:
+        vlm_reader.release_claims()  # the exec ends the drainer's asks in flight
+    (execv or os.execv)(sys.executable, [sys.executable, *sys.argv])
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

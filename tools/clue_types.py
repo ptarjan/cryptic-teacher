@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""The closed list of clue types, read from tools/data/clue_types.json.
+
+An annotation's `type` is an array of these names, in the order the devices
+are applied. app.js reads the same file (embedded in the index by
+tools/fetch_puzzle.py --reindex), so the list exists once.
+
+A `letter_selection` says which letters on the block that keeps them, as
+`select`: one of SELECT_WORDS, or an int n for "the nth letter".
+"""
+import json
+from pathlib import Path
+
+PATH = Path(__file__).resolve().parent / "data" / "clue_types.json"
+DATA = json.loads(PATH.read_text(encoding="utf-8"))
+TYPES = {t["name"]: t for t in DATA["types"]}
+NAMES = tuple(TYPES)
+FAMILIES = DATA["families"]
+SELECT_WORDS = ("first", "last", "middle", "outer", "alternate", "regular", "prime")
+
+# Shown when a type matches no family.
+FALLBACK_FAMILY = {"name": None, "label": "Wordplay", "n": 0,
+                   "blurb": "The clue has a definition at one end and wordplay at the other."}
+
+
+def label(name):
+    return TYPES[name]["label"]
+
+
+def labels(types):
+    """A type array as a reader would say it: "charade + letter selection"."""
+    return " + ".join(label(t) for t in types or ())
+
+
+def families_of(types):
+    """Every family the types use, in FAMILIES' precedence order."""
+    used = {TYPES[t]["family"] for t in types or () if t in TYPES}
+    return [f for f in FAMILIES if f["name"] in used]
+
+
+def family_of(types):
+    """The dominant family: the first of families_of, or the fallback."""
+    return (families_of(types) or [FALLBACK_FAMILY])[0]
+
+
+def valid_select(v):
+    return v in SELECT_WORDS or (isinstance(v, int) and not isinstance(v, bool) and 2 <= v <= 20)
+
+
+def recount():
+    """Rewrite each family's `n` from the corpus: per annotated entry, one hit
+    for every family its types use (the share tools/smoke_test.js checks).
+    A puzzle that is not a cryptic (tools/puzzle_style.py) is left out: its
+    definitions are not a cryptic's."""
+    import annotation
+    import puzzle_style
+    from puzzle_paths import puzzle_files
+    seen = {f["name"]: 0 for f in FAMILIES}
+    for path in puzzle_files():
+        puzzle = annotation.view_puzzle(json.loads(path.read_text(encoding="utf-8")))  # the file stores no `type`
+        if puzzle_style.is_straight(puzzle):
+            continue
+        for e in puzzle.get("entries") or ():
+            types = (e.get("annotation") or {}).get("type")
+            if isinstance(types, list):
+                for fam in {TYPES[t]["family"] for t in types if t in TYPES}:
+                    seen[fam] += 1
+    for f in DATA["families"]:
+        f["n"] = seen[f["name"]]
+    PATH.write_text(json.dumps(DATA, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(", ".join(f"{f['name']} {f['n']}" for f in DATA["families"]))
+
+
+if __name__ == "__main__":
+    import sys
+    if sys.argv[1:] == ["--recount"]:
+        recount()
+    else:
+        for f in FAMILIES:
+            print(f"{f['label']}: {', '.join(t for t in NAMES if TYPES[t]['family'] == f['name'])}")

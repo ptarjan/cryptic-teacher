@@ -1,0 +1,1090 @@
+"""The read queue the scan filers share (tools/file_archive_org_puzzles.py,
+tools/file_trove_puzzles.py).
+
+  - order(): what was never read comes first, in the caller's order; then
+    what new input or an explicit --reread made stale, the longest since
+    read first (a row's "readAt"), so a run never starts over: the unread
+    still lead and the stale queue by age. A change of code alone makes
+    nothing stale; when()/read_before() pick the rows --reread BEFORE
+    reads again, so the slices of one re-read resume rather than restart.
+  - parallel(): `workers` sources in flight at once, in a process pool, so
+    one source's wait on the desktop VLM (one request at a time) overlaps
+    another's OCR. No source starts once `deadline` (time.monotonic()) has
+    passed. A source whose read raises is logged (the source and the
+    traceback) and stands as `failed(item, error)`'s result, or is left out:
+    one bad page never stops a run.
+  - lock(): one run per ledger, so a long full pass and the nightly never
+    write the same ledger at once.
+  - A ledger is append-only jsonl, one row per source read, the last row
+    for a source standing (ledger_rows()): append() adds rows under a hold
+    on the ledger's lock lasting only the write, so the per-edition units of
+    tools/edition_queue.py each add their own row and none rewrites another's;
+    a run holding the lock throughout (lock()) may rewrite it whole, and
+    compact() folds it to one row a source. source_lock() keeps two units off
+    one source.
+  - request_reread(): an annotation that met a misread clue on an OCR'd
+    puzzle (tools/annotate_check.py: a printedClue filed, or a rejection on a
+    clue-text check) asks for its source to be read again. A request is open
+    while the filer's ledger row for that source was last read before it
+    ("readAt"), so the re-read itself closes it; the burn
+    (tools/prereset_plan.py --backlog) leaves a puzzle with an open request
+    alone, and tools/ocr_full_pass.sh reads the requested sources
+    (`python3 tools/scan_queue.py requested <filer> [paper]`). One request per
+    puzzle per reading of its clues: a re-read that gives the same clues
+    leaves the puzzle annotatable, and its next failure asks for nothing.
+
+    python3 tools/scan_queue.py requested archive times   # open editions, one a line
+    python3 tools/scan_queue.py requested trove           # open articles
+    python3 tools/scan_queue.py open                      # puzzle ids waiting on a re-read
+    python3 tools/scan_queue.py conflicted COMMIT [WHY]   # ask re-reads for a commit set aside
+
+  - conflicted(): a filing commit that will not replay onto origin/master
+    (tools/push_puzzle_commit.sh's CONFLICT: another job filed the same
+    puzzle meanwhile) is set aside by tools/durable.sh, origin's version
+    standing; each puzzle it filed asks for its source to be read again
+    ("pushConflict"), so the next read files over origin's file and nothing
+    its reading held is lost. Exit 1 when a path it changed has no re-read
+    (not an OCR'd puzzle, or not a puzzle): the caller keeps the commit.
+    WHY "pushRefused": the commit origin's pre-push refuses (made by a job on
+    older code; tools/durable.sh's durable_refused), read again with
+    origin's code once the job's tree has moved there.
+"""
+import contextlib
+import datetime
+import functools
+import hashlib
+import importlib
+import json
+import multiprocessing
+import os
+import sys
+import threading
+import time
+import traceback
+from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
+from concurrent.futures.process import BrokenProcessPool
+from pathlib import Path
+
+import downloads
+import media_manifest
+
+#: The modules file_puzzle() loads lazily (importing this module must not
+#: load them), which parallel() loads up front.
+WRITE_PATH_MODULES = ("ocr_clues", "puzzle_integrity", "repair_fetched")
+
+def now():
+    return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+
+
+def when(text):
+    """The datetime an ISO `text` names ("now": this moment), None for None:
+    a --reread BEFORE."""
+    if text is None:
+        return None
+    if text == "now":
+        return datetime.datetime.now(datetime.timezone.utc)
+    return _parse_when(text)
+
+
+@functools.lru_cache(maxsize=None)
+def _parse_when(text):
+    """`when` of a fixed ISO text, parsed once (a plan asks ~50k times, off
+    a few thousand distinct stamps)."""
+    t = datetime.datetime.fromisoformat(text)
+    return t if t.tzinfo else t.replace(tzinfo=datetime.timezone.utc)
+
+
+def read_before(row, t):
+    """Whether ledger `row` was last read before datetime `t` (no "readAt":
+    it was)."""
+    at = row.get("readAt")
+    return not at or when(at) < t
+
+
+def order(keys, rows, unread):
+    """`keys` (in the caller's order) with the never-read first, then the
+    rest by their row's "readAt", oldest first (none: first of all)."""
+    fresh = [k for k in keys if unread(rows.get(k))]
+    stale = [k for k in keys if not unread(rows.get(k))]
+    stale.sort(key=lambda k: rows[k].get("readAt") or "")
+    return fresh + stale
+
+
+def lock_path(ledger, suffix=".lock"):
+    """Where `ledger`'s lock lives (suffix ".locks": its sources' lock dir):
+    beside it (<ledger stem>.lock), but on the SSD (media_manifest.DIR,
+    "<its folder>-<stem>.lock") for a ledger on the media disk, so a tick
+    that checks or takes a lock spins nothing."""
+    ledger = Path(ledger)
+    if media_manifest.on_media(ledger):
+        media_manifest.DIR.mkdir(parents=True, exist_ok=True)
+        return media_manifest.DIR / f"{ledger.parent.name}-{ledger.stem}{suffix}"
+    return ledger.with_suffix(suffix)
+
+
+def stamp_path(ledger):
+    """Where `ledger`'s stamp lives: beside its lock on the SSD (lock_path)."""
+    return lock_path(ledger, ".stamp")
+
+
+def stamped(ledger):
+    """Whether `ledger` keeps an SSD stamp (stamp): it is on the media disk,
+    not in media_manifest.DIR (an SSD ledger such as trove-filed.jsonl, which
+    a test's CT_DOWNLOADS puts under the downloads root). Path arithmetic only."""
+    d = os.path.abspath(media_manifest.DIR)
+    f = os.path.abspath(ledger)
+    return media_manifest.on_media(f) and not (f == d or f.startswith(d + os.sep))
+
+
+def stamp(ledger):
+    """Write `ledger`'s [size, mtime_ns] (null when it is missing) to its SSD
+    stamp, for a ledger on the media disk: each writer calls it under the
+    ledger's lock right after it writes, so a tick (corpus_queue.ledger_marks)
+    reads the stamp and stats nothing on that disk."""
+    ledger = Path(ledger)
+    if not stamped(ledger):
+        return
+    try:
+        st = ledger.stat()
+        mark = [st.st_size, st.st_mtime_ns]
+    except FileNotFoundError:
+        mark = None
+    path = stamp_path(ledger)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(mark))
+    os.replace(tmp, path)
+    return mark
+
+
+def ledger_mark(ledger):
+    """`ledger`'s [size, mtime_ns] as its writers last stamped it (stamp), or
+    None when it is missing: off the SSD for a ledger on the media disk
+    (stamped), the stamp filled off the disk once when no writer has stamped
+    it yet; a stat of any other path (an SSD ledger or manifest)."""
+    ledger = Path(ledger)
+    if stamped(ledger):
+        try:
+            return json.loads(stamp_path(ledger).read_text())
+        except (FileNotFoundError, ValueError):
+            return stamp(ledger)
+    return _stat_mark(ledger)
+
+
+def _stat_mark(ledger):
+    """ledger_mark of a ledger off the media disk (an SSD one, a test's): a stat."""
+    try:
+        st = ledger.stat()
+        return [st.st_size, st.st_mtime_ns]
+    except OSError:
+        return None
+
+
+@contextlib.contextmanager
+def lock(ledger, wait_for_it=False):
+    """Yields whether this run holds `ledger`'s lock (lock_path); with
+    `wait_for_it`, waits for it instead of yielding False."""
+    import fcntl  # here, not at the top: the desktop (Windows) imports this module, never locks
+    path = lock_path(ledger)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            if not wait_for_it:
+                yield False
+                return
+            # Said before blocking, so a log that stops here says why.
+            print(f"{time.strftime('%H:%M:%S')} waiting for another run's hold on {path}",
+                  file=sys.stderr, flush=True)
+            fcntl.flock(f, fcntl.LOCK_EX)
+        yield True
+
+
+def parse_line(line, where=None):
+    """The rows in one ledger line (str or bytes), as a list. A torn line
+    (two appenders over SMB can cut one row short, pad it with NULs and run
+    the other's text on) has its NULs stripped; if it still does not parse,
+    each complete JSON object found from a '{' is kept and the rest skipped,
+    with one short stderr note naming `where` (file:line). Never raises: a
+    skipped row just leaves its page due again."""
+    if isinstance(line, bytes):
+        line = line.decode("utf-8", "replace")
+    clean = line.replace("\x00", "")
+    try:
+        row = _ROW_DECODER.decode(clean)
+        return [row] if isinstance(row, dict) else []
+    except ValueError:
+        pass
+    if isinstance(where, tuple):  # (file name, line number), joined only for a torn line
+        where = f"{where[0]}:{where[1]}"
+    dec, rows, i = json.JSONDecoder(), [], clean.find("{")
+    while i >= 0:
+        try:
+            row, end = dec.raw_decode(clean, i)
+        except ValueError:
+            i = clean.find("{", i + 1)
+            continue
+        if isinstance(row, dict):
+            rows.append(row)
+        i = clean.find("{", end)
+    print(f"torn ledger line {where or clean[:40]!r}: kept {len(rows)} row(s)", file=sys.stderr, flush=True)
+    return rows
+
+
+def ledger_rows(path, key):
+    """{row[key]: row} of a jsonl ledger, the last row for a key standing;
+    {} when it is missing. A final line still being appended (no newline
+    yet) is not a row. A torn line is read by parse_line."""
+    # Streamed a line at a time (the ledger's text, 50+ MB for filed-gale, and its split lines were
+    # each held whole beside the rows); a last line without its newline is still no row.
+    try:
+        f = open(path, encoding="utf-8", errors="replace")
+    except FileNotFoundError:
+        return {}
+    out = {}
+    with f:
+        for n, line in enumerate(f, 1):
+            if not line.endswith("\n"):
+                break
+            if line.strip():
+                for row in parse_line(line[:-1], f"{path.name}:{n}"):
+                    if key in row:
+                        out[row[key]] = row
+    return out
+
+
+def _interned(row):
+    """A parsed row with its keys interned (and its dict values' own): a ledger's 70k rows each held
+    their own copy of every key (json's key memo lives one parse), ~130 MB of strings in a unit that
+    read filed-gale. Equal to `row`; the C decoder does the parsing, this only swaps key objects."""
+    intern = sys.intern
+    return {intern(k): ({intern(a): b for a, b in v.items()} if type(v) is dict else v) for k, v in row.items()}
+
+
+class _RowDecoder:
+    @staticmethod
+    def decode(text):
+        row = json.loads(text)
+        return _interned(row) if isinstance(row, dict) else row
+
+
+_ROW_DECODER = _RowDecoder
+
+
+def append(ledger, rows):
+    """Add `rows` to `ledger`, one line each, in one write, under its lock
+    held only for that write (a run holding it throughout keeps this
+    waiting: append runs only when lock() is not held for a whole run)."""
+    import fcntl
+    if not rows:
+        return
+    vlm_guard(f"{ledger.name} row")
+    data = "".join(json.dumps(r) + "\n" for r in rows).encode()
+    ledger.parent.mkdir(parents=True, exist_ok=True)
+    with open(lock_path(ledger), "w") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        fd = os.open(ledger, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+        try:
+            os.write(fd, data)
+        finally:
+            os.close(fd)
+        stamp(ledger)
+
+
+def vlm_guard(what):
+    """The one place a read's record meets the VLM rule (vlm_reader.guard):
+    in a read unit the queue started, a read that wanted the VLM and went
+    without it (down from the start, or lost mid-edition) raises
+    vlm_reader.Down here, before `what` (a puzzle write, a ledger row) is
+    written, so the edition stays due and is read whole once it answers.
+    A process that never loaded vlm_reader never asked it."""
+    vlm = sys.modules.get("vlm_reader")
+    if vlm is not None:
+        vlm.guard(what)
+
+
+def vlm_down(e):
+    """Whether `e` is vlm_reader.Down: a read that must wait for the VLM, never a verdict.
+    Also any error in a queue's read (DEFER_ENV) that had lost the VLM mid-read (an ask failed:
+    ConnectionResetError when the game guard stops llama-swap): that read defers, it did not fail."""
+    vlm = sys.modules.get("vlm_reader")
+    if vlm is None:
+        return False
+    return isinstance(e, vlm.Down) or bool(os.environ.get(vlm.DEFER_ENV) and vlm.missed())
+
+
+def compact(ledger, key):
+    """Rewrite `ledger` to one row a source (whole-or-none), unless a run
+    holds its lock; returns (rows before, rows after), None when held."""
+    import fcntl
+    if not ledger.exists():
+        return 0, 0
+    with open(lock_path(ledger), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return None
+        text = ledger.read_text(encoding="utf-8")
+        before = sum(1 for line in text.splitlines() if line.strip())
+        rows = ledger_rows(ledger, key)
+        out = "".join(json.dumps(r) + "\n" for r in rows.values())
+        if out == text:
+            # Already one row a source: a rewrite would give the file a new inode and mtime, and every
+            # reader's incremental fold (dir_cache.appended) would parse it whole again.
+            return before, len(rows)
+        tmp = ledger.with_suffix(".tmp")
+        tmp.write_text(out, encoding="utf-8")
+        tmp.replace(ledger)
+        stamp(ledger)
+        return before, len(rows)
+
+
+#: How long a unit waits out a hold on its ledger before it ends "held": a
+#: slice's upkeep (edition_queue.ledger_upkeep: compact(), tens of seconds on
+#: the media mount) holds it as the slice's first units start, and those
+#: ended at once left the desktop idle until the next plan (10-13); a batch
+#: run holding it throughout outlasts this.
+UNIT_HOLD_WAIT = 180
+
+
+def held(ledger, wait=0):
+    """Whether a run holds `ledger`'s lock, still after `wait` seconds."""
+    import fcntl
+    path = lock_path(ledger)
+    if not path.exists():
+        return False
+    deadline = time.monotonic() + wait
+    with open(path, "a") as f:
+        while True:
+            try:
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                if time.monotonic() >= deadline:
+                    return True
+                time.sleep(min(1.0, max(0.05, deadline - time.monotonic())))
+        fcntl.flock(f, fcntl.LOCK_UN)
+    return False
+
+
+@contextlib.contextmanager
+def source_lock(ledger, source):
+    """Yields whether this process holds `source`'s own lock (beside
+    `ledger`, in <ledger stem>.locks/), never waiting: a source being read
+    by another unit is not read twice."""
+    import fcntl
+    d = lock_path(ledger, ".locks")
+    d.mkdir(parents=True, exist_ok=True)
+    with open(d / (hashlib.sha256(source.encode()).hexdigest()[:20] + ".lock"), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            yield False
+            return
+        yield True
+
+
+def failure(item, e):
+    """The log line for `item`'s read raising `e`: the source and the whole
+    traceback (a worker's included), so the log says what to look at."""
+    text = "".join(traceback.format_exception(e)).rstrip()
+    print(f"{time.strftime('%H:%M:%S')} failed {item[0]}: {type(e).__name__}: {e}\n{text}",
+          file=sys.stderr, flush=True)
+    return f"{type(e).__name__}: {e}"
+
+
+def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
+    """Write `puzzle` to `path`, noting the outcome on `verdict`; True when
+    written. A clue holding another clue's or the page's text
+    (ocr_clues.bled), or a write puzzle_integrity refuses, is a
+    refusedWrite; any other raise is a writeFailed, logged with its
+    traceback: one puzzle that cannot be written never stops a run. A
+    read that went without the VLM it wanted does stop (vlm_guard)."""
+    vlm_guard(f"{puzzle.get('id')}")
+    import ocr_clues
+    import puzzle_integrity  # it imports the write path, so not at the top
+    bleed = [f"{e.get('number')}-{e.get('direction')} {why}" for e in puzzle.get("entries") or ()
+             if (why := ocr_clues.bled((e.get("clue") or {}).get("text"), (e.get("clue") or {}).get("asPrinted") or ()))]
+    if bleed:
+        verdict["refusedWrite"] = f"refusing to write {puzzle.get('id')}: " + "; ".join(bleed)
+        return False
+    # What the sweep (tools/repair_fetched.py) would mend in this reading is
+    # mended as it is filed, so a re-read never costs a second pass.
+    import repair_fetched
+    puzzle, _ = repair_fetched.mechanical(puzzle, generator)
+    try:
+        write_puzzle_file(path, puzzle, generator=generator)
+    except puzzle_integrity.RefusedWrite as e:
+        verdict["refusedWrite"] = str(e)
+    except Exception as e:  # any raise: one bad puzzle is a verdict, not a crash
+        verdict["writeFailed"] = failure((puzzle.get("id"),), e)
+    else:
+        verdict["wrote"] = True
+        return True
+    return False
+
+
+def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed=None):
+    """Yields (item, fn(*item)) as each finishes, at most `workers` at once
+    (1: in this process, in order). `init(*initargs)` runs first in each
+    process. No item starts once `deadline` has passed. An item whose fn
+    raises is logged and yields (item, failed(item, "Type: message")), or
+    nothing without `failed`. A dead pool (a worker killed) still raises:
+    that is the host, not the item."""
+    # One snapshot of the code for the whole run: the write path loads
+    # puzzle_integrity lazily, and a checkout that moved since this process
+    # started would pair its new file with the older modules already loaded.
+    for name in WRITE_PATH_MODULES:
+        importlib.import_module(name)
+    def due():
+        return deadline is not None and time.monotonic() >= deadline
+    items = iter(items)
+    if workers <= 1:
+        if init:
+            init(*initargs)
+        for item in items:
+            if due():
+                return
+            try:
+                result = fn(*item)
+            except Exception as e:  # any raise: one bad source is logged, not the run's end
+                if vlm_down(e) or downloads.media_down(e):
+                    raise  # the VLM or the media share down: the unit ends deferred (vlm_guard), not one bad source
+                error = failure(item, e)
+                if failed is not None:
+                    yield item, failed(item, error)
+                continue
+            yield item, result
+        return
+    # Forked, so a worker starts with the parent's lexicon and modules loaded
+    # (the parent loads no OCR model, so no thread is forked mid-call).
+    method = "fork" if "fork" in multiprocessing.get_all_start_methods() else "spawn"
+    with ProcessPoolExecutor(workers, mp_context=multiprocessing.get_context(method),
+                             initializer=init, initargs=initargs) as pool:
+        running = {}
+
+        def top_up():
+            while len(running) < workers and not due():
+                item = next(items, None)
+                if item is None:
+                    return
+                running[pool.submit(fn, *item)] = item
+        top_up()
+        while running:
+            done, _ = wait(running, return_when=FIRST_COMPLETED)
+            for fut in done:
+                item = running.pop(fut)
+                try:
+                    result = fut.result()
+                except BrokenProcessPool:
+                    raise
+                except Exception as e:  # any raise: one bad source is logged, not the run's end
+                    if vlm_down(e) or downloads.media_down(e):
+                        raise
+                    error = failure(item, e)
+                    if failed is not None:
+                        yield item, failed(item, error)
+                    continue
+                yield item, result
+            top_up()
+
+
+#: Each filer's ledger, the one place a source's last read ("readAt") is kept.
+#: Each scan filer's ledger; "gale" is the archive filer's for the Gale
+#: Times pages (file_archive_org_puzzles.GALE), its rows the archive filer's.
+LEDGERS = {"archive": downloads.ARCHIVE_ORG / "filed.jsonl", "gale": downloads.GALE_LEDGER,
+           "trove": media_manifest.trove_ledger(downloads.TROVE)}
+#: The re-read requests, appended to by annotation runs in any worktree.
+REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
+                or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
+
+
+#: {path: (stat key, bytes consumed, digest of their ends, rows, lines consumed)}:
+#: a file's parsed rows. Unchanged (inode, size, mtime_ns): reused. Grown, same
+#: inode: the first and last PARSED_EDGE bytes of what was consumed are hashed
+#: again and, if they match, only the appended bytes are read and parsed (the
+#: live ledgers are appended to all the time). It used to read and hash the
+#: whole file on every append: 109 MB from /Volumes for each of the ~1600
+#: request_reread calls in clue_cutoff.gate while a filer was appending, and on
+#: 11-08 the burn's --backlog sat 40+ minutes in it at nice 19.
+_PARSED = {}
+PARSED_EDGE = 1 << 16
+
+
+def _edges(f, size):
+    """blake2b of the first and last PARSED_EDGE bytes of f's first `size` bytes."""
+    h = hashlib.blake2b(str(size).encode())
+    f.seek(0)
+    h.update(f.read(min(size, PARSED_EDGE)))
+    if size > PARSED_EDGE:
+        start = max(PARSED_EDGE, size - PARSED_EDGE)
+        f.seek(start)
+        h.update(f.read(size - start))
+    return h.digest()
+
+
+def _parsed(path):
+    """A jsonl file's rows as a tuple (shared: do not mutate). A final line
+    still being appended (no newline yet) is not a row."""
+    try:
+        with open(path, "rb") as f:
+            st = os.fstat(f.fileno())
+            key = (st.st_ino, st.st_size, st.st_mtime_ns)
+            hit = _PARSED.get(path)
+            if hit and hit[0] == key:
+                return hit[3]
+            done, rows, lines = 0, (), 0
+            if hit and hit[0][0] == key[0] and hit[1] <= st.st_size and _edges(f, hit[1]) == hit[2]:
+                done, rows, lines = hit[1], hit[3], hit[4]
+            f.seek(done)
+            data = f.read()
+            size = done + len(data)
+            chunk = data[:data.rfind(b"\n") + 1]
+            end = done + len(chunk)
+            name = Path(path).name  # once: built per line it was 6s of a 96MB cold read
+            new = tuple(r for n, line in enumerate(chunk.split(b"\n"), lines + 1) if line.strip()
+                        for r in parse_line(line, (name, n)))
+            digest = _edges(f, end)
+    except FileNotFoundError:
+        _PARSED.pop(path, None)
+        return ()
+    rows = rows + new
+    _PARSED[path] = (key if size == st.st_size else (key[0], -1, 0), end, digest, rows,
+                     lines + chunk.count(b"\n"))
+    return rows
+
+
+def jsonl_rows(path):
+    """A jsonl file's rows, in order; none when it is missing."""
+    return list(_parsed(path))
+
+
+def sources():
+    """{puzzle id: (filer, source key, ledger row)} for every puzzle a scan
+    filer's ledger says it read: an archive.org edition's verdicts, a Trove
+    article's id (its last row: the Trove ledger is appended to). The same
+    dict (shared: do not mutate) while no ledger moved (_parsed hands back
+    the same tuple of rows), as a plan asks it of four requests' sources."""
+    return _sources_state()
+
+
+def forget_parsed(path):
+    """Drop _parsed's rows of `path`: a one-off pass over a whole ledger (rekey_scans) would else keep
+    every row of it (~1 GB across the three ledgers) in the long-lived queue process."""
+    _PARSED.pop(path, None)
+
+
+#: {path: (stat key, bytes consumed, digest of their ends, lines consumed, {puzzle id: last row naming
+#: it} or {article: last row})}: _kept's compact state of a ledger (see there).
+_KEPT = {}
+_KEPT_LOCK = threading.Lock()
+_KEPT_FORMAT = 1
+
+
+def _kept_file(path, trove):
+    """Where _kept saves its state of `path` between processes, or None for a ledger under the temp
+    dir (a test's scratch copy: nothing to carry over, and it would only litter the cache)."""
+    import tempfile
+    p = os.path.abspath(path)
+    if p.startswith(os.path.abspath(tempfile.gettempdir()) + os.sep):
+        return None
+    base = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache") / "cryptic-teacher"
+    return base / f"scan-kept-{hashlib.sha1(f'{p}|{trove}'.encode()).hexdigest()[:16]}.pickle"
+
+
+def _kept_load(path, trove):
+    """The state _kept saved of `path` in an earlier process, or None. It is only a head start: _kept
+    checks its stat key, or the edges of the bytes it consumed, before trusting it."""
+    import pickle
+    saved = _kept_file(path, trove)
+    try:
+        with open(saved, "rb") as f:
+            got = pickle.load(f)
+        if got[0] == _KEPT_FORMAT and got[1] == os.path.abspath(path):
+            return got[2]
+    except (OSError, ValueError, LookupError, TypeError, AttributeError, ImportError, EOFError, pickle.UnpicklingError):
+        pass  # missing, torn or from other code: read the ledger
+    return None
+
+
+def _kept_save(path, trove, state):
+    """Save _kept's state of `path` whole (write beside, then replace), so a process that starts next
+    parses only the bytes appended since: a cold --backlog parsed ~180k ledger rows, 20+ CPU seconds, every re-plan."""
+    import pickle
+    saved = _kept_file(path, trove)
+    if saved is None:
+        return
+    tmp = saved.with_name(f"{saved.name}.{os.getpid()}.tmp")
+    try:
+        saved.parent.mkdir(parents=True, exist_ok=True)
+        with open(tmp, "wb") as f:
+            pickle.dump((_KEPT_FORMAT, os.path.abspath(path), state), f, protocol=pickle.HIGHEST_PROTOCOL)
+        os.replace(tmp, saved)
+    except (OSError, pickle.PicklingError, RecursionError):
+        with contextlib.suppress(OSError):
+            os.unlink(tmp)
+
+
+def _kept(path, trove=False):
+    """({puzzle id: the last row of `path` with a verdict of that id}, or for `trove` {article: its last
+    row}), read like _parsed (appended bytes only while the file's edges stand, streamed a line at a time)
+    but holding only the rows sources() answers from: _parsed kept every row of the ledger, each re-read's
+    superseded rows too, ~850 MB resident (11-14 RAMcensus: the queue parent's biggest holder). The dict
+    is shared (do not mutate); a file that moved gets a new one."""
+    with _KEPT_LOCK:
+        try:
+            with open(path, "rb") as f:
+                st = os.fstat(f.fileno())
+                key = (st.st_ino, st.st_size, st.st_mtime_ns)
+                hit = _KEPT.get(path)
+                loaded = None
+                if hit is None:
+                    hit = loaded = _kept_load(path, trove)
+                    if hit is not None:
+                        _KEPT[path] = hit
+                if hit and hit[0] == key:
+                    return hit[4]
+                done, lines, held = 0, 0, {}
+                if hit and hit[0][0] == key[0] and hit[1] <= st.st_size and _edges(f, hit[1]) == hit[2]:
+                    done, lines, held = hit[1], hit[3], dict(hit[4])
+                f.seek(done)
+                name = Path(path).name
+                for line in f:
+                    if not line.endswith(b"\n"):  # still being appended: not a row yet
+                        break
+                    done += len(line)
+                    lines += 1
+                    if line.strip():
+                        for row in parse_line(line, (name, lines)):
+                            if trove:
+                                held[row["article"]] = row
+                            else:
+                                for v in row.get("verdicts") or ():
+                                    if v.get("id"):
+                                        held[v["id"]] = row
+                size = f.tell()
+                digest = _edges(f, done)
+        except FileNotFoundError:
+            _KEPT.pop(path, None)
+            return {}
+        _KEPT[path] = (key if size == st.st_size else (key[0], -1, 0), done, digest, lines, held)
+        if (loaded is not None or hit is None) and lines != (hit[3] if hit else 0):  # a process's first read only
+            _kept_save(path, trove, _KEPT[path])
+        return held
+
+
+def _sources_state():
+    """sources(), kept while the ledgers' kept rows are the same objects."""
+    keys = [key for key in ("archive", "gale") if key in LEDGERS]
+    parts = [_kept(LEDGERS[key]) for key in keys] + [_kept(LEDGERS["trove"], trove=True)]
+    hit = _SOURCES_MEMO[0]
+    if hit is not None and hit[0] == keys and len(hit[1]) == len(parts) \
+            and all(x is y for x, y in zip(hit[1], parts)):
+        return hit[2]
+    out = {}
+    for held in parts[:-1]:
+        for pid, row in held.items():
+            out[pid] = ("archive", row["edition"], row)
+    for row in parts[-1].values():
+        if row.get("id"):
+            out[row["id"]] = ("trove", row["article"], row)
+    _SOURCES_MEMO[0] = (keys, parts, out)
+    return out
+
+
+def source_of(pid):
+    """sources().get(pid), read off the ledgers a line at a time, parsing only
+    the lines that name `pid` (and every Trove line, whose last row per
+    article decides). For a caller asking about one puzzle: sources() holds
+    every row of ~130MB of ledgers, ~850MB resident (11-14: annotate_check
+    --reread at 780MB for a single puzzle)."""
+    want = json.dumps(pid).encode()
+    found = None
+    for key in ("archive", "gale"):
+        if key not in LEDGERS:
+            continue
+        name = Path(LEDGERS[key]).name
+        for n, line in _complete_lines(LEDGERS[key]):
+            if want not in line and not (b"\x00" in line and want in line.replace(b"\x00", b"")):
+                continue
+            for row in parse_line(line, (name, n)):
+                if any(v.get("id") == pid for v in row.get("verdicts") or ()):
+                    found = ("archive", row["edition"], row)
+    trove = {}  # article: its last row if that row is pid's, else None
+    name = Path(LEDGERS["trove"]).name
+    for n, line in _complete_lines(LEDGERS["trove"]):
+        for row in parse_line(line, (name, n)):
+            trove[row["article"]] = row if row.get("id") == pid else None
+    for row in trove.values():
+        if row is not None:
+            found = ("trove", row["article"], row)
+    return found
+
+
+def _complete_lines(path):
+    """(line number, bytes) of each non-blank line of `path` that ends in a
+    newline, as _parsed reads it: a final line still being appended is not a
+    row. None when the file is missing."""
+    try:
+        with open(path, "rb") as f:
+            for n, line in enumerate(f, 1):
+                if line.endswith(b"\n") and line.strip():
+                    yield n, line
+    except FileNotFoundError:
+        return
+
+
+def _sorted_sources(known):
+    """(sorted items of `known`, _by_source of it): sources()'s answer, which
+    is the same dict until a ledger moves, derived once (tests that swap
+    sources() hand another dict and get their own)."""
+    hit = _DERIVED_MEMO[0]
+    if hit is None or hit[0] is not known:
+        hit = _DERIVED_MEMO[0] = (known, sorted(known.items()), _by_source(known))
+    return hit[1], hit[2]
+
+
+_DERIVED_MEMO = [None]
+
+
+#: (ledger keys, their parsed row tuples, sources()) of the last call.
+_SOURCES_MEMO = [None]
+
+
+def clue_key(entries):
+    """A hash of the clues as read: [(entry id, printed clue)]."""
+    return hashlib.sha256(json.dumps(sorted(entries)).encode()).hexdigest()[:16]
+
+
+def _by_source(known):
+    """{(filer, source key): ledger row} of sources()'s answer."""
+    return {(filer, key): row for filer, key, row in known.values()}
+
+
+def requests():
+    return jsonl_rows(REQUESTS)
+
+
+def open_requests():
+    """The requests whose source has not been read since."""
+    by = _sorted_sources(sources())[1]
+    out = []
+    for r in requests():
+        row = by.get((r["filer"], r["source"]))
+        if row is None or read_before(row, when(r["requestedAt"])):
+            out.append(r)
+    return out
+
+
+#: Reads before this moment predate the re-read requests; a puzzle
+#: they left with a printedClue row has not been re-read since.
+FLAGGED_BEFORE = "2026-10-05T07:26:02-06:00"
+
+
+def flagged_requests():
+    """A request per puzzle that has a source_clue_wrong row (a clue the
+    scan misprinted or the OCR misread) and whose filer-ledger source was
+    last read before FLAGGED_BEFORE: the same shape as request_reread's, so
+    the source's next read closes it. Derived from the table, so it cannot go
+    stale."""
+    import sharded_table
+    ids = {k.split("/", 1)[0] for k in sharded_table.load("source_clue_wrong")}
+    t = when(FLAGGED_BEFORE)
+    return [{"id": i, "filer": f, "source": key, "why": ["printedClue"], "requestedAt": FLAGGED_BEFORE}
+            for i, (f, key, row) in _sorted_sources(sources())[0] if i in ids and read_before(row, t)]
+
+
+#: Each clue-vote change that mends blanks a held scan read left, as (when
+#: it landed, the blank reasons it mends): each archive.org edition read
+#: before it with a clue held blank for one of its reasons is read again.
+#: The first is ocr_clues' speck between two words and clue cut at a line
+#: wrap; the second relaid()'s light no reading laid, which the scan's own
+#: readers now lay when they agree on its clue; the third join_split()'s
+#: word a reading broke at a kept hyphen or a speck read as a comma; the
+#: fifth ocr_clues' clue number or count read as letters (number_read),
+#: taken for a start or end the clue lost; the sixth suspect()'s word that
+#: drops its aitch after an apostrophe ("'igher"), refused as no word; the
+#: seventh join_split()'s word broken at a comma that one other reading also
+#: broke, or into two words, which most readings print whole; the eighth
+#: agree()'s figure run onto a word that no reading prints ("3Island",
+#: "said the1 Rev"), refused as a digit inside a word; the ninth agree()'s
+#: stop or middle dot glued between two words ("visionary.lose.his", "for
+#: .concealed"), refused as a stray mark inside a word, and the Times
+#: filer's word every reading spells alike ("ignis"), refused as no word;
+#: the tenth parted()'s misread most readings print whole as a known word
+#: ("reorgauized", once "re orgau ized") and agree()'s halves of a word
+#: joined once the next word is parted off ("orig inallyby"), refused as
+#: no word; the eleventh agree()'s first letter read as a bracket the clue
+#: never closes ("(ornwall"), dropped once the vote puts the letter back;
+#: the twelfth join_split()'s line-end halves every reading breaks ("phy,
+#: sics"), parted()'s corpus word kept whole ("Ignatius") and formed()'s
+#: de-, -ist and -ion for -or ("decentralization"), refused as no word;
+#: the last agree()'s count or next clue number run onto the clue's last
+#: word or its "?" ("for her7", "say?14") and letter read as its figure
+#: that the vote put back ("to0", "Result0f"), refused as a digit inside
+#: a word, and its last letter read as a bracket the clue never opened
+#: ("vita)"), dropped once the vote puts the letter back. The entry for "a
+#: stray letter" is unstrayed()'s lone letter read for the one short word
+#: the readings print between its neighbours ("throws d sprightly"). The
+#: 06:50 one is join_split()'s halves a letter off the one word most
+#: readings print whole ("Rea dins", "builds ngs"), held blank as no other
+#: reading has it, readings differ, or not a word. The 07:05 one is agree()
+#: passing figure-shaped specks ("is" for "(5)", "down i") at a clue's edge
+#: when no number or count is known (number_shaped), held as an end lost.
+#: The 07:31 one is agree() taking the clue's own edge word split or run
+#: apart in other readings ("broom slick", "prer criptious ?") as that word,
+#: not an end lost (edge_split). The 07:55 one is agree() not counting figure
+#: specks no word ("fS", "ll", "ii") as words seen at a clue's edge, so
+#: words one reading of many sees there are no end lost (figure_specks).
+#: The 08:10 one is consensus() taking the word one reading prints when
+#: every other reading lies within PRINTED_SLIPS of it ("with" for "ujLh /
+#: ujth"), held as readings differ. The 08:23 one is agree() taking a
+#: capital S a reader ran onto a word ("driveS", "STakes") as a vote for
+#: the word in a tie with its plural (speck_free), held as readings differ.
+#: The 09:07 one is agree() laying a clue no other reading prints word for
+#: word ("Yardous" for "Various") from the clue most of them print (relay).
+#: The 09:57 one is agree() re-laying a clue unless a reading prints every
+#: laid word in a row ("This bouse is surrounded trees"), held as readings
+#: differ, no other reading has, not a word, or an end lost.
+VOTE_MENDED = (
+    ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
+                                   "start is lost: other readings have")),
+    ("2026-10-09T09:45:00+00:00", ("no reading laid a clue on it",)),
+    ("2026-10-09T22:50:00+00:00", ("readings differ", "no other reading has", "not a word")),
+    ("2026-10-10T01:00:00+00:00", ("no other reading has",)),
+    ("2026-10-10T01:35:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
+    ("2026-10-10T14:30:00+00:00", ("not a word",)),
+    ("2026-10-10T20:00:00+00:00", ("readings differ", "not a word")),
+    ("2026-10-11T01:50:00+00:00", ("a digit inside a word",)),
+    ("2026-10-11T02:31:00+00:00", ("a stray mark inside a word", "not a word")),
+    ("2026-10-11T02:50:00+00:00", ("not a word",)),
+    ("2026-10-11T03:31:00+00:00", ("a bracket never closed or opened",)),
+    ("2026-10-11T04:12:00+00:00", ("not a word",)),
+    ("2026-10-11T04:40:00+00:00", ("a digit inside a word",)),
+    ("2026-10-11T05:00:00+00:00", ("a bracket never closed or opened",)),
+    ("2026-10-11T06:19:00+00:00", ("a stray mark inside a word",)),
+    ("2026-10-11T06:35:00+00:00", ("a stray letter",)),
+    ("2026-10-11T06:50:00+00:00", ("no other reading has", "readings differ", "not a word")),
+    ("2026-10-11T07:05:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
+    ("2026-10-11T07:31:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
+    ("2026-10-11T07:55:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
+    ("2026-10-11T08:10:00+00:00", ("readings differ",)),
+    ("2026-10-11T08:23:00+00:00", ("readings differ",)),
+    ("2026-10-11T08:42:00+00:00", ("no other reading has",)),
+    ("2026-10-11T09:07:00+00:00", ("no other reading has",)),
+    ("2026-10-11T09:38:00+00:00", ("no other reading has",)),
+    ("2026-10-11T09:57:44+00:00", ("readings differ", "no other reading has", "not a word", "agree on a non-word",
+                                   "end is lost: other readings have", "start is lost: other readings have")),
+)
+
+
+def vote_mended_requests():
+    """A request per held archive.org puzzle the VOTE_MENDED changes may now
+    file: a verdict with no file written whose every blank clue is one a
+    change made since its read mends (another blank would hold it again).
+    Derived from the ledger, so the re-read closes it."""
+    out = []
+    for i, (f, key, row) in _sorted_sources(sources())[0]:
+        if f != "archive":
+            continue
+        v = next((v for v in row.get("verdicts") or () if v.get("id") == i), {})
+        at = mended_at(row, v)
+        if at and not v.get("wrote"):
+            out.append({"id": i, "filer": f, "source": key, "why": ["voteMended"], "requestedAt": at})
+    return out
+
+
+def mended_at(row, verdict):
+    """When the last VOTE_MENDED change that mends a blank clue of
+    `verdict` (of ledger `row`) landed, if one landed since its read for
+    every blank clue it has; else None (none blank, or one no change mends)."""
+    try:
+        return _mended_at(row.get("readAt"), tuple((verdict.get("blank") or {}).values()))
+    except TypeError:  # an unhashable reason: not kept
+        return _mended_at.__wrapped__(row.get("readAt"), tuple((verdict.get("blank") or {}).values()))
+
+
+@functools.lru_cache(maxsize=65536)
+def _mended_at(read_at, whys):
+    """mended_at off the row's readAt and the reasons of the verdict's blank clues (pure, so kept: a plan asks ~30k)."""
+    read = when(read_at) if read_at else None
+    since = [(at, mends) for at, mends in VOTE_MENDED if read is None or read < when(at)]
+    due = [max((at for at, mends in since if any(m in why for m in mends)), default=None) for why in whys]
+    return max(due) if whys and all(due) else None
+
+
+#: When each scan filer learned to drop a misread count left after a
+#: clue's last word ("Overdone quality 7"), by filer: archive.org's vote
+#: (agree) and corrected_clues(), Trove's build(). A filed puzzle read
+#: before it with such a clue (count_left) is read again.
+COUNT_LEFT_AT = {"archive": "2026-10-11T05:39:14+00:00", "trove": "2026-10-11T06:04:08+00:00"}
+
+
+def count_left_requests():
+    """A request per filed scan puzzle read before its filer's
+    COUNT_LEFT_AT with a clue that ends in its count misread (count_left).
+    Derived from the files, so the re-read closes it."""
+    out = []
+    held = {}  # series: {id: its file}, one listing of the series' year folders a call
+    for i, (f, key, row) in _sorted_sources(sources())[0]:
+        if not read_before(row, when(COUNT_LEFT_AT[f])):
+            continue
+        path = _held_file(i, held)
+        if path is not None and _count_left_in(path):
+            out.append({"id": i, "filer": f, "source": key, "why": ["countLeft"], "requestedAt": COUNT_LEFT_AT[f]})
+    return out
+
+
+def _held_file(pid, held):
+    """puzzle_paths.find(pid) off one listing of its series' year folders
+    (kept in `held` for the call): find stats every year folder per id, ~60
+    stats each for the ~8k ids count_left_requests asks (two minutes a plan
+    on a loaded host). An id filed twice is find's to report."""
+    import puzzle_paths
+    series, _ = puzzle_paths.series_meta.parse_id(str(pid))
+    if not series:
+        return None
+    if series not in held:
+        held[series] = puzzle_paths.folder_listing(series)  # re-listed only when a year folder moved
+    if str(pid) not in held[series]:
+        return None
+    return held[series][str(pid)] or puzzle_paths.find(pid)
+
+
+#: {puzzle file: ((st_mtime_ns, st_size), whether a clue in it ends in its
+#: count misread)}: count_left_requests parses a file again only once its
+#: stat moves, not ~8k files every plan.
+_COUNT_LEFT = {}
+
+
+def _count_left_in(path):
+    from file_archive_org_puzzles import count_left
+    try:
+        st = path.stat()
+    except FileNotFoundError:
+        return False
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _COUNT_LEFT.get(path)
+    if hit is not None and hit[0] == stamp:
+        return hit[1]
+    entries = json.loads(path.read_text(encoding="utf-8")).get("entries") or ()
+    lights = {e["number"] for e in entries}
+    found = any(count_left((e.get("clue") or {}).get("text"), e.get("length"), lights) for e in entries)
+    _COUNT_LEFT[path] = (stamp, found)
+    _COUNT_LEFT_MOVED.append(path)
+    return found
+
+
+#: Files _count_left_in parsed since save_count_left last wrote _COUNT_LEFT.
+_COUNT_LEFT_MOVED = []
+
+
+def save_count_left(path):
+    """Write _COUNT_LEFT to `path` when a file was parsed since the last
+    save, for load_count_left in the next process (a re-exec or the next
+    slice): its first plan then parses only the files that moved."""
+    import pickle
+    if not _COUNT_LEFT_MOVED:
+        return
+    _COUNT_LEFT_MOVED.clear()
+    tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
+    os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
+    with open(tmp, "wb") as f:
+        pickle.dump(dict(_COUNT_LEFT), f, protocol=pickle.HIGHEST_PROTOCOL)
+    os.replace(tmp, path)
+
+
+def load_count_left(path):
+    """Take the parses save_count_left wrote; each stands only while its file's stat is unmoved."""
+    import pickle
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
+        return
+    for k, v in snap.items():
+        _COUNT_LEFT.setdefault(k, v)
+
+
+def all_open_requests():
+    return open_requests() + flagged_requests() + vote_mended_requests() + count_left_requests()
+
+
+def request_reread(puzzle, clues, why, one=False):
+    """Ask for `puzzle`'s source to be read again; `clues` is [(entry id,
+    printed clue)] as the source gave them, `why` the checks that met a
+    misread. Returns the request filed, or None: not an OCR channel
+    (provenance.OCR_CHANNELS, read off source.retrievedFrom), no filer
+    ledger names its source (a book has no re-read), or these clues were
+    asked about already, or the puzzle is in reread_unfixable.json. `one`:
+    the caller asks about this puzzle alone, so its source is read off the
+    ledgers (source_of), not out of every row held (sources())."""
+    import provenance
+    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return None
+    import clue_cutoff
+    if puzzle["id"] in clue_cutoff.unfixable():  # tools/data/reread_unfixable.json: a reread cannot mend it
+        return None
+    found = source_of(puzzle["id"]) if one else sources().get(puzzle["id"])
+    if found is None:
+        return None
+    key = clue_key(clues)
+    if any(r["id"] == puzzle["id"] and r["clues"] == key for r in requests()):
+        return None
+    req = {"id": puzzle["id"], "filer": found[0], "source": found[1], "clues": key,
+           "why": sorted(set(why)), "requestedAt": now()}
+    REQUESTS.parent.mkdir(parents=True, exist_ok=True)
+    with open(REQUESTS, "a", encoding="utf-8") as f:
+        f.write(json.dumps(req) + "\n")
+    return req
+
+
+def conflicted(commit, why="pushConflict"):
+    """Ask a re-read of each puzzle `commit` filed; [(path, request or None)]
+    for every path it changed, None where nothing re-reads it."""
+    import subprocess
+
+    import enumeration
+    from groups import entry_id
+    git = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout
+    out = []
+    for line in git("diff-tree", "--no-commit-id", "-r", "--name-status", "-M", commit).splitlines():
+        status, *paths = line.split("\t")
+        path = paths[-1]
+        req = None
+        if status[0] != "D" and path.startswith("puzzles/") and path.endswith(".json"):
+            puzzle = json.loads(git("show", f"{commit}:{path}"))
+            clues = [(entry_id(e), enumeration.printed(e["clue"])) for e in puzzle.get("entries") or ()]
+            req = request_reread(puzzle, clues, [why]) or next(
+                (r for r in open_requests() if r["id"] == puzzle.get("id")), None)
+        out.append((path, req))
+    return out
+
+
+def main(argv):
+    if argv[:1] == ["conflicted"] and len(argv) in (2, 3):
+        got = conflicted(*argv[1:])
+        for path, req in got:
+            print(f"{path}: " + (f"re-read asked of {req['filer']} {req['source']}" if req else "nothing re-reads it"))
+        return 0 if got and all(req for _, req in got) else 1
+    if argv[:1] == ["open"]:
+        print("\n".join(sorted({r["id"] for r in all_open_requests()})))
+        return 0
+    if argv[:1] == ["requested"] and len(argv) >= 2:
+        filer, paper = argv[1], (argv[2] if len(argv) > 2 else None)
+        def owns(source):
+            # The archive filer's papers by the edition's item, not the
+            # series: the Gale Times pages are a run (and ledger) of their own.
+            if not paper:
+                return True
+            import file_archive_org_puzzles as fa
+            return fa.filer_of(source) is fa.FILERS[paper]
+        print("\n".join(sorted({r["source"] for r in all_open_requests() if r["filer"] == filer
+                                and owns(r["source"])})))
+        return 0
+    print(__doc__, file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

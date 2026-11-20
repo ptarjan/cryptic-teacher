@@ -1,0 +1,142 @@
+/* Rebuild puzzles/index.json, puzzles/idx/ and the per-puzzle .js shims,
+   for the node harnesses.
+
+   All of them are generated from the puzzles/<series>/<year>/<id>.json sources and none are
+   committed, so a fresh clone has none and a working tree has whatever the last
+   rebuild left. Anything that reads one calls this first:
+
+     require("./reindex").reindex();
+
+   One call per process, however many times it is asked: tools/smoke_test.js
+   boots the app many times, nothing in a test process writes puzzle files, and
+   the rebuild is python reading every puzzle file.
+
+   Across processes (tools/fake_dom.js, tests/test_push_hold.js, and CI's build
+   step before any test starts) the work is skipped when the output is already
+   newer than everything it is derived from — see current() — which is the
+   ordinary state of both a developer's tree and a CI job whose build step has
+   already run.
+
+   It shells out to the same code path the site's build uses
+   (tools/fetch_puzzle.py --reindex) rather than reimplementing the manifest
+   here. A second implementation is a second answer to what a puzzle's content
+   hash and difficulty rating are, and the browser only ever sees the first. */
+const { execFileSync } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const pp = require("./puzzle_paths");
+
+const ROOT = path.join(__dirname, "..");
+const PUZZLES = path.join(ROOT, "puzzles");
+let built = false;
+
+// One pass over the puzzle sources (puzzles/<series>/<year>/<id>.json) and the
+// flat puzzles/<id>.js shims: the newest source mtime, how many sources there
+// are, and whether each has its shim. Stats rather than a content hash on
+// purpose — hashing the inputs means reading the whole corpus, which is most of what the
+// rebuild costs in the first place, and a stat is what tells us whether reading
+// them could possibly change the answer.
+function scanPuzzles() {
+  const files = pp.puzzleFiles(PUZZLES);
+  const js = new Set(fs.readdirSync(PUZZLES).filter((n) => n.endsWith(".js")).map((n) => n.slice(0, -3)));
+  let at = 0;
+  for (const f of files) {
+    const m = fs.statSync(f).mtimeMs;
+    if (m > at) at = m;
+  }
+  const ids = files.map((f) => path.basename(f, ".json"));
+  return { ids, at, shimmed: ids.every((id) => js.has(id)) };
+}
+
+// Newest mtime among the entries of `dir` whose name `keep` accepts.
+function newest(dir, keep) {
+  let at = 0;
+  for (const name of fs.readdirSync(dir)) {
+    if (keep(name)) {
+      const m = fs.statSync(path.join(dir, name)).mtimeMs;
+      if (m > at) at = m;
+    }
+  }
+  return at;
+}
+
+/* Is the index on disk already the index this rebuild would write?
+
+   True only when every input is OLDER than the output, which is what makes the
+   check conservative in the one direction that matters: anything it cannot
+   account for — a missing file, an unreadable directory, a clock that went
+   backwards — reads as stale and pays for a rebuild. A wrong "stale" is
+   slow; a wrong "current" is a test suite reading yesterday's corpus.
+
+   The inputs are the puzzle sources, and the code that turns them into a
+   manifest: fetch_puzzle.py itself, difficulty.py and the lexicon it scores
+   against, series.py. Named by directory rather than by file, so a new module
+   under tools/ is covered by existing here rather than by being added to a
+   list somebody forgets.
+
+   Mtimes alone cannot see a DELETED puzzle — removing a file leaves every
+   survivor older than the index that still lists it — so the count in the
+   manifest is held against the count of sources on disk as well.
+
+   The shims are checked for EXISTENCE, one per source, and never counted:
+   the reindex does not prune shims, so a tree that has had puzzles deleted carries
+   orphan .js files forever and a count would read as stale on every run —
+   which is a rebuild that cannot fix what it is reacting to. A checkout with
+   the manifest but not the shims cannot load a puzzle, and that is what this
+   catches. */
+function current() {
+  const out = ["index.json", "idx/head-live.json"].map((f) => {
+    try { return fs.statSync(path.join(PUZZLES, f)).mtimeMs; } catch (e) { return 0; }
+  });
+  const builtAt = Math.min(out[0], out[1]);
+  if (!builtAt) return false;
+
+  try {
+    const src = scanPuzzles();
+    if (src.at > builtAt || !src.shimmed) return false;
+
+    for (const [dir, keep] of [[path.join(ROOT, "tools"), (f) => f.endsWith(".py")],
+                               [path.join(ROOT, "tools", "data"), () => true]]) {
+      if (newest(dir, keep) > builtAt) return false;
+    }
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(PUZZLES, "index.json"), "utf8"));
+    return Array.isArray(manifest.puzzles) && manifest.puzzles.length === src.ids.length;
+  } catch (e) { return false; }   // anything unreadable is a tree to rebuild
+}
+
+function reindex() {
+  if (built) return;
+  built = true;
+  if (current()) return;
+  // stdout swallowed (one "indexed N puzzle(s)" line nobody reads), stderr kept:
+  // a python that is missing or a rebuild that fails must say so where the test
+  // output is, not silently leave a stale index behind.
+  // CI makes every row (free minutes); a local tree starts from the deploy's
+  // index, since a plain --reindex is refused there (a ~2000 CPU-s cold scan).
+  const mode = process.env.GITHUB_ACTIONS ? "--reindex" : "--reindex-from-deploy";
+  execFileSync("python3", [path.join(ROOT, "tools", "fetch_puzzle.py"), mode],
+    { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"] });
+}
+
+// The index for just these puzzle ids, for a tool that boots the app on a few:
+// fetch_puzzle.py --reindex with CT_REINDEX_IDS, which writes their shims and an
+// index listing only them. Always rebuilt (cheap), and it counts as this
+// process's reindex, so a later boot() does not start the full rebuild. The
+// next full reindex() sees the count mismatch and replaces it.
+//
+// Not when the full index is already current: it lists every id, so there is
+// nothing to save, and overwriting it with a few would hand every other reader
+// of puzzles/index.json a corpus of a few puzzles. In CI that is a smoke slice
+// booting beside test_ctc_hintcheck (shards run their PARALLEL items beside the
+// serial ones): its late boots found only times-28739 and listener-111 was "not
+// loaded".
+function scoped(ids) {
+  built = true;
+  if (current()) return;
+  execFileSync("python3", [path.join(ROOT, "tools", "fetch_puzzle.py"), "--reindex"],
+    { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"],
+      env: Object.assign({}, process.env, { CT_REINDEX_IDS: ids.join(",") }) });
+}
+
+module.exports = { reindex, scoped };

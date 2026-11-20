@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""Print everything needed to solve a puzzle cold: the clues and the grid's
+own constraints, as text a solver can hold in one piece.
+
+Handing a model the raw puzzle file does not work well — the answers a grid
+allows are a function of where entries cross, and that lives in x/y positions
+scattered across thirty objects. Precomputing the crossing map turns "letter 3
+of 1 across is letter 1 of 3 down" from something to be re-derived per clue
+into something stated once, which is the difference between the crossings
+being used and being ignored.
+
+Nothing here spends inference or touches the network; it is a view of a file
+we already have.
+
+Usage: python3 tools/solve_packet.py 30080
+"""
+import argparse
+
+import clues_only
+import puzzle_paths
+import nation_key  # the setters' printed notes for a Nation puzzle
+from fetch_puzzle import read_puzzle_view, resolve_puzzle
+from groups import entry_id
+from provenance import partial_lights, printed_answers
+
+
+def crossing_map(entries):
+    """entry id -> [(my position, other entry id, its position)], 1-based."""
+    cells = {}
+    for e in entries:
+        x, y = e["position"]["x"], e["position"]["y"]
+        for i in range(e["length"]):
+            cell = (x + i, y) if e["direction"] == "across" else (x, y + i)
+            cells.setdefault(cell, []).append((entry_id(e), i))
+    cross = {}
+    for occupants in cells.values():
+        if len(occupants) < 2:
+            continue
+        for a_id, a_i in occupants:
+            for b_id, b_i in occupants:
+                if a_id != b_id:
+                    cross.setdefault(a_id, []).append((a_i + 1, b_id, b_i + 1))
+    return cross
+
+
+def label(entry):
+    return f"{entry['number']}{'A' if entry['direction'] == 'across' else 'D'}"
+
+
+def packet(puzzle):
+    lines = [
+        f"{puzzle['name']} — setter {puzzle.get('setter') or 'unknown'}",
+        f"grid {puzzle['dimensions']['cols']}x{puzzle['dimensions']['rows']}, "
+        f"{len(puzzle['entries'])} entries",
+        "",
+    ]
+    cross = crossing_map(puzzle["entries"])
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    # The answers the paper printed, where it printed some (a scan that kept
+    # part of its answer grid): the fill must agree with them. A previous model
+    # fill is shown only where an annotation explains it: those clues are done,
+    # and a solve sent back for the reopened lights works out only those.
+    printed = printed_answers(puzzle)
+    reopened = (puzzle.get("solutions") or {}).get("reopened") or {}
+    explained = {entry_id(e): e["solution"] for e in puzzle["entries"]
+                 if e.get("solution") and e.get("annotation") and entry_id(e) not in printed}
+    if explained:
+        lines += [f"{len(explained)} answers below are solved and explained already: copy each "
+                  f"into your fill as given and work out only the rest. Change one only if no "
+                  f"answer to an open light fits its crossings, since a changed answer loses "
+                  f"its explanation.", ""]
+    open_lights = partial_lights(puzzle)
+    if open_lights:
+        lines += [f"{len(printed)} answers below come from a blog's write-up, which left "
+                  f"{len(open_lights)} light(s) out on purpose ({', '.join(open_lights)}). Every "
+                  f"given answer is right: copy each into your fill as given and work out only "
+                  f"the open lights, which must agree with every crossing.", ""]
+    notes = nation_key.notes_for(puzzle)
+    for e in sorted(puzzle["entries"],
+                    key=lambda e: (e["direction"], e["number"])):
+        lines.append(f"{entry_id(e)}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
+        if entry_id(e) in printed:
+            lines.append(f"    printed answer: {printed[entry_id(e)]} (the paper's own: your fill must agree)")
+        elif entry_id(e) in explained:
+            lines.append(f"    solved and explained: {explained[entry_id(e)]}")
+        elif reopened.get(entry_id(e)):
+            lines.append(f"    an earlier solve's {reopened[entry_id(e)]} was sent back: no parse "
+                         f"of this clue was found for it. Keep it only if you can derive it")
+        if notes.get(entry_id(e)):
+            lines.append(f"    the setters' own note on it: {notes[entry_id(e)]}")
+        pairs = sorted(cross.get(entry_id(e), []))
+        if pairs:
+            lines.append("    crossings: " + "; ".join(
+                f"pos{i}={label(by_id[other])}pos{j}" for i, other, j in pairs))
+    return "\n".join(lines)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("number", help="puzzle id or bare number")
+    args = ap.parse_args()
+    # A filed puzzle wins over a clues-only copy of the same id (a stale reading).
+    waiting = (clues_only.read(args.number)
+               if "-" in args.number and not puzzle_paths.find(args.number) else None)
+    if waiting is not None:
+        print(clues_only_packet(waiting))
+        return
+    path = resolve_puzzle(args.number)
+    print(packet(read_puzzle_view(path)))
+
+
+def clues_only_packet(record):
+    """The packet for a puzzle held as its clues alone (tools/clues_only.py):
+    the clues in order and the fill shape, since there is no grid to cross."""
+    if record.get("cluesUnplaced"):
+        return jigsaw_packet(record)
+    lines = [(f"{record['id']} is held as its clues alone: no grid yet, so no "
+              f"numbers and no crossing map. Fill shape, one answer per clue in "
+              f"the order below:"),
+             '    {"across": [{"answer": ..., "definition": ...}, ...], "down": [...]}',
+             ("--check-only derives the grid your answers cross in; it passes only "
+              "when exactly one grid holds them all, so a wrong answer shows as no "
+              "grid. A light's length is its own cells: a linked clue's answer is "
+              "split across its lights.")]
+    for direction in clues_only.DIRECTIONS:
+        lines.append(f"\n{direction.upper()}")
+        for i, light in enumerate(record["clues"][direction], 1):
+            clue = light["clue"]
+            count = f" ({clue['enumeration']})" if clue.get("enumeration") else ""
+            length = f" [{light['length']} cells]" if light.get("length") else ""
+            lines.append(f"  {i}. {clue.get('text', '')}{count}{length}")
+    return "\n".join(lines)
+
+
+def jigsaw_packet(record):
+    """The packet for a jigsaw held clues-only: its preamble, its one flat
+    list of clues, and the fill shape. Placing the answers is not the solve's
+    job: tools/apply_solution.py fits them into the grid."""
+    lines = [(f"{record['id']} is a JIGSAW: the paper printed its clues as one list, "
+              f"with no numbers and no across or down, under this instruction:"),
+             f"    {record.get('preamble') or '(no instruction printed)'}",
+             ("Answer each clue; do not place them. Fill shape, one answer per clue "
+              "in the order below:"),
+             '    {"unplaced": [{"answer": ..., "definition": ...}, ...]}',
+             ("--check-only fits your answers into the grid (tools/jigsaw_fit.py): the "
+              "one the paper printed, or with none printed the one grid they interlock "
+              "in. It passes only when they fill it exactly one way, so a wrong answer "
+              "shows as no fit. An answer longer than the grid is linked across two "
+              "lights: give it whole. An answer the instruction enters off the grid "
+              "takes no light: give it too, exactly its count long."),
+             "\nCLUES"]
+    for i, light in enumerate(record["clues"]["unplaced"], 1):
+        clue = light["clue"]
+        count = f" ({clue['enumeration']})" if clue.get("enumeration") else ""
+        length = f" [{light['length']} letters]" if light.get("length") else ""
+        lines.append(f"  {i}. {clue.get('text', '')}{count}{length}")
+    return "\n".join(lines)
+
+
+if __name__ == "__main__":
+    main()

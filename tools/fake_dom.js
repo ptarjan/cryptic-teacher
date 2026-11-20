@@ -1,0 +1,611 @@
+// The fake DOM that boots app.js under Node, shared by every harness that needs
+// to see what a learner sees.
+//
+// One stub, never a copy: the point of booting the real app.js is that the
+// harness cannot drift from the app, and two stubs drift from EACH OTHER as well. The hint ladder is built per clue by
+// ladderSteps() in app.js and nowhere else — any re-derivation in Python or in a
+// second stub is a guess about what the app shows, and a grader marking a guess
+// is worse than no grader.
+//
+//   const { boot } = require("./fake_dom.js");
+//   const dom = boot({ query: "?p=30078" });
+//   dom.registry["hint-body"].innerHTML
+//
+// Each boot() is independent: its own registry, its own localStorage, its own
+// FakeEl class closing over that registry. Call it once per puzzle. It does reassign
+// the Node globals app.js reads (window/document/localStorage/confirm/location),
+// so booting a second time invalidates the first — hold one at a time.
+"use strict";
+const fs = require("fs");
+const path = require("path");
+const { reindex } = require("./reindex.js");
+const idxBundles = {};
+const ROOT = path.join(__dirname, "..");
+const NATIVE_FETCH = global.fetch;
+// Node's own timers, taken once. A boot that read global.setTimeout instead
+// would wrap the previous boot's wrapper, so every booted app (its window, its
+// registry, the corpus index) stayed reachable from the current global: about
+// 18 MB a boot, and smoke_test's puzzle format block (two boots per migrated
+// puzzle) ran out of heap on the 7-per-series sample (10-13).
+const NODE_SET_TIMEOUT = global.setTimeout, NODE_CLEAR_TIMEOUT = global.clearTimeout;
+
+function bootApp(opts) {
+  const options = opts || {};
+  const registry = {};
+  const unpublish = (el) => {
+    if (el._id && registry[el._id] === el) delete registry[el._id];
+    (el.children || []).forEach(unpublish);
+  };
+
+  class FakeEl {
+    constructor(tag, id) {
+      this.tagName = (tag || "div").toUpperCase();
+      this.id = id || "";
+      this.children = [];
+      this._innerHTML = "";
+      this.writes = 0;
+      this.textContent = "";
+      this.value = "";
+      this.style = { setProperty(k, v) { this[k] = String(v); } };
+      this.listeners = {};
+      this.disabled = false;
+      this.classList = {
+        _set: new Set(),
+        add(...cs) { cs.forEach((c) => this._set.add(c)); },
+        remove(...cs) { cs.forEach((c) => this._set.delete(c)); },
+        toggle(c, force) {
+          const want = force === undefined ? !this._set.has(c) : !!force;
+          want ? this._set.add(c) : this._set.delete(c);
+          return want;
+        },
+        contains(c) { return this._set.has(c); }
+      };
+    }
+    // The real thing has this next to .children, and app code reads it to ask
+    // "is anything in here yet" without materialising the list.
+    get childElementCount() { return this.children.length; }
+    // Setting an id must publish the element, exactly as a real DOM does. Without
+    // this, an element built by createElement() is invisible to getElementById(),
+    // which then mints a SECOND, empty element under the same id — so app code and
+    // test code silently hold different objects and every assertion about a
+    // dynamically-created element (clue rows, hint buttons) is vacuous.
+    set id(v) { this._id = String(v || ""); if (this._id) registry[this._id] = this; }
+    // The other half of that rule: what leaves the page leaves the registry.
+    get id() { return this._id; }
+    set className(v) { this.classList._set = new Set(String(v).split(/\s+/).filter(Boolean)); }
+    get className() { return [...this.classList._set].join(" "); }
+    // Clearing a container really throws away what was in it, ids and all.
+    // Without the unpublish the registry goes on handing out discarded rows —
+    // getElementById returning a clue row from a puzzle that is no longer open
+    // — so a test that clicks one asserts about a dead element.
+    set innerHTML(v) {
+      // Every write is counted, because a write IS the cost: a browser throws
+      // the subtree away, reparses it and lays the block out again, and that is
+      // what a solver sees as the panel shivering while they type. Counting
+      // here is stronger than comparing markup — a node whose innerHTML was
+      // never assigned cannot have been torn down and rebuilt.
+      this.writes++;
+      this._innerHTML = String(v);
+      // ANY assignment discards the existing children, which is what a real DOM
+      // does. A pass that appends a button and then assigns innerHTML keeps one
+      // in a browser, so keeping both here would report a panel the solver
+      // never sees.
+      this.children.forEach(unpublish);
+      this.children = [];
+    }
+    get innerHTML() { return this._innerHTML; }
+    appendChild(el) {
+      this.children.push(el);
+      if (el.tagName === "SCRIPT" && el.onload) {
+        // emulate script loading synchronously
+        // app.js resolves the URLs it builds against the site root (see at()
+        // there), because the address bar is /puzzles/<id>/ once a puzzle is
+        // open. What a browser would fetch from the root is what this reads out
+        // of the repo. The ?v= cache-buster is not part of the path.
+        const rel = el.src.split("?")[0].replace(/^https?:\/\/[^/]+\//, "");
+        const p = path.join(ROOT, rel);
+        new Function("window", fs.readFileSync(p, "utf8"))(global.window);
+        el.onload();
+      }
+      return el;
+    }
+    // Moving a node, not copying one: a real insertBefore detaches it from
+    // wherever it was first, so a page that re-orders the same element on every
+    // render ends up with one of it rather than a growing pile.
+    insertBefore(el, ref) {
+      const was = this.children.indexOf(el);
+      if (was >= 0) this.children.splice(was, 1);
+      const at = ref ? this.children.indexOf(ref) : -1;
+      if (at >= 0) this.children.splice(at, 0, el); else this.children.push(el);
+      return el;
+    }
+    addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
+    setAttribute(k, v) { (this.attrs = this.attrs || {})[k] = String(v); }
+    getAttribute(k) { return this.attrs && k in this.attrs ? this.attrs[k] : null; }
+    querySelector(sel) {
+      const cls = sel.replace(/^\./, "");
+      const find = (el) => {
+        for (const c of el.children) {
+          if (c.classList.contains(cls)) return c;
+          const r = find(c);
+          if (r) return r;
+        }
+        return null;
+      };
+      const hit = find(this);
+      if (hit) return hit;
+      // This DOM does not build children out of innerHTML, so a span written by
+      // the page's own markup string is never found above. Hand back a stable
+      // stand-in per selector rather than a fresh throwaway: the app writes into
+      // these (clue text, checking dots), and a test can only assert on what was
+      // written if the same object comes back on the next lookup.
+      this._qs = this._qs || {};
+      return (this._qs[sel] = this._qs[sel] || new FakeEl("span"));
+    }
+    // Plural, and honest about it: no stand-in. querySelector hands one back
+    // because the app writes INTO the thing it looked up, but a caller asking
+    // for every match is iterating, and inventing a member would make the loop
+    // run over an element the page never had. Real children only, so a page
+    // whose matches all came from an innerHTML string yields nothing — which is
+    // the truth about this DOM.
+    querySelectorAll(sel) {
+      const [tag, cls] = sel.split(".");
+      const out = [];
+      const walk = (el) => el.children.forEach((c) => {
+        if ((!tag || c.tagName === tag.toUpperCase()) && (!cls || c.classList.contains(cls)))
+          out.push(c);
+        walk(c);
+      });
+      walk(this);
+      return out;
+    }
+    // Focus is modelled, not stubbed, because on a touch device it is the soft
+    // keyboard: focusing the hidden input raises it and blurring puts it away,
+    // and either move resizes the viewport and reflows the page mid-tap. The app
+    // decides what to do off document.activeElement, so the harness needs one.
+    // Counted as well as modelled: on iOS a focus() lands on an already-focused
+    // input as a fresh request for the keys, so "did anything call focus" is a
+    // question activeElement cannot answer — it reads the same either way.
+    focus() {
+      this.focusCalls = (this.focusCalls | 0) + 1; document.activeElement = this;
+      (docListeners.focusin || []).forEach((fn) => fn({ target: this }));
+    }
+    blur() { if (document.activeElement === this) document.activeElement = null; }
+    scrollIntoView() {}
+    // Scrolling is modelled rather than stubbed away, because the bug it hides
+    // is a real one: a panel that takes two taps to come into view on an iPad.
+    // layout() nails a box down in PAGE space, and the rect
+    // subtracts the window's scroll — which is what a browser does, so app code
+    // that measures and scrolls can be driven honestly. Unlaid-out elements
+    // report a zero box, and the app has to cope with that too.
+    layout(top, height) { this._box = { top, height }; return this; }
+    getBoundingClientRect() {
+      const b = this._box || { top: 0, height: 0 };
+      const y = (global.window && global.window.pageYOffset) || 0;
+      return { top: b.top - y, bottom: b.top + b.height - y, height: b.height,
+               left: 0, right: 0, width: 0 };
+    }
+  }
+
+  // The stub's elements are read out of index.html rather than retyped here.
+  // A hand-kept list is three lists really — which ids exist, which are inputs,
+  // and which start hidden — and missing the third is baffling: a panel the
+  // page ships closed is open in the harness, so the first click closes it and
+  // every assertion after that is upside down. Parsed, a new control is simply
+  // present, in the state the page actually ships it in.
+  {
+    const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+    const tags = /<([a-zA-Z]+)((?:[^>"']|"[^"]*"|'[^']*')*)>/g;
+    let m;
+    while ((m = tags.exec(html)) !== null) {
+      const attrs = m[2];
+      const id = attrs.match(/\sid="([^"]+)"/);
+      if (!id) continue;
+      const el = new FakeEl(m[1].toLowerCase(), id[1]);
+      const cls = attrs.match(/\sclass="([^"]*)"/);
+      if (cls) el.className = cls[1];
+      registry[id[1]] = el;
+    }
+  }
+
+  // The page's localStorage, and what the tests plant into directly. A Proxy
+  // over the plain object, for one reason: the iteration half of the Storage
+  // API below has to hand out a key LIST, and rebuilding that list per call is
+  // quadratic. app.js's savedProgress() walks `for (i = 0; i < length; i++)
+  // key(i)`, which is the only shape a browser offers — over a run of the
+  // suite that is millions of calls, and materialising Object.keys() inside
+  // each of them costs a large share of the whole run, in an array nobody
+  // keeps.
+  //
+  // So the list is cached and thrown away when the SET of keys changes. The
+  // trap is what makes that safe: several tests write `storage[k] = v` and
+  // `delete storage[k]` straight, modelling another tab, and a cache keyed off
+  // setItem/removeItem alone would not see them. A value overwritten at an
+  // existing key leaves the list alone and does not invalidate.
+  // options.storage seeds the browser BEFORE app.js runs, which is the only way
+  // to model a device that has been here before: everything the app decides once
+  // and remembers — the visit tally, the first-grid cursor — is read at boot and
+  // cannot be put back afterwards from outside the closure.
+  const storeBack = Object.assign({}, options.storage || {});
+  let storeGen = 0;
+  const storage = new Proxy(storeBack, {
+    set(t, k, v) { if (!(k in t)) storeGen++; t[k] = v; return true; },
+    deleteProperty(t, k) { if (k in t) storeGen++; delete t[k]; return true; }
+  });
+  let storeKeys = null;
+  let storeKeysGen = -1;
+  const storageKeys = () => {
+    if (storeKeysGen !== storeGen) { storeKeys = Object.keys(storeBack); storeKeysGen = storeGen; }
+    return storeKeys;
+  };
+  const docListeners = {};
+  // index.html's <link rel="canonical">, stood up so the ?p= rewrite is testable.
+  // Read out of the shipped file rather than retyped, so the harness cannot be
+  // testing a canonical the site does not actually have.
+  const canonicalLink = new FakeEl("link");
+  canonicalLink.href = (fs.readFileSync(path.join(ROOT, "index.html"), "utf8")
+    .match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
+  const document = {
+    visibilityState: "visible", // app-core's A/B visit waits on 3s of visibility
+    readyState: "complete",
+    activeElement: null,
+    head: new FakeEl("head"),
+    // app.js pins head icons/manifest and runs the self-updater with this at load; nothing to find here.
+    querySelectorAll() { return []; },
+    querySelector(sel) {
+      if (sel === 'link[rel="canonical"]') return canonicalLink;
+      if (sel === 'meta[name="robots"]') {
+        const head = document.head;
+        const el = head.children.find((c) => c.tagName === "META" && c.name === "robots");
+        if (el) el.remove = () => { head.children = head.children.filter((c) => c !== el); };
+        return el || null;
+      }
+      return null;
+    },
+    createElement(tag) {
+      const el = new FakeEl(tag);
+      Object.defineProperty(el, "onclickCapture", { value: null, writable: true });
+      return el;
+    },
+    getElementById(id) {
+      if (!registry[id]) registry[id] = new FakeEl("div", id); // dynamic ids (clue-*, hx-*)
+      return registry[id];
+    },
+    addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); },
+    removeEventListener(type, fn) { docListeners[type] = (docListeners[type] || []).filter((f) => f !== fn); },
+    // The guess words laid out on one line, one x per word. Hit-testing is the
+    // browser's job and is the only part faked here; everything the app owns —
+    // the pointerdown, the document's pointermove, the index it works back out,
+    // the repaint without a re-render — is real and runs. Without this, dragging
+    // a run of words is code no test can reach.
+    elementFromPoint(x, y) {
+      return y === 0 && registry["gw-" + x] ? registry["gw-" + x] : null;
+    }
+  };
+
+  // The page's own window listens as well as the document does — the solve clock
+  // stops on blur and starts again on focus — so a window that cannot be
+  // listened to is a window the app crashes against. Dispatched the same way
+  // docListeners is, and handed back for the same reason.
+  const winListeners = {};
+  global.window = {
+    // Harnesses climb the ladder with one call per rung; app.js's two-tap
+    // confirm (confirmBlock) steps aside unless a test asks for it: twoTap.
+    CT_ONE_TAP: !options.twoTap,
+    // app.js only scrolls to the hint panel on a pick for a touch screen; the
+    // harness keeps the old behaviour unless a test says it is a desktop: fine.
+    CT_PANEL_SCROLL: !options.fine,
+    addEventListener(type, fn) { (winListeners[type] = winListeners[type] || []).push(fn); },
+    removeEventListener(type, fn) { winListeners[type] = (winListeners[type] || []).filter((f) => f !== fn); },
+    // An iPad in portrait, roughly: tall enough that the grid and the hint panel
+    // cannot both be on screen, which is the whole reason picking a clue scrolls.
+    innerHeight: 1000,
+    pageYOffset: 0,
+    // Every scroll is recorded, not just the last position. "one tap, one move,
+    // and the second tap holds still" is the property that broke, and only the
+    // log can tell that apart from a page that ended up in the right place after
+    // shuffling there in two goes.
+    scrolls: [],
+    // iOS moves the VISUAL viewport under an ordinary page scroll — a phone's URL
+    // bar collapsing, or a pan once the page has no scroll left to give — so our
+    // own smooth scroll fires the very events a keyboard fires, and no
+    // measurement can tell the two apart. Set this and the stub does it too, so a
+    // placement rule that watches the band can be shown not to feed on its own
+    // output. It alternates, so the band never settles: the worst case.
+    scrollPans: 0,
+    scrollTo(opt) {
+      const top = opt && typeof opt === "object" ? opt.top : opt;
+      global.window.pageYOffset = Math.max(0, Number(top) || 0);
+      global.window.scrolls.push(global.window.pageYOffset);
+      // A browser fires this, so the stub does: anything the page positions in
+      // viewport space is wrong from here until it hears about the move.
+      (winListeners.scroll || []).forEach((fn) => fn());
+      const px = global.window.scrollPans;
+      if (px) {
+        const vv = global.window.visualViewport;
+        vv.offsetTop = vv.offsetTop ? 0 : px;
+        (vv._on.scroll || []).forEach((fn) => fn());
+      }
+    },
+    // Synchronous, so the harness stays a straight line. The app only uses it to
+    // get behind a reflow, and there is no reflow here to get behind.
+    requestAnimationFrame(fn) { fn(); return 1; },
+    // The soft keyboard, which is the ONLY thing that tells you how much screen
+    // there really is: iOS leaves innerHeight at its full height and draws the
+    // keys over the bottom of it, so a stub without visualViewport can only ever
+    // agree with the bug. raiseKeyboard() shrinks the
+    // band and fires resize, the way a real keyboard sliding up does.
+    visualViewport: {
+      height: 1000,
+      offsetTop: 0,
+      _on: {},
+      addEventListener(type, fn) { (this._on[type] = this._on[type] || []).push(fn); },
+      raiseKeyboard(px) {
+        this.height = 1000 - px;
+        (this._on.resize || []).forEach((fn) => fn());
+      },
+      // The other half of the same keyboard. When the page has no scroll left to
+      // give, iOS slides the visual viewport down inside the layout viewport
+      // instead of resizing it — offsetTop moves and only "scroll" fires, so code
+      // listening for resize alone measures a band starting at 0 that really
+      // starts px down.
+      panKeyboard(px) {
+        this.offsetTop = px;
+        (this._on.scroll || []).forEach((fn) => fn());
+      }
+    },
+    // Opening a puzzle rewrites the address bar so the link people copy is the
+    // puzzle they are looking at. The stub keeps every URL it was handed, so
+    // the test can assert on what a share would actually contain.
+    history: {
+      urls: [],
+      replaceState(_state, _title, url) {
+        this.urls.push(String(url));
+        global.location.search = String(url).replace(/^[^?]*/, "");
+      }
+    },
+    localStorage: {
+      getItem: (k) => (k in storage ? storage[k] : null),
+      setItem: (k, v) => { storage[k] = String(v); },
+      removeItem: (k) => { delete storage[k]; },
+      // Sync has to enumerate every saved puzzle to build the envelope it
+      // uploads, so the stub needs the iteration half of the Storage API too —
+      // without it the whole sync path is unreachable from the smoke test,
+      // which is exactly the path that must not break silently.
+      get length() { return storageKeys().length; },
+      key(i) { const ks = storageKeys(); return i < ks.length ? ks[i] : null; }
+    }
+  };
+  global.document = document;
+
+  // The app defers work on timers, and one of them is load-bearing: picking a
+  // clue waits for the viewport to stop moving before it scrolls, so that it
+  // scrolls exactly once instead of chasing a keyboard that is still sliding up.
+  // "Exactly once" is not assertable against a real clock without sleeping, so
+  // every timer is recorded as well as scheduled and flushTimers(ms) runs the
+  // ones that were due within ms. They are still scheduled for real underneath,
+  // so the tests that just let things happen keep working as they did.
+  const realSetTimeout = NODE_SET_TIMEOUT, realClearTimeout = NODE_CLEAR_TIMEOUT;
+  // Handed out so a caller can schedule something flushTimers must never reach.
+  // The suite's own "print the result and exit" timer is the one that matters:
+  // through the fake clock it is just another pending timer, so any test that
+  // drains generously fires it and the run ends early — reporting a pass on the
+  // tests that had happened to run so far and never mentioning the rest.
+  global.realSetTimeout = realSetTimeout;
+  const pending = new Map();
+  // What comes back is the real Timeout object, not a number of our own. A
+  // browser hands out a number, but this global is node's too: node's bundled
+  // http client calls .unref() on whatever setTimeout returns, and a number
+  // takes the whole suite down mid-file the first time anything touches it.
+  global.setTimeout = (fn, ms, ...args) => {
+    let handle;
+    handle = realSetTimeout(() => { pending.delete(handle); fn(...args); }, ms);
+    pending.set(handle, { fn, args, ms: Number(ms) || 0, handle });
+    return handle;
+  };
+  global.clearTimeout = (handle) => {
+    const t = pending.get(handle);
+    if (!t) return realClearTimeout(handle);
+    realClearTimeout(t.handle);
+    pending.delete(handle);
+  };
+  global.flushTimers = (ms = 0) => {
+    for (const [id, t] of [...pending]) {
+      if (t.ms > ms) continue;              // not due yet at this much fake time
+      realClearTimeout(t.handle);
+      pending.delete(id);
+      t.fn(...t.args);
+    }
+  };
+
+  // Modelled for the same reason the clock and the scroll are: the app asks an
+  // IntersectionObserver whether the finish box is on screen, and holds the
+  // fireworks until it says yes. Without one here every test takes the "no
+  // observer, burn now" branch, leaving the hold, the observer and the abandon
+  // untested by construction rather than by choice.
+  //
+  // Nothing intersects on its own. A layout here has no compositor to notice it,
+  // and the test is the only thing that knows when the page has travelled, so
+  // the test fires the records.
+  const observers = [];
+  global.IntersectionObserver = class IntersectionObserver {
+    constructor(cb, options) {
+      this.cb = cb; this.options = options || {};
+      this.targets = []; this.live = true;
+      observers.push(this);
+    }
+    observe(el) { if (this.live && this.targets.indexOf(el) < 0) this.targets.push(el); }
+    unobserve(el) { const i = this.targets.indexOf(el); if (i >= 0) this.targets.splice(i, 1); }
+    disconnect() {
+      this.live = false;
+      this.targets = [];
+      // Dropped from the list, not merely flagged. Every renderPicker throws
+      // away the observer the last one made, so a run leaves tens of thousands
+      // of dead ones behind — and intersect() copies the whole list on every
+      // call to stay safe against a callback that makes another.
+      const i = observers.indexOf(this);
+      if (i >= 0) observers.splice(i, 1);
+    }
+    takeRecords() { return []; }
+  };
+  global.window.IntersectionObserver = global.IntersectionObserver;
+  // Tells every live observer watching el that it is (or is not) on screen, and
+  // returns how many were told — so a test can assert that something really is
+  // being watched, rather than pass because nothing happened.
+  global.intersect = (el, isIntersecting = true) => {
+    let told = 0;
+    for (const io of [...observers]) {
+      if (!io.live || io.targets.indexOf(el) < 0) continue;
+      told++;
+      io.cb([{ target: el, isIntersecting, intersectionRatio: isIntersecting ? 1 : 0 }], io);
+    }
+    return told;
+  };
+  global.watchersOf = (el) => observers.filter((io) => io.live && io.targets.indexOf(el) >= 0).length;
+
+  // The sync panel's Copy button is the only way most people will move the code
+  // to their other device. Without a clipboard here the harness can only reach
+  // the "your browser won't let me" branch, which is the branch nobody uses.
+  const clipboard = {
+    text: null,
+    writeText(v) { clipboard.text = String(v); return Promise.resolve(); }
+  };
+  // What the page reported about the session, kept rather than sent. The rule
+  // worth testing is that a name goes at most once per puzzle, and the only way
+  // to see that is to count what the app actually handed the browser.
+  const beacons = [];
+  // Node's own Blob only gives up its contents asynchronously, and these tests
+  // are synchronous. This one keeps the text where an assertion can reach it,
+  // which is all the beacon path asks of a Blob.
+  global.Blob = class Blob {
+    constructor(parts, options) {
+      this.parts = (parts || []).map(String).join("");
+      this.type = (options || {}).type || "";
+    }
+    text() { return Promise.resolve(this.parts); }
+  };
+  // The harness is the iPad in portrait its window sizes describe, and that is
+  // the machine every scroll bug was reported from. maxTouchPoints is how the
+  // app knows a tap on a clue is about to raise a soft keyboard, and so that
+  // silence from the viewport does not yet mean the viewport has settled.
+  const navigator = {
+    clipboard,
+    maxTouchPoints: 5,
+    sendBeacon(url, body) { beacons.push({ url, body }); return true; }
+  };
+  // defineProperty, not assignment: Node 22 ships its own read-only global
+  // navigator, and a plain `global.navigator = …` throws.
+  Object.defineProperty(global, "navigator",
+    { value: navigator, writable: true, configurable: true });
+  global.localStorage = global.window.localStorage;
+  const session = {};
+  global.sessionStorage = {
+    getItem: (k) => (k in session ? session[k] : null),
+    setItem: (k, v) => { session[k] = String(v); },
+    removeItem: (k) => { delete session[k]; },
+  };
+  global.confirm = () => true;
+  // app.js reads ?p=<id> so the static answer pages can hand off into the app.
+  // Override CT_TEST_QUERY to boot the harness on a specific puzzle.
+  global.location = { search: options.query || process.env.CT_TEST_QUERY || "", href: "", hash: "",
+    // A navigation away is recorded, not made: app.js stops booting after one.
+    replace(url) { this.replaced = String(url); } };
+  global.URLSearchParams = URLSearchParams;
+  // Node's own fetch would carry app.js to the live sync worker: every grid a
+  // test or a sweep opens is a GET /v against production quota. A harness has
+  // no server behind it, so a request simply never answers. Only the native
+  // fetch is replaced; a test that installed its own stub, or deleted fetch to
+  // take the no-fetch path, keeps what it set.
+  if (global.fetch === NATIVE_FETCH) {
+    const inFlight = { then: () => inFlight, catch: () => inFlight, finally: () => inFlight };
+    global.fetch = () => inFlight;
+  }
+
+  // load index + tutorial + app
+  // sync/events.js goes in the way the page loads it, as a plain script: app.js
+  // checks a name against that list before reporting it, so without it here the
+  // beacon path is inert and nothing about it is testable.
+  new Function("window", fs.readFileSync(path.join(ROOT, "sync/events.js"), "utf8"))(global.window);
+  // sync/merge.js the same way: app.js merges every sync reply into what it
+  // already has through CTMerge, so a harness without it boots an app whose
+  // sync path throws on the first reply — and cannot test the path at all.
+  // Its UMD wrapper attaches to globalThis, which in a browser IS window; here
+  // the two are different objects, so put it on both and the app finds it under
+  // the bare name exactly as the page does.
+  new Function("window", fs.readFileSync(path.join(ROOT, "sync/merge.js"), "utf8"))(global.window);
+  global.window.CTMerge = global.CTMerge;
+  // quotes.js the same way: app.js curls every clue it shows through CTQuotes.
+  new Function("window", fs.readFileSync(path.join(ROOT, "quotes.js"), "utf8"))(global.window);
+  global.window.CTQuotes = global.CTQuotes;
+  // idx.js the same way: the progressive index's decoder, which app.js's
+  // loadShards calls (window.ctIdx) to turn a fetched shard back into rows.
+  new Function("window", fs.readFileSync(path.join(ROOT, "idx.js"), "utf8"))(global.window);
+  // The manifest is generated and untracked, so it is rebuilt from the puzzle
+  // files before it is read — in a fresh clone there is no puzzles/idx at all, and
+  // in a working tree there is whatever the last rebuild left. Memoised, so
+  // every boot in one process costs one rebuild.
+  reindex();
+  // The index is compiled the way the page does it: head-static and head-live
+  // are composed into the partial index, and the bundle's rows (every shard)
+  // are merged in, so the app sees the decoded rows (v to 5 chars, percentile
+  // read off the head's cut points).
+  const idxDir = path.join(ROOT, "puzzles/idx");
+  {
+    const live = JSON.parse(fs.readFileSync(path.join(idxDir, "head-live.json"), "utf8"));
+    new Function("window", fs.readFileSync(path.join(idxDir, live.static), "utf8"))(global.window);
+    // Parsed once per process: boot() runs many times and only reads it.
+    const bundle = idxBundles[live.bundle] || (idxBundles[live.bundle] =
+      JSON.parse(fs.readFileSync(path.join(idxDir, live.bundle), "utf8")));
+    global.window.CRYPTIC_INDEX = global.window.ctIdx.full(global.window.CRYPTIC_INDEX_STATIC, live, bundle);
+  }
+  global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
+  // options.index edits the index BEFORE app.js reads it, for a shape the
+  // corpus does not hold yet.
+  if (options.index) options.index(global.window.CRYPTIC_INDEX);
+
+  // app.js references bare identifiers window/document/localStorage/confirm via globals above
+  const appSrc = options.appPath ? fs.readFileSync(options.appPath, "utf8") : require("./app_src").read(ROOT);
+  // abbreviations.js declares a bare `const`, which in the browser lands in the
+  // shared global lexical scope every other classic script can see. new Function
+  // gives each source its own scope instead, so the two are concatenated to put
+  // them back in one — the same arrangement the page has.
+  const abbrevSrc = fs.readFileSync(path.join(ROOT, "abbreviations.js"), "utf8");
+  // navigator goes in as an argument rather than being read off the global: the
+  // beacon sink is this instance's array, and a later boot() replaces the global
+  // one, which would silently send an earlier instance's beacons to the newer
+  // instance's list.
+  new Function("window", "document", "localStorage", "confirm", "navigator",
+    abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage,
+                               global.confirm, navigator);
+
+  // app-core.js counts nothing until a person's first gesture (humanArrived: a
+  // pointerdown, keydown, touchstart or wheel on the window, 67863a74609), so a
+  // boot presses once, as a visitor would. opts.bot leaves the page untouched,
+  // for a check of the gate itself.
+  if (!options.bot) (winListeners.pointerdown || []).slice().forEach((fn) => fn({ isTrusted: true }));
+
+  // appSrc goes back out because the smoke test greps app.js's own source (the
+  // LABELS ladder) — an assertion about the code, not about the rendered DOM.
+  // stop() cancels every timer this app still has pending. A caller that boots
+  // many apps in one synchronous run (smoke_test's puzzle format block) never lets
+  // a timer fire, so each one kept its app alive, window and index included.
+  const stop = () => {
+    for (const t of pending.values()) realClearTimeout(t.handle);
+    pending.clear();
+  };
+  return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
+           appSrc, beacons, window: global.window, stop };
+}
+
+// The first-screen A/B (app-core.js, "A/B 1") enrols a first-ever visit in an arm
+// by Math.random, at load. Every boot draws a fixed low number, arm a (the
+// dialog), so the smoke checks that walk it never flip a coin; the app runs to
+// the end of its load inside this call. opts.arm === "b" draws a high one
+// instead, for the one first-screen check that walks arm b (tests/test_first_screen_arm_b.js).
+function boot(opts) {
+  const realRandom = Math.random;
+  Math.random = () => (opts && opts.arm === "b" ? 0.75 : 0.25);
+  try { return bootApp(opts); } finally { Math.random = realRandom; }
+}
+
+module.exports = { boot, ROOT };

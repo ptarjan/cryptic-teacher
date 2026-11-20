@@ -1,0 +1,425 @@
+#!/usr/bin/env python3
+"""The nightly's queue (tools/unit_queue.py): what tools/daily_update.sh does, as units.
+
+    python3 tools/daily_units.py keyed --record   # note the puzzles whose official key this tree just gained
+    python3 tools/daily_units.py keyed --scan     # note those keyed by commits that reached origin/master (CI)
+    python3 tools/daily_units.py keyed --recent   # those noted within FRESH_DAYS, for the annotation queue
+    python3 tools/daily_units.py job <key>        # the unit's name in its commit subject
+    python3 tools/daily_units.py generated <key>  # "all" or "none": does it need the generated files at start
+
+tools/daily_update.sh with no argument is the tick: it chooses the puzzles to
+annotate (its selection blocks, under the usage gates) and hands them here in
+DAILY_FRESH / DAILY_PENDING / DAILY_UNSOLVED / DAILY_MISSES; plan() adds the
+fetch-and-file phases, each on its own cadence. Each unit runs
+`tools/daily_update.sh unit <key> [args]` in one of SLOTS trees and commits
+and pushes what it changed itself.
+
+The dependencies, all here:
+  * every filing unit (fetch:*, blog:*, ft, azed) cross-checks and
+    commits its own filings, so nothing waits for a sibling to file;
+  * blog-facts (the blog caches re-read after a blog fetch) runs in CI now,
+    .github/workflows/blog-facts.yml;
+  * a graded miss is diagnosed before any cold solve starts (annotate of an
+    unsolved puzzle is `after` every miss:*), so its fix governs the solve;
+  * the solutions unit notes the puzzles it gave a key (keyed --record), and
+    the tick's annotation queue reads them as new arrivals (keyed --recent);
+    the keys CI's solutions job lands are noted by the tick (keyed --scan).
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+from unit_queue import STATE, Unit, main_checkout
+
+TOOLS = Path(__file__).resolve().parent
+
+LOG = ".update.log"
+#: Trees daily_unit-1 .. daily_unit-SLOTS: at most this many units at once.
+#: A start whose kind reads the generated files rebuilds them, one at a time
+#: (GENERATED below).
+SLOTS = 6
+TREE = "daily_unit"
+#: Model runs (annotate, miss, reports) at once, and backfills draining at
+#: once: with both full, SLOTS - 4 trees are left for the fetchers and the
+#: rest, so a backfill that reruns until its backlog is done never makes a
+#: new puzzle wait.
+LIMITS = {"claude": 2, "backfill": 2}
+BACKFILLS = ("ft", "azed")
+#: Started from the main checkout, as the scheduler starts the tick:
+#: tools/nightly_worktree.sh takes the checkout a script runs from as the one
+#: whose state (CT_MAIN_CHECKOUT, the shared files) every tree links to.
+SCRIPT = "tools/daily_update.sh"
+HOUR = 3600
+DAY = 24 * HOUR
+#: The hourly fetchers the local tick still runs: none since 2026-11-15, when
+#: fetch_privateeye --latest joined CI_FETCHERS. Its Wayback pass
+#: (privateeye_wayback.py over the captures on the Media disk,
+#: downloads.PRIVATE_EYE_WAYBACK) stays here as the wayback:privateeye unit.
+FETCHERS = []
+#: The hourly fetchers GitHub Actions runs (.github/workflows/fetch-puzzles.yml,
+#: 2026-10-29): `--latest` needs only the network and the tracked puzzles. Never
+#: planned here, so a fetch is never run in both places.
+CI_FETCHERS = ["fetch_puzzle", "fetch_independent", "fetch_observer", "fetch_globeandmail", "fetch_metro",
+               "fetch_privateeye"]
+#: Fortnightly series, on their own slower cadence in PHASES: none local since
+#: 2026-11-15, when the TLS's --latest moved to .github/workflows/tls-backfill.yml
+#: (the RapidOCR model is cached there; its images are kept as a run artifact).
+#: The Genius has its own unit (genius: its fifteensquared posts, then genius_puzzles.py).
+#: Not fetched at all, and why (2026-10-12): the Listener's clues are printed only by
+#: the Times, behind its Puzzle Club subscription (listenercrossword.com posts
+#: notes and the solution weeks later), so feeding it is a paid source and
+#: Paul's call; the Nation's weekly cryptic ended with No 3529 (2020-04-13).
+SLOW_FETCHERS = []
+
+
+def knob(name):
+    """A setting of tools/daily_update.sh: what the tick passed, or, planned
+    by hand, the script's own default (one copy of each number)."""
+    if os.environ.get(name):
+        return int(os.environ[name])
+    text = (TOOLS / "daily_update.sh").read_text(encoding="utf-8")
+    return int(re.search(rf'^{name}="\$\{{{name}:-(\d+)\}}"', text, re.MULTILINE).group(1))
+
+
+#: Backlog annotations (cold solves included) a day; new arrivals are not cut.
+ANNOTATE_MAX = knob("ANNOTATE_MAX")
+#: An annotate unit's whole limit: its run, a resumed retry and a validation
+#: fix, each capped at ANNOTATE_MAX_MINUTES inside the unit.
+ANNOTATE_SECONDS = 3 * knob("ANNOTATE_MAX_MINUTES") * 60 + 1800
+#: After an annotation that failed the way that stopped the old nightly (the
+#: CLI's own failure: a login, a limit, a crash), no annotation starts for this
+#: long: the next would most likely buy the same failure.
+ANNOTATE_PAUSE = 3 * HOUR
+#: rc of an annotate unit whose failure says nothing about the puzzle.
+STOP_RC = 1
+KEYED = STATE / "daily-keyed.jsonl"
+#: The origin/master commit keyed --scan last read up to.
+KEYED_HEAD = STATE / "daily-keyed.head"
+FRESH_DAYS = 2
+
+#: (key, every, timeout seconds, trigger) of the phases that run on a cadence.
+#: A backfill (ft, azed) has no per-run cap: it works to a
+#: wall-clock budget (daily_update.sh) at its source's own request pace, and
+#: one that stopped with backlog left runs again at the next tick
+#: (unit_queue.backlog_left), so `every` is only how often it looks for new
+#: work once drained. A limit covers the unit's tree setup
+#: too, which may wait its turn to rebuild the index (GENERATED), and
+#: is set from the old nightly's phase times on a busy machine (2026-10-07:
+#: the Telegraph filer 45m, blog_facts 28-57m), with room to spare.
+PHASES = [
+    *[(f"fetch:{f}", HOUR, 45 * 60, ()) for f in FETCHERS],
+    # The slow series, looked for a few times a day: the TLS is fortnightly.
+    # Each is a fetch:<tool> like the dailies (tools/<tool>.py --latest, exit
+    # 3 when its newest is held), but outside FETCHERS: a fortnightly tool's
+    # "nothing new" is no evidence about the dailies' fetchers in after_tick.
+    *[(f"fetch:{f}", 6 * HOUR, 30 * 60, ()) for f in SLOW_FETCHERS],
+    # Cyclops numbers the Wayback captures on the Media disk print and no filing
+    # has tried (privateeye_wayback.py file --daily); the fetch itself is CI's.
+    ("wayback:privateeye", 6 * HOUR, 45 * 60, ()),
+    ("solutions", 3 * HOUR, 60 * 60, ()),
+    ("ft", 6 * HOUR, 75 * 60, ()),
+    # Lands the raw fetch caches CI writes (tools/cache_sync.py): add-only.
+    ("cache-sync", 3 * HOUR, 30 * 60, ()),
+    # azed, genius and xval:globe run in CI (.github/workflows/daily-units.yml); the minute
+    # capture stays here (its corpus is uncommitted by policy).
+    # blog:times and blog:telegraph (parse, grid rebuild, filing) run in CI (.github/workflows/blog-chain.yml).
+    # blog-facts runs in CI (.github/workflows/blog-facts.yml), not here.
+    # ratings (progress_record, blog_comment_difficulty) runs in CI (.github/workflows/ratings.yml);
+    # this unit hands it the counts only the home server holds.
+    ("progress-counts", DAY, 10 * 60, ()),
+    ("checks", DAY, 45 * 60, ()),
+    ("minute", 6 * HOUR, 30 * 60, ()),
+    ("reports", 2 * HOUR, 90 * 60, ()),
+]
+
+
+#: Whether a unit kind (its key up to the first ':') reads the generated
+#: files (puzzles/index.*, the puzzle shims, abbreviations.js) before its own
+#: build step. Those that do have them rebuilt as their tree is set up
+#: (nightly_worktree.sh ct_generated) whenever HEAD moved, which is nearly
+#: every start: a whole-corpus pass. The rest skip it, and their commit step
+#: needs none of them (a rebase conflict rebuilds what it needs itself). Every
+#: kind daily_update.sh runs is named, so a new one has to choose.
+GENERATED = {
+    "fetch": False,
+    "wayback": False,
+    "solutions": False,
+    "cache-sync": False,
+    "xval": False,
+    "ft": False,
+    "azed": False,
+    "genius": False,
+    "blog-facts": False,
+    "progress-counts": False,
+    "minute": False,
+    # Only its Claude fix pass does, which builds them first (daily_update.sh).
+    "reports": False,
+    # series_health.py reads the puzzle rows through the shared row cache,
+    # puzzle_integrity.py and turn_cost.py nothing generated. Waiting for the
+    # rebuild took 35 of its 45 minutes and got it killed (2026-10-15).
+    "checks": False,
+    # The validators and tools/smoke_test.js read index.js, the shims and
+    # abbreviations.js, and a run that edits tools/ pushes through its tests.
+    "annotate": True,
+    "miss": True,
+}
+
+
+def reads_generated(key):
+    return GENERATED[key.split(":", 1)[0]]
+
+
+def unit(key, *args, **kw):
+    return Unit(key=key, argv=["bash", str(main_checkout() / SCRIPT), "unit", key, *args], **kw)
+
+
+def annotate_paused(ledger, now):
+    """Whether an annotation ended in STOP_RC within ANNOTATE_PAUSE."""
+    return any(k.startswith("annotate:") and e.get("rc") == STOP_RC and now - e["at"] < ANNOTATE_PAUSE
+               for k, e in ledger.last_end.items())
+
+
+#: The coverage ledger tools/coverage.py saves each morning (05:50, its
+#: plugin), one <local date>.json a day: the known/acquired columns of the
+#: /progress/ row ratings.yml records (tools/progress_record.py); the progress-counts unit reads it.
+COVERAGE_STATE = Path(os.environ.get("COVERAGE_STATE", Path.home() / ".cache" / "coverage_ledger"))
+#: Local hour past which progress-counts records without today's ledger: a coverage
+#: run that died must not cost the rest of the night's work.
+LEDGER_WAIT_UNTIL = 12
+
+
+def awaits_ledger(now):
+    """Whether progress-counts waits for today's coverage ledger. Recorded without it,
+    the day's /progress/ row has no known/acquired and the page carries the
+    last ledger's forward for a whole day (2026-10-15: Metro's 10,074 days,
+    fixed in coverage.py at 01:03, stood until the next ratings run)."""
+    t = time.localtime(now)
+    return t.tm_hour < LEDGER_WAIT_UNTIL and not (COVERAGE_STATE / f"{time.strftime('%Y-%m-%d', t)}.json").exists()
+
+
+def plan(ledger, now):
+    out = []
+    fresh = os.environ.get("DAILY_FRESH", "").split()
+    pending = os.environ.get("DAILY_PENDING", "").split()
+    unsolved = set(os.environ.get("DAILY_UNSOLVED", "").split())
+    misses = [line.split() for line in os.environ.get("DAILY_MISSES", "").splitlines() if line.strip()]
+    miss_keys = tuple(f"miss:{pid}:{eid}" for pid, eid in misses)
+    if not annotate_paused(ledger, now):
+        for i in fresh:
+            out.append(unit(f"annotate:{i}", *(["solve"] if i in unsolved else []), timeout=ANNOTATE_SECONDS,
+                            cls="claude", tag="fresh", why="a new arrival",
+                            after=miss_keys if i in unsolved else ()))
+        for pid, eid in misses:
+            out.append(unit(f"miss:{pid}:{eid}", pid, eid, timeout=45 * 60, cls="claude", why="a graded miss"))
+        room = ANNOTATE_MAX - ledger.started_since("annotate:", now - DAY, tag="backlog")
+        for i in pending:
+            if room <= 0:
+                break
+            u = unit(f"annotate:{i}", *(["solve"] if i in unsolved else []), timeout=ANNOTATE_SECONDS,
+                     cls="claude", tag="backlog", why="the backlog", after=miss_keys if i in unsolved else ())
+            if not ledger.running(u.key) and u.key not in ledger.last_start:
+                room -= 1
+            out.append(u)
+    for key, every, timeout, trigger in PHASES:
+        if key == "progress-counts" and awaits_ledger(now):
+            continue
+        out.append(unit(key, timeout=timeout, every=every, trigger=trigger, after=trigger,
+                        cls="claude" if key == "reports" else "backfill" if key in BACKFILLS else ""))
+    return out
+
+
+def after_tick(ledger, now):
+    """One fetcher down is weather; every one of them failing at once is us
+    (a changed user agent, no network, a python that no longer starts), and
+    looks exactly like a quiet day from the site. Only meaningful while two or
+    more fetchers run here; the CI ones fail their own workflow run."""
+    ends = [ledger.last_end.get(f"fetch:{f}") for f in FETCHERS]
+    if len(FETCHERS) > 1 and all(e is not None and e.get("rc") != 0 for e in ends):
+        from unit_queue import alert
+        alert(f"every fetcher's last run failed ({' '.join(FETCHERS)}), so no new puzzle can arrive from any paper "
+              "until this is fixed. Their lines are in .update.log, `[fetch:...]`.")
+    alert_fetch_streaks(ledger)
+
+
+#: A fetch:* unit is alerted, once per streak and with its own last error
+#: line, when it has failed (rc not 0, and not 3 = "nothing new") this many
+#: runs in a row, or when the streak's first failure is over FETCH_FAIL_AGE
+#: old, whichever comes first. A failing fetcher runs only about every 6h
+#: (fetch:tls_puzzles failed 27 in a row, 20:14, 02:16, 08:24, ... and only the
+#: 18-day staleness check spoke), so a count alone would take days.
+FETCH_FAIL_ALERT = 3
+FETCH_FAIL_AGE = 24 * 3600
+
+
+def fetch_streaks(rows):
+    """{key: (failures in a row, last error line, time of the first)} for each
+    fetch:* unit whose most recent end rows are failures; an end with rc 0 or
+    3 ends a streak."""
+    run, err, first = {}, {}, {}
+    for r in rows:
+        k = r.get("key", "")
+        if r.get("event") != "end" or not k.startswith("fetch:"):
+            continue
+        if r.get("rc") in (0, 3):
+            run[k] = 0
+        else:
+            if not run.get(k):
+                first[k] = r["at"]
+            run[k] = run.get(k, 0) + 1
+            err[k] = r.get("err") or err.get(k, "")
+    return {k: (n, err.get(k, ""), first[k]) for k, n in run.items() if n}
+
+
+def alert_fetch_streaks(ledger, now=None):
+    """Alert once per streak: an "alerted" row in the ledger marks it, and the
+    streak's next success (or rc 3) clears it by coming after that row."""
+    from unit_queue import alert
+    now = time.time() if now is None else now
+    for key, (n, err, first) in fetch_streaks(ledger.rows).items():
+        if n < FETCH_FAIL_ALERT and now - first <= FETCH_FAIL_AGE:
+            continue
+        last_alert = max((r["at"] for r in ledger.rows if r.get("event") == "alerted" and r.get("key") == key), default=0)
+        last_good = max((r["at"] for r in ledger.rows if r.get("event") == "end" and r.get("key") == key
+                         and r.get("rc") in (0, 3)), default=0)
+        if last_alert > last_good:
+            continue
+        ledger.append({"key": key, "event": "alerted", "at": now, "fails": n})
+        alert(f"`{key}` has failed {n} runs in a row: {err or 'no error line recorded'}. "
+              "Its lines are in .update.log, `[" + key + "]`.")
+
+
+def keyed(text):
+    """True when a puzzle file's text carries the paper's complete key."""
+    import provenance
+    puzzle = json.loads(text)
+    entries = puzzle.get("entries", []) if isinstance(puzzle, dict) else None
+    # Not every file under puzzles/ is a puzzle (the .blog sidecars, a series index): no key there.
+    if not isinstance(entries, list) or not all(isinstance(e, dict) for e in entries):
+        return False
+    return not provenance.solution_detail(puzzle) and all(e.get("solution") for e in entries)
+
+
+def git(*args):
+    run = subprocess.run(["git", *args], capture_output=True, text=True, check=False)
+    return run.stdout if run.returncode == 0 else ""
+
+
+def record_keyed():
+    """Note each puzzle this tree gave a complete key since HEAD."""
+    rows = []
+    for path in git("diff", "--name-only", "HEAD", "--", "puzzles/*.json").split():
+        try:
+            if not keyed(git("show", f"HEAD:{path}") or "{}") and keyed(Path(path).read_text()):
+                rows.append({"id": path.rsplit("/", 1)[-1].removesuffix(".json"), "at": time.time()})
+        except (OSError, ValueError):
+            continue  # deleted or half-written; the validator reports those
+    if rows:
+        KEYED.parent.mkdir(parents=True, exist_ok=True)
+        with open(KEYED, "a") as f:
+            f.write("".join(json.dumps(r) + "\n" for r in rows))
+        print("keyed: " + " ".join(r["id"] for r in rows))
+
+
+def blobs(specs):
+    """The text of each `<rev>:<path>` in specs, None where it does not exist:
+    one `git cat-file --batch` for the lot, not a process per file."""
+    run = subprocess.run(["git", "cat-file", "--batch"], input="".join(s + "\n" for s in specs).encode(),
+                         capture_output=True, check=False)
+    out, i, texts = run.stdout, 0, []
+    for _ in specs:
+        end = out.index(b"\n", i)
+        head = out[i:end].split()
+        if len(head) != 3:  # "<spec> missing"
+            texts.append(None)
+            i = end + 1
+            continue
+        size = int(head[2])
+        texts.append(out[end + 1:end + 1 + size].decode("utf-8", "replace"))
+        i = end + 1 + size + 1
+    return texts
+
+
+def scan_keyed(ref="origin/master"):
+    """Note each puzzle that commits reaching `ref` since the last scan gave a
+    complete key. The solutions refresh runs in GitHub Actions
+    (.github/workflows/daily-units.yml), so its keys never pass through a local
+    unit's keyed --record; the tick reads them off git instead. Only files
+    that existed before (a new file is a new arrival, queued as one)."""
+    head = git("rev-parse", "--verify", "-q", ref + "^{commit}").strip()
+    if not head:
+        return
+    try:
+        last = KEYED_HEAD.read_text().strip()
+    except FileNotFoundError:
+        last = ""
+    rows = []
+    if last and last != head and subprocess.run(["git", "merge-base", "--is-ancestor", last, head],
+                                                capture_output=True, check=False).returncode == 0:
+        paths = git("diff", "--name-only", "--diff-filter=M", last, head, "--", "puzzles/*.json").split()
+        texts = blobs([f"{rev}:{p}" for p in paths for rev in (last, head)])
+        for k, path in enumerate(paths):
+            old, new = texts[2 * k], texts[2 * k + 1]
+            try:
+                if new and not keyed(old or "{}") and keyed(new):
+                    rows.append({"id": path.rsplit("/", 1)[-1].removesuffix(".json"), "at": time.time()})
+            except ValueError:
+                continue
+    KEYED.parent.mkdir(parents=True, exist_ok=True)
+    if rows:
+        with open(KEYED, "a") as f:
+            f.write("".join(json.dumps(r) + "\n" for r in rows))
+        print("keyed: " + " ".join(r["id"] for r in rows))
+    KEYED_HEAD.write_text(head + "\n")
+
+
+def recent_keyed():
+    cut = time.time() - FRESH_DAYS * DAY
+    try:
+        lines = KEYED.read_text().splitlines()
+    except FileNotFoundError:
+        return []
+    out = []
+    for line in lines:
+        try:
+            r = json.loads(line)
+        except ValueError:
+            continue
+        if r["at"] >= cut and r["id"] not in out:
+            out.append(r["id"])
+    return out
+
+
+def job(key):
+    """The unit as its commit subject names it (tools/commit_subject.py)."""
+    return f"{key} backfill" if key in BACKFILLS else f"daily {key}"
+
+
+def main(argv):
+    if argv[:1] == ["job"] and len(argv) == 2:
+        print(job(argv[1]))
+        return 0
+    if argv[:1] == ["generated"] and len(argv) == 2:
+        if argv[1].split(":", 1)[0] not in GENERATED:
+            print(f"daily_units.py: no unit kind {argv[1]!r} in GENERATED", file=sys.stderr)
+            return 2
+        print("all" if reads_generated(argv[1]) else "none")
+        return 0
+    if argv[:2] == ["keyed", "--record"]:
+        record_keyed()
+        return 0
+    if argv[:2] == ["keyed", "--scan"]:
+        scan_keyed()
+        return 0
+    if argv[:2] == ["keyed", "--recent"]:
+        print(" ".join(recent_keyed()))
+        return 0
+    print(__doc__.split("\n\n")[1], file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

@@ -1,0 +1,15 @@
+about    = "Tick of the nightly's unit queue: start each due fetch, filing, check and annotation unit (tools/daily_units.py) as its own detached process, under the usage gates; each commits and pushes its own work, CI builds and deploys"
+room     = "cryptic-crosswords"
+# Every ten minutes: a tick plans and starts what is due and returns in about a
+# minute; the units run detached, each with its own lock and time limit
+# (tools/unit_queue.py), so a puzzle that appears mid-morning is fetched within
+# the hour and annotated at the tick after, not at the next 04:45.
+schedule = "4-59/10 * * * *"
+where    = "container"
+run      = "~/github/cryptic-teacher/tools/daily_update.sh"
+# The run's whole transcript is how a day that went wrong is read back, each
+# unit's lines under its key, and the scheduler's own stdout goes to `docker
+# logs`, where nothing looks for it.
+log      = "~/github/cryptic-teacher/.update.log"
+# The tick only plans; one still going after this is wedged.
+timeout  = 600

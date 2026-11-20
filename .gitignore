@@ -1,0 +1,197 @@
+# Logs of the LaunchAgent runs (daily 06:15, pre-reset backfill 04:00) — local only.
+.update.log
+
+# Scheduled-job state, meaningful only on the machine that ran it: the last
+# usage/reset reading (weekly_usage.py falls back to it when the CLI's access
+# token has lapsed) and one empty file per already-sent alert (alert.sh dedupes
+# on it, see ALERT_REPEAT_HOURS).
+#
+# No trailing slashes: tools/nightly_worktree.sh gives the worktree a SYMLINK to
+# each of these so there is one copy in the main checkout, and a pattern ending
+# in / does not match a symlink. Whatever that loop shares belongs here, spelled
+# the same way it is spelled there.
+.usage_cache.json
+.alert-state
+# Nightly work that failed, with a hash of the inputs it failed on, so it is not
+# retried until they change (tools/failed_inputs.py). Written straight to the
+# main checkout, because the nightly worktree is reset every run.
+.failed_inputs.json
+# The published answers a blind annotation is currently hiding, and the only
+# copy of them while it runs (tools/blind_annotate.py). Untracked because it
+# exists for the length of one claude call and is deleted by the grading pass;
+# committed, it would publish the very key the run is pretending not to have.
+.blind/
+# Everything the pre-reset backfill leaves behind: its log, its run lock and its
+# landing note. One glob so the next file it writes cannot arrive
+# untracked-but-committable.
+.prereset*
+# The hourly archive.org book reader's transcript, same reasoning as .update.log.
+.books.log
+# The Gale inbox tick's transcript (household-plugins/cryptic-gale-inbox).
+.gale_inbox.log
+# The desktop VLM watcher's transcript (household-plugins/cryptic-vlm-health).
+.vlm_health.log
+
+puzzles/__pycache__/
+tools/__pycache__/
+__pycache__/
+
+# Grid-filler word data: ~26MB of MIT-licensed lexicon fetched by
+# tools/fetch_lexicon.sh, plus one file derived from it. Reproducible in
+# under a minute, so it is fetched rather than committed — see tools/data/README.md.
+#
+# tools/data/lexicon.tsv is NOT ignored, though it is derived from these too. It
+# feeds every difficulty rating (difficulty.rarity), and those
+# ratings are committed in puzzles/index.json: while it was fetched, the score a
+# puzzle got depended on whether the machine running --reindex happened to have
+# it. 4.9MB, MIT, notice in tools/data/README.md.
+tools/data/*.js
+tools/data/clueability.tsv
+
+# Blind-grading packets built by tools/grade_clues.py. They quote 60 published
+# newspaper clues out of the georgeho corpus, which carries no declared licence,
+# so they stay local.
+#
+# This comment used to claim that re-running with the same --seed reproduces the
+# same packets. It does not, and believing it cost us a controlled comparison:
+# the seeded shuffle depends on the rival pool, so fixing a bug that changed one
+# answer's eligible rivals silently moved the A/B/C/D labels for every answer
+# after it, and the round-one key was overwritten by a round-two key that looked
+# exactly like it. Rounds are now archived under grading/runs/<runid>/ and
+# score_grading.py refuses to join scores whose run it cannot find. Nothing here
+# is regenerable from a seed — if a round is not archived, it is gone.
+tools/data/grading/
+# Same packets, built for a one-off round outside tools/data/grading.
+scratch/authoring-*/
+
+# Minute Cryptic reference corpus captured by tools/fetch_minutecryptic.js: 55
+# worked examples with their full hint ladders, plus an archive of their daily
+# clues. Somebody else's copyrighted teaching material with no declared licence,
+# same posture as tools/data/grading/ — kept locally to read and learn from,
+# never committed, republished, or copied into a puzzle file.
+tools/data/minutecryptic
+
+# Wrangler's local cache. It holds the Cloudflare account id and account name,
+# which are not secrets but are nobody else's business, and this repo is public.
+# Deleting it costs one extra prompt on the next deploy.
+#
+# Pathless, so it matches at any depth: wrangler writes this beside whatever
+# directory it was invoked from, not beside wrangler.toml, and `sync/.wrangler/`
+# missed the copy tools/reports.py made at the repo root. The scheduled jobs
+# `git add -A`, so an ignore rule that only covers the place we happened to look
+# is one `cd` away from publishing the account id.
+.wrangler/
+
+# One-shot scratch. A leading underscore in tools/ means nothing may depend on it.
+# Covers the annotation payloads (tools/_ann_<id>.json) that apply_annotations.py
+# consumes, which daily_update.sh deletes at the end of a run — the throwaway
+# annotator scripts they replaced were ignored too, and nothing swept them, so
+# they accumulated one per puzzle.
+tools/_*
+
+# The CLI's per-checkout settings and permissions. Local, machine-specific,
+# and reached from the scheduled jobs' worktrees by symlink — which is the
+# reason it is named here: those jobs `git add -A`, and an untracked symlink
+# pointing at somebody's home directory is not a thing to publish.
+# Only .claude/settings.json is tracked: it wires tools/local_guard.py, the hook
+# that refuses heavy work on the home server. .claude/worktrees and the rest stay out.
+.claude/*
+!.claude/settings.json
+
+# The crawlable half of the site, written by tools/build_seo_pages.py: one page
+# per puzzle, the archive hub, the lesson, the glossary and the sitemap. Every
+# one of them carries a content-hashed ?v= stamp, so an app.js or style.css
+# change rewrites all 1,059 — which made a one-line fix a four-figure commit
+# with a full rebuild in front of it. Built on a clean checkout and deployed
+# straight to Pages by .github/workflows/pages.yml instead.
+#
+# index.html is deliberately NOT here. The build patches one region of it, but
+# it is hand-written, and its own asset stamps are committed by
+# tools/stamp_assets.py so the source of the site is readable in the repo.
+/puzzles/*/index.html
+/puzzles/index.html
+/puzzles/series/
+/learn/index.html
+/abbreviations/index.html
+/indicators/index.html
+/difficulty/index.html
+/progress/index.html
+/showcase/index.html
+/showcase/*/index.html
+/sitemap.xml
+/sitemap-*.xml
+
+# The puzzle manifest, both forms, written by tools/fetch_puzzle.py --reindex:
+# one row per puzzle with its content hash and its difficulty rating. Derived
+# from puzzles/*.js in ten seconds and from nothing else, so committing it bought
+# nothing and cost correctness — the jobs commit puzzle files by pathspec and
+# skipped it, so master carried an index naming 252 files that were not there
+# and missing 7,254 that were, while CI reindexed on its own checkout and the
+# live site never saw any of it.
+#
+# Everything that reads it rebuilds it first (fetch_puzzle.reindex, and
+# tools/reindex.js for the node harnesses), which is what makes that drift
+# impossible rather than merely invisible. README.md's "Run it" says so: a clone
+# runs that one command before opening the page.
+/puzzles/index.json
+
+# Every puzzle's script shim, written by the same --reindex. A puzzle is
+# committed as puzzles/<series>/<year>/<id>.json, which is what every tool in
+# tools/ reads and writes; the flat puzzles/<id>.js exists only because README.md promises the site
+# opens from file://, where fetch() is blocked and app.js has to inject a
+# <script> tag instead. It is build output: the same bytes this project used to
+# commit, regenerated from the .json in seconds, and CI uploads the whole tree
+# so the deploy carries them without anything having to remember.
+#
+/puzzles/*.js
+/puzzles/*/*/*.js
+# tools/stage_site.py: the gzipped shims the site ships, and their manifest
+/puzzles/*.js.gz
+/puzzles/shims.gz.json
+
+# The glossary table app.js reads, written by tools/build_abbreviations.py from
+# its table(). Generated output is only correct while it is current, so every
+# workflow that builds the site builds it, as it does the pages and the shims.
+/abbreviations.js
+
+# The per-puzzle social cards, screenshotted by tools/make_og.sh. ~110MB of PNGs
+# that no page reads from the repo: .github/workflows/pages.yml draws them on the
+# clean checkout it publishes, keeping them in an actions/cache between runs and
+# redrawing only the ones make_og_card.py's manifest says have changed.
+#
+# og.png at the root is deliberately NOT here. It is the site card, it is
+# deterministic, and a clone opening index.html needs it.
+/og/
+
+# What .github/workflows/pages.yml uploads: the published subset of the tree,
+# hard-linked there by tools/stage_site.py.
+/_site/
+
+# tools/annotate_audit.py --wake: the daily report, its log, and what it last
+# told the room (state.json), which is what keeps an unchanged finding quiet.
+.annotate_audit/
+
+# A cold solve's output, kept until the paper's key grades it (tools/solve_misses.py).
+.solve_logs
+
+# nightly_worktree.sh: one run per job tree at a time.
+.*.tree.lock
+
+# A puzzle being written (fetch_puzzle.write_puzzle_file), renamed into place whole.
+.*.part
+# Interrupted workers' records (tools/puzzle_worker.sh worker_runs).
+/.ct-runs/
+.corpus_queue.log
+.coverage.log
+
+# tools/page_cache.py: last build's puzzle pages' keys, carried between deploys by
+# .github/workflows/pages.yml's cache.
+/.page-cache.pickle
+/.page-cache.*.tmp
+# tools/cache_tar.sh: the deploy's page and shim caches as one file each
+/.page-cache.tar*
+/.shim-cache.tar*
+/.page-shards/
+
+# The progressive index (tools/index_idx.py), built by --reindex beside index.json.
+/puzzles/idx/

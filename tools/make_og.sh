@@ -1,0 +1,154 @@
+#!/bin/bash
+# Render the 1200x630 social cards with headless Chrome, rather than drawing
+# pixels by hand, because the cards need real type.
+#
+#   tools/make_og.sh            og.png — the site card, from tools/og_card.html
+#   tools/make_og.sh --all      og.png plus og/<number>.png for up to
+#                               $OG_LIMIT (600) puzzles whose card is missing
+#                               or out of date, and drops cards no puzzle gets
+#   tools/make_og.sh 30066      just that puzzle's card
+#   tools/make_og.sh --pages    og/page/<slug>.png for every page card that
+#                               tools/build_seo_pages.py linked and that is
+#                               missing or out of date — so run it AFTER the
+#                               pages; see tools/page_card.py
+#
+# Every puzzle page unfurls as a clue from THAT puzzle, not one shared card;
+# which clue each puzzle shows is decided by make_og_card.py's score(), not here.
+#
+# --all only redraws cards whose picture could have changed: og/.manifest.json
+# holds, per card, a hash of the exact HTML Chrome was handed
+# (make_og_card.card_key), so an edit to the drawing code that leaves a card's
+# page byte-identical redraws nothing. Content, not mtimes, because this runs
+# in CI and a fresh checkout stamps every file with the same time.
+# Delete the png, or the manifest entry, to force one.
+#
+# Chrome writes 24-bit PNGs; tools/og_palette.py rewrites each as a 64-colour
+# palette PNG, a third of the size and no visible change. That runs after the
+# manifest is written and the manifest never hashes the png, so it does not
+# make a card stale.
+set -euo pipefail
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+# Any headless Chrome will do, and which one is installed is a property of the
+# machine, not of this script. The macOS app bundle is only the first guess.
+CHROME="${CHROME:-}"
+if [ -z "$CHROME" ]; then
+  for candidate in \
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    google-chrome chromium chromium-browser
+  do
+    if [ -x "$candidate" ] || command -v "$candidate" >/dev/null 2>&1; then
+      CHROME="$candidate"
+      break
+    fi
+  done
+fi
+if [ -z "$CHROME" ]; then
+  echo "make_og.sh: no headless Chrome found, so no social card was drawn." \
+       "Install one or set CHROME to its path." >&2
+  exit 1
+fi
+TMP="$(mktemp -d)"
+trap 'rm -rf "$TMP"' EXIT
+
+# --no-sandbox because this runs on CI runners and in containers, which can
+# lack the kernel namespaces Chrome's sandbox is built out of,
+# and the page being opened is a file this script generated one line earlier
+# — never a URL, never anything a stranger wrote. --disable-dev-shm-usage for
+# containers: Docker's default /dev/shm is 64MB and Chrome renders a
+# 1200x630 page into it and dies.
+#
+# Chrome's own diagnosis is kept and printed only when the shot fails: a card
+# that did not get drawn is exactly when you want to know why.
+shot() {  # shot <html> <png>
+  local err
+  if ! err=$("$CHROME" --headless --no-sandbox --disable-gpu \
+      --disable-dev-shm-usage --hide-scrollbars \
+      --screenshot="$2" --window-size=1200,630 "file://$1" 2>&1); then
+    echo "make_og.sh: $CHROME could not draw $2: $err" >&2
+    return 1
+  fi
+}
+
+page() {  # page <slug>
+  local out="$REPO/og/page/$1.png"
+  python3 "$REPO/tools/page_card.py" --out "$TMP/page-$1.html" "$1"
+  shot "$TMP/page-$1.html" "$out"
+  python3 "$REPO/tools/page_card.py" --record "$1"
+  echo "wrote og/page/$1.png"
+}
+
+# Before the site card, which --pages must not redraw: the pages it follows
+# have already stamped og.png with a hash of its bytes.
+if [ "${1:-}" = --pages ]; then
+  python3 "$REPO/tools/page_card.py" --prune
+  list="$(python3 "$REPO/tools/page_card.py" --stale)"
+  for s in $list; do page "$s"; done
+  shopt -s nullglob
+  python3 "$REPO/tools/og_palette.py" "$REPO"/og/page/*.png
+  exit 0
+fi
+
+# The site card. Rebuilt from a published puzzle before screenshotting, which
+# also checks that the answer really is hidden where the card underlines it, so
+# the card can't be a picture that quietly asserts something false.
+# The page is self-contained (make_og_card.card_html), so its hash says
+# everything the picture is drawn from, as card_key does for a puzzle card:
+# the last drawing is kept, palettised, as og/.site/<hash>.png, inside the
+# directory the deploy caches and outside og/*.png, which ships. An unchanged
+# card was a Chrome start and a quantize on every deploy (~12s).
+python3 "$REPO/tools/make_og_card.py" >/dev/null
+site_key="$(sha256sum "$REPO/tools/og_card.html" | cut -c1-32)"
+kept="$REPO/og/.site/$site_key.png"
+if [ -f "$kept" ]; then
+  cp "$kept" "$REPO/og.png"
+  echo "og.png unchanged (og/.site/$site_key.png)"
+else
+  shot "$REPO/tools/og_card.html" "$REPO/og.png"
+  python3 "$REPO/tools/og_palette.py" "$REPO/og.png"
+  rm -rf "$REPO/og/.site"
+  mkdir -p "$REPO/og/.site"
+  cp "$REPO/og.png" "$kept"
+  echo "wrote og.png"
+fi
+
+# Cards in batches: one interpreter writes a batch's pages and one records
+# them, rather than two per card, since the interpreter is a third of a card's
+# time beside Chrome. Recorded after the batch's shots, so a run that dies
+# partway leaves the cards it did not finish still marked stale rather than
+# done; the record hashes the very page each card was shot from.
+draw() {  # draw <puzzle number>...
+  [ $# -gt 0 ] || return 0
+  python3 "$REPO/tools/make_og_card.py" --out-dir "$TMP" "$@"
+  local n pairs=()
+  for n in "$@"; do
+    shot "$TMP/$n.html" "$REPO/og/$n.png"
+    pairs+=("$n" "$TMP/$n.html")
+    echo "wrote og/$n.png"
+  done
+  python3 "$REPO/tools/make_og_card.py" --record "${pairs[@]}"
+}
+
+case "${1:-}" in
+  "") ;;
+  --all)
+    mkdir -p "$REPO/og"
+    # Listed into a variable of its own, because `for n in $(...)` throws the
+    # command's exit status away: a lister that dies partway through is then
+    # indistinguishable from nothing being stale, and every puzzle after the one
+    # it died on silently keeps a stale card while the run reports success.
+    list="$(python3 "$REPO/tools/og_list.py" "${OG_LIMIT:-600}")"
+    batch=()
+    for n in $list; do
+      batch+=("$n")
+      if [ ${#batch[@]} -ge 50 ]; then draw "${batch[@]}"; batch=(); fi
+    done
+    draw ${batch[@]+"${batch[@]}"} ;;
+  *) mkdir -p "$REPO/og"; draw "$1" ;;
+esac
+
+# Every card on disk, not only the ones drawn this run, so a card the cache
+# carried in from an earlier run is converted too. Directories, not globs: the
+# expanded og/*.png list outgrew the kernel's argument limit (exit 126).
+dirs=()
+for d in "$REPO/og/.site" "$REPO/og"; do [ -d "$d" ] && dirs+=("$d"); done
+python3 "$REPO/tools/og_palette.py" "$REPO/og.png" ${dirs[@]+"${dirs[@]}"}

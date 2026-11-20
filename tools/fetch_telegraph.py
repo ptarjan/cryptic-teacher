@@ -1,0 +1,690 @@
+#!/usr/bin/env python3
+"""Fetch Telegraph puzzles from the paper's own puzzle data bucket.
+
+    python3 tools/fetch_telegraph.py --holes 200     # up to 200 the bucket has and puzzles/ lacks
+    python3 tools/fetch_telegraph.py --holes all --budget-seconds 2400   # all of them, starting none after 40m
+    python3 tools/fetch_telegraph.py --holes 0       # count them, fetch nothing
+    python3 tools/fetch_telegraph.py --holes 20 --reindex   # and rebuild the index after
+    python3 tools/fetch_telegraph.py SLUG...         # one puzzle, e.g. toughie-crossword-93439
+
+bigdave44.com hints every Telegraph puzzle, but a weekday hints post often
+gives only some of the clues, and a grid cannot be rebuilt from part of a light
+list, so those numbers stay holes (tools/file_telegraph_puzzles.py). The
+Telegraph Puzzles app reads its puzzles from a public bucket, the same JSON
+for subscribers and everyone else: grid, clues, enumerations and answers, the
+prize puzzles' answers included once entries close.
+
+  https://puzzlesdata.telegraph.co.uk/bundles/web/calendar/<year>.json
+      every day's slug and printed number, per variant
+  https://puzzlesdata.telegraph.co.uk/puzzles/<variant>/<slug>.json
+      one puzzle
+
+The calendars start 2015-03-02 (Cryptic No 27,738) for the daily and the
+Saturday prize, 2020-08-11 (No 2,486) for the Toughie, and 2022-07-10 (No 24)
+for the Sunday Toughie; a slug below the first calendared one is a 404. The
+www.telegraph.co.uk pages answer python's TLS handshake with a 402; this
+bucket does not.
+
+Four variants, four series. The cryptic and prize-cryptic variants carry both
+papers, and only the print day tells them apart: a Sunday is the Sunday
+Telegraph's own sequence (~3,400), any other day the daily's (~31,300). A
+calendar number that breaks its variant's running order is not that puzzle:
+the Christmas specials are numbered from 100,000, and a few days carry a
+reprint under an old number.
+
+Writes puzzles/<series>/<year>/<series>-<number>.json, and rebuilds the index
+only when asked: tools/extend_archive.py counts the index to see whether a
+source added anything.
+"""
+import argparse
+import bisect
+import clue_text
+import datetime
+import html
+import itertools
+import json
+import re
+import sys
+import time
+import unicodedata
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+import downloads
+import enumeration
+import media_manifest as mm
+import mtime_cache
+import puzzle_paths
+import series as series_meta
+from fetch_puzzle import (read_puzzle_view,
+    duplicated_clues,
+    flatten_clue,
+    is_continuation,
+    puzzle_files,
+    puzzle_path,
+    read_puzzle_file,
+    separators,
+    source_clue,
+    write_puzzle_file,
+)
+from unit_more import backlog_left
+
+TOOL = "tools/fetch_telegraph.py"
+BUCKET = "https://puzzlesdata.telegraph.co.uk"
+FIRST_YEAR = 2015
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
+DELAY = 2.0
+#: Every bucket file fetched, kept: a re-run, tools/cross_validate.py and a
+#: refile read it from here rather than asking the bucket again.
+CACHE = downloads.TELEGRAPH
+#: The first number each series' calendar serves. From here on the bucket is
+#: the primary source and bigdave44.com is read only for its hints:
+#: tools/file_telegraph_puzzles.py files nothing at or past these but the
+#: numbers the calendar repeats (served()).
+FIRST_NUMBER = {"telegraph": 27738, "sundaytel": 2786, "toughie": 2486, "sundaytough": 24}
+#: Bylines the bucket leaves empty and no parsed bigdave44.com post carries
+#: (the crawl missed the post), each with where it is printed.
+BYLINES = {
+    ("toughie", 2489): ("Elgar", "https://bigdave44.com/2020/08/14/toughie-2489/"),
+    # A mystery setter: the title "13 6 27" is THAT'S ME IN THE CORNER, and the
+    # top-left corner reads ELGAR clockwise (column 1 up from row 4, then row 1).
+    ("toughie", 866): ("Elgar", "https://bigdave44.com/2012/10/26/toughie-866/"),
+}
+#: The bucket's variant -> the series on a weekday and on a Sunday.
+VARIANTS = {
+    "cryptic-crossword-1": ("telegraph", "sundaytel"),
+    "prize-cryptic": ("telegraph", "sundaytel"),
+    "toughie-crossword": ("toughie", "toughie"),
+    "prize-toughie": ("sundaytough", "sundaytough"),
+}
+PAPER = {"telegraph": "Telegraph cryptic crossword", "toughie": "Telegraph Toughie",
+         "sundaytel": "Sunday Telegraph cryptic crossword",
+         "sundaytough": "Sunday Telegraph Toughie"}
+#: Where a reader plays it. The app has no per-puzzle address it keeps, so
+#: every puzzle credits the same page, as the Independent's do.
+PLAY_URL = "https://www.telegraph.co.uk/puzzles/"
+ENTITY_NAME = re.compile(r"([AEIOUCN])(?:ACUTE|GRAVE|CIRC|UML|CEDIL|TILDE)")
+TITLE = re.compile(r"\bNo\.?\s*([\d,]+)\s*$")
+
+
+def http_json(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def served(series, number):
+    """Whether the bucket is this puzzle's primary source: from its series'
+    first calendared number on, except a number the calendar gives twice in
+    sequence, which in_order() drops and the blog files."""
+    return (series in FIRST_NUMBER and number >= FIRST_NUMBER[series]
+            and (series, number) not in repeated())
+
+
+_repeated = []
+#: The cached calendars' rows, kept on the SSD so repeated() (blog:telegraph,
+#: every 3 h) does not glob CACHE/calendar on the media disk (Paul 2026-10-14):
+#: {"year", "rows": [[series, number, "YYYY-MM-DD", variant, slug]]}, appended
+#: by record_calendar when cross_validate.Telegraph.ids writes a year's file.
+CALENDAR_MANIFEST = "telegraph-calendar"
+
+
+def record_calendar(year, path, cal):
+    """Append calendar `year` (the document `cal` just written to `path`) to CALENDAR_MANIFEST."""
+    mm.record(CALENDAR_MANIFEST, path, year=year,
+              rows=[[s, n, d.isoformat(), v, sl] for s, n, d, v, sl in calendar_rows(cal)])
+
+
+def _build_calendar():
+    """Read CACHE/calendar once into CALENDAR_MANIFEST (a cold memo)."""
+    found = []
+    for path in sorted((CACHE / "calendar").glob("*.json")):
+        rows = calendar_rows(json.loads(path.read_text(encoding="utf-8")))
+        found.append({"year": int(path.stem), "rows": [[s, n, d.isoformat(), v, sl] for s, n, d, v, sl in rows]})
+    mm.write(CALENDAR_MANIFEST, found)
+    mm.complete_path(CALENDAR_MANIFEST).write_text(json.dumps({"at": time.time()}))
+    return found
+
+
+def _glob_calendar_rows():
+    """The calendar rows of a cache not on the media disk (a test's): a glob is fine there."""
+    rows = []
+    for path in sorted((CACHE / "calendar").glob("*.json")):
+        rows += calendar_rows(json.loads(path.read_text(encoding="utf-8")))
+    return rows
+
+
+def held_calendar_rows():
+    """The cached calendars' rows, from CALENDAR_MANIFEST when CACHE is on the media disk."""
+    if not mm.on_media(CACHE):
+        return _glob_calendar_rows()
+    held = {r["year"]: r for r in (mm.rows(CALENDAR_MANIFEST) if mm.complete(CALENDAR_MANIFEST)
+                                   else _build_calendar())}
+    return [(s, n, datetime.date.fromisoformat(d), v, sl)
+            for _y, r in sorted(held.items()) for s, n, d, v, sl in r["rows"]]
+
+
+def repeated():
+    """{(series, number)} the cached calendars give twice in sequence."""
+    if not _repeated:
+        _repeated.append(runs(held_calendar_rows())[1])
+    return _repeated[0]
+
+
+def bucket_puzzle(variant, slug):
+    """(raw bucket JSON, fetched?) for one puzzle, from the cache when held."""
+    path = CACHE / "puzzles" / variant / f"{slug}.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8")), False
+    doc = http_json(f"{BUCKET}/puzzles/{variant}/{slug}.json")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+    return doc, True
+
+
+def variant_of(slug):
+    """"cryptic-crossword-37195" -> "cryptic-crossword-1"; the others are named
+    as their slugs are."""
+    stem = slug.rsplit("-", 1)[0]
+    return next(v for v in VARIANTS if v in (stem, stem + "-1"))
+
+
+def series_for(variant, day):
+    weekday, sunday = VARIANTS[variant]
+    return sunday if day.weekday() == 6 else weekday
+
+
+def calendar(years):
+    """[(series, number, date, variant, slug)] over the given years' calendars,
+    with each number that breaks its series' running order dropped."""
+    rows = []
+    for year in years:
+        try:
+            cal = http_json(f"{BUCKET}/bundles/web/calendar/{year}.json")
+        except urllib.error.HTTPError as err:
+            if err.code == 404:
+                continue
+            raise
+        rows += calendar_rows(cal)
+        time.sleep(DELAY)
+    return in_order(rows)
+
+
+def calendar_rows(cal):
+    rows = []
+    for variant in VARIANTS:
+        for month, days in (cal.get("calendar") or {}).get(variant, {}).items():
+            numbers = (cal.get("numbers") or {}).get(variant, {}).get(month, {})
+            for d, slug in days.items():
+                if not str(numbers.get(d) or "").isdigit():
+                    continue
+                day = datetime.date.fromisoformat(f"{month}-{int(d):02d}")
+                rows.append((series_for(variant, day), int(numbers[d]), day, variant, slug))
+    return rows
+
+
+def in_order(rows):
+    """Each series' longest run of numbers rising with the date, and nothing
+    else: a special numbered from 100,000 or a reprint under an old number is
+    never the puzzle the sequence says is due, and dropping the fewest rows
+    that break the order is what leaves only those out.
+
+    Nor is a number the calendar gives twice in sequence (runs()): the app
+    titles the second copy with the repeated number too (cryptic-crossword-37490,
+    18 April 2016, "No 28085", is No 28091), so both copies are dropped and the
+    number stays a hole for the blog to file."""
+    kept, doubles = runs(rows)
+    return [r for r in kept if (r[0], r[1]) not in doubles]
+
+
+#: How far a dropped row's number may sit from the run's number on the nearest
+#: day and still be in sequence (a misnumbered copy), not a reprint: a week.
+IN_SEQUENCE = 7
+
+
+def runs(rows):
+    """(each series' longest rising run, {(series, number)} doubled in it)."""
+    by_series = {}
+    for row in sorted(rows, key=lambda r: (r[0], r[2])):
+        by_series.setdefault(row[0], []).append(row)
+    out, doubles = [], set()
+    for seq in by_series.values():
+        tails, back = [], [None] * len(seq)  # tails[k]: index ending the best run of k+1
+        for i, row in enumerate(seq):
+            k = bisect.bisect_left([seq[t][1] for t in tails], row[1])
+            back[i] = tails[k - 1] if k else None
+            tails[k:k + 1] = [i]
+        i = tails[-1] if tails else None
+        run = []
+        while i is not None:
+            run.append(seq[i])
+            i = back[i]
+        run.reverse()
+        out += run
+        days = [r[2] for r in run]
+        numbers = {r[1] for r in run}
+        for row in set(seq) - set(run):
+            j = bisect.bisect_left(days, row[2])
+            near = min((run[x] for x in (j - 1, j) if 0 <= x < len(run)),
+                       key=lambda r: abs((r[2] - row[2]).days), default=None)
+            if (near and row[1] in numbers
+                    and abs(near[1] - row[1]) <= IN_SEQUENCE):
+                doubles.add((row[0], row[1]))
+    return out, doubles
+
+
+def cp1252(text):
+    """The older puzzles carry Windows-1252 punctuation read as latin-1: a C1
+    control (U+0080-U+009F) where the dash or quote should be."""
+    return re.sub("[\x80-\x9f]", lambda m: m.group().encode("latin-1").decode("cp1252", "replace"),
+                  text)
+
+
+def span(text):
+    """"3-9" -> (3, 9), "7" -> (7, 7); 1-based, as the bucket writes them."""
+    a, _, b = str(text).partition("-")
+    return int(a), int(b or a)
+
+
+SEE = re.compile(r"^\s*see\s+(\d+)\s*(across|down|ac|dn|a|d)?\s*\.?\s*$", re.I)
+
+
+def infer_links(links, clues, lights):
+    """Add the continuations a leader's `links` leave out. Some Toughies
+    (2888 ZERO HOUR, 2907 PARTY LINE) give the leader no `links` at all: the
+    second light carries "See 12 across" with no enumeration, and the leader's
+    own answer is the whole phrase. A continuation is a clue with no format
+    whose text is only "See N [direction]"; its order among the leader's
+    members is the one whose lights spell the leader's printed answer."""
+    named = {m for ms in links.values() for m in ms}
+    found = {}
+    for key, c in clues.items():
+        if key in named or re.sub(r"\s+", "", c.get("format") or ""):
+            continue
+        m = SEE.match(html.unescape(c.get("clue") or ""))
+        if not m:
+            continue
+        n, d = int(m.group(1)), (m.group(2) or "").lower()
+        d = {"a": "across", "ac": "across", "d": "down", "dn": "down"}.get(d, d)
+        targets = [(n, d)] if d else [(n, key[1]), (n, "down" if key[1] == "across" else "across")]
+        leader = next((t for t in targets if t in clues and t != key), None)
+        if leader:
+            found.setdefault(leader, []).append(key)
+    for leader, extra in found.items():
+        rest = links[leader] + extra
+        answer = re.sub(r"[^A-Z]", "", html.unescape(clues[leader].get("answer") or "").upper())
+        for order in itertools.permutations(rest):
+            if "".join(lights[k]["solution"] for k in (leader, *order)) == answer:
+                rest = list(order)
+                break
+        links[leader] = rest
+
+
+def parse(doc, variant):
+    """One bucket puzzle -> this app's puzzle dict."""
+    j = doc.get("json", doc)
+    copy = j["copy"]
+    m = TITLE.search(copy.get("title") or "")
+    if not m:
+        raise ValueError(f"no number in title {copy.get('title')!r}")
+    number = int(m.group(1).replace(",", ""))
+    day = datetime.datetime.strptime(copy["date-publish"], "%A, %d %B %Y").date()
+    series = series_for(variant, day)
+    pid = series_meta.puzzle_id(series, number)
+    cols, rows = int(copy["gridsize"]["cols"]), int(copy["gridsize"]["rows"])
+    words = {w["id"]: w for w in copy["words"]}
+    lights, clues = {}, {}
+    for group in copy["clues"]:
+        direction = group["title"].lower()
+        for c in group["clues"]:
+            if not str(c["number"]).isdigit():
+                raise ValueError(f"clue number {c['number']!r} {direction}: not a number")
+            word = words[c["word"]]
+            (x1, x2), (y1, y2) = span(word["x"]), span(word["y"])
+            cells = ([(x, y1) for x in range(x1, x2 + 1)] if direction == "across"
+                     else [(x1, y) for y in range(y1, y2 + 1)])
+            solution = re.sub(r"[^A-Z]", "", unicodedata.normalize(
+                "NFKD", html.unescape(word.get("solution") or "")).upper())
+            if len(solution) > len(cells):
+                # An accent whose entity lost its "&" and ";": NEACUTEE is NEE.
+                solution = ENTITY_NAME.sub(r"\1", solution)
+            if solution and len(solution) != len(cells):
+                raise ValueError(f"{c['number']} {direction}: answer {solution!r} "
+                                 f"does not fill {len(cells)} cells")
+            key = (int(c["number"]), direction)
+            lights[key] = {"number": key[0], "direction": direction,
+                           "position": {"x": x1 - 1, "y": y1 - 1},
+                           "length": len(cells), "solution": solution}
+            clues[key] = c
+    # A linked answer is printed once, on its first light, whose `links` name
+    # the rest; each of those carries "See 1 Across" and no enumeration.
+    # The continuations are found first: one can be listed before its leader.
+    links = {key: [(int(ln["number"]), ln["direction"].lower()) for ln in c.get("links") or ()]
+             for key, c in clues.items()}
+    infer_links(links, clues, lights)
+    linked = {m for ms in links.values() for m in ms}
+    entries = []
+    for key, c in clues.items():
+        if key in linked:
+            continue
+        members = [key] + links[key]
+        if any(m not in lights for m in members):
+            raise ValueError(f"{key[0]} {key[1]}: links a light the grid lacks")
+        fmt = re.sub(r"\s+", "", c.get("format") or "") or str(lights[key]["length"])
+        # separators() reads commas, hyphens and apostrophes; a "4.7" break
+        # sits at the same letter as a comma.
+        seps = separators(fmt.replace(".", ","), [lights[m]["length"] for m in members])
+        text, italics = flatten_clue(cp1252(html.unescape(c["clue"])).strip())
+        group = [f"{n}-{d}" for n, d in members]
+        if (printed := source_clue(pid, group[0], text)) != text:
+            text, italics = printed, []
+        for i, m in enumerate(members):
+            entries.append({
+                **{k: v for k, v in lights[m].items() if k != "solution"},
+                "clue": (enumeration.clue(f"{text} ({fmt})", separators=seps[0], italics=italics)
+                         if i == 0 else
+                         enumeration.clue(f"See {key[0]}", separators=seps[i])),
+                **({"group": group} if len(group) > 1 and i == 0 else {}),
+                "solution": lights[m]["solution"],
+            })
+    entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
+    # The bucket can serve one light another's clue. No Telegraph puzzle prints
+    # one clue twice, so a repeat is a lost clue, never a theme.
+    if dups := duplicated_clues(entries):
+        raise ValueError(f"{pid}: {'; '.join(' and '.join(ids) for ids in dups)} are "
+                         f"served the same clue, so the bucket has lost all but one; "
+                         f"file the printed clue (bigdave44.com prints them) in tools/data/source_clue_wrong/")
+    # Only the clues are mandatory. A prize puzzle whose entries are still
+    # open has no answers yet: it files unsolved, with no half key, and a
+    # later --holes run replaces it once the bucket publishes them.
+    solved = all(e["solution"] for e in entries)
+    if not solved:
+        for e in entries:
+            del e["solution"]
+    setter = (copy.get("setter") or copy.get("byline") or "").strip() or None
+    return {
+        "id": pid,
+        "number": number,
+        "series": series,
+        "name": f"{PAPER[series]} No {number:,}",
+        "setter": setter or series_meta.default_setter(series),
+        "date": day.isoformat(),
+        "dimensions": {"cols": cols, "rows": rows},
+        "source": {"url": PLAY_URL},
+        "solutions": {"origin": "published" if solved else "unsolved"},
+        "entries": entries,
+    }
+
+
+def blog_setters():
+    """{(series, number): setter} off bigdave44.com's parsed posts, for the
+    older Toughies the bucket leaves unbylined; empty when the cache is absent."""
+    import parse_bigdave44
+    out = {}
+    if parse_bigdave44.OUT.exists():
+        for line in parse_bigdave44.OUT.open(encoding="utf-8"):
+            rec = json.loads(line)
+            if rec.get("setter"):
+                out[(rec["series"], rec["number"])] = rec["setter"]
+    return out
+
+
+def _letters(text):
+    return re.sub(r"[^A-Z]", "", (text or "").upper())
+
+
+_WORDS = None
+
+
+def words():
+    """The lexicon's words, upper case: what tells a typo from a spelling."""
+    global _WORDS
+    if _WORDS is None:
+        path = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+        _WORDS = {line.split("\t", 1)[0] for line in path.open(encoding="utf-8")
+                  if not line.startswith("#")}
+    return _WORDS
+
+
+def bucket_misprint(ours, theirs):
+    """Why the bucket's clue text is the wrong one, or None when it is right.
+
+    The bucket is the printed puzzle and wins every disagreement but two: a
+    typo the blog's retyping corrected (one word apart, the bucket's not a
+    word and ours one: "exemplifed" for "exemplified"), and a clue the bucket
+    holds garbled, its words run into a second copy of themselves."""
+    import cross_validate
+    a, b = cross_validate.norm_text(ours), cross_validate.norm_text(theirs)
+    if not a or a == b:
+        return None
+    if len(a) >= 15 and b.count(a[:15]) > 1:
+        return "the bucket repeats the clue inside itself"
+    wa, wb = re.findall(r"[a-z]+", ours.lower()), re.findall(r"[a-z]+", theirs.lower())
+    if len(wa) == len(wb):
+        apart = [(x, y) for x, y in zip(wa, wb) if x != y]
+        if (len(apart) == 1 and not_a_word(apart[0][1]) and not not_a_word(apart[0][0])
+                and close(*apart[0])):
+            return f"the bucket misspells {apart[0][0]!r} as {apart[0][1]!r}"
+    return None
+
+
+def not_a_word(w):
+    return w.upper() not in words()
+
+
+def close(a, b):
+    """Within two single-letter edits."""
+    import difflib
+    return sum(max(i2 - i1, j2 - j1) for op, i1, i2, j1, j2 in
+               difflib.SequenceMatcher(None, a, b).get_opcodes() if op != "equal") <= 2
+
+
+def counts(enum):
+    return clue_text.count_total(enum or "")
+
+
+def annotation_fits(annotation, text, answer):
+    """Whether an annotation written for one clue still describes this one:
+    the same answer, and every definition, indicator, link word and block's
+    words still in the clue as written (tools/definitions.py places them exactly)."""
+    if _letters(annotation.get("answer")) != answer:
+        return False
+    pieces = ([d.get("text") for d in annotation.get("definitions") or ()]
+              + [i.get("text") for i in annotation.get("indicators") or ()]
+              + [b.get("clueFragment") for b in annotation.get("blocks") or ()]
+              + list(annotation.get("linkWords") or ()))
+    return all(p in (text or "") for p in pieces if p)
+
+
+def different_puzzle(new, old):
+    """Why the bucket's puzzle `new` is not the one the held file `old` is, or
+    None. The bucket can serve another puzzle under the number (Prize Cryptic
+    No 2842 is that Sunday's General Knowledge crossword): when fewer than half
+    the held answers sit where the bucket puts them, it is a different puzzle."""
+    have = {(e["position"]["x"], e["position"]["y"], e["direction"]): e.get("solution")
+            for e in old.get("entries", ()) if e.get("solution")}
+    if not have:
+        return None
+    theirs = {(e["position"]["x"], e["position"]["y"], e["direction"]): e.get("solution")
+              for e in new["entries"]}
+    same = sum(theirs.get(k) == v for k, v in have.items())
+    if same * 2 >= len(have):
+        return None
+    return f"only {same} of the held file's {len(have)} answers are the bucket's"
+
+
+def refile(new, old):
+    """The bucket's puzzle `new` over the blog-built file `old`: the printed
+    grid, numbering, enumerations and answers, the printed clue unless
+    bucket_misprint() proves it wrong, and each annotation that still fits its
+    clue. Returns (puzzle, notes), notes saying what was kept or dropped."""
+    import annotation
+    import cross_validate
+    notes = []
+    at = {(e["position"]["x"], e["position"]["y"], e["direction"]): e
+          for e in old.get("entries", ())}
+    # Fit is judged on each annotation's derived view; the raw one is what is kept.
+    shown = {(e["position"]["x"], e["position"]["y"], e["direction"]): e.get("annotation")
+             for e in annotation.view_puzzle(old).get("entries", ())}
+    by_id = {f"{e['number']}-{e['direction']}": e for e in new["entries"]}
+    for e in new["entries"]:
+        was = at.get((e["position"]["x"], e["position"]["y"], e["direction"]))
+        if not was:
+            continue
+        light = f"{e['number']}-{e['direction']}"
+        text, old_text = e["clue"].get("text"), was["clue"].get("text")
+        if text and old_text and not is_continuation(text):
+            why = bucket_misprint(old_text, text)
+            if cross_validate.norm_text(old_text) == cross_validate.norm_text(text):
+                # The same words: ours keeps the offsets its annotation and
+                # blog facts point into.
+                e["clue"] = {**{k: v for k, v in e["clue"].items() if k != "italics"},
+                             "text": old_text,
+                             **({"italics": was["clue"]["italics"]}
+                                if was["clue"].get("italics") else {})}
+            elif why:
+                e["clue"] = {**e["clue"], "text": old_text}
+                e["clue"].pop("italics", None)
+                notes.append(f"{light}: kept our clue, {why}")
+        members = [by_id[m] for m in e.get("group") or [light] if m in by_id]
+        holds = sum(m["length"] for m in members)
+        enum, old_enum = e["clue"].get("enumeration"), was["clue"].get("enumeration")
+        if enum and old_enum and counts(enum) != holds and counts(old_enum) == holds:
+            e["clue"] = {**e["clue"], "enumeration": old_enum}
+            seps = separators(old_enum, [m["length"] for m in members])
+            for m, sep in zip(members, seps):
+                m["clue"] = {k: v for k, v in m["clue"].items() if k != "separators"}
+                if sep:
+                    m["clue"]["separators"] = sep
+            notes.append(f"{light}: kept our ({old_enum}), the bucket's ({enum}) "
+                         f"does not count the {holds} letters")
+        ann = was.get("annotation")
+        if ann and not is_continuation(e["clue"].get("text")):
+            answer = "".join(by_id[m]["solution"] for m in e.get("group") or [light])
+            seen = shown.get((e["position"]["x"], e["position"]["y"], e["direction"])) or {}
+            if annotation_fits(seen, e["clue"].get("text"), answer):
+                e["annotation"] = ann
+            else:
+                notes.append(f"{light}: dropped the annotation, written for "
+                             f"{old_text!r} = {_letters(seen.get('answer'))}")
+    merged = {**new}
+    if not merged.get("setter") and old.get("setter"):
+        merged["setter"] = old["setter"]
+    if old.get("annotatedBy") and any(e.get("annotation") for e in merged["entries"]):
+        merged["annotatedBy"] = old["annotatedBy"]
+    return merged, notes
+
+
+def fetch(variant, slug, expect=None, setters=None):
+    """File one bucket puzzle: new, or over a file the blog filer built.
+    Returns (puzzle written or None, whether the bucket was asked)."""
+    doc, asked = bucket_puzzle(variant, slug)
+    puzzle = parse(doc, variant)
+    if not puzzle.get("setter") and setters:
+        puzzle["setter"] = setters.get((puzzle["series"], puzzle["number"]))
+    if not puzzle.get("setter") and (puzzle["series"], puzzle["number"]) in BYLINES:
+        puzzle["setter"] = BYLINES[(puzzle["series"], puzzle["number"])][0]
+    if expect and (puzzle["series"], puzzle["number"]) != expect:
+        raise ValueError(f"{slug} is {puzzle['id']}, the calendar says {expect[0]}-{expect[1]}")
+    path = puzzle_path(puzzle["series"], puzzle["number"])
+    held = puzzle_paths.find(puzzle["id"])
+    if held:
+        old = read_puzzle_file(held)
+        ours = (old.get("source") or {}).get("acquiredBy") == TOOL
+        # An unsolved puzzle never replaces a held one; a solved one replaces
+        # our own unsolved file outright.
+        if unsolved(puzzle) or (ours and not unsolved(old)):
+            print(f"held {puzzle['id']}: left alone")
+            return None, asked
+        why = None if ours else different_puzzle(puzzle, old)
+        if why:
+            print(f"held {puzzle['id']}: left alone, the bucket serves another puzzle ({why})")
+            return None, asked
+        if not ours:
+            puzzle, notes = refile(puzzle, old)
+            write_puzzle_file(path, puzzle, generator=TOOL)
+            print(f"refiled {puzzle['id']} ({puzzle['date']}) over the blog's"
+                  + "".join(f"\n  {n}" for n in notes))
+            return puzzle, asked
+    write_puzzle_file(path, puzzle, generator=TOOL)
+    print(f"fetched {puzzle['id']} ({puzzle['date']})")
+    return puzzle, asked
+
+
+def unsolved(puzzle):
+    return puzzle.get("solutions", {}).get("origin") == "unsolved"
+
+
+def holes(rows):
+    """The calendar rows to file: those puzzles/ lacks, those it holds only
+    as the blog filer rebuilt them, and those it holds unsolved."""
+    def mine(f):
+        p = read_puzzle_view(f)
+        ok = (p.get("series") in PAPER and not unsolved(p)
+              and (p.get("source") or {}).get("acquiredBy") == TOOL)
+        return p["id"] if ok else None
+
+    have = {i for i in mtime_cache.scan("telegraph-holes", list(puzzle_files()), mine).values()
+            if i}
+    return [r for r in rows if series_meta.puzzle_id(r[0], r[1]) not in have]
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--holes", type=lambda v: None if v == "all" else int(v), metavar="N|all", default=False,
+                    help="fetch up to N puzzles the bucket has and puzzles/ lacks, oldest first")
+    ap.add_argument("--reindex", action="store_true", help="rebuild the index after the walk")
+    ap.add_argument("--budget-seconds", type=float, help="start no fetch once this many seconds have passed since the run began")
+    ap.add_argument("slugs", nargs="*", help="bucket slugs, e.g. cryptic-crossword-37195")
+    args = ap.parse_args(argv)
+    # The budget is the whole run's wall clock, the calendars and the scan of
+    # puzzles/ included: they took ~12 minutes on 2026-10-19 and, uncounted,
+    # carried a 2400s budget to 3139s and past the unit's 60m limit.
+    start = time.monotonic()
+    if args.slugs:
+        for slug in args.slugs:
+            if fetch(variant_of(slug), slug)[1]:
+                time.sleep(DELAY)
+        return 0
+    if args.holes is False:
+        ap.error("give --holes N|all or slugs")
+    todo = holes(calendar(range(FIRST_YEAR, datetime.date.today().year + 1)))
+    todo.sort(key=lambda r: r[2])
+    by = {}
+    for r in todo:
+        by[r[0]] = by.get(r[0], 0) + 1
+    print(f"bucket holds {len(todo)} puzzles not on disk or held as the blog rebuilt them: "
+          + ", ".join(f"{s} {n}" for s, n in sorted(by.items())))
+    done = failed = broken = 0
+    setters = blog_setters()
+    walk = todo[:args.holes]
+    print(f"setup took {time.monotonic() - start:.0f}s")
+    for i, (series, number, day, variant, slug) in enumerate(walk):
+        if args.budget_seconds is not None and time.monotonic() - start >= args.budget_seconds:
+            print(f"budget of {args.budget_seconds:g}s spent: {len(walk) - i} left for the next run")
+            backlog_left()
+            break
+        asked = True
+        try:
+            written, asked = fetch(variant, slug, expect=(series, number), setters=setters)
+            done += bool(written)
+        except Exception as err:  # one bad puzzle is reported, not the walk's end
+            failed += 1
+            # A ValueError (RefusedWrite included) is a defect in the source
+            # puzzle itself and fails the same way every run; only the rest
+            # (network, server) say the run went wrong.
+            broken += isinstance(err, ValueError)
+            print(f"failed: {series}-{number} {slug}: {type(err).__name__}: {err}")
+        if asked:
+            time.sleep(DELAY)
+    print(f"done: {done} fetched, {failed} failed ({broken} of them defective source puzzles)")
+    if args.reindex and done:
+        from fetch_puzzle import reindex
+        reindex()
+    return 1 if failed > broken and not done else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

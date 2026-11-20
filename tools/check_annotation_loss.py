@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""Shout when an annotation run leaves clues it could not solve.
+
+A run that meets a clue it cannot parse does not fail. It writes that clue's
+annotation as null (tools/apply_annotations.py) and everything downstream
+carries on: the puzzle commits, the index marks it `annotated: false`, the site
+badges those clues "answers only", and the only evidence is a ratio buried in a
+log nobody opens. That is indistinguishable from a run that solved everything —
+which means a model too weak to solve the puzzle looks exactly like a good
+night, and the first person to notice is a learner who opened a clue with no
+teaching ladder in it.
+
+So the ratio gets checked by something that can shout. Give it the puzzles a run
+tried to annotate; it exits non-zero and names the clues if any came back short.
+
+A clue in solutions.reopened left blank is not a loss either: its model
+answer was sent back and solved a second time, and neither run found a parse
+(tools/reopen_answers.py, once per entry). The validator ships it answers-only
+on purpose, so it is printed and does not fail the check. So is a withheld
+clue (fetch_puzzle.withheld_clues): the run said which clue it could not
+annotate honestly and why, and shipped the rest round it.
+
+Only ONE of the three ways to come up short is a failure. A clue the model could
+not solve is a quality problem and gets shouted about. A clue the paper
+published with no words in it is owed nothing by anybody — it is printed, so a
+scrape that started blanking clues is still visible in the log, but it does not
+fail the check, because a gap that can never be filled would otherwise alert
+every single night for the life of the puzzle.
+
+    python3 tools/check_annotation_loss.py 30094 12429
+    python3 tools/check_annotation_loss.py            # whatever the tree changed
+
+With no arguments it reads the puzzles modified against HEAD, so a run that
+forgets to pass its own ids still gets checked on what it wrote.
+"""
+import subprocess
+import sys
+
+import groups
+from groups import entry_id
+from fetch_puzzle import ROOT, has_words, read_puzzle_view, resolve_puzzle, withheld_clues
+
+
+def changed_puzzles():
+    out = subprocess.run(["git", "diff", "--name-only", "HEAD", "--", "puzzles/"],
+                         cwd=ROOT, capture_output=True, text=True).stdout
+    # .json, because that is the committed form — the .js beside it is
+    # generated and gitignored, so a diff can never name one and a filter
+    # looking for one would report every night clean without reading a file.
+    return [ROOT / line for line in out.split() if line.endswith(".json")
+            and not line.endswith("index.json")]
+
+
+def clues(puzzle):
+    """The entries that are annotated: all but a linked answer's continuations,
+    which its leader's annotation covers (tools/groups.py)."""
+    continuations = groups.leader_of(puzzle["entries"])
+    return [e for e in puzzle["entries"] if entry_id(e) not in continuations]
+
+
+def unannotated(puzzle):
+    return [e for e in clues(puzzle) if e.get("annotation") is None]
+
+
+def main(argv):
+    paths = [resolve_puzzle(a) for a in argv] if argv else changed_puzzles()
+    short, wordless_only = [], []
+    for path in paths:
+        if not path.exists():
+            continue
+        puzzle = read_puzzle_view(path)
+        missing = unannotated(puzzle)
+        total = len(clues(puzzle))
+        # A file with nothing in it was never attempted — that is the backlog,
+        # not a loss. A file with SOME annotations is a run that tried and came
+        # up short, and that is the case worth waking someone for.
+        if not missing or len(missing) == total:
+            continue
+        # Two very different failures land in the same gap: a clue the model
+        # could not solve, and one with no words in it to solve. Only the
+        # solvable one is a loss.
+        tried = set((puzzle.get("solutions") or {}).get("reopened") or {})
+        held = withheld_clues(puzzle)
+        unsolved = [entry_id(e) for e in missing if has_words(e["clue"].get("text", ""))
+                    and entry_id(e) not in tried and entry_id(e) not in held]
+        for eid, why in held.items():
+            print(f"{puzzle['id']}: {eid} withheld — {why}")
+        retried = [entry_id(e) for e in missing if entry_id(e) in tried]
+        if retried:
+            print(f"{puzzle['id']}: {', '.join(retried)} solved twice with no parse "
+                  f"either time — ships answers-only, as the validator allows")
+        wordless = [entry_id(e) for e in missing if not has_words(e["clue"].get("text", ""))]
+        if unsolved:
+            short.append((puzzle["id"], total - len(missing), total,
+                          unsolved, wordless))
+        elif wordless:
+            wordless_only.append((puzzle["id"], wordless))
+    for pid, wordless in wordless_only:
+        print(f"{pid}: {', '.join(wordless)} published with no clue text — "
+              f"nothing to solve, so nothing is owed")
+    for pid, done, total, unsolved, wordless in short:
+        why = [f"left {', '.join(unsolved)} blank — read the run's own report "
+               f"before concluding anything: a blank is either a clue the model "
+               f"could not solve or one it solved and then dropped to get under "
+               f"a validator rule, and those want opposite fixes"]
+        if wordless:
+            why.append(f"{', '.join(wordless)} published with no clue text, so "
+                       f"there is nothing to solve there")
+        print(f"{pid}: {done}/{total} annotated — {'; '.join(why)}")
+    if not short:
+        print(f"annotation loss check: {len(paths)} puzzle(s), none left short")
+        return 0
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

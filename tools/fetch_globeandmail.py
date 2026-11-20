@@ -1,0 +1,617 @@
+#!/usr/bin/env python3
+"""Fetch The Globe and Mail's daily cryptic and convert it to this app's format.
+
+Usage:
+  python3 tools/fetch_globeandmail.py 20260917            # one date, YYYYMMDD
+  python3 tools/fetch_globeandmail.py 20260910 20260917   # a date range, inclusive
+  python3 tools/fetch_globeandmail.py --extend [N]        # N days OLDER than the
+                                                           # oldest globeandmail-*
+                                                           # puzzle already on disk
+                                                           # (default 14), clipped
+                                                           # at GLOBEANDMAIL_FLOOR_DATE
+  python3 tools/fetch_globeandmail.py --latest            # newest date the
+                                                           # vendor's picker
+                                                           # advertises, if not
+                                                           # already on disk
+  python3 tools/fetch_globeandmail.py --list              # print the dates the
+                                                           # vendor's own picker
+                                                           # currently advertises
+  --dry-run     print what would be fetched/written, write nothing
+  --out DIR     write .json files here instead of puzzles/ (also skips reindex(),
+                since reindex() always scans the real puzzles/ dir)
+
+Exit codes: 0 did what was asked, 3 --latest found nothing new, which
+includes a newest day that is expected-but-unfetchable (the Saturday puzzle):
+that prints one self-contained line on stderr and no traceback, and the
+fetch-puzzles workflow reads 3 as "nothing new", not a failed fetcher (its
+first Saturday, 2026-10-31, went red on the old exit 1). Explicit dates and --extend
+print such a day as a "skip" line and go on. A weekly event that prints a
+stack trace is indistinguishable from a real crash, which is the whole reason
+ExpectedlyUnfetchable exists; the exit stays non-zero so an unattended --latest
+run can never report success having fetched nothing.
+
+Companion to fetch_puzzle.py (Guardian) and fetch_independent.py (Independent);
+it borrows fetch_puzzle.py's generic helpers (HTTP, clue flattening, file
+writing, reindex) but none of the payload parsing: this is a different vendor
+with a different payload shape.
+
+WHERE THIS CAME FROM. The Globe and Mail's cryptic is hosted by Amuse Labs /
+PuzzleMe, set "globeandmail-new-cryptic". Two endpoints matter:
+
+  https://cdn-us.amuselabs.com/pmm/date-picker?set=globeandmail-new-cryptic
+      HTML containing `"puzzleId":"globeandmail-new-cryptic_YYYYMMDD"` entries —
+      about fourteen of them, roughly the last two weeks. That is the only
+      listing endpoint found; depth beyond it is unknown, so --list only reports
+      what the picker currently advertises and everything else (a single date, a
+      range, --extend) just tries the URL directly regardless of whether --list
+      would have mentioned it.
+
+  https://cdn-us.amuselabs.com/pmm/crossword?id={puzzleId}&set=globeandmail-new-cryptic&embed=1
+      HTML containing `"rawc":"<obfuscated>"`. Amuse never sends the grid in the
+      clear; it ships a base64 blob whose bytes have been shuffled by a
+      short repeating key, and the key itself is not sent — only the picker's
+      own JS knows it, derived at runtime. deobfuscate_rawc() re-derives it by brute
+      force (see its docstring) rather than executing that JS. This is the same
+      scheme xword-dl's amuselabs source already reverse-engineered; the
+      implementation here is an independent port kept local, not an xword-dl
+      dependency, so this tool has no new import.
+
+THE GRID IS COLUMN-MAJOR. The decoded JSON's `box` field is indexed box[x][y]
+— outer index is the COLUMN, inner is the ROW — not the row-major [y][x] every
+other shape in this repo uses. Confirmed against the sample: placedWords
+"SEANCE" sits at x=0,y=1 going across (direction "E"), and box[0][1], box[1][1],
+box[2][1]... spell S,E,A,N,C,E, while box[1] read as a whole row spells an
+unrelated down word (REALLIFE, which sits at x=1). Get this backwards and every
+solution comes out as some other entry's letters — it will look plausible
+(real English strings) and be wrong. solution_letters() below is the one place
+this is read; nothing else should index box directly.
+
+ENUMERATIONS ARE DATA, NOT TEXT. Amuse gives `wordLens`, an int array, never a
+rendered "(6)" or "(4,4)" in the clue text itself (checked: no clue in the
+sample payload ends in anything parenthesised). This tool always
+appends the rendered form, and only skips appending if the clue text already
+ends in one — belt and braces, in case some other day's clue already carries
+it. A multi-element wordLens (a "REAL LIFE"-style answer spanning contiguous
+boxes) becomes a comma-separated enumeration and a comma clue separator,
+exactly like a Guardian/Independent multi-word answer — Amuse gives no signal
+that would ever justify a hyphen instead, so hyphens are never emitted.
+
+NUMBERING. Amuse's `title` field is not a date artifact, it is the paper's own
+sequence number: "No 3368" for 2026-09-17. That is exactly the kind of number
+Guardian/Independent puzzles already use for `number`/`id`, so it is used
+here too rather than deriving a number from the date — it is monotonic (the
+paper prints six of these a week and counts up by one each time), and it is
+the number a reader of the actual paper would recognise. `date` is the
+Toronto calendar day of the YYYYMMDD it was fetched under ("2026-09-17"), the
+day the paper printed it; the payload's `publishTime` is that day's
+America/Toronto midnight, which is 04:00/05:00 UTC, so it names the same day.
+
+If `title` is ever NOT "No <digits>" this raises rather than guessing a
+number — matching fetch_independent.py's title parsing, and for the same
+reason: a wrong number silently overwrites the wrong file or reorders the
+archive, so an unrecognised format needs a human, not a fallback. The one
+title that is NOT a surprise is the Globe's own Saturday puzzle — blank early
+on, "The Weekender Cryptic" since 2026-08-08 — which carries no number
+anywhere in its payload and so cannot be filed into this series at all; see
+convert(), which reports it as an expected condition rather than a failure.
+
+PACING. One request per second, max, with a browser-ish User-Agent (reusing
+fetch_puzzle.UA) — this is somebody else's CDN and getting banned would take
+the puzzle away from every future run, not just this one.
+
+The Globe's No N is the Times Quick Cryptic No N, so it is never filed as a
+puzzle of its own: each print is recorded on the held timesquick-N as
+source.reprintedIn (tools/reprints.py, fetch_date), then the index is rebuilt
+via fetch_puzzle.reindex(). --out writes the converted print to that
+directory instead, as it is, and skips reindex().
+"""
+
+import base64
+import json
+import re
+import sys
+import time
+import urllib.error
+from collections import deque
+from datetime import date, datetime, timedelta
+from pathlib import Path
+
+import enumeration  # a clue's printed counts; tools/enumeration.py
+import puzzle_paths
+import reprints
+from fetch_puzzle import (flatten_clue, http_bytes, separators,
+                          read_puzzle_file, reindex, write_puzzle_file)
+import series as series_meta
+
+SET = "globeandmail-new-cryptic"
+DATE_PICKER_URL = f"https://cdn-us.amuselabs.com/pmm/date-picker?set={SET}"
+PUZZLE_URL = f"https://cdn-us.amuselabs.com/pmm/crossword?id={{puzzle_id}}&set={SET}&embed=1"
+PLAY_URL = "https://www.theglobeandmail.com/puzzles-and-crosswords/new-cryptic/?date={ymd}"
+REQUEST_GAP = 1.0  # seconds between requests — see PACING above
+# The oldest date the numbered series has a puzzle at. The
+# crossword endpoint 200s with a genuine Amuse "puzzle not found" page (not an
+# HTTP 404, and not a shape change — no rawc field, no title field, nothing to
+# parse) for every day from 2025-11-02 to 2025-11-14 and every Saturday walked
+# back to 2025-01-04, and for the puzzle-number-as-id variants tried in place
+# of a date (3105, 3104, 0003105, No3105). Three exceptions in that window —
+# 2025-11-01, 2025-11-08, 2025-11-15 — DO 200 with real box/placedWords data,
+# but carry no title, so see convert()'s blank-title comment for why those
+# still aren't fetchable. "No 3106" (2025-11-16) is where the numbered daily
+# series actually starts; nothing below it has ever been found on this CDN.
+GLOBEANDMAIL_FLOOR_DATE = date(2025, 11, 16)
+
+
+class ExpectedlyUnfetchable(ValueError):
+    """A payload this tool understands and is deliberately declining to file.
+
+    The Saturday puzzle carries no publisher number (see convert()), and a
+    date below the floor is simply not on the CDN. Both recur on a schedule,
+    so __main__ prints one line and exits non-zero for them while everything
+    else keeps its traceback. Raise this ONLY where the condition is
+    understood and the message names the date and the reason — anything else
+    is a bug report and has to stay loud to get read.
+    """
+
+
+class PuzzleNotFound(ExpectedlyUnfetchable):
+    """Amuse has no puzzle at this id (see NOT_FOUND_MARKER)."""
+
+
+# ---------- decode (ported from a working brute-force key search; see module
+# docstring for where it came from) ----------
+
+def is_valid_key_prefix(rawc, key_prefix, spacing):
+    try:
+        pos = 0
+        chunk = []
+        while pos < len(rawc):
+            start_pos = pos
+            key_index = 0
+            while key_index < len(key_prefix) and pos < len(rawc):
+                chunk_length = min(key_prefix[key_index], len(rawc) - pos)
+                chunk.append(rawc[pos: pos + chunk_length][::-1])
+                pos += chunk_length
+                key_index += 1
+            chunk_str = "".join(chunk)
+            base64_start = ((start_pos + 3) // 4) * 4 - start_pos
+            base64_end = (pos // 4) * 4 - start_pos
+            if base64_start >= len(chunk_str) or base64_end <= base64_start:
+                chunk.clear()
+                pos += spacing
+                continue
+            b64_chunk = chunk_str[base64_start:base64_end]
+            try:
+                decoded = base64.b64decode(b64_chunk)
+            except Exception:
+                return False
+            for byte in decoded:
+                if (byte < 32 and byte not in (0x09, 0x0A, 0x0D)) or byte in (0xC0, 0xC1) or byte >= 0xF5:
+                    return False
+            pos += spacing
+            chunk.clear()
+        return True
+    except Exception:
+        return False
+
+
+def deobfuscate_rawc_with_key(rawc, key):
+    try:
+        buffer = list(rawc)
+        i = 0
+        segment_count = 0
+        while i < len(buffer) - 1:
+            segment_length = min(key[segment_count % len(key)], len(buffer) - i)
+            segment_count += 1
+            left, right = i, i + segment_length - 1
+            while left < right:
+                buffer[left], buffer[right] = buffer[right], buffer[left]
+                left += 1
+                right -= 1
+            i += segment_length
+        decoded_bytes = base64.b64decode("".join(buffer))
+        return decoded_bytes.decode("utf-8")
+    except Exception:
+        return ""
+
+
+def deobfuscate_rawc(rawc):
+    """Brute-force the 7-element chunk-length key by BFS, one digit (2-20) at a
+    time, validating each prefix by reversing rawc in chunks of those lengths
+    and checking every 4-byte-aligned base64 slice decodes to valid UTF-8.
+    Runs in well under a second."""
+    ye_pos = rawc.find("ye")
+    we_pos = rawc.find("we")
+    ye_pos = ye_pos if ye_pos != -1 else len(rawc)
+    we_pos = we_pos if we_pos != -1 else len(rawc)
+    first_key_digit = min(ye_pos, we_pos) + 2
+
+    candidate_queue = deque([[first_key_digit]] if first_key_digit <= 20 else [[]])
+    while candidate_queue:
+        candidate_key_prefix = candidate_queue.popleft()
+        if len(candidate_key_prefix) == 7:
+            deobfuscated = deobfuscate_rawc_with_key(rawc, candidate_key_prefix)
+            try:
+                json.loads(deobfuscated)
+                return deobfuscated
+            except (json.JSONDecodeError, ValueError):
+                continue
+        for next_digit in range(2, 21):
+            new_candidate = candidate_key_prefix + [next_digit]
+            remaining_digits = 7 - len(new_candidate)
+            min_spacing, max_spacing = 2 * remaining_digits, 20 * remaining_digits
+            if any(is_valid_key_prefix(rawc, new_candidate, spacing)
+                   for spacing in range(min_spacing, max_spacing + 1)):
+                candidate_queue.append(new_candidate)
+    raise ValueError("could not recover the rawc obfuscation key")
+
+
+RAWC_RE = re.compile(r'rawc"\s*:\s*"(.*?)"')
+# Amuse answers a puzzleId it has never heard of with HTTP 200 and this error
+# page (params.exceptionString.errorMessage), not a 404 — so absence of rawc
+# alone doesn't say WHY. Recognising the marker turns "page shape changed?"
+# (a real-parser-bug message) into an accurate one for the everyday case of
+# asking for a date below GLOBEANDMAIL_FLOOR_DATE.
+NOT_FOUND_MARKER = "was not found"
+
+
+def fetch_raw_json(puzzle_id):
+    html = http_bytes(PUZZLE_URL.format(puzzle_id=puzzle_id)).decode("utf-8", errors="replace")
+    m = RAWC_RE.search(html)
+    if not m:
+        if NOT_FOUND_MARKER in html:
+            raise PuzzleNotFound(f"{puzzle_id}: not found (Amuse has no puzzle at this id)")
+        raise ValueError(f"no rawc field found for {puzzle_id} — page shape changed?")
+    rawc = json.loads('"' + m.group(1) + '"')  # unescape JSON string escapes (\/ etc)
+    return json.loads(deobfuscate_rawc(rawc))
+
+
+# ---------- mapping onto our puzzle shape ----------
+
+TITLE_RE = re.compile(r"(?:No\.?\s*)?([\d,]+)\s*$")
+ENUM_TAIL_RE = re.compile(r"\([\d,\-.\s]+\)\s*$")
+# The Globe's own Saturday puzzle, billed in the payload's `help` field as
+# "Every Saturday, only at The Globe and Mail". Compared exactly rather than
+# matched loosely: a title this tool has genuinely never seen still has to
+# reach the "unrecognised title" raise in convert(), which is what gets a
+# human to look. Widening this to a substring would swallow the next real
+# surprise.
+WEEKENDER_TITLE = "The Weekender Cryptic"
+
+
+def solution_letters(box, cells):
+    """box is indexed box[x][y] — see the COLUMN-MAJOR note in the module
+    docstring — so this is the one place that ordering is allowed to matter."""
+    return "".join(box[x][y] for x, y in cells).upper()
+
+
+def setter_name(author):
+    """The byline without the syndication notice.
+
+    Amuse ships the author as "Hurley (©News Licensing/Times Media Limited)" or
+    "Hurley / ©News Licensing/Times Media Limited" — the puzzle is a Times
+    syndication. The rights holder is not the setter, and
+    a solver looking for another Hurley puzzle needs the name alone.
+    """
+    if not author:
+        return None
+    name = re.sub(r"\s*\([^)]*(?:©|Licensing|Limited|Ltd)[^)]*\)", "", author).strip()
+    name = re.sub(r"\s*/?\s*©.*$", "", name).strip()
+    return name or None
+
+
+def convert(data, ymd):
+    title = (data.get("title") or "").strip()
+    if not title:
+        # Confirmed on 2025-11-01, -08, -15 and -22 — every one a Saturday:
+        # real box/placedWords data in the 15x15 Saturday shape, but title,
+        # subtitle, author, authorEmail, authorURL, copyright and description
+        # are ALL blank. This is the Saturday puzzle before it was given the
+        # Weekender billing below, not a page whose shape changed, and not a
+        # pre-launch artefact either: 2025-11-22 is ABOVE
+        # GLOBEANDMAIL_FLOOR_DATE, so a blank title stays possible anywhere
+        # inside the archive window and --extend has to survive meeting one.
+        # Like the Weekender it carries no publisher number anywhere in the
+        # payload, and inventing one would plant a fake gap that trips
+        # coverage_report's STRAY check forever, so this is a distinct,
+        # expected condition rather than "unrecognised title" below.
+        raise ExpectedlyUnfetchable(
+            f"{ymd}: blank title — the Globe's untitled Saturday puzzle, which "
+            "carries no publisher number, so there is nothing to file it under")
+    if title == WEEKENDER_TITLE:
+        # The Globe runs its own Saturday cryptic and the syndicated numbered
+        # daily never appears that day: 2026-09-11 is No 3363, 2026-09-12 is
+        # the Weekender, 2026-09-13 is No 3364 — the numbering skips Saturday,
+        # which is the "six a week" the module docstring counts. Confirmed on
+        # 2025-12-27 and on every Saturday from 2026-08-08 to 2026-09-19:
+        # 15x15 (the daily is 13x13), set by Fraser Simpson rather than
+        # syndicated from the Times, and — searched field by field across the
+        # whole decoded payload, not just `title` — carrying no number of any
+        # kind. So it is the blank-title case above wearing a name: expected,
+        # due again every Saturday, and unfilable without inventing a number.
+        # If a Weekender ever does turn up numbered it is a new series to be
+        # discussed on its own terms, never something to fold in here.
+        raise ExpectedlyUnfetchable(
+            f"{ymd}: The Weekender Cryptic — the Globe's own unnumbered Saturday "
+            "puzzle, expected every Saturday, not part of this numbered series")
+    m = TITLE_RE.search(title)
+    if not m:
+        raise ValueError(f"unrecognised title {data.get('title')!r} for {ymd}")
+    number = int(m.group(1).replace(",", ""))
+
+    box = data["box"]
+    entries = []
+    for pw in data["placedWords"]:
+        across = bool(pw["acrossNotDown"])
+        direction = "across" if across else "down"
+        x0, y0, length = pw["x"], pw["y"], pw["nBoxes"]
+        cells = [(x0 + i, y0) for i in range(length)] if across else [(x0, y0 + i) for i in range(length)]
+        word_lens = pw["wordLens"]
+        enum = "(" + ",".join(str(n) for n in word_lens) + ")"
+        # The Amuse payload italicises titles in the clue with real HTML tags,
+        # and the app escapes puzzle text, so the markup has to come out here.
+        # The italics themselves are part of the clue, so they travel beside it
+        # as ranges, exactly as the Guardian and Independent clues do.
+        clue_text, italics = flatten_clue(pw["clue"]["clue"].strip())
+        full_clue = clue_text if ENUM_TAIL_RE.search(clue_text) else f"{clue_text} {enum}"
+        seps, cum = [], 0
+        for n in word_lens[:-1]:
+            cum += n
+            seps.append({"at": cum, "mark": ","})
+        # A count the clue prints itself says which breaks are apostrophes.
+        printed = enumeration.split(full_clue)[1]
+        if printed and "'" in printed and sum(enumeration.counts(printed)) == length:
+            seps = separators(printed, [length])[0]
+        num = int(pw["clueNum"])
+        entries.append({
+            "number": num,
+            "direction": direction,
+            "position": {"x": x0, "y": y0},
+            "length": length,
+            "clue": enumeration.clue(full_clue, separators=seps, italics=italics),
+            "solution": solution_letters(box, cells),
+        })
+    entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
+
+    return {
+        "id": series_meta.puzzle_id("globeandmail", number),
+        "number": number,
+        "series": "globeandmail",
+        "name": f"Globe and Mail cryptic crossword No {number:,}",
+        "setter": setter_name(data.get("author")),
+        "date": date.fromisoformat(ymd).isoformat(),
+        "dimensions": {"cols": data["w"], "rows": data["h"]},
+        "source": {"url": PLAY_URL.format(ymd=ymd)},
+        "entries": entries,
+    }
+
+
+# ---------- fetch / list / write ----------
+
+def list_available_dates():
+    """The dates the vendor's own date-picker currently advertises, newest
+    first. Not a hard boundary — --extend and explicit dates try dates this
+    never mentions — just what's on offer right now (about two weeks)."""
+    html = http_bytes(DATE_PICKER_URL).decode("utf-8", errors="replace")
+    dates = sorted(set(re.findall(rf'"puzzleId"\s*:\s*"{re.escape(SET)}_(\d{{8}})"', html)), reverse=True)
+    return dates
+
+
+def fetch_date(ymd, out_dir, dry_run=False):
+    """Fetch the Globe's print of `ymd` and record it on the Quick it reprints.
+
+    The Globe's No N is the Times Quick Cryptic No N (series.py `reprints`),
+    so the corpus files the Quick alone and this print goes on it as
+    source.reprintedIn (tools/reprints.py). A Quick not filed yet waits for
+    its own filers (file_times_puzzles.py, fetch_times_feed.py): this print
+    is refused until then. --out writes the converted print as it is, for
+    inspection."""
+    puzzle_id = f"{SET}_{ymd}"
+    data = fetch_raw_json(puzzle_id)
+    puzzle = convert(data, ymd)
+    if out_dir.resolve() != puzzle_paths.PUZZLE_DIR.resolve():
+        if not dry_run:
+            (out_dir / f"{puzzle['id']}.json").write_text(
+                json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        return puzzle
+    original_id = reprints.original_of(puzzle)
+    held = puzzle_paths.find(original_id)
+    if held is None:
+        raise ExpectedlyUnfetchable(
+            f"{ymd}: the Globe's No {puzzle['number']} reprints {original_id}, which is not "
+            "filed yet; its print is recorded once the Quick is filed")
+    original = read_puzzle_file(held)
+    printed = {(p["series"], p["number"]): p["date"]
+               for p in (original.get("source") or {}).get("reprintedIn") or []}
+    day = printed.get((puzzle["series"], puzzle["number"]))
+    if day == puzzle["date"]:
+        print(f"up-to-date {original_id} ({ymd})")
+        return puzzle
+    if day is not None:
+        # The paper's own title is what convert() numbers by, and it has
+        # repeated for real: "No 3262" was printed on both 2026-05-17 and
+        # 2026-05-18, two different grids. Neither day replaces the other.
+        raise ValueError(f"{original_id} records the Globe's No {puzzle['number']} on {day}, "
+                         f"but {ymd} prints the same number: publisher duplicate, not recorded")
+    if dry_run:
+        print(f"[dry-run] would record the Globe's {ymd} print on {original_id}")
+        return puzzle
+    write_puzzle_file(held, reprints.with_print(original, puzzle["series"], puzzle["number"],
+                                                puzzle["date"]))
+    print(f"recorded the Globe's {ymd} print on {original_id}")
+    return puzzle
+
+
+def days_between(start, end):
+    """Inclusive, newest first, in the "YYYYMMDD string" shape used everywhere
+    else here."""
+    lo, hi = min(start, end), max(start, end)
+    n = (hi - lo).days
+    return [(hi - timedelta(days=i)).strftime("%Y%m%d") for i in range(n + 1)]
+
+
+def recorded():
+    """{Globe number: its print date} for every print recorded on a Quick."""
+    out = {}
+    for f in puzzle_paths.puzzle_files("timesquick"):
+        for p in (read_puzzle_file(f).get("source") or {}).get("reprintedIn") or []:
+            if p["series"] == "globeandmail":
+                out[p["number"]] = date.fromisoformat(p["date"])
+    return out
+
+
+def oldest_held():
+    days = recorded().values()
+    return min(days) if days else None
+
+
+def latest():
+    """The newest date the vendor's own picker advertises, if we don't already
+    hold it. Returns the puzzle, or None for "nothing new" — the same contract
+    fetch_puzzle.py and fetch_independent.py use, so daily_update.sh can tell
+    a quiet night from a broken feed.
+
+    list_available_dates() is the walk-back here: unlike Independent's feed,
+    which is keyed by date and answers for any day whether or not it exists,
+    this vendor's picker already enumerates exactly what it currently has, so
+    there is nothing to guess about "today" — the newest entry the picker
+    offers IS the newest thing there is to fetch, whatever day it happens to
+    be locally. Trying every entry rather than just the first guards the one
+    case that isn't guessable: the picker listing a date microseconds before
+    the crossword endpoint itself has it, which would otherwise read as the
+    feed being down.
+    """
+    dates = list_available_dates()
+    if not dates:
+        raise SystemExit("date-picker advertised no dates")
+    for ymd in dates:
+        try:
+            data = fetch_raw_json(f"{SET}_{ymd}")
+        except PuzzleNotFound:
+            # The "picker is ahead of the crossword endpoint" case above
+            # arrives as Amuse's HTTP 200 plus a not-found page, never as a
+            # 404 (see NOT_FOUND_MARKER), so walking on to the next date has
+            # to be triggered by class — the HTTPError arm below has never
+            # been the one that fires for it.
+            continue
+        except urllib.error.HTTPError as err:
+            if err.code != 404:
+                raise
+            continue
+        puzzle = convert(data, ymd)
+        if puzzle["number"] in recorded():
+            # The newest date the picker can see is one we already have, so
+            # there is nothing newer to find further down the list either.
+            print(f"up-to-date {puzzle['id']}")
+            return None
+        return fetch_date(ymd, puzzle_paths.PUZZLE_DIR)
+    return None
+
+
+def run_dates(ymds, out_dir, dry_run):
+    fetched = missing = 0
+    for i, ymd in enumerate(ymds):
+        if i:
+            time.sleep(REQUEST_GAP)
+        try:
+            fetch_date(ymd, out_dir, dry_run)
+            fetched += 1
+        except urllib.error.HTTPError as err:
+            print(f"skip {ymd}: HTTP {err.code}")
+            missing += 1
+        except ExpectedlyUnfetchable as err:
+            # These messages already open with the date (or the puzzle id), so
+            # the generic arm below would print it twice.
+            print(f"skip {err}")
+            missing += 1
+        except Exception as err:  # one bad day is reported, not the run's end
+            print(f"skip {ymd}: {type(err).__name__}: {err}")
+            missing += 1
+    if not dry_run and out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve():
+        reindex()
+    print(f"done: {fetched} fetched, {missing} unavailable/failed")
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help"):
+        print(__doc__)
+        return 0
+
+    dry_run = "--dry-run" in argv
+    argv = [a for a in argv if a != "--dry-run"]
+    out_dir = puzzle_paths.PUZZLE_DIR
+    if "--out" in argv:
+        i = argv.index("--out")
+        out_dir = Path(argv[i + 1])
+        argv = argv[:i] + argv[i + 2:]
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    if argv[0] == "--list":
+        for ymd in list_available_dates():
+            print(ymd)
+        return 0
+
+    if argv[0] == "--extend":
+        n = int(argv[1]) if len(argv) > 1 else 14
+        held = oldest_held()
+        end = (held - timedelta(days=1)) if held else date.today()
+        # Without this, a held archive that already reaches the floor never
+        # moves: oldest_held() keeps returning the same date, so every call
+        # re-walks the identical dead window below it and reports 0 fetched
+        # forever, indistinguishable from a feed worth retrying. Stop here
+        # instead, the same way fetch_puzzle.py's FLOORS does for the
+        # Guardian series.
+        if end < GLOBEANDMAIL_FLOOR_DATE:
+            print(f"already at the archive floor ({GLOBEANDMAIL_FLOOR_DATE.isoformat()}, "
+                  "No 3106) — see GLOBEANDMAIL_FLOOR_DATE for the evidence; nothing older to fetch")
+            return 0
+        start = max(GLOBEANDMAIL_FLOOR_DATE, end - timedelta(days=n - 1))
+        ymds = [(end - timedelta(days=i)).strftime("%Y%m%d") for i in range((end - start).days + 1)]
+        run_dates(ymds, out_dir, dry_run)
+        return 0
+
+    if argv[0] == "--latest":
+        try:
+            puzzle = latest()
+        except ExpectedlyUnfetchable as err:
+            print(f"fetch_globeandmail.py: {err}", file=sys.stderr)
+            return 3
+        if not puzzle:
+            return 3
+        # No reindex here: recording a print touches one Quick's file, and a
+        # whole-corpus reindex (62k puzzles, difficulty over all of them) ran
+        # the 2026-10-18 unit past its 45-minute limit right after "recorded".
+        # The filers do not reindex; daily_update.sh does, before it commits.
+        print(puzzle["id"])
+        return 0
+
+    # 2026-09-17 and 20260917 both mean the same day. The vendor's ids are the
+    # undashed form and everything downstream uses it, so normalise here rather
+    # than making the caller know which one this particular tool wants.
+    argv = [a.replace("-", "") for a in argv]
+    for a in argv:
+        if not re.fullmatch(r"\d{8}", a):
+            raise SystemExit(f"Expected a YYYY-MM-DD date, got: {a}")
+    if len(argv) == 1:
+        ymds = [argv[0]]
+    elif len(argv) == 2:
+        ymds = days_between(datetime.strptime(argv[0], "%Y%m%d").date(),
+                             datetime.strptime(argv[1], "%Y%m%d").date())
+    else:
+        raise SystemExit("Expected one date, two dates (a range), --extend, or --list")
+    run_dates(ymds, out_dir, dry_run)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main(sys.argv[1:]))
+    except ExpectedlyUnfetchable as err:
+        # A traceback means "nobody anticipated this"; these were anticipated,
+        # and the Saturday one is due again in seven days. Printing a stack
+        # trace for a scheduled event trains everyone reading the nightly log
+        # to ignore stack traces, so it gets one self-contained line carrying
+        # the date and the reason instead — no "see the log" — and the exit
+        # stays non-zero so an unattended caller cannot mistake a day with
+        # nothing to fetch for a day that fetched something.
+        print(f"fetch_globeandmail.py: {err}", file=sys.stderr)
+        sys.exit(1)

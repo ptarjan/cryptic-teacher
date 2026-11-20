@@ -1,0 +1,905 @@
+#!/usr/bin/env python3
+"""File grids rebuilt from a crossword blog into puzzles/: the half of filing
+every blog shares. tools/file_times_puzzles.py and
+tools/file_telegraph_puzzles.py each hand run() a source saying what is
+their paper's: which series a row files under, its setter, its print dates.
+
+A row is filed only when all of these hold, and every refusal is counted by
+its reason:
+
+  - every light in the grid has an entry with a clue;
+  - every clue carries an enumeration agreeing with its light, or with its
+    whole group when it leads a linked answer; a "See N" continuation may
+    carry none. One the grid-proved answers contradict is recounted from
+    them, when the blog wrote no more words than the answers hold;
+  - the answers, read through times_grids.answers() so the corrections apply,
+    write into the grid with every crossing agreeing;
+  - the number sits in its sequence: inside the range the longest run of
+    rows whose numbers rise with the post date spans within four weeks of
+    this post. A row outside it carries a number the parser misread (a year,
+    a stray digit, another series' number); one merely posted out of order
+    is inside. One whose title is a single typing slip from exactly one
+    unclaimed number that fits is filed under that number. A number two
+    posts claim files neither;
+
+The blog's answers are a solver's write-up, not the paper's key, so
+solutions.blog names the blog (series.py's `blog`) and solutions.origin says so.
+
+A file already on disk is never rewritten but for its date, which facts
+arriving later can prove, a placeholder setter the post names, what the
+source's `tidy` changes in its clues (retext), and a light it left blank
+that the blog's post now answers (fill_blanks): by then it may carry
+annotations. One whose clues or answers no longer match what this
+would write is named, so a correction made upstream is seen rather than lost.
+"""
+import bisect
+import clue_text
+import collections
+import datetime
+import json
+import re
+from collections.abc import Callable
+from dataclasses import dataclass
+from urllib.parse import urlparse
+import enumeration
+import fetch_puzzle
+import reconstruct_grid as rg
+import series as series_meta
+import times_grids as tg
+from fetch_puzzle import (
+    clue_words,
+    has_words,
+    puzzle_path,
+    read_puzzle_file,
+    write_puzzle_file,
+)
+from file_penguin_puzzle import separators
+from groups import entry_id
+from normalise_linked_enumerations import (
+    answer_parts,
+    enumeration_parts,
+    format_parts,
+    resolve_groups,
+)
+
+
+
+@dataclass(frozen=True)
+class Source:
+    """What one blog's filer knows about its paper.
+
+    `tool` is the filer, recorded as the puzzle's acquirer. `target(row)` is (series
+    key, dated?), where a dated series falls back to the post date when
+    `print_dates(recs, renumbered)` -- ({(series, number): date}, [notes]) --
+    proves none. `setter(rec, series)` is the byline or None. `run(row)`
+    names the numbering a row belongs to, for a series that renumbered: each
+    is held to its own sequence."""
+    tool: str
+    target: Callable
+    print_dates: Callable
+    setter: Callable
+    run: Callable = lambda row: None
+    #: (series, number) -> whether the paper's own feed is the primary source,
+    #: so the blog files nothing there and leaves a held file to the feed.
+    published: Callable = lambda series, number: False
+    #: A printed clue line -> the line as the parser now reads it, applied to
+    #: the clues of a puzzle already filed (retext) so that a parser fix
+    #: reaches the files written before it.
+    tidy: Callable = None
+
+
+#: Why a rebuilt grid is not filed, by the key the filer's ledger records
+#: (FILINGS, beside grids.jsonl) and the words its run prints. build() returns
+#: the words; CAUSE_OF reads them back to the key, so a reason missing here
+#: fails the run instead of reaching the ledger as prose.
+CAUSES = {
+    "unsplit-link": "a linked clue the blog does not split",
+    "answers-disagree": "answers disagree with the grid",
+    "lights-mismatch": "entries do not match the grid's lights",
+    "no-clue": "a light has no clue",
+    "link-no-light": "a linked clue names no single light",
+    "no-enumeration": "a clue has no enumeration",
+    "enumeration-disagrees": "an enumeration disagrees with its light",
+    "enumeration-uncountable": ("an enumeration disagrees with its light, and the "
+                                "answer holds too few words to take the count from"),
+    "word-breaks-misfit": "the printed answer's word breaks do not fit its lights",
+    "no-parsed-record": "the parser no longer reads its post",
+    "no-number": "no puzzle number",
+    "out-of-sequence": "number out of sequence",
+    "claimed-twice": "number claimed twice",
+    "paper-feed": "the paper's own feed files it",
+    "write-refused": "refused by the write path",
+}
+CAUSE_OF = {words: key for key, words in CAUSES.items()}
+#: The filer's ledger, one row per grids.jsonl row it reached:
+#: {"post_id", "series", "number", "cause"}, cause a CAUSES key or "filed".
+#: Rewritten whole by every writing run, so it is always the last run's word.
+FILINGS = "filings.jsonl"
+
+
+DAY = datetime.timedelta(days=1)
+
+
+def fit_undated(dates, guess, latest, printing_day):
+    """Every number in `dates` ({number: day or None}) dated, rising with the
+    numbers. Each run of undated numbers takes the printing days between its
+    dated neighbours nearest its `guess`, none after its `latest` (a puzzle is
+    never blogged before it is printed), and a run with fewer days than
+    numbers takes in a neighbour each side until it fits. A best guess can be
+    a few days out; a blank date is a hole in every listing. Only numbers no
+    day can fit at all stay None."""
+    dates, order = dict(dates), sorted(dates)
+    i = 0
+    while i < len(order):
+        if dates[order[i]]:
+            i += 1
+            continue
+        lo = hi = i
+        while hi + 1 < len(order) and not dates[order[hi + 1]]:
+            hi += 1
+        while True:
+            run = order[lo:hi + 1]
+            # A neighbour taken in without a post of its own keeps its day
+            # as both.
+            near = [guess.get(n) or dates[n] for n in run]
+            fit = _nearest(_between(dates[order[lo - 1]] if lo else None,
+                                    dates[order[hi + 1]] if hi + 1 < len(order) else None,
+                                    near, printing_day),
+                           near, [latest.get(n) or dates[n] for n in run])
+            if fit or (lo == 0 and hi == len(order) - 1):
+                break
+            lo, hi = max(lo - 1, 0), min(hi + 1, len(order) - 1)
+        dates.update(zip(run, fit or [None] * len(run)))
+        i = hi + 1
+    return dates
+
+
+def _between(after, before, guesses, printing_day):
+    """The printing days strictly between two dates; an open end reaches a
+    month past the farthest guess."""
+    day = (after or min(guesses) - 31 * DAY) + DAY
+    end = before or max(guesses) + 31 * DAY
+    out = []
+    while day < end:
+        if printing_day(day):
+            out.append(day)
+        day += DAY
+    return out
+
+
+def _nearest(slots, guesses, latest):
+    """One slot per guess, rising with the guesses, none after its latest, the
+    total days off the guesses least; None when no such choice exists."""
+    inf = float("inf")
+    # cost[i][j]: the first i guesses placed in the first j slots.
+    cost = [[0] * (len(slots) + 1)] + [[inf] * (len(slots) + 1) for _ in guesses]
+    for i, g in enumerate(guesses, 1):
+        for j in range(i, len(slots) + 1):
+            cost[i][j] = min(cost[i][j - 1],
+                             cost[i - 1][j - 1] + abs((slots[j - 1] - g).days)
+                             if slots[j - 1] <= latest[i - 1] else inf)
+    if cost[-1][-1] == inf:
+        return None
+    out, j = [], len(slots)
+    for i in range(len(guesses), 0, -1):
+        while cost[i][j] == cost[i][j - 1]:
+            j -= 1
+        out.append(slots[j - 1])
+        j -= 1
+    return out[::-1]
+
+
+#: C1 controls: bytes the blog lost in decoding, never text.
+C1 = re.compile(r"[\x80-\x9f]")
+
+
+def clean(clue):
+    """The clue as text: the blog's markup, lost bytes and doubled spaces removed."""
+    return " ".join(C1.sub("", fetch_puzzle.plain_text(clue)).split()) if clue else clue
+
+
+#: How far from a post the sequence around it is read.
+NEAR = datetime.timedelta(days=28)
+
+
+def in_sequence(rows):
+    """The post_ids whose numbers fit the sequence around their post date."""
+    fits = sequence_window(rows)
+    return {r["post_id"] for r in rows if fits(r["date"], r["number"])}
+
+
+def sequence_window(rows):
+    """fits(date, number): does a number sit in the sequence near that date?
+
+    Inside the range the longest run of rows whose numbers rise with the post
+    date spans within NEAR of it.
+    """
+    rows = sorted(rows, key=lambda r: (r["date"], r["post_id"]))
+    tails, tail_at, back = [], [], [None] * len(rows)
+    for i, r in enumerate(rows):
+        k = bisect.bisect_left(tails, r["number"])
+        back[i] = tail_at[k - 1] if k else None
+        if k == len(tails):
+            tails.append(r["number"])
+            tail_at.append(i)
+        else:
+            tails[k], tail_at[k] = r["number"], i
+    spine, i = [], tail_at[-1] if tail_at else None
+    while i is not None:
+        spine.append(rows[i])
+        i = back[i]
+    spine.reverse()
+    days = [datetime.date.fromisoformat(r["date"]) for r in spine]
+
+    def fits(date, number):
+        day = datetime.date.fromisoformat(date)
+        lo, hi = bisect.bisect_left(days, day - NEAR), bisect.bisect_right(days, day + NEAR)
+        # The spine rises, so its first and last numbers in the window bound it.
+        return lo < hi and spine[lo]["number"] <= number <= spine[hi - 1]["number"]
+    return fits
+
+
+def slips(number):
+    """Every number one typing slip from this one: a digit changed, or two
+    adjacent digits swapped."""
+    s, out = str(number), set()
+    for i in range(len(s)):
+        out |= {s[:i] + d + s[i + 1:] for d in "0123456789"}
+    out |= {s[:i] + s[i + 1] + s[i] + s[i + 2:] for i in range(len(s) - 1)}
+    return {int(t) for t in out if t[0] != "0"} - {number}
+
+
+def retyped(row, fits, taken):
+    """The number an out-of-sequence row was meant to carry, or None.
+
+    Bloggers mistype titles -- "Sunday Times 5445" for 5,045, "Jumbo 1754"
+    for 1,764 -- and the sequence is where the number is checked. A row is
+    renumbered only when exactly one slip of its number fits the sequence at
+    its date and no other row claims it.
+    """
+    fit = [n for n in slips(row["number"]) if n not in taken and fits(row["date"], n)]
+    return fit[0] if len(fit) == 1 else None
+
+
+def typed_counts(recs):
+    """{letters: Counter of the counts the blog typed over that answer}, each
+    count kept only where its total is the answer's length."""
+    counts = collections.defaultdict(collections.Counter)
+    for rec in recs:
+        for e in rec["entries"]:
+            try:
+                parts = enumeration_parts(e.get("enumeration"))
+            except SystemExit:
+                continue
+            if sum(n for n, _ in parts) == len(e["answer"]):
+                counts[e["answer"]][format_parts(parts)] += 1
+    return counts
+
+
+def from_answer(group, by_id, enumeration, spaced=None, typed=None):
+    """The enumeration the group's answers spell, or None.
+
+    The grid has proved the answers, so where the blog's count disagrees with
+    the lights the answers are the count: TEAS typed (5), LONGITUDE (0). The
+    count the blog typed right over the same answer in another puzzle,
+    `typed`, is the paper's own, so the likeliest of those is taken first.
+    Next is the answer as the blog printed it, `spaced`, whose word breaks
+    are the count when its letters are the grid's; it can have lost a hyphen
+    (ONETRACK MIND), which is why it comes second. Without either each light
+    is one word and a light boundary is a word break; that is taken only
+    when the blog wrote no more words than that, since BLUE PETER typed
+    (4,4) over 4+5 cells has its words but CONSOLE TABLE typed (7,6) over 12
+    has lost one."""
+    letters = "".join(by_id[gid]["solution"] or "" for gid in group)
+    ranked = (typed or {}).get(letters, collections.Counter()).most_common(2)
+    if ranked and (len(ranked) == 1 or ranked[0][1] > ranked[1][1]):
+        return ranked[0][0]
+    if spaced and re.sub(r"[^A-Z]", "", spaced) == letters:
+        return format_parts(answer_parts(spaced))
+    if not all(by_id[gid]["solution"] for gid in group):
+        return None
+    parts = []
+    for gid in group:
+        parts += answer_parts(by_id[gid]["solution"])
+        parts[-1] = (parts[-1][0], ",")
+    parts[-1] = (parts[-1][0], "")
+    words = sum(1 for n, _ in enumeration_parts(enumeration) if n)
+    return format_parts(parts) if words <= len(parts) else None
+
+
+def with_enumeration(clue, enumeration):
+    """The clue with its trailing count replaced by `enumeration`."""
+    body = re.sub(r"\s*\([^()]*\)\s*$", "", clue)
+    return f"{body} ({enumeration})"
+
+
+#: A blogger's note on a count the paper got wrong, "(6, should say “two
+#: words”)": the answer's words are the count, when they agree with the note.
+NOTED = re.compile(r"\(\s*(\d{1,2})\s*,\s*should say\s*[“\"']?((?:two|three|four|five|six)\s+words)"
+                   r"[”\"']?\s*\)\s*$", re.I)
+
+
+def worded(clue, enum):
+    """The clue with a count that withholds its breaks, "(11, two words)",
+    "(8, hyphenated)", "(11*)", written as the enumeration the blog read off
+    the answer, "(5,6)", when that fits it (enumeration.fits_worded: the same
+    total and as many words, or hyphens only); else the clue as it was, the printed count kept
+    in its text. A blogger's "should say" note is taken only when the answer
+    agrees with it."""
+    noted = NOTED.search(clue or "")
+    m = enumeration.worded(NOTED.sub(r"(\1, \2)", clue or "") if noted else clue)
+    if not (m and enum):
+        return clue
+    if not enumeration.fits_worded(m, enumeration_parts(enum)):
+        return clue
+    return with_enumeration(clue, enum)
+
+
+def build(rec, row, series, date, setter, typed=None, pairs=False, loose_counts=False):
+    """(puzzle, None) or (None, reason it is not filed). `date` is the print
+    date, or None where nothing proves one; `typed` is typed_counts().
+    `loose_counts`: a special whose preamble makes a clue's count the full
+    answer's rather than its entry's (Letters Latent) keeps an unlinked
+    clue's count as printed, with no word breaks drawn."""
+    # A linked answer the post prints whole (the parser's `unsplit`) is
+    # shared out as the grid's lights have it, and a suffix against its
+    # heading takes the direction the grid gives it. One no split fits is lights
+    # the grid was rebuilt without: telegraph-26396's "1a/25a" HANDLEBAR
+    # MOUSTACHE gave a grid with no 1-across at all.
+    # The grid row's corrections go in first: a grid found at a light's
+    # enumeration length (toughie-275's DOGSBANE in DOGBANE's 7 cells) fits
+    # no split of a linked answer while the typo is still in the record.
+    rec = dict(rec, entries=tg.answers(rec, row))
+    rec = tg.numbered_by(tg.headed_by(tg.split_by(rec, row["grid"]), row["grid"]), row["grid"])
+    if rec.get("unsplit"):
+        return None, CAUSES["unsplit-link"]
+    entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
+               for e in tg.answers(rec, row)]
+    # Only the clues are mandatory: a record with no answers at all files
+    # unsolved, and the nightly backfill solves it.
+    unsolved = not any(e.get("answer") for e in entries)
+    if not unsolved and not tg.answers_fit(row["grid"], {"entries": entries}):
+        return None, CAUSES["answers-disagree"]
+    lights = rg.light_cells(row["grid"])
+    by_key = {(e["number"], e["direction"]): e for e in entries}
+    if set(by_key) != set(lights) or len(by_key) != len(entries):
+        return None, CAUSES["lights-mismatch"]
+    if not all(has_words(enumeration.split(e.get("clue"))[0]) for e in entries):
+        return None, CAUSES["no-clue"]
+
+    out = []
+    for e in tg.printed({"entries": entries}):
+        cells = lights[(e["number"], e["direction"])]
+        out.append({
+            "number": e["number"],
+            "direction": e["direction"],
+            "position": {"x": cells[0][1], "y": cells[0][0]},
+            "length": len(cells),
+            "clue": e["clue"],
+            "enumeration": e.get("enumeration"),
+            "solution": e["answer"],
+        })
+    by_id = {entry_id(e): e for e in out}
+    try:
+        groups = resolve_groups(out)
+    except SystemExit:
+        return None, CAUSES["link-no-light"]
+    # "See 17 Across (6)" under a light whose clue is written into 17-across's
+    # -- RICHES and FAME in "Path to 6 and 23..." (6,5,4) -- is a pointer to
+    # where the clue is, not a linked answer: every light counts only its own
+    # cells and the leader's clue names each pointer's number. Such a group
+    # is no group.
+    def own_count(e):
+        return bool(e["enumeration"]) and sum(
+            n for n, _ in enumeration_parts(e["enumeration"])) == e["length"]
+
+    def composite(g):
+        named = set(re.findall(r"\d+", re.sub(r"\([^()]*\)\s*$", "", by_id[g[0]]["clue"])))
+        return (all(own_count(by_id[m]) for m in g)
+                and all(str(by_id[m]["number"]) in named for m in g[1:]))
+    groups = {gid: g for gid, g in groups.items() if not composite(g)}
+    recounted, seps_of = [], {}
+    for e in out:
+        enum = e.pop("enumeration")
+        group = groups.get(entry_id(e), [entry_id(e)])
+        if not enum:
+            if group[0] == entry_id(e) and not (loose_counts and len(group) == 1):
+                return None, CAUSES["no-enumeration"]
+            continue
+        count = sum(n for n, _ in enumeration_parts(enum))
+        spaced = by_key[(e["number"], e["direction"])].get("answer_spaced")
+        if (count == e["length"] and len(group) > 1 and group[0] == entry_id(e) and spaced
+                and re.sub(r"[^A-Z]", "", spaced) == "".join(by_id[g]["solution"] or ""
+                                                             for g in group)):
+            # A leader counting its own light under a linked answer the blog
+            # printed whole: the answer's word breaks are the group's count
+            # (toughie-1067's FIRST-DEGREE MURDER typed (5-6)).
+            enum = format_parts(answer_parts(spaced))
+            e["clue"] = with_enumeration(e["clue"], enum)
+            recounted.append(f"{e['number']} {e['direction']}")
+        elif count == e["length"]:
+            group = [entry_id(e)]
+        elif loose_counts and not e.get("solution"):
+            continue
+        elif group[0] != entry_id(e):
+            return None, CAUSES["enumeration-disagrees"]
+        try:
+            seps_by_light = separators(group, by_id, enum)
+        except SystemExit:
+            enum = from_answer(group, by_id, enum, spaced, typed)
+            if not enum:
+                return None, CAUSES["enumeration-uncountable"]
+            e["clue"] = with_enumeration(e["clue"], enum)
+            recounted.append(f"{e['number']} {e['direction']}")
+            try:
+                seps_by_light = separators(group, by_id, enum)
+            except SystemExit:
+                return None, CAUSES["word-breaks-misfit"]
+        seps_of.update(seps_by_light)
+    for e in out:
+        seps = seps_of.get(entry_id(e))
+        # `pairs`: the source prints two counts by design (the Genius's
+        # "(4,3) (7)"), so both are kept, not the first cut as an echo.
+        e["clue"] = enumeration.clue(e["clue"], separators=seps,
+                                     pairedCount=pairs and enumeration.echoed(e["clue"]))
+        # A post can garble a clue (toughie-347's 27-across has another
+        # line spliced into it): SOURCE_CLUE_WRONG prints it, as for every
+        # other converter.
+        text = e["clue"].get("text", "")
+        if (printed := fetch_puzzle.source_clue(series_meta.puzzle_id(series, row["number"]),
+                                                entry_id(e), text)) != text:
+            e["clue"]["text"] = printed
+            e["clue"].pop("italics", None)
+        if groups.get(entry_id(e), [None])[0] == entry_id(e):
+            e["group"] = list(groups[entry_id(e)])
+        solution = e.pop("solution")
+        if solution:
+            e["solution"] = solution  # last, as every other series writes it
+
+    number = row["number"]
+    fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ()) if c["answer"]]
+    blanked = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())
+               if not c["answer"]]
+    barred = rg.barred(row["grid"])
+    check = (f"{'bars' if barred else 'grid'} rebuilt from the blog's "
+             f"{'numbered answers' if barred else 'light list'} ({row['how']}); every "
+             f"answer written into it with each crossing agreeing")
+    if row.get("titled"):
+        check += (f"; the blog titled it No {row['titled']}, which the sequence "
+                  f"puts at {number}")
+    if fixed:
+        check += (f"; the grid proves the blog's answer wrong at "
+                  f"{', '.join(fixed)}, corrected here")
+    if blanked:
+        check += (f"; the grid proves the blog's answer wrong at "
+                  f"{', '.join(blanked)}, and no one word corrects it, so it is left blank")
+    if recounted:
+        check += (f"; the grid proves the blog's enumeration wrong at "
+                  f"{', '.join(recounted)}, recounted from the answer here")
+    pub, kind = series_meta.publisher(series), series_meta.kind(series).lower()
+    lead = pub if kind == pub.lower() else f"{pub} {kind}"   # not "Listener listener"
+    return {
+        "id": series_meta.puzzle_id(series, number),
+        "number": number,
+        "series": series,
+        "name": f"{lead} crossword No {number:,}",
+        "setter": setter,
+        "date": date.isoformat() if date else None,
+        "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
+        "bars": list(row["grid"]) if barred else None,
+        "source": {"url": rec["link"]},
+        # The blog's own name: "timesforthetimes", "bigdave44".
+        "solutions": ({"origin": "unsolved"} if unsolved else
+                      {"blog": blog_name(series, rec["link"]),
+                       "url": rec["link"],
+                       "date": rec["date"], "check": check}),
+        "entries": out,
+    }, None
+
+
+# ------------------------------------------------- held as its clues alone
+
+def puzzle_name(series, number):
+    """The name build() gives a puzzle of `series`."""
+    pub, kind = series_meta.publisher(series), series_meta.kind(series).lower()
+    lead = pub if kind == pub.lower() else f"{pub} {kind}"
+    return f"{lead} crossword No {number:,}"
+
+
+def hold_clues(rec, series, date, setter, tool, n):
+    """(record, problems): a post no grid takes, even with its untrusted
+    answers left unknown (times_grids.tolerant), held in clues_only/ as its
+    clue list alone ($defs/cluesOnly), each direction in printed order with
+    the length its count gives. The backfill solves it and promote() files
+    it on the grid those answers cross in. The blog's answers go along as
+    `blogAnswer`, a cross-check on the solve (cross_check), never as truth:
+    they are what fit no grid. `n` is the grid's side (times_grids.size).
+
+    A linked answer the post prints whole (the parser's `unsplit`) is held
+    as its lights: the clue on the first, "See N" on the rest, none with a
+    length, since how its letters share out is the grid's to say.
+
+    Refused when a clue is missing: a number the post skips, a light with no
+    clue text. The clue is the one thing no grid or solve can derive."""
+    import clues_only
+    import parse_timesforthetimes as parser
+    problems = []
+    linked = []
+    for group in rec.get("unsplit") or ():
+        (lead, way), *rest = [tuple(k) for k in group["lights"]]
+        linked.append({"number": lead, "direction": way, "answer": "", "clue": group["clue"],
+                       "enumeration": None, "linked": True})
+        linked += [{"number": n, "direction": d, "answer": "", "enumeration": None,
+                    "clue": f"See {lead}" + (f" {way}" if d != way else "")} for n, d in rest]
+    rec = dict(rec, entries=rec["entries"] + linked)
+    missing = tg.gaps(tg.triples(rec))
+    if missing:
+        problems.append("the post gives no clue numbered " + ", ".join(map(str, missing)))
+    leaders = parser.leader_numbers(rec["entries"])
+    clues = {"across": [], "down": []}
+    for e in tg.printed(rec):
+        text = (clean(e["clue"]) if e.get("linked") else
+                worded(clean(e.get("clue")), e.get("enumeration")))
+        if not has_words(enumeration.split(text)[0]):
+            problems.append(f"{e['number']} {e['direction']} has no clue text")
+            continue
+        light = {"clue": enumeration.clue(text)}
+        cells = clue_text.count_total(e.get("enumeration") or "")
+        if cells and e["number"] not in leaders:
+            light["length"] = cells     # a group's leader counts the whole group
+        if e.get("answer"):
+            light["blogAnswer"] = e["answer"]
+        clues[e["direction"]].append(light)
+    record = {"id": series_meta.puzzle_id(series, rec["number"]), "number": rec["number"],
+              "series": series, "name": puzzle_name(series, rec["number"]),
+              "setter": setter, "date": date.isoformat() if date else None,
+              "dimensions": {"cols": n, "rows": n},
+              "source": {"url": rec["link"], "acquiredBy": tool,
+                         "acquiredOn": datetime.date.today().isoformat()},
+              "clues": clues}
+    return {k: v for k, v in record.items() if v is not None}, problems
+
+
+def cross_check(record, answers):
+    """["3 down WORKPIECE/WORKPLACE", ...]: each light where the solve's
+    answer and the blog's (`blogAnswer`) differ. Said, never acted on: the
+    blog's answers are the ones that fit no grid."""
+    out = []
+    for d in ("across", "down"):
+        for i, (light, word) in enumerate(zip(record["clues"].get(d, ()), answers.get(d) or ())):
+            blog = light.get("blogAnswer")
+            if blog and word and blog != word:
+                out.append(f"{d} light {i + 1} {word}/{blog}")
+    return out
+
+
+def promote(record, answers):
+    """(puzzle, problems): a blog post held by hold_clues filed unsolved on
+    the one grid the solve's answers cross in (clues_only.derive_grid),
+    numbered by that grid, through build() with every check a blog grid
+    gets. tools/apply_solution.py then writes the answers in."""
+    import sys
+    import clues_only
+    grid, why = clues_only.derive_grid(record, answers)
+    if grid is None:
+        return None, [f"no single grid holds these answers: {why}"]
+    lights = {d: [[None, None, "clues-only", {"clue": light["clue"].get("text"),
+                                              "enumeration": light["clue"].get("enumeration")}]
+                  for light in record["clues"][d]] for d in clues_only.DIRECTIONS}
+    entries, problems = clues_only.entries_from_grid(grid, lights["across"], lights["down"])
+    if problems:
+        return None, problems
+    rec = {"post_id": None, "link": record["source"]["url"], "date": None,
+           "series": record["series"], "number": record["number"],
+           "entries": [{"number": e["number"], "direction": e["direction"], "answer": None,
+                        "clue": f"{e['clue']} ({e['enumeration']})" if e["enumeration"] else e["clue"],
+                        "enumeration": e["enumeration"]} for e in entries]}
+    row = {"grid": grid, "number": record["number"],
+           "how": "the grid the solve's answers cross in"}
+    date = datetime.date.fromisoformat(record["date"]) if record.get("date") else None
+    puzzle, why = build(rec, row, record["series"], date, record.get("setter"))
+    if why:
+        return None, [why]
+    differ = cross_check(record, answers)
+    if differ:
+        print(f"{record['id']}: the solve differs from the blog's answers at "
+              + ", ".join(differ), file=sys.stderr)
+    puzzle["source"] = {"url": record["source"]["url"], "gridOrigin": "reconstructed"}
+    return puzzle, []
+
+
+def blog_name(series, link):
+    """The blog's own name, "bigdave44": series.py's blog for a blog series,
+    else the host the post was read from."""
+    host = series_meta.meta(series).get("blog") or urlparse(link).netloc.removeprefix("www.")
+    return host.split(".")[0]
+
+
+def content(puzzle):
+    """What a later run compares: the grid, the clues' words and the answers.
+    A clue retyped with other quotes or dashes is the same clue; a file filed
+    from a scan may carry no answers, which reads as blank ones."""
+    return [(entry_id(e), e["position"], e["length"], clue_words(e["clue"].get("text", "")), e.get("solution") or "")
+            for e in puzzle["entries"]]
+
+
+def fill_blanks(held, puzzle):
+    """(entries, n): `held`'s entries with each light it left blank given the
+    answer `puzzle`, built from the same blog post, now reads for it.
+
+    A parser fix that reads an answer the blog printed all along fills the
+    light it left blank; nothing else in the file changes. Only a blog
+    write-up's own blanks are filled, only from the same post, and only where
+    the light is the same cells and every letter agrees with the answers
+    already crossing it, so a grid rebuilt differently is never mixed in."""
+    hs, ps = held.get("solutions") or {}, puzzle.get("solutions") or {}
+    if hs.get("origin") != "writeup" or not ps.get("blog") or (
+            hs.get("url"), hs.get("blog")) != (ps.get("url"), ps.get("blog")):
+        return held["entries"], 0
+
+    def cells(e):
+        x, y = e["position"]["x"], e["position"]["y"]
+        across = e["direction"] == "across"
+        return [(x + i, y) if across else (x, y + i) for i in range(e["length"])]
+
+    grid = {}
+    for e in held["entries"]:
+        grid.update(zip(cells(e), e.get("solution") or ""))
+    built = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
+    out, n = [], 0
+    for e in held["entries"]:
+        b = built.get((e["number"], e["direction"]))
+        if (not e.get("solution") and b and b.get("solution")
+                and b["position"] == e["position"] and b["length"] == e["length"]
+                and len(b["solution"]) == e["length"]
+                and all(grid.get(c, ch) == ch for c, ch in zip(cells(e), b["solution"]))):
+            e = {**e, "solution": b["solution"]}
+            grid.update(zip(cells(e), b["solution"]))
+            n += 1
+        out.append(e)
+    return out, n
+
+
+def retext(puzzle, tidy):
+    """`puzzle` with `tidy` applied to each clue's printed line, and how many
+    clues it changed. Only the words change: a clue whose count would change,
+    or which carries ranges into its words (italics), is left alone. An
+    annotation's quotations of the clue are tidied with it; one the tidied
+    clue no longer holds (a block explaining the blogger's "/") leaves the
+    clue alone."""
+    out, changed = [], 0
+    for e in puzzle["entries"]:
+        clue = e.get("clue") or {}
+        text, enum = enumeration.split(tidy(enumeration.printed(clue)))
+        if (clue.get("text") and text and text != clue["text"] and not clue.get("italics")
+                and enum == clue.get("enumeration")):
+            try:
+                ann = requote(e.get("annotation"), tidy, clue["text"], text)
+            except ValueError:
+                out.append(e)
+                continue
+            e = {**e, "clue": {**clue, "text": text}}
+            if ann is not None:
+                e["annotation"] = ann
+            changed += 1
+        out.append(e)
+    return {**puzzle, "entries": out}, changed
+
+
+def requote(value, tidy, old, new):
+    """`value` (an annotation, or any part of one) with every string that
+    quotes the clue `old` -- a definition, an indicator, a block's fragment,
+    a link word -- tidied to quote `new`. Raises ValueError for a quotation
+    `new` no longer holds."""
+    if isinstance(value, dict):
+        return {k: requote(v, tidy, old, new) for k, v in value.items()}
+    if isinstance(value, list):
+        return [requote(v, tidy, old, new) for v in value]
+    if isinstance(value, str) and value.strip() and value in old and value not in new:
+        quoted = tidy(value)
+        if not quoted or quoted not in new:
+            raise ValueError(f"{value!r} is not in {new!r}")
+        return quoted
+    return value
+
+
+def every_day(claims, recs, dates):
+    """`dates` with every claimed number dated: a dated series' number the
+    source proved nothing for takes its post's day, and any still blank takes
+    its best fit (fit_undated) among the days its series prints on."""
+    posted = collections.defaultdict(dict)
+    known = collections.defaultdict(dict)
+    for (series, number), claim in claims.items():
+        if len(claim) > 1:
+            continue
+        row, dated = claim[0]
+        post = datetime.date.fromisoformat(recs[row["post_id"]]["date"])
+        posted[series][number] = post
+        known[series][number] = dates.get((series, number)) or (post if dated else None)
+    out = dict(dates)
+    for series, days in known.items():
+        days |= {n: d for (s, n), d in dates.items() if s == series}
+        weekdays = {d.weekday() for d in days.values() if d}
+
+        def prints(day, weekdays=weekdays):
+            return day.weekday() in weekdays and (day.month, day.day) != (12, 25)
+
+        latest = {n: last_print_day(d, prints) for n, d in posted[series].items()}
+        out.update({(series, n): d for n, d in
+                    fit_undated(days, latest, latest, prints).items() if d})
+    return out
+
+
+def last_print_day(day, prints):
+    """The latest day on or before `day` that `prints` holds for."""
+    for _ in range(14):
+        if prints(day):
+            return day
+        day -= DAY
+    return day
+
+
+def run(source, grids, parsed, write=True, newest=None):
+    recs = {}
+    for line in parsed.read_text(encoding="utf-8").splitlines():
+        rec = json.loads(line)
+        recs[rec["post_id"]] = rec
+    rows = [json.loads(line) for line in grids.read_text(encoding="utf-8").splitlines()]
+    # A grid row keeps the number its post parsed to when the grid was built;
+    # a parser fix that reads the title better (Times 28,373, slugged
+    # times-28-373, was 373) changes the record, not the grid, so the record's
+    # number wins.
+    for row in rows:
+        now = (recs.get(row["post_id"]) or {}).get("number")
+        if now and now != row.get("number"):
+            row["number"] = now
+
+    skipped = collections.Counter()
+    ledger = {}
+
+    def outcome(row, cause, number=None):
+        ledger[row["post_id"]] = {"post_id": row["post_id"], "series": row.get("series"),
+                                  "number": number or row.get("number"), "cause": cause}
+
+    sources = collections.defaultdict(list)
+    for row in rows:
+        if row["post_id"] not in recs:
+            skipped[CAUSES["no-parsed-record"]] += 1
+            outcome(row, "no-parsed-record")
+            continue
+        if not row.get("number"):
+            skipped[CAUSES["no-number"]] += 1
+            outcome(row, "no-number")
+            continue
+        sources[(row["series"], *source.target(row), source.run(row))].append(row)
+    claims = collections.defaultdict(list)
+    strays = []
+    for (_, series, dated, _), group in sources.items():
+        fits = sequence_window(group)
+        for row in group:
+            if fits(row["date"], row["number"]):
+                claims[(series, row["number"])].append((row, dated))
+            else:
+                strays.append((series, dated, fits, row))
+    taken = collections.defaultdict(set)
+    for (_, series, _, _), group in sources.items():
+        taken[series] |= {r["number"] for r in group}
+    for series, dated, fits, row in strays:
+        number = retyped(row, fits, taken[series])
+        if number is None:
+            skipped[CAUSES["out-of-sequence"]] += 1
+            outcome(row, "out-of-sequence")
+            continue
+        claims[(series, number)].append((dict(row, number=number, titled=row["number"]), dated))
+        taken[series].add(number)
+
+    renumbered = {row["post_id"]: row["number"]
+                  for claim in claims.values() for row, _ in claim if row.get("titled")}
+    dates, notes = source.print_dates(recs.values(), renumbered)
+    dates = every_day(claims, recs, dates)
+    typed = typed_counts(recs.values())
+    filed, kept, drifted = collections.Counter(), 0, []
+    redated, renamed, retold = collections.Counter(), collections.Counter(), collections.Counter()
+    answered = collections.Counter()
+    refused = []
+    order = sorted(claims.items(), key=lambda kv: (kv[0][0], -kv[0][1] if newest else kv[0][1]))
+    for (series, number), claim in order:
+        if newest and filed[series] >= newest:
+            continue
+        if len(claim) > 1:
+            skipped[CAUSES["claimed-twice"]] += len(claim)
+            for row, _ in claim:
+                outcome(row, "claimed-twice", number)
+            continue
+        if source.published(series, number):
+            skipped[CAUSES["paper-feed"]] += 1
+            outcome(claim[0][0], "paper-feed", number)
+            continue
+        row, dated = claim[0]
+        rec = recs[row["post_id"]]
+        date = dates.get((series, number))
+        puzzle, why = build(rec, row, series, date, source.setter(rec, series), typed)
+        if why:
+            skipped[why] += 1
+            outcome(row, CAUSE_OF[why], number)
+            continue
+        outcome(row, "filed", number)
+        path = puzzle_path(series, number)
+        if path.exists():
+            kept += 1
+            held = read_puzzle_file(path)
+            if content(held) != content(puzzle):
+                drifted.append(puzzle["id"])
+            # Only the date, a placeholder setter and what a parser fix tidies
+            # out of the clues are ever rewritten: the date is derived from
+            # facts that arrive after the file (the next Saturday's title, the
+            # listing), and a name never replaces a name.
+            fix = {}
+            if source.tidy and (held.get("source") or {}).get("acquiredBy") == source.tool:
+                tidied, n = retext(held, source.tidy)
+                if n:
+                    fix["entries"] = tidied["entries"]
+                    retold[series] += 1
+            entries, n = fill_blanks({**held, **fix}, puzzle)
+            if n:
+                fix["entries"] = entries
+                answered[series] += n
+            if puzzle["date"] and (series_meta.puzzle_day(held)
+                                   != series_meta.puzzle_day(puzzle)):
+                fix["date"] = puzzle["date"]
+                redated[series] += 1
+            if (held.get("setter") == series_meta.default_setter(series)
+                    and puzzle.get("setter") != held.get("setter")):
+                fix["setter"] = puzzle["setter"]
+                renamed[series] += 1
+            if fix and write:
+                try:
+                    write_puzzle_file(path, {**held, **fix})
+                except ValueError as e:
+                    refused.append(str(e))
+            continue
+        # The write path refuses what the corpus sweep would report, so a dry
+        # run cannot count those refusals.
+        try:
+            if write:
+                write_puzzle_file(path, puzzle, generator=source.tool)
+        except ValueError as e:
+            refused.append(str(e))
+            skipped[CAUSES["write-refused"]] += 1
+            outcome(row, "write-refused", number)
+            continue
+        filed[series] += 1
+
+    if write and newest is None:
+        tmp = grids.with_name(FILINGS + ".tmp")
+        tmp.write_text("".join(json.dumps(r) + "\n" for r in ledger.values()), encoding="utf-8")
+        tmp.replace(grids.with_name(FILINGS))
+    verb = "would file" if not write else "filed"
+    print(f"{verb} {sum(filed.values())}: "
+          + (", ".join(f"{s} {n}" for s, n in sorted(filed.items())) or "nothing new"))
+    print(f"already filed {kept}")
+    for why, n in skipped.most_common():
+        print(f"  skipped {n}: {why}")
+    if redated:
+        print(f"{'would redate' if not write else 'redated'} {sum(redated.values())}: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(redated.items())))
+    if renamed:
+        print(f"{'would name the setter of' if not write else 'named the setter of'} "
+              f"{sum(renamed.values())}: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(renamed.items())))
+    if retold:
+        print(f"{'would tidy the clues of' if not write else 'tidied the clues of'} "
+              f"{sum(retold.values())}: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(retold.items())))
+    if answered:
+        print(f"{'would answer' if not write else 'answered'} {sum(answered.values())} "
+              "blank light(s) from the blog: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(answered.items())))
+    for note in notes:
+        print(f"  date: {note}")
+    for why in refused[:20]:
+        print(f"  {why}")
+    if drifted:
+        print(f"  {len(drifted)} filed puzzle(s) differ from the blog now, left as they are: "
+              + " ".join(drifted))
+    return filed, skipped, drifted

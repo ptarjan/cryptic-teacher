@@ -1,0 +1,574 @@
+#!/usr/bin/env python3
+"""Turn cached bigdave44.com posts into one clue-and-answer record per puzzle.
+
+The Telegraph keeps its archive behind a paywall, but bigdave44.com has
+hinted every back-page cryptic and Toughie since 2009, and each post prints
+the clue NUMBER, the clue with its enumeration, and the answer. That is the
+same light list tools/parse_timesforthetimes.py reads off the Times blog, in a
+tidier house style, so the reading is that module's read_entries(); this one
+only adds what is the Telegraph's:
+
+  * which of the four series a post is, and its number, off the title;
+  * the print date: the review's "This puzzle was published on ..." line, or
+    else the day the hints went up, which is the day the paper printed it;
+  * the setter, from the "Toughie No 3762 by Dada" heading or the setter's
+    category, and never from "Hints and tips by", which is the blogger.
+
+A prize puzzle is blogged twice, hints on the day and a full review after
+entries close, so posts are grouped by (series, number) and the fullest list
+of each group is the record. Reads the cache tools/fetch_wp_blog.py writes;
+never the network.
+"""
+import argparse
+import bisect
+import collections
+import datetime
+import html
+import json
+import re
+import sys
+
+import clue_text
+import fetch_wp_blog
+import file_blog_puzzles
+import media_manifest
+import parse_timesforthetimes as tftt
+
+BLOG = fetch_wp_blog.BLOGS["bigdave44"]
+POSTS = BLOG.posts
+OUT = BLOG.cache / "parsed.jsonl"
+
+#: The paper each title prefix names, and the series key it files under.
+PAPERS = (
+    (re.compile(r"^\s*sunday\s+toughie\b", re.I), "sundaytough"),
+    (re.compile(r"^\s*toughie\b", re.I), "toughie"),
+    (re.compile(r"^\s*(?:ST|sunday\s+telegraph)\b", re.I), "sundaytel"),
+    (re.compile(r"^\s*(?:DT|daily\s*telegraph)\b", re.I), "telegraph"),
+)
+#: The puzzle number after the paper: "DT 31354", "Toughie No 2717",
+#: "DT31349 (Hints)", "Sunday Toughie 242 (full review)", "Sunday Toughie 3".
+NUMBER = re.compile(r"^\D*?(\d[\d,]{0,6})\b")
+
+#: The body's heading names the setter where the paper prints one: "Toughie
+#: No 2717 by Robyn", "Sunday Toughie No 180 by Beam". Only a line that opens
+#: with the paper and its number counts, so "Hints and tips by Mr K" -- the
+#: blogger -- is never read as the setter.
+BYLINE = re.compile(
+    r"^(?:DT\s+)?(?:daily\s*telegraph|sunday\s+telegraph|sunday\s+toughie|toughie)"
+    r"\b[^\d]{0,30}\d[\d,]*\s+by\s+([A-Z][\w'’.-]*(?:\s+[A-Z][\w'’.-]*){0,2})", re.I)
+#: A Toughie heading that is the paper and its number alone, "Toughie No
+#: 2257", puts the byline on the puzzle's title on the line after it:
+#: "Double, double toil and trouble by Firefly". Only the Toughies print a
+#: setter, so under any other heading that line is the blogger's ("A full
+#: analysis by Big Dave"), and so is any line naming the blogging.
+BARE_HEADING = re.compile(r"^(?:sunday\s+)?toughie\b[^\d]{0,30}\d[\d,]*\s*$", re.IGNORECASE)
+TITLE_BYLINE = re.compile(r"\bby\s+([A-Z][\w'’.-]*(?:\s+[A-Z][\w'’.-]*){0,2})\s*$")
+BLOGGER = re.compile(r"\b(?:hints|tips|review\w*|analysis|blog\w*|comments?)\b", re.IGNORECASE)
+#: Setter categories sit under the Toughie's and the Sunday Toughie's.
+SETTER_PARENTS = {11, 7625}
+#: A setter category that names no setter.
+NOT_A_SETTER = re.compile(r"[^\w\s'’.-]|\d")
+
+PUBLISHED = re.compile(
+    r"published\s+on\s+(?:\w+day,?\s+)?(?:the\s+)?(\d{1,2})(?:st|nd|rd|th)?\s+"
+    r"(?:of\s+)?([A-Za-z]+)\.?,?\s+(\d{4})", re.I)
+MONTHS = {m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+REVIEW = re.compile(r"\breview\b", re.I)
+
+#: The days each series is printed on; a date on another day is no print date.
+PRINT_DAYS = {"telegraph": set(range(6)), "toughie": {1, 2, 3, 4},
+              "sundaytel": {6}, "sundaytough": {6}}
+
+#: How many lights a Telegraph 15x15 has, give or take a linked answer. A
+#: prize puzzle's hints post covers only some of them and is kept out by this.
+PLAUSIBLE = (20, 40)
+
+#: "1a", "12d." -- the clue's number with its direction glued on, as every era
+#: of the blog writes it. The shared reader takes the direction off an
+#: Across/Down heading, and the blog's headings vary ("Across Clues", none at
+#: all), so the suffix becomes the heading; a linked head "1a/5d" keeps it.
+#: Glued, the suffix may be either case ("19D", "1ac."); spaced off the number
+#: it must be lowercase ("9 a."), because "1 A moral purge ..." is a bare
+#: number and a clue whose first word is "A". A typo can glue the clue on too,
+#: "3dFares going up ...".
+SUFFIX = re.compile(r"^(\d{1,2})(ac|dn|[ad]|\s+(?-i:ac|dn|[ad]))(?:\b|(?=(?-i:[A-Z])))\.?(?!\s*(?:/|,|&|and)\s*\d)\s*", re.I)
+WAY = {"a": "Across", "d": "Down", "ac": "Across", "dn": "Down"}
+#: A linked head opening the list, "1a/25a ... (9,9)", under a heading the
+#: reader does not know ("Across Clues"): kept whole for the reader, its
+#: direction the heading. Only before any heading, and only a counted clue:
+#: later a linked head may lead from the other direction, and prose cites
+#: lights the same way ("13a,14a and 17a are on my podium").
+LINKED_HEAD = re.compile(r"^(\d{1,2})(ac|dn|[ad])\.?\s*(?:/|,|&|and)\s*\d", re.I)
+COUNTED = clue_text.PRINTED_COUNT
+#: The post's own heading over a clue list: "Across", "Down Clues".
+PRINTED_HEADING = clue_text.PLAIN_HEADING
+#: Until about 2015 the answer is printed white on white inside braces,
+#: "{ SAPLINGS } An anagram ...", and the shared reader drops braced text.
+HIDDEN = re.compile(r"\{\s*((?:<[^>]+>\s*)*[^<{}]*?(?:\s*</[^>]+>)*)\s*\}")
+#: The same white-on-white answer with one brace typed as another bracket,
+#: "{CHARITABLE]", "[CONFOUND}", "(SKUA}": the white span is the answer
+#: whatever brackets it.
+WHITE_ANSWER = re.compile(
+    r"[{\[(]\s*(<span[^>]*color:\s*(?:#f{3}(?:f{3})?|white)\b[^>]*>[^<{}]*</span>)\s*[}\])]",
+    re.IGNORECASE)
+
+#: "&npsp;" is the blog's typo for "&nbsp;", which no HTML decoder knows;
+#: the editor escaped its ampersand, so the post holds "&amp;npsp;".
+TYPOED_NBSP = re.compile(r"&(?:amp;)?npsp;")
+
+
+def categories():
+    path = BLOG.cache / "categories.json"
+    raw = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    return {int(k): v for k, v in raw.items()}
+
+
+def title_of(post):
+    return html.unescape(post.get("title", {}).get("rendered", ""))
+
+
+def series_and_number(post, heading):
+    """(series key, number) off the title, or the body's first line when the
+    title names no paper; (None, None) for a post that is no puzzle of ours."""
+    for text in (title_of(post), heading):
+        for pattern, key in PAPERS:
+            if pattern.search(text):
+                m = NUMBER.match(text[pattern.search(text).end():])
+                if m:
+                    return key, int(m.group(1).replace(",", ""))
+    return None, None
+
+
+#: The rota of the Telegraph's daily and Sunday cryptics, which the paper does not
+#: print but the blogger names in his opening ("a gentle Rufus puzzle"). Only
+#: these: a name a post drops in passing (a clue's setter, a comparison) is not
+#: this puzzle's. The key is how a blogger spells it, the value the setter's name.
+INTRO_SETTERS = {
+    "Jay": "Jay", "Dada": "Dada", "Giovanni": "Giovanni", "Ray T": "Ray T",
+    "RayT": "Ray T", "Rufus": "Rufus", "Cephas": "Cephas", "Campbell": "Campbell",
+    "Virgilius": "Virgilius", "Chalicea": "Chalicea", "Shamus": "Shamus",
+    "Twmbarlwm": "Twmbarlwm", "Zandio": "Zandio", "proXimal": "proXimal",
+    "ProXimal": "proXimal", "Logman": "Logman", "Petitjean": "Petitjean",
+    "Robyn": "Robyn", "Silvanus": "Silvanus", "Hudson": "Hudson",
+}
+_INTRO_NAME = "|".join(sorted(map(re.escape, INTRO_SETTERS), key=len, reverse=True))
+#: "<Name> puzzle", "puzzle from/by <Name>", "<Name> is our setter".
+INTRO_BYLINE = (
+    re.compile(rf"\b({_INTRO_NAME})(?:['’]s)?\s+(?:puzzle|crossword|offering|production|cryptic|back-pager|creation|effort)\b"),
+    re.compile(rf"\b(?:puzzle|crossword|offering|setter|setting|cryptic)\s+(?:today\s+)?(?:is\s+)?(?:from|by|of)\s+({_INTRO_NAME})\b"),
+    re.compile(rf"\b({_INTRO_NAME})\s+(?:is|was|has been)\s+(?:our|the|today.s)\s+(?:setter|compiler)\b"))
+#: The blogger's opening, up to the first clue.
+INTRO_CHARS = 2500
+
+
+def intro_setter(rendered, series):
+    """The one rota setter the blogger names in his opening of a Daily or Sunday
+    Telegraph post, or None for none or several. The paper prints none, so this
+    is the blog's word: across the 5,500 daily posts it falls on the paper's
+    weekday rota (Wednesdays are Jay's, Thursdays Ray T's, Fridays Giovanni's).
+    The Toughies are bylined and are never read this way."""
+    if series not in ("telegraph", "sundaytel"):
+        return None
+    text = " ".join(rendered)
+    text = re.split(r"\b1a\b|\bAcross\b", text)[0][:INTRO_CHARS]
+    found = {INTRO_SETTERS[m.group(1)] for pattern in INTRO_BYLINE for m in pattern.finditer(text)}
+    return found.pop() if len(found) == 1 else None
+
+
+def setter_of(post, rendered, cats):
+    """The setter the post names, or None."""
+    for i, ln in enumerate(rendered[:6]):
+        m = BYLINE.match(ln)
+        if m:
+            return m.group(1).strip(" .")
+        if BARE_HEADING.match(ln) and i + 1 < len(rendered):
+            m = TITLE_BYLINE.search(rendered[i + 1])
+            if m and not BLOGGER.search(rendered[i + 1]):
+                return m.group(1).strip(" .")
+    named = {re.sub(r"\s*\(Sunday\)$", "", cats[c]["name"]) for c in post.get("categories", ())
+             if c in cats and cats[c]["parent"] in SETTER_PARENTS}
+    named = {n for n in named if not NOT_A_SETTER.search(n)}
+    if len(named) == 1:
+        return named.pop()
+    series, _ = series_and_number(post, rendered[0] if rendered else "")
+    return intro_setter(rendered, series)
+
+
+def published_on(rendered):
+    for ln in rendered:
+        m = PUBLISHED.search(ln)
+        if m:
+            month = MONTHS.get(m.group(2)[:3].lower())
+            try:
+                return datetime.date(int(m.group(3)), month, int(m.group(1))) if month else None
+            except ValueError:
+                return None
+    return None
+
+
+#: A count in brackets anywhere in a clue line: "(5,5)", "(4-2,4)", "(10)".
+COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*)\s*\)")
+#: What opens a blogger's note after a clue's enumeration: a bracket that
+#: holds words ("[online clue]", "(paper version)", "[not (7,4) as
+#: published]"), a dash or slash, or a word about the clue's printing
+#: ("Revised on-line clue: ...", "Newspaper version - ...").
+NOTE = re.compile(
+    r"^(?:[\[(][^\])]*[A-Za-z]|[–—/-]|(?:revised|revision|amended|corrected|online|on-line"
+    r"|paper|newspaper|printed|published|version|clue|original\w*)\b)", re.IGNORECASE)
+#: A count closing a line, past any trailing punctuation or brackets.
+LAST_COUNT = re.compile(COUNT.pattern + r"[\s.,;:\])]*$")
+
+
+def note_cut(clue):
+    """(clue up to its enumeration, that enumeration) when what follows the
+    enumeration is a blogger's note, else None.
+
+    The clue ends at the first count in brackets that is followed by a note
+    (NOTE), or by words that close on a count of the same total: the clue's
+    second version, of which the first is kept. A count followed by clue
+    words and no matching count, "Son (10) enthralled by foreign song -- he
+    did this? (8)", is a cross-reference inside the clue and stays."""
+    for m in COUNT.finditer(clue or ""):
+        tail = clue[m.end():].strip()
+        if not tail:
+            return None
+        last = LAST_COUNT.search(tail)
+        if NOTE.match(tail) or (last and re.search(r"[A-Za-z]", tail) and sum(
+                map(int, re.findall(r"\d+", last.group(1)))) == sum(
+                map(int, re.findall(r"\d+", m.group(1))))):
+            return clue[:m.end()], clue_text.enum_figures(m.group(1))
+    return None
+
+
+def headed(rendered):
+    """The lines with each clue's direction suffix turned into the heading
+    the shared reader expects: "9a Fragrance ... (5)" under "Across"."""
+    out, way, printed = [], None, None
+    for ln in rendered:
+        h = PRINTED_HEADING.match(ln)
+        if h:
+            printed = h.group(1).title()
+        m = SUFFIX.match(ln) or (way is None and COUNTED.search(ln) and LINKED_HEAD.match(ln))
+        if m and m.re is SUFFIX and printed and WAY[m.group(2).strip().lower()] != printed:
+            # "24d" under the post's own Across heading: one of the two is
+            # mistyped, so the line stays under its heading with its suffix
+            # and the reader records both for the grid to decide.
+            out.append(ln)
+            continue
+        if m:
+            if WAY[m.group(2).strip().lower()] != way:
+                way = WAY[m.group(2).strip().lower()]
+                out.append(way)
+            if m.re is SUFFIX:
+                ln = f"{m.group(1)} {ln[m.end():]}"
+        out.append(ln)
+    return out
+
+
+def rendered_lines(post):
+    """The post body's non-empty text lines."""
+    body = TYPOED_NBSP.sub(" ", post["content"]["rendered"])
+    body = WHITE_ANSWER.sub(r"\1 – ", body)
+    return [ln for ln in tftt.lines(HIDDEN.sub(r"\1 – ", body)) if ln]
+
+
+def named_setter(post, cats):
+    """(series, number, setter or None) a post's heading names, or None for a
+    post that is no puzzle of ours. Every post counts, hints with no clue
+    list included."""
+    rendered = rendered_lines(post)
+    series, number = series_and_number(post, rendered[0] if rendered else "")
+    return (series, number, setter_of(post, rendered, cats)) if series else None
+
+
+def read_post(post, cats):
+    """One post's facts, or None for a post that is no puzzle of ours."""
+    rendered = rendered_lines(post)
+    series, number = series_and_number(post, rendered[0] if rendered else "")
+    if series is None:
+        return None
+    entries, unsplit = tftt.read_entries(headed(rendered))
+    for e in entries:
+        cut = note_cut(e["clue"])
+        if cut:
+            e["clue"], e["enumeration"] = cut
+    review = bool(REVIEW.search(title_of(post))) or any(
+        REVIEW.search(ln) for ln in rendered[:3])
+    return {
+        "post_id": post["id"], "date": post["date"][:10], "slug": post["slug"],
+        "link": post.get("link"), "series": series, "number": number,
+        "title": title_of(post), "entries": entries, "unsplit": unsplit,
+        "setter": setter_of(post, rendered, cats),
+        "published": published_on(rendered), "review": review,
+    }
+
+
+def print_date(series, posts):
+    """(date or None, note or None) for one puzzle from all its posts.
+
+    A review says when the puzzle was published. Failing that the hints went
+    up on the print day, so the earliest post dates it -- unless that post is
+    itself a review, which is written after entries close."""
+    stated = {p["published"] for p in posts if p["published"]}
+    if len(stated) > 1:
+        return None, f"reviews state {len(stated)} dates"
+    if stated:
+        day = stated.pop()
+    else:
+        first = min(posts, key=lambda p: p["date"])
+        if first["review"]:
+            return None, None
+        day = datetime.date.fromisoformat(first["date"])
+    if day.weekday() not in PRINT_DAYS[series]:
+        return None, f"{day:%A %d %B %Y} is no day the paper prints it"
+    return day, None
+
+
+def by_cadence(series, dates):
+    """Date the numbers between two dated ones when the paper's print days
+    between them are exactly as many as the numbers: the Saturday prize
+    between Friday's and Monday's, or a run of Sundays no hints post dated.
+    Anything else stays undated -- a Christmas with no paper is one day
+    short, and a guess would date a whole run wrongly."""
+    known = sorted((n, d) for n, d in dates.items() if d)
+    filled = {}
+    for (a, da), (b, db) in zip(known, known[1:]):
+        if b - a < 2:
+            continue
+        days = [da + datetime.timedelta(days=k) for k in range(1, (db - da).days)]
+        days = [d for d in days if d.weekday() in PRINT_DAYS[series]]
+        if len(days) == b - a - 1:
+            filled.update({n: days[n - a - 1] for n in range(a + 1, b) if not dates.get(n)})
+    return filled
+
+
+def rising(dates):
+    """The numbers whose dates lie on the longest run of dates rising with
+    the numbers. A date off it -- a review's "published on" typed a year out
+    -- is the one that is wrong, since its neighbours agree with each other."""
+    known = sorted((n, d) for n, d in dates.items() if d)
+    tails, tail_at, back = [], [], [None] * len(known)
+    for i, (_, d) in enumerate(known):
+        k = bisect.bisect_left(tails, d)
+        back[i] = tail_at[k - 1] if k else None
+        if k == len(tails):
+            tails.append(d)
+            tail_at.append(i)
+        else:
+            tails[k], tail_at[k] = d, i
+    keep, i = set(), tail_at[-1] if tail_at else None
+    while i is not None:
+        keep.add(known[i][0])
+        i = back[i]
+    return keep
+
+
+def records(posts):
+    """One record per (series, number): the fullest post's entries, its
+    setter or another post's, and the print date its posts prove, or the
+    paper's cadence proves between two that are.
+
+    A post whose number is out of sequence with its post date carries a
+    mistyped number, so it is kept out of that number's group and dates
+    nothing; its record goes to the filer, which renumbers or refuses it."""
+    groups = collections.defaultdict(list)
+    for series in {p["series"] for p in posts}:
+        mine = [p for p in posts if p["series"] == series]
+        fits = file_blog_puzzles.sequence_window(mine)
+        for p in mine:
+            key = ((series, p["number"]) if fits(p["date"], p["number"])
+                   else (series, p["number"], p["post_id"]))
+            groups[key].append(p)
+    notes, dates = [], collections.defaultdict(dict)
+    for key, group in groups.items():
+        if len(key) == 2:
+            dates[key[0]][key[1]], note = print_date(key[0], group)
+            if note:
+                notes.append(f"{key[0]}-{key[1]}: {note}")
+    for series, known in dates.items():
+        keep = rising(known)
+        for n, d in known.items():
+            if d and n not in keep:
+                notes.append(f"{series}-{n}: {d} is out of order with its neighbours' dates")
+                known[n] = None
+        known.update(by_cadence(series, known))
+    for key, group in sorted(groups.items()):
+        series, number = key[:2]
+        best = max(group, key=lambda p: (lights(p), p["date"], p["post_id"]))
+        setters = {p["setter"] for p in group if p["setter"]}
+        rec = {k: best[k] for k in ("post_id", "date", "slug", "link", "series",
+                                    "number", "title", "entries")}
+        rec["entries"], filled = filled_in(best, group)
+        if filled:
+            rec["filled_from"] = filled
+        if best["unsplit"]:
+            rec["unsplit"] = best["unsplit"]
+        rec["setter"] = best["setter"] or (setters.pop() if len(setters) == 1 else None)
+        day = dates[series].get(number) if len(key) == 2 else None
+        rec["printed"] = day and day.isoformat()
+        yield rec
+    for note in sorted(notes):
+        print(f"  date: {note}")
+
+
+def filled_in(best, group):
+    """The fullest post's entries, with what it leaves out taken from the
+    other posts of its (series, number): a light it skips, and the clue of an
+    entry it gives no clue for, where another post gives one for the same
+    answer. A full review now and then skips a clue the hints post on the day
+    printed (Sunday Toughie 2's review has no 23 down; Tilsit's hints do), and
+    without every clue there is no puzzle to file. Also the post ids it drew
+    on, for the record."""
+    entries = [dict(e) for e in best["entries"]]
+    have = {(e["number"], e["direction"]): e for e in entries}
+    have.update({tuple(l): None for g in best.get("unsplit") or () for l in g["lights"]})
+    used = []
+    others = sorted((p for p in group if p is not best),
+                    key=lambda p: (lights(p), p["date"], p["post_id"]), reverse=True)
+    for p in others:
+        took = False
+        for e in p["entries"]:
+            if not e.get("clue"):
+                continue
+            key = (e["number"], e["direction"])
+            if key not in have:
+                have[key] = dict(e)
+                entries.append(have[key])
+                took = True
+            elif have[key] is not None and not have[key].get("clue") \
+                    and have[key].get("answer") == e.get("answer"):
+                have[key]["clue"] = e["clue"]
+                have[key].setdefault("enumeration", e.get("enumeration"))
+                took = True
+        if took:
+            used.append(p["post_id"])
+    if used:
+        entries.sort(key=lambda e: (e["direction"] != "across", e["number"]))
+    return entries, used
+
+
+def lights(rec):
+    """How many lights the post clues: its entries and every light of a
+    linked answer it prints whole (`unsplit`), which has no entry yet."""
+    return len(rec["entries"]) + sum(len(g["lights"]) for g in rec.get("unsplit") or ())
+
+
+def plausible(rec):
+    # Toughie 606 (19 entries and three linked answers over six more lights)
+    # and 1420 (18 and five) are whole clue lists, not a few hints.
+    return PLAUSIBLE[0] <= lights(rec) <= PLAUSIBLE[1]
+
+
+#: This parser's cursor in the posts manifest (tools/media_manifest.py).
+READER = "parse_bigdave44"
+#: Every post's read_post, {"file": "<id>.json", "post": it or null} a line,
+#: so a run reads only the posts added since the last (records() joins them all).
+READ = BLOG.cache / "posts_read.jsonl"
+
+
+def read_posts(full=False):
+    """read_post of every cached post, in file-name order, and a callable
+    that moves the cursor past them once what they fed is saved. The post
+    list is the SSD manifest fetch_wp_blog appends to, never a listing of
+    the media disk; only posts past the cursor are opened, and all of them
+    only when this parser or the category list changed, the manifest was
+    rebuilt, or READ is missing (`full`)."""
+    cats = categories()
+    name = media_manifest.posts_name(POSTS)
+    version = media_manifest.source_version(
+        "parse_bigdave44.py", "parse_timesforthetimes.py", "groups.py",
+        extra=json.dumps(sorted(cats.items()), sort_keys=True).encode())
+    new, whole, mark = media_manifest.unread(name, READER, version)
+    held = {}
+    whole = whole or full
+    if not whole:
+        try:
+            with open(READ, encoding="utf-8") as f:
+                for ln in f:
+                    if ln.strip():
+                        row = json.loads(ln)
+                        held[row["file"]] = row["post"]
+        except FileNotFoundError:
+            whole = True
+    if whole:
+        new = media_manifest.rows(name)
+    for r in new:
+        f = POSTS / f"{r['id']}.json"
+        held[f.name] = read_post(json.loads(f.read_text(encoding="utf-8")), cats)
+
+    def save():
+        part = READ.with_name(READ.name + ".part")
+        with open(part, "w", encoding="utf-8") as f:
+            for k in sorted(held):
+                f.write(json.dumps({"file": k, "post": held[k]}, ensure_ascii=False, default=str) + "\n")
+        part.replace(READ)
+        media_manifest.advance(name, READER, mark, version)
+
+    posts = []
+    for k in sorted(held):
+        p = held[k]
+        if p:
+            if isinstance(p["published"], str):
+                p = dict(p, published=datetime.date.fromisoformat(p["published"]))
+            posts.append(p)
+    return posts, save
+
+
+def run(write=True, full=False):
+    posts, save = read_posts(full)
+    by_series = collections.defaultdict(collections.Counter)
+    checked = agreed = 0
+    # Written aside and renamed in: a parse killed part-way (a timeout) must
+    # not leave the filers and the grid search a truncated parsed.jsonl.
+    part = OUT.with_name(OUT.name + ".part")
+    out = part.open("w", encoding="utf-8") if write else None
+    for rec in records(posts):
+        c = by_series[rec["series"]]
+        c["puzzles"] += 1
+        if not plausible(rec):
+            continue
+        c["plausible"] += 1
+        c["dated"] += bool(rec["printed"])
+        c["setter"] += bool(rec["setter"])
+        leaders = tftt.leader_numbers(rec["entries"])
+        for e in rec["entries"]:
+            a = tftt.enum_agrees(e, leaders)
+            if a is not None:
+                checked += 1
+                agreed += a
+        if out:
+            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    if out:
+        out.close()
+        part.replace(OUT)
+        save()
+    print(f"{len(posts)} post(s) read")
+    print("BY SERIES  (puzzles / full clue list / dated / setter named)")
+    for s, c in sorted(by_series.items()):
+        print(f"  {s:<12} {c['puzzles']:>5} / {c['plausible']:>5} / "
+              f"{c['dated']:>5} / {c['setter']:>5}")
+    if checked:
+        print(f"{agreed}/{checked} entries ({100.0 * agreed / checked:.1f}%) have the "
+              f"answer length their own enumeration claims")
+    if write:
+        print(f"wrote {OUT}")
+    return by_series
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--status", action="store_true", help="report without writing")
+    ap.add_argument("--show", type=int, help="parse one cached post id and print it")
+    a = ap.parse_args()
+    if a.show:
+        post = json.loads((POSTS / f"{a.show}.json").read_text(encoding="utf-8"))
+        print(json.dumps(read_post(post, categories()), ensure_ascii=False, indent=2,
+                         default=str))
+        return 0
+    run(write=not a.status)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

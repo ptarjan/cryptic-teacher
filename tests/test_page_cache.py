@@ -1,0 +1,228 @@
+#!/usr/bin/env python3
+# The deploy reuses last build's puzzle pages (tools/page_cache.py) unless
+# something a puzzle page is made from moved. The build-wide part of that key
+# is the code build_seo_pages' puzzle-page path reaches (tools/code_reach.py)
+# plus the data files that code names: a fetcher, a test, the hub page's code,
+# a comment or the budgets table leaves every page reusable; an edit to the
+# page's code or to a table it reads re-renders them all.
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import sys
+from pathlib import Path
+import _path  # puts tools/ on sys.path
+import page_cache as pc
+
+src = open("tools/build_seo_pages.py", encoding="utf-8").read()
+real_git = pc._git
+base = pc.fingerprint()
+assert base, "test_page_cache: no fingerprint in a checkout"
+
+def fp(texts=None, blob_of=None):
+    """The fingerprint with `texts` standing in for tools/ modules and
+    `blob_of` ({path: sha}) for the index's blob of those files."""
+    def git(*args):
+        out = real_git(*args)
+        if blob_of and args[:2] == ("ls-files", "-s"):
+            lines = []
+            for line in out.split("\0"):
+                if line and line.split("\t", 1)[1] in blob_of:
+                    meta, path = line.split("\t", 1)
+                    mode, _, stage = meta.split()
+                    line = f"{mode} {blob_of[path]} {stage}\t{path}"
+                lines.append(line)
+            out = "\0".join(lines)
+        return out
+    pc._git = git
+    try:
+        return pc.fingerprint(texts)
+    finally:
+        pc._git = real_git
+
+def same(label, got):
+    if got != base:
+        sys.exit(f"test_page_cache: {label}: re-renders every page, should reuse them")
+
+def moved(label, got):
+    if got is None or got == base:
+        sys.exit(f"test_page_cache: {label}: reuses stale pages")
+
+def edit(old, new):
+    assert src.count(old) == 1, f"test_page_cache: {old!r} is not in build_seo_pages.py once"
+    return {"build_seo_pages": src.replace(old, new)}
+
+same("the same tree twice", pc.fingerprint())
+same("a comment", fp({"build_seo_pages": src + "\n# a comment\n"}))
+same("the hub page's code", fp(edit("def hub_page(idx):", "def hub_page(idx, unused=None):")))
+same("a fetcher nothing reaches", fp({"fetch_telegraph": "def nothing():\n    return 1\n"}))
+moved("the puzzle page's code", fp(edit("def puzzle_page(puz, meta, prev_p, next_p):", "def puzzle_page(puz, meta, prev_p, next_p, unused=None):")))
+# The solver's code is not in the key: a page is keyed by what the solver made
+# of its puzzle (the index row's pageView), so a solver-only commit moves no key
+# and only a puzzle whose view changed re-renders.
+import re
+
+def body_edit(module, name):
+    """tools/<module>.py with the first `return` of `name` changed."""
+    text = open(f"tools/{module}.py", encoding="utf-8").read()
+    head, sep, rest = text.partition(f"def {name}(")
+    assert sep, f"test_page_cache: no {module}.{name}"
+    rest2 = re.sub(r"\n    return ", "\n    return 0 or ", rest, count=1)
+    assert rest2 != rest, f"test_page_cache: {module}.{name} has no top-level return"
+    return {module: head + sep + rest2}
+
+same("a solver function body (wordplay)", fp(body_edit("wordplay", "slipped_run")))
+same("annotation.view_puzzle's body", fp(body_edit("annotation", "view_puzzle")))
+same("fetch_puzzle.with_blog_facts' body", fp(body_edit("fetch_puzzle", "with_blog_facts")))
+same("indicator_keys.clue_pairs' body", fp(body_edit("indicator_keys", "clue_pairs")))
+same("the row cache's cached_map", fp(body_edit("row_cache", "cached_map")))
+moved("annotation.whole_answer, which a page calls itself", fp(body_edit("annotation", "whole_answer")))
+import tempfile
+import app_tables
+real_app = app_tables.APP
+app_src = app_tables.source()
+
+def app_fp(text):
+    with tempfile.TemporaryDirectory() as d:
+        app_tables.APP = Path(d) / "app.js"
+        app_tables.APP.write_text(text, encoding="utf-8")
+        try:
+            return pc.fingerprint()
+        finally:
+            app_tables.APP = real_app
+
+same("app.js with a comment added", app_fp(app_src + "\n// a comment\n"))
+same("app.js with browser code added", app_fp(app_src + "\nfunction unused() {}\n"))
+first = app_tables.ladder(app_src)[0][0]
+moved("app.js with a rung label changed", app_fp(app_src.replace(f'{first}: "', f'{first}: "X', 1)))
+Z = "0" * 40
+moved("a table the page reads", fp(blob_of={"tools/data/clue_types.json": Z}))
+# The two lexicons every "daily blog-facts" commit rewrites: a page's own
+# checks cover them (page_cache PER_ENTRY, OPAQUE), so they re-render nothing.
+same("the indicator lexicon, re-matched per stored page",
+     fp(blob_of={"tools/data/lexicons/indicators.json": Z}))
+same("the blocks lexicon, read only to stamp an asset each page re-checks",
+     fp(blob_of={"tools/data/lexicons/blocks.json": Z, "tools/data/lexicons/abbreviations.json": Z}))
+moved("the stylesheet", fp(blob_of={"style.css": Z}))
+same("the budgets table, a test, a doc", fp(blob_of={"tools/data/deploy_budgets.json": Z,
+                                                      "tests/test_validate_scope.sh": Z, "docs/APP.md": Z}))
+same("setter_error.json, keyed per puzzle in page_key", fp(blob_of={"tools/data/setter_error.json": Z}))
+same("the homepage, restamped by every reindex", fp(blob_of={"index.html": Z}))
+
+code = pc.reached()
+paths = ["tools/data/lexicons/indicators.json", "style.css", "index.html", "docs/indicators.json",
+         "puzzles/times/2002/times-21965.json", "puzzles/times/2002/times-21965.blog", "tools/fetch_puzzle.py",
+         "tools/data/deploy_budgets.json", "tools/data/clue_types.json", "tools/data/lexicons/blocks.json"]
+got = pc.inputs(code, paths)
+assert got == ["style.css", "tools/data/clue_types.json"], f"test_page_cache: inputs {got}"
+
+# A page's key holds the part of its index row the page prints (page_row),
+# so a reindex that moves only the difficulty index, its basis, the tags or
+# the file stamp reuses every page; a moved percentile, band, annotation or
+# listing year re-renders it. puzzle_page() reads the row only through
+# page_row(), and the reused page's showcase facts take the row's fresh.
+import copy
+import build_seo_pages as B
+import showcase
+from pathlib import Path
+
+row = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
+       "file": "cryptic-30000.js", "v": "aaaa", "pageView": "view0", "annotated": True, "tags": [],
+       "difficulty": {"band": "Moderate", "index": -0.148, "percentile": 32, "basis": ["rarity"]}}
+puz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
+       "setter": "Pan", "dimensions": {"cols": 15, "rows": 15}, "entries": []}
+pf = Path("tests/test_page_cache.py")
+
+def key(r):
+    B._PAGES = [(pf, {"id": row["id"], "series": "cryptic"})], [(None, None)], {row["id"]: r}, True, "fp", {}
+    try:
+        return B.page_key(0)
+    finally:
+        B._PAGES = None
+
+def changed(**edits):
+    r = copy.deepcopy(row)
+    for k, v in edits.items():
+        if k in ("index", "basis", "band", "percentile"):
+            r["difficulty"][k] = v
+        else:
+            r[k] = v
+    return r
+
+k0, page0 = key(row), B.puzzle_page(puz, row, None, None)
+for label, r in (("the difficulty index", changed(index=0.5)), ("the basis", changed(basis=["device"])),
+                 ("the tags", changed(tags=["big-grid"])), ("the file stamp", changed(v="bbbb"))):
+    if key(r) != k0:
+        sys.exit(f"test_page_cache: {label} moved: re-renders a page that does not print it")
+    if B.puzzle_page(puz, r, None, None) != page0:
+        sys.exit(f"test_page_cache: {label} moved the page but not its key: reuses a stale page")
+for label, r in (("the percentile", changed(percentile=33)), ("the band", changed(band="Hard")),
+                 ("the annotation", changed(annotated=False)), ("the date", changed(date="2025-05-01")),
+                 ("the row", None)):
+    if key(r) == k0:
+        sys.exit(f"test_page_cache: {label} moved: reuses a stale page")
+    if B.puzzle_page(puz, r, None, None) == page0:
+        sys.exit(f"test_page_cache: {label} is keyed but the page does not print it")
+# A moved view of this puzzle re-renders its page alone; the stub is keyed too.
+if key(changed(pageView="view1")) == k0:
+    sys.exit("test_page_cache: this puzzle's view moved but its key did not")
+if key(changed(pageView="view0")) != k0:
+    sys.exit("test_page_cache: the same view gave another key")
+# setter_error.json is keyed "puzzle id/entry id": a page's key holds its own
+# puzzle's rows, so a row filed for another puzzle (a burn commit) moves no key.
+import json
+import tempfile
+real_root = B.ROOT
+with tempfile.TemporaryDirectory() as tmp:
+    (Path(tmp) / "tools/data").mkdir(parents=True)
+    table = Path(tmp) / "tools/data/setter_error.json"
+    rows = {"cryptic-30000/1-across": ["a", "b", "why"], "cryptic-30001/2-down": ["c", "d", "why"]}
+    B.ROOT, B._SETTER_ROWS = Path(tmp), (None, {})
+    try:
+        def keyed(rs):
+            table.write_text(json.dumps(rs), encoding="utf-8")
+            return key(row)
+        base = keyed(rows)
+        other = dict(rows, **{"cryptic-30001/3-down": ["e", "f", "new"]})
+        if keyed(other) != base:
+            sys.exit("test_page_cache: another puzzle's setter_error row moved this page's key")
+        mine = dict(rows, **{"cryptic-30000/4-down": ["g", "h", "new"]})
+        if keyed(mine) == base:
+            sys.exit("test_page_cache: this puzzle's setter_error row did not move its key")
+    finally:
+        B.ROOT, B._SETTER_ROWS = real_root, (None, {})
+
+# A stored page keeps its indicator candidates unmatched: matched against a
+# moved lexicon they give what a fresh render's clue_indicators() would.
+ipuz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
+        "entries": [{"number": 1, "direction": "across", "annotation": {
+            "indicators": [{"text": "wildly", "for": "anagram"}, {"text": "about", "for": "container"}]}}]}
+ipage = 'id="1-across"'
+cands = B.indicator_candidates(ipuz, ipage)
+real = B.indicator_lexicon
+for lex in ({"anagram": {"WILDLY": 3}}, {"anagram": {"WILD": 1}, "container": {"ABOUT": 9}}, {}):
+    B.indicator_lexicon = lambda lex=lex: lex
+    try:
+        want = {}
+        B.clue_indicators(want, ipuz, ipage)
+    finally:
+        B.indicator_lexicon = real
+    if B.indicator_found(cands, lexicon=lex) != want:
+        sys.exit(f"test_page_cache: re-matched candidates under {lex} are not a fresh render's")
+if not B.indicator_found(cands, lexicon={"anagram": {"WILDLY": 3}}):
+    sys.exit("test_page_cache: the candidates matched nothing")
+# /indicators/ lists only words with an example clue to click.
+real_roles = B.role_lexicon
+B.indicator_lexicon = lambda: {"anagram": {"WILDLY": 3, "NOVEL": 2}}
+B.role_lexicon = lambda: {}
+try:
+    ipg = B.indicators_page({("anagram", "WILDLY"): ((), "cryptic-30000", "1-across")})
+finally:
+    B.indicator_lexicon, B.role_lexicon = real, real_roles
+if "wildly" not in ipg or "novel" in ipg:
+    sys.exit("test_page_cache: /indicators/ lists a word with no example clue")
+
+fresh = changed(index=0.5, tags=["big-grid"])
+if showcase.with_meta(showcase.file_facts(puz), fresh) != showcase.facts(puz, fresh):
+    sys.exit("test_page_cache: a reused page's showcase facts are not the fresh row's")
+print("test_page_cache: all passed")

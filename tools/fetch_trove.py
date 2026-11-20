@@ -1,0 +1,557 @@
+#!/usr/bin/env python3
+"""Fetch Canberra Times crossword articles (OCR text + grid image) from Trove.
+
+Usage:
+  python3 tools/fetch_trove.py search 1975                  # list one year's hits
+  python3 tools/fetch_trove.py search 1988 --query '"english cryptic"'
+  python3 tools/fetch_trove.py fetch 102010719 [ID ...]     # OCR + grid for articles
+  python3 tools/fetch_trove.py fetch --year 1975 [--limit N]  # every hit in a listing
+  python3 tools/fetch_trove.py fetch [--seconds N]          # every hit in every cached listing
+  python3 tools/fetch_trove.py zones [ID ...] [--limit N]    # clue columns (below)
+  --out DIR     where everything lands (default downloads.TROVE)
+  --delay S     minimum seconds between requests (default 1.0)
+  --title N     Trove newspaper title id (default 11, The Canberra Times)
+  --grid-width PX  fetch the grid from the smallest pyramid level that is at
+                least this wide (default 600, ~40px a cell on a 15x15)
+  --seconds N   fetch/zones start no article after N seconds; the ones not
+                started are counted "left for the next run" (tools/ocr_full_pass.sh
+                runs both this way, so the corpus queue fetches in bounded slices)
+
+The standing pass fetches through tools/edition_queue.py instead, one
+unit an article or an article's zones (plan(), fetch_unit()), several at
+once: every request any process sends waits until --delay has passed since
+the last one started (pace(), <out>/pace under a lock), so Trove still sees
+at most one request a second.
+
+Layout under --out:
+  jar.txt                 cookies (the Anubis pass lasts ~7 days)
+  index/<year>.jsonl      one search hit per line (id, date, page, title, snippet,
+                          query), the union of every query run for that year
+  <id>/meta.json          date, page id, article zones (page pixel boxes), grid box
+  <id>/ocr.txt            Trove's OCR text, one printed line per line
+  <id>/grid.jpg           the grid zone cut from the page scan (see --grid-width)
+
+`zones` caches the page scan's text zones (every zone but the grid) in
+downloads.TROVE_CLUES/<id>/zone<N>.png, which tools/file_trove_puzzles.py
+reads with tools/ocr_clues.py's readers and the VLM.
+Given ids it fetches those; given none it fetches the articles whose filing
+ledger row (<out>/filed.jsonl) is pending and that have no zones yet, oldest
+first. Filers only read caches, so this is how a pending article gets its
+clue columns; the next filing run then reads them.
+
+No account and no API key. Three anonymous mechanisms, all plain HTTP:
+
+- Anubis proof of work. Every path first returns a "Making sure you're not a
+  bot" page whose <script id="anubis_challenge"> holds randomData and a
+  difficulty d; the answer is the first nonce n where
+  sha256(randomData + str(n)) has d leading hex zeros, sent to
+  /.within.website/x/cmd/anubis/api/pass-challenge. The cookie it sets is tied
+  to the User-Agent and IP, so UA below must never change.
+- Search. The SPA calls /api/search/137 with an `apikey` header it derives as
+  md5("Wonder" + <x-ctx cookie>) with leading zeros stripped
+  (installApikeyInterceptor in /static/js/app.*.js). x-ctx is set by any SPA
+  page. Results page with startPos; at most 5000 per query.
+- Articles. /newspaper/article/<id> is server-rendered: data-page-id and one
+  div.zone per text block with page-pixel x/y/w/h. /newspaper/rendition/
+  nla.news-article<id>.txt is the OCR. /newspaper/image/info/<page> gives the
+  tile pyramid; tile (col,row) of level L is /imageservice/nla.news-page<page>/
+  tile<L>-<col>-<row>, 256px, where page pixel p sits at p*scale + offset.
+"""
+import argparse
+import contextlib
+import glob
+import hashlib
+import html
+import http.client
+import http.cookiejar
+import io
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+import downloads
+
+#: The tools modules a queue unit's fetch_unit may load, loaded as the unit
+#: starts (under the queue's code lock, edition_queue.snapshot).
+#: test_edition_queue.py checks this is what code_reach finds it reaching.
+MODULES = ("downloads", "local_config", "media_manifest", "scan_queue")
+
+
+@contextlib.contextmanager
+def atomic(path, mode="w"):
+    """Open `path` for writing whole or not at all: a kill mid-write leaves
+    the old file (or none), never a cut-off one that exists and so is skipped
+    as fetched forever (meta.json, a zone's PNG) or read as an index."""
+    part = f"{path}.part"
+    with open(part, mode) as f:
+        yield f
+    os.replace(part, path)
+
+BASE = "https://trove.nla.gov.au"
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
+TILE = 256
+CHALLENGE_RE = re.compile(
+    r'<script id="anubis_challenge"[^>]*>\s*(\{.*?\})\s*</script>', re.DOTALL)
+
+
+class Transient(RuntimeError):
+    """A timeout, reset or 5xx that outlasted its retries: skip the article."""
+
+
+class ArticleError(RuntimeError):
+    """This one article cannot be fetched; the next may be fine."""
+
+
+RETRIES, BACKOFF = 4, 5.0   # tries per request; sleep BACKOFF * 3**n between
+#: No article holds the queue: a request that fails once the article has had
+#: this long is not retried, and the article is left for the next run.
+ITEM_SECONDS = 300
+#: This many articles failing back to back means Trove itself is down: the
+#: run stops (exit 4) instead of failing through the rest.
+FAILURES_IN_A_ROW = 10
+
+
+class Trove:
+    def __init__(self, out, delay, min_width):
+        self.out, self.delay, self.last, self.min_width = out, delay, 0.0, min_width
+        os.makedirs(out, exist_ok=True)
+        self.jar = http.cookiejar.MozillaCookieJar(os.path.join(out, "jar.txt"))
+        if os.path.exists(self.jar.filename):
+            self.jar.load(ignore_discard=True, ignore_expires=True)
+        self.op = urllib.request.build_opener(
+            urllib.request.HTTPCookieProcessor(self.jar))
+        self.op.addheaders = [("User-Agent", UA), ("Referer", BASE + "/")]
+        self.requests, self.seconds = 0, 0.0
+        #: time.time() after which a failed request is not retried.
+        self.deadline = float("inf")
+
+    def _open(self, url, headers):
+        self.pace()
+        t = time.time()
+        try:
+            r = self.op.open(urllib.request.Request(url, headers=headers), timeout=60)
+            body, status = r.read(), r.status
+        except urllib.error.HTTPError as e:
+            body, status = e.read(), e.code
+        self.last = time.time()
+        self.requests += 1
+        self.seconds += self.last - t
+        return status, body
+
+    def pace(self):
+        """Wait until `delay` seconds have passed since the last request any
+        process sending to Trove from this cache started (<out>/pace, its
+        time under a lock), and mark this one started: the fetch units run
+        at once but ask Trove at most one request a `delay` between them."""
+        import fcntl
+        with open(os.path.join(self.out, "pace"), "a+") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
+            f.seek(0)
+            try:
+                last = float(f.read().strip() or 0)
+            except ValueError:
+                last = 0.0
+            wait = max(last, self.last) + self.delay - time.time()
+            if wait > 0:
+                time.sleep(min(wait, self.delay))
+            f.seek(0)
+            f.truncate()
+            f.write(f"{time.time():.3f}")
+            f.flush()
+
+    def save_jar(self):
+        """Save the cookies whole or not at all: units save it at once."""
+        part = f"{self.jar.filename}.{os.getpid()}.part"
+        self.jar.save(part, ignore_discard=True, ignore_expires=True)
+        os.replace(part, self.jar.filename)
+
+    def _open_retry(self, url, headers):
+        """_open, retried with backoff on timeouts, resets and HTTP 5xx."""
+        err, tries = "", 0
+        for n in range(RETRIES):
+            if n:
+                pause = BACKOFF * 3 ** (n - 1)
+                if time.time() + pause > self.deadline:
+                    break
+                time.sleep(pause)
+            tries += 1
+            try:
+                status, body = self._open(url, headers)
+            except (urllib.error.URLError, OSError, http.client.HTTPException) as e:
+                err = f"{type(e).__name__}: {e}"
+                continue
+            if status < 500:
+                return status, body
+            err = f"HTTP {status}: {body[:100]!r}"
+            # app_affinity pins every request to one backend; a backend that
+            # 503s keeps 503ing, so the retry asks for another one.
+            for c in [c for c in self.jar if c.name == "app_affinity"]:
+                self.jar.clear(c.domain, c.path, c.name)
+        raise Transient(f"{err} for {url} after {tries} tries")
+
+    def get(self, url, headers=None, ok=(200,)):
+        if url.startswith("/"):
+            url = BASE + url
+        for _ in range(3):
+            status, body = self._open_retry(url, headers or {})
+            m = CHALLENGE_RE.search(body[:20000].decode("utf-8", "replace"))
+            if m:
+                self._solve(json.loads(m.group(1)), url)
+                continue
+            if status not in ok:
+                raise RuntimeError(f"HTTP {status} for {url}: {body[:200]!r}")
+            return status, body
+        raise RuntimeError(f"Anubis challenge kept coming back for {url}")
+
+    def _solve(self, data, url):
+        c = data["challenge"]
+        prefix, rnd = "0" * c["difficulty"], c["randomData"]
+        t, n = time.time(), 0
+        while True:
+            h = hashlib.sha256(f"{rnd}{n}".encode()).hexdigest()
+            if h.startswith(prefix):
+                break
+            n += 1
+        ms = int((time.time() - t) * 1000)
+        q = urllib.parse.urlencode({"id": c["id"], "response": h, "nonce": n,
+                                    "redir": url, "elapsedTime": ms})
+        self._open(f"{BASE}/.within.website/x/cmd/anubis/api/pass-challenge?{q}", {})
+        self.save_jar()
+        print(f"anubis: solved difficulty {c['difficulty']} in {ms} ms", file=sys.stderr)
+
+    def apikey(self):
+        ctx = next((c.value for c in self.jar if c.name == "x-ctx"), None)
+        if ctx is None:
+            self.get("/search/category/newspapers")
+            self.save_jar()
+            ctx = next((c.value for c in self.jar if c.name == "x-ctx"), "")
+        return hashlib.md5(f"Wonder{ctx}".encode()).hexdigest().lstrip("0")
+
+    def search(self, query, title, year):
+        hdr = {"apikey": self.apikey(), "Accept": "application/json"}
+        limits = json.dumps({"title": [str(title)], "decade": [str(year)[:3]],
+                             "year": [str(year)]})
+        hits, start, total = [], 0, None
+        while total is None or start < min(total, 5000):
+            q = urllib.parse.urlencode({"terms": f"( {query} )", "limits": limits,
+                                        "pageSize": 100, "startPos": start})
+            _, body = self.get(f"/api/search/137?{q}", hdr)
+            j = json.loads(body)
+            total = j["totalRecords"]
+            works = j.get("works") or []
+            if not works:
+                break
+            for w in works:
+                hits.append({"id": w["id"], "date": w.get("date"), "page": w.get("page"),
+                             "title": w.get("title"),
+                             "snippet": re.sub(r"<[^>]+>", "", " ".join(w.get("snippets") or []))})
+            start += len(works)
+        return total, hits
+
+    def fetch_article(self, aid):
+        d = os.path.join(self.out, str(aid))
+        os.makedirs(d, exist_ok=True)
+        _, page = self.get(f"/newspaper/article/{aid}")
+        text = page.decode("utf-8", "replace")
+        zones = [{"page": int(p), "x": int(x), "y": int(y), "w": int(w), "h": int(h)} for p, x, y, w, h in
+                 re.findall(r'class="zone onPage[^"]*" data-page-id="(\d+)" data-x="(\d+)" '
+                            r'data-y="(\d+)" data-w="(\d+)" data-h="(\d+)"', text)]
+        if not zones:
+            raise ArticleError(f"article {aid}: no zones in the article page")
+        t = re.search(r"<title>(.*?)</title>", text, re.DOTALL)
+        meta = {"id": str(aid), "title": html.unescape(t.group(1).strip()) if t else "",
+                "page_id": zones[0]["page"], "zones": zones}
+        _, ocr = self.get(f"/newspaper/rendition/nla.news-article{aid}.txt")
+        paras = [html.unescape(re.sub(r"<[^>]+>", "", p)).strip()
+                 for p in re.findall(r"<p>(.*?)</p>", ocr.decode("utf-8", "replace"), re.DOTALL)]
+        with atomic(os.path.join(d, "ocr.txt")) as f:
+            f.write("\n".join(p for p in paras if p) + "\n")
+        grid = grid_zone(zones)
+        meta["grid"] = grid
+        if grid:
+            img, level = self.crop(grid["page"], grid)
+            with atomic(os.path.join(d, "grid.jpg"), "wb") as f:
+                img.save(f, format="JPEG", quality=92)
+            meta["grid_level"], meta["grid_px"] = level, list(img.size)
+        with atomic(os.path.join(d, "meta.json")) as f:
+            json.dump(meta, f, indent=1)
+        import media_manifest
+        media_manifest.record(media_manifest.TROVE_INPUTS, d, article=str(aid), files=media_manifest.trove_files(d))
+        media_manifest.record(media_manifest.TROVE_TITLES, d, article=str(aid), title=meta["title"])
+        return meta
+
+    def crop(self, page_id, box, pad=10):
+        from PIL import Image
+        _, body = self.get(f"/newspaper/image/info/{page_id}")
+        levels = ET.fromstring(body).find("levels")
+        # The smallest level that still renders the box at least min_width px
+        # wide; tiles are most of the requests, so this sets the pace.
+        levels = sorted(levels, key=lambda e: float(e.findtext("scale")))
+        lv = next((e for e in levels if box["w"] * float(e.findtext("scale")) >= self.min_width),
+                  levels[-1])
+        level, scale = int(lv.get("id")), float(lv.findtext("scale"))
+        xo, yo = int(lv.findtext("xoffset")), int(lv.findtext("yoffset"))
+        x1, y1 = (box["x"] - pad) * scale + xo, (box["y"] - pad) * scale + yo
+        x2 = (box["x"] + box["w"] + pad) * scale + xo
+        y2 = (box["y"] + box["h"] + pad) * scale + yo
+        c1, r1, c2, r2 = int(x1) // TILE, int(y1) // TILE, int(x2) // TILE, int(y2) // TILE
+        canvas = Image.new("L", ((c2 - c1 + 1) * TILE, (r2 - r1 + 1) * TILE), 255)
+        for c in range(c1, c2 + 1):
+            for r in range(r1, r2 + 1):
+                _, tile = self.get(f"/imageservice/nla.news-page{page_id}/tile{level}-{c}-{r}")
+                if tile:
+                    canvas.paste(Image.open(io.BytesIO(tile)).convert("L"),
+                                 ((c - c1) * TILE, (r - r1) * TILE))
+        ox, oy = c1 * TILE, r1 * TILE
+        return canvas.crop((int(x1) - ox, int(y1) - oy, int(x2) - ox, int(y2) - oy)), level
+
+
+def grid_zone(zones):
+    """The crossword grid: the largest roughly square zone at least 300px wide."""
+    sq = [z for z in zones if z["w"] >= 300 and 0.75 <= z["w"] / z["h"] <= 1.33]
+    return max(sq, key=lambda z: z["w"] * z["h"]) if sq else None
+
+
+#: Smallest zone width in pixels: Trove's level 6, half the top resolution,
+#: which RapidOCR reads as well as the top one.
+ZONE_WIDTH = 220
+ZONES_DIR = str(downloads.TROVE_CLUES)
+
+
+def zone_images(zones, aid):
+    return glob.glob(os.path.join(zones, str(aid), "zone*.png"))
+
+
+def fetch_zones(tv, out, zones, aid):
+    """Cache article `aid`'s text zones (every zone but the grid) under `zones`."""
+    with open(os.path.join(out, str(aid), "meta.json")) as f:
+        meta = json.load(f)
+    d = os.path.join(zones, str(aid))
+    os.makedirs(d, exist_ok=True)
+    for i, z in enumerate(meta["zones"]):
+        p = os.path.join(d, f"zone{i}.png")
+        if z != meta.get("grid") and not os.path.exists(p):
+            img, _ = tv.crop(z["page"], z, pad=4)
+            with atomic(p, "wb") as f:
+                img.save(f, format="PNG")
+    import media_manifest
+    media_manifest.record(media_manifest.TROVE_INPUTS, d, article=str(aid), zones=media_manifest.trove_zone_names(d))
+    media_manifest.record(media_manifest.TROVE_ZONES, d, article=str(aid), readings=bool(zone_images(zones, aid)))
+
+
+def pending_zones(out, zones):
+    """Article ids the filing ledger leaves pending whose zones are not cached
+    (its last row an article standing: the ledger is appended to)."""
+    import media_manifest
+    import scan_queue
+    rows = scan_queue.ledger_rows(media_manifest.trove_ledger(Path(out)), "article").values()
+    fetched, zoned = fetched_ids(out), zoned_ids(zones)
+    return sorted(r["article"] for r in rows
+                  if r.get("pending") and not _in(zoned, r["article"], lambda a: zone_images(zones, a))
+                  and _in(fetched, r["article"], lambda a: _fetched_listed(out, a)))
+
+
+def _in(held, aid, listed):
+    """Whether `aid` is in `held` (a manifest's ids), or listed(aid) when there is none (None)."""
+    return str(aid) in held if held is not None else bool(listed(aid))
+
+
+def _fetched_listed(out, aid):
+    """Whether article `aid` is cached, off the disk (no complete trove-titles)."""
+    return os.path.exists(os.path.join(out, str(aid), "meta.json"))
+
+
+def fetched_ids(out):
+    """The ids of the articles cached in `out` (meta.json written), off the
+    trove-titles manifest once complete; None when it is not (ask the disk)."""
+    import media_manifest
+    if media_manifest.on_media(out) and media_manifest.complete(media_manifest.TROVE_TITLES):
+        return {a for a in media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title") if a}
+    return None
+
+
+def zoned_ids(zones):
+    """The ids of the articles with clue zones cached in `zones`, off the
+    trove-zones manifest once complete; None when it is not (ask the disk)."""
+    import media_manifest
+    if media_manifest.on_media(zones) and media_manifest.complete(media_manifest.TROVE_ZONES):
+        return {a for a, r in media_manifest.memo(media_manifest.TROVE_ZONES, "article", "readings").items() if r}
+    return None
+
+
+def each_article(tv, ids, one, what, stop_at=float("inf")):
+    """Call one(aid) for each id and print the line it returns (None: nothing
+    to do), starting none at or after time.time() `stop_at`. Returns (failed,
+    stopped). An article gets ITEM_SECONDS of
+    retries; one that still fails is named with its error and left for the
+    next run, and the rest go on, unless FAILURES_IN_A_ROW fail back to back
+    (stopped)."""
+    failed = in_a_row = 0
+    for i, aid in enumerate(ids):
+        t = time.time()
+        if t >= stop_at:
+            print(f"--seconds reached: {len(ids) - i} {what}(s) left for the next run", flush=True)
+            break
+        tv.deadline = t + ITEM_SECONDS
+        try:
+            said = one(aid)
+        except Exception as e:  # one article's failure is reported, not fatal
+            failed += 1
+            in_a_row += 1
+            print(f"FAILED {what} {aid} after {time.time() - t:.0f}s, left for the next run: "
+                  f"{type(e).__name__}: {e}", flush=True)
+            if in_a_row >= FAILURES_IN_A_ROW:
+                print(f"stopping: {in_a_row} articles in a row failed; Trove looks down", flush=True)
+                return failed, True
+            continue
+        in_a_row = 0
+        if said:
+            print(said, flush=True)
+    return failed, False
+
+
+def fetch_all_zones(tv, out, zones, ids, limit=None, stop_at=float("inf")):
+    """fetch_zones() for up to `limit` of `ids`, through each_article()."""
+    def one(aid):
+        fetch_zones(tv, out, zones, aid)
+        return f"{aid}: {len(zone_images(zones, aid))} zones"
+    return each_article(tv, ids[:limit], one, "zones", stop_at)
+
+
+def plan(out=str(downloads.TROVE), zones=ZONES_DIR):
+    """The fetch units due (tools/edition_queue.py), most urgent first, off
+    the caches alone: the clue zones of each article the filer left pending
+    ({"zones": id}; it files once they land), then each indexed article not
+    yet cached ({"article": id}), the latest index year's last. Off the
+    trove-dates, trove-titles and trove-zones manifests once each is
+    complete (media_manifest.py build), so the queue lists no Trove dir."""
+    units = [{"zones": aid, "rel": f"zones/{aid}", "reason": "clue zones pending"} for aid in pending_zones(out, zones)]
+    import media_manifest
+    ids = [aid for aid, _date in media_manifest.trove_hits(out)]
+    fetched = fetched_ids(out)
+    units += [{"article": aid, "rel": f"article/{aid}", "reason": "not fetched"} for aid in dict.fromkeys(ids)
+              if not _in(fetched, aid, lambda a: _fetched_listed(out, a))]
+    return units
+
+
+def fetch_unit(unit, out=str(downloads.TROVE), zones=ZONES_DIR, delay=1.0, grid_width=600):
+    """In a queue unit's own process: fetch one article or its clue zones,
+    under the article's own lock, Trove paced across every unit (pace()).
+    Returns "fetched", "current" (nothing left to do), "busy" (another unit
+    has it), "failed" (logged) or "outage" (Trove timed out or answered
+    5xx through ITEM_SECONDS of retries)."""
+    import scan_queue
+    aid = unit.get("zones") or unit["article"]
+    with scan_queue.source_lock(Path(out) / "fetch", unit["rel"]) as mine:
+        if not mine:
+            return "busy"
+        if unit.get("zones"):
+            if zone_images(zones, aid):
+                return "current"
+            tv = Trove(out, delay, ZONE_WIDTH)
+
+            def run():
+                fetch_zones(tv, out, zones, aid)
+                return f"{aid}: {len(zone_images(zones, aid))} zones"
+        else:
+            if os.path.exists(os.path.join(out, aid, "meta.json")):
+                return "current"
+            tv = Trove(out, delay, grid_width)
+
+            def run():
+                m = tv.fetch_article(aid)
+                g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
+                return f"{aid} {m['title']}: {len(m['zones'])} zones, {g}"
+        tv.deadline = time.time() + ITEM_SECONDS
+        t = time.time()
+        try:
+            print(run(), flush=True)
+        except Exception as e:  # the unit's failure is its exit, logged
+            print(f"FAILED {unit['rel']} after {time.time() - t:.0f}s, left for the next run: "
+                  f"{type(e).__name__}: {e}", flush=True)
+            return "outage" if isinstance(e, Transient) else "failed"
+        finally:
+            tv.save_jar()
+        return "fetched"
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("cmd", choices=["search", "fetch", "zones"])
+    ap.add_argument("args", nargs="*")
+    ap.add_argument("--query", default='"cryptic crossword"')
+    ap.add_argument("--title", default="11")
+    ap.add_argument("--year", type=int)
+    ap.add_argument("--limit", type=int)
+    ap.add_argument("--delay", type=float, default=1.0)
+    ap.add_argument("--grid-width", type=int, default=600)
+    ap.add_argument("--out", default=str(downloads.TROVE))
+    ap.add_argument("--zones-out", default=ZONES_DIR, help="where `zones` writes")
+    ap.add_argument("--seconds", type=float)
+    a = ap.parse_args()
+    stop_at = time.time() + a.seconds if a.seconds else float("inf")
+    tv = Trove(a.out, a.delay, ZONE_WIDTH if a.cmd == "zones" else a.grid_width)
+    t0 = time.time()
+    failed, stopped = 0, False
+    if a.cmd == "zones":
+        ids = a.args or pending_zones(a.out, a.zones_out)
+        print(f"{len(ids)} article(s) need clue zones", flush=True)
+        failed, stopped = fetch_all_zones(tv, a.out, a.zones_out, ids, a.limit, stop_at)
+    elif a.cmd == "search":
+        year = a.year or int(a.args[0])
+        total, hits = tv.search(a.query, a.title, year)
+        os.makedirs(os.path.join(a.out, "index"), exist_ok=True)
+        path = os.path.join(a.out, "index", f"{year}.jsonl")
+        # A year's index is the union of every query run for it, keyed by id.
+        known = {}
+        if os.path.exists(path):
+            with open(path) as f:
+                known = {h["id"]: h for h in map(json.loads, f)}
+        new = [h for h in hits if h["id"] not in known]
+        for h in new:
+            h["query"] = a.query
+            known[h["id"]] = h
+        with atomic(path) as f:
+            f.writelines(json.dumps(h) + "\n" for h in known.values())
+        import media_manifest
+        for h in new:
+            media_manifest.record(media_manifest.TROVE_DATES, path, article=str(h["id"]), date=h.get("date"))
+        print(f"{year} {a.query}: {total} hits, {len(new)} new, {len(known)} in {path}")
+    else:
+        ids = list(a.args)
+        years = [a.year] if a.year else [] if ids else sorted(
+            int(os.path.basename(p)[:-6]) for p in glob.glob(os.path.join(a.out, "index", "*.jsonl")))
+        for year in years:
+            with open(os.path.join(a.out, "index", f"{year}.jsonl")) as f:
+                ids += [json.loads(line)["id"] for line in f]
+        # Cached articles are skipped before any request, so a run with
+        # nothing new costs a stat per indexed article.
+        ids = [aid for aid in dict.fromkeys(ids) if not os.path.exists(os.path.join(a.out, str(aid), "meta.json"))]
+        print(f"{len(ids)} article(s) to fetch", flush=True)
+
+        def one(aid):
+            if os.path.exists(os.path.join(a.out, str(aid), "meta.json")):
+                return None
+            t = time.time()
+            m = tv.fetch_article(aid)
+            g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
+            return f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s"
+        failed, stopped = each_article(tv, ids[:a.limit], one, "article", stop_at)
+    tv.save_jar()
+    if failed:
+        print(f"{failed} article(s) failed; rerun to retry them", file=sys.stderr)
+    print(f"{tv.requests} requests, {tv.seconds:.1f}s in HTTP, {time.time() - t0:.1f}s wall",
+          file=sys.stderr)
+    return 4 if stopped else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

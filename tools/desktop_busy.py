@@ -1,0 +1,177 @@
+"""Whether Paul is playing a game on his desktop, so the work we send there yields.
+
+tools/ocr_remote.py's sessions and tools/vlm_reader.py's model run on the
+desktop Paul games on, and even at idle priority they froze his game for
+seconds at a time. busy(hosts) says why the desktop is busy, or None. It is
+busy while
+
+- a game runs there: GAMES by process name, or any process run from a
+  GAME_DIRS folder (Paul installs his games on D:, so a small one that
+  barely touches the GPU, like Mina the Hollower, still counts), or
+- VLC has a video open (its window title names the file), or
+- its 3D engines are more than GPU_3D percent busy, summed over every
+  process but VLM_SERVERS (llama-server's CUDA work shows there as 3D).
+
+desktop_probe.ps1 reads these, and the desktop's free memory (free_mb), over ssh at low priority, at most once every
+PROBE_EVERY seconds: the reading is shared by every process on this host
+through a state file, and the process that probes logs one line when the
+verdict changes. While the desktop is busy each probe also ends its OCR
+sessions (ocr_remote.py serve), which outlive their ssh client. A desktop
+that does not answer is not busy: the callers already work without it then.
+"""
+import base64
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import time
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parent
+PROBE = TOOLS / "desktop_probe.ps1"
+#: The desktop's addresses, and its user: a host elsewhere is never probed.
+import desktop_hosts
+DESKTOPS = desktop_hosts.ADDRESSES
+USER = desktop_hosts.USER
+#: World of Warcraft's builds (retail, Classic, and their test clients).
+GAMES = ("Wow", "WowClassic", "WowT", "WowB", "WowClassicT", "WowClassicB")
+#: Folders whose programs are games, and those inside them that are not
+#: (D:\\llm holds the VLM's llama-server).
+GAME_DIRS = ("D:\\",)
+NOT_GAME_DIRS = ("D:\\llm\\", "D:\\Guilds-of-WoW-Addon\\", "D:\\imagine\\")
+#: Summed 3D utilisation, in percent, above which some other game is running.
+GPU_3D = 20
+#: The VLM's processes (tools/vlm_reader.py), whose 3D load is our own work.
+VLM_SERVERS = ("llama-server", "llama-swap")
+#: One probe is a single ssh + powershell call at low priority (~3-5 s), so every 20 s: the VLM
+#: goes down ~24 s after a game starts, and a 60 s probe left units mid-read to lose it.
+PROBE_EVERY = 20
+STATE = Path(tempfile.gettempdir())
+#: Every DESKTOPS address is the one desktop, its host key known by its
+#: tailnet address (this host's known_hosts is read-only).
+SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5", "-o", "ServerAliveInterval=15",
+       "-o", "ServerAliveCountMax=4", "-o", f"HostKeyAlias={desktop_hosts.ADDRESSES[-1] if desktop_hosts.ADDRESSES else 'desktop'}"]
+clock = time.time
+
+
+def _list(v):
+    """A JSON field PowerShell may have written as a list, one value or null."""
+    return v if isinstance(v, list) else [] if v is None else [v]
+
+
+def probe(host):
+    """The desktop's reading {"games", "video", "gpu3d", "serving", "freeMB"} over ssh to
+    `host`, or None when it does not answer one."""
+    script = ("$Names = " + ", ".join(f"'{g}'" for g in GAMES) + "\n"
+              + "$GameDirs = " + ", ".join(f"'{d}'" for d in GAME_DIRS) + "\n"
+              + "$NotGameDirs = " + ", ".join(f"'{d}'" for d in NOT_GAME_DIRS) + "\n"
+              + "$Vlm = " + ", ".join(f"'{v}'" for v in VLM_SERVERS) + "\n"
+              # Comments dropped: the encoded script rides one cmd line, 8191 characters at most.
+              + "\n".join(l for l in PROBE.read_text().splitlines() if not l.lstrip().startswith("#")))
+    enc = base64.b64encode(script.encode("utf-16-le")).decode()
+    try:
+        cmd = f'start "" /low /b /wait powershell -NoProfile -NonInteractive -EncodedCommand {enc}'
+        res = subprocess.run([*SSH, host, cmd], capture_output=True, timeout=60, check=False)
+        got = json.loads(res.stdout)
+    except (subprocess.TimeoutExpired, OSError, ValueError):
+        return None
+    if not isinstance(got, dict):
+        return None
+    return {"games": [str(g) for g in _list(got.get("games"))], "gpu3d": float(got.get("gpu3d") or 0),
+            "video": [str(v) for v in _list(got.get("video"))], "pending": bool(got.get("pending")),
+            "serving": [int(p) for p in _list(got.get("serving"))],
+            "freeMB": None if got.get("freeMB") is None else int(got["freeMB"])}
+
+
+def verdict(reading):
+    """Why a desktop that read `reading` is busy, or None."""
+    if reading is None:
+        return None
+    if reading.get("pending"):  # D:\llm\game-pending: a game is starting or running, the VLM about to stop
+        return "game: starting (D:\\llm\\game-pending)"
+    if reading["games"]:
+        return "game: playing " + ", ".join(sorted(set(reading["games"])))
+    if reading.get("video"):
+        return "vlc: playing " + ", ".join(sorted(set(reading["video"])))
+    if reading["gpu3d"] > GPU_3D:
+        return f"3D engines {reading['gpu3d']:.0f}% busy"
+    return None
+
+
+def stop_sessions(host, pids):
+    """End the desktop's OCR sessions `pids`."""
+    ids = ",".join(str(p) for p in pids)
+    cmd = f"powershell -NoProfile -NonInteractive -Command Stop-Process -Force -ErrorAction SilentlyContinue -Id {ids}"
+    subprocess.run([*SSH, host, cmd], capture_output=True, timeout=60, check=False)
+
+
+def log(line):
+    print(f"{time.strftime('%H:%M:%S')} desktop [{os.getpid()}]: {line}", file=sys.stderr, flush=True)
+
+
+def _read(path):
+    try:
+        return json.loads(path.read_text())
+    except (OSError, ValueError):
+        return None
+
+
+def busy(hosts):
+    """Why the desktop is busy, or None: `hosts` are ssh targets
+    (user@address); any not at a desktop address is skipped. Every one is
+    the one desktop, so a probe tries the desktop's addresses in
+    desktop_hosts.ranked() order, the ones answering ssh now first: a stale
+    LAN lease never costs a probe its 60s timeout first."""
+    hosts = [h for h in hosts if desktop_hosts.is_desktop(h.rpartition("@")[2])]
+    if not hosts:
+        return None
+    import fcntl
+    state = STATE / "desktop_busy.json"
+    old = _read(state)
+    if old and clock() - old["t"] < PROBE_EVERY:
+        return old["why"]
+    with open(STATE / "desktop_busy.lock", "w") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:  # another process is probing: its last verdict stands meanwhile
+            return old["why"] if old else None
+        old = _read(state)
+        if old and clock() - old["t"] < PROBE_EVERY:
+            return old["why"]
+        reading = None
+        user = hosts[0].rpartition("@")[0]
+        for host in desktop_hosts.remotes(user, tailnet_first=True) if user else hosts:
+            reading = probe(host)
+            if reading is not None:
+                break
+        why = verdict(reading)
+        # Saved before the sessions are ended: a process whose session ends
+        # reads this verdict, so it waits for idle, not ocr_remote.RETRY.
+        tmp = state.with_suffix(f".{os.getpid()}.part")
+        # A probe that times out (a desktop saturated enough to page) keeps
+        # the last free memory read, with when: its callers charge what they
+        # started since against it (edition_queue.desktop_room).
+        free = ([clock(), reading["freeMB"]] if reading and reading.get("freeMB") is not None
+                else (old or {}).get("free"))
+        tmp.write_text(json.dumps({"t": clock(), "why": why, "reading": reading, "free": free}))
+        tmp.replace(state)
+        if why and reading["serving"]:
+            stop_sessions(host, reading["serving"])
+        was = old["why"] if old else None
+        if why and not was:
+            log(f"yielding: {why}; desktop OCR and VLM wait until it is idle")
+        elif was and not why:
+            log("resuming: " + (f"idle (3D {reading['gpu3d']:.0f}%, no game or video)" if reading else "not answering"))
+    return why
+
+
+def free_mb(hosts):
+    """(when it was read, the desktop's free physical memory in MB) at the
+    last probe it answered, probing again when older than PROBE_EVERY
+    (busy); None when it never answered or `hosts` holds no desktop."""
+    if not [h for h in hosts if desktop_hosts.is_desktop(h.rpartition("@")[2])]:
+        return None
+    busy(hosts)
+    got = _read(STATE / "desktop_busy.json")
+    return tuple(got["free"]) if got and got.get("free") else None

@@ -1,0 +1,532 @@
+{
+ "_comment": "Clues and annotations authored for the grid in sample_fill_11.json. Keyed by entry id. Consumed by tools/build_authored_puzzle.py, which merges these with the fill geometry and writes puzzles/authored/<year>/authored-1.json through fetch_puzzle.write_puzzle_file. Each entry is the puzzle entry's `clue` and its annotation in the model's shape (annotation.MODEL_KEYS: `def`, `wp` in tools/wordplay.py's grammar, `notes`, plus explanation and features as they are); the builder turns it into the stored wordplay tree with annotation.from_model, which checks the letters against the grid. Every word of every clue must be definition, wordplay or joinery (see tools/AUTHORING.md, 'Exactly two pieces').",
+ "1-across": {
+  "clue": {
+   "text": "Son leaves room for walk",
+   "enumeration": "4"
+  },
+  "annotation": {
+   "def": "walk",
+   "wp": "del<leaves>([room]SPACE, [Son]S)",
+   "notes": {
+    "walk": "a noun in the gait sense, as in a horse's walk",
+    "leaves": "to leave is to go out, so one piece goes out of another",
+    "room": "room as open space, not a bedroom",
+    "Son": "the genealogical abbreviation"
+   },
+   "explanation": {
+    "surface": "A parent reports that their teenage son has finally left his bedroom to go out for a walk.",
+    "walkthrough": "'Leaves room for' looks like the idiom for making allowance. In fact S leaves SPACE, and the room is empty space, not a bedroom.",
+    "definitionFit": "Synonym in the gait sense: walk, trot and canter are a horse's paces, so a walk is a pace."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "room"
+   }
+  }
+ },
+ "3-across": {
+  "clue": {
+   "text": "They line London streets and fly over them",
+   "enumeration": "6"
+  },
+  "annotation": {
+   "def": [
+    "They line London streets",
+    "fly over them"
+   ],
+   "notes": {
+    "They line London streets": "the city's standard pavement tree, a hybrid with peeling mottled bark",
+    "fly over them": "aircraft passing overhead on the Heathrow approach"
+   },
+   "explanation": {
+    "surface": "A picture of London: trees along the pavements and flights overhead.",
+    "walkthrough": "'They' seems to be a single subject doing two things. In fact it is two different things with the same name, one rooted on the pavement and one in the air: plane trees and aeroplanes.",
+    "definitionFit": "Two senses of one word: the London plane is the named tree that lines the capital's streets, and 'planes' is the everyday short form of aeroplanes."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "They"
+   }
+  }
+ },
+ "8-across": {
+  "clue": {
+   "text": "Three moved to that place",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": "to that place",
+   "wp": "ana<moved>([Three])",
+   "notes": {
+    "to that place": "'go there' is 'go to that place': the answer replaces the phrase word for word",
+    "moved": "moved about, so the letters change places",
+    "Three": "anagram of THREE"
+   },
+   "explanation": {
+    "surface": "Someone reports that three friends have moved to a town they have just been talking about.",
+    "walkthrough": "Three reads as a number of people, so the solver counts heads instead of shuffling the five letters.",
+    "definitionFit": "to that place -> THERE: an adverb of place, as in 'they moved there', where 'there' and 'to that place' swap exactly."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": null
+   }
+  }
+ },
+ "9-across": {
+  "clue": {
+   "text": "The Venus de Milo isn't",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": [
+    "The Venus de Milo",
+    "isn't"
+   ],
+   "notes": {
+    "The Venus de Milo": "the surface points to the goddess, the Louvre and beauty; the setter means the statue's missing limbs",
+    "isn't": "what a figure without limbs is not, taking the word to mean 'having arms' rather than 'carrying weapons'"
+   },
+   "explanation": {
+    "surface": "A remark about the famous statue in the Louvre that has no arms, as if finishing someone's sentence.",
+    "walkthrough": "The solver tries to fill in 'isn't' with 'finished' or 'genuine'. The penny drops on the literal sense of the word. This uses one of the puzzle's two cryptic definitions.",
+    "definitionFit": "A literal sense: armed as 'having arms', which the statue lacks, set against the weapon sense the solver expects."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": null
+   }
+  }
+ },
+ "10-across": {
+  "clue": {
+   "text": "Journalists about to become doormen",
+   "enumeration": "9"
+  },
+  "annotation": {
+   "def": "Journalists",
+   "wp": "[about]RE + [doormen]PORTERS",
+   "notes": {
+    "about": "'re', meaning 'on the subject of', as in memo headings",
+    "doormen": "a hotel's doormen are its porters"
+   },
+   "explanation": {
+    "surface": "A gloomy line about the newspaper trade: journalists will soon be working hotel doors.",
+    "walkthrough": "'About to become' reads as one phrase, 'soon to be'. Split it: about is RE, and RE plus PORTERS gives the journalists.",
+    "definitionFit": "Journalists -> REPORTERS: a plain synonym; every reporter is a journalist, and the surface's newspaper trade fits."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "about"
+   }
+  }
+ },
+ "12-across": {
+  "clue": {
+   "text": "Second helping?",
+   "enumeration": "9"
+  },
+  "annotation": {
+   "def": [
+    "Second",
+    "helping"
+   ],
+   "notes": {
+    "Second": "first sense",
+    "helping": "second sense, the adjective"
+   },
+   "explanation": {
+    "surface": "A host at the dinner table offering more food.",
+    "walkthrough": "The dinner offer hides two meanings: a second is an aide, and 'helping' is what an assistant is doing. The ? flags that neither word means what it does at the table.",
+    "definitionFit": "Both halves are standard dictionary senses of ASSISTANT (noun and adjective)."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "helping"
+   }
+  }
+ },
+ "15-across": {
+  "clue": {
+   "text": "Morgan drops a million on a church instrument",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": "a church instrument",
+   "wp": "del<drops>([Morgan], [a million]M)",
+   "notes": {
+    "a church instrument": "the pipe organ, the instrument most churches have",
+    "drops": "to drop something is to let it go, so a piece falls out of a word",
+    "Morgan": "taken as it stands, letter for letter",
+    "a million": "M is the standard short form of million, as in £5m"
+   },
+   "explanation": {
+    "surface": "A rich benefactor called Morgan spends a fortune on a new instrument for the parish church.",
+    "walkthrough": "'Drops a million on' reads as spending money. Instead MORGAN drops its M, and what's left is the instrument.",
+    "definitionFit": "a church instrument -> ORGAN: a definition by description; the organ is the instrument a church is built around."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "drops"
+   }
+  }
+ },
+ "16-across": {
+  "clue": {
+   "text": "Bury some print errors",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": "Bury",
+   "wp": "hid<some>([print errors]INTER)",
+   "notes": {
+    "Bury": "a verb: to inter someone is to bury them",
+    "some": "part of something, so a run of letters is lifted from the phrase and the rest left behind",
+    "print errors": "the tail of the first word and the head of the second, read across the space"
+   },
+   "explanation": {
+    "surface": "A sly instruction to an editor: hide a few of the typos where nobody will notice them.",
+    "walkthrough": "'Bury' reads as hiding the mistakes. It is the definition, and 'some' lifts the answer out of pr-INT ER-rors.",
+    "definitionFit": "Bury -> INTER: synonyms as verbs, as in 'they were interred in the churchyard'."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "Bury"
+   }
+  }
+ },
+ "17-across": {
+  "clue": {
+   "text": "Delight in cheap leases",
+   "enumeration": "6"
+  },
+  "annotation": {
+   "def": "Delight",
+   "wp": "hid<in>([cheap leases]PLEASE)",
+   "notes": {
+    "Delight": "a verb: to delight someone is to please them",
+    "in": "one thing inside another, so the answer sits inside the words that follow",
+    "cheap leases": "the last letter of the first word and all but the last letter of the second"
+   },
+   "explanation": {
+    "surface": "A letting agent's advert: enjoy renting a flat for less.",
+    "walkthrough": "'Delight in' reads as one verb, to enjoy. Split it: delight is the definition, and in is the instruction to look inside chea-P LEASE-s.",
+    "definitionFit": "Delight -> PLEASE: synonyms as transitive verbs, as in 'the news will delight her' and 'the news will please her'."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": "Delight"
+   }
+  }
+ },
+ "18-across": {
+  "clue": {
+   "text": "Fish hawk drops outsize victim",
+   "enumeration": "4"
+  },
+  "annotation": {
+   "def": "victim",
+   "wp": "del<drops>([Fish hawk]OSPREY, [outsize]OS)",
+   "notes": {
+    "victim": "a hunted creature is the victim of its hunter",
+    "drops": "the bird lets go of its catch, and a word lets go of some letters",
+    "Fish hawk": "the osprey's other name",
+    "outsize": "the clothing-size abbreviation"
+   },
+   "explanation": {
+    "surface": "An osprey lets go of a fish too big to carry.",
+    "walkthrough": "'Outsize victim' reads as one fat fish. In fact OSPREY drops OS, and what is left is the victim itself.",
+    "definitionFit": "victim -> PREY: a plain synonym in the food-chain sense; the fish the osprey drops is its prey."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": "outsize"
+   }
+  }
+ },
+ "1-down": {
+  "clue": {
+   "text": "Streep played Pan and Rabbit?",
+   "enumeration": "6"
+  },
+  "annotation": {
+   "def": "Pan and Rabbit?",
+   "wp": "ana<played>([Streep])",
+   "notes": {
+    "Pan and Rabbit?": "a definition by example, flagged by the question mark: Peter Pan and Peter Rabbit are two Peters",
+    "played": "to play a part is to take a new shape, so the letters are rearranged",
+    "Streep": "STREEP rearranged"
+   },
+   "explanation": {
+    "surface": "Someone wonders aloud whether Meryl Streep once starred as two famous children's characters.",
+    "walkthrough": "It reads like film trivia about casting. 'Played' is the instruction to rearrange the star's name, and the two characters share a first name.",
+    "definitionFit": "Pan and Rabbit? -> PETERS: Peter Pan and Peter Rabbit, a pair of Peters; the question mark says they are examples."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "played"
+   }
+  }
+ },
+ "2-down": {
+  "clue": {
+   "text": "Some quiche appetisers look tacky",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": "tacky",
+   "wp": "hid<Some>([quiche appetisers]CHEAP)",
+   "notes": {
+    "tacky": "tacky in the tawdry sense, as in 'cheap and tacky'",
+    "Some": "part of something, so a run of letters is lifted from the phrase and the rest left behind",
+    "quiche appetisers": "the tail of the first word and the head of the second, read across the space"
+   },
+   "explanation": {
+    "surface": "A guest at a party eyes a tray of underbaked mini quiches that look sticky.",
+    "walkthrough": "Tacky reads as sticky, the way an underbaked filling is. It means tawdry, and the answer hides across the space between quiche and appetisers.",
+    "definitionFit": "tacky -> CHEAP: synonyms in the sense of tawdry and low-quality, as in 'cheap and tacky souvenirs'."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "tacky"
+   }
+  }
+ },
+ "4-down": {
+  "clue": {
+   "text": "Chief with a boat takes command",
+   "enumeration": "10"
+  },
+  "annotation": {
+   "def": "command",
+   "wp": "[Chief]LEADER + [a boat]SHIP",
+   "notes": {
+    "command": "leadership = being in command of a group",
+    "Chief": "a chief is a leader",
+    "a boat": "a boat, loosely, is a ship"
+   },
+   "explanation": {
+    "surface": "The head of a tribe gets hold of a boat and puts himself in charge of the crew.",
+    "walkthrough": "The scene is a story about a boat. The word is LEADER plus SHIP.",
+    "definitionFit": "command -> LEADERSHIP: the noun in the sense of being in charge, as in 'under her command'."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": null
+   }
+  }
+ },
+ "5-down": {
+  "clue": {
+   "text": "Some Chinese manufacturers put up labels",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": "labels",
+   "wp": "rev<put up>(hid<Some>([Chinese manufacturers]SEMAN))",
+   "notes": {
+    "labels": "to label something is to name it",
+    "put up": "down entry, so putting it up reverses it",
+    "Some": "part of something, so a run of letters is lifted from the phrase and the rest left behind",
+    "Chinese manufacturers": "the end of the first word and the start of the second, read across the space"
+   },
+   "explanation": {
+    "surface": "Factories in China stick labels on their goods.",
+    "walkthrough": "'Put up labels' reads as factories fixing stickers. Labels is a verb, and the letters run upwards through chine-SE MAN-ufacturers.",
+    "definitionFit": "labels -> NAMES: synonyms as verbs, as in 'the report labels him the culprit' and 'the report names him the culprit'."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": "labels"
+   }
+  }
+ },
+ "6-down": {
+  "clue": {
+   "text": "Chips for eleven?",
+   "enumeration": "4"
+  },
+  "annotation": {
+   "def": [
+    "Chips",
+    "eleven?"
+   ],
+   "notes": {
+    "Chips": "fried potatoes, taken as one example of an extra dish ordered with a meal",
+    "eleven?": "the number standing for a whole football or cricket team"
+   },
+   "explanation": {
+    "surface": "Someone ordering chips at the chip shop for a group of eleven people.",
+    "walkthrough": "The solver sees a big takeaway order. The answer is both a portion of chips on the side and a team of eleven players.",
+    "definitionFit": "Two senses: chips as a definition by example of an accompanying dish; eleven as the headcount standing for a cricket or football team, a standard metonym."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "eleven"
+   }
+  }
+ },
+ "7-down": {
+  "clue": {
+   "text": "Plays for now in the reserves",
+   "enumeration": "10"
+  },
+  "annotation": {
+   "def": "Plays for",
+   "wp": "ins<in>([the reserves]RES, [now]PRESENT)",
+   "notes": {
+    "Plays for": "sporting sense: turning out for a club or country",
+    "in": "one thing inside another, so one piece goes inside the other",
+    "the reserves": "standard abbreviation, res.",
+    "now": "the present moment"
+   },
+   "explanation": {
+    "surface": "A footballer is stuck in the second team for the time being.",
+    "walkthrough": "'For now' reads as one phrase meaning 'temporarily', but the break comes between 'for' and 'now': PLAYS FOR is the definition, and NOW goes inside RES.",
+    "definitionFit": "Sporting idiom: the formal verb for playing for a side, as in a cap count or 'has turned out for his country'; the surface hides it inside 'plays for now'."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "for"
+   }
+  }
+ },
+ "11-down": {
+  "clue": {
+   "text": "Floor collapsed? Yes, rot.",
+   "enumeration": "6"
+  },
+  "annotation": {
+   "def": "Floor",
+   "wp": "ana<collapsed>([Yes, rot])",
+   "notes": {
+    "collapsed": "it reads as what happened to the floor, but something collapsed has lost its shape, and here that happens to the reply's letters",
+    "Yes, rot": "the anagram fodder: the reply 'Yes' and the 'rot' in the timbers, six letters to be rearranged"
+   },
+   "explanation": {
+    "surface": "A worried homeowner asks the surveyor if the floor has given way, and the surveyor blames rot.",
+    "walkthrough": "A two-line chat with the surveyor. 'Collapsed' seems to belong to the floor, but it works on the reply, and the floor in the question is the answer.",
+    "definitionFit": "Floor -> STOREY: a plain synonym, since 'third floor' and the answer name the same tier of a building. The surface uses 'floor' to mean the boards underfoot."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": null,
+    "misdirectedWord": null
+   }
+  }
+ },
+ "12-down": {
+  "clue": {
+   "text": "Reason to fall out",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": [
+    "Reason",
+    "fall out"
+   ],
+   "notes": {
+    "Reason": "the verb: to make a logical case",
+    "fall out": "the phrasal verb for a quarrel between friends"
+   },
+   "explanation": {
+    "surface": "Someone asks what could possibly be worth a quarrel between friends.",
+    "walkthrough": "'Reason' reads as a noun (a cause) but it is a verb. The two senses, calm logic and a heated row, pull against each other.",
+    "definitionFit": "A double definition: one sense is setting out a logical case, the other is having a row, and both are everyday uses of the one verb."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "Reason"
+   }
+  }
+ },
+ "13-down": {
+  "clue": {
+   "text": "Walter lost his head for a change",
+   "enumeration": "5"
+  },
+  "annotation": {
+   "def": "change",
+   "wp": "del<lost his head>([Walter], W)",
+   "notes": {
+    "change": "verb in the answer; the surface uses it in the idiom 'for a change'",
+    "lost his head": "remove the first letter, W",
+    "Walter": "the man's name, with its first letter W dropped"
+   },
+   "explanation": {
+    "surface": "A dry history joke about Sir Walter Raleigh's execution, as if it made a pleasant change.",
+    "walkthrough": "Raleigh really was beheaded. 'For a change' sounds like a throwaway idiom, but 'change' is the definition, and beheading WALTER gives ALTER.",
+    "definitionFit": "A plain synonym hidden by an idiom: in 'for a change' the solver reads change as a noun, but as a verb, to change is to alter."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": false,
+    "joke": "pun",
+    "misdirectedWord": "head"
+   }
+  }
+ },
+ "14-down": {
+  "clue": {
+   "text": "Circle of trust?",
+   "enumeration": "4"
+  },
+  "annotation": {
+   "def": [
+    "Circle",
+    "of trust?"
+   ],
+   "notes": {
+    "Circle": "surface: a group of people. Setter: a closed shape someone can be kept inside; the ? flags that the phrase is taken at an angle",
+    "of trust?": "surface: the Meet the Parents catchphrase for confidants. Setter: being trusted with news means you are kept inside that shape"
+   },
+   "explanation": {
+    "surface": "The 'circle of trust' from Meet the Parents: the inner group a person lets in on things.",
+    "walkthrough": "The film catchphrase sends you towards CLAN or RING. The answer is the circle that trusted people are kept in: 'in the loop'.",
+    "definitionFit": "Circle of trust? -> LOOP: an idiom. People trusted with information are 'in the loop', so the loop is the circle trust puts you in."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "circle"
+   }
+  }
+ }
+}

@@ -1,0 +1,174 @@
+# The burn path: the check for a push that moves puzzle data.
+#
+# The burn jobs push an "Annotate <id>" or "File <id>" commit every few minutes.
+# This workflow checks exactly what that push changed, against its own parent
+# (github.event.before), so there is no run-history search and nothing here
+# depends on what another run did or when. One job, no waits.
+#
+# tests.yml and pages.yml ignore these paths, so neither starts on a burn push.
+# A `full` verdict on a push of only these paths dispatches tests.yml, and a
+# green check dispatches pages.yml, which is how the puzzles go live.
+#
+# Keep the paths in step with tools/ci_scope.py (puzzle and .blog files, the
+# validate_scope ENTRY_TABLES, QUEUE_STATE and BACKLOG, ci_scope.DERIVED_DATA).
+name: Check the burn push
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "puzzles/**/*.json"
+      - "puzzles/**/*.blog"
+      - "tools/data/source_clue_wrong/*.json"
+      - "tools/data/source_answer_wrong.json"
+      - "tools/data/setter_error.json"
+      - "tools/data/blog_disagree/*.json"
+      - "tools/data/shape_reannotate.json"
+      - "tools/annotation_backlog.json"
+      - "tools/data/blog_compare.json"
+      - "tools/data/blog_facts/inputs.sha256"
+      - "tools/data/corroboration_ledger.json"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      dispatch_tests: ${{ steps.base.outputs.dispatch_tests }}
+      dispatch_pages: ${{ steps.base.outputs.dispatch_pages }}
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          # Non-cone, tools/data less yt_solvers: the changed puzzles' folders
+          # (with their .blog sidecars) are added below.
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/
+            !/tools/data/yt_solvers/
+            /.github/
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Restore the integrity row cache
+        id: rows
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-${{ github.sha }}
+          restore-keys: integrity-rows-
+      # The push's parent. A new branch or a force push leaves `before` zero or
+      # unfetchable; the commit's own parent is the answer then.
+      - name: Fetch the changed puzzles
+        id: base
+        shell: bash
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ "${BEFORE//0/}" = "" ] || ! git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE"; then
+            BEFORE=$(git rev-parse HEAD~1 2>/dev/null || true)
+            if [ -z "$BEFORE" ]; then
+              git fetch --no-tags --depth=2 --filter=blob:none origin "$GITHUB_SHA"
+              BEFORE=$(git rev-parse HEAD~1)
+            fi
+            git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE"
+          fi
+          echo "diff base: $BEFORE"
+          python3 tools/ci_scope.py decide "$BEFORE" | tee "$RUNNER_TEMP/verdict.txt"
+          python3 tools/ci_scope.py files "$BEFORE" > "$RUNNER_TEMP/changed.txt"
+          echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed in this push"
+          # tests.yml ignores these paths, so it did not start for this push. When the
+          # verdict is `full` (a deleted or renamed puzzle, too many files, an entry
+          # table row lost) and every path is one of them, it has to be started here.
+          # A push that also touched other paths started tests.yml itself.
+          only=true
+          while read -r f; do
+            case "$f" in
+              puzzles/*.json|puzzles/*.blog|tools/data/source_clue_wrong/*.json|tools/data/source_answer_wrong.json) ;;
+              tools/data/setter_error.json|tools/data/blog_disagree/*.json|tools/data/shape_reannotate.json) ;;
+              tools/annotation_backlog.json|tools/data/blog_compare.json|tools/data/blog_facts/inputs.sha256|tools/data/corroboration_ledger.json) ;;
+              *) only=false ;;
+            esac
+          done < <(git diff --name-only "$BEFORE" HEAD)
+          if grep -q '^full' "$RUNNER_TEMP/verdict.txt" && [ "$only" = true ]; then
+            echo "dispatch_tests=true" >> "$GITHUB_OUTPUT"
+          fi
+          # pages.yml ignores them too, so these puzzles only go live when it is
+          # dispatched. Always, not only when none is queued: its concurrency
+          # group keeps one pending run and replaces an older pending one.
+          [ "$only" = true ] && echo "dispatch_pages=true" >> "$GITHUB_OUTPUT"
+          if [ -s "$RUNNER_TEMP/changed.txt" ]; then
+            # Non-cone patterns: each folder (its .blog sidecar comes with it).
+            sed 's|/[^/]*$|/|; s|^|/|' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
+          fi
+      - name: Puzzle schema
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/puzzle_schema.py < "$RUNNER_TEMP/changed.txt"
+      # The one step with the network: a row-cache miss reads the blob, and git
+      # fetches it on demand.
+      - name: Puzzle integrity
+        shell: bash
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/puzzle_integrity.py --quiet < "$RUNNER_TEMP/changed.txt"
+      - name: Annotations
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/validate_annotations.py --deploy < "$RUNNER_TEMP/changed.txt"
+      - name: Say what tests.yml still has to cover
+        shell: bash
+        run: |
+          grep -q '^full' "$RUNNER_TEMP/verdict.txt" && echo "::notice::$(cat "$RUNNER_TEMP/verdict.txt"): the full suite is tests.yml's" || echo "data-only push"
+
+  # A big file many jobs rewrite is the costliest thing in the repository (the two
+  # source ledgers were ~18 MB a day): every tracked file outside puzzles/ over 512 KB
+  # is split or named, with a reason, in tools/data/large_file_allowlist.json. The
+  # sparse tree holds all but puzzles/, so the sizes come from one batched fetch.
+  sizes:
+    name: file sizes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/puzzles/
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: No big file outside puzzles/ unless allowlisted
+        run: python3 tools/check_file_sizes.py
+
+  # Its own job so that actions: write goes to these steps and not to the checks.
+  dispatch:
+    name: start workflows
+    needs: check
+    if: needs.check.outputs.dispatch_tests == 'true' || needs.check.outputs.dispatch_pages == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Start the full suite
+        if: needs.check.outputs.dispatch_tests == 'true'
+        run: gh workflow run tests.yml --ref master
+      # Builds and deploys master's tip. A run already checking out is fine: the
+      # newer pending run in pages.yml's group picks this commit up.
+      - name: Start the site build
+        if: needs.check.outputs.dispatch_pages == 'true'
+        run: gh workflow run pages.yml --ref master

@@ -1,0 +1,1769 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://crypticteacher.com/tools/data/puzzle.schema.json",
+ "title": "A puzzle file, puzzles/<series>-<number>.json",
+ "description": "An absent key means empty: no value is ever null, \"\", [] or {}; a clue the paper printed blank is {\"missing\": true}. A flag is written only when true. Checked on every write (tools/fetch_puzzle.py write_puzzle_file) and over the corpus in CI (tools/puzzle_schema.py). Every object's keys are in its `properties` order below (tools/puzzle_schema.py order() writes it; the check refuses any other).",
+ "type": "object",
+ "required": [
+  "id",
+  "number",
+  "dimensions",
+  "source",
+  "solutions",
+  "entries"
+ ],
+ "oneOf": [
+  {
+   "required": [
+    "date"
+   ]
+  },
+  {
+   "required": [
+    "year"
+   ]
+  }
+ ],
+ "additionalProperties": false,
+ "refused": {
+  "name": "series.display_name() derives it from the id, `prize`, `title` and `label`",
+  "series": "it is the id's prefix (series.parse_id)"
+ },
+ "properties": {
+  "id": {
+   "description": "<series>-<number>; also the file name.",
+   "type": "string",
+   "pattern": "^[a-z]+-\\d+$"
+  },
+  "number": {
+   "description": "The paper's puzzle number. Book puzzles carry volume * 1000 + position in the book.",
+   "type": "integer",
+   "minimum": 1
+  },
+  "prize": {
+   "description": "A Guardian prize puzzle, which display_name() names \"Prize crossword\".",
+   "const": true
+  },
+  "title": {
+   "description": "The printed title display_name() puts after a colon (a Listener's \"Tobacco\").",
+   "type": "string",
+   "minLength": 1
+  },
+  "label": {
+   "description": "The edition label display_name() puts in brackets after a date-keyed name.",
+   "type": "string",
+   "minLength": 1
+  },
+  "setter": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The byline as printed. Absent when the paper names no setter, which Times, Telegraph and Metro puzzles never do."
+  },
+  "date": {
+   "description": "The calendar day the paper printed it, YYYY-MM-DD (ISO 8601), in the paper's own timezone. A book puzzle holds `year` instead; a puzzle holds exactly one of the two.",
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "year": {
+   "description": "The year a book puzzle's book was published, the most its imprint page prints (tools/data/books.json `published`). Only a book puzzle holds it, in place of `date`.",
+   "type": "integer",
+   "minimum": 1000,
+   "maximum": 9999
+  },
+  "preamble": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The paper's note above the clues: a themed puzzle's instructions, or an erratum."
+  },
+  "themeClue": {
+   "type": "string",
+   "pattern": "^[0-9]+-(across|down)$",
+   "description": "The entry whose clue states the puzzle's theme, for a themed puzzle that prints no preamble (\"30-across says five Across answers start with a fish their wordplay omits\"): its id, \"<number>-<direction>\". Filed by hand at filing or review, never by an annotator (validate_annotations.check_theme_clue_unchanged refuses a run that adds, changes or drops it). It stands in for a preamble in one rule only: a block with no clueFragment (letters the theme supplies) is allowed, with this clue as their source. It names an entry with clue words (puzzle_integrity.check_theme_clue)."
+  },
+  "awaitsPreamble": {
+   "description": "The puzzle cannot be explained without the preamble the paper printed, which we do not hold: an annotation run left answers to it (definedByPreamble) and failed on nothing else (tools/await_preamble.py). No annotator is sent it (puzzle_integrity.awaits_preamble). Never beside `preamble`: write_puzzle_file drops it once one is filed.",
+   "const": true
+  },
+  "messages": {
+   "description": "The phrase a hidden-letter device spells, one item per phrase the preamble describes (two when the across and down clues each spell one). Each item's letters are the `hiddenLetter`s of the annotated entries it reads, in its `order`; spaces, hyphens and punctuation in `text` are not letters (tools/hidden_messages.py). Absent when the puzzle has no such device.",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "text",
+     "kind",
+     "order"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "text": {
+      "description": "The phrase as it reads, spaced and hyphenated: \"TEST-TUBE BABY\".",
+      "type": "string",
+      "pattern": "^[A-Z][A-Z ,.'!?:;-]*$"
+     },
+     "kind": {
+      "description": "The `hiddenLetter.kind` this phrase reads.",
+      "$ref": "#/$defs/hiddenLetterKind"
+     },
+     "direction": {
+      "description": "Only this direction's clues spell it; absent when both do.",
+      "$ref": "#/$defs/direction"
+     },
+     "order": {
+      "description": "How the letters are read: `clues`, in printed clue order (across by number, then down by number); `unordered`, they are the phrase's letters in some order the solver rearranges.",
+      "enum": [
+       "clues",
+       "unordered"
+      ]
+     },
+     "printed": {
+      "description": "Misprint only: the phrase reads the printed (wrong) letters, not the correct ones.",
+      "const": true
+     },
+     "placement": {
+      "description": "Where the solver writes it: `belowGrid`. Absent when the preamble asks only that it be read.",
+      "enum": [
+       "belowGrid"
+      ]
+     }
+    }
+   }
+  },
+  "cluesUnplaced": {
+   "description": "The paper printed the clues with no grid numbers (lettered A to Z by answer, say), so the solver works out where each answer goes: a jigsaw, whether or not the preamble says so.",
+   "const": true
+  },
+  "dimensions": {
+   "type": "object",
+   "required": [
+    "cols",
+    "rows"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "cols": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "rows": {
+     "type": "integer",
+     "minimum": 1
+    }
+   }
+  },
+  "bars": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string",
+    "pattern": "^[.rb+]+$"
+   },
+   "description": "A barred grid's bars, absent on a blocked grid: a string per row, a character per cell, \"r\" for a bar on the cell's right, \"b\" for one below it, \"+\" for both, \".\" for neither. The outer edge is never marked."
+  },
+  "source": {
+   "$ref": "#/$defs/source"
+  },
+  "solutions": {
+   "$ref": "#/$defs/solutions"
+  },
+  "annotatedBy": {
+   "type": "array",
+   "minItems": 1,
+   "uniqueItems": true,
+   "items": {
+    "anyOf": [
+     {
+      "$ref": "#/$defs/annotator"
+     },
+     {
+      "type": "string",
+      "pattern": "^claude-[a-z]+(-\\d+)+$"
+     }
+    ]
+   },
+   "description": "Who wrote the hints, in the order the runs happened: exact model ids, or tools/provenance.py ANNOTATORS. Present exactly when an entry has an annotation."
+  },
+  "unclued": {
+   "description": "Lights the setter fills with no clue, such as a shaded quotation round a ring of squares. Their squares are white even where no entry covers them, and the player fills them like any light. A square shared with an entry holds the same letter in both (tools/puzzle_integrity.py check_extra_cells). A light with no solution is unsolved: no source printed its letters, and the backfill derives them.",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "cells"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "cells": {
+      "description": "The light's squares, 0-based from the top left, in the order its answer is read; a ring turns corners, so every square is listed. No square twice.",
+      "type": "array",
+      "minItems": 2,
+      "items": {
+       "type": "object",
+       "required": [
+        "x",
+        "y"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "x": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "y": {
+         "type": "integer",
+         "minimum": 0
+        }
+       }
+      }
+     },
+     "solution": {
+      "description": "The answer, one letter per square of `cells`.",
+      "type": "string",
+      "pattern": "^[A-Z]+$"
+     },
+     "enumeration": {
+      "description": "The letter counts of the answer's words, spelled as a clue's `enumeration`. Absent when the puzzle prints none.",
+      "type": "string",
+      "pattern": "^\\d+(?:(?:[,\\-.;:/']| | and )\\d+)*$"
+     },
+     "note": {
+      "description": "What the puzzle says the light is, shown in its place in the clue list: \"Shaded quotation round the grid\".",
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "printed": {
+   "description": "Letters the setter printed in the grid, which the player is given rather than asked for. Each is on a white square, an entry's or an unclued light's, 0-based from the top left, and is the solution's letter there (tools/puzzle_integrity.py check_extra_cells).",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "x",
+     "y",
+     "letter"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "x": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "y": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "letter": {
+      "type": "string",
+      "pattern": "^[A-Z]$"
+     }
+    }
+   }
+  },
+  "numeric": {
+   "description": "Every answer is a number, one digit to a square (a numerical: Listener No 111). Solutions are 0-9, not A-Z (fetch_puzzle.is_grid_answer); app.js types digits into the grid and raises a phone's number pad; puzzle_tags tags it `numerical`; puzzle_style calls it straight, so the hint queue takes it last and its ladder has no wordplay rungs.",
+   "const": true
+  },
+  "entries": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/entry"
+   }
+  },
+  "offGrid": {
+   "description": "Clues whose answers take no light of the grid, in the order the paper prints them; the preamble says where they go (Genius 280: seven entered unconventionally in the grid, one below it). Item k's id is \"<k>-offgrid\" (groups.off_grid). Its length is its enumeration's; it crosses nothing and is in no group. The player gives each a box beside its clue.",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "clue"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "clue": {
+      "$ref": "#/$defs/clue"
+     },
+     "solution": {
+      "description": "The answer, A-Z. Absent when the puzzle has no answers yet.",
+      "type": "string",
+      "minLength": 1
+     },
+     "solutionConfidence": {
+      "description": "The letters are a model's likely fill, not the paper's.",
+      "const": "LIKELY"
+     },
+     "annotation": {
+      "$ref": "#/$defs/annotation"
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "series": {
+   "description": "tools/series.py SERIES.",
+   "enum": [
+    "cryptic",
+    "quiptic",
+    "everyman",
+    "authored",
+    "independent",
+    "metro",
+    "cyclops",
+    "nation",
+    "nationmag",
+    "globeandmail",
+    "canberra",
+    "indysunday",
+    "times",
+    "timesquick",
+    "timesjumbo",
+    "sundaytimes",
+    "timesclub",
+    "tls",
+    "mephisto",
+    "azed",
+    "genius",
+    "listener",
+    "ftcryptic",
+    "telegraph",
+    "toughie",
+    "sundaytel",
+    "sundaytough",
+    "book"
+   ]
+  },
+  "direction": {
+   "description": "tools/fetch_puzzle.py DIRECTIONS.",
+   "enum": [
+    "across",
+    "down"
+   ]
+  },
+  "clueType": {
+   "description": "tools/data/clue_types.json types[].name.",
+   "enum": [
+    "anagram",
+    "charade",
+    "container",
+    "hidden_word",
+    "homophone",
+    "reversal",
+    "deletion",
+    "double_definition",
+    "cryptic_definition",
+    "and_lit",
+    "rebus",
+    "composite_anagram",
+    "reverse_clue",
+    "spoonerism",
+    "cycling",
+    "substitution",
+    "move",
+    "palindrome",
+    "letter_selection"
+   ]
+  },
+  "selectWord": {
+   "description": "tools/clue_types.py SELECT_WORDS.",
+   "enum": [
+    "first",
+    "last",
+    "middle",
+    "outer",
+    "alternate",
+    "regular",
+    "prime"
+   ]
+  },
+  "joke": {
+   "description": "tools/validate_annotations.py JOKE_KINDS.",
+   "enum": [
+    "pun",
+    "absurd"
+   ]
+  },
+  "acquiredBy": {
+   "description": "tools/provenance.py ACQUIRED_BY: the command that wrote the file first.",
+   "enum": [
+    "tools/fetch_puzzle.py",
+    "tools/fetch_independent.py",
+    "tools/fetch_privateeye.py",
+    "tools/fetch_globeandmail.py",
+    "tools/fetch_times_feed.py",
+    "tools/fetch_observer.py",
+    "tools/fetch_metro.py",
+    "tools/fetch_nation.py",
+    "tools/fetch_metro.py --wayback",
+    "tools/fetch_wayback.py",
+    "tools/fetch_telegraph.py",
+    "tools/fetch_fifteensquared.py",
+    "tools/file_cyclops_christmas.py",
+    "tools/acquire_book.py",
+    "tools/file_penguin_puzzle.py",
+    "tools/file_trove_puzzles.py",
+    "tools/file_archive_org_puzzles.py",
+    "tools/azed_scans.py",
+    "tools/nation_scans.py",
+    "tools/file_gale_listener.py",
+    "tools/gale_jumbo_read.py",
+    "tools/gale_mephisto_read.py",
+    "tools/gale_tls_read.py",
+    "tools/file_times_puzzles.py",
+    "tools/file_telegraph_puzzles.py",
+    "tools/file_cryptonite.py",
+    "tools/ft_puzzles.py",
+    "tools/azed_puzzles.py",
+    "tools/andlit_azed.py",
+    "tools/genius_puzzles.py",
+    "tools/tls_puzzles.py",
+    "tools/ft_pdf_puzzles.py",
+    "tools/ft_pdf_puzzles.py --wayback",
+    "tools/listener_puzzles.py",
+    "tools/listener_puzzles.py --wayback",
+    "tools/indy_puzzles.py",
+    "tools/file_georgeho_puzzles.py",
+    "tools/file_livejournal_puzzles.py",
+    "tools/build_authored_puzzle.py",
+    "unknown"
+   ]
+  },
+  "retrievedFrom": {
+   "description": "tools/provenance.py RETRIEVAL_CHANNELS.",
+   "enum": [
+    "publisher",
+    "wayback",
+    "blog",
+    "book",
+    "newspaper",
+    "authored",
+    "dataset",
+    "unknown"
+   ]
+  },
+  "gridOrigin": {
+   "description": "tools/provenance.py GRID_ORIGINS.",
+   "enum": [
+    "published",
+    "reconstructed",
+    "authored",
+    "unknown"
+   ]
+  },
+  "solutionOrigin": {
+   "description": "tools/provenance.py SOLUTION_ORIGINS.",
+   "enum": [
+    "published",
+    "writeup",
+    "model",
+    "authored",
+    "unsolved",
+    "unknown"
+   ]
+  },
+  "annotator": {
+   "description": "tools/provenance.py ANNOTATORS; a model is named by its exact id instead.",
+   "enum": [
+    "human",
+    "published",
+    "unknown"
+   ]
+  },
+  "alterationOp": {
+   "description": "tools/puzzle_integrity.py ALTERATION_OPS.",
+   "enum": [
+    "reversal",
+    "anagram",
+    "move",
+    "deletion",
+    "insertion",
+    "substitution"
+   ]
+  },
+  "hiddenLetterKind": {
+   "description": "tools/hidden_messages.py KINDS.",
+   "enum": [
+    "extra",
+    "omitted",
+    "misprint",
+    "clue"
+   ]
+  },
+  "string": {
+   "type": "string",
+   "minLength": 1
+  },
+  "strings": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string",
+    "minLength": 1
+   }
+  },
+  "entry": {
+   "type": "object",
+   "required": [
+    "number",
+    "direction",
+    "position",
+    "length",
+    "clue"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "number": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "direction": {
+     "$ref": "#/$defs/direction"
+    },
+    "position": {
+     "description": "The first cell, 0-based from the top left.",
+     "type": "object",
+     "required": [
+      "x",
+      "y"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "x": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "y": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "length": {
+     "description": "Cells in this light (a linked answer's other lights are separate entries).",
+     "type": "integer",
+     "minimum": 1
+    },
+    "clue": {
+     "$ref": "#/$defs/clue"
+    },
+    "solution": {
+     "description": "The letters the grid holds, A-Z: the answer, or what its `alteration` makes of it. Absent when the puzzle has no answers yet.",
+     "type": "string",
+     "minLength": 1
+    },
+    "solutionConfidence": {
+     "description": "The letters are a model's likely fill, not the paper's.",
+     "const": "LIKELY"
+    },
+    "alteration": {
+     "description": "The extra solving step of a puzzle whose preamble or clue alters the answer before entry (reversed, jumbled, a letter moved or dropped, a misprint corrected). `solution` is what goes in the grid; the clue's wordplay and definition give `from`, and `steps` turn `from` into `solution` in order, each op checked letter for letter on write. Every step but the last names its result in `gives`; the last one's result is `solution`. An annotation's wordplay builds `from`; an enumeration may count either word. Letters map one to a cell, so multi-letter cells, numerical entries and a grid changed after the fill are out of scope.",
+     "type": "object",
+     "required": [
+      "from",
+      "steps"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "from": {
+       "description": "The word the clue itself gives, in display form.",
+       "type": "string",
+       "minLength": 1
+      },
+      "steps": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "object",
+        "required": [
+         "op"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "op": {
+          "$ref": "#/$defs/alterationOp"
+         },
+         "gives": {
+          "description": "The letters after this step; absent on the last, whose result is `solution`.",
+          "type": "string",
+          "minLength": 1
+         }
+        }
+       }
+      }
+     }
+    },
+    "group": {
+     "description": "On the leader of a linked answer only: its first (or only) linked answer, whose clue is this entry's `clue` and whose annotation is `annotation`.",
+     "$ref": "#/$defs/group"
+    },
+    "annotation": {
+     "$ref": "#/$defs/annotation"
+    },
+    "annotationWithheld": {
+     "description": "In place of `annotation`: the annotation run could not annotate this clue honestly (cut short in the copy held, or a word doing two jobs the wordplay grammar refuses) and shipped the rest of the puzzle round it. `clue` is the text it read: once the clue reads otherwise the record lapses and the clue is due again (fetch_puzzle.withheld_stands). The app does not read it.",
+     "type": "object",
+     "required": ["why", "clue"],
+     "additionalProperties": false,
+     "properties": {
+      "why": {
+       "type": "string",
+       "minLength": 1
+      },
+      "clue": {
+       "type": "string"
+      }
+     }
+    },
+    "selfClued": {
+     "description": "Beside `group` only: the lights of the group after its leader that are answers of their own as well, each keeping its own clue, annotation and group (cryptic-21893's 21-down THERE and 1-across PUBLIC finish 11-across's BATTLE HYMN OF THE REPUBLIC). They are not this answer's continuations.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "pattern": "^[0-9]+-(across|down)$"
+     }
+    },
+    "alsoLeads": {
+     "description": "Each further linked answer that starts on this light, in the order the paper prints their clues (Genius 209's 22 across, IVOR, starts both IVOR HUGH JEGO and IVOR SORE BEACH BUM). Present only beside `group`. Each carries its own clue, group (this entry first) and annotation; the light's `solution` is shared, and the answer's other lights are continuations as for `group`.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "clue",
+       "group"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "clue": {
+        "$ref": "#/$defs/clue"
+       },
+       "group": {
+        "$ref": "#/$defs/group"
+       },
+       "selfClued": {
+        "$ref": "#/$defs/entry/properties/selfClued"
+       },
+       "annotation": {
+        "$ref": "#/$defs/annotation"
+       }
+      }
+     }
+    }
+   }
+  },
+  "clue": {
+   "description": "The clue as the paper printed it. Every entry has one, with at least one key: a clue the paper printed blank is {\"missing\": true}.",
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "properties": {
+    "text": {
+     "description": "The clue's words exactly as printed, without the enumeration that follows them, e.g. \"Moscow politician revolting in style\". About 9,500 clues print no enumeration, or a cross-reference (\"See 5\") that is text. Absent when the paper printed no words (then `missing` is true). Offsets into it (`italics`, annotation `definitions[].at`) count Unicode code points. No space at the end, and no plain or no-break space in front: a stray space the page printed there is not one of the words. A typeset space (en, em, thin) in front is the setter's: cryptic-30059's 14-down is five en spaces and \"9\", the gap being the SPACE of SPACE RACE.",
+     "type": "string",
+     "minLength": 1,
+     "pattern": "^[^ \\u00a0\\t\\n\\r](?:[\\s\\S]*\\S)?$"
+    },
+    "enumeration": {
+     "description": "The letter counts printed in brackets after the words, without the brackets: \"5,4\", \"2-3,4\", \"4'1\", \"6 and 5\". Marks are unspaced, dashes are \"-\" and apostrophes \"'\"; a lone space between counts is printed as one (\"1 4\"). On a linked answer the leader prints the whole answer's count and continuations usually print none (Private Eye counts each light). Stored, not derived from `separators`: a leader's count spans its group, and some prints (\"6 and 5\") say what separators cannot. Absent when the clue printed none. `text` then ` (enumeration)` is the printed line.",
+     "type": "string",
+     "pattern": "^\\d+(?:(?:[,\\-.;:/']| | and )\\d+)*$"
+    },
+    "separators": {
+     "description": "The marks the enumeration prints inside this light's answer, in answer order: (5,4) is [{\"at\": 5, \"mark\": \",\"}]. `at` counts this entry's own answer letters before the mark (1 to `length`), not clue characters; on a linked answer each light carries the marks inside it, and a mark at `length` falls between this light and the next light of its group. Absent when the answer is one word.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "at",
+       "mark"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "at": {
+        "type": "integer",
+        "minimum": 1
+       },
+       "mark": {
+        "description": "As printed: \",\" is a word break and \"-\" a hyphen; rarely \"'\", \".\", \"/\", \":\", \";\" or \"and\".",
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     }
+    },
+    "italics": {
+     "description": "Spans of `text` printed in italics, in order: text[at : at+length], counted in code points.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "at",
+       "length"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "at": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "length": {
+        "type": "integer",
+        "minimum": 1
+       }
+      }
+     }
+    },
+    "asPrinted": {
+     "description": "Tokens of `text` (parted at whitespace) that read as an OCR slip but are the print's own: a word no dictionary knows that the scan's readings spell alike letter for letter (Listener No 17's misprinted \"elecampeae.\"), or the token holding a bracket the clue never pairs that every reading prints unshut (No 15's \"slang(from\"). Written by the scan filers' vote (ocr_clues.printed_alike); the clue checks then take these tokens as printed. Each is a token of `text`.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\S+$"
+     }
+    },
+    "countFrom": {
+     "description": "Where an OCR-filed clue's `enumeration` came from when it is not the print's: \"grid\", no reading's enumeration survived and the filer wrote the light's length. Only such a bare count may have lost the word breaks the paper printed (tools/repair_fetched.restore_word_breaks acts on these alone); a count without it was read off the page and stays as printed.",
+     "const": "grid"
+    },
+    "missing": {
+     "description": "The paper printed no words for this clue (`text` is absent; `enumeration` may still be present). Kept, never filled in: a blank can be the setter's joke (cryptic-30098 12-across).",
+     "const": true
+    },
+    "missingNote": {
+     "description": "A person's note on why the blank clue still gives its answer. Only with `missing`.",
+     "type": "string",
+     "minLength": 1
+    },
+    "pairedCount": {
+     "description": "The text ends in a first count the source prints beside `enumeration` by design, both of one total: the Genius's \"(4,3) (7)\", the answer's words then the entry's. Without it such a first count is read as an echo of the enumeration and cut (tools/enumeration.py split).",
+     "const": true
+    },
+    "reconstructed": {
+     "description": "`text` is not the print's: the source lost words of this clue, no other print of the puzzle was found, and the words were rebuilt from the answer's wordplay (a tools/data/source_clue_wrong.json row whose evidence opens fetch_puzzle.RECONSTRUCTED, which says why). The app marks the clue as reconstructed.",
+     "const": true
+    }
+   }
+  },
+  "annotation": {
+   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer: definitions, a checked `wordplay` tree, explanation, features, and `spelling`/`andLit`/`hiddenLetter` where needed. Every field annotation.view() can derive (type, display answer, indicators' `for`, linkWords, blocks, assembly) is refused. Keys marked required-by-ratchet are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json under the key's dotted path (explanation.surface) and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
+   "type": "object",
+   "anyOf": [
+    {
+     "required": [
+      "definitions"
+     ]
+    },
+    {
+     "required": [
+      "definedByPreamble"
+     ]
+    },
+    {
+     "description": "A rebus defines nothing: the whole clue is the picture (tools/wordplay.py rebus).",
+     "required": [
+      "wordplay"
+     ],
+     "properties": {
+      "wordplay": {
+       "required": [
+        "op"
+       ],
+       "properties": {
+        "op": {
+         "const": "rebus"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "additionalProperties": false,
+   "refused": {
+    "type": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "answer": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "indicators": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "linkWords": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "blocks": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "assembly": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry"
+   },
+   "properties": {
+    "definitions": {
+     "description": "The clue words that define the answer, in clue order: one, or two for a double definition. `at` is the offset of `text` in the entry's `clue`, in Unicode code points, so clue[at:at+len(text)] == text. Where the text occurs more than once, `at` is the occurrence that (1) stands as whole words, (2) does not overlap another definition, and (3) touches the clue's start or end, since a definition sits at one end of a cryptic clue; a text those rules leave ambiguous has its `at` given by hand (tools/definitions.py).",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "text",
+       "at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "text": {
+        "description": "The clue words, verbatim.",
+        "type": "string",
+        "minLength": 1
+       },
+       "at": {
+        "description": "Offset of text in the clue, in Unicode code points.",
+        "type": "integer",
+        "minimum": 0
+       },
+       "note": {
+        "description": "Why the setter may define the answer this way, where the definition disagrees with the answer in number or part of speech.",
+        "type": "string",
+        "minLength": 1
+       },
+       "meaning": {
+        "description": "Double definitions: what this definition means, where that differs from `note` (the app shows it as the definition's block).",
+        "type": "string"
+       },
+       "indicators": {
+        "description": "Indicator words that steer how the definitions read rather than the letters (a second meaning, an &lit), so they hang on a definition, not a wordplay op.",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "$ref": "#/$defs/wordplayIndicator"
+        }
+       }
+      }
+     }
+    },
+    "definedByPreamble": {
+     "description": "The preamble, not the clue, defines this answer; replaces definitions.",
+     "const": true
+    },
+    "wordplay": {
+     "description": "The clue's wordplay as a checked tree (tools/wordplay.py parses the model's expression into it; annotation.view() derives type, answer, indicator `for`, linkWords, blocks and assembly from it). Absent for a double definition.",
+     "$ref": "#/$defs/wordplayNode"
+    },
+    "spelling": {
+     "description": "The display answer where it is not the solution plus the enumeration's separators (CAT-O'-NINE-TAILS, an accent, a Listener's spacing). Refused when it equals the derived form.",
+     "type": "string",
+     "minLength": 1
+    },
+    "andLit": {
+     "description": "The whole clue is also the definition.",
+     "const": true
+    },
+    "explanation": {
+     "description": "The prose a solver reads on the last hint rung, after the blocks: what the clue seems to say, how the trick works, and why the answer means the definition. Each is plain text, one or two sentences.",
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "surface": {
+       "description": "One sentence, 25 words max, of the picture the clue pretends to paint. Required by ratchet on every clue of four or more words that is not a pure double or cryptic definition (absent only where tools/annotation_backlog.json grandfathers it under explanation.surface, an allowance per puzzle that may only shrink); on the others, absent when the clue paints no picture apart from its mechanism.",
+       "type": "string",
+       "minLength": 1
+      },
+      "walkthrough": {
+       "description": "One or two sentences on what the blocks cannot show: why the surface misleads, a convention the solver may not know, why a definition is fair. Absent when the blocks say it all.",
+       "type": "string",
+       "minLength": 1
+      },
+      "definitionFit": {
+       "description": "One sentence on why the answer means the definition. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (explanation.definitionFit).",
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    },
+    "features": {
+     "description": "Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (features).",
+     "$ref": "#/$defs/features"
+    },
+    "hiddenLetter": {
+     "description": "The letter this clue gives to a puzzle's hidden-letter device, which the preamble describes; a puzzle-level `messages` item reads it (tools/hidden_messages.py checks both). By `kind`: `extra`, the blocks give the answer's letters and `letter` once more; `omitted`, the blocks give the answer's letters less one `letter`, or supply it in a block with no clue words; `misprint`, the clue prints `printed` at `at` where its sense needs `letter`; `clue`, `letter` is the clue's own letter at `at` (its first letter, an extra word's initial). The site highlights it once the clue is solved.",
+     "type": "object",
+     "required": [
+      "kind",
+      "letter"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "kind": {
+       "$ref": "#/$defs/hiddenLetterKind"
+      },
+      "letter": {
+       "description": "The letter the device yields, A-Z: the extra or omitted letter, a misprint's correct letter, or the clue letter.",
+       "type": "string",
+       "pattern": "^[A-Z]$"
+      },
+      "printed": {
+       "description": "Misprint only: the wrong letter the clue prints at `at`.",
+       "type": "string",
+       "pattern": "^[A-Z]$"
+      },
+      "at": {
+       "description": "Misprint and clue only: the letter's offset in the clue's `text`, in Unicode code points.",
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    }
+   }
+  },
+  "wordplayNode": {
+   "description": "A node of a wordplay tree (tools/wordplay.py): an op {op, indicators?, parts, spelt?, n?} or a leaf {words, at?, gives?, note?}, either one `unchecked` (a step filed before trees were checked, kept as filed).",
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "properties": {
+    "op": {
+     "$ref": "#/$defs/wordplayOp"
+    },
+    "unchecked": {
+     "description": "A step filed before trees were checked, which could not be rebuilt as an op: its `gives` is taken as stated and its parts are not checked. The expression cannot write one, and the ratchet (wordplay.unchecked) lets no new ones in.",
+     "const": true
+    },
+    "words": {
+     "description": "A leaf's clue words, verbatim.",
+     "type": "string",
+     "minLength": 1
+    },
+    "at": {
+     "description": "Offset of `words` (or an indicator's `text`) in the clue, in code points; tools/wordplay.py locate() fills it.",
+     "type": "integer",
+     "minimum": 0
+    },
+    "gives": {
+     "description": "A leaf: the letters its words give before any op. An unchecked op: the letters it is taken to give. A leaf without gives is its own letters.",
+     "type": "string",
+     "minLength": 1
+    },
+    "spelt": {
+     "description": "Homophone or spoonerism: the letters entered.",
+     "type": "string",
+     "minLength": 1
+    },
+    "reading": {
+     "description": "Rebus: what the picture shows, in words naming its own capitals or figures (\"H to O\"). Reverse clue: the answer in the pieces the clue words build, capitals joined by spaces or + (\"OUT + STEP\").",
+     "type": "string",
+     "minLength": 1
+    },
+    "n": {
+     "description": "nth: which letter.",
+     "type": "integer",
+     "minimum": 1
+    },
+    "select": {
+     "description": "Unchecked leaf only: the block's `select`.",
+     "anyOf": [
+      {
+       "$ref": "#/$defs/selectWord"
+      },
+      {
+       "type": "integer",
+       "minimum": 2,
+       "maximum": 20
+      }
+     ]
+    },
+    "soundsLike": {
+     "description": "Unchecked leaf only: the block's `soundsLike`.",
+     "type": "string",
+     "minLength": 1
+    },
+    "note": {
+     "description": "Why these words give these letters, in prose.",
+     "type": "string",
+     "minLength": 1
+    },
+    "device": {
+     "description": "A checked leaf with no clue words: its letters come from a puzzle-level device the preamble or `themeClue` declares (a Genius edge letter, an Azed collision's shared letters), not from any clue word. Exempts the leaf from wordplay.bareInCharade; a clue with a `hiddenLetter` needs no marker.",
+     "const": true
+    },
+    "indicators": {
+     "description": "The words that signal this op, in clue order.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/wordplayIndicator"
+     }
+    },
+    "parts": {
+     "description": "The op's operands, in the expression's order (a container's outer first).",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/wordplayNode"
+     }
+    }
+   },
+   "if": {
+    "required": [
+     "op"
+    ]
+   },
+   "then": {
+    "$ref": "#/$defs/wordplayOpKeys"
+   },
+   "else": {
+    "$ref": "#/$defs/wordplayLeafKeys"
+   }
+  },
+  "wordplayOpKeys": {
+   "if": {
+    "required": [
+     "unchecked"
+    ]
+   },
+   "then": {
+    "required": [
+     "gives"
+    ],
+    "properties": {
+     "op": {},
+     "unchecked": {},
+     "gives": {},
+     "spelt": {},
+     "n": {},
+     "indicators": {},
+     "parts": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "words": "an op has parts, not words"
+    }
+   },
+   "else": {
+    "properties": {
+     "op": {},
+     "spelt": {},
+     "reading": {},
+     "n": {},
+     "indicators": {},
+     "parts": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "words": "an op has parts, not words",
+     "gives": "derived: tools/wordplay.py works out a checked op's letters; only an unchecked step states them"
+    }
+   }
+  },
+  "wordplayLeafKeys": {
+   "if": {
+    "required": [
+     "unchecked"
+    ]
+   },
+   "then": {
+    "properties": {
+     "unchecked": {},
+     "words": {},
+     "at": {},
+     "gives": {},
+     "select": {},
+     "soundsLike": {},
+     "note": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "indicators": "a leaf has no indicators: they sit on the op they signal"
+    }
+   },
+   "else": {
+    "properties": {
+     "words": {},
+     "at": {},
+     "gives": {},
+     "note": {},
+     "device": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "indicators": "a leaf has no indicators: they sit on the op they signal",
+     "select": "unchecked leaves only: write the selection as an op, first([words])",
+     "soundsLike": "unchecked leaves only: write the homophone as an op, sound([words]X, SPELT)",
+     "parts": "a leaf has no parts; an op needs `op`"
+    }
+   }
+  },
+  "wordplayIndicator": {
+   "description": "Indicator words on an op or definition: what they signal is the op they sit on, so there is no `for`.",
+   "type": "object",
+   "required": [
+    "text"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "text": {
+     "description": "The clue words, verbatim.",
+     "type": "string",
+     "minLength": 1
+    },
+    "at": {
+     "description": "Offset of text in the clue, in code points.",
+     "type": "integer",
+     "minimum": 0
+    },
+    "note": {
+     "description": "Why these words signal the op in this clue.",
+     "type": "string",
+     "minLength": 1
+    }
+   },
+   "refused": {
+    "for": "derived: the op an indicator sits on is what it signals (annotation.view() writes `for`)"
+   }
+  },
+  "wordplayOp": {
+   "description": "tools/wordplay.py OPS values: the stored op names.",
+   "enum": [
+    "alternate",
+    "anagram",
+    "charade",
+    "composite",
+    "container",
+    "cryptic",
+    "cycling",
+    "deletion",
+    "first",
+    "hidden",
+    "homophone",
+    "last",
+    "middle",
+    "move",
+    "nth",
+    "outer",
+    "palindrome",
+    "rebus",
+    "regular",
+    "repeat",
+    "reversal",
+    "reverse",
+    "spoonerism",
+    "substitution"
+   ]
+  },
+  "block": {
+   "description": "One piece of the wordplay: the clue words, and the letters they give. `gives` is always the letters these words produce, after `select` or `soundsLike` if the block has one, and before anything done to them together with other blocks: shuffles and reversals are the annotation's assembly.anagrams and assembly.reversals, which say the letters before and after and need not cut the answer where the blocks do. No gives means the words give no letters (an indicator or link).",
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "clueFragment": {
+     "description": "The clue words, verbatim. Absent for letters the puzzle's preamble supplies, which have no words in the clue.",
+     "type": "string",
+     "minLength": 1
+    },
+    "gives": {
+     "type": "string",
+     "minLength": 1
+    },
+    "select": {
+     "description": "How the clue words give `gives`: the letters kept of them, a word from the list or n for the nth letter (\"Hothead\", first, gives H).",
+     "anyOf": [
+      {
+       "$ref": "#/$defs/selectWord"
+      },
+      {
+       "type": "integer",
+       "minimum": 2,
+       "maximum": 20
+      }
+     ]
+    },
+    "soundsLike": {
+     "description": "How the clue words give `gives`: they mean this word, and `gives` sounds like it (\"refusal\" means NAY, which gives NEIGH).",
+     "type": "string",
+     "minLength": 1
+    },
+    "note": {
+     "description": "Why the clue words give these letters, in prose.",
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "features": {
+   "description": "Facts about the clue for analysis against solvers' favourites, never shown to a solver.",
+   "type": "object",
+   "required": [
+    "answerInScene",
+    "aptDefinition"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "answerInScene": {
+     "description": "Does the solution belong in the picture the surface paints?",
+     "type": "boolean"
+    },
+    "aptDefinition": {
+     "description": "Is the definition fresh or witty rather than a dictionary synonym?",
+     "type": "boolean"
+    },
+    "joke": {
+     "description": "pun: the humour is in a word's second sense or sound; absurd: the surface is silly on purpose. Absent when there is no joke.",
+     "$ref": "#/$defs/joke"
+    },
+    "misdirectedWord": {
+     "description": "The one clue word, as printed, whose surface sense is furthest from its job. Absent when nothing misleads.",
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "blog": {
+   "description": "tools/provenance.py WRITEUP_KINDS.",
+   "enum": [
+    "fifteensquared",
+    "timesforthetimes",
+    "bigdave44"
+   ]
+  },
+  "source": {
+   "description": "Where the puzzle came from. See tools/provenance.py.",
+   "type": "object",
+   "required": [
+    "publisher",
+    "retrievedFrom",
+    "acquiredBy",
+    "acquiredOn",
+    "gridOrigin"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "publisher": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The paper, from tools/series.py."
+    },
+    "url": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The page the puzzle was printed on: the address to cite, not necessarily the one read (see retrievedFrom). Absent only on an authored puzzle."
+    },
+    "retrievedFrom": {
+     "$ref": "#/$defs/retrievedFrom"
+    },
+    "acquiredBy": {
+     "$ref": "#/$defs/acquiredBy"
+    },
+    "acquiredOn": {
+     "type": "string",
+     "pattern": "^(\\d{4}-\\d{2}-\\d{2}|unknown)$",
+     "description": "The day this repo first had the puzzle."
+    },
+    "gridOrigin": {
+     "$ref": "#/$defs/gridOrigin"
+    },
+    "reprintOf": {
+     "type": "string",
+     "pattern": "^times-[0-9]+$",
+     "description": "Canberra Times only: the London Times cryptic this reprints, matched by clue set (tools/file_archive_org_puzzles.py --match-canberra)."
+    },
+    "reprintedIn": {
+     "type": "array",
+     "minItems": 1,
+     "description": "The other papers' prints of this puzzle (a series whose series.py `reprints` names this one): each its own number and print date. The reprint holds no file of its own; tools/reprints.py.",
+     "items": {
+      "type": "object",
+      "required": [
+       "series",
+       "number",
+       "date"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "series": {
+        "type": "string",
+        "pattern": "^[a-z]{2,12}$"
+       },
+       "number": {
+        "type": "integer",
+        "minimum": 1
+       },
+       "date": {
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+       }
+      }
+     }
+    },
+    "feedId": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Metro only: the puzzle's id in the PuzzleMe feed it was read from."
+    },
+    "book": {
+     "type": "object",
+     "required": [
+      "identifier",
+      "title",
+      "volume",
+      "numberInBook"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "identifier": {
+       "type": "string",
+       "minLength": 1
+      },
+      "title": {
+       "type": "string",
+       "minLength": 1
+      },
+      "volume": {
+       "type": "integer",
+       "minimum": 1
+      },
+      "numberInBook": {
+       "type": "integer",
+       "minimum": 1
+      }
+     }
+    }
+   }
+  },
+  "solutions": {
+   "description": "Whose answers are in the grid. `blog`, `url`, `model`, `date`, `check`, `officialKey`, `printed`, `corrected`, `partial` and `reopened` back an origin that is not the publisher's: a writeup carries blog, url, date and check; a model solve carries model, date and check; any other origin carries none of them (tools/provenance.py check).",
+   "type": "object",
+   "required": [
+    "origin"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "origin": {
+     "$ref": "#/$defs/solutionOrigin"
+    },
+    "previousOrigin": {
+     "$ref": "#/$defs/solutionOrigin",
+     "description": "The origin these answers replaced, when it differs: \"model\" for a grid we solved before the publisher printed its key."
+    },
+    "blog": {
+     "$ref": "#/$defs/blog"
+    },
+    "url": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The write-up the answers were taken from."
+    },
+    "model": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The model that solved the grid."
+    },
+    "date": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The write-up's date, or the day the model solved it."
+    },
+    "check": {
+     "type": "string",
+     "minLength": 1,
+     "description": "What was verified against the grid."
+    },
+    "officialKey": {
+     "type": "string",
+     "minLength": 1,
+     "description": "\"never\" when no official key will ever exist (tools/series.py)."
+    },
+    "printed": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^[A-Z]+$"
+     },
+     "description": "Entry id -> the answer the paper printed, where a model filled around some: these stay ground truth and the grid must agree with every one (tools/provenance.py check)."
+    },
+    "corrected": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "entry",
+       "was",
+       "now",
+       "date"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "entry": {
+        "type": "string",
+        "minLength": 1
+       },
+       "was": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+       },
+       "now": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+       },
+       "date": {
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     },
+     "description": "Model answers the annotator replaced because the clue gives another word, each checked against every crossing and printed answer (tools/apply_annotations.py)."
+    },
+    "partial": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "string"
+     },
+     "description": "Entry ids of the lights a blog's write-up left out on purpose, still blank in the grid; the blog's other answers stand. A model may fill these and no other light (tools/apply_blog_answers.py --partial, apply_solution.check_writeup)."
+    },
+    "hand": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+     },
+     "description": "Entry id -> the date a person read that light off the paper's printed solution grid by eye (tools/hand_answers.py). The answer is the print's; no reread, repair or merge changes or drops it."
+    },
+    "reopened": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^[A-Z]*$"
+     },
+     "description": "Entry id -> the model answer no parse supported, sent back to be solved again (tools/reopen_answers.py). Once per entry."
+    },
+    "graded": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+(\\+[a-z0-9-]+)*$"
+     },
+     "description": "Entry id -> the copy (or copies, joined by +) a model answer was graded against once it arrived with answers: a solver's blog, a scan (tools/cross_validate.py all --model). Each guess is graded once."
+    }
+   }
+  },
+  "blogFacts": {
+   "description": "Not part of a puzzle file: one puzzle's row of tools/data/blog_facts/<series>.json, which maps puzzle id to this. What one blog write-up marks about the puzzle's clues, read by parser rules only (tools/blog_facts.py, tools/letter_facts.py); each clue's facts use the annotation's own keys and shapes. Checked in CI by tools/puzzle_schema.py.",
+   "type": "object",
+   "required": [
+    "blog",
+    "name",
+    "url",
+    "entries"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "blog": {
+     "$ref": "#/$defs/blog"
+    },
+    "name": {
+     "description": "The blog's name as a reader knows it.",
+     "type": "string",
+     "minLength": 1
+    },
+    "url": {
+     "description": "The write-up.",
+     "type": "string",
+     "pattern": "^https?://"
+    },
+    "entries": {
+     "description": "Entry id -> blogFact, for the clues the write-up marks something about.",
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "$ref": "#/$defs/blogFact"
+     }
+    }
+   }
+  },
+  "blogFact": {
+   "description": "One clue's facts from a blog write-up: a partial annotation, with the same key names and shapes.",
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "properties": {
+    "type": {
+     "description": "Every mechanism the wordplay uses, in the order applied.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "$ref": "#/$defs/clueType"
+     }
+    },
+    "typeCore": {
+     "description": "`type` is a lower bound: the clue is that, and perhaps a cut or a letter selection besides.",
+     "const": true
+    },
+    "definitions": {
+     "description": "As annotation.definitions, without notes: the span the blogger underlined, or both halves of a double definition, in clue order, `at` placed by tools/definitions.py. A text those rules cannot place is left out.",
+     "type": "array",
+     "minItems": 1,
+     "maxItems": 2,
+     "items": {
+      "type": "object",
+      "required": [
+       "text",
+       "at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "text": {
+        "$ref": "#/$defs/annotation/properties/definitions/items/properties/text"
+       },
+       "at": {
+        "$ref": "#/$defs/annotation/properties/definitions/items/properties/at"
+       }
+      }
+     }
+    },
+    "indicators": {
+     "description": "The words the write-up marks as indicators, and the type each signals where it says.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "text": {
+        "description": "The clue words, verbatim.",
+        "type": "string",
+        "minLength": 1
+       },
+       "for": {
+        "$ref": "#/$defs/clueType"
+       }
+      }
+     }
+    },
+    "blocks": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/blogBlock"
+     }
+    },
+    "inferred": {
+     "description": "The fields tools/letter_facts.py read off the answer's letters rather than off the write-up.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "enum": [
+       "blocks",
+       "definitions",
+       "indicators",
+       "type"
+      ]
+     }
+    }
+   }
+  },
+  "blogBlock": {
+   "description": "One piece of a blog's wordplay, as an annotation block: the clue words and the letters they give.",
+   "type": "object",
+   "required": [
+    "clueFragment",
+    "gives"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "clueFragment": {
+     "$ref": "#/$defs/block/properties/clueFragment"
+    },
+    "gives": {
+     "$ref": "#/$defs/block/properties/gives"
+    },
+    "soundsLike": {
+     "description": "A homophone's or spoonerism's piece: the word the clue words say, which `gives` sounds like.",
+     "$ref": "#/$defs/block/properties/soundsLike"
+    },
+    "anagramOf": {
+     "description": "Anagram fodder: `gives` is the clue words' letters before they are shuffled. A blog fact has no `assembly`, so this flag is where it says the letters are shuffled; an annotation says it in assembly.anagrams instead, with the shuffled letters too.",
+     "const": true
+    },
+    "inferred": {
+     "description": "A piece tools/letter_facts.py split the answer into; the write-up did not name it.",
+     "const": true
+    }
+   }
+  },
+  "cluesOnly": {
+   "description": "A puzzle held as its clues alone, in clues_only/<series>/<id>.json (tools/clues_only.py): its filer could not place the grid, or read the clues without their numbers. It holds no numbers, positions or answers, so nothing about the grid is half there. The nightly solve answers it clue by clue; tools/apply_solution.py derives the one grid those answers cross in, files the puzzle in puzzles/ and removes this file. Never published: the site reads puzzles/ only.",
+   "type": "object",
+   "required": [
+    "id",
+    "number",
+    "series",
+    "name",
+    "dimensions",
+    "source",
+    "clues"
+   ],
+   "oneOf": [
+    {
+     "required": [
+      "date"
+     ]
+    },
+    {
+     "required": [
+      "year"
+     ]
+    }
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "id": {
+     "$ref": "#/properties/id"
+    },
+    "number": {
+     "$ref": "#/properties/number"
+    },
+    "series": {
+     "description": "The series, which is the id's prefix (series.parse_id). A puzzle file stores none; this record keeps it for its filer's folder and book lookups.",
+     "$ref": "#/$defs/series"
+    },
+    "name": {
+     "description": "The title as the paper gives it. A puzzle file stores none: series.display_name() derives it from the id.",
+     "type": "string",
+     "minLength": 1
+    },
+    "setter": {
+     "$ref": "#/properties/setter"
+    },
+    "date": {
+     "$ref": "#/properties/date"
+    },
+    "year": {
+     "$ref": "#/properties/year"
+    },
+    "preamble": {
+     "description": "The instruction printed above the clues, as for a grid puzzle: a jigsaw's \"Method:\" line, without the label.",
+     "$ref": "#/properties/preamble"
+    },
+    "themeClue": {
+     "description": "As for a grid puzzle: the id its theme-stating clue takes once promoted, from the printed number. clues_only.promote carries it over and refuses an id the built grid lacks.",
+     "$ref": "#/properties/themeClue"
+    },
+    "cluesUnplaced": {
+     "description": "A jigsaw: the book printed one list of clues with no numbers and no across or down, so `clues` holds `unplaced`. The solve answers them in order and clues_only.fit_jigsaw (tools/jigsaw_fit.py) fits the answers into the grid.",
+     "const": true
+    },
+    "dimensions": {
+     "description": "The printed grid's size: what the grid is searched within.",
+     "$ref": "#/properties/dimensions"
+    },
+    "source": {
+     "type": "object",
+     "required": [
+      "url",
+      "acquiredBy",
+      "acquiredOn"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "url": {
+       "type": "string",
+       "minLength": 1,
+       "description": "The page the puzzle was printed on."
+      },
+      "acquiredBy": {
+       "$ref": "#/$defs/acquiredBy",
+       "description": "The filer that read the clues; the grid puzzle is written in its name."
+      },
+      "acquiredOn": {
+       "type": "string",
+       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+       "description": "The day this repo first had the clues."
+      }
+     }
+    },
+    "clues": {
+     "description": "Each direction's lights in the order the paper printed them (row-major, the order numbering would sort them into). Numbers are left out: the derived grid numbers them. A jigsaw (`cluesUnplaced`) holds `unplaced` instead: every clue in the printed order, direction unknown.",
+     "type": "object",
+     "oneOf": [
+      {
+       "required": [
+        "across",
+        "down"
+       ]
+      },
+      {
+       "required": [
+        "unplaced"
+       ]
+      }
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "across": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "$ref": "#/$defs/cluesOnlyLight"
+       }
+      },
+      "down": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "$ref": "#/$defs/cluesOnlyLight"
+       }
+      },
+      "unplaced": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "$ref": "#/$defs/cluesOnlyLight"
+       }
+      }
+     }
+    }
+   }
+  },
+  "cluesOnlyLight": {
+   "type": "object",
+   "required": [
+    "clue"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "clue": {
+     "$ref": "#/$defs/clue"
+    },
+    "length": {
+     "description": "Cells in this light, when the enumeration says (a linked answer's lights are split). Absent when unknown; the grid search then decides.",
+     "type": "integer",
+     "minimum": 1
+    },
+    "blogAnswer": {
+     "description": "A blog post's own answer to this clue (tools/file_blog_puzzles.py hold_clues): a cross-check on the solve, never its truth, since the blog's answers are what fit no grid.",
+     "type": "string",
+     "pattern": "^[A-Z]+$"
+    }
+   }
+  },
+  "group": {
+   "description": "A linked answer's lights, on the light it starts on: the answer's entry ids (\"<number>-<direction>\", derived: entries store no id) in order, that light first; an answer that repeats a light names it again. The other lights carry no group and no annotation; a light the clue says continues two answers is in both leaders' groups.",
+   "type": "array",
+   "minItems": 2,
+   "items": {
+    "type": "string",
+    "pattern": "^\\d+-(across|down)$"
+   }
+  }
+ }
+}

@@ -1,0 +1,516 @@
+# Every test entry point in tools/ runs HERE.
+#
+# Puzzle-only pushes (the burn's "Annotate", "File" and "Update" commits) do not
+# start this workflow: the paths-ignore on the push trigger below skips them, and
+# check.yml checks them instead. check.yml dispatches this workflow when its
+# verdict is `full` (a deleted puzzle, too many files). Every run here is a full
+# run: there is no scope job and no fast path.
+#
+# The ledger the OCR pass commits every few minutes (tools/data/corroboration_ledger.json)
+# is in the same ignore list: no test reads it, and each such push used to replace the
+# pending run of a code commit (a superseded pending run shows cancelled).
+#
+# The workflow has one concurrency group per ref with cancel-in-progress false,
+# so a burst of code pushes is one running suite and one pending, and a newer
+# pending run replaces an older one (it shows cancelled; the newer run tests the
+# newer code). A running suite is never cancelled.
+#
+# pages.yml has its own group, and a check must never live there: a queued
+# build is replaced by the next, and a broken test must never block a deploy.
+#
+# So the loop globs both of the repo's test-file spellings, tests/test_*.{sh,js,py}
+# and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
+# being written, and a list to add to is a list somebody forgets. The one file
+# that spells it the second way is tools/smoke_test.js.
+# tests/test_ci_coverage.js asserts that every test entry point is matched here,
+# so the next file to be named something new fails rather than disappearing.
+#
+# The scripts are spread over parallel `test` jobs, and within a job the
+# single-threaded slices of the smoke test run side by side on the runner's
+# four cores (ci_shards.js's PARALLEL). Each job globs the WHOLE list and asks tools/ci_shards.js for one
+# slice of it; the split is a pure function of that list, so the jobs partition
+# it without coordinating and a file matched by the globs runs in exactly one of
+# them. The wall clock is therefore the slowest single item plus setup; a
+# script heavier than the rest is split into slices (CI_SLICE) so it is not the
+# floor.
+#
+# All failures are reported rather than stopping at the first, within a job
+# (the `fails` array) and across them (`fail-fast: false`): a workflow that
+# stops at the first red script hides the second one.
+#
+# `tests-passed` is the one check that means the suite is green. Branch
+# protection and the CI watcher key on it, so it must stay a single job that
+# needs every other one and fails when any of them did.
+#
+# A separate workflow from pages.yml on purpose: a broken test must never block
+# a site deploy.
+#
+# Left out, deliberately: nothing here calls the real `claude` CLI, needs an
+# API key, or touches the network — the daily-job tests read the block under
+# test out of tools/daily_update.sh and drive it against a stub, and
+# test_push_conflict.sh clones this repo with --local. Anything that needed a
+# model call or a credential would not belong in CI and is not here.
+#
+# The network is not just unused but cut: every `run:` step in a job that runs
+# repo code goes through .github/offline.sh (the job's `defaults`), which gives
+# it loopback and nothing else. A test that fetches fails at once; stub the
+# fetch rather than hand the network back.
+name: Run the test scripts
+
+on:
+  push:
+    # Puzzle-only pushes (the burn) are checked by check.yml, not here. Keep in step
+    # with check.yml's paths. A push that also touches anything else still runs.
+    paths-ignore:
+      - "puzzles/**/*.json"
+      - "puzzles/**/*.blog"
+      - "tools/data/source_clue_wrong/*.json"
+      - "tools/data/source_answer_wrong.json"
+      - "tools/data/setter_error.json"
+      - "tools/data/blog_disagree/*.json"
+      - "tools/data/shape_reannotate.json"
+      - "tools/annotation_backlog.json"
+      - "tools/data/blog_compare.json"
+      - "tools/data/blog_facts/inputs.sha256"
+      - "tools/data/corroboration_ledger.json"
+  pull_request:
+  # The backstop for the skips above: a superseded code commit, or a puzzle push
+  # whose dispatch from check.yml failed, still gets the tip tested within a few
+  # hours.
+  schedule:
+    - cron: "23 */4 * * *"
+  # A hand-started full run, to confirm a fix without waiting for the cron.
+  workflow_dispatch:
+
+# Least privilege by default.
+permissions:
+  contents: read
+
+# One run and one pending per ref: a burst of code pushes is covered by the
+# newest, and a running suite is never killed (cancel-in-progress false). A
+# superseded pending run shows as cancelled; the run that replaced it tests
+# the newer code.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # The layout check and the puzzle schema check are not test scripts and need
+  # neither the index nor the pages, so they run on their own without paying for
+  # the build. It is the one
+  # generated thing still committed: every other generated file is built by the
+  # workflow that publishes it, and a file nobody commits cannot go stale.
+  generated:
+    name: generated files are current
+    runs-on: ubuntu-latest
+    # Python over files already in the clone; the corpus check is most of it.
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      # The tree is ~54k files; actions/checkout fetches and writes all of it
+      # (~95s a job, 11 jobs). pages.yml saves its object store, and this
+      # restores it and fetches only what was pushed since, as pages.yml's
+      # Check out does (same script; tests/test_ci_checkout.sh tests that one).
+      # A miss is a full fetch. Network steps need `shell: bash`: the job's
+      # default shell has no network.
+      - name: Restore the git store
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/objects
+            .git/shallow
+            .git/refs/ct
+          key: git-store-${{ github.sha }}
+          restore-keys: git-store-
+      - name: Check out
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -d .git/objects ] && [ "$(du -sm .git/objects | cut -f1)" -gt 1500 ]; then
+            echo "git store over 1500MB: fetching from scratch"; rm -rf .git
+          fi
+          git init -q .
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          auth=$(printf 'x-access-token:%s' "${TOKEN:-}" | base64 -w0)
+          git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
+            fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
+          git checkout -q --force -B master refs/remotes/origin/master
+      # pip before the network is cut: tools/code_checks.py uses ruff.
+      - uses: ./.github/actions/setup
+        with:
+          pip: ruff
+      # The puzzle fast path restores this; only a full run, which reads the
+      # whole corpus, keeps it warm.
+      - name: Restore the integrity row cache
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-${{ github.sha }}
+          restore-keys: integrity-rows-
+      - name: Check the committed layout table, prompt reference and puzzle schema
+        run: |
+          fails=()
+          python3 tools/puzzle_schema.py || fails+=("a puzzle breaks tools/data/puzzle.schema.json")
+          # Syntax errors and undefined names, `| grep -q` under pipefail, and a
+          # test whose scratch tree lacks a module its subject imports.
+          python3 tools/code_checks.py || fails+=("tools/code_checks.py found a code defect")
+          python3 tools/build_annotate_prompt.py >/dev/null
+          git diff --exit-code tools/annotate_prompt.md \
+            || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")
+          # The whole corpus through the integrity checker, once per run;
+          # tests/test_puzzle_integrity.py tests the checker on fixtures.
+          python3 tools/puzzle_integrity.py --quiet || fails+=("tools/puzzle_integrity.py found a corpus defect")
+          if [ "${#fails[@]}" -gt 0 ]; then
+            echo "FAILED: ${#fails[@]}"
+            for f in "${fails[@]}"; do echo "  - $f"; done
+            exit 1
+          fi
+          echo "generated files are current"
+      - name: Save the integrity row cache
+        if: ${{ (!cancelled() && github.event_name == 'push' && github.ref == 'refs/heads/master') }}
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-g-${{ github.sha }}
+
+  test:
+    name: ${{ format('tests {0}', matrix.shard) }}
+    runs-on: ubuntu-latest
+    strategy:
+      # Every shard runs to the end. A red shard must not hide a second one.
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    # A run that stops making progress otherwise sits on GitHub's 6h default,
+    # holding a red check over every commit behind it. A shard is a few minutes
+    # of checkout, build and scripts when the smoke test's results are cached,
+    # and longer after a code change re-runs it over the whole corpus. That
+    # change also invalidates the row cache (a row is keyed on the code that made
+    # it), so every shard re-makes the index (4-8 min) and the pages (4 min)
+    # before its scripts, until a pages.yml run saves the caches again: in run
+    # 43359257648 that took shards 5 and 2 to 29-30 minutes, and the 30-minute
+    # cap cancelled four of them with their scripts passing. Forty-five leaves
+    # the margin; a shard near it means ci_shards.js's COST or SLICES needs
+    # re-measuring.
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      # Run 41271692192 shard 0 died in "Unpack the puzzle pages" with "No space
+      # left on device": the checkout, the restored git store, the row, shim and
+      # page caches and the built pages share the runner's free disk. The
+      # image's .NET, Android SDK, GHC and CodeQL bundles (~18GB) are never used
+      # here, so they go, in the background as in pages.yml (the foreground
+      # delete cost 48-96s there). df is printed here and after the unpacks so
+      # a failure shows its headroom.
+      - name: Free disk space
+        shell: bash
+        run: |
+          df -h / | tail -n 1
+          sudo nohup rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL >/dev/null 2>&1 &
+      # The tree is ~54k files; actions/checkout fetches and writes all of it
+      # (~95s a job, 11 jobs). pages.yml saves its object store, and this
+      # restores it and fetches only what was pushed since, as pages.yml's
+      # Check out does (same script; tests/test_ci_checkout.sh tests that one).
+      # A miss is a full fetch. Network steps need `shell: bash`: the job's
+      # default shell has no network.
+      - name: Restore the git store
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/objects
+            .git/shallow
+            .git/refs/ct
+          key: git-store-${{ github.sha }}
+          restore-keys: git-store-
+      - name: Check out
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -d .git/objects ] && [ "$(du -sm .git/objects | cut -f1)" -gt 1500 ]; then
+            echo "git store over 1500MB: fetching from scratch"; rm -rf .git
+          fi
+          git init -q .
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          auth=$(printf 'x-access-token:%s' "${TOKEN:-}" | base64 -w0)
+          git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
+            fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
+          git checkout -q --force -B master refs/remotes/origin/master
+      # pip before the network is cut: the scan readers (trove_grid, the Cyclops
+      # filer, the title band finder) need them; test_ci_checkout.sh reads
+      # pages.yml with yaml.
+      - uses: ./.github/actions/setup
+        with:
+          node-version: "20"
+          pip: numpy pillow pypdf opencv-python-headless setproctitle pyyaml
+      # The smoke test's per-puzzle results from earlier runs (tools/ci_cache.js):
+      # the newest entry, which on master is the last master run that saved.
+      # A miss leaves no file, and every puzzle is checked.
+      - name: Restore the corpus result cache
+        uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/ci-cache.json
+          key: ci-results-${{ github.sha }}
+          restore-keys: ci-results-
+      # The loop globs both of the repo's test-file spellings and asks
+      # tools/ci_shards.js for this shard's slice. An item is a script, or
+      # "<script> i/n" for one slice of a script too heavy for a single job.
+      - name: Pick this shard's test scripts
+        id: pick
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: ${{ strategy.job-total }}
+        run: |
+          all=()
+          for t in tests/test_*.sh tests/test_*.js tests/test_*.py tools/*_test.sh tools/*_test.js; do
+            [ -e "$t" ] || continue
+            all+=("$t")
+          done
+          printf '%s\n' "${all[@]}" | node tools/ci_shards.js "$SHARD" "$SHARDS" > "$RUNNER_TEMP/mine"
+          # A shard handed nothing would pass by running nothing, which reads as
+          # a green check for a suite that never ran.
+          if [ ! -s "$RUNNER_TEMP/mine" ]; then
+            echo "shard $SHARD of $SHARDS was handed no tests out of ${#all[@]}"
+            exit 1
+          fi
+          # A slice of a cached check whose every puzzle already passed with this
+          # code has nothing to do (tools/ci_cache.js); slice 0 always runs.
+          node tools/ci_cache.js --drop-cached "$RUNNER_TEMP/ci-cache.json" \
+            < "$RUNNER_TEMP/mine" > "$RUNNER_TEMP/todo"
+          mv "$RUNNER_TEMP/todo" "$RUNNER_TEMP/mine"
+          cat "$RUNNER_TEMP/mine"
+          if node tools/ci_shards.js --needs-pages < "$RUNNER_TEMP/mine"; then
+            echo "pages=true" >> "$GITHUB_OUTPUT"
+          fi
+      # --reindex builds the index and puzzles/<id>.js from each
+      # puzzles/<series>/<year>/<id>.json (a clone has only the .json), and
+      # every test that loads a puzzle the
+      # way the browser does needs those shims. The glossary comes first
+      # because --reindex restamps index.html, and a stamp is a hash of the file
+      # it points at. Neither touches the network.
+      #
+      # Without a cache that is 2-4 minutes in every shard, re-making ~50k index
+      # rows whose puzzle files did not change. pages.yml saves the stores that
+      # make it incremental (the same paths, so the same cache version): each
+      # row is keyed on its file's git blob and the code that made it, and a
+      # shim is reused only when its row's deps match, so a stale restore is
+      # slower, never wrong. These shards only restore; pages.yml saves.
+      - name: Restore the row cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+          key: row-cache-${{ github.sha }}
+          restore-keys: row-cache-
+      - name: Restore the puzzle shims
+        uses: actions/cache/restore@v5
+        with:
+          path: .shim-cache.tar
+          key: puzzle-shims-${{ github.sha }}
+          restore-keys: puzzle-shims-
+      - name: Unpack the puzzle shims
+        run: |
+          bash tools/cache_tar.sh unpack .shim-cache.tar
+          df -h / | tail -n 1
+      - name: Build the index the tests read
+        run: |
+          python3 tools/build_abbreviations.py
+          python3 tools/fetch_puzzle.py --reindex
+          python3 tools/prune_shims.py
+      # No saves here: they wrote a second 1.3GB of shims and rows per push
+      # (row-cache-t-, puzzle-shims-t-) and pushed the repo's cache past
+      # GitHub's 10GB cap, evicting what the build restores. pages.yml saves
+      # the same paths and prunes old entries (Prune the caches).
+      # Only a shard holding a script in ci_shards.js's PAGES builds the pages,
+      # ~2 minutes cold. The page store (build_seo_pages's fingerprint of the
+      # code and data a page reads) makes a warm build re-render only the pages
+      # whose inputs moved. The social cards are deliberately not drawn:
+      # a page points at its own card only if the file is on disk.
+      - name: Restore the puzzle pages
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
+        uses: actions/cache/restore@v5
+        with:
+          path: .page-cache.tar
+          key: seo-pages-${{ github.sha }}
+          restore-keys: seo-pages-
+      - name: Unpack the puzzle pages
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
+        run: |
+          bash tools/cache_tar.sh unpack .page-cache.tar
+          df -h / | tail -n 1
+      - name: Build the pages the tests read
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
+        run: python3 tools/build_seo_pages.py
+      - name: Run this shard of the test scripts
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          mapfile -t mine < "$RUNNER_TEMP/mine"
+          before=$(git status --porcelain)
+          fails=()
+          # ci_shards.js's PARALLEL items start at once, in the background,
+          # each logging to its own file; the rest run one by one beside them.
+          # Each reads the result cache and, when it passes, writes what it
+          # checked to results/ for the cache job.
+          mkdir -p "$RUNNER_TEMP/results"
+          # A runner out of memory dies with "received a shutdown signal" and
+          # no word from the slices, whose logs are only printed after them.
+          # So every 20 s the log gets what the host holds and who holds it,
+          # and any OOM kill the kernel logged; the last lines before a
+          # shutdown say whether memory was the cause.
+          (
+            while :; do
+              m=$(free -m | awk '/^Mem:/{printf "used=%sMB avail=%sMB", $3, $7} /^Swap:/{printf " swap=%sMB", $3}')
+              top=$(ps -eo rss=,args= --sort=-rss | head -4 \
+                | awk '{printf "%dMB %s %s %s | ", $1/1024, $2, $3, $4}')
+              echo "mem $(date +%T) $m top: $top"
+              sudo -n dmesg 2>/dev/null | grep -i -E 'out of memory|oom-kill|killed process' | tail -2 | sed 's/^/mem dmesg: /' || true
+              sleep 20
+            done
+          ) &
+          memwatch=$!
+          mapfile -t par < <(node tools/ci_shards.js --parallel < "$RUNNER_TEMP/mine")
+          mapfile -t seq < <(node tools/ci_shards.js --serial < "$RUNNER_TEMP/mine")
+          pids=()
+          for n in "${!par[@]}"; do
+            item=${par[$n]}
+            # Run 43263197343 (tests 2): four slices grew from 2.4GB to 3.4GB
+            # each, swap filled and the runner took SIGTERM (exit 143, "shutdown
+            # signal"). Node's default heap limit lets garbage pile up until
+            # that point; 2400MB makes V8 collect instead, and a slice whose
+            # live data really exceeded it would fail loudly, not kill the host.
+            NODE_OPTIONS="--max-old-space-size=2400" \
+            CI_SLICE="${item#* }" CT_CACHE="$RUNNER_TEMP/ci-cache.json" \
+              CT_RESULTS_OUT="$RUNNER_TEMP/results/$SHARD-$n.json" \
+              node "${item%% *}" > "$RUNNER_TEMP/par-$n.log" 2>&1 &
+            pids+=($!)
+          done
+          for item in "${seq[@]}"; do
+            t=${item%% *}
+            slice=
+            [ "$item" = "$t" ] || slice=${item#* }
+            case "$t" in *.sh) run=bash ;; *.py) run=python3 ;; *) run=node ;; esac
+            echo "::group::$run $item"
+            CI_SLICE="$slice" "$run" "$t" || fails+=("$item")
+            echo "::endgroup::"
+            # A script that writes to a tracked file or the real puzzles/ index
+            # and restores it with a trap still fails this the moment it is
+            # killed before the trap runs — which is the point: every test here
+            # writes to its own temp dir or a throwaway copy, never to the tree
+            # the next commit is built from. Checked after every script, not
+            # just at the end, so the FAILED line below names the one at fault
+            # instead of whichever ran last.
+            after=$(git status --porcelain)
+            if [ "$after" != "$before" ]; then
+              echo "$item left the working tree dirty:"
+              diff <(printf '%s\n' "$before") <(printf '%s\n' "$after") || true
+              fails+=("$item left the working tree dirty")
+              before="$after"
+            fi
+          done
+          for n in "${!par[@]}"; do
+            echo "::group::node ${par[$n]}"
+            wait "${pids[$n]}" || fails+=("${par[$n]}")
+            cat "$RUNNER_TEMP/par-$n.log"
+            echo "::endgroup::"
+          done
+          kill "$memwatch" 2>/dev/null || true
+          if [ "$(git status --porcelain)" != "$before" ]; then
+            echo "a parallel item left the working tree dirty:"
+            git status --porcelain
+            fails+=("${par[*]} left the working tree dirty")
+          fi
+          if [ "${#fails[@]}" -gt 0 ]; then
+            # One per line. Space-joined, two failures read as one name with a
+            # stray word in front of it, which sends the reader to the wrong file.
+            echo "FAILED: ${#fails[@]}"
+            for f in "${fails[@]}"; do echo "  - $f"; done
+            exit 1
+          fi
+          echo "shard: ${#mine[@]} test item(s) passed"
+      # Even from a red shard: a slice writes its results only when it passed.
+      - uses: actions/upload-artifact@v6
+        if: ${{ (always()) }}
+        with:
+          name: results-${{ matrix.shard }}
+          path: ${{ runner.temp }}/results/
+          if-no-files-found: ignore
+
+  # Folds the passing slices' results into the restored cache and saves it
+  # under this commit, so the next run checks only what changed. Fails when a
+  # puzzle has no passing result for the current code (every push checks the
+  # whole corpus) or the corpus lost a rare shape the smoke test needs
+  # (tools/check_shapes.js over the union the cache keeps). Saved even then:
+  # what is in it passed.
+  cache:
+    name: corpus result cache
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      # The trees are all ci_cache.js reads (git ls-tree), so no blobs.
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            tools
+      - uses: ./.github/actions/setup
+        with:
+          python-version: ""
+          node-version: "20"
+      - uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/ci-cache.json
+          key: ci-results-${{ github.sha }}
+          restore-keys: ci-results-
+      # None to download is not an error here: merge fails on any puzzle left
+      # without a passing result, which is the check that matters.
+      - uses: actions/download-artifact@v7
+        continue-on-error: true
+        with:
+          pattern: results-*
+          path: ${{ runner.temp }}/results
+          merge-multiple: true
+      - name: Merge this run's results into the cache
+        id: merge
+        run: |
+          node tools/ci_cache.js merge "$RUNNER_TEMP/ci-cache.json" "$RUNNER_TEMP/results" \
+            "$RUNNER_TEMP/ci-cache.json" "$RUNNER_TEMP/shapes"
+      - name: The corpus still holds every rare shape
+        if: ${{ (always() && steps.merge.outcome != 'skipped') }}
+        run: node tools/check_shapes.js "$RUNNER_TEMP/shapes"
+      - uses: actions/cache/save@v5
+        if: ${{ (always() && steps.merge.outcome != 'skipped') }}
+        with:
+          path: ${{ runner.temp }}/ci-cache.json
+          key: ci-results-${{ github.sha }}-${{ github.run_attempt }}
+
+  # The single check that means the suite is green. It runs even when something
+  # it needs failed — `if: always()` — because a skipped job has no conclusion
+  # and branch protection would wait for it forever.
+  tests-passed:
+    name: tests-passed
+    runs-on: ubuntu-latest
+    needs: [generated, test, cache]
+    if: always()
+    timeout-minutes: 5
+    steps:
+      - name: Report what the other jobs concluded
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          echo "$NEEDS" | jq -r 'to_entries[] | "\(.key): \(.value.result)"'
+          echo "$NEEDS" | jq -e 'all(.[]; .result == "success")' > /dev/null || { echo "the suite is not green: open the red job above"; exit 1; }

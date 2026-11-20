@@ -1,0 +1,206 @@
+# The blog-facts unit moved off the home server (Paul 2026-11-15: "Why can't blog facts be
+# in ci. And why is it so much cpu"): tools/blog_facts.py joins every cached write-up to the
+# puzzle it explains and writes the puzzles' .blog sidecars, tools/data/blog_facts/inputs.sha256
+# and, through its letter_facts pass, tools/data/lexicons/; tools/blog_compare.py then rewrites
+# tools/data/blog_compare.json. daily_update.sh's unit_blog_facts no longer runs it.
+#
+# Inputs, all rebuilt here from what CI already holds:
+#   * the three blogs' post caches are restored (read only) from the fetch workflows' own
+#     actions/cache saves: blog-timesforthetimes-*, blog-bigdave44-* (blog-fetch.yml) and
+#     fifteensquared-* (fifteensquared-fetch.yml). The runner builds the posts manifests
+#     (tools/media_manifest.py) from the restored files, as the fetchers do.
+#   * bigdave44's parsed.jsonl (a derivative of its posts the local filer also writes) is
+#     rebuilt by tools/parse_bigdave44.py, which reads the cache only.
+#   * the puzzles and the old sidecars are the checkout.
+# What a run keeps between runs (one actions/cache entry, blogfacts-state-*): the parsed joins
+# (blog_facts_cache/, keyed on their inputs), the row cache and letter_facts' lexicon-chunk and
+# clue store (.git/ct-*.sqlite), and the day's letter-pass stamp, so a run parses only what is
+# new and the letter pass (the corpus-wide lexicons: the costly part) runs once a day.
+# The runner has no desktop (OCR_REMOTE empty): the letter pass reads clues in its own forks.
+#
+# The result is committed "daily blog-facts" and pushed as daily-units.yml does, rebased when
+# master moved. Run after either fetch workflow ends well, daily, or by hand (dispatch with
+# push=false to read what a run would change without committing).
+name: Blog facts
+
+on:
+  workflow_run:
+    workflows: ["Blog fetch", "Fifteensquared fetch"]
+    types: [completed]
+  schedule:
+    - cron: "17 11 * * *"
+  workflow_dispatch:
+    inputs:
+      push:
+        description: Commit and push the result
+        type: boolean
+        default: true
+      force:
+        description: Run in full (no --if-changed, letter pass included)
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: blog-facts
+  cancel-in-progress: false
+
+jobs:
+  facts:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      CT_DOWNLOADS: /tmp/cryptic-downloads
+      CT_LETTER_STAMP: /tmp/ct-blogfacts-state/letter-pass-day
+      OCR_REMOTE: ""
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # The branch, not the triggering sha: a workflow_run waits in the
+          # concurrency queue while the run ahead pushes, and a checkout of the
+          # sha from when it was triggered recomputes facts already pushed,
+          # then add/add-conflicts on rebase (run 44397643133, 11-18).
+          ref: master
+          fetch-depth: 100
+          token: ${{ secrets.PUSH_TOKEN || github.token }}
+      - uses: ./.github/actions/setup
+        with:
+          pip: numpy pillow
+      - name: Restore the blogs' post caches
+        id: posts
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/timesforthetimes
+          key: blog-timesforthetimes-${{ github.run_id }}
+          restore-keys: blog-timesforthetimes-
+      - uses: actions/cache/restore@v5
+        id: bigdave
+        with:
+          path: /tmp/cryptic-downloads/bigdave44
+          key: blog-bigdave44-${{ github.run_id }}
+          restore-keys: blog-bigdave44-
+      - uses: actions/cache/restore@v5
+        id: fifteen
+        with:
+          path: /tmp/cryptic-downloads/fifteensquared
+          key: fifteensquared-${{ github.run_id }}
+          restore-keys: fifteensquared-
+      - name: Restore the run state
+        id: state
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/blog_facts_cache
+            /tmp/ct-blogfacts-state
+            .git/ct-rows.sqlite*
+            .git/ct-letter-facts.sqlite*
+          key: blogfacts-state-${{ github.run_id }}
+          restore-keys: blogfacts-state-
+      - name: Check the caches and build the posts manifests
+        id: check
+        shell: bash
+        run: |
+          echo "posts caches: times=${{ steps.posts.outputs.cache-matched-key }} bigdave=${{ steps.bigdave.outputs.cache-matched-key }} fifteensquared=${{ steps.fifteen.outputs.cache-matched-key }}"
+          echo "state: ${{ steps.state.outputs.cache-matched-key }}"
+          for b in timesforthetimes bigdave44 fifteensquared; do
+            if [ ! -d "$CT_DOWNLOADS/$b/posts" ]; then
+              wf=blog-fetch.yml; [ "$b" = fifteensquared ] && wf=fifteensquared-fetch.yml
+              # Running without a blog would crash on its missing manifest, or drop every
+              # fact it gives: this run writes nothing and the reseeded fetch's save is
+              # read by the next run.
+              echo "::warning::no post cache for $b (its fetch workflow has not saved one); dispatching $wf to reseed, writing nothing this run"
+              gh workflow run "$wf" || echo "::warning::could not dispatch $wf"
+              echo "missing=$b" >> "$GITHUB_OUTPUT"
+              continue
+            fi
+            echo "$b: $(ls "$CT_DOWNLOADS/$b/posts" | wc -l) posts"
+            python3 tools/media_manifest.py build "posts-$b"
+          done
+          mkdir -p /tmp/ct-blogfacts-state "$CT_DOWNLOADS/blog_facts_cache"
+          df -h /tmp | tail -1
+      - name: Parse bigdave44's posts
+        if: steps.check.outputs.missing == ''
+        shell: bash
+        run: |
+          start=$SECONDS
+          python3 tools/parse_bigdave44.py
+          echo "parse_bigdave44: $((SECONDS - start))s"
+      - name: Blog facts
+        if: steps.check.outputs.missing == ''
+        id: facts
+        shell: bash
+        run: |
+          start=$SECONDS
+          args="--jobs 4"
+          if [ "${{ inputs.force }}" = true ]; then args="$args --letter-pass"; else args="$args --if-changed"; fi
+          rc=0
+          python3 tools/blog_facts.py $args 2>&1 | tee /tmp/facts.out || rc=${PIPESTATUS[0]}
+          echo "blog_facts: rc=$rc in $((SECONDS - start))s"
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ "$rc" = 0 ] || { echo "::error::tools/blog_facts.py failed (rc=$rc)"; exit "$rc"; }
+      - name: Blog compare
+        if: steps.check.outputs.missing == ''
+        shell: bash
+        run: python3 tools/blog_compare.py || echo "::warning::blog_compare failed"
+      - name: Commit
+        if: steps.check.outputs.missing == ''
+        id: commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --short | cut -c4- | sed 's#/[^/]*$##' | sort | uniq -c | sort -rn | head -15
+          if git diff --cached --quiet; then echo "blog facts: nothing changed"; exit 0; fi
+          git diff --cached --shortstat
+          if [ "${{ github.event_name == 'workflow_dispatch' && !inputs.push }}" = true ]; then
+            echo "push=false: not committing"; exit 0
+          fi
+          git commit -q -m "$(printf 'daily blog-facts\n\n%s' "$(python3 tools/provenance.py trailer)")"
+      - name: Save the run state
+        if: "!cancelled()"
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            /tmp/cryptic-downloads/blog_facts_cache
+            /tmp/ct-blogfacts-state
+            .git/ct-rows.sqlite*
+            .git/ct-letter-facts.sqlite*
+          key: blogfacts-state-${{ github.run_id }}
+      - name: Delete the older saves of the run state
+        if: "!cancelled()"
+        shell: bash
+        run: |
+          gh cache list -R "$GITHUB_REPOSITORY" --key blogfacts-state- --sort created_at --order desc \
+            --limit 100 --json id -q '.[1:][] | .id' | while read -r id; do
+            gh cache delete "$id" -R "$GITHUB_REPOSITORY" || true
+          done
+      - name: Push, rebasing when master moved
+        shell: bash
+        run: |
+          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
+          if [ "$ahead" = 0 ]; then echo "blog-facts: nothing to push"; exit 0; fi
+          git log --format='%h %s' origin/master..HEAD
+          for n in $(seq 1 8); do
+            if git push -q origin HEAD:refs/heads/master; then
+              echo "blog-facts: pushed $(git rev-parse --short HEAD)"
+              exit 0
+            fi
+            echo "blog-facts: push $n lost the race; rebasing on the new tip"
+            git fetch -q origin master || { sleep 5; continue; }
+            if ! git rebase -q origin/master; then
+              git rebase --abort
+              echo "::error::rebase conflicted"
+              break
+            fi
+            sleep $((RANDOM % 5 + 1))
+          done
+          echo "::error::could not push"
+          exit 1

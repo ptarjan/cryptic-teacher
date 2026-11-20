@@ -1,0 +1,2040 @@
+/* Cryptic Teacher — no frameworks, light & dark friendly. */
+
+:root {
+  --bg: #faf9f6;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --card: #ffffff;
+  --line: #ddd8ce;
+  --accent: #14608a;
+  --accent-soft: #d9ecf7;
+  --sel: #ffd75e;
+  --wrong: #c8322b;
+  --ok: #2b7a3d;
+  --def-bg: #cdeccd;
+  --def-fg: #14501f;
+  --ind-bg: #f6d9f0;
+  --ind-fg: #7a1d66;
+  /* Row badges get their own palette, deliberately not the hint-rung one above.
+     See the .badge block for what each colour is allowed to mean. */
+  --badge-cov-bg: #d5e9f5;   /* we have written hints for this puzzle */
+  --badge-cov-fg: #0f4d6f;
+  --badge-none-bg: #e7e3db;  /* we haven't; hints via a blog, or answers only */
+  --badge-none-fg: #5b564d;
+  --badge-series-bg: #e9def5; /* which crossword this is */
+  --badge-series-fg: #543a75;
+  /* One motion language for the hint panel. Everything in there is an entrance —
+     a mark arriving on the clue, a verdict arriving under it, the graded clue
+     travelling up to the rung it judged — and an entrance is one duration and
+     one curve or it is several panels pretending to be one. Five durations
+     between .32s and .45s and two different curves said nothing that one of
+     each does not — animation should read as one consistent language across the
+     hint panel. The beat is the ONLY stagger: a thing
+     that must be read second waits exactly one, never some other fraction. */
+  --mo-in: .36s;
+  --mo-beat: .14s;
+  --mo-ease: cubic-bezier(.2, .7, .3, 1);
+  /* The one thing in the panel that is not an entrance: a flash that says a line
+     has become tappable. Longer than an entrance because nothing arrived and
+     there is nothing to read — it has to be caught out of the corner of an eye
+     that is looking somewhere else — but on the same curve, so it belongs to
+     the same panel. Two words in the vocabulary, not seven loose numbers. */
+  --mo-pulse: .9s;
+  /* The three shells. Their own tokens rather than the badge backgrounds they
+     used to borrow: --ind-bg and --def-bg are made to sit BEHIND text, so on
+     the white card they came out at 1.3:1 — a 4px dot nobody has ever seen.
+     These are the same three hues at a strength that reads as a spark against
+     --card, which is the only thing they are ever drawn on. */
+  --burst-1: #d4568f;
+  --burst-2: #2e9e5b;
+  --burst-3: #2b7fb8;
+  /* The clue's leading and the size of the target a finger aims at in it are
+     ONE number. Every word of the clue is an inline-block chip (.gw) in every
+     state, and an inline-block's margin box is the FLOOR of the line box: a
+     line-height below the chip's own height is silently ignored, so the chip's
+     box is the gap between two lines of a clue that wrapped — and three
+     quarters of the corpus wraps at 1.3rem on a phone. Making the chip
+     thumb-sized therefore double-spaces the clue for the solver who is only
+     reading it, and no line-height can take that back. So the two are declared
+     together, here, once, for .hint-clue and .guess-clue both: --gw-box is the
+     target, --gw-line adds the only separation the reader gets between one
+     line's dashed boxes and the next's. In em, so the sum follows the clue
+     whatever size it is set at. */
+  --gw-box: calc(1.35em + 4px);   /* .gw: 1.35em of text, +1px padding +1px border a side */
+  --gw-line: calc(var(--gw-box) + 4px);
+  /* How far a mark's colour is painted past its own glyphs. Paint, not layout:
+     an inline box's vertical padding does not raise the line it sits on, and
+     the horizontal padding below is handed straight back as margin, so this
+     grows every coloured band on the page without moving one word of a clue.
+     It stops short of the .gw border it paints under — 1.6px of half-leading
+     plus the chip's own 1px of padding — so a banded word inside the picker
+     keeps its hairline box. Turn it up here, once, for every mark there is. */
+  --band-pad: 2px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171a1e;
+    --fg: #e8e6e1;
+    --muted: #9a9891;
+    --card: #21252b;
+    --line: #3a3f47;
+    --accent: #6db3d9;
+    --accent-soft: #253c4a;
+    --sel: #b98d00;
+    --wrong: #e06058;
+    --ok: #6dc282;
+    --def-bg: #234a2b;
+    --def-fg: #b9e4bf;
+    --ind-bg: #4a2342;
+    --ind-fg: #eab8de;
+    --badge-cov-bg: #1e3f52;
+    --badge-cov-fg: #a4d6ef;
+    --badge-none-bg: #2c3138;
+    --badge-none-fg: #a6a49c;
+    --badge-series-bg: #3a2b4d;
+    --badge-series-fg: #dcc4f2;
+    /* Brighter than their light-mode twins, not darker: a spark is a light
+       source, and on the dark card (#21252b) these land around 7:1. Dark mode
+       is the case that has to work — it is what the reports come from. */
+    --burst-1: #ff9ad8;
+    --burst-2: #86e6a0;
+    --burst-3: #93d4ff;
+  }
+}
+
+* { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 Georgia, "Times New Roman", serif;
+  /* Every page is viewport-fit=cover (for the tab bar's home-indicator inset),
+     so in landscape the sides reach under the notch: keep text clear of it. */
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
+  max-width: 1180px;
+  margin: 0 auto;
+}
+h1, h2, h3, .tool, .ghost, .badge, .toolbar-label, #scorebar, #streak, .clue-num {
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* There was no base link rule at all, so every link the stylesheet didn't name
+   individually — the whole crawl index at the foot of the page, the footer —
+   fell through to the browser default: #0000EE blue, and #551A8B purple once
+   visited. Against a warm off-white the pair look like a 1997 directory, and
+   the purple made a read archive page look broken rather than read. One accent
+   colour instead, visited included, with the underline saved for hover so a
+   long list of puzzle numbers reads as a list and not as a rash. */
+a { color: var(--accent); text-decoration: none; }
+a:visited { color: var(--accent); }
+a:hover, a:focus-visible { text-decoration: underline; }
+
+header {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: baseline; justify-content: space-between;
+  padding: 18px 0 10px; border-bottom: 2px solid var(--fg);
+}
+h1 { font-size: 1.6rem; margin: 0; letter-spacing: .5px; }
+.tagline { margin: 0; color: var(--muted); font-style: italic; }
+.header-controls { display: flex; gap: 8px; }
+
+/* The lesson is a page, so its control is a link and not a button — and it
+   still has to sit in the header row looking like the two beside it. */
+button, a.ghost {
+  cursor: pointer; border-radius: 6px; font-size: .9rem;
+  border: 1px solid var(--line); background: var(--card); color: var(--fg);
+  padding: 6px 12px;
+}
+button:hover, a.ghost:hover { border-color: var(--accent); }
+.ghost { background: transparent; }
+a.ghost { text-decoration: none; display: inline-block; }
+.small { padding: 2px 8px; }
+.tool { font-size: .8rem; padding: 4px 10px; }
+.tool.danger:hover { border-color: var(--wrong); color: var(--wrong); }
+button:disabled { opacity: .45; cursor: default; }
+button:disabled:hover { border-color: var(--line); }
+
+/* A phone-width header has no room next to the four controls for the brand
+   row too, so the controls get their own line — but that line still has to
+   stay one line. Controls never wrap their own label across two lines: a
+   button that shrinks below its text is a broken layout, not a compact one.
+   So each control is nowrap and sized down instead. */
+@media (max-width: 480px) {
+  .header-controls { gap: 4px; flex-wrap: nowrap; }
+  /* Six controls fit a phone's row only without their carets. */
+  .header-controls .caret { display: none; }
+  .header-controls button, .header-controls a.ghost {
+    font-size: .85rem; padding: 11px 6px; white-space: nowrap;
+  }
+}
+
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+
+/* ---------- picker ---------- */
+.panel {
+  position: absolute; z-index: 30; right: 16px; top: 64px;
+  width: min(430px, calc(100vw - 32px)); max-height: 70vh; overflow: auto;
+  /* The gutter is kept whether or not the content scrolls. Without it the
+     content box is a scrollbar wider once the content fits, and every
+     wrapping row inside (the picker's completion chips) breaks somewhere else. */
+  scrollbar-gutter: stable;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 12px 14px;
+}
+.panel-head { display: flex; justify-content: space-between; align-items: center; }
+.small-note { font-size: .82rem; }
+/* The filter box is the picker's navigation, not a nicety: the collection grows
+   by a puzzle a night and the panel is 70vh tall, so scrolling stopped being a
+   way to find anything at around thirty rows. Full width and first in the panel
+   because it is focused on open — it should look like the thing you're already
+   typing into. */
+#picker-search {
+  width: 100%; margin: 10px 0 2px; padding: 7px 10px;
+  font: inherit; font-size: .92rem;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: var(--bg); color: inherit;
+}
+#picker-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+#picker-list { list-style: none; margin: 8px 0 0; padding: 0; }
+#picker-list li.picker-empty { padding: 10px 4px; font-size: .9rem; }
+#picker-list li { border-top: 1px solid var(--line); }
+#picker-list button {
+  display: grid; width: 100%; text-align: left;
+  background: none; border: none; padding: 8px 4px; font-size: .92rem;
+}
+/* A row is for tapping, not for painting under a finger. On a touch screen
+   :hover sticks to whatever was last touched, and iOS paints its own grey
+   tap-highlight on the row the moment a finger lands, which is the moment a
+   scroll starts: scrolling the list lit up the rows it passed under. So the
+   hover tint is for a pointer that can hover (the same guard as .clue-list
+   and .s-index below), the system flash is off, and a drag cannot start a
+   text selection or the long-press callout on a row. */
+#picker-list button { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+@media (hover: hover) { #picker-list button:hover { background: var(--accent-soft); } }
+#picker-list .p-num { min-width: 4.6em; }
+#picker-list li.current button { background: var(--accent-soft); }
+
+/* A puzzle row carries five things — number, setter, difficulty, hint badge,
+   date — and they have never fitted across the 430px picker panel. Laid out as
+   one flex line they didn't overflow visibly; instead the setter and the date
+   wrapped inside their own boxes, so every row came out a different height and
+   the list read as rubble. Two rows of grid instead: the number and the date
+   are pinned to opposite corners of the top line and the badges get a line of
+   their own, which holds its shape at any width rather than degrading into
+   whatever the text happened to do. */
+#picker-list button, .s-index a {
+  grid-template-columns: auto 1fr auto;
+  gap: 2px 10px; align-items: baseline;
+}
+.p-num { font-weight: 700; grid-column: 1; white-space: nowrap; }
+/* min-width:0 is what actually lets the ellipsis happen: a grid item's default
+   min-width is auto, i.e. never shrink below the longest word. */
+.p-setter { grid-column: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.p-meta { grid-column: 3; justify-self: end; white-space: nowrap; color: var(--muted); font-size: .8rem; }
+.p-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.p-prog { color: var(--muted); font-size: .78rem; }
+/* Offline: a puzzle this device does not hold. */
+#picker-list li.no-offline button { opacity: .45; }
+#offline-box { margin: .6rem 0 0; }
+#btn-offline { background: none; border: 0; padding: 0 0 0 .5em; color: var(--muted); text-decoration: underline; font-size: inherit; cursor: pointer; }
+/* Not a badge, so it is exempt from the one-colour-per-axis rule below: it is
+   the only green in the row, and green already means "right" everywhere else
+   in the app (a checked letter, a solved clue in the list). */
+.p-prog.done { color: var(--ok); font-weight: 600; }
+/* No border. A badge is a filled shape or an outlined one, and which it is
+   belongs to the variant below, not to every badge: the picker's chips are
+   <button>s, and the generic button rule above hands every button a 1px
+   var(--line) edge. On a paper chip nothing overrode it, so the chip carried a
+   grey ring it never asked for — invisible while chosen, because the 2px
+   var(--fg) ring sits outside it, and left behind the moment you tapped it off.
+   The variants that DO want an edge (.diff, .term) declare their own
+   below and win on specificity. */
+.badge {
+  font-size: .68rem; padding: 1px 7px; border-radius: 999px; border: 0;
+  text-transform: uppercase; letter-spacing: .4px; white-space: nowrap;
+}
+/* A badge's colour names ONE axis, and no two axes may share a colour. There
+   are three of them on a puzzle row and they answer different questions:
+
+     which crossword it is   — series: independent, quiptic, everyman   (purple)
+     what this site has      — full hints / hints via a blog, answers only (blue / neutral)
+     how hard we found it    — gentle…brutal          (warm, outlined not filled)
+
+   They used to collide. `series` and `full hints` were both var(--def-bg), the
+   same green pill: on the archive page an Independent puzzle and an annotated
+   one were indistinguishable at a glance, so the green read as "this one has
+   hints" on rows where it only meant "this one is the Independent". Worse, both
+   of those colours were the hint-rung palette — green is the definition
+   highlight and pink the indicator highlight in the solving view, where the
+   picker sits beside the grid — so a row badge was tinted with a meaning it
+   didn't have. Hence the separate --badge-* variables: the rungs own def/ind,
+   the rows own these, and neither borrows from the other.
+
+   Filled for the facts, outlined for the judgement. Series stays filled and
+   prominent because a solver hunting for something gentler should spot the
+   Quiptic without reading; the difficulty band is the one thing on the row we
+   made up, so it stays outlined and quieter than the facts around it. */
+.badge.full   { background: var(--badge-cov-bg);    color: var(--badge-cov-fg); }
+.badge.auto   { background: var(--badge-none-bg);   color: var(--badge-none-fg); }
+/* Padded to the widest FEED name — "independent", "indy sunday" — for the
+   same reason .badge.diff is: it is the FIRST badge in the row, so anything
+   variable about its width moves every badge behind it. Sizing only the
+   middle one lined that column up with itself and nothing else.
+   A floor, not a cap: the book shelves name a line as well as a paper
+   ("telegraph big book"), run past it and set their own width. They are read
+   in the picker beside each other rather than interleaved with the daily
+   feeds, and a chip abbreviated down to 7.2em would buy that column back by
+   giving up the thing the label is for. */
+.badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg);
+                min-width: 7.2em; text-align: center; }
+
+/* The anagram ring: fodder laid out with no first letter and no last one, so
+   there is no reading order for the eye to fall back into. Absolute placement
+   round a disc rather than a flex row — a row is the thing it exists to avoid.
+   See ringHTML() in app.js for why it is a circle and not a search box.
+   Once a letter from the grid pins a tile, the order is real and the same
+   tiles stand in a line (.ana-line) in answer order instead. */
+.anagram-ring { margin: 10px 0 2px; display: flex; flex-direction: column; align-items: center; }
+.anagram-ring p { margin: 2px 0 6px; text-align: center; max-width: 34em; }
+/* cursor:text is the only hint that clicking empty space here does something —
+   it focuses #ana-kbd (see app.js), which is how typing gets in. */
+/* Centres the disc. One disc always — a multi-word answer breaks the circle
+   rather than adding a second one; see ringHTML. */
+.ana-discs { display: flex; justify-content: center; align-items: center; }
+.ana-disc { position: relative; cursor: text; }
+/* The visible focus ring the letters area needs to feel like a text field.
+   Not :focus-within — #ana-kbd is not a DOM descendant of the disc (see its
+   comment in index.html for why it has to live outside #hint-body), so the
+   class is set by ringHTML() itself off document.activeElement instead. */
+.ana-disc.ana-focus { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 50%; }
+.ana-disc.ana-line.ana-focus { border-radius: 10px; }
+.ana-tile {
+  position: absolute; transform: translate(-50%, -50%);
+  min-width: 2.1em; padding: 6px 8px; margin: 0;
+  font: inherit; font-weight: 700; line-height: 1.1; text-align: center;
+  color: var(--fg); background: var(--card);
+  border: 1px solid var(--line); border-radius: 7px; cursor: pointer;
+}
+/* Only where a pointer really hovers: on a touch screen :hover sticks to the
+   last thing tapped, which read as a selection that backspace never cleared. */
+@media (hover: hover) { .ana-tile:hover { border-color: var(--accent); } }
+/* Struck, not removed: what you have placed is still part of the count, and a
+   tile that vanished would leave a gap the eye reads as a missing letter. */
+.ana-tile.struck { opacity: .5; text-decoration: line-through; font-weight: 400;
+  border-style: dashed; background: transparent; }
+/* Selected: the tile the next tap (or Backspace) crosses off. Filled like the
+   grid cursor (--cell-sel is only defined inside #grid, so the page's --sel
+   stands in out here) and ringed, with no transform: the tile's position and the ring's
+   FLIP animation both live in transform, and a class that set one would yank it. */
+.ana-tile.sel { background: var(--cell-sel, var(--sel)); color: #1a1a1a; border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent); }
+.ana-tile.fixed.sel { box-shadow: inset 0 0 0 1px var(--accent), 0 0 0 2px var(--accent); }
+/* Room so the focus outline round the disc clears the Shuffle button. */
+.ana-discs { margin-bottom: 10px; }
+/* Pinned: this letter is in the grid already, so the ring is showing WHERE it
+   goes rather than offering it to be moved. It has to read as settled at a
+   glance, including when it is struck as well. */
+.ana-tile.fixed { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+/* A deleted tile's stand-in while it fades — see ghostRingTile() in app.js.
+   Fixed and pointer-events:none so it can never be mistaken for a live tile. */
+.ana-ghost { position: fixed; display: flex; align-items: center; justify-content: center; z-index: 50; }
+@media (prefers-reduced-motion: reduce) {
+  /* Belt and braces: JS already skips every ring animation when this is set
+     (reduceMotion() in app.js), so this only catches a transform left inline
+     by code that forgot to check. */
+  .ana-tile, .ana-ghost { transition: none !important; }
+}
+/* Pinch zoom stays on (no maximum-scale in the viewport tag), so iOS would
+   zoom the page in whenever a field under 16px takes focus, the hidden #kbd
+   included. 16px on iOS alone keeps every field out of that rule. */
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select { font-size: 16px !important; }
+}
+
+/* Off-screen and inert like #kbd, and for the same reason: a real input is the
+   only way to take a hardware keyboard directly and raise a phone's on-screen
+   one, and it must never be where a stray tap can land instead of on a tile
+   or the disc's own click handler. */
+#ana-kbd {
+  position: fixed; opacity: 0; left: 0; top: 0; width: 1px; height: 1px;
+  border: none; padding: 0; pointer-events: none;
+}
+
+/* Difficulty. Outlined rather than filled so it reads as a note about the
+   puzzle and doesn't compete with the hint badges next to it, which say
+   something about what this site offers. Warm as it gets harder. */
+.badge.diff {
+  background: none; border: 1px solid currentColor; opacity: .85;
+  min-width: 5.4em; text-align: center;
+}
+/* In the picker a tap on it opens /difficulty/ rather than the puzzle. */
+#picker-list .badge.diff { cursor: help; }
+.badge.diff-gentle,   .chart .diff-gentle   { color: #2f7d52; }
+.badge.diff-moderate, .chart .diff-moderate { color: #7a6a1f; }
+.badge.diff-tough,    .chart .diff-tough    { color: #a3541b; }
+.badge.diff-brutal,   .chart .diff-brutal   { color: #a33025; }
+@media (prefers-color-scheme: dark) {
+  .badge.diff-gentle,   .chart .diff-gentle   { color: #6fc48f; }
+  .badge.diff-moderate, .chart .diff-moderate { color: #ccb455; }
+  .badge.diff-tough,    .chart .diff-tough    { color: #e39055; }
+  .badge.diff-brutal,   .chart .diff-brutal   { color: #e8756a; }
+}
+
+/* Paper and difficulty menus on one line under the search box. Native selects,
+   because the phone's own picker is the one that fits twenty papers, and the
+   bar is one line tall however many papers there are.
+   appearance:none drops the OS chrome (iOS's grey pill and blue arrows, the
+   desktop's heavy black chevron) so they match #picker-search above them; the
+   chevron is an inline SVG stroked in --muted (a data URI cannot read a
+   variable, so dark mode repeats it with the dark --muted). */
+.picker-bar { display: flex; gap: 6px; align-items: stretch; margin: 8px 0 0; }
+.picker-bar select {
+  flex: 1 1 0; min-width: 0; padding: 7px 24px 7px 9px;
+  font: inherit; font-size: .92rem; line-height: 1.3; color: inherit;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  background: var(--bg) no-repeat right 9px center / 10px 6px
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236b6b6b' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  border: 1px solid var(--line); border-radius: 8px;
+}
+.picker-bar select:hover { border-color: var(--muted); }
+@media (prefers-color-scheme: dark) {
+  .picker-bar select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239a9891' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+}
+.picker-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* A menu set to anything but "all" is a filter in force, so it says so. */
+.picker-bar select.on { border-color: var(--fg); font-weight: 600; }
+/* The open list. Where the browser lets a page draw it (the customizable
+   select, Chromium 135+), it is drawn in the site's palette instead of the OS
+   one, and at least as wide as its longest row so no count is clipped.
+   Elsewhere the native list is left exactly as it was. The closed box keeps
+   the rules above; only the built-in arrow is dropped, since the box already
+   draws its own chevron. */
+@supports (appearance: base-select) {
+  .picker-bar select, .picker-bar select::picker(select) { appearance: base-select; }
+  .picker-bar select::picker-icon { display: none; }
+  .picker-bar select::picker(select) {
+    min-width: anchor-size(width); width: max-content; max-width: calc(100vw - 16px);
+    max-height: min(26rem, 70vh); margin: 4px 0; padding: 4px;
+    background: var(--card); color: var(--fg);
+    border: 1px solid var(--line); border-radius: 8px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / .18);
+  }
+  .picker-bar option {
+    padding: 5px 12px; border-radius: 5px;
+    font-size: .92rem; font-weight: 400; line-height: 1.3;
+    letter-spacing: normal; text-transform: none; color: var(--fg);
+  }
+  .picker-bar option::checkmark { display: none; }
+  .picker-bar option:hover, .picker-bar option:focus-visible {
+    background: color-mix(in srgb, var(--accent-soft) 65%, transparent); outline: none;
+  }
+  .picker-bar option:checked { background: var(--accent-soft); font-weight: 600; }
+  /* A group label is a heading over its rows, not one more row. */
+  .picker-bar optgroup {
+    padding: 8px 12px 2px; font-size: .7rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  }
+  .picker-bar optgroup option { margin-inline: -12px; padding-inline-start: 24px; }
+}
+/* Completions for what is being typed: setters, weekdays, solved/unfinished. */
+.picker-filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin: 8px 0 0; }
+.picker-filters:empty { display: none; }
+/* The series floor lines up a column of picker rows; the notify panel's
+   one-paper-per-row checklist has no column, so a chip there is its word's width. */
+#notify-list .badge.series { min-width: 0; }
+/* A completion whose word is already in the box. */
+.picker-filters .badge[aria-pressed="true"] {
+  opacity: 1; outline: 2px solid var(--fg); outline-offset: 1px;
+}
+/* Neutral: a setter's name has no colour the rows could teach it by. */
+.badge.term { background: none; border: 1px solid var(--line); color: inherit; }
+/* What is unusual about a puzzle (tagBadges in app.js): its own axis, so its
+   own look. Dashed and uncoloured, because it is a fact about the grid and no
+   colour another axis uses may stand for it. */
+.badge.feature { background: none; border: 1px dashed var(--muted); color: inherit; }
+#picker-note:empty { display: none; }
+@media (pointer: coarse) { .picker-filters button.badge { padding: 5px 10px; } }
+
+/* ---------- layout ---------- */
+.puzzle-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px; margin: 14px 0 4px; }
+.puzzle-head h2 { margin: 0; font-size: 1.15rem; }
+/* A themed puzzle's special instructions: a line of its own under the title. */
+.puzzle-head .preamble { flex-basis: 100%; order: 1; margin: 0; font-style: italic; }
+#scorebar { font-size: .85rem; color: var(--muted); }
+#scorebar strong { color: var(--fg); }
+#streak { font-size: .85rem; color: var(--muted); }
+#streak strong { color: var(--fg); }
+/* Achievement toasts: top centre, since the bottom of a phone is the
+   keyboard's while solving. The whole toast is the link to the stats. */
+#toasts {
+  position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: 60;
+  display: flex; flex-direction: column; gap: 8px; width: min(92vw, 420px); pointer-events: none;
+}
+.toast {
+  pointer-events: auto; display: flex; align-items: center; gap: 6px;
+  padding: 10px 8px 10px 14px; border: 2px solid var(--sel); border-radius: 12px;
+  background: var(--card); color: var(--fg); box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+  animation: ct-toast-in .35s cubic-bezier(.2, 1.4, .4, 1);
+}
+.toast-link { flex: 1; color: inherit; text-decoration: none; }
+.toast-go { color: var(--accent); text-decoration: underline; white-space: nowrap; }
+.toast-x { flex: none; }
+@keyframes ct-toast-in { from { transform: translateY(-24px) scale(.9); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
+/* The page-wide firework canvas: over everything, catching nothing. */
+.fw-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 70; }
+
+/* ---------- stats panel ---------- */
+#stats-panel h3.stats-h { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted); margin: 16px 0 6px; }
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; text-align: center; }
+.stat strong { display: block; font: 700 1.6rem/1.1 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.stat span { display: block; font-size: .72rem; color: var(--muted); line-height: 1.2; }
+.hist-row { display: flex; align-items: center; gap: 6px; margin: 3px 0;
+  font: .8rem -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.hist-label { width: 1.6em; text-align: right; }
+.hist-bar { background: var(--muted); color: var(--card); font-weight: 700;
+  text-align: right; padding: 1px 6px; border-radius: 3px; }
+.hist-row.clean .hist-bar { background: var(--sel); color: #1a1a1a; }
+.spark { display: block; width: 228px; max-width: 100%; height: 60px; }
+.spark line { stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.spark polyline { fill: none; stroke: var(--accent); stroke-width: 1.5;
+  stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.spark circle { fill: var(--accent); }
+.stats-line { margin: 4px 0; font-size: .92rem; }
+.rank { margin: 0; font-size: 1.25rem; }
+.milestones { list-style: none; margin: 0; padding: 0; font-size: .9rem; }
+.milestones li { display: flex; gap: 6px; padding: 4px 0; border-top: 1px solid var(--line); }
+.milestones li.reached::before { content: "★"; color: var(--sel); }
+.milestones li.reached span { margin-left: auto; font-size: .8rem; }
+.milestones li.ahead { color: var(--muted); }
+.milestones li.ahead::before { content: "☆"; }
+.type-row, .shelf-row { display: flex; align-items: center; gap: 6px; margin: 3px 0; font-size: .82rem; }
+.type-label { width: 8.5em; }
+.type-track { flex: 1; height: 7px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.type-fill { display: block; height: 100%; background: var(--sel); }
+.type-num { width: 6.5em; text-align: right; }
+.type-n { width: 2.5em; text-align: right; font-size: .75rem; }
+.type-row.few { color: var(--muted); }
+.type-row.weakest .type-label { font-weight: 700; }
+.shelf-row .badge { width: 7.5em; text-align: center; }
+.shelf-n { width: 3em; text-align: right; font-size: .75rem; color: var(--muted); }
+.year { display: block; width: 100%; height: auto; }
+.year rect { fill: var(--line); }
+.year rect.l1 { fill: var(--sel); fill-opacity: .3; }
+.year rect.l2 { fill: var(--sel); fill-opacity: .55; }
+.year rect.l3 { fill: var(--sel); fill-opacity: .8; }
+.year rect.l4 { fill: var(--sel); }
+.year rect.clean { stroke: var(--accent); stroke-width: 1.5; }
+
+/* Finishing the grid used to move one number in the scorebar from 27 to 28 —
+   completing the grid deserves some celebration.
+   The sentence is the celebration; the fireworks are trim. Anyone who has asked
+   their browser for less motion still gets the sentence, and gets it without
+   three dozen things flying past it. */
+/* Full width of the column, not clamped to a reading measure: this is the one
+   moment the page has something to say, and a narrow card the width of a
+   paragraph reads as a footnote to the grid above it. The width is also what
+   the fireworks need — three shells spread across a 62ch box on a tablet had
+   most of their sparks flying into `overflow: hidden`.
+   min-height is the same fact from the other side: the sentence and the tally
+   are only two short lines, so without it the box is a strip too shallow to
+   burst anything inside. */
+#celebrate {
+  position: relative; overflow: hidden; margin: 10px 0 18px; padding: 22px 20px;
+  border: 2px solid var(--accent-soft); border-radius: 12px;
+  background: var(--card); min-height: 150px;
+}
+/* No dismiss button. The scoreline is a fact about the puzzle, so it stays as
+   long as the grid is full and comes back when you reopen it; the fireworks are
+   the part that only go off once. A "Thanks" that hides your own result is asking
+   you to clear away the thing you earned. */
+#celebrate .shout { margin: 0 0 6px; font-size: 1.35rem; font-weight: 700; }
+#celebrate .tally { margin: 0; font-size: .95rem; color: var(--muted); }
+#celebrate .tally strong { color: var(--fg); }
+#celebrate .recap { margin: 10px 0 0; font-size: .95rem; }
+#celebrate .recap-head { margin: 0 0 2px; font-weight: 700; }
+#celebrate .recap ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+
+/* The finish box's own shells; the page-wide canvas show (finishFireworks in
+   app.js) goes off with them. Ten shells, going off once, behind the scoreline rather
+   than over it — the sentence is still the celebration, so the scoreline takes
+   a layer of its own and the sparks paint under it.
+   Each spark is flown by --dx/--dy, set per spark in shellsHTML(). */
+#celebrate .fireworks { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+#celebrate .scoreline { position: relative; z-index: 1; }
+#celebrate .shell { position: absolute; width: 0; height: 0; }
+/* Nine pixels and a glow, not four flat ones. A spark is only ever drawn on
+   --card, and at 4px in a badge colour it measured 1.3:1 against it — visible
+   in a screenshot if you were told where to look, and never in the two seconds
+   it is actually there. The negative margin centres the dot on the shell,
+   which at this size is the difference between a burst and a smear. */
+#celebrate .spark {
+  position: absolute; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%; opacity: 0;
+  background: var(--burst-1); box-shadow: 0 0 12px 2px var(--burst-1);
+}
+#celebrate .shell:nth-child(3n+2) .spark {
+  background: var(--burst-2); box-shadow: 0 0 12px 2px var(--burst-2);
+}
+#celebrate .shell:nth-child(3n) .spark {
+  background: var(--burst-3); box-shadow: 0 0 12px 2px var(--burst-3);
+}
+/* Held until the box is actually on screen, and held by NOT HAVING the
+   animation rather than by pausing one. A paused animation still has a start
+   time, and nothing guarantees a browser rewinds one that was held for a
+   minute — held long enough it would resume past its own end and, being
+   `forwards`, sit at opacity 0 for ever. Declared on the off-hold state
+   instead, the hold coming off IS the start, so the burst always begins at 0%.
+   fireBurst() in app.js owns the class.
+   The hold is what makes both devices work. The box sits between the title and
+   the grid, so at the moment the last letter goes in it is either off the TOP
+   of the band (a phone, scrolled down to the grid with the keyboard up) or
+   already fully in view (a tablet, whole page visible): a scroll in the first
+   case and none in the second. Waiting for the box to be SEEN covers both;
+   waiting for a scroll covers only the first. */
+#celebrate .fireworks:not(.hold) .spark {
+  animation: ct-burst 1.5s cubic-bezier(.12, .75, .3, 1) forwards;
+}
+/* Full brightness is held for half the flight rather than touched at one
+   keyframe. The old curve hit opacity 1 at 12% and spent the remaining 970ms
+   fading, so peak visibility was a single instant — which is why a burst that
+   played perfectly still read as nothing happening. */
+@keyframes ct-burst {
+  0% { transform: translate(0, 0) scale(.4); opacity: 0; }
+  10% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #celebrate .fireworks { display: none; }
+}
+
+.layout { display: flex; gap: 26px; flex-wrap: wrap; align-items: flex-start; }
+.left-col { flex: 0 1 640px; min-width: 300px; }
+.clues-col { flex: 1 1 380px; display: flex; gap: 22px; flex-wrap: wrap; min-width: 280px; }
+.clue-list { flex: 1 1 180px; }
+.clue-list h3 {
+  margin: 8px 0 4px; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px;
+  border-bottom: 1px solid var(--line); padding-bottom: 3px;
+}
+/* The clue list is not a table of contents you glance at, it is the text you
+   read for minutes at a time while you think — .92rem was sized like chrome.
+   Body-copy size and a real line-height instead; the list
+   gets taller, which costs nothing, the column scrolls anyway. */
+.clue-list ol { list-style: none; margin: 0; padding: 0; font-size: 1.02rem; line-height: 1.45; }
+.clue-list li { padding: 5px 6px; border-radius: 5px; cursor: pointer; display: flex; gap: 7px; }
+@media (hover: hover) { .clue-list li:hover { background: var(--accent-soft); } }
+.clue-list li { -webkit-tap-highlight-color: transparent; }
+.clue-list li.active { background: var(--accent-soft); outline: 1px solid var(--accent); }
+.clue-list li.solved { opacity: .55; }
+.clue-list li.solved .clue-text::after { content: " ✓"; color: var(--ok); }
+/* A clue solved with no hints and no letter reveals keeps a quiet gold star
+   instead of the plain check — a persistent marker, not another animation, so
+   it is still there next time the list renders (reload, restore, any
+   refreshClues()) rather than only for the moment it was earned. `--sel` is
+   the same gold used for the current square in the letter-pattern strip; reused
+   rather than inventing a colour, since both mean "this one, specifically".
+   See noHintsSolve() in app.js — a revealed answer never gets this, because
+   revealing always shows a rung or costs a letter, so it can never price at
+   zero. */
+.clue-list li.solved.no-hints .clue-text::after { content: " ★"; color: var(--sel); }
+.clue-num { font-weight: 700; min-width: 1.7em; text-align: right; }
+/* An off-grid clue's answer box (app.js offGridBox), sized by its maxlength. */
+.offgrid-answer { flex: none; align-self: flex-start; font: inherit; font-family: monospace;
+  text-transform: uppercase; letter-spacing: .1em; padding: 1px 4px; max-width: 45%; }
+/* Checking letters (app.js checkerDots): one dot per crossing square, filled
+   when you already have that letter. Sized to be read by scanning the column
+   rather than by looking at any one row — 4px, right-aligned so the dots form
+   their own vertical strip, and pinned to the first line so a clue that wraps
+   does not float them down the middle of nowhere. Small enough to ignore while
+   you read the clue, dense enough that the well-crossed clue jumps out. */
+.checkers { margin-left: auto; align-self: flex-start; padding-top: .55em; }
+.dots { display: flex; gap: 2px; }
+.dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--line); }
+.dots i.on { background: var(--accent); }
+
+/* ---------- grid ----------
+   Cells stay lighter than their letters in BOTH schemes (crossword convention —
+   a dark-on-dark grid is unreadable), but in dark mode they are a dimmed paper
+   tone rather than pure white, so a 15x15 grid isn't a slab of glare. Cell size
+   scales to viewport width via --cols (set by JS). Blocked squares are solid
+   black; separator lines are a quiet mid grey, so the two never look alike. */
+/* Cell size is measured off the box the grid actually sits in, not off the
+   window. `100vw` was the wrong ruler twice over: it ignores body's 1180px
+   max-width and the flex column's share of the row, and on iOS it is the one
+   length on the page that moves with the browser chrome — Safari resolved it
+   before the toolbar had settled, drew undersized cells, and only recomputed at
+   the first scroll-triggered relayout, so the grid started small and jumped
+   bigger the moment you scrolled. A container query
+   unit is resolved against #grid-wrap at layout time, so it cannot be stale and
+   cannot disagree with the column the grid has to fit inside. The breakpoints
+   below tune --cellcap only; nobody should be writing viewport maths again. */
+#grid-wrap { position: relative; container-type: inline-size; }
+/* The boot skeleton's grid (.bg-grid, 15x15 with no --cols) shares this one
+   sum, so the breakpoints below tune both through --cellcap. */
+#grid, .bg-grid {
+  --gridspace: calc(100cqi - 4px);   /* 4px = the grid's own 2px border each side */
+  --cellcap: 40px;
+  --cellsize: min(calc(var(--gridspace) / var(--cols, 15) - 1px), var(--cellcap));
+}
+#grid {
+  --gridline: #9199a3;
+  --blockfill: #14171a;
+  --cellbg: #ffffff;
+  --cellfg: #14171a;
+  --numfg: #5c5c5c;
+  --cell-hl: #cfe6f5;
+  --cell-sel: #ffd75e;
+  --cell-wrong: #b3261e;
+  --cell-revealed: #0f5c86;
+  display: grid; gap: 1px; background: var(--gridline);
+  border: 2px solid var(--blockfill); width: fit-content; max-width: 100%;
+  touch-action: manipulation; outline: none;
+}
+/* Safari has had container units since 16.0 and every other engine since 2022,
+   so the block above is what runs everywhere that matters. This is the pre-2023
+   branch only: without cq support --gridspace would compute to nothing, taking
+   --cellsize with it and collapsing the grid to auto-width, so those browsers
+   get the old viewport maths and its scroll wobble rather than no grid. It is
+   gated by `@supports not` on purpose — the smoke test forbids viewport units
+   in any #grid rule outside this one branch. */
+@supports not (width: 1cqi) {
+  #grid { --gridspace: calc(100vw - 40px); }
+}
+@media (prefers-color-scheme: dark) {
+  #grid {
+    --gridline: #6c737c;
+    --blockfill: #0b0e11;
+    --cellbg: #c9c5bd;      /* dimmed paper — still ~10:1 against the letters */
+    --cellfg: #101315;
+    --numfg: #4a4e52;
+    --cell-hl: #a8c2d4;
+    --cell-sel: #d9b249;
+    --cell-wrong: #8f1f19;
+    --cell-revealed: #0c4a6b;
+  }
+}
+.cell {
+  width: var(--cellsize); height: var(--cellsize);
+  background: var(--cellbg); color: var(--cellfg); position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font: 700 calc(var(--cellsize) * .62)/1 -apple-system, Helvetica, Arial, sans-serif;
+  user-select: none; cursor: pointer;
+}
+/* Blocks bleed over the 1px gap so a run of them reads as one solid black mass
+   (newspaper convention) instead of a grey-latticed checkerboard. */
+.cell.block {
+  background: var(--blockfill); cursor: default;
+  box-shadow: 0 0 0 1px var(--blockfill); z-index: 1;
+}
+.cell .num {
+  position: absolute; top: 1px; left: 2px;
+  font-size: max(8px, calc(var(--cellsize) * .28)); font-weight: 400; color: var(--numfg);
+}
+/* An unclued light's squares are shaded, as the paper prints them; the
+   highlight and selection rules below still win. */
+.cell.unclued { background: color-mix(in srgb, var(--cellbg) 78%, var(--blockfill)); }
+/* A letter the setter printed is given, not typed: drawn in the number colour. */
+.cell.printed .letter { color: var(--numfg); font-weight: 400; }
+.cell.hl { background: var(--cell-hl); }
+.cell.sel { background: var(--cell-sel); color: #1a1a1a; }
+.cell.wrong { color: var(--cell-wrong); }
+.cell.wrong::after {
+  content: ""; position: absolute; inset: 12% 12%;
+  border-top: 2px solid var(--cell-wrong); transform: rotate(-45deg) translateY(calc(var(--cellsize) * .32));
+}
+.cell.revealed .letter { color: var(--cell-revealed); }
+/* word separators inside multi-word entries */
+.cell.sep-r { border-right: 3px solid var(--blockfill); }
+.cell.sep-b { border-bottom: 3px solid var(--blockfill); }
+.cell.bar-r { border-right: 3px solid var(--blockfill); }
+.cell.bar-b { border-bottom: 3px solid var(--blockfill); }
+.cell.dash-r::before {
+  content: ""; position: absolute; right: -4px; top: 50%; width: 7px; height: 2px;
+  background: var(--blockfill); z-index: 2;
+}
+.cell.dash-b::before {
+  content: ""; position: absolute; bottom: -4px; left: 50%; width: 2px; height: 7px;
+  background: var(--blockfill); z-index: 2;
+}
+/* The invisible input that raises the soft keyboard. Fixed, not absolute: iOS
+   scrolls the focused element into view when the keyboard opens, so an input
+   parked at the top of the document drags the page there and overrides the
+   scroll the app just computed. Fixed means it is always in view and there is
+   nothing to scroll to — provided it is somewhere the keys cannot cover, which
+   is the top of the visible band: focusHidden() in app.js sets `top` to it on
+   every focus, since iOS can pan that band down. pointer-events:none so a
+   stray pixel cannot swallow a tap — focus is only ever set from code. It must
+   not be nested inside a query container (#grid-wrap), or "fixed" quietly
+   means "absolute" again. */
+#kbd {
+  position: fixed; opacity: 0; left: 0; top: 0; width: 1px; height: 1px;
+  border: none; padding: 0; pointer-events: none;
+}
+
+.toolbar {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin: 10px 0 14px; font-size: .8rem;
+}
+.toolbar-label { color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: .7rem; }
+/* Paper mode's switch: a checkbox among the checks it replaces, one tap
+   anywhere on the words. */
+.paper-toggle { display: inline-flex; gap: 4px; align-items: center; color: var(--muted); cursor: pointer; }
+/* This was an empty 10px spacer, which inside a 6px-gap flex row rendered as a
+   22px hole between "grid" and "clear entry" — wider than the gaps either side
+   of it and attached to nothing, so the row read as badly spaced rather than
+   grouped. It is a real division (checking vs destroying), so it is drawn as
+   one.
+
+   `margin-left: auto` sends everything after the rule to the far end of the row.
+   The two groups are not peers: the check buttons are what
+   you reach for constantly, the clear/reset pair is what you must not hit by
+   accident, and putting the whole row's slack between them says that with
+   distance instead of with a hairline. The right edge is a real edge to align
+   to — .left-col is 640px and a 15x40px grid is 619px, and every touch
+   breakpoint uncaps the cells so the grid takes the column — so the pair lands
+   under the grid's corner rather than floating in dead space. */
+.toolbar-gap {
+  flex: 0 0 1px; align-self: stretch; min-height: 1.3em;
+  background: var(--line); margin: 0 3px 0 auto;
+}
+
+/* A check must always report what it found — a silent check reads as a dead
+   button. See announceCheck()/pulseCells() in app.js. */
+.check-result {
+  margin: -8px 0 14px; padding: 3px 0 3px 9px; font-size: .8rem; line-height: 1.4;
+  color: var(--muted); border-left: 3px solid var(--line);
+}
+.check-result:empty { display: none; }
+.check-result.ok  { color: var(--ok); border-left-color: var(--ok); }
+.check-result.bad { color: var(--wrong); border-left-color: var(--wrong); }
+
+/* the squares a check just examined flash, so its scope is visible too */
+@keyframes cell-pulse {
+  from { box-shadow: inset 0 0 0 3px var(--accent); }
+  to   { box-shadow: inset 0 0 0 3px transparent; }
+}
+.cell.pulse { animation: cell-pulse .6s ease-out; }
+@media (prefers-reduced-motion: reduce) { .cell.pulse { animation: none; } }
+
+/* A clue's own solve gets a quiet tint that settles away — smaller than the
+   whole-puzzle #celebrate above, on purpose: that one fires fireworks because the
+   grid finishing IS the finish, and a single clue coming out is not (see the
+   note on #celebrate). Green (--ok) rather than the check pulse's --accent, so
+   the two reads never blur into each other. Fires once, from the moment
+   typing completes an entry — never on re-render, restore, or a revealed
+   answer — see celebrateSolve() in app.js. Box-shadow only, so it cannot shift
+   layout or touch focus.
+
+   Solving with no hints and no letter reveals gets the same shape, same
+   duration, in gold (--sel, the letter-strip's "this one" colour) instead of
+   green — a second tier distinguished by which colour it is, never by being
+   longer or louder. `.clean` only sets which colour the shared
+   keyframe reads. */
+@keyframes cell-solve {
+  from { box-shadow: inset 0 0 0 3px var(--solve-tint, var(--ok)); }
+  to   { box-shadow: inset 0 0 0 0 transparent; }
+}
+.cell.solved-flash { animation: cell-solve .45s ease-out; }
+.cell.solved-flash.clean { --solve-tint: var(--sel); }
+@media (prefers-reduced-motion: reduce) {
+  /* No motion, but still a state change: a held tint for the same span the
+     animation would have run, cleared by the same JS timeout. */
+  .cell.solved-flash { animation: none; box-shadow: inset 0 0 0 3px var(--solve-tint, var(--ok)); }
+}
+
+/* The tick beside a clue that is out. Same entrance the verdict pill uses, then
+   it stays put: a mark, not a flash, because the flash on the cells is the one
+   you miss when your eyes were on the clue. Gold when nothing was bought for it,
+   matching .cell.solved-flash.clean. */
+.clue-done { display: inline-block; margin-right: 4px; font-weight: 700; color: var(--ok); }
+.clue-done.clean { color: var(--sel); }
+@media (prefers-reduced-motion: no-preference) {
+  .clue-done { animation: gv-right var(--mo-in) var(--mo-ease); }
+}
+
+/* ---------- hint panel ---------- */
+#hint-panel {
+  border: 1px solid var(--line); border-left: 4px solid var(--accent);
+  border-radius: 8px; background: var(--card); padding: 12px 15px; margin-top: 4px;
+}
+/* The clue is read in both forms — as a row of picking chips and, at rest,
+   as the same chips inert (see .gw.still below) — so this element's own
+   metrics never move between them; only the words' border colour does. */
+/* One size, everywhere. The clue used to read a step smaller on a wide screen
+   than on a tablet, and the big one is the right one on both: it is the thing
+   being read — render the clue as big as when it's selected, all the time.
+   Stated once so the two cannot drift apart again. */
+.hint-clue { font-size: 1.3rem; line-height: var(--gw-line); margin-bottom: 6px; }
+.hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
+#hint-meter { font-size: .8rem; margin-bottom: 8px; }
+
+/* Live letter pattern for the selected entry. Page-theme vars only (this strip
+   sits outside #grid), so it stays quiet in dark mode. Checked squares — the
+   ones a crossing clue can confirm — get a solid accent-underlined box; the
+   unchecked ones are dashed, because nothing will ever cross them. */
+/* A long answer used to come out as one word per line — (3,8,3) was three
+   almost-empty rows on a phone — because flexbox moves a
+   whole word to the next line rather than shrinking anything to make it fit, and
+   at full size fourteen boxes are wider than a phone. The strip sizes itself
+   down instead: patternHTML() reports --n boxes and --w word breaks, and the
+   rule on .pat-box below turns that into the largest font that still fits. It is
+   a container query so that rotating the phone re-fits with no resize listener,
+   and a browser without container units simply keeps the fixed size and wraps
+   the way it used to. */
+.pattern { container-type: inline-size; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 2px 0 8px; }
+.pat-boxes { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; }
+/* One row per word of the enumeration, so the divisions are visible and a long
+   entry wraps between words in preference to inside one. The gap that says "new
+   word" has to be plainly bigger than the gap between two letters of the same
+   word, or it says nothing. */
+.pat-word { display: flex; flex-wrap: wrap; gap: 3px; }
+.pat-word.brk-space { margin-right: 10px; }
+.pat-sep { margin: 0 1px; color: var(--muted); font: 700 1.05rem/1 -apple-system, Helvetica, Arial, sans-serif; }
+/* These are not decoration, they are the control you tap to say which square you
+   are typing into, and you read the letters in them while you do it. At .82rem
+   they were ~20x23px — under a fingertip and under the 44px iOS minimum, and the
+   letters too small to check at a glance. Sized in em off the
+   box's own font-size, so the one number below moves the letter and the target
+   together and the breakpoint only has to raise the font. */
+.pat-box {
+  width: 1.7em; height: 1.95em; border-radius: 3px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font: 700 1.05rem/1 -apple-system, Helvetica, Arial, sans-serif;
+  /* Shrink to fit, never grow past the size above. 1.72 rather than 1.7 is a
+     hair of slack so rounding never costs a whole line, and the 12px is what a
+     word break costs on top of the gap already counted. The floor is the iOS tap
+     minimum: below it the box stops being a control you can hit, so the strip
+     goes back to wrapping instead. */
+  font-size: clamp(.8rem, calc((100cqw - (var(--n, 1) - 1) * 3px - var(--w, 0) * 12px) / var(--n, 1) / 1.72), 1.05rem);
+  background: var(--bg); color: var(--fg); border: 1px solid var(--line);
+  padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none;
+  touch-action: manipulation;
+}
+@media (hover: hover) { .pat-box:hover { background: var(--accent-soft); } }
+.pat-box.checked { border-color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }
+.pat-box.unchecked { border: 1px dashed var(--muted); }
+.pat-box.revealed { color: var(--accent); }
+.pat-box.wrong { color: var(--wrong); border-color: var(--wrong); }
+/* The selected box: tapping a letter selects it, and the next Backspace deletes it
+   or the next letter typed replaces it. Filled like the grid's own cursor square
+   so the two read as one selection, and it moves with the cursor. */
+.pat-box.cur { outline: 2px solid var(--sel); outline-offset: 1px; background: var(--cell-sel, var(--sel)); color: #1a1a1a; }
+.hint-step { margin: 10px 0; padding-top: 8px; border-top: 1px dashed var(--line); }
+.hint-step .step-label {
+  font: 700 .72rem/1 -apple-system, Helvetica, sans-serif;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--accent);
+  display: block; margin-bottom: 4px;
+}
+/* A rung won by pointing at the right words. Green and a left rule, because the
+   label is the only place these differ from a bought rung and one extra word in
+   the same colour disappears into the row of them. */
+.hint-step.won { border-left: 3px solid var(--ok); padding-left: 8px; }
+.step-won {
+  color: var(--ok); margin-left: 8px; letter-spacing: .06em;
+}
+.hint-step p, .hint-step ul { margin: 4px 0; }
+.hint-step ul { padding-left: 20px; }
+/* The general rule: a small chip at the end of the rung's last line, opening
+   in place under it, so the rung takes no extra room until it is tapped. */
+.rule-chip { display: inline; font: inherit; font-size: .72rem; font-weight: 700; line-height: 1.2;
+  letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); border: 0;
+  border-radius: 9px; padding: 1px 7px; margin-left: 2px; cursor: pointer; vertical-align: 1px; }
+.rule-chip[aria-expanded="true"] { color: var(--bg); background: var(--accent); }
+/* The clue's formula. Under the type rung it is a picture (blank chips are
+   spans: plain, not tappable); under the blocks rung the blank chips are
+   buttons, dashed, and a taken piece keeps its place and goes solid. Wraps
+   rather than scrolls, so it reads on a phone. */
+.formula { margin-top: 6px; line-height: 2; }
+.formula-lead, .formula-word { color: var(--muted); font-size: .88rem; }
+.formula-chip { font: inherit; font-size: .82rem; font-weight: 700; color: var(--accent);
+  background: var(--accent-soft); border: 1px dashed var(--accent); border-radius: 9px;
+  padding: 2px 9px; cursor: pointer; }
+span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px solid var(--line, var(--muted)); cursor: default; }
+.formula-chip.got { color: var(--bg); background: var(--accent); border-style: solid; cursor: default; }
+.formula-chip.arm-cost { border-style: solid; border-color: var(--wrong); color: var(--wrong); }
+.formula p, .formula ul { line-height: 1.4; }
+.hint-step .device-rule { display: block; margin-top: 4px; padding: 4px 8px;
+  border-left: 3px solid var(--accent-soft); font-size: .88rem; color: var(--muted); }
+.device-rule .learn-link { white-space: nowrap; }
+.hint-step .gives { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; }
+/* The precise (compound) clue type — named only once the family, definition and
+   indicators have already been given away. Quieter than the prose above it. */
+.hint-step .mechanism { font-size: .8rem; color: var(--muted); }
+/* The newcomer's line, directly above the buttons it is about. Quiet on
+   purpose: it is not a step of the ladder and must not read as one, so no card,
+   no border box and no colour of its own — a rule down the side, the muted text
+   the rest of the panel uses for asides, and it is gone for good after the
+   first hint. See NUX_LINES in app.js for when each one is spent. */
+/* The welcome modal: step one of the same cursor the .nux lines are, drawn as a
+   dialog instead of a line because it is the only one that has to be read BEFORE
+   the grid, and the panel it would otherwise sit in is below the fold on a
+   phone. Fixed and centred over a scrim, so there is nothing else to look at and
+   nothing to scroll past — the two buttons are the only way out. */
+.welcome {
+  position: fixed; inset: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: rgba(0,0,0,.45);
+  overflow: auto;
+}
+.welcome-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.35);
+  padding: 18px 20px; width: min(30em, 100%); max-height: 100%; overflow: auto;
+}
+.welcome-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.welcome-card p { margin: 8px 0; }
+/* The worked example is the whole point of the dialog — a rule of prose about
+   definitions teaches nobody, one clue taken apart teaches everybody — so it is
+   the one block with a box of its own. */
+.welcome-eg {
+  margin: 12px 0; padding: 10px 12px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+}
+.welcome-eg .eg-clue { margin: 0 0 8px; font-size: 1.05rem; }
+.welcome-eg .eg-hit u { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.welcome-eg ul { margin: 0; padding-left: 1.1em; }
+.welcome-eg li { margin: 3px 0; font-size: .9rem; color: var(--muted); }
+.welcome-do { margin-top: 14px; }
+/* The call to action is the one button on the site that has to be pressed, so it
+   is the one button that does not look like the toolbar. */
+.welcome-cta { font-size: 1rem; padding: 10px 16px; background: var(--accent); color: var(--card); border-color: var(--accent); }
+
+/* The rung the welcome dialog just promised. Pulses only while the first-grid
+   cursor is on the ladder line and only on the rung that line is about: the
+   dialog says "take the first one", and on a phone the solver arrives at a row
+   of five identical buttons with no idea which. Stops for good at the first
+   hint, like every other part of this. */
+.rung-point { box-shadow: 0 0 0 0 var(--accent); animation: rung-point 1.8s ease-out 3; }
+@keyframes rung-point {
+  0% { box-shadow: 0 0 0 0 rgba(120,120,120,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(120,120,120,0); }
+  100% { box-shadow: 0 0 0 0 rgba(120,120,120,0); }
+}
+@media (prefers-reduced-motion: reduce) { .rung-point { animation: none; } }
+
+/* The walk pointing INSIDE a question, and at the empty squares once the pieces
+   are out. It keeps a steady ring as well as the pulse, and the pulse does not
+   stop: the line beside it says to tap what is lit up, and a pointer that times
+   out after three beats leaves that sentence pointing at nothing. */
+.walk-point { outline: 2px solid var(--accent); outline-offset: 1px;
+  box-shadow: 0 0 0 0 var(--accent); animation: rung-point 1.8s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .walk-point { animation: none; } }
+
+/* The scrim, cut through at one control. A huge spread rather than four edge
+   divs: one box, no seams, and it follows the rung with a single rect. It never
+   takes a tap — the press it is asking for has to reach the button under the
+   hole — so it is out of hit testing entirely, like the .nux line below. */
+.spotlight {
+  /* Absolute, in page coordinates, so the hole is welded to the thing it is
+     pointing at: a fixed hole has to be redrawn on every frame of a scroll,
+     and the frame it misses is the one where it sits over the wrong row. The
+     shadow is spread far enough to darken any viewport the page can show. */
+  position: absolute; z-index: 50;
+  border-radius: 10px; pointer-events: none;
+  outline: 2px solid var(--accent);
+  box-shadow: 0 0 0 9999px rgba(0,0,0,.55);
+}
+
+/* The walk's sentence, beside the hole rather than inside it. What is being
+   pointed at can be anywhere on the page — the squares to type into are
+   nowhere near the panel the line lives in — and one hole big enough to hold
+   both is the whole screen, which lights nothing. It rides the spotlight, so
+   it paints over the scrim without needing a z-index the panel cannot give it,
+   and it flips above the hole when the hole is near the foot of the screen. */
+.spot-say {
+  position: absolute; left: 0; top: 100%; margin: 8px 0 0;
+  min-width: 14em; max-width: 24em; padding: 7px 10px;
+  border-radius: 8px; border-left: 2px solid var(--accent);
+  background: var(--card); color: var(--fg);
+  font-size: .85rem; line-height: 1.35; text-align: left;
+  box-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+.spotlight.say-above .spot-say { top: auto; bottom: 100%; margin: 0 0 8px; }
+/* One sentence, one place. While the spotlight is saying it this line holds no
+   words at all (see sayIt in app.js) — the words themselves are never in two
+   nodes at once, so no stylesheet can be the thing standing between the solver
+   and reading the instruction twice. What is left here is an empty box with a
+   border down its left, and that is what this hides. */
+.nux.in-spot { display: none; }
+
+.nux {
+  margin: 10px 0 0; padding: 2px 0 2px 10px;
+  border-left: 2px solid var(--accent);
+  font-size: .85rem; color: var(--muted); max-width: 46em;
+  /* Nothing here is tappable, and a tap that landed on it would blur #kbd — the
+     keyboard leaving reflows the viewport just as the next rung opens, which is
+     the flash every other thing in this panel wires a mousedown keeper against.
+     Out of hit testing entirely is the version with no hazard to keep: a tap
+     passes through to the panel, exactly as a tap beside the line already does. */
+  pointer-events: none;
+  animation: nux-in var(--mo-in) var(--mo-ease) both;
+}
+@keyframes nux-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .nux { animation: none; } }
+#hint-next { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+/* A flex item is squeezed before the strip wraps, so the longest label breaks
+   across two lines inside its own box while the box beside it keeps its room —
+   "What kind of clue is this?" read as two lines on an iPad. A button is the
+   width of its words: the strip wraps instead. Same rule for the letter chunks
+   of the matching question, which are a fixed width each. */
+#hint-next button, .gm-chips .gc { flex: 0 0 auto; }
+/* Once the clue is solved the rest of the ladder costs nothing. The decision to
+   open one is made at the button, so the button has to be the thing that says
+   so — the meter line above it was already saying it and was still being missed. */
+#hint-next button.free { border-color: var(--ok); color: var(--ok); }
+#hint-escape { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: .8rem; }
+#hint-escape:empty { display: none; }
+#hint-escape button { color: var(--muted); }
+#hint-escape button:hover { color: var(--fg); }
+#hint-escape .blog-link { display: inline-block; margin: 4px 0 0 6px; color: var(--muted); }
+#hint-escape .blog-link:hover { color: var(--fg); }
+/* In the strip, in place of the button that opened it — reporting a bad hint
+   must not cost a panel, a page or an address to write to. But it is still a
+   sentence about what went wrong, so it gets the full width of the strip and
+   two lines to start with, and grows from there (app.js) up to this cap. Both
+   ends of that have been wrong in a day — one line was "comically small", four
+   was "too big" — so the box is small at rest and only the typing enlarges it. */
+.rp-note {
+  display: block; width: 100%; box-sizing: border-box; margin: 6px 0;
+  font: inherit; font-size: .85rem; line-height: 1.45; padding: 8px 10px;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--fg);
+  resize: vertical; max-height: 160px; overflow: auto;
+}
+#hint-next button { border-color: var(--accent); color: var(--accent); background: transparent; }
+#hint-next button:hover { background: var(--accent-soft); }
+/* The rungs you can skip ahead to. Deliberately quieter than the next one: the
+   ladder's order is still the advice, this is just the door out of it. */
+#hint-next button.ghost { border-color: var(--line); color: var(--muted); }
+#hint-next button.ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* Rungs from a later tier: visible so the ladder's shape is legible, disabled
+   because they give away the ones above them. Shown rather than hidden — a
+   button that appears out of nowhere reads as a glitch, one that unlocks reads
+   as progress. */
+#hint-next button.locked, #hint-next button.locked:hover {
+  border-color: var(--line); color: var(--muted);
+  opacity: .45; cursor: not-allowed; background: transparent;
+}
+
+/* Pointing at the words before the rung points at them. The clue is reprinted
+   as buttons rather than the marked-up copy above being made tappable, because
+   that copy already carries the setter's italics and every highlight bought so
+   far — a word there is three things at once, and a fourth would be one too
+   many. Down here it is only ever "picked" or "not". */
+/* One line-height for the clue in every state it is ever in. Grading swaps the
+   markup underneath these words, and any metric that differs between the two
+   forms re-wraps the whole clue at the moment the solver is trying to read what
+   changed. Nothing below may override it. It is the same token .hint-clue is
+   set from — the copy nested inside it and the standalone copy a linked clue
+   gets are the same sum, so there is no second number to keep in step. */
+.guess-clue { line-height: var(--gw-line); }
+/* The question appears in the panel BELOW while the thing to tap is the clue
+   ABOVE it, so nothing on screen moves at the place the solver has to act. One
+   flash when picking begins, sending the eye up to the line that just became
+   interactive. It fires once because the class goes on the
+   element rather than into the markup setHTML rewrites, so a re-render mid-guess
+   does not restart it. */
+.hint-clue.picking {
+  border-radius: 6px; animation: clue-live var(--mo-pulse) var(--mo-ease) 1;
+}
+@keyframes clue-live {
+  0%   { box-shadow: 0 0 0 0 var(--accent-soft); }
+  35%  { box-shadow: 0 0 0 6px var(--accent-soft); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .hint-clue.picking { animation: none; } }
+/* A word you point at wears the colour of the thing you are pointing it out AS:
+   green on the definition rung because a definition is green everywhere else on
+   the page, pink on the others because that is what an indicator and a wordplay
+   fragment wear. Picking used to have its own neutral accent,
+   which taught one colour for "I chose this" and a different one for the thing
+   just correctly chosen. The site has exactly these two highlight colours; the
+   picker must not invent a third. */
+.guess-clue { --pick-bg: var(--ind-bg); --pick-fg: var(--ind-fg); }
+.guess-clue.pick-definition { --pick-bg: var(--def-bg); --pick-fg: var(--def-fg); }
+/* Dragging across the words picks the run under the finger, so the browser must
+   not read the same gesture as selecting text. pan-y rather than none: a drag
+   that starts on a word still has to be able to scroll the page. */
+.guess-clue { -webkit-user-select: none; user-select: none; }
+/* Except at rest (see .gw.still below): nothing is being dragged there, so the
+   clue reads as a normal sentence and can be selected and copied like one. */
+.guess-clue.still { -webkit-user-select: text; user-select: text; }
+.guess-clue .gw { touch-action: pan-y; }
+/* Every property that decides the box, set the same for every form a word
+   takes: a <button> while it is tappable, a <span> once it has been graded,
+   and a <span> again — .gw.still — for the ordinary case of nothing being
+   asked about it yet. A UA stylesheet dresses a button and a span very
+   differently, and an unset property here is paid either in the words
+   shuffling on the tap that grades them or in the whole clue reflowing the
+   moment picking starts or ends. */
+.gw {
+  display: inline-block; box-sizing: border-box; vertical-align: baseline;
+  -webkit-appearance: none; appearance: none;
+  font: inherit; line-height: 1.35; text-align: center;
+  /* A hairline down, and across a box that paints wider than it measures. Room
+     MEASURED here is added to the clue AT REST, because the box is carried in
+     every state, visible or transparent: across it lands in the gap between two
+     words and the clue stops reading as a sentence, and down it is worse still,
+     since this box is the floor of the clue's line box (see --gw-box) and a
+     pixel added for a thumb is a pixel of white between two lines of a clue that
+     wrapped, which no line-height takes back. So the horizontal room is given
+     straight back as margin — the same trick the band's seam uses below — and
+     the border sits 4px off its word without a glyph moving. Down there is no
+     such trick, so a hairline is the whole budget: grow the target by growing
+     --gw-box, which grows the leading with it, on purpose. */
+  padding: 1px 4px; margin: 0 -4px;
+  background: transparent; border: 1px solid var(--line); border-radius: 4px;
+}
+/* A hairline in --line is the border every inert box on the page wears, so an
+   untapped word read as a box rather than as a target. Only the ones that are
+   actually buttons get the dashed rule in the rung's own colour: .gw is also
+   rendered as a <span> once the guess has been graded, and a graded word must
+   not still look like something to press. */
+button.gw { border-style: dashed; border-color: var(--pick-fg); }
+/* This sentence is the only thing that says WHERE to act, and it was muted grey
+   — the page's styling for an aside. It is the instruction. */
+.tap-hint { color: var(--accent); font-weight: 600; }
+.gw.on { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
+/* A word an earlier rung already named. Still there — knowing where the
+   definition ends is most of knowing where the wordplay starts — but plainly not
+   one of the things being asked about: no border to read as a target, and
+   dimmed, so what is left to choose from is what stands out. */
+.gw.known {
+  border-color: transparent; color: var(--muted); opacity: .75;
+}
+/* The clue at rest, nothing currently asked: still one .gw box per word — same
+   padding, same margin, same border WIDTH as a picking button — just an inert
+   one, so nothing about the clue's own shape has to change the moment picking
+   starts. A transparent border, not no border, is what makes that true. */
+.gw.still { border-color: transparent; }
+/* While the free wheel is open the resting words are its picker: a word whose
+   letters are in the ring is drawn selected, the others stay plain. */
+button.gw.still { cursor: pointer; }
+button.gw.still:hover { border-color: var(--pick-fg); }
+.gw.still.on { border-color: var(--pick-fg); }
+
+/* The seven families, offered whole and in ladder order under every clue that
+   asks: the list IS the vocabulary the site teaches, so it is the same list
+   every time and never narrowed to the plausible ones. The tap is the answer,
+   so they are targets before they are anything else.
+
+   Two columns, not one row. The seven labels come to 92 characters and two of
+   them run past 28, so one row needs roughly 740px of strip — wider than any
+   panel this site draws. Sizing the type off the width could not win that: it
+   bottomed out at its .7rem floor AND wrapped anyway, leaving "&lit" alone on a
+   line of its own. A grid cannot orphan a chip, because the cells
+   are equal and aligned whatever is in them, and an odd last chip takes the
+   whole width instead of sitting by itself in column one. The type is a plain
+   readable size now that no layout depends on it. */
+.guess-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 0; }
+.guess-choices .gc:last-child:nth-child(odd) { grid-column: 1 / -1; }
+/* A long label breaks inside its own cell, which is what the equal columns buy:
+   a broken label no longer costs the chip beside it any room. */
+.gc { padding: 8px 10px; font-size: .95rem; line-height: 1.25; }
+/* Vertical only. The touch target has to stay ~38px tall, but every pixel of
+   side padding is two off the column. */
+@media (pointer: coarse) { .gc { padding: 10px 10px; } }
+
+/* The chunks of the matching question are three or four uppercase letters, not
+   sentences, so they keep the wrapping strip: a two-column grid would give "F"
+   half the panel. */
+.gm-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+.gm-chips .gc { white-space: nowrap; font-weight: 600; letter-spacing: .04em; }
+/* A placed chunk keeps its space so the strip never moves under the finger. */
+.gm-chips .gc.spent { visibility: hidden; }
+
+/* The matching question: one row per fragment of the clue, each with an empty
+   slot, and the letter chunks on the strip below. A chunk is picked up, then
+   dropped on a row; tapping a filled row puts it back. Both halves are real
+   buttons, so both are reachable by keyboard and both carry a touch target. */
+.gm-rows { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.gm-slot {
+  width: 100%; text-align: left; padding: 8px 10px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+}
+/* An empty slot is where the work is, so it is the one that looks unfinished;
+   a filled one settles down and stops asking. */
+.gm-slot:not(.on) .gives { color: var(--muted); }
+.gm-slot.on { border-color: var(--accent); }
+/* A row tapped first is holding its place until a chunk arrives — the same
+   picked-up look the chunk itself wears, because it is the same held state. */
+.gm-slot.armed { border-color: var(--accent); background: var(--accent-soft); }
+/* The chunk in hand. It is the only state on the strip, and the only thing the
+   eye has to carry from the first tap to the second. */
+.gc.on { border-color: var(--accent); background: var(--accent-soft); }
+
+/* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
+   which words is the whole lesson — so the ones that were right keep the colour
+   they were picked in, the spares strike through and step back, and the ones
+   that were missed arrive a beat later so the eye is free to follow them.
+   These are entrances, not a slot to read in: the marked clue stays put.
+   Every animation here is scoped to .fresh, which the verdict wears only on the
+   draw that first shows it: the panel is rewritten on every keystroke and every
+   selection, and an entrance that replays on each one is a fidget, not an
+   entrance. */
+.gw.hit { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
+.guess-result.fresh .gw.hit { animation: gw-hit var(--mo-in) var(--mo-ease); }
+.gw.spare { opacity: .45; text-decoration: line-through; }
+.gw.missed { border-color: var(--pick-fg); border-style: dashed; color: var(--pick-fg); }
+.guess-result.fresh .gw.missed { animation: gw-missed var(--mo-in) var(--mo-ease) var(--mo-beat) both; }
+@keyframes gw-hit {
+  from { transform: scale(1); }
+  45%  { transform: scale(1.14); }
+  to   { transform: scale(1); }
+}
+@keyframes gw-missed { from { opacity: .2; } to { opacity: 1; } }
+/* Scoped to match the rules above, or it loses to them on specificity. */
+@media (prefers-reduced-motion: reduce) {
+  .guess-result.fresh .gw.hit, .guess-result.fresh .gw.missed { animation: none; }
+}
+
+.guess-actions { margin-top: 8px; }
+/* The thing to do here, and it read as one of three equal outlines next to
+   "Just tell me" and the word buttons above it. Filled, so there is exactly one
+   place the eye lands. */
+button.primary {
+  background: var(--accent); border-color: var(--accent);
+  color: var(--card); font-weight: 600; padding: 8px 16px;
+}
+button.primary:hover { border-color: var(--accent); filter: brightness(1.12); }
+button.primary:disabled { background: transparent; color: var(--muted); border-color: var(--line); }
+/* The verdict, immediately above the rung it judged. Right is stated in the
+   definition's own colour, because being right about where the definition sat
+   is the thing the colour has meant all along. A miss is not coloured at all:
+   it is a step in the lesson, not an error state. */
+.guess-result { margin-top: 12px; }
+.guess-result .guess-clue { margin: 4px 0 0; }
+/* The graded clue travels from the bottom of the panel, where the question was,
+   up to the rung it judged — see flipPlay. The transform is set inline; this is
+   only here to say the element is expected to move. */
+.guess-clue { will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .guess-clue { will-change: auto; } }
+/* Which way it went has to land before the sentence is read: a colour change on
+   one line of small text is easy to miss, and on the type rung the sentence is
+   the whole verdict — there are no words to mark up underneath it. So right
+   arrives, and a miss shakes its head. A miss still isn't coloured; the motion
+   says it instead. */
+/* And it has to be FOUND before it can be read. It was .9rem — smaller than the
+   body text it was announcing a result to — so the eye was not drawn to the
+   right verdict when it appeared. The answer is not another
+   animation: the marked clue is travelling at that moment and motion beside
+   motion is a race. It is size and a shape — the right verdict is an object on
+   the page, in the definition's own tint, not a coloured line of small print. */
+.guess-verdict { margin: 10px 0 2px; font-size: 1.05rem; }
+/* A block that shrinks to its text, NOT an inline-block. The pill was sitting in
+   a line box, so it was aligned on a baseline it did not share with anything and
+   carried a strip of leading under it that belonged to text that was not there —
+   the gap above it and the gap below it were different sizes for no reason the
+   page could show you. A block has no line box and no
+   baseline to answer to, and fit-content keeps it the width of the sentence. */
+/* The radius is one line tall, not 999px. A pill's radius is half its height,
+   so on the two-line verdicts — a compound clue's "yes, and it is also this" is
+   two sentences — a 999px corner curved in far enough to sit under the words.
+   1em curves the ends of a single line exactly as before and
+   stops growing when the sentence wraps. */
+.guess-verdict.right {
+  width: fit-content; color: var(--def-fg); font-weight: 700; line-height: 1.4;
+  background: var(--def-bg); padding: 6px 12px; border-radius: 1em;
+}
+/* A miss stays plain and stays quiet: it is a step in the lesson, not an error
+   state, and it must never be the loudest thing in the panel. */
+.guess-verdict.miss { color: var(--muted); font-size: .95rem; }
+.guess-result.fresh .guess-verdict.right { animation: gv-right var(--mo-in) var(--mo-ease); }
+.guess-result.fresh .guess-verdict.miss { animation: gv-miss var(--mo-in) var(--mo-ease); }
+@keyframes gv-right {
+  from { opacity: 0; transform: translateY(6px) scale(.96); }
+  60%  { opacity: 1; transform: translateY(0) scale(1.05); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes gv-miss {
+  0%, 100% { transform: none; }
+  20% { transform: translateX(-5px); }
+  45% { transform: translateX(4px); }
+  70% { transform: translateX(-2px); }
+}
+/* The words you picked that weren't in it: they step back rather than being
+   found already stepped back, so the eye can see which ones went. */
+.guess-result.fresh .gw.spare { animation: gw-spare var(--mo-in) var(--mo-ease) both; }
+@keyframes gw-spare { from { opacity: 1; } to { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) {
+  .guess-result.fresh .guess-verdict.right, .guess-result.fresh .guess-verdict.miss,
+  .guess-result.fresh .gw.spare { animation: none; }
+}
+
+mark.def { background: var(--def-bg); color: var(--def-fg); padding: var(--band-pad) 2px; border-radius: 3px; }
+/* second half of a double definition — same family, distinguishable */
+mark.def2 {
+  background: var(--def-bg); color: var(--def-fg); padding: var(--band-pad) 2px; border-radius: 3px;
+  box-shadow: inset 0 -2px 0 var(--def-fg);
+}
+mark.ind { background: var(--ind-bg); color: var(--ind-fg); padding: var(--band-pad) 2px; border-radius: 3px; }
+/* One word doing both jobs: its own indicator AND the definition. The
+   indicator's colour carries the word; the definition shows underneath it. */
+mark.def.ind { background: var(--ind-bg); color: var(--ind-fg); box-shadow: inset 0 -3px 0 var(--def-bg); }
+/* link words carry no wordplay, so they are marked by absence — greyed and
+   struck through rather than coloured like the parts that do work */
+mark.link {
+  background: none; color: var(--muted); padding: 0 1px;
+  text-decoration: line-through; text-decoration-color: var(--line);
+}
+/* Everywhere but the picker a mark is one element around a whole phrase, and the
+   padding and rounding above make it a pill. The picker prints the clue a word
+   at a time — a .gw box per word, the spaces between them marked up on their own
+   (see pickableClueHTML) — so ONE marked run arrives there as a piece per word
+   and a piece per space. A pill per piece paints a run as a row of beads. In
+   there a mark is a fragment of a band, not a pill: it paints edge to edge, and
+   only the run's two ends, which markUp names with data-edge, are rounded.
+
+   Class-agnostic on purpose, and it must stay below the pill rules it undoes:
+   the two selectors weigh the same, so source order is what decides, and a mark
+   class added later has to arrive already banded rather than beaded.
+
+   A piece keeps the pill's room on all four sides; what it must not keep is the
+   WIDTH. Padding on an inline box is width, and width on every piece is the gap
+   that beaded the run in the first place — so the sides are handed straight back
+   as margin. The colour then paints --band-pad past each piece into its
+   neighbours', which is what makes a run read as one long pill, while the clue
+   measures exactly as it does with no mark on it at all. That overlap is also
+   what carries the band under the 1px border every .gw wears, across the marked
+   space between two words included, so --band-pad has to stay the wider of the
+   two or the run is beaded again at hairline width. The chips are lifted above
+   it — a positioned element paints after its unpositioned siblings — so a picked
+   word's coloured border still draws ON TOP of the band instead of being painted
+   out by it. */
+.guess-clue mark {
+  padding: var(--band-pad); margin: 0 calc(-1 * var(--band-pad)); border-radius: 0;
+}
+.guess-clue mark[data-edge~="start"] { border-radius: 3px 0 0 3px; }
+.guess-clue mark[data-edge~="end"] { border-radius: 0 3px 3px 0; }
+.guess-clue mark[data-edge~="start"][data-edge~="end"] { border-radius: 3px; }
+.guess-clue .gw { position: relative; }
+/* A highlight fades in rather than snapping on. Taking a rung repaints the
+   clue, and the coloured span appearing at full strength — padding and all —
+   reads as the line jumping under the words being read — when the definition
+   gets bigger, animate it, not just the mark. The marks are
+   new elements every time the clue is rewritten, so this fires exactly when the
+   markup changed: setHTML() declines to write markup identical to what is
+   already there, which is what keeps an idle re-render from replaying it. */
+.hint-clue.marks-new mark { animation: mark-in var(--mo-in) var(--mo-ease) both; }
+@keyframes mark-in { from { background-color: transparent; color: inherit; box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { .hint-clue.marks-new mark { animation: none; } }
+
+/* What solvers thought of it, under the ladder once the answer is out and under
+   the tally when the grid is finished. Quiet on purpose: it is the last line of
+   a panel somebody opened for help, and a bright call to action there reads as
+   being sold something at the end of a lesson. */
+.vote-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line);
+  font-size: .9rem;
+}
+.vote-ask, .vote-mine { color: var(--fg); }
+.vote-said { color: var(--muted); font-size: .85rem; }
+/* Unlike the row inside a hint panel — which is deliberately quiet, because a
+   bright call to action at the end of a lesson reads as being sold something —
+   this one is the only question the page ever asks, and small ghost buttons
+   under a muted tally look like a caption. It gets the room and the weight of
+   an actual question.
+   It stays on the panel's left edge, because the shout and the tally above it
+   are left-aligned paragraphs: a centred row under them is the only thing in
+   the box not lined up with anything. */
+#celebrate .vote-row {
+  border-top: 1px solid var(--line);
+  margin-top: 16px; padding-top: 14px; font-size: 1rem;
+}
+#celebrate .vote-ask { font-weight: 600; }
+#celebrate .vote-btn { font-size: .95rem; padding: 8px 16px; border-width: 2px; }
+#celebrate .vote-btn:first-of-type { border-color: var(--accent-soft); }
+
+.legend { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+/* why a definition may fairly disagree with the answer's number or part of speech */
+.def-note {
+  font-size: .85rem; color: var(--muted);
+  border-left: 3px solid var(--line); padding-left: 9px; margin: 6px 0 0;
+}
+/* why the answer actually means the definition — the last thing read before the
+   answer itself, so it is emphasised rather than muted like the footnotes. */
+.def-fit { margin: 8px 0 0; }
+
+/* The rung is called "Full walkthrough" and arrives as three unannounced
+   paragraphs, so a reader cannot tell which question each one answers. These
+   name them. Small and muted: they are signposts to read past, not headings —
+   the sentence after each one is the content. */
+.wt-part {
+  display: block; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1px;
+}
+
+/* ---------- the lesson, at /learn/ ---------- */
+/* Its sections land as h2, which .static-main already styles; these are the
+   subsections and the worked examples inside them. */
+.tutorial-static h3 { margin: 20px 0 4px; }
+.tutorial-static .mini {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 12px; margin: 6px 0 14px; font-size: .95rem;
+}
+.tutorial-static .mini .clue { font-style: italic; }
+.tutorial-static table { border-collapse: collapse; font-size: .9rem; margin: 6px 0 12px; }
+.tutorial-static td, .tutorial-static th {
+  border: 1px solid var(--line); padding: 3px 10px; text-align: left;
+}
+/* /difficulty/'s charts, inline SVG drawn by tools/build_seo_pages.py. */
+.chart { margin: 10px 0 18px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--muted); font-size: 11px; font-family: inherit; }
+.chart text.big { fill: var(--fg); font-size: 13px; font-weight: 700; }
+.chart .bar, .chart .dot { fill: var(--accent); }
+.chart .dot { opacity: .45; }
+.chart .band { fill: currentColor; opacity: .8; }
+.chart .axis { stroke: var(--line); stroke-width: 1; }
+.chart figcaption { color: var(--muted); font-size: .82rem; margin-top: 4px; }
+/* The hub's per-series difficulty strip: small, one per section. */
+.chart.strip { margin: 6px 0 8px; max-width: 420px; }
+.chart.strip text { font-size: 10px; }
+.chart .median { stroke: var(--fg); stroke-width: 2; }
+/* /progress/: one colour per phase, for its bars, lines and table key. */
+.ph-known { color: #8a8478; }
+.ph-filed { color: #a3541b; }
+.ph-solved { color: #14608a; }
+.ph-hinted { color: #2f7d52; }
+.ph-queued { color: #a8841a; }
+.ph-backlog { color: #7a4a9a; }
+@media (prefers-color-scheme: dark) {
+  .ph-known { color: #9c968a; }
+  .ph-filed { color: #e39055; }
+  .ph-solved { color: #6cb6e0; }
+  .ph-hinted { color: #6fc48f; }
+  .ph-queued { color: #e0c060; }
+  .ph-backlog { color: #b88ad6; }
+}
+.chart rect[class^="ph-"] { fill: currentColor; }
+.chart .track { fill: var(--line); opacity: .6; }
+.chart .grid { stroke: var(--line); stroke-width: 1; opacity: .6; }
+.chart .line { fill: none; stroke: currentColor; stroke-width: 2.2; }
+.chart text.key { fill: currentColor; font-weight: 700; }
+.chart .pace { stroke: var(--fg); stroke-width: 1.2; stroke-dasharray: 4 3; opacity: .7; }
+.chart a.row { cursor: pointer; }
+.chart a.row .hit { fill: var(--fg); opacity: 0; }
+.chart a.row:hover .hit, .chart a.row:focus .hit { opacity: .06; }
+.chart a.row text[text-anchor="end"] { fill: var(--accent); }
+.chart a.row:hover text[text-anchor="end"] { text-decoration: underline; }
+.progress-table th, .progress-table td { padding: 3px 6px; }
+@media (max-width: 520px) {
+  .progress-table { font-size: .78rem; width: 100%; }
+  .progress-table th, .progress-table td { padding: 3px 4px; }
+  .progress-table .wide { display: none; }
+}
+.key-dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%;
+  background: currentColor; margin-right: .4em; }
+.tutorial-static code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
+
+/* The glossary is long on purpose — it is a lookup table, not a lesson, and a
+   solver arrives at it holding one word. Word plain, letters loud, so the eye
+   runs down the column it came for. */
+.glossary-jump { font-weight: 700; word-spacing: .4em; }
+.glossary-families { margin: 4px 0 12px; font-size: .9rem; }
+.glossary-families > div { margin: 0 0 8px; }
+.glossary-families dt { font-weight: 700; }
+.glossary-families dd { margin: 0; line-height: 1.7; }
+.glossary-families strong { color: var(--def-fg); }
+dl.glossary { columns: 13em; column-gap: 24px; font-size: .88rem; margin: 4px 0 12px; }
+dl.glossary > div { break-inside: avoid; display: flex; gap: 8px; padding: 1px 4px;
+  scroll-margin-top: 80px; }
+dl.glossary dt { margin: 0; }
+dl.glossary dd { margin: 0 0 0 auto; text-align: right; font-weight: 700; color: var(--def-fg); }
+/* A reading's clue count: beside the letters, quieter than them. */
+.glossary-families .n, dl.glossary .n, .glossary-common .n { font-weight: 400; font-size: .85em; }
+.glossary-common { font-size: .9rem; line-height: 1.7; }
+.glossary-common strong { color: var(--def-fg); }
+/* Linked to from a hint, which arrives at one row in a thousand. The browser
+   scrolls it into view; :target is what makes it findable once you are there. */
+dl.glossary > div:target { background: var(--accent-soft); outline: 2px solid var(--accent); }
+/* A block's letters, when the glossary can explain them. Dotted rather than a
+   link's solid underline: it is an offer to look something up, not the next
+   thing to do, and it sits inside a list the solver is reading. */
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent); text-underline-offset: 3px; }
+
+footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; }
+
+/* Tablets sat in the desktop two-column layout and it never fitted. The left
+   column's basis is 640px, but at 768-1024px it shrinks to ~430-600px while the
+   grid still lays out 15 cells at the 40px cap — 619px — so the grid overflowed
+   its own column AND the hint panel, the part you actually read, was squeezed
+   into a little over half the width. Two columns only earn their keep once the
+   left column can hold a full-size grid at its full basis (640 + 380 + gap +
+   padding = 1078px); below that they cost more than they give. Stacking hands
+   the current clue and its hints the whole width instead of 56% of it, and the
+   type goes up with the measure — a wider column with the same 1.02rem clue
+   would just be a longer line to squint at. */
+@media (max-width: 1079px) {
+  .left-col, .clues-col { flex: 1 1 100%; }
+}
+
+/* How BIG things are is a different question from how many columns fit, and
+   bundling the two under one width query made an iPad shrink when you turned it
+   to the wider side: portrait is 820px so it stacked and got 56px cells and
+   tablet type, landscape is 1180px so it fell through to the desktop rules and
+   drew 40px cells at desktop type — the grid and the clue both got smaller on
+   the bigger screen.
+   Columns are a width question and stay above. Size is a question about the
+   hand holding the device, so it asks about the pointer instead, and a touch
+   screen keeps touch sizing at every width and in both orientations. */
+@media (max-width: 1079px), (pointer: coarse) {
+  /* Once the column is the whole screen the 40px desktop cap leaves the grid
+     floating in dead space — 619px of crossword in 788px of iPad. Let the cells
+     grow into the width they now have; bigger squares are also better targets
+     for a finger than for a mouse. Still capped, or a stacked landscape tablet
+     would draw 65px cells. */
+  #grid, .bg-grid { --cellcap: 56px; }
+  /* Touch targets. .tool is 4px/.8rem — about 26px tall, which is fine under a
+     cursor and mean under a thumb. */
+  .toolbar { gap: 8px; }
+  .tool { font-size: .88rem; padding: 8px 14px; }
+  #hint-next { gap: 10px; }
+  #hint-next button, #hint-escape button { font-size: .95rem; padding: 9px 14px; }
+  /* Same reasoning as .tool, and it matters more here: this strip is how you pick
+     the square you are typing into, so it gets tapped far more often than any
+     button on the page. 1.35rem carries the em box to ~38x43px, at the iOS
+     minimum. A 15-letter entry is then ~660px, which still fits the stacked
+     column. */
+  .pat-box {
+    font-size: 1.35rem;
+    font-size: clamp(.85rem, calc((100cqw - (var(--n, 1) - 1) * 5px - var(--w, 0) * 15px) / var(--n, 1) / 1.72), 1.35rem);
+  }
+  .pat-boxes, .pat-word { gap: 5px; }
+  .pat-word.brk-space { margin-right: 13px; }
+  .pat-sep { font-size: 1.35rem; }
+  #hint-panel { padding: 14px 18px; }
+  #hint-meter { font-size: .85rem; }
+  /* The clue itself wants every pixel — it is one line and it is the thing being
+     read. The walkthrough prose does not: stacked on a landscape tablet the panel
+     is ~990px, which at this size is a 95-character line, and long measures are
+     the other way text gets hard to read. Cap the paragraphs, not the panel. */
+  .hint-step p, .hint-step ul { font-size: 1.08rem; max-width: 64ch; }
+  .hint-step .mechanism { font-size: .9rem; }
+  .def-note { font-size: .95rem; }
+  .clue-list ol { font-size: 1.14rem; }
+}
+
+/* Phone: no cap at all, the grid takes the column. 999px is "uncapped" — min()
+   has no identity value and --cellcap has to stay a length.
+
+   Asked of the CONTAINER, not the window, because the cap and --gridspace have
+   to be decided by the same ruler. As a @media (max-width: 700px) rule it was a
+   second ruler, and on a resume the two disagreed for a frame: iOS reported the
+   window narrow while 100cqi already resolved against the full-width column, so
+   the grid drew uncapped at ~78px cells and then snapped back to 56 — huge,
+   then shrinking to the right size, when switching back to the installed
+   app from the home screen. One ruler cannot disagree with itself. Still gated on a
+   coarse pointer: a desktop .left-col is 640px, narrower than this, and its
+   40px cap is deliberate. */
+@media (pointer: coarse) {
+  @container (max-width: 700px) { #grid, .bg-grid { --cellcap: 999px; } }
+}
+
+/* Two columns, but on a touch screen. .left-col does not grow on the desktop —
+   640px holds a 15x40px grid exactly and the spare width is better spent on the
+   clue list. With touch-sized cells that stops being true: an iPad in landscape
+   is 1180px, of which the grid was given 640 and the clue list 482, so the cells
+   came out at 41px against portrait's 52 no matter how high the cap went. The
+   grid is the thing being poked at, so here it takes the slack. */
+@media (pointer: coarse) and (min-width: 1080px) {
+  .left-col { flex: 1 1 640px; }
+}
+
+.clue-strip { display: none; }
+@media (max-width: 700px) {
+  body { padding: 0 8px 40px; }
+  /* Six touch-sized buttons do not fit one phone line, and once the row wraps
+     there is no slack left to push anything into: `margin-left: auto` would
+     only strand the divider at the end of whichever line it landed on. Back to
+     a plain divider — at this width the two groups are separated by being on
+     different lines, which is the same job done by the wrap. */
+  .toolbar-gap { margin: 0 3px; }
+  .layout { gap: 10px; }
+  /* The clue panel is below the grid and the fold; this line is the selected
+     clue where the eye already is. */
+  .clue-strip { display: block; margin: 0 0 6px; font-size: 1.05rem; line-height: 1.3; }
+  .clue-strip:empty { display: none; }
+  .clue-strip b { margin-right: .3em; color: var(--accent); }
+}
+
+/* ---------- wide screens: one fixed frame, no page scroll ----------
+   Built for a full-screen browser on a 1080p video (Cracking the Cryptic: ~125%
+   zoom, a 1536x864 CSS viewport) but right for any landscape screen this size.
+   The puzzle fills the window under the header: the grid is sized to the HEIGHT
+   it has, the current clue and its hints sit under the clue lists on the right,
+   and each list scrolls on its own, so nothing the solver is reading moves when
+   the page does. The bottom-left corner holds nothing but the grid itself — a
+   webcam overlay lives there — so the check buttons ride above the clue lists.
+   Columns are a width question, so this asks about width and shape, never the
+   pointer; the sizes inside stay in the touch rules above. app.js writes --rows,
+   --cols and --lay-top (how far down the page the puzzle starts). */
+@media (min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px) {
+  body { max-width: none; padding: 0 28px 48px; }
+  #app .layout {
+    --wide-cap: calc((100dvh - var(--lay-top, 150px) - 16px) / var(--rows, 15) - 1px);
+    --wide-col: min(calc(var(--cols, 15) * (var(--wide-cap) + 1px) + 4px), 52%);
+    display: grid; gap: 8px 28px; align-items: stretch;
+    grid-template-columns: var(--wide-col) minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    height: calc(100dvh - var(--lay-top, 150px) - 8px); min-height: 480px;
+  }
+  #app .left-col { display: contents; }
+  #grid-wrap { grid-column: 1; grid-row: 1 / -1; align-self: start; }
+  #grid { --cellcap: var(--wide-cap); }
+  .toolbar { grid-column: 2; grid-row: 1; margin: 0; gap: 10px; font-size: .95rem; }
+  .tool { font-size: .95rem; padding: 8px 16px; }
+  .toolbar-label { font-size: .8rem; }
+  #hidden-message { grid-column: 2; grid-row: 2; margin: 0; }
+  #check-result { grid-column: 2; grid-row: 3; margin: 0; }
+  /* Both lists side by side, each its own scroller; any off-grid lists go beside them. */
+  #app .clues-col {
+    grid-column: 2; grid-row: 4; min-height: 0; min-width: 0; flex-wrap: nowrap; gap: 24px;
+  }
+  #app .clue-list {
+    flex: 1 1 0; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding-right: 4px;
+  }
+  .clue-list h3 { position: sticky; top: 0; background: var(--bg); z-index: 1; margin-top: 0; }
+  #hint-panel {
+    grid-column: 2; grid-row: 5; margin: 0; padding: 14px 18px;
+    max-height: calc((100dvh - var(--lay-top, 150px)) * .52); overflow-y: auto;
+  }
+  .clue-list ol { font-size: 1.1rem; }
+  .hint-step p, .hint-step ul { font-size: 1.05rem; max-width: none; }
+}
+
+/* ---------- static pages (tools/build_seo_pages.py) ----------
+   The archive pages under /puzzles/<n>/ and /learn/ are plain documents with no
+   JavaScript, so they get a narrower measure and prose-first spacing rather than
+   the app's two-column solving layout. They share this stylesheet on purpose:
+   one set of colours, one dark mode, nothing to keep in sync. */
+.static-page { max-width: 760px; }
+.static-page .brand { padding-top: 18px; }
+.home-link { color: inherit; text-decoration: none; font-size: 1.35rem; }
+.home-link:hover { color: var(--accent); }
+.crumbs { font-size: .82rem; color: var(--muted); margin: 6px 0 22px; }
+.crumbs a { color: var(--muted); }
+.static-main h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 10px; }
+.static-main h2 { font-size: 1.25rem; margin: 34px 0 6px;
+                  border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+.s-facts { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+.s-cta { margin: 18px 0 24px; }
+.cta, .cta:visited {
+  display: inline-block; background: var(--accent); color: var(--bg);
+  padding: 9px 16px; border-radius: 8px; text-decoration: none; font-weight: 700;
+}
+.cta:hover { filter: brightness(1.12); }
+/* An accent slab with near-black text is a light-mode button, and in a dark page
+   it reads as one — the brightest thing on the screen, and foreign to it. Tinted
+   instead, in the palette's own colours, so it is still plainly the thing to
+   press. */
+@media (prefers-color-scheme: dark) {
+  .cta, .cta:visited { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+}
+
+/* A clue, as tools/build_seo_pages.py clue_html() writes it, a million times
+   over: <article> holding an <h3> of number <span> and answer <b>, the clue as
+   the <p> after it, the definition as <dfn>, fragments and indicators as
+   <mark>. Elements rather than classes, because a class repeated on every clue
+   of every page is most of what the site weighs. None of these elements is on
+   the clue-text whitelist (esc_clue), so a publisher's markup cannot pick one
+   of these styles up; <span> is, which is why .s-type and .s-note stay classes. */
+.s-list article { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.s-list article:last-child { border-bottom: 0; }
+/* The clue a visitor arrived at (landing.js, or a #12-across link): marked the
+   way the glossary marks its :target, with the one quiet line under it. */
+.s-list article.s-landed, .s-list article:target {
+  background: var(--accent-soft); box-shadow: 0 0 0 8px var(--accent-soft); border-radius: 2px;
+}
+.s-list article > p.s-hint { font-size: .9rem; color: var(--muted); margin: 0 0 8px; }
+.s-hint a { font-weight: 700; }
+/* landing.js's box for a search visitor whose link named no clue. */
+.s-find { margin: 12px 0 18px; font-size: .92rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.s-find label { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); }
+.s-find input {
+  font: inherit; font-size: 16px; /* 16px stops iOS zooming in on focus */
+  padding: 6px 10px; min-width: 14em; max-width: 100%;
+  border: 1px solid var(--line); border-radius: 6px; background: transparent; color: inherit;
+}
+.s-find-said { color: var(--muted); }
+.s-list h3 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
+.s-list h3 > span { color: var(--muted); font-weight: 400; min-width: 5.5em; }
+.s-list h3 > b { letter-spacing: 1px; }
+.s-list h3 > a { margin-left: auto; padding: 0 6px; font-size: .82rem; font-weight: 400; color: var(--muted); text-decoration: underline; }
+.s-list article > p { margin: 0 0 8px; font-size: .92rem; }
+.s-list h3 + p { font-size: 1rem; font-style: italic; }
+.s-list dfn { font-style: normal; font-weight: 700; background: var(--def-bg); color: var(--def-fg); padding: 0 4px; border-radius: 3px; }
+.s-type { color: var(--muted); }
+.s-list ul { margin: 0 0 8px; padding-left: 20px; font-size: .92rem; }
+.s-list li { margin-bottom: 3px; }
+.s-list mark { background: var(--ind-bg); color: var(--ind-fg); padding: 0 4px; border-radius: 3px; }
+.s-note { color: var(--muted); }
+.s-list article > p.s-walk { margin: 0; font-size: .95rem; }
+.s-list article > p.muted { font-size: .9rem; margin: 1em 0; }
+
+/* ONE grid for the whole list, not one grid per row. Every <a> used to be its
+   own grid container, so each row sized its own columns from its own contents
+   and nothing lined up down the page: thirty-four setter names and thirty-four
+   dates each starting at a different x, which is what made the archive look
+   like a pile rather than a table. Subgrid is what lets the row keep being a
+   real anchor — its own padding, hover and single click target — while taking
+   its column positions from the list above it. A browser without subgrid drops
+   the declaration and falls back to the shared per-row template, i.e. exactly
+   the old ragged-but-working layout, so there is nothing to guard. */
+.s-index {
+  list-style: none; padding: 0; margin: 18px 0 0;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 0 10px;
+}
+.s-index li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+.s-index a {
+  grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: subgrid;
+  padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit;
+}
+@media (hover: hover) { .s-index a:hover { background: var(--accent-soft); } }
+.s-index a { -webkit-tap-highlight-color: transparent; }
+/* An archive row's small link to the answer page, beside the row link that
+   opens the puzzle in the app. Two-line rows put it at the end of the badge
+   line, which leaves it room; the wide row gives it a track of its own. */
+.s-index a.p-answers {
+  grid-column: -2 / -1; grid-row: 1; display: block; z-index: 1;
+  align-self: end; justify-self: end; padding: 0 10px 11px;
+  font-size: .78rem; color: var(--muted); text-decoration: underline;
+}
+.s-index li:has(.p-answers) .p-tags { padding-right: 4.5em; }
+.s-index .p-num { min-width: 5.4em; }
+.s-index .p-meta { font-size: .82rem; }
+/* The archive is a full-width page rather than a 430px panel, so once there is
+   room it collapses back to the single line the two-line row stands in for.
+   "Room" is 760px because that is .static-page's max-width: below it the list
+   is still growing with the window and the badges wrap, at it and above it the
+   list is 728px whatever the window does. A breakpoint that fires before the
+   page has stopped growing is a breakpoint that fires before it fits. */
+@media (min-width: 760px) {
+  /* No content-sized track on this list, because the list is twelve thousand
+     rows long and a content-sized track is as wide as its worst row. The
+     setter column held a paper's 47-character copyright line and every other
+     row paid for it out of the badge column beside it; a setter name is six
+     characters at the median and twelve at the 99.5th, so the track is bounded
+     at a setter's width and the rare long one uses the ellipsis .p-setter has
+     been carrying all along. The badges then take the slack, which is what
+     keeps them on one line. */
+  .s-index { grid-template-columns: auto fit-content(14ch) minmax(0, 1fr) auto auto; }
+  .s-index a { grid-column: 1 / -2; }
+  .s-index a.p-answers { grid-column: -2 / -1; align-self: center; padding: 4px 6px; }
+  .s-index li:has(.p-answers) .p-tags { padding-right: 0; }
+  .s-index a { align-items: center; }
+  /* Every item on this line names its row as well as its column. Grid's
+     auto-placement is sparse: the date is column 4 and comes before the badges
+     in the DOM, so a badge box that names only column 3 asks for a column the
+     cursor has already passed and is given a second line instead. One line
+     means saying so. */
+  .s-index .p-tags { grid-column: 3; grid-row: 1; justify-self: start; }
+  .s-index .p-meta { grid-column: 4; grid-row: 1; }
+}
+
+.s-pager { display: flex; justify-content: space-between; gap: 16px; margin: 32px 0 0; }
+
+/* The crawl path out of the app's homepage. Quiet — it sits below the puzzle
+   and is an index, not a call to action. */
+.seo-nav { margin: 40px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
+.seo-nav h2 { font-size: 1.05rem; margin: 18px 0 6px; }
+.seo-nav h2:first-child { margin-top: 0; }
+.seo-nav p { font-size: .9rem; color: var(--muted); margin: 0 0 10px; }
+.seo-latest { list-style: none; padding: 0; margin: 0 0 10px; font-size: .9rem; color: var(--muted); }
+.seo-latest li { margin: 0 0 3px; }
+.seo-latest a.p-answers { font-size: .82rem; color: var(--muted); }
+
+/* While app.js boots (html.ct-boot, set in index.html's head and cleared by
+   showApp) the crawl links and footer wait, and an empty 15x15 stands where the
+   grid will draw, so the first thing on screen is the shape of the puzzle and
+   not a page of links with the footer in the middle of it. */
+#boot-grid { display: none; }
+html.ct-boot .seo-nav, html.ct-boot footer { display: none; }
+html.ct-boot #boot-grid { display: block; }
+/* The skeleton reuses .layout/.left-col/.clues-col/.clue-list, so columns and
+   stacking follow the real page's rules. The grid box takes its --cellsize from
+   the #grid rule above (same container width, same --cellcap rules), for a 15x15: 15 cells + 14 gaps + 2x2px border. */
+#boot-grid .bg-title { height: 1.725rem; margin: 14px 0 4px; opacity: .6;
+  background: linear-gradient(var(--line), var(--line)) left top 4px / min(14em, 70%) 1.15rem no-repeat; }
+#boot-grid .bg-wrap { container-type: inline-size; }
+.bg-grid {
+  width: calc(var(--cellsize) * 15 + 18px); max-width: 100%; aspect-ratio: 1;
+  border: 2px solid var(--line); background-color: transparent; opacity: .6;
+  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: calc((100% - 4px) / 15) calc((100% - 4px) / 15);
+}
+#boot-grid i, #boot-grid b, #boot-grid .bg-h { display: block; background: var(--line); opacity: .5; border-radius: 4px; }
+#boot-grid .bg-toolbar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0 14px; }
+#boot-grid .bg-toolbar i { width: 60px; height: 28px; border-radius: 6px; }
+#boot-grid .bg-toolbar i.gap { width: 1px; height: 20px; margin: 0 3px; }
+#boot-grid .bg-hint { border: 1px solid var(--line); border-left: 4px solid var(--line);
+  border-radius: 8px; padding: 12px 15px; margin-top: 4px; min-height: 120px; }
+#boot-grid .bg-hint b { height: 14px; margin: 10px 0; }
+#boot-grid .bg-hint b.short { width: 55%; }
+#boot-grid .bg-h { height: 14px; width: 4.5em; margin: 14px 0 10px; }
+#boot-grid .bg-lines b { height: 14px; margin: 14px 6px; }
+#boot-grid .bg-lines b:nth-child(3n) { width: 80%; }
+#boot-grid .bg-lines b:nth-child(3n+1) { width: 92%; }
+@media (max-width: 1079px), (pointer: coarse) {
+  #boot-grid .bg-toolbar { gap: 8px; }
+  #boot-grid .bg-toolbar i { height: 36px; width: 68px; }
+  #boot-grid .bg-toolbar i.gap { height: 20px; width: 1px; }
+}
+/* The real title row wraps once there is less width (title, then the score line
+   under it): measured 64px on an iPad, ~120px on a 390px phone. */
+@media (max-width: 1079px) { #boot-grid .bg-title { height: 63px; } }
+@media (max-width: 700px) {
+  #boot-grid .bg-title { height: 119px; }
+  #boot-grid .bg-lines b:nth-child(n+7) { display: none; }
+}
+
+/* The sync code is going to be read off one screen and typed into another, by
+   hand, probably on a phone. Monospaced and spaced out so O/0-style misreads
+   are impossible to make — the alphabet in app.js already excludes the
+   ambiguous glyphs, this makes the rest legible from arm's length — and
+   select-all on a single tap for anyone whose browser withholds the clipboard.
+
+   The QR above it keeps its white surround in dark mode. The border is not
+   decoration: a scanner locks onto the quiet zone, and a code that runs into a
+   dark panel is one a camera will sit and stare at. */
+.sync-qr { display: block; margin: 10px auto; background: #fff; border: 8px solid #fff;
+           border-radius: 6px; }
+.sync-qr[hidden] { display: none; }
+/* Same width as the QR it is pointed at, so the panel does not jump when the
+   camera opens. */
+.sync-scan-video { display: block; width: 100%; max-width: 260px; margin: 10px auto;
+                   border-radius: 8px; background: #000; }
+.sync-code-row { display: flex; align-items: baseline; gap: 10px; }
+.sync-code {
+  font: 700 1.6rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .18em; margin: 6px 0 10px; user-select: all;
+}
+#sync-join-code {
+  font: 700 1rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .12em; text-transform: uppercase; width: 9.5em;
+  padding: 7px 8px; border: 1px solid var(--line); border-radius: 5px;
+  background: var(--bg); color: var(--fg);
+}
+#sync-panel p { margin: 8px 0; }
+
+/* One paper per row, and the whole row is the label: a checkbox on its own is a
+   13px target on a phone, and the word beside it is what a thumb actually lands
+   on. The pill is the picker's series badge, so a paper looks the same wherever
+   it is named. */
+#notify-list { list-style: none; margin: 10px 0; padding: 0; }
+#notify-list li { border-top: 1px solid var(--line); }
+#notify-list li.small-note { border-top: none; padding: 6px 4px; }
+#notify-list label { display: flex; align-items: center; gap: 10px; padding: 9px 4px; cursor: pointer; }
+#notify-list input {
+  width: 17px; height: 17px; margin: 0; accent-color: var(--accent);
+  /* The page declares no color-scheme, so a browser paints its form controls in
+     light-mode colours — a white box sitting on the dark card. This is the only
+     native control the app has, so it carries the declaration itself. */
+  color-scheme: light dark;
+}
+#notify-panel p { margin: 8px 0; }
+
+/* The earliest hour of the day this device will be woken. Sits under the papers
+   as one row: it is a single answer about all of them, not a per-paper setting.
+   Same color-scheme declaration as the checkboxes above, and for the same
+   reason — a native time field otherwise renders light on the dark card. */
+.notify-when { display: flex; align-items: center; gap: 10px; }
+.notify-when input {
+  padding: 6px 8px; border: 1px solid var(--line); border-radius: 5px;
+  background: var(--bg); color: var(--fg); font: inherit;
+  color-scheme: light dark;
+}
+
+/* A hidden-letter device: the clue's letter once solved, and the phrase those
+   letters spell, filled in under the grid (app.js renderHiddenMessage). */
+.hidden-letter { margin-left: .35em; padding: 0 .3em; border: 1px solid currentColor;
+  border-radius: 3px; font-size: .85em; font-weight: 600; white-space: nowrap; }
+.clue-reconstructed { font-size: .75em; font-style: italic; opacity: .7; white-space: nowrap; }
+.hidden-message { margin: .6em 0 0; text-align: center; font-weight: 600; letter-spacing: .08em; }
+.hm-row { display: inline-flex; flex-wrap: wrap; gap: .2em; justify-content: center; }
+.hm-letter, .hm-slot { display: inline-block; min-width: 1em; border-bottom: 2px solid currentColor; }
+.hm-slot { height: 1.2em; opacity: .5; }
+.hm-gap { min-width: .6em; display: inline-block; }
+/* A building block that costs a hint takes two taps (app.js, blocksCost). The
+   first one arms the button and its label says what the second will do; the
+   colour is the price, the same red a wrong letter wears. */
+#hint-next button.arm-cost, .guess-actions button.arm-cost, #hint-escape button.arm-cost,
+#hint-next button.arm-cost:hover, .guess-actions button.arm-cost:hover, #hint-escape button.arm-cost:hover {
+  border-color: var(--wrong); color: var(--wrong); background: transparent;
+}
+
+/* The home-screen app (appnav.js): a bottom tab bar and a back link, only
+   when the site runs standalone with no browser around it. The room for the
+   bar is the body's bottom padding, set from html.standalone before the first
+   paint, so nothing moves when the bar arrives and nothing hides under it.
+   It stays put while a keyboard is up (kbd-up hides only the bar), because
+   padding that came and went would reflow the grid under the solver's finger. */
+.tabbar { display: none; }
+html.standalone body { padding-bottom: calc(48px + 56px + max(12px, env(safe-area-inset-bottom, 0px))); }
+html.standalone .tabbar {
+  display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
+  background: var(--bg); border-top: 1px solid var(--line);
+  padding: 0 env(safe-area-inset-right, 0px) max(12px, env(safe-area-inset-bottom, 0px)) env(safe-area-inset-left, 0px);
+}
+html.standalone.kbd-up .tabbar { display: none; }
+.tabbar a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  min-height: 56px; justify-content: center; box-sizing: border-box; padding-top: 4px;
+  font: 11px/1.2 -apple-system, system-ui, sans-serif; color: var(--muted);
+  text-decoration: none; -webkit-tap-highlight-color: transparent;
+}
+.tabbar a { touch-action: manipulation; -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
+/* Like a UITabBar: no pressed pill, no outline; only the selected tab's icon
+   and label tint. */
+.tabbar a:active, .tabbar a:focus { background: none; outline: none; }
+.tabbar a[aria-current="page"] { color: var(--accent); }
+/* Between documents the bar is the same bar: it is lifted out of the page
+   transition, so a tab switch swaps the content with no fade and the bar never
+   blinks. Standalone only; a browser tab keeps its own navigation. */
+@media (display-mode: standalone) {
+  @view-transition { navigation: auto; }
+  html.standalone .tabbar { view-transition-name: tabbar; }
+  ::view-transition-group(root) { animation-duration: 0s; }
+  ::view-transition-group(tabbar) { animation: none; }
+}
+.tabbar svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tabbar svg circle { fill: currentColor; stroke: none; }
+.app-back {
+  flex-basis: 100%; order: -1; margin-bottom: -6px;
+  font: 1rem/1.4 -apple-system, system-ui, sans-serif; color: var(--accent); text-decoration: none;
+}
+
+/* Home-screen app: the Puzzles and Stats tabs are pages, not sheets. Each fills
+   the screen above the tab bar like a native tab, with no close button (the tab
+   bar is how you leave) and nothing floating over the puzzle. */
+html.standalone #picker-panel, html.standalone #stats-panel {
+  position: fixed; z-index: 40; left: 0; right: 0; top: 0;
+  bottom: calc(56px + max(12px, env(safe-area-inset-bottom, 0px)));
+  width: auto; max-height: none; border: 0; border-radius: 0; box-shadow: none;
+  background: var(--bg); padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;
+  box-sizing: border-box; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  /* The panel is the page now, so a drag that runs off its end stops there.
+     Left to chain, it carried on into the puzzle underneath (still scrolled to
+     wherever the solver left it) and the list stayed put while the background
+     moved: the "scrolling after visiting a puzzle" bug. */
+  overscroll-behavior: contain;
+}
+/* And while a tab is up the document behind it does not scroll at all: a list
+   that is shorter than the screen, or a gesture that starts on the tab bar's
+   edge, has no panel to scroll and would otherwise move the page. The window
+   keeps its scroll position, so the puzzle is where it was on the way back. */
+html.standalone:has(#picker-panel:not(.hidden)), html.standalone:has(#stats-panel:not(.hidden)) { overflow: hidden; overscroll-behavior: none; }
+html.standalone:has(#picker-panel:not(.hidden)) body, html.standalone:has(#stats-panel:not(.hidden)) body { overflow: hidden; }
+html.standalone #btn-picker-close, html.standalone #btn-stats-close { display: none; }
+
+/* First visit: one hint line by the grid instead of a blocking dialog. */
+.tap-hint { margin: 0 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent); background: var(--card); font-size: 1rem; }
+.tap-hint .linklike { display: block; margin-top: 2px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: .9rem; text-decoration: underline; cursor: pointer; }
+html.ct-nopush #btn-notify { display: none; }

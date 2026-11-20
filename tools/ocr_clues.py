@@ -1,0 +1,5260 @@
+#!/usr/bin/env python3
+"""The clue-text OCR every scan filer shares: the readers, the vote, the check.
+
+Every filer that reads clues off a picture (tools/file_archive_org_puzzles.py
+for The Times, FT and Guardian scans, tools/archive_org_listener.py,
+tools/file_trove_puzzles.py for the Canberra Times) reads them the same way:
+
+  - READERS are the voters, each named, each read through read_words(): a
+    PIL image in, the words and their boxes out. A new reader (another
+    recogniser, a VLM) is one more READERS entry.
+  - reconcile() puts each laid clue's text to every other reading: agree()
+    settles each word on the spelling the readings share, then on the one
+    lexicon spelling (tools/data/lexicon.tsv, with the corpus's own clue
+    words), then on the known word every reading's slips point to
+    (consensus()), and files the clue blank when nothing wins. relaid()
+    lays each blank clue again from each reading that printed it whole
+    (two others printing it alike, one of another copy) and puts it to the
+    rest. vlm_pick()
+    then shows each blank clue's readings to the desktop's VLM
+    (tools/vlm_reader.py), when it answers.
+  - as_printed() holds every filed clue, voted or picked, to what the
+    readings print for its light: the count's shape ("(5-4)", not a lost
+    count's "(9)"), and each word's capital, hyphen and known spelling.
+  - suspect() is the check a filer runs before it writes: the words of a
+    clue no reader could have meant (a digit or a stray mark inside a word,
+    a capital after small letters, a word neither the lexicon nor the
+    corpus's clues know, a name one OCR slip from a dictionary word). A
+    puzzle with a suspect clue is not filed.
+"""
+import clue_text
+import collections
+import functools
+import gzip
+import itertools
+import json
+import math
+import os
+import re
+import unicodedata
+from difflib import SequenceMatcher
+from pathlib import Path
+
+import enumeration
+import leading_quote
+import punctuation
+import quotes
+from clue_text import (CAPS_HEADING, COUNT_CLOSES, COUNT_IN, COUNT_OPENS, COUNTED, DIGIT_LETTERS, FIGURE_LETTERS,
+                       HEADING_BEFORE_ONE, HEADING_IN, HEADING_LINE, LIGHT_WORD, NEXT_CLUE, NUMBER_LETTERS, NUMBERED_IN,
+                       PAGE_TEXT, PUZZLE_HEADING, SEE_RE, STANDING_FIGURES, count_read, count_total, cut_at_count, exact_heading, ones_read,
+                       see_numeral, strip_count, trim_torn_count, unpaired)
+
+TOOLS =Path(__file__).resolve().parent
+
+
+# ------------------------------------------------------------ the readers
+
+_ENGINES = {}
+#: RapidOCR reads the 200dpi print (~17px a line) far better twice the size.
+UPSCALE = 2
+#: The clue columns' readers: RapidOCR's own multilingual PP-OCRv4
+#: recogniser ("ch") and English PP-OCRv5 mobile ("en5"), the two that
+#: misread fewest clue words on hand-checked 1974, 1990 and 1995 crops (22%
+#: and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's 56%; the
+#: server recognisers cost over 20 times as long), and Tesseract ("times"),
+#: a different engine whose misreads are not theirs, its English LSTM
+#: fine-tuned on Times clue lines.
+#: The vote's misread rate is measured against the hand transcriptions in
+#: tools/data/archive_org_ocr_gold.json.
+READERS = {"ch": None,
+           "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx")),
+           "times": "tesseract"}
+#: Each reader's engine: readers of one engine share its slips, so two
+#: readings of one engine are no two independent votes. A copy's reader
+#: ("canberra:<article>:times") is its reader's engine; "page" is
+#: gale_listener's whole-page Tesseract words.
+FAMILIES = {"ch": "rapidocr", "en5": "rapidocr", "times": "tesseract", "page": "tesseract"}
+#: A tie that splits the readings by engine goes to the spelling whose
+#: engine's slip it would take is the likelier on the page (by_family): each
+#: engine measured on FAMILY_WORDS settled words at least, and the one slip
+#: likelier than the other with posterior odds of FAMILY_SURE at least.
+FAMILY_WORDS = 100
+FAMILY_SURE = 0.95
+
+
+def family(name):
+    """The engine (FAMILIES) of the reader `name`, None when unknown."""
+    return FAMILIES.get((name or "").rsplit(":", 1)[-1])
+
+
+#: The Tesseract readers' models: None is the installed eng.
+TESS_MODELS = {"times": TOOLS / "data" / "archive_org_tess.traineddata"}
+TESSERACT = Path(os.path.expanduser("~/.local/tess/bin/tesseract"))
+MODEL_URL = ("https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.4.0/onnx/PP-OCRv5/rec/"
+             "en_PP-OCRv5_rec_mobile_infer.onnx")
+
+
+def engine(which):
+    """RapidOCR with the recogniser READERS names, the model fetched once."""
+    if which not in _ENGINES:
+        from rapidocr_onnxruntime import RapidOCR
+        model = READERS[which]
+        if model is not None and not model.exists():
+            import urllib.request
+            model.parent.mkdir(parents=True, exist_ok=True)
+            req = urllib.request.Request(MODEL_URL, headers={"User-Agent": "cryptic-teacher"})
+            try:
+                data = urllib.request.urlopen(req, timeout=300).read()
+            except OSError as e:
+                raise RuntimeError(f"cannot fetch {MODEL_URL} to {model}: {e}") from e
+            tmp = model.with_suffix(".part")
+            tmp.write_bytes(data)
+            tmp.replace(model)
+        threads = engine_threads()
+        _ENGINES[which] = RapidOCR(rec_model_path=str(model), **threads) if model else RapidOCR(**threads)
+    return _ENGINES[which]
+
+
+def engine_threads():
+    """The thread counts every RapidOCR engine is made with: OCR_THREADS
+    (the desktop's serve() sets its share of that box) or 1, so no reader,
+    test or scratch script here takes every core. cv2's own pool (RapidOCR's
+    pre-processing, the crop work) ignores OMP_NUM_THREADS, so it is capped
+    to the same count here."""
+    n = int(os.environ.get("OCR_THREADS") or 1)
+    import cv2
+    cv2.setNumThreads(n)
+    if not _FRUGAL["set"]:
+        _FRUGAL["set"] = True
+        frugal_memory()
+    return {"intra_op_num_threads": n, "inter_op_num_threads": 1}
+
+
+_FRUGAL = {"set": False}
+
+
+def frugal_memory():
+    """What a full-page OCR holds at its peak, cut with the same words out
+    (a sizing like the threads, so it is left out of the scan key):
+    - glibc malloc hands every block over 1 MB straight back when freed. Its
+      default grows the mmap threshold to the largest block freed (up to
+      32 MB), so after the first full-page detector run the next runs'
+      feature maps come off the heap, which a few live small blocks keep
+      from shrinking: a unit that read a page's crops several times held
+      what the largest took. (No-op without glibc.)
+    - RapidOCR's onnxruntime sessions are made with the memory-pattern
+      planner off, which otherwise holds a block sized for the largest input
+      between runs (RapidOCR sets neither)."""
+    try:
+        import ctypes
+        libc = ctypes.CDLL("libc.so.6")
+        libc.mallopt(-3, 1 << 20)  # M_MMAP_THRESHOLD
+        libc.mallopt(-1, 1 << 20)  # M_TRIM_THRESHOLD
+    except (OSError, AttributeError):
+        pass
+    try:
+        from rapidocr_onnxruntime.utils import infer_engine
+    except ImportError:
+        return
+    made = infer_engine.OrtInferSession._init_sess_opts
+
+    def opts(config):
+        sess_opt = made(config)
+        sess_opt.enable_mem_pattern = False
+        return sess_opt
+    infer_engine.OrtInferSession._init_sess_opts = staticmethod(opts)
+
+
+def capped_cv2():
+    """cv2, its thread pool capped (engine_threads): the one way OCR code imports it."""
+    engine_threads()
+    import cv2
+    return cv2
+
+
+def reader_key(which):
+    """The cache name of a reader's readings: a TESS_MODELS reader's carries
+    its model's hash, so a retrained model never reuses the old one's."""
+    if which not in TESS_MODELS:
+        return which
+    import hashlib
+    if which not in _MODEL_HASHES:
+        _MODEL_HASHES[which] = hashlib.sha1(TESS_MODELS[which].read_bytes()).hexdigest()[:10]
+    return f"{which}-{_MODEL_HASHES[which]}"
+
+
+_MODEL_HASHES = {}
+
+
+def tesseract():
+    """The tesseract binary: on PATH, else the user-local conda-forge install
+    (no sudo on this host), else an error that says how to install it."""
+    import shutil
+    found = shutil.which("tesseract") or (str(TESSERACT) if TESSERACT.exists() else None)
+    if not found:
+        raise RuntimeError(f"tesseract is not installed (not on PATH, not {TESSERACT}); install it "
+                           f"without sudo: micromamba create -p ~/.local/tess -c conda-forge tesseract")
+    return found
+
+
+def tesseract_words(crop, model=None, psm=4):
+    """[(x0, y0, x1, y1, word)] Tesseract reads in a PIL image, with the
+    installed eng model or the .traineddata at `model`, in page
+    segmentation mode `psm` (7: the image is one line)."""
+    import subprocess
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "crop.png"
+        crop.save(path)
+        lang = ["--tessdata-dir", str(model.parent), "-l", model.stem] if model else ["-l", "eng"]
+        # TSV by parameter, not the "tsv" config file: a model's own
+        # tessdata directory has no configs/.
+        # Tesseract writes UTF-8 whatever the host's locale (the desktop's
+        # is cp1252).
+        # One thread: OpenMP's spinning threads take minutes over one crop
+        # on a busy host, where a single thread takes seconds.
+        res = subprocess.run([tesseract(), str(path), "-", "--psm", str(psm), *lang,
+                              "-c", "tessedit_create_tsv=1"],
+                             capture_output=True, encoding="utf-8", timeout=300, check=False,
+                             env={**os.environ, "OMP_THREAD_LIMIT": "1"})
+    if res.returncode:
+        raise RuntimeError(f"tesseract failed ({res.returncode}): {res.stderr.strip()[-300:]}")
+    words = []
+    for row in res.stdout.splitlines()[1:]:
+        f = row.split("\t")
+        if len(f) == 12 and f[0] == "5" and f[11].strip():
+            x, y, w, h = map(int, f[6:10])
+            words.append((x, y, x + w, y + h, f[11].strip()))
+    return words
+
+
+#: RapidOCR scales an image's longer side down to RAPID_MAX_SIDE (its
+#: max_side_len), then each side to the nearest multiple of 32: a side under
+#: RAPID_MIN_SIDE after that rounds to no pixels and raises ResizeImgError.
+#: A crop that thin (a sliver under a page's last band) holds no line.
+RAPID_MAX_SIDE = 2000
+RAPID_MIN_SIDE = 16
+
+
+def too_thin(width, height, which):
+    """Whether RapidOCR reader `which` cannot read a width x height image."""
+    if which in TESS_MODELS:
+        return False
+    return min(width, height) * min(1.0, RAPID_MAX_SIDE / max(width, height)) < RAPID_MIN_SIDE
+
+
+def raw_words(crop, which):
+    """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `crop`,
+    in its pixels as the reader gives them (RapidOCR's floats): none in a
+    crop too thin for it (too_thin)."""
+    if which in TESS_MODELS:
+        return tesseract_words(crop, TESS_MODELS[which])
+    if too_thin(crop.width, crop.height, which):
+        return []
+    import numpy as np
+    res, _ = engine(which)(np.asarray(crop), use_cls=False)
+    words = []
+    for b, t, _ in res or ():
+        xs, ys = [p[0] for p in b], [p[1] for p in b]
+        words.append((min(xs), min(ys), max(xs), max(ys), t))
+    return words
+
+
+def read_words(img, which):
+    """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `img`,
+    read at UPSCALE times its size, in `img`'s own pixels: none in an image
+    with no pixels or too thin for the reader (too_thin). Read on the desktop when tools/ocr_remote.py can, the
+    same reading as here."""
+    import ocr_remote
+    crop = img.convert("RGB")
+    if not crop.width or not crop.height:
+        return []
+    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    if too_thin(crop.width, crop.height, which):
+        return []
+    path = words_cache_path(crop, which)
+    words = words_cached(path)
+    if words is None:
+        words = ocr_remote.words(crop, which)
+        if words is None:
+            with ocr_remote.local_slot():
+                words = raw_words(crop, which)
+        words_cache_put(path, words)
+    return [(int(x0 / UPSCALE), int(y0 / UPSCALE), int(x1 / UPSCALE), int(y1 / UPSCALE), t)
+            for x0, y0, x1, y1, t in words]
+
+
+def windowed_words(img, which, windows, state):
+    """read_words(img, which) for RapidOCR reader `which`, kept to the lines
+    whose detected box meets one of `windows` ((x0, y0, x1, y1) in `img`'s
+    pixels), each as read_words gives it, to the pixel: the detector runs over
+    all of `img` as RapidOCR's own call does, its boxes the whole read's; only
+    the recogniser is spared the lines outside the windows. The recogniser
+    pads a batch of RapidOCR's sorted lines to its widest, so each batch is
+    padded to the widest of the whole page's batch it belongs to, and the
+    line reads as it does in the whole read. `state` (an object to hold
+    attributes: a threading.local) keeps the detector's boxes of the last
+    image for the next reader, whose detector is the same. Not cached: it is
+    only part of the whole read."""
+    import hashlib
+    import numpy as np
+    crop = img.convert("RGB")
+    if not crop.width or not crop.height:
+        return []
+    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    if too_thin(crop.width, crop.height, which):
+        return []
+    det = engine("ch")
+    key = hashlib.sha1(crop.tobytes()).hexdigest()
+    seen = getattr(state, "detected", None)
+    if seen is None or seen[0] != key:
+        im = det.load_img(np.asarray(crop))
+        raw_h, raw_w = im.shape[:2]
+        im, ratio_h, ratio_w = det.preprocess(im)
+        op = {"preprocess": {"ratio_h": ratio_h, "ratio_w": ratio_w}}
+        im, op = det.maybe_add_letterbox(im, op)
+        boxes, _ = det.auto_text_det(im)
+        seen = state.detected = (key, im, boxes, None if boxes is None else det._get_origin_points(boxes, op, raw_h, raw_w))
+    _, im, boxes, origin = seen
+    if boxes is None:
+        return []
+    # Each line's crop size as get_crop_img_list cuts it (a tall one turned on its side).
+    sizes = []
+    for p in boxes:
+        w = int(max(np.linalg.norm(p[0] - p[1]), np.linalg.norm(p[2] - p[3])))
+        h = int(max(np.linalg.norm(p[0] - p[3]), np.linalg.norm(p[1] - p[2])))
+        sizes.append((h, w) if h * 1.0 / w >= 1.5 else (w, h))
+    ratios = [w / float(h) for w, h in sizes]
+    inside = {i for i, o in enumerate(origin)
+              if any(o[:, 0].min() / UPSCALE < w[2] and o[:, 0].max() / UPSCALE > w[0]
+                     and o[:, 1].min() / UPSCALE < w[3] and o[:, 1].max() / UPSCALE > w[1] for w in windows)}
+    eng = engine(which)
+    rec = eng.text_rec
+    order = np.argsort(np.array(ratios))
+    read = {}
+    for beg in range(0, len(boxes), rec.rec_batch_num):
+        batch = order[beg:beg + rec.rec_batch_num]
+        mine = [int(i) for i in batch if int(i) in inside]
+        if not mine:
+            continue
+        _, height, width = rec.rec_image_shape[:3]
+        widest = max([width / height] + [ratios[int(i)] for i in batch])
+        crops = eng.get_crop_img_list(im, [boxes[i] for i in mine])
+        norm = np.concatenate([rec.resize_norm_img(c, widest)[np.newaxis, :] for c in crops]).astype(np.float32)
+        preds = rec.session(norm)[0]
+        for i, res in zip(mine, rec.postprocess_op(preds, False, wh_ratio_list=[ratios[i] for i in mine],
+                                                   max_wh_ratio=widest)):
+            read[i] = res
+    words = []
+    for i in sorted(read):
+        text, score = read[i][0], read[i][1]
+        if float(score) >= eng.text_score:
+            xs, ys = origin[i][:, 0].tolist(), origin[i][:, 1].tolist()
+            words.append((int(min(xs) / UPSCALE), int(min(ys) / UPSCALE), int(max(xs) / UPSCALE),
+                          int(max(ys) / UPSCALE), text))
+    return words
+
+
+#: Where raw_words' readings are kept, by what they were read from (words_cache_path):
+#: a read that ends deferred (its VLM asks spooled) starts again when the answers
+#: arrive and reads the same crops, which cost the full-page OCR each time. CT_OCR_WORDS_CACHE
+#: moves it ("0" or "": none, for a test).
+WORDS_CACHE = Path(os.path.expanduser("~/.cache/ocr_words"))
+
+
+def words_cache_path(crop, which):
+    """Where the reading of the upscaled RGB image `crop` by reader `which` is kept: named for a hash of
+    its pixels (the page, the box and any blanking made one image), the reader (reader_key: a
+    Tesseract model's hash too; RapidOCR's package version and recogniser file) and the code that
+    reads (raw_words and what it calls), so a changed reader never reads another's file. None
+    when the cache is off."""
+    root = os.environ.get("CT_OCR_WORDS_CACHE")
+    root = WORDS_CACHE if root is None else Path(root) if root not in ("", "0") else None
+    if root is None:
+        return None
+    import hashlib
+    h = hashlib.sha256()
+    h.update(f"{crop.mode} {crop.width}x{crop.height}\n".encode())
+    h.update(crop.tobytes())
+    h.update(f"\n{reader_key(which)}\n{_reader_identity(which)}".encode())
+    return root / h.hexdigest()[:2] / f"{h.hexdigest()}.json"
+
+
+_IDENTITY = {}
+
+
+def _reader_identity(which):
+    """What `which` reads with, besides reader_key: the code of raw_words and what it calls
+    (the source of each, comments and all: a change only ever makes a miss), the RapidOCR
+    version and the recogniser file's size and time when READERS names one."""
+    if which not in _IDENTITY:
+        import hashlib
+        import inspect
+        parts = [inspect.getsource(f) for f in (raw_words, tesseract_words, too_thin, engine)]
+        parts += [repr((RAPID_MAX_SIDE, RAPID_MIN_SIDE))]
+        if which not in TESS_MODELS:
+            try:
+                from importlib.metadata import version
+                parts.append(version("rapidocr_onnxruntime"))
+            except Exception:  # not installed as a package: the code part stands
+                pass
+            model = READERS.get(which)
+            if model is not None and Path(model).exists():
+                st = Path(model).stat()
+                parts.append(f"{st.st_size}")
+                parts.append(hashlib.sha1(Path(model).read_bytes()).hexdigest())
+        _IDENTITY[which] = hashlib.sha256("\n".join(parts).encode()).hexdigest()
+    return _IDENTITY[which]
+
+
+def words_cached(path):
+    """The words kept at `path` as raw_words gave them, or None: missing or unreadable (empty, or
+    truncated by a killed read) is a miss."""
+    if path is None:
+        return None
+    try:
+        got = json.loads(path.read_text())
+        return [(x0, y0, x1, y1, t) for x0, y0, x1, y1, t in got["words"]]
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
+def words_cache_put(path, words):
+    """`words` kept at `path`, whole or not at all (os.replace); a failure to write is no failure."""
+    if path is None:
+        return
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+        tmp.write_text(json.dumps({"words": [list(w) for w in words]}))
+        os.replace(tmp, path)
+    except OSError:
+        pass
+
+
+#: A printed blank ("——", the word a quotation leaves out) is a thin rule
+#: at mid-letter height, often fainter than the type (No 15's 30 across is
+#: grey 130-170): its ink is anything darker than BLANK_INK. It is
+#: BLANK_LONG times a word's height long at least (a hyphen is shorter),
+#: BLANK_LONGEST at most (a rule under a heading or across a column is
+#: longer), BLANK_THICK of a word's height thick at most, with nothing
+#: above or below it, and stands in a clue line or alone on the line
+#: under one.
+BLANK_INK = 175
+BLANK_LONG = 1.1
+BLANK_LONGEST = 5
+BLANK_THICK = 0.2
+#: A gap in a blank's rule (the space between the dashes of "——") at most,
+#: in a word's height.
+BLANK_GAP = 0.4
+#: How far after a blank its closing quote stands at most, in a word's
+#: height (the stop after it stands further).
+BLANK_QUOTE = 0.4
+#: The space either side of a blank at least, and a grid wall's height,
+#: in a word's height.
+BLANK_APART = 0.2
+BLANK_WALL = 1.8
+#: A rule run into a word after it (No 4 9D's "'——and"), or before and
+#: after it, is a blank this long at least, in a word's height: two ems,
+#: where a dash is one. One run into the word before it and ending its
+#: line (No 4 15D's "no——" over "could draw") needs only BLANK_LONG.
+BLANK_RUN_IN = 1.8
+BLANK = "——"
+DASHES = re.compile(r"\s*[-‐-―_~=]+\s*")
+
+
+def blank_strokes(img, lines, words, h):
+    """[(x0, y0, x1, y1, text)] each printed blank in the clue `lines`
+    ([(x0, y0, x1, y1)], the lists' printed lines) of the page `img`, a
+    word "——" ("——'" when a closing quote follows it); `h` is a word's
+    height. A blank is a thin rule within a line, or alone just under one
+    and within its span (No 15's 23 down, "Give me a" over "——'"). No
+    reader sees a faint one, and each reads a dark one its own way
+    ("the-is", " - "). `words` ([(x0, y0, x1, y1, text)]) are the page's:
+    a rule under or through one is a mark on it, no blank."""
+    import numpy as np
+    words = [w for w in words if not DASHES.fullmatch(w[4])]
+    ink = np.asarray(img.convert("L")) < BLANK_INK
+    found, seen = [], set()
+    for y in np.flatnonzero(ink.sum(axis=1) >= 0.75 * BLANK_LONG * h):
+        y = int(y)
+        if y in seen:
+            continue
+        xs = np.flatnonzero(ink[y])
+        for run in np.split(xs, np.flatnonzero(np.diff(xs) > BLANK_GAP * h) + 1):
+            x0, x1 = int(run[0]), int(run[-1]) + 1
+            before = after = False
+            if len(run) < 0.75 * (x1 - x0):
+                # The run's longest unbroken stretch is the rule, the words
+                # touching it on either side.
+                solid = max(np.split(run, np.flatnonzero(np.diff(run) > 1) + 1), key=len)
+                before, after = int(solid[0]) > x0, int(solid[-1]) + 1 < x1
+                x0, x1 = int(solid[0]), int(solid[-1]) + 1
+                if not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h:
+                    continue
+                if x1 - x0 < BLANK_RUN_IN * h and (after or not line_end(x1, y, lines, h)):
+                    continue
+            elif not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h:
+                continue
+            run_in = before or after
+            span = ink[:, x0:x1].mean(axis=1)
+            y0, y1 = y, y + 1
+            while y0 > 0 and span[y0 - 1] >= 0.3:
+                y0 -= 1
+            while y1 < len(span) and span[y1] >= 0.3:
+                y1 += 1
+            if y1 - y0 > max(3, BLANK_THICK * h) or span[max(0, y0 - 3):max(0, y0 - 1)].max(initial=0) > 0.15 \
+                    or span[y1 + 1:y1 + 3].max(initial=0) > 0.15:
+                continue
+            seen.update(range(y0, y1))
+            if apart(ink, x0, y0, x1, y1, h, before, after) and placed((x0, (y0 + y1) / 2, x1), lines, h) \
+                    and not any(w[1] - 0.2 * h <= y <= w[3] + 0.2 * h and min(w[2], x1) - max(w[0], x0) > 0.3 * (x1 - x0)
+                                # A rule run into a word is no underline: a
+                                # word over it, or one running on past it on
+                                # the side it touches, is one whose box took
+                                # it in.
+                                and not (run_in and not w[1] + 0.25 * (w[3] - w[1]) <= y <= w[3] - 0.25 * (w[3] - w[1]))
+                                and not (before and w[0] < x0 - 0.3 * h) and not (after and w[2] > x1 + 0.3 * h)
+                                for w in words):
+                found.append((x0, y0, x1, y1, ("'" if after and not before and opened(ink, x0, y0, y1, h) else "")
+                              + BLANK + ("'" if quoted(ink, x1, y0, y1, h) else "")))
+    return found
+
+
+def apart(ink, x0, y0, x1, y1, h, before=False, after=False):
+    """Whether a rule stands apart as a blank does: a space before it at any
+    height (a dash after a mark, "NOTE.\u2014Clues", "competitors:\u2014",
+    is punctuation; a colon's dots miss the rule's own rows), a space after
+    it at its height (a stop, comma or closing quote may follow), and no
+    stroke taller than BLANK_WALL words near it (a grid's line or bar
+    between its walls). A rule run into the word `before` it or `after` it
+    (blank_strokes) needs no space on that side; one run into the word
+    after it alone has the space before it from its own rows down: an
+    opening quote stands above them ("'——and")."""
+    gap = max(3, int(BLANK_APART * h))
+    space = ink[max(0, int(y0 - (1 if after else 0.45 * h))):int(y1 + 0.45 * h), max(0, x0 - 1 - gap):max(0, x0 - 1)]
+    if not before and space.any() or not after and ink[y0:y1, x1 + 1:x1 + 1 + 2 * gap].any():
+        return False
+    near = ink[max(0, int(y0 - 2 * h)):int(y1 + 2 * h), max(0, int(x0 - h)):int(x1 + h)]
+    for col in near.T:
+        run = 0
+        for v in col:
+            run = run + 1 if v else 0
+            if run >= BLANK_WALL * h:
+                return False
+    return True
+
+
+def line_end(x1, y, lines, h):
+    """Whether a rule ending at x1 at height y ends one of the clue `lines`."""
+    return any(l[1] <= y <= l[3] and abs(l[2] - x1) <= 0.3 * h for l in lines)
+
+
+def placed(stroke, lines, h):
+    """Whether a rule (x0, y, x1) stands in one of the clue `lines`, at the
+    middle of its height and within its span, or alone on the line under
+    one, under its words: not a line's underline, which runs just under
+    its letters, nor a rule outside the lists."""
+    x0, y, x1 = stroke
+    if any(l[1] + 0.25 * (l[3] - l[1]) <= y <= l[3] - 0.15 * (l[3] - l[1]) and l[0] - h <= x0 <= l[2] + 3 * h
+           for l in lines):
+        return True
+    if any(l[1] - 0.3 * h <= y <= l[3] + 0.3 * h and min(l[2], x1) > max(l[0], x0) for l in lines):
+        return False
+    return any(0.3 * h <= y - l[3] <= 1.2 * h and l[0] <= x0 < l[2] for l in lines)
+
+
+def opened(ink, x0, y0, y1, h):
+    """Whether an opening quote stands just before a rule starting at x0:
+    ink within BLANK_QUOTE of a word's height to its left, over the rule,
+    and none beside it (No 4 9D's "'——and")."""
+    left = ink[:, max(0, int(x0 - BLANK_QUOTE * h)):max(0, x0 - 1)]
+    return bool(left[max(0, int(y0 - BLANK_QUOTE * h)):max(0, y0 - 1)].any()) and not left[max(0, y0 - 1):y1 + 1].any()
+
+
+def quoted(ink, x1, y0, y1, h):
+    """Whether a closing quote stands just after a rule ending at x1: within
+    BLANK_QUOTE of a word's height to its right, ink over the rule (below
+    the line above's descenders) and none beside it, where a letter's
+    would cross (a stop below it is no matter)."""
+    right = ink[:, x1 + 1:int(x1 + BLANK_QUOTE * h)]
+    return bool(right[max(0, int(y0 - BLANK_QUOTE * h)):y0 - 1].any()) and not right[y0 - 1:y1 + 1].any()
+
+
+def with_blanks(words, blanks):
+    """A reading's `words` with each printed blank (blank_strokes) put in:
+    the dash a box reads where the blank stands made the blank, else the
+    blank set in at its place in the box's text, else a word of its own.
+    Every reading then votes the same blank."""
+    out = list(words)
+    for b in blanks:
+        mid = (b[1] + b[3]) / 2
+        over = [i for i, w in enumerate(out) if w[1] <= mid <= w[3]
+                and min(w[2], b[2]) - max(w[0], b[0]) >= 0.5 * (b[2] - b[0])]
+        if not over:
+            out.append(b)
+            continue
+        i = over[0]
+        w = out[i]
+        text = w[4]
+        at = round(((b[0] + b[2]) / 2 - w[0]) / max(1, w[2] - w[0]) * len(text))
+        near = min(DASHES.finditer(text), key=lambda m: abs((m.start() + m.end()) / 2 - at), default=None)
+        if near and abs((near.start() + near.end()) / 2 - at) <= max(3, 0.15 * len(text)):
+            a, z = near.span()
+        else:
+            # No dash read there: the blank goes in at the nearest space.
+            spaces = [m.start() for m in re.finditer(r"\s|$", text)] + [0]
+            a = z = min(spaces, key=lambda k: abs(k - at))
+        head, tail = text[:a].rstrip(), text[z:].lstrip()
+        out[i] = (*w[:4], " ".join(p for p in (head, b[4] if not tail.startswith("'") else BLANK, tail) if p))
+    return out
+
+
+def lines_of(words):
+    """The words as printed rows, one a line: a word starts a new row when its
+    top is below half the row's first word's height."""
+    lines, row, top, height = [], [], None, 0
+    for x0, y0, x1, y1, t in sorted(words, key=lambda w: (w[1], w[0])):
+        if row and y0 > top + height / 2:
+            lines.append(" ".join(t for _, t in sorted(row)))
+            row = []
+        if not row:
+            top, height = y0, y1 - y0
+        row.append((x0, t))
+    if row:
+        lines.append(" ".join(t for _, t in sorted(row)))
+    return "\n".join(lines)
+
+
+# ------------------------------------------------------------ the vote
+
+
+def tokens(text):
+    return re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", text)
+
+
+@functools.lru_cache(maxsize=1 << 18)
+def similar(a, b):
+    return SequenceMatcher(None, a, b, autojunk=False).ratio()
+
+
+#: What a mark one reading lacks costs in align(), against 1 for a word.
+MARK_GAP = 0.5
+#: Pairing a digit glued to a word with another reading's mark there.
+DIGIT_MARK = 0.4
+#: Pairing a word with a number another reading reads in its place (No 3's
+#: ch reads "in" as "111"): just under a word lost on each side, so the
+#: words after it pair rather than the clue ending there.
+WORD_FIGURE = 1.9
+#: Each word after the first of a run of words inside the clue that `mine`
+#: lacks (a stretch one reader lost: No 254's "One of [four champions]
+#: fierce"): cheaper than the first, so the run stays one gap rather than
+#: the clue's opening words pairing unlike ones ("one" with "champions")
+#: with the other reading's real opening left before the clue, as lost.
+LOST_RUN = 0.5
+
+
+def align(mine, theirs):
+    """[(i, j)] pairing clue words `mine` with words of the other reading
+    `theirs` (None for a word the other side lacks, and (None, j) for a word
+    of theirs inside the clue that `mine` lacks): the best semi-global
+    alignment, where the other reading's words before and after the clue
+    cost nothing and a pair costs what its spellings differ. A run of their
+    words `mine` lacks costs a word's gap for its first, LOST_RUN for each
+    after (an affine gap)."""
+    n, m = len(mine), len(theirs)
+    gap = 1.0
+    inf = float("inf")
+    cost = [[inf] * (m + 1) for _ in range(n + 1)]
+    back = [[None] * (m + 1) for _ in range(n + 1)]
+    # run[i][j]: the best cost ending in a word of theirs `mine` lacks, and
+    # whether that word went on such a run (else it opened one).
+    run = [[inf] * (m + 1) for _ in range(n + 1)]
+    went_on = [[False] * (m + 1) for _ in range(n + 1)]
+    for j in range(m + 1):
+        cost[0][j] = 0.0
+    for i in range(1, n + 1):
+        cost[i][0] = cost[i - 1][0] + gap
+        back[i][0] = "up"
+        for j in range(1, m + 1):
+            glued = mine[i - 1].isdigit()  # a number glued to a word ("WW2", "know7")
+            pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1] or (
+                                             glued and theirs[j - 1] == BREAK) else
+                                         WORD_FIGURE if theirs[j - 1] == BREAK and mine[i - 1].isalpha() else inf
+                                         if theirs[j - 1] == BREAK
+                                         # A mark misread as a digit ("know7"), dearer
+                                         # than a number but less than a mark lost.
+                                         else DIGIT_MARK if glued and theirs[j - 1] in MARKS
+                                         else 1.2 * (1 - similar(mine[i - 1], theirs[j - 1])))
+            # A mark one side lacks (a comma missed) costs less than a word,
+            # so a lost mark never outweighs pairing the words after it.
+            up = cost[i - 1][j] + (MARK_GAP if mine[i - 1] in MARKS else gap)
+            mark = theirs[j - 1] in MARKS
+            opened = cost[i][j - 1] + (MARK_GAP if mark else gap)
+            longer = run[i][j - 1] + (MARK_GAP if mark else LOST_RUN)
+            run[i][j], went_on[i][j] = (longer, True) if longer < opened else (opened, False)
+            cost[i][j], back[i][j] = min((pair, "pair"), (up, "up"), (run[i][j], "left"))
+    j = min(range(m + 1), key=lambda k: cost[n][k])
+    out, i = [], n
+    in_run = False
+    while i > 0:
+        step = "left" if in_run else back[i][j]
+        if step == "pair":
+            out.append((i - 1, j - 1))
+            i, j = i - 1, j - 1
+        elif step == "up":
+            out.append((i - 1, None))
+            i -= 1
+        else:
+            # A word of theirs inside the clue that `mine` lacks: (None, j).
+            out.append((None, j - 1))
+            in_run = went_on[i][j]
+            j -= 1
+    return out[::-1]
+
+
+_LEXICON = None
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def rank(word):
+    """A word's frequency rank in tools/data/lexicon.tsv (1 the commonest),
+    or None when the lexicon lacks it. (Kept per word: rejoin and the vote ask
+    it ~2.6M times on a Times page, of ~30k words.)"""
+    global _LEXICON
+    if _LEXICON is None:
+        _LEXICON = {}
+        with open(TOOLS / "data" / "lexicon.tsv", encoding="utf-8") as f:
+            for line in f:
+                if not line.startswith("#"):
+                    w, r = line.split("\t", 2)[:2]
+                    _LEXICON.setdefault(w.lower(), int(r))
+    low = word.lower()
+    if low.endswith("'s") and len(low) > 3 and low[:-2] in _LEXICON:
+        return _LEXICON[low[:-2]]  # "that's" is as common as "that"
+    return _LEXICON.get(low) or _LEXICON.get(low.replace("'", ""))
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def is_word(word):
+    """Whether the committed lexicon has the word (cmudict and WordNet are
+    too loose here: they hold "al", "imo" and "chaft")."""
+    if word.lower().endswith("'s") and len(word) > 3:
+        return is_word(word[:-2])
+    return rank(word) is not None or word.lower() in ("a", "i") or word.lower().replace("'", "") in closed()
+
+
+_LM = None
+
+
+def clue_lm():
+    """(words, pairs, answer words): how often the corpus's clues print each
+    word and each two words in a row, and how often its answers hold each
+    word (tools/data/clue_lm.tsv.gz, built by tools/build_clue_lm.py)."""
+    global _LM
+    if _LM is None:
+        uni, pair, ans = {}, {}, {}
+        with gzip.open(TOOLS / "data" / "clue_lm.tsv.gz", "rt", encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("#"):
+                    continue
+                k, n = line.rstrip("\n").split("\t")
+                (ans if k[0] == "=" else pair if " " in k else uni)[k.lstrip("=")] = int(n)
+        _LM = uni, pair, ans
+    return _LM
+
+
+#: How often the corpus's clues must print a word the lexicon lacks, or its
+#: answers hold it, for the word to count as one ("Hornblower", "Illyrian").
+CLUE_WORD_FLOOR = 3
+
+
+def known(word, stem=True):
+    """Whether the word is the lexicon's or one the corpus's clues or
+    answers use often enough to be real, not a reader's slip."""
+    if is_word(word):
+        return True
+    uni, _, ans = clue_lm()
+    low = word.lower()
+    return (uni.get(low, 0) >= CLUE_WORD_FLOOR or ans.get(low.replace("'", ""), 0) >= CLUE_WORD_FLOOR
+            or (stem and low.endswith("'s") and len(low) > 3 and "'" not in low[:-2]
+                and known(low[:-2], stem=False)))
+
+
+def closed_compound(word):
+    """Whether a word no lexicon knows is two known words of 3+ letters
+    closed up ("spongecake")."""
+    return any(is_word(word[:k]) and is_word(word[k:]) for k in range(3, len(word) - 2))
+
+
+def fit(word, before, after):
+    """How well `word` reads between the words `before` and `after` (None at
+    a clue's end), by the corpus's clues: the log count of each pair it
+    makes, plus a tenth of the log count of the word alone."""
+    uni, pair, _ = clue_lm()
+    w = word.lower()
+    score = 0.1 * math.log1p(uni.get(w, 0))
+    for a, b in ((before, w), (w, after)):
+        if a and b:
+            score += math.log1p(pair.get(f"{a.lower()} {b.lower()}", 0))
+    return score
+
+
+#: How much better one spelling must fit its neighbours than the next to win
+#: a tie between readings.
+FIT_MARGIN = 1.0
+
+
+def edits(word):
+    """The spellings one letter's change, loss or addition from `word`, or
+    one "rn" read as "m" or back ("camivore")."""
+    w, abc = word.lower(), "abcdefghijklmnopqrstuvwxyz"
+    splits = [(w[:k], w[k:]) for k in range(len(w) + 1)]
+    rn = {w[:k] + new + w[k + len(old):] for old, new in (("m", "rn"), ("rn", "m"))
+          for k in range(len(w)) if w.startswith(old, k)}
+    return ({a + b[1:] for a, b in splits if b} | {a + c + b[1:] for a, b in splits if b for c in abc}
+            | {a + c + b for a, b in splits for c in abc} | rn) - {w}
+
+
+def within_one(a, b):
+    """Whether two spellings are at most one letter's change, loss or addition apart."""
+    if a == b:
+        return True
+    if abs(len(a) - len(b)) > 1:
+        return False
+    k = 0
+    while k < min(len(a), len(b)) and a[k] == b[k]:
+        k += 1
+    return a[k + 1:] == b[k + 1:] or a[k + 1:] == b[k:] or a[k:] == b[k + 1:]
+
+
+def mend(read, before, after):
+    """The word every reading in `read` (lower case) most likely misspells:
+    of the known words one letter from any reading, the one most readings
+    lie that close to, then one as long as most readings, a tie going to
+    the one that fits its neighbours in the corpus's clues FIT_MARGIN
+    better; None when nothing wins."""
+    cands = {c for r in set(read) if len(r) > 2 for c in edits(r) if len(c) > 1 and known(c)}
+    if not cands:
+        return None
+    lens = [len(r) for r in read]
+    size = max(lens, key=lens.count)
+    ranked = sorted((((sum(within_one(c, r) for r in read), len(c) == size), fit(c, before, after), c)
+                     for c in cands), reverse=True)
+    if len(ranked) > 1 and ranked[0][0] == ranked[1][0] and ranked[0][1] - ranked[1][1] < FIT_MARGIN:
+        return None
+    return ranked[0][2]
+
+
+#: The letters the print's worn type turns into one another, both ways.
+SLIPS = (("c", "e"), ("c", "t"), ("h", "b"), ("n", "u"), ("l", "i"), ("l", "t"), ("f", "t"),
+         ("i", "t"), ("rn", "m"), ("li", "h"), ("cl", "d"))
+#: How much commoner a slip's word must be than the word read.
+SLIP_RATIO = 20
+#: Words commoner than this rank are read right too often to doubt ("lie", not "he").
+SLIP_FLOOR = 8000
+
+
+#: The misreadings worn newsprint makes one way only: (printed, read). 1940s
+#: Gale print: an e's eye fills in ("scaman", "somo", "cxtenuate").
+ONE_WAY = (("e", "c"), ("o", "c"), ("e", "o"), ("e", "x"))
+#: Most letters of one word worn() puts back together ("rcccptions").
+WORN_MAX = 4
+
+
+def misread(read, printed):
+    """Whether `read` is `printed` with one ONE_WAY letter misread."""
+    if len(read) != len(printed):
+        return False
+    diff = [(p, r) for p, r in zip(printed, read) if p != r]
+    return len(diff) == 1 and diff[0] in ONE_WAY
+
+
+def worn(word):
+    """The known word `word` (a non-word) is with up to WORN_MAX ONE_WAY
+    letters worn ("era" for "cra", "extenuate" for "cxtenuate"), SLIP_RATIO
+    times commoner than any other it could be ("of" for No 3's "cf"), else
+    None. Only a spelling the lexicon has is ever put back."""
+    low = word.lower()
+    if not low.isalpha() or len(low) < 2 or known(low):
+        return None
+    at = [i for i, ch in enumerate(low) if any(ch == r for _, r in ONE_WAY)]
+    if not at or len(at) > 12:
+        return None
+    forms = {low}
+    for i in at:
+        forms |= {f[:i] + p + f[i + 1:] for f in forms for p, r in ONE_WAY if f[i] == r}
+        if len(forms) > 400:
+            return None
+    cands = sorted((v for v in forms if v != low and sum(a != b for a, b in zip(v, low)) <= WORN_MAX
+                    and known(v)), key=lambda v: rank(v) or 10 ** 9)
+    if not cands or (len(cands) > 1 and (rank(cands[0]) or 10 ** 9) * SLIP_RATIO >= (rank(cands[1]) or 10 ** 9)):
+        return None
+    return cands[0]
+
+
+def unworn(text):
+    """`text` with each word the lexicon lacks put back to the one known word
+    worn type made of it (worn()): the readers share "cra" for "era", so they
+    cannot out-vote it. A word beside an apostrophe or a digit is left."""
+    def fix(m):
+        w = m.group(0)
+        got = worn(w)
+        if got is None:
+            return w
+        return got.upper() if w.isupper() and len(w) > 1 else got.capitalize() if w[0].isupper() else got
+    return re.sub(r"(?<![\w'\u2019])[A-Za-z]{3,}(?![\w\u2019]|'(?!s\b))", fix, text or "")
+
+
+def common_slip(word):
+    """A word one SLIPS swap from `word` that the lexicon ranks SLIP_RATIO
+    times commoner ("with" for "wich", "on" for "ou"), else None: every
+    reader can share that misread, so the reading is not to be trusted."""
+    low = word.lower()
+    r = rank(low)
+    if r is None or r < SLIP_FLOOR:
+        return None
+    for a, b in SLIPS + tuple((b, a) for a, b in SLIPS):
+        at = low.find(a)
+        while at >= 0:
+            v = low[:at] + b + low[at + len(a):]
+            if (rank(v) or 10 ** 9) * SLIP_RATIO < r:
+                return v
+            at = low.find(a, at + 1)
+    return None
+
+
+#: Letters a reader takes for one another one at a time, both ways: the
+#: print's worn type (SLIPS) and the shapes the readers confuse ("fudge"
+#: for "judge", "ear" for "eat", "ad" for "an").
+CONFUSED = tuple(p for p in SLIPS if len(p[0]) == len(p[1]) == 1) + (
+    ("f", "j"), ("r", "t"), ("d", "n"), ("n", "h"))
+#: A (read, printed) slip one way only: a k's arm lost reads h ("hing" for
+#: "king"); an h never reads k, so "Canek" is no "Caneh".
+CONFUSED_ONE_WAY = (("h", "k"),)
+#: How much better a word one CONFUSED letter from the voted one must fit
+#: its neighbours in the corpus's clues to replace it ("single element", not
+#: "single clement"; "for an entertainer", not "for ad entertainer").
+CONFUSED_FIT = 3.5
+
+
+def confused(word):
+    """The spellings one CONFUSED letter from `word` (lower case)."""
+    low, out = word.lower(), set()
+    for a, b in CONFUSED + tuple((b, a) for a, b in CONFUSED) + CONFUSED_ONE_WAY:
+        at = low.find(a)
+        while at >= 0:
+            out.add(low[:at] + b + low[at + 1:])
+            at = low.find(a, at + 1)
+    return out
+
+
+def likelier(word, before, after, read=None):
+    """The lexicon word one CONFUSED letter from the voted `word` that the
+    lexicon ranks commoner and that fits its neighbours in the corpus's
+    clues CONFUSED_FIT better than it, else None. A lexicon word gives way
+    only to a spelling one of the readings `read` has there ("element" for
+    "clement"): the corpus's fit alone would turn "if" into "it" and
+    "tight" into "right"."""
+    r = rank(word)
+    own = fit(word, before, after)
+    best = max(((fit(c, before, after), c) for c in confused(word)
+                if (rank(c) or 10 ** 9) < (r or 10 ** 9) and (r is None or c in (read or ()))),
+               default=None)
+    return best[1] if best and best[0] - own >= CONFUSED_FIT else None
+
+
+def swappable(text, at, word):
+    """Whether `word`, at `at` in `text`, is one likelier() may respell:
+    not an abbreviation or numeral in capitals ("MC", "II"), a light's
+    "ac", half of a hyphened word ("co-opted", "Heigh-ho") or a word that
+    drops its first letter after an apostrophe ("'ot")."""
+    return not (any(c.isupper() for c in word[1:]) or re.fullmatch(LIGHT_WORD, word)
+                or text[at + len(word):at + len(word) + 1] == "-"
+                or (at and text[at - 1] in "-'\u2019"))
+
+
+#: What a slip costs in slips(): a letter worn type or the readers turn into
+#: another (CONFUSED, or one of SLIPS' pairs of letters); any other letter
+#: changed, lost or put in costs 1.
+SLIP_COST = 0.5
+#: An apostrophe the print has and the reader lost costs this: readers drop
+#: one far more often than they make one up ("cant" for "can't").
+LOST_MARK = 0.25
+_SLIP_PAIRS = frozenset(CONFUSED) | frozenset((b, a) for a, b in CONFUSED)
+_SLIP_RUNS = tuple(p for p in SLIPS if len(p[0]) != len(p[1]))
+_SLIP_RUNS += tuple((b, a) for a, b in _SLIP_RUNS)
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def slips(a, b):
+    """What it costs a reader to read `b` where `a` is printed, case aside:
+    the edit distance with SLIP_COST for a likely slip ("tbar's" for "that's"
+    is 1, two slips)."""
+    a, b = a.lower(), b.lower()
+    n, m = len(a), len(b)
+    d = [[0.0] * (m + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        d[i][0] = d[i - 1][0] + (LOST_MARK if a[i - 1] == "'" else 1)
+    for j in range(1, m + 1):
+        d[0][j] = d[0][j - 1] + 1
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            x, y = a[i - 1], b[j - 1]
+            sub = 0 if x == y else SLIP_COST if (x, y) in _SLIP_PAIRS else 1
+            best = min(d[i - 1][j - 1] + sub, d[i - 1][j] + (LOST_MARK if x == "'" else 1), d[i][j - 1] + 1)
+            for p, q in _SLIP_RUNS:
+                if i >= len(p) and j >= len(q) and a[i - len(p):i] == p and b[j - len(q):j] == q:
+                    best = min(best, d[i - len(p)][j - len(q)] + SLIP_COST)
+            d[i][j] = best
+    return d[n][m]
+
+
+def near_words(word):
+    """The known words a reader may have misread as `word` (lower case): up
+    to two CONFUSED letters off, or one CONFUSED letter and one other change."""
+    w = word.lower()
+    out = set()
+    for v in {w} | confused(w):
+        out |= {c for c in {v} | confused(v) | edits(v) if len(c) > 1 and known(c)}
+    return out
+
+
+#: The shortest word the lexicon's consensus settles: "Sbc" may be "She",
+#: "Abe" or "Sac", where no reading's slips say which.
+CONSENSUS_MIN = 4
+#: What one reading's slips may add to a spelling's cost at most: a reading
+#: of another word (aligned off by one) says nothing of this one.
+CONSENSUS_CAP = 3.0
+#: What a tenfold rarer word costs, against SLIP_COST a slip: the readers'
+#: "thar's" is a slip from "that's" far likelier than a goat.
+RARITY_COST = 0.25
+#: The rank a known word the lexicon lacks counts as (a name the corpus's
+#: clues use).
+UNRANKED = 100000
+#: How much cheaper the consensus must be than the next spelling.
+CONSENSUS_MARGIN = 0.5
+#: How far (slips()) every reading may lie from a consensus word one of
+#: them prints letter for letter: "with" against "ujLh / ujth".
+PRINTED_SLIPS = 2.5
+
+
+def consensus(read, before=None, after=None):
+    """The known word the readings `read` (each reading's word at one place,
+    any case) most likely all misread, or None (when the readings' middle
+    length is under CONSENSUS_MIN): of the known words near any
+    reading and within a letter of their middle length and of the first
+    reading's (the clue's own, which it replaces), the one whose slips from every reading (slips(), each capped at
+    CONSENSUS_CAP) plus its rarity cost least, CONSENSUS_MARGIN under the
+    next, a tie going to the one that fits its neighbours in the corpus's
+    clues FIT_MARGIN better. At least two readings must lie within one
+    change (or a quarter of its letters' changes) of it, and a spelling
+    most readings share gives way only to a word one slip from it, and
+    never when it is a word formed() knows ("Ciry" is "City"; "Jenkyns"
+    stays a name, "unscared" a word). Nor does it settle anything when one
+    reading's spelling lies more than one change nearer all the readings
+    than it does: they read a word the lexicon lacks. A word one reading
+    prints, with every reading within PRINTED_SLIPS of it, needs neither
+    the two near readings nor the medoid test, and no rival a reading
+    does not print stands against it ("sweet" for "swcrl / swccl /
+    swetl", "that" for "titar / tlraf")."""
+    read = [r.lower() for r in read if r and re.fullmatch(r"[A-Za-z]+(?:'[A-Za-z]+)?", r)]
+    size = sorted(map(len, read))[len(read) // 2] if read else 0
+    if len(read) < 2 or size < CONSENSUS_MIN:
+        return None
+    cands = set().union(*(near_words(r) for r in set(read)))
+    if not cands:
+        return None
+    # A spelling most readings share is theirs, not a slip, unless the
+    # word is one slip from it ("Jaques" stays; "Ciry" is "City").
+    shared = max(read, key=read.count)
+    held = read.count(shared) * 2 > len(read)
+
+    def cost(c):
+        return (sum(min(slips(c, r), CONSENSUS_CAP) for r in read)
+                + RARITY_COST * math.log10(rank(c) or UNRANKED))
+    ranked = sorted((cost(c), c) for c in cands)
+    best = ranked[0][1]
+    printed = best in read and all(slips(best, r) <= PRINTED_SLIPS for r in read)
+    if len(best) < CONSENSUS_MIN or max(abs(len(best) - size), abs(len(best) - len(read[0]))) > 1 or (
+            not printed and sum(slips(best, r) <= max(1.0, len(best) / 4) for r in read) < 2):
+        return None
+    if held and (slips(best, shared) > SLIP_COST or formed(shared)):
+        return None
+    # Readings nearer one another than the word is to them read a word the
+    # lexicon lacks ("cameelious", not "cancellous").
+    medoid = min(sum(min(slips(r, o), CONSENSUS_CAP) for o in read) for r in set(read))
+    if not printed and sum(min(slips(best, r), CONSENSUS_CAP) for r in read) > medoid + 1:
+        return None
+    rivals = [c for k, c in ranked[1:] if k - ranked[0][0] < CONSENSUS_MARGIN and (not printed or c in read)]
+    if rivals and all(fit(best, before, after) - fit(c, before, after) < FIT_MARGIN for c in rivals):
+        return None
+    return best
+
+
+#: A capital S a reader ran onto a word, a speck or a misread mark after
+#: it ("driveS" for "drive ?") or before it ("STakes").
+GLUED_S = re.compile(r"(?<=^[a-z]{3})[a-z]*S$|^S(?=[A-Z][a-z]{2,}$)")
+
+
+def speck_free(tied, forms):
+    """Of the spellings `tied` (lower case), the one most of the readings'
+    words `forms` (as read) spell once each capital S glued onto a word
+    (GLUED_S) is dropped, when one wins; else None."""
+    votes = dict.fromkeys(tied, 0)
+    for f in forms:
+        bare = (f[:-1] if f.endswith("S") else f[1:]) if GLUED_S.search(f) else f
+        if bare.lower() in votes:
+            votes[bare.lower()] += 1
+    top = sorted(votes.values(), reverse=True)
+    return max(votes, key=votes.get) if top[0] > top[1] else None
+
+
+def digit_word(number, read):
+    """Whether the number `number` is the word `read` misread, letter by
+    letter ("10" for "to", "3" for "a")."""
+    return len(number) == len(read) and all(d in DIGIT_LETTERS and c in DIGIT_LETTERS[d]
+                                            for d, c in zip(number, read.lower()))
+
+
+#: The full stop the readings vote on: one after a lone letter with more of
+#: the clue after it, an initial's ("A. Conan Doyle", "U.S.A. and") or a
+#: speck one reader alone saw (No 3's "A. Frontier cantonment."). Any other
+#: stop ends a sentence or an abbreviation and is not voted on.
+STOP = "."
+LONE_STOP = r"(?<=(?<![A-Za-z'])[A-Za-z])\.(?=\s*[A-Za-z])"
+
+#: Punctuation inside a clue that the readings vote on like words.
+MARKS = ",;:!?" + STOP
+
+
+#: A number in another reading's text (a clue's number or its count), which
+#: bounds the clue: the words between it and the clue's are the clue's too.
+BREAK = "#"
+
+
+def marked(text, breaks=False):
+    """The words and the voted punctuation marks of a text (MARKS; a full
+    stop only as LONE_STOP), in order; with `breaks`, each number too, as
+    BREAK."""
+    # A number naming a light ("2 down") is the clue's own text, not a bound.
+    text = re.sub(r"\d+(?=\s*(?:across|down|ac|dn)\b)", " ", text, flags=re.IGNORECASE)
+    found = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|[,;:!?]|" + LONE_STOP + (r"|\d+" if breaks else ""), text)
+    return [BREAK if t[0].isdigit() else t for t in found]
+
+
+def ends(pairs, theirs):
+    """(lead, trail): the words and marks of `theirs` between the number
+    before the aligned clue and its first word, and between its last word and
+    the number after; None for an end no number bounds within six tokens."""
+    js = [j for i, j in pairs if i is not None and j is not None]
+    if not js:
+        return None, None
+    lead, k = [], min(js) - 1
+    while k >= 0 and theirs[k] != BREAK and len(lead) < 6:
+        lead.insert(0, theirs[k].lower())
+        k -= 1
+    lead_ok = k >= 0 and theirs[k] == BREAK
+    trail, k = [], max(js) + 1
+    while k < len(theirs) and theirs[k] != BREAK and len(trail) < 6:
+        trail.append(theirs[k].lower())
+        k += 1
+    trail_ok = k < len(theirs) and theirs[k] == BREAK
+    return tuple(lead) if lead_ok else None, tuple(trail) if trail_ok else None
+
+
+#: How alike a word of another reading must be to one of the clue's for
+#: that reading to print it there (prints).
+PRINTS_SIMILAR = 0.8
+
+
+def prints(pairs, low, theirs):
+    """Whether the other reading `theirs` prints the clue `low` where align
+    put it: words alike, or run into the next ("eatsjunkets"), or the
+    clue's own run together (No 4 21D's "featureofEngland'snationai" holding
+    "feature"), hold more than half the clue's letters. One that lost the clue still aligns it somewhere ("stop" on
+    "supposed"), and its words there are another clue's: no vote on this
+    one's words or ends."""
+    letters = sum(len(w) for w in low if w not in MARKS and w != BREAK)
+    hit = 0
+    for i, j in pairs:
+        if i is not None and j is not None and low[i] not in MARKS and low[i] != BREAK:
+            theirs_j = theirs[j].lower()
+            if similar(low[i], theirs_j) >= PRINTS_SIMILAR or len(low[i]) > 2 and low[i] in theirs_j:
+                hit += len(low[i])
+            elif len(theirs_j) > 2 and theirs_j in low[i]:
+                hit += len(theirs_j)
+    return hit * 2 > letters
+
+
+def another_clue(pairs, low, theirs, clues):
+    """Whether the words align put the clue `low` on in the other reading
+    `theirs` differ from it and are word for word another laid clue's
+    (`clues`, each its lower-case words): No 3's times reading, which lost
+    44D's "Hindustani for 'red'", aligns it on 14D's "Hindustani for
+    'cupboard'"."""
+    hit = [(i, j) for i, j in pairs if i is not None and j is not None]
+    if not hit or all(similar(low[i], theirs[j].lower()) >= PRINTS_SIMILAR for i, j in hit):
+        return False
+    span = [w.lower() for w in theirs[hit[0][1]:hit[-1][1] + 1] if w not in MARKS and w != BREAK]
+    return any(len(c) == len(span) and all(similar(a, b) >= PRINTS_SIMILAR for a, b in zip(c, span)) for c in clues)
+
+
+#: Marks no clue prints: a speck our readers read as a middle dot or bullet.
+SPECKS = "\u00b7\u2022"
+#: A speck between two words, read as a stop, a colon, a middle dot, or a
+#: real mark with a dot after it; a stop alone may stand a space off the
+#: second word ("The .beggar").
+SPECK_JOIN = re.compile(r"(?<![\w.'\u2019])([A-Za-z]+(?:'[A-Za-z]+)?)"
+                        r"( ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022]| ?\.(?=[a-z]))([A-Za-z]+)\b(?![.'\u2019]?[A-Za-z])")
+#: A mark glued between two words with no space: a lone ,;!? or double
+#: quote, or a run of two or three hyphens; a quote may stand before a
+#: bracket ("king"(Richard").
+GLUED_MARK = re.compile(r"(?<![\w.'\u2019-])([A-Za-z]+(?:'[A-Za-z]+)?)([,;!?\"\u201c\u201d]|-{2,3})"
+                        r"(\(?[A-Za-z]+)\b(?![.'\u2019]?[A-Za-z])")
+#: Words no sentence ends on: a stop after one is a speck.
+NO_SENTENCE_END = {"a", "an", "the", "of", "by", "for", "to", "in", "into", "on", "at", "with", "from", "and", "or"}
+#: Recognisers' East Asian reading of a dash ("\u4e00", the figure one)
+#: or a speck (an ideographic comma, a trade mark sign).
+CJK_SPECK = re.compile("[\u4e00\u3001\u2122]")
+#: How often the corpus's clues must print two words side by side for a
+#: speck between them to part them when no other reading does ("of.the").
+SPECK_PAIRS = 20
+
+
+def parted(clue, others):
+    """`clue` with a non-word in it that another reading prints as two or
+    more words ("theplant", "favouriteVictorian", a whole clue
+    "Paintedbrownrestaurantred...", and "fora" for "for a",
+    whose two words the corpus's clues print far more) parted as they are, and
+    two words it ran together over a stop ("to.poison", "Anag.of") parted."""
+    # A figure run into words ("Nothereis14found") that another reading
+    # prints apart ("Not here is 14 found"): parted as it prints them.
+    for m in re.findall(r"[A-Za-z]+\d{1,2}[A-Za-z]+", clue):
+        digits = re.search(r"\d+", m).group()
+        for theirs in others:
+            put = [digits if t == BREAK else t for t in theirs]
+            hit = next((put[i:j] for i in range(len(put)) for j in range(i + 3, min(len(put), i + 9) + 1)
+                        if "".join(put[i:j]).lower() == m.lower()
+                        and sum(t == digits for t in put[i:j]) == 1), None)
+            if hit:
+                clue = clue.replace(m, " ".join(hit), 1)
+                break
+    # Words run together over a stop are one run here: "walls.from" is
+    # longer than any word of No 17 16D.
+    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])(?: ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022]|[\"\u201c\u201d]\(?|-{2,3})(?=[A-Za-z])", "", clue))
+    longest = max((len(w) for w in runs), default=0)
+    apart = {}
+    for theirs in others:
+        for i in range(len(theirs)):
+            joined, sizes = "", []
+            for w in theirs[i:]:
+                if not w.replace("'", "").isalpha() or len(joined) + len(w) > longest:
+                    break
+                joined += w.lower()
+                sizes.append(len(w))
+                if len(sizes) > 1:
+                    apart.setdefault(joined, list(sizes))
+    printed = [{w.lower() for w in theirs} for theirs in others]
+    marked_apart = {}
+    for theirs in others:
+        for a, b, c in zip(theirs, theirs[1:], theirs[2:]):
+            if a.replace("'", "").isalpha() and b in MARKS and c.isalpha():
+                marked_apart.setdefault((a + c).lower(), set()).add(b)
+
+    words, pairs, _ = clue_lm()
+
+    def part(m):
+        w = m.group()
+        sizes = apart.get(w.lower())
+        if not sizes:
+            # Three words or more run together with a letter misread in
+            # them (No 4 21D's "featureofEngland'snationai" for "feature of
+            # England's national") part as another reading prints them.
+            near = [z for j, z in apart.items() if len(z) >= 3 and len(j) == len(w)
+                    and sum(a != b for a, b in zip(j, w.lower())) == 1]
+            sizes = near[0] if len(near) == 1 else None
+        if not sizes:
+            return w
+        low_w = w.lower()
+        def misread(x):
+            return len(x) == len(low_w) > 4 and is_word(x) and sum(a != b for a, b in zip(x, low_w)) == 1
+        near = [any(x == low_w or misread(x) for x in whole) for whole in printed]
+        if (known(low_w) or any(misread(x) for whole in printed for x in whole)) and sum(near) * 2 > len(others):
+            # A known word most readings print whole ("Edwardian") stays
+            # whole, though one reading split it; so does a misread of one
+            # ("reorgauized", "serice") most print whole or a letter off.
+            return w
+        if known(w.lower()):
+            # A known word stays whole ("hairstyle", "Ignatius", which a
+            # reading broke over a line end), unless the corpus's clues print the
+            # two words far more than it: "fora" for "for a".
+            k = sizes[0]
+            if len(sizes) != 2 or pairs.get(f"{w[:k].lower()} {w[k:].lower()}", 0) <= words.get(w.lower(), 0):
+                return w
+        out, k = [], 0
+        for size in sizes:
+            out.append(w[k:k + size])
+            k += size
+        return " ".join(out)
+
+    def stop(m):
+        # A speck between two words (SPECK_JOIN: "to.poison", "a·step",
+        # "test,·for", "The .beggar"): parted where another reading prints
+        # the two side by side, or where both are words the corpus's clues
+        # print as a pair SPECK_PAIRS times; never in a word ("Snar.es"),
+        # which suspect() holds. A real mark before the speck stays when
+        # another reading prints it there; after no word, a stop is an
+        # abbreviation's ("Anag.of").
+        a, sp, b = m.group(1), m.group(2).strip(), m.group(3)
+        joined = (a + b).lower()
+        mark = sp[0] if sp[0] in ",;:!?" and len(sp) > 1 else ""
+        if sp.strip(SPECKS) == "" or sp[0] in ",;!?":
+            pass  # a speck no clue prints, or a mark and one
+        elif (not b[0].islower() or len(b) < 2) and not (
+                sp == "." and len(b) > 1 and joined in apart and a.lower() in NO_SENTENCE_END):
+            # Before a capital a stop ends a sentence ("John Bull.The"),
+            # unless no sentence ends on the word before it: parted where a
+            # reading prints the two side by side ("by.Churchill").
+            return m.group()
+        if is_word(joined):
+            return m.group()  # a word with a speck in it ("Snar.es")
+        said = joined in apart or joined in marked_apart
+        if not said and not (len(a) > 1 and len(b) > 1 and is_word(a.lower()) and is_word(b.lower())
+                             and pairs.get(f"{a.lower()} {b.lower()}", 0) >= SPECK_PAIRS):
+            return m.group()
+        if mark and mark not in marked_apart.get(joined, ()):
+            mark = ""
+        if sp[0] == "." and (re.fullmatch("|".join(ABBREVIATED), a) or not is_word(a.lower().split("'")[0])):
+            return f"{a}. {b}"
+        return f"{a}{mark} {b}"
+
+    def quote(m):
+        # An apostrophe between two words another reading prints apart: a
+        # plural's possessive after an s ("soldiers' tea"), else a quotation
+        # opening ("say,'Give"); a known contraction ("they're") stays.
+        a, b = m.group(1), m.group(2)
+        if (a + b).lower() not in apart or known(m.group().lower()):
+            return m.group()
+        return f"{a}' {b}" if a[-1] in "sS" else f"{a} '{b}"
+    def glued(m):
+        # A mark glued between two words (GLUED_MARK). A mark a reading
+        # prints there gets the space after it ("Snakes!One", "Utter,a").
+        # A double quote closing one the clue opened gets it too
+        # ("docet"is", "king"(Richard"); one that pairs with nothing before a
+        # small letter is a speck, made the words' space ("grow"in"), where
+        # a reading prints them side by side or the corpus's clues print
+        # them as a pair SPECK_PAIRS times. Hyphens run between two words
+        # are the dash ("up---least").
+        a, sp, b = m.group(1), m.group(2), m.group(3)
+        w = b.lstrip("(")
+        joined = (a + w).lower()
+        if sp[0] == "-":
+            return f"{a} \u2014 {b}" if known(a.lower()) and known(w.lower()) else m.group()
+        if sp in ",;!?":
+            return f"{a}{sp} {b}" if sp in marked_apart.get(joined, ()) else m.group()
+        words_both = is_word(a.lower()) and is_word(w.lower())
+        if not (len(a) > 1 or a in "aAI") or not (joined in apart or (
+                words_both and pairs.get(f"{a.lower()} {w.lower()}", 0) >= SPECK_PAIRS)):
+            return m.group()
+        if len(re.findall("[\"\u201c\u201d]", clue[:m.start(2)])) % 2:
+            return f"{a}{sp} {b}"
+        return f"{a} {b}" if b[0].islower() and words_both else m.group()
+    unspeck = CJK_SPECK.sub(lambda m: " \u2014 " if m.group() == "\u4e00" else "", clue)
+    unspeck = re.sub("  +", " ", unspeck).strip() if unspeck != clue else clue
+    if unspeck[:1].islower() and CJK_SPECK.match(clue):
+        unspeck = unspeck[0].upper() + unspeck[1:]  # a speck read before the clue's capital
+    clue = GLUED_MARK.sub(glued, unspeck)
+    clue = SPECK_JOIN.sub(stop, clue)
+
+    def lost_space(m):
+        # A sentence's stop run into the capitalised word after it (clue_text.STOP_SPACE_LOST).
+        a, b = m.group(1), m.group(2)
+        if ((len(a) < 3 and a.lower() not in clue_text.STOP_SMALL) or a.lower() in clue_text.STOP_PREFIXES
+                or not is_word(a.lower()) or not is_word(b.lower()) or is_word((a + b).lower())):
+            return m.group()
+        return f"{a}. {b}"
+    clue = clue_text.STOP_SPACE_LOST.sub(lost_space, clue)
+    # An abbreviation's last letter run into the next word ("E.g.sights",
+    # "i.e.fleshless"), which SPECK_JOIN's word may not follow a stop into.
+    clue = re.sub(r"(?<=[A-Za-z]\.)([A-Za-z])\.([a-z]{2,})\b",
+                  lambda m: f"{m[1]}. {m[2]}" if (m[1] + m[2]).lower() in apart or
+                  (m[1] + m[2]).lower() in marked_apart else m[0], clue)
+    clue = re.sub(r"\b([A-Za-z]{2,})'([A-Za-z]{2,})\b", quote, clue)
+
+    def pair_printed(w):
+        # A three-letter non-word ("toa", "ofa") parts only where most
+        # readings print its two words side by side ("to a").
+        low_w = w.lower()
+        if is_word(low_w):
+            return False
+        cuts = [(low_w[:k], low_w[k:]) for k in (1, 2)]
+        said = sum(any((x.lower(), y.lower()) in cuts for x, y in itertools.pairwise(theirs)) for theirs in others)
+        return said * 2 > len(others)
+
+    return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*",
+                  lambda m: part(m) if len(m.group()) >= 4 or (len(m.group()) == 3 and pair_printed(m.group()))
+                  else m.group(), clue)
+
+
+def unglued(theirs, low):
+    """Another reading's tokens with two to four of this clue's words it
+    ran together ("eatsjunkets", "laidyoursoul") parted again, or over
+    the quote that opens the second (No 3's "for'red" for "for 'red'"); an
+    apostrophe before a contraction's ending ("that's") opens no quote. A
+    run of three or four words is parted too with one letter misread
+    (No 3's "theMoghulEmpirefoi" for "the Moghul Empire fot")."""
+    runs = {"".join(low[i:i + n]): low[i:i + n] for n in (2, 3, 4) for i in range(len(low) - n + 1)
+            if all(w.isalpha() for w in low[i:i + n])}
+    out = []
+    for t in theirs:
+        if (m := re.fullmatch(r"([A-Za-z]+)['‘’]([A-Za-z]+)", t)) and m[0].lower() not in low \
+                and not CONTRACTED.fullmatch(m[2]) and runs.get((m[1] + m[2]).lower()) == [m[1].lower(), m[2].lower()]:
+            out += [m[1], m[2]]
+            continue
+        run = runs.get(t.lower())
+        if run is None and t.isalpha():
+            near = [r for j, r in runs.items() if (len(r) > 2 or len(r[0]) <= 3 and len(r[1]) >= 5 and not known(t.lower()))
+                    and len(j) == len(t) and sum(a != b for a, b in zip(j, t.lower())) == 1]
+            run = near[0] if len(near) == 1 else None
+        k = 0
+        for w in run or [t]:
+            out.append(t[k:k + len(w)])
+            k += len(w)
+    return out
+
+
+def rejoin(theirs, low):
+    """Another reading's tokens with a word it split joined again, when this
+    clue's words (`low`) hold the joined word and it is known ("ital ian"),
+    or one a letter from it and it is a dictionary word: one
+    split at a line end ("taste. fully", "subter fuge") or spaced out letter
+    by letter ("w a lk")."""
+    out, k = [], 0
+    while k < len(theirs):
+        for parts in ([1, 2, 3], [1, 2], [1], [2]):
+            if k + parts[-1] >= len(theirs) or (parts == [2] and theirs[k + 1] not in MARKS):
+                continue
+            pieces = [theirs[k]] + [theirs[k + p] for p in parts]
+            joined = "".join(pieces).lower()
+            # Words with a space between are words ("of fish"): only a mark,
+            # or a piece that is no word, says one was split.
+            apart = parts == [2] or not all(is_word(t.lower()) for t in pieces)
+            # The clue may misread the joined word by a letter ("obviousJy").
+            here = joined in low or (len(joined) > 4 and any(within_one(joined, w) for w in low))
+            if all(t.isalpha() for t in pieces) and apart and here and (
+                    is_word(joined) or joined in low and known(joined)):
+                out.append("".join(pieces))
+                k += parts[-1] + 1
+                break
+        else:
+            out.append(theirs[k])
+            k += 1
+    return out
+
+
+def ends_joined(theirs, low):
+    """Another reading's tokens with the clue's first or last word joined
+    again where it split it over a line end ("hair. Style" before the
+    count, for this clue's "hairstyle"): two words next to the number that
+    bounds the clue, which together spell this clue's word at that end."""
+    if not low:
+        return theirs
+    out = list(theirs)
+    for k in range(len(out) - 2, -1, -1):
+        a, b = out[k], out[k + 1]
+        if not (a.isalpha() and b.isalpha()):
+            continue
+        joined = (a + b).lower()
+        last = joined == low[-1] and (k + 2 == len(out) or out[k + 2] == BREAK)
+        first = joined == low[0] and (k == 0 or out[k - 1] == BREAK)
+        if last or first:
+            out[k:k + 2] = [a + b.lower()]
+    return out
+
+
+#: How alike two readings' words must be to spell one lost end (end_voted).
+END_SIMILAR = 0.75
+#: The fewest letters a lost end must hold (end_voted): a shorter one is
+#: a clue number or count misread ("is" for 15, "si" for (5)).
+END_LETTERS = 4
+
+
+def end_voted(ends, quiet, side, own=()):
+    """The words a clue lost at one end (a tail cut at a line wrap, "light-"
+    over "headed"), as the other readings print them, or None: their ends
+    (`ends`, each a tuple of words and marks) read alike word for word,
+    misreads aside ("to bluebeard" / "to blucbeard"), in more of the readings
+    that see an end than not, and in more than print the clue with nothing
+    there (`quiet`), and not run into this clue's own word at that end
+    (`own`, its lower-case words). Each word is the dictionary spelling
+    most of them print, or the one they print at all; a mark goes in when
+    most of them print it. None when any word has no dictionary spelling."""
+    stripped = [tuple(t for t in e if t not in MARKS) for e in ends]
+    worded = [(e, w) for e, w in zip(ends, stripped) if w]
+    if not worded:
+        return None
+
+    def alike(a, b):
+        return len(a) == len(b) and all(x == y or similar(x, y) >= END_SIMILAR or within_one(x, y)
+                                        for x, y in zip(a, b))
+    groups = [[(e, w) for e, w in worded if alike(w, base)] for _, base in worded]
+    best = max(groups, key=len)
+    if len(best) < 2 or len(best) * 2 <= len(worded) or len(best) <= quiet:
+        return None
+    words = []
+    for k in range(len(best[0][1])):
+        spelt = [w[k] for _, w in best if is_word(w[k]) or known(w[k])]
+        if not spelt or len(set(spelt)) > 1 and spelt.count(max(spelt, key=spelt.count)) * 2 <= len(best):
+            return None
+        words.append(max(spelt, key=spelt.count))
+    if sum(map(len, words)) < END_LETTERS or any(len(w) < 2 for w in words):
+        return None
+    if any(len(w) > 3 and alike((w,), (o,)) for w in words for o in own):
+        return None  # the clue's own words again: misaligned, not lost
+    # This clue's own edge word may hold the words, run together and
+    # misread ("lighrheaded" before "headed"): nothing was lost.
+    edge = (own[-1] if side == "end" else own[0]) if own else ""
+    piece = words[-1] if side == "end" else words[0]
+    if len(edge) > len(piece):
+        cut = edge[-len(piece):] if side == "end" else edge[:len(piece)]
+        if within_one(cut, piece) or similar(cut, piece) >= END_SIMILAR:
+            return None
+    # Each end with the voted spellings in, marks as it prints them.
+    spelt = [tuple(next(it) if t not in MARKS else t for t in e)
+             for e, _ in best for it in [iter(words)]]
+    most = max(spelt, key=spelt.count)
+    return most if spelt.count(most) * 2 > len(best) else tuple(words)
+
+
+#: How alike another reading's pieces of the clue's edge word, joined, must
+#: be to it (edge_split): the clue's own reading of it may be misread too.
+EDGE_SPLIT_SIMILAR = 0.8
+
+
+def edge_split(edge, piece, rest, side):
+    """How many tokens of `rest` (another reading's words and marks past
+    the clue's edge, nearest first) are more of the clue's own word at that
+    edge (`edge`), split ("broom slick" for "broomstick") or run apart
+    ("ductor hurried to enter" for "Ductorlurriedtuenter"): joined with the
+    piece the reading aligned to it (`piece`), they spell it a letter off,
+    or as alike as EDGE_SPLIT_SIMILAR and as long give or take two. 0 when
+    the piece is near the whole word (the words past it are lost: "surrounded
+    by trees" for "surrounded trees") or a lone letter ("t nens")."""
+    if len(piece) + 2 > len(edge) or len(piece) < 2 or not piece.isalpha():
+        return 0
+    best, run, pieces = 0, "", [piece]
+    for n, t in enumerate(rest, 1):
+        if t in MARKS:
+            continue
+        if not re.fullmatch(r"[a-z]{2,}(?:'[a-z]+)?", t):
+            break  # a lone letter is a speck or a misread figure
+        run = run + t if side == "end" else t + run
+        pieces.append(t)
+        joined = piece + run if side == "end" else run + piece
+        if len(joined) > len(edge) + 2:
+            break
+        # Pieces that are all words are words apart ("no uniform" for the
+        # clue's "Nouniform"), unless short of none and a letter from one
+        # word as long ("broom slick" for "broomstick").
+        if all(is_word(w) for w in pieces) and not (
+                min(map(len, pieces)) >= 3 and any(len(c) >= len(joined) and is_word(c) for c in edits(joined))):
+            continue
+        if within_one(joined, edge) or (abs(len(joined) - len(edge)) <= 2
+                                        and similar(joined, edge) >= EDGE_SPLIT_SIMILAR):
+            best = n
+    return best
+
+
+#: The most letters of a word only one reading has that the corpus may put
+#: in (lone_word_fits), and how many times more often the corpus's clues
+#: must print it beside each neighbour than the neighbours side by side.
+LONE_WORD_LETTERS = 3
+LONE_WORD_RATIO = 2
+
+
+def lone_known(i, a, w, low, seen, extra, leads, trails, first_at, last_at):
+    """Whether the dictionary word `a` (clue word `i`, as printed `w`) that
+    no other reading has is a word they lost: the clue's capitalised first
+    word, every reading printing the clue has the clue's next word, and none prints a
+    word of any weight in its place (a speck or two letters that are no
+    word is no rival). Else a lone word is a misread or a hallucination."""
+    printers = [k for k, lead in enumerate(leads) if lead is not None]
+    if not printers or not is_word(a) or not (i == first_at and w[:1].isupper() and len(a) >= 2):
+        return False
+    if a in ("a", "i") or CAPS_IN_WORD.search(w):
+        return False
+    nearby = [j for j in (i - 1, i + 1) if 0 <= j < len(low) and low[j] not in MARKS and low[j] != BREAK]
+    if i != first_at:
+        # Only the clue's first word: a crop that takes the number's row loses
+        # it. Inside the clue or at its end, a word two readings lack stays
+        # lost ("She eats junkets": test_ocr_vote_checks).
+        return False
+    if any(k not in seen[j] for j in nearby for k in printers):
+        return False
+    rivals = [t for g in (i, i + 1) for ws in extra[g] for t in [ws] if t not in MARKS and t != BREAK]
+    if i == first_at:
+        rivals += [t for k in printers for t in (leads[k] or ()) if t not in MARKS and t != BREAK]
+    if i == last_at:
+        rivals += [t for k in printers for t in (trails[k] or ()) if t not in MARKS and t != BREAK]
+    return not any(is_word(t) or len(t) > 3 for t in rivals)
+
+
+def lone_word_fits(word, before, after):
+    """Whether a short known `word` one reading has and the others dropped
+    belongs between `before` and `after`: the corpus's clues print each
+    pair it makes LONE_WORD_RATIO times as often as the two neighbours
+    together ("come to see": 350 and 1,757 against "come see"'s 0; not
+    "in a car": 201 against 327). At a clue's end it is not decided."""
+    if len(word) > LONE_WORD_LETTERS or not is_word(word) or not before or not after:
+        return False
+    _, pairs, _ = clue_lm()
+    w, b, a = word.lower(), before.lower(), after.lower()
+    return min(pairs.get(f"{b} {w}", 0), pairs.get(f"{w} {a}", 0)) > LONE_WORD_RATIO * pairs.get(f"{b} {a}", 0)
+
+
+#: The fewest letters a word all readings print alike needs to stand
+#: against a commoner slip (agree).
+UNANIMOUS_LETTERS = 4
+
+
+def surer(k1, n1, k2, n2, steps=2000):
+    """P(p1 > p2) for two slip rates seen k1 times in n1 words and k2 in n2,
+    each rate's posterior Beta(k + 1, n - k + 1) (a flat prior)."""
+    def density(x, k, n):
+        return math.exp(k * math.log(x) + (n - k) * math.log1p(-x)
+                        + math.lgamma(n + 2) - math.lgamma(k + 1) - math.lgamma(n - k + 1)) / steps
+    below = total = 0.0
+    for i in range(steps):
+        x = (i + 0.5) / steps
+        total += density(x, k1, n1) * below
+        below += density(x, k2, n2)
+    return total
+
+
+def dropped(short, long):
+    """Whether `short` is `long` with letters dropped."""
+    it = iter(long)
+    return len(short) < len(long) and all(c in it for c in short)
+
+
+def by_family(spellers, rates):
+    """The spelling one engine's readers print and the other's do not, when
+    the slip the other spelling would take is far likelier on the page:
+    `rates` ({engine: {"seen", "wrong", "lost", "added"}}, family_rates)
+    counts each engine's words misread, read with letters lost, and read
+    with letters added. A spelling that is the other with letters dropped
+    asks whether its engine lost them or the other engine added them (No
+    103 14D, "tipper" against the printed "tripper"); any other pair asks
+    which engine misreads more. Else None. `spellers` is {spelling: [engine
+    of each reading printing it]}: two readings of one engine tied against
+    two of another are one vote against one, which only the engines'
+    measured slips can break."""
+    if len(spellers) != 2:
+        return None
+    sides = {s: set(fs) for s, fs in spellers.items()}
+    if any(len(fs) != 1 or None in fs for fs in sides.values()):
+        return None
+    (a, (ea,)), (b, (eb,)) = sides.items()
+    if ea == eb or ea not in rates or eb not in rates:
+        return None
+    ra, rb = rates[ea], rates[eb]
+    if min(ra["seen"], rb["seen"]) < FAMILY_WORDS:
+        return None
+    for (x, ex, rx), (y, ey, ry) in (((a, ea, ra), (b, eb, rb)), ((b, eb, rb), (a, ea, ra))):
+        # x's engine slipped, or y's: is x's slip the far likelier?
+        if dropped(x, y):
+            slip_x, slip_y = "lost", "added"
+        elif dropped(y, x):
+            slip_x, slip_y = "added", "lost"
+        else:
+            slip_x = slip_y = "wrong"
+        if surer(rx[slip_x], rx["seen"], ry[slip_y], ry["seen"]) >= FAMILY_SURE:
+            return y
+    return None
+
+
+#: How many letters run_on() needs after the stop: two short words ("of
+#: the") are in many clues.
+RUN_ON_LETTERS = 10
+
+
+def run_on(text, lid, laid):
+    """`text` (light `lid`'s clue) cut before another clue it runs on into,
+    that clue's number lost (No 103 9D "A pole was the sign of this house,
+    legend test of fidelity,", the line "12. In legend wonderful test of
+    fidelity." read without "12. In"): after a stop (".", "?", "!", or the
+    "," or ";" Tesseract reads one as), words that print most of another
+    laid clue (`laid`, {light: (text, ...)}) and it them, and no other
+    figures (No 4's "St. George's Day, 1564." is no 5D "St. George's Day,
+    1918." run on). Else `text` as it is."""
+    for m in re.finditer(r"[.?!,;](?=\s+\S)", text or ""):
+        tail = [w.lower() for w in marked(clean(text[m.end():])) if w not in MARKS]
+        if len(tail) < 2 or sum(map(len, tail)) < RUN_ON_LETTERS:
+            continue
+        figures = re.findall(r"\d+", text[m.end():])
+        for k, (t, _, _) in laid.items():
+            if figures and re.findall(r"\d+", t or "") != figures:
+                continue
+            theirs = [w for w in marked(clean(t or "")) if w not in MARKS]
+            low = [w.lower() for w in theirs]
+            # Both ways: a tag many clues end on ("Two letters missing.") or
+            # a few shared words ("wonder") are no whole clue run on.
+            if k != lid and theirs and prints(align(tail, low), tail, theirs) \
+                    and prints(align(low, tail), low, tail):
+                return text[:m.start() + 1]
+    return text
+
+
+#: A count closing a clue inside another clue's text, the next clue's
+#: capital after it: "The main China-Korea Division (6;3). Covered ...".
+RUN_IN = re.compile(r"\(\s*\d{1,2}(?:\s?[,.;:\-]\s?\d{1,2})*\s*\)[.,;:]?\s+(?=[A-Z\"'\u2018\u201c])")
+
+
+def run_in(text, lid, laid):
+    """`text` (light `lid`'s clue) without another clue read in ahead of
+    it, that clue's count and all (times-15602 8D "The main China-Korea
+    Division (6;3). Covered inside as the tennis court is", 7D's clue and
+    count before 8D's own): the words before a count that print most of
+    another laid clue (`laid`, {light: (text, ...)}) and it them, as
+    run_on() cuts one run on after. A run-in no laid clue prints is left
+    for bled() to refuse. Else `text` as it is."""
+    for m in RUN_IN.finditer(text or ""):
+        head = [w.lower() for w in marked(clean(text[:m.start()])) if w not in MARKS]
+        if len(head) < 2 or sum(map(len, head)) < RUN_ON_LETTERS:
+            continue
+        for k, (t, _, _) in laid.items():
+            theirs = [w for w in marked(clean(t or "")) if w not in MARKS]
+            low = [w.lower() for w in theirs]
+            if k != lid and theirs and prints(align(head, low), head, theirs) \
+                    and prints(align(low, head), low, head):
+                return text[m.end():]
+    return text
+
+
+def runs_in_cut(laid):
+    """`laid` ({light: (text, enum, group)}) with each clue's run-in cut
+    (run_in), each against the others as laid."""
+    return {lid: (run_in(t, lid, laid) if t else t, e, g) for lid, (t, e, g) in laid.items()}
+
+
+def elsewhere_run(end, side, clues):
+    """Whether `end` (a reading's words past a clue's end, `side` "end", or
+    before its start, "start") opens (or closes) on RUN_ON_LETTERS letters
+    of words another laid clue (`clues`, each a list of its lower-case
+    words) prints in a row: the reading lost the number between (No 4's
+    22A "The name of an eagle." running on into 23A's "english of
+    islands"), and no word of this clue is lost there."""
+    words = [t for t in end if t not in MARKS]
+    if side == "start":
+        words = words[::-1]
+    for n in range(2, len(words) + 1):
+        run = words[:n] if side == "end" else words[:n][::-1]
+        if sum(map(len, run)) < RUN_ON_LETTERS:
+            continue
+        return any(all(similar(a, b) >= PRINTS_SIMILAR for a, b in zip(run, c[i:i + n]))
+                   for c in clues for i in range(len(c) - n + 1))
+    return False
+
+
+#: How alike (SequenceMatcher on its words) the laid clue must be to the
+#: words another reading prints between two numbers for relay() to take
+#: them as that reading's print of it, and how far ahead of that reading's
+#: next likeliest clue.
+RELAY_LIKE = 0.7
+RELAY_AHEAD = 0.25
+
+
+def relay(clue, others):
+    """(text, k, words): the clue most `others` print between two numbers
+    where the vote holds the laid `clue` ("Sionemc!'The`arbingcr'souiside"
+    against "Stone me! The arbinger's outside", "Yardous" for "Various"),
+    as reading k prints it without the specks at its ends (despecked), k
+    the one alike to the most others, and how many of those readings print
+    each word there; None unless each of more than half the readings
+    prints such a clue, alike to the others'."""
+    def flat(ws):
+        return " ".join(w.lower() for w in ws if w not in MARKS)
+    laid = flat(marked(clue))
+    found = {}  # k -> (its words, flat)
+    for k, theirs in enumerate(others):
+        parts = [list(g) for brk, g in itertools.groupby(theirs, lambda t: t == BREAK) if not brk]
+        scored = sorted(((SequenceMatcher(None, laid, flat(p)).ratio(), i) for i, p in enumerate(parts)
+                         if flat(p)), reverse=True)
+        if scored and scored[0][0] >= RELAY_LIKE and scored[0][0] - (scored[1][0] if len(scored) > 1 else 0) >= RELAY_AHEAD:
+            words = parts[scored[0][1]]
+            found[k] = (words, flat(words))
+    like = {(k, j): SequenceMatcher(None, found[k][1], found[j][1]).ratio() for k in found for j in found}
+    backers = {k: [j for j in found if like[k, j] >= PRINTS_SIMILAR] for k in found}
+    # The print alike to the most, and closest to them: one reading's
+    # slips ("saatcher" for "crownsnatcher") are the others' outliers.
+    best = max(backers, key=lambda k: (len(backers[k]), sum(like[k, j] for j in found)), default=None)
+    if best is None or len(backers[best]) < 2 or len(backers[best]) * 2 <= len(others):
+        return None
+    printed = collections.Counter(w for j in backers[best] for w in set(found[j][1].split()))
+    words = despecked(found[best][0], [w for w in marked(clue) if w not in MARKS])
+    return re.sub(r" (?=[,;:!?.])", "", " ".join(words)), best, printed
+
+
+def speck(word, head=False):
+    """Whether `word`, at an end of a reading's print of a clue the laid
+    clue does not start or end on, is a speck or heading there and not the
+    clue's: "None", a run of capitals ("DOWN", "PS"), a lone letter, two
+    letters in no word's case ("tS"); at the head, any two letters ("lt",
+    "by" before "Vessels")."""
+    return word == "None" or word.isupper() and len(word) > 1 or len(word) == 1 \
+        or len(word) == 2 and (head or not (word.islower() or word.istitle()))
+
+
+def despecked(words, laid):
+    """A reading's print (`words`) of the clue laid as `laid` (its words)
+    without the specks and headings at its ends that the laid clue, whose
+    end word is one clues use, has none of (speck), nor a lone letter inside it where the laid clue has
+    no one-letter word ("Afghan I appears")."""
+    words = list(words)
+    if not laid:
+        return words
+    seen = clue_lm()[0]
+    for end, side in ((laid[0], 0), (laid[-1], -1)):
+        while len(words) > 1 and len(end) > 2 and end.lower() in seen and words[side] not in MARKS \
+                and speck(words[side], head=side == 0) and similar(words[side].lower(), end.lower()) < PRINTS_SIMILAR:
+            words.pop(side)
+        while side == 0 and words and words[0] in MARKS:
+            words.pop(0)
+    if not any(len(w) == 1 for w in laid):
+        words = [w for i, w in enumerate(words) if not (0 < i < len(words) - 1 and len(w) == 1 and w.isalpha()
+                                                         and w not in "aA")]
+    return words
+
+
+#: Brackets and quotes a laid word carries at its ends that remarked() keeps.
+OPENS, CLOSES = "(\"\u201c", ")\"\u201d"
+
+
+#: Words no compound holds: a hyphen beside one is a speck ("when-the").
+ARTICLES = {"a", "an", "the"}
+
+
+def key_letters(token):
+    return re.sub(r"[^a-z]", "", token.lower())
+
+
+def remarked(clue, text):
+    """`text`, the vote of a reading's print of `clue`, with the laid
+    clue's brackets, quotes, hyphens and apostrophes back where its letters
+    agree (the readings' words carry none): "roughly made" for its
+    "roughly-made", "(Hamlet)" for its "(Hamlc)"; and a laid word the vote
+    has only a piece of, "operation" for "opera", where the laid word is a
+    word."""
+    said = text.split()
+    for parts in (m.split("-") for m in re.findall(r"[A-Za-z]+(?:-[A-Za-z]+)+", clue)
+                  if not ARTICLES & set(m.lower().split("-"))):
+        n = len(parts)
+        for j in range(len(said) - n + 1):
+            run = [t.rstrip(",;:!?.") for t in said[j:j + n]]
+            if [t.lower() for t in run] == [p.lower() for p in parts] and all(said[j:j + n - 1]) \
+                    and run[:-1] == said[j:j + n - 1]:
+                said[j:j + n] = ["-".join(run) + said[j + n - 1][len(run[-1]):]]
+                break
+    laid = [t for t in clue.split() if key_letters(t)]
+    sm = SequenceMatcher(None, [key_letters(t) for t in laid], [key_letters(t) for t in said], autojunk=False)
+    out = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "delete":
+            continue
+        if op == "insert":
+            out += said[j1:j2]
+            continue
+        j = j1
+        for i in range(i1, i2):
+            if j >= j2:
+                break
+            lt = laid[i].rstrip(",;:!?.")
+            lead = re.match(f"[{OPENS}]*", lt).group()
+            trail = re.search(f"[{CLOSES}]*$", lt[len(lead):]).group()
+            body = lt[len(lead):len(lt) - len(trail)].strip("-")
+            key, got, k = key_letters(body), "", j
+            while k < j2 and key.startswith(got + key_letters(said[k])):
+                got += key_letters(said[k])
+                k += 1
+            if ARTICLES & set(body.lower().split("-")):
+                body = body.replace("-", " ")
+            word = re.fullmatch(r"[A-Za-z]+(?:[-'][A-Za-z]+)*", body)
+            if k > j and got == key and word and (k - j == 1 or "-" in body):
+                one = said[j].rstrip(",;:!?.")
+                core = one if k - j == 1 and "-" not in body and ("'" in one or "'" not in body) \
+                    and not ((body.islower() or body.isupper() and len(body) > 1) and op == "equal") else body
+            elif k == j2 and k > j and len(key) - len(got) > 1 and word and "'" not in body \
+                    and all(is_word(part.lower()) for part in body.split("-")):
+                core = body
+            else:
+                if k == j or op == "equal":
+                    k = j + 1
+                core = " ".join(t.rstrip(",;:!?.") for t in said[j:k])
+                if not (op == "replace" and i2 - i1 == 1 and k - j == 1):
+                    lead = trail = ""
+            tail = said[k - 1][len(said[k - 1].rstrip(",;:!?.")):]
+            out.append(lead + core + trail + tail)
+            j = k
+        out += said[j:j2]
+    return " ".join(out)
+
+
+def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
+          counted=True):
+    """agreed(): the vote of `clue` against `others`; one that still breaks a punctuation rule past its
+    certain mends (punctuation.faults) with the marks at each faulty word gap the other readings print
+    there instead (gap_voted), when that clears it."""
+    got = agreed(clue, others, keep_known, families, rates, clues, number, count, counted)
+    if got[0] is None or keep_known or not punctuation.faults(punctuation.mended(got[0]), capitals=False):
+        return got
+    voted = gap_voted(got[0], [others] if others and isinstance(others[0], str) else others)
+    return (voted, got[1]) if voted else got
+
+
+#: A word gap holding marks (".:", ";,", " ,"), the words either side of it: "Measure.:associated".
+GAP_MARKS = re.compile(r"(?P<a>[A-Za-z]+(?:'[A-Za-z]+)?)(?P<gap>\s*[.,;:](?:\s*[.,;:])*\s*)(?=(?P<b>[A-Za-z]+))")
+
+
+def gap_voted(clue, others):
+    """`clue` with the marks of each word gap punctuation.faults() flags (once mended: "Measure.:associated",
+    "pounds, we ,are told", "by.:everyone") put as most of the other readings (`others`: marked() token lists,
+    each bounded by its numbers) print them between those two words, the fewer marks on a tie ("Measure
+    associated" from "3.Measure associated" against "3,Measure. :associated"); None unless every faulty gap
+    has a reading that prints its two words side by side and the clue then passes punctuation.faults(). A
+    reading's print of the clue is its stretch between two numbers most alike the clue (relay()'s RELAY_LIKE).
+    10-28 census (failure shapes): ~100 unfiled Times pages, the write refused whole over one clue whose
+    readers each read a speck as a different mark there."""
+    words = " ".join(w.lower() for w in marked(clue) if w not in MARKS)
+    parts = []
+    for theirs in others:
+        stretches = [list(g) for brk, g in itertools.groupby(theirs, lambda t: t == BREAK) if not brk]
+        scored = max(((SequenceMatcher(None, words, " ".join(w.lower() for w in p if w not in MARKS)).ratio(), i)
+                      for i, p in enumerate(stretches)), default=None)
+        if scored and scored[0] >= RELAY_LIKE:
+            parts.append(stretches[scored[1]])
+    out, last = [], 0
+    now = len(punctuation.faults(punctuation.mended(clue), capitals=False))
+    for m in GAP_MARKS.finditer(clue):
+        a, b = m["a"], m["b"]
+        # Faulty in the clue's own context: a quotation's spaced comma mends to its dash ("the —, my").
+        bare = clue[:m.start("gap")] + " " + clue[m.end("gap"):]
+        if len(punctuation.faults(punctuation.mended(bare), capitals=False)) >= now:
+            continue
+        votes = collections.Counter()
+        for p in parts:
+            for i, t in enumerate(p):
+                j = i + 1
+                while j < len(p) and p[j] in MARKS:
+                    j += 1
+                if t.lower() == a.lower() and j < len(p) and p[j].lower() == b.lower():
+                    votes[tuple(p[i + 1:j])] += 1
+                    break
+        if not votes and m["gap"] == ".":
+            # A letter read as a stop ("avo.d", "taki.g"): the word a reading prints with one letter there.
+            whole = re.compile(re.escape(a) + "[a-z]" + re.escape(b), re.IGNORECASE)
+            found = collections.Counter(t for p in parts for t in p if whole.fullmatch(t))
+            if found:
+                out.append(clue[last:m.start("a")] + found.most_common(1)[0][0])
+                last = m.end("gap") + len(b)
+                continue
+        if not votes:
+            return None
+        marks = max(votes, key=lambda k: (votes[k], -len(k)))
+        out.append(clue[last:m.start("gap")] + "".join(marks) + " ")
+        last = m.end("gap")
+    if not out:
+        return None
+    text = "".join(out) + clue[last:]
+    return None if punctuation.faults(punctuation.mended(text)) else text
+
+
+def agreed(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
+           counted=True):
+    """vote() of `clue` against `others`; when that holds and relay() finds
+    the clue most other readings print, that print put to the rest and to
+    this reading instead, with the laid clue's hyphens, brackets and quotes
+    back (remarked), unless relay_doubt() finds it is not the clue. Not
+    with `keep_known`, whose words are no reading's misread."""
+    got = vote(clue, others, keep_known, families, rates, clues, number, count, counted)
+    # A vote that breaks a punctuation rule past its certain mends
+    # (punctuation.faults: ";,", "word , word"; a stop before a capital
+    # may end a sentence) tries the print other
+    # readings share instead, and takes it only when that one passes.
+    faulty = got[0] is not None and not keep_known and bool(punctuation.faults(punctuation.mended(got[0]), capitals=False))
+    if got[0] is not None and not faulty or keep_known:
+        return got
+    if others and isinstance(others[0], str):
+        others = [others]
+    # Only a clue no other reading prints word for word: one they print
+    # held on marks or a word they differ on, which a re-lay would not mend.
+    low = [w.lower() for w in marked(clue, breaks=True)]
+    if not faulty and any(word_for_word(low, ends_joined(rejoin(unglued(theirs, low), low), low)) for theirs in others):
+        return got
+    found = relay(clue, others)
+    if not found:
+        return got
+    text, k, printed = found
+    rest = others[:k] + others[k + 1:] + [marked(clue, breaks=True)]
+    order = families and [families[k + 1]] + families[1:k + 1] + families[k + 2:] + [families[0]]
+    again = vote(text, rest, keep_known, order, rates, clues, number, count, counted)
+    if again[0] is None:
+        return got
+    out = remarked(clue, again[0])
+    if faulty and punctuation.faults(punctuation.mended(out), capitals=False):
+        return got
+    return got if relay_doubt(clue, text, out, printed) else (out, again[1])
+
+
+#: What a laid token carries at its ends that is no letter of its word.
+STRIP = ",;:!?.'\"()\u201c\u201d-"
+
+
+def word_for_word(low, theirs):
+    """Whether the other reading `theirs` prints every word of the clue
+    `low` (its lower-case words and marks) in a row between two of its
+    numbers: marks aside, the same words in the same order, none misread,
+    lost or added between them ("She junkets" does not print "she eats
+    junkets"; "eatsjunkets" does, once unglued)."""
+    words = [w for w in low if w not in MARKS and w != BREAK]
+    n = len(words)
+    for brk, run in itertools.groupby(theirs, lambda t: t == BREAK):
+        run = [t.lower() for t in run if t not in MARKS]
+        if n and not brk and any(run[i:i + n] == words for i in range(len(run) - n + 1)):
+            return True
+    return False
+
+
+def relay_doubt(clue, text, out, printed):
+    """Why `out`, agree()'s vote of the print `text` relay() found for the
+    laid `clue` (`printed`: how many readings print each word there), is
+    not the clue, or None. Not the clue: one suspect() flags; one that lost
+    a hyphen, bracket or quote of the laid clue (save a hyphen beside an
+    article, "when-the"); a word fewer than two of those readings print
+    that is no word the laid clue has nor a dictionary word like one the
+    print has (the vote's own pick, "snatcher" for "crownsnatcher"); a
+    small word no dictionary knows ("arbinger's"); a word doubled into the
+    next ("war wartime"); a word the laid clue splits off a lone letter
+    ("l ac's" for lilac's); a dictionary word in place of a like one the
+    laid clue or the print has, the one no clue uses ("Lugings" for
+    "Lo'dgings"); a ";" or ":" the print or the laid clue lacks; a
+    comma of the laid clue lost; two words the laid clue ran together
+    that clues print hyphenated ("heavyhanided" for "heavy handed": the
+    print's hyphen is no reading's word); the laid clue's full
+    stop before a capital lost ("Luok. In die"); a lower-case start the
+    laid clue lacks; a dictionary word of the laid clue, of any length,
+    lost inside it ("what pace" for "what a pace", "She junkets" for "She
+    eats junkets"); or a word of the laid clue lost past either
+    end, short of a figure (No 1's "Check front part of the" for "Check
+    front part of die ship"; "(7) the dock page 8" is the page's)."""
+    if suspect(out):
+        return "suspect"
+    if len(punctuation.faults(punctuation.mended(out))) > len(punctuation.faults(punctuation.mended(clue))):
+        return "a punctuation fault the laid clue lacks"
+    hyphen = r"[A-Za-z]-[A-Za-z]|(?<=[a-z] )-(?=[a-z])"
+    bare = re.sub(r"\(\s*\d[^)]*\)", "", clue)
+    laid_hyphens = [m for m in re.findall(r"[A-Za-z]+(?:\s?-[A-Za-z]+)+", clue)
+                    if not ARTICLES & set(re.split(r"\s?-", m.lower()))]
+    if len(re.findall(hyphen, out)) < sum(len(re.findall(hyphen, m)) for m in laid_hyphens) \
+            or out.count("(") != out.count(")") or out.count("(") < bare.count("(") or out.count('"') % 2 or out.count('"') < bare.count('"') \
+            or out.count("\u201c") != out.count("\u201d") or out.count("\u201c") < bare.count("\u201c"):
+        return "a hyphen, bracket or quote lost"
+    laid = [t for t in clue.split() if key_letters(t)]
+    keys = {key_letters(p) for t in laid for p in re.split(r"[-']", t) + [t]}
+    words = [w.lower() for w in tokens(out)]
+    said = set(tokens(text))
+    for w in tokens(out):
+        known = is_word(w) or formed(w.lower())
+        borne = printed[w.lower()] > 1 or known and (w.lower() in keys or len(w) > 4 and any(
+            similar(w.lower(), t.lower()) >= PRINTS_SIMILAR for t in said))
+        if not borne or w.islower() and not known:
+            return "unborne " + w
+    for a, b in itertools.pairwise(words):
+        if len(a) > 2 and b != a and b.startswith(a):
+            return "doubled " + a
+    for a, b in itertools.pairwise(laid):
+        if len(a) == 1 and a not in "aAI" and len(key_letters(b)) <= 3 \
+                and key_letters(b) in {w.replace("'", "") for w in words}:
+            return "split " + a + " " + b
+    seen = clue_lm()[0]
+    for theirs in [key_letters(t) for t in laid] + [w.lower() for w in tokens(text)]:
+        if len(theirs) > 3 and theirs in seen and any(
+                w not in seen and similar(w, theirs) >= PRINTS_SIMILAR for w in words):
+            return "in place of " + theirs
+    if any(out.count(m) > text.count(m) for m in ";:"):
+        return "a mark the print lacks"
+    if any(out.count(m) > bare.count(m) for m in ";:"):
+        return "a mark the laid clue lacks"
+    if out.count(",") < bare.count(","):
+        return "a comma lost"
+    for t in laid:
+        for a, b in itertools.pairwise(out.split()):
+            if "-" not in t and not keys & {key_letters(a), key_letters(b)} \
+                    and similar(key_letters(a + b), key_letters(t)) >= PRINTS_SIMILAR \
+                    and compound(a.strip(STRIP), b.strip(STRIP))[0]:
+                return "parted " + a + " " + b
+    if re.search(r"[a-z]\. +[A-Z]", clue) and not re.search(r"\. +[A-Z]", out):
+        return "a full stop lost"
+    if words and out[0].islower() and laid and key_letters(laid[0]) != words[0]:
+        return "starts lower-case"
+    keyed = [key_letters(w) for w in out.split()]
+    laid_keys = [key_letters(t) for t in laid]
+    sm = SequenceMatcher(None, laid_keys, keyed, autojunk=False)
+    for op, i1, i2, _, _ in sm.get_opcodes():
+        if op == "delete" and 0 < i1 and i2 < len(laid) and any(
+                is_word(t.strip(STRIP)) and keyed.count(key_letters(t)) < laid_keys.count(key_letters(t))
+                for t in laid[i1:i2]):
+            return "lost " + " ".join(laid[i1:i2])
+    hit = [i for i, t in enumerate(laid) if key_letters(t) in words or len(key_letters(t)) > 2 and any(
+        similar(key_letters(t), w) >= 0.5 or len(w) > 2 and w.replace("'", "") in key_letters(t) for w in words)]
+    if not hit:
+        return "nothing laid"
+    for lost in (laid[hit[-1] + 1:], laid[:hit[0]][::-1]):
+        for t in lost:
+            if re.search(r"\d", t):
+                break
+            if "'" in t.strip("'") and re.search("[A-Za-z]", t) or t.islower() and len(key_letters(t)) > 1 \
+                    and is_word(key_letters(t)):
+                return "lost " + t
+    return None
+
+
+def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
+         counted=True):
+    """(text or None, how) for one clue against the other readings' words
+    and marks (`others`: one list per reading, or one list alone). Each word
+    stands when another reading has it too; else it takes the spelling the
+    other readings share, else the one spelling of the three that is a
+    dictionary word. A mark (MARKS: a stop after a lone letter too) no other reading has is dropped. A word no
+    other reading has, two readings agreeing on a non-word the third does
+    not, or several dictionary spellings, is a disagreement. With
+    `keep_known` this reading's dictionary words are an engine's own and
+    give way only to a word every other reading has (Trove's text, whose
+    real words its readers' shared misreads must not outvote: "lie", not
+    "he").
+    `families` names the engine of this reading and of each other reading
+    in turn, and `rates` each engine's slips on the page (family_rates): a
+    tie the readings split by engine goes to the far better one (by_family).
+    `clues` holds the other laid clues' lower-case words: a reading's end
+    that runs on into one of them is no end lost (elsewhere_run). `number`
+    (the clue's own number) and `count` (its count, digits) are what a
+    reading's words before or after the clue may be misread from
+    (number_read): no end lost. `counted`: the list prints counts, so
+    figures after the clue's last word may be its count."""
+    if others and isinstance(others[0], str):
+        others = [others]
+    if not tokens(clue):
+        return clue, "no words"
+    # A word parted from the next ("orig inallyby") may join its other
+    # half once parted ("orig inally"): join_split again.
+    clue = join_split(parted(clue, others), others)
+    mine, spans = [], []  # spans: each token's (start, text) in the clue
+    k = 0
+    for t in marked(clue, breaks=True):
+        if t == BREAK:
+            num = re.compile(r"\d+").search(clue, k)
+            at, t = num.start(), num.group()
+            # A number glued to a word's end ("know7") is a mark misread,
+            # voted on as itself; one standing alone ("Map 10 E") is the
+            # clue's text and pairs with the number other readings have.
+            if not (at and clue[at - 1].isalpha()):
+                mine.append(BREAK)
+                spans.append((at, t))
+                k = at + len(t)
+                continue
+        else:
+            at = clue.find(t, k)
+        mine.append(t)
+        spans.append((at, t))
+        k = at + len(t)
+    while mine and mine[0] == BREAK:
+        mine, spans = mine[1:], spans[1:]
+    # A number run onto the clue's first word ("8Ruth's", "3Island") is
+    # its clue number or a speck: cut when two readings print that word
+    # (glued_digits). Not before capitals ("4WD"),
+    # nor in a clue with other figures (a run-on: "0Over 60.96 cm ... 151.")
+    # or other specks (a quote at a word's edge, a stop before more words:
+    # "Canbe8 genle. 'as birds"), which the vote would file as they stand.
+    lone_figure = len(re.findall(r"\d+", clue)) == 1 and not re.search(
+        r"(?<![A-Za-z])['\u2018\u2019\"\u201c\u201d]|['\u2018\u2019\"\u201c\u201d](?![A-Za-z])|\.(?=\s*\w)", clue)
+    lead_cut = spans[0][0] if lone_figure and spans and re.fullmatch(r"\s*\d+", clue[:spans[0][0]]) and not (
+        spans[0][1].isupper() or COUNTED.fullmatch(clue[:spans[0][0]].strip() + spans[0][1])) else None
+    while mine and mine[-1] == BREAK:
+        mine, spans = mine[:-1], spans[:-1]
+    # A figure run onto the clue's last word or its "?" ("her7", "say?14",
+    # "reputation15).") is its count or the next clue's number when the
+    # readings printing the clue have no more numbers after that word than
+    # the count's and the next clue's: more is a reference the clue makes
+    # ("third of8" with a count of 3: "of # # #"), but none follows its "?".
+    # A figure the readings print as a mark ("Hunts7" for "Hunts?") is that
+    # mark, no count.
+    end_fig = re.search(r"(?<=[A-Za-z?!])\d+[\s).,:;]*$", clue)
+    # Figures standing after the last word ("quality 7", "girl 151.",
+    # "child i7j", "role 1 7V 3") are a count or the next clue's number by
+    # the same test, or by reading as the count with its brackets read as
+    # ones (count_read); a reference ("Display list of 16") is followed by
+    # both of those. The next clue's words must follow, else the clue may be
+    # its list's last, with no next number ("Homer in 3 (5)").
+    standing = STANDING_FIGURES.search(clue)
+    end_fig = standing if standing and not (end_fig and end_fig.start() < standing.start()) else end_fig
+    end_word = max((i for i, (at, t) in enumerate(spans) if at + len(t) <= end_fig.start()
+                    and t not in MARKS and t != BREAK and not t.isdigit()), default=None) if end_fig else None
+    end_runs = []  # each printing reading's numbers after end_word's place
+    end_next = []  # whether a word (the next clue's) follows those numbers
+    # A word with a speck against it ("i»" for "is") is no sure reading.
+    specked = {i for i, (at, t) in enumerate(spans)
+               if JUNK_MARK.match(clue[at + len(t):at + len(t) + 1] or " ")
+               or (at and JUNK_MARK.match(clue[at - 1]))}
+    low = [w.lower() for w in mine]
+    seen = [{} for _ in mine]  # i -> {reading k: its word}
+    extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
+    runs = [{} for _ in range(len(mine) + 1)]  # gap before i -> {reading: its words there, in order}
+    leads, trails = [], []
+    at_words = [i for i, w in enumerate(low) if w not in MARKS and w != BREAK]
+    first_at, last_at = (at_words[0], at_words[-1]) if at_words else (None, None)
+    printing = 0  # the other readings that print the clue
+    for k, theirs in enumerate(others):
+        theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
+        at = 0
+        pairs = align(low, [w.lower() for w in theirs])
+        if not prints(pairs, low, theirs) or another_clue(pairs, low, theirs, clues):
+            # This reading lost the clue: its words where align put it are
+            # another clue's, no vote on this one's.
+            leads.append(None)
+            trails.append(None)
+            continue
+        printing += 1
+        lead, trail = ends(pairs, theirs)
+        # The clue's own first or last word, split or run apart in this
+        # reading, is no word lost at that end (edge_split).
+        js = [j for i, j in pairs if i is not None and j is not None]
+        whole = {}  # the edge word's index -> this reading's pieces of it joined
+        for side, at_edge, j_edge in (("start", first_at, min(js, default=None)),
+                                      ("end", last_at, max(js, default=None))):
+            got = lead if side == "start" else trail
+            j = next((j for i, j in pairs if i == at_edge), None) if at_edge is not None else None
+            if not got or j is None or j != j_edge:
+                continue
+            rest = got[::-1] if side == "start" else got
+            n = edge_split(low[at_edge], theirs[j].lower(), rest, side)
+            if n:
+                cut = theirs[j + 1:j + 1 + n] if side == "end" else theirs[j - n:j + 1]
+                cut = [t for t in (cut if side == "start" else [theirs[j]] + cut) if t not in MARKS]
+                whole[at_edge] = cut[0] + "".join(cut[1:]).lower()
+                rest = rest[n:]
+                # Marks left past it that the clue prints there too are its own.
+                ats = range(at_edge - 1, -1, -1) if side == "start" else range(at_edge + 1, len(mine))
+                if rest and all(t in MARKS for t in rest) and tuple(rest) == tuple(mine[a] for a in ats)[:len(rest)]:
+                    whole.update(zip(ats, rest))
+                    rest = ()
+                rest = tuple(rest)
+                if side == "start":
+                    lead = rest[::-1]
+                else:
+                    trail = rest
+        j = next((j for i, j in pairs if i == end_word), None) if end_word is not None else None
+        if j is not None:
+            after = list(itertools.takewhile(lambda t: t == BREAK or t in MARKS, theirs[j + 1:]))
+            end_runs.append(after.count(BREAK))
+            follows = theirs[j + 1 + len(after):j + 2 + len(after)]
+            end_next.append(bool(follows) and follows[0][:1].isalpha() and follows[0].lower() not in ("across", "down"))
+        leads.append(lead)
+        trails.append(trail)
+        for i, j in pairs:
+            if i is None:
+                extra[at].setdefault(theirs[j].lower(), set()).add(k)
+                runs[at].setdefault(k, []).append(theirs[j].lower())
+            else:
+                at = i + 1
+                if j is not None:
+                    seen[i][k] = whole.get(i, theirs[j])
+        for i, w in whole.items():
+            seen[i][k] = w
+    if mine and mine[-1] == "?":
+        # A reading that splits the clue's last word ("Tap : ture ?" for
+        # "rapture?") leaves the rest of it and the "?" past the clue's
+        # end: that "?" is the clue's own. Past other words, it is not.
+        last = next((w for w in reversed(low) if w not in MARKS and w != BREAK), "")
+        for k, trail in enumerate(trails):
+            rest = "".join(t for t in trail or () if t not in MARKS).lower()
+            if (trail and trail[-1] == "?" and k not in seen[-1]
+                    and (not rest or len(rest) < len(last)
+                         and similar(last[-len(rest):], rest) >= PRINTS_SIMILAR)):
+                seen[-1][k] = "?"
+    # A word or mark that two other readings have where this one has nothing
+    # (a word lost, two run together, a comma missed) is put in; a word they
+    # share that is no word goes in as the known word a letter from it
+    # ("umsigned"), when one wins (mend).
+    # A lone I is put in only when every reading has it: RapidOCR's two
+    # recognisers share one detector and read the same speck as a "1".
+    def put_in(w, g):
+        if w in MARKS or is_word(w):
+            return w
+        return mend([w], low[g - 1] if g else None, low[g] if g < len(low) else None) if len(w) > 3 else None
+    adds = {g: [p for w, ks in e.items() if len(ks) >= 2 and len(ks) * 2 > len(others)
+                and (w != "i" or len(ks) == len(others)) and (p := put_in(w, g))]
+            for g, e in enumerate(extra)}
+    # A run of words inside the clue that two other readings, and most, print
+    # alike where this one has none (No 254's "One of [four champions]
+    # fierce") goes in whole: word by word each gap would hold two.
+    for g, by in enumerate(runs):
+        if not 0 < g < len(mine):
+            continue
+        tally = collections.Counter(tuple(ws) for ws in by.values() if len(ws) > 1 and BREAK not in ws)
+        for ws, n in tally.items():
+            if n >= 2 and n * 2 > len(others) and all(w not in MARKS and put_in(w, g) == w for w in ws):
+                adds[g] = [" ".join(ws)]
+    # Words other readings have between the clue's number and its first word,
+    # or between its last word and its count, were lost from this reading:
+    # put in when most readings have the same ones, else no reading wins.
+    first = next((t for t in mine if t not in MARKS and t != BREAK), "")
+    for side, got_ends in (("start", leads), ("end", trails)):
+        got_ends = [None if e and elsewhere_run(e, side, clues) else e for e in got_ends]
+        # A lone letter after the clue's last word is its count misread ("(s)").
+        seen_ends = [e for e in (tuple(t for t in e if (side == "end" or t not in MARKS)
+                                       and not (side == "end" and len(t) == 1 and t not in MARKS))
+                                 for e in got_ends if e) if e]
+        if len(seen_ends) < 2:
+            continue
+        top = max(seen_ends, key=seen_ends.count)
+        # Figure specks no word ("fS", "ll") are no words seen there when the
+        # call knows no number or count to test them by (number_read).
+        specks = not (number if side == "start" else count) and not re.search(r"\d", clue)
+        worded = [e for e in seen_ends if any(t not in MARKS for t in e) and not (specks and figure_specks(e, side))]
+        if seen_ends.count(top) < 2 and len(worded) * 2 < len(others):
+            # Specks a few of many readings each see apart (a second copy's
+            # readings vote too): no end is lost unless half the readings
+            # see words there (a mark alone is none: "privilege," against
+            # "privilege."), or two see the same ones.
+            continue
+        words_at = [t for t in top if t not in MARKS]
+        if side == "start" and len(words_at) == 1 and len(words_at[0]) == 1:
+            # One letter before the clue is a misread clue number ("2I").
+            continue
+        # The clue's number or count read as letters ("I I Lucy Ashton" for
+        # "11 Lucy Ashton", "of Gaunt ig" for "(4)"), by as many readings as
+        # see any one thing else there, is nothing lost. Before a clue
+        # opening small ("can alter") or on a lone capital ("K can alter"),
+        # "It" is its lost or misread first word.
+        as_number = [e for e in seen_ends if number_read(e, number if side == "start" else count, side)]
+        opens = first[:1].isupper() and (len(first) > 1 or first in "AI")
+        if as_number and (side == "end" or opens) and len(as_number) >= max(
+                (seen_ends.count(e) for e in seen_ends if e not in as_number), default=0):
+            continue
+        if (seen_ends.count(top) * 2 > len(others) and all(is_word(t) for t in words_at)):
+            g = 0 if side == "start" else len(mine)
+            adds[g] = adds.get(g, []) + [" ".join(top)] if top else adds.get(g, [])
+        elif (lost := end_voted(seen_ends, sum(1 for e in got_ends if e == ()), side,
+                                [w for w in low if w not in MARKS and w != BREAK])):
+            g = 0 if side == "start" else len(mine)
+            adds[g] = adds.get(g, []) + [" ".join(lost)]
+        elif (words_at or any(t not in MARKS for e in seen_ends for t in e)) and not (
+                # With no number or count to test them by, figure-shaped
+                # specks alone ("is", "si", "down i") at the clue's edge,
+                # which a reading printing it clean leaves out, are no word
+                # lost. Not in a clue with figures of its own, which may be
+                # two clues run together ("saint? (S) 27 Can a farm").
+                not (number if side == "start" else count) and not re.search(r"\d", clue)
+                and all(number_shaped(e, side) for e in seen_ends) and () in got_ends):
+            return None, f"the clue's {side} is lost: other readings have {' / '.join(' '.join(e) for e in seen_ends)}"
+    fixes, drop, how = {}, set(), "agree"
+    count_cut = None  # where a misread count ends the clue (count_misread)
+    # The clue's second word, past an opening letter's stop ("A. Frontier").
+    second = next((t for t in mine[1:] if t not in MARKS), "")
+    for i, w in enumerate(mine):
+        a = low[i]
+        got = {k: v for k, v in seen[i].items() if v not in MARKS and v != BREAK}
+        if w == BREAK:
+            # A number standing in the clue is a word misread when more
+            # other readings have a word it looks like there than a number.
+            num = spans[i][1]
+            like = [v.lower() for v in got.values() if digit_word(num, v) and is_word(v) and v.lower() != "i"]
+            if like and len(like) > sum(v == BREAK for v in seen[i].values()):
+                before = next((low[k] for k in range(i - 1, -1, -1) if low[k] not in MARKS + BREAK), None)
+                after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS + BREAK), None)
+                fixes[i] = max(sorted(set(like)), key=lambda v: (like.count(v), fit(v, before, after)))
+                how = "settled by the readings"
+            elif (len(num) == 1 and clue[spans[i][0] + 1:spans[i][0] + 2].isalpha()
+                  and len(got) < len(others) and BREAK not in seen[i].values()
+                  and all(v.lower() in ("i", "l") for v in got.values())):
+                # A figure run onto a word's start ("1uncle"), where another
+                # reading sees nothing and none a number, is a speck: a
+                # printed "I" stands apart from the next word.
+                drop.add(i)
+            continue
+        if w.isdigit():
+            marks = [v for v in seen[i].values() if v in MARKS]
+            top = max(marks, key=marks.count) if marks else None
+            if top and marks.count(top) * 2 > len(others):
+                fixes[i] = top
+                how = "settled by the readings"
+            elif lone_figure and printing >= 2 and glued_digits(i, low, seen, extra, fixes):
+                # Run onto a word's end ("the1", "Result0f"), where a
+                # reading has the word and none a number: a speck or a
+                # letter misread, gone. Beside other figures it may be a
+                # count's ("Spirit1 ... pine 151"): held.
+                drop.add(i)
+            continue
+        if w in MARKS:
+            if others and w not in seen[i].values():
+                drop.add(i)
+            continue
+        if not got and i == 0 and len(w) == 1 and second[:1].isupper():
+            # A letter before the clue's capital that no other reading has
+            # is a speck or a misread clue number.
+            drop.add(i)
+            continue
+        if (i and a == "i" and len(got) * 2 < len(others)
+                and all(v.lower() == "i" for v in got.values())):
+            # A lone I most readings see nothing at is a speck.
+            drop.add(i)
+            continue
+        before = next((low[k] for k in range(i - 1, -1, -1) if low[k] not in MARKS + BREAK), None)
+        after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS + BREAK), None)
+        if not got and len(a) > 3 and not known(a) and not (i and w[0].isupper()) and mend([a], before, after):
+            # A word only this reading has, a letter from a known one.
+            fix = mend([a], before, after)
+            fixes[i] = fix.capitalize() if w[:1].isupper() else fix
+            continue
+        if not got and len(a) == 1 and a not in "ai":
+            # A lone letter no other reading has is a speck.
+            drop.add(i)
+            continue
+        if not got and len(a) <= 2 and is_word(a) and any(
+                seen[i].get(k) == BREAK or (k not in seen[i] and k in extra[i].get(BREAK, set()) | extra[i + 1].get(BREAK, set()))
+                for k in range(len(others))):
+            # A short word another reading reads as a figure in its place
+            # (No 8's worn old-style "a" read "2") is seen by that reading.
+            continue
+        if not got and lone_word_fits(a, before, after):
+            # A short word only this reading saw ("come to see", the others
+            # read "come see"): the corpus's clues decide.
+            how = "settled by the corpus"
+            continue
+        bracketed = (clue[spans[i][0] + len(w):].lstrip().startswith(")")
+                     and "(" not in clue[:spans[i][0]])
+        if (not got and not clue[:spans[i][0]].endswith("-")
+                and (side := count_misread(i, w, low, seen, leads, trails, printing, second, bracketed))):
+            # A count or clue number misread as letters at the clue's edge
+            # ("charge IT" for "charge (7)", "Il Sources" for "11 Sources"):
+            # most readings printing the clue read a number right there.
+            # At the end the clue stops before it, its specks after it gone
+            # ("up? PJ-", "huge UO). L"). A hyphen's second half ("Austr-lia")
+            # is a split word's.
+            if side == "end":
+                count_cut = spans[i][0]
+                break
+            drop.add(i)
+            continue
+        if (not got and printing >= 2
+                and (cnt := re.search(r"\(\s*\d+(?:\s*[-,]\s*\d+)*\s*\)[.,]?\s*$", clue[:spans[i][0]]))
+                and not any(v not in MARKS and v != BREAK for j in range(i, len(mine)) for v in seen[j].values())):
+            # A count printed in the clue ("set in early (8) DOIVN"), past
+            # which no reading has a word: the clue ends at the count, the
+            # rest the answer or the next clue's garble.
+            count_cut = cnt.start()
+            break
+        if not got and lone_known(i, a, w, low, seen, extra, leads, trails, first_at, last_at):
+            # A dictionary word only this reading has, where every other
+            # reading printing the clue has its neighbours and nothing in
+            # its place: the others' crop or line lost it (the clue's own
+            # first word, "He doesn't draw carts" against "doesn't draw
+            # carts"), no reader read something else there.
+            how = "settled by the dictionary"
+            continue
+        if not got:
+            return None, f"no other reading has {w!r}"
+        if (i == 0 and len(w) == 1 and second[:1].isupper()
+                and len(got) * 2 < printing):
+            # A letter before the clue's capital that most readings printing
+            # the clue lack (one that lost the clue votes on none of it).
+            drop.add(i)
+            continue
+        votes = {a: 1}
+        forms = {a: [w]}
+        for v in got.values():
+            votes[v.lower()] = votes.get(v.lower(), 0) + 1
+            forms.setdefault(v.lower(), []).append(v)
+        # The clue's first word takes a capital when half its readings print
+        # one (a reading that lost the capital, "involve", outvotes none);
+        # else, and inside the clue, the first reading's case stands (a
+        # reader's "In" for "in" is as common as a capital lost).
+        spelt = {s: fs[0][:1].upper() + fs[0][1:]
+                 if i == 0 and 2 * sum(f[:1].isupper() for f in fs) >= len(fs) else fs[0]
+                 for s, fs in forms.items()}
+        plainer = [v for v in got.values() if v.lower() == a and not CAPS_IN_WORD.search(v)]
+        if CAPS_IN_WORD.search(w) and plainer:
+            # A capital inside the word that another reader did not see ("bacK").
+            spelt[a] = plainer[0]
+            how = "settled by the readings"
+        elif i and w[0].isupper() and any(v[0].islower() for v in got.values() if v.lower() == a):
+            # A capital one reader saw inside the clue and another did not.
+            spelt[a] = next(v for v in got.values() if v.lower() == a)
+            how = "settled by the dictionary"
+        # Of the dictionary spellings like this one and about as long (or
+        # shared by two readings), the one most readings share stands; a tie goes to the one
+        # far more like every reading's word (its support), else no spelling
+        # wins.
+        read = [a] + [v.lower() for v in got.values()]
+        support = {s: sum(similar(s, r) for r in read) for s in votes}
+        words_ = sorted((s for s in votes if known(s) and (votes[s] > 1 or (
+                            similar(a, s) >= 0.5 and abs(len(s) - len(a)) <= max(1, len(a) // 4)))),
+                        key=lambda s: (-votes[s], -support[s]))
+        if len(words_) > 1:
+            top, nxt = words_[0], words_[1]
+            if votes[top] == votes[nxt] and support[top] - support[nxt] < 0.3:
+                # A tie the readings cannot break goes to the spelling that
+                # fits its neighbours in the corpus's clues far better.
+                fits = sorted((c for c in words_ if votes[c] == votes[top]),
+                              key=lambda c: -fit(c, before, after))
+                common = sorted(fits, key=lambda c: rank(c) or 10 ** 9)
+                printed = [c for c in fits if any(misread(o, c) for o in fits)]
+                if (rank(common[0]) or 10 ** 9) * SLIP_RATIO < (rank(common[1]) or 10 ** 9):
+                    # Else the far commoner word: "lower", not "ower".
+                    words_ = common
+                elif len(printed) == 1:
+                    # Else the spelling another is a known misreading of:
+                    # "eh", which worn type prints as "ch".
+                    words_ = printed + [c for c in fits if c != printed[0]]
+                elif fit(fits[0], before, after) - fit(fits[1], before, after) < FIT_MARGIN:
+                    # Else the spelling most readings vote for once a capital
+                    # S run onto a word ("driveS" for "drive ?", "STakes")
+                    # votes for the word; else the known word every
+                    # reading's slips point to.
+                    settled = speck_free(fits, [w] + list(got.values())) or consensus(read, before, after)
+                    if not settled and families and rates:
+                        # Else the spelling of the engine that misreads far
+                        # less on this page, when the engines split the tie.
+                        spellers = {}
+                        for k, v in [(-1, a)] + list(got.items()):
+                            spellers.setdefault(v.lower(), []).append(families[k + 1])
+                        settled = by_family(spellers, rates)
+                        how = "settled by the engines" if settled else how
+                    if not settled:
+                        return None, f"readings differ: {w} / {' / '.join(got.values())}"
+                    words_ = [settled]
+                    spelt.setdefault(settled, settled.capitalize() if w[:1].isupper() else settled)
+                else:
+                    words_ = fits
+        if len(words_) > 1 and votes[words_[0]] == votes[words_[1]] and (
+                (settled := consensus(read, before, after)) and settled != words_[0]
+                and (rank(settled) or 10 ** 9) * SLIP_RATIO < (rank(words_[0]) or 10 ** 9)):
+            # A tie in votes, settled on a rare word, goes to the far commoner
+            # known word every reading's slips point to ("that's", not the
+            # "thar's" one reader saw).
+            words_ = [settled]
+            spelt.setdefault(settled, settled.capitalize() if w[:1].isupper() else settled)
+        if words_ and keep_known and known(a) and i not in specked and words_[0] != a and not (
+                len(got) == len(others) and all(v.lower() == words_[0] for v in got.values())):
+            pick = a
+        elif words_:
+            pick = words_[0]
+            if pick != a or votes[a] == 1:
+                how = "settled by the dictionary"
+        elif len(votes) == 1 and votes[a] >= 3 and len(a) > 2 and i not in specked:
+            # Three readings or more, every one, print the same non-word:
+            # the print's own (No 4 15D's Elizabethan "busie", not "susie").
+            pick = a
+        elif not known(a) and not (i and w[0].isupper()) and not (
+                # The clue's first word, a name, every reading spells alike
+                # (bar an apostrophe): the mend would change the capital the
+                # type prints largest and clearest ("Herrick's", not "Derrick's").
+                i == first_at and w[:1].isupper() and len(a) > 3 and len(got) >= 1
+                and all(v.lower().replace("'", "") == a.replace("'", "") for v in got.values())
+                and (mended_to := mend(read, before, after)) and mended_to[:1] != a[:1]) and mend(read, before, after):
+            # No reading a known word: the known word they all misspell (a
+            # capital inside the clue is a name the corpus may not know).
+            pick = mend(read, before, after)
+            spelt[pick] = pick.capitalize() if w[:1].isupper() else pick
+            how = "settled by the corpus"
+        elif len(a) > 2 and (votes[a] >= 3 or (votes[a] > 1 and i and w[0].isupper() and w[1:].islower())):
+            # No reading a dictionary word: what three readers saw stands,
+            # and a name two saw inside the clue (the first word's capital
+            # says nothing).
+            pick = a
+        elif len(a) > 2 and votes[a] == 1 and not known(a) and len(got) >= 2 and (
+                max(votes.values()) * 2 > len(others) and max(votes, key=votes.get) != a
+                and similar(a, max(votes, key=votes.get)) >= 0.7):
+            # Most other readings agree on a spelling like this one's, which
+            # no dictionary knows: "Jenkyns" where this reading has "Jcnkyns".
+            pick = max(votes, key=votes.get)
+            how = "settled by the readings"
+        elif settled := consensus(read, before, after):
+            # No spelling wins the vote: the known word every reading's
+            # slips point to ("another" for "anoibcr / anotacr / auotber").
+            pick = settled
+            spelt.setdefault(pick, pick.capitalize() if w[:1].isupper() else pick)
+            how = "settled by the lexicon"
+        elif max(votes.values()) > 1 and votes[a] == 1 and len(a) > 3 and w[0].islower():
+            return None, f"two readings agree on a non-word: {w} / {' / '.join(got.values())}"
+        elif len(a) > 3 and votes[a] > 1 and i not in specked and (
+                len(votes) == 1 or (votes[a] * 2 > sum(votes.values()) and closed_compound(a)
+                                    and not any(map(known, set(votes) - {a})))):
+            # Every reading that sees a word here spells it alike, letter
+            # for letter, or most do, it is two known words closed up, and
+            # the rest spell no word ("spongecake" against "spongecalke"),
+            # and no known word mends it: the print's own
+            # spelling (No 17's misprinted "elecampeae", "anatomatical"),
+            # filed as printed: printed_alike() records it as the clue's
+            # asPrinted, which suspect() then takes.
+            pick = a
+            how = "as printed"
+        elif len(votes) == 1 and votes[a] > 1 and not known(a) and (pick := worn(a)):
+            # Every reading prints the same non-word, a worn letter from a
+            # known word far commoner than any other it could be (No 3's
+            # "initials cf a telegraph").
+            spelt[pick] = pick.capitalize() if w[:1].isupper() else pick
+            how = "settled by the type's wear"
+        else:
+            return None, (f"both read {w!r}, not a word" if votes[a] > 1
+                          else f"readings differ: {w} / {' / '.join(got.values())}")
+        # A dictionary word at least three readings print alike, with none
+        # dissenting, stands: no slip or corpus fit outvotes them (No 17's
+        # "starling", not "starting"). Not a short one: readers share the
+        # slip of a two-letter word ("ot" for "of", "ou" for "on").
+        unanimous = (pick == a and len(a) >= UNANIMOUS_LETTERS and is_word(a) and len(got) >= 2
+                     and all(v.lower() == a for v in got.values()))
+        slip = None if (keep_known and pick == a) or unanimous else common_slip(pick)
+        if slip:
+            # Every reader can share the slip: the commoner spelling stands
+            # unless the read one fits its neighbours in the corpus's clues
+            # far better.
+            gap = fit(slip, before, after) - fit(pick, before, after)
+            # A word most readings and at least three share gives way only to
+            # one that fits better.
+            shared = votes.get(pick, 0)
+            if gap > (FIT_MARGIN if shared >= 3 and shared * 2 > len(read) else -FIT_MARGIN):
+                spelt[slip] = slip.capitalize() if spelt[pick][:1].isupper() else slip
+                pick = slip
+                how = "settled by the corpus"
+        alt = None if (keep_known and pick == a) or unanimous else likelier(pick, before, after, read)
+        if alt and not (i and spelt[pick][:1].isupper()) and swappable(clue, spans[i][0], w):
+            spelt[alt] = alt.capitalize() if spelt[pick][:1].isupper() else alt
+            pick = alt
+            how = "settled by the corpus"
+        if spelt[pick] != w:
+            fixes[i] = spelt[pick]
+    adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
+    if lead_cut is not None and (0 in adds or printing < 2 or not glued_digits(0, low, seen, extra, fixes, before=True)):
+        lead_cut = None
+    if (end_word is not None and count_cut is None and not end_fig.group()[:1].isspace() and printing >= 2 and len(end_runs) >= 2
+            and not any(fixes.get(i, "#") in MARKS for i, (at, t) in enumerate(spans) if at >= end_fig.start())
+            and all(1 <= r <= (len(clue) if clue[end_fig.start() - 1] in "?!" else 1 + len(re.findall(r"\d+", count or "0")))
+                    for r in end_runs)
+            and printed_as_voted(end_word, low, seen, fixes)):
+        count_cut = end_fig.start()
+    if (counted and end_word is not None and count_cut is None and end_fig.group()[:1].isspace() and end_runs
+            and sum(v.lower() == (fixes.get(end_word) or low[end_word]).lower() for v in seen[end_word].values())
+            and not any(COUNTED.fullmatch(t) for t in end_fig.group().split())
+            and (all(r == 1 + count_groups(end_fig.group(), count) and n for r, n in zip(end_runs, end_next))
+                 and len(end_runs) >= min(2, printing)
+                 or count_read(end_fig.group(), count) and min(end_runs) <= 2)):
+        count_cut = end_fig.start()
+    # A letter read as its look-alike figure ("to0" for "too", "Result0f"
+    # for "Result of", "a5" for "as") that the vote put back in the word
+    # it touches leaves the figure over: it goes.
+    for i, w in enumerate(mine):
+        if len(w) != 1 or w not in DIGIT_LETTERS or i in drop:
+            continue
+        at = spans[i][0]
+        for n, glued, word in ((i - 1, i and spans[i - 1][0] + len(spans[i - 1][1]) == at, lambda c, n: low[n] + c),
+                               (i + 1, i + 1 < len(mine) and spans[i + 1][0] == at + 1, lambda c, n: c + low[n])):
+            if glued and n in fixes and printed_as_voted(n, low, seen, fixes) and any(
+                    fixes[n].lower() == word(c, n) for c in DIGIT_LETTERS[w]):
+                drop.add(i)
+    if mine and mine[-1] == "?" and adds.get(len(mine), [""])[0].endswith("?"):
+        # Words lost from the clue's end are put in with its "?" after them.
+        drop.add(len(mine) - 1)
+    # A stop glued between two words becomes their space; beside one
+    # letter other than "a" or "I" it is inside a word ("Turkis.h"), closed
+    # up when that makes a known word, else left (an abbreviation's: "No.1").
+    stray_stops = {}
+    for i in range(1, len(mine) if others else 0):
+        m = STRAY_STOP.fullmatch(clue[spans[i - 1][0] + len(spans[i - 1][1]):spans[i][0]])
+        if not m or {mine[i - 1], mine[i]} & set(MARKS + BREAK) or not (
+                fixes.get(i, mine[i])[:1].islower() or "\u00b7" in m.group(1)):
+            continue
+        if "\u00b7" in m.group(1) or all(len(w) > 1 or w in "ai" for w in low[i - 1:i + 1]):
+            stray_stops[i] = " "
+        elif m.group() == "." and not {i - 1, i} & set(fixes) and known(low[i - 1] + low[i]):
+            stray_stops[i] = ""
+    if not fixes and not drop and not adds and not stray_stops and count_cut is None and lead_cut is None and not (
+            others and JUNK_MARK.search(clue)):
+        return clue, how
+    # Specks between the words go: the other readings saw nothing there.
+    speckless = (lambda gap: JUNK_MARK.sub("", gap)) if others else (lambda gap: gap)
+    text, k, out = clue, lead_cut or 0, ""
+    for i, (at, old) in enumerate(spans):
+        if count_cut is not None and at >= count_cut:
+            k = len(text)
+            break
+        new = "" if i in drop else fixes.get(i, old)
+        if not new and at > 0 and text[at - 1:at].isalpha() and text[at + len(old):at + len(old) + 1].isalpha():
+            new = " "  # a dropped mark between two words ("spirit:after") leaves their space
+        add = adds.get(i)
+        if i == 0 and add and add[0][0].isalpha():
+            # Lost opening words take the clue's capital.
+            add = [add[0][0].upper() + add[0][1:]]
+            if new and not new.isupper() and is_word(new.lower()) and not is_word_only_capital(new, seen[0]):
+                new = new[0].lower() + new[1:]
+        elif new and i == 0 and old[0].isupper():
+            new = new[0].upper() + new[1:]
+        gap = speckless(text[k:at])
+        if (new != old and gap.endswith("(") and len(new) == len(old) + 1 and ")" not in text[at:]
+                and (new[1:].lower() == old.lower() or within_one(new[1:].lower(), old.lower()))):
+            # The word's first letter read as a bracket the clue never closes
+            # ("(ornwall" for "Cornwall", "(his" for "this"): the vote put the
+            # letter back, so the bracket goes.
+            gap = gap[:-1]
+        if i in stray_stops and (m := STRAY_STOP.fullmatch(gap)):
+            gap = stray_stops[i] + m.group(2)
+        if i == 1 and 0 in drop:
+            # A misread clue number dropped takes its stop ("A. Frontier", No 3's 52D).
+            gap = gap.lstrip(".,;: ")
+        if add and add[0] in MARKS and gap.strip() == ".":
+            # A speck read as a full stop where the other readings have a mark.
+            gap = " " if gap[-1:].isspace() else ""
+        out += gap + (add[0] + " " if add else "") + new
+        k = at + len(old)
+        if (new != old and text[k:k + 1] == ")" and "(" not in text[:at] and len(new) == len(old) + 1
+                and (new[:-1].lower() == old.lower() or within_one(new[:-1].lower(), old.lower()))):
+            # The word's last letter read as a bracket the clue never opened
+            # ("vita)" for "vital", "Vessc)" for "Vessel"): the vote put the
+            # letter back, so the bracket goes.
+            k += 1
+    out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:count_cut])
+    if count_cut is not None:
+        out = out.rstrip(" ,;:")  # a comma read inside the count ("(6, 8)") voted onto the clue's end
+    if adds and how == "agree":
+        how = "settled by the readings"
+    if (drop or count_cut is not None) and how == "agree":
+        how = "settled by the readings"
+    return re.sub(r"\s+([" + MARKS + "])", r"\1", re.sub(r"  +", " ", out)).strip(), how
+
+
+#: A speck read as a stop or two (or a middle dot) on a word's start, glued
+#: to it or to the word before ("visionary.lose", "for .concealed", "the.
+#: .record", "naval\u00b7base", "of.'the"). agree() makes it the words'
+#: space: no clue prints a stop before a small letter, nor a middle dot at
+#: all. An ellipsis ("been...") or a hyphen (".-") is not one.
+STRAY_STOP = re.compile(r"\s*([.\u00b7](?:\s*[.\u00b7])?)(['\u2018\"\u201c]?)")
+
+
+def glued_digits(i, low, seen, extra, fixes, before=False):
+    """Whether the figures `mine[i]` run onto a word (before it with
+    `before`, the clue's first word; else after the word before) are no
+    number the print has: two readings, this one counting, print that
+    word as voted letter for letter ("0Ne" voted "One"; a "crj1" voted
+    "cry" one reading prints stays held), of two letters or more and not
+    in capitals ("M1", "B52"), and none reads anything in their place (a
+    word: "th3Z" is "that") nor a number or a mark beside them
+    ("eccentric3" is a "?" misread). Before the first
+    word only the word counts: the readings' own clue numbers stand there."""
+    if not printed_as_voted(0 if before else i - 1, low, seen, fixes):
+        return False
+    if before:
+        return True
+    return not seen[i] and not any(v == BREAK or v in MARKS or any(c.isdigit() for c in v)
+                                   for v in [*extra[i], *extra[i + 1]])
+
+
+def count_groups(figures, count):
+    """The numbers in the clue's count (digits), else in `figures` when a
+    bracket shows them a count ("14, 3).": 2), else 1."""
+    if count:
+        return len(re.findall(r"\d+", count))
+    return 1 + len(re.findall(r"\d\s*[,;\-]\s*(?=\d)", figures)) if re.search(r"[()]", figures) else 1
+
+
+def printed_as_voted(word, low, seen, fixes):
+    """Whether two readings, this one counting, print `mine[word]` as voted
+    letter for letter, a word of two letters or more not in capitals."""
+    voted = (fixes.get(word) or low[word]).lower()
+    return len(voted) >= 2 and not (fixes.get(word) or low[word]).isupper() and (
+        (low[word] == voted) + sum(v.lower() == voted for v in seen[word].values()) >= 2)
+
+
+def count_misread(i, w, low, seen, leads, trails, printing, second, bracketed):
+    """The clue's edge, "start" or "end", when this reading's word `w`, its
+    first or last word `i` (lone letters, specks, may follow a last one), is
+    a count or clue number misread as letters ("IT", "HO", "ffl", "Il"): 3
+    letters or fewer, no known word (at the end, all capitals, or any before
+    a bracket the clue never opened, may be; at the start, 2 letters may),
+    at the start before the clue's capital, and more than half the readings
+    printing the clue see its neighbour and nothing between it and a number
+    (`leads`/`trails` empty): at least 2, or 1 when `bracketed` ("hand
+    fa)."); else None."""
+    words = [k for k, t in enumerate(low) if t not in MARKS and t != BREAK]
+    if len(w) > 3 or len(words) < 2 or i not in words or not printing:
+        return None
+    at = words.index(i)
+    last = at and all(t in MARKS or k in words and len(t) == 1 and t not in "ai"
+                      for k, t in enumerate(low[i + 1:], i + 1))
+    if not last and i != words[0]:
+        return None
+    if last:
+        shape = bracketed or w.isupper() or not known(w.lower())
+    else:
+        shape = second[:1].isupper() and (len(w) <= 2 or not known(w.lower()))
+    if not shape:
+        return None
+    near = words[at - 1] if last else words[1]
+    bound = trails if last else leads
+    closed = [k for k, e in enumerate(bound) if e == () and seen[near].get(k, BREAK) != BREAK]
+    if len(closed) >= (1 if bracketed else 2) and len(closed) * 2 > printing:
+        return "end" if last else "start"
+    return None
+
+
+def number_read(end, digits, side):
+    """Whether `end` (a reading's words and marks before a clue, `side`
+    "start", or after it, "end") is the clue's number, or its count,
+    `digits`, misread as letters: each letter one NUMBER_LETTERS has for its
+    digit in turn. Before the clue a heading ("down i") or one speck letter
+    may come first; after it the count's brackets may be read too ("isi"
+    for "(5)"), but a word is a word."""
+    if not digits or not digits.isdigit():
+        return False
+    words = [t for t in end if t not in MARKS]
+    if side == "start":
+        if words and exact_heading(words[0]):
+            words = words[1:]
+        if len(words) > 1 and len(words[0]) == 1 and len("".join(words)) > len(digits):
+            words = words[1:]
+    read = "".join(words)
+    if side == "end" and len(words) == 1 and is_word(read):
+        return False  # a word the clue lost: "money in it" is no "(7)"
+    if side == "end" and len(read) > len(digits):
+        read = read[1:] if read[0] in COUNT_OPENS else read
+        read = read[:-1] if len(read) > len(digits) and read[-1] in COUNT_CLOSES else read
+    return len(read) == len(digits) and all(c in NUMBER_LETTERS[d] for d, c in zip(digits, read))
+
+
+def number_shaped(end, side):
+    """Whether `end` could be some clue number or count misread as letters
+    when the call knows neither (number_read needs the digits): three
+    letters or fewer, each one FIGURE_LETTERS has ("is" for "(5)", "fS",
+    "i i" for 11), after a heading ("down i") before the clue."""
+    words = [t for t in end if t not in MARKS]
+    if side == "start" and words and exact_heading(words[0]):
+        words = words[1:]
+    read = "".join(words)
+    return len(read) <= 3 and set(read) <= FIGURE_LETTERS
+
+
+def figure_specks(end, side):
+    """Whether `end` is number_shaped and holds no word of the lexicon
+    ("fS", "ll", "i i"; not "is" or "it", which may be a word lost)."""
+    words = [t for t in end if t not in MARKS]
+    if side == "start" and words and exact_heading(words[0]):
+        words = words[1:]
+    return number_shaped(end, side) and not any(is_word(t) for t in words)
+
+
+def is_word_only_capital(word, seen):
+    """Whether the other readings print `word` with its capital too."""
+    return bool(seen) and all(v[0].isupper() for v in seen.values() if v.lower() == word.lower())
+
+
+FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
+LIGATURES = str.maketrans({"\u00e6": "ae", "\u00c6": "Ae", "\u0153": "oe", "\u0152": "Oe", **quotes.LIGATURES})
+#: A ligature as readers without it print it: its two letters, or the last.
+LIGATURE_E = str.maketrans({"\u00e6": "e", "\u00c6": "E", "\u0153": "e", "\u0152": "E"})
+
+
+def ligatured(text, readings):
+    """`text` (a clue voted on folded words, clean()) with each word a
+    reading prints with a ligature put back as printed: the filed word that
+    is that word folded to two letters or to its "e" ("mediæval", which No
+    9's other readers print "medieval"). A reader does not invent a
+    ligature it never saw."""
+    for raw in readings:
+        for w in sorted(set(re.findall(r"[A-Za-z\u00e6\u00c6\u0153\u0152]+", raw or ""))):
+            if w == w.translate(LIGATURES) or len(w) < 3:
+                continue
+            for folded in sorted({w.translate(LIGATURES), w.translate(LIGATURE_E)}):
+                text = re.sub(rf"\b{folded}\b", lambda m, w=w: (w[0].upper() if m.group()[0].isupper() else w[0].lower()) + w[1:],
+                              text, flags=re.IGNORECASE)
+    return text
+#: Abbreviations a clue prints with a stop before a lower-case word (the
+#: 1930s Listener's "Anag. of", "20 rev."), each a lookbehind of its own
+#: width.
+ABBREVIATED = ("[Aa]nag", "[Rr]ev", "[Aa]bbr", "[Aa]bbrev", "[Oo]bs", "[Ee]sp", "[Cc]f", "[Vv]iz", "[Ii]nit")
+#: A lone underscore touching a word or a mark: a speck our readers read as
+#: one ("love,_emperor", "during_a", "fine_"). A run of them is a printed
+#: blank ("Freedom and _____"), and so may a lone one between spaces be ("And
+#: with no _ but a cry").
+SPECK_UNDERSCORE = re.compile(r"(?<=[^_\s])_(?!_)|(?<!_)_(?=[^_\s])")
+
+
+def unspecked(text):
+    """`text` without SPECK_UNDERSCORE: a space where it parts two words, else
+    nothing."""
+    def gone(m):
+        s, a, b = m.string, m.start(), m.end()
+        return " " if 0 < a and b < len(s) and not s[a - 1].isspace() and not s[b].isspace() else ""
+    return re.sub(r"  +", " ", SPECK_UNDERSCORE.sub(gone, text)).strip()
+
+
+#: The words clues hyphen to a lone "A" or "to": the rest is a speck.
+HYPHENED_A_TO = ("day", "morrow", "night", "do", "bomb", "level", "levels", "list", "lister", "road", "side",
+                 "team", "frame", "line", "plus")
+
+
+def clean(text):
+    """A reading without OCR's specks: a not-sign read for the hyphen that
+    breaks a word over a line end is the join, an asterisk or bullet beside
+    a word is no part of it, and a comma or exclamation mark misread as a
+    full stop or an I is put back. No clue prints a brace: one is a misread
+    mark, often the clue's number ("}) Very wealthy tributary"), and goes
+    with any mark it leaves at the front."""
+    if "{" in text or "}" in text:
+        text = re.sub(r"\s*[{}]+\s*", " ", text)
+        text = re.sub(r"^[^\w\"'‘“(.…]+", "", text.strip())
+    text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
+    # An opening quote glued to the word before it opens the next word
+    # ("this\u2018enamelled'"): kept as the straight quote below, it would close.
+    text = re.sub(r"(?<=[a-z]{2})[\u2018\u201c](?=[A-Za-z])", lambda m: " " + m.group(0), text)
+    text = text.replace("\u2019", "'").replace("\u2018", "'")
+    # A ligature is its two letters, as readers that lack it read it ("medi\u00e6val").
+    text = text.translate(LIGATURES)
+    text = unspecked(text)
+    # A recogniser's full-width mark is the ASCII one ("\uff1f" for "?").
+    text = text.translate(FULL_WIDTH)
+    # A pound sign in a word is an f the print's worn type turned ("o£").
+    text = re.sub(r"\b[A-Za-z]*£[A-Za-z£]*",
+                  lambda m: m.group(0).replace("£", "f") if is_word(m.group(0).replace("£", "f").lower())
+                  else m.group(0), text)
+    # A backslash inside a word is a letter the scan broke ("sal\\ age").
+    text = re.sub(r"(?<=[a-z])\\\s?(?=[a-z])", "", text)
+    # A clue's sentence never stops before a lower-case word: a full stop
+    # there is a comma the print's low ink lost the tail of.
+    # An abbreviation's stop stands: "Anag. of", "rev. and".
+    text = re.sub(r"(?<=[a-z]{2})" + "".join(rf"(?<!\b{a})" for a in ABBREVIATED) + r"\.(?=\s+[a-z])", ",", text)
+    # A lone "A" is no abbreviation before a lower-case word: its stop is a
+    # speck ("A. junction", No 3's 28D), even where every reader saw it.
+    text = re.sub(r"(?<![A-Za-z.'])A\.(?=\s+[a-z])", "A", text)
+    # A stop read twice after a word ends no clue: "1857..", not an ellipsis.
+    text = re.sub(r"(?<=\w)\.\.(?!\.)", ".", text)
+    # A speck read as a hyphen after a lone "A" or "to" ("A-town", "to-part");
+    # HYPHENED_A_TO and "a-" before an -ing word ("a-hunting") stand.
+    text = re.sub(r"\b([Aa]|[Tt]o)-(?!(?:" + "|".join(HYPHENED_A_TO) + r"|[a-z]+ing)\b)(?=[a-z]{2,}\b)",
+                  r"\1 ", text)
+    # A one read as l or I before another digit ("l9th-century", "See I3").
+    text = clue_text.tidy_ocr_clues(text, scope="clue", torn_counts=None)
+    # The space before a bracket opening on a word lost ("slang(from").
+    text = re.sub(r"(?<=[a-z]{2})\((?=[a-z]{3})", " (", text)
+    # The space after a question or exclamation mark lost ("Worried?Pulse").
+    text = re.sub(r"(?<=[a-z])([?!])(?=[A-Z][a-z])", r"\1 ", text)
+    # A dash between words is the corpus's spaced em dash, however the scan
+    # set it ("time—a", "play--change", "now -- then"). A dash after a lone
+    # letter or before a lone "s" is the print's blank for a word ("b— hole",
+    # "no d— saint", "mine —s down") and stays as set.
+    text = re.sub(r"(?<=[a-z])(?<!\b[A-Za-z])[ \t]*(?:—|--)[ \t]*(?!s\b)(?=[A-Za-z])", " — ", text)
+    # So is any dash after a colon ("Charade:—components", read ": -components").
+    text = re.sub(r"(?<=[a-z]:)[ \t]*(?:—|--?|–)[ \t]*(?=[A-Za-z])", " — ", text)
+    # The space after a comma, semicolon or colon between two words lost
+    # ("rum,as", "usage:acceptable", "knot,I'm", "a T:an"), or before a quotation ("say,'Give").
+    text = re.sub(r"(?:(?<=[a-z]{2})|(?<=\b[A-Z]))([,;:])(?=[a-z]{2}|[A-Z][a-z']|['\u2018\"\u201c][A-Z])", r"\1 ", text)
+    # An exclamation mark read as a capital I or a one, last before the count.
+    text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
+    text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
+    return rejoined(re.sub(r"\b([A-Za-z]+)-\s+([a-z]+)\b", line_end_hyphen, text))
+
+
+#: A word the lexicon ranks rarer than this, said again as the end of the
+#: word before it, is that word's line-end half read twice.
+TAIL_RARE = 20000
+
+
+def rejoined(text):
+    """`text` with a word a reading broke mended: two non-words that spell a
+    word ("Engl ishman"); a rare word that ends the word before it and the
+    corpus never prints after it, its line-end half read twice
+    ("development ment"); an apostrophe after a lone capital, where the
+    word without it is one and the corpus never prints it with it
+    ("T'his"; "O'er" and "I'm" stand); and the space after a short
+    abbreviation's stop before a name ("St.George's")."""
+    uni, pairs, _ = clue_lm()
+
+    def join(m):
+        a, b = m.group(1), m.group(2)
+        return a + b if not known(a) and not known(b) and known(a + b) else m.group()
+
+    def twice(m):
+        a, b = m.group(1), m.group(2)
+        rare = (rank(b) or UNRANKED) > TAIL_RARE
+        if len(a) >= len(b) + 3 and a.lower().endswith(b.lower()) and rare and not pairs.get(f"{a} {b}".lower()):
+            return a
+        return m.group()
+
+    def capital(m):
+        a, b = m.group(1), m.group(2)
+        if not uni.get(f"{a}'{b}".lower()) and uni.get((a + b).lower(), 0) >= CLUE_WORD_FLOOR:
+            return a + b
+        return m.group()
+
+    text = re.sub(r"\b([A-Za-z]{2,})\s+([a-z]{2,})\b", join, text)
+    text = re.sub(r"\b([A-Za-z]{5,}) ([a-z]{3,})\b", twice, text)
+    text = re.sub(r"(?<![\w'])([A-Z])'([a-z]{2,})\b", capital, text)
+    return re.sub(r"\b([A-Z][a-z]{0,2})\.(?=[A-Z][a-z]{2})", r"\1. ", text)
+
+
+def one_for_i(m):
+    """A "1" standing as a word ("in letter 1 posted") or starting one
+    ("1t") the capital I it was printed as, when words go on after it and
+    the result is a word; a clue number before "across" or "down" stays."""
+    rest = m.group(1)
+    if not rest:
+        after = m.string[m.end():]
+        if (re.match(r"\s+[a-z]", after) and not LIGHT_WORD.match(after.lstrip())
+                and re.search(r"[A-Za-z][,;:'\"]?\s+$", m.string[:m.start()])):
+            return "I"
+        return m.group(0)
+    return "I" + rest if is_word("i" + rest) else m.group(0)
+
+
+_COMPOUNDS = None
+
+
+def compound(a, b):
+    """(hyphenated, closed): how many of the corpus's clues print a+b each
+    way (tools/data/clue_compounds.tsv), (0, 0) when none do."""
+    global _COMPOUNDS
+    if _COMPOUNDS is None:
+        _COMPOUNDS = {}
+        with open(TOOLS / "data" / "clue_compounds.tsv", encoding="utf-8") as f:
+            for line in f:
+                if not line.startswith("#"):
+                    k, h, c = line.rstrip("\n").split("\t")
+                    _COMPOUNDS[k] = (int(h), int(c))
+    return _COMPOUNDS.get(f"{a.lower()}-{b.lower()}", (0, 0))
+
+
+_CLOSED = None
+
+
+def closed():
+    """The compounds the corpus's clues print closed more often than
+    hyphenated ("backstreet"): words, though the lexicon lacks them."""
+    global _CLOSED
+    if _CLOSED is None:
+        compound("", "")
+        _CLOSED = {k.replace("-", "") for k, (h, c) in _COMPOUNDS.items() if c > h}
+    return _CLOSED
+
+
+def line_end_hyphen(m):
+    """A word hyphenated over a line end ("Pal- grave", "back- street",
+    "short- lived") as the print meant it. The hyphen is the line break's
+    when the lexicon has the word whole, when a half is no word ("hav- ing"),
+    when the corpus's clues print it closed more often than hyphenated, or
+    when it is a name (a capital after a lower-case word, "in Pal- grave");
+    else it is the compound's own."""
+    a, b = m.group(1), m.group(2)
+    if is_word(a + b) or not (is_word(a) and is_word(b)):
+        return a + b
+    hyphenated, closed = compound(a, b)
+    if hyphenated != closed:
+        return a + b if closed > hyphenated else f"{a}-{b}"
+    name = a[0].isupper() and a[1:].islower() and re.search(r"[a-z][,;:]?\s+$", m.string[:m.start()])
+    return a + b if name else f"{a}-{b}"
+
+
+def unhyphen(text):
+    """A reading returned unbroken (the VLM's: it runs a clue's printed lines
+    together) with each hyphen that broke a word over a line end joined
+    ("pre-decessor", "ob-vious"). "A-B" is "AB" when AB is a word and the
+    corpus's clues never print it hyphenated (tools/data/clue_compounds.tsv).
+    A form they do print ("back-street", "sea-bird", "co-operate") stands as
+    read: the scans' older print hyphenates compounds today's clues close.
+    Not for a reading that keeps the print's lines: there a hyphen inside a
+    line is the print's own ("counter-charges"), and clean() joins the line
+    ends."""
+    def join(m):
+        a, b = m.group(1), m.group(2)
+        return a + b if is_word(a + b) and not compound(a, b)[0] else m.group(0)
+    return re.sub(r"(?<![\w-])([A-Za-z]+)-([a-z]+)(?![\w-])", join, text)
+
+
+HEADING = HEADING_LINE
+
+
+def numbers_joined(clue, streams):
+    """The clue with a cross-reference read apart ("with 1 5's") made one
+    number where most other readings (`streams`, raw texts or {light: text})
+    print it whole after the same word ("with 15's"); "5 3 3 on the watch"
+    stands where they print it apart."""
+    texts = [s if isinstance(s, str) else " ".join(v for v in s.values() if v) for s in streams]
+
+    def one(m):
+        word, number = m[1], m[2] + m[3]
+        whole = re.compile(rf"(?<!\w){re.escape(word)}\s+{number}(?!\d)")
+        return f"{word} {number}" if texts and sum(bool(whole.search(t)) for t in texts) * 2 > len(texts) else m[0]
+    return re.sub(r"(?<!\S)([A-Za-z]+,?) (\d) (\d)(?![\d(])", one, clue)
+
+
+def join_split(clue, others):
+    """The clue with two of its words run together where most other readings
+    have them as one lexicon word: a word the print broke over a line end
+    whose hyphen this reading lost ("par simony" for "parsimony"), or,
+    the two not both known, a letter off the one known word most readings
+    print there and fewer print apart ("Rea dins" for "Reading"). Two
+    pieces across the line end's hyphen this reading kept, or across a
+    speck read as a comma or stop ("bow- Ier", "giy, ing"), not both words
+    and neither one letter nor an apostrophe's tail ("lady's, rather"), are
+    run together when more readings have the one lexicon word they spell
+    (or one a letter from it) than have the pieces apart ("Edward, ian",
+    which one other reading split too), or when the first piece is no word,
+    the second none or a rarer word than the one, and the one is, however
+    every reading broke it ("phy, sics", "heav — enly"); two words ("dis, orderly") only when most readings have the one:
+    the vote then settles its spelling."""
+    if not others:
+        return clue
+    held = [{w.lower() for w in t} for t in others]
+    k = 0
+    while True:
+        m = re.compile(r"(?<![\w'‘’])([A-Za-z]+)(-? |[,.:] ?| ?[\u2013\u2014] ?)([A-Za-z]+)\b").search(clue, k)
+        if not m:
+            return clue
+        a, b = m.group(1).lower(), m.group(3).lower()
+        whole = a + b
+        if m.group(2) == " ":
+            near = {w for h in held for w in h if len(whole) > 4 and w.isalpha() and known(w) and within_one(whole, w)}
+            ones = sum(bool(h & near) for h in held)
+            ok = m.group(3).islower() and (
+                (sum(whole in h for h in held) * 2 > len(others) and is_word(whole))
+                or (len(near) == 1 and ones * 2 > len(others) and not (known(a) and known(b))
+                    and ones > sum(a in h and b in h for h in held)))
+        else:
+            spelt = {w for h in held for w in h if w.isalpha()
+                     and (known(w) if w == whole else len(whole) > 4 and is_word(w) and within_one(whole, w))}
+            ones = sum(bool(h & spelt) for h in held)
+            ok = min(len(a), len(b)) > 1 and (
+                (len(spelt) == 1 and ones > sum(a in h and b in h for h in held)
+                 and (ones * 2 > len(others) or not (is_word(a) and is_word(b))))
+                or (not known(a) and is_word(whole) and (not known(b) or (rank(b) or 0) > rank(whole))))
+        if ok:
+            clue = clue[:m.start()] + m.group(1) + m.group(3) + clue[m.end():]
+            k = m.start()
+        else:
+            k = m.start(3)
+
+
+#: A word of a clue for reprint_marked(): letters and digits, an
+#: apostrophe inside ("Alice's", "o'clock").
+MARK_WORD = re.compile(r"[^\W_]+(?:['\u2019][^\W_]+)*")
+#: Marks that print one way or another in one print: dashes, quotes.
+MARK_SPELLINGS = (("\u2014", "-"), ("\u2013", "-"), ("\u2019", "'"), ("\u2018", "'"),
+                  ("\u201c", '"'), ("\u201d", '"'), ("''", '"'))
+
+
+def gaps(text):
+    """(words, gaps) of a clue: gaps[i] the marks and spaces before
+    words[i], gaps[-1] those after the last word; runs of spaces as one."""
+    words, out, at = [], [], 0
+    for m in MARK_WORD.finditer(text):
+        words.append(m.group())
+        out.append(re.sub(r"\s+", " ", text[at:m.start()]))
+        at = m.end()
+    out.append(re.sub(r"\s+", " ", text[at:]))
+    return words, out
+
+
+def straight_quotes(gap):
+    """`gap` with its quotes spelt the house way, straight ("'", '"'), as
+    the scans' clues print them: a book's curly quote taken into a scan's
+    clue would mix the two spellings."""
+    for a, b in MARK_SPELLINGS[2:]:
+        gap = gap.replace(a, b)
+    return gap
+
+
+def mark_spelling(gap):
+    for a, b in MARK_SPELLINGS:
+        gap = gap.replace(a, b)
+    return gap
+
+
+#: Quote pairs a book prints curly; one left unpaired in a book's clue is a
+#: speck or a quote the book's reader lost the other half of.
+CURLY_PAIRS = (("\u201c", "\u201d", '"'), ("\u2018", "\u2019", "'"))
+#: Marks that end a sentence: two prints of one clue that end it apart
+#: ("Humbug?" and "Humbug!") are the paper's and the book's own wording.
+SENTENCE_ENDS = frozenset("?!")
+#: A space before one of these is a reader's: "way ?" is "way?".
+SPACE_BEFORE = re.compile(r"[ \t]+(?=[?!,;:]|\.(?!\.))")
+
+
+def unpaired_quotes(gaps_):
+    """The quote marks (CURLY_PAIRS) a clue's gaps hold unpaired: for each
+    pair whose opening and closing counts differ, its three spellings."""
+    joined = "".join(gaps_)
+    return "".join(o + c + s for o, c, s in CURLY_PAIRS if joined.count(o) != joined.count(c))
+
+
+def dash_voted(mine, theirs):
+    """The house dash " \u2014 " for a gap the two prints both read as a
+    dash between words, spaced or an em/en dash in each; a hyphen ("-")
+    where one print closes up a plain hyphen ("20-look", a light named in
+    the clue); else None."""
+    def dash(g):
+        bare = g.strip()
+        return bare in ("-", "--", "\u2013", "\u2014") and (bare != "-" and bare != "--" or g != bare)
+    if dash(mine) and dash(theirs):
+        return " \u2014 "
+    marks = {mine.strip(), theirs.strip()}
+    if "-" in {mine, theirs} and marks <= {"-", "--", "\u2013", "\u2014"}:
+        return "-"
+    return None
+
+
+def reprint_marked(text, reprint):
+    """`text` (a clue voted off a newspaper scan) with the marks and spaces
+    between its words voted with `reprint` (the same clue read off a book's
+    reprint, a second, cleaner print), wherever the two print the same
+    words either side. The book's marks stand over the scan's specks: a
+    stray stop, quote or middle dot, a spurious comma ("Reverse, some"), a
+    mangled ellipsis, a lost dash. The scan's stand over the book's own
+    slips: an unpaired curly quote, and where both end a sentence apart
+    ("Humbug?" and "Humbug!") the paper's wording. The words stay the
+    scan's (a glued clue number ".15 A blow", a run-together "Ina"; where
+    the book's editor rewords, the marks around them too), save a word the
+    scan capitalises mid-clue that the book prints in lower case ("To").
+    A dash both read between words is the house dash " \u2014 "
+    (dash_voted); one mark spelt two ways keeps the scan's spelling; of two
+    spacings the one with more spaces stands, and no space goes before
+    ? ! , ; : or a stop. With too few words shared (another clue), `text`
+    as it is."""
+    if not text or not reprint:
+        return text
+    words, mine = gaps(text)
+    theirs_words, theirs = gaps(reprint)
+    low, theirs_low = [w.lower() for w in words], [w.lower() for w in theirs_words]
+    sm = SequenceMatcher(None, low, theirs_low, autojunk=False)
+    if not words or sum(b.size for b in sm.get_matching_blocks()) * 2 < max(len(words), len(theirs_words)):
+        return text
+    same = {}
+    for a, b, size in sm.get_matching_blocks():
+        for k in range(size):
+            same[a + k] = b + k
+    loose = unpaired_quotes(theirs)
+    out = list(mine)
+    for i in range(len(words) + 1):
+        # The gap before word i lies between words i-1 and i: both shared,
+        # and side by side in the reprint too (the ends: the one word).
+        left = i == 0 or (i - 1 in same)
+        right = i == len(words) or i in same
+        if not (left and right):
+            continue
+        j = same[i] if i < len(words) else len(theirs_words)
+        if i and i < len(words) and same[i - 1] != j - 1:
+            continue
+        if i == len(words) and same.get(i - 1) != len(theirs_words) - 1:
+            continue
+        if i == 0 and j != 0:
+            continue
+        theirs_gap = theirs[j]
+        if i == 0:
+            theirs_gap = theirs_gap.lstrip()
+        if i == len(words):
+            theirs_gap = theirs_gap.rstrip()
+        if loose:
+            # The book's unpaired quote is no vote: the scan's quotes stand.
+            theirs_gap = "".join(ch for ch in theirs_gap if ch not in loose) + "".join(
+                ch for ch in out[i].replace("''", '"') if mark_spelling(ch) in loose)
+        ends, theirs_ends = SENTENCE_ENDS & set(out[i]), SENTENCE_ENDS & set(theirs_gap)
+        if ends and theirs_ends and ends != theirs_ends:
+            continue
+        dash = dash_voted(out[i], theirs_gap) if 0 < i < len(words) else None
+        a, b = mark_spelling(out[i]).replace(" ", ""), mark_spelling(theirs_gap).replace(" ", "")
+        if dash:
+            out[i] = dash
+        elif a != b or theirs_gap.count(" ") > out[i].count(" "):
+            out[i] = straight_quotes(theirs_gap)
+        if 0 < i < len(words) and words[i] != theirs_words[j] and words[i].lower() == theirs_words[j] \
+                and words[i][:1].isupper() and not re.search(r"[.?!:\"'\u201c\u2018(\u2014-]\s*$", out[i]):
+            words[i] = theirs_words[j]
+    return SPACE_BEFORE.sub("", "".join(g + w for g, w in zip(out, words + [""])))
+
+
+def reprint_count(enum, reprint_enum):
+    """The count `enum` (a clue's off a newspaper scan) voted with
+    `reprint_enum` (a book reprint's of the same clue): the book's where
+    the scan's has lost its marks and the two total alike ("9" for "5,4");
+    else the scan's."""
+    if enum and reprint_enum and re.fullmatch(r"\d+", enum.strip()) and re.search(r"\D", reprint_enum) \
+            and re.fullmatch(r"\d+(?:[,\-]\d+)+", reprint_enum) \
+            and clue_text.count_total(reprint_enum) == int(enum):
+        return reprint_enum
+    return enum
+
+
+#: That number after a count or a question or exclamation mark ("backed
+#: (15) 2 Master", "floor? 2 Seek"), or two counts in one text.
+RUN_TOGETHER = re.compile(rf"(?:{COUNT_IN}|[?!])\W*{NEXT_CLUE}|{COUNT_IN}.*{COUNT_IN}")
+
+
+def merged(text):
+    """Why a voted clue `text` is two clues run together, or None: a clue
+    number opening a capitalised clue after a count or a question or
+    exclamation mark ("Where everybody goes in to sweep around the floor? 2
+    Seek fresh increases"), or two counts."""
+    return "two clues run together" if RUN_TOGETHER.search(text or "") else None
+
+
+
+def bracket_reopened(text, readings):
+    """`text` with the "(" the vote lost put back, or None: when `text`
+    holds a ")" it never opened and some reading (each a raw text in
+    `readings`) prints "(" between the same two words before it, at one
+    place only. The vote counts no brackets, so one reading's "(" loses to
+    the others' "i", "I" glued on or nothing (times-14500 1 across,
+    "Somerset (new Avon) House?" voted "Somerset new Avon) House?")."""
+    k = unpaired(text)
+    if k is None or text[k] != ")":
+        return None
+    words = list(re.finditer(r"[A-Za-z][A-Za-z'’\-]*", text[:k]))
+    # A word broken at a line's end ("Somer-\nset") is read whole too.
+    readings = [v for r in readings if r for v in (r, re.sub(r"(?<=[A-Za-z])-[ \t]*\n\s*(?=[a-z])", "", r))]
+    at = []
+    for a, b in zip(words, words[1:]):
+        if text[a.end():b.start()].strip():
+            continue
+        pat = re.compile(r"(?<![A-Za-z])" + re.escape(a.group()) + r"\s*\(\s*" + re.escape(b.group())
+                         + r"(?![A-Za-z])", re.IGNORECASE)
+        if any(pat.search(r or "") for r in readings):
+            at.append(b.start())
+    if len(at) != 1:
+        return None
+    out = text[:at[0]] + "(" + text[at[0]:]
+    return out if unpaired(out) is None else None
+
+
+def bled(text, printed=()):
+    """Why a clue OCR read holds text that is not its own, or None: a clue
+    number opening a capitalised clue (NUMBERED_IN), another clue run in,
+    the page's own words (PAGE_TEXT), a list's heading (HEADING_IN), a
+    bracket it never closes or opened (unpaired: a speck, or a count torn
+    off) unless `printed` (the clue's asPrinted) keeps it, or a square
+    bracket or brace (a misread count or speck). No OCR filer writes such a
+    clue (scan_queue.file_puzzle)."""
+    text = text or ""
+    m = NUMBERED_IN.search(text)
+    if m:
+        return f"holds a clue number and text: {text[m.start():m.end() + 12].strip()!r}"
+    m = PAGE_TEXT.search(text)
+    if m:
+        return f"holds the page's text: {text[max(0, m.start() - 8):m.end() + 8].strip()!r}"
+    m = HEADING_IN.search(text)
+    if m:
+        return f"holds a list's heading: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
+    m = PUZZLE_HEADING.search(text)
+    if m:
+        return f"holds another puzzle's heading: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
+    k = unpaired(text)
+    if k is not None and holding(text, k) not in printed:
+        return f"holds a bracket it never pairs: {text[max(0, k - 12):k + 12].strip()!r}"
+    m = re.search(r"[\[\]{}]", text)
+    if m:
+        return f"holds a square bracket or brace, which no clue prints: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
+    return None
+
+
+def fault(text, enum, cells, printed=()):
+    """Why a clue OCR read is not fit to file, or None: `text` is the word
+    None (a lost text printed), holds text not its own (bled()), or its
+    count `enum`, or a count left on its words, does not fill its `cells`
+    (the light's, or its linked lights' together)."""
+    text = text or ""
+    if text.strip() == "None":
+        return "the text is the word None: a lost text printed"
+    why = bled(text, printed)
+    if why:
+        return why
+    if enum and cells and count_total(enum) != cells:
+        return f"its count ({enum}) does not fill its {cells} squares"
+    # A count left on the words with marks after it, read off the same print
+    # as `enum` but not the same: "(7.8) ' -" over a voted "(7,6)".
+    clue = {"text": text, **({"enumeration": enum} if enum else {})}
+    if cells and (printed := enumeration.disagrees(clue, {cells})):
+        return f"its words end in a count ({printed}) that does not fill its {cells} squares"
+    return None
+
+
+def trimmed(text, lid, voted=True):
+    """A filed clue's text without what the page put around it:
+      - other text run in ahead of the clue's own number, when that text
+        holds a number or a count ("... Puzzle No 18,178 will appear next
+        Saturday 26 The point is ..." in 26 across);
+      - its list's heading read onto 1 across or 1 down ("Down Poet's way");
+      - the next puzzle's heading and all after it (PUZZLE_HEADING:
+        "Alphabetical Jigsaw A, dyer can display enthusiasm"), and the
+        clue's count before it; that may leave nothing: the light's own
+        clue was lost;
+      - a lone small "i" between two words ("system i uniting"), a speck:
+        the pronoun is "I", and the newspaper i is quoted or ends a clue;
+      - a line end's hyphen with specks between the halves ("buy- 4 ing",
+        "like- .wise"), joined as clean() joins a bare one;
+      - a list's heading in capitals anywhere ("on the DOWN board");
+      - a last token with no word in it and a bracket the clue never opened
+        ("0,6)", "S).", "writer 1 7).") or a digit among symbols ("&%S4),");
+      - a count torn open at its end ("hair-dresser (6", "(5.41.", "( 8 .")
+        and a speck read as a bracket before its first word (") The man");
+      - from a `voted` text, a stray leading quote or a leaked clue number
+        after one ('"5 Covered'), as every OCR reader's (leading_quote.clean).
+    The lone i goes only from a `voted` text: before the vote, the other
+    readings may have the word it is a remnant of ("raised i sharp" for
+    "raised in sharp"). `lid` is "<number>-<across|down>"; a clue whose
+    number OCR lost ("-across") has none to find run in."""
+    if not text:
+        return text
+    if m := PUZZLE_HEADING.search(text):
+        text = re.sub(rf"\s*{COUNT_IN}\W*$", "", text[:m.start()].rstrip())
+    own = lid.split("-")[0].split(",")[0]
+    runs = [m for m in re.finditer(rf"\s{own}\.?\s+(?=[A-Z\"'])", text)] if own.isdigit() else []
+    if runs and re.search(r"\d", text[:runs[-1].start()]):
+        text = text[runs[-1].end():]
+    if voted:
+        text = re.sub(r"(?<=[A-Za-z,;:] )i (?=[A-Za-z])", "", text)
+    if own == "1":
+        word = lid.split("-")[1]
+        text = re.sub(rf"^(?:{word}|{word.capitalize()}|{word.upper()})(?:\W+|\W*\s+[1iIl|!]\W?\s+)(?=[A-Z][a-z])",
+                      "", text)
+    text = re.sub(rf"\s*{CAPS_HEADING.pattern}\W*?(?=\s|$)", "", text).strip()
+    text = re.sub(r"\b([A-Za-z]+)-\s+(?=[^\w\s]|\d)[^\w\s]*\d?[^\w\s]*\s*([a-z]+)\b", line_end_hyphen, text)
+    text = clue_text.tidy_ocr_clues(text, scope="clue", torn_counts="trim")
+    if voted:
+        text = leading_quote.clean(text)
+    return text
+
+
+def opening_printed(text, own, streams):
+    """The first word another reading prints straight after the clue's
+    number, when its first two words read as the clue's do, whatever their
+    case and slips ("13 under twenty-one", "5 3 3 on the watch", "24 Fish
+    enjoyed" for "fish enjqycd"): an opening the print has, and no line lost
+    before it; else None."""
+    head = text.replace("\u2019", "'").split()[:2]
+    if not head:
+        return None
+    mine = " ".join(head).lower()
+    starts = []
+    for s in streams:
+        if isinstance(s, str):
+            starts += [m.group(1) for m in re.finditer(rf"(?m)^\W{{0,2}}{own}\W?\s+(.*)$", s)]
+        else:
+            starts += [s.get(f"{own}-{way}") or "" for way in ("across", "down")]
+    for line in starts:
+        theirs = line.replace("\u2019", "'").split()[:len(head)]
+        if len(theirs) == len(head) and similar(mine, " ".join(theirs).lower()) >= OPENING_SIMILAR:
+            return theirs[0]
+    return None
+
+
+#: How like the clue's first two words another reading's two after the
+#: clue's number must read for the print to have them there: "fish enjqycd"
+#: against "Fish enjoyed" is 0.83, "in judgment" against "When Cleopatra" 0.4.
+OPENING_SIMILAR = 0.75
+
+
+#: How far past a clue's own number numbered_at() reads a reading: the
+#: clue's length again plus this many characters, room for words the
+#: reading has that the clue lost and the next clue's number.
+NUMBERED_SLACK = 80
+
+
+def numbered_at(stream, own, text):
+    """`stream` (a reading's whole text) as marked() tokens, cut to the
+    stretches that open on the number `own`, each as long as `text` (the
+    clue) twice plus NUMBERED_SLACK characters: a short clue ("Wonderful
+    25.") put to a whole page aligns with whatever other clue holds its
+    words ("a wonderful 25"), whose opening then reads as words this clue
+    lost. A reading whose stretches do not print the clue (its number
+    misread, or the number another clue's) is put whole."""
+    whole = marked(stream, breaks=True)
+    span = len(text or "") * 2 + NUMBERED_SLACK
+    cuts = [stream[m.start():m.start() + span]
+            for m in re.finditer(rf"(?<![\w,.]){own}(?!\d)(?!\s*(?:across|down|ac|dn)\b)", stream, re.IGNORECASE)]
+    if not cuts:
+        return whole
+    near = marked("\n".join(cuts), breaks=True)
+    low = [w.lower() for w in marked(text or "", breaks=True)]
+    return near if prints(align(low, [w.lower() for w in near]), low, near) else whole
+
+
+def family_rates(out, heard, whose, mine, order):
+    """{engine: {"seen", "wrong", "lost", "added"}}: how many of the page's
+    settled words each engine's readings were put to, misread, read with
+    letters lost, and read with letters added (by_family). A settled word is one a filed clue (`out`,
+    {light: (text, ...)}) holds that readings of two engines or more print
+    alike; each reading put to it (`heard`, {light: [its tokens, or None]}:
+    the laid clue's, from reader `whose[light]` or `mine`, then one per
+    reader of `order`) misreads it when its word there differs. A laid clue
+    whose reader is unknown is left out, so no reading counts twice."""
+    rates = {}
+    for lid, (text, _, _) in out.items():
+        if not text or lid not in heard:
+            continue
+        laid_by = whose.get(lid, mine if isinstance(mine, str) else None)
+        engines = [family(laid_by)] + [family(n) if n != laid_by else None for n in order]
+        low = [w.lower() for w in marked(text, breaks=True)]
+        at = [{} for _ in low]  # word i -> {reading: its word}
+        for r, theirs in enumerate(heard[lid]):
+            if not theirs or not engines[r]:
+                continue
+            pairs = align(low, [w.lower() for w in theirs])
+            if not prints(pairs, low, theirs):
+                continue
+            for i, j in pairs:
+                if i is not None and j is not None:
+                    at[i][r] = theirs[j].lower()
+        for i, w in enumerate(low):
+            if not w.isalpha():
+                continue
+            if len({engines[r] for r, v in at[i].items() if v == w}) < 2:
+                continue
+            for r, v in at[i].items():
+                if not v.isalpha():
+                    # A mark or a quote's "'s" set against a word: a token
+                    # parted otherwise, no letter misread.
+                    continue
+                got = rates.setdefault(engines[r], dict.fromkeys(("seen", "wrong", "lost", "added"), 0))
+                got["seen"] += 1
+                got["wrong"] += v != w
+                got["lost"] += dropped(v, w)
+                got["added"] += dropped(w, v)
+    return rates
+
+
+class GridCount(str):
+    """A bare count the grid gave a clue because no reader's enumeration
+    survived: the light's length, not the print's. It marks the clue
+    (build files it as "countFrom": "grid"), and only such a count may have
+    lost the word breaks the paper printed (repair_fetched.restore_word_breaks);
+    a count a reader read stays as printed, even when bare."""
+
+    def __new__(cls, length):
+        return super().__new__(cls, str(length))
+
+
+def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, names=None, mine=None,
+              rates=None):
+    """The laid clues with each clue's text put to every reading; returns
+    (laid, {light: why}) naming each clue filed blank. `streams` holds each
+    other reading's text, or {light: that reading's text} where the lights
+    were laid from different readings; one text or dict alone is one reading.
+    `lengths` ({light: cells}, from the grid) gives a clue whose count was
+    lost its light's length as the count. `uncounted`: the lists print no
+    counts (the 1930s Listener's), so a clue without one is read whole.
+    `names` names the reader of each stream and `mine` ({light: reader}, or
+    one reader for all) the reading each laid clue is from: a clue a tie of engines held is voted again with each
+    engine's slips on the other clues (family_rates, agree)."""
+    if isinstance(streams, (str, dict)):
+        streams = [streams]
+    names = list(names) if names else [None] * len(streams)
+    whose = mine if isinstance(mine, dict) else {}
+    # A list's heading bounds the clues either side like a number: "DOWN"
+    # over "1 Unusual ..." is no word lost from 1 down.
+    whole = [clean(HEADING.sub("0", s)) for s in streams if isinstance(s, str)]
+    per = [{k: marked(clean(v), breaks=True) for k, v in s.items()} for s in streams if isinstance(s, dict)]
+    order = ([n for s, n in zip(streams, names) if isinstance(s, str)]
+             + [n for s, n in zip(streams, names) if isinstance(s, dict)])
+    out, blank, heard = {}, {}, {}
+    words_of = {lid: [w.lower() for w in marked(clean(t or "")) if w not in MARKS] for lid, (t, _, _) in laid.items()}
+    for lid, (text, enum, group) in laid.items():
+        own = int(re.match(r"\d+", lid).group())
+        put = [numbered_at(s, own, text) for s in whole] + [p.get(lid, []) for p in per]
+        other = [o for o in put if o]
+        engines = [family(whose.get(lid, mine if isinstance(mine, str) else None))]
+        engines += [family(n) for n, o in zip(order, put) if o]
+        heard[lid] = [marked(clean(text), breaks=True) if text else None] + put
+        if SEE_RE.match(text or ""):
+            out[lid] = (text, enum, group)
+            continue
+        text = trimmed(text, lid, voted=False)
+        # Voted whole, the other clue's words in the other readings confirm it.
+        text = run_on(text, lid, laid)
+        text = run_in(text, lid, laid)
+        # A list counts up, so only a number above this clue's own can be
+        # the next clue run on, and with the grid known, only one naming a
+        # light: "Map 10 E" in 24 across is the clue's text.
+        # It is the list's next clue, or the one after when that was lost:
+        # "Removal of 25 I notice" in 16 down is a reference.
+        way = lid.split("-")[1]
+        later = sorted(int(k.split("-")[0]) for k in lengths or () if k.endswith("-" + way)
+                       and int(k.split("-")[0]) > own)[:2]
+        inside = next((m for m in re.finditer(r"\s(\d{1,2})\s+[A-Z]", text or "")
+                       if int(m.group(1)) > own and (not lengths or int(m.group(1)) in later)), None)
+        if inside and lengths:
+            # The next clue run on after this one's count: cut it off, and
+            # the count with it, which the grid gives.
+            text = re.sub(r"\s*\([^)]*$", "", text[:inside.start()]).rstrip()
+            # A count still inside ends the clue, and is its count when it
+            # fills the light (all the linked lights): the one read after
+            # the run-on was the next clue's.
+            cells = sum(lengths.get(k, 0) for k in (group or [lid]))
+            kept = re.search(r"\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)\)", text)
+            if kept and clue_text.count_total(kept.group(1)) == cells:
+                text = text[:kept.start()].rstrip()
+                enum = re.sub(r"\s+", "", kept.group(1)).replace(".", ",")
+            enum = enum or (GridCount(lengths[lid]) if (lengths or {}).get(lid) else None)
+            inside = None
+        if inside:
+            blank[lid] = "another clue's number inside it"
+            out[lid] = ("", enum, group)
+            continue
+        text = opening_one(cut_at_count(clue_text.own_number_mended(text or "", own) or text, enum), own)
+        # A clue may open on another light's number ("19, we hear, in the
+        # crew", "25 in voice"): that is no lost opening.
+        ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
+        opens_on_light = bool(ref and lengths and int(ref.group(1)) != own
+                              and any(k.startswith(ref.group(1) + "-") for k in lengths))
+        opens_on_light = opens_on_light or bool(clue_text.FIGURE_WORD.match(text or ""))
+        if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
+            printed = opening_printed(text, own, streams)
+            if printed is None:
+                # Lower case first: the clue's opening ("23s about") was lost.
+                blank[lid] = "starts mid-clue"
+                out[lid] = ("", enum, group)
+                continue
+            if printed[0].isupper():
+                # The print's capital, misread small ("ln school", "fish").
+                at = re.search(r"[a-z]", text).start()
+                text = text[:at] + text[at].upper() + text[at + 1:]
+        if enum is None and (lengths or {}).get(lid):
+            # The other readings vote on the words, so a cut-short end shows.
+            enum = GridCount(lengths[lid])
+        if enum is None and not uncounted:
+            # The count lost with the clue's end: the words may be cut short.
+            blank[lid] = "no count read"
+            out[lid] = ("", enum, group)
+            continue
+        text = own_number_dropped(clean(text), lid)
+        text = join_split(numbers_joined(clue_text.xrefs_spaced(text), streams), other)
+        got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid],
+                         str(own), enum, counted=not uncounted)
+        got = trimmed(cut_at_count(got, enum), lid)
+        if got is not None and unpaired(got) is not None:
+            raw = [s for s in streams if isinstance(s, str)] + [s.get(lid) or "" for s in streams if isinstance(s, dict)]
+            got = bracket_reopened(got, raw) or got
+        if got is not None and merged(got):
+            got, how = None, merged(got)
+        if got is None:
+            blank[lid] = how
+            out[lid] = ("", enum, group)
+        else:
+            out[lid] = (got, enum, group)
+    if rates is None and blank and any(map(family, order)) and (got := family_rates(out, heard, whose, mine, order)):
+        again, _ = reconcile({lid: laid[lid] for lid in blank}, streams, lengths, keep_known,
+                             uncounted, names, mine, got)
+        for lid, (text, enum, group) in again.items():
+            if text:
+                out[lid] = (text, enum, group)
+                blank.pop(lid)
+    return out, blank
+
+
+def opening_one(text, own=None):
+    """`text` with a "1" opening it before a small word read as the "I" it
+    is ("1 hear"); were the opening lost, the vote finds it. Past the
+    clue's own number's figures ("2 1 have left" for 22's "I have left")
+    the number is dropped too."""
+    if text and own is not None:
+        m = re.match(r"(\d{1,2})\.?\s+1(?=\s+[a-z])", text)
+        if m and m.group(1) in str(own):
+            text = text[m.end() - 1:]
+    return re.sub(r"^1(?=\s+[a-z])", "I", text) if text else text
+
+
+def own_number_dropped(text, lid):
+    """`text` without the clue's own number read twice at its start ("21 21
+    The woman", "1 11 Money")."""
+    lead = re.match(r"(\d{1,2})\.? (?=[A-Z\"'])", text or "")
+    return text[lead.end():] if lead and lead.group(1) in lid.split("-")[0] else text
+
+
+def alone(text, lid, enum):
+    """A clue's text that one reading alone prints (a book's text layer,
+    with no other reading to vote it against), finished as reconcile()
+    finishes a laid clue on either side of the vote: trimmed of the page's
+    text, cut at its own count `enum`, clean()ed, its own number read twice
+    dropped, then trimmed as a voted text. Its words stay as read: unfit()
+    says whether they may be filed."""
+    if not text or SEE_RE.match(text):
+        return text
+    text = opening_one(cut_at_count(trimmed(text, lid, voted=False), enum))
+    text = own_number_dropped(clean(text), lid)
+    return trimmed(cut_at_count(text, enum), lid)
+
+
+def unfit(text, enum, cells=None, printed=()):
+    """Why a clue's text may not be filed, or None: fault() refuses it, or
+    suspect() finds a word in it OCR made up. `printed` holds the tokens its
+    `asPrinted` keeps. Such a clue is filed blank, and no puzzle with a
+    blank clue reaches the corpus."""
+    why = fault(text, enum, cells, printed)
+    if why:
+        return why
+    odd = suspect(text, printed=printed)
+    return f"{odd[0][0]!r}: {odd[0][1]}" if odd else None
+
+
+#: How many other readings must print a clue for the light at least
+#: RELAID_SIMILAR like a reading's for relaid() to lay it, one of them a
+#: reading of another copy (copy_of). Measured on Times editions with a
+#: Canberra reprint: one copy's readings alone re-laid 17 of 43 clues wrong.
+RELAID_READINGS = 2
+RELAID_SIMILAR = 0.8
+
+
+def split_added(before, after):
+    """[(word, word)] each pair of words side by side in `after` (a clue
+    the vote put words into) where one repeats the other or is its start or
+    end ("bur burlesque", "plodding ding", "requirement requirement") and
+    `before` has no such pair: a half of a word one copy split at its line
+    end and another did not, put in beside the whole word."""
+    def pairs(text):
+        ws = [w.lower() for w in re.findall(r"[A-Za-z]+", text or "")]
+        return {(a, b) for a, b in itertools.pairwise(ws) if len(a) >= 2 and len(b) >= 2
+                and (a == b or b.startswith(a) or a.endswith(b))}
+    return sorted(pairs(after) - pairs(before))
+
+
+def copy_of(name):
+    """The printed copy a reading named `name` read: "canberra:<article>"
+    for "canberra:<article>:<reader>", "" for the scan's own readers."""
+    return name.rsplit(":", 1)[0] if ":" in name else ""
+
+
+def outvotes(clue, other):
+    """Whether `clue` stands against the one `other` reading of it, with no
+    third to break a tie: each word only `other` has is no known word
+    ("Appportion" against "Apportion"); a known word ("singer." against
+    "singers") is a tie, so neither."""
+    mine, theirs = (collections.Counter(re.findall(r"[a-z']+", t.lower())) for t in (clue, other))
+    return bool(theirs) and all(not known(w) for w in theirs - mine)
+
+
+def relaid(texts, laid, blank, parse, lengths, keep_known=False, bare=None):
+    """(laid, blank) with each clue the vote filed blank laid again from
+    each reading in `texts` ({name: text}) in turn: that reading's own clue
+    for the light, when its printed count fills the light and
+    RELAID_READINGS other readings print a like clue there, one of them of
+    another copy of the print (a reprint), put to every other reading
+    (reconcile, which alone proves nothing: it judges only the words it can
+    align). The first that wins the vote, and that fault() and suspect()
+    pass, is filed. A light laid from a reading that lost the clue's start
+    or end, or none, is filled by a reading that printed it whole. Given
+    `bare` (lights no reading laid a clue on, so no reading's lost start or
+    end is in the vote), only those are laid, each borne out by
+    RELAID_READINGS readings of the one scan printing a like clue under its
+    number, or by one reading of another copy. Linked lights are left as
+    they are."""
+    laid, blank = dict(laid), dict(blank)
+    parsed = {k: (parse(t)[0] if t.strip() else None) for k, t in texts.items()}
+    for lid in sorted(blank):
+        group = (laid.get(lid) or ("", None, None))[2]
+        if group or not lengths.get(lid) or (bare is not None and lid not in bare):
+            continue
+        n, direction = lid.split("-")
+        cells = lengths[lid]
+        own = {k: next((c for c in (p or {}).get(direction, ()) if c["tokens"] and int(n) in c["tokens"][0]
+                        and len(c["tokens"]) == 1 and c["see"] is None), None) for k, p in parsed.items()}
+        own = {k: c for k, c in own.items() if c is not None and tokens(c["text"])}
+        # The reading most others print word for word goes first: one that
+        # lost a short first word ("( ran hard" for "I ran hard") is put to
+        # the vote last, which cannot always vote the word back.
+        words = {k: clean(c["text"]).lower() for k, c in own.items()}
+        same = {k: sum(w == o for o in words.values()) for k, w in words.items()}
+        for k, clue in sorted(own.items(), key=lambda kc: -same[kc[0]]):
+            fill = sorted(shape(e) for e in clue.get("enums") or () if clue_text.count_total(e) == cells)
+            if not fill:
+                continue
+            # Borne out: other readings print a like clue for the light, one
+            # of them a reading of another copy of the print; for a bare
+            # light, the scan's own readers, or the other copy alone.
+            alike = {j for j, q in parsed.items() if j != k and any(
+                c["tokens"] and int(n) in c["tokens"][0] and similar(c["text"].lower(), clue["text"].lower())
+                >= RELAID_SIMILAR for c in (q or {}).get(direction, ()))}
+            reprint = any(copy_of(j) != copy_of(k) for j in alike)
+            if bare is not None:
+                if len(alike) < RELAID_READINGS and not (reprint and len(alike) == 1 and outvotes(
+                        clue["text"], (own.get(min(alike)) or {}).get("text", ""))):
+                    continue
+            elif len(alike) < RELAID_READINGS or not reprint:
+                continue
+            others = [t for j, t in texts.items() if j != k and t.strip()]
+            got, why = reconcile({lid: (clean(clue["text"]), fill[0], None)}, others, lengths, keep_known)
+            text, count, _ = got[lid]
+            if lid in why or not text or fault(text, count, cells) or suspect(text) or \
+                    split_added(clean(clue["text"]), text):
+                continue
+            laid[lid] = (text, count, None)
+            del blank[lid]
+            break
+    return laid, blank
+
+
+# ------------------------------------------------------------ the check
+
+#: A digit inside a word ("know7", "Hunts7", "wo2rd"), not a count or a
+#: cross-reference ("1st", "10cc", "17ac", "WW2", "G7").
+DIGIT_IN_WORD = re.compile(r"[A-Za-z]\d+[A-Za-z]|[a-z]{2}\d+$")
+#: A mark inside a word that no clue prints there ("Wi'.h", "wor,d").
+MARK_IN_WORD = re.compile(r"[^\W\d_][^\w\s'\u2019\-&/.]+[^\W\d_]|[^\W\d_]['\u2019.\-]{2,}[^\W\d_]")
+#: A capital after small letters, the word's last letter or inside a word
+#: no dictionary knows ("bacK", "RcbufT", "ofTer"); not "McX" or "O'X".
+CAPS_IN_WORD = re.compile(r"[a-z][A-Z]")
+#: Initials' possessive, which clues print: "P.M.'s", "N.C.O.'s"; one initial's
+#: ("Mr. F.'s", "R. L. S.'s") and a stopped cross-reference's or title's ("1 ac.'s
+#: missile", "18dn.'s desperate", "a Rev.'s"). 10-28: the Gale Times clues blanked
+#: "a stray mark inside a word" so, every reader of each spelling it alike.
+INITIALS_OWN = re.compile(r"(?:[A-Z]\.)+['\u2019]s|(?:\d{1,2})?(?:ac|dn|Rev)\.['\u2019]s")
+#: OCR's commonest letter slips, both ways, for the misread-name test.
+NAME_SLIPS = SLIPS + (("v", "y"),)
+#: Characters stripped off a token's ends before it is judged.
+EDGE = "\"'()[]{}.,;:!?\u2014\u2013-\u2026\u2018\u2019\u201c\u201d*"
+
+
+def plain(word):
+    """The word without its accents ("rosé" is "rose" to the lexicon)."""
+    return "".join(c for c in unicodedata.normalize("NFKD", word) if not unicodedata.combining(c))
+
+
+#: How common (by lexicon rank) a word one slip from a name must be for the
+#: name to count as its misreading: "Plaved" for played, not "Ara" for "Ana".
+NAME_RANK = 20000
+
+
+def slipped(word):
+    """Whether one SLIPS swap turns the capitalised `word` into a common
+    lexicon word (rank within NAME_RANK)."""
+    low = word.lower()
+    for a, b in NAME_SLIPS + tuple((b, a) for a, b in NAME_SLIPS):
+        at = low.find(a)
+        while at >= 0:
+            v = low[:at] + b + low[at + len(a):]
+            if len(v) > 2 and (rank(v) or NAME_RANK + 1) <= NAME_RANK:
+                return True
+            at = low.find(a, at + 1)
+    return False
+
+
+_TRIGRAMS = None
+
+
+def trigrams(word):
+    """The word's three-letter runs, with "^" and "$" for its ends."""
+    w = "^" + word.lower() + "$"
+    return {w[k:k + 3] for k in range(len(w) - 2)}
+
+
+def unspellable(word):
+    """Whether the capitalised `word` holds a run of three consonants (ends
+    counted) that no word of the lexicon or the corpus's clues holds: the
+    trace of a letter the reader dropped, mostly an accented one ("Krlea"
+    for "Krleža", "Mnchen" for "München")."""
+    global _TRIGRAMS
+    if _TRIGRAMS is None:
+        rank("the")
+        uni = clue_lm()[0]
+        _TRIGRAMS = set()
+        for w in set(_LEXICON) | {w for w, n in uni.items() if n >= CLUE_WORD_FLOOR}:
+            w = plain(w).lower()
+            if w.isalpha():
+                _TRIGRAMS |= trigrams(w)
+    return any(g not in _TRIGRAMS and not re.search("[aeiouy]", g) for g in trigrams(word))
+
+
+#: Endings and beginnings that make a known word another ("ceasefires",
+#: "redubbed", "antifeminist", "decentralization", "collaborationist",
+#: "prestidigitation"); "-er" is left out, since "scater" is "scat".
+SUFFIXES = (("ies", "y"), ("es", ""), ("s", ""), ("ed", ""), ("ed", "e"), ("d", ""), ("ing", ""),
+            ("ing", "e"), ("ers", ""), ("ers", "e"), ("ly", ""), ("ness", ""), ("ist", ""), ("ion", "or"))
+PREFIXES = ("un", "re", "de", "anti", "non", "over", "under", "pre", "dis", "mis", "out", "counter")
+
+
+def formed(word):
+    """Whether `word` (lower case) is a known word with a common ending or
+    beginning, two lexicon words run together ("nighttime", "penpal"), or a
+    dropped letter marked by an apostrophe ("'eap", "overtakin'")."""
+    if word.startswith("'") and known("h" + word[1:]):
+        return True
+    if word.endswith("'") and known(word[:-1] + "g"):
+        return True
+    word = word.strip("'")
+    for end, put in SUFFIXES:
+        if word.endswith(end) and len(word) - len(end) >= 3 and known(word[:-len(end)] + put):
+            return True
+    for pre in PREFIXES:
+        if word.startswith(pre) and len(word) - len(pre) >= 4 and known(word[len(pre):]):
+            return True
+    return any(is_word(word[:k]) and is_word(word[k:]) for k in range(3, len(word) - 2))
+
+
+#: Print specks OCR reads as symbols no clue prints, alone or on a word
+#: ("is»", "of£", "■").
+JUNK_MARK = re.compile(r"[■»«•|^~¬§¤©®°±¶¦]")
+#: A character no English clue prints: JUNK_MARK, a pound or dollar sign
+#: against a letter, or one from outside the Latin script (a recogniser's
+#: Chinese reading of a speck, "王4").
+JUNK = re.compile(JUNK_MARK.pattern + r"|(?<=[a-z])[£$]|[£$](?=[a-z])|[^\x00-\u024f\u2010-\u203a\u20ac]")
+
+
+def doubled(text):
+    """[(pair, why)] for a word printed again as the start of the next
+    ("him himself", "re return"), the mark of one reading's word voted in
+    beside another's. Clues print such pairs too ("in India"), so it judges
+    only what a vote added."""
+    ws = re.findall(r"[A-Za-z]+", text or "")
+    return [(f"{a} {b}", "a word doubled into the next") for a, b in itertools.pairwise(ws)
+            if len(a) >= 2 and len(b) - len(a) >= 3 and b.lower().startswith(a.lower())]
+
+
+#: How often the corpus's clues must print a word twice in a row for the
+#: pair to be English ("in in", "very very", "old old"), not a reading's
+#: word voted in beside another's ("composer composer").
+DOUBLE_FLOOR = 5
+#: A token ending in one of these marks the next word as a sentence's start,
+#: a quotation's or an aside's, where a capital is the print's.
+OPENS_NEXT = tuple(".?!:;\"'()\u2014\u2013-\u201c\u201d\u2018\u2019\u2026&")
+#: The lone small letters a clue prints: the article, and "v" for versus.
+LONE_LETTER_OK = {"a", "v"}
+#: Two lone small letters that are e.g. or i.e. with their stops lost, or "s. d." (shillings
+#: and pence: "N—D—S for £ s. d.", Gale 1950-03-14).
+LETTER_PAIRS = {("e", "g"), ("i", "e"), ("s", "d")}
+#: The words before a lone small letter that make it a letter the clue
+#: names ("with a c", "the letter n").
+NAMES_LETTER = {"a", "an", "the", "letter", "letters"}
+#: The fewest one-letter pieces a letter-spaced word holds (spaced_runs): the
+#: Times of the 1930s-60s set a word of emphasis letter-spaced, not in
+#: italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the
+#: guns", "C o u n t y people"), and OCR reads each letter alone.
+SPACED_LETTERS = 3
+#: The fewest letters a letter-spaced word spells (spaced_runs).
+SPACED_WORD = 4
+#: One piece of a letter-spaced word: a letter or two (OCR closes up a pair,
+#: "de p a rt e d"), a possessive's 's on the last ("O m a r's"), with an
+#: opening mark on the first piece and a closing one on the last.
+SPACED_PIECE = re.compile(r"([\"'“‘(]*)([A-Za-z]{1,2})((?:['’]s)?)([.,;:!?)\"'”’]*)")
+#: What stands alone between a spaced word's letters: its hyphen ("P o s t - w a r")
+#: or its possessive's apostrophe ("W o r d s w o r t h ' s").
+SPACED_JOIN = re.compile(r"[-'’]")
+
+
+def spaced_runs(raw):
+    """[(i, j, word)] for each letter-spaced word in the whitespace tokens
+    `raw`: raw[i:j] are its pieces (SPACED_PIECE; an opening mark only on the
+    first, a closing mark or 's only on the last, a lone hyphen or apostrophe
+    between, SPACED_JOIN), SPACED_LETTERS of them a single letter, and closed
+    up they spell `word` (its marks kept): each hyphened part a dictionary
+    word, SPACED_WORD letters in all, in lower case or with a capital first
+    (spaced capitals are a solution grid's letters spilt into the clue,
+    "B A R B E C U E S B U S T S"). A clue prints no run of lone letters
+    that spells a word but as its emphasis; a reading's speck ("study o
+    gambling", "to r tate") spells none. The word is the whole stretch of
+    such pieces, less only a short word at either end ("in l i t t l e"):
+    a part of it is no word the print set ("M a d a m e" is no "adam",
+    "C o u n t y" no "Count"). A stretch that spells a word two ways ("A
+    l i g h t - w e i g h t" is "A light-weight" or "Alight-weight", "a b
+    o u t") is left alone."""
+    found = []
+    if sum(len(r.strip(EDGE)) == 1 for r in raw) < SPACED_LETTERS:
+        return found
+    k = 0
+    while k < len(raw):
+        j = k
+        while j < len(raw) and spaced_shape(raw[k:j + 1]):
+            j += 1
+        while j > k and SPACED_JOIN.fullmatch(raw[j - 1]):
+            j -= 1
+        if j - k < SPACED_LETTERS:
+            k += 1
+            continue
+        tries = sorted(((a, b) for a in range(k, k + 3) for b in range(j, j - 3, -1)
+                        if all(shed(raw[c]) for c in range(k, a)) and all(shed(raw[c]) for c in range(b, j))),
+                       key=lambda ab: ab[0] - ab[1])
+        spelt = [(a, b, w) for a, b in tries for w in [spaced_word(raw[a:b])] if w]
+        if len(spelt) == 1:
+            found.append(spelt[0])
+        k = j
+    return found
+
+
+def shed(token):
+    """Whether `token`, at an end of a letter-spaced stretch, may be a short word of its own beside
+    the spaced word ("in", "to", "a", "I"), not one of its letters."""
+    s = token.strip(EDGE)
+    return s in ("a", "A", "I") or len(s) == 2 and s.isalpha() and is_word(s.lower())
+
+
+def spaced_shape(pieces):
+    """Whether `pieces` are laid out as a letter-spaced word's (spaced_spelt), spelling aside: an
+    opening mark only on the first, a closing mark or 's only on the last, a lone hyphen or
+    apostrophe only between two pieces."""
+    for n, p in enumerate(pieces):
+        if SPACED_JOIN.fullmatch(p):
+            if n == 0 or SPACED_JOIN.fullmatch(pieces[n - 1]):
+                return False
+            continue
+        m = SPACED_PIECE.fullmatch(p)
+        if not m or m.group(1) and n or (m.group(3) or m.group(4)) and n != len(pieces) - 1:
+            return False
+    return True
+
+
+def spaced_word(pieces):
+    """The word the letter-spaced `pieces` spell (spaced_runs), or None; None
+    too when OCR closed up a pair among them and the run less its first or
+    last lone letter spells one: its spacing is no guide ("t ho u g h t" is
+    "though" and a speck as well as "thought")."""
+    word = spaced_spelt(pieces)
+    if word is None:
+        return None
+    if any(len(p.strip(EDGE)) == 2 and p.strip(EDGE).isalpha() for p in pieces):
+        for lone, less in ((pieces[0], pieces[1:]), (pieces[-1], pieces[:-1])):
+            if len(lone.strip(EDGE)) == 1 and spaced_spelt(less, 1):
+                return None
+    return word
+
+
+def spaced_spelt(pieces, fewer=0):
+    """spaced_word's spelling, without its ambiguity test: `fewer` lone letters may be missing."""
+    out, lone = [], 0
+    for n, p in enumerate(pieces):
+        first, last = n == 0, n == len(pieces) - 1
+        if SPACED_JOIN.fullmatch(p):
+            if first or last or SPACED_JOIN.fullmatch(pieces[n - 1]):
+                return None
+            out.append(p)
+            continue
+        m = SPACED_PIECE.fullmatch(p)
+        if not m or m.group(1) and not first or (m.group(3) or m.group(4)) and not last:
+            return None
+        lone += len(m.group(2)) == 1
+        out.append(p)
+    if lone < SPACED_LETTERS - fewer:
+        return None
+    word = "".join(out)
+    m = re.fullmatch(r"([\"'“‘(]*)(.*?)((?:['’]s?)?[.,;:!?)\"'”’]*)", word)
+    core = m.group(2)
+    letters = re.sub(r"[^A-Za-z]", "", core)
+    if len(letters) < SPACED_WORD or not re.fullmatch(r"[A-Za-z]+(?:-[A-Za-z]+)*", core) \
+            or not (letters.islower() or letters[0].isupper() and letters[1:].islower()):
+        return None
+    if not all(is_word(part.lower()) for part in core.split("-")):
+        return None
+    return word
+
+
+def spaced_joined(text):
+    """`text` with each letter-spaced word (spaced_runs) closed up:
+    "There's l i t t l e among" is "There's little among"; a lone hyphen
+    after it joins the next word ("S e l f - propelled" is "Self-propelled")."""
+    raw = (text or "").split()
+    runs = spaced_runs(raw)
+    if not runs:
+        return text
+    out, k = [], 0
+    for i, j, word in runs:
+        out += raw[k:i] + [word]
+        k = j
+        if j + 1 < len(raw) and raw[j] == "-" and word[-1:].isalpha() and raw[j + 1][:1].isalpha():
+            out[-1] += "-" + raw[j + 1]
+            k = j + 2
+    return " ".join(out + raw[k:])
+
+
+def strays(text):
+    """[(k, why)] for each whitespace token `text.split()[k]` of a voted clue
+    that no print has there:
+      - a word printed again straight after itself with nothing between
+        ("composer composer"; k is the second), unless the corpus's clues
+        print that pair DOUBLE_FLOOR times ("in in", "very very");
+      - a capitalised word inside a sentence repeating an earlier word of
+        the clue, where it breaks the phrase: the corpus's clues never print
+        it before the next word and do print the words either side of it
+        together ("Plan is to Plan destroy", a reading's line start voted
+        in again; not "Doctor and Doctor", "the art of The Times");
+      - a lone small letter, not LONE_LETTER_OK, an apostrophe's ("'e",
+        "'s"), a quoted or dashed one ("--s"), e.g. / i.e. or a letter the
+        clue names ("with a c"): "round t the heart", "new t". A capital
+        letter alone is the setter's ("S Africa", "Brand X");
+      - a lone underscore touching a word or mark (SPECK_UNDERSCORE:
+        "love,_emperor"), which unstrayed() takes out.
+    Clues print none of these: each is one reading's speck or doubled line
+    the vote left in."""
+    raw = (text or "").split()
+
+    def pair():
+        return clue_lm()[1]  # loaded only for a clue that asks it (most never do)
+    bare = [r.strip(EDGE) for r in raw]
+    out = []
+    for k in range(1, len(raw)):
+        a, b = bare[k - 1], bare[k]
+        if a.isalpha() and len(a) > 1 and a.lower() == b.lower() and raw[k - 1] == a and raw[k].startswith(b) \
+                and pair().get(f"{a.lower()} {a.lower()}", 0) < DOUBLE_FLOOR:
+            out.append((k, "a word doubled"))
+    spaced = {k for i, j, _ in spaced_runs(raw) for k in range(i, j)}
+    seen = set()
+    for k, w in enumerate(bare):
+        heads = tokens(raw[k + 1]) if k + 1 < len(raw) else []
+        if k and w.isalpha() and len(w) > 1 and w[0].isupper() and w[1:].islower() and w.lower() in seen \
+                and raw[k] == w and not raw[k - 1].endswith(OPENS_NEXT) and bare[k - 1].isalpha() \
+                and heads and raw[k + 1][0].islower():
+            before, after = bare[k - 1].lower(), heads[0].lower()
+            if not pair().get(f"{w.lower()} {after}") and pair().get(f"{before} {after}"):
+                out.append((k, "an earlier word repeated inside the clue"))
+        seen.update(t.lower() for t in tokens(raw[k]))
+    for k, s in enumerate(bare):
+        if len(s) != 1 or not s.islower() or s in LONE_LETTER_OK or k in spaced \
+                or re.search("['\u2019\u2018\"\u201c\u201d\\-\u2014\u2013]", raw[k]):
+            continue
+        prev = bare[k - 1].lower() if k else ""
+        nxt = bare[k + 1].lower() if k + 1 < len(raw) else ""
+        if (s, nxt) in LETTER_PAIRS or (prev, s) in LETTER_PAIRS or prev in NAMES_LETTER:
+            continue
+        out.append((k, "a stray letter"))
+    out += [(k, "a speck read as an underscore") for k, r in enumerate(raw) if SPECK_UNDERSCORE.search(r)]
+    return sorted(out)
+
+
+def stray(text):
+    """[(token, why)] for each token strays() flags."""
+    raw = (text or "").split()
+    return [(raw[k], why) for k, why in strays(text)]
+
+
+def unstrayed(text, theirs):
+    """`text` with each token strays() flags mended from the readings
+    `theirs` (each one's text for the clue): taken out where a reading
+    prints the words either side of it together, or set in capitals where
+    one prints it so ("Brand X"); a flag no reading mends stands, for the
+    caller to file the clue blank."""
+    text = spaced_joined(unspecked(text or ""))
+    seqs = [[w.lower() for w in tokens(t)] for t in theirs]
+    caps = [tokens(t) for t in theirs]
+
+    def printed(left, mid, right, case=False):
+        want = [w for w in (left, *mid, right) if w is not None]
+        for ws, cs in zip(seqs, caps):
+            for i in range(len(ws) - len(want) + 1):
+                if ws[i:i + len(want)] == [w.lower() for w in want] and (left is not None or i == 0) and (
+                        right is not None or i + len(want) == len(ws)) and (
+                        not case or all(c in cs[i:i + len(want)] for c in mid)):
+                    return True
+        return False
+
+    def between(left, right):
+        """The words a reading prints alone between `left` and `right`, or
+        between its misreads of them (PRINTS_SIMILAR)."""
+        def at(ws, j, w):
+            return w is None and not 0 <= j < len(ws) or w is not None and 0 <= j < len(ws) and (
+                ws[j] == w.lower() or similar(ws[j], w.lower()) >= PRINTS_SIMILAR)
+        return {cs[i] for ws, cs in zip(seqs, caps) for i in range(len(ws)) if at(ws, i - 1, left) and at(ws, i + 1, right)}
+    for _ in range(len((text or "").split())):
+        flags = strays(text)
+        if not flags:
+            break
+        raw = text.split()
+        mended = None
+        for k, why in flags:
+            left = (tokens(" ".join(raw[:k])) or [None])[-1]
+            right = (tokens(" ".join(raw[k + 1:])) or [None])[0]
+            word = raw[k].strip(EDGE)
+            if printed(left, [], right):
+                mended = raw[:k] + raw[k + 1:]
+                # A stop after the dropped letter ends the word before it: "new t." is "new.".
+                tail = raw[k][raw[k].index(word) + len(word):]
+                if k and re.fullmatch(r"[.,;:?!]+", tail) and not raw[k - 1].endswith(tuple(tail)):
+                    mended[k - 1] += tail
+                break
+            if why == "a stray letter" and printed(left, [word.upper()], right, case=True):
+                mended = raw[:k] + [raw[k].replace(word, word.upper(), 1)] + raw[k + 1:]
+                break
+            # The letter is a short word misread ("throws d sprightly" where a reading has "throws a sprightly").
+            words = {w for w in between(left, right) if w.lower() != word.lower() and known(w.lower())} \
+                if why == "a stray letter" else set()
+            if len({w.lower() for w in words}) == 1:
+                mended = raw[:k] + [raw[k].replace(word, min(words, key=lambda v: (v.islower(), v)), 1)] + raw[k + 1:]
+                break
+        if mended is None:
+            break
+        text = " ".join(mended)
+    return text
+
+
+#: The letters OCR reads as an apostrophe: a thin upright stroke.
+APOSTROPHE_FOR = "il"
+#: What follows a contraction's apostrophe ("I'll" is no "Ill").
+CONTRACTED = re.compile(r"(?:s|t|d|m|ll|re|ve)", re.IGNORECASE)
+
+
+def letter_lost(word):
+    """Is the one apostrophe inside `word` a letter OCR read as a stroke? It
+    is when the word is no word as it stands, no contraction, and an i or l
+    in its place makes one ("He r'ddled" for "riddled", No 97 6D). A poet
+    elides an e ("wand'ring", "heav'n"), and a setter's dialect drops a
+    letter near the end (Em'ly, Rob'n, Li'l), so those stand: the corpus's
+    clues hold no such word with three letters after the mark."""
+    head, _, tail = word.partition("'")
+    if not head.isalpha() or not tail.isalpha() or len(tail) < 3 or CONTRACTED.fullmatch(tail):
+        return False
+    flat = plain(word).lower()
+    return not known(flat) and any(known(flat.replace("'", c)) for c in APOSTROPHE_FOR)
+
+
+def letter_put_back(text):
+    """`text` with each word letter_lost() finds mended: the apostrophe made
+    the one letter of APOSTROPHE_FOR that gives a known word ("r'ddled" is
+    "riddled"). A word two letters would mend stays as read."""
+    def mend_one(m):
+        w = m.group()
+        if not letter_lost(w):
+            return w
+        got = [c for c in APOSTROPHE_FOR if known(plain(w).lower().replace("'", c))]
+        return w.replace("'", got[0]) if len(got) == 1 else w
+    return re.sub(r"[A-Za-z]+'[A-Za-z]+", mend_one, text or "")
+
+
+#: Tokens the print really has that suspect() would read as OCR's: a stopped
+#: abbreviation hyphened ("l.-b.-w.", "C.-in-C."), an "o'" set between hyphens
+#: ("tam-o'-shanter"), capitals parted by dashes for the letters a clue leaves
+#: out ("N—D—S"), and a weight or length ("20cwt"). The 1950-52 Gale
+#: Times pages whose one blank was one of these (the VLM printed it alike).
+PRINT_OWN = re.compile(r"(?:[A-Za-z]{1,3}\.?-)+[A-Za-z]{1,3}\.|[A-Za-z]+-o['’]-[A-Za-z]+(?:-[A-Za-z]+)*"
+                       r"|[A-Z]+(?:[—–]{1,2}[A-Z]+)+|\d+(?:cwt|lbs?|oz|yds?|mph|kg|mm|cm|km)\.?")
+#: Abbreviations the lexicon lacks that a clue prints ("Mer. of Ven.", "Ven. Bede", "jnr.", "Messrs.
+#: Gog and Magog"). unspellable() read "Messrs" as a name that lost a letter ("ssr").
+UNLEXICONED_ABBREVS = {"ven", "jnr", "snr", "messrs"}
+#: A Scots or Irish surname: "Mc" or "Mac" before its capital ("McTavish", "McNeile", "MacGregor").
+#: unspellable() reads the "^mc" of "Mc" + consonant as a letter lost; mc_named() judges the rest.
+MC_NAME = re.compile(r"(?:Mc|Mac)([A-Z][a-z]{2,})")
+#: A word with letters a clue sets in brackets ("(under)world", "(C)ox", "light(e)ning"): the word whole
+#: and the word without them must both be known ("t(r)epical" is neither).
+BRACKET_PART = re.compile(r"([A-Za-z]*)\(([A-Za-z]+)\)([A-Za-z]*)")
+#: The words a print elides at their end before a hyphen ("nor'-nor'-west", "will-o'-the-wisp"); else only
+#: a dropped g ("kissin'-cousin"). "will'-the-wisp" is a misread of "will-o'-the-wisp", not print.
+ELIDED_ENDS = ("nor", "sou", "o")
+
+
+def marked_word(raw):
+    """Whether token `raw`, which suspect() refuses as "a stray mark inside a word", is a word the print
+    itself sets with that mark: letters in brackets inside a word whose whole and rest are both known
+    (BRACKET_PART), or a hyphened compound whose every part suspect() passes alone, an apostrophe at a
+    part's edge only a dropped aitch ("coffin-'eaded"), a dropped g ("kissin'-cousin") or ELIDED_ENDS
+    ("nor'-nor'-west"), and initials ("Ex-M.P.'s"). printed_alike() takes such a token as the print's
+    only where the readings hold it letter for letter. Failure shapes r23, 10-28: of the 63 unplanned
+    "stray mark" blanks on unfiled Times pages, "(under)world", "(land)lord", "(Combat)ant?", "(C)ox",
+    "light(e)ning", "nor'-nor'-west", "kissin'-cousin", "coffin-'eaded", "Will-o'-the-Wisp's" were
+    print every reader spelt alike; shared misreads ("der.sory", "T:U.C.", "tw.sted") are refused."""
+    core = (raw or "").lstrip("\"“‘").rstrip("\"”’.,;:!?")
+    m = BRACKET_PART.fullmatch(core)
+    if m:
+        head, inside, tail = m.groups()
+        rest = head + tail
+        return len(rest) >= 2 and known((head + inside + tail).lower()) and known(rest.lower())
+    parts = core.split("-")
+    if len(parts) < 2 or not all(re.search(r"[A-Za-z]", p) for p in parts):
+        return False
+    for p in parts:
+        if suspect(p):
+            return False
+        if p[-1:] in ("'", "’") and not (p[:-1].lower() in ELIDED_ENDS or gee_dropped(p, p[:-1])):
+            return False
+        if p[:1] in ("'", "’") and not (aitch_dropped(p, p[1:]) and known("h" + p[1:].lower())):
+            return False
+    return True
+
+
+def mc_named(word):
+    """Whether `word` is "Mc" or "Mac" before a capitalised name of three
+    letters or more that unspellable() passes alone ("McTavish", "McNeile").
+    Across the VLM corpus's clue readings, of the tokens suspect() refused as
+    "a letter lost from a name" that this passes, the VLM prints each one alike
+    or the reading is page text bled into the clue (a real surname there too);
+    none it prints otherwise."""
+    m = MC_NAME.fullmatch(word)
+    return bool(m) and not unspellable(m.group(1))
+#: A dash the print sets close up between two words, after a word's own stop
+#: or quote ("Beat,—with", 'cow"—did', "It's--hard", "no---I'd"): an em or en
+#: dash, or two or three hyphens. The 1940s-70s Times prints ",—" so; the VLM
+#: reads those pages' clues alike ("Terrier,—or bull-dog? (4,5)").
+DASH_JOIN = re.compile(r"(?<=[A-Za-z.,;:?!)\"'”’])(?:[—–]{1,2}|-{2,3})(?=[\"'(“‘]?[A-Za-z])")
+#: A DASH_JOIN dash after a word's comma or stop ("end,—or"): never inside one word.
+STOPPED_DASH = re.compile(r"[A-Za-z][.,;:?!](?:[—–]{1,2}|-{2,3})(?=[\"'(“‘]?[A-Za-z])")
+
+
+def dash_parted(raws, keep=()):
+    """The tokens `raws` with each one DASH_JOIN joins cut at its dashes, so
+    suspect() judges each word on its own ("Beat,—with" is "Beat," and
+    "with"). A dash that joins what reads as one word ("some—thing") is a
+    reader's hyphen and stays, for MARK_IN_WORD to judge, as does a token in
+    `keep` (suspect's `printed`). A dash after a stop parts two words even
+    where their letters join into one ("end,—or" is no "endor": r23)."""
+    out = []
+    for raw in raws:
+        parts = [] if raw in keep else DASH_JOIN.split(raw)
+        if len(parts) > 1 and (STOPPED_DASH.search(raw) or
+                               not known(plain("".join(re.sub(r"[^A-Za-z]", "", p) for p in parts)).lower())):
+            out += [p for p in parts if p]
+        else:
+            out.append(raw)
+    return out
+
+
+#: A known word's ending a clue's quotation or dialect prints that the
+#: lexicon lacks, with what the known word ends in instead: an old verb's
+#: "loveth", "walketh", "smilest", "couldst", "seest", and an adverb of a
+#: known word ("dottily", "incomprehensibly", "encephalographically").
+#: "-th" takes only a stem ending in e ("lanceth", "dieth"): "öboth" is no
+#: "obo" + "th". Only suspect() takes these, not formed()'s vote.
+OLD_FORMS = (("eth", ""), ("th", ""), ("est", ""), ("st", ""))
+ADVERB_FORMS = (("ily", "y"), ("ibly", "ible"), ("ically", "ic"), ("ically", "ical"))
+
+
+def old_form(word):
+    """Whether `word` (plain, any case) is a lexicon word with an old verb
+    ending (OLD_FORMS: "loveth", "smilest", "couldst") or a known word's
+    adverb (ADVERB_FORMS: "dottily"), the stem three letters at least."""
+    w = word.lower()
+    if not w.isalpha():
+        return False
+    for end, put in OLD_FORMS:
+        stem = w[:-len(end)]
+        if w.endswith(end) and len(stem) >= 3 and (end != "th" or stem.endswith("e")) and is_word(stem + put):
+            return True
+    return any(w.endswith(end) and len(w) - len(end) >= 3 and known(w[:-len(end)] + put) for end, put in ADVERB_FORMS)
+
+
+#: The doer or the doing of a known "-ise"/"-ize" verb ("immortaliser", "characterizer",
+#: "collectivization", "industrialization"), and "-ically" on a lexicon noun
+#: ("encephalographically", "cymbalically"): real print the lexicon lacks. The
+#: verb must be known whole, so "vertiser" ("vert" + "ise") and "advertizer"
+#: still refuse; a bare "-er" is left out, as formed() leaves it ("scater").
+AGENT_FORMS = (("iser", "ise"), ("isers", "ise"), ("izer", "ize"), ("izers", "ize"), ("isation", "ise"),
+               ("isations", "ise"), ("ization", "ize"), ("izations", "ize"))
+NOUN_ADVERB = "ically"
+#: The fewest letters before a derived_form() ending.
+DERIVED_STEM = 4
+
+
+def derived_form(word):
+    """Whether `word` (plain, any case) is the doer or the doing of a known
+    "-ise"/"-ize" verb (AGENT_FORMS: "immortaliser", "collectivization") or a
+    lexicon noun's "-ically" adverb ("encephalographically"), the stem
+    DERIVED_STEM letters at least. Across the VLM corpus's clue readings, the
+    tokens suspect() refused as "not a word" that this passes the VLM prints
+    alike, none otherwise; only suspect() takes these, not formed()'s vote."""
+    w = word.lower()
+    if not w.isalpha():
+        return False
+    if any(w.endswith(end) and len(w) - len(end) >= DERIVED_STEM and known(w[:-len(end)] + put)
+           for end, put in AGENT_FORMS):
+        return True
+    return w.endswith(NOUN_ADVERB) and len(w) - len(NOUN_ADVERB) >= DERIVED_STEM and is_word(w[:-len(NOUN_ADVERB)])
+
+
+def gee_dropped(raw, p):
+    """Whether token `raw` ends (past its closing marks) in piece `p` and the
+    apostrophe of a dropped g, the known word's "-ing" ("fishin'", "workin',",
+    "implyin'?"). suspect() strips that apostrophe with the token's edge, so
+    formed()'s own "overtakin'" test never sees it."""
+    tail = raw.rstrip(",.;:!?)\"”")
+    return (tail[-1:] in ("'", "’") and p.endswith("in") and tail[:-1].endswith(p)
+            and not known(p) and known(plain(p).lower() + "g"))
+
+
+def aitch_dropped(raw, p):
+    """Whether token `raw` opens (past any '"', '“' or '(') with a quote mark then piece `p`, as
+    re.match(r"[\\"“(]*['‘’]" + re.escape(p), raw) would: a string test, as a pattern
+    per word cost a plan ~177k regex compiles (each evicting the module's own patterns from re's cache)."""
+    rest = raw.lstrip("\"“(")
+    return rest[:1] in ("'", "‘", "’") and rest.startswith(p, 1)
+
+
+def suspect(text, vouched=(), printed=()):
+    """[(token, why)] for each word of a clue's text that OCR, not the setter,
+    wrote. `vouched` holds lower-case words every reading spelt alike, which
+    stand though the lexicon lacks them (a rare word, a name); `printed`
+    holds tokens of the text the clue's `asPrinted` keeps (printed_alike)."""
+    out = []
+    for raw in dash_parted((text or "").split(), printed):
+        s = raw.strip(EDGE)
+        if not s or raw in printed or PRINT_OWN.fullmatch(raw.rstrip(",;:)\"'”")):
+            continue
+        if clue_text.figure_dashed(raw.strip(",.;:!?()\"'")) or clue_text.XREF_GLUED.fullmatch(s):
+            continue
+        if DIGIT_IN_WORD.search(s) and not COUNTED.fullmatch(s.lstrip("£$")):
+            out.append((raw, "a digit inside a word"))
+            continue
+        if re.search(r"[A-Za-z]\.-(?!-)", raw):
+            out.append((raw, "a stray mark inside a word"))  # "housing.-"
+            continue
+        if INITIALS_OWN.fullmatch(s):
+            continue
+        if MARK_IN_WORD.search(s) or JUNK.search(raw) or re.search(r"[a-z]{2}\.[A-Za-z][a-z]", s):
+            out.append((raw, "a stray mark inside a word"))
+            continue
+        if any(re.search(r"[A-Za-z]", p) and re.search(r"\d", p) and not (
+                COUNTED.fullmatch(p.lstrip("£$")) or re.fullmatch(r"[A-Z]+\d+[A-Z]*|\d+[A-Za-z]{1,2}", p))
+               for p in re.split(r"[-/.'\u2019,]", s)):
+            out.append((raw, "a digit inside a word"))
+            continue
+        for p in re.split(r"[-./&]", s.replace("\u2018", "'").replace("\u2019", "'")):
+            bare = p.strip("'")
+            if letter_lost(bare):
+                out.append((raw, "an apostrophe for a letter"))
+                break
+            if not bare.isalpha() or len(bare) < 2:
+                continue
+            flat = plain(bare)
+            m = CAPS_IN_WORD.search(flat)
+            if m and not re.match(r"(?:Mc|Mac|O'|D')", flat) and (
+                    m.end() == len(flat) or not known(flat.lower())):
+                out.append((raw, "a capital inside a word"))
+                break
+            if flat.lower() in vouched:
+                continue
+            if (aitch_dropped(raw, p)
+                    and not known(flat) and known("h" + flat.lower())):
+                continue  # the setter's dropped aitch: "'ow 'iggins", "'igher"
+            if known(flat) or formed(plain(p).lower()) or any(
+                    known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
+                continue  # a ligature is its word's ("mediæval")
+            if old_form(flat) or gee_dropped(raw, p.strip("'")) or derived_form(flat):
+                continue  # "loveth", "smilest", "dottily"; "fishin'"; "immortaliser"
+            if flat.isupper() and len(flat) <= 4 or flat.lower() in UNLEXICONED_ABBREVS:
+                continue  # an abbreviation: "RN", "TUC", "Ven."
+            if flat[0].islower():
+                out.append((raw, "not a word"))
+                break
+            if slipped(flat):
+                out.append((raw, "a word misread as a name"))
+                break
+            if (bare == flat and not flat.rstrip("s").isupper() and not closed_compound(flat.lower())
+                    and not mc_named(flat) and unspellable(flat)):
+                out.append((raw, "a letter lost from a name"))  # an accent the reader dropped
+                break
+    # A bracket the clue never closes, or never opened, is a letter or a
+    # count misread ("is (this", "for ) record").
+    k = unpaired(text)
+    if k is not None and holding(text, k) not in printed:
+        out.append((holding(text, k), "a bracket never closed or opened"))
+    return out + stray(text)
+
+
+#: A quotation opening: a quote mark at the clue's start or after a space
+#: or a mark, before a capital ("'Resting weary", "say, 'Give") or an
+#: elided start ("'. . . is a monster"); not an elision ("'Tis", "'Twas").
+QUOTE_OPEN = re.compile(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))(['\u2018\"\u201c])(?!T(?:is|was|were|would|will)\b)"
+                        r"(?=[A-Z]|\.\s*\.|\u2014\u2014)")
+
+
+#: A single quote that closes: one no letter follows (an apostrophe inside
+#: a word is none), or one after a stop before a possessive's s
+#: ("a wonder . . .'s.").
+CLOSE_SINGLE = r"['\u2019](?![A-Za-z])|(?<=[.!?,;:])['\u2019](?=s\b)"
+#: An elided word a quote mark opens: "'Tis", "'Twas".
+ELISION = r"T(?:is|was|were|would|will)\b"
+
+
+def paired(text):
+    """`text` with each double quote mark that pairs with nothing made the
+    single quote readers misread it for: one opening an elision ('"Tis
+    said' for "'Tis said"), and a quotation's opening that only a single
+    quote closes ('"That's ... wonder . . .'s.'). A double quote a double
+    closes stays."""
+    if not text:
+        return text
+    doubles = [m for m in re.finditer(r"[\"“”]", text)]
+    if len(doubles) % 2 and (m := re.search(r"(?:^|(?<=[\s,;:(]))[\"“](?=" + ELISION + ")", text)):
+        return paired(text[:m.start()] + "'" + text[m.end():])
+    for m in QUOTE_OPEN.finditer(text):
+        rest = text[m.end():]
+        if m.group(1) in "\"“" and not re.search(r"[\"”]", rest) \
+                and re.search(r"(?<![A-Za-z\s])['\u2019]", rest):
+            return text[:m.start()] + "'" + rest
+    return text
+
+
+def as_read(text, own):
+    """Whether a reading of the clue (`own`) prints `text`'s words and
+    stops but for quote marks and spaces: a clue the vote put together
+    from no one reading may have lost a printed blank (No 162 9D's
+    "the \u2014\u2014's" voted "the s")."""
+    bare = re.sub(r"\s+", "", QUOTE_MARKS.sub("", text or ""))
+    return any(o and re.sub(r"\s+", "", QUOTE_MARKS.sub("", o)) == bare for o in own)
+
+
+def single_opened(text, own):
+    """`text` with a double opening that only a single after a word shuts
+    made that single ("\u201cThe Club'" for the print's \u2018The Club\u2019, No 351
+    36A), when it as_read(); else None."""
+    for m in QUOTE_OPEN.finditer(text or ""):
+        rest = text[m.end():]
+        if m.group(1) in "\"“" and not re.search(r"[\"”]", rest) \
+                and re.search(r"(?<=[A-Za-z])['\u2019](?![A-Za-z])", rest):
+            got = text[:m.start()] + "'" + rest
+            return got if (unclosed_quote(got) is None and as_read(text, own) and not GLUED_STOP.search(got)
+                           and not blank_lost(got)) else None
+    return None
+
+
+def reclosed(text, readings):
+    """`text`, a clue whose quotation opens and never closes, with the
+    closing a reading (`readings`, each reading's text, whole or for the
+    light) prints after the clue's last three words put back: a run of
+    stops (an ellipsis, written ". . .") and a closing single quote, with
+    a possessive's s and a stop ("wonder .. 's." where the vote kept
+    "wonder. .."); else a closing quote a reading prints between two of
+    the clue's words side by side (No 4 8A's "'London's lasting shame,'
+    but", the vote keeping "shame, but"). None when no reading prints one,
+    or it leaves the clue unclosed."""
+    last = re.findall(r"[A-Za-z]+", text or "")[-3:]
+    if len(last) < 3:
+        return None
+    find = re.compile(r"\b" + r"\W+".join(last) + r"((?:\s*\.){0,3}\s*['\u2019](?:s\b)?[.,;:!?]?)(?=\s|$)")
+    for r in readings:
+        if not r or not (m := find.search(r)):
+            continue
+        tail = re.sub(r"\s+(?=['\u2019])", "", re.sub(r"^(?:\s*\.){2,3}", " . . .", m.group(1)))
+        at = text.rfind(last[-1]) + len(last[-1])
+        got = paired(text[:at] + tail)
+        if unclosed_quote(got) is None:
+            return got
+    words = list(re.finditer(r"[A-Za-z]+", text))
+    for r in readings:
+        for a, b, c in zip(words, words[1:], words[2:]):
+            m = re.search(rf"\b{a.group()}\W+{b.group()}([.,;:!?]?['\u2019][.,;:!?]?)\s+{c.group()}\b", r or "")
+            if m and "'" not in text[b.end():c.start()] and "\u2019" not in text[b.end():c.start()]:
+                got = paired(text[:b.end()] + m.group(1) + " " + text[c.start():])
+                if unclosed_quote(got) is None:
+                    return got
+    return None
+
+
+def unclosed_quote(text):
+    """The index of a quotation `text` opens and never closes, or closes
+    and never opened, or None: its end, a blank the readers cannot see
+    ("beds of \u2014\u2014'." read as "beds of"), or its start is lost. A single quote closes at a quote mark not followed
+    by a letter (an apostrophe inside a word is none), a double at a
+    double."""
+    for m in QUOTE_OPEN.finditer(text or ""):
+        rest = text[m.end():]
+        shut = r"[\"\u201d]" if m.group(1) in "\"\u201c" else CLOSE_SINGLE
+        if not re.search(shut, rest):
+            return m.start()
+    # A single quote shut after a word not ending in s (no plural's
+    # apostrophe: "the lyre'.") that nothing opened: its start is lost.
+    m = re.search(r"(?<=[A-Za-z][a-rt-zA-RT-Z])['\u2019](?![A-Za-z])", text or "")
+    if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z]|\.\s*\.|\u2014\u2014)|\u2018", text[:m.start()]):
+        return m.start()
+    return None
+
+
+#: A quotation whose start is elided, its opening mark and most of the
+#: stops lost: "rev. . is a monster" for "rev. \u2018. . . is a monster".
+ELIDED = re.compile(r"^((?:rev[.,]\s+)?)\.(?:\s*\.)*\s+(?=\w)", re.IGNORECASE)
+
+
+def reopened(text, readings):
+    """`text`, a clue whose quotation closes and never opens, with the
+    opening mark put back that a reading of it (`readings`) prints before
+    the same first word ("\u2018And the ..." where the vote kept "And the
+    ... lyre'."); a reader drops a faint mark far oftener than it makes one.
+    A stop standing alone before the first word (ELIDED) is what is left of
+    an elided start, so the quotation opens there ("'. . . is a monster").
+    None when neither puts the mark back, or it leaves the clue unclosed."""
+    first = (text or "").split(None, 1)[:1]
+    if not first or text[0] in "'\u2018\"\u201c":
+        return None
+    if (m := ELIDED.match(text)) and unclosed_quote(got := m.group(1) + "'. . . " + text[m.end():]) is None:
+        return got
+    # A reader may space the mark off its word ("' Who therein", No 386).
+    for r in readings:
+        m = re.match(r"\s*(['\u2018\"\u201c])\s?(\S+)", r or "")
+        if m and m.group(2).strip(EDGE) == first[0].strip(EDGE):
+            got = ("'" if m.group(1) in "'\u2018" else '"') + text
+            if unclosed_quote(got) is None:
+                return got
+    return None
+
+
+def opened_inside(text, readings, own=()):
+    """`text`, a clue whose quotation closes and never opens, with the
+    opening mark put back before the word a reading (`readings`, a clue's
+    or a whole list's text) prints it before, when a reading of the clue
+    (`own`) prints the words and stops it does but for quote marks and
+    spaces (else the vote may have mangled a printed blank, No 162 9D's
+    "the ----'s" voted "the s"): the clue's first two words
+    anywhere in the reading (No 449 26A, "it does. (22) \u2018The pretty
+    prattling graces", the clue run on after the one before), or a word
+    inside the clue after the same word before it (No 162 7D's "E.g.,
+    \u2018Rejoice in the Lord ... Rejoice\u2019", the vote's "E.g., Rejoice";
+    No 114 12A's "to\u2018tay and stuff'"). A plain mark counts only after a
+    space or a stop, a curly opening one anywhere: an apostrophe after a
+    letter opens nothing. None when no reading prints one, or it leaves the
+    clue unclosed."""
+    k = unclosed_quote(text)
+    if k is None or not text[k - 1:k].isalpha():
+        return None
+    if not as_read(text, own):
+        return None
+    words = [w for w in re.finditer(r"[A-Za-z]+", text) if w.end() <= k]
+    mark = r"(?:\W{0,3}?[\u2018\u201c]|\W{0,2}[\s(,;:.\u2014][\"'])\s?"
+    for i, b in enumerate(words):
+        if i == 0:
+            # A mark already there, spaced off the word ("' It was"), is
+            # no opening lost.
+            if len(words) < 2 or QUOTE_MARKS.search(text[:b.start()]):
+                continue
+            find = re.compile(r"(?:^|(?<=[\s(.,;:]))[\u2018\u201c\"']\s?" + re.escape(b.group())
+                              + r"\W+" + re.escape(words[1].group()) + r"\b")
+        else:
+            a = words[i - 1]
+            if QUOTE_MARKS.search(text[a.end():b.start()]):
+                continue
+            find = re.compile(r"\b" + re.escape(a.group()) + mark + re.escape(b.group()) + r"\b")
+        if any(r and find.search(r) for r in readings):
+            got = text[:b.start()] + "'" + text[b.start():]
+            # A stop glued to the next word ("cue:'A", "',o'er") is the
+            # vote's spacing, not the print's: no clue to file.
+            if unclosed_quote(got) is None and not GLUED_STOP.search(got) and not blank_lost(got):
+                return got
+    return None
+
+
+#: The fewest words of a quotation filling a whole clue that, with no
+#: blank in it, is taken for one whose blank no reader saw.
+QUOTED_WHOLE = 8
+
+
+def blank_lost(text):
+    """Whether `text` is a quotation filling the whole clue, QUOTED_WHOLE
+    words or more, with no blank: the Listener's quotation clue omits its
+    answer ("——"), and a blank every reader missed leaves the quote's
+    words alike in all of them (No 596 20D's "'Then to the Lip of this
+    poor —— Urn I lean'd, ...'" read without it), so the clue is not
+    filed on the strength of a mark put back."""
+    m = re.match(r"^(?:rev\.\s*)?['\u2018\"\u201c](.*)['\u2019\"\u201d][.,;:!?]*$", text or "")
+    return bool(m and "\u2014" not in text and "-" * 2 not in text
+                and len(re.findall(r"[A-Za-z]+", m.group(1))) >= QUOTED_WHOLE)
+
+
+#: A comma, colon or semicolon hard on the next word or quote.
+GLUED_STOP = re.compile(r"[,;:][A-Za-z'\u2018\u2019\"]")
+
+
+QUOTE_MARKS = re.compile(r"['‘’\"“”]")
+
+
+def requoted(text, readings):
+    """`text`, a clue whose quotation never opens or never closes, as a
+    reading of it (`readings`) prints it when that reading has the same
+    words and marks but for its quotes, and its quotes pair: No 254 38A's
+    "One of 'four champions fierce' who 'strive'." where the vote, from a
+    reading that lost the opening marks, kept "One of four champions
+    fierce' who strive"), its stop after the quote's close the vote lost
+    too. None otherwise."""
+    def bare(t):
+        return re.sub(r"\s+", " ", QUOTE_MARKS.sub("", t or "")).strip().rstrip(".")
+    if not bare(text):
+        return None
+    for r in readings:
+        if (r and r != text and bare(r) == bare(text)
+                and unclosed_quote(got := paired(r.strip())) is None):
+            return got
+    return None
+
+
+def unquoted_speck(text, readings):
+    """`text` without the single quote it opens with and never closes,
+    when the clue ends a whole sentence (a quotation whose end is lost
+    leaves its last word bare: "'Resting ... on beds of") and a reading of
+    it (`readings`) prints its first word with no mark before it: a speck
+    by the clue's number read as a quote (No 10 41A "'This word might be put
+    into the mouth of Death."). None otherwise."""
+    if not text or text[0] not in "'‘" or unclosed_quote(text) != 0 or not re.search(r"\w[.?!]$", text):
+        return None
+    first = text[1:].split(None, 1)[:1]
+    if first and any(re.match(r"\s*" + re.escape(first[0]) + r"(?:\s|$)", r or "") for r in readings):
+        return text[1:]
+    return None
+
+
+def holding(text, k):
+    """The whitespace-parted token of `text` holding its character `k`."""
+    return text[:k].rsplit(None, 1)[-1] + text[k:].split(None, 1)[0] if text[:k] and not text[k - 1].isspace() \
+        else text[k:].split(None, 1)[0]
+
+
+#: The fewest readings printed_alike(unanimous=True) takes as the print's
+#: word: two readers agreeing on a non-word ("considcraie") are a shared slip.
+UNANIMOUS_READINGS = 3
+#: The shortest word printed_alike(every=True) takes as the print's: a shorter
+#: one every reading shares is a word's lost half ("Bat or tle", "lly,").
+EVERY_SHORTEST = 4
+
+
+def one_letter_off(word):
+    """Whether one letter of `word` changed makes a known word ("ples" for
+    "pies", "bediamite" for "bedlamite"): a misread, however many readers
+    share it."""
+    w = plain(word).lower()
+    return any(c != w[k] and known(w[:k] + c + w[k + 1:]) for k in range(len(w)) for c in "abcdefghijklmnopqrstuvwxyz")
+
+
+#: The reasons suspect() gives for a name the lexicon lacks, which printed_alike(names=True) may take.
+NAME_WHYS = ("a word misread as a name", "a letter lost from a name")
+
+
+def printed_alike(text, readings, unanimous=False, every=False, names=False):
+    """The tokens of a voted clue `text` that suspect() would refuse, which
+    the print itself spells so: each word suspect() flags as no word that at
+    least two of `readings` (each reading's own text for the light, None
+    where it has none) hold letter for letter, and a bracket the clue never
+    pairs that at least two hold before the same word and none closes (No
+    15's 22 down, "slang (from Hollywood meaning ...", its bracket never
+    shut). The clue's `asPrinted`: what a misprint looks like to the vote.
+    A reading that lost the words votes neither way. A "stray mark" token the
+    print sets so (marked_word: "(under)world", "nor'-nor'-west") is held so too.
+    Readers that share a detector share its misreads, so with `unanimous`
+    a word stands only where every reading (UNANIMOUS_READINGS at least)
+    holds it and no one letter's change makes it a known word: "ignis",
+    "manouevre", not the shared "bediamite" or "ples" ("pies").
+    With `every` (the vote's own check, ahead of the VLM's pick: SHARED_WORD)
+    a word stands where every reading that has the clue (two at least) holds
+    it, the one-letter test applying only when fewer than UNANIMOUS_READINGS
+    do ("Nil nisi bonum", "Mobile sitz ?", "Mens sana": not "memt" where one
+    reads "meml"), and no reading prints it after a hyphen, a line end's
+    half ("Shake- speare", "Wim- bledon")."""
+    own = [r for r in readings if r]
+    if len(own) < (UNANIMOUS_READINGS if unanimous else 2):
+        return []
+    low = [" ".join(r.lower().split()) for r in own]
+    out = []
+    for raw, why in suspect(text):
+        word = raw.strip(EDGE).lower()
+        holds = sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r)) for r in low)
+        # A mark the print sets inside a word ("(under)world", "kissin'-cousin": marked_word) stands as a
+        # word no lexicon has does: the readings must hold it so.
+        if names and why in NAME_WHYS:
+            # An unlisted name every OCR reading (UNANIMOUS_READINGS at least) spells alike, no one letter's
+            # change making a known word (not "Tonstant" for "Constant"): the print's own.
+            if holds == len(low) >= UNANIMOUS_READINGS and len(word) >= EVERY_SHORTEST and not one_letter_off(word):
+                out.append(raw)
+            continue
+        if why != "not a word" and not (why == "a stray mark inside a word" and marked_word(raw)):
+            continue
+        if every:
+            half = re.compile(r"[a-z]-\s*" + re.escape(word) + r"(?![a-z])")
+            if holds == len(low) and len(word) >= EVERY_SHORTEST \
+                    and (len(low) >= UNANIMOUS_READINGS or not one_letter_off(word)) \
+                    and not any(half.search(r) for r in low + [" ".join(text.lower().split())]):
+                out.append(raw)
+        elif holds == len(low) and not one_letter_off(word) if unanimous else holds >= 2:
+            out.append(raw)
+    k = unpaired(text)
+    if k is not None and text[k] in "([":
+        after = re.match(r"\s*([A-Za-z]+)", text[k + 1:])
+        if after:
+            opened = re.compile(re.escape(text[k]) + r"\s*" + re.escape(after.group(1).lower()) + r"(?![a-z])")
+            holds = [r for r in low if opened.search(r)]
+            closed = [r for r in holds if unpaired(r) is None]
+            if len(holds) >= 2 and not closed and (not every or len(holds) == len(low)):
+                out.append(holding(text, k))
+    return out
+
+
+def run_apart(text, theirs):
+    """`text` with each word suspect() finds no word that one of the readings
+    `theirs` (each one's text for the clue) prints as two or three words
+    with only spaces between, each a word suspect() passes: a reader that
+    closed the print's word gaps up ("In thewordsof Mr." where another reads
+    "In the words of Mr.", "produced bya", "stoodin", "pre-emptiverights").
+    The letters stay the text's own; only the gaps are put back."""
+    raw = (text or "").split()
+    seqs = [(t or "").split() for t in theirs]
+    out = list(raw)
+    for k, tok in enumerate(raw):
+        core = tok.strip(EDGE)
+        if len(core) < 3 or not re.fullmatch(r"[A-Za-z][A-Za-z'\-]*[A-Za-z]", core) \
+                or not any(why == "not a word" for _, why in suspect(tok)):
+            continue
+        low = core.lower()
+        apart = None
+        for ws in seqs:
+            for i in range(len(ws)):
+                for n in (2, 3):
+                    run = ws[i:i + n]
+                    if len(run) < n:
+                        continue
+                    pieces = [run[0].lstrip(EDGE)] + run[1:-1] + [run[-1].rstrip(EDGE)]
+                    if "".join(pieces).lower() != low or not all(
+                            re.fullmatch(r"[A-Za-z][A-Za-z'\-]*", p) and not suspect(p) for p in pieces):
+                        continue
+                    apart = [len(p) for p in pieces]
+                    break
+                if apart:
+                    break
+            if apart:
+                break
+        if not apart:
+            continue
+        cut, at = [], 0
+        for n in apart:
+            cut.append(core[at:at + n])
+            at += n
+        out[k] = tok.replace(core, " ".join(cut), 1)
+    return " ".join(out) if out != raw else text
+
+
+# ------------------------------------------------------------ the VLM's pick
+
+def candidates(texts, lid, parse):
+    """Each reading's text for one light ("N-across"), with its count;
+    `parse` turns a reading into {"across": clues, "down": clues} (or None)
+    and why, as file_trove_puzzles.clues() reads them."""
+    n, direction = lid.split("-")
+    out = []
+    for t in texts.values():
+        parsed, _ = parse(t) if t.strip() else (None, None)
+        for c in (parsed or {}).get(direction, []):
+            if c["tokens"] and int(n) in c["tokens"][0]:
+                enum = min(c["enums"]) if c.get("enums") else None
+                out.append(c["text"].strip() + (f" ({enum})" if enum else ""))
+                break
+    return out
+
+
+def held(text, cands):
+    """The VLM's pick `text` held to the readings `cands` (each one's text
+    for the clue) word by word, or "" when it cannot be: a word suspect()
+    flags takes the known word most readings have there ("linner" where
+    one reads "linnet"), and with none the pick fails; a word no reading
+    has, where every reading has one known word a letter from it, takes
+    that word ("gain" where all read "gait"). A pick most of whose words
+    no reading has within a letter is another clue's, and fails."""
+    words = list(re.finditer(r"[A-Za-z]+(?:'[A-Za-z]+)?", text or ""))
+    if not words:
+        return text or ""
+    low = [m.group().lower() for m in words]
+    there = [[] for _ in words]
+    theirs = [tokens(strip_count(c)) for c in cands]
+    for ws in theirs:
+        for i, j in align(low, [w.lower() for w in ws]):
+            if i is not None and j is not None:
+                there[i].append(ws[j].lower())
+    if theirs and 2 * sum(any(within_one(a, v) for v in there[i]) for i, a in enumerate(low)) < len(low):
+        return ""
+    out, k = "", 0
+    for i, m in enumerate(words):
+        a, w = low[i], m.group()
+        new = a
+        if suspect(w):
+            got = [v for v in there[i] if known(v)]
+            if not got:
+                return ""
+            new = max(got, key=lambda v: (got.count(v), similar(v, a)))
+        elif theirs and a not in there[i] and len(there[i]) == len(theirs) \
+                and len(set(there[i])) == 1 and known(there[i][0]) and within_one(a, there[i][0]):
+            new = there[i][0]
+        if new != a:
+            new = new.capitalize() if w[:1].isupper() else new
+            out += text[k:m.start()] + new
+            k = m.end()
+    return out + text[k:]
+
+
+#: How alike (difflib ratio, counts apart) the VLM's column reading and another
+#: reader's must be for the VLM's text to be laid with no pick asked.
+SETTLE_SIMILAR = 0.9
+
+
+#: The fewest words of the VLM's column reading of a clue that a worn page's
+#: readers need no word of (settled_by_vlm's `enum` branch).
+WORN_WORDS = 4
+
+
+def settled_by_vlm(texts, lid, parse, cands, enum=None):
+    """The VLM's own column reading of clue `lid` when a pick would only
+    confirm it: another reader's clue is within SETTLE_SIMILAR of it with the
+    same word count, and the VLM's words hold up against every reading
+    (held(): no word suspect() flags that no reader has known). None otherwise
+    (the pick is asked). An OCR slip of a letter or two is what kept the two
+    from agreeing outright; the VLM's reading is the one that is not worn.
+
+    Given the light's `enum`, a page whose readers are all worn (the FT 1984's
+    worn type: three readers, three different garbles of every clue, none
+    within SETTLE_SIMILAR of another) settles too: the VLM's reading has a
+    count that is the light's, WORN_WORDS words or more, every word one the
+    lexicon knows or a reader prints just so, and held() leaves it as it is.
+    The pick the model gave to these (FT 1984-09-20 and 12-18/12-21, 14 cached)
+    was the column reading word for word, but for one that copied the next
+    clue's number in ahead of it."""
+    import difflib
+    vlm_cands = candidates({"vlm": texts.get("vlm", "")}, lid, parse) if texts.get("vlm", "").strip() else []
+    if not vlm_cands:
+        return None
+    mine = strip_count(vlm_cands[0]).strip()
+    if not mine or len(tokens(mine)) < 2:
+        return None
+    others = [strip_count(c) for c in candidates({k: t for k, t in texts.items() if k != "vlm"}, lid, parse)]
+    for o in others:
+        if len(tokens(o)) == len(tokens(mine)) and \
+                difflib.SequenceMatcher(None, mine.lower(), o.lower()).ratio() >= SETTLE_SIMILAR:
+            if held(mine, cands) and re.sub(r"\W+", "", held(mine, cands).lower()) == re.sub(r"\W+", "", mine.lower()):
+                return mine
+    count = re.search(r"\(([^()]*)\)\s*$", vlm_cands[0])
+    if enum and count and clue_text.count_total(count.group(1)) == clue_text.count_total(enum) \
+            and len(tokens(mine)) >= WORN_WORDS:
+        printed = {w.lower() for o in others for w in tokens(o)}
+        held_mine = held(mine, cands)
+        if held_mine and re.sub(r"\W+", "", held_mine.lower()) == re.sub(r"\W+", "", mine.lower()) \
+                and all(known(w) or w.lower() in printed for w in tokens(mine)):
+            return mine
+    return None
+
+
+#: What a Gale page prints under its last across clue: the puzzle's number and the
+#: heading of the solution box ("23,099 Solution", "SWORD 23,095"), however torn.
+_FOOTER_TAIL = re.compile(r"\W*(?:(?:S?WORD|Solu\w*|\d{1,2}[,.]?\d{0,3}|to|ou|so)\W*)+")
+#: Of a footer, the part no clue ends in: the puzzle's number or the box's heading.
+_FOOTER_MARK = re.compile(r"\d{2}[,.]?\d{3}|Solu|WORD")
+_COUNT_AT = re.compile(r"\(\s*[\dSIl,.\- ]{1,9}\)")
+
+
+def footer_cut(text):
+    """`text` ended at its count when all that follows the count is the page's
+    solution-box footer; else `text` as it was."""
+    for m in reversed(list(_COUNT_AT.finditer(text))):
+        if _FOOTER_TAIL.fullmatch(text[m.end():]) and _FOOTER_MARK.search(text[m.end():]):
+            return text[:m.end()].strip()
+        break
+    return text
+
+
+_COUNT_END = re.compile(r"\(\s*(\d{1,2}(?:\s*[,.\-]\s*\d{1,2})*)\s*\)$")
+
+
+def footer_laid(text, cells):
+    """(clue text, count) of a laid `text` that runs on into the page's solution-box
+    footer ("us sort (6) WORD 22,9"), cut at its count, or None: the count must be
+    printed with plain digits and fill the light's `cells`. The vote laid the footer
+    with the clue, bled() refused it, and the clue stayed blank for a pick asked of
+    the VLM (the 10-20 log: 1 blank on 34 of 62 unfiled Gale 2005-06 pages, that
+    footer on 40 of 73 of their blanks)."""
+    cut = footer_cut(text or "")
+    if cut == text:
+        return None
+    m = _COUNT_END.search(cut)
+    if not m or not cells or clue_text.count_total(m.group(1)) != cells:
+        return None
+    body = cut[:m.start()].strip()
+    return (body, shape(m.group(1))) if body else None
+
+
+def agreed_past_footer(cands, enum):
+    """The clue (ending at its count) that most of `cands` give once the footer
+    under it is cut, or None: at least two readings, more than half of them,
+    print it alike (case and punctuation aside) with the light's count `enum`,
+    and one of them had the footer to cut. Two readers agreeing is what lays a
+    clue; a footer after the count only kept their texts from being alike."""
+    want = clue_text.count_total(enum) if enum else None
+    if not want:
+        return None
+    cut = [footer_cut(c) for c in cands]
+    groups = {}
+    for c, k in zip(cands, cut):
+        m = _COUNT_AT.search(k[-12:]) if k else None
+        if m and clue_text.count_total(m.group()[1:-1]) == want:
+            groups.setdefault(re.sub(r"\W+", "", k.lower()), []).append((c, k))
+    for ks in groups.values():
+        if len(ks) >= 2 and 2 * len(ks) > len(cands) and any(c != k for c, k in ks):
+            return next(k for c, k in ks if c != k)
+    return None
+
+
+#: The fewest words a clue has to be told from the page's text by its words.
+INSIDE_WORDS = 4
+
+
+def clean_inside(cands, enum):
+    """The one reading in `cands` (each reading's text for a light, with its
+    count) whose words, in order, stand inside two other readings that each
+    have words between them no clue has, or None. A clue column beside a
+    page of tables (the FT's unit-trust prices) gets the table's figures and
+    scraps read into the clue ("Hanker after an unknown Ipcome Growtb make
+    (5)"); each reading has its own scraps, so no two read alike, but the
+    clean reading is inside all of them. Guarded: the reading's count is the
+    light's `enum`; what stands between its words in the others is unknown
+    to the lexicon (a word lost from the clue is a known word, which two
+    readings would print alike) and is not the same scrap in both; and the
+    readings do not otherwise differ in a word."""
+    want = clue_text.count_total(enum) if enum else None
+    if not want:
+        return None
+    for mine in sorted(cands, key=len):
+        m = re.search(r"\(([^()]*)\)\s*$", mine)
+        if not m or clue_text.count_total(m.group(1)) != want:
+            continue
+        words = [w.lower() for w in tokens(strip_count(mine))]
+        if len(words) < INSIDE_WORDS:
+            continue
+        gaps_seen, support = [], 0
+        for other in cands:
+            if other is mine:
+                continue
+            theirs = [w.lower() for w in tokens(strip_count(other))]
+            at, gaps, last = 0, [], 0
+            for w in words:
+                try:
+                    at = theirs.index(w, at)
+                except ValueError:
+                    gaps = None
+                    break
+                gaps.append(tuple(theirs[last:at]) if last else ())
+                at += 1
+                last = at
+            if gaps is None or all(not g for g in gaps[1:]) and len(theirs) == len(words):
+                continue
+            inserted = [w for g in gaps[1:] for w in g]
+            if not inserted or any(known(w) for w in inserted):
+                return None
+            gaps_seen.append([g for g in gaps[1:]])
+            support += 1
+        if support >= 2 and not any(
+                a == b and any(a) for i, x in enumerate(gaps_seen) for y in gaps_seen[i + 1:]
+                for a, b in zip(x, y)):
+            return strip_count(mine).strip() + " (" + m.group(1) + ")"
+    return None
+
+
+def vlm_pick(texts, laid, blank, parse, pick, lengths=None):
+    """(laid, blank) with each clue reconcile() filed blank read by the VLM
+    (tools/vlm_reader.py): `pick(light, candidates)` is its text for the
+    clue, shown every reading's text for it (the VLM's own column reading
+    among them), or None. A pick the desktop's spool queued (vlm_reader.Spooled)
+    does not stop the rest: every blank clue is spooled in this one pass, then the
+    first Spooled is raised (the read defers once, not once per blank clue), unless the spool is
+    shallow and vlm_reader.settled() gets their answers in: then those clues are picked again,
+    from the cache."""
+    import vlm_reader
+    laid, blank = dict(laid), dict(blank)
+    snap, errs, left = vlm_reader.flags(), [], []
+    with vlm_reader.batched():
+        for lid in list(blank):
+            try:
+                _vlm_pick_one(texts, laid, blank, parse, pick, lengths, lid)
+            except vlm_reader.Spooled as e:
+                errs.append(e)
+                left.append(lid)
+    if errs:
+        if not vlm_reader.settled(snap, errs):
+            raise errs[0]
+        for lid in left:
+            _vlm_pick_one(texts, laid, blank, parse, pick, lengths, lid)
+    return laid, blank
+
+
+def _vlm_pick_one(texts, laid, blank, parse, pick, lengths, lid):
+    """vlm_pick's work for the blank light `lid`: `laid` and `blank` are updated in place."""
+    cands = candidates(texts, lid, parse)
+    if not cands:
+        return
+    # A light no reader laid has no count of its own: the grid's `lengths` give it one (FT
+    # 1981-10-19: 14 of the 16 picks were for lights with none, so the worn-page rule never ran).
+    enum = laid[lid][1] or (str(lengths[lid]) if lengths and lengths.get(lid) else None)
+    own = settled_by_vlm(texts, lid, parse, cands, enum) or clean_inside(cands, laid[lid][1]) \
+        or agreed_past_footer(cands, laid[lid][1])
+    if own is not None:
+        got = trimmed(held(clean(strip_count(own)), cands), lid)
+        if tokens(got) and not merged(got):
+            laid[lid] = (got, laid[lid][1], laid[lid][2])
+            del blank[lid]
+            return
+    asked = pick(lid, cands)  # Spooled: vlm_pick's to settle
+    # The model copies the solution-box footer under the last across clue along with it
+    # ("... hair (8) WORD 23,105"); a clue ends at its count.
+    got = trimmed(held(clean(strip_count(footer_cut(asked or ""))), cands), lid)
+    if not tokens(got) or merged(got):
+        return
+    laid[lid] = (got, laid[lid][1], laid[lid][2])
+    del blank[lid]
+
+
+# ------------------------------------------------------------ as the readings print it
+
+def readings_for(texts, lid, parse):
+    """[(text, {count, ...})] each reading's clue for one light ("N-across")."""
+    n, direction = lid.split("-")
+    out = []
+    for t in texts.values():
+        parsed, _ = parse(t) if t.strip() else (None, None)
+        for c in (parsed or {}).get(direction, []):
+            if c["tokens"] and int(n) in c["tokens"][0]:
+                out.append((clean(c["text"]), c.get("enums") or set()))
+                break
+    return out
+
+
+def shape(enum):
+    """A count as the print sets it: "5-4", "3,6", "9"."""
+    return re.sub(r"\s+", "", enum or "").replace(".", ",")
+
+
+def printed_count(enum, counts, cells):
+    """(count, why): the count most readings print that fills the clue's
+    `cells` (`counts`: each reading's {counts}), against the laid `enum`.
+    A reader loses a hyphen or a comma far more often than it makes one,
+    so a tie goes to the count with more parts, then to `enum`; two
+    counts no rule parts are no count (None, why)."""
+    fill = [next((shape(e) for e in sorted(es) if clue_text.count_total(e) == cells), None)
+            for es in counts]
+    fill = [f for f in fill if f]
+    if not fill or not cells:
+        return enum, None
+    top = max(fill.count(f) for f in fill)
+    best = {f for f in fill if fill.count(f) == top}
+    parts = max(len(re.findall(r"\d+", f)) for f in best)
+    best = {f for f in best if len(re.findall(r"\d+", f)) == parts}
+    if shape(enum) in best or len(best) == 1:
+        return (enum if shape(enum) in best else best.pop()), None
+    return None, f"readings print counts {' / '.join(sorted(best))}"
+
+
+WORD = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
+COMPOUND = re.compile(r"\b([A-Za-z]+)-([A-Za-z]+)\b")
+
+
+def printed_words(text, theirs, broken=()):
+    """`text` with each word as the readings `theirs` (each one's clue text)
+    print it: the clue's first word takes the capital a reading prints
+    ("Involve", not "involve"), a word loses a capital inside it most
+    readings lack ("bacK"); a word no lexicon knows where most readings that have a word
+    there have one known word takes it; two words most readings join with a
+    hyphen ("re-forms") are joined so, and only those. A word in `broken`
+    (lower case, hyphened only at a line end in the readings' columns) is
+    left as clean() joined it: a line end breaks "en-closed" and
+    "horse-race" alike."""
+    words = list(WORD.finditer(text))
+    if not words or not theirs:
+        return text
+    low = [m.group().lower() for m in words]
+    there = [[] for _ in words]
+    for t in theirs:
+        ws = WORD.findall(t)
+        for i, j in align(low, [v.lower() for v in ws]):
+            if i is not None and j is not None:
+                there[i].append(ws[j])
+    out, k = "", 0
+    for i, m in enumerate(words):
+        w, a = m.group(), low[i]
+        new = w
+        same = [v for v in there[i] if v.lower() == a]
+        if same:
+            top = max(same, key=same.count)
+            if i == 0 and w[0].islower() and any(v[0].isupper() for v in same):
+                new = w[0].upper() + w[1:]
+            elif CAPS_IN_WORD.search(w) and not CAPS_IN_WORD.search(top) and same.count(top) * 2 > len(there[i]):
+                new = top  # a capital inside the word most readings do not see ("bacK")
+        elif not known(a) and not formed(a):
+            got = [v for v in there[i] if known(v)]
+            top = max(got, key=lambda v: (got.count(v), similar(v.lower(), a)), default=None)
+            if top and got.count(top) * 2 > len(there[i]) and similar(top.lower(), a) >= 0.5:
+                new = top if top[0].isupper() == w[0].isupper() else (
+                    top.capitalize() if w[0].isupper() else top.lower())
+        out += text[k:m.start()] + new
+        k = m.end()
+    out += text[k:]
+    # Hyphens: each compound some reading prints, put where most readings
+    # with those letters print it so and taken out where none does.
+    hyphened, joined = {}, {}
+    for t in theirs:
+        for m in COMPOUND.finditer(t):
+            key = (m.group(1) + m.group(2)).lower()
+            hyphened.setdefault(key, set()).add(m.group(1).lower())
+        for w in WORD.findall(t):
+            joined[w.lower()] = joined.get(w.lower(), 0) + 1
+    for key, heads in hyphened.items():
+        for head in sorted(heads):
+            if key in broken:
+                continue
+            n = sum(1 for t in theirs if re.search(rf"\b{head}-{key[len(head):]}\b", t, re.IGNORECASE))
+            # The halves apart round a dash ("in - cosmetician's"): a dash, not a hyphen.
+            apart = sum(1 for t in theirs if re.search(rf"\b{head}\s+[-\u2013\u2014]\s+{key[len(head):]}\b", t, re.IGNORECASE))
+            if apart > n:
+                out = re.sub(rf"\b({head})-({key[len(head):]})\b", r"\1 - \2", out, flags=re.IGNORECASE)
+                continue
+            if n >= joined.get(key, 0):
+                out = re.sub(rf"\b({head})({key[len(head):]})\b", r"\1-\2", out, flags=re.IGNORECASE)
+    # A word split at a line end, the hyphen read as a mark ("Words, worth"):
+    # joined where a reading prints it whole, another prints a mark between
+    # its halves, and none prints them with only a space between.
+    for a, b in itertools.pairwise(list(WORD.finditer(out))[::-1]):
+        x, y = b.group(), a.group()
+        whole = (x + y).lower()
+        if not (out[b.end():a.start()].isspace() and known(whole) and whole in joined):
+            continue
+        if any(re.search(rf"\b{x}[,.:;]\s*{y}\b", t, re.IGNORECASE) for t in theirs) and not any(
+                re.search(rf"\b{x}\s+{y}\b", t, re.IGNORECASE) for t in theirs):
+            out = out[:b.end()] + out[a.start():]
+    for m in list(COMPOUND.finditer(out))[::-1]:
+        key = (m.group(1) + m.group(2)).lower()
+        if key not in broken and key not in hyphened and joined.get(key, 0) * 2 > len(theirs):
+            out = out[:m.start()] + m.group(1) + m.group(2) + out[m.end():]
+    return out
+
+
+def as_printed(texts, laid, blank, parse, lengths, uncounted=False):
+    """(laid, blank) with every filed clue held to what the readings `texts`
+    print for its light: its count takes the shape most of them print
+    (printed_count; "(5-4)", not the "(9)" a lost count left), and its
+    words their capitals, hyphens and known spellings (printed_words). A
+    count no reading settles files the clue blank. The last check before
+    filing, after the vote and the VLM's pick alike. `uncounted`: the lists
+    print no counts, so a clue none of the readings counts keeps none."""
+    laid, blank = dict(laid), dict(blank)
+    # A hyphen the columns print only at a line end says nothing of the word.
+    ends = {(m.group(1) + m.group(2)).lower() for t in texts.values()
+            for m in re.finditer(r"([A-Za-z]+)-[ \t]*\n\s*([A-Za-z]+)", t)}
+    inside = {(m.group(1) + m.group(2)).lower() for t in texts.values()
+              for m in re.finditer(r"([A-Za-z]+)-([A-Za-z]+)", t)}
+    broken = ends - inside
+    for lid, (text, enum, group) in list(laid.items()):
+        if not text or lid in blank or SEE_RE.match(text):
+            continue
+        theirs = readings_for(texts, lid, parse)
+        cells = sum(lengths.get(k, 0) for k in (group or [lid]))
+        enum, why = (None, None) if uncounted and enum is None and not any(es for _, es in theirs) \
+            else printed_count(enum, [es for _, es in theirs], cells)
+        if why:
+            laid[lid], blank[lid] = ("", None, group), why
+            continue
+        text = printed_words(text, [t for t, _ in theirs], broken)
+        laid[lid] = (unstrayed(text, [t for t, _ in theirs]), enum, group)
+    return laid, blank
+
+
+def one_light_each(laid, blank, fits=()):
+    """(laid, blank) with no clue on two lights. One printed clue read onto
+    two lights (a reading's misread number, a lost one filled by position)
+    has lost the other light's clue: it stays on the one light in `fits`
+    (the lights whose printed count fills them) when exactly one of them is,
+    and every other light it sits on is filed blank, to be read again. The
+    same words in both lists are two printed clues (duplicated_clues'
+    `one_list`)."""
+    from fetch_puzzle import duplicated_clues
+    laid, blank = dict(laid), dict(blank)
+    entries = [{"number": int(lid.split("-")[0]), "direction": lid.split("-")[1], "clue": {"text": t}}
+               for lid, (t, _, _) in laid.items() if t]
+    for ids in duplicated_clues(entries, one_list=True):
+        keep = [lid for lid in ids if lid in fits]
+        keep = keep[0] if len(keep) == 1 else None
+        for lid in ids:
+            if lid != keep:
+                laid[lid] = ("", None, None)
+                blank[lid] = "the same clue as " + ", ".join(i for i in ids if i != lid)
+    return laid, blank

@@ -1,0 +1,140 @@
+# The local daily `ratings` unit moved here (Paul 2026-11-15, jobs on CI where possible):
+# tools/progress_record.py record (tonight's row of tools/data/progress.json, the history
+# /progress/ draws) and tools/blog_comment_difficulty.py (tools/data/blog_comment_difficulty.json,
+# from the Times blog's comments). fetch_snitch is daily-units.yml's `snitch` job and the
+# measures are nightly-smoke.yml's `ratings` job. tools/daily_units.py no longer plans the unit.
+#
+# State between runs: the progress row cache (~/.cache/cryptic-progress-rows.json, keyed on git
+# blob ids so a fresh checkout shares it) and the row cache in .git/ct-rows.sqlite*, one
+# actions/cache entry (ratings-state-*). A cold progress cache answers rc 3 ("files not read
+# yet", the budgeted read stops with its rows stored), so the step reruns until it records.
+# The coverage ledger lives on the home server only: with none, progress_record carries the
+# last row's known/acquired forward (GITHUB_ACTIONS), as the page does.
+# The Times blog's cached posts and comments are restored from blog-fetch.yml's cache.
+name: Ratings
+
+on:
+  schedule:
+    - cron: "37 13 * * *"
+  workflow_dispatch:
+    inputs:
+      push:
+        description: Commit and push the result
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: ratings
+  cancel-in-progress: false
+
+jobs:
+  ratings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CT_DOWNLOADS: /tmp/cryptic-downloads
+      OCR_REMOTE: ""
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.PUSH_TOKEN || github.token }}
+      - uses: ./.github/actions/setup
+        with:
+          pip: numpy pillow pypdf opencv-python-headless
+      - name: Restore the Times blog cache
+        id: times
+        uses: actions/cache/restore@v5
+        with:
+          path: /tmp/cryptic-downloads/timesforthetimes
+          key: blog-timesforthetimes-${{ github.run_id }}
+          restore-keys: blog-timesforthetimes-
+      - name: Restore the run state
+        id: state
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            ~/.cache/cryptic-progress-rows.json
+            .git/ct-rows.sqlite*
+          key: ratings-state-${{ github.run_id }}
+          restore-keys: ratings-state-
+      - name: Progress row
+        shell: bash
+        run: |
+          echo "state: ${{ steps.state.outputs.cache-matched-key }} times: ${{ steps.times.outputs.cache-matched-key }}"
+          python3 tools/build_abbreviations.py || true
+          rc=3
+          for n in 1 2 3 4 5 6; do
+            start=$SECONDS
+            rc=0; python3 tools/progress_record.py record || rc=$?
+            echo "progress_record try $n: rc=$rc in $((SECONDS - start))s"
+            [ "$rc" = 3 ] || break
+          done
+          [ "$rc" = 0 ] || { echo "::error::progress_record rc=$rc"; exit 1; }
+      - name: Times blog comment difficulty
+        shell: bash
+        run: |
+          start=$SECONDS
+          if [ ! -d "$CT_DOWNLOADS/timesforthetimes/comments" ]; then
+            echo "::warning::no Times comment cache; the committed table stands"; exit 0
+          fi
+          python3 tools/media_manifest.py build posts-timesforthetimes
+          python3 tools/media_manifest.py build comments-timesforthetimes
+          python3 tools/blog_comment_difficulty.py || echo "::warning::blog_comment_difficulty rc=$?; the committed table stands"
+          echo "blog_comment_difficulty: $((SECONDS - start))s"
+      - name: Commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/data/progress.json tools/data/progress_fetching.json tools/data/blog_comment_difficulty.json
+          if git diff --cached --quiet; then echo "ratings: nothing changed"; exit 0; fi
+          git diff --cached --shortstat
+          if [ "${{ github.event_name == 'workflow_dispatch' && !inputs.push }}" = true ]; then
+            echo "push=false: not committing"; exit 0
+          fi
+          git commit -q -m "$(printf 'daily ratings\n\n%s' "$(python3 tools/provenance.py trailer)")"
+      - name: Save the run state
+        if: "!cancelled()"
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            ~/.cache/cryptic-progress-rows.json
+            .git/ct-rows.sqlite*
+          key: ratings-state-${{ github.run_id }}
+      - name: Delete the older saves of the run state
+        if: "!cancelled()"
+        shell: bash
+        run: |
+          gh cache list -R "$GITHUB_REPOSITORY" --key ratings-state- --sort created_at --order desc \
+            --limit 100 --json id -q '.[1:][] | .id' | while read -r id; do
+            gh cache delete "$id" -R "$GITHUB_REPOSITORY" || true
+          done
+      - name: Push, rebasing when master moved
+        shell: bash
+        run: |
+          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
+          if [ "$ahead" = 0 ]; then echo "ratings: nothing to push"; exit 0; fi
+          git log --format='%h %s' origin/master..HEAD
+          for n in $(seq 1 8); do
+            if git push -q origin HEAD:refs/heads/master; then
+              echo "ratings: pushed $(git rev-parse --short HEAD)"
+              exit 0
+            fi
+            echo "ratings: push $n lost the race; rebasing on the new tip"
+            git fetch -q origin master || { sleep 5; continue; }
+            if ! git rebase -q origin/master; then
+              git rebase --abort
+              echo "::error::rebase conflicted"
+              break
+            fi
+            sleep $((RANDOM % 5 + 1))
+          done
+          echo "::error::could not push"
+          exit 1
