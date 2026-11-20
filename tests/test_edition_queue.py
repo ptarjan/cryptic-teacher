@@ -3158,16 +3158,21 @@ def yield_run(hosts, game_for=None):
     else:
         os.environ.pop("CT_YIELD_HOSTS", None)
     t_game = [None]
+    err, out = io.StringIO(), io.StringIO()
     def gate():
         if not log.exists():
             return None
         t_game[0] = t_game[0] or time.monotonic()
-        return "a game is running" if game_for is None or time.monotonic() - t_game[0] < game_for else None
+        if game_for is None:
+            return "a game is running"
+        # the game ends only once both units were stopped for it (an event, not wall time: a slow
+        # runner once let the game end before the grace ran out, so nothing was stopped)
+        stopped = err.getvalue().count("deferred (stopped for a game)") >= 2
+        return None if stopped and time.monotonic() - t_game[0] >= game_for else "a game is running"
     eq.desktop_gate_reader = gate
     fake(sleep={"g0": 8, "g1": 8}, default=0.1)
     log.unlink(missing_ok=True)
     eq.plan = units([], [("g0", []), ("g1", [])])
-    err, out = io.StringIO(), io.StringIO()
     with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
         t0 = time.monotonic()
         eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=6, replan=0.5)
