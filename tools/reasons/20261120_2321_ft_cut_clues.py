@@ -10,7 +10,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "a Gale FT page's lead column split through its middle, the first line of its two-line clues lost"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-20T23:25:00+00:00"
 HEAD = "across clues do not parse: cannot find a clue number"
 
 
