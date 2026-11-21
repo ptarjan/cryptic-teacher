@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,60 @@
     "text": "Vehicle holds up progress? Not true!",
     "enumeration": "5"
    },
-   "solution": "BOGUS"
+   "solution": "BOGUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not true!",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 8,
+       "note": "the vehicle word holds the other piece, so it wraps around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "BUS",
+       "note": "a bus is a vehicle"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 14,
+         "note": "in a down clue, up means the word for progress is read from the bottom, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "progress",
+         "at": 17,
+         "gives": "GO",
+         "note": "to go is to make progress"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow vehicle is blocking the traffic, and someone protests at a false claim.",
+     "walkthrough": "'up' turns GO into OG, and 'holds' puts OG inside BUS.",
+     "definitionFit": "Something false or fake is said to be phoney, sham, not genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +100,56 @@
     "text": "Dog dropped tail to receive fuss",
     "enumeration": "6"
    },
-   "solution": "FIDGET"
+   "solution": "FIDGET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fuss",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropped tail",
+         "at": 4,
+         "note": "the dog's name loses its final letter, as if its tail were docked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dog",
+         "at": 0,
+         "gives": "FIDO",
+         "note": "Fido is a stock name for a pet dog"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "receive",
+       "at": 20,
+       "gives": "GET",
+       "note": "to get something is to receive it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog whose tail has been docked is getting a lot of attention.",
+     "walkthrough": "'dropped tail' takes the O off FIDO, leaving FID.",
+     "definitionFit": "To fidget is to fuss restlessly with the hands or move about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +163,51 @@
     "text": "Announced a number have cleared out",
     "enumeration": "8"
    },
-   "solution": "DECLARED"
+   "solution": "DECLARED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Announced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a number",
+       "at": 10,
+       "gives": "D",
+       "note": "D is the Roman numeral for five hundred"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 32,
+         "note": "out signals that the letters are put out of order and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cleared",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announces that a crowd has left the building.",
+     "walkthrough": "'out' rearranges D plus CLEARED.",
+     "definitionFit": "To declare something is to state it formally or make it known publicly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +221,55 @@
     "text": "Airport's uplifting quotation on a burning issue",
     "enumeration": "7"
    },
-   "solution": "GATWICK"
+   "solution": "GATWICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Airport's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uplifting",
+         "at": 10,
+         "note": "in a down clue, uplifting means the word for quotation is lifted up, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quotation",
+         "at": 20,
+         "gives": "TAG",
+         "note": "a tag is a short familiar quotation or saying"
+        }
+       ]
+      },
+      {
+       "words": "burning issue",
+       "at": 35,
+       "gives": "WICK",
+       "note": "a wick is what burns in a candle, playfully an issue that is on fire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rousing quotation on an urgent public controversy.",
+     "walkthrough": "'uplifting' turns TAG into GAT. 'burning issue' looks like a hot topic but means the candle's wick; Gatwick is London's second airport.",
+     "definitionFit": "Gatwick is the major international airport south of London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +283,36 @@
     "text": "Fear of redundancy drove them to breaking point",
     "enumeration": "8"
    },
-   "solution": "LUDDITES"
+   "solution": "LUDDITES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fear of redundancy drove them to breaking point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fear of redundancy drove them to breaking point",
+       "at": 0,
+       "note": "reads as stressed workers reaching their limit, but means early nineteenth-century textile workers who smashed the new machines they feared would put them out of work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workers afraid of losing their jobs are pushed to the edge of collapse.",
+     "walkthrough": "'breaking point' is literal: the Luddites broke machinery.",
+     "definitionFit": "The Luddites were English weavers who wrecked mechanised looms that threatened their livelihoods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +326,28 @@
     "text": "Banked left",
     "enumeration": "9"
    },
-   "solution": "DEPOSITED"
+   "solution": "DEPOSITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Banked",
+      "at": 0,
+      "meaning": "put money into a bank account"
+     },
+     {
+      "text": "left",
+      "at": 7,
+      "meaning": "set down or placed somewhere and abandoned"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Money is deposited in a bank, and a thing set down and left is deposited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -111,10 +358,52 @@
    },
    "length": 9,
    "clue": {
-    "text": "Top in male form",
+    "text": "Cop in male form",
     "enumeration": "9"
    },
-   "solution": "POLICEMAN"
+   "solution": "POLICEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cop in male form",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "form",
+       "at": 12,
+       "note": "form means the letters are formed into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cop",
+       "at": 0
+      },
+      {
+       "words": "in",
+       "at": 4
+      },
+      {
+       "words": "male",
+       "at": 7
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A policeman described as a cop in the shape of a man.",
+     "walkthrough": "'form' rearranges COP, IN and MALE; the whole clue also describes a male officer.",
+     "definitionFit": "A cop is a slang word for a male police officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +417,28 @@
     "text": "Well salted",
     "enumeration": "5"
    },
-   "solution": "CURED"
+   "solution": "CURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well",
+      "at": 0,
+      "meaning": "healthy again after illness"
+     },
+     {
+      "text": "salted",
+      "at": 5,
+      "meaning": "preserved with salt, like bacon or fish"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A patient restored to health is cured, and meat preserved by salting is cured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +453,47 @@
     "enumeration": "4",
     "countFrom": "grid"
    },
-   "solution": "DISC"
+   "solution": "DISC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 10,
+       "note": "within places the little word inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a couple of figures",
+       "at": 17,
+       "gives": "DC",
+       "note": "D and C are two Roman numerals, 500 and 100"
+      },
+      {
+       "words": "is",
+       "at": 7,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sales record set by a narrow margin of a couple of figures.",
+     "walkthrough": "'within' puts IS inside DC.",
+     "definitionFit": "A gramophone record is a disc."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +507,52 @@
     "text": "Stop in front of a humble dwelling",
     "enumeration": "8"
    },
-   "solution": "BUNGALOW"
+   "solution": "BUNGALOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dwelling",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 5,
+       "note": "in front of places the first piece before the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stop",
+       "at": 0,
+       "gives": "BUNG",
+       "note": "a bung is a stopper for a hole"
+      },
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "humble",
+       "at": 19,
+       "gives": "LOW",
+       "note": "low means modest or humble in rank"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A halt outside a modest home.",
+     "definitionFit": "A bungalow is a one-storey house, a kind of dwelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +566,35 @@
     "text": "People enter for this sort of sport",
     "enumeration": "6"
    },
-   "solution": "INDOOR"
+   "solution": "INDOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People enter for this sort of sport",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "People enter for this sort of sport",
+       "at": 0,
+       "note": "reads as people signing up for a competition, but means sport played after going in through a door, under a roof"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Competitors sign up for a particular kind of game.",
+     "definitionFit": "An indoor sport is one played inside a building rather than out of doors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "enter"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +608,29 @@
     "text": "Can make a move",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Can",
+      "at": 0,
+      "meaning": "slang for prison"
+     },
+     {
+      "text": "make a move",
+      "at": 4,
+      "meaning": "to begin moving or bestir oneself"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Stir is slang for jail, like can; to stir is also to start moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +644,42 @@
     "text": "Bird dog gets drunk",
     "enumeration": "8"
    },
-   "solution": "COCKTAIL"
+   "solution": "COCKTAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drunk",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "COCK",
+       "note": "a cock is a male bird"
+      },
+      {
+       "words": "dog",
+       "at": 5,
+       "gives": "TAIL",
+       "note": "to dog someone is to follow them, to tail them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet bird and a dog share a booze-up.",
+     "walkthrough": "'drunk' is the past participle used as a noun: something drunk, a mixed drink.",
+     "definitionFit": "A cocktail is a mixed alcoholic drink, a thing that is drunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -213,7 +693,36 @@
     "text": "Overtime pay for a barman",
     "enumeration": "9"
    },
-   "solution": "REFRESHER"
+   "solution": "REFRESHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overtime pay for a barman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Overtime pay for a barman",
+       "at": 0,
+       "note": "reads as extra wages for a pub worker, but the man of the bar is a barrister, paid an extra daily fee when a case runs on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub worker claims extra wages for working late.",
+     "walkthrough": "A barman here is a member of the Bar, a barrister.",
+     "definitionFit": "A refresher is the extra fee paid to counsel for each further day a trial lasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barman"
+    }
+   }
   },
   {
    "number": 15,
@@ -227,7 +736,41 @@
     "text": "Kind of resort where disease is treated",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind of resort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "is treated",
+       "at": 29,
+       "note": "treated means the letters are worked on and processed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disease",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A health resort where illness is cured.",
+     "walkthrough": "'is treated' rearranges DISEASE.",
+     "definitionFit": "A seaside resort is a holiday town on the coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 16,
@@ -241,7 +784,41 @@
     "text": "Ratification contains error",
     "enumeration": "8"
    },
-   "solution": "SANCTION"
+   "solution": "SANCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ratification",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "error",
+       "at": 22,
+       "note": "error suggests the letters have gone wrong and come out jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "contains",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official approval document turns out to include a mistake.",
+     "walkthrough": "'error' rearranges CONTAINS.",
+     "definitionFit": "A sanction is official approval or confirmation of a measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contains"
+    }
+   }
   },
   {
    "number": 17,
@@ -255,7 +832,36 @@
     "text": "Local draughtsman?",
     "enumeration": "7"
    },
-   "solution": "TAPSTER"
+   "solution": "TAPSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Local draughtsman?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Local draughtsman?",
+       "at": 0,
+       "note": "reads as a nearby technical artist, but means the person in a pub who draws draught beer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neighbourhood technical drawer.",
+     "walkthrough": "A local is a British word for one's nearby pub.",
+     "definitionFit": "A tapster draws beer from the tap for customers in an inn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "draughtsman"
+    }
+   }
   },
   {
    "number": 18,
@@ -269,7 +875,58 @@
     "text": "A city set within a river",
     "enumeration": "8"
    },
-   "solution": "ADELAIDE"
+   "solution": "ADELAIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "city",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "within",
+         "at": 11,
+         "note": "within places the word for set inside the river's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 20,
+         "gives": "DEE",
+         "note": "the Dee is a river in Wales, England and Scotland"
+        },
+        {
+         "words": "set",
+         "at": 7,
+         "gives": "LAID",
+         "note": "laid means set down or placed"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city built on the banks of a river.",
+     "walkthrough": "'within' puts LAID inside DEE, giving DELAIDE after A.",
+     "definitionFit": "Adelaide is the capital of South Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -283,7 +940,51 @@
     "text": "Actor needs new suit a month",
     "enumeration": "7"
    },
-   "solution": "USTINOV"
+   "solution": "USTINOV",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 12,
+         "note": "new means the letters are made afresh in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suit",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "a month",
+       "at": 21,
+       "gives": "NOV",
+       "note": "Nov is the short form of November"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer requires a fresh costume every month.",
+     "walkthrough": "'new' rearranges SUIT into USTI. Peter Ustinov was a British actor and writer.",
+     "definitionFit": "Sir Peter Ustinov was an Oscar-winning stage and film performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -294,10 +995,73 @@
    },
    "length": 8,
    "clue": {
-    "text": "A1 royal person in Canadian capital surrounded by a crowd",
+    "text": "A royal person in Canadian capital surrounded by a crowd",
     "enumeration": "8"
    },
-   "solution": "PRINCESS"
+   "solution": "PRINCESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "royal person",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "at": 35,
+       "note": "surrounded by means the first pieces are enclosed by the word for crowd"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crowd",
+       "at": 51,
+       "gives": "PRESS",
+       "note": "a press is a dense crowd"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 15,
+         "gives": "IN"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital",
+           "at": 27,
+           "note": "the first letter of the word it picks from"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Canadian",
+           "at": 18,
+           "note": "the capital letter of Canadian is C"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal visitor in Ottawa is mobbed by onlookers.",
+     "walkthrough": "'Canadian capital' is not Ottawa but the initial C; 'surrounded by' puts IN plus C inside PRESS.",
+     "definitionFit": "A princess is a female member of a royal family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 21,
@@ -311,7 +1075,28 @@
     "text": "Still in uniform",
     "enumeration": "4"
    },
-   "solution": "EVEN"
+   "solution": "EVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0,
+      "meaning": "yet more, as in still better"
+     },
+     {
+      "text": "uniform",
+      "at": 9,
+      "meaning": "level, regular, the same throughout"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Even better means still better, and an even surface is uniform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -325,7 +1110,52 @@
     "text": "The girl who took me back to mother",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 21,
+         "note": "took back means the word me is turned round and read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "me",
+         "at": 18,
+         "gives": "ME"
+        }
+       ]
+      },
+      {
+       "words": "mother",
+       "at": 29,
+       "gives": "MA",
+       "note": "ma is a familiar word for mother"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who brought someone home to meet her mum.",
+     "walkthrough": "'back' turns ME into EM.",
+     "definitionFit": "Emma is a common girl's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -339,7 +1169,28 @@
     "text": "A way of acting part of Hamlet's madness",
     "enumeration": "6"
    },
-   "solution": "METHOD"
+   "solution": "METHOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A way of acting",
+      "at": 0,
+      "meaning": "the naturalistic acting technique of Stanislavski and the Actors Studio"
+     },
+     {
+      "text": "part of Hamlet's madness",
+      "at": 16,
+      "meaning": "Polonius says of Hamlet: though this be madness"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Method acting is a performance technique, and Polonius found method in the prince's apparent lunacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -353,7 +1204,40 @@
     "text": "Bandmaster so attached 0 to his country",
     "enumeration": "5"
    },
-   "solution": "SOUSA"
+   "solution": "SOUSA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bandmaster",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "so",
+       "at": 11,
+       "gives": "SO"
+      },
+      {
+       "words": "his country",
+       "at": 28,
+       "gives": "USA",
+       "note": "the bandmaster was American, so his country is the USA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bandleader so devoted to his homeland.",
+     "walkthrough": "John Philip Sousa was the American composer of military marches, so 'his country' is the USA.",
+     "definitionFit": "Sousa led the US Marine Band and wrote marches such as The Stars and Stripes Forever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -367,7 +1251,52 @@
     "text": "Repeatedly set about a fly",
     "enumeration": "6"
    },
-   "solution": "TSETSE"
+   "solution": "TSETSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a fly",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "repeat",
+     "indicators": [
+      {
+       "text": "Repeatedly",
+       "at": 0,
+       "note": "repeatedly means the piece is used twice over"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 15,
+         "note": "about means the letters are turned about into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps setting about swatting a fly.",
+     "walkthrough": "'about' rearranges SET into TSE, and 'Repeatedly' doubles it.",
+     "definitionFit": "The tsetse is an African biting insect that spreads sleeping sickness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -381,7 +1310,28 @@
     "text": "Idleness in battle",
     "enumeration": "8"
    },
-   "solution": "INACTION"
+   "solution": "INACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Idleness",
+      "at": 0,
+      "meaning": "doing nothing, lack of activity"
+     },
+     {
+      "text": "in battle",
+      "at": 9,
+      "meaning": "fighting, engaged in combat, as a phrase in two words"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Lack of activity is idleness, and soldiers fighting are said to be in action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -395,7 +1345,41 @@
     "text": "The spirit of my French translation",
     "enumeration": "5"
    },
-   "solution": "DEMON"
+   "solution": "DEMON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The spirit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of",
+       "at": 11,
+       "gives": "DE",
+       "note": "de is the French for of"
+      },
+      {
+       "words": "my French translation",
+       "at": 14,
+       "gives": "MON",
+       "note": "mon is the French for my"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ghost recalled from a French version of my book.",
+     "walkthrough": "'French translation' applies to both words: of my becomes DE MON.",
+     "definitionFit": "A demon is an evil spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -409,7 +1393,40 @@
     "text": "Way home from the inn",
     "enumeration": "9"
    },
-   "solution": "ROADHOUSE"
+   "solution": "ROADHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inn",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way",
+       "at": 0,
+       "gives": "ROAD",
+       "note": "a road is a way"
+      },
+      {
+       "words": "home",
+       "at": 4,
+       "gives": "HOUSE",
+       "note": "a house is a home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Walking back to one's house after leaving the pub.",
+     "definitionFit": "A roadhouse is an inn or bar on a main road outside town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
