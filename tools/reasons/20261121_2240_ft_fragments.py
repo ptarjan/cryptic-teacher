@@ -9,7 +9,7 @@ with a digit; scan keys unmoved."""
 from fix_reasons import Reason
 
 TEXT = "a held Gale FT clue with words cut inside it (fragments, a split word), filed as clean"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T22:42:00+00:00"
 DATES = frozenset((
     "1989-11-23", "1990-04-10", "1991-07-17", "1992-07-24", "1992-09-03",
     "1993-02-01", "1993-07-01", "1993-07-08", "1993-07-28", "1993-08-04",
