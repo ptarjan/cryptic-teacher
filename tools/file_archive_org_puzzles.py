@@ -31181,6 +31181,79 @@ def ft_cut_restored(publisher, was, now, printed=()):
     return bool(gained) and gaps <= FT_CUT_GAPS and all(ocr_clues.is_word(w) or tok[k].isupper() for k, w in gained)
 
 
+#: FT_FRAGMENTS_MENDED: a held Gale FT clue with words cut INSIDE it (2003-12-10: "Express disapproval, ing
+#: prohibition, for prim", "Moving boats with po from port", "do wi out", "good st for baby", "unchar 100 in type of
+#: bog", "the p-1 on gas") the reread reads whole. ft_cut_restored needs more words, and corrects() at most one:
+#: these clues keep the same count of words, the cut ones standing as fragments, so they survived every clean reread.
+#: Each held token stands in the new clue in order: as the word itself, as the start or end of the very next word (two
+#: letters short of it at least; a misread last letter of a start, "unchar" for "unchanged", excepted), or as the start and
+#: the end of a word two held tokens cut ("wi" "out" for "without"); a held token with a digit the new clue lacks is a speck, taken
+#: beside a fragment or a gained word. At least one token is a fragment or a speck.
+FT_FRAGMENT_LEFT = 2
+
+
+def ft_fragment_of(w, word):
+    """Whether the held token `w` is a fragment of `word`: its start or end (FT_FRAGMENT_LEFT letters short at least),
+    or (5+ letters) its start but for a misread last letter."""
+    if len(word) - len(w) < FT_FRAGMENT_LEFT or len(w) < 2 or not w.isalpha():
+        return False
+    return word.startswith(w) or word.endswith(w) or (len(w) >= 5 and word.startswith(w[:-1]))
+
+
+def ft_fragments_mended(publisher, was, now, printed=()):
+    """Whether the clue `now` mends the words a Gale FT's held clue `was` has cut inside it (FT_FRAGMENTS_MENDED):
+    `publisher` is the Financial Times; `now` is clean (not suspect, bled, stray, a punctuation fault or a glitch
+    gained); every held token stands in it in order (see above) with a fragment or speck among them; what `now` adds
+    is dictionary words in at most FT_CUT_GAPS runs; its head and tail are the held clue's."""
+    if publisher != "Financial Times" or not (was or "").strip() or not (now or "").strip() or now == was:
+        return False
+    if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now) \
+            or punctuation.faults(now) or clue_text.gains_glitch(was, now):
+        return False
+    old = [m.group().lower() for m in CLUE_TOKEN.finditer(was)]
+    new = [m.group().lower() for m in CLUE_TOKEN.finditer(now)]
+    if not old or not new:
+        return False
+    j, i, hit, damage, specks, gaps, last = 0, 0, set(), 0, [], 0, -1
+    kinds = {}
+    while i < len(old):
+        w, k = old[i], next((k for k in range(j, len(new)) if new[k] == old[i]), None)
+        if k is not None:
+            take = 1
+        elif j < len(new) and i + 1 < len(old) and len(old[i]) >= 2 and len(old[i + 1]) >= 2 and new[j].startswith(old[i]) \
+                and new[j].endswith(old[i + 1]) and len(old[i]) + len(old[i + 1]) <= len(new[j]):
+            k, take = j, 2
+            damage += 1
+        elif j < len(new) and ft_fragment_of(w, new[j]):
+            k, take = j, 1
+            damage += 1
+        elif any(c.isdigit() for c in w):
+            specks.append(i)
+            i += 1
+            continue
+        else:
+            return False
+        if k != last + 1:
+            gaps += 1
+        hit.update(range(k, k + 1))
+        kinds[i] = k
+        last, j = k, k + 1
+        i += take
+    if not damage and not specks or not hit or 0 not in hit or last != len(new) - 1:
+        return False
+    # A speck lies beside a fragment or where the new clue gained a word: before or after a gap.
+    placed = sorted(kinds.items())
+    for s in specks:
+        before = max((k for i2, k in placed if i2 < s), default=-1)
+        after = min((k for i2, k in placed if i2 > s), default=len(new))
+        if after - before <= 1 and not any(ft_fragment_of(old[i2], new[k]) for i2, k in placed if abs(i2 - s) == 1):
+            return False
+    tok = [m.group()[:1] for m in CLUE_TOKEN.finditer(now)]
+    gained = [(k, new[k]) for k in range(len(new)) if k not in hit]
+    runs = sum(1 for k, _ in gained if k - 1 not in hit and (k - 1, new[k - 1]) not in gained)
+    return runs <= FT_CUT_GAPS and all(ocr_clues.is_word(w) or tok[k].isupper() for k, w in gained)
+
+
 def corrected_clues(puzzle, old, skip=()):
     """{light: its clue now} after taking `puzzle`'s reading of each held
     clue of `old` (in place) that corrects() it: a reader's fix to a clue's
@@ -31205,6 +31278,8 @@ def corrected_clues(puzzle, old, skip=()):
                 or not (corrects(was.get("text"), now[lid]["text"], now[lid].get("asPrinted") or ())
                         or ft_cut_restored((old.get("source") or {}).get("publisher"), was.get("text"), now[lid]["text"],
                                            now[lid].get("asPrinted") or ())
+                        or ft_fragments_mended((old.get("source") or {}).get("publisher"), was.get("text"), now[lid]["text"],
+                                               now[lid].get("asPrinted") or ())
                         or book_marks(was.get("text"), now[lid]["text"], (books.get(lid) or (None,))[0])
                         or count_dropped(was.get("text"), now[lid]["text"], e.get("length"),
                                          lights, now[lid].get("asPrinted") or ())):
