@@ -161,7 +161,18 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
     const src = require("../app_src").read(ROOT);
     const from = src.indexOf("function clueTokens");
     const to = src.indexOf("\n  }\n", from) + 4;
-    return new Function(src.slice(from, to) + "\nreturn clueTokens;")()(clueText(found.e));
+    // The app also passes clueCuts (the edges of every fragment it can light), and a
+    // bare "——?" splits in two there, shifting every later word by one: pass the
+    // same edges, from the annotation's own texts.
+    const text = clueText(found.e), a = found.e.annotation, cuts = [];
+    const w = a.wordplay || {};
+    const frags = defTexts(a).concat((w.indicators || []).map((x) => x.text),
+      (w.parts || []).map((x) => x.words));
+    for (const f of frags) {
+      const i = f ? text.indexOf(f) : -1;
+      if (i >= 0) cuts.push(i, i + f.length);
+    }
+    return new Function(src.slice(from, to) + "\nreturn clueTokens;")()(text, cuts);
   })();
   const defStart = clueText(found.e).indexOf(defTexts(found.e.annotation)[0]);
   const defEnd = defStart + defTexts(found.e.annotation)[0].length;
