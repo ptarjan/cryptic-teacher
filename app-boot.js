@@ -339,8 +339,8 @@
         if (!rungAvailable(e, ladderSteps(ann, clueText(e)), "blocks")) return;
         // Chips live in the blocks rung and go the way its "next piece" button
         // does: if the piece has a question (point at the words that give it),
-        // ask it, and an answer earns the piece for nothing. Only "Just tell
-        // me" on that question (guess-tell's own confirm) costs.
+        // ask it, and an answer earns the piece for nothing. Only "Show me"
+        // in the help bar, on that question, costs.
         const asked = !isEntrySolved(e) && guessAsk(e, "blocks", i);
         if (asked) {
           guessing = { key: entryKey(e), rung: "blocks", step: i, picked: [],

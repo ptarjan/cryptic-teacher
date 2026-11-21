@@ -1094,10 +1094,20 @@ span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px
    open one is made at the button, so the button has to be the thing that says
    so — the meter line above it was already saying it and was still being missed. */
 #hint-next button.free { border-color: var(--ok); color: var(--ok); }
-#hint-escape { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: .8rem; }
+#hint-escape { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: .8rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 #hint-escape:empty { display: none; }
 #hint-escape button { color: var(--muted); }
 #hint-escape button:hover { color: var(--fg); }
+/* The help bar's one paid button: the accent, because it is the way to be told;
+   the rest of the row stays quiet. (arm-cost, further down, still wins when armed.) */
+#hint-escape button.help-show { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+#hint-escape button.help-show:hover { color: var(--accent); filter: brightness(1.12); }
+/* The "…": rare things (Reveal answer, Report a bad hint, the blog link) on a
+   row of their own under the bar. */
+#hint-escape .help-more { flex-basis: 100%; margin-top: 4px; }
+#hint-escape .help-more[hidden] { display: none; }
+#hint-escape .help-more button { margin: 0 6px 4px 0; }
 #hint-escape .blog-link { display: inline-block; margin: 4px 0 0 6px; color: var(--muted); }
 #hint-escape .blog-link:hover { color: var(--fg); }
 /* In the strip, in place of the button that opened it — reporting a bad hint
@@ -1301,7 +1311,7 @@ button.gw.still { cursor: pointer; border-color: var(--pick-fg); }
 
 .guess-actions { margin-top: 8px; }
 /* The thing to do here, and it read as one of three equal outlines next to
-   "Just tell me" and the word buttons above it. Filled, so there is exactly one
+   "Show me" and the word buttons around it. Filled, so there is exactly one
    place the eye lands. */
 button.primary {
   background: var(--accent); border-color: var(--accent);

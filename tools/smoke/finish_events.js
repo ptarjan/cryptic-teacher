@@ -366,7 +366,7 @@ const { EVENTS, ROOT, assert, beacons, clueText, defTexts, entryId, ev, fs, isAs
   // along the way rather than guessing at it.
   select(revealedE);
   let climbGuard = 12;
-  while (!registry["hx-entry"] && climbGuard--) {
+  while (!/id="hx-entry"/.test(registry["hint-escape"].innerHTML) && climbGuard--) {
     const btn = registry["hint-rungs"].children.find((b) => !b.disabled);
     if (!btn) break;
     btn.onclick();

@@ -95,11 +95,16 @@ const EVENTS = require("../../sync/events.js");
 const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].innerHTML;
 // A right answer now goes straight on to the ladder's next question (Paul
 // 10-30: "When you finish a hint ring it should go to the next"). The checks that
-// read the finished rung's own state skip that question first, as a solver
-// pressing "Skip for now" would, so they see the rung they just answered.
+// read the finished rung's own state put that question away first, as a solver
+// choosing another step would (there is no "Skip for now"): a step chip that
+// is not the current one, taken only when it leaves no question showing.
 const dismissNext = () => {
-  if (registry["hint-body"].innerHTML.includes('id="guess-later"') && registry["guess-later"]
-    && registry["guess-later"].onclick) registry["guess-later"].onclick();
+  if (!registry["hint-body"].innerHTML.includes('class="hint-step guess"')) return;
+  for (const c of registry["hint-track"].children) {
+    if (!/\bavail\b/.test(c.className || "") || /\bcur\b/.test(c.className || "") || !c.onclick) continue;
+    c.onclick();
+    if (!registry["hint-body"].innerHTML.includes('class="hint-step guess"')) return;
+  }
 };
 // What the page reported since a mark, in order. Sliced rather than read whole:
 // the harness opens a great many puzzles over a run, and the rule under test is

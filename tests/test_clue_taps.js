@@ -6,7 +6,7 @@
 
    1. arrives: picking a clue asks its first free question at once, so the
       clue's words are tappable with no button tapped, and nothing is charged.
-   2. once: "Skip for now" or "Show me" is not undone by the next render;
+   2. once: "Show me" is not undone by the next render;
       only coming back to the clue asks again.
    3. typing: the answer can still be typed while the question is up, and a clue
       solved that way keeps its "no hints" star; a solved clue is not quizzed.
@@ -51,8 +51,6 @@ if (e && other) {
   check(t.reg["hint-track"].children.every((b) => !/\bopen\b/.test(b.className || "")), `arrives (${entryId(e)}): the track shows no step open`);
 
   // --- 2: once per arrival ---
-  t.reg["guess-later"].onclick();
-  check(!t.asking(), "once: Skip for now puts the question away");
   t.key(e.solution[0]);
   check(!t.asking(), "once: a later render on the same clue does not ask again");
   t.key("Backspace");

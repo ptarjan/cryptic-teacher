@@ -1412,7 +1412,7 @@
   //
   // The price is hintsCharged's: rungs shown less rungs earned, frozen once the
   // group is solved. So a tap charges exactly when the group is unsolved and it
-  // either opens the blocks rung, or — "Just tell me" on a blocks question —
+  // either opens the blocks rung, or — "Show me" on a blocks question —
   // takes back a blocks rung earned by an earlier piece.
   // A piece handed over unasked (guessAsk is null: the last unlit words, or its
   // own letters) whose letters are all printed in the words it names tells the
@@ -1427,8 +1427,8 @@
     return wholeWord(b.gives).split("").every((c) => have[c]-- > 0);
   }
 
-  // Paul: "Anything that immediately costs needs two." Every rung (not only the
-  // blocks), "Just tell me", Reveal one letter and the first reveal of the
+  // Paul: "Anything that immediately costs needs two." Every step (not only the
+  // blocks), "Show me", Reveal one letter and the first reveal of the
   // answer go through this one rule and the one confirmBlock helper below.
   function rungCosts(e, rung, tell) {
     if (!e || groupSolved(e)) return false;

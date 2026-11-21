@@ -7,7 +7,7 @@
    charges: the group is unsolved and the tap opens the rung outright, or "Show
    me" on a blocks question opens it or takes back one already earned.
 
-   1. firstTapArms: that tap relabels its button "Tap again · 1 hint" and
+   1. firstTapArms: that tap relabels "Show me" (in the help bar) "Tap again · 1 hint" and
       charges nothing; the second tap reveals and charges one.
    2. timeoutDisarms: left alone for the arm window, the button goes back.
    3. elsewhereDisarms: a click on anything else puts it back too.
@@ -36,10 +36,13 @@ function open() {
   const asking = () => body().includes('class="hint-step guess"');
   const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);
   const blocksBtn = () => row().find((b) => b.onclick && !b.disabled && /building blocks/i.test(b.textContent || ""));
-  const armedBtn = () => row().find((b) => b.textContent === ARMED);
-  const tellArmed = () => body().includes(ARMED) && /data-arm="blocks-tell" class="[^"]*arm-cost/.test(body());
+  // "Show me" lives in the help bar (#hint-escape) and carries the armed text.
+  const bar = () => reg["hint-escape"].innerHTML;
+  const barArmed = () => /id="guess-tell"[^>]*class="[^"]*arm-cost/.test(bar()) && bar().includes(ARMED);
+  const armedBtn = () => (barArmed() ? reg["guess-tell"] : null);
+  const tellArmed = () => barArmed() && /data-arm="blocks-tell"/.test(bar());
   const blocksOpen = () => /The building blocks(<span class="step-won">[^<]*<\/span>)?<\/span>/.test(body().replace(/<div class="hint-step guess">[\s\S]*$/, ""));
-  return { d, reg, puz, key, row, body, asking, hints, blocksBtn, armedBtn, tellArmed, blocksOpen };
+  return { d, reg, puz, key, row, body, asking, hints, blocksBtn, armedBtn, tellArmed, blocksOpen, bar };
 }
 
 // Up the ladder to the blocks rung, buying each spotting rung outright.
@@ -71,7 +74,7 @@ for (const e of blocky) {
     check(t.tellArmed() && t.asking() && t.hints() === before,
       `firstTapArms (${id}): the first "Show me" arms, still asking, still ${before} hints`);
     flushTimers(4000);
-    check(!t.tellArmed() && /Show me/.test(t.body()),
+    check(!t.tellArmed() && />Show me</.test(t.bar()),
       `timeoutDisarms (${id}): the button reads "Show me" again`);
     t.reg["guess-tell"].onclick();
     t.d.docListeners["click"].forEach((f) => f({ target: t.reg["hint-meter"] }));
@@ -89,9 +92,9 @@ for (const e of blocky) {
     if (!t.armedBtn() && t.hints() === before) continue;
     if (outright++) continue;
     check(t.armedBtn() && !t.blocksOpen() && t.hints() === before,
-      `firstTapArms (${id}): the rung button arms and charges nothing`);
+      `firstTapArms (${id}): the rung's "Show me" arms and charges nothing`);
     flushTimers(4000);
-    check(!t.armedBtn() && t.blocksBtn(), `timeoutDisarms (${id}): the rung reads as itself again`);
+    check(!t.armedBtn() && t.blocksBtn(), `timeoutDisarms (${id}): "Show me" reads as itself again`);
     t.blocksBtn().onclick();
     t.armedBtn().onclick();
     check(t.blocksOpen() && t.hints() === before + 1,

@@ -47,7 +47,7 @@ for (const id of ids) {
       if (!btn || !btn.onclick || btn.disabled) break;
       if (!/^\d+ · |^Next building block · /.test(btn.textContent || "")) break;
       btn.onclick();
-      // A rung that asks for a guess first: take "Just tell me".
+      // A rung that asks for a guess first: press "Show me".
       if (dom.registry["hint-body"].innerHTML.includes('class="hint-step guess"')) dom.registry["guess-tell"].onclick();
     }
     const steps = [];

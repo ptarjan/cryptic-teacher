@@ -663,7 +663,7 @@
     // for itself would sooner or later point at something the line is not
     // talking about. The panel's own markup says whether a question is up:
     // `guessing` outlives the question it asked, so it cannot be the test.
-    const open = !!(body && /guess-tell/.test(body.innerHTML || ""));
+    const open = !!(body && /class="hint-step guess"/.test(body.innerHTML || ""));
     const ask = nuxAsk();
     if (ask || (open && !nuxTypeIt(on))) {
       // The words being pointed at, and nothing else. A hole around the whole

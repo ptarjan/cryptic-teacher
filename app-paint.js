@@ -38,25 +38,6 @@
     el._shown = key;
     el.innerHTML = "";
     spec.forEach((b) => {
-      // Built like every other button, because nothing in this row may be
-      // written with innerHTML: that throws away the children already appended
-      // in the same pass. This one is offered from the moment the blocks rung
-      // opens, so it is always appended ALONGSIDE "Next building block" and the
-      // rungs, never instead of them.
-      if (b.fill) {
-        const hx = document.createElement("button");
-        hx.id = "hx-entry";
-        hx.textContent = b.text;
-        if (b.cls) hx.className = b.cls;
-        if (b.arm) hx.setAttribute("data-arm", b.arm);
-        hx.onclick = (ev) => {
-          const on = currentEntry();
-          if (fillCosts(on) && !confirmBlock(on, "fill", ev)) return;
-          fillAnswer();
-        };
-        el.appendChild(hx);
-        return;
-      }
       const btn = document.createElement("button");
       if (b.cls) btn.className = b.cls;
       btn.textContent = b.text;
@@ -76,15 +57,18 @@
       }
       if (b.arm) btn.setAttribute("data-arm", b.arm);
       if (b.disabled) { btn.disabled = true; el.appendChild(btn); return; }
-      btn.onclick = (ev) => {
-        // Ask before telling, where the clue can pose the question. Not once
-        // the clue is solved: the rungs have stopped being hints by then and
-        // quizzing someone on an answer they already have is a chore.
-        // The previous rung's verdict stays where it is: clearing it would delete
+      btn.onclick = () => {
+        // A step button never spends. Ask before telling, where the clue can
+        // pose the question; open the step at once where that costs nothing
+        // (a solved clue, a piece whose letters are printed in the clue);
+        // otherwise make it the current step, for "Show me" in the help bar to
+        // reveal on its two taps. One paid button, always in the same place.
+        // Not asked once the clue is solved: the steps have stopped being hints
+        // by then and quizzing someone on an answer they already have is a chore.
+        // The previous step's verdict stays where it is: clearing it would delete
         // a block from the middle of the panel at the exact moment a new one
         // appeared at the bottom, so the whole thing would slide under the
-        // solver's eyes. Nothing the panel has said is ever taken back; it only
-        // ever grows.
+        // solver's eyes. Nothing the panel has said is ever taken back.
         const on = currentEntry();
         if (!on) return;
         // Which piece this button is for. Only the blocks rung has more than
@@ -92,27 +76,19 @@
         // its single question at step 0.
         const at = b.step || 0;
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
-        // A building block that would cost a hint takes a second tap.
-        if (b.rung && !asked && rungCosts(on, b.rung, false)
-            && !confirmBlock(on, b.rung === "blocks" ? "blocks-" + at : b.rung, ev)) return;
         if (asked) {
+          helpOn = null;
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
                        slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
           focusHint("guess");
-        } else {
+        } else if (b.rung && rungCosts(on, b.rung, false)) {
           // Whatever was being asked is off the table: this button is the
-          // solver saying they want this rung instead, and a question left
-          // hanging under the rung they just took would be answered by it.
+          // solver saying they want this step instead, and a question left
+          // hanging would be the one "Show me" answered.
           guessing = null;
-          focusHint(b.rung);
-          // Free by elimination: shown and earned, so the meter does not move.
-          if (b.rung === "blocks" && !isShown(on, "blocks") && !groupSolved(on) && blocksFree(on, at)
-              && earnedRungs(on).indexOf("blocks") < 0) earnedRungs(on).push("blocks");
-          showHint(on, b.rung);
-          // A piece with no question in it — no fragment to point at, or no
-          // letters to point at it with — is simply handed over. The rung still
-          // moves forward by exactly one.
-          if (b.rung === "blocks") revealPiece(on, at);
+          helpOn = { key: entryKey(on), rung: b.rung, step: at };
+        } else {
+          openStep(on, b.rung, at);
         }
         refreshAll();
       };
@@ -127,6 +103,97 @@
     const e = currentEntry();
     if (!e || !guessing || guessing.key !== entryKey(e)) return null;
     return guessAsk(e, guessing.rung, guessing.step);
+  }
+
+  // ---------- the help bar ----------
+  //
+  // One row under the panel: "Show me", Reveal letter, Letters, and a "…" that
+  // holds the rare things (Reveal answer while there are steps left to show,
+  // Report a bad hint, the blog's write-up). "Show me" is the one way to pay
+  // for the explanation: it reveals the CURRENT step, whatever that is, on two
+  // taps with the armed text on itself. The step buttons above only choose
+  // (see setButtons); they never spend.
+  //
+  // The current step, in order: the question on the table; else the step the
+  // solver last chose that had no question to ask; else the next piece of an
+  // open Pieces step; else the first step not yet open that the tiers allow.
+  // `asked` says it is a live question, whose price is the "tell" price
+  // (rungCosts) and whose verdict machinery (finishGuess) does the opening.
+  //
+  // The button keeps the id the question's own tell button had (#guess-tell):
+  // it does that job and more, and the id is what the keyboard-focus restore
+  // and the checks find it by.
+  let helpOn = null;     // { key, rung, step }: a chosen step with no question
+  let helpMore = null;   // the entry key whose "…" is open
+  const STEP_NAMES = { indicators: "Indicator", definition: "Definition",
+                       type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
+  function helpTarget(e) {
+    const ann = e && annOf(e);
+    if (!ann) return null;
+    const key = entryKey(e);
+    if (guessing && guessing.key === key && currentAsk()) {
+      return { rung: guessing.rung, step: guessing.step, asked: true };
+    }
+    const solved = isEntrySolved(e);
+    const steps = ladderSteps(ann, clueText(e));
+    const has = (r) => steps.some((s) => s.key === r);
+    const piecesOpen = !solved && isShown(e, "blocks") && piecesLeft(e) > 0;
+    if (helpOn && helpOn.key === key && has(helpOn.rung)) {
+      const r = helpOn.rung;
+      if (r === "blocks" ? (!isShown(e, r) ? rungAvailable(e, steps, r) : piecesOpen && !pieceOut(e, helpOn.step))
+          : !isShown(e, r) && rungAvailable(e, steps, r)) return { rung: r, step: helpOn.step };
+    }
+    if (piecesOpen) return { rung: "blocks", step: nextPiece(e) };
+    const s = steps.find((x) => !isShown(e, x.key) && rungAvailable(e, steps, x.key));
+    return s ? { rung: s.key, step: 0 } : null;
+  }
+  const helpArm = (t) => t.asked ? t.rung + "-tell" : t.rung === "blocks" ? "blocks-" + t.step : t.rung;
+  function showMeHTML(e, t) {
+    const arm = helpArm(t);
+    const armed = armedFor(e, arm);
+    return `<button id="guess-tell" data-arm="${arm}" class="small help-show${armed ? " arm-cost" : ""}"`
+      + ` aria-label="Show me: ${esc(STEP_NAMES[t.rung] || t.rung)}">${armed ? ARMED_TEXT : "Show me"}</button>`;
+  }
+  // Opens one step, or the next piece of Pieces, as handed over rather than
+  // worked out. Shared by "Show me" and by a step button whose step is free.
+  function openStep(on, rung, at) {
+    guessing = null;
+    helpOn = null;
+    focusHint(rung);
+    // Free by elimination: shown and earned, so the count does not move.
+    if (rung === "blocks" && !isShown(on, "blocks") && !groupSolved(on) && blocksFree(on, at)
+        && earnedRungs(on).indexOf("blocks") < 0) earnedRungs(on).push("blocks");
+    showHint(on, rung);
+    // A piece with no question in it — no fragment to point at, or no
+    // letters to point at it with — is simply handed over. The rung still
+    // moves forward by exactly one.
+    if (rung === "blocks") revealPiece(on, at);
+  }
+  // Never a dead end: being told is a legitimate answer to "do you know this
+  // yet?", and it costs what the step has always cost. Reads the entry and the
+  // question at the moment of the tap (the setHTML rule).
+  function showMeTap(ev) {
+    const on = currentEntry();
+    const t = on && helpTarget(on);
+    if (!t) return;
+    if (t.asked) {
+      if (rungCosts(on, t.rung, true) && !confirmBlock(on, helpArm(t), ev)) return;
+      finishGuess(null, currentAsk());
+      return;
+    }
+    if (rungCosts(on, t.rung, false) && !confirmBlock(on, helpArm(t), ev)) return;
+    openStep(on, t.rung, t.step);
+    refreshAll();
+  }
+  function fillHTML(e) {
+    const s = fillSpec(e, FILL_LABEL);
+    return `<button id="hx-entry"${s.arm ? ` data-arm="${s.arm}"` : ""} class="ghost small${
+      s.cls ? " " + s.cls : ""}">${s.text}</button>`;
+  }
+  function fillTap(ev) {
+    const on = currentEntry();
+    if (fillCosts(on) && !confirmBlock(on, "fill", ev)) return;
+    fillAnswer();
   }
 
   // Reporting a hint that is wrong, from the clue it is wrong on. It lives in the
@@ -255,7 +322,7 @@
   // the same limits hold: only a question (asking is free and charges nothing,
   // so the "no hints" score cannot move), never a rung that costs, never the
   // walkthrough, never on a solved clue. Once per arrival, keyed by the clue: a
-  // wrong answer, "Skip for now" or "Just tell me" leaves the clue where the
+  // wrong answer, choosing another step or "Show me" leaves the clue where the
   // solver put it, and only coming back to it asks again.
   //
   // Two things it leaves alone. The rest of a building-blocks rung already
@@ -353,6 +420,8 @@
     let bodyHTML = "";
     const nextSpec = [];
     let ask = null, tapping = false;
+    // Whether Reveal answer is on offer: decided below, drawn in the help bar.
+    let offerFill = false;
 
     if (!ann) {
       arrivedAt = key;
@@ -374,7 +443,7 @@
         : `<div class="hint-step"><p class="muted">This clue hasn’t been explained yet
         (<span class="badge auto">answers only</span>), so it has no hints.
         You can still check your letters${canCheck() ? " and reveal the answer below" : ""}.</p></div>`;
-      if (canCheck() && !solved) nextSpec.push(fillSpec(e, "Reveal answer"));
+      offerFill = canCheck() && !solved;
     } else {
       // Revealed rungs always read in ladder order and keep their ladder
       // number, whatever order they were asked for in. The numbering is the
@@ -501,18 +570,17 @@
         // The first piece not out, which is the count unless the formula took
         // pieces ahead of it.
         const next = nextPiece(e);
-        const arm = "blocks-" + next;
-        const armed = armedFor(e, arm);
-        nextSpec.push({ rung: "blocks", step: next, arm,
-          cls: (nuxPointsAtRung() ? "rung-point" : "") + (armed ? " arm-cost" : ""),
-          text: armed ? ARMED_TEXT : `Next building block · ${next + 1} of ${total}` });
+        nextSpec.push({ rung: "blocks", step: next,
+          cls: nuxPointsAtRung() ? "rung-point" : "",
+          text: `Next building block · ${next + 1} of ${total}` });
       }
       // The track: every step this clue has, in step order. Open steps are
       // filled (starred when the solver worked them out), available ones are
-      // outlined and lock-free to read, later tiers are dim. The buttons
-      // behave exactly as the numbered row did; only how they look changed.
-      const trackNames = { indicators: "Indicator", definition: "Definition",
-                           type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
+      // outlined, later tiers are dim. The current step, the one "Show me"
+      // acts on, wears the heavier outline. A step button only chooses: it
+      // never spends, so it never arms (see setButtons).
+      const trackNames = STEP_NAMES;
+      const target = helpTarget(e);
       const hue = { indicators: "ind", definition: "def", type: "typ" };
       const lead = open.length ? open[0].s.key : null;
       steps.forEach((s) => {
@@ -526,15 +594,11 @@
           return;
         }
         if (open.some((o) => o.s.key === s.key)) {
-          // The building blocks, where taking them costs, carry the two-tap
-          // confirm (blocksCost): armed, the button says what the next tap does.
-          const arm = s.key === "blocks" ? "blocks-0" : s.key;
-          const armed = armedFor(e, arm);
-          trackSpec.push({ rung: s.key, arm, label: s.label,
+          trackSpec.push({ rung: s.key, label: s.label,
             cls: "step avail" + tint + (s.key === lead && !left ? " lead" : "")
-              + (guessing && guessing.rung === s.key ? " cur" : "")
-              + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : "") + (armed ? " arm-cost" : ""),
-            text: armed ? ARMED_TEXT : name });
+              + (target && target.rung === s.key ? " cur" : "")
+              + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : ""),
+            text: name });
           return;
         }
         trackSpec.push({ label: s.label, cls: "step locked" + tint, disabled: true, text: "– " + name,
@@ -545,9 +609,7 @@
       // just assembled it is being made to copy their own work into the grid
       // square by square. Still offered last, under the rungs,
       // because it is the way out of the clue rather than a step in it.
-      if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) {
-        nextSpec.push(fillSpec(e, FILL_LABEL));
-      }
+      if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) offerFill = true;
     }
     // The free wheel sits under whatever the ladder has shown. Not drawn while
     // the paid ring is on screen: two rings would share one set of letters and
@@ -604,19 +666,39 @@
     const voteWrote = setHTML($("hint-vote"),
       solved && ann ? voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really") : "");
 
-    // The escape hatch lives outside the ladder: available at any level.
-    // No "(counts against your score)" rider: the scorebar already reports
-    // revealed letters, and a learner who is stuck should be nudged toward the
-    // help rather than taxed for taking it.
+    // The help bar (see helpTarget). Reveal letter is available at any level;
+    // no "(counts against your score)" rider, because the button's own armed
+    // text already says "1 hint". Reveal answer stands in the row where there
+    // is no step left to show (or no explanation at all), and waits in the
+    // "…" while "Show me" still has something to give. The "…" is in the
+    // markup either way, only hidden: what it holds is never news, and a
+    // report being written keeps it open.
+    if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
-    const escapeHTML = (canReveal
-      ? letterBtnHTML(e) + " " : "")
+    const helpT = ann ? helpTarget(e) : null;
+    const fill = offerFill ? fillHTML(e) : "";
+    const moreOpen = helpMore === key || !!(report && report.key === key);
+    const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
+    const escapeHTML = (helpT ? showMeHTML(e, helpT) + " " : "")
+      + (helpT ? "" : fill + (fill ? " " : ""))
+      + (canReveal ? letterBtnHTML(e) + " " : "")
       // On every unsolved clue, whatever its type, and not a hint: it holds
       // only what the solver types into it.
       + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">Letters</button> `)
-      + reportHTML() + blogLinkHTML(e, ann);
+      + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" aria-label="More help">…</button>`
+      + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
+      if (helpT) $("guess-tell").onclick = showMeTap;
+      if (fill) $("hx-entry").onclick = fillTap;
+      $("hx-more").onclick = () => {
+        const on = currentEntry();
+        const k = on ? entryKey(on) : null;
+        helpMore = helpMore === k ? null : k;
+        // Closing the "…" puts an unsent report away with it.
+        if (!helpMore && report && report.phase !== "sent") report = null;
+        renderHintPanel();
+      };
       bindReport();
     }
     // Bound on EVERY render, not only when the row's markup changes: two
@@ -728,32 +810,6 @@
         finishGuess(gradeGuess(a), a);
       };
     }
-    // Never a dead end. Asking to be told is a legitimate answer to "do you know
-    // this yet?", and it costs what the rung has always cost. Every question has
-    // one, whether it is answered by tapping words or by picking a family.
-    //
-    // And never a toll gate either. The tap that opens a question was a tap on
-    // the ladder — "show me this rung" — so a solver who reads the question and
-    // does not like their odds must be able to put it back down: a charade
-    // whose letters do not obviously belong to any one fragment is a coin
-    // flip, and a rung staked on it would be a toll. Nothing was shown, so
-    // nothing is spent and nothing is earned; the rung goes back on the ladder
-    // and asks again.
-    if (ask) {
-      $("guess-tell").onclick = (ev) => {
-        const a = currentAsk();
-        if (!a) return;
-        const on = currentEntry();
-        if (rungCosts(on, guessing.rung, true) && !confirmBlock(on, guessing.rung + "-tell", ev)) return;
-        finishGuess(null, a);
-      };
-      $("guess-later").onclick = () => {
-        if (!currentAsk()) return;
-        guessing = null;
-        refreshAll();
-      };
-    }
-
     wireVotes(panel, renderHintPanel);
 
     // The anagram ring. Both handlers only ever touch `ring`, so a redraw is

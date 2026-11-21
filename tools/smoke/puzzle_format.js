@@ -52,9 +52,8 @@ for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["
     });
     const reg = d.registry, out = {};
     const arm = () => {
-      const row = reg["hint-rungs"].children.find((b) => ARMED.test(b.textContent || ""));
-      if (row) row.onclick();
-      else if (/data-arm="blocks-tell" class="[^"]*arm-cost/.test(reg["hint-body"].innerHTML)) reg["guess-tell"].onclick();
+      // Armed "Show me" (help bar): the second tap of the two.
+      if (/id="guess-tell"[^>]*class="[^"]*arm-cost/.test(reg["hint-escape"].innerHTML)) reg["guess-tell"].onclick();
     };
     p.entries.forEach((e) => {
       const row = e.annotation && reg["clue-" + entryId(e)];

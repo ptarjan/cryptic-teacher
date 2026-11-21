@@ -1312,7 +1312,7 @@
   // first is recall, which is the only part that survives to the next puzzle.
   //
   // It costs no new screen: the same rung, in the same panel, one beat before
-  // the same text, with "Just tell me" beside it so nobody is ever stuck behind
+  // the same text, with "Show me" in the help bar under it so nobody is ever stuck behind
   // a quiz. Guess right and the rung is free, which is the score finally saying
   // what it always meant — a hint you did not need is not a hint you took.
   //
@@ -1920,14 +1920,13 @@
     return `<ul class="gm-rows">${rows}</ul><p class="gm-chips">${chips}</p>`;
   }
 
-  // "Just tell me" on a blocks question that would cost a hint is a building
-  // block bought, so it takes the same two taps as the rung button.
-  function tellHTML() {
-    const armed = armedFor(currentEntry(), guessing.rung + "-tell");
-    return `<button id="guess-tell" data-arm="${guessing.rung}-tell" class="ghost small${armed ? " arm-cost" : ""}">${
-      armed ? ARMED_TEXT : "Show me"}</button>`;
-  }
-
+  // A question carries only what answers it: the words in the clue (or the
+  // family chips, or the matching strip) and the button that grades them.
+  // Being told is not part of it. "Show me" lives in the help bar under the
+  // panel and acts on whatever step is current, this question included (see
+  // helpTarget in app-paint.js); and there is no "Skip for now", because a
+  // question is not a dialog: picking another step, typing, or ignoring it is
+  // the skip.
   function guessHTML(ask, position, label, inClue) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
@@ -1937,15 +1936,14 @@
     const ready = ask.pairs
       ? (guessing.slots || []).every((n) => n >= 0)
       : guessing.picked.length;
-    const check = ask.choices ? "" : `<button id="guess-check" class="primary${
+    const check = ask.choices ? "" : `<p class="guess-actions"><button id="guess-check" class="primary${
       nuxPointsCheck(nuxAsk()) ? " walk-point" : ""}"${
-      ready ? "" : " disabled"}>Check my answer</button> `;
+      ready ? "" : " disabled"}>Check my answer</button></p>`;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
-      <p class="guess-actions">${check}${tellHTML()}
-      <button id="guess-later" class="ghost small">Skip for now</button></p></div>`;
+      ${check}</div>`;
   }
 
   // Right or not, and which one you said — never what the right one was. The

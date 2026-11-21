@@ -603,23 +603,40 @@ function bootApp(opts) {
   // Armed ("Tap again · 1 hint") text passes through unchanged. Read-only, and
   // not a real element, so no handler of the app can reach it.
   const wrapped = new WeakMap();
+  // A step button only chooses (it never spends), so a click that neither put a
+  // question up nor opened a step is followed by "Show me" (#guess-tell), as the
+  // old chip's own tap was: "take the rung" checks keep meaning "take it".
+  const steps = () => (String(registry["hint-body"].innerHTML).match(/class="hint-step/g) || []).length;
+  const tapped = (chip) => function () {
+    const before = steps();
+    const r = chip.onclick.apply(chip, arguments);
+    const showing = registry["hint-body"].innerHTML.includes('class="hint-step guess"');
+    if (!showing && steps() === before && /id="guess-tell"/.test(registry["hint-escape"].innerHTML)
+        && registry["guess-tell"] && registry["guess-tell"].onclick) registry["guess-tell"].onclick();
+    return r;
+  };
   const asRung = (chip, n) => {
-    const text = /\barm-cost\b/.test(chip.className || "") ? chip.textContent
+    const text = n == null || /\barm-cost\b/.test(chip.className || "") ? chip.textContent
       : n + " \u00b7 " + (chip.getAttribute("aria-label") || chip.textContent);
     const old = wrapped.get(chip);
-    if (old && old.text === text) return old.view;
-    const view = Object.create(chip, { textContent: { value: text } });
-    wrapped.set(chip, { text, view });
+    if (old && old.text === text && old.click === chip.onclick) return old.view;
+    const props = { textContent: { value: text } };
+    if (chip.onclick) props.onclick = { value: tapped(chip), writable: true };
+    const view = Object.create(chip, props);
+    wrapped.set(chip, { text, view, click: chip.onclick });
     return view;
   };
   Object.defineProperty(registry, "hint-rungs", { enumerable: false, get() {
     const next = registry["hint-next"].children;
     const track = registry["hint-track"].children;
-    const tail = (b) => /^Reveal answer/.test(b.textContent || "");
     const at = (re) => track.map((c, k) => [c, k + 1]).filter(([c]) => re.test(c.className || ""))
       .map(([c, n]) => asRung(c, n));
     const children = [
-      ...next.filter((b) => !tail(b)), ...at(/\bavail\b/), ...at(/\blocked\b/), ...next.filter(tail)];
+      ...next.map((b) => asRung(b, null)), ...at(/\bavail\b/), ...at(/\blocked\b/)];
+    // Reveal answer lives in the help bar now; markup-only ids linger in the registry.
+    if (/id="hx-entry"/.test(registry["hint-escape"].innerHTML) && registry["hx-entry"]) {
+      children.push(registry["hx-entry"]);
+    }
     return { children, childElementCount: children.length,
              get innerHTML() { return registry["hint-track"].innerHTML + registry["hint-next"].innerHTML; } };
   } });

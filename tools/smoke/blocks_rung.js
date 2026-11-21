@@ -489,30 +489,6 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     assert(registry["hint-rungs"].children.length > 0,
       "and the ladder row is still there after the switch");
   }
-
-  // --- putting a question back down costs nothing ---
-  // The tap that opened it meant "show me this rung", and a solver who reads
-  // the question and cannot honestly answer it must not be cornered into
-  // buying the rung to escape ("having a building block charge me with no way
-  // to get it free when the letter match doesn't feel good"). Nothing was
-  // shown, so the price is unchanged and the rung
-  // goes back on the ladder, still willing to ask.
-  const paidBefore = registry["scorebar"].innerHTML;
-  const bodyBefore = registry["hint-body"].innerHTML;
-  registry["guess-later"].onclick();
-  assert(!asking(), "\"Not yet\" takes the question off the table: "
-    + registry["hint-body"].innerHTML);
-  assert(registry["scorebar"].innerHTML === paidBefore,
-    "and charges nothing for it: " + paidBefore + " -> " + registry["scorebar"].innerHTML);
-  // Measured without the verdict's clue copy, which comes back once the clue
-  // line stops being a tapping surface and can outweigh the question it replaces.
-  assert(kept(registry["hint-body"].innerHTML).length < kept(bodyBefore).length,
-    "the question is gone, not merely disarmed: " + registry["hint-body"].innerHTML);
-  const back = rungs().find((b) => !b.disabled);
-  assert(back, "the ladder is live again: " + registry["hint-rungs"].innerHTML);
-  back.onclick();
-  assert(asking() || registry["scorebar"].innerHTML !== paidBefore,
-    "and the rung it declined can still be reached: " + registry["hint-body"].innerHTML);
 }
 
 // --- a save with the blocks rung shown and no count reveals nothing extra ---

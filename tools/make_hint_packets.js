@@ -95,7 +95,7 @@ for (const e of puz.entries) {
     const label = btn.textContent || "";
     if (!/^\d+ · |^Next building block · /.test(label)) break;
     btn.onclick();
-    // A rung that asks the solver to point at the words first: take "Just tell me".
+    // A rung that asks the solver to point at the words first: press "Show me".
     if (registry["hint-body"].innerHTML.includes('class="hint-step guess"')) registry["guess-tell"].onclick();
     const body = text(registry["hint-body"].innerHTML);
     if (/\bAnswer:/.test(body)) break; // the reveal rung is not a teaching rung
