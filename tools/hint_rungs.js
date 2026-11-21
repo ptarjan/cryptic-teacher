@@ -45,10 +45,17 @@ for (const id of ids) {
     for (let guard = 0; guard < 40; guard++) {
       const btn = dom.registry["hint-rungs"].children[0];
       if (!btn || !btn.onclick || btn.disabled) break;
-      if (!/^\d+ · |^Next building block · /.test(btn.textContent || "")) break;
+      if (!/^\d+ · /.test(btn.textContent || "")) break;
       btn.onclick();
       // A rung that asks for a guess first: press "Show me".
       if (dom.registry["hint-body"].innerHTML.includes('class="hint-step guess"')) dom.registry["guess-tell"].onclick();
+      // Pieces is the formula line: Show me fills the current blank chip, two taps when
+      // it costs, and every chip has to be out before the walkthrough opens.
+      for (let c = 0; c < 20 && /data-piece="\d+"/.test(dom.registry["hint-body"].innerHTML); c++) {
+        if (!/id="guess-tell"/.test(dom.registry["hint-escape"].innerHTML)) break;
+        dom.registry["guess-tell"].onclick();
+        if (/id="guess-tell"[^>]*arm-cost/.test(dom.registry["hint-escape"].innerHTML)) dom.registry["guess-tell"].onclick();
+      }
     }
     const steps = [];
     for (const chunk of String(dom.registry["hint-body"].innerHTML).split(/<div [^>]*class="hint-step/).slice(1)) {

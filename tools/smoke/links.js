@@ -3,8 +3,8 @@
 "use strict";
 const T = require("./harness");
 const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, assert, clueText,
-  cpToIdx, enough, entryId, fs, htmlEsc, isAsking, openFromPicker, path, pickerRowFor, printedClue,
-  registry, reopenForSweep, rungTemplateProse, saveFromAnotherTab, shape, storage, stripTags,
+  confirmArmed, cpToIdx, enough, entryId, fs, htmlEsc, isAsking, openFromPicker, path, pickerRowFor, printedClue,
+  registry, reopenForSweep, rungTemplateProse, saveFromAnotherTab, settleOpen, shape, storage, stripTags,
   takeRung } = T;
 // --- the picker says which puzzles you have finished ---
 // "Have I done this one?" is the first question the list has to answer. It is derived, not stored — from the saved letters against the
@@ -308,12 +308,13 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         // the same letters in its prompt ("Which words give APPLAUDED?"). One
         // rule about what a piece may show, two readers of it, both checked.
         btn.onclick();
-        if (isAsking(registry["hint-body"])) {
+        confirmArmed();
+        // Every question on the way: the first step's, then each blank chip's.
+        settleOpen(() => {
           const asked = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
           assert(!asked.some((s) => bare(stripTags(s, "")) === r.ans),
             `${r.id} ${entryId(r.e)} (${r.ans}): the question in front of the rung prints the answer — ${registry["hint-body"].innerHTML}`);
-          registry["guess-tell"].onclick();
-        }
+        });
         const spans = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
         const spelled = spans.find((s) => bare(stripTags(s, "")) === r.ans);
         assert(!spelled,
@@ -838,41 +839,6 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         assert(html.includes(sounded(b)),
           `${s.id} ${entryId(s.e)}: the blocks rung never shows ${b.soundsLike}, ` +
           `which is the whole mechanism — ` + html);
-      }
-    }
-  }
-
-  // --- "Next piece" is never a click that only hands a piece over ---
-  // A piece with no fragment to point at, or no letters to ask for, has no
-  // question in it: clicking for it gives it to you the instant the click lands.
-  // Pacing the rung is meant to make it ask before it tells, so a step that can
-  // only tell is a tap charged for nothing — clicking "Next piece" on building
-  // blocks should not simply hand the blocks over for free. Those pieces
-  // ride out with the piece before them, which is
-  // invisible in the count and visible only here: drive every clue that has one
-  // and check that every "Next piece" still offered opens a question.
-  {
-    const quiet = [];
-    for (const id of Object.keys(puzzles).sort()) {
-      for (const e of puzzles[id].entries || []) {
-        const blocks = (e.annotation || {}).blocks || [];
-        if (blocks.length > 1 && blocks.some((b) => !(b.clueFragment && b.gives))) {
-          quiet.push({ id, e });
-        }
-      }
-    }
-    assert(quiet.length > 5, "the corpus still has question-less pieces to pace: " + quiet.length);
-    for (const s of quiet.slice(0, 60)) {
-      openClue(s);
-      for (let i = 0; i < 10; i++) {
-        const btn = registry["hint-rungs"].children[0];
-        if (!CLIMBABLE(btn)) break;
-        const label = btn.textContent;
-        btn.onclick();
-        const asking = isAsking(registry["hint-body"]);
-        assert(asking || !/^Next building block · /.test(label),
-          `${s.id} ${entryId(s.e)}: "${label}" handed a piece over without asking anything`);
-        if (asking) registry["guess-tell"].onclick();
       }
     }
   }

@@ -281,7 +281,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     return null;
   };
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-  // The pieces the matching question would be made of: every building block
+  // The pieces the formula's blank chips stand for: every building block
   // that names words in the clue and shows letters that are not those same
   // words. What a block shows is app.js's blockLetters (see APP_BLOCKS).
   const { blockLetters, buildingBlocks } = APP_BLOCKS;
@@ -314,8 +314,8 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       if (!bl[0].clueFragment || !bl[1].clueFragment) continue;
       const spans = bl.map((b) => b.clueFragment ? spanTokens(clueText(e), b.clueFragment) : null);
       if (spans.slice(0, 2).some((s) => !s)) continue;
-      // The pieces the matching question is made of: the app leaves out any
-      // fragment that IS its own letters, because that chip pairs itself.
+      // The pieces with a question: the app leaves out any
+      // fragment that IS its own letters, because there is nothing to ask.
       const pairs = pairsOf(e);
       if (pairs.length < 2) continue;
       // Two pieces giving the same chunk are graded right either way round, so
@@ -334,7 +334,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     }
     if (walked) break;
   }
-  assert(walked, "somewhere in the corpus the blocks rung asks its matching question "
+  assert(walked, "somewhere in the corpus the blocks rung asks a piece question "
     + `(tried ${tried} clues with two or more locatable pieces)`);
   if (!walked) throw new Error("the blocks rung asks nothing — see the FAIL above");
 

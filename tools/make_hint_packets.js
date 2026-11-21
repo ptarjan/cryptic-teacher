@@ -90,13 +90,19 @@ for (const e of puz.entries) {
   for (let guard = 0; guard < 10; guard++) {
     const btn = registry["hint-rungs"].children[0];
     if (!btn || !btn.onclick || btn.disabled) break;
-    // Rungs are "N · label", and the blocks rung comes out as "Next building
-    // block · ..." buttons; anything else ("Fill in answer") ends the ladder.
+    // Rungs are "N · label", anything else ("Fill in answer") ends the ladder.
     const label = btn.textContent || "";
-    if (!/^\d+ · |^Next building block · /.test(label)) break;
+    if (!/^\d+ · /.test(label)) break;
     btn.onclick();
     // A rung that asks the solver to point at the words first: press "Show me".
     if (registry["hint-body"].innerHTML.includes('class="hint-step guess"')) registry["guess-tell"].onclick();
+    // Pieces is the formula line: Show me fills the current blank chip, two taps when
+    // it costs, and every chip has to be out before the walkthrough opens.
+    for (let c = 0; c < 20 && /data-piece="\d+"/.test(registry["hint-body"].innerHTML); c++) {
+      if (!/id="guess-tell"/.test(registry["hint-escape"].innerHTML)) break;
+      registry["guess-tell"].onclick();
+      if (/id="guess-tell"[^>]*arm-cost/.test(registry["hint-escape"].innerHTML)) registry["guess-tell"].onclick();
+    }
     const body = text(registry["hint-body"].innerHTML);
     if (/\bAnswer:/.test(body)) break; // the reveal rung is not a teaching rung
     const after = redact(body, answer);

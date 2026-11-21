@@ -85,30 +85,51 @@ function isAsking(body) {
 // before they name them, so the button poses the question and "Show me"
 // answers it. Everything below walks the ladder the lazy way on purpose — the
 // guessing itself is tested at the end, on its own.
+//
+// The Pieces step is the formula line: one blank chip is current and the one
+// help button ("Show me", two taps when it costs) fills just that chip. There is
+// no "next piece" button, so a climb that wants the walkthrough has to settle
+// every chip, which is what settleOpen does after the rung is opened.
+const blankChips = () => (registry["hint-body"].innerHTML.match(/data-piece="\d+"/g) || []).length;
+function pressShowMe() {
+  const b = registry["guess-tell"];
+  if (!b || !b.onclick || !/id="guess-tell"/.test(registry["hint-escape"].innerHTML)) return false;
+  b.onclick();
+  confirmArmed();
+  return true;
+}
+// Answer the question on the table with "Show me", then every blank chip of an
+// open Pieces step in turn. onAsk sees each question before it is answered.
+function settleOpen(onAsk) {
+  for (let g = 0; g < 40; g++) {
+    const asking = isAsking(registry["hint-body"]);
+    if (!(blankChips() || (g === 0 && asking))) break;
+    if (asking && onAsk) onAsk();
+    if (!pressShowMe()) break;
+  }
+}
 function takeRung(btn) {
   btn.onclick();
   confirmArmed();
-  if (isAsking(registry["hint-body"])) { registry["guess-tell"].onclick(); confirmArmed(); }
+  settleOpen();
 }
-// A building block that costs a hint takes a second tap (app.js blocksCost):
-// the first only arms the button and relabels it. This makes the second tap,
-// on whichever button is armed, so the lazy climbs below still buy their rung.
+// A step that costs a hint takes a second tap: the first only arms the button
+// and relabels it. This makes the second tap, on whichever button is armed
+// (a rung in the row, or the help button), so the lazy climbs below still buy
+// their rung.
 const ARMED = /^Tap again · 1 hint$/;
 function confirmArmed() {
   const row = registry["hint-rungs"].children.find((b) => ARMED.test(b.textContent || ""));
   if (row) return row.onclick(), true;
-  if (/data-arm="blocks-tell" class="[^"]*arm-cost/.test(registry["hint-body"].innerHTML))
+  if (/id="guess-tell"[^>]*arm-cost/.test(registry["hint-escape"].innerHTML) && registry["guess-tell"])
     return registry["guess-tell"].onclick(), true;
   return false;
 }
 
-// A button that moves the ladder on: a numbered rung, or the rest of a rung
-// already open. The building blocks come out one piece at a time, so a climb
-// that only recognises "N · label" stops halfway up that rung and then reads a
-// body it never finished buying. One predicate, used by every climb here, so
-// no copy of it can disagree.
+// A button that moves the ladder on: a numbered rung. One predicate, used by
+// every climb here, so no copy of it can disagree.
 const CLIMBABLE = (btn) => !!(btn && btn.onclick && !btn.disabled
-  && (/^\d+ · /.test(btn.textContent || "") || /^Next building block · /.test(btn.textContent || "")));
+  && /^\d+ · /.test(btn.textContent || ""));
 
 // Every button in the ladder row, by label. The row is real elements, so its
 // innerHTML says nothing about what is on screen — an assertion against that
@@ -173,4 +194,4 @@ assert(storage["ct:nux"] === "1",
 
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
 
-Object.assign(T, { ARMED, CLIMBABLE, btnNames, confirmArmed, isAsking, takeRung });
+Object.assign(T, { ARMED, CLIMBABLE, btnNames, confirmArmed, isAsking, settleOpen, takeRung });
