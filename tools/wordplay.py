@@ -709,7 +709,7 @@ def _split_fodder_gap(node, clue):
     sling' under ana<twisted>; 'two numbers' for 'two back-to back numbers' under pal<back-to back>)
     is the leaf's two runs: the refusal asks for exactly that split, and the words it skipped are the
     indicator, so nothing else is guessed. Only a leaf with two runs and a gap that is one of the
-    node's indicators whole. Any op: a leaf's own `gives` stays on its first run and the second run
+    node's indicators whole. An anagram's fodder with letters of its own is left alone. Any op: a leaf's own `gives` stays on its first run and the second run
     gives nothing, so the letters are unchanged."""
     inds = node.get("indicators")
     if not inds or not node.get("parts"):
@@ -719,6 +719,7 @@ def _split_fodder_gap(node, clue):
     for part in node["parts"]:
         text = part.get("words")
         runs = (_gapped_runs(text, clue) if isinstance(text, str) and "op" not in part
+                and not (node.get("op") == "anagram" and "gives" in part)
                 and fold_marks(text).lower() not in fold_marks(clue).lower()
                 and not _reordered_run(text, clue) else None)
         if runs and len(runs[1]) == 2:
