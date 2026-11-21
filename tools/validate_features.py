@@ -236,9 +236,47 @@ def check_features(tag, ann, clue, errors, warnings):
         elif len(word.split()) > 1:
             errors.append(f"{tag}: features.misdirectedWord {word!r} is more than "
                           f"one word — name the single word that misleads")
-        elif not _whole_word(plain(word.strip())).search(plain(clue or "")):
+        elif not word_in_clue(word, clue):
             errors.append(f"{tag}: features.misdirectedWord {word!r} does not occur "
                           f"in the clue {clue!r}")
+
+
+# Short words a scan runs into the word before it ("partsin", "couplein").
+_JOINED = {"in", "of", "to", "for", "by", "on", "at", "and", "the", "or", "as", "with", "from"}
+_SUFFIXES = ("s", "es", "d", "ed", "ing", "er", "ers", "ly")
+
+
+def word_in_clue(word, clue):
+    """Does `word` occur in `clue` as printed? Besides the whole word, three shapes
+    are the clue's spelling rather than a wrong word (11-21, 9 sessions re-spent a
+    turn on them): the word's letters equal one or more adjacent clue tokens
+    ("point-to-point" over "point-to point", "aggregate" over "aggre- gate"), the
+    clue token is the word with an inflection ("house" over "housed"), or the
+    clue's token is the word run into the next one by the scan ("parts" over
+    "partsin") and is no word itself."""
+    w = plain(word.strip())
+    text = plain(clue or "")
+    if _whole_word(w).search(text):
+        return True
+    want = re.sub(r"[^a-z0-9]", "", w)
+    toks = [re.sub(r"[^a-z0-9]", "", t) for t in re.split(r"[\s_\-\u2010-\u2015]+", text)]
+    toks = [t for t in toks if t]
+    if not want:
+        return False
+    for i in range(len(toks)):
+        joined = ""
+        for j in range(i, len(toks)):
+            joined += toks[j]
+            if joined == want:
+                return True
+            if not want.startswith(joined):
+                break
+    for t in toks:
+        if t.startswith(want) and len(want) >= 3:
+            rest = t[len(want):]
+            if rest in _SUFFIXES or ((rest in _JOINED or is_word(rest)) and not is_word(t)):
+                return True
+    return False
 
 
 def plain(text):
