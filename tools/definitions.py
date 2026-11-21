@@ -163,6 +163,12 @@ def damaged_run(text, clue, misread=True):
         runs = _misread_runs(want, toks, low, junk)
     if not runs and misread:
         runs = _one_word_off(want, toks)
+    if not runs and misread:
+        # the model dropped one interior function word ('No stopping for animal?' for the
+        # clue's 'No stopping for this animal?'): the clue's run with the word is the quote
+        gap = _dropped_word_runs(want, toks, low)
+        if len(gap) == 1:
+            return _with_edges(text, clue, *gap.pop())
     if not runs and misread and len(want) >= 4:
         # the scan dropped a lone 'I' the quote has inside the run ('Mary and I go out' for
         # the stored 'Mary and go out'): the quote minus that word is the clue's one run
@@ -291,6 +297,28 @@ def _one_word_off(want, toks):
                 and not (n == 2 and _lev(*diff[0]) == 2 and _affixed(*diff[0])):
             runs.add((toks[k][1], toks[k + n - 1][2]))
     return runs if len(runs) == 1 else set()
+
+
+# The one clue words a quote may skip inside its run: determiners and small link words.
+_SKIPPABLE = {"this", "that", "these", "those", "the", "a", "an", "his", "her", "its", "their",
+              "our", "your", "my", "some", "any", "of", "to", "in", "on", "at", "for", "by", "with"}
+
+
+def _dropped_word_runs(want, toks, low):
+    """{(start, end)} of the clue's runs that are the quote's words with exactly one extra
+    function word (_SKIPPABLE) between them, never first or last ('No stopping for animal'
+    for 'No stopping for this animal'). Callers mend only when there is one such run
+    and the quote's own words are in no clue run as they are."""
+    n = len(want)
+    if n < 2:
+        return set()
+    runs = set()
+    for k in range(len(toks) - n):
+        window = low[k:k + n + 1]
+        for j in range(1, n):
+            if window[j] in _SKIPPABLE and window[:j] + window[j + 1:] == want:
+                runs.add((toks[k][1], toks[k + n][2]))
+    return runs
 
 
 def _one_edit(a, b):

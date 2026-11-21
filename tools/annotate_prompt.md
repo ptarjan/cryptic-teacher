@@ -39,7 +39,7 @@ a clue not done yet, `{"withheld": "<why>"}` for one you cannot annotate honestl
 - When `source.retrievedFrom` is `newspaper` or `book`, clues are OCR and a letter can
   be misread ("judge" for "fudge"). If the answer and wordplay need a word a letter or
   two off, give `"printedClue": ["<clue as printed, no count>", "OCR misread: <what the wordplay needs>"]`
-  (refused beyond 3 letters changed). Quote only words the clue holds: a word you repaired
+  (refused beyond 3 letters changed). Quote only words the clue holds, side by side (never skip a word inside a quote): a word you repaired
   ('few' read as 'five') is not in it, so give `printedClue` before the first check. A clue missing is `null`; one shown on two lights is withheld.
 - A `scan` is the printed page. For a clue that looks cut short, garbled, blank or wrong
   for its answer, give `printedClue` as the page prints it, evidence

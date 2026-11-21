@@ -946,6 +946,12 @@ check("one-word-off: a two-word quote with a short word off is not mended", _D.d
 check("one-word-off: a two-word quote one edit off in a four-letter word is mended",
       _D.damaged_run("Make clear", "Make dear the fish must be kept") == "Make dear")
 check("one-word-off: a two-word quote three edits off is not mended", _D.damaged_run("Make clear", "Make beer the fish") is None)
+check("dropped word: an interior function word the model skipped is mended",
+      _D.damaged_run("No stopping for animal?", "No stopping for this animal?") == "No stopping for this animal?")
+check("dropped word: a content word the model skipped is not mended",
+      _D.damaged_run("Case in helped the farmer", "Case in river god helped the farmer") is None)
+check("dropped word: two copies of the run are not mended",
+      _D.damaged_run("sat on mat", "sat on the mat and sat on a mat") is None)
 check("one-word-off: two equal runs are not mended",
       _D.damaged_run("the sort of energy", "the sort of enemy and the sort of enemy") is None)
 check("possessive 's the clue lacks is dropped from the quote", spans_of("[professional's]X", "Outlaw professional B writer")
