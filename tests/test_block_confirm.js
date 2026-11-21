@@ -111,7 +111,11 @@ check(asked + outright > 0, `found a clue whose blocks can cost (asked ${asked},
   for (const e of blocky.filter((x) => x.solution)) {
     const t = open();
     t.reg["clue-" + entryId(e)].listeners.click[0]();
+    const solvedN = () => Number((/Solved <strong>(\d+)\//.exec(t.reg["scorebar"].innerHTML) || [])[1]);
+    const s0 = solvedN();
     for (const ch of e.solution) t.key(ch);
+    // A leg typed in alone leaves its group unsolved (the score is not frozen).
+    if (!(solvedN() > s0)) continue;
     // Solved: the help bar is one free "How it works" (step 10), no step buttons.
     if (!/id="hx-how"[^>]*>How it works</.test(t.bar())) continue;
     const before = t.hints();

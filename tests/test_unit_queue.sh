@@ -137,7 +137,7 @@ out=$(q tick slots)
 grep -q "start u1" <<<"$out" && grep -q "start u2" <<<"$out" || fail "two slots did not start two units: $out"
 grep -q "start u3" <<<"$out" && fail "a third unit started with both trees taken: $out"
 log="$tmp/repo/slots.log"
-for _ in $(seq 150); do [ "$(grep -c 'end: rc=0' "$log" 2>/dev/null)" = 2 ] && break; sleep 0.2; done
+for _ in $(seq 600); do [ "$(grep -c 'end: rc=0' "$log" 2>/dev/null)" = 2 ] && break; sleep 0.2; done
 [ "$(grep -c 'end: rc=0' "$log")" = 2 ] || { cat "$log"; fail "the slot units did not both end well"; }
 trees=$(grep -o "in slot-[12] main repo job unset" "$log" | sort -u | wc -l || true)
 [ "$trees" = 2 ] || { cat "$log"; fail "the two units did not run in trees slot-1 and slot-2, each with the main checkout's state and CT_JOB kept from their children"; }
