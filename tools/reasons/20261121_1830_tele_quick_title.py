@@ -10,7 +10,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "a Gale Telegraph page refused not a grid for the Quick crossword's ink (its title box the Quick's ACROSS), the cryptic's clue block heading read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T18:41:00+00:00"
 WORD = 150
 
 
