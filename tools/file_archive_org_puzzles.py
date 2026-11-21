@@ -4149,6 +4149,52 @@ def indy_under_columns(lines, grid, split, margin):
     return (heads[1] - INDY_UNDER_GAP, heads[2] - INDY_UNDER_GAP, min(split[2], int(heads[2] + INDY_UNDER_END * pitch[1])))
 
 
+#: INDY_PAIR (r303: ~25 Gale Independent 2010-11 rows, 1, 5, 9, 10, 12-14 across blank "no reading laid a clue on it"): the print
+#: sets TWO clue columns under the grid (numbers at x 614 and 918 under a grid from 161 to 881 on 2011-10-10 No 7795, pitch
+#: 304, nothing left of them) and a chess box right of them (x 1256); overhang() took the box for a third clue column and
+#: over_gutters() cut the span (121-1390) in thirds, the second gutter (944) landing between the second column's numbers
+#: (918-940) and its text (948), so the first column's window held the first column AND the second's numbers: the second
+#: column's clues lost their numbers and ran into the first's rows. The gutter is cut just left of the second column's numbers
+#: (INDY_UNDER_GAP) and the last window ends a pitch and a tenth right of them, when exactly two print columns of numbers
+#: stand under the grid in the windows left of the old second gutter and the second's lie left of it.
+INDY_PAIR_YEARS = ("2010", "2013")
+INDY_PAIR = "Independent 2010-13 page whose two clue columns under the grid stood right of its thirds, their gutter cut at their numbers since"
+REREAD_INDY_PAIR = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+
+
+#: INDY_PAIR_PEAK, INDY_PAIR_THIN: a column's number starts within INDY_PAIR_PEAK px of one x (every reading's words hold
+#: numbers inside clue text too, spread over the whole band: a head is a peak of at least INDY_PAIR_MIN starts), and the
+#: third peak is under INDY_PAIR_THIN of the second's.
+INDY_PAIR_PEAK, INDY_PAIR_MIN, INDY_PAIR_THIN, INDY_PAIR_APART = 6, 25, 0.85, 150
+
+
+def indy_pair_heads(words, x0, x1, y0, y1):
+    """The x's of the (at most two) strongest peaks of clue-number starts of `words` in x0 <= x < x1, y0 <= y <= y1,
+    left to right, INDY_PAIR_APART px apart, the second at least INDY_PAIR_MIN starts and the next peak under INDY_PAIR_THIN of
+    it; else []."""
+    xs = sorted(w[0] for w in words if x0 <= w[0] < x1 and y0 <= w[1] <= y1 and _INDY_NUMBER_START.match(str(w[4])))
+    peaks = []
+    for n, x in sorted(((sum(1 for y in xs if abs(y - x) <= INDY_PAIR_PEAK), x) for x in xs), reverse=True):
+        if all(abs(x - q) > INDY_PAIR_APART / 3 for _, q in peaks):
+            peaks.append((n, x))
+    if len(peaks) < 2 or peaks[1][0] < INDY_PAIR_MIN or len(peaks) > 2 and peaks[2][0] >= INDY_PAIR_THIN * peaks[1][0]:
+        return []
+    heads = sorted(x for _, x in peaks[:2])
+    return heads if heads[1] - heads[0] >= INDY_PAIR_APART else []
+
+
+def indy_under_pair(lines, grid, split, margin):
+    """`split` (over_gutters') with its second gutter cut just left of the clue numbers of the second of TWO print columns
+    under the grid (indy_pair_heads) when those numbers lie left of the old gutter (INDY_PAIR), else `split` as it was."""
+    gx0, _, gx1, gy1 = grid
+    words = [w for ws in lines for w in ws]
+    heads = indy_pair_heads(words, gx0 - margin, split[1], gy1, gy1 + 1.8 * (gx1 - gx0))
+    if not heads or not heads[1] < split[1]:
+        return split
+    return (min(split[0], int(heads[0] - INDY_UNDER_GAP)), int(heads[1] - INDY_UNDER_GAP),
+            min(split[2], int(heads[1] + INDY_UNDER_END * (heads[1] - heads[0]))))
+
+
 #: Due: a Gale Independent 2010-13 page left unfiled with a light "no reading laid a clue on it" whose cached window under
 #: the grid shows three evenly pitched columns of numbers (pitch at most INDY_UNDER_PITCH_MAX, the first head near the
 #: window's left edge: the right-of-grid pages' pitch is 350), read before REREAD_INDY_UNDER_SPLIT. 2012-02-13 No 7903
@@ -15391,6 +15437,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             and above is None and left is None and not right and not over and not wide
         if over and paper.key == "galeindependent":
             split = indy_under_columns(every, gbox, split, m)
+            if INDY_PAIR_YEARS[0] <= d.name[:4] <= INDY_PAIR_YEARS[1]:
+                split = indy_under_pair(every, gbox, split, m)
         if wide_read:
             split = beside_split(every, gbox, wide)
         if split is not None and not over and not isinstance(split, tuple):
