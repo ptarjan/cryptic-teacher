@@ -20,6 +20,16 @@ MIN_LEN = 6
 MAX_EDITS = 2
 DECLARED_EDITS = 3      # the model named both words, so the OCR edit cap (V.OCR_MISREAD_EDITS) is the limit
 EVIDENCE = "OCR misread: the text has {c!r} where the wordplay needs {q!r}"
+# Pairs of real words the OCR reads for one another so often (11-17..21 audit: 9 'quote not in clue'
+# refusals of 'five' for the clue's 'few', the 'fi' read as 'e'): clue word -> the word the quote has.
+KNOWN_MISREADS = {"few": "five"}
+# Glyphs a scan reads for one another: l, 1, i, I and | are one shape, 0 and O another, 'rn' reads as 'm'.
+_GLYPHS = str.maketrans({"1": "l", "i": "l", "|": "l", "0": "o"})
+
+
+def glyph_fold(word):
+    """`word` with the scan's look-alike glyphs made one ('Al' and 'A1' and 'Ai' are all 'al')."""
+    return word.casefold().translate(_GLYPHS).replace("rn", "m")
 
 
 def quotes(a):
@@ -50,6 +60,7 @@ def repaired(quoted, clue):
                     and not ocr_clues.known(t[0])]
             if len(near) == 1 and sum(t[0] == near[0][0] for t in toks) == 1:
                 swaps[near[0][1]] = (near[0], w)
+    swaps.update(_look_alike_swaps(quoted, toks, have, said, swaps))
     # two quote words claiming one clue word is no repair
     if not swaps or len({v[1].casefold() for v in swaps.values()}) != len(swaps):
         return None, []
@@ -57,6 +68,25 @@ def repaired(quoted, clue):
     for start, ((c, _, end), w) in sorted(swaps.items(), reverse=True):
         new = new[:start] + (w[0].upper() + w[1:] if c[0].isupper() else w) + new[end:]
     return new, [(c, w) for (c, _, _), w in swaps.values()]
+
+
+def _look_alike_swaps(quoted, toks, have, said, taken):
+    """{clue offset: (clue token, quote word)} for each quote word the clue lacks that is a clue
+    token's look-alike (glyph_fold: 'A1' or 'Ai' for the clue's 'Al', 'turn' for 'tum') or the
+    word the OCR is known to give for it (KNOWN_MISREADS). The clue token must be the only one of
+    its fold and occur once, and the quote's own words must not use it: any length, since the
+    glyphs, not a lexicon, are the evidence."""
+    out = {}
+    for q in quoted:
+        for w in WORD.findall(q):
+            if w.casefold() in have or not w.isalnum():
+                continue
+            near = [t for t in toks if t[0].casefold() not in said and t[0].casefold() != w.casefold()
+                    and (glyph_fold(t[0]) == glyph_fold(w) or KNOWN_MISREADS.get(t[0].casefold()) == w.casefold())]
+            if len(near) == 1 and near[0][1] not in taken and sum(t[0] == near[0][0] for t in toks) == 1 \
+                    and sum(glyph_fold(t[0]) == glyph_fold(near[0][0]) for t in toks) == 1:
+                out[near[0][1]] = (near[0], w)
+    return out
 
 
 def declared(quoted, clue, evidence):
@@ -97,11 +127,11 @@ def mend(a, shown, source_ocr):
     if pc is not None and not (isinstance(pc, list) and len(pc) == 2 and all(isinstance(x, str) for x in pc)
                                and pc[0].strip() == shown.strip()):
         return None       # a printedClue that corrects something is the model's own: left
-    new, pairs = repaired(quotes(a), shown)
-    why = "; ".join(EVIDENCE.format(c=c, q=q) for c, q in pairs)
-    if not new and pc:
-        new, pairs = declared(quotes(a), shown, pc[1])
-        why = pc[1] if len(pc[1]) >= 25 else "; ".join(EVIDENCE.format(c=c, q=q) for c, q in pairs)
+    new, pairs = declared(quotes(a), shown, pc[1]) if pc else (None, [])
+    why = pc[1] if pc and len(pc[1]) >= 25 else "; ".join(EVIDENCE.format(c=c, q=q) for c, q in pairs)
+    if not new:
+        new, pairs = repaired(quotes(a), shown)
+        why = "; ".join(EVIDENCE.format(c=c, q=q) for c, q in pairs)
     if not new:
         return None
     if V.clue_row_problems(shown, new, why) or V.ocr_misread_edits(shown, new) > V.OCR_MISREAD_EDITS:

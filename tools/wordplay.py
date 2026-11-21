@@ -684,8 +684,34 @@ def _split_ellipsis(node, clue):
             else:
                 out.append(ind)
         node["indicators"] = out
+    _split_fodder_gap(node, clue)
     for p in node.get("parts") or ():
         _split_ellipsis(p, clue)
+
+
+def _split_fodder_gap(node, clue):
+    """An anagram's fodder quoted as one run round its own indicator ('a sling' for the clue's
+    'a twisted sling' under ana<twisted>) is the fodder's two runs: the refusal asks for exactly
+    that split, and the words it skipped are the indicator, so nothing else is guessed. Only a bare
+    leaf (no letters of its own), two runs, and a gap that is one of the op's indicators whole."""
+    inds = node.get("indicators")
+    if node.get("op") != "anagram" or not inds or not node.get("parts"):
+        return
+    fold = lambda t: re.findall(r"[\w'’]+", fold_marks(t).lower())
+    parts = []
+    for part in node["parts"]:
+        text = part.get("words")
+        runs = (_gapped_runs(text, clue) if isinstance(text, str) and "op" not in part and "gives" not in part
+                and fold_marks(text).lower() not in fold_marks(clue).lower()
+                and not _reordered_run(text, clue) else None)
+        if runs and len(runs[1]) == 2:
+            whole, (first, last) = runs
+            gap = fold(whole[len(first):len(whole) - len(last)])
+            if any(fold(i.get("text") or "") == gap for i in inds):
+                parts += [{**part, "words": r} for r in (first, last)]
+                continue
+        parts.append(part)
+    node["parts"] = parts
 
 
 def _strip_inner_marks(text):

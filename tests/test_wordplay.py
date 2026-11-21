@@ -295,6 +295,15 @@ out = w.translate({"wp": "[low]MOO + last<end of>([candle]) + [carefully mark]NB
 check("a stray note beside only a pick's leaf is dropped", out is not None, out)
 
 # Quote-not-in-clue mends, from real refusals (annotate audit 10-24/25).
+def _refused(wp, clue, answer="X"):
+    try:
+        w.translate({"wp": wp}, clue, answer)
+    except w.WordplayError:
+        return True
+    return False
+
+
+
 def spans_of(wp, clue):
     t = w.parse(wp, clue)
     return [(s[k], s.get("at")) for s, k in w._spans(t)]
@@ -957,6 +966,18 @@ check("one-word-off: two equal runs are not mended",
 check("possessive 's the clue lacks is dropped from the quote", spans_of("[professional's]X", "Outlaw professional B writer")
       == [("professional", 7)], spans_of("[professional's]X", "Outlaw professional B writer"))
 check("possessive 's the clue prints stays", spans_of("[pro's]X", "Outlaw pro's B writer") == [("pro's", 7)])
+tree = w.translate({"wp": "ana<twisted>([a sling])", "notes": {"twisted": "twisted means the letters are wrung into a new order"}},
+                   "Straightens a twisted sling", "ALIGNS")
+check("anagram fodder round its own indicator is two runs",
+      [p["words"] for p in tree["parts"]] == ["a", "sling"], tree)
+check("fodder round a word that is no indicator of the op stays refused",
+      _refused("ana<twisted>([a sling])", "Straightens a bad sling", "ALIGNS"))
+check("fodder with letters of its own is not split",
+      _refused("ana<twisted>([a sling]ASLING)", "Straightens a twisted sling", "ALIGNS"))
+check("a word fragment the scan printed before its word is skipped",
+      _D.damaged_run("this volume", "Should one translate this vol volume?") == "this vol volume")
+check("a short real word that opens a longer one is not debris",
+      _D.damaged_run("of the end", "Tip of the end") == "of the end")
 check("misread clue: wordplay quote is located", spans_of("[snow]X", "Admits taking show in powdered form")
       == [("show", 14)], spans_of("[snow]X", "Admits taking show in powdered form"))
 check("damaged clue: wordplay quote is located", spans_of("[a friend abroad]X", "Is it that one is making a friend M abroad?")

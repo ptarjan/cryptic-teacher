@@ -42,10 +42,19 @@ f = {"def": "Retain", "wp": "ins<in>([sheltered situation]LEE, [a]A + [five]V)",
 row = M.mend(f, FIVE, True)
 check("a no-op printedClue with evidence naming the swap is mended",
       row == ["Retain a five in sheltered situation", "OCR misread: five (V) for few"])
-check("the same swap without a printedClue is not mended (both real words)",
-      M.mend({k: v for k, v in f.items() if k != "printedClue"}, FIVE, True) is None)
+check("the same swap without a printedClue is mended: few for five is the OCR's known misread",
+      M.mend({k: v for k, v in f.items() if k != "printedClue"}, FIVE, True)
+      == ["Retain a five in sheltered situation", "OCR misread: the text has 'few' where the wordplay needs 'five'"])
+check("another real-word pair that is no known misread is not mended",
+      M.repaired(["fee"], "Retain a few in sheltered situation")[0] is None)
+check("a look-alike glyph: 'A1' for the clue's 'Al'", M.repaired(["A1 meal"], "Woman cooking Al meal")[0] == "Woman cooking A1 meal")
+check("a look-alike glyph: 'Ai' for 'Al'", M.repaired(["Ai"], "Al band playing")[0] == "Ai band playing")
+check("rn read as m: 'turn' for the clue's 'tum'", M.repaired(["turn"], "Lively tum I've put on")[0] == "Lively turn I've put on")
+check("two look-alike clue words are not mended", M.repaired(["A1"], "Al and Ai meal")[0] is None)
+check("a look-alike the quote itself uses is not mended", M.repaired(["Al", "A1"], "Al meal")[0] is None)
+FEE = "Retain a fee in sheltered situation"
 check("evidence that does not name the words is not enough",
-      M.mend({**f, "printedClue": [FIVE, "the scan is wrong here somewhere"]}, FIVE, True) is None)
+      M.mend({**f, "printedClue": [FEE, "the scan is wrong here somewhere"]}, FEE, True) is None)
 check("a printedClue that corrects something is left",
       M.mend({**f, "printedClue": ["Retain a fee in sheltered situation", "OCR misread: five for fee"]}, FIVE, True) is None)
 import definitions

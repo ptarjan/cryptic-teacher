@@ -125,6 +125,12 @@ def damaged_run(text, clue, misread=True):
     for k in range(len(toks) - 1):
         if toks[k][0] == "Check" and low[k + 1] in ("tod", "toc"):
             junk[k] = junk[k + 1] = True
+    for k, t in enumerate(toks):
+        # the start of the next word the scan printed first, which the quote does not use
+        # ('this vol volume', 'per- performers'); a lone 'I' stays a word ('Dog I saw')
+        if k + 1 < len(toks) and t[0].isalpha() and 2 <= len(low[k]) < len(low[k + 1]) \
+                and low[k + 1].startswith(low[k]) and low[k] not in want and low[k] not in _SKIPPABLE:
+            junk[k] = True
     runs = set()
 
     def word(qi, ci, first):
