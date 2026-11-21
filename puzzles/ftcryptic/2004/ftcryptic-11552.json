@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -49,7 +52,30 @@
      }
     ]
    },
-   "solution": "AROOMWITHAVIEW"
+   "solution": "AROOMWITHAVIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0,
+      "meaning": "a novel by E. M. Forster bearing this title"
+     },
+     {
+      "text": "accommodation with pleasant outlook",
+      "at": 5,
+      "meaning": "lodging whose window looks out on a fine scene"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Forster's 1908 novel takes its title from a lodging with a fine prospect, which is just what the second definition describes literally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +89,48 @@
     "text": "Feel remorse about measure putting people off?",
     "enumeration": "9"
    },
-   "solution": "REPELLENT"
+   "solution": "REPELLENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "putting people off?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "the word for feeling remorse wraps around the measure, so it sits about it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Feel remorse",
+       "at": 0,
+       "gives": "REPENT",
+       "note": "to feel remorse is to repent"
+      },
+      {
+       "words": "measure",
+       "at": 19,
+       "gives": "ELL",
+       "note": "an ell is an old measure of length"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ponders whether a regret-inspiring policy measure is driving people away.",
+     "definitionFit": "Something repulsive or off-putting drives others back, as an insect deterrent does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "measure"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +144,56 @@
     "text": "Senior lord, English, covered in gold",
     "enumeration": "5"
    },
-   "solution": "OLDER"
+   "solution": "OLDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Senior",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 22,
+       "note": "the lord and English pieces are wrapped inside the heraldic word for gold"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gold",
+       "at": 33,
+       "gives": "OR",
+       "note": "or is the heraldic term for gold"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lord",
+         "at": 7,
+         "gives": "LD"
+        },
+        {
+         "words": "English",
+         "at": 13,
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly English peer is decked out in gold finery.",
+     "definitionFit": "Senior here is the comparative of age: of greater years than another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +207,66 @@
     "text": "Militarist friendly on meeting former enemy — many put off",
     "enumeration": "9"
    },
-   "solution": "WARMONGER"
+   "solution": "WARMONGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Militarist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "friendly",
+       "at": 11,
+       "gives": "WARM",
+       "note": "a warm welcome is a friendly one"
+      },
+      {
+       "words": "on",
+       "at": 20,
+       "gives": "ON",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "put off",
+         "at": 51,
+         "note": "the word many is dropped off the end of the former enemy's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "former enemy",
+         "at": 31,
+         "gives": "GERMANY",
+         "note": "Germany, Britain's foe in two world wars"
+        },
+        {
+         "words": "many",
+         "at": 46,
+         "gives": "MANY",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A belligerent type is friendly when meeting an old foe, which puts many people off.",
+     "walkthrough": "'put off' removes MANY from GERMANY, leaving GER.",
+     "definitionFit": "A militarist favours armed force, as does someone who stirs up conflicts between nations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "friendly"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +286,60 @@
      }
     ]
    },
-   "solution": "TODOS"
+   "solution": "TODOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fusses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 30,
+       "note": "the reversed drunkard sits outside, around the party"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns up",
+         "at": 21,
+         "note": "in a down clue turning up means the letters are read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drunkard",
+         "at": 12,
+         "gives": "SOT",
+         "note": "a sot is a habitual drinker"
+        }
+       ]
+      },
+      {
+       "words": "party",
+       "at": 38,
+       "gives": "DO",
+       "note": "a do is a party or celebration"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There's a commotion when a drunk appears outside a party.",
+     "walkthrough": "'drunkard' suggests a person, but it only supplies letters; the fusses are the definition.",
+     "definitionFit": "Commotions or bustles of agitation, noun plural like the clue word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +353,58 @@
     "text": "Carbohydrate served up after a spring vegetable",
     "enumeration": "9"
    },
-   "solution": "ASPARAGUS"
+   "solution": "ASPARAGUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 29,
+       "gives": "A"
+      },
+      {
+       "words": "spring",
+       "at": 31,
+       "gives": "SPA",
+       "note": "a spa is a mineral spring"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "served up",
+         "at": 13,
+         "note": "in a down clue served up suggests the letters rise, read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Carbohydrate",
+         "at": 0,
+         "gives": "SUGAR",
+         "note": "sugar is a carbohydrate"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sugar is dished up after a spring vegetable at a meal.",
+     "walkthrough": "'spring' looks like the season of the vegetable, but it is a mineral spring.",
+     "definitionFit": "Spears of this plant are a prized green eaten in spring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +418,42 @@
     "text": "Jumper hanging in rain, dripping",
     "enumeration": "5"
    },
-   "solution": "INDRI"
+   "solution": "INDRI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jumper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hanging in",
+       "at": 7,
+       "note": "the answer hangs within the run of letters across the next two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rain, dripping",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweater left hanging out in the rain is dripping wet.",
+     "walkthrough": "The letters sit across 'raIN DRIpping'.",
+     "definitionFit": "This Madagascan lemur is famous for its huge leaps between trees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jumper"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +467,47 @@
     "text": "Alerts about soldiers in underground networks",
     "enumeration": "7"
    },
-   "solution": "WARRENS"
+   "solution": "WARRENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "underground networks",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "the word for alerts goes about, around, the soldiers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alerts",
+       "at": 0,
+       "gives": "WARNS",
+       "note": "to alert is to warn"
+      },
+      {
+       "words": "soldiers",
+       "at": 13,
+       "gives": "RE",
+       "note": "RE, the Royal Engineers, are soldiers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Warnings are issued about troops in tunnel systems.",
+     "definitionFit": "Rabbits dig interconnected burrows below ground, and the word extends to any maze of passages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +521,57 @@
     "text": "Doctor eats small amount when having a brandy",
     "enumeration": "6"
    },
-   "solution": "GRAPPA"
+   "solution": "GRAPPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brandy",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eats",
+         "at": 7,
+         "note": "the doctor takes the small amount inside, as if eating it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Doctor",
+         "at": 0,
+         "gives": "GP",
+         "note": "a GP is a general practitioner"
+        },
+        {
+         "words": "small amount",
+         "at": 12,
+         "gives": "RAP",
+         "note": "a rap is a tiny amount, as in not caring a rap"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 37,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor nibbles a little while drinking brandy.",
+     "definitionFit": "An Italian spirit distilled from grape pomace, a kind of brandy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +585,47 @@
     "text": "Fastened bar to go round gym",
     "enumeration": "5"
    },
-   "solution": "ROPED"
+   "solution": "ROPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fastened",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to go round",
+       "at": 13,
+       "note": "the bar is made to encircle the gym letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar",
+       "at": 9,
+       "gives": "ROD",
+       "note": "a rod is a bar"
+      },
+      {
+       "words": "gym",
+       "at": 25,
+       "gives": "PE",
+       "note": "PE, physical education, is gym class"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar is fixed in place encircling a gymnasium.",
+     "definitionFit": "Tied up with cord or rope, past tense like the clue word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +645,48 @@
      }
     ]
    },
-   "solution": "REDSPIDER"
+   "solution": "REDSPIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a pest",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "at": 0,
+       "note": "the Reverend Spooner swapped initial sounds, so the opening consonants of two words trade places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hurried",
+       "at": 10,
+       "gives": "SPED",
+       "note": "sped means hurried"
+      },
+      {
+       "words": "amendment to document",
+       "at": 18,
+       "gives": "RIDER",
+       "note": "a rider is an added clause to a document or bill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rushed change to a legal text is a real nuisance.",
+     "walkthrough": "Swapping SP and R in SPED RIDER gives the answer.",
+     "definitionFit": "A tiny mite that infests greenhouse and garden plants, a notorious horticultural pest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +700,48 @@
     "text": "More sickly looking before brief time in port",
     "enumeration": "7"
    },
-   "solution": "PALERMO"
+   "solution": "PALERMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "port",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 20,
+       "note": "the paler piece comes before the brief time in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "More sickly looking",
+       "at": 0,
+       "gives": "PALER",
+       "note": "paler means more wan, sicker in appearance"
+      },
+      {
+       "words": "brief time",
+       "at": 27,
+       "gives": "MO",
+       "note": "a mo is a moment, a brief time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks more ill shortly before arriving in harbour.",
+     "definitionFit": "The Sicilian capital is a major Mediterranean seaport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +755,47 @@
     "text": "Something out of a tin it's right to eat?",
     "enumeration": "7"
    },
-   "solution": "SARDINE"
+   "solution": "SARDINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something out of a tin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "it's",
+       "at": 23,
+       "gives": "SA",
+       "note": "it, in the sense of sex appeal, is SA; the 's joins the pieces"
+      },
+      {
+       "words": "right",
+       "at": 28,
+       "gives": "R"
+      },
+      {
+       "words": "to eat",
+       "at": 34,
+       "gives": "DINE",
+       "note": "to dine is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether it is proper to eat food straight from a can.",
+     "walkthrough": "'it' meaning sex appeal (SA) is an old crossword favourite.",
+     "definitionFit": "This small oily fish is famously sold packed tightly in cans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "it's"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +809,40 @@
     "text": "Person managing business is a toff",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person managing business",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      },
+      {
+       "words": "toff",
+       "at": 30,
+       "gives": "GENT",
+       "note": "a toff is a posh gentleman, a gent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The man running the company is a snob.",
+     "walkthrough": "A 'toff' is British slang for an upper-class person.",
+     "definitionFit": "A representative who acts on behalf of another and handles their affairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +862,40 @@
      }
     ]
    },
-   "solution": "THEMASSES"
+   "solution": "THEMASSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hoi polloi",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "those people",
+       "at": 12,
+       "gives": "THEM",
+       "note": "them refers to those people"
+      },
+      {
+       "words": "fools",
+       "at": 25,
+       "gives": "ASSES",
+       "note": "asses are fools"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers at the common crowd, calling them all idiots.",
+     "definitionFit": "Hoi polloi is Greek for 'the many', the ordinary people at large."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +919,30 @@
      }
     ]
    },
-   "solution": "GOTOGRASS"
+   "solution": "GOTOGRASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Retire",
+      "at": 0,
+      "meaning": "to withdraw from work, as an old horse is put out to pasture"
+     },
+     {
+      "text": "take steps to become a singer",
+      "at": 11,
+      "meaning": "a grass is an informer, one who sings to the police, so this means set out to become one"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase means to stop working, like an old horse turned out to pasture; read literally it means setting out to become an informer, and an informer 'sings'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +956,67 @@
     "text": "Urban dwelling? You may collect grant coming down to expensive part of country",
     "enumeration": "9"
    },
-   "solution": "TOWNHOUSE"
+   "solution": "TOWNHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Urban dwelling?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "coming down to",
+       "at": 38,
+       "note": "in a down clue the first piece comes down onto the second, which sits below it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "may collect",
+         "at": 20,
+         "note": "the old word for you collects, gathers in, the word for grant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "You",
+         "at": 16,
+         "gives": "THOU",
+         "note": "thou is the archaic word for you"
+        },
+        {
+         "words": "grant",
+         "at": 32,
+         "gives": "OWN",
+         "note": "to own is to concede or grant"
+        }
+       ]
+      },
+      {
+       "words": "expensive part of country",
+       "at": 53,
+       "gives": "SE",
+       "note": "SE, the South East of England, is the priciest region"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone may land a housing grant on moving down to a costly region.",
+     "walkthrough": "'grant' looks like money, but it is the verb meaning concede; south-east England is the costliest region of the country.",
+     "definitionFit": "A terraced residence in a city, as opposed to a country seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grant"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1036,34 @@
      }
     ]
    },
-   "solution": "ARTDEALER"
+   "solution": "ARTDEALER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One may let an old master go after a financial settlement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One may let an old master go after a financial settlement",
+       "at": 0,
+       "note": "seems to describe a servant's employer paying off a former boss, but an old master is a classic painting sold once the price is agreed"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A trader in pictures parts with classic paintings once a sale is agreed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "master"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1083,42 @@
      }
     ]
    },
-   "solution": "ROTTENROW"
+   "solution": "ROTTENROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere in the capital",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lousy",
+       "at": 0,
+       "gives": "ROTTEN",
+       "note": "rotten means lousy, very bad"
+      },
+      {
+       "words": "performance by eight",
+       "at": 6,
+       "gives": "ROW",
+       "note": "a rowing eight's effort is a row"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowing crew of eight puts in a terrible show in London.",
+     "walkthrough": "Rotten Row is a riding track in London's Hyde Park.",
+     "definitionFit": "A historic bridleway along the south side of Hyde Park, London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eight"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1132,47 @@
     "text": "Egyptian place put in list",
     "enumeration": "7"
    },
-   "solution": "ROSETTA"
+   "solution": "ROSETTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Egyptian place",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "the word for put goes in the list"
+      }
+     ],
+     "parts": [
+      {
+       "words": "list",
+       "at": 22,
+       "gives": "ROTA",
+       "note": "a rota is a list of duties"
+      },
+      {
+       "words": "put",
+       "at": 15,
+       "gives": "SET",
+       "note": "to set is to put"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Egyptian location is added to a list.",
+     "definitionFit": "A Nile delta town where the famous inscribed stone was found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1186,42 @@
     "text": "Person looking after the weekend paper must be fully satisfied",
     "enumeration": "5"
    },
-   "solution": "SATED"
+   "solution": "SATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fully satisfied",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the weekend",
+       "at": 21,
+       "gives": "SAT",
+       "note": "Sat, Saturday, is part of the weekend"
+      },
+      {
+       "words": "Person looking after",
+       "at": 0,
+       "gives": "ED",
+       "note": "the editor, Ed, looks after the paper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Saturday supplement's editor must be thoroughly content.",
+     "walkthrough": "'paper' completes the picture of ED, the editor in charge of it.",
+     "definitionFit": "Glutted or filled to the point of having had enough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1235,29 @@
     "text": "Giving medicine to order as issued by one in charge of choir",
     "enumeration": "6"
    },
-   "solution": "DOSING"
+   "solution": "DOSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giving medicine",
+      "at": 0,
+      "meaning": "administering a measured amount of a drug"
+     },
+     {
+      "text": "order as issued by one in charge of choir",
+      "at": 19,
+      "meaning": "a choirmaster's command telling singers to perform"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Administering drugs in measured amounts; split in two, the letters make a choirmaster's instruction to start singing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1277,34 @@
      }
     ]
    },
-   "solution": "SEASALT"
+   "solution": "SEASALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The main product that appears on the kitchen table?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The main product that appears on the kitchen table?",
+       "at": 0,
+       "note": "the main is the ocean, so its product is a seasoning evaporated from seawater"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Crystals obtained by evaporating seawater, used as a seasoning at meals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1318,56 @@
     "text": "Where in Paris a mister keeps a secret lover",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "secret lover",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeps",
+         "at": 24,
+         "note": "the mister holds the French word inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mister",
+         "at": 17,
+         "gives": "MR"
+        },
+        {
+         "words": "Where in Paris",
+         "at": 0,
+         "gives": "OU",
+         "note": "ou is French for where"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman hides away a clandestine mistress somewhere in Paris.",
+     "definitionFit": "A French word for a love affair, here the person loved, especially illicitly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1381,58 @@
     "text": "River beginning to rise, flooding temporary home?",
     "enumeration": "5"
    },
-   "solution": "TRENT"
+   "solution": "TRENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "flooding",
+       "at": 25,
+       "note": "the first letter floods into the tent, entering it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "temporary home",
+       "at": 34,
+       "gives": "TENT",
+       "note": "a tent is a temporary dwelling"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 6,
+         "note": "the first letter of rise is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rise",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river starts to rise and floods a campsite.",
+     "walkthrough": "The R of 'rise' goes inside TENT.",
+     "definitionFit": "England's third-longest river flows through the Midlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1446,40 @@
     "text": "They make a great effort, the man asserts",
     "enumeration": "7"
    },
-   "solution": "HEAVERS"
+   "solution": "HEAVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They make a great effort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the man",
+       "at": 26,
+       "gives": "HE",
+       "note": "he refers to the man"
+      },
+      {
+       "words": "asserts",
+       "at": 34,
+       "gives": "AVERS",
+       "note": "avers means asserts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man claims that some people try very hard.",
+     "definitionFit": "People who lift or haul with great exertion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1493,52 @@
     "text": "A gee-gee runs round displaying violent behaviour",
     "enumeration": "5"
    },
-   "solution": "AGGRO"
+   "solution": "AGGRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "violent behaviour",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "gee-gee",
+       "at": 2,
+       "gives": "GG",
+       "note": "a gee-gee is a child's word for a horse, GG"
+      },
+      {
+       "words": "runs",
+       "at": 10,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      },
+      {
+       "words": "round",
+       "at": 15,
+       "gives": "O",
+       "note": "O is round in shape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse charges round a track, behaving violently.",
+     "walkthrough": "AGGRO is British slang for aggressive trouble-making.",
+     "definitionFit": "Slang for hostile, aggressive conduct or trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1552,34 @@
     "text": "Match items of clothing",
     "enumeration": "9"
    },
-   "solution": "TROUSSEAU"
+   "solution": "TROUSSEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Match items of clothing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Match items of clothing",
+       "at": 0,
+       "note": "looks like a sports kit, but a match here is a marriage, so these are a bride's outfit and linens"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A bride's collection of clothes and linen assembled for her wedding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1593,51 @@
     "text": "Physician dealt with wind and indigestion finally",
     "enumeration": "5"
    },
-   "solution": "GALEN"
+   "solution": "GALEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Physician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wind",
+       "at": 21,
+       "gives": "GALE",
+       "note": "a gale is a strong wind"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 42,
+         "note": "the final letter of indigestion is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "indigestion",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor treated a patient's wind and indigestion at last.",
+     "walkthrough": "'dealt with' is a link joining definition and wordplay.",
+     "definitionFit": "The ancient Greek medical writer whose theories dominated medicine for centuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -511,7 +1661,48 @@
      }
     ]
    },
-   "solution": "ACROSSTHEBOARD"
+   "solution": "ACROSSTHEBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "completely",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "messing it up",
+       "at": 18,
+       "note": "a messy performance scrambles these words into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Orchestra",
+       "at": 0
+      },
+      {
+       "words": "so",
+       "at": 10
+      },
+      {
+       "words": "bad",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful orchestra makes a total hash of the performance.",
+     "walkthrough": "'messing it up' rearranges ORCHESTRA SO BAD.",
+     "definitionFit": "Applying to everyone or everything equally, without exception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
