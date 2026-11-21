@@ -65,12 +65,19 @@ assert(registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.classNa
   global.window.scrolls.length = 0;
 }
 
+// Tag-stripped text, repeated until stable so a nested "<scr<b>ipt>" cannot survive one pass.
+function textOf(html) {
+  let prev;
+  do { prev = html; html = html.replace(/<[^>]*>/g, ""); } while (html !== prev);
+  return html;
+}
+
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
 registry["hx-letter"].onclick();
 assert(/<strong>1<\/strong> hint\b/.test(registry["scorebar"].innerHTML), "a revealed letter counts as a hint in the score: " + registry["scorebar"].innerHTML);
-assert(/1 hint/.test(registry["scorebar"].innerHTML.replace(/<[^>]*>/g, "")), "the score bar counts the revealed letter as a hint: " + registry["scorebar"].innerHTML);
+assert(/1 hint/.test(textOf(registry["scorebar"].innerHTML)), "the score bar counts the revealed letter as a hint: " + registry["scorebar"].innerHTML);
 
 // A question that is still open, in either of its two forms — words to point at
 // or families to choose between. Keyed off the block that wraps a live question
