@@ -105,6 +105,31 @@ def trimmed_pieces(ann, words):
     return True
 
 
+def other_mechanism_makes_run(ann, words):
+    """Whether the run is the leftover of another device, not a hidden word:
+    (1) an anagram whose fodder is a whole word of the run (APT from `tap`, run
+    across "tap that"): that block's letters are the answer's; (2) a deletion that
+    strips a clued piece off the front and/or back of the run's words (AWFUL from
+    "Saw Fulham" without SHAM = S + HAM): another block gives exactly those ends."""
+    answer = letters(ann.get("answer"))
+    types = set(types_of(ann))
+    run = letters(words)
+    blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    whole = {letters(w) for w in words.split()}
+    for b in blocks:
+        frag, gives = letters(b.get("clueFragment")), letters(b.get("gives"))
+        if "anagram" in types and frag in whole and sorted(gives) == sorted(answer):
+            return True
+    if "deletion" in types and answer in run:
+        for k in range(run.find(answer), -1, -1):
+            if run[k:k + len(answer)] != answer:
+                continue
+            ends = {run[:k] + run[k + len(answer):], run[:k], run[k + len(answer):]} - {""}
+            if any(letters(b.get("gives")) in ends for b in blocks):
+                return True
+    return False
+
+
 def check_unmarked_hidden_word(tag, ann, clue, errors):
     """An answer that spells itself across a word break in the wordplay is a
     hidden word, and its type says so, unless a block or indicator note says the
@@ -135,6 +160,8 @@ def check_unmarked_hidden_word(tag, ann, clue, errors):
     positional = POSITIONAL_TYPES & types
     for direction, words in hidden_runs(clue, ann):
         if positional and direction == "forwards" and trimmed_pieces(ann, words):
+            continue
+        if direction == "forwards" and other_mechanism_makes_run(ann, words):
             continue
         errors.append(
             f"{tag}: the answer runs {direction} across {words!r}, outside the "
