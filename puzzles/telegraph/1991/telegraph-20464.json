@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Change the lock",
     "enumeration": "6"
    },
-   "solution": "SWITCH"
+   "solution": "SWITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0,
+      "meaning": "to change or swap one thing for another"
+     },
+     {
+      "text": "lock",
+      "at": 11,
+      "meaning": "a ... is a lock or tress of hair, often a false one"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to replace the lock on a door.",
+     "walkthrough": "'the lock' suggests a door fitting, but it is a lock of hair.",
+     "definitionFit": "Both senses are dictionary meanings: a verb meaning swap, and a noun for a hairpiece tress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +72,31 @@
     "text": "So lacking in shrewdness it's extraordinary",
     "enumeration": "7"
    },
-   "solution": "UNCANNY"
+   "solution": "UNCANNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "So lacking in shrewdness",
+      "at": 0,
+      "meaning": "read as ..., the opposite of canny, which means shrewd"
+     },
+     {
+      "text": "extraordinary",
+      "at": 30,
+      "meaning": "weird or beyond the ordinary"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone so naive that it seems remarkable.",
+     "walkthrough": "CANNY is Scottish and northern English for shrewd; the prefix UN- negates it, a playful split of a word whose real sense is eerie.",
+     "definitionFit": "Its real meaning is strange or eerie, close to remarkable; the first reading is a playful split."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +110,41 @@
     "text": "Complete half the puzzle correctly",
     "enumeration": "9"
    },
-   "solution": "DOWNRIGHT"
+   "solution": "DOWNRIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "half the puzzle",
+       "at": 9,
+       "gives": "DOWN",
+       "note": "a crossword's clues divide into acrosses and downs, so one half is the downs"
+      },
+      {
+       "words": "correctly",
+       "at": 25,
+       "gives": "RIGHT",
+       "note": "done right means done correctly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver finishes half the crossword without errors.",
+     "definitionFit": "Downright as an adjective means utter or total, as in a downright lie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Complete"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +158,11 @@
     "text": "Did she wind up in the heart of England?",
     "enumeration": "6"
    },
-   "solution": "GLENDA"
+   "solution": "GLENDA",
+   "annotationWithheld": {
+    "why": "Did she wind up in the heart of England? (6): GLENDA anagrammed with one N gives ENGLAND, but no clue word cleanly supplies the N (the heart of 'wind' is IN), so the parse cannot be stated honestly",
+    "clue": "Did she wind up in the heart of England?"
+   }
   },
   {
    "number": 5,
@@ -86,7 +176,59 @@
     "text": "Next I'd been surrounded by a swarm of bees",
     "enumeration": "6"
    },
-   "solution": "BESIDE"
+   "solution": "BESIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Next",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "been surrounded by",
+       "at": 9,
+       "note": "the letters of I'd end up with others all round them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "a swarm of",
+         "at": 28,
+         "note": "a swarm is a disordered mass, so the letters of bees are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bees",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "words": "I'd",
+       "at": 5,
+       "gives": "ID",
+       "note": "I'd written without its apostrophe gives ID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recounts being mobbed by bees.",
+     "walkthrough": "'a swarm of' looks like part of the picture but tells you to jumble the insects' letters.",
+     "definitionFit": "Beside means next to, alongside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swarm"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +242,42 @@
     "text": "The old reprobate is kidding",
     "enumeration": "8"
    },
-   "solution": "BADINAGE"
+   "solution": "BADINAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "kidding",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "reprobate",
+       "at": 8,
+       "gives": "BAD",
+       "note": "a reprobate is a bad lot, so the word gives bad"
+      },
+      {
+       "words": "The old",
+       "at": 0,
+       "gives": "INAGE",
+       "note": "the old are those advanced in years, read here as in age"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly rascal is joking around.",
+     "walkthrough": "The phrase splits as BAD IN AGE: an old reprobate is someone bad in age.",
+     "definitionFit": "Badinage is playful banter or teasing talk, which is what kidding means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reprobate"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +291,29 @@
     "text": "Be clearly proud to give support",
     "enumeration": "5"
    },
-   "solution": "STRUT"
+   "solution": "STRUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be clearly proud",
+      "at": 0,
+      "meaning": "to swagger, walking in a way that shows pride"
+     },
+     {
+      "text": "give support",
+      "at": 20,
+      "meaning": "to brace with a structural prop"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is asked to show their pride by backing a friend.",
+     "definitionFit": "Strutting is a proud swaggering walk; a strut is also a brace, and to strut is to prop up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +327,57 @@
     "text": "The posse sent out did catch, as arranged",
     "enumeration": "8"
    },
-   "solution": "DISPOSED"
+   "solution": "DISPOSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "arranged",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catch",
+       "at": 23,
+       "note": "did holds or catches the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "did",
+       "at": 19
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sent out",
+         "at": 10,
+         "note": "the posse is dispersed, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "posse",
+         "at": 4
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sheriff's posse was dispatched and caught its man as planned.",
+     "walkthrough": "'did catch' reads as the posse catching a fugitive, but 'did' is the container itself.",
+     "definitionFit": "Disposed can mean set out or placed in order, a synonym of arranged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "posse"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +391,41 @@
     "text": "Desire merely in a malicious way",
     "enumeration": "8"
    },
-   "solution": "WANTONLY"
+   "solution": "WANTONLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in a malicious way",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Desire",
+       "at": 0,
+       "gives": "WANT",
+       "note": "to desire is to want"
+      },
+      {
+       "words": "merely",
+       "at": 7,
+       "gives": "ONLY",
+       "note": "merely means only"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craving that is purely spiteful.",
+     "definitionFit": "Wantonly means gratuitously or with deliberate malice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Desire"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +439,30 @@
     "text": "Where you're going to make your speech?",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where you're going",
+      "at": 0,
+      "meaning": "a destination written on a letter or given to a driver"
+     },
+     {
+      "text": "make your speech",
+      "at": 22,
+      "meaning": "to speak formally to an audience"
+     }
+    ],
+    "explanation": {
+     "surface": "A speaker asks where the venue is for their talk.",
+     "definitionFit": "An address is a location; to address a meeting is to speak to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +476,30 @@
     "text": "School procession",
     "enumeration": "5"
    },
-   "solution": "TRAIN"
+   "solution": "TRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0,
+      "meaning": "to school is to teach or coach"
+     },
+     {
+      "text": "procession",
+      "at": 7,
+      "meaning": "a line of people or animals moving along"
+     }
+    ],
+    "explanation": {
+     "surface": "Schoolchildren walking in a line.",
+     "definitionFit": "To school is to instruct, a synonym; a train is also a long moving line, as in a camel train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "School"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +513,42 @@
     "text": "Blast! Mother has people coming",
     "enumeration": "9"
    },
-   "solution": "DAMNATION"
+   "solution": "DAMNATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blast!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mother",
+       "at": 7,
+       "gives": "DAM",
+       "note": "a dam is an animal's mother"
+      },
+      {
+       "words": "people",
+       "at": 18,
+       "gives": "NATION",
+       "note": "a people is a nation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host swears at the news that their mother is bringing visitors.",
+     "walkthrough": "'has' and 'coming' join the pieces.",
+     "definitionFit": "Both are exclamations of annoyance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "people"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +562,30 @@
     "text": "Suitable little home",
     "enumeration": "3"
    },
-   "solution": "APT"
+   "solution": "APT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0,
+      "meaning": "fitting or appropriate"
+     },
+     {
+      "text": "little home",
+      "at": 9,
+      "meaning": "short form of apartment, a small dwelling"
+     }
+    ],
+    "explanation": {
+     "surface": "A compact dwelling that meets your needs.",
+     "definitionFit": "Apt means fitting; it is also the written short form of apartment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +599,47 @@
     "text": "Pass one the explosive device, but it's no help",
     "enumeration": "8"
    },
-   "solution": "HANDICAP"
+   "solution": "HANDICAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's no help",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pass",
+       "at": 0,
+       "gives": "HAND",
+       "note": "to pass something is to hand it over"
+      },
+      {
+       "words": "one",
+       "at": 5,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "explosive device",
+       "at": 13,
+       "gives": "CAP",
+       "note": "a cap is a small explosive charge, as in a toy gun"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A terrorist is handed a bomb and finds it useless.",
+     "definitionFit": "A handicap is a hindrance or disadvantage, the opposite of a help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +653,31 @@
     "text": "Wine and where to lay them down?",
     "enumeration": "6"
    },
-   "solution": "GRAVES"
+   "solution": "GRAVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0,
+      "meaning": "a white or red Bordeaux wine from the region of that name"
+     },
+     {
+      "text": "where to lay them down?",
+      "at": 9,
+      "meaning": "burial plots for the dead, with a nod to laying down wine in a cellar"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about storing wine bottles.",
+     "walkthrough": "Laying down wine means cellaring it, but here 'them' are bodies to be buried.",
+     "definitionFit": "Graves is a Bordeaux wine district; graves are also burial places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +691,30 @@
     "text": "That means there's a cyclist ahead, he thinks",
     "enumeration": "9"
    },
-   "solution": "REFLECTOR"
+   "solution": "REFLECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That means there's a cyclist ahead",
+      "at": 0,
+      "meaning": "the red disc on a bicycle's rear that shows up in headlights"
+     },
+     {
+      "text": "he thinks",
+      "at": 36,
+      "meaning": "one who reflects or ponders"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver muses that a cyclist must be in front.",
+     "definitionFit": "A reflector warns drivers of a bicycle; someone who reflects is a thinker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +728,56 @@
     "text": "I stop wandering and I take on a job",
     "enumeration": "8"
    },
-   "solution": "POSITION"
+   "solution": "POSITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a job",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wandering",
+         "at": 7,
+         "note": "the letters stray from their order and are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I stop",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 21,
+       "gives": "I"
+      },
+      {
+       "words": "on",
+       "at": 28,
+       "gives": "ON",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drifter settles down and takes employment.",
+     "walkthrough": "'wandering' turns I STOP into POSIT; 'and' and 'take' are link words.",
+     "definitionFit": "A position is a post or job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +791,43 @@
     "text": "Cut said the man",
     "enumeration": "3"
    },
-   "solution": "HEW"
+   "solution": "HEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HEW",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 4,
+       "note": "the word is spoken, so its sound counts, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the man",
+       "at": 9,
+       "gives": "HUGH",
+       "note": "Hugh is a man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man calls out an instruction to cut.",
+     "definitionFit": "To hew is to chop or cut with an axe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +841,41 @@
     "text": "By manoeuvring gets near, while you distance yourself from",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "distance yourself from",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "By manoeuvring",
+       "at": 0,
+       "note": "the letters are moved around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gets near",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tactical move: getting close while appearing to back away.",
+     "walkthrough": "'By manoeuvring' rearranges GETS NEAR; 'while you' are link words.",
+     "definitionFit": "To estrange is to alienate or set apart from someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvring"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +889,35 @@
     "text": "Stand waiting for the driver",
     "enumeration": "3"
    },
-   "solution": "TEE"
+   "solution": "TEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand waiting for the driver",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Stand waiting for the driver",
+       "at": 0,
+       "note": "the driver is a golf club, and the stand is the small peg holding the ball before a ... shot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stands at a kerb waiting for a lift.",
+     "definitionFit": "In golf a small peg supports the ball to be struck by the driver, the longest club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "driver"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +931,30 @@
     "text": "Sees how many titles there are?",
     "enumeration": "6"
    },
-   "solution": "COUNTS"
+   "solution": "COUNTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sees how many",
+      "at": 0,
+      "meaning": "finds the total by numbering"
+     },
+     {
+      "text": "titles",
+      "at": 14,
+      "meaning": "noblemen holding a continental rank equivalent to earl"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone checking the number of honours awarded.",
+     "definitionFit": "To count is to tally; counts are European noblemen, and by extension titles of nobility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +968,34 @@
     "text": "Flying club",
     "enumeration": "3"
    },
-   "solution": "BAT"
+   "solution": "BAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flying club",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Flying club",
+       "at": 0,
+       "note": "an airborne mammal shares its name with the club used in cricket or baseball"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The flying mammal and the striking club share one name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1015,36 @@
      }
     ]
    },
-   "solution": "SUNTRAP"
+   "solution": "SUNTRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What Ray was caught in!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What Ray was caught in!",
+       "at": 0,
+       "note": "Ray looks like a man's name but is a ray of sunshine trapped in a sheltered spot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Ray was caught in some trap.",
+     "walkthrough": "The capital R disguises a sunbeam as a person.",
+     "definitionFit": "A suntrap is a sheltered sunny place that holds the warmth of the sun's rays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1058,59 @@
     "text": "A hand holding a transatlantic fruit",
     "enumeration": "8"
    },
-   "solution": "APPLAUSE"
+   "solution": "APPLAUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A hand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 7,
+       "note": "one piece contains the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "at": 31,
+       "gives": "APPLE",
+       "note": "an apple is a fruit"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "words": "transatlantic",
+         "at": 17,
+         "gives": "US",
+         "note": "US, across the Atlantic from Britain"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds an American piece of fruit.",
+     "walkthrough": "To give someone a hand is to applaud them.",
+     "definitionFit": "A hand, as in give them a big hand, means a round of clapping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1124,31 @@
     "text": "Shoot in season",
     "enumeration": "6"
    },
-   "solution": "PEPPER"
+   "solution": "PEPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0,
+      "meaning": "to pelt with shot"
+     },
+     {
+      "text": "season",
+      "at": 9,
+      "meaning": "to add a spice to food"
+     }
+    ],
+    "explanation": {
+     "surface": "A hunter shooting during the open season.",
+     "definitionFit": "To pepper a target is to riddle it with shot; to pepper food is to season it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1162,35 @@
     "text": "Got out of doing something",
     "enumeration": "6"
    },
-   "solution": "EARNED"
+   "solution": "EARNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Got out of doing something",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Got out of doing something",
+       "at": 0,
+       "note": "reads like avoiding a task, but means gaining as a result of work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dodged a chore.",
+     "definitionFit": "To earn is to gain in return for labour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1210,41 @@
      }
     ]
    },
-   "solution": "FIRSTRATE"
+   "solution": "FIRSTRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very good",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "starting",
+       "at": 10,
+       "gives": "FIRST",
+       "note": "first means at the start"
+      },
+      {
+       "words": "speed",
+       "at": 19,
+       "gives": "RATE",
+       "note": "a rate is a speed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a fast start in a race.",
+     "definitionFit": "First-rate means excellent, of the highest class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 27,
@@ -420,7 +1258,43 @@
     "text": "Find an answer when love's amiss",
     "enumeration": "5"
    },
-   "solution": "SOLVE"
+   "solution": "SOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Find an answer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "amiss",
+       "at": 27,
+       "note": "things gone wrong, so the letters are out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "love's",
+       "at": 20,
+       "gives": "LOVES",
+       "note": "love's here is love is, so its letters are L, O, V, E, S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seeks a fix when a romance goes wrong.",
+     "walkthrough": "'amiss' rearranges LOVES; 'when' is a link word.",
+     "definitionFit": "To solve is to work out the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love's"
+    }
+   }
   },
   {
    "number": 28,
@@ -434,7 +1308,11 @@
     "text": "To give food to the pet, returned",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotationWithheld": {
+    "why": "To give food to the pet, returned (5): CAT gives the pet, but nothing in the clue as held gives the ER (perhaps 're-turned' was printed), so the parse cannot be stated honestly",
+    "clue": "To give food to the pet, returned"
+   }
   },
   {
    "number": 29,
@@ -448,7 +1326,49 @@
     "text": "Prepared but indisposed to fly around",
     "enumeration": "7"
    },
-   "solution": "WILLING"
+   "solution": "WILLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prepared",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 31,
+       "note": "one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fly",
+       "at": 27,
+       "gives": "WING",
+       "note": "to wing is to fly"
+      },
+      {
+       "words": "indisposed",
+       "at": 13,
+       "gives": "ILL",
+       "note": "indisposed means ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ready to go but too sick to travel by air.",
+     "walkthrough": "'but' and 'to' are link words.",
+     "definitionFit": "Willing means ready and prepared to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "indisposed"
+    }
+   }
   },
   {
    "number": 30,
@@ -462,7 +1382,52 @@
     "text": "Does wander about at night, lonely",
     "enumeration": "8"
    },
-   "solution": "DESOLATE"
+   "solution": "DESOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lonely",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wander about",
+         "at": 5,
+         "note": "moving aimlessly, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Does",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "at night",
+       "at": 18,
+       "gives": "LATE",
+       "note": "late means late in the day, at night"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deer roaming at night, solitary.",
+     "walkthrough": "'Does' looks like a verb but is female deer; 'wander about' rearranges its letters into DESO.",
+     "definitionFit": "Desolate means bleak and forlorn, alone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Does"
+    }
+   }
   },
   {
    "number": 31,
@@ -476,7 +1441,49 @@
     "text": "In addition, accommodating the former queen",
     "enumeration": "6"
    },
-   "solution": "ANNEXE"
+   "solution": "ANNEXE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "addition",
+      "at": 3
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "at": 13,
+       "note": "one piece holds the other inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "queen",
+       "at": 38,
+       "gives": "ANNE",
+       "note": "Anne was a British queen"
+      },
+      {
+       "words": "the former",
+       "at": 27,
+       "gives": "EX",
+       "note": "ex means former"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extension to house an ex-monarch.",
+     "walkthrough": "'In' is a link word.",
+     "definitionFit": "An annexe is a building added on, an extension."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "queen"
+    }
+   }
   }
  ]
 }
