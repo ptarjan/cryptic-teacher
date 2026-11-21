@@ -206,7 +206,7 @@ check(L.wall_level(wflat[:1]), 60.0, "wall s/clue is session wall over clues")
 check(L.wall_level([wflat[0], row(9, 0.04)]), None, "a window with a row lacking wall time is judged in dollars")
 check(L.cause_wall(wflat, "rule:a"), (3.6, 6.0, 0.5), "cause: 6 min over 100 clues = 3.6 s/clue, 6 min/h, 5/10 sessions")
 reason, facts = L.should_wake(wflat, None, quiet, now)
-check((facts["timed"], round(facts["saving_h"], 2), facts["fix_min"]), (True, round(3.6 * 1e6 * 0.5 / 3600, 2), 30.0),
+check((facts["timed"], round(facts["saving_h"], 2), facts["fix_min"]), (True, round(3.6 * min(1e6, L.burn_clues_per_day(wflat) * L.PAYBACK_DAYS) * 0.5 / 3600, 2), 30.0),
       "payback counted in burn hours over a 30 agent-min fix")
 check(("s/clue after check" in reason, "agent-min fix" in reason, "$" in reason.split("fix")[0]), (True, True, True),
       "reason speaks wall time with dollars as a side column")

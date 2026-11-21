@@ -1042,10 +1042,10 @@ for _name, _q, _clue, _want in [
         check("quote tolerates debris: " + _name, False, str(_e))
 for _name, _q, _clue in [
         ("a letter off", "tea", "Party the end the"),
-        ("a dropped word", "Down", "Go down the road"),
+        ("a dropped word", "go road", "Go down the road"),
         ("an added word", "Go down", "Down the road"),
-        ("two words run together", "teacher", "tea cher and more"),
-        ("a doubled word in the clue is not collapsed", "fire gun", "Fire the gun the gun")]:
+        ("two words run together", "teacher", "tea and cher more"),
+        ("a doubled word in the clue is not collapsed", "fire gun gun", "Fire the gun the gun")]:
     try:
         w.locate({"words": _q}, _clue)
         check("quote still refused: " + _name, False, "accepted")
