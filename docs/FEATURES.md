@@ -26,7 +26,10 @@ the site offers.
   definition, type) can be taken in any order. The building blocks and the
   walkthrough stay locked until the spotting rungs are up. The hint buttons are a step track of chips (Indicator, Definition, Clue type, Pieces, Solution): open, worked out (star), available or dim.
   Tapping a chip only chooses the step; the help bar button ("Show me") is what reveals it. In Pieces, the formula line is the question: tap a blank chip to make it current, tap clue words and Lock in, or Show me fills just that chip.
-- **Solving the clue unlocks every rung for free.**
+- **Solving the clue unlocks every rung for free.** The help bar then becomes one free
+  "How it works" button (no red, no cost text) in place of the step buttons; one tap
+  opens every step in order. Whatever was open stays open, nothing opens by itself,
+  and the "Good clue?" vote sits under it.
 - **The indicator and type rungs end on a rule chip.** Tapping the small "rule"
   chip at the end of the rung opens a line that says
   what that device's words usually mean in any clue, with other words that do

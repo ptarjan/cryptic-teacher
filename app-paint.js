@@ -132,6 +132,21 @@
   let helpMore = null;   // the entry key whose "…" is open
   const STEP_NAMES = { indicators: "Indicator", definition: "Definition",
                        type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
+  const HOW_TEXT = "How it works";
+  // After solving: every step still shut opens, in ladder order, in one tap.
+  // Free, because a solved clue's score is frozen (hintsCharged); what was
+  // already open stays as it was and nothing opens before this tap.
+  function howTap() {
+    const on = currentEntry();
+    const ann = on && annOf(on);
+    if (!on || !ann || !isEntrySolved(on)) return;
+    const shut = ladderSteps(ann, clueText(on)).filter((x) => !isShown(on, x.key));
+    guessing = null;
+    helpOn = null;
+    shut.forEach((x) => showHint(on, x.key));
+    if (shut.length) focusHint(shut[0].key);
+    refreshAll();
+  }
   function helpTarget(e) {
     const ann = e && annOf(e);
     if (!ann) return null;
@@ -388,12 +403,17 @@
     const escape = $("hint-escape");
     if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
-    const helpT = ann ? helpTarget(e) : null;
+    // Solved: the row of step buttons and "Show me" give way to one free "How
+    // it works" while any step is still shut (howTap opens them all).
+    const steps = ann ? ladderSteps(ann, clueText(e)) : [];
+    const howLeft = !!(solved && steps.some((x) => !isShown(e, x.key)));
+    const helpT = ann && !solved ? helpTarget(e) : null;
     const fill = offerFill ? fillHTML(e) : "";
     const moreOpen = helpMore === key || !!(report && report.key === key);
     const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
     const escapeHTML = (helpT ? showMeHTML(e, helpT) + " " : "")
       + (helpT ? "" : fill + (fill ? " " : ""))
+      + (howLeft ? `<button id="hx-how" class="small help-show">${HOW_TEXT}</button> ` : "")
       + (canReveal ? letterBtnHTML(e) + " " : "")
       // On every unsolved clue, whatever its type, and not a hint: it holds
       // only what the solver types into it.
@@ -403,6 +423,7 @@
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
       if (helpT) $("guess-tell").onclick = showMeTap;
+      if (howLeft) $("hx-how").onclick = howTap;
       if (fill) $("hx-entry").onclick = fillTap;
       $("hx-more").onclick = () => {
         const on = currentEntry();
@@ -667,6 +688,9 @@
       const hue = { indicators: "ind", definition: "def", type: "typ" };
       const lead = open.length ? open[0].s.key : null;
       steps.forEach((s) => {
+        // Solved: only the open steps stay (they scroll to their notes); the
+        // unopened ones are what "How it works" in the help bar replaces.
+        if (solved && !isShown(e, s.key)) return;
         const name = trackNames[s.key] || s.label;
         const tint = hue[s.key] ? " " + hue[s.key] : "";
         if (isShown(e, s.key)) {

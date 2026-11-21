@@ -619,18 +619,18 @@ registry["reset-puzzle"].onclick();
   solo.solution.split("").forEach((ch) => kd(ev(ch)));
   assert(/clue-done clean/.test(registry["hint-clue"].innerHTML),
     "typed it cold: " + registry["hint-clue"].innerHTML);
-  const buttons = registry["hint-rungs"].children;
-  assert(buttons.length && !buttons.some((b) => b.disabled),
-    "solving unlocks every rung: " + buttons.map((b) => b.textContent + (b.disabled ? " [locked]" : "")).join(" | "));
-  assert(!buttons.some((b) => /hint/i.test(b.textContent)),
-    "rungs are questions, never hints to spend: " + buttons.map((b) => b.textContent).join(" | "));
+  // Step 10: the row of step buttons is gone; one free "How it works" stands
+  // in the help bar, with no cost text and nothing red.
+  assert(!registry["hint-rungs"].children.some((b) => b.onclick),
+    "solving removes the row of step buttons: " + registry["hint-rungs"].children.map((b) => b.textContent).join(" | "));
+  const bar = registry["hint-escape"].innerHTML;
+  assert(/id="hx-how"[^>]*>How it works</.test(bar) && !/data-arm|arm-cost|1 hint/.test(bar),
+    "solving leaves one free How it works button: " + bar);
+  assert(!/hint-step/.test(registry["hint-body"].innerHTML), "nothing opens by itself on a cold solve");
 
-  // Read the lot, walkthrough included, and the score must not move.
+  // Read the lot, walkthrough included, in one tap, and the score must not move.
   const before = registry["scorebar"].innerHTML;
-  for (let i = 0; i < 8 && registry["hint-rungs"].children[0]
-    && registry["hint-rungs"].children[0].onclick; i++) {
-    takeRung(registry["hint-rungs"].children[0]);
-  }
+  registry["hx-how"].onclick();
   assert(/hint-step/.test(registry["hint-body"].innerHTML), "the rungs really did open");
   assert(/clue-done clean/.test(registry["hint-clue"].innerHTML),
     "studying a solved clue is free: " + registry["hint-clue"].innerHTML);

@@ -61,6 +61,14 @@ Terms used below:
   the old row shape through `registry["hint-rungs"]` in `tools/fake_dom.js`
   (a chip tap that only chose a step is followed by "Show me", and Reveal
   answer is appended from the help bar).
+- **After solving** (`isEntrySolved`): the track keeps only the steps already
+  open, and the help bar's "Show me", Reveal letter and Letters give way to one
+  free button `#hx-how`, "How it works" (`howTap`). One tap calls `showHint` on
+  every step still shut, in ladder order; it is free because a solved clue's
+  hint count is frozen (`hintsCharged`), carries no `data-arm` and no cost
+  text, and disappears once nothing is left to open. Nothing opens before the
+  tap and what was open stays open. The "Good clue?" vote (`#hint-vote`) sits
+  under the bar. The save format is unchanged.
 - **One help bar** (`#hint-escape`, a wrapping row under the panel): one help
   button `#guess-tell` (accent colour), Reveal letter, Letters and a "…". While
   words are picked (or a board is full) it reads "Lock in": free, no `data-arm`.

@@ -11,7 +11,7 @@
       charges nothing; the second tap reveals and charges one.
    2. timeoutDisarms: left alone for the arm window, the button goes back.
    3. elsewhereDisarms: a click on anything else puts it back too.
-   4. freeIsOneTap: on a solved clue the blocks rung opens on one tap, unarmed. */
+   4. freeIsOneTap: on a solved clue "How it works" opens every step on one tap, unarmed. */
 "use strict";
 const { boot } = require("../tools/fake_dom.js");
 
@@ -112,16 +112,18 @@ check(asked + outright > 0, `found a clue whose blocks can cost (asked ${asked},
     const t = open();
     t.reg["clue-" + entryId(e)].listeners.click[0]();
     for (const ch of e.solution) t.key(ch);
-    const b = t.blocksBtn();
-    if (!b) continue;
+    // Solved: the help bar is one free "How it works" (step 10), no step buttons.
+    if (!/id="hx-how"[^>]*>How it works</.test(t.bar())) continue;
     const before = t.hints();
-    b.onclick();
-    check(!t.armedBtn() && t.blocksOpen() && t.hints() === before,
-      `freeIsOneTap (${entryId(e)}): one tap opens the blocks, unarmed, no charge`);
+    check(!t.blocksOpen() && !/arm|hint</.test(t.bar().replace(/aria-[a-z]+="[^"]*"/g, "")),
+      `freeIsOneTap (${entryId(e)}): before the tap nothing is open, and the button carries no cost text`);
+    t.reg["hx-how"].onclick();
+    check(!t.armedBtn() && t.blocksOpen() && t.hints() === before && !/id="hx-how"/.test(t.bar()),
+      `freeIsOneTap (${entryId(e)}): one tap opens every step, unarmed, no charge`);
     done = true;
     break;
   }
-  check(done, "freeIsOneTap: found a solved clue offering its blocks");
+  check(done, "freeIsOneTap: found a solved clue offering How it works");
 }
 
 console.log(failures ? `${failures} FAILURE(S)` : "all passed");
