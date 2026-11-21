@@ -7,7 +7,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "a Gale Sunday Times 2000-06 page refused, its ACROSS and DOWN columns side by side left of the grid read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T18:18:00+00:00"
 
 
 def due(row):
