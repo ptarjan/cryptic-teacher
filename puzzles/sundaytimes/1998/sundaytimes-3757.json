@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "A root to watch",
     "enumeration": "6"
    },
-   "solution": "TURNIP"
+   "solution": "TURNIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A root",
+      "at": 0,
+      "meaning": "a root vegetable, the swede's white cousin"
+     },
+     {
+      "text": "watch",
+      "at": 10,
+      "meaning": "old slang for a large, thick pocket watch"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to keep an eye on a root vegetable growing.",
+     "definitionFit": "The word names both a root vegetable and, in old slang, a bulky pocket timepiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +71,54 @@
     "text": "Employers are entertaining, after taking the morning off",
     "enumeration": "5"
    },
-   "solution": "USERS"
+   "solution": "USERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Employers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 34,
+       "note": "taking signals that something is to be removed from the word for entertainers"
+      },
+      {
+       "text": "off",
+       "at": 53,
+       "note": "off completes the removal, saying the morning is stripped from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "are entertaining",
+       "at": 10,
+       "gives": "AMUSERS",
+       "note": "those who are entertaining are amusers"
+      },
+      {
+       "words": "the morning",
+       "at": 41,
+       "gives": "AM",
+       "note": "AM is the abbreviation for morning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bosses lay on fun after giving staff the morning off.",
+     "walkthrough": "AMUSERS (those who are entertaining) loses AM (morning), leaving those who employ things.",
+     "definitionFit": "Users are people who employ something, in the sense of making use of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Employers"
+    }
+   }
   },
   {
    "number": 3,
@@ -55,10 +129,81 @@
    },
    "length": 7,
    "clue": {
-    "text": "Point to a tailless bird! brought in to the city",
+    "text": "Point to a tailless bird I brought in to the city",
     "enumeration": "7"
    },
-   "solution": "NAIROBI"
+   "solution": "NAIROBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the city",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 27,
+       "note": "brought in means the letter I is placed inside the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Point",
+         "at": 0,
+         "gives": "N",
+         "note": "N is north, a point of the compass"
+        },
+        {
+         "words": "a",
+         "at": 9
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 11,
+           "note": "tailless means the bird loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bird",
+           "at": 20,
+           "gives": "ROBIN",
+           "note": "the robin is a common garden bird"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 25,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird with no tail is pointed out and brought into town.",
+     "walkthrough": "N (a compass point), A and ROBI (ROBIN without its tail), with I put between A and ROBI. Nairobi is the capital of Kenya.",
+     "definitionFit": "Nairobi is the capital city of Kenya."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +217,59 @@
     "text": "Fish can disseminate energy, maybe?",
     "enumeration": "9"
    },
-   "solution": "PERCHANCE"
+   "solution": "PERCHANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "maybe",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fish",
+       "at": 0,
+       "gives": "PERCH",
+       "note": "the perch is a freshwater fish"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disseminate",
+         "at": 9,
+         "note": "to disseminate is to scatter, so the letters of can are spread into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 5,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "at": 21,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps fish can spread energy about.",
+     "walkthrough": "'disseminate' scatters CAN into ANC; PERCH goes before it and E (energy) after.",
+     "definitionFit": "Perchance is an old-fashioned word for perhaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disseminate"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +283,52 @@
     "text": "Opening serves can unfortunately lose direction",
     "enumeration": "8"
    },
-   "solution": "CREVASSE"
+   "solution": "CREVASSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "unfortunately",
+       "at": 19,
+       "note": "unfortunately says the letters of serves can have come out badly and in a new order"
+      },
+      {
+       "text": "lose",
+       "at": 33,
+       "note": "lose tells us to drop a letter from the rearranged words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "serves can",
+       "at": 8
+      },
+      {
+       "words": "direction",
+       "at": 38,
+       "gives": "N",
+       "note": "N is north, a compass direction"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player's serves, aimed badly, miss their target.",
+     "walkthrough": "'unfortunately' rearranges SERVES CAN, which 'lose direction' says hold the answer plus N (north): drop the N and the other eight letters make the opening.",
+     "definitionFit": "A crevasse is a deep crack or fissure in a glacier, an opening in the ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serves"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +342,40 @@
     "text": "Animal juggling act",
     "enumeration": "3"
    },
-   "solution": "CAT"
+   "solution": "CAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "juggling",
+       "at": 7,
+       "note": "juggling tosses things about, so the letters of act are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "act",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus performance in which a creature juggles.",
+     "definitionFit": "A cat is a domestic animal, a feline pet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "juggling"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +389,49 @@
     "text": "Quiet apprentice supporting the board",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the board",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 17,
+       "note": "in a down clue, supporting puts the learner's letter beneath the word for quiet"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Quiet",
+       "at": 0,
+       "gives": "EASE",
+       "note": "ease is peace and quiet, rest"
+      },
+      {
+       "words": "apprentice",
+       "at": 6,
+       "gives": "L",
+       "note": "L is a learner, as on L-plates"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee quietly props up a board.",
+     "walkthrough": "The definition is loose: an easel is the stand on which an artist's board rests, so the clue names the thing by what it holds.",
+     "definitionFit": "An easel is the frame an artist's board or canvas sits on, so it stands in for the board's mount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +445,35 @@
     "text": "Passage through which one should move briskly",
     "enumeration": "7"
    },
-   "solution": "ALLEGRO"
+   "solution": "ALLEGRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passage through which one should move briskly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Passage through which one should move briskly",
+       "at": 0,
+       "note": "a passage sounds like a corridor to hurry along, but it is a section of music marked to be played at a lively pace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corridor where one is expected to hurry.",
+     "definitionFit": "In music the Italian tempo marking for fast and lively labels a passage played briskly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Passage"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +487,30 @@
     "text": "Good-for-nothing — hadn't got a shirt to call his own",
     "enumeration": "9"
    },
-   "solution": "SHIFTLESS"
+   "solution": "SHIFTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Good-for-nothing",
+      "at": 0,
+      "meaning": "lazy and lacking ambition"
+     },
+     {
+      "text": "hadn't got a shirt to call his own",
+      "at": 19,
+      "meaning": "read literally, without a shift, an old word for a shirt or chemise"
+     }
+    ],
+    "explanation": {
+     "surface": "A layabout too poor to own a shirt.",
+     "definitionFit": "A shiftless person is idle and feckless; and a shift is an old name for a shirt, so without one means shirtless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +524,53 @@
     "text": "Runs down as tiger is driven out from lair",
     "enumeration": "10"
    },
-   "solution": "DENIGRATES"
+   "solution": "DENIGRATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runs down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lair",
+       "at": 38,
+       "gives": "DEN",
+       "note": "a den is a wild animal's lair"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "is driven out",
+         "at": 19,
+         "note": "something driven out is forced from its place, signalling the letters of as tiger are dislodged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as tiger",
+         "at": 10,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiger is chased out of its lair, as hunters run it down.",
+     "walkthrough": "'Runs down' means disparages, not chases. 'is driven out' rearranges AS TIGER to IGRATES, which goes after DEN.",
+     "definitionFit": "To run down someone is to belittle or disparage them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +584,11 @@
     "text": "Late-starter, second-rate, cheer leader — being worldly",
     "enumeration": "4"
    },
-   "solution": "LAIC"
+   "solution": "LAIC",
+   "annotationWithheld": {
+    "why": "Late-starter, second-rate, cheer leader — being worldly (4): L + ? + C; nothing in the clue as held gives AI (A1 is first-rate, not second-rate), so a word looks misprinted or garbled and no source gives the original.",
+    "clue": "Late-starter, second-rate, cheer leader — being worldly"
+   }
   },
   {
    "number": 11,
@@ -184,7 +602,41 @@
     "text": "City's very large — look!",
     "enumeration": "4"
    },
-   "solution": "OSLO"
+   "solution": "OSLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very large",
+       "at": 7,
+       "gives": "OS",
+       "note": "OS is the clothing abbreviation for outsize"
+      },
+      {
+       "words": "look",
+       "at": 20,
+       "gives": "LO",
+       "note": "lo is an old word meaning look! or behold!"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims at how huge a city is.",
+     "definitionFit": "Oslo is the capital city of Norway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +650,35 @@
     "text": "They may be seen playing on the lanes at night",
     "enumeration": "10"
    },
-   "solution": "HEADLIGHTS"
+   "solution": "HEADLIGHTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They may be seen playing on the lanes at night",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They may be seen playing on the lanes at night",
+       "at": 0,
+       "note": "playing suggests musicians or children on country lanes, but here it means beams of light shining on the road from a car after dark"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Performers or children seen playing in country lanes after dark.",
+     "definitionFit": "Car lamps at the front of a vehicle throw beams that play over the road at night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +692,58 @@
     "text": "Rat trapped in a sunken valley — the perfect place",
     "enumeration": "7"
    },
-   "solution": "ARCADIA"
+   "solution": "ARCADIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the perfect place",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 15
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trapped in",
+         "at": 4,
+         "note": "trapped in means the word for rat is held inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sunken valley",
+         "at": 17,
+         "gives": "RIA",
+         "note": "a ria is a drowned river valley on a coast"
+        },
+        {
+         "words": "Rat",
+         "at": 0,
+         "gives": "CAD",
+         "note": "a cad is a rat, a scoundrel"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rat is caught in a flooded valley, hardly paradise.",
+     "walkthrough": "A ria is a coastal valley drowned by the sea; CAD sits inside A RIA.",
+     "definitionFit": "Arcadia is the idealised pastoral paradise of Greek legend, a byword for an ideal spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rat"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +757,52 @@
     "text": "Behaviour getting airman into trouble",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Behaviour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "airman",
+       "at": 18,
+       "gives": "AC",
+       "note": "AC is aircraftman, the lowest RAF rank"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trouble",
+         "at": 30,
+         "note": "to trouble is to stir up or disturb, so the letters of into are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "into",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's conduct lands a young airman in trouble.",
+     "walkthrough": "'into' reads as part of 'get into trouble' but is the anagram fodder: 'trouble' turns INTO into TION, after AC (aircraftman).",
+     "definitionFit": "Action is conduct or deeds, what someone does, as is behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +822,41 @@
      }
     ]
    },
-   "solution": "COHEIRESS"
+   "solution": "COHEIRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 4,
+       "note": "could be signals that the letters of so rich see might be rearranged into something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "so rich, see",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is said to be so wealthy, you see.",
+     "walkthrough": "A woman sharing an inheritance could well be rich, so the whole clue hints at the answer too.",
+     "definitionFit": "A coheiress is a woman who inherits jointly with another, so the pronoun stands for her."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rich"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +870,42 @@
     "text": "Doctor cures Tom — he's always right",
     "enumeration": "8"
    },
-   "solution": "CUSTOMER"
+   "solution": "CUSTOMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he's always right",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Doctor",
+       "at": 0,
+       "note": "to doctor is to tamper with or alter, so the letters of cures Tom are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cures Tom",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor heals a patient called Tom, who insists he knows best.",
+     "walkthrough": "'Doctor' looks like the physician who cures Tom but is the anagram signal. The definition plays on the shop saying 'the customer is always right'.",
+     "definitionFit": "The retail maxim says the buyer is always right, so the phrase describes a shopper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +919,30 @@
     "text": "Temporary bed that pulls out?",
     "enumeration": "9"
    },
-   "solution": "STRETCHER"
+   "solution": "STRETCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Temporary bed",
+      "at": 0,
+      "meaning": "a litter for carrying the sick or wounded"
+     },
+     {
+      "text": "that pulls out?",
+      "at": 14,
+      "meaning": "something that extends or pulls taut, a device that lengthens"
+     }
+    ],
+    "explanation": {
+     "surface": "A folding bed that extends.",
+     "definitionFit": "A stretcher is a litter for carrying a patient, and literally a thing that pulls something longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +962,50 @@
      }
     ]
    },
-   "solution": "SHARPEND"
+   "solution": "SHARPEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make a point of it",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cover",
+       "at": 9,
+       "note": "cover means the word for despatch wraps round the instrument"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Despatch",
+       "at": 0,
+       "gives": "SEND",
+       "note": "to despatch something is to send it"
+      },
+      {
+       "words": "instrument",
+       "at": 19,
+       "gives": "HARP",
+       "note": "the harp is a stringed musical instrument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sends a protective case for a musical instrument and insists on doing so.",
+     "walkthrough": "'make a point of it' sounds like insisting, but it describes the pointed end of something.",
+     "definitionFit": "The sharp end of a blade or tool is its point, the part that is made pointed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1019,67 @@
     "text": "British economist set free, without a car and with nothing on",
     "enumeration": "7"
    },
-   "solution": "RICARDO"
+   "solution": "RICARDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "British economist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 59,
+       "note": "in a down clue, on puts the zero after the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 28,
+         "note": "without in its old sense of outside means the word for set free goes round the car"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set free",
+         "at": 18,
+         "gives": "RID",
+         "note": "to rid is to free or clear"
+        },
+        {
+         "words": "car",
+         "at": 38,
+         "gives": "CAR",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "at": 51,
+       "gives": "O",
+       "note": "O is zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British economist is freed, car-less and naked.",
+     "walkthrough": "'without' here means outside: RID goes round CAR, and O (nothing) comes on after. David Ricardo was the classical economist.",
+     "definitionFit": "David Ricardo was a leading classical economist of early nineteenth-century Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1093,42 @@
     "text": "Time off from regiment — most unusual",
     "enumeration": "6"
    },
-   "solution": "RAREST"
+   "solution": "RAREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "most unusual",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "regiment",
+       "at": 14,
+       "gives": "RA",
+       "note": "RA is the Royal Artillery, a British Army regiment"
+      },
+      {
+       "words": "Time off",
+       "at": 0,
+       "gives": "REST",
+       "note": "rest is time off work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier gets leave from the regiment, a rare event.",
+     "walkthrough": "'from' just sets REST next to RA; the charade reads RA then REST.",
+     "definitionFit": "Rarest is the superlative of rare, so it means least common."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1142,42 @@
     "text": "Race past and keep running to get a place",
     "enumeration": "7"
    },
-   "solution": "RANGOON"
+   "solution": "RANGOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a place",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Race past",
+       "at": 0,
+       "gives": "RAN",
+       "note": "ran is the past tense of run, to race"
+      },
+      {
+       "words": "keep running",
+       "at": 14,
+       "gives": "GOON",
+       "note": "go on means to keep running or continue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner sprints by and keeps going to finish placed.",
+     "walkthrough": "Rangoon, now Yangon, is the former capital of Myanmar.",
+     "definitionFit": "Rangoon is a city in Myanmar, the old Burmese capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1191,31 @@
     "text": "Magic broomstick",
     "enumeration": "10"
    },
-   "solution": "WITCHCRAFT"
+   "solution": "WITCHCRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Magic",
+      "at": 0,
+      "meaning": "sorcery or spells"
+     },
+     {
+      "text": "broomstick",
+      "at": 6,
+      "meaning": "read cryptically, a broomstick is the vehicle that a witch flies on, her craft"
+     }
+    ],
+    "explanation": {
+     "surface": "A conjuror's enchanted broom.",
+     "definitionFit": "Witches' sorcery is magic; and a broomstick is, punningly, the flying vessel a sorceress rides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "broomstick"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1229,30 @@
     "text": "Blows on the wrists?",
     "enumeration": "5"
    },
-   "solution": "CUFFS"
+   "solution": "CUFFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blows",
+      "at": 0,
+      "meaning": "slaps or smacks with the hand"
+     },
+     {
+      "text": "on the wrists?",
+      "at": 6,
+      "meaning": "the turned-back ends of sleeves at the wrists"
+     }
+    ],
+    "explanation": {
+     "surface": "Slaps across the wrists.",
+     "definitionFit": "Light blows with the open hand share a name with the bands of a sleeve at the wrist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1266,54 @@
     "text": "Fellow turning key and then knob",
     "enumeration": "4"
    },
-   "solution": "NODE"
+   "solution": "NODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knob",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 7,
+         "note": "turning means the word for a fellow is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fellow",
+         "at": 0,
+         "gives": "DON",
+         "note": "a don is a fellow of a college"
+        }
+       ]
+      },
+      {
+       "words": "key",
+       "at": 15,
+       "gives": "E",
+       "note": "E is a musical key"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns a key and then a doorknob.",
+     "walkthrough": "A don, a college fellow, read backwards gives NOD; E is a key in music.",
+     "definitionFit": "A node is a knob or lump, such as a swelling on a stem or joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1327,29 @@
     "text": "Crowded together, being stupid",
     "enumeration": "5"
    },
-   "solution": "DENSE"
+   "solution": "DENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crowded together",
+      "at": 0,
+      "meaning": "closely packed"
+     },
+     {
+      "text": "stupid",
+      "at": 24,
+      "meaning": "slow-witted, thick"
+     }
+    ],
+    "explanation": {
+     "surface": "Packed in and thick-headed.",
+     "definitionFit": "Dense describes things packed tightly and, of a person, someone slow to understand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1363,44 @@
     "text": "Poet said to smirk",
     "enumeration": "4"
    },
-   "solution": "LEAR"
+   "solution": "LEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LEAR",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 5,
+       "note": "said means we want a word that sounds like the word for smirk"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smirk",
+       "at": 13,
+       "gives": "LEER",
+       "note": "to leer is to smirk or look slyly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet is reported to wear a smug grin.",
+     "walkthrough": "Edward Lear was the English writer of nonsense verse and limericks.",
+     "definitionFit": "Edward Lear was a Victorian writer of nonsense verse such as The Owl and the Pussy-cat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smirk"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1420,59 @@
      }
     ]
    },
-   "solution": "FLESHWOUND"
+   "solution": "FLESHWOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "injury",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to have",
+       "at": 25,
+       "note": "to have means the word for discovered holds the shuffled letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "discovered",
+       "at": 14,
+       "gives": "FOUND",
+       "note": "found means discovered"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "migrant",
+         "at": 6,
+         "note": "a migrant moves from place to place, so the letters of Welsh wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Welsh",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welshman working abroad turns out to have been hurt.",
+     "walkthrough": "'migrant' rearranges WELSH to LESHW, which goes inside FOUND (discovered) after its F.",
+     "definitionFit": "A flesh wound is a superficial injury that cuts the skin but spares bone and organs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "migrant"
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1486,29 @@
     "text": "The aim is a conclusive one",
     "enumeration": "3"
    },
-   "solution": "END"
+   "solution": "END",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The aim",
+      "at": 0,
+      "meaning": "a goal or purpose"
+     },
+     {
+      "text": "a conclusive one",
+      "at": 11,
+      "meaning": "a finish, the final part"
+     }
+    ],
+    "explanation": {
+     "surface": "The goal is a decisive one.",
+     "definitionFit": "An end is a goal, as in means to an end, and also the finish or close of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -454,7 +1522,29 @@
     "text": "Advocated getting married in the old-fashioned way",
     "enumeration": "8"
    },
-   "solution": "ESPOUSED"
+   "solution": "ESPOUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advocated",
+      "at": 0,
+      "meaning": "supported or championed a cause"
+     },
+     {
+      "text": "married in the old-fashioned way",
+      "at": 18,
+      "meaning": "an archaic sense of wed or betrothed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone backed a traditional church wedding.",
+     "definitionFit": "To espouse a cause is to support it; in archaic use to espouse someone is to take them in marriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -468,7 +1558,30 @@
     "text": "Carpet an athlete",
     "enumeration": "6"
    },
-   "solution": "RUNNER"
+   "solution": "RUNNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carpet",
+      "at": 0,
+      "meaning": "a long narrow rug for a hall or stairs"
+     },
+     {
+      "text": "athlete",
+      "at": 10,
+      "meaning": "a competitor in races"
+     }
+    ],
+    "explanation": {
+     "surface": "A rug is likened to a sportsperson.",
+     "definitionFit": "A long strip of carpet along a corridor shares its name with one who races on the track."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carpet"
+    }
+   }
   }
  ]
 }
