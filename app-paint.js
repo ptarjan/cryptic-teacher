@@ -107,12 +107,20 @@
 
   // ---------- the help bar ----------
   //
-  // One row under the panel: "Show me", Reveal letter, Letters, and a "…" that
-  // holds the rare things (Reveal answer while there are steps left to show,
-  // Report a bad hint, the blog's write-up). "Show me" is the one way to pay
-  // for the explanation: it reveals the CURRENT step, whatever that is, on two
-  // taps with the armed text on itself. The step buttons above only choose
-  // (see setButtons); they never spend.
+  // One row under the panel: the help button, Reveal letter, Letters, and a
+  // "…" that holds the rare things (Reveal answer while there are steps left
+  // to show, Report a bad hint, the blog's write-up). The step buttons above
+  // only choose (see setButtons); they never spend.
+  //
+  // The help button is ONE button with two jobs (Paul 11-20, "One button").
+  // While words are picked for the question on the table it reads "Lock in"
+  // and is free: picks never confirm themselves ("Pick, then confirm"), so
+  // this tap is the answer. A right one opens the step as worked out; a wrong
+  // one opens it all the same, simply shown, the way "Show me" shows it, and
+  // that is what it costs: 1 hint. No red, no "wrong", nothing cleared (Paul
+  // 11-20: "I picked the one that just showed the right thing"). With nothing
+  // picked it reads "Show me": the one way to pay for the explanation, which
+  // reveals the CURRENT step on two taps with the armed text on itself.
   //
   // The current step, in order: the question on the table; else the step the
   // solver last chose that had no question to ask; else the next piece of an
@@ -121,8 +129,7 @@
   // (rungCosts) and whose verdict machinery (finishGuess) does the opening.
   //
   // The button keeps the id the question's own tell button had (#guess-tell):
-  // it does that job and more, and the id is what the keyboard-focus restore
-  // and the checks find it by.
+  // the id is what the keyboard-focus restore and the checks find it by.
   let helpOn = null;     // { key, rung, step }: a chosen step with no question
   let helpMore = null;   // the entry key whose "…" is open
   const STEP_NAMES = { indicators: "Indicator", definition: "Definition",
@@ -148,11 +155,24 @@
     return s ? { rung: s.key, step: 0 } : null;
   }
   const helpArm = (t) => t.asked ? t.rung + "-tell" : t.rung === "blocks" ? "blocks-" + t.step : t.rung;
+  // Whether the question on the table has an answer ready to lock in: a word
+  // picked in the clue, or every slot of a matching question filled. A family
+  // chip is its own answer (one tap), so a choice question never has one.
+  function lockReady(a) {
+    if (!a || a.choices || !guessing) return false;
+    return a.pairs ? (guessing.slots || []).every((n) => n >= 0) : guessing.picked.length > 0;
+  }
   function showMeHTML(e, t) {
+    const name = esc(STEP_NAMES[t.rung] || t.rung);
+    // Free, so it never arms and carries no data-arm: a free control never warns.
+    if (t.asked && lockReady(currentAsk())) {
+      return `<button id="guess-tell" class="small help-show lock-in${
+        nuxPointsCheck(nuxAsk()) ? " walk-point" : ""}" aria-label="Lock in: ${name}">Lock in</button>`;
+    }
     const arm = helpArm(t);
     const armed = armedFor(e, arm);
     return `<button id="guess-tell" data-arm="${arm}" class="small help-show${armed ? " arm-cost" : ""}"`
-      + ` aria-label="Show me: ${esc(STEP_NAMES[t.rung] || t.rung)}">${armed ? ARMED_TEXT : "Show me"}</button>`;
+      + ` aria-label="Show me: ${name}">${armed ? ARMED_TEXT : "Show me"}</button>`;
   }
   // Opens one step, or the next piece of Pieces, as handed over rather than
   // worked out. Shared by "Show me" and by a step button whose step is free.
@@ -170,15 +190,24 @@
     if (rung === "blocks") revealPiece(on, at);
   }
   // Never a dead end: being told is a legitimate answer to "do you know this
-  // yet?", and it costs what the step has always cost. Reads the entry and the
-  // question at the moment of the tap (the setHTML rule).
+  // yet?", and it costs what the step has always cost. Reads the entry, the
+  // question and the picks at the moment of the tap (the setHTML rule), so
+  // which of its two jobs the button does is decided here, not when drawn.
   function showMeTap(ev) {
     const on = currentEntry();
     const t = on && helpTarget(on);
     if (!t) return;
+    const a = t.asked ? currentAsk() : null;
+    if (lockReady(a)) {
+      finishGuess(a.pairs ? gradeMatch(a, guessing.slots) : gradeGuess(a), a);
+      return;
+    }
+    // The second click of a double-click on "Lock in" lands on the "Show me"
+    // the answer left behind. It is the same gesture, so it starts nothing.
+    if (ev && ev.detail > 1 && !armedFor(on, helpArm(t))) return;
     if (t.asked) {
       if (rungCosts(on, t.rung, true) && !confirmBlock(on, helpArm(t), ev)) return;
-      finishGuess(null, currentAsk());
+      finishGuess(null, a);
       return;
     }
     if (rungCosts(on, t.rung, false) && !confirmBlock(on, helpArm(t), ev)) return;
@@ -343,6 +372,72 @@
     if (n && !(n.rung === "blocks" && isShown(e, "blocks"))) advanceLadder(e);
   }
 
+  // The help bar, under the panel. Drawn by renderHintPanel from what it
+  // decided (st), and again by paintPicked when a tap on a clue word changes
+  // whether anything is picked: that changes what the one button says, and
+  // nothing else on the row. Handlers re-read the current entry when they
+  // fire (the setHTML rule), so a skipped rewrite keeps working ones.
+  let helpBar = null;   // the st the row was last drawn from
+  function drawHelpBar(e, st) {
+    // The help bar (see helpTarget). Reveal letter is available at any level;
+    // no "(counts against your score)" rider, because the button's own armed
+    // text already says "1 hint". Reveal answer stands in the row where there
+    // is no step left to show (or no explanation at all), and waits in the
+    // "…" while "Show me" still has something to give. The "…" is in the
+    // markup either way, only hidden: what it holds is never news, and a
+    // report being written keeps it open.
+    const { key, ann, solved, offerFill, wheelOpen } = st;
+    const escape = $("hint-escape");
+    if (helpMore && helpMore !== key) helpMore = null;
+    const canReveal = canCheck() && !solved;
+    const helpT = ann ? helpTarget(e) : null;
+    const fill = offerFill ? fillHTML(e) : "";
+    const moreOpen = helpMore === key || !!(report && report.key === key);
+    const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
+    const escapeHTML = (helpT ? showMeHTML(e, helpT) + " " : "")
+      + (helpT ? "" : fill + (fill ? " " : ""))
+      + (canReveal ? letterBtnHTML(e) + " " : "")
+      // On every unsolved clue, whatever its type, and not a hint: it holds
+      // only what the solver types into it.
+      + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">Letters</button> `)
+      + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" aria-label="More help">…</button>`
+      + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
+    if (setHTML(escape, escapeHTML)) {
+      if (canReveal) $("hx-letter").onclick = letterTap;
+      if (helpT) $("guess-tell").onclick = showMeTap;
+      if (fill) $("hx-entry").onclick = fillTap;
+      $("hx-more").onclick = () => {
+        const on = currentEntry();
+        const k = on ? entryKey(on) : null;
+        helpMore = helpMore === k ? null : k;
+        // Closing the "…" puts an unsent report away with it.
+        if (!helpMore && report && report.phase !== "sent") report = null;
+        renderHintPanel();
+      };
+      bindReport();
+    }
+    // Bound on EVERY render, not only when the row's markup changes: two
+    // unsolved clues draw the same row, so moving between them keeps the old
+    // button, and a handler bound once would still hold the first clue's key —
+    // the wheel would open on that clue instead of this one.
+    const hw = $("hx-wheel");
+    if (hw) hw.onclick = () => {
+      freeWheel = wheelOpen ? null : key;
+      // The wheel's letters are picked off the clue's own words, so a question
+      // that was asked on arrival steps aside for it rather than keeping them.
+      if (freeWheel) guessing = null;
+      // Focus first so the ring's focus outline is on the first draw and
+      // the solver can type straight away, as a tap on the disc does.
+      const ak = $("ana-kbd");
+      if (freeWheel && ak) focusHidden(ak);
+      renderHintPanel();
+    };
+  }
+  function repaintHelpBar() {
+    const e = currentEntry();
+    if (e && helpBar && helpBar.key === entryKey(e)) drawHelpBar(e, helpBar);
+  }
+
   function renderHintPanel() {
     const e = currentEntry();
     renderClueStrip(e);
@@ -352,6 +447,7 @@
       // A square only an unclued light covers has no clue to hint at, but it
       // still has the escape hatch.
       const light = currentLight();
+      helpBar = null;
       if (!light) { panel.classList.add("hidden"); return; }
       panel.classList.remove("hidden");
       guessing = null;
@@ -395,6 +491,7 @@
     // say whether they are right: no meter, no ladder, no reveal, no vote.
     if (paperHides()) {
       guessing = null;
+      helpBar = null;
       arrivedAt = key;
       setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
       ["hint-meter", "hint-body", "hint-escape", "hint-vote"].forEach((id) => setHTML($(id), ""));
@@ -416,7 +513,6 @@
 
     const body = $("hint-body");
     const next = $("hint-next");
-    const escape = $("hint-escape");
     let bodyHTML = "";
     const nextSpec = [];
     let ask = null, tapping = false;
@@ -666,57 +762,11 @@
     const voteWrote = setHTML($("hint-vote"),
       solved && ann ? voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really") : "");
 
-    // The help bar (see helpTarget). Reveal letter is available at any level;
-    // no "(counts against your score)" rider, because the button's own armed
-    // text already says "1 hint". Reveal answer stands in the row where there
-    // is no step left to show (or no explanation at all), and waits in the
-    // "…" while "Show me" still has something to give. The "…" is in the
-    // markup either way, only hidden: what it holds is never news, and a
-    // report being written keeps it open.
-    if (helpMore && helpMore !== key) helpMore = null;
-    const canReveal = canCheck() && !solved;
-    const helpT = ann ? helpTarget(e) : null;
-    const fill = offerFill ? fillHTML(e) : "";
-    const moreOpen = helpMore === key || !!(report && report.key === key);
-    const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
-    const escapeHTML = (helpT ? showMeHTML(e, helpT) + " " : "")
-      + (helpT ? "" : fill + (fill ? " " : ""))
-      + (canReveal ? letterBtnHTML(e) + " " : "")
-      // On every unsolved clue, whatever its type, and not a hint: it holds
-      // only what the solver types into it.
-      + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">Letters</button> `)
-      + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" aria-label="More help">…</button>`
-      + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
-    if (setHTML(escape, escapeHTML)) {
-      if (canReveal) $("hx-letter").onclick = letterTap;
-      if (helpT) $("guess-tell").onclick = showMeTap;
-      if (fill) $("hx-entry").onclick = fillTap;
-      $("hx-more").onclick = () => {
-        const on = currentEntry();
-        const k = on ? entryKey(on) : null;
-        helpMore = helpMore === k ? null : k;
-        // Closing the "…" puts an unsent report away with it.
-        if (!helpMore && report && report.phase !== "sent") report = null;
-        renderHintPanel();
-      };
-      bindReport();
-    }
-    // Bound on EVERY render, not only when the row's markup changes: two
-    // unsolved clues draw the same row, so moving between them keeps the old
-    // button, and a handler bound once would still hold the first clue's key —
-    // the wheel would open on that clue instead of this one.
-    const hw = $("hx-wheel");
-    if (hw) hw.onclick = () => {
-      freeWheel = wheelOpen ? null : key;
-      // The wheel's letters are picked off the clue's own words, so a question
-      // that was asked on arrival steps aside for it rather than keeping them.
-      if (freeWheel) guessing = null;
-      // Focus first so the ring's focus outline is on the first draw and
-      // the solver can type straight away, as a tap on the disc does.
-      const ak = $("ana-kbd");
-      if (freeWheel && ak) focusHidden(ak);
-      renderHintPanel();
-    };
+    // The help bar (see drawHelpBar), remembered so a word picked in the clue
+    // can turn its one button between "Show me" and "Lock in" without a
+    // whole-panel redraw (see paintPicked).
+    helpBar = { key, ann, solved, offerFill, wheelOpen };
+    drawHelpBar(e, helpBar);
 
     if (!bodyWrote && !clueWrote && !voteWrote) return;
 
@@ -761,11 +811,6 @@
           renderHintPanel();
         };
       });
-      $("guess-check").onclick = () => {
-        const a = currentAsk();
-        if (!a || !a.pairs || !guessing.slots.every((n) => n >= 0)) return;
-        finishGuess(gradeMatch(a, guessing.slots), a);
-      };
     } else if (ask) {
       // Only the words in play have a button to bind: a settled one is a span.
       ask.tokens.forEach((t, i) => {
@@ -780,8 +825,8 @@
           const j = guessing.picked.indexOf(i);
           if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
           // Repainted in place, exactly as a drag across the same words already
-          // is. A tap changes which words are lit and whether the check button
-          // is live, and nothing else on the page says either — so rebuilding
+          // is. A tap changes which words are lit and whether the help button
+          // reads "Lock in" or "Show me", and nothing else on the page says either — so rebuilding
           // the panel to report it would mark the clue up again, rewrite three
           // blocks of HTML and rebind every word, under the finger that had
           // just tapped. On a phone that is long enough to read as a tap that
@@ -804,11 +849,6 @@
           });
         }
       });
-      $("guess-check").onclick = () => {
-        const a = currentAsk();
-        if (!a || !guessing.picked.length) return;
-        finishGuess(gradeGuess(a), a);
-      };
     }
     wireVotes(panel, renderHintPanel);
 

@@ -677,9 +677,9 @@
         .filter((i) => nuxPointsWord(ask, i, (guessing && guessing.picked) || []))
         .map((i) => $("gw-" + i)).filter((el) => !!el);
       if (lit.length) return lit;
-      // Then the button that grades it, off the class it is wearing, so the
+      // Then "Lock in", the help button that grades it, off the class it is wearing, so the
       // hole and the pulse cannot disagree about whether it is time to press.
-      const check = $("guess-check");
+      const check = $("guess-tell");
       if (check && /\bwalk-point\b/.test(check.className || "")) return [check];
       // The question itself, not the whole panel. Everything already bought sits
       // in the same box above it, and a hole big enough to hold that lights the

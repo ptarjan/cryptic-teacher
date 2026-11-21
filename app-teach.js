@@ -1779,11 +1779,8 @@
       if (el) el.className = "gw" + (guessing.picked.indexOf(i) >= 0 ? " on"
         : (nuxPointsWord(ask, i, guessing.picked) ? " walk-point" : ""));
     });
-    const check = $("guess-check");
-    if (check) {
-      check.disabled = !guessing.picked.length;
-      check.classList.toggle("walk-point", nuxPointsCheck(nuxAsk()));
-    }
+    // The help button reads "Lock in" exactly while something is picked.
+    repaintHelpBar();
   }
 
   function dragOver(i) {
@@ -1882,8 +1879,9 @@
   // is settled and the list is the rung itself, sitting directly above.
 
   // One of seven, and the tap IS the answer: there is a single bit to give, so a
-  // confirm step would only ask for it twice. Pointing at words keeps its check
-  // button because a run of words is assembled before it is offered.
+  // confirm step would only ask for it twice. Pointing at words is locked in
+  // with the help button, because a run of words is assembled before it is
+  // offered (Paul 11-20, "Pick, then confirm").
   function guessChoicesHTML(ask) {
     return `<p class="guess-choices">${
       ask.choices.map((c, i) =>
@@ -1892,13 +1890,13 @@
   }
 
   // Words are pointed at up in the clue itself, so a words question has no answer
-  // of its own down here: the prompt, and the two buttons that end it. The seven
+  // of its own down here: only the prompt. The seven
   // families have nowhere else to live and keep their chips, and so does a linked
   // clue, whose own words are not the ones on display — see renderHintPanel.
   //
   // For a matching question a chunk goes in the slot you last picked it up for. Two taps, both of them
   // reversible: tapping a filled slot puts its chunk back on the strip, so
-  // nothing you try costs you anything until Check.
+  // nothing you try costs you anything until "Lock in".
   function guessMatchHTML(ask) {
     const slots = guessing.slots || [];
     const rows = ask.pairs.map((p, i) => {
@@ -1921,35 +1919,29 @@
   }
 
   // A question carries only what answers it: the words in the clue (or the
-  // family chips, or the matching strip) and the button that grades them.
-  // Being told is not part of it. "Show me" lives in the help bar under the
-  // panel and acts on whatever step is current, this question included (see
-  // helpTarget in app-paint.js); and there is no "Skip for now", because a
-  // question is not a dialog: picking another step, typing, or ignoring it is
-  // the skip.
+  // family chips, or the matching strip). No button of its own: the one help
+  // button under the panel locks the picks in ("Lock in") or, with nothing
+  // picked, shows the step ("Show me"); see helpTarget in app-paint.js. And
+  // there is no "Skip for now", because a question is not a dialog: picking
+  // another step, typing, or ignoring it is the skip.
   function guessHTML(ask, position, label, inClue) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
       : ask.pairs ? guessMatchHTML(ask)
       : inClue ? ""
       : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung, ask.target);
-    const ready = ask.pairs
-      ? (guessing.slots || []).every((n) => n >= 0)
-      : guessing.picked.length;
-    const check = ask.choices ? "" : `<p class="guess-actions"><button id="guess-check" class="primary${
-      nuxPointsCheck(nuxAsk()) ? " walk-point" : ""}"${
-      ready ? "" : " disabled"}>Check my answer</button></p>`;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
-      ${answer}
-      ${check}</div>`;
+      ${answer}</div>`;
   }
 
-  // Right or not, and which one you said — never what the right one was. The
-  // rung opens directly underneath and names it, with the paragraph explaining
-  // what that family means, and saying it twice in two voices two lines apart
-  // reads as the page arguing with itself.
+  // Right, and which one you said — never what the right one was. The rung
+  // opens directly underneath and names it, with the paragraph explaining what
+  // that family means, and saying it twice in two voices two lines apart reads
+  // as the page arguing with itself. A wrong family says nothing at all: the
+  // step simply opens, as "Show me" would open it (Paul 11-20, nothing says
+  // "wrong").
   // A compound clue has every family it is made of, and each of them is a right
   // answer. The one the rung goes on to name is the dominant one, so a solver who
   // named a different true one is told that theirs is in there too — otherwise
@@ -1964,14 +1956,14 @@
     if (right.indexOf(picked) >= 0) {
       return { choice: picked, right: true, said: "Yes — that\u2019s one of them." };
     }
-    return { choice: picked, right: false,
-             said: `Not ${picked.toLowerCase()} — here’s what it actually is.` };
+    return { choice: picked, right: false };
   }
 
   // Right is the whole set and nothing else. Anything short of that opens the
-  // rung too — the point was never to withhold it — but says what was missed,
-  // because "wrong" with no account of it is the least useful thing a teacher
-  // can say.
+  // rung too — the point was never to withhold it — with no verdict: the step
+  // is simply shown, its words highlighted in the clue, the same as "Show me"
+  // shows it (Paul 11-20: no red, no "wrong", nothing cleared). Only a right
+  // answer carries a sentence.
   function gradeGuess(ask) {
     // A link word picked along with the definition is no mistake: it only joins
     // the definition to the wordplay, and the rung shows it either way.
@@ -2025,21 +2017,7 @@
                  ? `Yes — in full it’s “${said.join("” and “")}”.`
                  : "Yes — that’s exactly it." };
     }
-    if (hit.length === n) {
-      return { ...v, right: false, said: `You had all ${n}, plus ${spare.length} word${
-        spare.length > 1 ? "s that aren’t" : " that isn’t"} doing that job.` };
-    }
-    if (hit.length) {
-      // "Close" only when it is close: picking two words of a four-word
-      // definition — half of it, and therefore the wrong split — is not close. A
-      // teacher who calls everything close is not marking anything, and the
-      // solver reads praise for an answer that was wrong.
-      const near = !spare.length && missed.length === 1;
-      return { ...v, right: false, said: `${near ? "So close" : "Not quite"} — ${
-        hit.length} of ${n} right${spare.length ? `, and ${spare.length} that ${
-        spare.length > 1 ? "aren’t" : "isn’t"}` : ""}.` };
-    }
-    return { ...v, right: false, said: "Not those. Here’s where they actually are." };
+    return { ...v, right: false };
   }
 
   // The marked clue is the same words in a different place. The question sits at
@@ -2119,14 +2097,21 @@
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
     const from = flipCapture();
-    lastGuess = verdict && { key: guessing.key, rung: guessing.rung, fresh: true,
-                             tokens: ask.tokens, known: ask.known, mk: verdict };
+    // Only a right answer has a verdict to show. A wrong lock-in is shown the
+    // step exactly as "Show me" shows it (Paul 11-20): no sentence, no marked
+    // copy of the clue, nothing red, and the picks simply give way to the
+    // step's own highlights.
+    const right = !!(verdict && verdict.right);
+    lastGuess = right ? { key: guessing.key, rung: guessing.rung, fresh: true,
+                          tokens: ask.tokens, known: ask.known, mk: verdict } : null;
     // Earned means every piece taken was pointed at correctly. A rung asked in
     // pieces must not turn into three chances to have already won it, so a
-    // wrong one — or a "just tell me" — takes it back off the free list. One
-    // rung, one price, one verdict.
+    // wrong one — or a "Show me" — takes it back off the free list, and a
+    // right one after that does not put it back: the first lock-in on a step
+    // is the one that can earn it, and a later piece can only keep it. One
+    // rung, one price.
     const won = earnedRungs(e).indexOf(guessing.rung);
-    if (verdict && verdict.right) { if (won < 0) earnedRungs(e).push(guessing.rung); }
+    if (right) { if (won < 0 && !isShown(e, guessing.rung)) earnedRungs(e).push(guessing.rung); }
     else if (won >= 0) earnedRungs(e).splice(won, 1);
     // The piece just settled goes up, and only that one (blocksAt holds how many
     // are out). Whether to go on to the next piece is the solver's call, and the
