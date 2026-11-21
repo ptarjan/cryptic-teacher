@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "It's true Benjamin was a painter",
     "enumeration": "8"
    },
-   "solution": "CONSTANT"
+   "solution": "CONSTANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "true",
+      "at": 5,
+      "meaning": "faithful, unwavering, loyal"
+     },
+     {
+      "text": "Benjamin was a painter",
+      "at": 10,
+      "meaning": "Jean-Joseph Benjamin-... was a nineteenth-century French painter of Orientalist scenes"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim about the career of someone called Benjamin.",
+     "definitionFit": "Steadfast and loyal are synonyms of true; the painter's surname completes Benjamin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Benjamin"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,49 @@
     "text": "Abandoned ship, girl missing — stop",
     "enumeration": "7"
    },
-   "solution": "CELESTE"
+   "solution": "CELESTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stop",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 21,
+       "note": "missing tells us the girl's name is absent from the ship's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Abandoned ship",
+       "at": 0,
+       "gives": "MARYCELESTE",
+       "note": "the Mary Celeste, the brigantine found adrift and deserted in 1872"
+      },
+      {
+       "words": "girl",
+       "at": 16,
+       "gives": "MARY",
+       "note": "Mary is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deserted vessel, a missing girl, and a call to halt.",
+     "walkthrough": "'stop' seems an order to halt, but it is an organ stop: the voix celeste.",
+     "definitionFit": "An organ register giving a soft tremulous tone bears this name, so it is an organ stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +132,46 @@
      }
     ]
    },
-   "solution": "NEWFALLEN"
+   "solution": "NEWFALLEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this sort of snow",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fresh",
+       "at": 0,
+       "gives": "NEW",
+       "note": "new means fresh"
+      },
+      {
+       "words": "autumn",
+       "at": 6,
+       "gives": "FALL",
+       "note": "fall is the American word for autumn"
+      },
+      {
+       "words": "points",
+       "at": 13,
+       "gives": "EN",
+       "note": "E and N are compass points, east and north"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Early autumn weather pointing to a particular kind of snow.",
+     "definitionFit": "Snow just come down from the sky lies fresh and untrodden on the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,10 +182,46 @@
    },
    "length": 7,
    "clue": {
-    "text": "One who dailies with a sweet redhead",
+    "text": "One who dallies with a sweet redhead",
     "enumeration": "7"
    },
-   "solution": "TRIFLER"
+   "solution": "TRIFLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who dallies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a sweet",
+       "at": 21,
+       "gives": "TRIFLE",
+       "note": "a trifle is a British layered pudding of sponge, custard and cream"
+      },
+      {
+       "words": "redhead",
+       "at": 29,
+       "gives": "R",
+       "note": "the head, or first letter, of red"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A philanderer flirting with a charming ginger-haired person.",
+     "walkthrough": "'redhead' suggests a person; it is the first letter of red. Trifle is a British dessert.",
+     "definitionFit": "Someone who toys with things or people instead of being serious is a dabbler or time-waster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "redhead"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +235,50 @@
     "text": "Draw after narrow win — that's knotty!",
     "enumeration": "7"
    },
-   "solution": "NECKTIE"
+   "solution": "NECKTIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's knotty!",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 5,
+       "note": "after places the draw following the narrow win in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "narrow win",
+       "at": 11,
+       "gives": "NECK",
+       "note": "winning by a neck is a narrow victory in racing"
+      },
+      {
+       "words": "Draw",
+       "at": 0,
+       "gives": "TIE",
+       "note": "a tie is a drawn match"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tied match following a close victory: a tricky situation.",
+     "walkthrough": "'knotty' means complicated in the surface, but literally a garment tied in a knot at the collar.",
+     "definitionFit": "A cravat or band worn at the collar is literally tied in a knot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knotty"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +292,33 @@
     "text": "'Outwit at cards",
     "enumeration": "6"
    },
-   "solution": "EUCHRE"
+   "solution": "EUCHRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outwit at cards",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Outwit at cards",
+       "at": 1,
+       "note": "the name of a trick-taking card game is also a verb for getting the better of an opponent in it, and so for outwitting anyone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting the better of someone over a card table.",
+     "definitionFit": "In the old American trick-taking game, to stop the bidder winning enough tricks is to do this to them, hence outwit generally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +332,41 @@
     "text": "Causes risk of death at French town",
     "enumeration": "9"
    },
-   "solution": "ENDANGERS"
+   "solution": "ENDANGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Causes risk of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "death",
+       "at": 15,
+       "gives": "END",
+       "note": "end is a euphemism for death"
+      },
+      {
+       "words": "French town",
+       "at": 24,
+       "gives": "ANGERS",
+       "note": "Angers is a city on the Loire in western France"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something in a French town poses a mortal danger.",
+     "definitionFit": "To put in peril is to imperil or threaten someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "town"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +380,56 @@
     "text": "Colonel supported by redcap before getting MC",
     "enumeration": "7"
    },
-   "solution": "COMPERE"
+   "solution": "COMPERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "MC",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supported by",
+       "at": 8,
+       "note": "in a down clue, being supported by means sitting above the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Colonel",
+       "at": 0,
+       "gives": "CO",
+       "note": "a colonel is often a commanding officer, CO"
+      },
+      {
+       "words": "redcap",
+       "at": 21,
+       "gives": "MP",
+       "note": "redcaps are British military police, MP, from their red caps"
+      },
+      {
+       "words": "before",
+       "at": 28,
+       "gives": "ERE",
+       "note": "ere is an old word for before"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer backed by the military police before receiving a Military Cross.",
+     "walkthrough": "'MC' looks like the Military Cross in this army scene but means master of ceremonies. Redcap is British slang for a military policeman.",
+     "definitionFit": "A master of ceremonies hosts a show and introduces the acts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "MC"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +443,52 @@
     "text": "Corrects poor verses I made up",
     "enumeration": "7"
    },
-   "solution": "REVISES"
+   "solution": "REVISES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Corrects",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "made up",
+       "at": 23,
+       "note": "made up means put together anew, so the jumbled letters are assembled into a word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "at": 9,
+         "note": "poor verses are badly made, so the letters of verses I are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "verses I",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet amending some bad lines they composed.",
+     "walkthrough": "'poor' scrambles VERSESI and 'made up' assembles the letters again: the setter uses two signals for one rearrangement.",
+     "definitionFit": "To amend or edit a text is to correct it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +508,47 @@
      }
     ]
    },
-   "solution": "LOWPITCHED"
+   "solution": "LOWPITCHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "such a sound",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cartoonist",
+       "at": 0,
+       "gives": "LOW",
+       "note": "David Low, the famous New Zealand-born political cartoonist of the Evening Standard"
+      },
+      {
+       "words": "quietly",
+       "at": 11,
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quietly"
+      },
+      {
+       "words": "irritated",
+       "at": 19,
+       "gives": "ITCHED",
+       "note": "made to feel prickly or itchy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoonist annoyed by a particular noise.",
+     "walkthrough": "'Cartoonist' is a crossword staple for LOW, after Sir David Low. The definition refers back to the whole clue: a sound that is deep in register.",
+     "definitionFit": "A bass rumble is a deep, low-frequency noise, the kind of sound meant here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +562,29 @@
     "text": "Step taken that may cause feeling",
     "enumeration": "4"
    },
-   "solution": "MOVE"
+   "solution": "MOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Step taken",
+      "at": 0,
+      "meaning": "an action or manoeuvre made in a plan or game"
+     },
+     {
+      "text": "may cause feeling",
+      "at": 16,
+      "meaning": "to touch someone emotionally, as a sad film does"
+     }
+    ],
+    "explanation": {
+     "surface": "An action that might stir emotion.",
+     "definitionFit": "A chess turn is a step taken; to stir someone emotionally is to cause feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +595,7 @@
    },
    "length": 14,
    "clue": {
-    "text": "Carl set about touts found 1in the plot",
+    "text": "Carl set about touts found in the plot",
     "enumeration": "7,7",
     "separators": [
      {
@@ -202,7 +604,53 @@
      }
     ]
    },
-   "solution": "SCARLETRUNNERS"
+   "solution": "SCARLETRUNNERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "found in the plot",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "about here means moved around, so the letters of Carl set are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Carl set",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "touts",
+       "at": 15,
+       "gives": "RUNNERS",
+       "note": "touts and runners both drum up custom or carry bets for others"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Carl hunting down ticket touts who turn up in a conspiracy.",
+     "walkthrough": "'plot' looks like a scheme but is a vegetable plot; 'about' turns CARLSET into SCARLET.",
+     "definitionFit": "These climbing beans with red flowers are grown in British garden plots and allotments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +664,30 @@
     "text": "Increase scale to 13",
     "enumeration": "7"
    },
-   "solution": "ENLARGE"
+   "solution": "ENLARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Increase scale",
+      "at": 0,
+      "meaning": "make bigger, as with a photograph"
+     },
+     {
+      "text": "to 13",
+      "at": 15,
+      "meaning": "13 is the clue's answer at 13-across, meaning set free; an old sense of the word is to free a prisoner"
+     }
+    ],
+    "explanation": {
+     "surface": "A cross-reference instruction to scale something up.",
+     "walkthrough": "The second definition borrows the answer to 13 across (set free): in older English to enlarge a captive was to let them go.",
+     "definitionFit": "Blow up is a synonym for make bigger, and the archaic legal sense means liberate from confinement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +701,35 @@
     "text": "Like the current timetable (Julian was wanting)",
     "enumeration": "9"
    },
-   "solution": "GREGORIAN"
+   "solution": "GREGORIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like the current timetable (Julian was wanting)",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like the current timetable (Julian was wanting)",
+       "at": 0,
+       "note": "the calendar now in use, introduced by a pope in 1582 because the older Roman calendar of Julius Caesar was found lacking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on today's schedules, with someone named Julian found lacking.",
+     "walkthrough": "'Julian' looks like a person but is the old Julian calendar, which drifted from the seasons.",
+     "definitionFit": "The papal calendar reform of 1582 replaced the Julian system and is the civil calendar used today."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Julian"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,10 +740,44 @@
    },
    "length": 7,
    "clue": {
-    "text": "-See real trouble — maker set free",
+    "text": "See real trouble-maker set free",
     "enumeration": "7"
    },
-   "solution": "RELEASE"
+   "solution": "RELEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set free",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trouble-maker",
+       "at": 9,
+       "note": "a trouble-maker stirs things up, so the letters of See real are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See real",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look: a genuine agitator has been let out of jail.",
+     "walkthrough": "'trouble-maker' reads as a noun for the person freed, but it signals the anagram of SEEREAL.",
+     "definitionFit": "To liberate or let go is to set free."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble-maker"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +791,60 @@
     "text": "With backing of Moral Rearmament, presides over seating",
     "enumeration": "9"
    },
-   "solution": "ARMCHAIRS"
+   "solution": "ARMCHAIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "seating",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 43,
+       "note": "in a down clue, over places the first part above the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 5,
+         "note": "backing means turning back, so the movement's initials run in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Moral Rearmament",
+         "at": 16,
+         "gives": "MRA",
+         "note": "MRA, the twentieth-century moral and spiritual movement"
+        }
+       ]
+      },
+      {
+       "words": "presides",
+       "at": 34,
+       "gives": "CHAIRS",
+       "note": "to chair a meeting is to preside over it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With the support of a moral movement, someone takes the chair.",
+     "definitionFit": "Comfortable upholstered chairs with side supports are a kind of seating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +858,48 @@
     "text": "An island and a place to drive off a sea-beast",
     "enumeration": "7"
    },
-   "solution": "MANATEE"
+   "solution": "MANATEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sea-beast",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An island",
+       "at": 0,
+       "gives": "MAN",
+       "note": "the Isle of Man, in the Irish Sea"
+      },
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      },
+      {
+       "words": "place to drive off",
+       "at": 16,
+       "gives": "TEE",
+       "note": "in golf the tee is where a player drives the ball off at each hole"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to an island with somewhere to hit golf balls, home to a sea creature.",
+     "walkthrough": "'drive off' suggests repelling the beast, but it is golf: you drive off from the tee.",
+     "definitionFit": "The sea cow is a large plant-eating marine mammal of warm coasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,10 +910,63 @@
    },
    "length": 7,
    "clue": {
-    "text": "Complaint of worker about time-processing",
+    "text": "Complaint of worker about lime-processing",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means surrounding, so the worker goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worker",
+       "at": 13,
+       "gives": "ANT",
+       "note": "the ant is the crossword's standard worker insect"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "processing",
+         "at": 31,
+         "note": "processing the word lime means working its letters into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lime",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer's grievance over the treatment of quicklime.",
+     "walkthrough": "'Complaint' reads as a grievance in the labour-dispute surface, but it means an illness.",
+     "definitionFit": "A disorder or illness, often minor, is called a complaint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +980,31 @@
     "text": "Aerial for sensational receiver",
     "enumeration": "7"
    },
-   "solution": "ANTENNA"
+   "solution": "ANTENNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aerial",
+      "at": 0,
+      "meaning": "a radio or TV receiving mast"
+     },
+     {
+      "text": "sensational receiver",
+      "at": 11,
+      "meaning": "an insect's feeler, which picks up sensations"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio mast picking up sensational broadcasts.",
+     "definitionFit": "A wireless mast is one sense; an insect's feeler organ, receiving touch and smell, is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sensational"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1018,60 @@
     "text": "Takes as total export sales initially",
     "enumeration": "7"
    },
-   "solution": "ASSUMES"
+   "solution": "ASSUMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Takes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "as",
+       "at": 6,
+       "gives": "AS"
+      },
+      {
+       "words": "total",
+       "at": 9,
+       "gives": "SUM",
+       "note": "a sum is a total"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 28,
+         "note": "initially picks the opening letters of export and sales"
+        }
+       ],
+       "parts": [
+        {
+         "words": "export",
+         "at": 15
+        },
+        {
+         "words": "sales",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presuming a figure as the sum of overseas sales.",
+     "definitionFit": "To take something as given is to presume or suppose it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Takes"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1085,36 @@
     "text": "Colossal position of old African statesman?",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colossal position of old African statesman?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Colossal position of old African statesman?",
+       "at": 0,
+       "note": "the Colossus of Rhodes stood legs apart over the harbour; Cecil Rhodes was a colonial African statesman, so the pose is punned on his name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the standing of a huge figure in African politics.",
+     "walkthrough": "'Colossal' suggests huge, but points to the Colossus of Rhodes, said to straddle the harbour; Cecil Rhodes gives the 'statesman'.",
+     "definitionFit": "The giant statue was said to stand with one leg on each side of the harbour mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Colossal"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1134,39 @@
      }
     ]
    },
-   "solution": "SEAKALE"
+   "solution": "SEAKALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "variety",
+       "at": 16,
+       "note": "a variety is a different form, so the letters of as a leek are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as a leek",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetable presented as a type of leek.",
+     "definitionFit": "A coastal cabbage-family plant whose shoots are eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1180,31 @@
     "text": "Saws of utterly traditional type",
     "enumeration": "7"
    },
-   "solution": "SAYINGS"
+   "solution": "SAYINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saws",
+      "at": 0,
+      "meaning": "old proverbs or maxims"
+     },
+     {
+      "text": "of utterly traditional type",
+      "at": 5,
+      "meaning": "things handed down by utterance, spoken tradition"
+     }
+    ],
+    "explanation": {
+     "surface": "Cutting tools of a thoroughly old-fashioned design.",
+     "definitionFit": "Proverbs and adages are saws; such expressions are passed down orally from one generation to the next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saws"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1224,55 @@
      }
     ]
    },
-   "solution": "LYTTONSTRACHEY"
+   "solution": "LYTTONSTRACHEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Biographer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "literary peer",
+       "at": 14,
+       "gives": "LYTTON",
+       "note": "Edward Bulwer-Lytton, the Victorian novelist made Baron Lytton"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new form",
+         "at": 41,
+         "note": "giving the letters a new form means rearranging aches and try"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aches",
+         "at": 28
+        },
+        {
+         "words": "try",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's life of an aristocrat who strains to find a fresh style.",
+     "walkthrough": "'new form' rearranges ACHES and TRY into STRACHEY; 'to' is only a link. Bulwer-Lytton was a novelist and peer.",
+     "definitionFit": "The author of Eminent Victorians and Queen Victoria pioneered the modern irreverent life-writing of famous people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1286,49 @@
     "text": ".Girl pants with Old Bob after her",
     "enumeration": "4"
    },
-   "solution": "JEAN"
+   "solution": "JEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after her",
+       "at": 25,
+       "note": "the shilling's letter stands after the girl's name to make the trousers, so it is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pants",
+       "at": 6,
+       "gives": "JEANS",
+       "note": "denim pants or trousers"
+      },
+      {
+       "words": "Old Bob",
+       "at": 17,
+       "gives": "S",
+       "note": "bob is slang for a shilling, abbreviated s in old British money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl wearing trousers with an old chap called Bob following her.",
+     "walkthrough": "A bob was a shilling (s) in pre-1971 British money; 'after her' says the girl plus that S makes the trousers.",
+     "definitionFit": "A common female forename, such as that of the actress Simmons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1342,33 @@
     "text": "One of Wordsworth's hints about eternal life",
     "enumeration": "10"
    },
-   "solution": "INTIMATION"
+   "solution": "INTIMATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of Wordsworth's hints about eternal life",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One of Wordsworth's hints about eternal life",
+       "at": 0,
+       "note": "refers to Wordsworth's ode whose title promises hints of immortality gathered from early childhood; a single hint is wanted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Romantic poet's glimpse of the afterlife.",
+     "definitionFit": "A hint or suggestion is a synonym, and Wordsworth's Ode is titled after such hints of Immortality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1382,40 @@
     "text": "The way precipitation produces tension",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tension",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The way",
+       "at": 0,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "words": "precipitation",
+       "at": 8,
+       "gives": "RAIN",
+       "note": "rain is the commonest precipitation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How weather from the clouds builds up stress.",
+     "definitionFit": "Stress or pressure on something stretched is a synonym of tension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1429,48 @@
     "text": "Defeats revolutions about — Gaelic",
     "enumeration": "8"
    },
-   "solution": "REVERSES"
+   "solution": "REVERSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Defeats",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means surrounding, so the revolutions go around the Gaelic"
+      }
+     ],
+     "parts": [
+      {
+       "words": "revolutions",
+       "at": 8,
+       "gives": "REVS",
+       "note": "revs is short for revolutions of an engine"
+      },
+      {
+       "words": "Gaelic",
+       "at": 28,
+       "gives": "ERSE",
+       "note": "Erse is an old name for Scottish or Irish Gaelic"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Losses in Celtic uprisings.",
+     "definitionFit": "Setbacks or losses suffered, as by an army, are synonyms of defeats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutions"
+    }
+   }
   }
  ]
 }
