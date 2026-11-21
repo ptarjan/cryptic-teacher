@@ -3547,8 +3547,8 @@ check("gpu_fill: running fills count as asks to come; a full spool or no per-fil
 check("gpu_fill: the look-ahead never exceeds max_fills", 3, _fa(0, 5, 8, ahead=1000))
 os.environ["CT_VLM_FEED_AHEAD"] = "junk"
 os.environ["CT_VLM_FILL_ASKS"] = "junk"
-check("vlm_feed_ahead / vlm_fill_asks: bad values fall back to 40 (at least the target) and 4",
-      (max(40, eq.vlm_feed_target()), 4), (eq.vlm_feed_ahead(), eq.vlm_fill_asks()))
+check("vlm_feed_ahead / vlm_fill_asks: bad values fall back to 40 (at least the target) and 2",
+      (max(40, eq.vlm_feed_target()), 2), (eq.vlm_feed_ahead(), eq.vlm_fill_asks()))
 del os.environ["CT_VLM_FEED_AHEAD"], os.environ["CT_VLM_FILL_ASKS"]
 # answers_only rereads ask the VLM nothing: they never feed it, even ranked first; never-read, fix-landed and proven ones do.
 _al = _mk("times", "al", 2, "inputs changed: answers linked x1")

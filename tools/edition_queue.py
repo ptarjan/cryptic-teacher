@@ -2764,11 +2764,11 @@ def vlm_feed_ahead():
 
 
 def vlm_fill_asks():
-    """The asks a running fill is counted to make (CT_VLM_FILL_ASKS, default 4; 0 = count none)."""
+    """The asks a running fill is counted to make (CT_VLM_FILL_ASKS, default 2: a fill spools about 2 asks, 0-5 seen 11-21; 0 = count none)."""
     try:
-        return max(0, int(os.environ.get("CT_VLM_FILL_ASKS", "4")))
+        return max(0, int(os.environ.get("CT_VLM_FILL_ASKS", "2")))
     except ValueError:
-        return 4
+        return 2
 
 
 def vlm_feed_scans():
