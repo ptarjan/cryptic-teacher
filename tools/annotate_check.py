@@ -789,6 +789,8 @@ def mend_misprinted_clues(path, pending, data=DATA):
             continue
         held = clue_rows.get(f"{puzzle['id']}/{eid}")
         shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
+        # a no-op printedClue (the clue as shown) is mended too, from its own evidence, so this
+        # runs before drop_noop_printed_clue throws that evidence away
         row = mend_misprinted_clue.mend(a, shown, True)
         if row:
             a["printedClue"] = row
@@ -1694,14 +1696,14 @@ def main(argv):
         if refusal:
             print(f"annotate_check {stem}: STOPPED — {refusal}")
             return 2
-        noop = drop_noop_printed_clue(path, pending)
-        if noop:
-            print(f"printedClue that corrects nothing (it is the clue as shown), dropped "
-                  f"from {pending.name}: {', '.join(noop)}\n")
         misprint = mend_misprinted_clues(path, pending)
         if misprint:
             print(f"quotes of a clue word the OCR misspelt (the quote a word, the clue's not), "
                   f"given a printedClue in {pending.name}: {', '.join(misprint)}\n")
+        noop = drop_noop_printed_clue(path, pending)
+        if noop:
+            print(f"printedClue that corrects nothing (it is the clue as shown), dropped "
+                  f"from {pending.name}: {', '.join(noop)}\n")
         filed, err = file_rows(path, pending)
         if err:
             print(f"annotate_check {stem}: STOPPED — {err}")

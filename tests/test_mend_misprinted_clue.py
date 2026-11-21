@@ -35,4 +35,26 @@ check("a short word is not mended", M.repaired(["owl"], "Ow, unusually, at groun
 check("a quote's capital is kept for a capitalised clue word",
       M.repaired(["Attempt"], "Arrempt to accommodate old folk")[0] == "Attempt to accommodate old folk")
 
+# a printedClue that corrects nothing, whose evidence names the swap: mended from that evidence
+FIVE = "Retain a few in sheltered situation"
+f = {"def": "Retain", "wp": "ins<in>([sheltered situation]LEE, [a]A + [five]V)",
+     "printedClue": [FIVE, "OCR misread: five (V) for few"]}
+row = M.mend(f, FIVE, True)
+check("a no-op printedClue with evidence naming the swap is mended",
+      row == ["Retain a five in sheltered situation", "OCR misread: five (V) for few"])
+check("the same swap without a printedClue is not mended (both real words)",
+      M.mend({k: v for k, v in f.items() if k != "printedClue"}, FIVE, True) is None)
+check("evidence that does not name the words is not enough",
+      M.mend({**f, "printedClue": [FIVE, "the scan is wrong here somewhere"]}, FIVE, True) is None)
+check("a printedClue that corrects something is left",
+      M.mend({**f, "printedClue": ["Retain a fee in sheltered situation", "OCR misread: five for fee"]}, FIVE, True) is None)
+import definitions
+check("a quote that drops the crossref number is the clue's run",
+      definitions.damaged_run("in position, to match down", "Salute in position to match 1 down")
+      == "in position to match 1 down")
+check("a dropped number at the run's edge is not mended",
+      definitions.damaged_run("match 1", "Salute in position to match 1 down") == "match 1")
+check("two runs with the number dropped are not mended",
+      definitions.damaged_run("match down", "match 1 down or match 2 down") is None)
+
 raise SystemExit(fails > 0)

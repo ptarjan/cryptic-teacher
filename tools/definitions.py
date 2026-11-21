@@ -310,8 +310,8 @@ _SKIPPABLE = {"this", "that", "these", "those", "the", "a", "an", "his", "her", 
 
 def _dropped_word_runs(want, toks, low):
     """{(start, end)} of the clue's runs that are the quote's words with exactly one extra
-    function word (_SKIPPABLE) between them, never first or last ('No stopping for animal'
-    for 'No stopping for this animal'). Callers mend only when there is one such run
+    function word (_SKIPPABLE) or crossref number between them, never first or last ('No stopping
+    for animal' for 'No stopping for this animal', 'to match down' for 'to match 1 down'). Callers mend only when there is one such run
     and the quote's own words are in no clue run as they are."""
     n = len(want)
     if n < 2:
@@ -320,7 +320,7 @@ def _dropped_word_runs(want, toks, low):
     for k in range(len(toks) - n):
         window = low[k:k + n + 1]
         for j in range(1, n):
-            if window[j] in _SKIPPABLE and window[:j] + window[j + 1:] == want:
+            if (window[j] in _SKIPPABLE or window[j].isdigit()) and window[:j] + window[j + 1:] == want:
                 runs.add((toks[k][1], toks[k + n][2]))
     return runs
 
