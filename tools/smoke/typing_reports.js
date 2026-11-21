@@ -357,7 +357,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   shape("an indicator that is more than one word", found);
   if (found) {
     found.spans.forEach((s) => registry["gw-" + s[0]].onclick());
-    registry["guess-check"].onclick();
+    registry["guess-tell"].onclick();
     const html = panelHTML();
     assert(html.includes("guess-verdict right"),
       `${found.id} ${entryId(found.e)}: one word of each indicator is enough: ` + html);
@@ -372,9 +372,9 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
       rung(/indicator/i).onclick();
       if (assert(asking(), "the indicators rung asks again on a fresh clue")) {
         found.spans.slice(0, -1).forEach((s) => registry["gw-" + s[0]].onclick());
-        registry["guess-check"].onclick();
-        assert(!panelHTML().includes("guess-verdict right"),
-          "an indicator with nothing pointed at it is not found: " + panelHTML());
+        registry["guess-tell"].onclick();
+        assert(!panelHTML().includes("guess-verdict"),
+          "an indicator with nothing pointed at it is not found, and says nothing either way: " + panelHTML());
       }
     }
   }

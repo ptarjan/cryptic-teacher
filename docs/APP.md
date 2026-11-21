@@ -61,16 +61,24 @@ Terms used below:
   the old row shape through `registry["hint-rungs"]` in `tools/fake_dom.js`
   (a chip tap that only chose a step is followed by "Show me", and Reveal
   answer is appended from the help bar).
-- **One help bar** (`#hint-escape`, a wrapping row under the panel): "Show me"
-  (id `guess-tell`, accent colour), Reveal letter, Letters and a "…". "Show me"
-  is the only way to pay for the explanation: it reveals the current step (the
-  question on the table, else the chosen step, else the next piece, else the
-  first open tier) and a paid one takes two taps ("Tap again · 1 hint";
-  `data-arm` is `<rung>-tell` for a live question, else `<rung>` or
-  `blocks-<n>`). A question has no button of its own and there is no "Skip for
-  now": choosing another step is the skip. The "…" (always in the markup,
-  `hidden` until tapped) holds Reveal answer, Report a bad hint and the blog
-  link; Reveal answer moves into the bar row when no step is left to show.
+- **One help bar** (`#hint-escape`, a wrapping row under the panel): one help
+  button `#guess-tell` (accent colour), Reveal letter, Letters and a "…". While
+  words are picked (or a board is full) it reads "Lock in": free, no `data-arm`.
+  With nothing picked it reads "Show me", the only way to pay for the
+  explanation: it reveals the current step (the question on the table, else the
+  chosen step, else the next piece, else the first open tier) and a paid one
+  takes two taps ("Tap again · 1 hint"; `data-arm` is `<rung>-tell` for a live
+  question, else `<rung>` or `blocks-<n>`). fake_dom boots `CT_ONE_TAP` by
+  default, so arming shows only through `data-arm` or twoTap boots. There is no
+  "Check my answer" (`#guess-check` is gone) and no "Skip for now": choosing
+  another step is the skip. A right Lock in (`finishGuess`) opens the step as
+  worked out with the green verdict; a wrong one opens it as Show me does and
+  costs 1 hint, with no verdict, no marked clue copy, no red and no "Not X"
+  line for a wrong clue family. The first lock-in on a step is the one that
+  can earn it: a wrong piece then a right one keeps Pieces paid
+  (`tools/smoke/rung_rules.js`). The "…" (always in the markup, `hidden` until
+  tapped) holds Reveal answer, Report a bad hint and the blog link; Reveal
+  answer moves into the bar row when no step is left to show.
 - **Locked rungs are shown disabled, not hidden**, so the solver sees what is
   coming. Each button reads "N · <rung question>". The recommended next rung
   leads as the plain button; the rest of its tier are quiet ghost buttons. A rung keeps its ladder number

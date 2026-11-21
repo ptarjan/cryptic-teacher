@@ -120,6 +120,10 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
       if (defs.length !== 1) continue;
       const w = defs[0].split(/\s+/);
       if (w.length < 3 || clueText(e).indexOf(defs[0]) < 0) continue;
+      // Whole words, so the definition's tokens can be counted off the clue.
+      const at = clueText(e).indexOf(defs[0]);
+      if (at > 0 && !/\s/.test(clueText(e)[at - 1])) continue;
+      if (!/\s/.test(clueText(e)[at + defs[0].length] || " ")) continue;
       // verdict([0]) below must be a WRONG pick, so word 0 has to sit outside the definition.
       if (clueText(e).indexOf(defs[0]) === 0) continue;
       if (EDGE.indexOf(bare(w[w.length - 1])) < 0) continue;
@@ -145,21 +149,30 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   const verdict = (pick) => {
     askDef();
     for (const i of pick) registry["gw-" + i].onclick();
-    registry["guess-check"].onclick();
+    registry["guess-tell"].onclick();
     return registry["hint-body"].innerHTML;
   };
-  // Which words the annotation calls the definition, read back off one wrong
-  // pick rather than worked out here a second time.
-  const marks = (verdict([0]).match(/class="gw([^"]*)"/g) || [])
-    .reduce((a, m, i) => (/hit|missed/.test(m) ? a.concat(i) : a), []);
+  // Which words the annotation calls the definition, counted off the clue's own
+  // words. A wrong Lock in marks nothing, so the step's own highlight of the
+  // definition is asserted separately below instead.
+  const defWords = defTexts(found.e.annotation)[0].split(/\s+/).length;
+  const defAt = clueText(found.e).slice(0, clueText(found.e).indexOf(defTexts(found.e.annotation)[0]))
+    .split(/\s+/).filter(Boolean).length;
+  const marks = Array.from({ length: defWords }, (_, i) => defAt + i);
   assert(marks.length >= 3, "the definition of " + clueText(found.e) + " is three words or more: "
     + JSON.stringify(marks));
 
   assert(/guess-verdict right/.test(verdict(marks.slice(0, -1))),
     "stopping one word short of the definition's optional end is right on "
       + clueText(found.e) + " (" + defTexts(found.e.annotation)[0] + ")");
-  assert(!/guess-verdict right/.test(verdict(marks.slice(1))),
-    "but dropping a word that carries the meaning is still wrong on " + clueText(found.e));
+  {
+    const wrong = verdict(marks.slice(1));
+    assert(!/guess-verdict/.test(wrong) && wrong.includes("hint-step"),
+      "but dropping a word that carries the meaning opens the step with no verdict on "
+        + clueText(found.e) + ": " + wrong);
+    assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
+      "and the step's own highlights show where the definition was");
+  }
 }
 
 // --- a double definition has no building blocks of its own ---
@@ -322,6 +335,57 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
       }
     }
   }
+
+  // A wrong piece, then a right one: the rung stays paid. The wrong lock-in is
+  // shown the piece as "Show me" would (1 hint, no verdict); a right lock-in on
+  // the NEXT piece must not hand the rung back as earned.
+  {
+    const bareW = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+    const pickable = () => [...registry["hint-body"].innerHTML.matchAll(/id="gw-(\d+)"/g)].map((m) => +m[1]);
+    const fragWords = (e, b) => {
+      const clue = clueText(e), at = clue.indexOf(b.clueFragment);
+      if (at < 0) return null;
+      const before = clue.slice(0, at).split(/\s+/).filter(Boolean).length;
+      return Array.from({ length: b.clueFragment.split(/\s+/).filter(Boolean).length }, (_, i) => before + i);
+    };
+    let walked = null, tried = 0;
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation;
+        if (!a || a.redo || defTexts(a).length > 1) continue;
+        const bl = APP_BLOCKS.buildingBlocks(a).filter((b) => b.clueFragment && clueText(e).split(b.clueFragment).length === 2
+          && bareW(b.clueFragment) !== bareW(APP_BLOCKS.blockLetters(a, b)));
+        if (bl.length !== 2 || tried++ > 400 || !open(id, e)) continue;
+        const rungBtn = climbToBlocks();
+        if (!rungBtn) continue;
+        rungBtn.onclick();
+        if (!asking()) continue;
+        const first = fragWords(e, bl[0]);
+        const wrongPick = pickable().find((i) => first && first.indexOf(i) < 0);
+        if (wrongPick === undefined) continue;
+        const cold = registry["scorebar"].innerHTML;
+        registry["gw-" + wrongPick].onclick();
+        registry["guess-tell"].onclick();
+        const paid = registry["scorebar"].innerHTML;
+        const next = rung(/next piece/i);
+        if (!next || paid === cold) continue;
+        next.onclick();
+        if (!asking()) continue;
+        const second = fragWords(e, bl[1]);
+        if (!second || !second.every((i) => pickable().indexOf(i) >= 0)) continue;
+        second.forEach((i) => registry["gw-" + i].onclick());
+        registry["guess-tell"].onclick();
+        walked = { id, e, paid, after: registry["scorebar"].innerHTML };
+        break;
+      }
+      if (walked) break;
+    }
+    if (shape("a two-piece clue asked piece by piece", walked)) {
+      assert(walked.after === walked.paid,
+        `${walked.id} ${entryId(walked.e)}: a right piece after a wrong one keeps Pieces paid, `
+          + `neither refunded nor charged again: ${walked.paid} then ${walked.after}`);
+    }
+  }
 }
 
 // --- the spotting rungs spend the type rung ---
@@ -375,25 +439,31 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   }
   assert(found, "some clue has a definition, an indicator, a named block and an assembly rung");
   // Which words answer this rung, asked of the app rather than worked out again
-  // here: one wrong pick, and the marks that come back name the whole target.
-  // A second copy of guessAsk's span arithmetic in the test would only ever
-  // prove the copy right.
-  const targetOf = (re) => {
+  // here: one wrong pick opens the step, and the step's own highlights in the
+  // clue name the whole target (a wrong Lock in marks nothing itself). A second
+  // copy of guessAsk's span arithmetic in the test would only ever prove the
+  // copy right.
+  const targetOf = (re, cls) => {
     open();
     const b = rung(re);
     if (!b) return null;
     b.onclick();
     if (!panelHTML().includes("guess-clue ask")) return null;
     registry["gw-0"].onclick();
-    registry["guess-check"].onclick();
+    registry["guess-tell"].onclick();
     // One word that is already the whole target is a RIGHT answer, and a right
-    // answer goes on to the next question, so there is no wrong-pick marking to
-    // read: the target is that one word.
+    // answer goes on to the next question: the target is that one word.
     if (registry["hint-body"].innerHTML.includes("guess-verdict right")) return [0];
-    const marks = registry["hint-body"].innerHTML.match(/class="gw([^"]*)"/g) || [];
-    return marks.reduce((acc, m, i) => (/hit|missed/.test(m) ? acc.concat(i) : acc), []);
+    // Each word's box, and whether the step has highlighted it (the pieces up to
+    // the next box are that word and the gap after it).
+    const lit = registry["hint-clue"].innerHTML;
+    const starts = [];
+    lit.replace(/<(?:button|span)[^>]*class="gw[ "]/g, (m, at) => { starts.push(at); return m; });
+    const mark = new RegExp('<mark class="[^"]*\\b' + cls + '\\b');
+    return starts.reduce((acc, at, i) =>
+      (mark.test(lit.slice(at, i + 1 < starts.length ? starts[i + 1] : lit.length)) ? acc.concat(i) : acc), []);
   };
-  const want = { definition: targetOf(/definition/i), indicators: targetOf(/indicator/i) };
+  const want = { definition: targetOf(/definition/i, "def2?"), indicators: targetOf(/indicator/i, "ind") };
   assert(want.definition && want.indicators,
     "the clue can pose both spotting questions: " + JSON.stringify(want));
 
@@ -406,6 +476,11 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   const pickClass = (re) => {
     open();
     rung(re).onclick();
+    // Every question type has the one help button and no confirm step (the type
+    // question's own check is in type_rung.js, the pieces' in blocks_rung.js).
+    assert(!/guess-check|Check my answer/.test(panelHTML() + registry["hint-escape"].innerHTML)
+      && /id="guess-tell"/.test(registry["hint-escape"].innerHTML),
+      `${re}: the question has one help button and no Check my answer: ` + registry["hint-escape"].innerHTML);
     return (panelHTML().match(/class="guess-clue ask[^"]*"/) || [""])[0];
   };
   const defPick = pickClass(/definition/i), indPick = pickClass(/indicator/i);
@@ -535,7 +610,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
       rung(new RegExp(k.slice(0, 9), "i")).onclick();
       if (!earn) { registry["guess-tell"].onclick(); continue; }
       for (const i of want[k]) registry["gw-" + i].onclick();
-      registry["guess-check"].onclick();
+      registry["guess-tell"].onclick();
       // The verdict is read while the next question stands beside it; then that
       // question is skipped so the ladder is counted as it is after the rung.
       assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),

@@ -478,7 +478,7 @@ const { EVENTS, ROOT, assert, beacons, clueText, defTexts, entryId, ev, fs, isAs
   registry["clue-" + entryId(found.e)].listeners.click[0]();
   registry["hint-rungs"].children.find((b) => /definition/i.test(b.textContent || "") && !b.disabled).onclick();
   for (let i = 0; i <= found.n; i++) registry["gw-" + i].onclick();
-  registry["guess-check"].onclick();
+  registry["guess-tell"].onclick();
   assert(panelHTML().includes("guess-verdict right"),
     `the definition plus its link word is right (${found.id}): ` + panelHTML());
 }

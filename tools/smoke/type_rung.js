@@ -68,8 +68,10 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
     assert(choices().size % 2 === 1,
       `the span rule only fires on an odd count and there are ${choices().size} families`);
   }
-  assert(!html.includes('id="guess-check"'),
-    "and one of nine is a tap, not a tap and then a confirm: " + html);
+  assert(!/guess-check|Check my answer/.test(html + registry["hint-escape"].innerHTML),
+    "and one of seven is a tap, not a tap and then a confirm: " + html);
+  assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(registry["hint-escape"].innerHTML),
+    "with no family chosen the one help button is Show me, and it arms: " + registry["hint-escape"].innerHTML);
   assert(choices().size === 7,
     "all seven picker families are offered every time, never narrowed to the plausible "
       + "ones — the list is the vocabulary (rebus and reverse clue are folded into "
@@ -102,8 +104,10 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
   const wrong = Object.keys(verdicts).find((k) => !verdicts[k]);
   registry["gc-" + choices().get(wrong)].onclick();
   html = registry["hint-body"].innerHTML;
-  assert(html.includes("guess-verdict miss"), "a wrong family is graded: " + html);
-  assert(html.includes(">" + right + "<"), "and the rung opens anyway, naming it: " + html);
+  assert(!/guess-verdict|guess-result/.test(html), "a wrong family has no verdict at all: " + html);
+  assert(!/Not [^<]*here.s what it actually is/i.test(html),
+    "and no \"Not X\" line: " + html);
+  assert(html.includes(">" + right + "<"), "the rung opens anyway, naming it: " + html);
   assert(registry["scorebar"].innerHTML !== paid,
     "being told costs what it has always cost: " + registry["scorebar"].innerHTML);
 

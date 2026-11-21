@@ -89,9 +89,30 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   assert(registry["hint-rungs"].innerHTML === "",
     "the other rungs are not offered as a way around the question: " + registry["hint-rungs"].innerHTML);
 
+  // One button, two jobs: nothing picked is Show me (paid, so it arms and asks
+  // twice); a word picked is Lock in (free, so no data-arm); unpicked, Show me.
+  {
+    const bar = () => registry["hint-escape"].innerHTML;
+    assert(!/guess-check|Check my answer/.test(bar() + panelHTML()),
+      "Check my answer is gone: " + bar());
+    assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar()),
+      "with nothing picked the help button is Show me and arms: " + bar());
+    registry["gw-0"].onclick();
+    assert(/id="guess-tell"[^>]*>Lock in</.test(bar()) && !/id="guess-tell"[^>]*data-arm/.test(bar()),
+      "picking a word turns it to Lock in, with no data-arm: " + bar());
+    registry["gw-0"].onclick();
+    assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar()),
+      "and unpicking the word turns it back to Show me: " + bar());
+  }
+
   // Right: exactly the words, nothing else.
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
-  registry["guess-check"].onclick();
+  {
+    const bar = registry["hint-escape"].innerHTML;
+    assert(/id="guess-tell"[^>]*>Lock in</.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
+      "with words picked the one help button reads Lock in and is free (no data-arm): " + bar);
+  }
+  registry["guess-tell"].onclick();
   dismissNext();
   html = panelHTML();
   // The verdict lands on the words as well as in a sentence: "3 of 5" never says
@@ -143,18 +164,23 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   const words = (panelHTML().match(/id="gw-\d+"/g) || []).length;
   assert(words > found.words, "the clue offers more words than the definition uses");
   for (let i = 0; i < words; i++) registry["gw-" + i].onclick();
-  registry["guess-check"].onclick();
+  assert(!/id="guess-tell"[^>]*data-arm/.test(registry["hint-escape"].innerHTML),
+    "a Lock in never arms, even a wrong one: " + registry["hint-escape"].innerHTML);
+  registry["guess-tell"].onclick();
   html = panelHTML();
-  assert(html.includes("guess-verdict miss"), "a wrong guess is told so: " + html);
-  assert((html.match(/class="gw on hit"/g) || []).length === found.words &&
-         /class="gw on spare"/.test(html),
-    `the words that were doing the job are told apart from the ones that weren't: ${html}`);
-  assert(html.includes("hint-step"), "and the rung still opens — never a gate: " + html);
+  assert(!/guess-verdict|guess-result/.test(html + registry["hint-clue"].innerHTML),
+    "a wrong Lock in has no verdict, no miss marks and no red: " + html);
+  assert(!/class="gw[^"]*(spare|missed)"/.test(html + registry["hint-clue"].innerHTML),
+    "and no word is marked wrong: " + html);
+  assert(html.includes("hint-step") && !html.includes("guess-clue ask"),
+    "the rung opens exactly as Show me opens it — never a gate: " + html);
+  assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
+    "its words are highlighted in the clue as the step's own highlights");
   global.flushTimers(10000);
   assert(panelHTML() === html,
-    "a miss is left on screen to be read too: " + registry["hint-body"].innerHTML);
+    "and it is left on screen to be read: " + registry["hint-body"].innerHTML);
   assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
-    "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
+    "a wrong Lock in costs 1 hint, the same as Show me: " + registry["scorebar"].innerHTML);
 
   // And the escape hatch out of the question itself.
   openIt();
@@ -302,9 +328,13 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       // so it is skipped rather than guessed at.
       const bl = (a && !a.redo && a.blocks) || [];  // a redo clue has no blocks rung
       if (bl.length < 2) continue;
-      // The growth check below taps a wrong definition, so the clue needs one in
-      // its own words: not one its puzzle's preamble supplies.
+      // The growth check below locks in the right definition (the only thing
+      // that leaves a verdict to lose), so the clue needs one in its own words,
+      // a single run of whole words: not one its puzzle's preamble supplies.
       if (a.definedByPreamble || !(a.definitions || []).length) continue;
+      const defs = defTexts(a);
+      const defSpan = defs.length === 1 ? spanTokens(clueText(e), defs[0]) : null;
+      if (!defSpan) continue;
       if (!bl[0].gives || !bl[1].gives || bl[0].gives === bl[1].gives) continue;
       if (!bl[0].clueFragment || !bl[1].clueFragment) continue;
       const spans = bl.map((b) => b.clueFragment ? spanTokens(clueText(e), b.clueFragment) : null);
@@ -326,7 +356,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       const paid = registry["scorebar"].innerHTML;
       blocks.onclick();
       if (!asking()) continue;
-      walked = { id, e, bl, paid, pairs };
+      walked = { id, e, bl, paid, pairs, defSpan };
     }
     if (walked) break;
   }
@@ -346,8 +376,11 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     "and a chip per chunk, none of them spent yet: " + html);
   walked.pairs.forEach((b) => assert(!html.includes(givesSpan(b.gives)),
     `${b.gives} is on the strip to be placed, never placed for you: ` + html));
-  assert(/id="guess-check"[^>]*disabled/.test(html),
-    "and it cannot be checked while rows are still empty: " + html);
+  {
+    const bar = registry["hint-escape"].innerHTML;
+    assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar),
+      "with rows still empty nothing is picked, so the help button is Show me and arms: " + bar);
+  }
 
   // Which chip is which, read off the markup rather than off the app's own
   // ordering — a test that asked the app where it put things would agree with
@@ -399,9 +432,12 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     registry["gm-chip-" + chipAt[b.gives]].onclick();
     registry["gm-slot-" + i].onclick();
   });
-  assert(!/id="guess-check"[^>]*disabled/.test(panelHTML()),
-    "a full board can be checked: " + panelHTML());
-  registry["guess-check"].onclick();
+  {
+    const bar = registry["hint-escape"].innerHTML;
+    assert(/id="guess-tell"[^>]*>Lock in</.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
+      "a full board reads Lock in, free: " + bar);
+  }
+  registry["guess-tell"].onclick();
   dismissNext();
 
   html = panelHTML();
@@ -425,13 +461,11 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   assert(def, "the definition rung is offered: " + registry["hint-rungs"].innerHTML);
   def.onclick();
   assert(asking(), "and asks before telling: " + registry["hint-body"].innerHTML);
-  // Deliberately wrong, so there is a verdict to lose. The last word of a clue is
-  // never the whole definition of one that starts with it.
-  const last = (panelHTML().match(/id="gw-(\d+)"/g) || []).pop();
-  if (assert(last, "the definition question offers words to tap: " + panelHTML()))
-    registry[last.slice(4, -1)].onclick();
-  registry["guess-check"].onclick();
-  assert(registry["hint-body"].innerHTML.includes("guess-verdict"), "graded");
+  // Deliberately right, so there is a verdict to lose: only a right Lock in
+  // leaves one (a wrong one opens the step with no verdict at all).
+  walked.defSpan.forEach((n) => registry["gw-" + n].onclick());
+  registry["guess-tell"].onclick();
+  assert(registry["hint-body"].innerHTML.includes("guess-verdict right"), "graded");
   // On to a rung that poses its own question, since that is the moment the old
   // verdict could be swept away to make room for the new one.
   let before = "";
@@ -589,8 +623,8 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   dragAcross(0, found.words - 1);
   assert(onNow() === found.words,
     `a drag picks every word it crossed and no others: ${registry["hint-body"].innerHTML}`);
-  assert(!registry["guess-check"].disabled, "and arms the check button");
-  registry["guess-check"].onclick();
+  assert(registry["hint-escape"].innerHTML.includes(">Lock in<"), "and turns the help button to Lock in");
+  registry["guess-tell"].onclick();
   assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
     "so the run can be the whole answer: " + registry["hint-body"].innerHTML);
 
@@ -609,10 +643,10 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // one a tap writes.
   assert(registry["gw-0"].classList.contains("on")
          && !registry["gw-1"].classList.contains("on")
-         && !registry["guess-check"].disabled,
+         && registry["hint-escape"].innerHTML.includes(">Lock in<"),
     "a tap that never left the word still toggles it, and only it: "
     + registry["gw-0"].className + " / " + registry["gw-1"].className
-    + " / check disabled: " + registry["guess-check"].disabled);
+    + " / bar: " + registry["hint-escape"].innerHTML);
 
   // Settled words: take the definition, then be asked about the indicators.
   open();

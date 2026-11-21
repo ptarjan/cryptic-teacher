@@ -68,13 +68,14 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   // question block would leave the newcomer hunting for what to press next.
   const pulsing = Object.keys(press.registry).filter((id) => /^gw-\d+$/.test(id)
     && /walk-point/.test(press.registry[id].className || ""));
-  if (pulsing.length && press.registry["guess-check"]) {
-    assert(!/walk-point/.test(press.registry["guess-check"].className || ""),
-      "the check button waits until the words are picked");
+  const helpBtn = () => press.registry["guess-tell"];
+  if (pulsing.length && helpBtn()) {
+    assert(!/walk-point/.test(helpBtn().className || "") && !/Lock in/.test(helpBtn().textContent || ""),
+      "nothing is picked yet, so the help button is still Show me and holds no pulse");
     pulsing.forEach((id) => press.registry[id].onclick());
-    assert(/walk-point/.test(press.registry["guess-check"].className || ""),
-      "once the lit words are picked the check button takes the pulse: "
-      + press.registry["guess-check"].className);
+    assert(/Lock in/.test(helpBtn().textContent || "") && /walk-point/.test(helpBtn().className || ""),
+      "once the lit words are picked the one help button reads Lock in and takes the pulse: "
+      + helpBtn().className + " / " + helpBtn().textContent);
   }
   // And the walk goes on. One press teaches what one button does; the row is
   // what the line is about, so opening a rung hands the light to the next one
