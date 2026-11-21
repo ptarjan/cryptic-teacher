@@ -374,6 +374,20 @@ def clue_row_problems(served, printed, why):
     return problems
 
 
+def clue_row_disk_problems(disk_text, served, printed, why):
+    """What stops a SOURCE_CLUE_WRONG row being true of the puzzle file: the
+    file's clue text must hold the row's printed clue (compared as clue_words),
+    and clue_row_problems must find nothing. One rule for
+    tests/test_source_answer_wrong.py and tools/discard_clue_rows.py, which
+    drops a row that fails it before the burn commits (telegraph-19919
+    13-across: 'Deliver reformedsinner' against a file 'O deliver reformed
+    sinner')."""
+    problems = []
+    if clue_words(disk_text) != clue_words(printed):
+        problems.append(f"stored {disk_text!r}, table prints {printed!r}")
+    return problems + clue_row_problems(served, printed, why)
+
+
 def scan_read(pid, eid):
     """Whether light `eid`'s SOURCE_CLUE_WRONG row was read off `pid`'s scan,
     which tools/scan_crop.py can show: a clue read off the page is the

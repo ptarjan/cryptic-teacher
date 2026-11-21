@@ -224,12 +224,12 @@ for (pid, eid), (served_clue, printed, why) in fetcher.SOURCE_CLUE_WRONG.items()
     ent = path and {entry_id(e): e for e in fetcher.read_puzzle_file(path)["entries"]}.get(eid)
     if not ent:
         bad.append(f"{pid} {eid}: no such entry")
-    elif fetcher.clue_words(ent["clue"].get("text")) != fetcher.clue_words(printed):
-        bad.append(f"{pid} {eid}: stored {ent['clue'].get('text')!r}, table prints {printed!r}")
-    # Compared as text: a stray full stop OCR put in a clue is worth mending.
-    # One rule with the filer: the text changes, and the note is evidence.
-    for problem in V.clue_row_problems(served_clue, printed, why):
-        bad.append(f"{pid} {eid}: {problem}")
+    else:
+        # One rule with tools/discard_clue_rows.py, which drops such a row
+        # before the burn commits it: the file holds the printed clue, the
+        # text changes, and the note is evidence.
+        for problem in V.clue_row_disk_problems(ent["clue"].get("text"), served_clue, printed, why):
+            bad.append(f"{pid} {eid}: {problem}")
     # An OCR'd clue's correction mends a misread, never rewords the clue,
     # unless it was read off the scan.
     puz = path and fetcher.read_puzzle_file(path)
@@ -238,6 +238,34 @@ for (pid, eid), (served_clue, printed, why) in fetcher.SOURCE_CLUE_WRONG.items()
             V.ocr_misread_edits(served_clue, printed) > V.OCR_MISREAD_EDITS:
         bad.append(f"{pid} {eid}: an OCR clue reworded, not a misread mended")
 same("every clue key holds on disk and corrects something", "; ".join(bad) or "none", "none")
+
+print("a clue row the file does not show is refused, and dropped before the burn commits it")
+# telegraph-19919 13-across (11-21): the file holds 'O deliver reformed sinner'
+# (EVILDOER = anagram of O DELIVER); the run filed 'Deliver reformedsinner'.
+disk = "O deliver reformed sinner"
+bad_row = ["Odeliver reformedsinner", "Deliver reformedsinner",
+           "OCR misread: the text has 'Odeliver' where the wordplay needs 'deliver'"]
+same("the stray row names a clue the file does not hold",
+     len(V.clue_row_disk_problems(disk, *bad_row)), 1)
+same("a row whose printed clue is the file's, and changes it, is fine",
+     V.clue_row_disk_problems("A little sweet", "A littlesweet", "A little sweet",
+                              "OCR misread: the space between little and sweet was lost"), [])
+same("a row that corrects nothing is refused",
+     len(V.clue_row_disk_problems(disk, disk, disk, "OCR misread: nothing changes here at all")), 1)
+import tempfile
+import discard_clue_rows
+import sharded_table
+with tempfile.TemporaryDirectory() as tmp:
+    key = "telegraph-19919/13-across"
+    sharded_table.save("source_clue_wrong", {key: bad_row}, Path(tmp))
+    real = discard_clue_rows.shown_texts
+    discard_clue_rows.shown_texts = lambda pid: {"13-across": disk}
+    try:
+        gone = discard_clue_rows.drop_unshown("telegraph-19919", Path(tmp))
+    finally:
+        discard_clue_rows.shown_texts = real
+    same("drop_unshown drops it", gone, ["13-across"])
+    same("and the table no longer holds it", sharded_table.load("source_clue_wrong", Path(tmp)), {})
 
 print("source_answer_wrong: all checks passed" if not fails
       else f"source_answer_wrong: {fails} FAILED")

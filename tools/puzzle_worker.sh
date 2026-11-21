@@ -550,6 +550,15 @@ clear_stale_index_lock() {
     waited=$((waited + 2))
   done
 }
+# Drop each puzzle's source_clue_wrong rows its file does not show or that
+# correct nothing, before they are staged: CI's tests/test_source_answer_wrong.py
+# refuses them after the commit landed (telegraph-19919 13-across, 11-21).
+drop_bad_clue_rows() {   # id...
+  local id
+  for id in "$@"; do
+    python3 tools/discard_clue_rows.py "$id" >&2 || true
+  done
+}
 # Stage one puzzle for its commit: its pathspecs (puzzle_specs), and its rows
 # of fetch_puzzle.py with no sibling's (tools/own_rows.py). On failure nothing
 # is left staged, so the next puzzle's commit cannot carry this one.
@@ -557,6 +566,7 @@ stage_puzzle() {
   local -a spec
   local try
   puzzle_specs "$1" spec
+  drop_bad_clue_rows "$1"
   # ct-index.lock orders the burn's own runs, but any other git command in
   # this tree (a status, a sync) holds index.lock for a moment, so a refused
   # add is tried again before the run is given up.
@@ -573,6 +583,7 @@ stage_puzzle() {
 stage_puzzles() {   # id...
   local -a spec all=()
   local id try
+  drop_bad_clue_rows "$@"
   for id in "$@"; do
     puzzle_specs "$id" spec
     all+=("${spec[@]}")

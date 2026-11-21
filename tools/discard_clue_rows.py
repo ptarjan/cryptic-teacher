@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Drop the source_clue_wrong rows of one puzzle that its file does not show.
+"""Drop the source_clue_wrong rows of one puzzle that its file does not show
+(or that correct nothing: validate_committed.clue_row_disk_problems).
 
     python3 tools/discard_clue_rows.py ID
 
@@ -21,18 +22,19 @@ from pathlib import Path
 import fetch_puzzle as fetcher
 from groups import entry_id
 import sharded_table
+import validate_committed
 
 TABLE = "source_clue_wrong"
 DATA = Path(fetcher.__file__).resolve().parent / "data"
 
 
-def shown_clues(pid):
-    """{entry id: clue words} as the puzzle file on disk holds them; {} when
+def shown_texts(pid):
+    """{entry id: clue text} as the puzzle file on disk holds them; {} when
     there is no file."""
     path = fetcher.puzzle_paths.find(pid)
     if path is None:
         return {}
-    return {entry_id(e): fetcher.clue_words(e["clue"].get("text"))
+    return {entry_id(e): e["clue"].get("text") or ""
             for e in fetcher.read_puzzle_file(path)["entries"]}
 
 
@@ -40,11 +42,12 @@ def drop_unshown(pid, data_dir=DATA):
     """Remove pid's rows whose printed clue its file does not hold. Returns the
     entry ids removed."""
     rows = sharded_table.load(TABLE, data_dir)
-    shown = shown_clues(pid)
+    shown = shown_texts(pid)
     gone = []
-    for key, (_served, printed, _why) in list(rows.items()):
+    for key, (served, printed, why) in list(rows.items()):
         row_pid, eid = key.split("/", 1)
-        if row_pid == pid and shown.get(eid) != fetcher.clue_words(printed):
+        if row_pid == pid and (eid not in shown or validate_committed.clue_row_disk_problems(
+                shown[eid], served, printed, why)):
             gone.append(eid)
             del rows[key]
     if gone:

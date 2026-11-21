@@ -170,7 +170,7 @@ from validate_blocks import (
 from validate_committed import (
     MARKUP_RE, CP1252_C1, C1_RE, verbatim_hint, respelt_words, skipped_words, is_pointer_text, check_groups,
     check_no_markup, text_errors, committed_entries, committed_top, check_theme_clue_unchanged,
-    check_spelling_kept, OCR_MISREAD_EDITS, edit_distance, ocr_misread_edits, SCAN_READ, clue_row_problems,
+    check_spelling_kept, OCR_MISREAD_EDITS, edit_distance, ocr_misread_edits, SCAN_READ, clue_row_problems, clue_row_disk_problems,
     scan_read, check_clue_unchanged, check_clue_rows_held, letters_given_in,
     check_indicator_notes_name_no_block, TWO_END_LETTERS, check_no_two_end_letters, SELECT_NOUNS, SELECT_ADVERBS, _select_groups, SELECTOR_LEADS,
     SELECTOR_TAIL_WORDS, SELECTOR_TAIL, SELECTOR_ALONE, selector_in_block, check_selectors_are_indicators,
