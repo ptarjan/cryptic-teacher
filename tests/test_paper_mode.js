@@ -99,8 +99,8 @@ for (const paperOn of [true, false]) {
     check(!(entryId(entry) in solvedWith),
       `typingGivesNoSignal (${tag}): nothing frozen in solvedWith: ${JSON.stringify(solvedWith)}`);
     check(/Paper mode/.test(t.reg["scorebar"].innerHTML), `paperTools (${tag}): the scorebar says paper mode is on`);
-    check(t.hidden("chk-letter") && t.hidden("chk-entry") && t.hidden("chk-grid") && !t.hidden("paper-done"),
-      `paperTools (${tag}): the letter, word and grid checks give way to I'm done`);
+    check(!t.hidden("paper-done"),
+      `paperTools (${tag}): I'm done shows`);
     check(!t.hidden("clear-entry") && !t.hidden("reset-puzzle"), `paperTools (${tag}): Clear and Reset stay`);
     check(!t.hidden("paper-switch") && t.reg["paper-toggle"].checked === true,
       `paperTools (${tag}): the switch is shown, ticked`);
@@ -120,14 +120,14 @@ for (const paperOn of [true, false]) {
     check(/correct/.test(t.reg["check-result"].textContent),
       "doneCredits: the grid check reports what it found: " + t.reg["check-result"].textContent);
     check(!JSON.parse(t.d.storage["ct:paper"]).open[ID], "doneCredits: the puzzle is off paper for good");
-    check(!t.hidden("chk-entry") && t.hidden("paper-done") && t.reg["hint-meter"].innerHTML !== "",
+    check(t.hidden("paper-done") && t.reg["hint-meter"].innerHTML !== "",
       "doneCredits: the checks and the ladder are back");
   } else {
     check(li.classList.contains("solved") && li.classList.contains("no-hints"),
       `typingGivesNoSignal (${tag}): the same typing marks the row solved and clean`);
     check(/clue-done/.test(clue), `typingGivesNoSignal (${tag}): and ticks the clue`);
     check(solvedWith[entryId(entry)] === 0, `typingGivesNoSignal (${tag}): and freezes it in solvedWith`);
-    check(!t.hidden("chk-entry") && t.hidden("paper-done"), `paperTools (${tag}): the usual checks, no I'm done`);
+    check(t.hidden("paper-done"), `paperTools (${tag}): the usual checks, no I'm done`);
     check(!t.hidden("paper-switch") && t.reg["paper-toggle"].checked === false,
       `paperTools (${tag}): the switch is shown, unticked`);
   }
@@ -183,14 +183,14 @@ for (const paperOn of [true, false]) {
   t.reg["paper-toggle"].onchange();
   const on = JSON.parse(t.d.storage["ct:paper"]);
   check(on.on === true && !!on.open[ID], "switchInPuzzle: ticking it puts this puzzle on paper and the default on");
-  check(!li.classList.contains("solved") && t.hidden("chk-entry") && !t.hidden("paper-done")
+  check(!li.classList.contains("solved") && !t.hidden("paper-done")
         && t.reg["paper-toggle"].checked === true,
     "switchInPuzzle: the tick and the checks go, I'm done comes");
   t.reg["paper-toggle"].checked = false;
   t.reg["paper-toggle"].onchange();
   const off = JSON.parse(t.d.storage["ct:paper"]);
   check(off.on === false && !off.open[ID], "switchInPuzzle: unticking it takes the puzzle off paper and the default off");
-  check(li.classList.contains("solved") && !t.hidden("chk-entry") && t.hidden("paper-done"),
+  check(li.classList.contains("solved") && t.hidden("paper-done"),
     "switchInPuzzle: the tick and the checks come back");
 }
 

@@ -170,12 +170,6 @@
       if (btn && btn.onclick) btn.onclick();
     });
 
-    $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c], "square"); };
-    $("chk-entry").onclick = () => {
-      const e = gridEntry(), light = !e && currentLight();
-      if (e || light) checkCells(e ? entryCells(e) : light, "word");
-    };
-    $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
     $("paper-done").onclick = () => { if (paperHides()) verifyPaper(); };
     $("paper-reveal").onclick = () => { if (paperHides()) endPaper(); };
     $("paper-toggle").onchange = () => togglePaper($("paper-toggle").checked);

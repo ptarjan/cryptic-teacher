@@ -252,16 +252,14 @@ Terms used below:
 
 ## Solving screen
 
-- **Every check says what it found.** A check always writes a sentence into
-  `#check-result` (wrong letters marked, all correct so far, or nothing typed
-  yet) and pulses the squares it examined, so its scope is visible. No control
-  may respond to a click with silence; if there is nothing to report, say so.
-  See `checkCells()` and `announceCheck()` in `app.js`, and the check
-  assertions in the smoke test.
+- **The grid marks right, never wrong.** A word locks as solved once every
+  letter is right; there are no letter/word/grid check buttons. `checkCells()`
+  survives only for paper mode's opt-in "Show what's wrong", which writes a
+  sentence into `#check-result` and marks the wrong letters.
 - **Paper mode hides every right/wrong signal until "I'm done".** A
-  per-device switch in the puzzle's toolbar, beside the checks. On paper there is no tick, star or
-  lock on a solved clue, no meter, ladder, reveal or vote, and the letter, word
-  and grid checks give way to one "I'm done" button; Clear and Reset stay.
+  per-device switch in the puzzle's toolbar. On paper there is no tick, star or
+  lock on a solved clue, no meter, ladder, reveal or vote, and one
+  "I'm done" button shows; Clear and Reset stay.
   "I'm done" is Check grid plus the end of paper mode for that puzzle.
   - **Hidden means unknown, in one place.** `isEntrySolved` answers false while
     the puzzle on screen is on paper (`lettersRight` is the raw fact), so every

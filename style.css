@@ -116,7 +116,7 @@ body {
   max-width: 1180px;
   margin: 0 auto;
 }
-h1, h2, h3, .tool, .ghost, .badge, .toolbar-label, #scorebar, #streak, .clue-num {
+h1, h2, h3, .tool, .ghost, .badge, #scorebar, #streak, .clue-num {
   font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
@@ -785,7 +785,6 @@ button:disabled:hover { border-color: var(--line); }
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
   margin: 10px 0 14px; font-size: .8rem;
 }
-.toolbar-label { color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: .7rem; }
 /* Paper mode's switch: a checkbox among the checks it replaces, one tap
    anywhere on the words. */
 .paper-toggle { display: inline-flex; gap: 4px; align-items: center; color: var(--muted); cursor: pointer; }
@@ -1694,7 +1693,6 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   #grid { --cellcap: var(--wide-cap); }
   .toolbar { grid-column: 2; grid-row: 1; margin: 0; gap: 10px; font-size: .95rem; }
   .tool { font-size: .95rem; padding: 8px 16px; }
-  .toolbar-label { font-size: .8rem; }
   #hidden-message { grid-column: 2; grid-row: 2; margin: 0; }
   #check-result { grid-column: 2; grid-row: 3; margin: 0; }
   /* Both lists side by side, each its own scroller; any off-grid lists go beside them. */

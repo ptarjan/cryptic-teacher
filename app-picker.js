@@ -1122,8 +1122,6 @@
     $("puzzle-reprint").classList.toggle("hidden", !reprinted);
     renderGrid();
     renderClues();
-    const checkable = canCheck();
-    ["chk-letter", "chk-entry", "chk-grid"].forEach((id2) => { $(id2).disabled = !checkable; });
     refreshAll();
     // A link that named a clue came for its hints: on a phone the panel is below
     // the grid, so bring it up with the rungs in reach.

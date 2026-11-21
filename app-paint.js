@@ -840,7 +840,6 @@
   // to hide.
   function drawPaperTools() {
     const on = paperHides();
-    ["chk-label", "chk-letter", "chk-entry", "chk-grid"].forEach((id) => $(id).classList.toggle("hidden", on));
     $("paper-done").classList.toggle("hidden", !on);
     // After a verdict, a second button is the way to see where (and end paper).
     $("paper-reveal").classList.toggle("hidden", !(on && paperAsked()));

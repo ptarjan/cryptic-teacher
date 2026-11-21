@@ -129,10 +129,6 @@ def solve(page):
         if hints <= sent_names(page):
             break
 
-    for b in ("#chk-letter", "#chk-entry", "#chk-grid"):
-        page.locator(b).click()
-        page.wait_for_timeout(150)
-
     # One square at a time, each one selected by clicking it. Typing whole
     # answers into the clue list does not work as a test: the cursor skips
     # squares a crossing clue already filled, so the letters land one square
