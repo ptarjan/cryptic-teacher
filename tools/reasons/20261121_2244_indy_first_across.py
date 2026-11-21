@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent 2010-13 page whose two clue columns under the grid stood right of its thirds, their gutter cut at their numbers since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD = "2026-11-21T23:08:00+00:00"  # placeholder: the push minute (UTC)
 INDY_CUT_NEAR, INDY_CUT_DEPTH = 250, 900
 
 
