@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Medical report on victim of shooting incident",
     "enumeration": "8"
    },
-   "solution": "BULLETIN"
+   "solution": "BULLETIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Medical report",
+      "at": 0,
+      "meaning": "an official statement on a patient's condition, as issued about a sick public figure"
+     },
+     {
+      "text": "victim of shooting incident",
+      "at": 18,
+      "meaning": "read as two words, someone with a slug lodged in them after being shot"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor issues an update on the condition of someone who was shot.",
+     "definitionFit": "A short official statement of news, such as a hospital's update on a patient, is a bulletin; split, the word describes someone who has been hit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,28 @@
     "text": "Mulled wine for His Lordship",
     "enumeration": "6"
    },
-   "solution": "BISHOP"
+   "solution": "BISHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mulled wine",
+      "at": 0,
+      "meaning": "a hot spiced drink of port or wine with oranges"
+     },
+     {
+      "text": "His Lordship",
+      "at": 16,
+      "meaning": "a senior cleric of the Church of England, addressed as My Lord"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A drink of spiced warmed port shares its name with the senior churchman addressed as My Lord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +105,59 @@
     "text": "Appeared to be satisfactory in dole distribution",
     "enumeration": "6"
    },
-   "solution": "LOOKED"
+   "solution": "LOOKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appeared",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in means one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distribution",
+         "at": 36,
+         "note": "a distribution scatters things about, so the letters are dealt out afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dole",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "words": "satisfactory",
+       "at": 15,
+       "gives": "OK",
+       "note": "OK means satisfactory or all right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something seemed acceptable in the way unemployment benefit was handed out.",
+     "walkthrough": "'Dole' is British slang for unemployment benefit; here it is just letters to be dealt out.",
+     "definitionFit": "To have seemed or given the impression of something is to have looked it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dole"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +171,41 @@
     "text": "But expect to be knocked into shape",
     "enumeration": "6"
    },
-   "solution": "EXCEPT"
+   "solution": "EXCEPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "But",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be knocked into shape",
+       "at": 11,
+       "note": "knocking something into shape means forcing it into a new form, so the letters take a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expect",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes for something but must expect to be bullied into fitness.",
+     "walkthrough": "'to be knocked into shape' rearranges EXPECT.",
+     "definitionFit": "Both words introduce an exclusion, as in all but one or all save one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "But"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +225,41 @@
      }
     ]
    },
-   "solution": "INSTITCHES"
+   "solution": "INSTITCHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Laughing uncontrollably",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "this month",
+       "at": 24,
+       "gives": "INST",
+       "note": "inst., short for instant, is old business shorthand for this month"
+      },
+      {
+       "words": "ticklish sensations",
+       "at": 40,
+       "gives": "ITCHES",
+       "note": "itches are irritating, tickling feelings on the skin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has been in fits of laughter all month from being tickled.",
+     "walkthrough": "INST, for instant, was used in letters to mean this month, as in your letter of the 5th inst.",
+     "definitionFit": "The idiom for helpless laughter compares it to the sharp pain of a side stitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +273,54 @@
     "text": "About to pull back the gaoler",
     "enumeration": "6"
    },
-   "solution": "WARDER"
+   "solution": "WARDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the gaoler",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 14,
+       "note": "back tells us to read the whole run of letters from the end to the start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "About",
+         "at": 0,
+         "gives": "RE",
+         "note": "re is Latin-derived for about or concerning, as in business letters"
+        },
+        {
+         "words": "to pull",
+         "at": 6,
+         "gives": "DRAW",
+         "note": "to draw is to pull, as a cart or a curtain"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison guard is about to drag someone back to the cells.",
+     "walkthrough": "'back' turns the whole run RE + DRAW into WARDER. 'Gaoler' is the British spelling of jailer.",
+     "definitionFit": "A prison officer in charge of inmates is called a warder in British usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +340,11 @@
      }
     ]
    },
-   "solution": "AGARAGAR"
+   "solution": "AGARAGAR",
+   "annotationWithheld": {
+    "why": "Jelly for two silver-headed artists (4-4): silver AG heading artists RA, doubled, gives AGRAAGRA not AGARAGAR; no standard abbreviation for artists gives AR, so the parse as held does not reach the answer",
+    "clue": "Jelly for two silver-headed artists"
+   }
   },
   {
    "number": 7,
@@ -140,7 +358,41 @@
     "text": "Drive out from the House of Hades",
     "enumeration": "8"
    },
-   "solution": "DISLODGE"
+   "solution": "DISLODGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drive out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hades",
+       "at": 28,
+       "gives": "DIS",
+       "note": "Dis is the Roman god of the underworld, the equivalent of Hades"
+      },
+      {
+       "words": "House",
+       "at": 19,
+       "gives": "LODGE",
+       "note": "a lodge is a house, such as a gatehouse or a hunting lodge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is expelled from the underworld god's home.",
+     "walkthrough": "Dis, the Roman underworld god, stands for Hades, so the house of Hades is Dis's lodge.",
+     "definitionFit": "To force something or someone from its position is to dislodge it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +406,40 @@
     "text": "He renders an account to military caretaker",
     "enumeration": "8"
    },
-   "solution": "REPORTER"
+   "solution": "REPORTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He renders an account",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "military",
+       "at": 25,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British army corps"
+      },
+      {
+       "words": "caretaker",
+       "at": 34,
+       "gives": "PORTER",
+       "note": "a porter looks after a building, as a doorkeeper or caretaker does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier-caretaker submits a report on the building.",
+     "definitionFit": "A journalist who gives an account of events is a reporter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +459,34 @@
      }
     ]
    },
-   "solution": "SHOWCASE"
+   "solution": "SHOWCASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A theatrical action it displays to advantage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A theatrical action it displays to advantage",
+       "at": 0,
+       "note": "split in two, a stage performance plus a lawsuit gives a theatrical legal action, while the whole is a glass cabinet that sets off its contents well"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatic lawsuit puts something on display to good effect.",
+     "definitionFit": "A glass-fronted display cabinet, or any setting that presents something at its best, is a showcase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +500,49 @@
     "text": "Tom is out of bed and dressing",
     "enumeration": "6"
    },
-   "solution": "CATSUP"
+   "solution": "CATSUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dressing",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tom",
+       "at": 0,
+       "gives": "CAT",
+       "note": "a tom is a male cat"
+      },
+      {
+       "words": "is",
+       "at": 4,
+       "gives": "S",
+       "note": "is shortened to 's, as in it's"
+      },
+      {
+       "words": "out of bed",
+       "at": 7,
+       "gives": "UP",
+       "note": "someone out of bed is up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Tom has got out of bed and is putting his clothes on.",
+     "walkthrough": "'Tom' looks like a man's name but it is a male cat. 'is' contracts to the S of 's.",
+     "definitionFit": "Catsup is an old spelling of ketchup, a sauce or condiment, which counts as a dressing for food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +556,44 @@
     "text": "Provide a new design, and be given extra money",
     "enumeration": "8"
    },
-   "solution": "OVERPAID"
+   "solution": "OVERPAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "given extra money",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "new design",
+       "at": 10,
+       "note": "giving the letters a new design means arranging them in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Provide",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone redesigns a project and receives a bonus for it.",
+     "walkthrough": "'new design' rearranges PROVIDE plus A into OVERPAID.",
+     "definitionFit": "To be paid too much is to receive more money than is due."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +607,28 @@
     "text": "Socialist workers",
     "enumeration": "6"
    },
-   "solution": "LABOUR"
+   "solution": "LABOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Socialist",
+      "at": 0,
+      "meaning": "the UK's main left-of-centre party, founded by trade unions"
+     },
+     {
+      "text": "workers",
+      "at": 10,
+      "meaning": "the workforce collectively"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The British Labour Party is the main socialist party, and the work force as a body is called labour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +648,43 @@
      }
     ]
    },
-   "solution": "STOCKSTILL"
+   "solution": "STOCKSTILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "isn't moving at all",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "merchandise",
+       "at": 4,
+       "gives": "STOCK",
+       "note": "a shop's stock is the merchandise it holds"
+      },
+      {
+       "words": "as yet",
+       "at": 16,
+       "gives": "STILL",
+       "note": "still means up to now or as yet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The goods have yet to sell and are not shifting at all.",
+     "walkthrough": "The definition is a predicate: the thing is stock-still.",
+     "definitionFit": "Being completely motionless, without any movement, is being stock-still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +704,47 @@
      }
     ]
    },
-   "solution": "ACUTEANGLE"
+   "solution": "ACUTEANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sharp fork",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "dear little",
+       "at": 2,
+       "gives": "CUTE",
+       "note": "something dear and little is cute"
+      },
+      {
+       "words": "fish",
+       "at": 14,
+       "gives": "ANGLE",
+       "note": "to fish with rod and line is to angle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eyeing a sweet little fish needs a sharp fork to eat it.",
+     "walkthrough": "'fish' looks like a noun but is the verb, giving ANGLE.",
+     "definitionFit": "Two lines forking apart at less than ninety degrees form an angle under a right angle, so a sharp fork is witty for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fork"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +758,28 @@
     "text": "Disorderly rush for an emergency take-off",
     "enumeration": "8"
    },
-   "solution": "SCRAMBLE"
+   "solution": "SCRAMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disorderly rush",
+      "at": 0,
+      "meaning": "a hurried struggle as people jostle to get somewhere first"
+     },
+     {
+      "text": "emergency take-off",
+      "at": 23,
+      "meaning": "the rapid launch of fighter aircraft to meet a threat"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A disorderly scrum to get somewhere is a scramble, as is the RAF's word for fighters launching fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +793,48 @@
     "text": "Decongestant given to trendy Henry by social worker",
     "enumeration": "8"
    },
-   "solution": "INHALANT"
+   "solution": "INHALANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decongestant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trendy",
+       "at": 22,
+       "gives": "IN",
+       "note": "in means fashionable, as in the in crowd"
+      },
+      {
+       "words": "Henry",
+       "at": 29,
+       "gives": "HAL",
+       "note": "Hal is a nickname for Henry, as with Shakespeare's Prince Hal"
+      },
+      {
+       "words": "social worker",
+       "at": 38,
+       "gives": "ANT",
+       "note": "an ant is a social insect, the classic worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable man named Henry is given a cold remedy by a social worker.",
+     "walkthrough": "'social worker' looks like a welfare officer but is an ant, a social insect.",
+     "definitionFit": "A medicine breathed in to clear a blocked nose is an inhalant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +848,48 @@
     "text": "Demand in Jerusalem for the onion",
     "enumeration": "8"
    },
-   "solution": "SCALLION"
+   "solution": "SCALLION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the onion",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in means the demand goes inside the city's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jerusalem",
+       "at": 10,
+       "gives": "SION",
+       "note": "Sion is an old spelling of Zion, a name for Jerusalem"
+      },
+      {
+       "words": "Demand",
+       "at": 0,
+       "gives": "CALL",
+       "note": "a call is a demand, as in a call for action"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In Jerusalem people clamour for onions.",
+     "walkthrough": "SION is the older spelling of Zion, the biblical name for Jerusalem.",
+     "definitionFit": "A scallion is a spring onion or shallot, a kind of onion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +903,40 @@
     "text": "Study physics, for instance, and gain moral awareness",
     "enumeration": "10"
    },
-   "solution": "CONSCIENCE"
+   "solution": "CONSCIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moral awareness",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "CON",
+       "note": "to con is an old word for to study or learn"
+      },
+      {
+       "words": "physics, for instance",
+       "at": 6,
+       "gives": "SCIENCE",
+       "note": "physics is one example of a science"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Studying physics leads someone to an ethical awakening.",
+     "definitionFit": "The inner sense of right and wrong that guides behaviour is one's conscience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +950,54 @@
     "text": "Glass of beer with flipped egg-flip results in gibberish",
     "enumeration": "6"
    },
-   "solution": "JARGON"
+   "solution": "JARGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gibberish",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Glass of beer",
+       "at": 0,
+       "gives": "JAR",
+       "note": "a jar is British slang for a glass of beer"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipped",
+         "at": 19,
+         "note": "flipped means the drink's name is turned end to end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "egg-flip",
+         "at": 27,
+         "gives": "NOG",
+         "note": "egg-flip is another name for eggnog, so nog"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pint of beer plus a knocked-over eggnog leaves someone talking nonsense.",
+     "walkthrough": "'flipped' turns NOG into GON. 'Jar' is British slang for a drink of beer.",
+     "definitionFit": "Unintelligible or specialist language is jargon, close in sense to nonsense talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1011,47 @@
     "text": "Finch gets public house included in lease",
     "enumeration": "6"
    },
-   "solution": "LINNET"
+   "solution": "LINNET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Finch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included in",
+       "at": 24,
+       "note": "included in means one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lease",
+       "at": 36,
+       "gives": "LET",
+       "note": "to let is to lease out property"
+      },
+      {
+       "words": "public house",
+       "at": 11,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub finds itself part of a property rental agreement.",
+     "definitionFit": "The linnet is a small brown songbird of the finch family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1065,29 @@
     "text": "Tax the family",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tax",
+      "at": 0,
+      "meaning": "a verb meaning to put heavy pressure on, as in stretching resources"
+     },
+     {
+      "text": "the family",
+      "at": 4,
+      "meaning": "a line of descent, breed or stock"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To tax is to overstretch, which is to strain; a breed or ancestral line is also a strain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tax"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1101,49 @@
     "text": "Butler getting in beer ideal for farmers",
     "enumeration": "6"
    },
-   "solution": "ARABLE"
+   "solution": "ARABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ideal for farmers",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting in",
+       "at": 7,
+       "note": "getting in means one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer",
+       "at": 18,
+       "gives": "ALE",
+       "note": "ale is a type of beer"
+      },
+      {
+       "words": "Butler",
+       "at": 0,
+       "gives": "RAB",
+       "note": "Rab Butler was a British Conservative statesman known by the nickname Rab"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butler bringing in beer is just what farm workers want.",
+     "walkthrough": "'Butler' looks like a servant but is the politician R.A. Butler, known as Rab.",
+     "definitionFit": "Land suitable for ploughing and growing crops is arable, so it suits farmers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Butler"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1157,34 @@
     "text": "Writer has to make the attempt first",
     "enumeration": "8"
    },
-   "solution": "ESSAYIST"
+   "solution": "ESSAYIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer has to make the attempt first",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Writer has to make the attempt first",
+       "at": 0,
+       "note": "a writer of short prose pieces must first make an attempt, since those pieces take their name from an old verb meaning to try"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author must try before succeeding.",
+     "definitionFit": "A writer of short prose compositions, called essays from the old word for a try, is an essayist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1198,53 @@
     "text": "Undergarment given to Elizabeth back in South America",
     "enumeration": "6"
    },
-   "solution": "BRAZIL"
+   "solution": "BRAZIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in South America",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Undergarment",
+       "at": 0,
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 32,
+         "note": "back says the short name is read from end to start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elizabeth",
+         "at": 22,
+         "gives": "LIZ",
+         "note": "Liz is a short form of Elizabeth"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Elizabeth is handed a bra on returning to South America.",
+     "walkthrough": "'back' turns LIZ into ZIL.",
+     "definitionFit": "Brazil is the largest country located in South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1258,40 @@
     "text": "Chaste young lady goes to Iowa from another state",
     "enumeration": "8"
    },
-   "solution": "VIRGINIA"
+   "solution": "VIRGINIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another state",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chaste young lady",
+       "at": 0,
+       "gives": "VIRGIN",
+       "note": "a chaste young woman is a virgin"
+      },
+      {
+       "words": "Iowa",
+       "at": 26,
+       "gives": "IA",
+       "note": "IA is the postal abbreviation for the US state of Iowa"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pure young woman moves from one US state to another, starting in Iowa.",
+     "definitionFit": "Virginia is one of the United States, a different one from Iowa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1305,40 @@
     "text": "Scope for former partner to get temporary accommodation",
     "enumeration": "6"
    },
-   "solution": "EXTENT"
+   "solution": "EXTENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scope",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former partner",
+       "at": 10,
+       "gives": "EX",
+       "note": "an ex is a former spouse or partner"
+      },
+      {
+       "words": "temporary accommodation",
+       "at": 32,
+       "gives": "TENT",
+       "note": "a tent is shelter that is put up and taken down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's ex is given room to stay in a tent.",
+     "definitionFit": "Range or reach, how far something goes, is its extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1352,40 @@
     "text": "Marine organisms add great weight to ship's timber",
     "enumeration": "8"
    },
-   "solution": "PLANKTON"
+   "solution": "PLANKTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marine organisms",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ship's timber",
+       "at": 37,
+       "gives": "PLANK",
+       "note": "a plank is a long board used in building a ship's hull or deck"
+      },
+      {
+       "words": "great weight",
+       "at": 21,
+       "gives": "TON",
+       "note": "a ton is a heavy unit of weight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Loading a heavy load onto a ship's woodwork somehow involves tiny sea creatures.",
+     "definitionFit": "The tiny drifting plants and animals of the sea are collectively plankton."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
