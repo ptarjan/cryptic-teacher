@@ -75,7 +75,9 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // switching between them (see .gw.still in style.css). "ask" is the class
   // that only the actually-asking form carries.
   assert(html.includes("guess-clue ask"), "the definition rung asks before it tells: " + html);
-  assert(!/class="step-label">2 ·/.test(html),
+  // A handed-over step is a note (#hint-note-<key>); the question carries the
+  // same "2 · Where is the definition?" label but is no note.
+  assert(!/id="hint-note-/.test(html),
     "the rung is not handed over while the question is still open: " + html);
   // One clue on the screen, and it is the real one: the words are targets where
   // they are read, not in a second copy in the body.
@@ -113,13 +115,25 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       "with words picked the one help button reads Lock in and is free (no data-arm): " + bar);
   }
   registry["guess-tell"].onclick();
+  // A right answer goes straight on to the next question (when there is one), and
+  // the words just graded stay on the clue as settled (.gw.known) words wearing
+  // the step's own highlight: they are no longer buttons, the others still are.
+  const graded = panelHTML();
+  assert(graded.includes("guess-verdict right"), "a correct guess is told so: " + graded);
+  if (graded.includes("guess-clue ask")) {
+    assert((graded.match(/class="gw known"/g) || []).length === found.words,
+      `every word of a right answer is marked right on the clue itself: ${graded}`);
+    for (let i = 0; i < found.words; i++) {
+      assert(!graded.includes(`id="gw-${i}"`),
+        `and the graded words stop being buttons rather than stopping taps: ${graded}`);
+    }
+  } else {
+    assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
+      `every word of a right answer is marked right on the clue itself: ${graded}`);
+  }
   dismissNext();
   html = panelHTML();
-  // The verdict lands on the words as well as in a sentence: "3 of 5" never says
-  // WHICH three, and which three is the lesson.
   assert(html.includes("guess-verdict right"), "a correct guess is told so: " + html);
-  assert((html.match(/class="gw on hit"/g) || []).length === found.words,
-    `every word of a right answer is marked right on the clue itself: ${html}`);
   assert(!/class="gw[^"]*(spare|missed)"/.test(html),
     "and nothing is marked wrong: " + html);
   // The marked clue is not an animation, and the rung is not on a delay. Both

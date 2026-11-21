@@ -102,11 +102,13 @@ const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].
 // (hx-wheel in app-paint.js), so that is what a solver would press.
 const dismissNext = () => {
   const asking = () => registry["hint-body"].innerHTML.includes('class="hint-step guess"');
-  // Twice: a wheel already open is closed by the first tap and the question stays.
-  for (let i = 0; i < 2 && asking(); i++) {
-    const w = registry["hx-wheel"];
-    if (w && w.onclick && /id="hx-wheel"/.test(registry["hint-escape"].innerHTML)) w.onclick();
-  }
+  const w = registry["hx-wheel"];
+  // The Letters toggle is a static button beside the answer boxes now (hidden
+  // while no clue is open). Opening the wheel puts the question away; the
+  // wheel itself is then closed again, so the clue is left with neither.
+  if (!asking() || !w || !w.onclick || w.classList.contains("hidden")) return;
+  w.onclick();
+  if (registry["hint-clue"].innerHTML.includes("data-aw")) w.onclick();
 };
 // What the page reported since a mark, in order. Sliced rather than read whole:
 // the harness opens a great many puzzles over a run, and the rule under test is

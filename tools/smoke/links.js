@@ -708,6 +708,11 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
           }
           takeRung(btns[0]);
         }
+        // A solved clue (its crossers filled it) has no rungs to take: its steps
+        // are opened by the one free "How it works" button (hints UI step 10).
+        if (/id="hx-how"/.test(registry["hint-escape"].innerHTML) && registry["hx-how"] && registry["hx-how"].onclick) {
+          registry["hx-how"].onclick();
+        }
         checkMarks(id, e);
       }
     }

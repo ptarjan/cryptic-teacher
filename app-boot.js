@@ -255,6 +255,9 @@
       applyPrinted();
       hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
       solvedWith = {}; timing = {};
+      // The Pieces step deals the wheel once per clue "per attempt": a fresh
+      // attempt deals it again.
+      wheelDealt.clear(); wheelOn = null;
       if (paper.on && paperable()) setOnPaper(P.id, true);
       refreshAll();
       syncPushSoon();
