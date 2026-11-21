@@ -10,6 +10,7 @@ the lexicon), 'balme' for 'blame' (the quote is the slip: definitions._typo_runs
 The repaired clue goes to `printedClue` and is checked by file_rows like the model's own."""
 import re
 
+import clue_text as ct
 import definitions
 import ocr_clues
 import validate_annotations as V
@@ -23,15 +24,6 @@ EVIDENCE = "OCR misread: the text has {c!r} where the wordplay needs {q!r}"
 # Pairs of real words the OCR reads for one another so often (11-17..21 audit: 9 'quote not in clue'
 # refusals of 'five' for the clue's 'few', the 'fi' read as 'e'): clue word -> the word the quote has.
 KNOWN_MISREADS = {"few": "five"}
-# Glyphs a scan reads for one another: l, 1, i, I and | are one shape, 0 and O another, 'rn' reads as 'm'.
-_GLYPHS = str.maketrans({"1": "l", "i": "l", "|": "l", "0": "o"})
-
-
-def glyph_fold(word):
-    """`word` with the scan's look-alike glyphs made one ('Al' and 'A1' and 'Ai' are all 'al')."""
-    return word.casefold().translate(_GLYPHS).replace("rn", "m")
-
-
 def quotes(a):
     """The clue words an annotation quotes: its `def` and the pieces of its `wp`."""
     out = []
@@ -82,9 +74,9 @@ def _look_alike_swaps(quoted, toks, have, said, taken):
             if w.casefold() in have or not w.isalnum():
                 continue
             near = [t for t in toks if t[0].casefold() not in said and t[0].casefold() != w.casefold()
-                    and (glyph_fold(t[0]) == glyph_fold(w) or KNOWN_MISREADS.get(t[0].casefold()) == w.casefold())]
+                    and (ct.glyph_fold(t[0]) == ct.glyph_fold(w) or KNOWN_MISREADS.get(t[0].casefold()) == w.casefold())]
             if len(near) == 1 and near[0][1] not in taken and sum(t[0] == near[0][0] for t in toks) == 1 \
-                    and sum(glyph_fold(t[0]) == glyph_fold(near[0][0]) for t in toks) == 1:
+                    and sum(ct.glyph_fold(t[0]) == ct.glyph_fold(near[0][0]) for t in toks) == 1:
                 out[near[0][1]] = (near[0], w)
     return out
 

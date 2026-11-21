@@ -238,6 +238,15 @@ def zeros_read(text):
     return text.replace("o", "0").replace("O", "0")
 
 
+# Glyphs a scan reads for one another: l, 1, i, I and | are one shape, 0 and O another, 'rn' reads as 'm'.
+_GLYPHS = str.maketrans({"1": "l", "i": "l", "|": "l", "0": "o"})
+
+
+def glyph_fold(word):
+    """`word` with the scan's look-alike glyphs made one ('Al' and 'A1' and 'Ai' are all 'al')."""
+    return word.casefold().translate(_GLYPHS).replace("rn", "m")
+
+
 _DIGITS_READ = str.maketrans("OoLlIi|T", "00111111")
 
 

@@ -390,4 +390,7 @@ for text, enum in [("Event of 1917 (4)", "5"), ("Man's surrounded by it (5,3) ma
 # open_ellipsis_bracket: "...)" regains its opener only when closers outnumber openers
 assert ct.open_ellipsis_bracket("Fool ...) in") == "Fool (...) in"
 assert ct.open_ellipsis_bracket("Fool (a ...) in") == "Fool (a ...) in"
+# glyph_fold: look-alike glyphs fold to one shape
+assert ct.glyph_fold("Al") == ct.glyph_fold("A1") == ct.glyph_fold("Ai") == "al" and ct.glyph_fold("tum") == ct.glyph_fold("turn")
+assert ct.glyph_fold("Bo0") == "boo" and ct.glyph_fold("cat") != ct.glyph_fold("cot")
 print("clue_text ok")
