@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Plump for some drinks",
     "enumeration": "5"
    },
-   "solution": "ROUND"
+   "solution": "ROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plump",
+      "at": 0,
+      "meaning": "plump means chubby, well-filled in shape"
+     },
+     {
+      "text": "some drinks",
+      "at": 10,
+      "meaning": "a set of drinks bought for a whole group at the bar"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Plump and circular share a sense of curved fullness, and a pub order for the whole table is the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plump"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,59 @@
     "text": "Does badly without copper for currency",
     "enumeration": "6"
    },
-   "solution": "ESCUDO"
+   "solution": "ESCUDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "currency",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 11,
+       "note": "here without means outside, so the jumbled letters wrap round the metal"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 5,
+         "note": "done badly, the letters of the word does are jumbled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Does",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "copper",
+       "at": 19,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who handles money poorly ends up without any copper coins.",
+     "walkthrough": "'badly' rearranges the first word into ESDO, and 'without' here means outside, not lacking. The escudo was Portugal's currency before the euro.",
+     "definitionFit": "The escudo was the monetary unit of Portugal and is still used in Cape Verde."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +135,35 @@
     "text": "Noise of dropped brick?",
     "enumeration": "8"
    },
-   "solution": "CLANGOUR"
+   "solution": "CLANGOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Noise of dropped brick?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Noise of dropped brick?",
+       "at": 0,
+       "note": "literally the din a brick makes hitting the ground, but a social blunder is called dropping a brick, a word that sounds close to this one for a loud ringing din"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "In British slang a gaffe is 'a brick' or 'a clanger', and making one is 'dropping' it; the answer, a word for a loud ringing din, echoes that slang.",
+     "definitionFit": "A loud resounding clamour, the kind of racket a falling brick makes, punning on a blunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brick"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +177,29 @@
     "text": "Difficult situation where a direct strike must be avoided",
     "enumeration": "7"
    },
-   "solution": "SNOOKER"
+   "solution": "SNOOKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Difficult situation",
+      "at": 0,
+      "meaning": "a tight spot with no easy way out"
+     },
+     {
+      "text": "where a direct strike must be avoided",
+      "at": 20,
+      "meaning": "the cue-sport position where a ball blocks the straight path to the target ball"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "In the cue game a blocked shot forces an indirect strike, and by extension any awkward fix is the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +213,41 @@
     "text": "Trifling, perhaps, with one's affections?",
     "enumeration": "8"
    },
-   "solution": "FLIRTING"
+   "solution": "FLIRTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trifling, perhaps, with one's affections?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 10,
+       "note": "perhaps signals the letters of trifling might be arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trifling",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Toying with someone's feelings rather than being serious.",
+     "walkthrough": "'perhaps' rearranges TRIFLING; the whole clue doubles as the definition, since playing with someone's affections is what the answer describes.",
+     "definitionFit": "Coquetting is playing lightly with a person's heart, trifling with their feelings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +261,41 @@
     "text": "Clear love declaration",
     "enumeration": "9"
    },
-   "solution": "MANIFESTO"
+   "solution": "MANIFESTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "declaration",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Clear",
+       "at": 0,
+       "gives": "MANIFEST",
+       "note": "clear in the sense of plain and obvious"
+      },
+      {
+       "words": "love",
+       "at": 6,
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plain, open statement of romantic feeling.",
+     "definitionFit": "A party's published statement of its aims and policies is a public declaration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +309,41 @@
     "text": "Ocean silt may be stranded here",
     "enumeration": "9"
    },
-   "solution": "COASTLINE"
+   "solution": "COASTLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ocean silt may be stranded here",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "stranded",
+       "at": 18,
+       "note": "stranded suggests the letters are scattered and washed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ocean silt",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Sediment from the sea gets left behind along the shore.",
+     "walkthrough": "'stranded' rearranges OCEAN SILT; the whole clue is also the definition, as silt washed up from the sea lands on the shore.",
+     "definitionFit": "The edge where land meets sea is where washed-up sediment collects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +357,41 @@
     "text": "Quietly start to pray",
     "enumeration": "5"
    },
-   "solution": "PLEAD"
+   "solution": "PLEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pray",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "at": 0,
+       "gives": "P",
+       "note": "p, piano, is the musical marking for soft"
+      },
+      {
+       "words": "start",
+       "at": 8,
+       "gives": "LEAD",
+       "note": "to start as in to lead off, go first"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beginning prayers in a hushed voice.",
+     "definitionFit": "To pray in the old sense is to beg or entreat earnestly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +405,29 @@
     "text": "It's an advantage to trim the lawn",
     "enumeration": "4"
    },
-   "solution": "EDGE"
+   "solution": "EDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "advantage",
+      "at": 8,
+      "meaning": "a slight superiority, as in having the upper hand"
+     },
+     {
+      "text": "trim the lawn",
+      "at": 21,
+      "meaning": "to neaten the border of grass with a cutter"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A competitive lead and tidying a lawn's border share the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advantage"
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +441,59 @@
     "text": "Intimation that union is in trouble and about to be terminated",
     "enumeration": "8"
    },
-   "solution": "INNUENDO"
+   "solution": "INNUENDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intimation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 40,
+       "note": "about means the jumbled letters go round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in trouble",
+         "at": 25,
+         "note": "in trouble means the letters of union are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "union",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "to be terminated",
+       "at": 46,
+       "gives": "END",
+       "note": "to be terminated is to end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hint that a trade union is struggling and will soon be dissolved.",
+     "walkthrough": "'in trouble' rearranges the trade body into INNUO, and 'about' makes those letters go round the end piece.",
+     "definitionFit": "An insinuation or indirect hint is an intimation rather than a plain statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +507,41 @@
     "text": "Inward-turning scientist",
     "enumeration": "6"
    },
-   "solution": "DARWIN"
+   "solution": "DARWIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turning",
+       "at": 7,
+       "note": "turning suggests the letters of inward are spun into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Inward",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A researcher who is introspective.",
+     "walkthrough": "'turning' rearranges INWARD; Charles Darwin was the naturalist behind the theory of evolution.",
+     "definitionFit": "Charles Darwin was the English naturalist who proposed evolution by natural selection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Inward"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +555,29 @@
     "text": "Game explorer",
     "enumeration": "4"
    },
-   "solution": "POLO"
+   "solution": "POLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0,
+      "meaning": "a team sport played on horseback with mallets"
+     },
+     {
+      "text": "explorer",
+      "at": 5,
+      "meaning": "Marco, the Venetian traveller to China"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A horseback stick-and-ball sport shares its name with the medieval Venetian traveller Marco."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 13,
@@ -204,7 +597,42 @@
      }
     ]
    },
-   "solution": "EYELINER"
+   "solution": "EYELINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "watch",
+       "at": 8,
+       "gives": "EYE",
+       "note": "to eye is to watch"
+      },
+      {
+       "words": "ship",
+       "at": 21,
+       "gives": "LINER",
+       "note": "a liner is a large passenger ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settle a quarrel while keeping an eye on the vessel.",
+     "walkthrough": "'Make up' reads as a verb (reconcile) but is the noun make-up, cosmetics.",
+     "definitionFit": "A cosmetic drawn along the lashes is one kind of make-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 14,
@@ -218,7 +646,40 @@
     "text": "The size of the gun made it unwieldy",
     "enumeration": "9"
    },
-   "solution": "MAGNITUDE"
+   "solution": "MAGNITUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The size",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unwieldy",
+       "at": 28,
+       "note": "unwieldy suggests the letters are clumsy and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gun made it",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gun so large it became hard to handle.",
+     "walkthrough": "'unwieldy' rearranges GUN MADE IT; 'of the' is link.",
+     "definitionFit": "Magnitude means extent or largeness, how big something is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -232,7 +693,29 @@
     "text": "Artillery associated with assault",
     "enumeration": "7"
    },
-   "solution": "BATTERY"
+   "solution": "BATTERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artillery",
+      "at": 0,
+      "meaning": "a group of big guns"
+     },
+     {
+      "text": "associated with assault",
+      "at": 10,
+      "meaning": "the legal charge pairs assault with this word"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A set of field guns is a gun unit, and the criminal charge pairs assault with physical attack under the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assault"
+    }
+   }
   },
   {
    "number": 16,
@@ -246,7 +729,52 @@
     "text": "After a bad act I become silent",
     "enumeration": "8"
    },
-   "solution": "TACITURN"
+   "solution": "TACITURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "silent",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 8,
+         "note": "bad means the letters of act and I are spoiled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "act I",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "become",
+       "at": 18,
+       "gives": "TURN",
+       "note": "to turn is to become, as milk turns sour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer goes quiet after a poor show.",
+     "walkthrough": "'bad' rearranges ACT I as TACI, followed by TURN.",
+     "definitionFit": "Taciturn means reserved, saying very little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 17,
@@ -260,7 +788,48 @@
     "text": "Equipment in what must be a warship",
     "enumeration": "7"
    },
-   "solution": "FRIGATE"
+   "solution": "FRIGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "warship",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in places the gear inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what must be",
+       "at": 13,
+       "gives": "FATE",
+       "note": "fate is what must come to pass"
+      },
+      {
+       "words": "Equipment",
+       "at": 0,
+       "gives": "RIG",
+       "note": "a rig is equipment or apparatus"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gear stowed on board a naval vessel.",
+     "definitionFit": "A frigate is a fast naval vessel, a type of warship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Equipment"
+    }
+   }
   },
   {
    "number": 18,
@@ -274,7 +843,41 @@
     "text": "Sees dirt, becomes revolted",
     "enumeration": "8"
    },
-   "solution": "RESISTED"
+   "solution": "RESISTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revolted",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "becomes",
+       "at": 11,
+       "note": "becomes signals that the letters of sees dirt turn into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sees dirt",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots grime and is disgusted.",
+     "walkthrough": "'revolted' looks like disgusted, but here it means rose up against: resisted.",
+     "definitionFit": "To rise in revolt is to oppose or withstand authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolted"
+    }
+   }
   },
   {
    "number": 19,
@@ -288,7 +891,41 @@
     "text": "Somehow reads it over on both sides",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "over on both sides",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Somehow",
+       "at": 0,
+       "note": "somehow means the letters of reads it are arranged in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reads it",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person reads something and then reads it once more.",
+     "walkthrough": "'Somehow' rearranges READS IT; a rider sits with a leg over each side of the horse.",
+     "definitionFit": "Straddling something means having one leg over each side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 20,
@@ -302,7 +939,33 @@
     "text": "Joint projections over which one may get rapped",
     "enumeration": "8"
    },
-   "solution": "KNUCKLES"
+   "solution": "KNUCKLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joint projections over which one may get rapped",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Joint projections over which one may get rapped",
+       "at": 0,
+       "note": "bony finger joints that stick out and can be struck as a punishment, as in a rap across them"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The bony finger joints are protruding parts, traditionally struck by a strict teacher's ruler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rapped"
+    }
+   }
   },
   {
    "number": 21,
@@ -316,7 +979,29 @@
     "text": "Secure a position at Rugby",
     "enumeration": "4"
    },
-   "solution": "LOCK"
+   "solution": "LOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secure",
+      "at": 0,
+      "meaning": "to fasten firmly shut"
+     },
+     {
+      "text": "a position at Rugby",
+      "at": 7,
+      "meaning": "a second-row forward in rugby union"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Fastening a door with a key, and a second-row forward in rugby, share one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rugby"
+    }
+   }
   },
   {
    "number": 22,
@@ -330,7 +1015,47 @@
     "text": "Notice to be seven minus five",
     "enumeration": "4"
    },
-   "solution": "SEEN"
+   "solution": "SEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "minus",
+       "at": 19,
+       "note": "minus means taking away the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seven",
+       "at": 13
+      },
+      {
+       "words": "five",
+       "at": 25,
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction that seven take away five should be the result.",
+     "walkthrough": "Seven minus five looks like arithmetic giving two, but it is SEVEN with V removed; 'to be' points to the participle, as in 'to be noticed'.",
+     "definitionFit": "Something observed or spotted has been noticed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 23,
@@ -344,7 +1069,48 @@
     "text": "Time conceals a deserter's mistakes",
     "enumeration": "6"
    },
-   "solution": "ERRATA"
+   "solution": "ERRATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mistakes",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conceals",
+       "at": 5,
+       "note": "conceals means the period wraps round the turncoat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Time",
+       "at": 0,
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      },
+      {
+       "words": "deserter's",
+       "at": 16,
+       "gives": "RAT",
+       "note": "a rat is one who deserts, as rats leave a sinking ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Over time a runaway's errors are hushed up.",
+     "definitionFit": "Errata are listed errors in a printed book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deserter's"
+    }
+   }
   },
   {
    "number": 24,
@@ -358,7 +1124,42 @@
     "text": "Turn a corner with German soldiers",
     "enumeration": "5"
    },
-   "solution": "MITRE"
+   "solution": "MITRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turn a corner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with German",
+       "at": 14,
+       "gives": "MIT",
+       "note": "mit is German for with"
+      },
+      {
+       "words": "soldiers",
+       "at": 26,
+       "gives": "RE",
+       "note": "RE, the Royal Engineers, a British army corps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rounding a bend alongside troops from Germany.",
+     "walkthrough": "To mitre is to join or shape the angled corner of wood or cloth.",
+     "definitionFit": "A mitre joint is the angled join at a corner of a frame, so to cut one shapes a corner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 25,
@@ -372,7 +1173,40 @@
     "text": "Still found in tumbledown attics",
     "enumeration": "6"
    },
-   "solution": "STATIC"
+   "solution": "STATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "tumbledown",
+       "at": 15,
+       "note": "tumbledown means collapsed, so the letters of attics fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attics",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something motionless is discovered in a dilapidated loft.",
+     "definitionFit": "Static means motionless, not moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 26,
@@ -386,7 +1220,41 @@
     "text": "Control shown as others fall",
     "enumeration": "8"
    },
-   "solution": "RESTRAIN"
+   "solution": "RESTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Control",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "others",
+       "at": 17,
+       "gives": "REST",
+       "note": "the rest means the others"
+      },
+      {
+       "words": "fall",
+       "at": 24,
+       "gives": "RAIN",
+       "note": "rain is what falls from the sky"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Self-discipline is displayed while everyone else stumbles.",
+     "definitionFit": "To restrain is to hold back or keep in check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 27,
@@ -400,7 +1268,54 @@
     "text": "A sound opener to admire",
     "enumeration": "5"
    },
-   "solution": "ADORE"
+   "solution": "ADORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "admire",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "homophone",
+       "spelt": "DORE",
+       "indicators": [
+        {
+         "text": "sound",
+         "at": 2,
+         "note": "a sound of a word means its pronunciation, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opener",
+         "at": 8,
+         "gives": "DOOR",
+         "note": "a door is what opens into a room"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good opening line to praise someone.",
+     "walkthrough": "'sound' looks like an adjective (a good opener), but it signals that DOOR is heard, written DORE.",
+     "definitionFit": "To adore is to love and admire deeply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 28,
@@ -414,7 +1329,42 @@
     "text": "Coming by river may be exciting",
     "enumeration": "9"
    },
-   "solution": "ADVENTURE"
+   "solution": "ADVENTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may be exciting",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Coming",
+       "at": 0,
+       "gives": "ADVENT",
+       "note": "an advent is an arrival or coming"
+      },
+      {
+       "words": "river",
+       "at": 10,
+       "gives": "URE",
+       "note": "the Ure is a river in Yorkshire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arriving by boat could be thrilling.",
+     "walkthrough": "The definition is the whole phrase: an exploit is something that may be exciting. The Ure is a river in North Yorkshire, England.",
+     "definitionFit": "An exciting or daring experience is typically called an escapade or exploit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coming"
+    }
+   }
   }
  ]
 }
