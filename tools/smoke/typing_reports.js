@@ -65,12 +65,13 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   const entry = (puz.entries || []).find((e) => e.solution && e.annotation && e.length >= 5);
   assert(entry, "an annotated clue with a published answer to type into");
   reg["clue-" + entryId(entry)].listeners.click[0]();
-  assert(el("hint-next").children.length, "the clue opens with rungs to take");
+  assert(el("hint-rungs").children.length, "the clue opens with rungs to take");
 
   const quiet = () => ["hint-body", "hint-track", "hint-next", "hint-escape"].map((id) => el(id).writes);
   const before = quiet();
   const patBefore = el("hint-pattern").writes;
-  const buttons = el("hint-next").children.slice();
+  // The rungs live in the track now; hint-next keeps the lead-in and Reveal.
+  const buttons = el("hint-track").children.concat(el("hint-next").children);
   const bodyBefore = el("hint-body").innerHTML;
 
   // One letter short of the answer: the last one would solve the entry, and a
@@ -85,15 +86,15 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   // Node identity, not equal markup. Equal markup is what a rebuild that happens
   // to produce the same string also gives you; the same objects can only mean no
   // teardown happened, which is the thing that costs a repaint.
-  assert(el("hint-next").children.length === buttons.length
-    && buttons.every((b, i) => el("hint-next").children[i] === b),
+  const nowButtons = el("hint-track").children.concat(el("hint-next").children);
+  assert(nowButtons.length === buttons.length && buttons.every((b, i) => nowButtons[i] === b),
     "the rung buttons survive typing as the very same nodes");
 
   // --- the panel still works after typing ---
   // Skipping a rebuild also skips re-attaching handlers, which is only sound
   // because the original nodes are still there with theirs live. Get that
   // pairing wrong and the hint button is dead — far worse than a flicker.
-  const rung = el("hint-next").children[0];
+  const rung = el("hint-rungs").children[0];
   const label = rung.textContent;
   rung.onclick();
   if (isAsking(el("hint-body"))) reg["guess-tell"].onclick();
@@ -101,7 +102,8 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
     `taking "${label}" after typing showed nothing: ` + el("hint-body").innerHTML.slice(0, 140));
   assert(el("hint-body").innerHTML !== bodyBefore, "the body says something new");
   assert(el("hint-body").writes > before[0], "a real change is written, not skipped");
-  assert(el("hint-next").children[0] !== buttons[0],
+  assert(el("hint-track").children.length !== buttons.length - el("hint-next").children.length
+    || el("hint-track").children.some((b, i) => b !== buttons[i]),
     "and the rung row is rebuilt once the ladder actually moves");
 
   // --- and the meter still follows a solve ---

@@ -756,7 +756,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       // on it opens the rule with its lesson link.
       const inds = (s.e.annotation.indicators || []);
       if (inds.length && inds.every((i) => i.note)) {
-        const rungOf = (h) => (h.split('<div class="hint-step">')
+        const rungOf = (h) => (h.split(/<div [^>]*class="hint-step">/)
           .find((sec) => sec.includes("Spot the indicator words")) || "")
           .replace(/<\/div>[\s\S]*$/, "");
         const rulesIn = (h) => h.match(/<span class="device-rule">[\s\S]*?<\/span>/g) || [];

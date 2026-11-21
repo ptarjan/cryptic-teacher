@@ -30,7 +30,9 @@ assert(registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.classNa
 // SAME rung the pulse is on and against a box measured off that rung — a hole
 // somewhere else on the page is worse than no hole.
 {
-  const pointed = registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.className || ""))[0];
+  // The real node, not the shim's view of it: layout() must land on the element the app measures.
+  const pointed = [...registry["hint-track"].children, ...registry["hint-next"].children]
+    .filter((c) => /rung-point/.test(c.className || ""))[0];
   const spot = registry["spotlight"];
   registry["hint-body"].layout(560, 60);   // whatever the ladder has said so far
   registry["nux"].layout(640, 50);   // the line, sitting just above the row
@@ -68,7 +70,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal letter"), "escape hatc
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
 registry["hx-letter"].onclick();
 assert(/<strong>1<\/strong> hint\b/.test(registry["scorebar"].innerHTML), "a revealed letter counts as a hint in the score: " + registry["scorebar"].innerHTML);
-assert(/1 hint/.test(registry["scorebar"].innerHTML), "the score bar counts the revealed letter as a hint: " + registry["scorebar"].innerHTML);
+assert(/1 hint/.test(registry["scorebar"].innerHTML.replace(/<[^>]*>/g, "")), "the score bar counts the revealed letter as a hint: " + registry["scorebar"].innerHTML);
 
 // A question that is still open, in either of its two forms — words to point at
 // or families to choose between. Keyed off the block that wraps a live question

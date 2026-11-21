@@ -51,7 +51,7 @@ for (const id of ids) {
       if (dom.registry["hint-body"].innerHTML.includes('class="hint-step guess"')) dom.registry["guess-tell"].onclick();
     }
     const steps = [];
-    for (const chunk of String(dom.registry["hint-body"].innerHTML).split('<div class="hint-step').slice(1)) {
+    for (const chunk of String(dom.registry["hint-body"].innerHTML).split(/<div [^>]*class="hint-step/).slice(1)) {
       const m = chunk.match(/class="step-label">\d+ · ([^<]*)<\/span>([\s\S]*)/);
       if (m && keyOf[m[1]]) steps.push([keyOf[m[1]], text(m[2])]);
     }

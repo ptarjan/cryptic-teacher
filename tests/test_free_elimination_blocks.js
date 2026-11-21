@@ -65,15 +65,17 @@ for (const e of entries) {
   const id = entryId(e);
   const label = t.blocksBtn().textContent;
   const before = t.hints();
-  if (/free/.test(label)) {
+  // The chip no longer says "free"; a free rung is one a single tap opens
+  // unarmed with no question and no charge, so tap it and see which it was.
+  t.blocksBtn().onclick();
+  const isFree = !t.asking() && !t.armedBtn() && t.blocksOpen() && t.hints() === before;
+  if (isFree) {
     if (freeSeen++) continue;
     check(isAna(e) || true, `free (${id}): "${label}"`);
-    t.blocksBtn().onclick();
     if (t.asking()) { check(false, `free (${id}): opened a question instead`); continue; }
     check(!t.armedBtn() && t.blocksOpen(), `free (${id}): one tap opens the blocks, unarmed`);
     check(t.hints() === before, `free (${id}): the hint count did not move (${before} -> ${t.hints()})`);
   } else {
-    t.blocksBtn().onclick();
     if (t.asking() || !t.armedBtn()) continue;
     if (paidSeen++) continue;
     t.armedBtn().onclick();

@@ -204,6 +204,8 @@ function bootApp(opts) {
       const el = new FakeEl(m[1].toLowerCase(), id[1]);
       const cls = attrs.match(/\sclass="([^"]*)"/);
       if (cls) el.className = cls[1];
+      // aria-* as shipped (a menu button's aria-expanded="false"), so a test reads what the page says.
+      for (const a of attrs.matchAll(/\s(aria-[a-z]+)="([^"]*)"/g)) el.setAttribute(a[1], a[2]);
       registry[id[1]] = el;
     }
   }
