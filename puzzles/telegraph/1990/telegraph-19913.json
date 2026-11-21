@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Hurry to prepare eggs",
     "enumeration": "8"
    },
-   "solution": "SCRAMBLE"
+   "solution": "SCRAMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hurry",
+      "at": 0,
+      "meaning": "to rush or move hastily, as in a dash for the door"
+     },
+     {
+      "text": "prepare eggs",
+      "at": 9,
+      "meaning": "to cook beaten eggs by stirring them in a pan"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to get a move on and make breakfast.",
+     "definitionFit": "One word means both a hasty rush and a way of cooking beaten eggs while stirring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hurry"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,54 @@
     "text": "There is nothing first but a line on the map",
     "enumeration": "8"
    },
-   "solution": "ISOTHERE"
+   "solution": "ISOTHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a line on the map",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 17,
+       "note": "first tells us the two short pieces stand at the front, ahead of the opening word of the clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "at": 6,
+       "gives": "IS"
+      },
+      {
+       "words": "nothing",
+       "at": 9,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
+      },
+      {
+       "words": "There",
+       "at": 0,
+       "gives": "THERE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes there is nothing to see apart from a line drawn on a map.",
+     "walkthrough": "'first' says IS and O go before THERE, though THERE is printed first in the clue.",
+     "definitionFit": "A meteorological map line joining places with the same mean summer temperature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +131,30 @@
     "text": "Make the introductions now",
     "enumeration": "7"
    },
-   "solution": "PRESENT"
+   "solution": "PRESENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make the introductions",
+      "at": 0,
+      "meaning": "to introduce one person formally to another"
+     },
+     {
+      "text": "now",
+      "at": 23,
+      "meaning": "at this current moment, as opposed to past or future"
+     }
+    ],
+    "explanation": {
+     "surface": "A host is urged to introduce the guests straight away.",
+     "definitionFit": "As a verb it means formally introducing people; as an adjective or noun it means the current time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "now"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +168,60 @@
     "text": "Affirm that a doublet was found in a different seat",
     "enumeration": "6"
    },
-   "solution": "ATTEST"
+   "solution": "ATTEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Affirm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 26,
+       "note": "found in says one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "different",
+         "at": 37,
+         "note": "different signals the letters of seat are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seat",
+         "at": 47
+        }
+       ]
+      },
+      {
+       "words": "a doublet",
+       "at": 12,
+       "gives": "TT",
+       "note": "a doublet is a pair of the same letter, here two Ts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears a jacket was discovered on another chair.",
+     "walkthrough": "'different' rearranges SEAT to AEST; 'found in' puts TT inside it. 'Doublet' looks like the old close-fitting jacket.",
+     "definitionFit": "To affirm is to declare solemnly or bear witness that something is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "doublet"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +235,29 @@
     "text": "Building a body of Christians",
     "enumeration": "6"
    },
-   "solution": "CHURCH"
+   "solution": "CHURCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Building",
+      "at": 0,
+      "meaning": "an edifice used for worship"
+     },
+     {
+      "text": "a body of Christians",
+      "at": 9,
+      "meaning": "a congregation or denomination of believers"
+     }
+    ],
+    "explanation": {
+     "surface": "A place of worship described as both structure and community.",
+     "definitionFit": "The word names both a place of Christian worship and an organised denomination of believers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +271,49 @@
     "text": "Supporter about to withdraw a clawed instrument",
     "enumeration": "13"
    },
-   "solution": "BACKSCRATCHER"
+   "solution": "BACKSCRATCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a clawed instrument",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about says the first piece goes round the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Supporter",
+       "at": 0,
+       "gives": "BACKER",
+       "note": "a backer is someone who supports, often financially"
+      },
+      {
+       "words": "to withdraw",
+       "at": 16,
+       "gives": "SCRATCH",
+       "note": "to scratch is to withdraw from a race or contest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patron pulls out of a deal involving some taloned tool.",
+     "walkthrough": "To 'scratch' a horse or competitor is to withdraw it from an event.",
+     "definitionFit": "A long-handled implement, often ending in a small hand with claws, used to reach and rub an itch on the shoulders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supporter"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +337,31 @@
      }
     ]
    },
-   "solution": "BITSANDPIECES"
+   "solution": "BITSANDPIECES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd items",
+      "at": 0,
+      "meaning": "assorted miscellaneous things or oddments"
+     },
+     {
+      "text": "a collection of coins, perhaps",
+      "at": 13,
+      "meaning": "small change, coins being called ... in old British money"
+     }
+    ],
+    "explanation": {
+     "surface": "Miscellaneous items turn up in a coin collection.",
+     "walkthrough": "In predecimal British currency coins were called bits (threepenny bit) and pieces (sixpenny piece).",
+     "definitionFit": "The phrase means odds and ends, and literally describes coins such as the threepenny bit and the sixpenny piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +381,35 @@
      }
     ]
    },
-   "solution": "REGULARINCOME"
+   "solution": "REGULARINCOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What a soldier might expect to earn",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What a soldier might expect to earn",
+       "at": 0,
+       "note": "a soldier in the standing army is a regular, so his steady wages are those of a regular"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking about a soldier's pay.",
+     "walkthrough": "A professional soldier in the standing army is a 'regular', so the phrase for dependable earnings doubles as a soldier's pay.",
+     "definitionFit": "Steady earnings received at fixed intervals, punning on 'regular' as a career soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +423,41 @@
     "text": "Narrow passage needs treatment by artist",
     "enumeration": "6"
    },
-   "solution": "STRAIT"
+   "solution": "STRAIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Narrow passage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "treatment",
+       "at": 21,
+       "note": "treatment suggests the letters of artist are worked over and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "artist",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A narrow channel needs to be painted by an artist.",
+     "walkthrough": "'treatment' rearranges ARTIST; 'needs' and 'by' link.",
+     "definitionFit": "A narrow channel of water connecting two larger seas, such as the one at Dover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +471,44 @@
     "text": "See great changes in accommodation at the lower end",
     "enumeration": "8"
    },
-   "solution": "STEERAGE"
+   "solution": "STEERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "accommodation at the lower end",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changes",
+       "at": 10,
+       "note": "changes says the letters of the two words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See",
+       "at": 0
+      },
+      {
+       "words": "great",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone observes great alterations in cheap lodgings.",
+     "walkthrough": "'changes' rearranges SEE and GREAT together.",
+     "definitionFit": "The cheapest passenger quarters on a ship, historically near the steering gear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +522,48 @@
     "text": "The man accepts nothing for a garden implement",
     "enumeration": "3"
    },
-   "solution": "HOE"
+   "solution": "HOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a garden implement",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "at": 8,
+       "note": "accepts means the first piece takes the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The man",
+       "at": 0,
+       "gives": "HE",
+       "note": "the man is referred to as he"
+      },
+      {
+       "words": "nothing",
+       "at": 16,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man takes nothing in exchange for a gardening tool.",
+     "definitionFit": "A long-handled tool with a thin blade used for weeding and loosening soil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepts"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +577,32 @@
     "text": "Rabbit roving about",
     "enumeration": "6"
    },
-   "solution": "RAMBLE"
+   "solution": "RAMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rabbit",
+      "at": 0,
+      "meaning": "British slang for to talk on and on, as in rabbit on"
+     },
+     {
+      "text": "roving about",
+      "at": 7,
+      "meaning": "wandering for pleasure, as on a walk in the countryside"
+     }
+    ],
+    "explanation": {
+     "surface": "A bunny wanders around.",
+     "walkthrough": "To 'rabbit' or 'rabbit on' is British slang for chattering at length.",
+     "definitionFit": "It means both talking aimlessly at length and a leisurely walk or wander through the country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rabbit"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +616,32 @@
     "text": "Hazel can be found here in a very small space",
     "enumeration": "8"
    },
-   "solution": "NUTSHELL"
+   "solution": "NUTSHELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hazel can be found here",
+      "at": 0,
+      "meaning": "a hazel kernel sits inside a hard woody casing"
+     },
+     {
+      "text": "a very small space",
+      "at": 27,
+      "meaning": "from the phrase in a, meaning briefly or concisely"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman named Hazel is located somewhere cramped.",
+     "walkthrough": "'Hazel' looks like a woman's name; it is the hazelnut.",
+     "definitionFit": "It is the hard casing of a hazelnut, and the idiom 'in a' this means expressed in very few words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hazel"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +665,41 @@
    "group": [
     "13-down",
     "15-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "become furious",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Understand",
+       "at": 0,
+       "gives": "SEE",
+       "note": "to understand is to see, as in I see"
+      },
+      {
+       "words": "a revolutionary",
+       "at": 11,
+       "gives": "RED",
+       "note": "a red is a communist revolutionary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grasps that a radical will get angry.",
+     "definitionFit": "An idiom for suddenly getting very angry, as a bull charges at a red cape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +713,40 @@
     "text": "Deer had become stuck",
     "enumeration": "7"
    },
-   "solution": "ADHERED"
+   "solution": "ADHERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stuck",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "become",
+       "at": 9,
+       "note": "become says the letters of the two words turn into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Deer had",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deer had got itself trapped.",
+     "walkthrough": "'become' rearranges DEER HAD.",
+     "definitionFit": "To have clung or attached firmly, as glue to a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +779,41 @@
      }
     ]
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an irreconcilable conservative",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about here means around in disorder, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'd heard",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a stubborn traditionalist.",
+     "walkthrough": "'about' rearranges I'D HEARD.",
+     "definitionFit": "A person who stubbornly resists change or reform, especially in politics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +827,40 @@
     "text": "Dreamer has a notion to register",
     "enumeration": "8"
    },
-   "solution": "IDEALIST"
+   "solution": "IDEALIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dreamer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a notion",
+       "at": 12,
+       "gives": "IDEA",
+       "note": "a notion is an idea"
+      },
+      {
+       "words": "register",
+       "at": 24,
+       "gives": "LIST",
+       "note": "a register is a list or roll"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreamer has a thought to write down.",
+     "definitionFit": "Someone guided by lofty principles or visions rather than practical concerns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +874,56 @@
     "text": "Henry agreed a revolution in hats",
     "enumeration": "8"
    },
-   "solution": "HEADGEAR"
+   "solution": "HEADGEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hats",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Henry",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolution",
+         "at": 15,
+         "note": "a revolution turns things over, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agreed",
+         "at": 6
+        },
+        {
+         "words": "a",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry consented to a radical change in millinery.",
+     "walkthrough": "'revolution' rearranges AGREED A into EADGEAR after H.",
+     "definitionFit": "A collective term for anything worn on the head, such as caps and helmets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +937,36 @@
     "text": "Inscription of late",
     "enumeration": "7"
    },
-   "solution": "EPITAPH"
+   "solution": "EPITAPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inscription of late",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Inscription of late",
+       "at": 0,
+       "note": "the late here means the deceased, so this is writing in memory of someone who has died"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looks like a recent piece of writing.",
+     "walkthrough": "'of late' looks like 'recently', but 'the late' are the dead.",
+     "definitionFit": "Words carved on a tombstone in memory of a dead person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +980,46 @@
     "text": "Sacked a member producing gas",
     "enumeration": "8"
    },
-   "solution": "FIREDAMP"
+   "solution": "FIREDAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sacked",
+       "at": 0,
+       "gives": "FIRED",
+       "note": "sacked from a job means fired"
+      },
+      {
+       "words": "a",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "words": "member",
+       "at": 9,
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissed politician is responsible for hot air.",
+     "definitionFit": "An explosive methane mixture found in coal mines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sacked"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1033,59 @@
     "text": "Reveal that this French vine first is going haywire",
     "enumeration": "6"
    },
-   "solution": "EVINCE"
+   "solution": "EVINCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reveal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 29,
+       "note": "first places the scrambled piece in front of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "going haywire",
+         "at": 38,
+         "note": "going haywire signals the letters of vine are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vine",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "this French",
+       "at": 12,
+       "gives": "CE",
+       "note": "ce is French for this"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French vine is said to be running wild.",
+     "walkthrough": "'going haywire' rearranges VINE to EVIN; 'first' sets it before CE.",
+     "definitionFit": "To show or make evident a quality or feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vine"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1099,48 @@
     "text": "Points to the animals previously held",
     "enumeration": "6"
    },
-   "solution": "APEXES"
+   "solution": "APEXES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Points",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held",
+       "at": 33,
+       "note": "held says the first piece holds the second within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the animals",
+       "at": 10,
+       "gives": "APES",
+       "note": "apes are animals"
+      },
+      {
+       "words": "previously",
+       "at": 22,
+       "gives": "EX",
+       "note": "ex means former or previously"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone indicates the creatures were once kept in captivity.",
+     "definitionFit": "Tops or tips, the highest points of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Points"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1154,40 @@
     "text": "Another girl from Aileen",
     "enumeration": "6"
    },
-   "solution": "ELAINE"
+   "solution": "ELAINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 8
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Another",
+       "at": 0,
+       "note": "another form of the name means its letters are rearranged into a new one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Aileen",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second girl's name is derived from Aileen.",
+     "walkthrough": "'Another' rearranges AILEEN; 'from' links.",
+     "definitionFit": "A female first name, famous from Arthurian legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1201,42 @@
     "text": "One painter of explosive force",
     "enumeration": "3"
    },
-   "solution": "IRA"
+   "solution": "IRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "explosive force",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "painter",
+       "at": 4,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, an artist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single artist with powerful explosive art.",
+     "walkthrough": "RA stands for a member of the Royal Academy of Arts in London.",
+     "definitionFit": "The Irish Republican Army, a paramilitary group known for bombing campaigns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1250,50 @@
     "text": "I'd be in grave perhaps as a result of mishap",
     "enumeration": "8"
    },
-   "solution": "ACCIDENT"
+   "solution": "ACCIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mishap",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "be in",
+       "at": 4,
+       "note": "be in says one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grave perhaps",
+       "at": 10,
+       "gives": "ACCENT",
+       "note": "a grave is a type of accent mark, as in è"
+      },
+      {
+       "words": "I'd",
+       "at": 0,
+       "gives": "ID",
+       "note": "taken as I and D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fears ending up in a tomb after a mishap.",
+     "walkthrough": "'grave' looks like a tomb, but here it is the accent mark; 'perhaps' shows it is one example.",
+     "definitionFit": "An unfortunate unplanned event causing damage or injury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1307,61 @@
     "text": "Is this where a young lady returning with nothing on might take a dip?",
     "enumeration": "6"
    },
-   "solution": "LAGOON"
+   "solution": "LAGOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is this where a young lady returning with nothing on might take a dip?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 27,
+         "note": "returning means the word for a young lady is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a young lady",
+         "at": 14,
+         "gives": "GAL",
+         "note": "gal is a young woman"
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "at": 42,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
+      },
+      {
+       "words": "on",
+       "at": 50,
+       "gives": "ON",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A naked girl comes back for a skinny dip.",
+     "walkthrough": "'returning' turns GAL to LAG. The whole clue doubles as a picture of the place for a naked swim.",
+     "definitionFit": "A shallow body of water cut off from the sea, a fitting place for a swim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1381,35 @@
      }
     ]
    },
-   "solution": "SECRETPASSAGE"
+   "solution": "SECRETPASSAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "There's no telling where this leads",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "There's no telling where this leads",
+       "at": 0,
+       "note": "no telling literally means it must be kept from being told, so its route is hidden"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncertain outcome of some course of action.",
+     "walkthrough": "'no telling' sounds like uncertainty, but it means the route must not be told.",
+     "definitionFit": "A hidden corridor or tunnel whose route is kept confidential."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
