@@ -115,11 +115,12 @@ check(asked + outright > 0, `found a clue whose blocks can cost (asked ${asked},
     // Solved: the help bar is one free "How it works" (step 10), no step buttons.
     if (!/id="hx-how"[^>]*>How it works</.test(t.bar())) continue;
     const before = t.hints();
-    check(!t.blocksOpen() && !/arm|hint</.test(t.bar().replace(/aria-[a-z]+="[^"]*"/g, "")),
-      `freeIsOneTap (${entryId(e)}): before the tap nothing is open, and the button carries no cost text`);
+    const how = /<button id="hx-how"([^>]*)>([^<]*)</.exec(t.bar()) || [];
+    check(!t.blocksOpen() && how[2] === "How it works" && !/arm-cost/.test(how[1]),
+      `freeIsOneTap (${entryId(e)}): before the tap nothing is open, and the button carries no cost text: ${JSON.stringify(how.slice(1))}`);
     t.reg["hx-how"].onclick();
     check(!t.armedBtn() && t.blocksOpen() && t.hints() === before && !/id="hx-how"/.test(t.bar()),
-      `freeIsOneTap (${entryId(e)}): one tap opens every step, unarmed, no charge`);
+      `freeIsOneTap (${entryId(e)}): one tap opens every step, unarmed, no charge (armed ${!!t.armedBtn()}, blocksOpen ${t.blocksOpen()}, hints ${before} -> ${t.hints()}, how still there ${/id="hx-how"/.test(t.bar())})`);
     done = true;
     break;
   }

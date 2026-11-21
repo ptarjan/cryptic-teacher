@@ -12,8 +12,8 @@
 
    1. blankPicture: the type rung's formula is there, its chips name a role and
       a count, hold nothing of the answer, and are not buttons.
-   2. onlyInBlocks: no chip is tappable until the blocks rung is open; the
-      "The building blocks" button is how it opens.
+   2. onlyInBlocks: no chip is tappable until the Pieces step is the question;
+      its track button (or Show me on the step before) is how it opens.
    3. chipAsksFirst / fillsIn: in the blocks rung a chip with a question asks it
       (free, or a plain take that adds no hint beyond the rung's own); a chip
       taken fills in with its piece's letters, in any order.
@@ -106,14 +106,19 @@ for (const e of candidates.slice(0, 80)) {
   t.tapChip(0);
   check(t.hints() === h0 && !/The building blocks/.test(t.body()),
     `onlyInBlocks (${id}): a chip tap with the blocks rung shut does nothing and charges nothing`);
+  // The type step's picture never carries a button: no chip is tappable until
+  // the Pieces step is the question (its blank chip is then the question).
+  check(!/data-piece/.test(t.body()),
+    `onlyInBlocks (${id}): no tappable chip while only the type step is open`);
   t.take(/indicator/i);
   t.take(/definition/i);
-  check(!/data-piece/.test(t.body()) && t.row().some((b) => /The building blocks/.test(b.textContent || "")),
-    `onlyInBlocks (${id}): no tappable chip anywhere, and the blocks button is still the way in`);
-  // Open the rung and take only its first piece (settle would walk them all).
+  // "Show me" may already have walked on to the Pieces question (its chips are
+  // the question), or the step is still a track button; either way it is the
+  // way in, and the rung is not open until it is taken.
   const ob = t.row().find((x) => x.onclick && !x.disabled && /The building blocks/.test(x.textContent || ""));
-  if (!ob) continue;
-  ob.onclick();
+  check(!!ob || /data-piece/.test(t.body()) || /The building blocks/.test(t.body()),
+    `onlyInBlocks (${id}): the Pieces step is reachable by its track button or Show me`);
+  if (ob) ob.onclick();
   if (t.armedBtn()) t.armedBtn().onclick();
   else if (t.asking()) {
     t.reg["guess-tell"].onclick();

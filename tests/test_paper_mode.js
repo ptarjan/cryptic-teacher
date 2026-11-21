@@ -120,7 +120,7 @@ for (const paperOn of [true, false]) {
     check(/correct/.test(t.reg["check-result"].textContent),
       "doneCredits: the grid check reports what it found: " + t.reg["check-result"].textContent);
     check(!JSON.parse(t.d.storage["ct:paper"]).open[ID], "doneCredits: the puzzle is off paper for good");
-    check(t.hidden("paper-done") && t.reg["hint-track"].childElementCount > 0,
+    check(t.hidden("paper-done") && /id="hx-how"[^>]*>How it works</.test(t.reg["hint-escape"].innerHTML),
       "doneCredits: the checks and the ladder are back");
   } else {
     check(li.classList.contains("solved") && li.classList.contains("no-hints"),
