@@ -3744,10 +3744,36 @@ FT_THIRD_WIDTH = 0.55
 FT_DROP = 0.55
 
 
+#: FT_EDGE_CLEAR: a Gale FT page's second clue column can run past right_columns' fixed span (2003-12-10: the grid
+#: 290-1010, x1 1769, the second column's lines to x 1800 and the third's 1825-2200): every window cut those lines
+#: through their last word ("prim", "good st", "unchar", "churc" for primates, start, uncharged, church) and the
+#: third column (FT_THIRD_WIDTH) at x 2165. The x1 and the third column's edge move out to the first ink-free pixel
+#: column (FT_EDGE_BLANK px wide, none inked FT_EDGE_CLEAR of its height) within FT_EDGE_REACH grid widths; a gutter
+#: already at the edge stays where it is.
+FT_EDGE_REACH, FT_EDGE_BLANK, FT_EDGE_INK = 0.12, 6, 0.004
+
+
+def ft_clear_edge(img, grid, x, top, bottom):
+    """`x`, or the first x past it (FT_EDGE_REACH of the grid's width at most) from which FT_EDGE_BLANK pixel columns
+    of the page between `top` and `bottom` are free of ink (so x lies in a gutter), as the columns' edge."""
+    import numpy as np
+    x, top, bottom = int(x), max(0, int(top)), min(img.height, int(bottom))
+    far = min(img.width, x + int(FT_EDGE_REACH * (grid[2] - grid[0])) + FT_EDGE_BLANK)
+    if far - x <= FT_EDGE_BLANK or bottom <= top:
+        return x
+    ink = (np.asarray(img.crop((x, top, far, bottom)).convert("L")) < 128).mean(axis=0) > FT_EDGE_INK
+    for i in range(0, len(ink) - FT_EDGE_BLANK + 1):
+        if not ink[i:i + FT_EDGE_BLANK].any():
+            return x + i + FT_EDGE_BLANK // 2
+    return x
+
+
 def ft_foot(img, grid, right):
-    """`right` (right_columns' tuple) for a Gale FT page with its foot FT_DROP of the grid's height under it."""
+    """`right` (right_columns' tuple) for a Gale FT page with its foot FT_DROP of the grid's height under it,
+    its far edge x1 moved out to the gutter (ft_clear_edge) its second column's lines end at."""
     x1, bottom, *rest = right
-    return (x1, min(img.height, max(bottom, int(grid[3] + FT_DROP * (grid[3] - grid[1])))), *rest)
+    bottom = min(img.height, max(bottom, int(grid[3] + FT_DROP * (grid[3] - grid[1]))))
+    return (ft_clear_edge(img, grid, x1, grid[1], grid[3]), bottom, *rest)
 #: SUNTEL_FOOT: the Gale Sunday Telegraph 1995-99's clue columns right of its left-edge grid run on under the
 #: RIGHT_DROP cut (1999-09-05: grid y 3911-4677, crop foot 4906, "30 Got even" read at 4868 over the cut): the last
 #: 1-3 down and across clues of 52 + 4 pages stood "no reading laid a clue on it". They run SUNTEL_DROP of the
@@ -3771,6 +3797,7 @@ def ft_third_column(img, grid, right, rapid, key):
     x1, _, bottom, *_ = right
     edge = min(img.width, int(x1 + FT_THIRD_WIDTH * (grid[2] - grid[0])))
     top = max(0, grid[1] - rise_of(right))
+    edge = ft_clear_edge(img, grid, edge, grid[1], grid[3])
     box = (x1, top, edge, min(img.height, bottom))
     if edge - x1 < 0.3 * (grid[2] - grid[0]) or box[3] <= box[1]:
         return right, rapid
