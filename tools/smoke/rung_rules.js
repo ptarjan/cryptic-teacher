@@ -39,9 +39,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   li.children[0].onclick();
   registry["reset-puzzle"].onclick();
   registry["clue-" + entryId(found.e)].listeners.click[0]();
-  const btn = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
+  const btn = registry["hint-rungs"].children.find((b) => /definition/i.test(b.textContent || ""));
   assert(btn, "the definition rung is offered on " + clueText(found.e) + ": "
-    + registry["hint-next"].innerHTML);
+    + registry["hint-rungs"].innerHTML);
   btn.onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step guess"),
     "and it asks before it tells, even when the answer is the whole clue ("
@@ -80,7 +80,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
     for (let guard = 0; guard < 16; guard++) {
       const tell = registry["guess-tell"];
       if (tell && tell.onclick) { const fn = tell.onclick; tell.onclick = null; fn(); continue; }
-      const b = registry["hint-next"].children.find(
+      const b = registry["hint-rungs"].children.find(
         (x) => x.onclick && !x.disabled && (/^\d+ · /.test(x.textContent || "") || ARMED.test(x.textContent || "")));
       if (!b) break;
       b.onclick();
@@ -138,7 +138,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
-    const b = registry["hint-next"].children.find((x) => /definition/i.test(x.textContent || ""));
+    const b = registry["hint-rungs"].children.find((x) => /definition/i.test(x.textContent || ""));
     assert(b, "the definition rung is offered on " + clueText(found.e));
     b.onclick();
   };
@@ -185,7 +185,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
     registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
-  const labels = () => registry["hint-next"].children.map((b) => b.textContent || "").join(" | ");
+  const labels = () => registry["hint-rungs"].children.map((b) => b.textContent || "").join(" | ");
   let pure = null, third = null, straightThird = null;
   // A puzzle that is not a cryptic has no blocks rung (app.js straightLadder),
   // so there the split names every sense instead. APP_BLOCKS runs without the
@@ -212,7 +212,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   if (pure && open(pure.id, pure.e)) {
     assert(!/building blocks/i.test(labels()),
       `${pure.id} ${entryId(pure.e)}: "${clueText(pure.e)}" offers no building blocks: ${labels()}`);
-    const def = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
+    const def = registry["hint-rungs"].children.find((b) => /definition/i.test(b.textContent || ""));
     if (assert(def, `${pure.id} ${entryId(pure.e)}: the definition rung is offered: ${labels()}`)) {
       def.onclick();
       if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
@@ -232,7 +232,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   if (straightThird && open(straightThird.id, straightThird.e)) {
     const s = straightThird, where = `${s.id} ${entryId(s.e)}: "${clueText(s.e)}"`;
     assert(!/building blocks/i.test(labels()), `${where} is in a straight puzzle, which has no blocks rung: ${labels()}`);
-    const def = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
+    const def = registry["hint-rungs"].children.find((b) => /definition/i.test(b.textContent || ""));
     if (assert(def, `${where}: the definition rung is offered: ${labels()}`)) {
       def.onclick();
       if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
@@ -274,7 +274,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   const asking = () => isAsking(registry["hint-body"]);
   const climbToBlocks = () => {
     for (let i = 0; i < 8; i++) {
-      const open = registry["hint-next"].children.filter((b) => !b.disabled && b.onclick);
+      const open = registry["hint-rungs"].children.filter((b) => !b.disabled && b.onclick);
       const want = open.find((b) => /building blocks/i.test(b.textContent || ""));
       if (want) return want;
       if (!open[0]) return null;
@@ -316,9 +316,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
       b.onclick();
       if (assert(asking(), `${cha.id} ${entryId(cha.e)}: the first piece of "${clueText(cha.e)}" is asked`)) {
         registry["guess-tell"].onclick();
-        assert(!registry["hint-next"].children.some((x) => /next piece/i.test(x.textContent || "")),
+        assert(!registry["hint-rungs"].children.some((x) => /next piece/i.test(x.textContent || "")),
           `${cha.id} ${entryId(cha.e)}: the last piece comes with it, not behind a question: `
-            + registry["hint-next"].children.map((x) => x.textContent).join(" | "));
+            + registry["hint-rungs"].children.map((x) => x.textContent).join(" | "));
       }
     }
   }
@@ -352,18 +352,18 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
   };
-  const rung = (re) => registry["hint-next"].children.find((b) => re.test(b.textContent || ""));
+  const rung = (re) => registry["hint-rungs"].children.find((b) => re.test(b.textContent || ""));
   // Ladder positions rather than labels: every rung button is "<n> · <label>",
   // and n is the rung's place in this clue's ladder. It is the number read
   // off the screen, and it means the test never has to know what the assembly
   // rung is called.
-  const at = (pred) => registry["hint-next"].children.filter(pred)
+  const at = (pred) => registry["hint-rungs"].children.filter(pred)
     .map((b) => ((b.textContent || "").match(/(\d+) ·/) || [])[1]);
   const locked = () => at((b) => b.disabled);
   const offeredN = () => at(() => true);
   // appendChild does not write innerHTML in the stub, so a failure message built
   // from it says nothing at all. Read the buttons.
-  const offered = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
+  const offered = () => registry["hint-rungs"].children.map((b) => b.textContent).join(" | ");
   // Only a clue whose ladder actually shows the assembly rung (two locks cold)
   // can carry this test; some qualifying clues have a shorter ladder.
   found = null;

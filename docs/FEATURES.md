@@ -17,7 +17,7 @@ the site offers.
   rest would be a question with one answer.
 - **The ladder is tiers, not a chain.** The three spotting rungs (indicators,
   definition, type) can be taken in any order. The building blocks and the
-  walkthrough stay locked until the spotting rungs are up.
+  walkthrough stay locked until the spotting rungs are up. The hint buttons are a step track of chips (Indicator, Definition, Clue type, Pieces, Solution): open, worked out (star), available or dim.
 - **Solving the clue unlocks every rung for free.**
 - **The indicator and type rungs end on a rule chip.** Tapping the small "rule"
   chip at the end of the rung opens a line that says

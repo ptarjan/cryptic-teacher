@@ -30,7 +30,7 @@ if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched f
   autoRow.children[0].onclick();
   assert(registry["puzzle-title"].innerHTML.includes("answers only"), "answers-only puzzle opened");
   assert(registry["hint-body"].innerHTML.includes("answers only") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
-  assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
+  assert(registry["hint-rungs"].children.some((b) => /Reveal answer/.test(b.textContent)),
     "answers-only puzzle offers Reveal answer: " + btnNames());
   assert(registry["hint-escape"].innerHTML.includes("Reveal letter"), "answers-only puzzle offers letter escape hatch");
 }

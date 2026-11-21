@@ -589,6 +589,38 @@ function bootApp(opts) {
   // stop() cancels every timer this app still has pending. A caller that boots
   // many apps in one synchronous run (smoke_test's puzzle format block) never lets
   // a timer fire, so each one kept its app alive, window and index included.
+  // "hint-rungs" is the old numbered row put back together from the track and
+  // #hint-next, so the checks that drive the ladder ("take the first rung")
+  // read one list however the screen draws it. Open steps are left out, as a
+  // taken rung left the row; the order is the old one: Next building block, the
+  // available steps, the locked ones, then Reveal answer. The track's chips are
+  // short nouns ("Indicator"); each is wrapped so its textContent reads "N ·
+  // <the step's question>" as before, N being its place in the track. The
+  // wrapper is cached so the same chip is the same object between reads, and
+  // inherits from the chip, so onclick/disabled/className are the chip's own.
+  // Armed ("Tap again · 1 hint") text passes through unchanged. Read-only, and
+  // not a real element, so no handler of the app can reach it.
+  const wrapped = new WeakMap();
+  const asRung = (chip, n) => {
+    const text = /\barm-cost\b/.test(chip.className || "") ? chip.textContent
+      : n + " \u00b7 " + (chip.getAttribute("aria-label") || chip.textContent);
+    const old = wrapped.get(chip);
+    if (old && old.text === text) return old.view;
+    const view = Object.create(chip, { textContent: { value: text } });
+    wrapped.set(chip, { text, view });
+    return view;
+  };
+  Object.defineProperty(registry, "hint-rungs", { enumerable: false, get() {
+    const next = registry["hint-next"].children;
+    const track = registry["hint-track"].children;
+    const tail = (b) => /^Reveal answer/.test(b.textContent || "");
+    const at = (re) => track.map((c, k) => [c, k + 1]).filter(([c]) => re.test(c.className || ""))
+      .map(([c, n]) => asRung(c, n));
+    const children = [
+      ...next.filter((b) => !tail(b)), ...at(/\bavail\b/), ...at(/\blocked\b/), ...next.filter(tail)];
+    return { children, childElementCount: children.length,
+             get innerHTML() { return registry["hint-track"].innerHTML + registry["hint-next"].innerHTML; } };
+  } });
   const stop = () => {
     for (const t of pending.values()) realClearTimeout(t.handle);
     pending.clear();

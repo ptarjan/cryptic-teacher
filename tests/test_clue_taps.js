@@ -48,7 +48,7 @@ const other = cands.find((c) => c !== e);
 if (e && other) {
   check(t.tappable(), `arrives (${entryId(e)}): the clue's words are tappable with no extra tap`);
   check(t.hints() === 0, `arrives (${entryId(e)}): asking charged nothing (${t.hints()} hints used)`);
-  check(/<strong>0<\/strong>\//.test(t.reg["hint-meter"].innerHTML), `arrives (${entryId(e)}): meter still reads 0 hints shown`);
+  check(t.reg["hint-track"].children.every((b) => !/\bopen\b/.test(b.className || "")), `arrives (${entryId(e)}): the track shows no step open`);
 
   // --- 2: once per arrival ---
   t.reg["guess-later"].onclick();

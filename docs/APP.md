@@ -23,7 +23,7 @@ Terms used below:
 - **Rungs are built per clue.** A rung exists only if it carries new
   information. No indicators means no indicator rung. No rung may restate an
   earlier one. See `ladderSteps()` in `app.js`. The ladder length varies by
-  clue and shows as "x/N" in the meter.
+  clue and is drawn as the step track (below).
 - **A puzzle that is not a cryptic has no cryptic rungs.** The index row's
   `style: "straight"` (`tools/puzzle_style.py`: the 1930 Listeners and Times,
   a 1970 Guardian run) drops the indicator, type and blocks rungs, leaving the
@@ -50,6 +50,15 @@ Terms used below:
   - Tier 2 is the walkthrough. It unlocks after the blocks.
   - Later rungs restate earlier ones on the way to the answer, so letting
     someone skip straight to the walkthrough would not be a ladder.
+- **The step track** (`#hint-track`) replaced the numbered button row, the
+  locked buttons and the meter sentence. One chip per step the clue has, in
+  step order, named Indicator, Definition, Clue type, Pieces, Solution: open
+  (filled in its highlight colour; tapping scrolls to its note), worked out
+  (filled with a star), available (outlined; tapping opens its question exactly
+  as the numbered button did) or locked (dim, "– Name"). `#hint-meter` now holds
+  only the blog badge. Next building block and Reveal answer stay in
+  `#hint-next`. Tests read the old row shape through `registry["hint-rungs"]`
+  in `tools/fake_dom.js`.
 - **Locked rungs are shown disabled, not hidden**, so the solver sees what is
   coming. Each button reads "N · <rung question>". The recommended next rung
   leads as the plain button; the rest of its tier are quiet ghost buttons. A rung keeps its ladder number
@@ -290,7 +299,7 @@ Terms used below:
     mirror, present for the same keystrokes off paper.
 - **"Reveal letter"** is available at any time and hidden once the entry is
   solved. It never advances the ladder but is one hint like any other: it counts
-  in the meter, the scorebar ("Solved 12/28 clues · 7 with no hints · 9 hints"),
+  in the scorebar ("Solved 12/28 clues · 7 with no hints · 9 hints"),
   the finish tally and the by-clue-type recap, and there is no separate letters
   figure. The other paid words are "Show me" (a question's reveal) and "Reveal
   answer"; the letter wheel button reads "Letters"; a step you got yourself is

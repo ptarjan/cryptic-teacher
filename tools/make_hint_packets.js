@@ -88,7 +88,7 @@ for (const e of puz.entries) {
   rungs.push({ n: 0, label: "no hints", text: "" });
 
   for (let guard = 0; guard < 10; guard++) {
-    const btn = registry["hint-next"].children[0];
+    const btn = registry["hint-rungs"].children[0];
     if (!btn || !btn.onclick || btn.disabled) break;
     // Rungs are "N · label", and the blocks rung comes out as "Next building
     // block · ..." buttons; anything else ("Fill in answer") ends the ladder.

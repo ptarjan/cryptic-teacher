@@ -42,7 +42,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
   };
-  const defBtn = () => registry["hint-next"].children.find(
+  const defBtn = () => registry["hint-rungs"].children.find(
     (b) => /definition/i.test(b.textContent || "") && !b.disabled);
 
   openIt();
@@ -64,7 +64,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   assert(restingBoxes === wordCount(clueText(found.e)),
     "every word of the clue is boxed even when nothing is being asked: " + restingHTML);
   const btn = defBtn();
-  assert(btn, "the definition rung is offered: " + registry["hint-next"].innerHTML);
+  assert(btn, "the definition rung is offered: " + registry["hint-rungs"].innerHTML);
   btn.onclick();
   assert(boxCount(registry["hint-clue"].innerHTML) === restingBoxes,
     "and tapping neither adds nor removes a single box, only recolours them: "
@@ -86,8 +86,8 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       + registry["hint-body"].innerHTML);
   assert(!registry["hint-clue"].innerHTML.includes('mark class="def"'),
     "nor is the answer given away by the highlight: " + registry["hint-clue"].innerHTML);
-  assert(registry["hint-next"].innerHTML === "",
-    "the other rungs are not offered as a way around the question: " + registry["hint-next"].innerHTML);
+  assert(registry["hint-rungs"].innerHTML === "",
+    "the other rungs are not offered as a way around the question: " + registry["hint-rungs"].innerHTML);
 
   // Right: exactly the words, nothing else.
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
@@ -238,7 +238,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
-  const rungs = () => registry["hint-next"].children;
+  const rungs = () => registry["hint-rungs"].children;
   const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
   const asking = () => isAsking(registry["hint-body"]);
   // Climb to the named rung, taking whatever is offered and declining every
@@ -411,7 +411,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   walked.pairs.forEach((b) => assert(html.includes(givesSpan(b.gives)),
     `${b.gives} is handed over with the rest of the split: ` + html));
   assert(!rung(/next piece/i),
-    "and no piece is left to buy: " + registry["hint-next"].innerHTML);
+    "and no piece is left to buy: " + registry["hint-rungs"].innerHTML);
   assert(registry["scorebar"].innerHTML === walked.paid,
     "nothing was bought — the question was answered right: "
       + registry["scorebar"].innerHTML);
@@ -422,7 +422,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // word on the screen at the moment the solver is being asked to read.
   assert(openClue(walked.id, walked.e), "reopen the clue for the growth check");
   const def = rung(/definition/i);
-  assert(def, "the definition rung is offered: " + registry["hint-next"].innerHTML);
+  assert(def, "the definition rung is offered: " + registry["hint-rungs"].innerHTML);
   def.onclick();
   assert(asking(), "and asks before telling: " + registry["hint-body"].innerHTML);
   // Deliberately wrong, so there is a verdict to lose. The last word of a clue is
@@ -459,7 +459,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // it, so nothing is earned by leaving.
   assert(rungs().some((b) => !b.disabled),
     "and another rung can still be taken while the question stands: "
-      + registry["hint-next"].innerHTML);
+      + registry["hint-rungs"].innerHTML);
   {
     const other = rungs().find((b) => !b.disabled);
     const label = other.textContent;
@@ -486,7 +486,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     const won = (h) => (h.match(/hint-step won/g) || []).length;
     assert(won(after2) === won(before2),
       `an abandoned question earns nothing: ${won(before2)} -> ${won(after2)} on ${label}`);
-    assert(registry["hint-next"].children.length > 0,
+    assert(registry["hint-rungs"].children.length > 0,
       "and the ladder row is still there after the switch");
   }
 
@@ -509,7 +509,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   assert(kept(registry["hint-body"].innerHTML).length < kept(bodyBefore).length,
     "the question is gone, not merely disarmed: " + registry["hint-body"].innerHTML);
   const back = rungs().find((b) => !b.disabled);
-  assert(back, "the ladder is live again: " + registry["hint-next"].innerHTML);
+  assert(back, "the ladder is live again: " + registry["hint-rungs"].innerHTML);
   back.onclick();
   assert(asking() || registry["scorebar"].innerHTML !== paidBefore,
     "and the rung it declined can still be reached: " + registry["hint-body"].innerHTML);
@@ -596,7 +596,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
   };
-  const rung = (re) => registry["hint-next"].children.find(
+  const rung = (re) => registry["hint-rungs"].children.find(
     (b) => re.test(b.textContent || "") && !b.disabled);
   const fire = (type, ev) => (docListeners[type] || []).forEach((f) => f(ev));
   // The harness lays the words out one x apart on y=0 — see elementFromPoint.
@@ -643,7 +643,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   rung(/definition/i).onclick();
   registry["guess-tell"].onclick();
   const ind = rung(/indicator/i);
-  assert(ind, "the indicators rung is offered next: " + registry["hint-next"].innerHTML);
+  assert(ind, "the indicators rung is offered next: " + registry["hint-rungs"].innerHTML);
   ind.onclick();
   const html = registry["hint-body"].innerHTML;
   if (html.includes("guess-clue")) {

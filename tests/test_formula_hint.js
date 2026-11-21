@@ -39,7 +39,7 @@ function open(storage) {
   const d = boot({ query: "?p=" + ID, storage: storage || { "ct:nux": "9" }, twoTap: true });
   const reg = d.registry;
   const puz = global.window.CRYPTIC_PUZZLES[ID];
-  const row = () => reg["hint-next"].children;
+  const row = () => reg["hint-rungs"].children;
   const body = () => reg["hint-body"].innerHTML;
   const asking = () => body().includes('class="hint-step guess"');
   const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);

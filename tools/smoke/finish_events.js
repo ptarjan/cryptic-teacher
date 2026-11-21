@@ -367,7 +367,7 @@ const { EVENTS, ROOT, assert, beacons, clueText, defTexts, entryId, ev, fs, isAs
   select(revealedE);
   let climbGuard = 12;
   while (!registry["hx-entry"] && climbGuard--) {
-    const btn = registry["hint-next"].children.find((b) => !b.disabled);
+    const btn = registry["hint-rungs"].children.find((b) => !b.disabled);
     if (!btn) break;
     btn.onclick();
     if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
@@ -476,7 +476,7 @@ const { EVENTS, ROOT, assert, beacons, clueText, defTexts, entryId, ev, fs, isAs
   pickerRowFor(found.id).children[0].onclick();
   registry["reset-puzzle"].onclick();
   registry["clue-" + entryId(found.e)].listeners.click[0]();
-  registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || "") && !b.disabled).onclick();
+  registry["hint-rungs"].children.find((b) => /definition/i.test(b.textContent || "") && !b.disabled).onclick();
   for (let i = 0; i <= found.n; i++) registry["gw-" + i].onclick();
   registry["guess-check"].onclick();
   assert(panelHTML().includes("guess-verdict right"),

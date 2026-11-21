@@ -313,7 +313,7 @@
     // buttons away and rebuilds them on every render. The mousedown listener
     // runs before the default focus transfer, so activeElement still says
     // whether the keyboard was up when the finger landed.
-    ["grid", "clues-across", "clues-down", "clues-unclued", "clues-offgrid", "hint-next", "hint-escape"].forEach((id) =>
+    ["grid", "clues-across", "clues-down", "clues-unclued", "clues-offgrid", "hint-track", "hint-next", "hint-escape"].forEach((id) =>
       $(id).addEventListener("mousedown", keepKbd));
 
     // Bound here for the same reason, and to the list rather than to a row: the

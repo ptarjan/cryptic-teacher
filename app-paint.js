@@ -61,6 +61,19 @@
       if (b.cls) btn.className = b.cls;
       btn.textContent = b.text;
       if (b.title) btn.title = b.title;
+      // The step's full question, for a screen reader: the chip itself is
+      // one short noun.
+      if (b.label) btn.setAttribute("aria-label", b.label);
+      // A step that is already open: tapping it goes to its note, and costs
+      // nothing because there is nothing left to take.
+      if (b.note) {
+        btn.onclick = () => {
+          const n = $("hint-note-" + b.note);
+          if (n && n.scrollIntoView) n.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        };
+        el.appendChild(btn);
+        return;
+      }
       if (b.arm) btn.setAttribute("data-arm", b.arm);
       if (b.disabled) { btn.disabled = true; el.appendChild(btn); return; }
       btn.onclick = (ev) => {
@@ -277,6 +290,7 @@
       guessing = null;
       ["hint-pattern", "hint-meter", "hint-body", "hint-vote"].forEach((id) => setHTML($(id), ""));
       setHTML($("hint-clue"), `<span class="entry-tag">Unclued</span>`);
+      setButtons($("hint-track"), []);
       setButtons($("hint-next"), []);
       const open = canCheck() && !paperHides() && light.some((c) => c.letter !== c.sol);
       if (setHTML($("hint-escape"), open ? letterBtnHTML(null) : "") && open) {
@@ -317,6 +331,7 @@
       arrivedAt = key;
       setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
       ["hint-meter", "hint-body", "hint-escape", "hint-vote"].forEach((id) => setHTML($(id), ""));
+      setButtons($("hint-track"), []);
       setButtons($("hint-next"), []);
       return;
     }
@@ -326,26 +341,11 @@
     if (report && report.key !== key) report = null;
     const reveals = revealsUsed[key] || 0;
     const hintWord = (n) => `${n} hint${n === 1 ? "" : "s"}`;
-    // The count the score charges, not the number of rungs currently on screen:
-    // once solved you can open the rest for free, and the meter has to say the
-    // same thing the scorebar does or one of them is lying.
-    const charged = hintsCharged(e);
-    const meterHTML = solved
-      ? ((charged || reveals)
-          ? `Solved with ${hintWord(charged + reveals)}`
-          : "Solved with no hints at all")
-      // "used on this clue" — you are looking at the clue. Just the count: a
-      // rung you answered yourself is not charged for. What you worked out is
-      // reported beside it, because that is the number this is all for.
-      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, clueText(e)).length} steps shown${
-                 earnedRungs(e).length ? ` · ${earnedRungs(e).length} worked out` : ""}${reveals ? ` · ${hintWord(charged + reveals)}` : ""}`
-             : (reveals ? hintWord(reveals) : ""));
-    // Whether there is anything left on the ladder, filled in below once the
-    // steps are known: a solved clue's score is settled, so the rest of the
-    // ladder costs nothing. The explanation of a clue you have already
-    // got is the one thing this site is for; the reader has to be told they can
-    // have it.
-    let freeRest = false;
+    // The meter sentence is gone: the track shows which steps are open and
+    // worked out, and the score bar carries the hint count. What was a hint
+    // in this clue's own words (a revealed letter, a charged step) is summed
+    // there, so the panel does not say it a second time.
+    const trackSpec = [];
 
     const body = $("hint-body");
     const next = $("hint-next");
@@ -507,32 +507,39 @@
           cls: (nuxPointsAtRung() ? "rung-point" : "") + (armed ? " arm-cost" : ""),
           text: armed ? ARMED_TEXT : `Next building block · ${next + 1} of ${total}` });
       }
-      open.forEach(({ s, n }, j) => {
-        // Every rung reads as its own question and nothing else, not as an
-        // answer you buy. What it is recommending is still visible: the lead is
-        // the plain button and the sideways moves are ghosts.
-        // "Free" rides on the button, not only in the meter above it. Once the
-        // clue is solved its score is settled and the rest of the ladder is
-        // free, but the decision to open one is made at the button, and a button
-        // that reads the same as it did when it charged is not telling you.
-        // The welcome dialog says "take the first one"; this is which one that
-        // is. Only while the cursor is still on the ladder line, so it stops at
-        // the first hint along with the sentence that asked for it.
-        // The building blocks, where taking them costs, carry the two-tap
-        // confirm (blocksCost): armed, the button says what the next tap does.
-        const arm = s.key === "blocks" ? "blocks-0" : s.key;
-        const armed = armedFor(e, arm);
-        const freeBlocks = s.key === "blocks" && !solved && !guessAsk(e, "blocks", 0) && blocksFree(e, 0);
-        nextSpec.push({ rung: s.key, arm,
-          cls: (j || left ? "ghost small" : (nuxFreeRung(e, s.key, solved) ? "rung-point" : "")) + (solved ? " free" : "")
-            + (armed ? " arm-cost" : ""),
-          text: armed ? ARMED_TEXT : `${n} · ${s.label}${solved || freeBlocks ? " · free" : ""}` });
-      });
-      togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
-        nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
+      // The track: every step this clue has, in step order. Open steps are
+      // filled (starred when the solver worked them out), available ones are
+      // outlined and lock-free to read, later tiers are dim. The buttons
+      // behave exactly as the numbered row did; only how they look changed.
+      const trackNames = { indicators: "Indicator", definition: "Definition",
+                           type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
+      const hue = { indicators: "ind", definition: "def", type: "typ" };
+      const lead = open.length ? open[0].s.key : null;
+      steps.forEach((s) => {
+        const name = trackNames[s.key] || s.label;
+        const tint = hue[s.key] ? " " + hue[s.key] : "";
+        if (isShown(e, s.key)) {
+          const worked = earnedRungs(e).indexOf(s.key) >= 0;
+          trackSpec.push({ note: s.key, label: s.label, cls: "step open" + (worked ? " worked" : "") + tint,
+            text: worked ? "★ " + name : name,
+            title: worked ? "Worked out: tap to see its note" : "Open: tap to see its note" });
+          return;
+        }
+        if (open.some((o) => o.s.key === s.key)) {
+          // The building blocks, where taking them costs, carry the two-tap
+          // confirm (blocksCost): armed, the button says what the next tap does.
+          const arm = s.key === "blocks" ? "blocks-0" : s.key;
+          const armed = armedFor(e, arm);
+          trackSpec.push({ rung: s.key, arm, label: s.label,
+            cls: "step avail" + tint + (s.key === lead && !left ? " lead" : "")
+              + (guessing && guessing.rung === s.key ? " cur" : "")
+              + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : "") + (armed ? " arm-cost" : ""),
+            text: armed ? ARMED_TEXT : name });
+          return;
+        }
+        trackSpec.push({ label: s.label, cls: "step locked" + tint, disabled: true, text: "– " + name,
           title: "Open the hints above first — this one would give them away" });
       });
-      freeRest = solved && togo.length > 0;
       // Offered once the building blocks are up, not only once the whole ladder
       // is: the blocks spell the answer out piece by piece, so a solver who has
       // just assembled it is being made to copy their own work into the grid
@@ -582,8 +589,8 @@
     // same chip markup, so it cannot tell picking apart from reading.
     $("hint-clue").classList.toggle("picking", tapping);
 
-    setHTML($("hint-meter"), meterHTML + (freeRest ? " · the remaining hints are free now" : "")
-      + (ann && ann.fromBlog ? blogHintsBadge(ann) : ""));
+    setHTML($("hint-meter"), ann && ann.fromBlog ? blogHintsBadge(ann) : "");
+    setButtons($("hint-track"), trackSpec);
 
     const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);

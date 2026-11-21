@@ -19,7 +19,7 @@ function open(id, want, appPath) {
   return {
     row: global.CRYPTIC_INDEX.puzzles.find((p) => p.id === id),
     note: !d.registry["puzzle-style"].classList.contains("hidden"),
-    rungs: d.registry["hint-next"].children.map((b) => b.textContent || "").filter((t) => /^\d+ · /.test(t)),
+    rungs: d.registry["hint-rungs"].children.map((b) => b.textContent || "").filter((t) => /^\d+ · /.test(t)),
   };
 }
 

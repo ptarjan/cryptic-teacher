@@ -31,7 +31,7 @@ function open() {
   const puz = global.window.CRYPTIC_PUZZLES[ID];
   const kd = d.docListeners["keydown"][0];
   const key = (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] });
-  const row = () => reg["hint-next"].children;
+  const row = () => reg["hint-rungs"].children;
   const body = () => reg["hint-body"].innerHTML;
   const asking = () => body().includes('class="hint-step guess"');
   const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);

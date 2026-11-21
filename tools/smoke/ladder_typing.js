@@ -12,7 +12,7 @@ let rungs = 0, clicks = 0;
 // entry outright, so a climb that presses it stops climbing and starts asserting
 // about a finished clue.
 const leadRung = () => {
-  const b = registry["hint-next"].children[0];
+  const b = registry["hint-rungs"].children[0];
   return b && b.onclick && b.id !== "hx-entry" ? b : null;
 };
 while (leadRung() && clicks < 12) {
@@ -59,7 +59,7 @@ while (leadRung() && clicks < 12) {
     }
   }
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + rungs);
-  assert(registry["hint-escape"].innerHTML.includes("Reveal letter") || registry["hint-meter"].innerHTML.includes("Solved"),
+  assert(registry["hint-escape"].innerHTML.includes("Reveal letter") || registry["hint-track"].children.every((b) => !/\bavail\b/.test(b.className || "")) || /clue-done/.test(registry["hint-clue"].innerHTML),
     "escape hatch still available at level " + rungs);
 }
 assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
@@ -102,7 +102,7 @@ assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
   "ladder never shows an empty 'no indicators' rung");
 assert(registry["hint-clue"].innerHTML.includes('mark class="def"'), "definition highlighted");
 // final ladder rung after the walkthrough is Reveal answer (not letter reveals)
-assert(registry["hint-next"].children.some((b) => b.textContent === "Reveal answer"),
+assert(registry["hint-rungs"].children.some((b) => b.textContent === "Reveal answer"),
   "final rung is Reveal answer: " + btnNames());
 const hx = registry["hx-entry"];
 assert(hx.onclick, "fill-in-answer button wired");

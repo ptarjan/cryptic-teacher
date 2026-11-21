@@ -22,15 +22,15 @@ assert(registry["welcome"].classList.contains("hidden"), "the dialog goes when y
 assert(!registry["nux"].classList.contains("hidden") && /written up/.test(nuxLine(registry)),
   "and hands over to the line about the buttons: " + nuxLine(registry));
 assert(storage["ct:nux"] === "1", "cursor moved to the ladder line: " + storage["ct:nux"]);
-assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || "")).length === 1,
+assert(registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.className || "")).length === 1,
   "exactly one rung is pointed at, and it is the one the line means: "
-  + registry["hint-next"].children.map((c) => c.className).join("|"));
+  + registry["hint-rungs"].children.map((c) => c.className).join("|"));
 // And the page goes dark around it. The sentence says "take one"; the scrim is
 // what makes it a button rather than a paragraph, so it is asserted against the
 // SAME rung the pulse is on and against a box measured off that rung — a hole
 // somewhere else on the page is worse than no hole.
 {
-  const pointed = registry["hint-next"].children.filter((c) => /rung-point/.test(c.className || ""))[0];
+  const pointed = registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.className || ""))[0];
   const spot = registry["spotlight"];
   registry["hint-body"].layout(560, 60);   // whatever the ladder has said so far
   registry["nux"].layout(640, 50);   // the line, sitting just above the row
@@ -68,7 +68,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal letter"), "escape hatc
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
 registry["hx-letter"].onclick();
 assert(/<strong>1<\/strong> hint\b/.test(registry["scorebar"].innerHTML), "a revealed letter counts as a hint in the score: " + registry["scorebar"].innerHTML);
-assert(registry["hint-meter"].innerHTML.includes("1 hint"), "meter counts the revealed letter as a hint: " + registry["hint-meter"].innerHTML);
+assert(/1 hint/.test(registry["scorebar"].innerHTML), "the score bar counts the revealed letter as a hint: " + registry["scorebar"].innerHTML);
 
 // A question that is still open, in either of its two forms — words to point at
 // or families to choose between. Keyed off the block that wraps a live question
@@ -93,7 +93,7 @@ function takeRung(btn) {
 // on whichever button is armed, so the lazy climbs below still buy their rung.
 const ARMED = /^Tap again · 1 hint$/;
 function confirmArmed() {
-  const row = registry["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
+  const row = registry["hint-rungs"].children.find((b) => ARMED.test(b.textContent || ""));
   if (row) return row.onclick(), true;
   if (/data-arm="blocks-tell" class="[^"]*arm-cost/.test(registry["hint-body"].innerHTML))
     return registry["guess-tell"].onclick(), true;
@@ -111,7 +111,7 @@ const CLIMBABLE = (btn) => !!(btn && btn.onclick && !btn.disabled
 // Every button in the ladder row, by label. The row is real elements, so its
 // innerHTML says nothing about what is on screen — an assertion against that
 // string passes on a row that shows something else.
-const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
+const btnNames = () => registry["hint-rungs"].children.map((b) => b.textContent).join(" | ");
 
 // --- pick a rung out of order, but not out of tier ---
 // Two rules pull against each other and both have to hold. Free choice WITHIN a
@@ -121,7 +121,7 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
 // giving away the answer, so they stay disabled until the early ones are up.
 // Lose either half and this is no longer a teaching ladder.
 {
-  const buttons = registry["hint-next"].children;
+  const buttons = registry["hint-rungs"].children;
   const open = buttons.filter((b) => !b.disabled);
   const locked = buttons.filter((b) => b.disabled);
   assert(open.length >= 2, "the first tier offers a choice, not a single next step: " + open.length);

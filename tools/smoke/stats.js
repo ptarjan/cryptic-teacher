@@ -37,7 +37,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   const press = require("../fake_dom.js").boot({
     storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
   press.registry["welcome-go"].onclick();
-  const litRung = () => press.registry["hint-next"].children.filter(
+  const litRung = () => press.registry["hint-rungs"].children.filter(
     (c) => /rung-point/.test(c.className || ""))[0];
   const lit = litRung();
   assert(lit && !press.registry["spotlight"].classList.contains("hidden"),
@@ -93,7 +93,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   // hint each, so a second ladder empties the slot for good: a newcomer gets
   // these sentences once in their life, not a banner that returns every session.
   const pressTake = () => {
-    const b = press.registry["hint-next"].children[0];
+    const b = press.registry["hint-rungs"].children[0];
     if (!b || !b.onclick || b.disabled || b.id === "hx-entry") return false;
     b.onclick();
     if (isAsking(press.registry["hint-body"])) press.registry["guess-tell"].onclick();

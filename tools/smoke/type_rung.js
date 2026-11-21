@@ -28,9 +28,9 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
-    const btn = registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
+    const btn = registry["hint-rungs"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
     if (!btn && soft) return null;  // a clue the app gives no type rung (a bare-letters rebus) is not the one to test
-    assert(btn, `${found.id} ${entryId(found.e)} (type ${JSON.stringify(found.e.annotation.type)}, redo ${!!found.e.annotation.redo}): the type rung is offered: ` + registry["hint-next"].innerHTML);
+    assert(btn, `${found.id} ${entryId(found.e)} (type ${JSON.stringify(found.e.annotation.type)}, redo ${!!found.e.annotation.redo}): the type rung is offered: ` + registry["hint-rungs"].innerHTML);
     cold = registry["hint-body"].innerHTML;
     const before = registry["scorebar"].innerHTML;
     btn.onclick();
@@ -129,9 +129,9 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
     "and does not replay it on the next draw: " + registry["hint-body"].innerHTML);
   assert(registry["scorebar"].innerHTML === free,
     "and a rung you worked out yourself is free: " + free + " -> " + registry["scorebar"].innerHTML);
-  assert(registry["hint-meter"].innerHTML.includes("worked out"),
+  assert(registry["hint-track"].children.some((b) => /\bworked\b/.test(b.className || "")),
     "which the meter says, because that is the number this is all for: "
-      + registry["hint-meter"].innerHTML);
+      + registry["hint-track"].children.map((b) => b.className).join("|"));
 
   // A family too rare for a chip (rebus, reverse clue) is answered by the chip
   // its `picker` names, while the rung still names the real family.
@@ -265,7 +265,7 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
       li.children[0].onclick();
       registry["reset-puzzle"].onclick();
       registry["clue-" + entryId(found.e)].listeners.click[0]();
-      registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || "")).onclick();
+      registry["hint-rungs"].children.find((b) => /kind of clue/i.test(b.textContent || "")).onclick();
     };
     const choices = () => {
       const out = new Map();

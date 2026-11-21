@@ -89,7 +89,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     // else, and swallows the indicators rung that three later tests assert is
     // still on offer. It is tier 0, so it is reachable from cold whatever
     // leads.
-    const defBtn = registry["hint-next"].children.find(
+    const defBtn = registry["hint-rungs"].children.find(
       (b) => b.onclick && !b.disabled && /definition/i.test(b.textContent));
     if (defBtn) takeRung(defBtn);
   };
@@ -136,7 +136,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     "the definition note is NOT on the definition rung — it names the answer: " +
     registry["hint-body"].innerHTML);
   for (let i = 0; i < 8; i++) {
-    const btn = registry["hint-next"].children[0];
+    const btn = registry["hint-rungs"].children[0];
     if (!CLIMBABLE(btn)) break;
     takeRung(btn);
   }
@@ -162,7 +162,8 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     // something else at first" is not a leak of FIRST, nor "Mechanism:
     // cryptic definition" of CRYPT (app.js masks a label only where it is the
     // answer as a word).
-    const LADDER_PROSE = [...CLUE_TYPES.families.flatMap(f => [f.blurb, f.label]),
+    const LADDER_PROSE = ["Indicator", "Definition", "Clue type", "Pieces", "Solution",
+      ...CLUE_TYPES.families.flatMap(f => [f.blurb, f.label]),
       ...CLUE_TYPES.types.flatMap(t => [t.blurb, t.label]),
       ...rungTemplateProse(appSrc).map(t => t.replace(/<[^>]*>|&[#\w]+;/g, " ")),
       // The rule chip's label, its lesson link and the general rules behind it
@@ -193,7 +194,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       // Climb to the rung BEFORE the walkthrough: every rung a learner can buy
       // without committing to the last one must leave the answer unspoken.
       for (let i = 0; i < 8; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn)) break;
         if (/walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
@@ -216,7 +217,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
           `${where}: a rung before the walkthrough spells the answer out — ` +
           registry["hint-body"].innerHTML);
       }
-      const btn = registry["hint-next"].children[0];
+      const btn = registry["hint-rungs"].children[0];
       assert(btn && /walkthrough/i.test(btn.textContent || ""),
         `${where}: the ladder still ends at the walkthrough, got ` +
         ((btn && btn.textContent) || "nothing"));
@@ -256,7 +257,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     for (const h of hits) {
       openClue(h);
       for (let i = 0; i < 8; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn) || /walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
         const html = registry["hint-body"].innerHTML;
@@ -290,7 +291,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     for (const r of risky) {
       openClue(r);
       for (let i = 0; i < 8; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn)) break;
         if (/walkthrough/i.test(btn.textContent)) break;
         // Opened by hand rather than through takeRung(), because the question
@@ -340,7 +341,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       openClue(r);
       let bought = false;
       for (let i = 0; i < 8; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn)) break;
         if (/building blocks/i.test(btn.textContent)) bought = true;
         takeRung(btn);
@@ -390,7 +391,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       openClue(m);
       let html = "";
       for (let i = 0; i < 8; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn)) break;
         takeRung(btn);
         html = registry["hint-body"].innerHTML;
@@ -460,7 +461,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     assert(ringSample, "an anagram ring sample was captured to test typing against");
     openClue(ringSample);
     for (let i = 0; i < 8; i++) {
-      const btn = registry["hint-next"].children[0];
+      const btn = registry["hint-rungs"].children[0];
       if (!CLIMBABLE(btn)) break;
       takeRung(btn);
       if (registry["hint-body"].innerHTML.includes("anagram-ring")) break;
@@ -668,7 +669,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         // indicators rung and no blocks rung — and the row drops a rung once it
         // has been taken, so its number goes with it and the rest keep theirs.
         {
-          const numbered = registry["hint-next"].children
+          const numbered = registry["hint-rungs"].children
             .map((b) => /^(\d+) · ([^·]*?)(?: · free)?$/.exec(b.textContent || ""))
             .filter(Boolean)
             .map((m) => ({ n: +m[1], label: m[2].trim() }))
@@ -690,7 +691,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
             + shownAs());
         }
         for (let i = 0; i < 9; i++) {
-          const btns = registry["hint-next"].children.filter((b) => b.onclick);
+          const btns = registry["hint-rungs"].children.filter((b) => b.onclick);
           if (!btns.length) break;
           for (const b of btns) {
             // "· free" is the price, not the name: every rung of a clue its
@@ -733,7 +734,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     assert(noted.length, "some clue in the corpus explains its indicators");
     for (const s of noted.slice(0, 25)) {
       openClue(s);
-      const btn = registry["hint-next"].children.find(
+      const btn = registry["hint-rungs"].children.find(
         (b) => b.onclick && /indicator/i.test(b.textContent) && !b.disabled);
       assert(btn, `${s.id} ${entryId(s.e)}: the indicators rung is offered`);
       if (!btn) continue;
@@ -821,7 +822,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       const sounded = (b) => `<span class="gives">${htmlEsc(b.soundsLike)}</span>`
         + ` <span class="muted">said aloud</span>`;
       for (let i = 0; i < 8; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn)) break;
         takeRung(btn);
         html = registry["hint-body"].innerHTML;
@@ -858,7 +859,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     for (const s of quiet.slice(0, 60)) {
       openClue(s);
       for (let i = 0; i < 10; i++) {
-        const btn = registry["hint-next"].children[0];
+        const btn = registry["hint-rungs"].children[0];
         if (!CLIMBABLE(btn)) break;
         const label = btn.textContent;
         btn.onclick();
@@ -889,8 +890,8 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
   assert(withInd, "at least one annotation names an indicator that occurs in its clue");
   openFromPicker(withInd.id);
   registry["clue-" + entryId(withInd.e)].listeners.click[0]();
-  const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
-  assert(indBtn, "the indicators rung is offered from cold: " + registry["hint-next"].innerHTML);
+  const indBtn = registry["hint-rungs"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
+  assert(indBtn, "the indicators rung is offered from cold: " + registry["hint-rungs"].innerHTML);
   takeRung(indBtn);
   const marked = registry["hint-clue"].innerHTML;
   assert(marked.includes('mark class="ind"'),
@@ -912,8 +913,8 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     e.annotation.explanation.definitionFit = "SMOKE-FIT: the answer is an instance of the definition.";
     registry["clue-" + entryId(e)].listeners.click[0]();
     let guard = 0;
-    while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && guard++ < 8) {
-      takeRung(registry["hint-next"].children[0]);
+    while (registry["hint-rungs"].children[0] && registry["hint-rungs"].children[0].onclick && guard++ < 8) {
+      takeRung(registry["hint-rungs"].children[0]);
       if (answerShown(registry["hint-body"].innerHTML)) break;
     }
     const walk = registry["hint-body"].innerHTML;

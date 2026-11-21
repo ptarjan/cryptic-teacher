@@ -93,7 +93,7 @@ for (const paperOn of [true, false]) {
     check(!li.classList.contains("solved") && !li.classList.contains("no-hints"),
       `typingGivesNoSignal (${tag}): the clue list row is not marked solved`);
     check(!/clue-done/.test(clue), `typingGivesNoSignal (${tag}): no tick beside the clue: ${clue}`);
-    check(t.reg["hint-meter"].innerHTML === "" && t.reg["hint-next"].childElementCount === 0
+    check(t.reg["hint-meter"].innerHTML === "" && t.reg["hint-track"].childElementCount === 0 && t.reg["hint-rungs"].childElementCount === 0
           && !/Reveal/.test(t.reg["hint-escape"].innerHTML),
       `typingGivesNoSignal (${tag}): no meter, no rung buttons, no reveal`);
     check(!(entryId(entry) in solvedWith),
@@ -120,7 +120,7 @@ for (const paperOn of [true, false]) {
     check(/correct/.test(t.reg["check-result"].textContent),
       "doneCredits: the grid check reports what it found: " + t.reg["check-result"].textContent);
     check(!JSON.parse(t.d.storage["ct:paper"]).open[ID], "doneCredits: the puzzle is off paper for good");
-    check(t.hidden("paper-done") && t.reg["hint-meter"].innerHTML !== "",
+    check(t.hidden("paper-done") && t.reg["hint-track"].childElementCount > 0,
       "doneCredits: the checks and the ladder are back");
   } else {
     check(li.classList.contains("solved") && li.classList.contains("no-hints"),

@@ -52,7 +52,7 @@ for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["
     });
     const reg = d.registry, out = {};
     const arm = () => {
-      const row = reg["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
+      const row = reg["hint-rungs"].children.find((b) => ARMED.test(b.textContent || ""));
       if (row) row.onclick();
       else if (/data-arm="blocks-tell" class="[^"]*arm-cost/.test(reg["hint-body"].innerHTML)) reg["guess-tell"].onclick();
     };
@@ -66,7 +66,7 @@ for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["
       row.listeners.click[0]();
       const seen = [];
       for (let n = 0; n < 40; n++) {
-        const btn = reg["hint-next"].children.find(CLIMBABLE);
+        const btn = reg["hint-rungs"].children.find(CLIMBABLE);
         if (!btn) break;
         btn.onclick();
         arm();

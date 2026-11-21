@@ -40,7 +40,7 @@ function openRing(id, words) {
   const key = (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] });
   reg["clue-" + entryId(e)].listeners.click[0]();
   for (let i = 0; i < 10 && !reg["hint-body"].innerHTML.includes("anagram-ring"); i++) {
-    const btn = reg["hint-next"].children[0];
+    const btn = reg["hint-rungs"].children[0];
     if (!(btn && btn.onclick && !btn.disabled)) break;
     btn.onclick();
     if (reg["hint-body"].innerHTML.includes('class="hint-step guess"')) reg["guess-tell"].onclick();

@@ -43,7 +43,7 @@ for (const id of ids) {
     if (!row || !row.listeners.click) continue;
     row.listeners.click[0]();
     for (let guard = 0; guard < 40; guard++) {
-      const btn = dom.registry["hint-next"].children[0];
+      const btn = dom.registry["hint-rungs"].children[0];
       if (!btn || !btn.onclick || btn.disabled) break;
       if (!/^\d+ · |^Next building block · /.test(btn.textContent || "")) break;
       btn.onclick();

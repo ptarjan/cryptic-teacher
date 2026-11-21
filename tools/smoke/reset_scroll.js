@@ -91,7 +91,7 @@ registry["reset-puzzle"].onclick();
     panel.layout(1200, 4000);
     win.pageYOffset = 0; win.scrolls.length = 0;
     tap(clues[0]);
-    const nextRung = () => registry["hint-next"].children.find((x) => !x.disabled);
+    const nextRung = () => registry["hint-rungs"].children.find((x) => !x.disabled);
     const b = nextRung();
     assert(b, "the ladder offers a rung to take");
     b.onclick();
@@ -613,13 +613,13 @@ registry["reset-puzzle"].onclick();
       && !openPuz.entries.some((g) => groupsOf(g).some((grp) => grp.includes(entryId(e))))) solo = e;
   }
   assert(solo, "found an unlinked entry with a published answer to solve");
-  assert(registry["hint-next"].children.some((b) => b.disabled),
+  assert(registry["hint-rungs"].children.some((b) => b.disabled),
     "before solving, the late rungs are still locked");
 
   solo.solution.split("").forEach((ch) => kd(ev(ch)));
-  assert(/Solved with no hints/.test(registry["hint-meter"].innerHTML),
-    "typed it cold: " + registry["hint-meter"].innerHTML);
-  const buttons = registry["hint-next"].children;
+  assert(/clue-done clean/.test(registry["hint-clue"].innerHTML),
+    "typed it cold: " + registry["hint-clue"].innerHTML);
+  const buttons = registry["hint-rungs"].children;
   assert(buttons.length && !buttons.some((b) => b.disabled),
     "solving unlocks every rung: " + buttons.map((b) => b.textContent + (b.disabled ? " [locked]" : "")).join(" | "));
   assert(!buttons.some((b) => /hint/i.test(b.textContent)),
@@ -627,13 +627,13 @@ registry["reset-puzzle"].onclick();
 
   // Read the lot, walkthrough included, and the score must not move.
   const before = registry["scorebar"].innerHTML;
-  for (let i = 0; i < 8 && registry["hint-next"].children[0]
-    && registry["hint-next"].children[0].onclick; i++) {
-    takeRung(registry["hint-next"].children[0]);
+  for (let i = 0; i < 8 && registry["hint-rungs"].children[0]
+    && registry["hint-rungs"].children[0].onclick; i++) {
+    takeRung(registry["hint-rungs"].children[0]);
   }
   assert(/hint-step/.test(registry["hint-body"].innerHTML), "the rungs really did open");
-  assert(/Solved with no hints/.test(registry["hint-meter"].innerHTML),
-    "studying a solved clue is free: " + registry["hint-meter"].innerHTML);
+  assert(/clue-done clean/.test(registry["hint-clue"].innerHTML),
+    "studying a solved clue is free: " + registry["hint-clue"].innerHTML);
   assert(registry["scorebar"].innerHTML === before,
     `the scorebar must not move when a solved clue is studied:\n  was ${before}\n  now ${registry["scorebar"].innerHTML}`);
   registry["reset-puzzle"].onclick();

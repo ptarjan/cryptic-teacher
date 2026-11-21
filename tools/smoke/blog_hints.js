@@ -29,7 +29,7 @@ const { CLIMBABLE, CTQuotes, ROOT, allPuzzles, assert, btnNames, clueText, confi
       assert(registry["hint-escape"].innerHTML.includes(`href="${puz.blog.url}"`)
         && registry["hint-escape"].innerHTML.includes("Full explanation on " + blogName),
         `${target.id} ${entryId(e)}: links to the full write-up: ${registry["hint-escape"].innerHTML}`);
-      const def = registry["hint-next"].children.find((b) => /Where is the definition/.test(b.textContent));
+      const def = registry["hint-rungs"].children.find((b) => /Where is the definition/.test(b.textContent));
       if (assert(def, `${target.id} ${entryId(e)}: has a definition rung: ${btnNames()}`)) {
         takeRung(def);
         const shown = CTQuotes.curl(e.blog.definitions[0].text);
@@ -49,9 +49,9 @@ const { CLIMBABLE, CTQuotes, ROOT, allPuzzles, assert, btnNames, clueText, confi
       const shown = (e.blog.blocks || []).filter(({ gives, clueFragment: frag }) => bare(gives) !== bare(frag)
         && (bare(gives) !== sol || sol.length >= 3
           && (bare(frag).includes(sol) || bare(frag).includes([...sol].reverse().join("")))));
-      assert(!registry["hint-next"].children.some((b) => /Full walkthrough/.test(b.textContent)),
+      assert(!registry["hint-rungs"].children.some((b) => /Full walkthrough/.test(b.textContent)),
         `${target.id} ${entryId(e)}: a blog ladder stops at what the blog marked: ${btnNames()}`);
-      assert(registry["hint-next"].children.some((b) => /building blocks/.test(b.textContent)) === shown.length > 0,
+      assert(registry["hint-rungs"].children.some((b) => /building blocks/.test(b.textContent)) === shown.length > 0,
         `${target.id} ${entryId(e)}: a building-blocks rung exactly when the blog wrote blocks: ${btnNames()}`);
     }
   }
@@ -135,11 +135,11 @@ function blogFact(want) {
     const { pid, eid, answer } = target;
     registry["clue-" + eid].listeners.click[0]();
     for (let guard = 0; guard < 6; guard++) {
-      const next = registry["hint-next"].children.find(CLIMBABLE);
+      const next = registry["hint-rungs"].children.find(CLIMBABLE);
       if (!next || /building blocks/.test(next.textContent)) break;
       takeRung(next);
     }
-    const rung = registry["hint-next"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
+    const rung = registry["hint-rungs"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
     if (assert(rung, `${pid} ${eid}: the carrier makes a building-blocks rung: ${btnNames()}`)) {
       rung.onclick();
       confirmArmed();
@@ -179,11 +179,11 @@ function blogFact(want) {
     const { pid, eid, answer, heard } = target;
     registry["clue-" + eid].listeners.click[0]();
     for (let guard = 0; guard < 6; guard++) {
-      const next = registry["hint-next"].children.find(CLIMBABLE);
+      const next = registry["hint-rungs"].children.find(CLIMBABLE);
       if (!next || /building blocks/.test(next.textContent)) break;
       takeRung(next);
     }
-    const rung = registry["hint-next"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
+    const rung = registry["hint-rungs"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
     if (assert(rung, `${pid} ${eid}: the heard block makes a building-blocks rung: ${btnNames()}`)) {
       takeRung(rung);
       const body = registry["hint-body"].innerHTML;
@@ -226,7 +226,7 @@ function blogFact(want) {
     const { pid, e } = target;
     registry["clue-" + target.eid].listeners.click[0]();
     for (let guard = 0; guard < 20; guard++) {
-      const btn = registry["hint-next"].children.find(CLIMBABLE);
+      const btn = registry["hint-rungs"].children.find(CLIMBABLE);
       if (!btn) break;
       takeRung(btn);
     }

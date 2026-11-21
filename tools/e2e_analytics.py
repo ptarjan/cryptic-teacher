@@ -101,7 +101,7 @@ def walk_ladder(page):
             tell.first.click()
             page.wait_for_timeout(250)
             continue
-        btns = page.locator("#hint-next button")
+        btns = page.locator("#hint-track button.avail, #hint-next button")
         for i in range(btns.count()):
             b = btns.nth(i)
             if b.is_visible() and b.is_enabled():

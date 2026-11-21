@@ -583,7 +583,7 @@
     if (tap) tap.classList.toggle("hidden", !(armB() && line && line.modal && !introOpen && !typedYet));
     const live = !!line && !line.modal
                  && !$("hint-panel").classList.contains("hidden")
-                 && $("hint-next").childElementCount > 0;
+                 && ($("hint-track").childElementCount + $("hint-next").childElementCount) > 0;
     const typeIt = !nuxAsk() && nuxTypeIt(currentEntry());
     const telling = nuxAsk()
       ? "Answer this question yourself and the hint costs you nothing \u2014 tap what is lit up."
@@ -637,10 +637,13 @@
      clickable — the scrim lets taps through — so a solver who wants to ignore
      it is not trapped by it. */
   function nuxRung() {
-    const row = $("hint-next");
-    if (!row || !nuxPointsAtRung()) return null;
-    for (let i = 0; i < row.children.length; i += 1) {
-      if (/\brung-point\b/.test(row.children[i].className || "")) return row.children[i];
+    if (!nuxPointsAtRung()) return null;
+    for (const id of ["hint-track", "hint-next"]) {
+      const row = $(id);
+      if (!row) continue;
+      for (let i = 0; i < row.children.length; i += 1) {
+        if (/\brung-point\b/.test(row.children[i].className || "")) return row.children[i];
+      }
     }
     return null;
   }

@@ -67,7 +67,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   reg["clue-" + entryId(entry)].listeners.click[0]();
   assert(el("hint-next").children.length, "the clue opens with rungs to take");
 
-  const quiet = () => ["hint-body", "hint-next", "hint-escape"].map((id) => el(id).writes);
+  const quiet = () => ["hint-body", "hint-track", "hint-next", "hint-escape"].map((id) => el(id).writes);
   const before = quiet();
   const patBefore = el("hint-pattern").writes;
   const buttons = el("hint-next").children.slice();
@@ -105,10 +105,10 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
     "and the rung row is rebuilt once the ladder actually moves");
 
   // --- and the meter still follows a solve ---
-  const meterBefore = el("hint-meter").innerHTML;
+  const meterBefore = el("hint-clue").innerHTML;
   key(entry.solution[entry.length - 1]);
-  assert(el("hint-meter").innerHTML !== meterBefore && /Solved/.test(el("hint-meter").innerHTML),
-    "the last letter updates the meter: " + el("hint-meter").innerHTML);
+  assert(el("hint-clue").innerHTML !== meterBefore && /clue-done/.test(el("hint-clue").innerHTML),
+    "the last letter marks the clue solved: " + el("hint-clue").innerHTML);
 }
 
 // --- a sync reply cannot undo what the solver just did ---
@@ -141,7 +141,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   // A rung button reads "1 · Spot the indicator words", or "Show hint 1 · …" for
   // the next one up, and is disabled until its tier opens — so it is matched on
   // the label the ladder gives it, and only counts once it can be pressed.
-  const rungs = () => reg["hint-next"].children;
+  const rungs = () => reg["hint-rungs"].children;
   const named = (t) => rungs().find((b) => !b.disabled && (b.textContent || "").includes(t));
   let guard = 12;
   while (!named("Full walkthrough") && guard--) {
@@ -324,7 +324,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
     registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
-  const rungs = () => registry["hint-next"].children;
+  const rungs = () => registry["hint-rungs"].children;
   const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
   const asking = () => isAsking(registry["hint-body"]);
   const pickable = (n) => panelHTML().includes(`id="gw-${n}"`);
@@ -392,7 +392,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
 
   reg["clue-16-down"].listeners.click[0]();
   for (let i = 0; i < 8; i++) {
-    const btns = reg["hint-next"].children;
+    const btns = reg["hint-rungs"].children;
     const blocks = btns.find((b) => climbable(b) && /building blocks/i.test(b.textContent));
     if (blocks) { blocks.onclick(); break; }
     const next = btns.find(climbable);

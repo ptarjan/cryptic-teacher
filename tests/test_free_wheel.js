@@ -30,13 +30,13 @@ for (const [name, e] of [["non-anagram", plain], ["anagram", ana]]) {
 }
 
 reg["clue-" + entryId(plain)].listeners.click[0]();
-const meter = reg["hint-meter"].innerHTML, score = reg["scorebar"].innerHTML;
+const meter = reg["hint-track"].children.map((b) => b.className).join("|"), score = reg["scorebar"].innerHTML;
 reg["hx-wheel"].onclick();
 check(reg["hint-body"].innerHTML.includes("anagram-ring"), "opening it draws the ring");
 check(tiles().length === 0, "which starts empty");
 check(reg["hint-clue"].innerHTML.includes("data-aw=") && !reg["hint-body"].innerHTML.includes("ana-word"),
   "the clue's own words are the picker, with no second row of chips");
-check(reg["hint-meter"].innerHTML === meter, "the hint count is unchanged: " + reg["hint-meter"].innerHTML);
+check(reg["hint-track"].children.map((b) => b.className).join("|") === meter, "the track is unchanged");
 check(reg["scorebar"].innerHTML === score, "and so is the score");
 
 const word = "TEARS";
@@ -44,7 +44,7 @@ const type = (k) => reg["ana-kbd"].listeners.keydown[0]({ key: k, preventDefault
 word.split("").forEach(type);
 check(tiles().sort().join("") === word.split("").sort().join(""),
   "typed letters appear in the ring: " + tiles().join(""));
-check(reg["hint-meter"].innerHTML === meter, "still no hint charged");
+check(reg["hint-track"].children.map((b) => b.className).join("|") === meter, "still no hint charged");
 type("Backspace");
 check(tiles().length === word.length - 1, "Backspace takes one off");
 

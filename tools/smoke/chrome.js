@@ -33,9 +33,9 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(/^[A-Z’\-]*$/.test(stripTags(patHTML(), "")),
     "the pattern strip renders the boxes and nothing else — the summary is the " +
     "aria-label, not a line of prose under the clue: " + patHTML());
-  const meter = stripTags(registry["hint-meter"].innerHTML, "");
-  assert(meter.length < 40,
-    `the hint meter is a count, not a sentence (${meter.length} chars): ${meter}`);
+  const trackText = registry["hint-track"].children.map((b) => b.textContent).join(" ");
+  assert(trackText.length < 80,
+    `the step track is short names, not a sentence (${trackText.length} chars): ${trackText}`);
 }
 
 // --- every clue type belongs to exactly one family (tools/data/clue_types.json) ---

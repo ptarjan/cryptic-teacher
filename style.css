@@ -15,6 +15,8 @@
   --def-fg: #14501f;
   --ind-bg: #f6d9f0;
   --ind-fg: #7a1d66;
+  --typ-bg: #f7e6c8;
+  --typ-fg: #7a4a00;
   /* Row badges get their own palette, deliberately not the hint-rung one above.
      See the .badge block for what each colour is allowed to mean. */
   --badge-cov-bg: #d5e9f5;   /* we have written hints for this puzzle */
@@ -87,6 +89,8 @@
     --def-fg: #b9e4bf;
     --ind-bg: #4a2342;
     --ind-fg: #eab8de;
+    --typ-bg: #4a3a1c;
+    --typ-fg: #f0d29a;
     --badge-cov-bg: #1e3f52;
     --badge-cov-fg: #a4d6ef;
     --badge-none-bg: #2c3138;
@@ -2028,3 +2032,20 @@ html.standalone #btn-picker-close, html.standalone #btn-stats-close { display: n
 #tap-hint { margin: 0 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent); background: var(--card); font-size: 1rem; }
 #tap-hint .linklike { display: block; margin-top: 2px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: .9rem; text-decoration: underline; cursor: pointer; }
 html.ct-nopush #btn-notify { display: none; }
+
+/* The step track: one chip per step this clue has. Open steps are filled in
+   the colour their highlight wears in the clue (starred when worked out),
+   available ones are outlined, later tiers are dim. */
+.hint-track { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+.hint-track:empty { display: none; }
+.hint-track button.step { --chip: var(--accent); --chip-bg: var(--accent-soft); flex: 0 0 auto;
+  border: 2px solid var(--chip); color: var(--chip); background: transparent; border-radius: 1em;
+  padding: 5px 12px; font-weight: 700; font-size: .9rem; }
+.hint-track button.step.ind { --chip: var(--ind-fg); --chip-bg: var(--ind-bg); }
+.hint-track button.step.def { --chip: var(--def-fg); --chip-bg: var(--def-bg); }
+.hint-track button.step.typ { --chip: var(--typ-fg); --chip-bg: var(--typ-bg); }
+.hint-track button.step.open { background: var(--chip-bg); }
+.hint-track button.step.lead, .hint-track button.step.cur { border-width: 3px; padding: 4px 11px; }
+.hint-track button.step.locked, .hint-track button.step.locked:hover { border-color: transparent;
+  background: var(--line); color: var(--muted); opacity: .6; cursor: not-allowed; }
+.hint-track button.step.arm-cost { border-color: var(--bad, #b3261e); color: var(--bad, #b3261e); }

@@ -2165,7 +2165,7 @@
   // identically whether you earned five rungs or paid for five, and the one
   // number the site is for disappears as soon as you scroll.
   function hintStepHTML(step, position, won, ruleOpen) {
-    return `<div class="hint-step${won ? " won" : ""}"><span class="step-label">${
+    return `<div id="hint-note-${esc(step.key)}" class="hint-step${won ? " won" : ""}"><span class="step-label">${
       position} · ${esc(step.label)}${
       won ? '<span class="step-won">worked out</span>' : ""}</span>${
       withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}${step.after || ""}</div>`;
