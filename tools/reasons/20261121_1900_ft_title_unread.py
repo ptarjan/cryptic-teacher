@@ -6,7 +6,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "archive.org FT page whose title the scan found but whose puzzle was never read, read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T19:18:00+00:00"
 EDITION = re.compile(r"FinancialTimes19(8[5-9]|9[0-4])UKEnglish/")
 
 

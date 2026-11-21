@@ -8,7 +8,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent 2002-03 page whose third clue column's numbers stood left of its window, read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T19:18:00+00:00"
 NUMBER = re.compile(r"\d{1,2}$")
 
 
