@@ -634,8 +634,12 @@ function bootApp(opts) {
     const children = [
       ...next.map((b) => asRung(b, null)), ...at(/\bavail\b/), ...at(/\blocked\b/)];
     // Reveal answer lives in the help bar now; markup-only ids linger in the registry.
-    if (/id="hx-entry"/.test(registry["hint-escape"].innerHTML) && registry["hx-entry"]) {
-      children.push(registry["hx-entry"]);
+    // The stub builds no elements from markup, so the button has no text of its own:
+    // read it off the markup, as the old setButtons chip carried it.
+    const fill = /<button id="hx-entry"[^>]*>([^<]*)<\/button>/.exec(registry["hint-escape"].innerHTML);
+    if (fill && registry["hx-entry"]) {
+      children.push(Object.create(registry["hx-entry"], {
+        textContent: { value: fill[1].replace(/&middot;/g, "\u00b7") } }));
     }
     return { children, childElementCount: children.length,
              get innerHTML() { return registry["hint-track"].innerHTML + registry["hint-next"].innerHTML; } };

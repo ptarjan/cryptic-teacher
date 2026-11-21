@@ -95,15 +95,17 @@ const EVENTS = require("../../sync/events.js");
 const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].innerHTML;
 // A right answer now goes straight on to the ladder's next question (Paul
 // 10-30: "When you finish a hint ring it should go to the next"). The checks that
-// read the finished rung's own state put that question away first, as a solver
-// choosing another step would (there is no "Skip for now"): a step chip that
-// is not the current one, taken only when it leaves no question showing.
+// read the finished rung's own state put that question away first. There is no
+// "Skip for now", and a step chip is no way to do it: one with a question of its
+// own just swaps questions, and one without opens (or arms) a rung. The Letters
+// wheel is the help bar's button that steps a question aside and spends nothing
+// (hx-wheel in app-paint.js), so that is what a solver would press.
 const dismissNext = () => {
-  if (!registry["hint-body"].innerHTML.includes('class="hint-step guess"')) return;
-  for (const c of registry["hint-track"].children) {
-    if (!/\bavail\b/.test(c.className || "") || /\bcur\b/.test(c.className || "") || !c.onclick) continue;
-    c.onclick();
-    if (!registry["hint-body"].innerHTML.includes('class="hint-step guess"')) return;
+  const asking = () => registry["hint-body"].innerHTML.includes('class="hint-step guess"');
+  // Twice: a wheel already open is closed by the first tap and the question stays.
+  for (let i = 0; i < 2 && asking(); i++) {
+    const w = registry["hx-wheel"];
+    if (w && w.onclick && /id="hx-wheel"/.test(registry["hint-escape"].innerHTML)) w.onclick();
   }
 };
 // What the page reported since a mark, in order. Sliced rather than read whole:
