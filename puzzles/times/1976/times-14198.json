@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Ah, me, that's quick work, if boring",
     "enumeration": "8"
    },
-   "solution": "WELLADAY"
+   "solution": "WELLADAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ah, me",
+      "at": 0,
+      "meaning": "an old cry of sorrow, like 'alas'"
+     },
+     {
+      "text": "that's quick work, if boring",
+      "at": 8,
+      "meaning": "boring a well in a day would be fast going"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sighs that a job was done fast, provided it was dull.",
+     "walkthrough": "'Boring' looks like 'dull' but means drilling: sinking a well in just a day is quick work.",
+     "definitionFit": "An archaic exclamation of grief or regret, close to 'alas', and punningly a well dug in a day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,52 @@
     "text": "Wind veers two points on the Mersey",
     "enumeration": "6"
    },
-   "solution": "WIDNES"
+   "solution": "WIDNES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on the Mersey",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "veers",
+         "at": 5,
+         "note": "a wind that veers changes direction, so its letters change order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wind",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "two points",
+       "at": 11,
+       "gives": "ES",
+       "note": "E and S, east and south, are two compass points"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wind shifts between compass points over the Mersey.",
+     "walkthrough": "'veers' rearranges WIND into WIDN. The Mersey is the river through Liverpool.",
+     "definitionFit": "Widnes is a town in Cheshire lying on the north bank of the river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "veers"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +131,36 @@
     "text": "How to reduce the men to a thousand",
     "enumeration": "6"
    },
-   "solution": "LESSEN"
+   "solution": "LESSEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How to reduce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "LESS + EN",
+     "parts": [
+      {
+       "words": "a thousand",
+       "at": 25,
+       "note": "M is the Roman thousand; the word men with its last two letters taken away leaves just M, so 'less' those two letters is the instruction"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim plan for cutting the workforce down to a thousand.",
+     "walkthrough": "Split the answer as LESS EN: take EN away from 'the men' and only M, Roman numeral for a thousand, is left.",
+     "definitionFit": "To lessen something is to make it smaller or diminish it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +180,59 @@
      }
     ]
    },
-   "solution": "AFORTIORI"
+   "solution": "AFORTIORI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with reason 'stronger",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 1,
+       "gives": "A"
+      },
+      {
+       "words": "defence point",
+       "at": 3,
+       "gives": "FORT",
+       "note": "a fort is a defended stronghold"
+      },
+      {
+       "words": "one",
+       "at": 22,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "or",
+       "at": 26,
+       "gives": "OR",
+       "note": "taken as written"
+      },
+      {
+       "words": "another one",
+       "at": 29,
+       "gives": "I",
+       "note": "another Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military position with a soldier or two supposedly has a stronger case.",
+     "walkthrough": "The definition translates the Latin phrase, which logicians use for 'with stronger reason'.",
+     "definitionFit": "Latin for 'from the stronger', used when a conclusion follows with even greater force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defence"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +256,35 @@
      }
     ]
    },
-   "solution": "ALLANDSUNDRY"
+   "solution": "ALLANDSUNDRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Everyone including divers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Everyone including divers",
+       "at": 0,
+       "note": "divers here is the old word for various, so the phrase means everybody of every kind"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Divers' suggests swimmers, but it is the archaic adjective meaning sundry or various.",
+     "definitionFit": "The idiom means everybody without exception, of all sorts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "divers"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +298,63 @@
     "text": "Pie ruined by muddled account-sickening!",
     "enumeration": "6"
    },
-   "solution": "IPECAC"
+   "solution": "IPECAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sickening",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 4,
+         "note": "a ruined pie is broken up, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pie",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "muddled",
+         "at": 14,
+         "note": "a muddled set of letters is jumbled, so this abbreviation is mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "account",
+         "at": 22,
+         "gives": "ACC"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spoiled pie and a confused bill make someone feel ill.",
+     "walkthrough": "'ruined' rearranges PIE into IPE; 'muddled' rearranges ACC into CAC.",
+     "definitionFit": "Ipecac is a root extract given as an emetic, a drug that makes the patient vomit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +368,30 @@
     "text": "Goes regularly to and fro- in layers",
     "enumeration": "5"
    },
-   "solution": "PLIES"
+   "solution": "PLIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goes regularly to and fro",
+      "at": 0,
+      "meaning": "a ferry or tradesman that travels a route repeatedly works it"
+     },
+     {
+      "text": "layers",
+      "at": 30,
+      "meaning": "thicknesses of wool or plywood"
+     }
+    ],
+    "explanation": {
+     "surface": "Something shuttles back and forth in strata.",
+     "definitionFit": "A ship plying a route travels it regularly; also thicknesses, as in three-ply wool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "layers"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +405,43 @@
     "text": "Constance Green's a good missionary",
     "enumeration": "8"
    },
-   "solution": "CONVERTS"
+   "solution": "CONVERTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a good missionary",
+      "at": 18,
+      "note": "a noun phrase standing for what such a person does: wins people to the faith"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Constance",
+       "at": 0,
+       "gives": "CON",
+       "note": "Con is a short form of the name Constance"
+      },
+      {
+       "words": "Green's",
+       "at": 10,
+       "gives": "VERTS",
+       "note": "vert is heraldic green, and the possessive adds S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Constance Green is said to be an effective evangelist.",
+     "walkthrough": "The clue reads 'a good missionary converts': the definition is the subject of the verb.",
+     "definitionFit": "A successful evangelist wins people over to a new faith, bringing them round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green's"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +455,59 @@
     "text": "Perhaps it's in the hunt we get beat",
     "enumeration": "8"
    },
-   "solution": "CHASTISE"
+   "solution": "CHASTISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beat",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the hunt",
+       "at": 16,
+       "gives": "CHASE",
+       "note": "a chase is a hunt"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Perhaps",
+         "at": 0,
+         "note": "suggests the short word after it may appear in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider supposes it is out with the hunt that one gets thrashed.",
+     "walkthrough": "'Perhaps' looks like a hedge on the surface but is the anagram signal for the short word; 'in' is the container signal. 'Beat' is the verb thrash, not a rhythm.",
+     "definitionFit": "To chastise is to punish, especially by thrashing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +521,52 @@
     "text": "Sped wildly with lubricants in sacks",
     "enumeration": "8"
    },
-   "solution": "DESPOILS"
+   "solution": "DESPOILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sacks",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wildly",
+         "at": 5,
+         "note": "moving wildly suggests disorder, so the letters of the word before are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sped",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "lubricants",
+       "at": 17,
+       "gives": "OILS",
+       "note": "oils are lubricants"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone races recklessly carrying oils in bags.",
+     "walkthrough": "'wildly' rearranges SPED into DESP. 'Sacks' looks like bags, but it is the verb meaning plunders.",
+     "definitionFit": "To sack a town is to plunder it, the same as to loot or ravage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sacks"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +580,48 @@
     "text": "Colourful burnt quarter in Italian city",
     "enumeration": "6"
    },
-   "solution": "SIENNA"
+   "solution": "SIENNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colourful burnt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "one piece is placed in the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Italian city",
+       "at": 27,
+       "gives": "SIENA",
+       "note": "Siena is a city in Tuscany"
+      },
+      {
+       "words": "quarter",
+       "at": 16,
+       "gives": "N",
+       "note": "N, north, is one of the compass quarters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scorched district of a Tuscan town catches the eye.",
+     "walkthrough": "The definition is the phrase completed by the answer: 'burnt sienna' is a colour.",
+     "definitionFit": "Burnt sienna is a reddish-brown pigment, named after the earth of the Tuscan city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +641,31 @@
      }
     ]
    },
-   "solution": "SWALLOWTAILS"
+   "solution": "SWALLOWTAILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Butterflies",
+      "at": 0,
+      "meaning": "a family of large butterflies with tailed hind wings"
+     },
+     {
+      "text": "serpents symbolizing eternity?",
+      "at": 15,
+      "meaning": "the ancient emblem of eternity is a snake devouring its own tail"
+     }
+    ],
+    "explanation": {
+     "surface": "Butterflies, or perhaps snakes that stand for everlasting life.",
+     "walkthrough": "The ouroboros, a snake eating its tail, is an old emblem of eternity.",
+     "definitionFit": "Butterflies named for their forked hind wings; and literally snakes that gulp their own tails, the eternity emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +679,40 @@
     "text": "Occurrence remarked about in 'seventeen",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Occurrence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "remarked about in",
+       "at": 11,
+       "note": "the word is said to sit inside the quoted text, so look for it within those letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seventeen",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that happened is mentioned in connection with a seventeenth item.",
+     "definitionFit": "An event is a happening, something that takes place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remarked"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +732,35 @@
      }
     ]
    },
-   "solution": "NEWSSHEET"
+   "solution": "NEWSSHEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's put to bed in Fleet Street ?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What's put to bed in Fleet Street ?",
+       "at": 0,
+       "note": "in newspaper slang a paper is 'put to bed' when it is finalised for printing; Fleet Street was the home of London's press"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Put to bed' suggests sleep, but printers use it for sending an edition to press. Fleet Street is the London street where British national newspapers were based.",
+     "definitionFit": "A printed news publication is what printers send to press, or 'put to bed'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +774,49 @@
     "text": "Sidon Slate Co broke, merges",
     "enumeration": "12"
    },
-   "solution": "CONSOLIDATES"
+   "solution": "CONSOLIDATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "merges",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broke",
+       "at": 15,
+       "note": "a broken company falls apart, so the letters of these three words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sidon",
+       "at": 0
+      },
+      {
+       "words": "Slate",
+       "at": 6
+      },
+      {
+       "words": "Co",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slate firm from Sidon goes bust and amalgamates.",
+     "walkthrough": "'broke' rearranges SIDON, SLATE and CO together; the surface makes it a bankrupt firm.",
+     "definitionFit": "To consolidate is to combine several things into one, as merging does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +830,54 @@
     "text": "I would turn to Edmund for a distributor",
     "enumeration": "9"
    },
-   "solution": "DISPENSER"
+   "solution": "DISPENSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a distributor",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 8,
+         "note": "turning the contraction round reads its letters backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I would",
+         "at": 0,
+         "gives": "ID",
+         "note": "I'd is the contraction of I would"
+        }
+       ]
+      },
+      {
+       "words": "Edmund",
+       "at": 16,
+       "gives": "SPENSER",
+       "note": "Edmund Spenser was the Elizabethan poet of The Faerie Queene"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone would switch to Edmund as a supplier.",
+     "walkthrough": "'turn' reverses the contraction; Edmund Spenser was the Elizabethan poet of The Faerie Queene.",
+     "definitionFit": "A dispenser hands out or deals out goods, so it distributes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +891,41 @@
     "text": "Neglect nothing on the errand",
     "enumeration": "8"
    },
-   "solution": "OMISSION"
+   "solution": "OMISSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Neglect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 8,
+       "gives": "O",
+       "note": "O, the figure zero, means nothing"
+      },
+      {
+       "words": "errand",
+       "at": 23,
+       "gives": "MISSION",
+       "note": "a mission is an errand or assignment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ignore nothing while on the task.",
+     "definitionFit": "An omission is a failure to do something, a piece of neglect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Neglect"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +939,59 @@
     "text": "John involved Ned in fire-raising",
     "enumeration": "8"
    },
-   "solution": "ANDERSON"
+   "solution": "ANDERSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "John",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fire-raising",
+       "at": 21,
+       "gives": "ARSON",
+       "note": "arson is the crime of fire-raising"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "involved",
+         "at": 5,
+         "note": "involved means tangled, so the name's letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ned",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "John got Ned mixed up in setting fires.",
+     "walkthrough": "'involved' scrambles the name and 'in' places it inside. 'John' is defined only by a famous pairing: Burns's song 'John Anderson, my jo', or the wartime Home Secretary of air-raid shelter fame.",
+     "definitionFit": "A surname paired with John in Burns's song and in the wartime Home Secretary of shelter fame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1011,54 @@
      }
     ]
    },
-   "solution": "MANSIONHOUSE"
+   "solution": "MANSIONHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thanks to descendant of Whittington's cat",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Perhaps",
+       "at": 17,
+       "note": "signals that the words before may be rearranged into another form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Has",
+       "at": 0
+      },
+      {
+       "words": "no",
+       "at": 4
+      },
+      {
+       "words": "mouse",
+       "at": 7
+      },
+      {
+       "words": "in",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand house is rid of mice, perhaps owing to an heir of Dick Whittington's famous cat.",
+     "walkthrough": "'Perhaps' rearranges HAS NO MOUSE IN. Dick Whittington, Lord Mayor of London in legend, made his fortune through his cat; the Mansion House is the London residence of the Lord Mayor, his successor.",
+     "definitionFit": "The Lord Mayor's official residence in the City of London, home of Whittington's successors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1072,60 @@
     "text": "Self-possession with which father returns to see the doctor",
     "enumeration": "6"
    },
-   "solution": "APLOMB"
+   "solution": "APLOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Self-possession",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 34,
+         "note": "returning means going back, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "father",
+         "at": 27,
+         "gives": "PA",
+         "note": "pa is father"
+        }
+       ]
+      },
+      {
+       "words": "see",
+       "at": 45,
+       "gives": "LO",
+       "note": "lo is an old word meaning see or behold"
+      },
+      {
+       "words": "the doctor",
+       "at": 49,
+       "gives": "MB",
+       "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With composure, Dad comes back to see the physician.",
+     "walkthrough": "'returns' makes PA into AP.",
+     "definitionFit": "Aplomb is calm self-assurance or poise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1139,49 @@
     "text": "Offspring of Anguilla king among the little people",
     "enumeration": "6"
    },
-   "solution": "ELVERS"
+   "solution": "ELVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Offspring of Anguilla",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 27,
+       "note": "one letter is set among the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the little people",
+       "at": 33,
+       "gives": "ELVES",
+       "note": "elves are the little people of folklore"
+      },
+      {
+       "words": "king",
+       "at": 22,
+       "gives": "R",
+       "note": "R is short for Rex, king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The children of a Caribbean island's king live among fairies.",
+     "walkthrough": "Anguilla looks like the Caribbean island but is the genus name of the eel.",
+     "definitionFit": "Elvers are young eels, the young of the genus to which the common eel belongs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Anguilla"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1194,35 @@
    "clue": {
     "text": "Pest officers are suspicious '3, 1,"
    },
-   "solution": "SMELLARAT"
+   "solution": "SMELLARAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pest officers are suspicious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Pest officers are suspicious",
+       "at": 0,
+       "note": "officials who hunt vermin would naturally pick up the scent of a rodent; the idiom for being suspicious says the same"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Read literally, rat-catchers detect a rodent by smell; the idiom means to suspect something is wrong.",
+     "definitionFit": "The idiom means to sense trickery or wrongdoing, which is what suspicious people do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pest"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1236,64 @@
     "text": "I entered college after the colonel left, my lord",
     "enumeration": "5"
    },
-   "solution": "LIEGE"
+   "solution": "LIEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "my lord",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered",
+       "at": 2,
+       "note": "a letter goes into the middle of what remains"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 36,
+         "note": "the colonel has gone away, so his abbreviation is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "college",
+         "at": 10
+        },
+        {
+         "words": "the colonel",
+         "at": 24,
+         "gives": "COL",
+         "note": "Col is the abbreviation for colonel"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I got into college once the colonel had departed, sir.",
+     "walkthrough": "'left' removes the colonel's abbreviation from the word, and 'entered' slips the I inside what remains.",
+     "definitionFit": "A liege is a feudal lord to whom allegiance is owed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1307,54 @@
     "text": "Out with some terrible expletive!",
     "enumeration": "5"
    },
-   "solution": "EXPEL"
+   "solution": "EXPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Out with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terrible",
+       "at": 14,
+       "note": "a terrible state is a mess, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "some",
+         "at": 9,
+         "note": "only part of the following word is used, its opening stretch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expletive",
+         "at": 23,
+         "gives": "EXPLE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blurts out a shocking swear word.",
+     "walkthrough": "'some' takes EXPLE from the start of 'expletive'; 'terrible' rearranges those letters. 'Out with' is an imperative, as in 'out with him!'.",
+     "definitionFit": "To expel someone is to throw them out, as the command 'out with him' demands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Out"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1368,53 @@
     "text": "In backing favourites you need something in a sock",
     "enumeration": "6"
    },
-   "solution": "INSTEP"
+   "solution": "INSTEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something in a sock",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In",
+       "at": 0,
+       "gives": "IN"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 3,
+         "note": "backing means moving backwards, so the word is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "favourites",
+         "at": 11,
+         "gives": "PETS",
+         "note": "pets are favourites, as in teacher's pet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter backs the favourites, and you need something inside your sock.",
+     "walkthrough": "'backing' turns PETS into STEP. 'Backing favourites' looks like betting.",
+     "definitionFit": "The arched middle of the foot, and the matching part of a sock covering it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1428,41 @@
     "text": "Lively range of old movie",
     "enumeration": "8"
    },
-   "solution": "BIOSCOPE"
+   "solution": "BIOSCOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old movie",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lively",
+       "at": 0,
+       "gives": "BIO",
+       "note": "bio- is the prefix of life, so it stands for lively"
+      },
+      {
+       "words": "range",
+       "at": 7,
+       "gives": "SCOPE",
+       "note": "scope means range or extent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vibrant span of an early film.",
+     "definitionFit": "Bioscope was an early name for a cinema or film projector, and in South Africa for the movies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lively"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1476,54 @@
     "text": "Girl-unaffected by setback in France",
     "enumeration": "6"
    },
-   "solution": "NANTES"
+   "solution": "NANTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in France",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "NAN",
+       "note": "Nan is a girl's name, short for Ann"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 22,
+         "note": "means the letters of 'set' are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "at": 19,
+         "gives": "SET",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl untroubled by a reverse while in France.",
+     "walkthrough": "'setback' must be split into 'set' and 'back', the reversal signal. 'Unaffected by' merely winks at the girl's name reading the same either way.",
+     "definitionFit": "Nantes is a city in western France on the Loire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setback"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1537,41 @@
     "text": "A writer's making assignment",
     "enumeration": "8"
    },
-   "solution": "ASCRIBES"
+   "solution": "ASCRIBES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "making assignment",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "writer's",
+       "at": 2,
+       "gives": "SCRIBES",
+       "note": "a scribe is a writer, and the possessive adds S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is busy producing a piece of homework.",
+     "walkthrough": "'Assignment' looks like homework but means attributing: to ascribe is to assign.",
+     "definitionFit": "To ascribe something is to attribute it, which is assigning it to a cause or source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assignment"
+    }
+   }
   }
  ]
 }
