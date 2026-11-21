@@ -14753,7 +14753,7 @@ def sunday_mid_due(row):
 #: it saw was a corner of the grid ("the ink under the title is 28x20, not a grid", ~240 pages 1987-99). The widest
 #: heading taken, the farthest the grid's left edge from the heading's right, the highest its top over the heading's
 #: top and the lowest under it, all at SCAN_WIDTH.
-NUMBER_RIGHT_YEARS = ("1987", "1999")
+NUMBER_RIGHT_YEARS = ("1987", "2009")
 NUMBER_RIGHT_TITLE, NUMBER_RIGHT_GAP, NUMBER_RIGHT_RISE, NUMBER_RIGHT_DROP = 220, 600, 150, 150
 
 
