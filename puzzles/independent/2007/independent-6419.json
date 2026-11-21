@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Small sign of lack of respect",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0,
+      "meaning": "... as an adjective means small or slender"
+     },
+     {
+      "text": "sign of lack of respect",
+      "at": 6,
+      "meaning": "a snub, an act showing disrespect"
+     }
+    ],
+    "explanation": {
+     "surface": "A tiny gesture that shows someone is being disrespected.",
+     "definitionFit": "As an adjective it means minor or slim; as a noun it means a snub or insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,30 @@
     "text": "Subject in Belgian city",
     "enumeration": "5"
    },
-   "solution": "LIEGE"
+   "solution": "LIEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Subject",
+      "at": 0,
+      "meaning": "a feudal vassal or subject owing allegiance to a lord"
+     },
+     {
+      "text": "Belgian city",
+      "at": 11,
+      "meaning": "the city on the Meuse in eastern Belgium"
+     }
+    ],
+    "explanation": {
+     "surface": "A citizen living in a city in Belgium.",
+     "definitionFit": "In feudal usage the word names a vassal bound to serve; it is also a city in Wallonia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Subject"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +108,56 @@
     "text": "Shabby figure leaving university in distress",
     "enumeration": "5"
    },
-   "solution": "GRIEF"
+   "solution": "GRIEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "distress",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Shabby",
+       "at": 0,
+       "note": "shabby means knocked out of shape, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 14,
+         "note": "leaving signals that a letter departs from the word figure"
+        }
+       ],
+       "parts": [
+        {
+         "words": "figure",
+         "at": 7
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy person drops out of college in a state of upset.",
+     "walkthrough": "'leaving' takes U out of FIGURE to leave FIGRE, and 'Shabby' rearranges those letters.",
+     "definitionFit": "Grief is deep sorrow or anguish, a form of acute mental suffering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +171,48 @@
     "text": "Old magistrate putting guy in temper",
     "enumeration": "7"
    },
-   "solution": "TRIBUNE"
+   "solution": "TRIBUNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old magistrate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in tells us one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "temper",
+       "at": 30,
+       "gives": "TUNE",
+       "note": "to temper an instrument is to tune it"
+      },
+      {
+       "words": "guy",
+       "at": 23,
+       "gives": "RIB",
+       "note": "to guy is to mock or tease, as is to rib"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient official teases someone while losing his cool.",
+     "definitionFit": "In ancient Rome a tribune was an elected official protecting the plebeians, a kind of magistrate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temper"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +226,59 @@
     "text": "Spellbinding figure, maniac sadly enthralling Joe?",
     "enumeration": "8"
    },
-   "solution": "MAGICIAN"
+   "solution": "MAGICIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spellbinding figure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthralling",
+       "at": 34,
+       "note": "enthralling means holding captive, so one piece holds the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 28,
+         "note": "sadly here means badly, in a jumbled way, so the letters of maniac are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "maniac",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "Joe",
+       "at": 46,
+       "gives": "GI",
+       "note": "GI Joe is slang for an American soldier, giving GI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sorcerer, a deranged person holding someone called Joe spellbound.",
+     "walkthrough": "'Joe' is not a name here but the US slang for a soldier; 'sadly' rearranges the maniac letters to MACIAN before 'enthralling' wraps them round.",
+     "definitionFit": "A conjuror or wizard casts spells, so is literally a figure who binds by spells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Joe"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +292,59 @@
     "text": "I run a long time in Manchester's outskirts",
     "enumeration": "7"
    },
-   "solution": "MANAGER"
+   "solution": "MANAGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I run",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in places one piece within the other here"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts",
+         "at": 34,
+         "note": "the outskirts of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Manchester's",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "a long time",
+       "at": 6,
+       "gives": "ANAGE",
+       "note": "an age is a long time, written as two words"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of a long-distance jog around the edges of Manchester.",
+     "walkthrough": "'outskirts' gives MR, the first and last letters of Manchester, and 'in' puts AN AGE inside them. The definition is spoken by the answer itself: a boss says 'I run' things.",
+     "definitionFit": "A boss or director is the person who runs a business or team."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +358,69 @@
     "text": "Cigars strewn around entrance of trattoria affecting one's digestion?",
     "enumeration": "7"
    },
-   "solution": "GASTRIC"
+   "solution": "GASTRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "affecting one's digestion?",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 14,
+       "note": "around means one piece encircles another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strewn",
+         "at": 7,
+         "note": "strewn means scattered about, so the letters of cigars are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cigars",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "entrance of",
+         "at": 21,
+         "note": "the entrance of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trattoria",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cigar butts littered around an Italian restaurant doorway upset a diner's stomach.",
+     "walkthrough": "'strewn' rearranges CIGARS to GASRIC, 'entrance of' gives T from trattoria, and 'around' puts GASRIC about it.",
+     "definitionFit": "Gastric describes things relating to the stomach, the organ of digestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +434,55 @@
     "text": "Company car? Don't crash -that's the agreement!",
     "enumeration": "9"
    },
-   "solution": "CONCORDAT"
+   "solution": "CONCORDAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Company",
+       "at": 0,
+       "gives": "CO"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crash",
+         "at": 19,
+         "note": "crash suggests smashing up, so the letters of car and don't are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "at": 8
+        },
+        {
+         "words": "Don't",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver of a firm's car is warned not to have an accident, as part of a deal.",
+     "walkthrough": "'crash' rearranges CAR and DONT into NCORDAT.",
+     "definitionFit": "A concordat is a formal treaty, especially between the Vatican and a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +496,53 @@
     "text": "Defender making point after a game",
     "enumeration": "9"
    },
-   "solution": "APOLOGIST"
+   "solution": "APOLOGIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Defender",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after places the piece for point behind the earlier pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      },
+      {
+       "words": "game",
+       "at": 30,
+       "gives": "POLO",
+       "note": "polo is a game played on horseback"
+      },
+      {
+       "words": "point",
+       "at": 16,
+       "gives": "GIST",
+       "note": "the gist is the main point of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports player scores a point following a match.",
+     "definitionFit": "An apologist argues in support of a cause or belief, acting as its champion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +556,60 @@
     "text": "Request from Nancy's little club rejecting rule",
     "enumeration": "8"
    },
-   "solution": "PETITION"
+   "solution": "PETITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Request",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nancy's little",
+       "at": 13,
+       "gives": "PETIT",
+       "note": "in French, as spoken in the city of Nancy, little is petit"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejecting",
+         "at": 33,
+         "note": "rejecting means throwing something out, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "club",
+         "at": 28,
+         "gives": "IRON",
+         "note": "an iron is a type of golf club"
+        },
+        {
+         "words": "rule",
+         "at": 43,
+         "gives": "R",
+         "note": "R is an abbreviation for rule, as in the rule of a monarch, Rex"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea from a small French club that refuses to obey the regulation.",
+     "walkthrough": "'rejecting' takes R out of IRON to leave ION.",
+     "definitionFit": "A petition is a formal written appeal asking for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nancy's"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +623,47 @@
     "text": "Gentleman abroad pocketing special detection device",
     "enumeration": "6"
    },
-   "solution": "SENSOR"
+   "solution": "SENSOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "detection device",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pocketing",
+       "at": 17,
+       "note": "pocketing means putting into a pocket, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gentleman abroad",
+       "at": 0,
+       "gives": "SENOR",
+       "note": "senor is the Spanish for a gentleman or Mr"
+      },
+      {
+       "words": "special",
+       "at": 27,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign man slips a special gadget for detecting things into his pocket.",
+     "definitionFit": "A sensor is an instrument that detects and responds to light, heat or movement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pocketing"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +677,65 @@
     "text": "Complaint about food returned? Fast food!",
     "enumeration": "10"
    },
-   "solution": "BEEFBURGER"
+   "solution": "BEEFBURGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fast food!",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Complaint",
+       "at": 0,
+       "gives": "BEEF",
+       "note": "a beef is slang for a grievance or complaint"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 21,
+         "note": "returned means sent back, so the two pieces are read backwards together"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "about",
+           "at": 10,
+           "gives": "RE",
+           "note": "re means about or concerning"
+          },
+          {
+           "words": "food",
+           "at": 16,
+           "gives": "GRUB",
+           "note": "grub is informal for food"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner grumbles that the meal was sent back, then grabs a quick bite.",
+     "walkthrough": "'Complaint about food' reads like a diner's grievance, but 'about' gives a separate piece; 'returned' turns the two together end to end, and 'food' doubles as the surface theme of the definition.",
+     "definitionFit": "A burger is a classic quick takeaway meal of the sort served in a minced patty in a bun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +749,70 @@
     "text": "Bishop in specs beginning to examine source of notes",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "source of notes",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "in means the bishop's letter sits inside the glasses"
+        }
+       ],
+       "parts": [
+        {
+         "words": "specs",
+         "at": 10,
+         "gives": "OO",
+         "note": "OO looks like a pair of spectacles"
+        },
+        {
+         "words": "Bishop",
+         "at": 0,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 16,
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "examine",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman in glasses starts studying where some written notes came from.",
+     "walkthrough": "OO for specs is a visual crossword trick: the two letters look like a pair of lenses.",
+     "definitionFit": "An oboe is a woodwind instrument, something that produces musical sounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +826,59 @@
     "text": "Bird hard to see in unusually wet area",
     "enumeration": "8"
    },
-   "solution": "WHEATEAR"
+   "solution": "WHEATEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in places the letter for hard inside the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "at": 20,
+         "note": "unusually signals the letters of wet area set out in an odd order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wet area",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 5,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird proves hard to spot in a strangely soggy place.",
+     "walkthrough": "'unusually' rearranges WET AREA, and 'in' puts H among those letters; 'to see' is a link.",
+     "definitionFit": "The wheatear is a small migratory songbird of the thrush family with a white rump."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +898,64 @@
      }
     ]
    },
-   "solution": "HANGABOUT"
+   "solution": "HANGABOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 29,
+       "note": "before places the shortened shed ahead of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 21,
+         "note": "shortly means cut short, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "large shed",
+         "at": 10,
+         "gives": "HANGAR",
+         "note": "a hangar is a large shed for aircraft"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "attack",
+       "at": 36,
+       "gives": "BOUT",
+       "note": "a bout is an attack or spell of illness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays put in a huge barn just before an assault.",
+     "walkthrough": "'shortly' drops the last letter of HANGAR to give HANGA.",
+     "definitionFit": "To hang about is to linger or wait around in one place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +969,45 @@
     "text": "Detest twelve and a half per cent of explosive devices, say",
     "enumeration": "9"
    },
-   "solution": "ABOMINATE"
+   "solution": "ABOMINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Detest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ABOMINATE",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 56,
+       "note": "say signals that the phrase is spoken, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "twelve and a half per cent of explosive devices",
+       "at": 7,
+       "gives": "ABOMBINEIGHT",
+       "note": "one in eight is twelve and a half per cent, so this is an atom bomb in eight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protester loathes even an eighth of all the nation's bombs.",
+     "walkthrough": "One-eighth of a set of bombs is 'A-bomb in eight', which, spoken quickly, sounds like the answer.",
+     "definitionFit": "To abominate is to loathe or hate intensely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "twelve"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1021,77 @@
     "text": "Assist, on course, addict nearly drunk and close to collapse",
     "enumeration": "6"
    },
-   "solution": "CADDIE"
+   "solution": "CADDIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assist, on course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 33,
+         "note": "drunk suggests the letters stagger into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 26,
+           "note": "nearly means almost all, so the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "addict",
+           "at": 19
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 43,
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "collapse",
+         "at": 52
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's helper is an inebriated addict about to collapse.",
+     "walkthrough": "'nearly' drops T from ADDICT, 'drunk' rearranges ADDIC to CADDI, and 'close to' gives E from collapse.",
+     "definitionFit": "A caddie carries the clubs and gives advice to a golfer on the links."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1105,63 @@
     "text": "A new tourist destination bordering lake in foreign state",
     "enumeration": "6"
    },
-   "solution": "ANGOLA"
+   "solution": "ANGOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foreign state",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "new",
+       "at": 2,
+       "gives": "N"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bordering",
+         "at": 26,
+         "note": "bordering means surrounding at the edges, so one piece goes around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tourist destination",
+         "at": 6,
+         "gives": "GOA",
+         "note": "Goa is a popular holiday region in India"
+        },
+        {
+         "words": "lake",
+         "at": 36,
+         "gives": "L",
+         "note": "L is the abbreviation for lake on maps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh holiday spot next to a lake in another country.",
+     "definitionFit": "Angola is a country in south-west Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tourist"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1175,52 @@
     "text": "Unfavourable set of lines introduced by a director",
     "enumeration": "7"
    },
-   "solution": "ADVERSE"
+   "solution": "ADVERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unfavourable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "introduced by",
+       "at": 26,
+       "note": "introduced by means the later pieces come first, ahead of the verse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 40,
+       "gives": "A"
+      },
+      {
+       "words": "director",
+       "at": 42,
+       "gives": "D"
+      },
+      {
+       "words": "set of lines",
+       "at": 13,
+       "gives": "VERSE",
+       "note": "a verse is a set of lines in a poem or song"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's stanza is presented by a film-maker, and the reviews are poor.",
+     "definitionFit": "Adverse means hostile or harmful, working against one's interests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1234,48 @@
     "text": "Pure feeling emerging from court in sound state",
     "enumeration": "8"
    },
-   "solution": "SANCTITY"
+   "solution": "SANCTITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pure feeling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in places the abbreviation for court inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sound state",
+       "at": 36,
+       "gives": "SANITY",
+       "note": "sanity is soundness of mind, a sound state"
+      },
+      {
+       "words": "court",
+       "at": 27,
+       "gives": "CT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Genuine emotion arises in a legal court when everyone is level-headed.",
+     "walkthrough": "'emerging from' is a link; 'sound state' is the state of being of sound mind.",
+     "definitionFit": "Sanctity is holiness, a state of saintly purity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1289,53 @@
     "text": "Classroom item cheat's stupidly left",
     "enumeration": "7"
    },
-   "solution": "SATCHEL"
+   "solution": "SATCHEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Classroom item",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stupidly",
+         "at": 23,
+         "note": "stupidly hints at a mess, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheat's",
+         "at": 15,
+         "gives": "CHEATS",
+         "note": "the word read as cheat plus S gives the fodder letters"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 32,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolbag was foolishly abandoned by the cheat.",
+     "walkthrough": "'stupidly' rearranges CHEATS into SATCHE.",
+     "definitionFit": "A satchel is a schoolbag with a shoulder strap, carried to lessons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1349,54 @@
     "text": "Girl lifted when with fascinating woman",
     "enumeration": "7"
    },
-   "solution": "NERISSA"
+   "solution": "NERISSA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "lifted",
+       "at": 5,
+       "note": "lifted in a down clue means read upwards, so the pieces are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "when",
+         "at": 12,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "words": "fascinating woman",
+         "at": 22,
+         "gives": "SIREN",
+         "note": "a siren is a dangerously alluring woman"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman was raised up while beside an enchantress.",
+     "walkthrough": "'lifted' turns AS plus SIREN upwards to give NERIS plus SA. Nerissa is Portia's maid in The Merchant of Venice.",
+     "definitionFit": "Nerissa is a female first name, borne by Portia's waiting-woman in Shakespeare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1410,58 @@
     "text": "Artist reflecting heartless epic",
     "enumeration": "4"
    },
-   "solution": "DALI"
+   "solution": "DALI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "reflecting",
+       "at": 7,
+       "note": "reflecting means mirrored, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 18,
+         "note": "heartless means losing the central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "epic",
+         "at": 28,
+         "gives": "ILIAD",
+         "note": "the Iliad is Homer's epic poem"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter mirrors the emotionless story of heroes.",
+     "walkthrough": "'heartless' takes the middle I out of ILIAD to leave ILAD, and 'reflecting' turns it around.",
+     "definitionFit": "Salvador Dali was a Spanish surrealist painter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1475,59 @@
     "text": "Year TV broadcast around Ireland regarding treatment of animals",
     "enumeration": "10"
    },
-   "solution": "VETERINARY"
+   "solution": "VETERINARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regarding treatment of animals",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "around means the jumbled letters go about the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 8,
+         "note": "broadcast means scattered widely, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Year TV",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "Ireland",
+       "at": 25,
+       "gives": "ERIN",
+       "note": "Erin is a poetic name for Ireland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Annual TV transmission across Ireland about caring for pets.",
+     "walkthrough": "'broadcast' rearranges YEAR TV to VETARY, and 'around' puts it about ERIN.",
+     "definitionFit": "Veterinary describes the medical care of creatures such as pets and livestock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1541,43 @@
     "text": "Well-known rebuttal to ex-PM?",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-known",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rebuttal",
+       "at": 11,
+       "gives": "NOT",
+       "note": "not is a word of denial or contradiction"
+      },
+      {
+       "words": "ex-PM",
+       "at": 23,
+       "gives": "ED",
+       "note": "Ted Heath, British Prime Minister in the 1970s, gives the short name ED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous denial aimed at a former prime minister.",
+     "walkthrough": "Ted (Edward) Heath was UK Prime Minister 1970 to 1974; 'to' is a link.",
+     "definitionFit": "Noted means famous or eminent, widely recognised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rebuttal"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1597,47 @@
      }
     ]
    },
-   "solution": "RUNIN"
+   "solution": "RUNIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Argument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in places the abbreviation for number inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bankruptcy",
+       "at": 31,
+       "gives": "RUIN",
+       "note": "financial ruin is bankruptcy"
+      },
+      {
+       "words": "number",
+       "at": 21,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute arising from a figure in insolvency proceedings.",
+     "definitionFit": "A run-in is a quarrel or confrontation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1657,42 @@
      }
     ]
    },
-   "solution": "HOTAIR"
+   "solution": "HOTAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Waffle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fancy",
+       "at": 20,
+       "note": "fancy means elaborate or imagined, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Thora I",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they rather like an actress named Thora and talk nonsense about it.",
+     "walkthrough": "'fancy' rearranges THORA and I.",
+     "definitionFit": "Waffle is empty, wordy talk, which is idle chatter with nothing behind it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1706,45 @@
     "text": "Hint tea's brewed? I'm undecided!",
     "enumeration": "8"
    },
-   "solution": "HESITANT"
+   "solution": "HESITANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "undecided",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "brewed",
+       "at": 11,
+       "note": "brewed suggests stirring up, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hint",
+       "at": 0
+      },
+      {
+       "words": "tea's",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is offered a suggestion that the tea is ready but can't make up their mind.",
+     "walkthrough": "'brewed' rearranges HINT and TEAS; 'I'm' is a link that makes the definition the speaker's own state.",
+     "definitionFit": "Hesitant means wavering or unsure, slow to commit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1758,59 @@
     "text": "Heavenly number linked to area among the Spanish",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heavenly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "number",
+       "at": 9,
+       "gives": "ETHER",
+       "note": "read as num-ber, something that numbs: ether was used as an anaesthetic"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among",
+         "at": 31,
+         "note": "among puts the letter for area inside another piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Spanish",
+         "at": 37,
+         "gives": "EL",
+         "note": "el is the Spanish for the"
+        },
+        {
+         "words": "area",
+         "at": 26,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celestial figure is tied to a region among Spaniards.",
+     "walkthrough": "'number' is not a figure here but 'something that numbs', the classic crossword trick. 'linked to' joins the pieces.",
+     "definitionFit": "Ethereal means delicate and otherworldly, as of the heavens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1825,11 @@
     "enumeration": "6",
     "countFrom": "grid"
    },
-   "solution": "ARDENT"
+   "solution": "ARDENT",
+   "annotationWithheld": {
+    "why": "Clue as held 'Burning timber's first (6)' gives T from timber's first but no clue word supplies ARDEN; a word (e.g. 'forest') looks missing, and 'timber's' cannot be both ARDEN and the source of T.",
+    "clue": "Burning timber's first"
+   }
   }
  ]
 }
