@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,29 @@
      }
     ]
    },
-   "solution": "HUNDREDYEARS"
+   "solution": "HUNDREDYEARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "War",
+      "at": 0,
+      "meaning": "the Anglo-French conflict of 1337 to 1453 takes its name from roughly how long it lasted"
+     },
+     {
+      "text": "time",
+      "at": 4,
+      "meaning": "a span of time, namely a century"
+     }
+    ],
+    "explanation": {
+     "surface": "A terse note on how long a conflict lasts.",
+     "definitionFit": "The Hundred Years' War is the famous medieval conflict, and the phrase also simply means a century, a period of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +75,62 @@
     "text": "Record a short answer in difficult circumstances",
     "enumeration": "7"
    },
-   "solution": "HANSARD"
+   "solution": "HANSARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "the shortened answer sits inside the word for hardship"
+      }
+     ],
+     "parts": [
+      {
+       "words": "difficult circumstances",
+       "at": 25,
+       "gives": "HARD",
+       "note": "hard as in hard times, difficult circumstances"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 9,
+         "note": "the word answer is cut short, keeping only its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "answer",
+         "at": 15
+        },
+        {
+         "gives": "WER"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noted down a brief reply under pressure.",
+     "walkthrough": "'short' trims ANSWER to ANS, which goes inside HARD. The official verbatim record of the UK Parliament is called Hansard.",
+     "definitionFit": "Hansard is the printed verbatim report of debates in Parliament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,10 +141,47 @@
    },
    "length": 5,
    "clue": {
-    "text": "One jumping on board, we -bear, after sundown",
+    "text": "One jumping on board, we hear, after sundown",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "after sundown",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NIGHT",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 22,
+       "note": "the chess piece's name is said out loud, giving a word that sounds identical"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One jumping on board",
+       "at": 0,
+       "gives": "KNIGHT",
+       "note": "the chess knight is the piece that jumps over others on the board"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaps aboard a vessel once darkness falls.",
+     "walkthrough": "The board is a chessboard, not a ship: the knight jumps.",
+     "definitionFit": "The hours of darkness come after the sun goes down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,10 +192,48 @@
    },
    "length": 9,
    "clue": {
-    "text": "Like the, net result of \"arranging the trial cure",
+    "text": "Like the net result of arranging the trial cure",
     "enumeration": "9"
    },
-   "solution": "RETICULAR"
+   "solution": "RETICULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like the net",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "arranging",
+       "at": 23,
+       "note": "the letters of the two words are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trial",
+       "at": 37
+      },
+      {
+       "words": "cure",
+       "at": 43
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The overall outcome of setting up a test treatment.",
+     "walkthrough": "'net result' is a stock phrase, but 'net' belongs to the definition.",
+     "definitionFit": "Reticular means resembling a mesh, netted in form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,10 +244,32 @@
    },
    "length": 4,
    "clue": {
-    "text": "Wordsworth's cottage bird .",
+    "text": "Wordsworth's cottage bird",
     "enumeration": "4"
    },
-   "solution": "DOVE"
+   "solution": "DOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wordsworth's cottage",
+      "at": 0,
+      "meaning": "the poet lived at ... Cottage in Grasmere, in the Lake District"
+     },
+     {
+      "text": "bird",
+      "at": 21,
+      "meaning": "a pigeon-like bird, symbol of peace"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird nesting at the poet's home.",
+     "definitionFit": "Wordsworth's Grasmere home is named after the bird of peace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +283,52 @@
     "text": "Electric terminals with a type of electricity we have in transports",
     "enumeration": "8"
    },
-   "solution": "ECSTATIC"
+   "solution": "ECSTATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in transports",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "terminals",
+         "at": 9,
+         "note": "the ends of the word are taken, as terminals are a wire's ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Electric",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "type of electricity",
+       "at": 26,
+       "gives": "STATIC",
+       "note": "static is electricity at rest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Excited talk about power cables and charges.",
+     "walkthrough": "'terminals' gives the first and last letters of 'Electric', E and C.",
+     "definitionFit": "To be in transports of joy is to be overjoyed, rapturous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transports"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +342,40 @@
     "text": "Line on an ash tree",
     "enumeration": "5"
    },
-   "solution": "ROWAN"
+   "solution": "ROWAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ash tree",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Line",
+       "at": 0,
+       "gives": "ROW",
+       "note": "a row is a line of things"
+      },
+      {
+       "words": "an",
+       "at": 8,
+       "gives": "AN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A line of something drawn on an ash.",
+     "definitionFit": "The mountain ash is another name for this red-berried tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Line"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +389,40 @@
     "text": "Words, words, words: ever a big distraction",
     "enumeration": "8"
    },
-   "solution": "VERBIAGE"
+   "solution": "VERBIAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Words, words, words",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "distraction",
+       "at": 32,
+       "note": "driven to distraction, the letters are thrown into confusion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ever a big",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet's line about too much talk being a big diversion.",
+     "walkthrough": "'Words, words, words' is Hamlet's reply to Polonius.",
+     "definitionFit": "Verbiage is excessive wordiness, too many words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +436,59 @@
     "text": "Doctor of Divinity in a crooked deal-how rotten!",
     "enumeration": "6"
    },
-   "solution": "ADDLED"
+   "solution": "ADDLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rotten",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "the clergyman's letters go inside the reshuffled word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crooked",
+         "at": 24,
+         "note": "a crooked deal is twisted, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deal",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "Doctor of Divinity",
+       "at": 0,
+       "gives": "DD",
+       "note": "DD is the degree abbreviation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman caught in a shady transaction: how rotten!",
+     "walkthrough": "'crooked' turns DEAL into ALED, and 'in' puts DD inside it.",
+     "definitionFit": "An addled egg is rotten, gone bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crooked"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,10 +499,35 @@
    },
    "length": 9,
    "clue": {
-    "text": "Nanette went after snappy .: results",
+    "text": "Nanette went after snappy results",
     "enumeration": "9"
    },
-   "solution": "NEGATIVES"
+   "solution": "NEGATIVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nanette went after",
+      "at": 0,
+      "meaning": "in the musical title 'No, No, Nanette' the heroine's name comes after two refusals"
+     },
+     {
+      "text": "snappy results",
+      "at": 19,
+      "meaning": "a camera's snaps produce photographic films with light and dark inverted"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl called Nanette follows some quick results.",
+     "walkthrough": "The first half recalls the 1925 musical 'No, No, Nanette': the two noes are what Nanette comes after.",
+     "definitionFit": "Two noes are refusals, and photographs on film first come out as inverted images, both called by the same plural word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "snappy"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,10 +538,49 @@
    },
    "length": 5,
    "clue": {
-    "text": "Manage to replace Oscar's : last letter",
+    "text": "Manage to replace Oscar's last letter",
     "enumeration": "5"
    },
-   "solution": "WIELD"
+   "solution": "WIELD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "replace",
+       "at": 10,
+       "note": "read as re-place: the last letter of the surname is put back in a different position"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oscar's",
+       "at": 18,
+       "gives": "WILDE",
+       "note": "Oscar Wilde, the Irish playwright, gives his surname"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to cope by swapping out the final letter of Oscar's name.",
+     "walkthrough": "'replace' reads as re-place: the last letter E of WILDE is moved back two places, giving WIELD.",
+     "definitionFit": "To wield a tool or power is to handle and control it, to manage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "replace"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +594,41 @@
     "text": "How we show aggression at food",
     "enumeration": "6"
    },
-   "solution": "ATTACK"
+   "solution": "ATTACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "show aggression",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "at",
+       "at": 23,
+       "gives": "AT"
+      },
+      {
+       "words": "food",
+       "at": 26,
+       "gives": "TACK",
+       "note": "tack is old slang for food, as in hard tack, the ship's biscuit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on how people display hostility over a meal.",
+     "walkthrough": "TACK as food survives in 'hard tack', the dry biscuit sailors ate.",
+     "definitionFit": "To attack is to act aggressively, to assault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +642,35 @@
     "text": "\" I've got you under my skin\" his theme-song ?",
     "enumeration": "8"
    },
-   "solution": "CANNIBAL"
+   "solution": "CANNIBAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\" I've got you under my skin\" his theme-song ?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\" I've got you under my skin\" his theme-song ?",
+       "at": 0,
+       "note": "the Cole Porter love song is read literally, as sung by someone who has eaten a person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has adopted a famous romantic song as their signature tune.",
+     "definitionFit": "A man-eater, having swallowed someone, literally has them under his skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +684,29 @@
     "text": "Pollute the gorge",
     "enumeration": "6"
    },
-   "solution": "DEFILE"
+   "solution": "DEFILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pollute",
+      "at": 0,
+      "meaning": "to make dirty or desecrate"
+     },
+     {
+      "text": "gorge",
+      "at": 12,
+      "meaning": "a narrow pass between hills, through which troops file"
+     }
+    ],
+    "explanation": {
+     "surface": "An order to foul a ravine.",
+     "definitionFit": "To defile is to sully or corrupt, and a defile is also a narrow mountain pass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +720,58 @@
     "text": "Old age goes to watering-place (in French) for mineral",
     "enumeration": "8"
    },
-   "solution": "FELDSPAR"
+   "solution": "FELDSPAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "the bracketed phrase says the other pieces go within the French abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French",
+       "at": 35,
+       "gives": "FR"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old age",
+         "at": 0,
+         "gives": "ELD",
+         "note": "eld is an archaic word for old age"
+        },
+        {
+         "words": "watering-place",
+         "at": 16,
+         "gives": "SPA",
+         "note": "a spa is a resort with mineral waters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly person heads to a French spa resort for some rock.",
+     "walkthrough": "ELD (old age, archaic) followed by SPA sits inside FR, the abbreviation for French.",
+     "definitionFit": "Feldspar is a common rock-forming silicate mineral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +785,35 @@
     "text": "One pretty well endowed by her appearance",
     "enumeration": "8"
    },
-   "solution": "MILKMAID"
+   "solution": "MILKMAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One pretty well endowed by her appearance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One pretty well endowed by her appearance",
+       "at": 0,
+       "note": "recalls the nursery-rhyme girl going a-milking who says her face is her fortune"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman whose good looks are her wealth.",
+     "walkthrough": "In the rhyme 'Where are you going to, my pretty maid?' the girl says 'My face is my fortune, sir'.",
+     "definitionFit": "The dairy girl of the old rhyme has nothing but her looks as dowry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endowed"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +827,49 @@
     "text": "Royal mistress drops a note to a relative",
     "enumeration": "9"
    },
-   "solution": "KINSWOMAN"
+   "solution": "KINSWOMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "drops",
+       "at": 15,
+       "note": "the musical letter is let fall from the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Royal mistress",
+       "at": 0,
+       "gives": "KINGSWOMAN",
+       "note": "a king's woman is a royal mistress"
+      },
+      {
+       "words": "a note",
+       "at": 21,
+       "gives": "G",
+       "note": "G is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king's lover abandons a letter to a family member.",
+     "walkthrough": "KING'S WOMAN loses G.",
+     "definitionFit": "A kinswoman is a female relation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +883,51 @@
     "text": "Trouble in the state concerning races",
     "enumeration": "8"
    },
-   "solution": "ETHNICAL"
+   "solution": "ETHNICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "concerning races",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Trouble",
+         "at": 0,
+         "note": "the words are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in the",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "state",
+       "at": 15,
+       "gives": "CAL",
+       "note": "Cal is an abbreviation for the US state of California"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unrest in a state over ethnic matters.",
+     "walkthrough": "'Trouble' rearranges IN THE into ETHNI.",
+     "definitionFit": "Ethnical is an old form of ethnic, relating to peoples and races."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +941,31 @@
     "text": "Magnetic quality of certain bears?",
     "enumeration": "8"
    },
-   "solution": "POLARITY"
+   "solution": "POLARITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Magnetic quality",
+      "at": 0,
+      "meaning": "the state of having north and south poles"
+     },
+     {
+      "text": "of certain bears?",
+      "at": 17,
+      "meaning": "playfully, the quality belonging to white Arctic bears"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what makes some bears attractive.",
+     "definitionFit": "Having opposite poles is the magnetic property, and jokingly it is the nature of the white Arctic bear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +979,40 @@
     "text": "RAF type invented a hair cream",
     "enumeration": "6"
    },
-   "solution": "POMADE"
+   "solution": "POMADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hair cream",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "RAF type",
+       "at": 0,
+       "gives": "PO",
+       "note": "PO is a Pilot Officer in the Royal Air Force"
+      },
+      {
+       "words": "invented",
+       "at": 9,
+       "gives": "MADE",
+       "note": "made, as in made up or created"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airman came up with a hair product.",
+     "definitionFit": "Pomade is a scented ointment for the hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -313,10 +1023,44 @@
    },
    "length": 6,
    "clue": {
-    "text": "Temper shown by late queen: to Albert",
+    "text": "Temper shown by late queen to Albert",
     "enumeration": "6"
    },
-   "solution": "ANNEAL"
+   "solution": "ANNEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Temper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "late queen",
+       "at": 16,
+       "gives": "ANNE",
+       "note": "Queen Anne, who died in 1714"
+      },
+      {
+       "words": "Albert",
+       "at": 30,
+       "gives": "AL",
+       "note": "Al is the short form of the name Albert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dead queen loses her temper with Prince Albert.",
+     "definitionFit": "To anneal metal or glass is to heat and slowly cool it, to toughen or temper it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Temper"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1074,41 @@
     "text": "Stole it ? That could be putting it mildly",
     "enumeration": "7"
    },
-   "solution": "LITOTES"
+   "solution": "LITOTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "putting it mildly",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 16,
+       "note": "suggests the letters might be rearranged into another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stole it",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says stealing is understating the matter.",
+     "walkthrough": "Litotes is understatement by negating the opposite, as 'not bad' for good.",
+     "definitionFit": "Litotes is a figure of speech of deliberate understatement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Stole"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1122,40 @@
     "text": "Girl in jail for what she did to her youth",
     "enumeration": "8"
    },
-   "solution": "MISSPENT"
+   "solution": "MISSPENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what she did to her youth",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "MISS",
+       "note": "Miss is a title for an unmarried girl"
+      },
+      {
+       "words": "in jail",
+       "at": 5,
+       "gives": "PENT",
+       "note": "pent means penned up, confined as if behind bars"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman behind bars regrets wasting her early years.",
+     "definitionFit": "A misspent youth is one wasted foolishly, which is what she did with hers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1169,29 @@
     "text": "One way to put down money for wine",
     "enumeration": "5"
    },
-   "solution": "PLONK"
+   "solution": "PLONK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One way to put down money",
+      "at": 0,
+      "meaning": "to set cash down heavily on a counter"
+     },
+     {
+      "text": "wine",
+      "at": 30,
+      "meaning": "slang for cheap wine"
+     }
+    ],
+    "explanation": {
+     "surface": "A way of paying for a bottle.",
+     "definitionFit": "To plonk is to set something down with a thud, and plonk is also slang for cheap wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1205,36 @@
     "text": "Like being without money at the christening",
     "enumeration": "6"
    },
-   "solution": "DWIGHT"
+   "solution": "DWIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like being without money at the christening",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like being without money at the christening",
+       "at": 0,
+       "note": "Like without L, the pound sign, leaves the nickname of a US president, whose given name at baptism is wanted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about attending a baptism with empty pockets.",
+     "walkthrough": "L is the old abbreviation for pound; removing it from 'Like' leaves IKE, the nickname of Eisenhower, christened with the first name wanted.",
+     "definitionFit": "Eisenhower, known as Ike, was baptised with this first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "christening"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1248,43 @@
     "text": "Appearance of Runyon characters, say",
     "enumeration": "5"
    },
-   "solution": "GUISE"
+   "solution": "GUISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appearance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GUISE",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 33,
+       "note": "tells us the word is pronounced like another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Runyon characters",
+       "at": 14,
+       "gives": "GUYS",
+       "note": "Damon Runyon's stories gave Guys and Dolls"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How Damon Runyon's people look.",
+     "walkthrough": "Damon Runyon wrote the New York stories behind 'Guys and Dolls'.",
+     "definitionFit": "A guise is an outward look or semblance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1298,50 @@
     "text": "Disgrace leader of British crew",
     "enumeration": "4"
    },
-   "solution": "BLOT"
+   "solution": "BLOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disgrace",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 9,
+         "note": "the first letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "British",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "crew",
+       "at": 27,
+       "gives": "LOT",
+       "note": "a lot is a group of people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shame on the head of a British team.",
+     "definitionFit": "A blot on one's record is a stain, a disgrace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1355,34 @@
     "text": "Fire-breathing Athenian law-man?",
     "enumeration": "5"
    },
-   "solution": "DRACO"
+   "solution": "DRACO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fire-breathing Athenian law-man?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fire-breathing Athenian law-man?",
+       "at": 0,
+       "note": "the harsh early lawgiver of Athens bears the Latin word for dragon, hence fire-breathing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry ancient Greek legislator.",
+     "definitionFit": "The Athenian lawgiver's name is also Latin for a dragon, and his laws were notoriously severe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1396,31 @@
     "text": "Saint Simeon reporting gossip perhaps",
     "enumeration": "9"
    },
-   "solution": "COLUMNIST"
+   "solution": "COLUMNIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saint Simeon",
+      "at": 0,
+      "meaning": "Simeon Stylites lived for decades on top of a pillar"
+     },
+     {
+      "text": "reporting gossip perhaps",
+      "at": 13,
+      "meaning": "a journalist writing a regular newspaper feature, for instance on society tittle-tattle"
+     }
+    ],
+    "explanation": {
+     "surface": "A holy man passing on scandal.",
+     "definitionFit": "Simeon lived on a pillar, making him a pillar-dweller, and a newspaper writer with a regular feature, often gossip, is the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reporting"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1431,7 @@
    },
    "length": 12,
    "clue": {
-    "text": "Used by Saint-Saëus to open his Danse Macabre?",
+    "text": "Used by Saint-Saëns to open his Danse Macabre?",
     "enumeration": "8,4",
     "separators": [
      {
@@ -448,7 +1440,35 @@
      }
     ]
    },
-   "solution": "SKELETONKEYS"
+   "solution": "SKELETONKEYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Used by Saint-Saëns to open his Danse Macabre?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Used by Saint-Saëns to open his Danse Macabre?",
+       "at": 0,
+       "note": "the composer's piece depicts skeletons dancing, so the piano notes he plays would be bony, and such keys also unlock any door"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how a French composer began his famous tone poem.",
+     "definitionFit": "Master keys that open many locks; here also the piano keys of a dance of skeletons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "open"
+    }
+   }
   }
  ]
 }
