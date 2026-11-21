@@ -1845,8 +1845,7 @@
       : inClue ? ""
       : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung, ask.target);
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
-      <p>${ask.prompt}${inClue && !ask.choices
-        ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
+      <p>${ask.prompt}</p>
       ${formula || ""}${answer}</div>`;
   }
 
@@ -2048,11 +2047,23 @@
   // gone — it is deliberately not persisted — so without this the ladder reads
   // identically whether you earned five rungs or paid for five, and the one
   // number the site is for disappears as soon as you scroll.
-  function hintStepHTML(step, position, won, ruleOpen) {
-    return `<div id="hint-note-${esc(step.key)}" class="hint-step${won ? " won" : ""}"><span class="step-label">${
+  // `fold` is given only before the clue is solved: { folded, name, verdict }.
+  // The note is then a button (the header, tapping it folds or unfolds) over a
+  // body that is always in the DOM, hidden when folded, so what it says stays
+  // findable and the verdict for this step stays with it. Solved: no fold.
+  function hintStepHTML(step, position, won, ruleOpen, fold) {
+    const label = `<span class="step-label">${
       position} · ${esc(step.label)}${
       won ? '<span class="step-won">worked out</span>' : ""}</span>${
-      withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}${step.after || ""}</div>`;
+      withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}${step.after || ""}`;
+    if (!fold) {
+      return `<div id="hint-note-${esc(step.key)}" class="hint-step${won ? " won" : ""}">${label}</div>`;
+    }
+    return `<div id="hint-note-${esc(step.key)}" class="hint-step${won ? " won" : ""} foldable${
+      fold.folded ? " folded" : ""}"><button type="button" class="note-fold" data-note="${
+      esc(step.key)}" aria-expanded="${fold.folded ? "false" : "true"}">${won ? "\u2605 " : ""}${
+      esc(fold.name)} ${fold.folded ? "\u25B8" : "\u25BE"}</button><div class="note-body"${
+      fold.folded ? " hidden" : ""}>${fold.verdict || ""}${label}</div></div>`;
   }
 
   // Where the answer's words break, read straight off the clue's own

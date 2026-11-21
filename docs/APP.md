@@ -223,11 +223,24 @@ Terms used below:
   knows.** Once the walkthrough names the answer, the final option is "Fill in
   answer", never letter reveals.
 
+### Quiet notes
+
+- **Before a clue is solved, only its current step's note is open.** The
+  current step is the last clue step opened (`currentStep`, not the answer
+  rung). Every other note folds to one line, a button naming the step
+  (`.note-fold`, starred when worked out). The full text stays in the DOM,
+  hidden, so leak checks still read it. Tapping a note, or an open step chip in
+  the track, unfolds it in place (`notesOpen`, session only, keyed by the
+  current step, so it lapses when the next step opens). On a solved clue
+  nothing folds.
+
 ### Highlighting
 
 - **Highlight exactly what has been revealed, and nothing that has not.** Every
   rung marks up its own words in the clue, independently of other rungs, and
-  the legend names exactly the marks drawn. `clueHTML` must not tie one rung's
+  each step's label wears the colour its marks wear in the clue (by id
+  CSS: `#hint-note-indicators` and friends; Pieces and Solution keep the accent),
+  so there is no separate legend. `clueHTML` must not tie one rung's
   highlighting to another rung. Link words go with the definition rung, because
   they show where the definition ends; that pairing is deliberate. The smoke
   test takes the indicator rung alone and asserts the indicator is marked and

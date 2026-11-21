@@ -224,19 +224,6 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
       && !/add up to the number in brackets/.test(rung),
       `${found.id} ${entryId(found.e)}: a partial anagram's type rung says its letters come up short — ` + rung);
   }
-
-  // How the ladder works is said once and then stops. It is a line about the
-  // whole ladder, so once a rung has been worked out it has been demonstrated,
-  // and a solver who has done it does not need telling again on every clue they
-  // open after. The second clue comes from the puzzle still open, the compound
-  // clue's, which need not be the first puzzle with a typed clue.
-  assert(/asks you a question before it tells you/.test(cold), "a cold clue says what the ladder is: " + cold);
-  const other = (puzzles[found.id].entries || []).find(
-    (x) => entryId(x) !== entryId(found.e) && x.annotation && (x.annotation.type || []).length);
-  assert(other, "the puzzle has a second annotated clue to open cold");
-  registry["clue-" + entryId(other)].listeners.click[0]();
-  assert(!/asks before it tells/.test(registry["hint-body"].innerHTML),
-    "and stops saying it once a rung has been worked out: " + registry["hint-body"].innerHTML);
 }
 
 // --- a clue that is two things at once has two right answers ---

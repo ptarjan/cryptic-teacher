@@ -41,7 +41,7 @@ while (leadRung() && clicks < 12) {
     // One rung into this walk is one more hint, so the third and last line is
     // up: what the score actually charges for. Asserted here rather than after
     // the loop because the same climb spends it again a click later.
-    assert(/a bit more/.test(nuxLine(registry)),
+    assert(/That step is open/.test(nuxLine(registry)),
       "one rung in, the line is still walking them down the ladder: " + nuxLine(registry));
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
@@ -66,8 +66,8 @@ assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + run
 // ...and having taught the site, the site shuts up. The cursor is past the last
 // line, the slot is empty, and nothing in the app moves it back: a newcomer gets
 // three sentences in their life, not a banner that returns every session.
-assert(!registry["nux"].classList.contains("hidden") && /costs nothing/.test(nuxLine(registry)),
-  "a finished ladder hands over to the next line: " + nuxLine(registry));
+assert(registry["nux"].classList.contains("hidden"),
+  "a finished ladder is the last line, so the slot goes quiet: " + nuxLine(registry));
 assert(storage["ct:nux"] === "2",
   "and the whole walk spent exactly one line, not one per rung: " + storage["ct:nux"]);
 // The site shutting up for good is checked on its own boot, below: doing it

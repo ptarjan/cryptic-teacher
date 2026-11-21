@@ -329,10 +329,22 @@
     // The letter strip is also how you steer: tap a box to put the cursor on
     // that square of the current entry.
     // A rule chip on a rung opens or closes that rung's general rule.
+    // A note's fold button must not take focus, or the keyboard drops (as the
+    // wheel's tiles); the note opens or shuts in place and the view stays put.
+    $("hint-body").addEventListener("mousedown", (ev) => {
+      const d = ev.target && ev.target.dataset;
+      if (d && d.note !== undefined) ev.preventDefault();
+    });
     $("hint-body").addEventListener("click", (ev) => {
       const data = (ev.target && ev.target.dataset) || {};
       const rung = data.rule;
       const e = currentEntry();
+      if (data.note !== undefined && e) {
+        const nk = noteKeyOf(e, data.note);
+        notesOpen.set(nk, noteFolded(e, data.note));
+        renderHintPanel();
+        return;
+      }
       // A blank chip in the Pieces formula only makes that piece the current
       // one: its question (point at the words that give it) goes up if it has
       // one, and "Show me" then acts on it alone. A tap never spends.

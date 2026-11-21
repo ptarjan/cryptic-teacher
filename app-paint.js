@@ -49,6 +49,12 @@
       // nothing because there is nothing left to take.
       if (b.note) {
         btn.onclick = () => {
+          // A folded note opens first (in place), then the view goes to it.
+          const cur = currentEntry();
+          if (cur && !isEntrySolved(cur) && noteFolded(cur, b.note)) {
+            notesOpen.set(noteKeyOf(cur, b.note), true);
+            renderHintPanel();
+          }
           const n = $("hint-note-" + b.note);
           if (n && n.scrollIntoView) n.scrollIntoView({ block: "nearest", behavior: "smooth" });
         };
@@ -626,43 +632,20 @@
         // clue with it, so what you pointed at and what was actually there can
         // be read side by side against the explanation, for as long as you like.
         let chunk = "";
-        if (lastGuess && lastGuess.rung === s.key) chunk += verdictHTML(lastGuess, tapping);
+        const verdict = lastGuess && lastGuess.rung === s.key ? verdictHTML(lastGuess, tapping) : "";
+        const fold = solved ? null
+          : { folded: noteFolded(e, s.key), name: STEP_NAMES[s.key] || s.label, verdict };
+        if (!fold) chunk += verdict;
         chunk += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0,
-          rulesOpen.has(entryKey(e) + "|" + s.key));
+          rulesOpen.has(entryKey(e) + "|" + s.key), fold);
         // The verdict travels with the rung it judged, so the anchor goes round
         // both: you were told whether you were right, and then told why.
         bodyHTML += hintFocus === s.key ? `<div id="hint-focus">${chunk}</div>` : chunk;
       });
-      // The legend is built from what is actually highlighted, not keyed off one
-      // rung, so taking the indicators alone still explains their marks.
-      const legend = [];
-      if (isShown(e, "definition") && (ann.definitions || []).length) legend.push('<mark class="def">definition</mark>');
-      if (isShown(e, "indicators") && (ann.indicators || []).length) {
-        legend.push('<mark class="ind">indicator</mark>');
-      }
-      if (isShown(e, "definition") && (ann.linkWords || []).length) {
-        legend.push('<mark class="link">link words</mark>');
-      }
-      if (legend.length) {
-        bodyHTML += `<div class="legend">${legend.join(LIST_SEP)} highlighted in the clue above</div>`;
-      }
-
       // A rung that has been asked for but not yet handed over: the solver is
       // being asked to point at the words first. It goes last in the body, under
       // everything they have already bought, because that is where the next
       // thing to do has always been.
-      // How the ladder works, said once and then never again: it stops the
-      // moment a rung is worked out anywhere in this puzzle, because at that
-      // point it has been demonstrated and repeating it is just noise on every
-      // clue you open after. Only claimed when a rung on THIS clue really can
-      // ask; a clue with no question in it must not be sold as one. Above the
-      // question when one was asked on arrival: that question arrived unasked,
-      // and this is the sentence that says why it is there and what it is worth.
-      if (!bodyHTML && !solved && !Object.keys(hintsEarned).some((k) => hintsEarned[k].length)
-          && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
-        bodyHTML = `<div class="hint-step"><p class="muted">Each hint asks you a question before it tells you —
-          answer it yourself and the hint is free.</p></div>`;
-      }
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
         const fm = formulaAsks && steps[at].formula ? formulaHTML(e, steps[at].formula, true) : "";

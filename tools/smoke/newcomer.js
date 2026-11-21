@@ -19,7 +19,7 @@ assert(storage["ct:nux"] === "0",
 // gone, because the row was built while it was still up.
 registry["welcome-go"].onclick();
 assert(registry["welcome"].classList.contains("hidden"), "the dialog goes when you start");
-assert(!registry["nux"].classList.contains("hidden") && /written up/.test(nuxLine(registry)),
+assert(!registry["nux"].classList.contains("hidden") && /one step at a time/.test(nuxLine(registry)),
   "and hands over to the line about the buttons: " + nuxLine(registry));
 assert(storage["ct:nux"] === "1", "cursor moved to the ladder line: " + storage["ct:nux"]);
 assert(registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.className || "")).length === 1,
@@ -48,7 +48,7 @@ assert(registry["hint-rungs"].children.filter((c) => /rung-point/.test(c.classNa
   // Said ONCE, by the light — and the panel's own line is left EMPTY rather than
   // merely hidden. Two nodes holding the same sentence put a stylesheet between
   // the solver and reading it twice.
-  assert(/written up/.test(registry["spot-say"].textContent)
+  assert(/one step at a time/.test(registry["spot-say"].textContent)
          && registry["nux"].textContent === ""
          && /in-spot/.test(registry["nux"].className || ""),
     "and the sentence is said once, by the light: " + registry["spot-say"].textContent
@@ -165,7 +165,7 @@ const btnNames = () => registry["hint-rungs"].children.map((b) => b.textContent)
   takeRung(last);
   const shown = registry["hint-body"].innerHTML;
   assert(shown.includes("hint-step"), "the chosen rung is revealed");
-  const stepCount = (shown.match(/class="hint-step"/g) || []).length;
+  const stepCount = (shown.match(/class="hint-step(?: foldable(?: folded)?)?"/g) || []).length;
   assert(stepCount === 1, `choosing rung "${wanted}" revealed ${stepCount} rungs, not just the one`);
   // out of order without renumbering: the rung keeps its ladder number
   assert(shown.includes(wanted.split(" · ")[0] + " · "), "rung keeps its ladder number: " + shown.slice(0, 120));
@@ -186,8 +186,8 @@ const btnNames = () => registry["hint-rungs"].children.map((b) => b.textContent)
 // The ladder line is the one exception to "a line is spent by the first thing
 // that answers it". It is about a ROW of buttons, and one press has taught what
 // one button does, so it rewords itself and the light moves down the ladder.
-assert(!/written up/.test(nuxLine(registry))
-       && /a bit more/.test(nuxLine(registry)),
+assert(!/one step at a time/.test(nuxLine(registry))
+       && /That step is open/.test(nuxLine(registry)),
   "one rung rewords the ladder line rather than spending it: " + nuxLine(registry));
 assert(storage["ct:nux"] === "1",
   "and the cursor stays on it for the rest of the walk: " + storage["ct:nux"]);

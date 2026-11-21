@@ -945,6 +945,32 @@ button:disabled:hover { border-color: var(--line); }
   color: var(--ok); margin-left: 8px; letter-spacing: .06em;
 }
 .hint-step p, .hint-step ul { margin: 4px 0; }
+/* Quiet notes. A step's label wears the colour its words wear in the clue, as a
+   pill, by id so no markup carries a class (tests match the bare hint-step and
+   step-label). Pieces and Solution keep the accent. */
+#hint-note-indicators .step-label, #hint-note-indicators .note-fold { --note-bg: var(--ind-bg); --note-fg: var(--ind-fg); }
+#hint-note-definition .step-label, #hint-note-definition .note-fold { --note-bg: var(--def-bg); --note-fg: var(--def-fg); }
+#hint-note-type .step-label, #hint-note-type .note-fold { --note-bg: var(--typ-bg); --note-fg: var(--typ-fg); }
+#hint-note-indicators .step-label, #hint-note-definition .step-label, #hint-note-type .step-label {
+  display: inline-block; background: var(--note-bg); color: var(--note-fg);
+  padding: 3px 8px; border-radius: 1em;
+}
+/* A folded note is one line: its button. Unfolded, the button is the header and
+   the label inside the body gives way to it. */
+.note-fold {
+  font: 700 .72rem/1 -apple-system, Helvetica, sans-serif;
+  text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+  background: none; border: 0; padding: 6px 0; min-height: 32px; color: var(--accent);
+}
+#hint-note-indicators .note-fold, #hint-note-definition .note-fold, #hint-note-type .note-fold { color: var(--note-fg); }
+.hint-step.foldable:not(.folded) .note-fold {
+  display: inline-block; padding: 3px 8px; border-radius: 1em; min-height: 0; margin-bottom: 4px;
+  background: var(--accent-soft); color: var(--accent);
+}
+#hint-note-indicators.foldable:not(.folded) .note-fold, #hint-note-definition.foldable:not(.folded) .note-fold,
+#hint-note-type.foldable:not(.folded) .note-fold { background: var(--note-bg); color: var(--note-fg); }
+.hint-step.foldable .note-body .step-label { display: none; }
+.hint-step.foldable .note-body[hidden] { display: none; }
 .hint-step ul { padding-left: 20px; }
 /* The general rule: a small chip at the end of the rung's last line, opening
    in place under it, so the rung takes no extra room until it is tapped. */

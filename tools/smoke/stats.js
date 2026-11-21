@@ -28,7 +28,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   assert(again.registry["welcome"].classList.contains("hidden")
          && again.registry["nux"].classList.contains("hidden"),
     "skipping puts the whole thing away, dialog and lines both");
-  assert(Number(again.storage["ct:nux"]) >= 4,
+  assert(Number(again.storage["ct:nux"]) >= 2,
     "and spends the cursor past the last line: " + again.storage["ct:nux"]);
   // Pressing the rung the scrim is holding open is the whole point of the
   // sequence, so it is walked end to end once: dialog, hole over one button,
@@ -87,7 +87,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
     + (second ? second.textContent : "nothing lit"));
   assert(!press.registry["spotlight"].classList.contains("hidden"),
     "and the scrim comes back around it");
-  assert(/a bit more/.test(nuxLine(press.registry)),
+  assert(/That step is open/.test(nuxLine(press.registry)),
     "the line changes its words once they have taken one: " + nuxLine(press.registry));
   // ...and having taught the site, the site shuts up. The ladder line is spent
   // by the last rung rather than the first, and the two after it are spent one
@@ -124,24 +124,8 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
     "the whole ladder spends exactly one line: " + press.storage["ct:nux"]);
   assert(press.registry["spotlight"].classList.contains("hidden"),
     "and the scrim goes out with it — there is no next rung to point at");
-  press.registry["reset-puzzle"].onclick();
-  for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 4; i += 1) {
-    if (!pressTake()) break;
-  }
-  // The walk ends by saying it has ended, rather than by a line simply not
-  // coming back — and with nothing lit, because there is nothing left to show.
-  assert(!press.registry["nux"].classList.contains("hidden")
-         && /that is the tour/i.test(nuxLine(press.registry)),
-    "the last line says the tour is over: " + nuxLine(press.registry));
-  assert(press.registry["spotlight"].classList.contains("hidden"),
-    "and points at nothing: the page is handed back");
-  for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 5; i += 1) {
-    if (!pressTake()) break;
-  }
   assert(press.registry["nux"].classList.contains("hidden"),
-    "the lines are finite: " + nuxLine(press.registry));
-  assert(Number(press.storage["ct:nux"]) >= 5,
-    "the cursor is spent past the last line: " + press.storage["ct:nux"]);
+    "the lines are finite, and the ladder line is the last: " + nuxLine(press.registry));
 
   // The other side of the same decision: a tally of more than one day is a
   // returning solver, who must never be taught the site.

@@ -328,22 +328,12 @@
     // it, not a sentence.
     { id: "welcome", modal: true },
     { id: "ladder",
-      text: "Stuck? These buttons are hints, and every clue here is written up in them. Each one shows a bit more of how the clue works. Press one, and stop as soon as you can see the answer.",
+      text: "Stuck? Every clue is explained here, one step at a time. Tap the words a step asks for, or press Show me for a hint.",
       // The one line that outlives its first press. A newcomer who takes a rung
       // has learned what one button does, not what the row is for, so the light
       // moves down the ladder with them and the sentence changes to the thing
       // that is still worth saying. Spent by the last rung or by solving.
-      again: "That was one hint. Each one below gives away a bit more than the one before \u2014 keep going, and stop as soon as you can see the answer." },
-    { id: "free",
-      text: "Once you solve a clue, the rest of its hints costs nothing and your score stays the same. Open them anyway to see how the clue was built." },
-    { id: "score",
-      text: "Your score counts hints, not time \u2014 so solving a clue with two hints beats solving it with six." },
-    // The walk ends by saying it has ended. Without this the last line simply
-    // stops appearing, which reads as the site having lost its place rather
-    // than as a tour that finished. Nothing is pointed at: there is nothing
-    // left to be shown, so the scrim stays down and the page is handed back.
-    { id: "done",
-      text: "That is the tour: the hints, how to answer them for free, and what the score counts. There are no more tips after this one." },
+      again: "That step is open. Keep going, and stop as soon as you can see the answer." },
   ];
   // An integer index into NUX_LINES, or null for a browser that is owed none of
   // them. undefined until the first visit this code has seen, which is the only
@@ -685,17 +675,13 @@
       // body, so it is the body's last child.
       const kids = (body && body.children) || [];
       if (body) out.push(kids[kids.length - 1] || body);
-      // A question that says "Tap them in the clue above" has to light the clue
-      // words it is talking about, not only itself: a hole that stops at the
-      // question leaves the words it asks for dimmed behind the scrim. Reached
-      // whenever the walk is not pointing at specific words (a later tour line
-      // over a question that is still open, or a question with nothing pointable),
-      // so it is the question's own wording that decides, off the same markup.
-      if (body && /\btap-hint\b/.test(body.innerHTML || "")) {
-        const row = $("hint-clue") && $("hint-clue").querySelector
-          ? $("hint-clue").querySelector(".guess-clue.ask") : null;
-        if (row) out.unshift(row);
-      }
+      // A question asked in the clue has to light the clue words it is about,
+      // not only itself: a hole that stops at the question leaves the words it
+      // asks for dimmed behind the scrim. Reached whenever the walk is not
+      // pointing at specific words, so the clue's own asking row decides.
+      const row = $("hint-clue") && $("hint-clue").querySelector
+        ? $("hint-clue").querySelector(".guess-clue.ask") : null;
+      if (row) out.unshift(row);
     } else if (nuxTypeIt(on)) {
       // Type it in: the letter strip in the panel and nothing else. The line
       // gives the answer, so the pieces it was worked out from need no light,

@@ -75,7 +75,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // switching between them (see .gw.still in style.css). "ask" is the class
   // that only the actually-asking form carries.
   assert(html.includes("guess-clue ask"), "the definition rung asks before it tells: " + html);
-  assert(!html.includes("hint-step\"><span class=\"step-label\">2 ·"),
+  assert(!/class="step-label">2 ·/.test(html),
     "the rung is not handed over while the question is still open: " + html);
   // One clue on the screen, and it is the real one: the words are targets where
   // they are read, not in a second copy in the body.
