@@ -35,5 +35,5 @@ check(next({ ...base, shown: ["definition"], locked: ["indicators", "type", "blo
 check(next({ ...base, solved: true }) === null, "a solved clue is not quizzed");
 check(next({ ...base, guessing: {} }) === null, "no new question over one already on the table");
 check(/if \(verdict && verdict\.right\) advanceLadder\(e\)/.test(src), "finishGuess advances only on a right answer");
-check(/ring === ringShelf\.paid && ring\.letters\.length/.test(src), "a fully crossed-off wheel advances too");
+check(/ring\.dealt && ring\.letters\.length/.test(src), "a fully crossed-off wheel advances too");
 process.exit(failures ? 1 : 0);

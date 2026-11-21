@@ -91,8 +91,7 @@ check(a > 0 && b > a, "tapRingTile is in the app source");
 function wheel(letters) {
   const w = { advanced: 0, popped: 0 };
   const f = new Function("w", `
-    let ring = { letters: w.letters, struck: {}, sel: null };
-    const ringShelf = { paid: ring };
+    let ring = { letters: w.letters, struck: {}, sel: null, dealt: true }, wheelOn = "k";
     const currentEntry = () => ({}), advanceLadder = () => { w.advanced++; },
       renderHintPanel = () => {}, removeLastRingLetter = () => { w.popped++; };
     ${src.slice(a, b)}

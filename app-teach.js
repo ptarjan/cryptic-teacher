@@ -12,21 +12,19 @@
   // dictionary behind it and there will not be one: a box that hands back the
   // word answers the clue, and answering the clue is what the last rung is for.
   //
-  // It lives on the blocks rung and nowhere earlier, because that is the rung
-  // that already hands over the fodder. The ring adds no letter the solver
-  // hasn't bought; it only takes away the order.
-  let ring = null;  // { key, order, struck } — one clue's worth, cleared by key
-  // `ring` is whichever ring was drawn last, which is what the tile, keyboard
-  // and chip handlers act on. The paid ring and the free wheel each keep their
-  // own state here as well, because one render can build both: the blocks
-  // rung's markup is assembled whether or not it ends up on screen, and if the
-  // two shared one slot that build would replace the free wheel's letters with
-  // the dealt fodder, and the free wheel would then start over empty.
-  const ringShelf = { paid: null, free: null };
-  // The entryKey of the clue whose free wheel is open, or null. Free means the
-  // wheel is offered on EVERY clue and costs nothing: a button on anagrams only
-  // would give the clue type away, and the blocks rung above is what charges.
-  let freeWheel = null;
+  // One wheel (redesign step 7). It is offered on EVERY unsolved clue by the
+  // Letters toggle beside the answer boxes, so its presence gives nothing away,
+  // and it is free. It works one way wherever it came from: the clue's words
+  // add or remove their letters, typing adds letters, a tap selects a letter
+  // and a second tap or Backspace crosses it off, and a letter already in the
+  // grid sits fixed. The only thing the Pieces step adds is the opening deal:
+  // once every piece is out and they show the WHOLE answer is an anagram, the
+  // wheel opens by itself holding the fodder (Paul 10-30: never for a part).
+  let ring = null;     // { key, letters, order, struck, sel, words, forbidden, dealt }: one clue's wheel
+  let wheelOn = null;  // the entryKey whose wheel is open, or null
+  // Clues whose wheel the Pieces step has already opened and dealt, so closing
+  // it stays closed. In memory only: the save format does not change.
+  const wheelDealt = new Set();
 
   // Deal an order that is neither the fodder as written nor the answer as
   // spelled. Landing on either would make a shuffle look broken, and landing on
@@ -60,14 +58,6 @@
   // live answer, even the instant after a keystroke has just rebuilt the disc.
   function ringKbdFocused() {
     return !!(document.activeElement && document.activeElement.id === "ana-kbd");
-  }
-
-  // Keyed off the annotation rather than the clue id: ladderSteps() is a pure
-  // function of the annotation and is called for counting as well as drawing,
-  // and threading a grid coordinate through it to remember a shuffle would put
-  // board state into the thing that describes a clue.
-  function ringKey(ann) {
-    return (ann.answer || "") + "|" + ringFodder(ann);
   }
 
   // The anagram the ring deals: the one whose gives is the whole answer, else
@@ -114,9 +104,8 @@
     const e = currentEntry();
     // An altered entry's letter i is not its answer's letter i.
     if (!e || !e.solution || jigsaw || e.alteration) return pins;
-    const ann = annOf(e);
-    if (key.startsWith("free|") ? key !== "free|" + entryKey(e) : (!ann || ringKey(ann) !== key)) return pins;
-    const sol =String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
+    if (key !== entryKey(e)) return pins;
+    const sol = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
     if (sol.split("").sort().join("") !== letters.slice().sort().join("")) return pins;
     const taken = {};
     entryCells(e).forEach((c, i) => {
@@ -142,37 +131,38 @@
     return order.map((_, pos) => (pins[pos] === undefined ? rest.shift() : pins[pos]));
   }
 
-  function ringHTML(ann) {
-    // Paul 10-30: "An anagram for part of a clue shouldn't show the wheel the
-    // building blocks. Only when it is all." The ring sits on the blocks rung,
-    // so a part-anagram (CHO(MP)ED) leaves the rung to its pieces and gives no
-    // wheel; the free wheel (freeRingHTML) is still there to open by hand.
-    if (partAnagram(ann)) return "";
+  // The fodder the Pieces step deals into the wheel, or "" when it deals
+  // nothing. Paul 10-30: "An anagram for part of a clue shouldn't show the
+  // wheel the building blocks. Only when it is all." So a part-anagram
+  // (CHO(MP)ED) deals nothing, and three letters have six arrangements you can
+  // see at once, so a wheel would be furniture rather than help.
+  function wheelFodder(ann) {
+    if (!ann || !(ann.type || []).includes("anagram") || partAnagram(ann)) return "";
     const fodder = ringFodder(ann);
-    const key = ringKey(ann);
-    // Three letters have six arrangements and you can see all of them at once,
-    // so a ring is furniture rather than help.
-    if (fodder.length < 4) return "";
-    if (!ringShelf.paid || ringShelf.paid.key !== key) {
-      const letters = fodder.split("");
-      const forbidden = [fodder, ann.answer, (ringAnagram(ann) || {}).gives];
-      ringShelf.paid = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
-    }
-    ring = ringShelf.paid;
-    return ringDraw(ann, key);
+    return fodder.length < 4 ? "" : fodder;
   }
 
-  // The free wheel: the same ring, opened empty on any clue. Nothing is dealt
-  // because nothing is known — the solver types what they think the fodder is,
-  // and `forbidden` is empty since there is no fodder or answer to steer a
-  // shuffle away from. The key says "free" so ringPins knows there is no
-  // annotation to compare against, only the clue it was opened on.
-  function freeRingHTML(e, ann) {
-    const key = "free|" + entryKey(e);
-    if (!ringShelf.free || ringShelf.free.key !== key) ringShelf.free = { key, letters: [], forbidden: [], order: [], struck: {} };
-    ring = ringShelf.free;
-    return ringDraw(ann, key) + (ring.letters.length ? ""
-      : `<p class="muted">Type the letters you think are the anagram.</p>`);
+  // Opens the wheel on this clue holding the fodder, dealt so it spells
+  // neither the fodder as written nor the answer.
+  function dealWheel(e, ann) {
+    const fodder = wheelFodder(ann);
+    const key = entryKey(e);
+    wheelDealt.add(key);
+    if (!fodder) return false;
+    const letters = fodder.split("");
+    const forbidden = [fodder, ann.answer, (ringAnagram(ann) || {}).gives];
+    ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {}, dealt: true };
+    wheelOn = key;
+    return true;
+  }
+
+  // The wheel for this clue, empty if it has never been opened here. Nothing
+  // is dealt into an empty one because nothing is known, so `forbidden` is
+  // empty: there is no fodder or answer to steer a shuffle away from.
+  function wheelHTML(e, ann) {
+    const key = entryKey(e);
+    if (!ring || ring.key !== key) ring = { key, letters: [], forbidden: [], order: [], struck: {} };
+    return ringDraw(ann, key);
   }
 
   // The clue's own words, already on screen in #hint-clue, are the wheel's
@@ -460,9 +450,11 @@
   function strikeRingTile(k) {
     ring.struck[k] = true;
     ring.sel = null;
-    if (ring === ringShelf.paid && ring.letters.length && ring.letters.every((_, j) => ring.struck[j])) {
+    // The dealt wheel is the Pieces step's workbench: crossing off its last
+    // tile finishes it, and the next free question takes the clue's words back.
+    if (ring.dealt && ring.letters.length && ring.letters.every((_, j) => ring.struck[j])) {
       const cur = currentEntry();
-      if (cur) advanceLadder(cur);
+      if (cur && advanceLadder(cur)) wheelOn = null;
     }
   }
   // Backspace in the ring: the selected tile is crossed off if there is one,
@@ -1189,9 +1181,7 @@
         // ("Double or cryptic definition"), so this line is the one naming which.
         leadAlways: isDD || isCD,
         pieces,
-        tail: (t.includes("anagram") ? ringHTML(ann) : ""),
-        html: mechanics + `<ul>${pieces.join("")}</ul>` +
-          (t.includes("anagram") ? ringHTML(ann) : "")
+        html: mechanics + `<ul>${pieces.join("")}</ul>`
       });
       // The type rung carries the formula whenever the blocks rung it hands
       // pieces to exists. It is data, not html: which chips are taken is the
@@ -1684,7 +1674,7 @@
       const lit = wheel && wheel[i] ? " on" : "";
       out += slice(at, t.i) + (!ask
         ? (wheel && t.text.replace(/[^A-Za-z]/g, "")
-          ? `<button type="button" class="gw still${lit}" data-aw="${i}" aria-pressed="${lit ? "true" : "false"}">${inner}</button>`
+          ? `<button type="button" class="gw${lit}" data-aw="${i}" aria-pressed="${lit ? "true" : "false"}">${inner}</button>`
           : `<span class="gw still">${inner}</span>`)
         : settled
         ? `<span class="gw known">${inner}</span>`
@@ -1693,7 +1683,7 @@
             nuxPointsWord(ask, i, picked) ? " walk-point" : ""}">${inner}</button>`);
       at = t.i + t.text.length;
     });
-    return `<span class="guess-clue ${ask ? "ask" : "still"} pick-${rung || "indicators"}">${
+    return `<span class="guess-clue ${ask || wheel ? "ask" : "still"} pick-${rung || "indicators"}">${
       out + slice(at, clueText(e).length) + enumHTML(e)}</span>`;
   }
 

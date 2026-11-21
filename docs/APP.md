@@ -330,7 +330,7 @@ Terms used below:
   in the scorebar ("Solved 12/28 clues · 7 with no hints · 9 hints"),
   the finish tally and the by-clue-type recap, and there is no separate letters
   figure. The other paid words are "Show me" (a question's reveal) and "Reveal
-  answer"; the letter wheel button reads "Letters"; a step you got yourself is
+  answer"; a step you got yourself is
   "worked out".
 - **Live letter pattern.** The hint panel shows the selected entry's letters
   under the clue: one small box per cell (the typed letter or a blank). The

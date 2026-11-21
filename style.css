@@ -1229,10 +1229,6 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
    one, so nothing about the clue's own shape has to change the moment picking
    starts. A transparent border, not no border, is what makes that true. */
 .gw.still { border-color: transparent; }
-/* While the free wheel is open the resting words are its picker: a word whose
-   letters are in the ring is drawn selected, the others stay plain. */
-button.gw.still { cursor: pointer; border-color: var(--pick-fg); }
-.gw.still.on { border-color: var(--pick-fg); }
 
 /* The seven families, offered whole and in ladder order under every clue that
    asks: the list IS the vocabulary the site teaches, so it is the same list
@@ -2000,3 +1996,7 @@ html.ct-nopush #btn-notify { display: none; }
 .hint-track button.step.locked, .hint-track button.step.locked:hover { border-color: transparent;
   background: var(--line); color: var(--muted); opacity: .6; cursor: not-allowed; }
 .hint-track button.step.arm-cost { border-color: var(--bad, #b3261e); color: var(--bad, #b3261e); }
+
+/* The pattern line and the Letters toggle share a row. */
+.pattern-row { display: flex; align-items: center; gap: 8px; }
+.pattern-row .pattern { flex: 1; min-width: 0; }

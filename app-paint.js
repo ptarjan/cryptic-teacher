@@ -105,7 +105,7 @@
 
   // ---------- the help bar ----------
   //
-  // One row under the panel: the help button, Reveal letter, Letters, and a
+  // One row under the panel: the help button, Reveal letter, and a
   // "…" that holds the rare things (Reveal answer while there are steps left
   // to show, Report a bad hint, the blog's write-up). The step buttons above
   // only choose (see setButtons); they never spend.
@@ -399,7 +399,7 @@
     // "…" while "Show me" still has something to give. The "…" is in the
     // markup either way, only hidden: what it holds is never news, and a
     // report being written keeps it open.
-    const { key, ann, solved, offerFill, wheelOpen } = st;
+    const { key, ann, solved, offerFill } = st;
     const escape = $("hint-escape");
     if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
@@ -415,9 +415,6 @@
       + (helpT ? "" : fill + (fill ? " " : ""))
       + (howLeft ? `<button id="hx-how" class="small help-show">${HOW_TEXT}</button> ` : "")
       + (canReveal ? letterBtnHTML(e) + " " : "")
-      // On every unsolved clue, whatever its type, and not a hint: it holds
-      // only what the solver types into it.
-      + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">Letters</button> `)
       + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" aria-label="More help">…</button>`
       + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
     if (setHTML(escape, escapeHTML)) {
@@ -435,22 +432,29 @@
       };
       bindReport();
     }
-    // Bound on EVERY render, not only when the row's markup changes: two
-    // unsolved clues draw the same row, so moving between them keeps the old
-    // button, and a handler bound once would still hold the first clue's key —
-    // the wheel would open on that clue instead of this one.
+  }
+  // The Letters toggle beside the answer boxes (#hx-wheel, a static element
+  // bound once in boot): on every unsolved clue whatever its type, so it gives
+  // nothing away, and never a hint.
+  function drawWheelToggle(show, on) {
     const hw = $("hx-wheel");
-    if (hw) hw.onclick = () => {
-      freeWheel = wheelOpen ? null : key;
-      // The wheel's letters are picked off the clue's own words, so a question
-      // that was asked on arrival steps aside for it rather than keeping them.
-      if (freeWheel) guessing = null;
-      // Focus first so the ring's focus outline is on the first draw and
-      // the solver can type straight away, as a tap on the disc does.
-      const ak = $("ana-kbd");
-      if (freeWheel && ak) focusHidden(ak);
-      renderHintPanel();
-    };
+    if (!hw) return;
+    hw.classList.toggle("hidden", !show);
+    hw.setAttribute("aria-pressed", show && on ? "true" : "false");
+  }
+  function wheelToggleTap() {
+    const e = currentEntry();
+    if (!e || isEntrySolved(e)) return;
+    const key = entryKey(e);
+    wheelOn = wheelOn === key ? null : key;
+    // The wheel's letters are picked off the clue's own words, so the question
+    // on the table steps aside for it: one meaning per tap at a time.
+    if (wheelOn) guessing = null;
+    // Focus first so the ring's focus outline is on the first draw and
+    // the solver can type straight away, as a tap on the disc does.
+    const ak = $("ana-kbd");
+    if (wheelOn && ak) focusHidden(ak);
+    renderHintPanel();
   }
   function repaintHelpBar() {
     const e = currentEntry();
@@ -467,6 +471,7 @@
       // still has the escape hatch.
       const light = currentLight();
       helpBar = null;
+      drawWheelToggle(false);
       if (!light) { panel.classList.add("hidden"); return; }
       panel.classList.remove("hidden");
       guessing = null;
@@ -511,6 +516,7 @@
     if (paperHides()) {
       guessing = null;
       helpBar = null;
+      drawWheelToggle(false);
       arrivedAt = key;
       setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
       ["hint-meter", "hint-body", "hint-escape", "hint-vote"].forEach((id) => setHTML($(id), ""));
@@ -570,6 +576,14 @@
       if (guessing && guessing.key !== key) guessing = null;
       if (lastGuess && lastGuess.key !== key) lastGuess = null;
       arriveAt(e);
+      // The wheel and a question never share the clue's words. Every piece out
+      // and the whole answer an anagram: the wheel opens holding the fodder,
+      // once per clue, and the question gives way. Otherwise a question chosen
+      // while the wheel is open (a step, a formula chip, the next question once
+      // the dealt wheel is finished) puts the wheel away; the Letters toggle
+      // opening it puts the question away (wheelToggleTap).
+      if (!solved && isShown(e, "blocks") && !piecesLeft(e) && !wheelDealt.has(key) && dealWheel(e, ann)) guessing = null;
+      else if (guessing && guessing.key === key && wheelOn === key) wheelOn = null;
       // Computed before the rungs are drawn, not after them: an earlier rung's
       // verdict has to know whether the clue line above is currently a set of
       // buttons, and that is only knowable from the question being asked now.
@@ -602,8 +616,7 @@
         const out = s.pieces.filter((_, k) => solved || pieceOut(e, k));
         // The type rung already named and explained the mechanism when it is open.
         const lead = isShown(e, "type") && !s.leadAlways ? "" : s.lead;
-        return { ...s, html: lead + `<ul>${out.join("")}</ul>`
-                             + (out.length >= s.pieces.length ? s.tail : ""),
+        return { ...s, html: lead + `<ul>${out.join("")}</ul>`,
                  after: formula };
       };
       steps.forEach((s, i) => {
@@ -718,11 +731,11 @@
       // because it is the way out of the clue rather than a step in it.
       if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) offerFill = true;
     }
-    // The free wheel sits under whatever the ladder has shown. Not drawn while
-    // the paid ring is on screen: two rings would share one set of letters and
-    // one #ana-shuffle id, and the paid one already does the job.
-    const wheelOpen = freeWheel === key && !solved && !bodyHTML.includes("anagram-ring");
-    if (wheelOpen) bodyHTML += freeRingHTML(e, ann);
+    // The wheel sits where the question would, under whatever the ladder has
+    // shown: while it is open there is no question (see arriveAt above).
+    const wheelOpen = wheelOn === key && !solved;
+    if (wheelOpen) bodyHTML += wheelHTML(e, ann);
+    drawWheelToggle(!solved, wheelOpen);
     // Written last, because whether its words are targets is decided by whether a
     // question ended up being asked. A linked clue is the exception and keeps the
     // second copy: the words being asked about are this entry's own clue, and the
@@ -776,7 +789,7 @@
     // The help bar (see drawHelpBar), remembered so a word picked in the clue
     // can turn its one button between "Show me" and "Lock in" without a
     // whole-panel redraw (see paintPicked).
-    helpBar = { key, ann, solved, offerFill, wheelOpen };
+    helpBar = { key, ann, solved, offerFill };
     drawHelpBar(e, helpBar);
 
     if (!bodyWrote && !clueWrote && !voteWrote) return;
@@ -889,7 +902,7 @@
     // Clicking the disc itself (not a tile) is how a mouse/touch user starts
     // typing: focus #ana-kbd — a real input, so it takes a hardware keyboard
     // directly and raises a soft one on a phone — then redraw so the focus
-    // ring (ringKbdFocused() in ringHTML) appears immediately rather than on
+    // ring (ringKbdFocused() in wheelHTML) appears immediately rather than on
     // whatever render happens to come next.
     const disc = panel.querySelector(".ana-disc");
     if (disc && ring) disc.onclick = () => {

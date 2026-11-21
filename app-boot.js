@@ -271,10 +271,13 @@
       if (v) addRingLetter(v[v.length - 1]);
       ev.target.value = "";
     });
-    // Losing focus has to redraw too, or the outline ringHTML() drew off
+    // Losing focus has to redraw too, or the outline wheelHTML() drew off
     // activeElement would sit there until some unrelated render happened to
     // clear it.
     $("ana-kbd").addEventListener("blur", () => { if (ring) renderHintPanel(); });
+    // The Letters toggle beside the answer boxes opens/closes the one wheel.
+    $("hx-wheel").onclick = wheelToggleTap;
+    $("hx-wheel").addEventListener("mousedown", keepKbd);
 
     // THE ONE PLACE THAT SUMMONS A KEYBOARD: the letter strip, the row of boxes
     // for the answer. Tapping the squares you are about to fill in is the only

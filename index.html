@@ -346,7 +346,10 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
 
       <div id="hint-panel">
         <div id="hint-clue" class="hint-clue"></div>
-        <div id="hint-pattern" class="pattern"></div>
+        <div class="pattern-row">
+          <div id="hint-pattern" class="pattern"></div>
+          <button id="hx-wheel" type="button" class="ghost small hidden" aria-pressed="false">Letters</button>
+        </div>
         <div id="hint-track" class="hint-track"></div>
         <div id="hint-meter" class="muted"></div>
         <div id="hint-body"></div>
@@ -358,7 +361,7 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
              every grid one. Off-screen and hidden like #kbd, for the same reason:
              a real input takes a hardware keyboard directly and is the only way
              a phone's on-screen one can be raised for something that isn't a
-             text box to look at. See ringHTML()/addRingLetter() in app.js. -->
+             text box to look at. See wheelHTML()/addRingLetter() in app.js. -->
         <input id="ana-kbd" autocomplete="off" autocapitalize="characters"
                autocorrect="off" spellcheck="false"
                aria-label="Type a letter to add it to the anagram ring, Backspace to remove the last">

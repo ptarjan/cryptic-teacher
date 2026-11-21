@@ -26,7 +26,7 @@ const tiles = () => [...reg["hint-body"].innerHTML.matchAll(/class="ana-tile[^"]
 for (const [name, e] of [["non-anagram", plain], ["anagram", ana]]) {
   check(!!e, `${name} clue found: ${e && e.solution}`);
   reg["clue-" + entryId(e)].listeners.click[0]();
-  check(reg["hint-escape"].innerHTML.includes('id="hx-wheel"'), `the wheel button is on the ${name} clue`);
+  check(!reg["hx-wheel"].classList.contains("hidden"), `the wheel button is on the ${name} clue`);
 }
 
 reg["clue-" + entryId(plain)].listeners.click[0]();
