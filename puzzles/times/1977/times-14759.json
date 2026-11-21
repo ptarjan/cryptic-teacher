@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Makes foul passes",
     "enumeration": "7"
    },
-   "solution": "DEFILES"
+   "solution": "DEFILES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Makes foul",
+      "at": 0,
+      "meaning": "to pollute or dirty something, a verb in the third person"
+     },
+     {
+      "text": "passes",
+      "at": 11,
+      "meaning": "narrow gorges or mountain gaps through which troops must file, a plural noun"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone commits fouls with every pass in a football match.",
+     "definitionFit": "To pollute is to sully, and narrow mountain gorges are also called by this name, so both senses fit one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foul"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,51 @@
     "text": "Testified that deputy does mix up letters",
     "enumeration": "7"
    },
-   "solution": "DEPOSED"
+   "solution": "DEPOSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Testified",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deputy",
+       "at": 15,
+       "gives": "DEP"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mix up letters",
+         "at": 27,
+         "note": "says to mix up the letters of the preceding word, rearranging them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "does",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deputy swore that the letters had been muddled.",
+     "walkthrough": "'letters' looks like correspondence being muddled, but 'mix up letters' is the anagram signal working on 'does'; 'that' is only a link.",
+     "definitionFit": "To testify under oath in court is to give evidence, a legal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +128,42 @@
     "text": "Scene of battle-meat and drink for this flying type '",
     "enumeration": "9"
    },
-   "solution": "FIELDFARE"
+   "solution": "FIELDFARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this flying type",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scene of battle",
+       "at": 0,
+       "gives": "FIELD",
+       "note": "a battlefield is a field, the scene of a battle"
+      },
+      {
+       "words": "meat and drink",
+       "at": 16,
+       "gives": "FARE",
+       "note": "fare is food and drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battlefield provides food for a scavenging bird.",
+     "walkthrough": "The fieldfare is a large thrush that winters in Britain.",
+     "definitionFit": "A large grey-headed thrush is a bird, so it is a flying type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,10 +174,33 @@
    },
    "length": 5,
    "clue": {
-    "text": "Catalogues of tournament-, sites",
+    "text": "Catalogues of tournament-sites",
     "enumeration": "5"
    },
-   "solution": "LISTS"
+   "solution": "LISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catalogues",
+      "at": 0,
+      "meaning": "catalogues are inventories or registers"
+     },
+     {
+      "text": "tournament-sites",
+      "at": 14,
+      "meaning": "enclosed grounds where medieval knights jousted"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone compiles catalogues of tournament venues.",
+     "definitionFit": "Inventories are registers of items, and the enclosures where knights jousted shared the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Catalogues"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +214,40 @@
     "text": "Disarray of loser in battle",
     "enumeration": "9"
    },
-   "solution": "SOLFERINO"
+   "solution": "SOLFERINO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Disarray",
+       "at": 0,
+       "note": "disarray means confusion and disorder, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of loser in",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The loser is thrown into disarray in battle.",
+     "walkthrough": "Solferino (1859) was a battle in northern Italy whose carnage led to the founding of the Red Cross.",
+     "definitionFit": "The 1859 Franco-Austrian clash near Mantua is a battle known by this place name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +267,36 @@
      }
     ]
    },
-   "solution": "SEACOOK"
+   "solution": "SEACOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Galley-slave? An insult to his son, so-called",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Galley-slave? An insult to his son, so-called",
+       "at": 0,
+       "note": "a galley is a ship's kitchen, so its drudge is the ship's chef; the old sailors' taunt 'son of a ship's chef' really slights the chef himself, not just the son"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rower chained in a galley is insulted, and his son with him.",
+     "walkthrough": "'Galley-slave' suggests oars and chains, but a galley is also the kitchen aboard ship, whose worker is the target of the old seafaring insult.",
+     "definitionFit": "The man who prepares meals aboard a vessel slaves in its galley, and the phrase 'son of a ...' built on his title was a stock insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Galley-slave"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +310,35 @@
     "text": "Walrus's first talking-point",
     "enumeration": "5"
    },
-   "solution": "SHOES"
+   "solution": "SHOES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Walrus's first talking-point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Walrus's first talking-point",
+       "at": 0,
+       "note": "in Lewis Carroll's poem the Walrus says it is time to talk of many things, beginning with footwear, then ships and sealing-wax"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walrus opens a conversation with its first topic.",
+     "walkthrough": "From 'The Walrus and the Carpenter' in Through the Looking-Glass: 'Of shoes — and ships — and sealing-wax'.",
+     "definitionFit": "The first item the Walrus proposes to discuss is footwear, the opening subject of his list."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Walrus"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +352,36 @@
     "text": "Through which exposures are made",
     "enumeration": "9"
    },
-   "solution": "APERTURES"
+   "solution": "APERTURES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Through which exposures are made",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Through which exposures are made",
+       "at": 0,
+       "note": "camera openings that let light reach the film when a photograph is exposed; the surface hints at indecent exposure through gaps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gaps through which embarrassing revelations are made.",
+     "walkthrough": "'exposures' suggests scandal, but here it is photographic: light passes through openings in the lens.",
+     "definitionFit": "Openings in a camera lens let light through to expose the film, so they are holes for photographs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "exposures"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +395,46 @@
     "text": "Fences at which heavyweights maybe lose their head",
     "enumeration": "5"
    },
-   "solution": "OXERS"
+   "solution": "OXERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fences",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lose their head",
+       "at": 35,
+       "note": "losing one's head means dropping the first letter of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heavyweights maybe",
+       "at": 16,
+       "gives": "BOXERS",
+       "note": "heavyweights are an example of boxers, a weight division"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heavyweight boxers lose their heads at fences.",
+     "walkthrough": "Oxers are hedge-and-rail jumps in show-jumping or hunting.",
+     "definitionFit": "In horse jumping a hedge with a guard rail is an obstacle of this kind, a type of fence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heavyweights"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +448,49 @@
     "text": "In a queer way describing how Hamlet was cloaked, following the king",
     "enumeration": "7"
    },
-   "solution": "KINKILY"
+   "solution": "KINKILY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In a queer way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 50,
+       "note": "following says this piece comes after the letter for king"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the king",
+       "at": 60,
+       "gives": "K",
+       "note": "K is the abbreviation for king in chess and cards"
+      },
+      {
+       "words": "describing how Hamlet was cloaked",
+       "at": 15,
+       "gives": "INKILY",
+       "note": "Hamlet speaks of his 'inky cloak', so he was cloaked in an ink-black manner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet dressed oddly in his black cloak, trailing behind the king.",
+     "walkthrough": "In Act 1 Hamlet mourns in his 'inky cloak', black mourning wear.",
+     "definitionFit": "Doing something oddly or perversely is acting with a twist, so it is done in a strange way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "queer"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +504,30 @@
     "text": "Cupboard for papers",
     "enumeration": "5"
    },
-   "solution": "PRESS"
+   "solution": "PRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cupboard",
+      "at": 0,
+      "meaning": "a cupboard or cabinet, especially one for linen, in older and Scottish usage"
+     },
+     {
+      "text": "papers",
+      "at": 13,
+      "meaning": "newspapers collectively, journalists and the newspaper trade"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone needs a cupboard to store newspapers.",
+     "definitionFit": "A linen cabinet is called by this name in older usage, and newspapers collectively are known by the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +547,44 @@
      }
     ]
    },
-   "solution": "LOOSEREIN"
+   "solution": "LOOSEREIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No strict control",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LOOSEREIN",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 47,
+       "note": "says the phrase for the king's era is spoken and a same-sounding phrase is entered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Merry Monarch's time",
+       "at": 21,
+       "gives": "LOOSEREIGN",
+       "note": "the Merry Monarch is Charles II, whose easygoing, licentious rule was a lax period on the throne"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charles II's court was famously lax, with nobody keeping a tight hand.",
+     "walkthrough": "The Merry Monarch is Charles II of England, famed for his permissive court; his slack time on the throne sounds like the riding phrase for slack reins.",
+     "definitionFit": "Slack reins held by a rider give the horse freedom, so the idiom means lenient, unstrict handling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +604,59 @@
      }
     ]
    },
-   "solution": "SIDESTEPS"
+   "solution": "SIDESTEPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoids",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 23,
+       "note": "being on board a vessel means being inside it, so the scrambled letters sit within the ship's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 26,
+       "gives": "SS",
+       "note": "SS is a steamship, the ship one is aboard"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 16,
+         "note": "cooked suggests the letters are doctored and rearranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pies Ted",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone serves pies that Ted cooked while on a ship.",
+     "walkthrough": "'cooked' shuffles PIES TED into IDESTEP, and 'on board' puts it inside SS, the steamship abbreviation.",
+     "definitionFit": "To dodge something is to evade it by stepping out of its path, a figurative synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +670,58 @@
     "text": "He wrote songs to direction: it shows return",
     "enumeration": "5"
    },
-   "solution": "TOSTI"
+   "solution": "TOSTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He wrote songs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to",
+       "at": 15,
+       "gives": "TO",
+       "note": "taken as written"
+      },
+      {
+       "words": "direction",
+       "at": 18,
+       "gives": "S",
+       "note": "S is south, a compass direction"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "shows return",
+         "at": 32,
+         "note": "the word it shows a return, coming back on itself, so its letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A songwriter gives directions and the piece comes back again.",
+     "walkthrough": "Francesco Paolo Tosti was an Italian-born composer of popular Victorian drawing-room songs. 'shows return' turns IT into TI.",
+     "definitionFit": "The Italian composer was celebrated for his parlour songs such as 'Goodbye', so he is a song-writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +735,36 @@
     "text": "Seven faces of London",
     "enumeration": "5"
    },
-   "solution": "DIALS"
+   "solution": "DIALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seven faces of London",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Seven faces of London",
+       "at": 0,
+       "note": "clock faces are also called by another word, and seven of them name a famous road junction in London's Covent Garden area"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "London is shown in seven different aspects.",
+     "walkthrough": "Seven Dials is a junction in central London where seven streets meet around a column bearing sundials.",
+     "definitionFit": "Clock faces are another name for them, and the London junction called Seven ... gives the word its place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "faces"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +778,58 @@
     "text": "In a hurry, bearing hot food — gin-rummy to follow",
     "enumeration": "9"
    },
-   "solution": "SCURRYING"
+   "solution": "SCURRYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In a hurry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bearing",
+       "at": 12,
+       "gives": "S",
+       "note": "S is south, a compass bearing"
+      },
+      {
+       "words": "hot food",
+       "at": 20,
+       "gives": "CURRY",
+       "note": "curry is a spicy hot dish"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rummy",
+         "at": 35,
+         "note": "rummy means odd or strange, so the letters of gin are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gin",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes in with a hot curry, followed by a game of gin rummy.",
+     "walkthrough": "'gin-rummy' looks like the card game, but 'rummy' (odd) rearranges GIN into ING.",
+     "definitionFit": "Rushing along with short quick steps is moving hastily, so it means hurrying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rummy"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +849,36 @@
      }
     ]
    },
-   "solution": "INTERCITY"
+   "solution": "INTERCITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fast train to Bury?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fast train to Bury?",
+       "at": 0,
+       "note": "to bury is to inter, and Bury is a Lancashire town, so the clue jokingly reads as interring a whole urban place"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller asks for an express service to the town of Bury.",
+     "walkthrough": "Bury is a town near Manchester; 'to bury' is to inter, so 'inter' plus a place gives the name of British Rail's express service between cities.",
+     "definitionFit": "British Rail's express service linking major cities was branded with this name, so it is a fast train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +892,11 @@
     "text": "Will has note sent about rating",
     "enumeration": "9"
    },
-   "solution": "TESTAMENT"
+   "solution": "TESTAMENT",
+   "annotationWithheld": {
+    "why": "Will has note sent about rating (9) = TESTAMENT: TE (note) + SENT around TAM fits the letters, but no sense of 'rating' gives TAM, and no other parse found.",
+    "clue": "Will has note sent about rating"
+   }
   },
   {
    "number": 17,
@@ -306,7 +910,30 @@
     "text": "Unruly non-conformist",
     "enumeration": "9"
    },
-   "solution": "IRREGULAR"
+   "solution": "IRREGULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unruly",
+      "at": 0,
+      "meaning": "disorderly, not following rules"
+     },
+     {
+      "text": "non-conformist",
+      "at": 7,
+      "meaning": "not conforming to a pattern or standard"
+     }
+    ],
+    "explanation": {
+     "surface": "A rebellious dissenter is described.",
+     "definitionFit": "Disorderly behaviour breaks rules, and something out of line with the norm is likewise uneven or abnormal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "non-conformist"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +947,41 @@
     "text": "Like a dupe confounded, giving loud curse",
     "enumeration": "9"
    },
-   "solution": "CREDULOUS"
+   "solution": "CREDULOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a dupe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confounded",
+       "at": 12,
+       "note": "confounded means thrown into confusion, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "loud curse",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fooled victim swears loudly on realising he has been confounded.",
+     "walkthrough": "'confounded' looks like a description of the dupe, but it scrambles LOUD CURSE.",
+     "definitionFit": "A gullible person easily believes things, which is the quality of someone who gets duped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confounded"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +995,31 @@
     "text": "Bargain? That's a teaser",
     "enumeration": "7"
    },
-   "solution": "CHAFFER"
+   "solution": "CHAFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bargain?",
+      "at": 0,
+      "meaning": "to haggle over a price, a verb"
+     },
+     {
+      "text": "That's a teaser",
+      "at": 9,
+      "meaning": "one who teases or banters, from chaff meaning light mockery"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks if a deal is real, replying that it is only a tease.",
+     "definitionFit": "To haggle is to dicker, an old verb; and one who banters lightheartedly is a mocker, from the noun for banter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "teaser"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1033,39 @@
     "text": "Fish traps of new design",
     "enumeration": "5"
    },
-   "solution": "SPRAT"
+   "solution": "SPRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "of new design",
+       "at": 11,
+       "note": "something of new design has been remodelled, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "traps",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fish traps have been given a new design.",
+     "definitionFit": "A small herring-like sea fish of the North Atlantic is called by this name, an example of fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1079,36 @@
     "text": "Sound effect reed-warbler could produce",
     "enumeration": "7"
    },
-   "solution": "TREMOLO"
+   "solution": "TREMOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound effect reed-warbler could produce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sound effect reed-warbler could produce",
+       "at": 0,
+       "note": "a wavering trill, as a warbling bird or a player of a reed instrument might make"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A marsh bird makes a striking sound effect.",
+     "walkthrough": "'reed-warbler' is a real bird, but read as a player of a reed instrument who warbles, it gives the musical quavering effect.",
+     "definitionFit": "A rapid wavering repetition of a note is a musical effect produced by warbling voices or reed players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reed-warbler"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,10 +1119,44 @@
    },
    "length": 5,
    "clue": {
-    "text": "Flower from \"\" Caledonia, stern and wild '",
+    "text": "Flower from \"Caledonia, stern and wild\"",
     "enumeration": "5"
    },
-   "solution": "ASTER"
+   "solution": "ASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 7,
+       "note": "from says the letters are taken out of the quoted line that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caledonia, stern",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bloom comes from rugged Scotland, quoting Scott's description of his homeland.",
+     "walkthrough": "The line is Walter Scott's 'O Caledonia! stern and wild'; Caledonia is the Latin name for Scotland. The letters run across 'Caledonia, stern'.",
+     "definitionFit": "A daisy-like garden plant with star-shaped blooms is called by this name, an example of a flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caledonia"
+    }
+   }
   },
   {
    "number": 22,
@@ -390,7 +1170,42 @@
     "text": "Pipes supplying Bath at two points",
     "enumeration": "5"
    },
-   "solution": "TUBES"
+   "solution": "TUBES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pipes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bath",
+       "at": 16,
+       "gives": "TUB",
+       "note": "a tub is a bath"
+      },
+      {
+       "words": "two points",
+       "at": 24,
+       "gives": "ES",
+       "note": "E and S are east and south, two compass points"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pipes supply water to a bath at two points.",
+     "walkthrough": "'Bath' is capitalised to suggest the English spa city, but it is a tub.",
+     "definitionFit": "Hollow cylinders for carrying fluids are pipes, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bath"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1219,44 @@
     "text": "Pretend to ache, say, for a drink",
     "enumeration": "9"
    },
-   "solution": "CHAMPAGNE"
+   "solution": "CHAMPAGNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHAMPAGNE",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 17,
+       "note": "say signals that the phrase is spoken, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pretend to ache",
+       "at": 0,
+       "gives": "SHAMPAIN",
+       "note": "a feigned ache is a false hurt, a sham pain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fakes an ache to get a drink.",
+     "walkthrough": "SHAM PAIN, a pretended ache, sounds like the sparkling wine.",
+     "definitionFit": "A sparkling white wine from north-east France is a celebratory drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -418,7 +1270,58 @@
     "text": "Married — in such trouble, friends!",
     "enumeration": "5"
    },
-   "solution": "CHUMS"
+   "solution": "CHUMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "friends",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in places the abbreviation inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trouble",
+         "at": 18,
+         "note": "trouble here means disturbed or upset, so the letters of such are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "such",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "Married",
+       "at": 0,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims that their friends, now married, are in such trouble.",
+     "walkthrough": "'trouble' rearranges SUCH into CHUS, and 'in' places M inside it.",
+     "definitionFit": "Close companions are pals, so friends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Married"
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1335,44 @@
     "text": "Beat as stepped out, I hear",
     "enumeration": "5"
    },
-   "solution": "PASTE"
+   "solution": "PASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PASTE",
+     "indicators": [
+      {
+       "text": "I hear",
+       "at": 21,
+       "note": "I hear says the word is spoken, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stepped out",
+       "at": 8,
+       "gives": "PACED",
+       "note": "paced means stepped out, measured by walking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hears a rhythm as the steps are counted out.",
+     "walkthrough": "'Beat' suggests rhythm, but here it is the verb to thrash.",
+     "definitionFit": "To thrash or pummel someone is to beat them, a colloquial synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 25,
@@ -446,7 +1386,59 @@
     "text": "Cooling drink — beer if possible-it's stuffy inside",
     "enumeration": "9"
    },
-   "solution": "FEBRIFUGE"
+   "solution": "FEBRIFUGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cooling drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 45,
+       "note": "inside places the word for stuffiness within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possible",
+         "at": 24,
+         "note": "possible suggests a possible arrangement, so the letters of beer if are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer if",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "stuffy",
+       "at": 38,
+       "gives": "FUG",
+       "note": "a fug is a stuffy, smoky atmosphere in a room"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a cooling beer if they can get one, since the room is stuffy.",
+     "walkthrough": "'beer' looks like the cooling drink, but the definition is the medical potion; 'possible' is the anagram signal and 'inside' the container signal.",
+     "definitionFit": "A medicine that reduces fever cools the patient, so a fever-reducing potion is a cooling drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beer"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1452,48 @@
     "text": "Applause for Sarah — five love!",
     "enumeration": "5"
    },
-   "solution": "SALVO"
+   "solution": "SALVO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Applause",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sarah",
+       "at": 13,
+       "gives": "SAL",
+       "note": "Sal is a pet form of Sarah"
+      },
+      {
+       "words": "five",
+       "at": 21,
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
+      },
+      {
+       "words": "love",
+       "at": 26,
+       "gives": "O",
+       "note": "love is zero in tennis, which looks like the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sarah is applauded for winning a tennis set five games to love.",
+     "walkthrough": "The surface reads as a tennis score; in tennis 'love' means nil, shaped like O.",
+     "definitionFit": "A burst of applause or cheering is likened to a volley of gunfire, a figurative synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 27,
@@ -474,7 +1507,46 @@
     "text": "Gives up right to oriental symbols",
     "enumeration": "7"
    },
-   "solution": "RESIGNS"
+   "solution": "RESIGNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gives up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "at": 9,
+       "gives": "R"
+      },
+      {
+       "words": "oriental",
+       "at": 18,
+       "gives": "E",
+       "note": "E is east, the oriental direction"
+      },
+      {
+       "words": "symbols",
+       "at": 27,
+       "gives": "SIGNS",
+       "note": "signs are symbols"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surrenders their claim to some Eastern symbols.",
+     "definitionFit": "To quit a post or abandon a struggle is to relinquish it, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oriental"
+    }
+   }
   },
   {
    "number": 28,
@@ -488,7 +1560,52 @@
     "text": "It's no bother to repair a lute",
     "enumeration": "7"
    },
-   "solution": "THEORBO"
+   "solution": "THEORBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a lute",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to repair",
+         "at": 15,
+         "note": "to repair something is to fix and reassemble it, so these letters are put back together differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bother",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "no",
+       "at": 5,
+       "gives": "O",
+       "note": "O is nothing, zero, standing for no"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craftsman says it is no trouble to mend a lute.",
+     "walkthrough": "'to repair' rearranges O (from 'no') plus BOTHER.",
+     "definitionFit": "A large bass lute with an extra set of long bass strings was used in Baroque music, a type of lute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bother"
+    }
+   }
   }
  ]
 }
