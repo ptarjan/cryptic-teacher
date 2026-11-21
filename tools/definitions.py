@@ -363,6 +363,22 @@ def _one_edit(a, b):
     return any(l[:i] + l[i + 1:] == s for i in range(len(l)))
 
 
+def nearest_span(text, clue):
+    """The clue's run of words (as many as `text` has, give or take one) most like `text`, as the
+    clue prints it, when it is close enough to be the words the quote meant (a scan's stray 'I'
+    or a cut word between them); else None. Only a hint for the refusal."""
+    import difflib
+    want = [_fold_accents(w).casefold() for w in WORD.findall(str(text).translate(LOOKALIKES))]
+    toks = [(m.start(), m.end(), _fold_accents(m.group()).casefold()) for m in WORD.finditer(clue or "")]
+    best = (0.0, None)
+    for n in {len(want) - 1, len(want), len(want) + 1}:
+        for k in range(len(toks) - n + 1 if n > 0 else 0):
+            ratio = difflib.SequenceMatcher(None, " ".join(want), " ".join(t[2] for t in toks[k:k + n])).ratio()
+            if ratio > best[0]:
+                best = (ratio, clue[toks[k][0]:toks[k + n - 1][1]])
+    return best[1] if best[0] >= 0.7 and best[1] != text else None
+
+
 def near_run(text, clue):
     """The clue's one run of as many words as `text` that reads the same but for one
     word a letter off (four letters or more), as the clue prints it; else None.
@@ -453,9 +469,13 @@ def place(definitions, clue):
             text = defs[k].get("text")
             if not found:
                 near = near_run(text, clue)
+                span = None if near else nearest_span(text, clue)
                 why.append(f"definition {text!r} is not in the clue {clue!r}"
                            + (f": the clue as given reads {near!r} there, a letter off; quote the "
-                              f"clue's own words" if near else ""))
+                              f"clue's own words" if near else
+                              f": the nearest words in the clue are {span!r}; if that is what you mean, "
+                              f"the scan has debris there: quote the clue's own words, or give the "
+                              f"clue as printed as printedClue" if span else ""))
             else:
                 why.append(f"definition {text!r} occurs {len(found)} times in {clue!r} "
                            f"(at {', '.join(map(str, found))}) and the rules in "

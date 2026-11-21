@@ -122,6 +122,20 @@ check("hint: a misread word names printedClue", True,
       and "printedClue" in v.verbatim_hint("jumbled crowd", "Very hot iumbled crowd"))
 check("hint: unrelated words get the plain rule", True,
       "character for character" in v.verbatim_hint("horserace", "Spectators see chap"))
+def _refusal(text, clue):
+    try:
+        D.place([{"text": text}], clue)
+    except ValueError as err:
+        return str(err)
+    return ""
+
+
+_msg = _refusal("a comic strip hero", "a comic I strip hero")
+check("refusal names the nearest clue span and asks for printedClue", True,
+      "nearest words in the clue are 'a comic I strip hero'" in _msg and "printedClue" in _msg)
+check("refusal with no near span stays plain", True, "nearest words" not in _refusal("zebra crossing", "a comic I strip hero"))
+check("nearest_span: a word the scan inserted is spanned", "killed while I hunting",
+      D.nearest_span("killed while hunting", "Sold killed while I hunting"))
 if fails:
     raise SystemExit(fails)
 print("all definition placement checks passed")

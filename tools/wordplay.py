@@ -592,7 +592,7 @@ def _gapped_runs(text, clue):
     return None
 
 
-def not_in_clue(text, clue, nth=1):
+def not_in_clue(text, clue, nth=1, gives=None):
     """The refusal for words a span names that the clue does not hold, saying
     what to change: a repeat that has no such copy, words the clue has but not
     side by side (write each run as its own [..] piece), or words it lacks."""
@@ -639,6 +639,14 @@ def not_in_clue(text, clue, nth=1):
     if near:
         return head + (f"the clue as given reads {near!r} there, a letter off from your quote: "
                        f"quote the clue's own words")
+    if absent and not close_words_exist(absent, clue):
+        # A quote that names letters or digits (ON, 1, A) is the leaf's derived letters, not clue words.
+        derived = gives or (text.upper() if len(words) == 1 and (len(text) <= 3 or text.isdigit()) else None)
+        if derived:
+            have = ", ".join(map(repr, dict.fromkeys(re.findall(r"[\w'’]+", clue))))
+            return head + (f"{derived!r} is what this piece gives, not words of the clue: quote the clue "
+                           f"words that give {derived} (the clue's words are {have}) and write the "
+                           f"letters after the bracket")
     if absent:
         import difflib
         clue_words = list(dict.fromkeys(re.findall(r"[\w'’]+", clue)))
@@ -656,6 +664,13 @@ def not_in_clue(text, clue, nth=1):
 
 
 _ELLIPSIS = re.compile(r"\s*(?:\.\.\.|…)\s*")
+
+
+def close_words_exist(absent, clue):
+    """Whether the clue has a word close to each of `absent` (the nearest-word hint can speak)."""
+    import difflib
+    cw = [c.lower() for c in re.findall(r"[\w'’]+", clue)]
+    return all(difflib.get_close_matches(w, cw, n=1, cutoff=0.6) for w in absent)
 
 
 def _split_ellipsis(node, clue):
@@ -690,25 +705,29 @@ def _split_ellipsis(node, clue):
 
 
 def _split_fodder_gap(node, clue):
-    """An anagram's fodder quoted as one run round its own indicator ('a sling' for the clue's
-    'a twisted sling' under ana<twisted>) is the fodder's two runs: the refusal asks for exactly
-    that split, and the words it skipped are the indicator, so nothing else is guessed. Only a bare
-    leaf (no letters of its own), two runs, and a gap that is one of the op's indicators whole."""
+    """A leaf quoted as one run round the node's own indicator ('a sling' for the clue's 'a twisted
+    sling' under ana<twisted>; 'two numbers' for 'two back-to back numbers' under pal<back-to back>)
+    is the leaf's two runs: the refusal asks for exactly that split, and the words it skipped are the
+    indicator, so nothing else is guessed. Only a leaf with two runs and a gap that is one of the
+    node's indicators whole. Any op: a leaf's own `gives` stays on its first run and the second run
+    gives nothing, so the letters are unchanged."""
     inds = node.get("indicators")
-    if node.get("op") != "anagram" or not inds or not node.get("parts"):
+    if not inds or not node.get("parts"):
         return
     fold = lambda t: re.findall(r"[\w'’]+", fold_marks(t).lower())
     parts = []
     for part in node["parts"]:
         text = part.get("words")
-        runs = (_gapped_runs(text, clue) if isinstance(text, str) and "op" not in part and "gives" not in part
+        runs = (_gapped_runs(text, clue) if isinstance(text, str) and "op" not in part
                 and fold_marks(text).lower() not in fold_marks(clue).lower()
                 and not _reordered_run(text, clue) else None)
         if runs and len(runs[1]) == 2:
             whole, (first, last) = runs
             gap = fold(whole[len(first):len(whole) - len(last)])
             if any(fold(i.get("text") or "") == gap for i in inds):
-                parts += [{**part, "words": r} for r in (first, last)]
+                head = {**part, "words": first}
+                tail = {"words": last, **({"gives": ""} if "gives" in part else {})}
+                parts += [head, tail]
                 continue
         parts.append(part)
     node["parts"] = parts
@@ -820,7 +839,7 @@ def locate(node, clue, taken=()):
         if at is not None and clue[at:at + len(text)] != text:
             span[key] = text = clue[at:at + len(text)]
         if at is None:
-            raise WordplayError(not_in_clue(text, clue, nth))
+            raise WordplayError(not_in_clue(text, clue, nth, span.get("gives") if key == "words" else None))
         span["at"] = at
         used.append((at, at + len(text)))
     return node

@@ -1013,4 +1013,17 @@ check("model typo: a clue word that is no word is not taken for the model's slip
 check("model typo: two clue words one slip off are not mended",
       _D.damaged_run("balme", "blame here and blame there") is None)
 
+tree = w.translate({"wp": "pal<back-to back>([two numbers]NOON)"}, "Time for two back-to back numbers", "NOON")
+check("any op: a leaf quoted round the node's own indicator is two runs, gives kept on the first",
+      [(p["words"], p.get("gives")) for p in tree["parts"]] == [("two", "NOON"), ("numbers", "")], tree)
+check("any op: a gap that is no indicator of the node stays refused",
+      _refused("pal<back>([two numbers]NOON)", "Time for two back-to back numbers", "NOON"))
+try:
+    w.translate({"wp": "[A] + [set of books]NT + [one]I"}, "Set of books one, isn't commending", "ANTI")
+    _msg = ""
+except w.WordplayError as err:
+    _msg = str(err)
+check("derived letters quoted: the refusal says to quote the clue words that give them",
+      "quote the clue words that give A" in _msg, _msg)
+
 raise SystemExit(fails > 0)
