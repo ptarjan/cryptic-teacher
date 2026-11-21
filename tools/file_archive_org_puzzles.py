@@ -30996,6 +30996,47 @@ def count_dropped(was, now, cells, lights, printed=()):
     return now.strip() == bare and not ocr_clues.suspect(now, printed=printed) or corrects(bare, now, printed)
 
 
+#: FT_CUT_RESTORED: a held Gale FT clue whose first line's tail was lost (FT_LEAD_ONE's cut window: "Fool pickpockets
+#: ment (8)" for "Fool pickpockets with deferred payment", "Intend one entering receive care" for "... entering asylum to
+#: receive care") is taken by the reread's whole clue. corrects() takes one gained dictionary word at most, so a clue
+#: that lost two or three words stayed cut through the FT_LEAD_ONE reread (2006-10-14, 19:51). The held words all
+#: stand in the new clue in order (a fragment of one, "ment", standing for the new word it ends), the gain lies in at
+#: most FT_CUT_GAPS runs between held words, and every gained word is a dictionary word of the clue's own.
+FT_CUT_GAPS = 2
+
+
+def ft_cut_restored(publisher, was, now, printed=()):
+    """Whether the clue `now` restores the words a Gale FT's held clue `was` lost: `publisher` is the Financial
+    Times; the held tokens stand in `now` in order, a fragment (non-word of 3+ letters) as the end or start of
+    one of its words; what `now` adds is dictionary words in at most FT_CUT_GAPS runs; and `now` is clean
+    (not suspect, bled, stray, nor a punctuation fault)."""
+    if publisher != "Financial Times" or not (was or "").strip() or not (now or "").strip() or now == was:
+        return False
+    if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now) \
+            or punctuation.faults(now) or clue_text.gains_glitch(was, now):
+        return False
+    old = [m.group().lower() for m in CLUE_TOKEN.finditer(was)]
+    new = [m.group().lower() for m in CLUE_TOKEN.finditer(now)]
+    if len(new) <= len(old):
+        return False
+    j, hit, gaps, last = 0, [], 0, -1
+    for w in old:
+        k = next((k for k in range(j, len(new)) if new[k] == w), None)
+        if k is None and len(w) >= 3:
+            k = next((k for k in range(j, len(new)) if len(new[k]) > len(w) and (new[k].endswith(w) or new[k].startswith(w))), None)
+        if k is None:
+            return False
+        if k != last + 1:
+            gaps += 1
+        hit.append(k)
+        last, j = k, k + 1
+    if hit[0] != 0 or last != len(new) - 1:
+        return False  # a cut loses the middle, never the clue's head or tail
+    tok = [m.group()[:1] for m in CLUE_TOKEN.finditer(now)]
+    gained = [(k, new[k]) for k in range(len(new)) if k not in hit]
+    return bool(gained) and gaps <= FT_CUT_GAPS and all(ocr_clues.is_word(w) or tok[k].isupper() for k, w in gained)
+
+
 def corrected_clues(puzzle, old, skip=()):
     """{light: its clue now} after taking `puzzle`'s reading of each held
     clue of `old` (in place) that corrects() it: a reader's fix to a clue's
@@ -31018,6 +31059,8 @@ def corrected_clues(puzzle, old, skip=()):
         lid, was = entry_id(e), e.get("clue") or {}
         if lid in skip or lid not in now or e.get("annotation") or (old.get("id"), lid) in rows \
                 or not (corrects(was.get("text"), now[lid]["text"], now[lid].get("asPrinted") or ())
+                        or ft_cut_restored((old.get("source") or {}).get("publisher"), was.get("text"), now[lid]["text"],
+                                           now[lid].get("asPrinted") or ())
                         or book_marks(was.get("text"), now[lid]["text"], (books.get(lid) or (None,))[0])
                         or count_dropped(was.get("text"), now[lid]["text"], e.get("length"),
                                          lights, now[lid].get("asPrinted") or ())):
