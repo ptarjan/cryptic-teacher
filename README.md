@@ -14,7 +14,7 @@ order:
 4. **The building blocks** — the fodder and the synonym breakdown, a piece at a time (“host = ARMY; part of TV duo = ANT”). A double definition has none: its halves are the definition rung's.
 5. **Full walkthrough** — the whole assembly, step by step.
 
-**Fill in answer** writes the solution into the grid. It is the way out of a clue rather than a step in it, so it is offered alongside the rungs once the building blocks are up, and it is not counted as one.
+**Reveal answer** writes the solution into the grid. It is the way out of a clue rather than a step in it, so it is offered alongside the rungs once the building blocks are up, and it is not counted as one.
 <!-- LADDER-END -->
 
 Each rung asks before it tells: tap the words you think are the definition or

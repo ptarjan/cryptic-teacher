@@ -401,15 +401,15 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
     if (body().includes('class="hint-step guess"')) reg["guess-tell"].onclick();
   }
   assert(body().includes("gm-slot-"), "16D's blocks rung asks the matching question: " + body().slice(0, 300));
-  assert(!body().includes("worked out · free"), "and it is unanswered until something answers it");
+  assert(!body().includes("worked out"), "and it is unanswered until something answers it");
 
   "EVALUATED".split("").forEach((c) => kd(key(c)));
   // Solving closes the question; it does not answer it for the solver (Paul
   // 11-20: no clue is handed over on solving unless they opened it).
-  assert(!body().includes("worked out · free"),
+  assert(!body().includes("worked out"),
     "solving the clue does not hand over the answer to the question it was asking: " + body().slice(0, 600));
   assert(/Solved <strong>1\/30<\/strong>/.test(reg["scorebar"].innerHTML),
     "the clue is solved: " + reg["scorebar"].innerHTML);
-  assert(/<strong>2<\/strong> hints used/.test(reg["scorebar"].innerHTML),
+  assert(/<strong>2<\/strong> hints?\b/.test(reg["scorebar"].innerHTML),
     "and only the two rungs actually bought are charged: " + reg["scorebar"].innerHTML);
 }

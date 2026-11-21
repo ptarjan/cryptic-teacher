@@ -325,21 +325,21 @@
     // the same rule the guess follows, for the same reason.
     if (report && report.key !== key) report = null;
     const reveals = revealsUsed[key] || 0;
-    const revealsNote = reveals ? ` · ${reveals} letter${reveals > 1 ? "s" : ""} revealed` : "";
+    const hintWord = (n) => `${n} hint${n === 1 ? "" : "s"}`;
     // The count the score charges, not the number of rungs currently on screen:
     // once solved you can open the rest for free, and the meter has to say the
     // same thing the scorebar does or one of them is lying.
     const charged = hintsCharged(e);
     const meterHTML = solved
       ? ((charged || reveals)
-          ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
+          ? `Solved with ${hintWord(charged + reveals)}`
           : "Solved with no hints at all")
       // "used on this clue" — you are looking at the clue. Just the count: a
       // rung you answered yourself is not charged for. What you worked out is
       // reported beside it, because that is the number this is all for.
-      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, clueText(e)).length} hints shown${
-                 earnedRungs(e).length ? ` · ${earnedRungs(e).length} of those worked out by answering its question, so free` : ""}${revealsNote}`
-             : revealsNote.replace(" · ", ""));
+      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, clueText(e)).length} steps shown${
+                 earnedRungs(e).length ? ` · ${earnedRungs(e).length} worked out` : ""}${reveals ? ` · ${hintWord(charged + reveals)}` : ""}`
+             : (reveals ? hintWord(reveals) : ""));
     // Whether there is anything left on the ladder, filled in below once the
     // steps are known: a solved clue's score is settled, so the rest of the
     // ladder costs nothing. The explanation of a clue you have already
@@ -606,8 +606,7 @@
       ? letterBtnHTML(e) + " " : "")
       // On every unsolved clue, whatever its type, and not a hint: it holds
       // only what the solver types into it.
-      + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">${
-          wheelOpen ? "Hide letter wheel" : "Letter wheel"}</button> `)
+      + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">Letters</button> `)
       + reportHTML() + blogLinkHTML(e, ann);
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
@@ -864,7 +863,7 @@
       return;
     }
     const total = entries.filter((e) => !leaderOf[entryId(e)]).length;
-    let solved = 0, noHints = 0, levelsUsed = 0, lettersRevealed = 0;
+    let solved = 0, noHints = 0, levelsUsed = 0;
     const counted = {};
     entries.forEach((e) => {
       const key = entryKey(e);
@@ -875,12 +874,11 @@
         solved++;
         if (cleanSolve(rungs, revealsUsed[key])) noHints++;
       }
-      levelsUsed += rungs;
-      lettersRevealed += revealsUsed[key] || 0;
+      // A revealed letter is a hint like any other: one figure, not two.
+      levelsUsed += rungs + (revealsUsed[key] || 0);
     });
     $("scorebar").innerHTML =
-      `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hints used`
-      + (lettersRevealed ? ` · plus <strong>${lettersRevealed}</strong> letter${lettersRevealed > 1 ? "s" : ""} revealed` : "");
+      `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hint${levelsUsed === 1 ? "" : "s"}`;
     drawScoreExtras();
   }
 

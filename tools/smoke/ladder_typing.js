@@ -59,7 +59,7 @@ while (leadRung() && clicks < 12) {
     }
   }
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + rungs);
-  assert(registry["hint-escape"].innerHTML.includes("Reveal one letter") || registry["hint-meter"].innerHTML.includes("Solved"),
+  assert(registry["hint-escape"].innerHTML.includes("Reveal letter") || registry["hint-meter"].innerHTML.includes("Solved"),
     "escape hatch still available at level " + rungs);
 }
 assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
@@ -101,9 +101,9 @@ assert(answerShown(registry["hint-body"].innerHTML), "last rung shows answer");
 assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
   "ladder never shows an empty 'no indicators' rung");
 assert(registry["hint-clue"].innerHTML.includes('mark class="def"'), "definition highlighted");
-// final ladder rung after the walkthrough is Fill in answer (not letter reveals)
-assert(registry["hint-next"].children.some((b) => b.textContent === "Fill in answer"),
-  "final rung is Fill in answer: " + btnNames());
+// final ladder rung after the walkthrough is Reveal answer (not letter reveals)
+assert(registry["hint-next"].children.some((b) => b.textContent === "Reveal answer"),
+  "final rung is Reveal answer: " + btnNames());
 const hx = registry["hx-entry"];
 assert(hx.onclick, "fill-in-answer button wired");
 hx.onclick();

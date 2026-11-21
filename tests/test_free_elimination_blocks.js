@@ -16,7 +16,7 @@
 const { boot } = require("../tools/fake_dom.js");
 
 const ID = "cryptic-30066";
-const ARMED = "Tap again to reveal · costs a hint";
+const ARMED = "Tap again · 1 hint";
 const entryId = (e) => e.number + "-" + e.direction;
 
 let failures = 0;
@@ -32,7 +32,7 @@ function open() {
   const row = () => reg["hint-next"].children;
   const body = () => reg["hint-body"].innerHTML;
   const asking = () => body().includes('class="hint-step guess"');
-  const hints = () => Number((/<strong>(\d+)<\/strong> hints used/.exec(reg["scorebar"].innerHTML) || [])[1]);
+  const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);
   const blocksBtn = () => row().find((b) => b.onclick && !b.disabled && /building blocks/i.test(b.textContent || ""));
   const armedBtn = () => row().find((b) => b.textContent === ARMED);
   const blocksOpen = () => /The building blocks(<span class="step-won">[^<]*<\/span>)?<\/span>/.test(body().replace(/<div class="hint-step guess">[\s\S]*$/, ""));

@@ -58,10 +58,10 @@ Terms used below:
 - **A building block that costs a hint takes two taps.** Paul: "If a building
   blocks can't be free it should make me click twice to confirm I want it."
   `blocksCost` in `app.js` decides: the group is unsolved, and the tap either
-  opens the blocks rung outright (no question to answer first) or is "Just
-  tell me" on a blocks question that opens the rung or takes back one already
-  earned. The first such tap relabels that button "Tap again to reveal · costs
-  a hint" in red; the same button again reveals. A click elsewhere, focus
+  opens the blocks rung outright (no question to answer first) or is "Show
+  me" on a blocks question that opens the rung or takes back one already
+  earned. The first such tap relabels that button "Tap again · 1 hint" in
+  red (every paid button says the same); the same button again reveals. A click elsewhere, focus
   moving away, or 4 seconds puts it back. Free taps (a question to answer, a
   rung already paid for, a solved clue) stay one tap.
   `tests/test_block_confirm.js` covers it.
@@ -119,7 +119,8 @@ Terms used below:
   `tools/tutorial.html`; the smoke test fails on a missing one, or on a type or
   family with no rule.
 - **The finish box recaps what you needed.** Under the tally, "What you used
-  today" lists each clue type in a clue that took a hint or a revealed letter,
+  today" lists each clue type in a clue that took a hint (a revealed letter is one),
+  with the hints summed, not split from letters,
   with how many such clues, each linked to its /learn/ section. It is derived
   from the saved ladder state in `ct:<id>`, so a reopened or synced puzzle shows
   the same recap and nothing new is stored.
@@ -283,9 +284,13 @@ Terms used below:
     letters still sync as usual.
   - `tests/test_paper_mode.js` asserts each signal hidden on paper and, as the
     mirror, present for the same keystrokes off paper.
-- **"Reveal one letter"** is available at any time and hidden once the entry is
-  solved. It never advances the ladder but always counts in scoring (the meter,
-  the scorebar and the no-hints tally).
+- **"Reveal letter"** is available at any time and hidden once the entry is
+  solved. It never advances the ladder but is one hint like any other: it counts
+  in the meter, the scorebar ("Solved 12/28 clues · 7 with no hints · 9 hints"),
+  the finish tally and the by-clue-type recap, and there is no separate letters
+  figure. The other paid words are "Show me" (a question's reveal) and "Reveal
+  answer"; the letter wheel button reads "Letters"; a step you got yourself is
+  "worked out".
 - **Live letter pattern.** The hint panel shows the selected entry's letters
   under the clue: one small box per cell (the typed letter or a blank). The
   "x of N letters in place" summary is the strip's `aria-label`, for screen

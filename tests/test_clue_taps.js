@@ -6,7 +6,7 @@
 
    1. arrives: picking a clue asks its first free question at once, so the
       clue's words are tappable with no button tapped, and nothing is charged.
-   2. once: "Skip for now" or "Just tell me" is not undone by the next render;
+   2. once: "Skip for now" or "Show me" is not undone by the next render;
       only coming back to the clue asks again.
    3. typing: the answer can still be typed while the question is up, and a clue
       solved that way keeps its "no hints" star; a solved clue is not quizzed.
@@ -31,7 +31,7 @@ function open() {
     key: (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] }),
     asking: () => reg["hint-body"].innerHTML.includes('class="hint-step guess"'),
     tappable: () => reg["hint-clue"].classList.contains("picking") && /id="gw-\d+"/.test(reg["hint-clue"].innerHTML),
-    hints: () => Number((/<strong>(\d+)<\/strong> hints used/.exec(reg["scorebar"].innerHTML) || [])[1]),
+    hints: () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]),
   };
 }
 
@@ -60,9 +60,9 @@ if (e && other) {
   t.pick(e);
   check(t.asking(), "once: coming back to the clue asks again");
   t.reg["guess-tell"].onclick();
-  check(!t.asking() && t.hints() === 1, `once: Just tell me opens the rung (1 hint) and asks nothing next: ${t.hints()}`);
+  check(!t.asking() && t.hints() === 1, `once: Show me opens the rung (1 hint) and asks nothing next: ${t.hints()}`);
   t.key(e.solution[0]);
-  check(!t.asking(), "once: still nothing asked after Just tell me");
+  check(!t.asking(), "once: still nothing asked after Show me");
 
   // --- 3: typing alongside ---
   const u = open();

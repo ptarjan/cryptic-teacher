@@ -838,7 +838,7 @@
   // something to say. A double definition has no indicators, so it gets no
   // "spot the indicator" rung, and
   // its rungs are worded for two definitions rather than one. See docs/APP.md.
-  const FILL_LABEL = "Fill in answer";
+  const FILL_LABEL = "Reveal answer";
 
   // The clue types and their families, from tools/data/clue_types.json by way
   // of the list. An annotation's `type` is an array of type names.
@@ -1450,13 +1450,13 @@
   function letterBtnHTML(e) {
     const armed = armedFor(e, "letter");
     return `<button id="hx-letter" data-arm="letter" class="ghost small${armed ? " arm-cost" : ""}">${
-      armed ? ARMED_TEXT : "Stuck? Reveal one letter"}</button>`;
+      armed ? ARMED_TEXT : "Reveal letter"}</button>`;
   }
   function letterTap(ev) {
     if (!confirmBlock(currentEntry(), "letter", ev)) return;
     revealLetter();
   }
-  const ARMED_TEXT = "Tap again to reveal · costs a hint";
+  const ARMED_TEXT = "Tap again · 1 hint";
   let blockArm = null;   // { key, id, timer }
   // A light with no clue has no entry; it still arms, under a key of its own.
   const armKey = (e) => (e ? entryKey(e) : "light");

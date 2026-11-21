@@ -26,7 +26,7 @@ const { boot } = require("../tools/fake_dom.js");
 const { mergeSaves } = require("../sync/merge.js");
 
 const ID = "cryptic-30066";
-const ARMED = "Tap again to reveal · costs a hint";
+const ARMED = "Tap again · 1 hint";
 const entryId = (e) => e.number + "-" + e.direction;
 
 let failures = 0;
@@ -42,7 +42,7 @@ function open(storage) {
   const row = () => reg["hint-next"].children;
   const body = () => reg["hint-body"].innerHTML;
   const asking = () => body().includes('class="hint-step guess"');
-  const hints = () => Number((/<strong>(\d+)<\/strong> hints used/.exec(reg["scorebar"].innerHTML) || [])[1]);
+  const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);
   const armedBtn = () => row().find((b) => b.textContent === ARMED);
   // Every formula in the panel: the type rung's, then the blocks rung's.
   const formulas = () => body().match(/<div class="formula">[\s\S]*?<\/div>/g) || [];

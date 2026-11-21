@@ -134,7 +134,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       "and the spaces between its words are marked too, so the band is unbroken: "
         + JSON.stringify(bare));
   }
-  assert(/\b0<\/strong> hints used/.test(registry["scorebar"].innerHTML),
+  assert(/\b0<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
     "a rung you earned costs nothing: " + registry["scorebar"].innerHTML);
 
   // Wrong: every word in the clue is never the answer to any of these.
@@ -153,7 +153,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   global.flushTimers(10000);
   assert(panelHTML() === html,
     "a miss is left on screen to be read too: " + registry["hint-body"].innerHTML);
-  assert(/\b1<\/strong> hints used/.test(registry["scorebar"].innerHTML),
+  assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
     "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
 
   // And the escape hatch out of the question itself.
@@ -161,10 +161,10 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   defBtn().onclick();
   assert(panelHTML().includes("guess-clue ask"), "asked again");
   registry["guess-tell"].onclick();
-  assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Just tell me” tells you");
+  assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Show me” tells you");
   assert(!registry["hint-body"].innerHTML.includes("guess-verdict"),
     "declining to guess is not graded");
-  assert(/\b1<\/strong> hints used/.test(registry["scorebar"].innerHTML),
+  assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
 
   // And the other way out: you stop hunting for the definition because you have

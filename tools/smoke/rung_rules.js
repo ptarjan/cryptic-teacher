@@ -556,7 +556,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
         + r.text);
     assert(r.offered.indexOf(r.locked[0]) >= 0 && r.offered.length - r.locked.length === 2,
       `${how}: the assembly rung and the type rung are both takeable: ` + r.text);
-    assert(new RegExp(`\\b${earn ? 0 : 2}</strong> hints used`).test(r.score),
+    assert(new RegExp(`\\b${earn ? 0 : 2}</strong> hints?\\b`).test(r.score),
       `${how}: skipping the type rung is free, and changes nothing else's price: `
         + r.score);
   }

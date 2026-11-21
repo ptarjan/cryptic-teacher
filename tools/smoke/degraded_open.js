@@ -32,7 +32,7 @@ if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched f
   assert(registry["hint-body"].innerHTML.includes("answers only") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
   assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
     "answers-only puzzle offers Reveal answer: " + btnNames());
-  assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers-only puzzle offers letter escape hatch");
+  assert(registry["hint-escape"].innerHTML.includes("Reveal letter"), "answers-only puzzle offers letter escape hatch");
 }
 // A puzzle with none of our hints but a blog's marks on some clue has hints,
 // so it must not be called "answers only" on either surface that badges it.

@@ -64,11 +64,11 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
 }
 
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
-assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
+assert(registry["hint-escape"].innerHTML.includes("Reveal letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
 registry["hx-letter"].onclick();
-assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
-assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
+assert(/<strong>1<\/strong> hint\b/.test(registry["scorebar"].innerHTML), "a revealed letter counts as a hint in the score: " + registry["scorebar"].innerHTML);
+assert(registry["hint-meter"].innerHTML.includes("1 hint"), "meter counts the revealed letter as a hint: " + registry["hint-meter"].innerHTML);
 
 // A question that is still open, in either of its two forms — words to point at
 // or families to choose between. Keyed off the block that wraps a live question
@@ -80,7 +80,7 @@ function isAsking(body) {
 }
 
 // Taking a rung is two clicks: three of them ask you to point at the words
-// before they name them, so the button poses the question and "Just tell me"
+// before they name them, so the button poses the question and "Show me"
 // answers it. Everything below walks the ladder the lazy way on purpose — the
 // guessing itself is tested at the end, on its own.
 function takeRung(btn) {
@@ -91,7 +91,7 @@ function takeRung(btn) {
 // A building block that costs a hint takes a second tap (app.js blocksCost):
 // the first only arms the button and relabels it. This makes the second tap,
 // on whichever button is armed, so the lazy climbs below still buy their rung.
-const ARMED = /^Tap again to reveal · costs a hint$/;
+const ARMED = /^Tap again · 1 hint$/;
 function confirmArmed() {
   const row = registry["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
   if (row) return row.onclick(), true;

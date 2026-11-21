@@ -6,7 +6,7 @@
    its mirror, on a square a clued entry covers, with the same steps.
 
    1. revealOnLight: with the cursor on a ring-only square the panel offers
-      "Reveal one letter", and it fills the light's letter. On an entry square
+      "Reveal letter", and it fills the light's letter. On an entry square
       the same button fills the entry's letter.
    2. pickerNeedsRing: a save with every entry square right and the ring blank
       is not "solved"; the same save with the ring filled is. Printed letters
@@ -41,7 +41,7 @@ const entrySquares = (p) => {
     .find((c) => !only.has(c.x + "," + c.y));
   check(!!ring, "the puzzle has a square only an unclued light covers");
   at(t, ring.x, ring.y).listeners.mousedown[0]({ preventDefault() {} });
-  const btn = () => /Reveal one letter/.test(t.reg["hint-escape"].innerHTML);
+  const btn = () => /Reveal letter/.test(t.reg["hint-escape"].innerHTML);
   check(!t.reg["hint-panel"].classList.contains("hidden") && btn(),
     "revealOnLight: the panel offers Reveal on a ring-only square");
   t.reg["hx-letter"].onclick();

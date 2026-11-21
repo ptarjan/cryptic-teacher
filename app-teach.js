@@ -1925,7 +1925,7 @@
   function tellHTML() {
     const armed = armedFor(currentEntry(), guessing.rung + "-tell");
     return `<button id="guess-tell" data-arm="${guessing.rung}-tell" class="ghost small${armed ? " arm-cost" : ""}">${
-      armed ? ARMED_TEXT : "Just tell me"}</button>`;
+      armed ? ARMED_TEXT : "Show me"}</button>`;
   }
 
   function guessHTML(ask, position, label, inClue) {
@@ -2167,7 +2167,7 @@
   function hintStepHTML(step, position, won, ruleOpen) {
     return `<div class="hint-step${won ? " won" : ""}"><span class="step-label">${
       position} · ${esc(step.label)}${
-      won ? '<span class="step-won">worked out · free</span>' : ""}</span>${
+      won ? '<span class="step-won">worked out</span>' : ""}</span>${
       withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}${step.after || ""}</div>`;
   }
 

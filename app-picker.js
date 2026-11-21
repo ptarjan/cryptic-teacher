@@ -1200,7 +1200,7 @@
       const t = ts.find((x) => x !== "charade") || ts[0];
       if (!t) return;
       used[t] = used[t] || { hints: 0, clues: 0 };
-      used[t].hints += hints;
+      used[t].hints += hints + (revealsUsed[key] || 0);
       used[t].clues++;
     });
     return Object.entries(used).sort((a, b) => b[1].hints - a[1].hints || b[1].clues - a[1].clues || a[0].localeCompare(b[0]));
@@ -1235,14 +1235,14 @@
       if (counted[key]) return;
       counted[key] = true;
       const rungs = hintsCharged(e);
-      levels += rungs;
+      levels += rungs + (revealsUsed[key] || 0);
       if (!rungs && !(revealsUsed[key] > 0)) noHints++;
       else helped++;
     });
     const mins = Math.round((timing.solvedMs || timing.activeMs || 0) / 60000);
     const bits = [`<strong>${total}</strong> clues`];
     if (noHints) bits.push(`<strong>${noHints}</strong> with no hint at all`);
-    if (helped) bits.push(`<strong>${helped}</strong> with help (${levels} hint${levels === 1 ? "" : "s"})`);
+    if (helped) bits.push(`<strong>${helped}</strong> with hints (${levels} hint${levels === 1 ? "" : "s"})`);
     else bits.push("not one hint used");
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
     parts.line.innerHTML = `<p class="shout">Finished — you completed the whole grid.</p>`

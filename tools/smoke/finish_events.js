@@ -360,7 +360,7 @@ const { EVENTS, ROOT, assert, beacons, clueText, defTexts, entryId, ev, fs, isAs
     "the flash on an entry that was already solved");
 
   // --- a revealed answer is not a solve: neither tier, on a fresh entry ---
-  // Every clue in this puzzle is annotated, so "Fill in answer" only appears
+  // Every clue in this puzzle is annotated, so "Reveal answer" only appears
   // once the blocks rung is up (or the ladder is exhausted) — climb it the
   // same way the sync-reply test below does, answering any question asked
   // along the way rather than guessing at it.

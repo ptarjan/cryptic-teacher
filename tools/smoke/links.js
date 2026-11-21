@@ -169,6 +169,8 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       // (DEVICE_RULES, FAMILY_RULES) are written once for every clue too:
       // "often flags the playful kind" is not a leak of FLAG.
       "rule", "More in the lesson",
+      // The help buttons' fixed words (a "Show me" sits in a question's body).
+      "Show me", "Reveal letter", "Reveal answer", "Letters", "Tap again · 1 hint", "worked out",
       // The blog badge's provisional note (blogHintsBadge in app.js).
       "ours to come",
       ...[...appSrc.slice(appSrc.indexOf("const DEVICE_RULES = {"), appSrc.indexOf("const SELECT_OPS"))

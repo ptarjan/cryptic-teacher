@@ -10,7 +10,7 @@ the site offers.
   question first. The indicator, definition and building-blocks rungs ask
   "which words?", and you answer by tapping words in the clue. The type rung
   offers the seven clue families to pick from. Answer correctly and you get the
-  rung without spending a hint. "Just tell me" reveals it at the normal cost. A
+  rung without spending a hint. "Show me" reveals it at the normal cost. A
   rung you worked out is scored separately from one you bought.
 - **A piece with only one possible answer is handed over, not asked.** If the
   other rungs have already claimed every other word of the clue, tapping the
@@ -30,13 +30,13 @@ the site offers.
 
 ## Other features
 
-- **Reveal one letter** is available at any time. It does not advance the
-  ladder, but it counts against your score.
+- **Reveal letter** is available at any time. It does not advance the
+  ladder, but it costs one hint, like every paid button ("Tap again · 1 hint").
 - **Report a bad hint** is on every clue: two taps and a sentence, with the
   puzzle and clue filled in for you.
 - **Check** buttons (letter / entry / grid) mark wrong letters without
   revealing answers.
-- A gentle score: clues solved with no hints, rungs shown, rungs worked out.
+- A gentle score: clues solved with no hints, steps shown, steps worked out, and a single hint count (a revealed letter is a hint).
 - A collapsible "How cryptic clues work" tutorial.
 - A **glossary of standard abbreviations**. The building-blocks rung links into
   it word by word. Below the hand-built table, /abbreviations/ also lists the

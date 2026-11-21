@@ -4,11 +4,11 @@
 
    Paul: "If a building blocks can't be free it should make me click twice to
    confirm I want it." app.js blocksCost says when a tap on the blocks rung
-   charges: the group is unsolved and the tap opens the rung outright, or "Just
-   tell me" on a blocks question opens it or takes back one already earned.
+   charges: the group is unsolved and the tap opens the rung outright, or "Show
+   me" on a blocks question opens it or takes back one already earned.
 
-   1. firstTapArms: that tap relabels its button "Tap again to reveal · costs a
-      hint" and charges nothing; the second tap reveals and charges one.
+   1. firstTapArms: that tap relabels its button "Tap again · 1 hint" and
+      charges nothing; the second tap reveals and charges one.
    2. timeoutDisarms: left alone for the arm window, the button goes back.
    3. elsewhereDisarms: a click on anything else puts it back too.
    4. freeIsOneTap: on a solved clue the blocks rung opens on one tap, unarmed. */
@@ -16,7 +16,7 @@
 const { boot } = require("../tools/fake_dom.js");
 
 const ID = "cryptic-30066";
-const ARMED = "Tap again to reveal · costs a hint";
+const ARMED = "Tap again · 1 hint";
 const entryId = (e) => e.number + "-" + e.direction;
 
 let failures = 0;
@@ -34,7 +34,7 @@ function open() {
   const row = () => reg["hint-next"].children;
   const body = () => reg["hint-body"].innerHTML;
   const asking = () => body().includes('class="hint-step guess"');
-  const hints = () => Number((/<strong>(\d+)<\/strong> hints used/.exec(reg["scorebar"].innerHTML) || [])[1]);
+  const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);
   const blocksBtn = () => row().find((b) => b.onclick && !b.disabled && /building blocks/i.test(b.textContent || ""));
   const armedBtn = () => row().find((b) => b.textContent === ARMED);
   const tellArmed = () => body().includes(ARMED) && /data-arm="blocks-tell" class="[^"]*arm-cost/.test(body());
@@ -64,15 +64,15 @@ for (const e of blocky) {
   const before = t.hints();
   t.blocksBtn().onclick();
   if (t.asking()) {
-    // The rung asks first, and asking is free; "Just tell me" is the paid tap.
+    // The rung asks first, and asking is free; "Show me" is the paid tap.
     if (asked++) continue;
     check(t.hints() === before, `firstTapArms (${id}): opening the question costs nothing`);
     t.reg["guess-tell"].onclick();
     check(t.tellArmed() && t.asking() && t.hints() === before,
-      `firstTapArms (${id}): the first "Just tell me" arms, still asking, still ${before} hints`);
+      `firstTapArms (${id}): the first "Show me" arms, still asking, still ${before} hints`);
     flushTimers(4000);
-    check(!t.tellArmed() && /Just tell me/.test(t.body()),
-      `timeoutDisarms (${id}): the button reads "Just tell me" again`);
+    check(!t.tellArmed() && /Show me/.test(t.body()),
+      `timeoutDisarms (${id}): the button reads "Show me" again`);
     t.reg["guess-tell"].onclick();
     t.d.docListeners["click"].forEach((f) => f({ target: t.reg["hint-meter"] }));
     flushTimers(0);
