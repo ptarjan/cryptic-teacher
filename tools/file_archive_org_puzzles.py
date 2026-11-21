@@ -2705,7 +2705,7 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         out.append((gx1 + 15, third[2], third[2], third[1]))
         out.append((third[2], third[2] + third[3], third[2] + third[3], third[4]))
     elif third:
-        out.append((gx1 + 15, gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
+        out.append((getattr(third, "x0", gx1 + 15), gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
     return out
 
 
@@ -4012,6 +4012,20 @@ def indy_starts(words, x0, x1, y0, y1):
     return groups
 
 
+#: INDY_NEAR_X (r302: ~76 Gale Independent 2002-03 rows, down lights 3-10 blank "no reading laid a clue on it"): the third column
+#: beside the grid has its clue numbers 11-14 px right of the grid's edge (2002-07-10: x 936-939 of a grid ending 925; 5, 6, 8, 9,
+#: 16, 17 down), and windows_of() opened that column at the grid's edge + 15, so a number's left edge fell outside it and the
+#: clue stood on no light (the numbers at x 940+ and the column's tail, read in the window under the grid, were kept). The
+#: column opens INDY_NEAR_X px right of the edge on those pages (ThirdFrom).
+INDY_NEAR_YEARS, INDY_NEAR_X = ("2002", "2003"), 5
+INDY_NEAR = "Independent 2002-03 page whose third clue column's numbers stood left of its window, read since"
+REREAD_INDY_NEAR = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+
+
+class ThirdFrom(tuple):
+    """windows_of's `third` ((width, top)) with `x0`, where the column opens (the grid's edge + 15 when absent)."""
+
+
 def indy_under(img, grid, right, rapid, key, margin):
     """(third, rapid) for a Gale Independent page whose `right` (right_gutter's, indy_columns() left it) holds one print
     column of clues with the first two under the grid, or None: `third` is windows_of's third column right of the
@@ -4041,6 +4055,9 @@ def indy_under(img, grid, right, rapid, key, margin):
         return None
     edge = min(x1, head + pitch - 20)
     third = (int(edge - gx1 - 15), top)
+    if INDY_NEAR_YEARS[0] <= key[:4] <= INDY_NEAR_YEARS[1]:
+        third = ThirdFrom(third)
+        third.x0 = gx1 + INDY_NEAR_X
     joined = {}
     for which, lines in rapid.items():
         mine = [ws for ws in lines if ws and ws[0][0] >= gx1 + 5]
