@@ -392,5 +392,6 @@ assert ct.open_ellipsis_bracket("Fool ...) in") == "Fool (...) in"
 assert ct.open_ellipsis_bracket("Fool (a ...) in") == "Fool (a ...) in"
 # glyph_fold: look-alike glyphs fold to one shape
 assert ct.glyph_fold("Al") == ct.glyph_fold("A1") == ct.glyph_fold("Ai") == "al" and ct.glyph_fold("tum") == ct.glyph_fold("turn")
+assert ct.glyph_fold("4") == "a" and ct.glyph_fold("5") == "s" and ct.glyph_fold("4bc") == ct.glyph_fold("Abc")
 assert ct.glyph_fold("Bo0") == "boo" and ct.glyph_fold("cat") != ct.glyph_fold("cot")
 print("clue_text ok")

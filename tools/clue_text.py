@@ -238,8 +238,8 @@ def zeros_read(text):
     return text.replace("o", "0").replace("O", "0")
 
 
-# Glyphs a scan reads for one another: l, 1, i, I and | are one shape, 0 and O another, 'rn' reads as 'm'.
-_GLYPHS = str.maketrans({"1": "l", "i": "l", "|": "l", "0": "o"})
+# Glyphs a scan reads for one another: l, 1, i, I and | are one shape, 0 and O another, 4 and A, 5 and S, 'rn' reads as 'm'.
+_GLYPHS = str.maketrans({"1": "l", "i": "l", "|": "l", "0": "o", "4": "a", "5": "s"})
 
 
 def glyph_fold(word):

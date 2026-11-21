@@ -85,28 +85,37 @@ def declared(quoted, clue, evidence):
     """(the clue with the one misprint the model's own evidence names mended, [(clue word, quote word)])
     for a printedClue that corrected nothing ('OCR misread: five (V) for few' beside the clue as shown):
     the model said which clue word it read as which, so both words may be real words and short (the
-    plain rule needs six letters and a non-word). Needs one quote word absent from the clue, exactly one
-    unquoted clue word within three edits of it, once in the clue, and both words in the evidence."""
+    plain rule needs six letters and a non-word). A quote word absent from the clue (a word, a digit
+    or a letter) that the evidence names takes the one unquoted clue word that is its look-alike
+    (glyph_fold: the clue's '4' for 'A'), or within three edits when the evidence names that word too,
+    or within two (one if a short word has a digit, else none) when it does not ('chain' for 'plain',
+    '1dn' for 'dn'); once in the clue. More than one such clue word is no mend. Failing that, the run of clue the
+    evidence quotes ('read as 'El /.'') is the debris of the one absent quote word and is replaced by it."""
     said_ev = {w.casefold() for w in WORD.findall(evidence)}
     toks = [(m.group(), m.start(), m.end()) for m in WORD.finditer(clue)]
     have = {t[0].casefold() for t in toks}
     said = {w.casefold() for q in quoted for w in WORD.findall(q)}
+    absent = {w.casefold(): w for q in quoted for w in WORD.findall(q)
+              if w.casefold() not in have and w.isalnum() and w.casefold() in said_ev}
     swaps = {}
-    for q in quoted:
-        for w in WORD.findall(q):
-            if w.casefold() in have or len(w) < 3 or not w.isalpha() or w.casefold() not in said_ev:
-                continue
-            near = [t for t in toks if t[0].isalpha() and t[0].casefold() not in said
-                    and t[0].casefold() in said_ev
-                    and definitions._lev(w.casefold(), t[0].casefold()) <= DECLARED_EDITS]
-            if len(near) == 1 and sum(t[0] == near[0][0] for t in toks) == 1:
-                swaps[near[0][1]] = (near[0], w)
-    if not swaps or len({v[1].casefold() for v in swaps.values()}) != len(swaps):
-        return None, []
-    new = clue
-    for start, ((c, _, end), w) in sorted(swaps.items(), reverse=True):
-        new = new[:start] + (w[0].upper() + w[1:] if c[0].isupper() else w) + new[end:]
-    return new, [(c, w) for (c, _, _), w in swaps.values()]
+    for w in absent.values():
+        cap = 2 if len(w) >= 4 else int(any(c.isdigit() for c in w))
+        near = [t for t in toks if t[0].isalnum() and t[0].casefold() not in said
+                and (ct.glyph_fold(t[0]) == ct.glyph_fold(w)
+                     or definitions._lev(w.casefold(), t[0].casefold())
+                     <= (DECLARED_EDITS if t[0].casefold() in said_ev and len(w) >= 3 else cap))]
+        if len(near) == 1 and sum(t[0] == near[0][0] for t in toks) == 1:
+            swaps[near[0][1]] = (near[0], w)
+    if swaps and len({v[1].casefold() for v in swaps.values()}) == len(swaps):
+        new = clue
+        for start, ((c, _, end), w) in sorted(swaps.items(), reverse=True):
+            new = new[:start] + (w[0].upper() + w[1:] if c[0].isupper() else w) + new[end:]
+        return new, [(c, w) for (c, _, _), w in swaps.values()]
+    runs = [r for r in re.findall(r"'([^']{2,20})'", evidence) if clue.count(r) == 1]
+    if len(absent) == 1 and len(runs) == 1:
+        (w,) = absent.values()
+        return clue.replace(runs[0], w), [(runs[0], w)]
+    return None, []
 
 
 def mend(a, shown, source_ocr):
