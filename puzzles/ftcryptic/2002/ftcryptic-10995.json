@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,28 @@
     "text": "Impromptu score",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impromptu",
+      "at": 0,
+      "meaning": "a ... team or meal is thrown together on the spot"
+     },
+     {
+      "text": "score",
+      "at": 10,
+      "meaning": "to score a surface is to mark it with a line or scrape"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses fit one word: an improvised, makeshift thing, and a mark or scrape on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +69,28 @@
     "text": "Friendly party",
     "enumeration": "6"
    },
-   "solution": "SOCIAL"
+   "solution": "SOCIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Friendly",
+      "at": 0,
+      "meaning": "sociable, fond of company"
+     },
+     {
+      "text": "party",
+      "at": 9,
+      "meaning": "an informal gathering or get-together"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The adjective means sociable or companionable; as a noun it names an informal gathering of club members."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +104,11 @@
     "text": "Fashion earclip is a repro wheel?",
     "enumeration": "7"
    },
-   "solution": "REPLICA"
+   "solution": "REPLICA",
+   "annotationWithheld": {
+    "why": "Clue held as 'Fashion earclip is a repro wheel? (7)': EARCLIP anagrams to the answer with 'a repro' as definition, but 'wheel?' has no job; the OCR text looks corrupted and no source was found.",
+    "clue": "Fashion earclip is a repro wheel?"
+   }
   },
   {
    "number": 3,
@@ -73,7 +122,70 @@
     "text": "Highwayman's character changed finally, due, perhaps, to depravity",
     "enumeration": "9"
    },
-   "solution": "TURPITUDE"
+   "solution": "TURPITUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "depravity",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "character changed finally",
+         "at": 13,
+         "note": "the last letter of the highwayman's name is swapped for a different one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Highwayman's",
+         "at": 0,
+         "gives": "TURPIN",
+         "note": "Dick Turpin was the most famous English highwayman of the eighteenth century"
+        },
+        {
+         "gives": "N"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 45,
+         "note": "perhaps signals that the letters of due appear in some other arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "due",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A highwayman's nature finally altered, owing perhaps to his wicked ways.",
+     "walkthrough": "'character changed finally' replaces Turpin's last letter N with T, giving TURPIT; 'perhaps' turns DUE into UDE. Dick Turpin was a notorious English highwayman.",
+     "definitionFit": "Turpitude is wickedness or moral baseness, a close synonym of depravity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +199,45 @@
     "text": "Lay up and isolate hips for replacement",
     "enumeration": "11"
    },
-   "solution": "HOSPITALISE"
+   "solution": "HOSPITALISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lay up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "for replacement",
+       "at": 24,
+       "note": "hip replacement suggests surgery, but here it says the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "isolate",
+       "at": 11
+      },
+      {
+       "words": "hips",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient is admitted and kept apart while awaiting new hip joints.",
+     "walkthrough": "'for replacement' rearranges ISOLATE plus HIPS, eleven letters in all.",
+     "definitionFit": "To be laid up is to be confined to bed through illness, which a hospital admission does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "replacement"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +251,42 @@
     "text": "Jessie's exploits out of print",
     "enumeration": "7"
    },
-   "solution": "MILKSOP"
+   "solution": "MILKSOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jessie's",
+      "at": 0,
+      "note": "read as 'Jessie is': the definition plus a link"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "exploits",
+       "at": 9,
+       "gives": "MILKS",
+       "note": "to milk someone is to exploit them"
+      },
+      {
+       "words": "out of print",
+       "at": 18,
+       "gives": "OP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jessie takes advantage of things no longer published.",
+     "walkthrough": "'Jessie' is British slang for a weak, effeminate man, so 'Jessie's' reads as 'a Jessie is'.",
+     "definitionFit": "A milksop is a feeble, timid man, which is what the British slang jessie means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jessie's"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +300,70 @@
     "text": "Fifth of November and no old penny for the guy!",
     "enumeration": "3"
    },
-   "solution": "MAN"
+   "solution": "MAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "guy",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 5,
+       "indicators": [
+        {
+         "text": "Fifth of",
+         "at": 0,
+         "note": "picks the fifth letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "November",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 22,
+         "note": "no says a letter is dropped from the word and"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 18
+        },
+        {
+         "words": "old penny",
+         "at": 25,
+         "gives": "D",
+         "note": "D was the abbreviation for the pre-decimal British penny"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bonfire Night, and a guy made without spending a penny.",
+     "walkthrough": "Fifth of November (Bonfire Night) suggests the Guy Fawkes effigy, but it is just letter five of NOVEMBER. Pre-1971 British pennies were abbreviated d.",
+     "definitionFit": "A guy is an informal word for a male person, a fellow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +377,11 @@
     "text": "The wine of France laid cannibal down like lightning, once",
     "enumeration": "5"
    },
-   "solution": "LEVIN"
+   "solution": "LEVIN",
+   "annotationWithheld": {
+    "why": "Clue held as 'The wine of France laid cannibal down like lightning, once (5)': LE VIN plus definition 'lightning, once' works, but 'laid cannibal down like' has no job; OCR text appears corrupted and no source was found.",
+    "clue": "The wine of France laid cannibal down like lightning, once"
+   }
   },
   {
    "number": 7,
@@ -143,7 +395,36 @@
     "text": "Bronze troublesome to hide?",
     "enumeration": "7"
    },
-   "solution": "SUNBURN"
+   "solution": "SUNBURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bronze troublesome to hide?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bronze troublesome to hide?",
+       "at": 0,
+       "note": "a tan that hurts, where the hide is a person's skin rather than something concealed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bronze statue proves hard to conceal.",
+     "walkthrough": "Hide is skin, and bronze is a tan colour, so a painful tan on the skin.",
+     "definitionFit": "Overexposure to sunshine reddens and blisters the skin, a painful kind of tan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +444,41 @@
      }
     ]
    },
-   "solution": "PULSEJET"
+   "solution": "PULSEJET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One provides economy flight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "beating",
+       "at": 29,
+       "gives": "PULSE",
+       "note": "a pulse is a beating, as of the heart"
+      },
+      {
+       "words": "rush",
+       "at": 37,
+       "gives": "JET",
+       "note": "a jet is a rush or spurt of liquid or gas"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A budget airline whose flights are always a mad dash.",
+     "definitionFit": "A pulse-jet is a simple, cheap jet engine that fires in intermittent bursts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "economy"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +492,47 @@
     "text": "Accountant, with capital, advanced something to put on a horse",
     "enumeration": "9"
    },
-   "solution": "CAPARISON"
+   "solution": "CAPARISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something to put on a horse",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Accountant",
+       "at": 0,
+       "gives": "CA",
+       "note": "CA is a chartered accountant"
+      },
+      {
+       "words": "capital",
+       "at": 17,
+       "gives": "PARIS",
+       "note": "Paris is the capital of France"
+      },
+      {
+       "words": "advanced",
+       "at": 26,
+       "gives": "ON",
+       "note": "on means forward, advanced"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant puts capital forward for some piece of horse equipment.",
+     "definitionFit": "A caparison is an ornamental cloth or covering laid over a horse's saddle and harness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +546,62 @@
     "text": "Civic Centre on Back Lane is for sale",
     "enumeration": "5"
    },
-   "solution": "VENAL"
+   "solution": "VENAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for sale",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Centre",
+         "at": 6,
+         "note": "the middle letter of the word Civic is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Civic",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "at": 16,
+         "note": "Back says the word Lane is read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lane",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The civic centre on Back Lane is on the market.",
+     "walkthrough": "'Centre' takes V from CIVIC; 'Back' turns LANE into ENAL.",
+     "definitionFit": "A venal official can be bought, so is corruptly purchasable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +615,52 @@
     "text": "One on bail freed with this excuse",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "excuse",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "freed",
+         "at": 12,
+         "note": "freed says the letters of bail are released into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bail",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner released on bail uses this as an excuse.",
+     "walkthrough": "'freed' rearranges BAIL into ALIB.",
+     "definitionFit": "An alibi is a claim of being elsewhere, the classic excuse against a criminal charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bail"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +674,42 @@
     "text": "Sealed agreement, wearing false smile",
     "enumeration": "9"
    },
-   "solution": "INDENTURE"
+   "solution": "INDENTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sealed agreement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wearing",
+       "at": 18,
+       "gives": "IN",
+       "note": "in clothes means wearing them"
+      },
+      {
+       "words": "false smile",
+       "at": 26,
+       "gives": "DENTURE",
+       "note": "a denture gives a smile of false teeth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contract signed with an insincere grin.",
+     "definitionFit": "An indenture is a formal sealed contract, notably binding an apprentice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "false"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +723,11 @@
     "text": "Indisposed, small dose is given maenad given",
     "enumeration": "11"
    },
-   "solution": "DISINCLINED"
+   "solution": "DISINCLINED",
+   "annotationWithheld": {
+    "why": "Clue held as 'Indisposed, small dose is given maenad given (11)': D + IS + INCLINED is plausible, but 'maenad given' is garbled OCR and no source was found.",
+    "clue": "Indisposed, small dose is given maenad given"
+   }
   },
   {
    "number": 14,
@@ -253,7 +747,41 @@
      }
     ]
    },
-   "solution": "NATURALSCIENCE"
+   "solution": "NATURALSCIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "physics, say",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One considered certain to succeed",
+       "at": 0,
+       "gives": "NATURAL",
+       "note": "a natural is someone born to do something, sure to succeed"
+      },
+      {
+       "words": "skill",
+       "at": 43,
+       "gives": "SCIENCE",
+       "note": "science in its older sense means skill or expertise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A born winner who is also adept at physics.",
+     "definitionFit": "Physics is one example of the disciplines studying the physical world, alongside chemistry and biology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "physics"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +795,54 @@
     "text": "Travelling, one can take time with good books",
     "enumeration": "9"
    },
-   "solution": "ITINERANT"
+   "solution": "ITINERANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Travelling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 12,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "can",
+       "at": 16,
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "words": "time",
+       "at": 25,
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      },
+      {
+       "words": "good books",
+       "at": 35,
+       "gives": "NT",
+       "note": "NT is the New Testament, part of the Good Book"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller who can find time for the scriptures.",
+     "walkthrough": "'take' and 'with' are links.",
+     "definitionFit": "An itinerant worker moves from place to place, so is always on the road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +862,11 @@
      }
     ]
    },
-   "solution": "ICECREAM"
+   "solution": "ICECREAM",
+   "annotationWithheld": {
+    "why": "Clue held as 'Elite wearing diamonds in nail the coldest part of Alaska? (3-5)': CREAM in ICE fits, but 'in nail' has no job (perhaps 'is' misread beyond the allowed changes); no source found.",
+    "clue": "Elite wearing diamonds in nail the coldest part of Alaska?"
+   }
   },
   {
    "number": 17,
@@ -307,7 +886,49 @@
      }
     ]
    },
-   "solution": "CARTESIANDIVER"
+   "solution": "CARTESIANDIVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bottle-imp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 33,
+       "note": "a drunk person's words are jumbled, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 16
+      },
+      {
+       "words": "resident",
+       "at": 18
+      },
+      {
+       "words": "vicar",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy local clergyman ends up with a genie in a bottle.",
+     "walkthrough": "'drunk' rearranges A RESIDENT VICAR, fourteen letters.",
+     "definitionFit": "A bottle-imp is the old name for the toy where a small figure in a water-filled bottle rises and sinks when squeezed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bottle-imp"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +942,11 @@
     "text": "Rugby revival, so bucolic? france",
     "enumeration": "7"
    },
-   "solution": "RURALLY"
+   "solution": "RURALLY",
+   "annotationWithheld": {
+    "why": "Clue held as 'Rugby revival, so bucolic? france (7)': RU + RALLY fits, but the trailing 'france' is garbled OCR with no job; no source found.",
+    "clue": "Rugby revival, so bucolic? france"
+   }
   },
   {
    "number": 19,
@@ -335,7 +960,40 @@
     "text": "Nearest translation is oriental",
     "enumeration": "7"
    },
-   "solution": "EASTERN"
+   "solution": "EASTERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "oriental",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "translation",
+       "at": 8,
+       "note": "a translation renders words in another form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nearest",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The nearest rendering of a text is an Asian one.",
+     "definitionFit": "Oriental and eastern both describe things of Asia or the East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1007,45 @@
     "text": "Bloke reported in the Inner Wheel?",
     "enumeration": "6"
    },
-   "solution": "FELLOE"
+   "solution": "FELLOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inner Wheel?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FELLOE",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 6,
+       "note": "reported says the word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bloke",
+       "at": 0,
+       "gives": "FELLOW",
+       "note": "a fellow is a bloke, a man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man mentioned in the records of a women's service club.",
+     "walkthrough": "The Inner Wheel is a women's club linked to Rotary, but here it is the wheel's inner rim, which the spokes join beneath the tyre.",
+     "definitionFit": "A felloe is the rim of a wooden wheel, to which the spokes attach inside the tyre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Inner"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1059,28 @@
     "text": "Athlete's turn to impress the field?",
     "enumeration": "9"
    },
-   "solution": "CARTWHEEL"
+   "solution": "CARTWHEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Athlete's turn",
+      "at": 0,
+      "meaning": "a gymnastic sideways handspring"
+     },
+     {
+      "text": "to impress the field?",
+      "at": 15,
+      "meaning": "the rim of a ... presses a track into a field"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One sense is a sideways gymnastic flip; the other is the wheel of a farm cart leaving its mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1094,41 @@
     "text": "Off-white willow binding",
     "enumeration": "5"
    },
-   "solution": "WITHE"
+   "solution": "WITHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "willow binding",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Off",
+       "at": 0,
+       "note": "off means wrong or out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "white",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pale-coloured willow tie.",
+     "walkthrough": "'Off-white' looks like a colour, but 'Off' rearranges WHITE.",
+     "definitionFit": "A withe is a pliable willow twig used for tying or binding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Off-white"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1142,42 @@
     "text": "What's to follow a portion of canteen suet?",
     "enumeration": "5"
    },
-   "solution": "ENSUE"
+   "solution": "ENSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's to follow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "portion of",
+       "at": 19,
+       "note": "portion of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "canteen suet",
+       "at": 30,
+       "gives": "ENSUE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what comes after a helping of canteen suet pudding.",
+     "definitionFit": "To ensue is to come afterwards, to follow as a result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1191,58 @@
     "text": "City area almost delayed this conspicuous success",
     "enumeration": "5"
    },
-   "solution": "ECLAT"
+   "solution": "ECLAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "conspicuous success",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "City area",
+       "at": 0,
+       "gives": "EC",
+       "note": "EC is the postcode for the City of London"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 10,
+         "note": "almost says the last letter is cut off the word for delayed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delayed",
+         "at": 17,
+         "gives": "LATE",
+         "note": "late means delayed"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "ÉCLAT",
+    "explanation": {
+     "surface": "Arriving late in the City still brings great success.",
+     "walkthrough": "EC is the City of London's postal district.",
+     "definitionFit": "Éclat is brilliant success or striking acclaim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1256,28 @@
     "text": "Peach of an apple",
     "enumeration": "9"
    },
-   "solution": "NONPAREIL"
+   "solution": "NONPAREIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Peach",
+      "at": 0,
+      "meaning": "a peach is an excellent person or thing, one without equal"
+     },
+     {
+      "text": "apple",
+      "at": 12,
+      "meaning": "An old variety of dessert apple"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses fit: an unrivalled example of something, and a traditional variety of eating apple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1291,56 @@
     "text": "Almost done-up? Sleep!",
     "enumeration": "3"
    },
-   "solution": "NOD"
+   "solution": "NOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sleep",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 12,
+       "note": "in a down clue up means the letters are read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost says the last letter is cut off the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "at": 7,
+         "gives": "DONE"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly ready? Time to nod off.",
+     "walkthrough": "'Almost' cuts DONE to DON; 'up' reverses it in this down entry.",
+     "definitionFit": "To nod is to doze briefly, the head dropping in light sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1354,48 @@
     "text": "Puny person after hawthorn or dog-fennel",
     "enumeration": "7"
    },
-   "solution": "MAYWEED"
+   "solution": "MAYWEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog-fennel",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 12,
+       "note": "after puts the weakling's word behind the blossom's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hawthorn",
+       "at": 18,
+       "gives": "MAY",
+       "note": "may is another name for hawthorn blossom"
+      },
+      {
+       "words": "Puny person",
+       "at": 0,
+       "gives": "WEED",
+       "note": "a weed is a weak, skinny person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weakling chasing a hawthorn bush or a smelly plant.",
+     "definitionFit": "Mayweed is a wild chamomile also called dog-fennel, a strong-smelling plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Puny"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1409,37 @@
     "text": "Helping poor relations from France",
     "enumeration": "7"
    },
-   "solution": "DETENTE"
+   "solution": "DETENTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Helping poor relations from France",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Helping poor relations from France",
+       "at": 0,
+       "note": "suggests charity to needy kin, but means easing strained international ties, with a French term"
+      }
+     ]
+    },
+    "spelling": "DÉTENTE",
+    "explanation": {
+     "surface": "Aiding hard-up relatives from across the Channel.",
+     "walkthrough": "Poor relations here are bad diplomatic ties, not needy family.",
+     "definitionFit": "Détente is a French word for the relaxing of tension between rival states."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "poor"
+    }
+   }
   }
  ]
 }
