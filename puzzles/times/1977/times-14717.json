@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Tips \" The Blues '",
     "enumeration": "5"
    },
-   "solution": "DUMPS"
+   "solution": "DUMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tips",
+      "at": 0,
+      "meaning": "rubbish tips are ..., places where refuse is tipped"
+     },
+     {
+      "text": "The Blues",
+      "at": 7,
+      "meaning": "the blues, a low mood"
+     }
+    ],
+    "explanation": {
+     "surface": "A pop chart hint: tips on a song called The Blues.",
+     "definitionFit": "Two senses: refuse heaps are dumps, and gloom is the dumps, as in 'down in the dumps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,31 @@
     "text": "Sad way the pianist played the notes",
     "enumeration": "9"
    },
-   "solution": "DEPRESSED"
+   "solution": "DEPRESSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sad",
+      "at": 0,
+      "meaning": "sad means low or dejected"
+     },
+     {
+      "text": "way the pianist played the notes",
+      "at": 4,
+      "meaning": "a pianist pushes the keys down, so the notes were pushed down"
+     }
+    ],
+    "explanation": {
+     "surface": "A pianist played the notes in a melancholy way.",
+     "definitionFit": "Two senses: someone sad is low, and keys a pianist pushes down are pressed down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sad"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +107,60 @@
     "text": "Vehicle upset carrying, a revolutionary",
     "enumeration": "5"
    },
-   "solution": "MARAT"
+   "solution": "MARAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revolutionary",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 14,
+       "note": "carrying means holding something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 8,
+         "note": "in a down clue, upset means turned upside down, so the word reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vehicle",
+         "at": 0,
+         "gives": "TRAM",
+         "note": "a tram is a vehicle"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overturned vehicle was carrying a rebel.",
+     "walkthrough": "'upset' turns TRAM into MART; 'carrying' puts A inside it.",
+     "definitionFit": "Jean-Paul Marat was a radical of the French Revolution, stabbed in his bath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +174,59 @@
     "text": "Children's toys firm put in stores, perhaps",
     "enumeration": "8"
    },
-   "solution": "SCOOTERS"
+   "solution": "SCOOTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Children's toys",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 21,
+       "note": "put in means placed inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 36,
+         "note": "perhaps suggests the letters of stores could be another arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stores",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "firm",
+       "at": 16,
+       "gives": "CO",
+       "note": "CO is short for company, a firm"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm puts children's toys into shops.",
+     "walkthrough": "'perhaps' rearranges STORES to SOTERS, and 'put in' places CO inside.",
+     "definitionFit": "Scooters are child's foot-powered vehicles, a common plaything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stores"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +240,45 @@
     "text": "Coat tears — hemp needs repair",
     "enumeration": "9"
    },
-   "solution": "PETERSHAM"
+   "solution": "PETERSHAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "needs repair",
+       "at": 18,
+       "note": "something needing repair must be put back together, so these letters are reassembled in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tears",
+       "at": 5
+      },
+      {
+       "words": "hemp",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garment is torn and its hemp fabric must be mended.",
+     "walkthrough": "'needs repair' rearranges the letters of TEARS and HEMP together.",
+     "definitionFit": "A petersham is a heavy overcoat named after Viscount Petersham, so it is a kind of coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +292,44 @@
     "text": "Laughter of' a huntsman, say ?",
     "enumeration": "4"
    },
-   "solution": "PEAL"
+   "solution": "PEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Laughter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEAL",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 25,
+       "note": "say means as spoken, so the word is heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a huntsman",
+       "at": 13,
+       "gives": "PEEL",
+       "note": "John Peel, the Cumbrian huntsman of the song 'D'ye ken John Peel'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The laugh of a hunter, perhaps?",
+     "walkthrough": "John Peel is the hero of a well-known English hunting song; 'of' is a link.",
+     "definitionFit": "A loud burst of laughter is called a peal, like ringing bells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "huntsman"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +343,51 @@
     "text": "Dramatic if unusual way to clear that one",
     "enumeration": "10"
    },
-   "solution": "THEATRICAL"
+   "solution": "THEATRICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dramatic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 12,
+       "note": "unusual signals the letters will be arranged in a strange, not normal, way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clear",
+       "at": 27
+      },
+      {
+       "words": "that",
+       "at": 33
+      },
+      {
+       "words": "one",
+       "at": 38,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Theatre is the odd way to make things clear.",
+     "walkthrough": "'unusual' rearranges CLEAR, THAT and I (one) together; 'if', 'way to' are links.",
+     "definitionFit": "Theatrical means stagy or showy, as belongs to the stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +401,35 @@
     "text": "Sport for brawlers ?",
     "enumeration": "6"
    },
-   "solution": "ROWING"
+   "solution": "ROWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sport for brawlers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sport for brawlers",
+       "at": 0,
+       "note": "the oar sport shares its spelling with quarrelling, a row in the sense of a brawl"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sport suitable for street fighters.",
+     "definitionFit": "Oarsmen's sport and squabbling share one spelling, so it is the sport that suits quarrelers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brawlers"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +443,66 @@
     "text": "Called in Jekyll's associate over a bloomer",
     "enumeration": "9"
    },
-   "solution": "HYDRANGEA"
+   "solution": "HYDRANGEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bloomer",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 29,
+       "note": "in a down clue, over means placed above the following piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "in means inside, so one piece goes within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jekyll's associate",
+         "at": 10,
+         "gives": "HYDE",
+         "note": "Mr Hyde, Dr Jekyll's other self in Stevenson's story"
+        },
+        {
+         "words": "Called",
+         "at": 0,
+         "gives": "RANG",
+         "note": "rang means telephoned, called"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 34,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flower is called into Jekyll's companion.",
+     "walkthrough": "'bloomer' here is a flowering plant, not a blunder or undergarment.",
+     "definitionFit": "A hydrangea is a flowering shrub, so it blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +516,31 @@
     "text": "Confined, as Tom put it ?",
     "enumeration": "5"
    },
-   "solution": "MEWED"
+   "solution": "MEWED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confined",
+      "at": 0,
+      "meaning": "shut away, from hawks kept in mews"
+     },
+     {
+      "text": "as Tom put it",
+      "at": 10,
+      "meaning": "a tom is a male cat, and a cat's cry is a mew"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shut away, in the words of a man named Tom.",
+     "definitionFit": "Hawks were kept shut up in mews, so mewed means confined; a tomcat's cry is a miaow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +554,48 @@
     "text": "Strain shown by leader after time",
     "enumeration": "9"
    },
-   "solution": "PERCOLATE"
+   "solution": "PERCOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "by",
+       "at": 13,
+       "gives": "PER",
+       "note": "per means by, as in 'per post'"
+      },
+      {
+       "words": "leader",
+       "at": 16,
+       "gives": "CO",
+       "note": "CO is short for commanding officer, a military leader"
+      },
+      {
+       "words": "after time",
+       "at": 23,
+       "gives": "LATE",
+       "note": "late means after the expected time, overdue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's strain shows in a leader who arrives late.",
+     "walkthrough": "'shown' is just a link joining the definition to the wordplay.",
+     "definitionFit": "To strain a liquid through grounds or a filter is to percolate it, as with coffee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Strain"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +609,30 @@
     "text": "Champagne shunned by Weller Senior",
     "enumeration": "5"
    },
-   "solution": "WIDOW"
+   "solution": "WIDOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Champagne",
+      "at": 0,
+      "meaning": "Veuve Clicquot champagne is known as the ..., veuve being French for this"
+     },
+     {
+      "text": "shunned by Weller Senior",
+      "at": 10,
+      "meaning": "Tony Weller, Sam's father in Dickens's Pickwick Papers, famously warns 'beware of vidders'"
+     }
+    ],
+    "explanation": {
+     "surface": "An old man refuses a glass of champagne.",
+     "definitionFit": "Veuve Clicquot is nicknamed the Widow, and Dickens's Tony Weller spends Pickwick Papers warning against remarrying bereaved wives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Weller"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +646,40 @@
     "text": "Invest a tenth part in property",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "property",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part",
+       "at": 15,
+       "note": "only a part of the words Invest a tenth is taken, the letters running across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Invest a tenth",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An investor puts a tithe into real estate.",
+     "walkthrough": "'part' signals letters taken from inside 'Invest a tenth'; 'in' is a link.",
+     "definitionFit": "An estate is a landed property, a house with its grounds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +693,30 @@
     "text": "Criterion set by staff, perhaps",
     "enumeration": "8"
    },
-   "solution": "STANDARD"
+   "solution": "STANDARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criterion",
+      "at": 0,
+      "meaning": "a criterion is a benchmark or yardstick to measure by"
+     },
+     {
+      "text": "staff, perhaps",
+      "at": 17,
+      "meaning": "an upright pole or support, as in a ... lamp or a flag on its staff"
+     }
+    ],
+    "explanation": {
+     "surface": "A benchmark laid down by the employees of a firm.",
+     "definitionFit": "A benchmark is a standard, and an upright pole or support is also called a standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +730,46 @@
     "text": "Possibly a quip's to end a form of lampoon",
     "enumeration": "10"
    },
-   "solution": "PASQUINADE"
+   "solution": "PASQUINADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a form of lampoon",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Possibly",
+       "at": 0,
+       "note": "possibly means the letters might form something else, an anagram signal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a quip's",
+       "at": 9,
+       "gives": "AQUIPS",
+       "note": "the letters of a quip's, the S included"
+      },
+      {
+       "words": "end a",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke could end up as a form of satire.",
+     "walkthrough": "'Possibly' rearranges A QUIPS with END A; 'to' is a link.",
+     "definitionFit": "A pasquinade is a satire posted in public, named after Pasquino's statue in Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +783,40 @@
     "text": "A sort of Australian orgy",
     "enumeration": "10"
    },
-   "solution": "SATURNALIA"
+   "solution": "SATURNALIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "orgy",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sort of",
+       "at": 2,
+       "note": "to sort something is to rearrange it, so the letters of this word are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australian",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild party of the kind Australians throw.",
+     "walkthrough": "'sort of' rearranges AUSTRALIAN; the opening 'A' is a link.",
+     "definitionFit": "The Roman winter festival of Saturn became a byword for unrestrained revelry, hence any wild party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -251,10 +827,51 @@
    },
    "length": 9,
    "clue": {
-    "text": "Stronghold-it's French 17 within a Northants town",
+    "text": "Stronghold — it's French within a Northants town",
     "enumeration": "9"
    },
-   "solution": "TOWCESTER"
+   "solution": "TOWCESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a Northants town",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 25,
+       "note": "within means inside, so one piece goes in the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stronghold",
+       "at": 0,
+       "gives": "TOWER",
+       "note": "a tower is a stronghold, a fortress"
+      },
+      {
+       "words": "it's French",
+       "at": 13,
+       "gives": "CEST",
+       "note": "c'est is French for it is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French fortress inside an English county town.",
+     "walkthrough": "Northants is Northamptonshire, an English Midlands county; Towcester is a market town there.",
+     "definitionFit": "Towcester is a small market town in Northamptonshire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +885,36 @@
     "text": "Clutch parts broken in scramble?",
     "enumeration": "4"
    },
-   "solution": "EGGS"
+   "solution": "EGGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clutch parts broken in scramble?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Clutch parts broken in scramble?",
+       "at": 0,
+       "note": "a clutch is the set a hen lays at once, and scrambling one means cracking each of them into a pan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car's clutch components get damaged in a motorcycle scramble.",
+     "walkthrough": "The surface pictures a car clutch and a motorbike scramble; in fact it is a hen's clutch and scrambled breakfast.",
+     "definitionFit": "A clutch is a batch of laid ova and scrambling breaks them, so the things described are laid ova."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clutch"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +928,52 @@
     "text": "Firm gets dates arranged quickly",
     "enumeration": "9"
    },
-   "solution": "STEADFAST"
+   "solution": "STEADFAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 16,
+         "note": "arranged means put into order, so these letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dates",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "quickly",
+       "at": 25,
+       "gives": "FAST",
+       "note": "fast means quickly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company sets its dates in a hurry.",
+     "walkthrough": "'arranged' rearranges DATES into STEAD; 'gets' is a link.",
+     "definitionFit": "Steadfast means unwavering and resolute, as in a firm friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +987,42 @@
     "text": "The state of the foreign goods",
     "enumeration": "8"
    },
-   "solution": "DELAWARE"
+   "solution": "DELAWARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The state",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of the foreign",
+       "at": 10,
+       "gives": "DELA",
+       "note": "de la is French for of the"
+      },
+      {
+       "words": "goods",
+       "at": 25,
+       "gives": "WARE",
+       "note": "ware means goods for sale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The condition of imported merchandise.",
+     "walkthrough": "'The state' looks like a condition but is an American state.",
+     "definitionFit": "Delaware is a US state on the Atlantic coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1036,35 @@
     "text": "Early cracker",
     "enumeration": "4"
    },
-   "solution": "DAWN"
+   "solution": "DAWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Early cracker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Early cracker",
+       "at": 0,
+       "note": "first light 'cracks', as in the phrase 'crack of' this morning moment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that breaks early, like a weak biscuit.",
+     "definitionFit": "Daybreak arrives early, and we speak of daybreak as a crack, so it is an early cracker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cracker"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1084,36 @@
      }
     ]
    },
-   "solution": "SQUAREFACE"
+   "solution": "SQUAREFACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not the fitting gin to put before a Roundhead?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Not the fitting gin to put before a Roundhead?",
+       "at": 0,
+       "note": "a Dutch gin is named for its angular bottle, a shape opposite to round, so it would not suit a Roundhead"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Which gin would be unsuitable to serve a Cromwellian soldier?",
+     "walkthrough": "Roundheads were Parliament's soldiers in the English Civil War, named for their cropped hair; a square shape suits them badly.",
+     "definitionFit": "Square-face is an old name for Dutch gin, from its square bottles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Roundhead"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1127,40 @@
     "text": "The way an Afghan appears",
     "enumeration": "6"
    },
-   "solution": "PATHAN"
+   "solution": "PATHAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Afghan",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "way",
+       "at": 4,
+       "gives": "PATH",
+       "note": "a path is a way"
+      },
+      {
+       "words": "an",
+       "at": 8,
+       "gives": "AN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The route an Afghan appears to take.",
+     "definitionFit": "The Pathans, or Pashtuns, are a people of Afghanistan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1174,51 @@
     "text": "Parts of the IRA in charge of priests?",
     "enumeration": "8"
    },
-   "solution": "HIERATIC"
+   "solution": "HIERATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of priests",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Parts of",
+         "at": 0,
+         "note": "parts here means splits up, so the letters of these words are broken and reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the IRA",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "in charge",
+       "at": 17,
+       "gives": "IC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sections of the IRA under the command of clergy?",
+     "walkthrough": "'Parts of' rearranges THE IRA, then IC follows.",
+     "definitionFit": "Hieratic means priestly, from the Greek for priest, as in the hieratic script of Egyptian priests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parts"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1232,31 @@
     "text": "Workers clock on ? The other way round",
     "enumeration": "5"
    },
-   "solution": "HANDS"
+   "solution": "HANDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Workers",
+      "at": 0,
+      "meaning": "labourers, farm or factory workers"
+     },
+     {
+      "text": "clock on ? The other way round",
+      "at": 8,
+      "meaning": "turn 'clock on' about to get 'on clock', the parts on a clock face that point to the time"
+     }
+    ],
+    "explanation": {
+     "surface": "Workers clock on, or perhaps the other way round.",
+     "definitionFit": "Labourers are called hands, and the pointers on a clock face are also hands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clock"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1270,33 @@
     "text": "Song entices people to dance?",
     "enumeration": "6"
    },
-   "solution": "BALLAD"
+   "solution": "BALLAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Song entices people to dance?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Song entices people to dance?",
+       "at": 0,
+       "note": "the word for this song comes through Latin ballare, to dance, and first meant a dancing song"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song that gets people up onto the dance floor.",
+     "definitionFit": "A narrative song took its name from the dancing songs of Provence, so it is a song born of dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1310,51 @@
     "text": "Physicist transmuting gold, note",
     "enumeration": "5"
    },
-   "solution": "LODGE"
+   "solution": "LODGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Physicist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transmuting",
+         "at": 10,
+         "note": "transmuting means changing form, as alchemists hoped for metal, so these letters change order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gold",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "at": 28,
+       "gives": "E",
+       "note": "E is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist turns gold into something else, the alchemist's dream.",
+     "walkthrough": "'transmuting' rearranges GOLD. Sir Oliver Lodge was a British radio pioneer.",
+     "definitionFit": "Sir Oliver Lodge was a British scientist who worked on radio waves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1368,31 @@
     "text": "Not much 'money, as this is going up",
     "enumeration": "4"
    },
-   "solution": "CENT"
+   "solution": "CENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not much 'money",
+      "at": 0,
+      "meaning": "one hundredth of a dollar, a tiny sum"
+     },
+     {
+      "text": "as this is going up",
+      "at": 17,
+      "meaning": "put 'as' before this word and the result means a climb or rise"
+     }
+    ],
+    "explanation": {
+     "surface": "Small change, because prices are rising.",
+     "walkthrough": "AS plus this word gives ASCENT, a going up.",
+     "definitionFit": "A cent is a hundredth part of a dollar, a small coin; with AS in front it spells a climb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1406,42 @@
     "text": "Marking on a tally — not those on taps",
     "enumeration": "5"
    },
-   "solution": "NOTCH"
+   "solution": "NOTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marking on a tally",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not",
+       "at": 21,
+       "gives": "NOT",
+       "note": "taken as written"
+      },
+      {
+       "words": "those on taps",
+       "at": 25,
+       "gives": "CH",
+       "note": "taps are labelled C and H for cold and hot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tally marks are not the marks you see on taps.",
+     "walkthrough": "Taps are marked C (cold) and H (hot), giving CH.",
+     "definitionFit": "Tallies were kept by cutting nicks into a stick, so each mark is a nick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taps"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1455,54 @@
     "text": "Queen has drink with unknown joiner and painter",
     "enumeration": "9"
    },
-   "solution": "ALEXANDRA"
+   "solution": "ALEXANDRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Queen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drink",
+       "at": 10,
+       "gives": "ALE",
+       "note": "ale is a drink, beer"
+      },
+      {
+       "words": "unknown",
+       "at": 21,
+       "gives": "X",
+       "note": "x is the classic unknown quantity in algebra"
+      },
+      {
+       "words": "joiner",
+       "at": 29,
+       "gives": "AND",
+       "note": "and is a joining word, a conjunction"
+      },
+      {
+       "words": "painter",
+       "at": 40,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, a painter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The queen drinks with an anonymous carpenter and an artist.",
+     "walkthrough": "'joiner' looks like a carpenter but means the conjunction AND; 'has' and 'with' are links.",
+     "definitionFit": "Alexandra was queen consort to Edward VII of Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joiner"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1516,11 @@
     "text": "Severe regarding bit of fiddle by ten members",
     "enumeration": "9"
    },
-   "solution": "STRINGENT"
+   "solution": "STRINGENT",
+   "annotationWithheld": {
+    "why": "Severe regarding bit of fiddle by ten members (9): STRING (bit of fiddle) is clear, but no honest parse gives ENT from 'regarding ... by ten members'",
+    "clue": "Severe regarding bit of fiddle by ten members"
+   }
   },
   {
    "number": 29,
@@ -470,7 +1534,52 @@
     "text": "Result still precedes the end of it",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Result",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "still",
+       "at": 7,
+       "gives": "EVEN",
+       "note": "even as in 'even more', still more"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the end of",
+         "at": 22,
+         "note": "the end of the word it is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The outcome is still ahead of the end of it.",
+     "walkthrough": "'precedes' just orders the charade.",
+     "definitionFit": "An event can mean an outcome or consequence, as in 'in the event'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   }
  ]
 }
