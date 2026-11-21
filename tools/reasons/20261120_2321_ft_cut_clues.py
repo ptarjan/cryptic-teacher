@@ -30,4 +30,4 @@ def due(row):
     return any(cut(v) for v in row.get("verdicts", ()))
 
 
-REASON = Reason(TEXT, rank=2, fix_landed=True, due=due)
+REASON = Reason(TEXT, rank=2, fix_landed=True, kept=True, due=due)

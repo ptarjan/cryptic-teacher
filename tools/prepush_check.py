@@ -121,9 +121,20 @@ def load_modules():
     return eq, fa
 
 
+def dropped_registered(texts, blanket, solution_fixes, kept):
+    """Reasons registered in tools/reasons/ that the plan drops: on no list evidence_reason keeps
+    (11-20: ft_cut_clues had fix_landed alone, its 226 due rows planned 0 times with no log line)."""
+    return [f"tools/reasons: {t!r} is neither blanket, solution_fix nor kept (set kept=True): "
+            "evidence_reason drops it at plan time" for t in texts
+            if t not in blanket and t not in solution_fixes and not kept(t)]
+
+
 def check_registry(eq, fa):
-    return registry_problems(eq.UNFILED_FIRST, eq.NEWEST_LANDED, fa.RANKS, fa.BLANKET_PASSES,
-                             fa.SOLUTION_FIXES, eq.evidence_reason)
+    import fix_reasons
+    texts = [r.text for r in fix_reasons.registered().values()]
+    return (registry_problems(eq.UNFILED_FIRST, eq.NEWEST_LANDED, fa.RANKS, fa.BLANKET_PASSES,
+                              fa.SOLUTION_FIXES, eq.evidence_reason)
+            + dropped_registered(texts, fa.BLANKET_PASSES, fa.SOLUTION_FIXES, eq.evidence_reason))
 
 
 def git(*args):

@@ -1,9 +1,6 @@
 """FT_LEAD_ONE: a Gale FT lead window is split in two only at a real gutter (tools/file_archive_org_puzzles.ft_lead_split)."""
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-import file_archive_org_puzzles as fa  # noqa: E402
+import _path  # puts tools/ on sys.path
+import file_archive_org_puzzles as fa
 
 GRID = (1802, 2705, 2482, 3356)
 LEAD = (1246, 2677)

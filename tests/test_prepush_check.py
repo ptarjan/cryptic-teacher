@@ -48,6 +48,10 @@ check("an unkept UNFILED_FIRST reason is named", True, any("'z'" in p and "evide
 check("a refused-before-its-fix style reason kept by evidence_reason needs no pass", [],
       P.registry_problems((), ("c",), {"c": 1}, (), (), lambda r: True))
 
+check("a registered reason on no kept list is named", True,
+      any("'f'" in p and "kept=True" in p for p in P.dropped_registered(("f", "b", "s"), ("b",), ("s",), lambda r: False)))
+check("a registered reason evidence_reason keeps passes", [], P.dropped_registered(("f",), (), (), lambda r: True))
+
 keys = {"solution": "aa", "scan": {"times": "bb", "ft": "cc"}}
 check("same keys pass", [], P.key_problems(keys, keys))
 moved = P.key_problems(keys, {"solution": "dd", "scan": {"times": "bb", "ft": "cc", "new": "ee"}})
