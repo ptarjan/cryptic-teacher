@@ -26,6 +26,7 @@ the site offers.
   definition, type) can be taken in any order. The building blocks and the
   walkthrough stay locked until the spotting rungs are up. The hint buttons are a step track of chips (Indicator, Definition, Clue type, Pieces, Solution): open, worked out (star), available or dim.
   Tapping a chip only chooses the step; the help bar button ("Show me") is what reveals it. In Pieces, the formula line is the question: tap a blank chip to make it current, tap clue words and Lock in, or Show me fills just that chip.
+- **One letter wheel per clue.** A "Letters" toggle beside the answer boxes opens one wheel on any unsolved clue, whatever its type, and is never a hint. It opens empty from the toggle, or dealt with the fodder on its own when Pieces shows a whole-answer anagram (a part-anagram deals nothing), and it replaces the question at the end of the hint body. While it is open the clue's own words are its picker. Crossing off every tile of a dealt wheel finishes Pieces.
 - **Solving the clue unlocks every rung for free.** The help bar then becomes one free
   "How it works" button (no red, no cost text) in place of the step buttons; one tap
   opens every step in order. Whatever was open stays open, nothing opens by itself,

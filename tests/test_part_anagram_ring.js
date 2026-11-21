@@ -6,21 +6,20 @@
 "use strict";
 const src = require("../tools/app_src").read(__dirname + "/..");
 const slice = (from, to) => { const a = src.indexOf(from); return src.slice(a, src.indexOf(to, a)); };
-// partAnagram and the helpers it reads, then ringHTML itself, run against
-// stubs for the drawing so only the decision is under test.
-const code = slice("  const bareLetters", "function ringFodder") + "function ringFodder" +
-  slice("function ringFodder", "\n  }\n").slice("function ringFodder".length) + "\n  }\n" +
+// partAnagram and the helpers wheelFodder reads, run against the real source.
+const code = slice("  const bareLetters", "  // The answer's words, one ring each") +
   slice("  const letterCount", "  // Fixed prose") +
-  slice("  function ringKey", "  // The anagram the ring deals") +
-  slice("  function ringHTML", "\n  }\n") + "\n  }\n";
-const run = new Function("ringShelf_", "dealRing", "ringDraw",
-  "let ringShelf = ringShelf_, ring;\n" + code + "\n return (ann) => ringHTML(ann);");
-const html = run({}, (l) => l.map((_, i) => i), () => "<div class=\"anagram-ring\"></div>");
+  slice("  function wheelFodder", "\n  }\n") + "\n  }\n";
+const fodder = new Function(code + "\n return wheelFodder;")();
 
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
-check(html({ answer: "CHOMPED", assembly: { anagrams: [{ fodder: "COD HE", gives: "CHOED" }] } }) === "",
-  "a part-anagram (CHO(MP)ED) shows no wheel");
-check(html({ answer: "ORDNELSON", assembly: { anagrams: [{ fodder: "LONDONERS", gives: "ORDNELSON" }] } }).includes("anagram-ring"),
-  "a whole-answer anagram still shows the wheel");
+check(fodder({ type: ["anagram"], answer: "CHOMPED", assembly: { anagrams: [{ fodder: "COD HE", gives: "CHOED" }] } }) === "",
+  "a part-anagram (CHO(MP)ED) deals nothing");
+check(fodder({ type: ["anagram"], answer: "ORDNELSON", assembly: { anagrams: [{ fodder: "LONDONERS", gives: "ORDNELSON" }] } }) === "LONDONERS",
+  "a whole-answer anagram deals its fodder");
+check(fodder({ type: ["anagram"], answer: "TAR", assembly: { anagrams: [{ fodder: "RAT", gives: "TAR" }] } }) === "",
+  "three letters deal nothing");
+check(fodder({ type: ["charade"], answer: "ORDNELSON", assembly: { anagrams: [{ fodder: "LONDONERS", gives: "ORDNELSON" }] } }) === "",
+  "a clue not typed anagram deals nothing");
 process.exit(failures ? 1 : 0);
