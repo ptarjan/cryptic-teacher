@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "A complaint familiar to any astrologer",
     "enumeration": "6"
    },
-   "solution": "CANCER"
+   "solution": "CANCER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A complaint",
+      "at": 0,
+      "meaning": "a complaint is an illness, here a serious malignant disease"
+     },
+     {
+      "text": "familiar to any astrologer",
+      "at": 12,
+      "meaning": "the Crab is one of the twelve signs of the zodiac that astrologers know"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both a malignant illness and the zodiac sign of the Crab, so both readings fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,11 @@
     "text": "Now I place to no less than war to waste.\" Milton (Paradise Lost)",
     "enumeration": "7"
    },
-   "solution": "CORRUPT"
+   "solution": "CORRUPT",
+   "annotationWithheld": {
+    "why": "Clue as held, 'Now I place to no less than war to waste.\" Milton (Paradise Lost)', is a garbled quotation with its gap lost in OCR; no parse or source line found to supply the missing words",
+    "clue": "Now I place to no less than war to waste.\" Milton (Paradise Lost)"
+   }
   },
   {
    "number": 3,
@@ -58,7 +88,41 @@
     "text": "Possibly more toast will be available on the cruise",
     "enumeration": "9"
    },
-   "solution": "STATEROOM"
+   "solution": "STATEROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "available on the cruise",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Possibly",
+       "at": 0,
+       "note": "possibly signals that the letters of more toast could be rearranged into another form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more toast",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger hopes extra toast will be served on board during the voyage.",
+     "walkthrough": "'Possibly' rearranges MORETOAST into the answer; 'will be' is a link.",
+     "definitionFit": "A cabin on a ship is something a cruise passenger has to use, so it is available on the voyage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +136,48 @@
     "text": "Contribute, and so get on in time",
     "enumeration": "6"
    },
-   "solution": "DONATE"
+   "solution": "DONATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contribute",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in tells us one word is placed inside the other here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 29,
+       "gives": "DATE",
+       "note": "a date is a point in time"
+      },
+      {
+       "words": "on",
+       "at": 23,
+       "gives": "ON",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giving money is presented as a way of getting ahead in good time.",
+     "walkthrough": "The words 'and so get' are only padding that link the definition to the wordplay; 'in' is the container signal.",
+     "definitionFit": "To give money or goods to a cause is to contribute to it, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +191,41 @@
     "text": "Not allowed make-up indeed!",
     "enumeration": "6"
    },
-   "solution": "DENIED"
+   "solution": "DENIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not allowed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "make-up",
+       "at": 12,
+       "note": "make-up suggests the word indeed is made up again from its letters in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "indeed",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that cosmetics have been banned, indeed.",
+     "walkthrough": "'make-up' looks like cosmetics but signals rearranging INDEED.",
+     "definitionFit": "Something refused or forbidden is not allowed, so the past participle fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "make-up"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +239,47 @@
     "text": "Representative of the French entry",
     "enumeration": "8"
    },
-   "solution": "DELEGATE"
+   "solution": "DELEGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Representative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of",
+       "at": 15,
+       "gives": "DE",
+       "note": "de is French for of"
+      },
+      {
+       "words": "the French",
+       "at": 18,
+       "gives": "LE",
+       "note": "le is the French masculine article meaning the"
+      },
+      {
+       "words": "entry",
+       "at": 29,
+       "gives": "GATE",
+       "note": "a gate is a way of entry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A delegate is named as the French spokesman at an entrance.",
+     "walkthrough": "'of the French' supplies two French words, DE and LE, not one.",
+     "definitionFit": "A person sent to act for others at a meeting is their representative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +293,58 @@
     "text": "Better back into the church, right?",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 7,
+         "note": "back tells us the short word for into is read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "into",
+         "at": 12,
+         "gives": "IN",
+         "note": "in is a short form of into"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 21,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      },
+      {
+       "words": "right",
+       "at": 29,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether it is an improvement to go back inside the church.",
+     "walkthrough": "'back' turns only the short word for 'into'; the church and right pieces stay forwards.",
+     "definitionFit": "More pleasant or more agreeable is a comparative that can mean better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +358,40 @@
     "text": "Stretched out once served",
     "enumeration": "8"
    },
-   "solution": "EXTENDED"
+   "solution": "EXTENDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stretched out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "once",
+       "at": 14,
+       "gives": "EX",
+       "note": "ex means former, as in ex-wife, so it stands for once"
+      },
+      {
+       "words": "served",
+       "at": 19,
+       "gives": "TENDED",
+       "note": "to tend is to wait on or serve"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something was lengthened that once was served.",
+     "definitionFit": "Lengthened or drawn out is to be stretched out, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +405,65 @@
     "text": "A large number prefer no-one to back the take-over",
     "enumeration": "8"
    },
-   "solution": "ADOPTION"
+   "solution": "ADOPTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the take-over",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "large number",
+       "at": 2,
+       "gives": "D",
+       "note": "D is the Roman numeral for 500, a large number"
+      },
+      {
+       "words": "prefer",
+       "at": 15,
+       "gives": "OPT",
+       "note": "to opt for something is to prefer it"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to back",
+         "at": 29,
+         "note": "to back means the letters from no-one are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "no-one",
+         "at": 22,
+         "gives": "NOI",
+         "note": "no plus one as the Roman numeral I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many people would rather nobody supported the company acquisition.",
+     "walkthrough": "'no-one' is read as NO + I (one), and 'to back' turns NOI into ION.",
+     "definitionFit": "Taking over a child, policy or idea as one's own is adopting it, so a take-over can be described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +477,49 @@
     "text": "Calm when bill is found in coat",
     "enumeration": "7"
    },
-   "solution": "PLACATE"
+   "solution": "PLACATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is found in",
+       "at": 15,
+       "note": "is found in tells us one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coat",
+       "at": 27,
+       "gives": "PLATE",
+       "note": "to plate is to coat with a thin layer of metal"
+      },
+      {
+       "words": "bill",
+       "at": 10,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays calm on finding a bill in a coat pocket.",
+     "walkthrough": "'coat' is a verb here: to plate.",
+     "definitionFit": "To calm someone angry is to pacify or appease them, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +533,41 @@
     "text": "An artist supplying the company with rubbish",
     "enumeration": "5"
    },
-   "solution": "COROT"
+   "solution": "COROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the company",
+       "at": 20,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company"
+      },
+      {
+       "words": "rubbish",
+       "at": 37,
+       "gives": "ROT",
+       "note": "rot means nonsense or rubbish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is accused of giving the firm rubbish.",
+     "walkthrough": "Jean-Baptiste-Camille Corot was a 19th-century French landscape painter.",
+     "definitionFit": "Corot was a French landscape painter, an example of an artist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +581,41 @@
     "text": "Fruit of Argentine origins",
     "enumeration": "9"
    },
-   "solution": "TANGERINE"
+   "solution": "TANGERINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "origins",
+       "at": 19,
+       "note": "origins hints at the letters of Argentine being traced back and formed anew"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Argentine",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit is said to come from Argentina.",
+     "walkthrough": "'origins' looks geographical but signals rearranging ARGENTINE.",
+     "definitionFit": "A small loose-skinned orange citrus is a kind of fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Argentine"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +629,39 @@
     "text": "Expertise-in particular the practical sort",
     "enumeration": "3"
    },
-   "solution": "ART"
+   "solution": "ART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expertise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in signals that the letters sit inside the word particular"
+      }
+     ],
+     "parts": [
+      {
+       "words": "particular",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skill is described as being of a particularly practical kind.",
+     "definitionFit": "Skill or craft acquired by practice is expertise, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +675,11 @@
     "text": "A journalist making the centre-spread drink",
     "enumeration": "8"
    },
-   "solution": "REPORTER"
+   "solution": "REPORTER",
+   "annotationWithheld": {
+    "why": "Clue as held, 'A journalist making the centre-spread drink', gives PORTER for drink but nothing that parses the RE or 'making the centre-spread'; likely OCR garble",
+    "clue": "A journalist making the centre-spread drink"
+   }
   },
   {
    "number": 14,
@@ -226,7 +693,28 @@
     "text": "A land bird",
     "enumeration": "6"
    },
-   "solution": "TURKEY"
+   "solution": "TURKEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A land",
+      "at": 0,
+      "meaning": "a land is a country, here the one between Europe and Asia"
+     },
+     {
+      "text": "bird",
+      "at": 7,
+      "meaning": "a large fowl eaten at Christmas and Thanksgiving"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both a country spanning Europe and Asia and a large farmyard fowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +728,40 @@
     "text": "Sum a union distributed as agreed",
     "enumeration": "9"
    },
-   "solution": "UNANIMOUS"
+   "solution": "UNANIMOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "agreed",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "distributed",
+       "at": 12,
+       "note": "distributed suggests the letters of sum a union are spread about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sum a union",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A total given to a trade union is shared out by consensus.",
+     "definitionFit": "When everyone is in full agreement the decision is undivided, so agreed fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +775,46 @@
     "text": "League held by a noble lady to be beyond compare",
     "enumeration": "8"
    },
-   "solution": "PEERLESS"
+   "solution": "PEERLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beyond compare",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 7,
+       "note": "held by tells us one piece is kept inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "noble lady",
+       "at": 17,
+       "gives": "PEERESS",
+       "note": "a peeress is a woman holding a noble title"
+      },
+      {
+       "words": "League",
+       "at": 0,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A league is controlled by an aristocratic woman of unmatched excellence.",
+     "definitionFit": "Having no equal means being without rival, beyond compare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +828,42 @@
     "text": "Having nothing to do with stone",
     "enumeration": "3"
    },
-   "solution": "ORE"
+   "solution": "ORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stone",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 7,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      },
+      {
+       "words": "to do with",
+       "at": 15,
+       "gives": "RE",
+       "note": "re means concerning, to do with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims to have no connection with rock at all.",
+     "walkthrough": "'Having nothing to do with' reads as one phrase, but splits into O and RE.",
+     "definitionFit": "A mineral-bearing rock mined for metal is a kind of stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +877,68 @@
     "text": "Embarrassed about a misshapen nose, it's thought",
     "enumeration": "8"
    },
-   "solution": "REASONED"
+   "solution": "REASONED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's thought",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about means one piece goes round the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Embarrassed",
+       "at": 0,
+       "gives": "RED",
+       "note": "red-faced, so red"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "misshapen",
+           "at": 20,
+           "note": "misshapen tells us the word nose is bent into a different order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nose",
+           "at": 30
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blushes about a crooked nose, as it is considered.",
+     "walkthrough": "'Embarrassed' is the outer piece, a blush colour; 'misshapen' scrambles only the nose, and 'about' wraps it with the A.",
+     "definitionFit": "Something worked out by logic has been carefully thought through, so it's thought fits loosely as a description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +952,41 @@
     "text": "Not all of the nursing staff is female",
     "enumeration": "3"
    },
-   "solution": "HEN"
+   "solution": "HEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "female",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Not all of",
+       "at": 0,
+       "note": "not all of tells us only some letters of the nursing are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the nursing",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Only some of the nursing staff are women.",
+     "walkthrough": "The answer runs across 'the nursing'; 'staff is' is a link.",
+     "definitionFit": "A female bird, or informally a woman, is called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1000,47 @@
     "text": "A vegetable to stick in a sheltered position",
     "enumeration": "6"
    },
-   "solution": "LEGUME"
+   "solution": "LEGUME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in tells us the sticky piece goes inside the sheltered one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sheltered position",
+       "at": 24,
+       "gives": "LEE",
+       "note": "the lee is the side sheltered from wind"
+      },
+      {
+       "words": "to stick",
+       "at": 12,
+       "gives": "GUM",
+       "note": "to gum is to glue or stick"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetable is to be planted somewhere protected from the wind.",
+     "definitionFit": "A pod plant such as a pea or bean is a type of vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1054,34 @@
     "text": "Bunny girl!",
     "enumeration": "3"
    },
-   "solution": "DOE"
+   "solution": "DOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bunny girl!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bunny girl!",
+       "at": 0,
+       "note": "a bunny girl suggests a nightclub hostess, but read literally it is a female rabbit"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The female of rabbits, hares and deer bears this name, so a rabbit girl is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bunny"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1095,48 @@
     "text": "A liberator, though a swinish creature — about 54",
     "enumeration": "7"
    },
-   "solution": "BOLIVAR"
+   "solution": "BOLIVAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A liberator",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 41,
+       "note": "about tells us the creature goes round the number"
+      }
+     ],
+     "parts": [
+      {
+       "words": "swinish creature",
+       "at": 22,
+       "gives": "BOAR",
+       "note": "a boar is a male pig"
+      },
+      {
+       "words": "54",
+       "at": 47,
+       "gives": "LIV",
+       "note": "LIV is 54 in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A freedom fighter is likened to a pig of about fifty-four.",
+     "walkthrough": "Simon Bolivar freed much of South America from Spanish rule.",
+     "definitionFit": "Simon Bolivar led South American independence movements and is known as the Liberator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1150,65 @@
     "text": "Estimations of work at home is about over",
     "enumeration": "8"
    },
-   "solution": "OPINIONS"
+   "solution": "OPINIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Estimations",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "at": 15,
+       "gives": "OP",
+       "note": "op is short for opus, a work"
+      },
+      {
+       "words": "at home",
+       "at": 20,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about tells us the word is goes round the short word for over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 28,
+         "gives": "IS",
+         "note": "taken as written"
+        },
+        {
+         "words": "over",
+         "at": 37,
+         "gives": "ON",
+         "note": "on can mean over, as in on top of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Views on a work done at home are nearly finished.",
+     "walkthrough": "'is' is fodder here, not a link: 'about' wraps it round the short word for 'over'.",
+     "definitionFit": "Judgments or views held about something are estimations of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -366,7 +1222,42 @@
     "text": "Coppers get to lecture",
     "enumeration": "6"
    },
-   "solution": "PREACH"
+   "solution": "PREACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lecture",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Coppers",
+       "at": 0,
+       "gives": "P",
+       "note": "P stands for pence, copper coins"
+      },
+      {
+       "words": "get to",
+       "at": 8,
+       "gives": "REACH",
+       "note": "to reach a place is to get to it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police officers arrive to give a talk.",
+     "walkthrough": "'Coppers' suggests police but means pennies, P.",
+     "definitionFit": "To deliver a moralising speech to someone is to lecture them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coppers"
+    }
+   }
   },
   {
    "number": 25,
@@ -380,7 +1271,48 @@
     "text": "The editor is in every way for this country",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this country",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 11,
+       "note": "is in tells us one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "every way",
+       "at": 17,
+       "gives": "SWEN",
+       "note": "all four compass points, S W E N"
+      },
+      {
+       "words": "The editor",
+       "at": 0,
+       "gives": "ED",
+       "note": "ED is the short form of editor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor is entirely in favour of this nation.",
+     "walkthrough": "'every way' gives the four compass points, here in the order S, W, E, N.",
+     "definitionFit": "A Scandinavian kingdom is an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -394,7 +1326,52 @@
     "text": "A term for spruce trees origin ally",
     "enumeration": "9"
    },
-   "solution": "TRIMESTER"
+   "solution": "TRIMESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A term",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spruce",
+       "at": 11,
+       "gives": "TRIM",
+       "note": "trim and spruce both mean neat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "origin ally",
+         "at": 24,
+         "note": "originally split by the print, suggesting the trees letters are put back in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trees",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A word is sought for evergreens in their first state.",
+     "walkthrough": "'origin ally' is the print's split of 'originally', the anagram signal for the trees.",
+     "definitionFit": "A period of three months, such as an academic term, is this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spruce"
+    }
+   }
   },
   {
    "number": 27,
@@ -408,7 +1385,34 @@
     "text": "A dotty means of communicating!",
     "enumeration": "5"
    },
-   "solution": "MORSE"
+   "solution": "MORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A dotty means of communicating!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A dotty means of communicating!",
+       "at": 0,
+       "note": "dotty suggests crazy, but the code is literally made of dots and dashes"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The telegraph code built from dots and dashes is a means of sending messages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dotty"
+    }
+   }
   },
   {
    "number": 28,
@@ -422,7 +1426,41 @@
     "text": "Most important Oriental state",
     "enumeration": "5"
    },
-   "solution": "MAINE"
+   "solution": "MAINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "state",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Most important",
+       "at": 0,
+       "gives": "MAIN",
+       "note": "main means chief or most important"
+      },
+      {
+       "words": "Oriental",
+       "at": 15,
+       "gives": "E",
+       "note": "E for east, the Orient"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The chief Eastern state is named.",
+     "walkthrough": "The answer is a US state in New England.",
+     "definitionFit": "A northeastern US state is an example of a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -436,7 +1474,47 @@
     "text": "Produce notes about a listener being withering",
     "enumeration": "7"
    },
-   "solution": "SEARING"
+   "solution": "SEARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "withering",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about tells us the singing piece goes round the listener"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Produce notes",
+       "at": 0,
+       "gives": "SING",
+       "note": "to sing is to produce musical notes"
+      },
+      {
+       "words": "a listener",
+       "at": 20,
+       "gives": "EAR",
+       "note": "an ear is what listens"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone singing near a listener is scorching in their criticism.",
+     "definitionFit": "Scathing or scorching criticism is withering, so the adjective fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -450,7 +1528,46 @@
     "text": "Taking care a cut's made right",
     "enumeration": "8"
    },
-   "solution": "ACCURATE"
+   "solution": "ACCURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "right",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "made",
+       "at": 20,
+       "note": "made suggests the letters are made into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "care",
+       "at": 7
+      },
+      {
+       "words": "a cut's",
+       "at": 12,
+       "gives": "ACUT",
+       "note": "the 's only shows possession or stands for 'is', so it adds no letters: the word before it gives these letters as it is written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careful cutter makes the cut properly.",
+     "walkthrough": "'made' rearranges CARE plus A CUT; the 's is a link meaning is.",
+     "definitionFit": "Correct or exact is right, so the adjective fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 31,
@@ -464,7 +1581,48 @@
     "text": "Like many, object to rise",
     "enumeration": "6"
    },
-   "solution": "ASCEND"
+   "solution": "ASCEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to rise",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Like",
+       "at": 0,
+       "gives": "AS",
+       "note": "as means like"
+      },
+      {
+       "words": "many",
+       "at": 5,
+       "gives": "C",
+       "note": "C is 100 in Roman numerals, many"
+      },
+      {
+       "words": "object",
+       "at": 11,
+       "gives": "END",
+       "note": "an end is an aim or object"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Like many, someone objects to rising.",
+     "walkthrough": "'object' is a noun meaning aim here, not a verb.",
+     "definitionFit": "To climb or go up is to rise, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   }
  ]
 }
