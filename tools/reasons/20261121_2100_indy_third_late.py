@@ -9,7 +9,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent 2010-13 page whose third clue column stood beside the grid over its foot, read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T21:20:00+00:00"
 
 
 def due(row):
