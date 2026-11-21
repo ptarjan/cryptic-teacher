@@ -92,6 +92,8 @@ MAX_HORIZON_DAYS = 365  # the horizon is the page's hinted ETA, capped at 12 mon
 PACE_DAYS = 7           # the page's 7-day pace
 DEFAULT_CLUES_PER_PUZZLE = 28
 SUCCESS_RATE = 0.5    # a fix is assumed to work half the time
+FIX_MIN = 30.0        # agent-minutes for one Sonnet fix worker (11-21: judged in time, not dollars)
+FIX_MIN_PER_INVESTIGATION = 15.0   # each earlier look at a cause adds this to its assumed fix time
 FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not measured)
 MIN_CAUSE_SESSIONS = 3  # the top cause must show in this many sessions over RATE_ROWS rows
                         # before its payback wakes the room: 11-20 one session's $0.21 was
@@ -189,8 +191,12 @@ def make_row(res, sha, kind="annotate"):
             "puzzles": res["puzzles"], "clues": res["clues"], "cost": res["cost"],
             "cost_per_clue": res["cost_per_clue"], "turns_per_clue": res["turns_per_clue"],
             "first_fail": res["first_fail"],
-            "top_causes": [{k: c[k] for k in ("key", "label", "sessions", "cost_after_check")}
+            "top_causes": [{k: c[k] for k in ("key", "label", "sessions", "cost_after_check",
+                                              "wall_after_check_min") if k in c}
                            for c in res["causes"][:3]]}
+    if res.get("wall_min") is not None:   # 11-21: wall time is the headline; older rows lack it
+        row["wall_min"] = res["wall_min"]
+        row["wall_s_per_clue"] = res.get("wall_s_per_clue")
     if kind != "annotate":
         row["kind"] = kind    # annotation rows stay as they were: no field
         row["top_causes"] = []
@@ -229,13 +235,17 @@ def read_no_lever():
         return {}
 
 
-def muted(rec, per_clue, now=None):
-    """True while a no-lever record holds: the cause's $/clue is under NO_LEVER_RISE x the
-    recorded one and the record is under NO_LEVER_DAYS old. An annotate-code commit no longer
+def muted(rec, per_clue, now=None, wall=None):
+    """True while a no-lever record holds: the cause's wall s/clue (its $/clue when the record or
+    the rows lack wall time) is under NO_LEVER_RISE x the recorded one and the record is under
+    NO_LEVER_DAYS old. An annotate-code commit no longer
     lifts it (11-19: the same genuine model error was re-investigated five times)."""
     if not rec:
         return False
-    if per_clue >= rec.get("per_clue", 0) * NO_LEVER_RISE:
+    if wall is not None and rec.get("wall_s_per_clue"):
+        if wall >= rec["wall_s_per_clue"] * NO_LEVER_RISE:
+            return False
+    elif per_clue >= rec.get("per_clue", 0) * NO_LEVER_RISE:
         return False
     if rec.get("date"):
         now = now or now_utc()
@@ -266,6 +276,9 @@ def mark_no_lever(cause, rows, commit, now=None):
                 per_clue, _ = cause_per_clue(rows, key)
                 rec = {"label": c.get("label"), "date": now.date().isoformat(),
                        "per_clue": round(per_clue, 6), "commit": commit[0], "commit_time": commit[1]}
+                wall_s = cause_wall(rows, key)[0]
+                if wall_s:
+                    rec["wall_s_per_clue"] = round(wall_s, 4)
                 book = read_no_lever()
                 rec["count"] = (book.get(key, {}).get("count") or (1 if key in book else 0)) + 1
                 book[key] = rec
@@ -280,7 +293,12 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
 
     rows: ledger rows, oldest first; since_commit: ISO time of the last annotate-code
     commit (None = all rows count); state: {woken, top} of the previous wake;
-    no_lever: {cause key: record} of causes investigated with no lever (see muted)."""
+    no_lever: {cause key: record} of causes investigated with no lever (see muted).
+
+    Paul 11-21: "Price isn't the thing to optimized. It is wall time". Rows that carry wall
+    time (wall_min, and wall_after_check_min per cause) are judged in wall time: the level is
+    wall s/clue, the payback burn-hours saved vs agent-minutes to fix. Older rows fall back to
+    dollars."""
     if since_commit:
         rows = [r for r in rows if parse(r["end"]) >= parse(since_commit)]
     need = AFTER_COMMIT_ROWS if since_commit else 1
@@ -292,33 +310,80 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
         return None, f"under {MIN_CLUES} clues in the last {ROLL} rows - too thin to judge"
     rolls = [pooled(window(rows[:i + 1])) for i in range(len(rows))]
     best = min((x for x in rolls if x is not None), default=None)
+    cur_wall = wall_level(last)
+    best_wall = min((x for x in (wall_level(window(rows[:i + 1])) for i in range(len(rows))) if x is not None),
+                    default=None) if cur_wall is not None else None
     top_cause = (rows[-1].get("top_causes") or [{}])[0]
     per_clue, mean_clues = cause_per_clue(rows, top_cause.get("key"))
     key = top_cause.get("key")
     rec = (no_lever or {}).get(key)
     left = min(clues_left(mean_clues), burn_clues_per_day(rows) * PAYBACK_DAYS)
-    fix_cost = FIX_COST + FIX_COST_PER_INVESTIGATION * ((rec or {}).get("count") or (1 if rec else 0))
+    n_inv = (rec or {}).get("count") or (1 if rec else 0)
+    fix_cost = FIX_COST + FIX_COST_PER_INVESTIGATION * n_inv
+    fix_min = FIX_MIN + FIX_MIN_PER_INVESTIGATION * n_inv
     saving = per_clue * left * SUCCESS_RATE
-    rate = cause_rate(rows, top_cause.get("key"))
+    rate = cause_rate(rows, key)
+    wall_s, wall_rate, wall_share = cause_wall(rows, key)
+    timed = wall_s > 0
+    saving_h = wall_s * left * SUCCESS_RATE / 3600
     facts = {"cur": cur, "best": best, "rate": rate, "saving": saving, "left": left,
              "per_clue": per_clue, "key": key, "fix_cost": fix_cost,
-             "investigated": investigated(rec)}
+             "investigated": investigated(rec), "timed": timed, "cur_wall": cur_wall,
+             "best_wall": best_wall, "wall_s": wall_s, "wall_rate": wall_rate,
+             "wall_share": wall_share, "saving_h": saving_h, "fix_min": fix_min}
     woken = state.get("woken")
     if woken and (now - parse(woken)).total_seconds() < COOLDOWN_H * 3600:
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
-    pay = (f"top cause `{top_cause.get('key')}` (${per_clue:.4f}/clue after check, ${rate:.2f}/h): "
-           f"est. saving ${saving:.0f} over the next ~{left:,.0f} clues vs ~${fix_cost:.0f} fix cost")
+    if timed:
+        pay = (f"top cause `{key}` ({wall_s:.1f} s/clue after check, {wall_rate:.1f} min/h, "
+               f"{wall_share:.0%} of sessions, ${per_clue:.4f}/clue): est. saving {saving_h:.1f} burn-h "
+               f"over the next ~{left:,.0f} clues vs ~{fix_min:.0f} agent-min fix")
+        pays = saving_h * 60 > fix_min
+    else:
+        pay = (f"top cause `{key}` (${per_clue:.4f}/clue after check, ${rate:.2f}/h): "
+               f"est. saving ${saving:.0f} over the next ~{left:,.0f} clues vs ~${fix_cost:.0f} fix cost")
+        pays = saving > fix_cost
     seen = cause_sessions(rows, key)
-    if saving > fix_cost and seen < MIN_CAUSE_SESSIONS:
+    if pays and seen < MIN_CAUSE_SESSIONS:
         pay += f" - seen in only {seen} session(s), under {MIN_CAUSE_SESSIONS}: too thin to project"
-    elif saving > fix_cost:
-        if muted(rec, per_clue, now):
+    elif pays:
+        if muted(rec, per_clue, now, wall_s if timed else None):
             return None, f"{pay} - marked no-lever ({investigated(rec)}), under {NO_LEVER_RISE}x and {NO_LEVER_DAYS} days"
         return pay, facts
+    if cur_wall is not None and best_wall:
+        if cur_wall > best_wall * (1 + REGRESS):
+            return (f"latest {cur_wall:.1f} s/clue is {cur_wall / best_wall - 1:+.0%} over the best level "
+                    f"{best_wall:.1f} since the last annotate-code commit; {pay}"), facts
+        return None, f"{cur_wall:.1f} s/clue within 10% of best {best_wall:.1f}; {pay} - not worth a fix"
     if best and cur > best * (1 + REGRESS):
         return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
                 f"${best:.3f} since the last annotate-code commit; {pay}"), facts
     return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; {pay} - not worth a fix"
+
+
+def wall_level(rows):
+    """Wall seconds per clue over rows (session wall time over clues); None unless every row
+    carries wall_min (a window mixing pre-11-21 rows is judged in dollars)."""
+    if not rows or any(r.get("wall_min") is None for r in rows):
+        return None
+    clues = sum(r.get("clues") or 0 for r in rows)
+    return sum(r["wall_min"] for r in rows) * 60 / clues if clues else None
+
+
+def cause_wall(rows, key):
+    """(wall s/clue after the check, wall min per burn hour, share of sessions) the cause adds,
+    over the recent rows (the last RATE_ROWS) that list it; zeros when none does or none has wall."""
+    wall = clues = hours = sess = total = 0.0
+    for r in rows[-RATE_ROWS:]:
+        for c in r.get("top_causes") or []:
+            if c.get("key") == key and c.get("wall_after_check_min") is not None:
+                wall += c["wall_after_check_min"]
+                clues += r.get("clues") or 0
+                hours += (parse(r["end"]) - parse(r["start"])).total_seconds() / 3600
+                sess += c.get("sessions") or 0
+                total += r.get("sessions") or 0
+    return ((wall * 60 / clues) if clues else 0.0, (wall / hours) if hours else 0.0,
+            (sess / total) if total else 0.0)
 
 
 def burn_clues_per_day(rows):
@@ -391,50 +456,74 @@ def clues_left(mean_clues, days=None):
 
 
 def work_order(reason, facts, rows, commit):
-    """The wake text: facts a human reads at a glance first (cost and trend, top cause with
-    its payback, the next action), the agent's instructions in a separate trailing block."""
+    """The wake text: facts a human reads at a glance first (wall time and trend, top cause with
+    its payback in time, the next action), the agent's instructions in a separate trailing block.
+    Dollars are a secondary column (Paul 11-21: wall time is the thing to optimise)."""
     last = rows[-ROLL:]
     cur, best = facts["cur"], facts["best"]
+    cw, bw = facts.get("cur_wall"), facts.get("best_wall")
     first = last[0].get("cost_per_clue") if last else None
+    firstw = wall_level(last[:1]) if last else None
+    tpc = last[-1].get("turns_per_clue") if last else None
     trend = ""
-    if first and len(last) > 1:
+    if cw is not None and firstw and len(last) > 1:
+        trend = f", {cw / firstw - 1:+.0%} over the last {len(last)} runs"
+    elif cw is None and first and len(last) > 1:
         trend = f", {cur / first - 1:+.0%} over the last {len(last)} runs"
-    lines = [f"Annotate cost: ${cur:.3f}/clue now (best since the last code change ${best:.3f}{trend})."]
+    if cw is not None:
+        lines = [f"Annotate wall time: {cw:.1f} s/clue"
+                 + (f", {tpc:.2f} turns/clue" if tpc is not None else "")
+                 + f" now (best since the last code change {bw:.1f}{trend}); ${cur:.3f}/clue."]
+    else:
+        lines = [f"Annotate cost: ${cur:.3f}/clue now (best since the last code change ${best:.3f}{trend})."]
     top = (last[-1].get("top_causes") or [None])[0]
     saving = facts.get("saving")
+    timed = bool(facts.get("timed"))
     if top:
         pc = facts.get("per_clue")
-        spend = f"${pc:.4f}/clue" if pc is not None else f"${top['cost_after_check']:.2f} total"
-        lines.append(f"Top cause: {top['label']} - {top['sessions']} sessions, {spend} spent after the check"
-                     + (f", ${facts['rate']:.2f}/h." if facts.get("rate") is not None else "."))
-    if saving is not None:
+        usd = f"${pc:.4f}/clue" if pc is not None else f"${top['cost_after_check']:.2f} total"
+        if timed:
+            lines.append(f"Top cause: {top['label']} - {facts['wall_share']:.0%} of sessions, "
+                         f"{facts['wall_s']:.1f} s/clue and {facts['wall_rate']:.1f} min per burn hour "
+                         f"spent after the check ({usd}).")
+        else:
+            lines.append(f"Top cause: {top['label']} - {top['sessions']} sessions, {usd} spent after the check"
+                         + (f", ${facts['rate']:.2f}/h." if facts.get("rate") is not None else "."))
+    if timed:
+        worth = facts["saving_h"] * 60 > facts["fix_min"]
+        lines.append(f"Payback: saves ~{facts['saving_h']:.1f} burn hours over the next ~{facts['left']:,.0f} clues "
+                     f"vs ~{facts['fix_min']:.0f} agent-min to fix - {'worth fixing' if worth else 'not worth a fix'}.")
+    elif saving is not None:
         fix_cost = facts.get("fix_cost", FIX_COST)
         worth = saving > fix_cost
         lines.append(f"Payback: saves ~${saving:,.0f} over the next ~{facts['left']:,.0f} clues "
                      f"vs ~${fix_cost:.0f} to fix - {'worth fixing' if worth else 'not worth a fix'}.")
-        if facts.get("investigated"):
-            lines.append(f"This cause: {facts['investigated']}.")
     else:
+        worth = True
         lines.append(f"Why: {reason}.")
-    worth = saving is None or saving > facts.get("fix_cost", FIX_COST)
+    if facts.get("investigated") and (timed or saving is not None):
+        lines.append(f"This cause: {facts['investigated']}.")
     lines.append("Next: find a fix already landed for this cause; if none, have one Sonnet worker fix it."
                  if worth else "Next: nothing to fix for this cause; check what changed in the last code commit.")
-    lines.append("Recent runs (end, sessions, clues, $/clue, turns/clue):")
+    lines.append("Recent runs (end, sessions, clues, s/clue, turns/clue, $/clue):")
     for r in last:
-        pc, tc = r.get("cost_per_clue"), r.get("turns_per_clue")
+        pc, tc, w = r.get("cost_per_clue"), r.get("turns_per_clue"), wall_level([r])
         lines.append(f"  {r['end'][:16]}  {r['sessions']} sess, {r.get('clues', 0)} clues, "
-                     f"${pc or 0:.3f}, {tc or 0:.2f} turns")
+                     + (f"{w:.1f} s, " if w is not None else "") + f"{tc or 0:.2f} turns, ${pc or 0:.3f}")
     lines.append("Last code change: %s %s" % (commit[0] or "?", commit[2] or ""))
     lines.append("--- Instructions for the agent ---")
-    tail = ("Ledger: ~/.cache/annotate_cost_ledger.jsonl; `python3 tools/annotate_audit.py --since "
-            "<ISO> --json` re-audits a window.")
+    tail = ("Optimise WALL TIME, not dollars (Paul 11-21: \"Price isn't the thing to optimized. It is wall "
+            "time and because of that efficiency\"): a fix that cuts retries or turns is worth a few dollars. "
+            "`python3 tools/annotate_audit.py --since <ISO> --json` re-audits a window.")
     if worth:
-        tail += (" Check git log for a fix already landed for this "
-                 "cause; if none, spawn ONE Sonnet worker in a sparse worktree to fix it, code-side if "
-                 "possible, and have it also judge whether tools/annotate_prompt.md could steer the "
-                 "model better on this cause (Paul 10-30); goal is the payback above, not a fixed $/clue.")
+        tail += (" Check git log for a fix already landed for this cause; if none, spawn ONE Sonnet worker in "
+                 "a sparse worktree, code-side if possible, and have it judge whether tools/annotate_prompt.md "
+                 "could steer the model better (Paul 10-30).")
+    tail += (" If you investigate and judge the cause ambiguous or a genuine model error, acknowledge it: "
+             "`python3 tools/annotate_ledger.py --no-lever \"<cause key>\"` (dated; it stays quiet until its "
+             f"wall s/clue rises {NO_LEVER_RISE}x or {NO_LEVER_DAYS} days pass). Do not leave it to re-alert.")
     lines.append(tail)
-    return "\n".join(lines)[:1900]
+    return "\n".join(lines)[:2400]
 
 
 def decide(dry_run=False, now=None):
@@ -526,7 +615,7 @@ def main(argv=None):
     ap.add_argument("cmd", nargs="?", choices=["record", "decide", "report"])
     ap.add_argument("--no-lever", metavar="CAUSE",
                     help="mark a top cause (its key or label) investigated with no lever: the alert "
-                    "stays quiet until its $/clue passes 1.5x the recorded or 14 days pass")
+                    "stays quiet until its wall s/clue (else $/clue) passes 1.5x the recorded or 14 days pass")
     ap.add_argument("--since")
     ap.add_argument("--until")
     ap.add_argument("--dry-run", action="store_true",

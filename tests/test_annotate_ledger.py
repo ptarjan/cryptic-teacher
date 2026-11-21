@@ -191,5 +191,53 @@ rep = L.report(mixed)
 check(round(rep["annotate"]["cost_per_clue"], 4), 0.04, "annotate $/clue ignores hint rows")
 check(round(rep["hint"]["cost_per_clue"], 4), round(102.0 / 80, 4), "hint $/clue is its own")
 
+# 11-21 (Paul: "Price isn't the thing to optimized. It is wall time"): rows with wall time are
+# judged in wall s/clue, the top cause is the one adding the most wall minutes, the payback
+# counts burn hours against agent-minutes, and an acknowledged cause stays quiet.
+def wrow(i, wall_min, top="rule:a", cause_min=6.0, sessions=5):
+    r = row(i, 0.040, top)
+    r["wall_min"] = wall_min
+    r["top_causes"] = [{"key": top, "label": top, "sessions": sessions, "cost_after_check": 1.0,
+                        "wall_after_check_min": cause_min}]
+    return r
+left(10 ** 6)
+wflat = [wrow(i, 100.0) for i in range(1, 7)]   # 100 min over 100 clues = 60 s/clue
+check(L.wall_level(wflat[:1]), 60.0, "wall s/clue is session wall over clues")
+check(L.wall_level([wflat[0], row(9, 0.04)]), None, "a window with a row lacking wall time is judged in dollars")
+check(L.cause_wall(wflat, "rule:a"), (3.6, 6.0, 0.5), "cause: 6 min over 100 clues = 3.6 s/clue, 6 min/h, 5/10 sessions")
+reason, facts = L.should_wake(wflat, None, quiet, now)
+check((facts["timed"], round(facts["saving_h"], 2), facts["fix_min"]), (True, round(3.6 * 1e6 * 0.5 / 3600, 2), 30.0),
+      "payback counted in burn hours over a 30 agent-min fix")
+check(("s/clue after check" in reason, "agent-min fix" in reason, "$" in reason.split("fix")[0]), (True, True, True),
+      "reason speaks wall time with dollars as a side column")
+wbad = wflat[:5] + [wrow(6, 200.0)]
+left(100)   # payback too small to wake on its own, so the wall regression decides
+check(L.should_wake(wflat, None, quiet, now)[0], None, "flat wall time, small backlog: quiet")
+check("s/clue is +" in (L.should_wake(wbad, None, quiet, now)[0] or ""), True,
+      "wall s/clue 10%+ over the best wakes even with $/clue flat")
+left(10 ** 6)
+# a cause's rank is by wall minutes, not dollars or sessions
+rank = sorted([{"key": "x", "wall_after_check_min": 1.0, "sessions": 9, "cost_after_check": 5.0},
+               {"key": "y", "wall_after_check_min": 4.0, "sessions": 1, "cost_after_check": 0.1}],
+              key=lambda c: (-c["wall_after_check_min"], -c["sessions"], -c["cost_after_check"], c["key"]))
+check(rank[0]["key"], "y", "most wall time first")
+mr = L.make_row({"since": "a", "until": "b", "sessions": 3, "puzzles": 4, "clues": 40, "cost": 2.0,
+                 "cost_per_clue": 0.05, "turns_per_clue": 1.0, "first_fail": None, "wall_min": 30.0,
+                 "wall_s_per_clue": 45.0, "causes": [{"key": "k", "label": "k", "sessions": 1, "share": 0.3,
+                                                      "cost_after_check": 0.1, "wall_after_check_min": 2.5}]}, "abc")
+check((mr["wall_min"], mr["top_causes"][0]["wall_after_check_min"]), (30.0, 2.5), "the row records wall time")
+# acknowledged cause: quiet until its wall s/clue rises 1.5x or 14 days pass
+ack = {"rule:a": {"per_clue": 0.0001, "wall_s_per_clue": 3.6, "date": today, "count": 1}}
+check(L.should_wake(wflat, None, quiet, now, ack)[0], None, "acknowledged cause, same wall share: quiet")
+check("marked no-lever" in L.should_wake(wflat, None, quiet, now, ack)[1], True, "...and says why")
+check(L.should_wake(wflat, None, quiet, now, {"rule:a": dict(ack["rule:a"], wall_s_per_clue=2.0)})[0] is not None,
+      True, "wall share 1.8x the acknowledged: re-alerts")
+wf = L.should_wake(wflat, None, quiet, now, ack)
+text = L.work_order("why", L.should_wake(wflat, None, quiet, now)[1], wflat, ("abc123", "x", "Annotate fix"))
+check(all(s in text for s in ("Annotate wall time: 60.0 s/clue", "burn hours", "agent-min to fix",
+                              "Optimise WALL TIME", "--no-lever", "ONE Sonnet worker")), True,
+      "the work order headlines wall time, pays back in time, and tells the agent to acknowledge")
+check("$81" in text or "vs ~$6" in text, False, "the dollar payback framing is gone")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

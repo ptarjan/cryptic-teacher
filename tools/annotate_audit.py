@@ -364,7 +364,7 @@ def _new_state():
             "turns": collections.OrderedDict(),      # message id -> (usage, after first check)
             "calls": {}, "check_ids": set(), "check_outs": [], "writes": {},
             "tool_errors": collections.Counter(), "memory": False, "validator_reads": 0,
-            "max_tokens": 0}
+            "max_tokens": 0, "t_check": None}
 
 
 def _advance(st, path, offset, kind):
@@ -406,6 +406,10 @@ def _advance(st, path, offset, kind):
                     text = _text(b.get("content"))
                     if b.get("tool_use_id") in st["check_ids"]:
                         st["check_outs"].append((st["calls"][b["tool_use_id"]][1], text))
+                        # 11-21: when the first check report came back: wall time after it is the
+                        # cost of whatever it found (states cached before this lack the key)
+                        if st.get("t_check") is None and rec.get("timestamp"):
+                            st["t_check"] = rec["timestamp"]
                     if b.get("is_error"):
                         tool, cmd = st["calls"].get(b.get("tool_use_id"), ("?", ""))
                         ek = tool_error_kind(tool, cmd, text)
@@ -454,6 +458,10 @@ def _finish(st, templates, retired=()):
         puzzles=len(bag_ids(first_user)) or 1, clues=clues_written(writes),
         wall_min=(datetime.datetime.fromisoformat(t1.replace("Z", "+00:00"))
                   - datetime.datetime.fromisoformat(t0.replace("Z", "+00:00"))).total_seconds() / 60,
+        wall_after_check_min=(
+            (datetime.datetime.fromisoformat(t1.replace("Z", "+00:00"))
+             - datetime.datetime.fromisoformat(st["t_check"].replace("Z", "+00:00"))).total_seconds() / 60
+            if st.get("t_check") else 0.0),
         cost=None if any(c is None for c, _ in costs) else sum(c for c, _ in costs),
         cost_after_check=sum(c or 0 for c, after in costs if after),
         turns_after_check=sum(1 for _, after in costs if after),
@@ -662,6 +670,8 @@ def summarise(rows):
         "turns": med(r["turns"] for r in rows),
         "cost": med(r["cost"] for r in rows),
         "wall_min": med(r["wall_min"] for r in rows),
+        "wall_total_min": sum(r["wall_min"] for r in rows),
+        "wall_s_per_clue": (lambda w: None if w is None else w * 60)(pooled(rows, "wall_min", "clues")),
         "checks": med(r["checks"] for r in rows),
         # per checked unit: a solo session is one, a bag session one per puzzle in it
         "first_fail": (sum(r["first_failed"] for r in checked)
@@ -894,15 +904,17 @@ def wake_text(item, why, cur, extra=""):
 
 
 def causes(rows):
-    """Ranked causes as data: [{label, sessions, cost_after_check}], most sessions first
-    (then most dollars). Same keys as findings(); one session counts once per cause."""
+    """Ranked causes as data: [{label, sessions, share, wall_after_check_min, cost_after_check}],
+    most wall time after the first failing check first (Paul 11-21: "It is wall time"), then
+    sessions. Dollars ride along as the secondary column. One session counts once per cause."""
     n, out = len(rows), []
     for f in findings(rows):
         hit = [r for r in rows if _touches(r, f["key"])]
         out.append({"label": f["title"], "key": f["key"], "sessions": len(hit),
                     "share": round(len(hit) / n, 4) if n else 0,
+                    "wall_after_check_min": round(sum(r.get("wall_after_check_min") or 0 for r in hit), 2),
                     "cost_after_check": round(sum(r.get("cost_after_check") or 0 for r in hit), 4)})
-    out.sort(key=lambda c: (-c["sessions"], -c["cost_after_check"], c["key"]))
+    out.sort(key=lambda c: (-c["wall_after_check_min"], -c["sessions"], -c["cost_after_check"], c["key"]))
     return out
 
 
@@ -932,6 +944,7 @@ def _window_audit(since, until, kind):
             "sessions": s["n"], "puzzles": s["puzzles"], "clues": s["clues"],
             "cost": round(sum(r["cost"] or 0 for r in rows), 4),
             "cost_per_clue": s["cost_per_clue"], "turns_per_clue": s["turns_per_clue"],
+            "wall_min": round(s["wall_total_min"], 2), "wall_s_per_clue": s["wall_s_per_clue"],
             "first_fail": s["first_fail"], "causes": causes(rows)}
 
 
@@ -967,7 +980,8 @@ def _main(argv=None):
                   f"{fmt_money(res['cost_per_clue']) if res['cost_per_clue'] is None else '$%.3f' % res['cost_per_clue']}/clue, "
                   f"{res['turns_per_clue'] or 0:.2f} turns/clue")
             for i, c in enumerate(res["causes"][:10], 1):
-                print(f"{i:3d}. {c['sessions']:3d} sessions ${c['cost_after_check']:.2f}  {c['label']}")
+                print(f"{i:3d}. {c['sessions']:3d} sessions {c['wall_after_check_min']:.1f} min "
+                      f"${c['cost_after_check']:.2f}  {c['label']}")
         return 0
     templates = load_templates(validator_source())
     window = datetime.timedelta(hours=args.hours)
