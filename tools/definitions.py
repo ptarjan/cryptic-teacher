@@ -169,6 +169,10 @@ def damaged_run(text, clue, misread=True):
         gap = _dropped_word_runs(want, toks, low)
         if len(gap) == 1:
             return _with_edges(text, clue, *gap.pop())
+    if not runs and misread:
+        # the model's own typo of a clue word ('balme' for the clue's 'blame'): never the
+        # other way round, a real quote word against a clue word that is no word
+        runs = _typo_runs(want, toks, low)
     if not runs and misread and len(want) >= 4:
         # the scan dropped a lone 'I' the quote has inside the run ('Mary and I go out' for
         # the stored 'Mary and go out'): the quote minus that word is the clue's one run
@@ -319,6 +323,26 @@ def _dropped_word_runs(want, toks, low):
             if window[j] in _SKIPPABLE and window[:j] + window[j + 1:] == want:
                 runs.add((toks[k][1], toks[k + n][2]))
     return runs
+
+
+def _typo_runs(want, toks, low):
+    """{(start, end)} of the clue's one run of as many words as the quote that matches it
+    word for word but for one word of four letters or more that is a slip of the clue's
+    word (one letter changed, dropped, added or two swapped: _one_edit) where the QUOTE's
+    word is no word and the clue's is. The model's typo ('balme' for 'blame'); a quote
+    that is a word ('sort' for 'sought') is the model's reading, not a slip, and is
+    refused. Two such runs, or none, mend nothing."""
+    import ocr_clues
+    n = len(want)
+    runs = set()
+    for k in range(len(toks) - n + 1):
+        diff = [(w, c) for w, c in zip(want, low[k:k + n]) if w != c]
+        if len(diff) == 1:
+            q, c = diff[0]
+            if min(len(q), len(c)) >= 4 and _one_edit(q, c) and q.isalpha() and c.isalpha() \
+                    and not ocr_clues.is_word(q) and ocr_clues.is_word(c):
+                runs.add((toks[k][1], toks[k + n - 1][2]))
+    return runs if len(runs) == 1 else set()
 
 
 def _one_edit(a, b):

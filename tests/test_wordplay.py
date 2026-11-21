@@ -983,5 +983,13 @@ check("near run: refusal for a wordplay quote names the clue's words",
 check("near run: a definition a letter off the clue is placed, not refused",
       _D.place([{"text": "Austral state capital"}], "Watering hole in sweltering Austra state capital")[0]["text"]
       == "Austra state capital")
+check("model typo: a quote that is no word, one swap off the clue's word, is mended",
+      _D.damaged_run("balme", "They admit blame for hospital treatment") == "blame")
+check("model typo: a quote that is a word is not mended to another word",
+      _D.damaged_run("sort", "Part of London which is not quite so sorts") is None)
+check("model typo: a clue word that is no word is not taken for the model's slip",
+      _D.damaged_run("attempt", "An arrempt to accommodate old folk") is None)
+check("model typo: two clue words one slip off are not mended",
+      _D.damaged_run("balme", "blame here and blame there") is None)
 
 raise SystemExit(fails > 0)

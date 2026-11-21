@@ -91,6 +91,7 @@ import definitions
 import groups
 import mend_cryptic_definition
 import mend_halved_deletion
+import mend_misprinted_clue
 import mend_trunc_leaf
 import mend_literal_edge
 import mend_lone_edge
@@ -767,6 +768,34 @@ def drop_noop_printed_clue(path, pending, data=DATA):
     if dropped:
         write_pending(pending, ann)
     return dropped
+
+
+def mend_misprinted_clues(path, pending, data=DATA):
+    """Give `printedClue` to each model-shaped entry of an OCR'd source whose quotes name a clue
+    word the clue prints misspelt (mend_misprinted_clue: the quote a word, the clue's not); the
+    entry ids changed. file_rows then files it, so no model turn goes on the refusal."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        puzzle = read_puzzle_file(path)
+    except (ValueError, OSError, KeyError):
+        return []
+    if not isinstance(ann, dict) or (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return []
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    clue_rows = sharded_table.load("source_clue_wrong", data)
+    changed = []
+    for eid, a in ann.items():
+        if not (isinstance(a, dict) and annotation.is_model(a) and eid in by_id):
+            continue
+        held = clue_rows.get(f"{puzzle['id']}/{eid}")
+        shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
+        row = mend_misprinted_clue.mend(a, shown, True)
+        if row:
+            a["printedClue"] = row
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
 
 
 def file_rows(path, pending, data=DATA):
@@ -1669,6 +1698,10 @@ def main(argv):
         if noop:
             print(f"printedClue that corrects nothing (it is the clue as shown), dropped "
                   f"from {pending.name}: {', '.join(noop)}\n")
+        misprint = mend_misprinted_clues(path, pending)
+        if misprint:
+            print(f"quotes of a clue word the OCR misspelt (the quote a word, the clue's not), "
+                  f"given a printedClue in {pending.name}: {', '.join(misprint)}\n")
         filed, err = file_rows(path, pending)
         if err:
             print(f"annotate_check {stem}: STOPPED — {err}")
