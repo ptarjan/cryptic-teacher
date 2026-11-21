@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,49 @@
     "text": "Regiment in aircraft, a transporter",
     "enumeration": "9"
    },
-   "solution": "FREIGHTER"
+   "solution": "FREIGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a transporter",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "the regiment is placed inside the word for the aircraft"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aircraft",
+       "at": 12,
+       "gives": "FIGHTER",
+       "note": "a fighter is a military aircraft"
+      },
+      {
+       "words": "Regiment",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a regiment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers are being flown in a military plane used as a troop carrier.",
+     "walkthrough": "'aircraft' looks like the vehicle being defined, but it is the outer piece; the transporter is the definition.",
+     "definitionFit": "A freighter is a ship or aircraft that carries cargo, hence a transporter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aircraft"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +89,46 @@
     "text": "Accept all but the last television part",
     "enumeration": "7"
    },
-   "solution": "RECEIVE"
+   "solution": "RECEIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accept",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "all but the last",
+       "at": 7,
+       "note": "the final letter of the word for the TV component is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "television part",
+       "at": 24,
+       "gives": "RECEIVER",
+       "note": "a receiver is the part of a television set that picks up the signal"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees to take a whole TV set except for its final component.",
+     "walkthrough": "'all but the last' removes the final R from RECEIVER.",
+     "definitionFit": "To receive something is to take it in or take delivery of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +142,41 @@
     "text": "Force oneself in-it ain't rude on this occasion",
     "enumeration": "7"
    },
-   "solution": "INTRUDE"
+   "solution": "INTRUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Force oneself in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "on this occasion",
+       "at": 31,
+       "note": "the clue says the act is not rude this time, and the letters sit inside those words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ain't rude",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colloquial assurance that butting in is acceptable this time.",
+     "walkthrough": "The answer is spelt out inside \"ain't rude\", after its first letter; the surface jokes that barging in is not rude here.",
+     "definitionFit": "To intrude is to push in where one is not wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rude"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +196,30 @@
      }
     ]
    },
-   "solution": "HANGERON"
+   "solution": "HANGERON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dependent",
+      "at": 0,
+      "meaning": "a person who relies on another for support"
+     },
+     {
+      "text": "one who will not let go?",
+      "at": 11,
+      "meaning": "read literally, someone who keeps hanging on and refuses to release their grip"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A hanger-on is a sycophantic follower relying on someone, and literally one who clings on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dependent"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +233,62 @@
     "text": "I read about rebel leader, an invader",
     "enumeration": "6"
    },
-   "solution": "RAIDER"
+   "solution": "RAIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an invader",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "the letters of the two words are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I read",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 19,
+         "note": "the leader of the word rebel is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rebel",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reads about a rebel chief who is attacking.",
+     "walkthrough": "'about' rearranges I READ into RAIDE, and 'leader' gives R from 'rebel'.",
+     "definitionFit": "A raider attacks or invades territory to plunder it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +302,42 @@
     "text": "Just as talkative perhaps having double meaning",
     "enumeration": "9"
    },
-   "solution": "EQUIVOCAL"
+   "solution": "EQUIVOCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having double meaning",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Just as",
+       "at": 0,
+       "gives": "EQUI",
+       "note": "the prefix equi- means equally, just as much"
+      },
+      {
+       "words": "talkative",
+       "at": 8,
+       "gives": "VOCAL",
+       "note": "vocal means outspoken or talkative"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is equally chatty might be ambiguous.",
+     "walkthrough": "'perhaps' is only a link here.",
+     "definitionFit": "An equivocal statement is ambiguous, open to two interpretations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +351,64 @@
     "text": "Is held by theologian, one in contempt",
     "enumeration": "7"
    },
-   "solution": "DISDAIN"
+   "solution": "DISDAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "contempt",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held by",
+         "at": 3,
+         "note": "the word is is held inside the letters for the theologian"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theologian",
+         "at": 11,
+         "gives": "DD",
+         "note": "DD is Doctor of Divinity, a theologian"
+        },
+        {
+         "words": "Is",
+         "at": 0,
+         "gives": "IS"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "A",
+       "note": "a means one"
+      },
+      {
+       "words": "in",
+       "at": 27,
+       "gives": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious scholar is regarded with scorn.",
+     "walkthrough": "DD (Doctor of Divinity) is the crossword theologian; 'held by' signals the container.",
+     "definitionFit": "Disdain is scorn, the feeling that someone is unworthy of respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theologian"
+    }
+   }
   },
   {
    "number": 8,
@@ -134,7 +422,29 @@
     "text": "Fraud practised magician?",
     "enumeration": "9"
    },
-   "solution": "DECEPTION"
+   "solution": "DECEPTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fraud",
+      "at": 0,
+      "meaning": "a trick or swindle"
+     },
+     {
+      "text": "practised magician?",
+      "at": 6,
+      "meaning": "read as what a magician practises: trickery that fools the audience"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Deception is trickery used to mislead, whether by a swindler or a conjuror."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "practised"
+    }
+   }
   },
   {
    "number": 9,
@@ -148,7 +458,46 @@
     "text": "Obtain possession of a hundred sheets of paper",
     "enumeration": "7"
    },
-   "solution": "ACQUIRE"
+   "solution": "ACQUIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obtain possession of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 21,
+       "gives": "A"
+      },
+      {
+       "words": "hundred",
+       "at": 23,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "words": "sheets of paper",
+       "at": 31,
+       "gives": "QUIRE",
+       "note": "a quire is a set of 24 or 25 sheets of paper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes ownership of a stack of a hundred sheets of stationery.",
+     "definitionFit": "To acquire something is to come to own or get it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hundred"
+    }
+   }
   },
   {
    "number": 10,
@@ -162,7 +511,52 @@
     "text": "One producing another note about a flammable liquid",
     "enumeration": "7"
    },
-   "solution": "ACETONE"
+   "solution": "ACETONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a flammable liquid",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "ACE",
+       "note": "an ace is the one in a suit of cards"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "another",
+         "at": 14,
+         "note": "another note means a different word made from the letters of note"
+        }
+       ],
+       "parts": [
+        {
+         "words": "note",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plays one note after another while describing a flammable liquid.",
+     "walkthrough": "'another' rearranges NOTE into TONE, which follows ACE (one, the top card); 'producing' and 'about' are links.",
+     "definitionFit": "Acetone is a volatile solvent that burns easily, as used in nail-varnish remover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 11,
@@ -176,7 +570,65 @@
     "text": "Hundreds are successful before being led astray to lose their importance",
     "enumeration": "7"
    },
-   "solution": "DWINDLE"
+   "solution": "DWINDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lose their importance",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 24,
+       "note": "the win comes before the rearranged word in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hundreds",
+       "at": 0,
+       "gives": "D",
+       "note": "D is the Roman numeral for five hundred"
+      },
+      {
+       "words": "are successful",
+       "at": 9,
+       "gives": "WIN",
+       "note": "to win is to be successful"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "astray",
+         "at": 41,
+         "note": "led astray means the letters of led wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "led",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Winners who are misled end up becoming less important.",
+     "walkthrough": "D as 'hundreds' leans on D being five hundred in Roman numerals; 'astray' and 'before' are the indicators.",
+     "definitionFit": "To dwindle is to shrink gradually, so things that dwindle diminish in significance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hundreds"
+    }
+   }
   },
   {
    "number": 12,
@@ -190,7 +642,49 @@
     "text": "Venom of boy about to be king",
     "enumeration": "9"
    },
-   "solution": "VIRULENCE"
+   "solution": "VIRULENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Venom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "the boy's name goes round the verb for reigning"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy",
+       "at": 9,
+       "gives": "VINCE",
+       "note": "Vince is a boy's name"
+      },
+      {
+       "words": "to be king",
+       "at": 19,
+       "gives": "RULE",
+       "note": "to rule is to reign as a king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young prince is full of spite as he waits to take the throne.",
+     "walkthrough": "'about' signals the boy's name wrapping round the reign verb, splitting it as VI...NCE.",
+     "definitionFit": "Virulence is bitter hostility or poisonousness, so venom in a figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 13,
@@ -204,7 +698,49 @@
     "text": "Taking vehicle over the river in a noisy quarrel",
     "enumeration": "7"
    },
-   "solution": "CAROUSE"
+   "solution": "CAROUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "noisy quarrel",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 15,
+       "note": "in a down answer the vehicle sits above the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vehicle",
+       "at": 7,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "words": "the river",
+       "at": 20,
+       "gives": "OUSE",
+       "note": "the Ouse is a river in England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car is driven across a river and a row breaks out.",
+     "walkthrough": "The Ouse is a river in Yorkshire and elsewhere in England; 'Taking' and 'in a' are links.",
+     "definitionFit": "A carouse is a rowdy drinking spree, a loud and boisterous bout that can easily turn into a row."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Taking"
+    }
+   }
   },
   {
    "number": 14,
@@ -218,7 +754,34 @@
     "text": "One with a burning ambition",
     "enumeration": "8"
    },
-   "solution": "ARSONIST"
+   "solution": "ARSONIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One with a burning ambition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One with a burning ambition",
+       "at": 0,
+       "note": "a burning ambition usually means a fierce desire; read literally it is the urge of someone who wants to set fires"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone who commits arson deliberately starts fires, so their aim is literally to burn things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "burning"
+    }
+   }
   },
   {
    "number": 15,
@@ -232,7 +795,59 @@
     "text": "To this other arrangement going round the point",
     "enumeration": "6"
    },
-   "solution": "HERETO"
+   "solution": "HERETO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 26,
+       "note": "the rearranged letters surround the compass point"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arrangement",
+         "at": 14,
+         "note": "an arrangement of the word other puts its letters in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "other",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "point",
+       "at": 42,
+       "gives": "E",
+       "note": "E is east, a point of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A different plan circles round the main issue.",
+     "walkthrough": "'arrangement' makes HERTO from OTHER, and 'going round' puts it around E: HER-E-TO.",
+     "definitionFit": "Hereto is a formal word meaning to this matter or document."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +861,41 @@
     "text": "He is simple and callous",
     "enumeration": "9"
    },
-   "solution": "HEARTLESS"
+   "solution": "HEARTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "callous",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "He",
+       "at": 0,
+       "gives": "HE"
+      },
+      {
+       "words": "simple",
+       "at": 6,
+       "gives": "ARTLESS",
+       "note": "artless means simple and without guile"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man described as both naive and unfeeling.",
+     "walkthrough": "'is' and 'and' are links.",
+     "definitionFit": "Heartless means unfeeling and cruel, lacking compassion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +909,34 @@
     "text": "Habit-forming",
     "enumeration": "9"
    },
-   "solution": "TAILORING"
+   "solution": "TAILORING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Habit-forming",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Habit-forming",
+       "at": 0,
+       "note": "usually means addictive, but a habit is also a garment, and making garments is the craft meant here"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Making clothes such as a monk's habit is the trade of cutting and sewing garments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Habit-forming"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +950,45 @@
     "text": "Dora ran round the country",
     "enumeration": "7"
    },
-   "solution": "ANDORRA"
+   "solution": "ANDORRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the country",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 9,
+       "note": "the letters of the two words are turned round into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dora",
+       "at": 0
+      },
+      {
+       "words": "ran",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl called Dora jogged in a circuit around the nation.",
+     "walkthrough": "'round' looks like a journey around the nation, but it is the anagram signal.",
+     "definitionFit": "Andorra is a small principality in the Pyrenees between France and Spain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1002,41 @@
     "text": "'e angered another turncoat",
     "enumeration": "8"
    },
-   "solution": "RENEGADE"
+   "solution": "RENEGADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "turncoat",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "another",
+       "at": 11,
+       "note": "another version of the letters means they are rearranged into a different word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'e angered",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dropped-aitch remark that he angered one more traitor.",
+     "walkthrough": "'another' rearranges E ANGERED into the answer; 'e is Cockney for he.",
+     "definitionFit": "A renegade deserts one side for another, like a turncoat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1050,34 @@
     "text": "Most men have it to face on waking up in the morning",
     "enumeration": "7"
    },
-   "solution": "STUBBLE"
+   "solution": "STUBBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most men have it to face on waking up in the morning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Most men have it to face on waking up in the morning",
+       "at": 0,
+       "note": "to face something usually means to confront it, but here it is growth on the face of men after a night's sleep"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Short bristly growth of beard appears overnight on an unshaven chin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1091,34 @@
     "text": "Leggy figure?",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leggy figure?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Leggy figure?",
+       "at": 0,
+       "note": "a leggy figure suggests a long-limbed person; read as a number, the written numeral 11 looks like two legs"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The numeral 11 is two upright strokes that look like a pair of legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1132,45 @@
     "text": "One hears of a murder suspect",
     "enumeration": "7"
    },
-   "solution": "EARDRUM"
+   "solution": "EARDRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One hears",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "suspect",
+       "at": 22,
+       "note": "suspect as an adjective means dubious, so the letters are not to be trusted in their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 13
+      },
+      {
+       "words": "murder",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone learns of a killing that looks suspicious.",
+     "walkthrough": "'suspect' rearranges A MURDER into the answer.",
+     "definitionFit": "The tympanic membrane in the ear vibrates with sound, so it is the thing that hears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1184,41 @@
     "text": "Elaborate, previously simple",
     "enumeration": "7"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elaborate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "previously",
+       "at": 11,
+       "gives": "EX",
+       "note": "ex means former or previously"
+      },
+      {
+       "words": "simple",
+       "at": 22,
+       "gives": "PLAIN",
+       "note": "plain means simple"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something ornate that was once plain.",
+     "definitionFit": "To elaborate is to explain in more detail, to expand on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Elaborate"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1232,41 @@
     "text": "It is hard without part of the Old Testament",
     "enumeration": "8"
    },
-   "solution": "RUTHLESS"
+   "solution": "RUTHLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hard",
+      "at": 6
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of the Old Testament",
+       "at": 19,
+       "gives": "RUTH",
+       "note": "Ruth is a book of the Old Testament"
+      },
+      {
+       "words": "without",
+       "at": 11,
+       "gives": "LESS",
+       "note": "less means without, as in a suffix"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that something is difficult when a Bible book is missing.",
+     "definitionFit": "Ruthless means pitiless and harsh, so hard in character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1280,29 @@
     "text": "Remained propped up",
     "enumeration": "6"
    },
-   "solution": "STAYED"
+   "solution": "STAYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remained",
+      "at": 0,
+      "meaning": "... put, did not leave"
+     },
+     {
+      "text": "propped up",
+      "at": 9,
+      "meaning": "supported by stays, as a mast is by ropes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Stayed means stopped or lingered, and also braced with stays or supports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "propped"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1316,29 @@
     "text": "Daily means of communication",
     "enumeration": "9"
    },
-   "solution": "TELEGRAPH"
+   "solution": "TELEGRAPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0,
+      "meaning": "a daily is a newspaper published every day, as this one is"
+     },
+     {
+      "text": "means of communication",
+      "at": 6,
+      "meaning": "the electric ... sent messages by wire"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The Daily Telegraph is a British newspaper, and the telegraph was a system for sending coded messages over wires."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1352,40 @@
     "text": "Left European peninsula for an African country",
     "enumeration": "7"
    },
-   "solution": "LIBERIA"
+   "solution": "LIBERIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an African country",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "European peninsula",
+       "at": 5,
+       "gives": "IBERIA",
+       "note": "Iberia is the peninsula of Spain and Portugal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone departed from Spain and Portugal to go to a nation in Africa.",
+     "definitionFit": "Liberia is a West African republic founded by freed American slaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1399,30 @@
     "text": "It is quite a distance, of course",
     "enumeration": "7"
    },
-   "solution": "FAIRWAY"
+   "solution": "FAIRWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It is quite a distance",
+      "at": 0,
+      "meaning": "a ... is a considerable distance"
+     },
+     {
+      "text": "of course",
+      "at": 24,
+      "meaning": "on a golf course, the mown strip between tee and green"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A fair way means a long stretch, and the fairway is the smooth grassy route on a golf course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 28,
@@ -428,7 +1436,33 @@
     "text": "In which not a sound will be heard",
     "enumeration": "7"
    },
-   "solution": "SILENCE"
+   "solution": "SILENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In which not a sound will be heard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "In which not a sound will be heard",
+       "at": 0,
+       "note": "describes a state or condition where all is perfectly quiet"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Complete quiet is the absence of any noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 29,
@@ -442,7 +1476,41 @@
     "text": "Decide to stop the excavation",
     "enumeration": "9"
    },
-   "solution": "DETERMINE"
+   "solution": "DETERMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to stop",
+       "at": 7,
+       "gives": "DETER",
+       "note": "to deter is to prevent or put off"
+      },
+      {
+       "words": "the excavation",
+       "at": 15,
+       "gives": "MINE",
+       "note": "a mine is a dug-out excavation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolves to halt the digging work.",
+     "definitionFit": "To determine is to settle or resolve something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   }
  ]
 }
