@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,28 @@
      }
     ]
    },
-   "solution": "HOURGLASS"
+   "solution": "HOURGLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pinched-looking",
+      "at": 0,
+      "meaning": "describes a figure nipped in sharply at the waist"
+     },
+     {
+      "text": "old timer",
+      "at": 16,
+      "meaning": "a sand-glass, the old-fashioned device for measuring time"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A narrow-waisted figure is called this shape, and the sand-filled glass is an antique device for timing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +74,47 @@
     "text": "Has topless robes",
     "enumeration": "4"
    },
-   "solution": "OWNS"
+   "solution": "OWNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Has",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topless",
+       "at": 4,
+       "note": "topless says the first letter of the word is taken off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "robes",
+       "at": 12,
+       "gives": "GOWNS",
+       "note": "gowns are long robes"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A risque wardrobe item: someone has robes that leave the top bare.",
+     "walkthrough": "'topless' removes the G from GOWNS.",
+     "definitionFit": "To possess something is to have it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +128,41 @@
     "text": "Fashion article in Reading?",
     "enumeration": "7"
    },
-   "solution": "RECITAL"
+   "solution": "RECITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reading?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Fashion",
+       "at": 0,
+       "note": "to fashion is to shape or make, so the letters of the next word are made into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion feature printed in a magazine for reading.",
+     "walkthrough": "'Fashion' rearranges ARTICLE. The question mark marks the definition as an example: a reading of poetry is one kind of performance.",
+     "definitionFit": "A public reading of poems or texts is a kind of performance given to an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +176,69 @@
     "text": "An oil distributed between ends of Lincoln, perhaps",
     "enumeration": "7"
    },
-   "solution": "LANOLIN"
+   "solution": "LANOLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An oil distributed between ends of Lincoln, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 19,
+       "note": "between says the rearranged letters sit inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "ends of",
+         "at": 27,
+         "note": "ends of picks the first and last letters of the city name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lincoln",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distributed",
+         "at": 7,
+         "note": "distributed means spread around, so these letters are scattered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "An oil",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An oil spread around the edges of Lincoln, perhaps in its wool trade.",
+     "walkthrough": "'distributed' rearranges AN OIL into ANOLI, which goes 'between' L and N, the 'ends of' Lincoln. Lincoln was a wool town, and this grease comes from sheep's wool, so the whole clue also defines.",
+     "definitionFit": "The greasy substance from sheep's wool is used as an oily base for ointments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +252,44 @@
     "text": "Riot reported as witnessed",
     "enumeration": "4"
    },
-   "solution": "SEEN"
+   "solution": "SEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "witnessed",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEEN",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 5,
+       "note": "reported means spoken, so the word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Riot",
+       "at": 0,
+       "gives": "SCENE",
+       "note": "a riot or noisy commotion is a scene, as in 'make a scene'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of a riot that someone saw.",
+     "walkthrough": "'reported' takes SCENE (a fuss or commotion) by its sound.",
+     "definitionFit": "Something observed with one's own eyes has been seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Riot"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +303,47 @@
     "text": "How apprehensively we regard condensation and corrosion? Comprehensively!",
     "enumeration": "13"
    },
-   "solution": "MISTRUSTFULLY"
+   "solution": "MISTRUSTFULLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "apprehensively",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "condensation",
+       "at": 29,
+       "gives": "MIST",
+       "note": "mist is fine water droplets condensed in the air"
+      },
+      {
+       "words": "corrosion",
+       "at": 46,
+       "gives": "RUST",
+       "note": "rust is corrosion of iron"
+      },
+      {
+       "words": "Comprehensively",
+       "at": 57,
+       "gives": "FULLY",
+       "note": "fully means completely or comprehensively"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A homeowner eyeing damp and rust with deep suspicion.",
+     "walkthrough": "'How ... we regard' frames the definition: apprehensively is the way we regard damp and corrosion.",
+     "definitionFit": "Regarding something with suspicion and doubt is to do so apprehensively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +367,29 @@
      }
     ]
    },
-   "solution": "STONETHECROWS"
+   "solution": "STONETHECROWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cor",
+      "at": 0,
+      "meaning": "an exclamation of surprise, used in British slang"
+     },
+     {
+      "text": "Corvine lapidation ordered",
+      "at": 5,
+      "meaning": "an order to pelt crows with rocks, corvine meaning of crows and lapidation meaning stoning"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The British exclamation of astonishment literally reads as a command to throw rocks at rooks and ravens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +409,41 @@
      }
     ]
    },
-   "solution": "PIANOCONCERTO"
+   "solution": "PIANOCONCERTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Emperor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "of it we hear",
+       "at": 29,
+       "note": "what we hear of it is one rendering, so the letters are rendered in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or a conception",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Musing on Beethoven's Emperor, or an interpretation of it heard in performance.",
+     "walkthrough": "The Emperor is the nickname of Beethoven's fifth work in this form. The letters of OR A CONCEPTION are reordered: 'of it we hear' suggests a performance or interpretation.",
+     "definitionFit": "Beethoven's Fifth for keyboard and orchestra is nicknamed the Emperor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conception"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +457,42 @@
     "text": "She is one going to church, express",
     "enumeration": "9"
    },
-   "solution": "PRONOUNCE"
+   "solution": "PRONOUNCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "express",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "She is one",
+       "at": 0,
+       "gives": "PRONOUN",
+       "note": "she is an example of a pronoun"
+      },
+      {
+       "words": "church",
+       "at": 20,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman on her way to church.",
+     "walkthrough": "'She is one' is not a woman: 'she' is a grammatical part of speech.",
+     "definitionFit": "To pronounce a verdict or opinion is to state it, to express it formally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "She"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +506,47 @@
     "text": "Great show of antiquity in butler's room",
     "enumeration": "9"
    },
-   "solution": "PAGEANTRY"
+   "solution": "PAGEANTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Great show",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in says one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "butler's room",
+       "at": 27,
+       "gives": "PANTRY",
+       "note": "a pantry is the butler's room in a grand house"
+      },
+      {
+       "words": "antiquity",
+       "at": 14,
+       "gives": "AGE",
+       "note": "age means antiquity, great oldness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand display of old silver in the butler's room.",
+     "definitionFit": "Splendid ceremonial display or spectacle is what makes a great show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +560,42 @@
     "text": "The custom is lawful, people say",
     "enumeration": "4"
    },
-   "solution": "RITE"
+   "solution": "RITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The custom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RITE",
+     "indicators": [
+      {
+       "text": "people say",
+       "at": 22,
+       "note": "people say signals the word is taken as spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lawful",
+       "at": 14,
+       "gives": "RIGHT",
+       "note": "something right is just and lawful"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a tradition is legally allowed.",
+     "definitionFit": "A ceremonial custom or ritual practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +609,42 @@
     "text": "A cost in lives from Bikini, possibly?",
     "enumeration": "5"
    },
-   "solution": "ATOLL"
+   "solution": "ATOLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bikini, possibly",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "cost in lives",
+       "at": 2,
+       "gives": "TOLL",
+       "note": "the death toll is the cost in lives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The deaths caused by a skimpy swimsuit, or by nuclear tests at Bikini.",
+     "walkthrough": "Bikini is not the swimsuit but the Pacific island where nuclear bombs were tested.",
+     "definitionFit": "Bikini is a coral reef island ring in the Marshall Islands, an example of this formation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bikini"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +658,28 @@
     "text": "Money for the governess",
     "enumeration": "4"
    },
-   "solution": "ANNA"
+   "solution": "ANNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0,
+      "meaning": "a former coin of India, a sixteenth of a rupee"
+     },
+     {
+      "text": "the governess",
+      "at": 10,
+      "meaning": "the heroine of The King and I, governess to the King of Siam's children"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An old Indian coin shares its name with Leonowens, the English tutor at the Siamese court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +693,47 @@
     "text": "Deposit, for example, held by doctors",
     "enumeration": "5"
    },
-   "solution": "DREGS"
+   "solution": "DREGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deposit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 22,
+       "note": "held by says one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctors",
+       "at": 30,
+       "gives": "DRS",
+       "note": "DRS is the abbreviation for doctors"
+      },
+      {
+       "words": "for example",
+       "at": 9,
+       "gives": "EG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doctors keeping a sample deposit.",
+     "definitionFit": "Sediment at the bottom of a liquid is a deposit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deposit"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +747,29 @@
     "text": "Shrew put on the carpet",
     "enumeration": "5"
    },
-   "solution": "SCOLD"
+   "solution": "SCOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shrew",
+      "at": 0,
+      "meaning": "a nagging, bad-tempered woman"
+     },
+     {
+      "text": "put on the carpet",
+      "at": 6,
+      "meaning": "reprimanded, called in for a telling-off"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A nag is a scold, and to rebuke someone is to give them a telling-off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +783,28 @@
     "text": "Disinterested in Switzerland for example",
     "enumeration": "7"
    },
-   "solution": "NEUTRAL"
+   "solution": "NEUTRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disinterested",
+      "at": 0,
+      "meaning": "impartial, taking no side"
+     },
+     {
+      "text": "Switzerland for example",
+      "at": 17,
+      "meaning": "Switzerland is the classic country that stays out of wars"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Impartial means taking no side, and Switzerland is famous for staying out of wars between nations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +818,33 @@
     "text": "Sort of party-stopper?",
     "enumeration": "7"
    },
-   "solution": "NECKTIE"
+   "solution": "NECKTIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of party-stopper?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sort of party-stopper?",
+       "at": 0,
+       "note": "a hanging was grimly called a 'party' of this kind; the noose put an end to the guest of honour"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Old slang for a hanging was a party named after this neckwear, with the rope as the tie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +858,29 @@
     "text": "Withdrawn-description of morning-after hangover?",
     "enumeration": "7"
    },
-   "solution": "UPTIGHT"
+   "solution": "UPTIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Withdrawn",
+      "at": 0,
+      "meaning": "tense and inhibited, not relaxed"
+     },
+     {
+      "text": "description of morning-after hangover",
+      "at": 10,
+      "meaning": "read as two words: up, out of bed, and tight, slang for drunk"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Being tense and inhibited is the sense; split in two it reads as awake yet still drunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +894,41 @@
     "text": "Criterion, perhaps, for the rate of exchange",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criterion, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "exchange",
+       "at": 36,
+       "note": "exchange means swap around, so the letters change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the rate",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A standard used for the rate of currency exchange.",
+     "walkthrough": "The Criterion is a playhouse in London's Piccadilly Circus; 'rate of exchange' looks like finance but 'exchange' rearranges THE RATE.",
+     "definitionFit": "The Criterion is a famous London playhouse, an example of a venue for drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Criterion"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +942,59 @@
     "text": "Vessel gone at sea, with every, body aboard",
     "enumeration": "7"
    },
-   "solution": "GALLEON"
+   "solution": "GALLEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 37,
+       "note": "aboard says one piece is put inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "at": 12,
+         "note": "at sea means confused or disordered, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gone",
+         "at": 7,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "every, body",
+       "at": 25,
+       "gives": "ALL",
+       "note": "all means everybody"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship lost at sea with everyone on board.",
+     "walkthrough": "'at sea' rearranges GONE into GEON, and ALL goes 'aboard' it. The comma in 'every, body' is probably a print slip for 'everybody'.",
+     "definitionFit": "A large old Spanish sailing ship is a vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1008,66 @@
     "text": "Well-bred gentleman, rather short, has general reversal",
     "enumeration": "7"
    },
-   "solution": "GENTEEL"
+   "solution": "GENTEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-bred",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rather short",
+         "at": 21,
+         "note": "rather short says the word is heavily cut, keeping only its start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gentleman",
+         "at": 10
+        },
+        {
+         "gives": "LEMAN"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversal",
+         "at": 47,
+         "note": "reversal says the general's name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "general",
+         "at": 39,
+         "gives": "LEE",
+         "note": "Lee was the Confederate general in the American Civil War"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short gentleman with a general's habit of turning back.",
+     "walkthrough": "'rather short' cuts gentleman to GENT; 'reversal' turns LEE into EEL.",
+     "definitionFit": "Refined and polite, of good breeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1081,34 @@
     "text": "Union strike? It is on the cards!",
     "enumeration": "4"
    },
-   "solution": "CLUB"
+   "solution": "CLUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Union",
+      "at": 0,
+      "meaning": "a society or association of members"
+     },
+     {
+      "text": "strike",
+      "at": 6,
+      "meaning": "to hit with a heavy stick"
+     },
+     {
+      "text": "It is on the cards",
+      "at": 14,
+      "meaning": "one of the four suits in a pack of playing cards"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A society, a heavy stick used to hit, and one of the four card suits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1122,28 @@
     "text": "Intends to show resources",
     "enumeration": "5"
    },
-   "solution": "MEANS"
+   "solution": "MEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intends",
+      "at": 0,
+      "meaning": "has in mind, signifies"
+     },
+     {
+      "text": "resources",
+      "at": 16,
+      "meaning": "money or wealth"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To signify or have in mind, and also wealth or income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1158,32 @@
     "enumeration": "4",
     "countFrom": "grid"
    },
-   "solution": "BRER"
+   "solution": "BRER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncle Remus's brother",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Uncle Remus's brother",
+       "at": 0,
+       "note": "in Joel Chandler Harris's tales of Uncle Remus, the dialect word placed before Rabbit and Fox"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Southern dialect form used for 'brother' in the folk tales told by Uncle Remus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1197,42 @@
     "text": "Some gloomy things of legend",
     "enumeration": "4"
    },
-   "solution": "MYTH"
+   "solution": "MYTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of legend",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gloomy things",
+       "at": 5,
+       "gives": "MYTH",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dark tales from old folklore.",
+     "walkthrough": "'Some' picks letters out of 'gloomy things'.",
+     "definitionFit": "A traditional story, the stuff of legend and folklore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1246,45 @@
     "text": "Alliance in endless jam",
     "enumeration": "4"
    },
-   "solution": "BLOC"
+   "solution": "BLOC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alliance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "at": 12,
+       "note": "endless says the last letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jam",
+       "at": 20,
+       "gives": "BLOCK",
+       "note": "a block is a jam or obstruction"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coalition stuck in a traffic jam that never ends.",
+     "walkthrough": "'endless' drops the K from BLOCK.",
+     "definitionFit": "A group of nations or parties joined for a common purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1311,42 @@
      "capt,"
     ]
    },
-   "solution": "PLAYSTHECLOWN"
+   "solution": "PLAYSTHECLOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sends it up",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to convert",
+       "at": 17,
+       "note": "to convert means to change, so the letters are rearranged; also a rugby pun on kicking a conversion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Only Welsh capt",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby captain from Wales takes the conversion kick himself and boots it high.",
+     "walkthrough": "'to convert' rearranges ONLY WELSH CAPT. The surface is rugby: a conversion kick sends the ball up.",
+     "definitionFit": "To fool around or mock something for laughs is to send it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "convert"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1360,33 @@
     "text": "Station buffer?",
     "enumeration": "9"
    },
-   "solution": "SHOEBLACK"
+   "solution": "SHOEBLACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Station buffer?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Station buffer?",
+       "at": 0,
+       "note": "not the railway buffers at the end of a track, but a person at a station who polishes travellers' footwear"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone who polishes footwear for a living, often at a railway terminus, is a bootblack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
