@@ -10492,6 +10492,28 @@ if _m4 == [2476, None, True, False, True, False] and f.RANKS[f.INDY_THIRD_TOP] =
 else:
     print("FAIL a 2004 Independent page whose third column began over the plain window is due INDY_THIRD_TOP", _m4)
     out += "\nFAILS 1"
+# r303 INDY_THIRD_LATE: the 2012 third column stands beside the grid its whole height (a 97 px gap at its DOWN heading), three
+# columns of numbers under the grid; the 2004 chain (gap 60, reach 260) stopped at the heading.
+_c5 = Path(_tf3.mkdtemp())
+(_c5 / "rapid").mkdir()
+_ys5 = [1336, 1392, 1419, 1516, 1551, 1600, 1636, 1684, 1719, 1768, 1804, 1851, 1889, 1944, 2004, 2060]
+_third5 = [[1695, y, 1830, y + 20, "word of clue (6)"] for y in _ys5]
+_first5 = [[x, 2087 + 30 * k, x + 200, 2107 + 30 * k, f"{k + 1} word of a clue"] for x in (950, 1321, 1695) for k in range(6)]
+(_c5 / "rapid" / f"2012-08-20_8065.{f.reader_key('en5')}.json").write_text(json.dumps(
+    {"box": [915, 2062, 2030, 2816], "words": _first5, "more": [{"box": [1680, 1291, 2434, 2278], "words": _third5}]}))
+_crops5, f.CROPS = f.CROPS, _c5
+f.indy_third_late_read.cache_clear()
+_row5 = {"edition": "GaleIndependent2012UKEnglish/2012-08-20", "readAt": "2026-11-18T11:14:58+00:00",
+         "verdicts": [{"number": 8065, "id": "independent-8065", "blank": {"1-down": "no reading laid a clue on it"}}]}
+_m5 = [f.indy_third_top([tuple(w) for w in _third5], 1670, 2062), f.indy_third_top([tuple(w) for w in _third5], 1670, 2062, 110, 900),
+       f.indy_third_late_read("2012-08-20_8065"), f.indy_third_late_read("2012-08-21_8066")]
+f.CROPS = _crops5
+f.indy_third_late_read.cache_clear()
+if _m5 == [1796, 1328, True, False]:
+    print("ok   a 2012 Independent third column beside the grid is chained up from its foot (INDY_THIRD_LATE)")
+else:
+    print("FAIL a 2012 Independent third column beside the grid is chained up from its foot (INDY_THIRD_LATE)", _m5)
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):

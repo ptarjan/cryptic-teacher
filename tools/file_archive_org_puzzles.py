@@ -2113,18 +2113,24 @@ REREAD_INDY_THIRD_TOP = "2026-11-20T03:33:00+00:00"  # placeholder: the push min
 INDY_THIRD_GAP, INDY_THIRD_REACH, INDY_THIRD_MIN = 60, 260, 2
 #: How far right of the grid's edge (px) a third column's lines start at most: 2004-07-21's at 57, none of an article's at 444.
 INDY_THIRD_NEAR = 150
+#: INDY_THIRD_LATE (r303: ~25 Gale Independent 2012-13 rows, 1-9 down and the across list's last two "no reading laid a clue on
+#: it"): the 2012-13 page's third column stands beside the grid its whole height (2012-08-20: x 1695, y 1291-2278, over a grid
+#: ending y 2062), the across list's last clues, the DOWN heading (a 97 px gap) and 1 to 9 down over the grid's foot, so the
+#: plain window under it began at the foot with the column's tail alone. The 2004 chain (gap 60, reach 260) reaches it by
+#: INDY_THIRD_LATE_GAP and INDY_THIRD_LATE_REACH for the years of INDY_THIRD_LATE.
+INDY_THIRD_LATE, INDY_THIRD_LATE_GAP, INDY_THIRD_LATE_REACH = ("2010", "2013"), 110, 900
 
 
-def indy_third_top(words, x0, gy1):
+def indy_third_top(words, x0, gy1, gap=INDY_THIRD_GAP, reach=INDY_THIRD_REACH):
     """The y a third clue column beside a grid whose foot is `gy1` begins at, over the foot's own window: the top of the
     chain of lower-case-worded lines of `words` ((x0, y0, x1, y1, text)) starting at or right of `x0`, each within
     INDY_THIRD_GAP of the next down to the foot, INDY_THIRD_MIN lines at least; None when none stands over the foot."""
     foot = gy1 - 5
     ys = sorted({round(float(w[1])) for w in words if x0 <= float(w[0]) < x0 + INDY_THIRD_NEAR and float(w[1]) < foot
-                 and float(w[1]) >= gy1 - INDY_THIRD_REACH and re.search(r"[a-z]{3}", str(w[4]))}, reverse=True)
+                 and float(w[1]) >= gy1 - reach and re.search(r"[a-z]{3}", str(w[4]))}, reverse=True)
     ref, top, count = foot, None, 0
     for y in ys:
-        if ref - y > INDY_THIRD_GAP:
+        if ref - y > gap:
             break
         ref, top, count = y, y, count + 1
     return top - 8 if top is not None and count >= INDY_THIRD_MIN and top - 8 < foot - 8 else None
@@ -2143,6 +2149,31 @@ def indy_third_top_read(key):
                 box = [float(v) for v in win["box"]]
                 if box[1] < gy1 - 100 and box[0] > float(windows[0]["box"][0]) + 300 \
                         and indy_third_top(win.get("words") or (), box[0], gy1):
+                    return True
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+    return False
+
+
+@functools.lru_cache(maxsize=4096)
+def indy_third_late_read(key):
+    """Whether RapidOCR reading `key` (CROPS/rapid, "{edition}_{number}") kept a first window (under the grid) with three
+    print columns' clue-number starts and another window right of it, from over its top, whose words hold a third column's
+    lines chained up from the first window's top at INDY_THIRD_LATE_GAP and out to INDY_THIRD_LATE_REACH (indy_third_top)."""
+    for which in ("en5", "ch"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            windows = [held, *(o for o in held.get("more") or ())]
+            gy1 = float(windows[0]["box"][1])
+            first = [(float(w[0]), float(w[1]), float(w[2]), float(w[3]), str(w[4])) for w in windows[0].get("words") or ()]
+            top = min((w[1] for w in first), default=0)
+            heads = [g[len(g) // 2] for g in indy_starts(first, 0, 1e9, top + 20, 1e9) if len(g) >= INDY_COLUMN_MIN]
+            if len(heads) < 3:
+                continue
+            for win in windows[1:]:
+                box = [float(v) for v in win["box"]]
+                if box[1] < gy1 - 100 and box[0] > float(windows[0]["box"][0]) + 300 \
+                        and indy_third_top(win.get("words") or (), box[0], gy1, INDY_THIRD_LATE_GAP, INDY_THIRD_LATE_REACH):
                     return True
         except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
             continue
@@ -4169,19 +4200,20 @@ def indy_under_split_due(row):
     return False
 
 
-def indy_third_window(img, grid, split, over, rapid, key):
+def indy_third_window(img, grid, split, over, rapid, key, late=False):
     """(split, rapid) for a Gale Independent 2004 page of three clue columns under its grid (over_gutters' `split`, the
     third ending at `over`): `split` a Beside whose third window starts over the grid's foot, at the first line of the
     column's chain (indy_third_top, found in a strip window right of the grid each reader reads), and `rapid` with that
     strip's lines above the foot joined to each reader's; both as they were when no column stands over the foot."""
     gx0, gy0, gx1, gy1 = grid
-    top = int(gy1 - INDY_THIRD_REACH)
+    reach, gap = (INDY_THIRD_LATE_REACH, INDY_THIRD_LATE_GAP) if late else (INDY_THIRD_REACH, INDY_THIRD_GAP)
+    top = int(gy1 - reach)
     near = max(split[1], gx1 + 5)
     strip = (int(near), top, int(over), int(min(img.height, gy1 + 100)))
     right = (strip[2], strip[3], Rise(int(gy0 - top)))
     read = {which: rapid_lines(img, grid, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", None, 40, None, None,
                                None, None, right) for which in READERS}
-    found = indy_third_top([w for ws in read.values() for line in ws for w in line], gx1 + 5, gy1)
+    found = indy_third_top([w for ws in read.values() for line in ws for w in line], gx1 + 5, gy1, gap, reach)
     if found is None:
         return split, rapid
     out = Beside(split)
@@ -15382,10 +15414,11 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                 bottom = gbox[3] + int(1.8 * gw)
                 alts.extend(("under", x) for x in crop_window.edge_candidates(
                     img, (gbox[0], gbox[3], gbox[2], min(img.height, bottom)), split, reach=int(UNDER_SPAN * gw))[1:])
-        if over and paper.key == "galeindependent" and d.name[:4] == "2004" and isinstance(split, tuple) \
+        if over and paper.key == "galeindependent" and (d.name[:4] == "2004" or INDY_THIRD_LATE[0] <= d.name[:4] <= INDY_THIRD_LATE[1]) \
+                and isinstance(split, tuple) \
                 and not isinstance(split, Beside) and not right and not third and not wide:
             # INDY_THIRD_TOP: the third column starts beside the grid, over its foot (the plain window's top).
-            split, rapid = indy_third_window(img, gbox, split, over, rapid, key)
+            split, rapid = indy_third_window(img, gbox, split, over, rapid, key, d.name[:4] != "2004")
         # The 1945-49 Times' last clues in a strip between title and grid.
         strip = strip_over(img, gbox, hit["box"], d.name[:4]) if paper.key == "gale" and top is None else None
         cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right, strip)}
