@@ -51,8 +51,13 @@ function open(storage) {
   // The body's click handler is the one that reads data-piece, as for rule chips.
   const tapChip = (i) => reg["hint-body"].listeners.click[0]({ target: { dataset: { piece: String(i) } } });
   // Show me on the current piece: free once the rung is paid for, else two taps.
+  // One tap takes the current piece (free once the rung is paid); a second is
+  // only the confirm of an armed button, so stop as soon as a chip came out
+  // (a further tap would take the NEXT piece).
+  const gotCount = () => ((formula().match(/formula-chip got/g)) || []).length;
   const showMe = () => {
-    for (let g = 0; g < 2; g++) {
+    const before = gotCount();
+    for (let g = 0; g < 2 && gotCount() === before; g++) {
       const bar = reg["hint-escape"].innerHTML;
       if (/id="guess-tell"/.test(bar)) reg["guess-tell"].onclick();
     }
