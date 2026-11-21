@@ -14850,6 +14850,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if over is not None:
             hit = dict(hit, box=over)
             verdict["titleBox"] = "its heading over the clue columns"
+    # A 1980-99 Gale Telegraph page whose scan titled it by the Quick crossword's ACROSS (TELE_QUICK_TITLE).
+    if paper.key == "galetelegraph" and "titleBox" not in verdict and TELE_QUICK_YEARS[0] <= d.name[:4] <= TELE_QUICK_YEARS[1]:
+        block = tele_quick_title(d, img, hit, found)
+        if block is not None:
+            hit = dict(hit, box=block)
+            verdict["titleBox"] = "its heading over the clue block"
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else located_grid(d, leaf, img, hit["box"], paper.key in GRID_RIGHT)
     if paper.key == "galesundaytelegraph":
         gbox = sunday_foot(img, hit["box"], gbox, side)
@@ -20486,6 +20492,44 @@ def telegraph_over_title(d, img, hit, found, years=None):
             return pairs[0]
         pairs = []
     return None
+
+
+#: The reason of a Gale Telegraph 1980-99 page refused "the ink under the title is ~480x500, not a grid" (census r302: 122 rows,
+#: 1982-85 mostly, read 11-18..21): its scan, made before gale_telegraph_headings stopped taking the Quick crossword's ACROSS
+#: (under its QUICK CROSSWORD caption, under the SOLUTION heading) for the cryptic's title (TELEQUICK), stands under a pinned
+#: scan key, so the title box is that ACROSS and the grid under it the Quick's. TELEQUICK, TELE_GRID and TELE_OVER only
+#: reached 1985-89 rows read before their cutoffs, and the page's cryptic heading is lost to art (TELE_OVER finds no
+#: ACROSS/DOWN row), so tele_quick_title reads the stretch over the page's one SOLUTION heading to its caption by both page
+#: readers (cached once) and, the title box standing under a QUICK_CAPTION, takes clue_block_heading's box of the cryptic's
+#: clue block (as the scan does) when BOTH readers find it within TELE_QUICK_AGREE px. A read-time change: no scan key moves.
+TELE_QUICK_YEARS = ("1980", "1999")
+TELE_QUICK_REACH, TELE_QUICK_BELOW, TELE_QUICK_AGREE = 1800, 400, 60
+
+
+def tele_quick_title(d, img, hit, found):
+    """The box of the cryptic's clue block heading on Gale Telegraph page `d` when `hit`'s title box lies under a Quick
+    crossword caption (a lone ACROSS: the Quick's), else None. Both PAGE_READERS must find a block within
+    TELE_QUICK_AGREE px of each other's top and left."""
+    sols = [s["box"] for s in (found or {}).get("solutions") or () if s.get("leaf") == hit.get("leaf") and s.get("box")]
+    if len(sols) != 1:
+        return None
+    sol, k = sols[0], img.width / SCAN_WIDTH
+    band = (0, max(0, int(sol[1] - TELE_QUICK_REACH * k)), img.width, min(img.height, int(sol[1] + TELE_QUICK_BELOW * k)))
+    blocks = []
+    for which in PAGE_READERS:
+        path = CROPS / "titles" / f"{d.parent.name}_{d.name}_quick_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+        words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
+        lines = printed_lines(words)
+        quick = [box_of(ws) for ws in lines if QUICK_CAPTION.search(" ".join(w[4] for w in ws))]
+        if not quick or not under_quick(hit["box"], quick):
+            return None
+        block = clue_block_heading(lines, quick)
+        if block is None:
+            return None
+        blocks.append(block)
+    if abs(blocks[0][0] - blocks[1][0]) > TELE_QUICK_AGREE * k or abs(blocks[0][1] - blocks[1][1]) > TELE_QUICK_AGREE * k:
+        return None
+    return blocks[0]
 
 
 #: The reason of a Gale Telegraph 1990-2000 page whose grid reads (the title box lies on a clue line, a Quick line or a
